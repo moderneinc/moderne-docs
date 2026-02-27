@@ -25,7 +25,7 @@ In the navigation bar on the left-side of your screen, click on the `DevCenter` 
 You will arrive at a page asking you to configure a DevCenter (presuming nobody else in your company has already configured a DevCenter for the organization you've selected):
 
 <figure>
-  ![](./assets/configure-devcenter.png)
+  ![DevCenter landing page with Configure DevCenter button](./assets/configure-devcenter.png)
   <figcaption></figcaption>
 </figure>
 
@@ -34,7 +34,7 @@ You will arrive at a page asking you to configure a DevCenter (presuming nobody 
 Click on the `Configure DevCenter` button. You will be taken to a page that lists out all of the DevCenter recipes deployed to your Moderne instance. If you [followed the instructions to create and deploy a DevCenter recipe](./creating-a-devcenter-recipe.md), you should see your recipe in this list.
 
 <figure>
-  ![](./assets/example-devcenter-recipes.png)
+  ![Configure DevCenter page listing available recipes with Run DevCenter button](./assets/example-devcenter-recipes.png)
   <figcaption></figcaption>
 </figure>
 
@@ -49,7 +49,7 @@ This will take you to the new DevCenter page and begin running a recipe to popul
 Below is an example of what this might look like:
 
 <figure style={{maxWidth: '600px', margin: '0 auto'}}>
-  ![](./assets/example-devcenter.png)
+  ![DevCenter dashboard showing repository stats, migration progress, and security findings](./assets/example-devcenter.png)
   <figcaption></figcaption>
 </figure>
 

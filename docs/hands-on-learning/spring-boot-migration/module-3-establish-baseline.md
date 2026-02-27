@@ -24,7 +24,7 @@ You saw from the analysis earlier that these projects all use a variety of Sprin
    - **ID:** `com.example.ecom.recipe.SpringBootMigrationWorkshopBaseline`
 
 <figure>
-  ![](./assets/workshop-baseline-name-id.png)
+  ![New recipe dialog with name and manually entered ID for the baseline recipe](./assets/workshop-baseline-name-id.png)
   <figcaption>_Set the name and ID for your custom recipe_</figcaption>
 </figure>
 
@@ -40,14 +40,14 @@ You saw from the analysis earlier that these projects all use a variety of Sprin
    - **New artifactId:** `spring-cloud-sleuth-zipkin`
 
 <figure>
-  ![](./assets/migration-baseline-recipe.png)
+  ![Baseline recipe list with Maven best practices, Java 8, Spring Boot 2.7, and dependency change](./assets/migration-baseline-recipe.png)
   <figcaption>_Your custom migration baseline recipe_</figcaption>
 </figure>
 
 5. Open the recipe dropdown (top left) and choose `Download YAML`.
 
 <figure>
-  ![](./assets/download-yaml.png)
+  ![Recipe dropdown menu with Download YAML option highlighted](./assets/download-yaml.png)
   <figcaption>_Download the recipe as YAML_</figcaption>
 </figure>
 

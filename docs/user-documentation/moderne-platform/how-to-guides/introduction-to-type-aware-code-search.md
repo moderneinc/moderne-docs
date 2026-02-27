@@ -25,7 +25,7 @@ If you searched for `createFile` in GitHub, you might end up with a ton of irrel
 
 *   Navigate to the [find method usages recipe](https://app.moderne.io/recipes/org.openrewrite.java.search.FindMethods):
 
-    ![](./assets/find-method-usage-empty.png)
+    ![Find method usages recipe page with empty method pattern field](./assets/find-method-usage-empty.png)
 * (Optionally) [Filter down to a specific group of repositories](./managing-user-configured-organizations.md).
 * Click on the wand icon next to the method pattern textbox to open the method pattern wizard.
 * Enter the fully qualified class name of `java.nio.file.Files` in the fully qualified receiver type field.
@@ -33,7 +33,7 @@ If you searched for `createFile` in GitHub, you might end up with a ton of irrel
 * Enter `..` in the argument type field to denote that we want to search for any amount of arguments (zero or more).
 
 <figure>
-  ![](./assets/find-method-usage-input.png)
+  ![Method pattern wizard with receiver type, method name, and argument fields filled in](./assets/find-method-usage-input.png)
   <figcaption></figcaption>
 </figure>
 
@@ -47,10 +47,10 @@ For extensive documentation on each of these components and more examples of dif
 
 * Your window should look like:
 
-    ![](./assets/find-method-usage-full.png)
+    ![Find method usages recipe with completed method pattern for Files createFile](./assets/find-method-usage-full.png)
 * Press **Dry Run** to begin the search. You will be redirected to a page that looks like:
 
-    ![](./assets/find-method-usage-results.png)
+    ![Dry run results showing matched Files.createFile usage with highlighted code diff](./assets/find-method-usage-results.png)
 
 :::info
 As the code in the SaaS is constantly changing, your results will more than likely be different.
@@ -67,21 +67,21 @@ To discover all of the type-aware search recipes, please follow these steps:
 * From the [Moderne Marketplace](https://app.moderne.io/marketplace), click on a category that relates to your needs such as `Java`:
 
 <figure>
-  ![](./assets/java-category.png)
+  ![Moderne Marketplace with Java category highlighted among recipe categories](./assets/java-category.png)
   <figcaption></figcaption>
 </figure>
 
 * Click on `Search`:
 
 <figure>
-  ![](./assets/search-recipe-group.png)
+  ![Java recipe subcategories with arrow pointing to the Search group](./assets/search-recipe-group.png)
   <figcaption></figcaption>
 </figure>
 
 * You will then arrive on a page that includes recipes for all of the different ways you can search for code:
 
 <figure>
-  ![](./assets/search-recipe-examples.png)
+  ![Java Search recipe list including find annotations, deprecated classes, and secrets](./assets/search-recipe-examples.png)
   <figcaption></figcaption>
 </figure>
 

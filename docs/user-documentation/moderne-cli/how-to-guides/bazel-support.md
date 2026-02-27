@@ -59,7 +59,7 @@ The Bazel command that the Moderne CLI is executing is logged at this path relat
 `.moderne/build/<DATA_TIME_HASH>/build.log`
 
 <figure>
-  ![](./assets/bazel-build.png)
+  ![Build log showing bazel query and bazel build commands with their output and debug information](./assets/bazel-build.png)
   <figcaption>_The `bazel query` and `bazel build` phases are both shown in the build log_</figcaption>
 </figure>
 
@@ -68,7 +68,7 @@ The Bazel command that the Moderne CLI is executing is logged at this path relat
 At the end of build, a manifest is created that itemizes each file that is contained in the LST and how it was parsed. A sure sign that the Bazel rule configuration is not correctly identifying Java source sets is a series of Java file entries in the manifest that are listed as "Quarks", as seen in the image below.
 
 <figure>
-  ![](./assets/misconfigured-bazel.png)
+  ![Manifest CSV output showing Java files incorrectly parsed as Quark type instead of J.CompilationUnit](./assets/misconfigured-bazel.png)
   <figcaption>_A manifest showing a LST produced with a misconfigured Bazel rule._</figcaption>
 </figure>
 
@@ -77,14 +77,14 @@ A quark is an LST type that simply indicates the presence of a file, but does no
 The Moderne CLI augments the build with an Aspect that emits information on matching rules into a file in `bazel-out/<ARCH>/bin/<RULE>.compilation_info.json`.
 
 <figure>
-  ![](./assets/compilation-info.png)
+  ![File tree showing compilation_info.json location under bazel-out/darwin_x86_64-fastbuild/bin](./assets/compilation-info.png)
   <figcaption>_A `compilaton_info.json` written for the `java-maven-lib` Bazel rule._</figcaption>
 </figure>
 
 The JSON structure is easily human-readable, and gives insight into the Moderne CLI's understanding of the Java source files that the rule is responsible for and the classpath that should be used to parse those source files.
 
 <figure>
-  ![](./assets/src-list.png)
+  ![JSON contents of compilation_info.json showing classpath entries, kind, and srcs list with App.java](./assets/src-list.png)
   <figcaption>_Expect any file in the `srcs` list to show up in the manifest.csv as a `J.CompilationUnit`, i.e. a correctly parsed Java source file._</figcaption>
 </figure>
 

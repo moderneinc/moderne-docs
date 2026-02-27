@@ -41,7 +41,7 @@ By default, recipes will run against the `Default` organization in Moderne. This
 If you'd prefer to run against a different group of repositories, you can do so by clicking on the `Organization` selector at the top of your screen and then selecting the organization you'd like:
 
 <figure style={{maxWidth: '800px', margin: '0 auto'}}>
-  ![](./assets/OrgSelector.gif)
+  ![Animated demo of selecting an organization from the dropdown](./assets/OrgSelector.gif)
   <figcaption>_Choosing an organization._</figcaption>
 </figure>
 
@@ -54,7 +54,7 @@ It's also possible to [create your own organization](../how-to-guides/managing-u
 There are over 5000 recipes available in the Moderne Platform. While you are welcome to try out any of them, let's start by running the common static analysis recipe. To do so, click on the search bar in the marketplace and type `common static`. Then click on the first recipe that appears:
 
 <figure style={{maxWidth: '800px', margin: '0 auto'}}>
-  ![](./assets/RecipeSearch.gif)
+  ![Animated demo of searching for the common static analysis recipe](./assets/RecipeSearch.gif)
   <figcaption>_Finding the common static analysis recipe._</figcaption>
 </figure>
 
@@ -87,7 +87,7 @@ After pressing _Dry run_, you will be taken to a page that shows a summary of th
 If you want to learn more about why a change was made, you can click on the three dots (`...`) at the top-right of any file and select `Why did this change?`. For instance, in the below example, we can see that the `final` keyword was added to the class because it only has private constructors:
 
 <figure style={{maxWidth: '600px', margin: '0 auto'}}>
-  ![](./assets/why-did-this-change.gif)
+  ![Animated demo of viewing why a specific code change was made](./assets/why-did-this-change.gif)
   <figcaption>_Understanding why the code was changed_</figcaption>
 </figure>
 
@@ -102,14 +102,14 @@ Depending on what organization you ran the recipe against, you may not have acce
 In the results view, select the repositories you want to commit, and then click on the _Commit selected results_ button:
 
 <figure style={{maxWidth: '700px', margin: '0 auto'}}>
-  ![](./assets/commit-selected-results.png)
+  ![Recipe results list with repositories selected and Commit selected results button](./assets/commit-selected-results.png)
   <figcaption>_Selecting what repositories we want to commit the changes to._</figcaption>
 </figure>
 
 This will open a modal that allows you to select different actions such as committing directly, opening a pull request, etc:
 
 <figure style={{maxWidth: '700px', margin: '0 auto'}}>
-  ![](./assets/commit-modal.png)
+  ![Commit modal with strategy dropdown, commit title, and commit options](./assets/commit-modal.png)
   <figcaption>_Selecting what repositories we want to commit the changes to._</figcaption>
 </figure>
 

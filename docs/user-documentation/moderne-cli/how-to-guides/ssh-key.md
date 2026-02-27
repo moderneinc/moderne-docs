@@ -16,7 +16,7 @@ ssh-add ~/.ssh/id_rsa
 ```
 
 <figure>
-  ![](./assets/ssh-add.png)
+  ![Terminal showing ssh-add authenticating a key followed by a successful mod git clone command](./assets/ssh-add.png)
   <figcaption>_Running `ssh-add` prior to `mod git sync`_</figcaption>
 </figure>
 
@@ -39,7 +39,7 @@ GIT_SSH_COMMAND="SSH_ASKPASS_REQUIRE=force SSH_ASKPASS=/PATH/TO/SCRIPT/ssh_askpa
 Here is what this looks like in practice:
 
 <figure>
-  ![](./assets/ssh-command.png)
+  ![Terminal showing GIT_SSH_COMMAND environment variable with SSH_ASKPASS used to clone a repository](./assets/ssh-command.png)
   <figcaption>_Using an environment variable with a custom script_</figcaption>
 </figure>
 

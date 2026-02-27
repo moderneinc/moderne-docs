@@ -19,23 +19,23 @@ Moderne offers a [find and fix vulnerable dependencies recipe](https://app.moder
 
 After the recipe runs, you can download a CSV file that contains all of the security issues by going to the `Data tables` tab and pressing the download button for the type of file you wish to download:
 
-![](./assets/vuln-data-table.png)
+![Data tables tab with vulnerability report row highlighted and download options](./assets/vuln-data-table.png)
 
 In there, you can find key information such as what CVE a particular repository is affected by, what the current version is, what version is the minimum one needed to fix it, a clear summary of what is wrong, and how many levels deep the dependency is. In the below example, you can see that this recipe found a security issue in a dependency 8 levels deep!
 
-![](./assets/vuln-1.png)
+![Vulnerability report showing CVE details, artifact IDs, versions, and fixed versions](./assets/vuln-1.png)
 
-![](./assets/vuln-2.png)
+![Vulnerability summary, severity, and dependency depth columns showing depth of 8](./assets/vuln-2.png)
 
 ## Fixing the security issues by upgrading the transitive dependencies
 
 You can use the [upgrade transitive Gradle dependencies recipe](https://app.moderne.io/recipes/org.openrewrite.gradle.UpgradeTransitiveDependencyVersion) to update the dependencies that have security issues that we found above. Let's specify the group, artifact, and fixed version found in the CSV file from above (`org.eclipse.jetty`, `jetty-http`, and `9.4.52`). Let's also specify a reason for this change by combining the CVE with a summary (`CVE-2023-40167: Jetty accepts "+" prefixed value in Content-Length`):
 
-![](./assets/upgrade-trans-gradle-dep.png)
+![Upgrade transitive Gradle dependencies recipe form with group, artifact, and version fields](./assets/upgrade-trans-gradle-dep.png)
 
 Press **Dry Run** to begin the recipe run. After this runs, if we take a look at the code changes, you can see that a `constraints` section was added that ensures the transitive dependency is secure. You can also see that there is a clear explanation in the code for why this happened:
 
-![](./assets/upgraded-dep.png)
+![Gradle build file diff showing added dependency constraints with CVE reason](./assets/upgraded-dep.png)
 
 ## Next steps
 

@@ -23,7 +23,7 @@ It is the responsibility of the administrator configuring this to ensure that th
 From your Moderne tenant, click on _Deploy_ in the left-hand menu:
 
 <figure>
-  ![](./assets/deploy-link.png)
+  ![Moderne left sidebar menu with Deploy option highlighted](./assets/deploy-link.png)
   <figcaption></figcaption>
 </figure>
 
@@ -32,7 +32,7 @@ From your Moderne tenant, click on _Deploy_ in the left-hand menu:
 1. Click **Add** to open the form to import a recipe:
 
 <figure>
-  ![](./assets/add-recipe-button.png)
+  ![Deploy artifacts page with Add button highlighted](./assets/add-recipe-button.png)
   <figcaption></figcaption>
 </figure>
 
@@ -43,7 +43,7 @@ If you are a multi-tenant customer, you must ensure that your artifact's `groupI
 :::
 
 <figure>
-  ![](./assets/gav-artifact.png)
+  ![Deploy new recipe artifact form with Group ID, Artifact ID, and Version fields](./assets/gav-artifact.png)
   <figcaption></figcaption>
 </figure>
 

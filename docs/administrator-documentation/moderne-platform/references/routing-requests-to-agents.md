@@ -11,7 +11,7 @@ The scaling characteristics of these solutions are also distinct. Retrieving art
 
 Moderne Agents perform actions against these various pieces of tooling on behalf of Moderne users. Below is an illustration of an example Moderne deployment.
 
-![](./assets/agent-requests.png)
+![Deployment diagram showing 6 agents connecting Moderne API Gateway to SCM and artifact repositories](./assets/agent-requests.png)
 
 Here we have a total of 6 agents running in the customer environment. Not every agent is configured the same. Circular agents are connected to SCM repositories, and square agents are connected to artifact repositories.
 

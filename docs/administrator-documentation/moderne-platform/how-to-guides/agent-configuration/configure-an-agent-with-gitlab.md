@@ -26,11 +26,11 @@ To assist with that, this guide will:
 1. Navigate to the Applications page for your organization: `https://gitlab.com/groups/<yourorg>/-/settings/applications`
 2.  Provide an application name and redirect URI. The redirect URI will be in this format: `https://<tenantname>.moderne.io`:
 
-    ![](./assets/gl-app-page.png)
+    ![GitLab Add new application form with Name and Redirect URI fields](./assets/gl-app-page.png)
 
 3.  Pick the following scopes:
 
-    ![](./assets/gl-scopes.png)
+    ![GitLab OAuth scopes list with api, read_user, write_repository, and email selected](./assets/gl-scopes.png)
 
 #### Understanding the required scopes
 
@@ -91,7 +91,7 @@ You may create the OAuth application at the **group level** rather than the inst
 4. Click the Save application button
 5.  Copy the `Application ID` and `Secret` from this page; they will be used as arguments for the Moderne Agent:
 
-    ![](./assets/gl-secrets.png)   
+    ![GitLab OAuth application details showing Application ID, Secret, and configured scopes](./assets/gl-secrets.png)
 
 ## Agent configuration
 

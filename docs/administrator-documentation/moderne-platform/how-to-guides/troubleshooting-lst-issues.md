@@ -33,7 +33,7 @@ If your company **does not** provide an organizational hierarchy to Moderne, the
 3. You should see a warning icon in the `origin` column. If you mouse over it, you will see a warning about a "Missing SCM info for &lt;some VCS&gt;". Remember that VCS for the next step.
 
 <figure>
-  ![](./assets/missing-scm-configuration.png)
+  ![Repository list showing warning icons for missing SCM configuration](./assets/missing-scm-configuration.png)
   <figcaption>_An example of what a repo with a missing SCM configuration looks like_</figcaption>
 </figure>
 
@@ -69,7 +69,7 @@ Update your `repos.csv` file to ensure the `origin`, `path`, and `branch` values
 2. Click **Organization** in the left nav and select the organization you expect this repository to appear in:
 
 <figure>
-  ![](./assets/select-organization.gif)
+  ![Repositories page showing organization selection in left sidebar navigation](./assets/select-organization.gif)
   <figcaption>_An example of selecting the OpenRewrite organization._</figcaption>
 </figure>
 
@@ -77,7 +77,7 @@ Update your `repos.csv` file to ensure the `origin`, `path`, and `branch` values
 4. You should see a warning icon in the `origin` column. If you mouse over it, you will see a warning about a "Missing SCM info for &lt;some VCS&gt;". Remember that VCS for the next step.
 
 <figure>
-  ![](./assets/missing-scm-configuration.png)
+  ![Repository list showing warning icons for missing SCM configuration](./assets/missing-scm-configuration.png)
   <figcaption>_An example of what a repo with a missing SCM configuration looks like_</figcaption>
 </figure>
 

@@ -72,7 +72,7 @@ MOD SUCCEEDED in 27s
 Open the HTML file to view your DevCenter dashboard:
 
 <figure>
-  ![](./assets/devcenter-example.png)
+  ![DevCenter dashboard showing repository stats, upgrade progress for Spring Boot, Java 21, and JUnit 5, plus security issues](./assets/devcenter-example.png)
   <figcaption>_An example of what a CLI generated DevCenter looks like_</figcaption>
 </figure>
 

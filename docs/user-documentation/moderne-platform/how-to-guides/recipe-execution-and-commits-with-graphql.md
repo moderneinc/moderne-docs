@@ -36,7 +36,7 @@ This guide assumes that you:
 3. In the top right corner of the page, click on `API examples` and select `Run a recipe`. This will provide you with the query that will be run when executing a recipe run. Additionally, the appropriate variables will be added to this query based on your organization selection from step 1.
 
 <figure>
-  ![](./assets/api-link.png)
+  ![API examples dropdown with Run a recipe option highlighted](./assets/api-link.png)
   <figcaption></figcaption>
 </figure>
 

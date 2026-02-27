@@ -17,7 +17,7 @@ In this guide, we'll help you navigate to the activity view, and we'll make sure
 From the left-hand navigation bar, click on `Activity`:
 
 <figure>
-  ![](./assets/activity-link.png)
+  ![Left navigation bar with the Activity link highlighted](./assets/activity-link.png)
 </figure>
 
 That will take you to the [activity view](https://app.moderne.io/recent-activity) for the **organization you have selected**.
@@ -32,24 +32,24 @@ If your organizations are hierarchical (meaning that one organization contains 1
 
 In the top-left hand corner of the activity view, there are three circles you can click on. The first circle represents recipes, the second circle represents commits, and the last represents visualizations. You can click on the circles to highlight the rows that match your selection:
 
-![](./assets/highlight-activity.gif)
+![Clicking filter circles to highlight recipe runs, commits, and visualizations in the activity view](./assets/highlight-activity.gif)
 
 ### Navigate to the recipe, commit, or visualization
 
 If you want to get more information about a recipe, commit, or a visualization, you can click on the activity name. That will redirect you to the specific recipe run, commit, or visualization, so you can see the results for yourself:
 
-![](./assets/activity-name-link.gif)
+![Clicking an activity name to navigate to the recipe run details page](./assets/activity-name-link.gif)
 
 ### Recipe information
 
 If you want to see what recipe was run, get a link to said recipe, or see what options the recipe was run with, you can mouse over the information icon. A modal will pop up with more details and a link will be provided for you to navigate to the recipe:
 
-![](./assets/activity-info.gif)
+![Hovering over the info icon to reveal recipe details and a link to the recipe](./assets/activity-info.gif)
 
 ### More detailed time tracking
 
 If you want more specific times for when things happened rather than "about 2 hours ago" or "1 day ago", you can click on any of the times in the `Start time` column to cycle through various date time formats:
 
 <figure>
-  ![](./assets/activity-time.gif)
+  ![Start time column showing relative timestamps that can be clicked to cycle formats](./assets/activity-time.gif)
 </figure>

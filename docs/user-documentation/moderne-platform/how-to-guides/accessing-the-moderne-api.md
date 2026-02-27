@@ -22,7 +22,7 @@ Please note that when you make actual API requests, you'll want to make them aga
 :::
 
 <figure>
-  ![](./assets/graphql-link.png)
+  ![Help menu dropdown with API explorer option highlighted under Tools](./assets/graphql-link.png)
 </figure>
 
 :::info
@@ -33,4 +33,4 @@ A temporary access token is created when you log in to the platform. This lasts 
 
 After you've navigated to the API explorer, you should see a book icon in the top-left corner. If you click on it, a docs section will expand. From there, you can click on `Query` or `Mutation` to navigate through their respective docs.
 
-![](./assets/graphql-documentation.png)
+![GraphQL API Explorer docs panel with Query and Mutation root types highlighted](./assets/graphql-documentation.png)

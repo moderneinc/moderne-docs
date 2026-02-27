@@ -28,7 +28,7 @@ GitHub Apps are recommended for their fine-grained permissions, short-lived toke
 1. Navigate to the settings page for your organization: `https://github.com/organizations/<YOUR_GITHUB_ORG>/settings/applications`
 2. Expand `Developer settings` on the bottom left of the page:
    <figure>
-     ![](./assets/dev-settings-github.png)
+     ![GitHub Developer settings menu with GitHub Apps selected](./assets/dev-settings-github.png)
      <figcaption></figcaption>
    </figure>
 3. Click the `New GitHub App` button in the upper right of your screen.
@@ -46,7 +46,7 @@ GitHub Apps are recommended for their fine-grained permissions, short-lived toke
 
 5. On your newly created application click the `Generate a new client secret` button:
    <figure>
-     ![](./assets/gh-secrets.png)
+     ![GitHub Client secrets section with Generate a new client secret button](./assets/gh-secrets.png)
      <figcaption></figcaption>
    </figure>
 6. Copy the `Client ID` and `Client secret` from this page; they will be used as [arguments for the Moderne Agent](#configure-the-moderne-agent).
@@ -69,18 +69,18 @@ After creating a GitHub App, you must install it in each organization or account
 1. Navigate to the settings page for your organization: `https://github.com/organizations/<YOUR_GITHUB_ORG>/settings/applications`
 2. Expand `Developer settings` on the bottom left of the page:
    <figure>
-     ![](./assets/dev-settings.png)
+     ![GitHub Developer settings menu with OAuth Apps selected](./assets/dev-settings.png)
      <figcaption></figcaption>
    </figure>
 3. Click the `New OAuth App` button in the upper right of your screen.
 4. Supply the required fields and register the application (See [examples](#example-values) below):
    <figure>
-     ![](./assets/gh-req-fields.png)
+     ![Register a new OAuth application form with name, URL, and callback fields](./assets/gh-req-fields.png)
      <figcaption></figcaption>
    </figure>
 5. On your newly created application click the `Generate a new client secret` button:
    <figure>
-     ![](./assets/gh-secrets.png)
+     ![GitHub Client secrets section with Generate a new client secret button](./assets/gh-secrets.png)
      <figcaption></figcaption>
    </figure>
 6. Copy the `Client ID` and `Client secret` from this page; they will be used as [arguments for the Moderne Agent](#configure-the-moderne-agent).

@@ -26,7 +26,7 @@ To get to this recipe:
 * Type in `common static` into the search bar and select the first recipe. Then press `See details` to be taken to the [CommonStaticAnalysis recipe page](https://app.moderne.io/recipes/org.openrewrite.staticanalysis.CommonStaticAnalysis):
 
 <figure>
-  ![](./assets/RecipeSearch.gif)
+  ![Searching for "common static" in the marketplace and selecting the CommonStaticAnalysis recipe](./assets/RecipeSearch.gif)
   <figcaption></figcaption>
 </figure>
 
@@ -35,7 +35,7 @@ To get to this recipe:
 The bottom half of the page lists all of the recipes that will be run as part of this analysis. You can click on any of the recipes to get more information about that specific recipe or to just run that one.
 
 <figure>
-  ![](./assets/static-recipe-list.png)
+  ![Recipe list showing individual static analysis rules with their RSPEC tags](./assets/static-recipe-list.png)
   <figcaption></figcaption>
 </figure>
 
@@ -46,14 +46,14 @@ As the code in the SaaS is constantly changing, your results will more than like
 :::
 
 <figure>
-  ![](./assets/recipe-results.png)
+  ![Recipe results page showing repositories with code diffs on the right side](./assets/recipe-results.png)
   <figcaption></figcaption>
 </figure>
 
 By default, changes will be displayed on the right hand of your screen for the selected repository. You can click on any of the other repositories to look at their suggested changes and learn more about why the code is being changed. Some of these changes can be rather complex, such as changing anonymous inner classes that contain only one method into lambdas:
 
 <figure>
-  ![](./assets/lambda-example.png)
+  ![Diff converting an anonymous inner class Visitor to a lambda expression](./assets/lambda-example.png)
   <figcaption></figcaption>
 </figure>
 
@@ -62,14 +62,14 @@ By default, changes will be displayed on the right hand of your screen for the s
 If you want to learn more about _why_ the code is changing, you can press the three dots (`...`) in the top right-hand corner of any file and select `Why did this change?`:
 
 <figure>
-  ![](./assets/why-did-this-change.png)
+  ![Three-dot menu expanded showing the "Why did this change?" option](./assets/why-did-this-change.png)
   <figcaption></figcaption>
 </figure>
 
 This will display a list of all of the recipes that affected the selected file along with a sentence or two describing the rule in more detail:
 
 <figure>
-  ![](./assets/example-change-recipes.png)
+  ![Dialog listing recipes that changed the file, such as Inline variable and Fix missing braces](./assets/example-change-recipes.png)
   <figcaption></figcaption>
 </figure>
 

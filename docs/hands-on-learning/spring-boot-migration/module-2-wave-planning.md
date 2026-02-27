@@ -313,7 +313,7 @@ papermill $PROJECTS/Release-Train-Metro-Plan/src/main/python/ArchitecturalAnalys
 Open the notebook in Jupyter (or a Jupyter editor like VS Code), then update the `workspace` and `recipe_run` parameters accordingly based on your workspace path and the recipe run ID from the previous step. Then run the notebook end to end.
 
 <figure>
-  ![](./assets/jupyter-notebook-vscode.png)
+  ![Release Train Metro Plan Jupyter notebook open in VS Code with parameter cells](./assets/jupyter-notebook-vscode.png)
   <figcaption>_The Jupyter notebook open in VS Code. Use the `Run All` button to run the notebook after updating the parameters._</figcaption>
 </figure>
 

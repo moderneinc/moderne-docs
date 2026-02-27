@@ -80,14 +80,14 @@ In this exercise, you'll explore a DevCenter dashboard in the Moderne Platform.
 3. Click on `DevCenter` in the left navigation.
 
 <figure>
-  ![](../../user-documentation/moderne-platform/getting-started/assets/devcenter-nav.png)
+  ![Left sidebar with DevCenter navigation link highlighted](../../user-documentation/moderne-platform/getting-started/assets/devcenter-nav.png)
   <figcaption>_DevCenter navigation link_</figcaption>
 </figure>
 
 4. If the organization has a DevCenter dashboard configured, you'll see organizational metrics, change campaign cards, and security information.
 
 <figure>
-  ![](./assets/devcenter-example-default.png)
+  ![DevCenter dashboard showing org metrics, change campaign cards, and security section](./assets/devcenter-example-default.png)
   <figcaption>_DevCenter example for Default organization_</figcaption>
 </figure>
 

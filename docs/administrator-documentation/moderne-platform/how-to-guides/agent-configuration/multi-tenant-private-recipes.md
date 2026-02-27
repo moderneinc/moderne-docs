@@ -50,14 +50,14 @@ All recipes that should be private to your company **must** start with the rever
 1. Navigate to the [Moderne deploy page](https://app.moderne.io/recipes/deploy) and press the `Add` button:
 
 <figure>
-  ![](./assets/moderne-deploy-page.png)
+  ![Moderne Deploy artifacts page with recipe list table and Add button highlighted](./assets/moderne-deploy-page.png)
   <figcaption></figcaption>
 </figure>
 
 2. Fill in the recipe artifact information and press "deploy recipe artifact".
 
 <figure>
-  ![](./assets/deploy-recipe-artifact.png)
+  ![Deploy new recipe artifact dialog with Group ID, Artifact ID, and Version fields](./assets/deploy-recipe-artifact.png)
   <figcaption></figcaption>
 </figure>
 

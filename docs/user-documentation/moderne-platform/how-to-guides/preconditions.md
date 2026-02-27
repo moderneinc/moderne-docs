@@ -38,11 +38,11 @@ With the preconditions being done, the core recipe you're wanting to run will th
 From the [recipe marketplace](https://app.moderne.io/marketplace), find the recipe you'd like to use as a precondition. Once you've found it, click on the `Add to Builder` button and then select `Add as a precondition` checkbox:
 
 <figure>
-  ![](./assets/precondition1.png)
+  ![Find files recipe page with Add to Builder button highlighted](./assets/precondition1.png)
 </figure>
 
 <figure>
-  ![](./assets/precondition2.png)
+  ![Dialog to select a recipe with Add as a precondition checkbox enabled](./assets/precondition2.png)
 </figure>
 
 You can then either choose to add the precondition to a recipe you've already created or you can create a new recipe entirely. To add it to a recipe you've already created, click on the recipe name and then press `Add to selected`. To create a new recipe with this as a precondition, press `Add to new recipe`. Regardless of which one you picked, you'll be redirected to the 
@@ -50,7 +50,7 @@ You can then either choose to add the precondition to a recipe you've already cr
 You will then be redirected to the [recipe builder page](https://app.moderne.io/builder). Preconditions are always highlighted to show that they're a precondition and not a recipe being run:
 
 <figure>
-  ![](./assets/recipe-precondition.png)
+  ![Recipe builder showing Find files precondition highlighted in pink](./assets/recipe-precondition.png)
 </figure>
 
 If you want to add more preconditions, you can follow the same steps as above. When you're ready to run the recipe, follow the [instructions in our recipe builder guide](./new-recipe-builder.md).

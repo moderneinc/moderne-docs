@@ -18,7 +18,7 @@ You have internal services within your enterprise that you may want to use withi
 Setting up a generic HTTP tool will allow you to use `org.openrewrite.ipc.http.HttpSender` from your internal recipes to call tools inside your environment. [Example usage of HttpSender](https://github.com/openrewrite/rewrite-generative-ai/blob/357d5f39f22cf47f4d5df417c1ddb6c883dd5c24/src/main/java/org/openrewrite/ai/model/GenerativeCodeEditor.java#L48-L57). It also enables the use of `org.openrewrite.nodejs.NpmExecutor` in NodeJS recipes allowing the platform to proxy HTTP requests made during npm installs to the registry within your environment. [Example usage of NpmExecutor](https://gist.github.com/mike-solomon/4b105f388395ecfe2b005b02680215c8).
 
 <figure>
-  ![](./assets/http-tool.png)
+  ![Diagram showing Moderne Worker sending HTTP tool requests through the API Gateway to the Agent, which forwards them to an internal HTTP tool](./assets/http-tool.png)
   <figcaption></figcaption>
 </figure>
 

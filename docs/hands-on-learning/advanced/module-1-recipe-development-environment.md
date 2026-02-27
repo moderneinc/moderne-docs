@@ -38,7 +38,7 @@ Moderne offers an [IntelliJ IDEA plugin](https://plugins.jetbrains.com/plugin/17
 6. On the line where the class is defined, you should notice an arrow to the left of the text. Click it and then press `Run <class_name>`.
 
 <figure>
-  ![](./assets/run-recipe-from-plugin.gif)
+  ![IntelliJ gutter icon to run a recipe class from the Moderne plugin](./assets/run-recipe-from-plugin.gif)
   <figcaption></figcaption>
 </figure>
 
