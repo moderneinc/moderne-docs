@@ -178,6 +178,7 @@ const platform = {
           'administrator-documentation/moderne-platform/how-to-guides/importing-external-recipes',
           'administrator-documentation/moderne-platform/how-to-guides/lst-cleanup',
           'administrator-documentation/moderne-platform/how-to-guides/troubleshooting-lst-issues',
+          'administrator-documentation/moderne-platform/how-to-guides/analyzing-build-failures',
         ],
       },
       {

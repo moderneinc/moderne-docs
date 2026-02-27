@@ -310,6 +310,18 @@ Then follow up with explanation of why this matters.
 
     For more details, check out the [`recipes.csv` reference](https://docs.moderne.io/user-documentation/moderne-cli/references/recipes-csv/).
 
+### 19. Image alt text
+
+**Rule**: All images must include descriptive alt text for accessibility. The alt text should briefly describe what the image shows so that screen reader users can understand the content.
+
+**Correct example:**
+
+    ![Build trace dashboard showing summary statistics and charts](./assets/dashboard.png)
+
+**Incorrect example:**
+
+    ![](./assets/dashboard.png)
+
 ## Complete example
 
 Here's what properly formatted documentation looks like:
@@ -378,6 +390,7 @@ When editing documentation, verify:
 * [ ] How-to guide intros follow problem → solution → preview structure (Rule 16)
 * [ ] Callouts use Docusaurus admonitions, not blockquotes (Rule 17)
 * [ ] Internal links use relative paths, not absolute URLs (Rule 18)
+* [ ] All images include descriptive alt text (Rule 19)
 
 ---
 
