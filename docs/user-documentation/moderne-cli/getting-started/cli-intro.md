@@ -294,7 +294,7 @@ If you're configuring the CLI in a non-interactive environment (such as CI/CD pi
 
 1. Navigate to `https://<TENANT>.moderne.io/settings/access-token` (replace `<TENANT>` with your tenant name)
 2. Enter a human-readable name for the token (e.g., cli-token)
-3. Press `Generate`
+3. Press **Generate**
 4. Copy the generated token and use it with the login command:
 
 ```bash

@@ -1,6 +1,6 @@
 ---
 sidebar_label: Card Gem Icons
-description: How to use gem icons with DocCards
+description: How to use gem icons with DocCards.
 ---
 
 # Using gem icons with DocCards

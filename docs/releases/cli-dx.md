@@ -1,5 +1,12 @@
 # CLI / DX changelog
 
+### CLI / DX v3.57.12 (2026-02-26)
+
+#### What's Changed
+* Fix ZipException: zip END header not found
+* Fix StackOverflowError from mutual recursion in installation discovery
+* Add `~/.moderne/cli/recipes/pip` to Python path when calling Python Rewrite RPC in build and run
+
 ### CLI / DX v3.57.11 (2026-02-23)
 
 #### What's Changed

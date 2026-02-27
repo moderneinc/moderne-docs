@@ -319,7 +319,7 @@ In this exercise, you'll run recipes in the Moderne Platform and use the `Data T
 <figcaption>_Configuring the Dependency Insight recipe_</figcaption>
 </figure>
 
-5. Click `Dry Run` to kick off the recipe.
+5. Click **Dry Run** to kick off the recipe.
 6. When it's finished, notice the results don't show a diff with the usual red/green styling, but rather highlight the search results in yellow. The code still includes the markers as you saw in the previous exercise (e.g. `/*~~>*/`), but the UI renders them as highlighted code to make it easier to see and understand. If you mouseover a highlighted portion, you will see some additional detail.
 
 <figure>
@@ -333,7 +333,7 @@ In this exercise, you'll run recipes in the Moderne Platform and use the `Data T
 
 <figure>
 ![Visualizations tab with Dependency usage violin chart and Run visualization button](./assets/run-dependency-usage-visualization.png)
-<figcaption>_Click `Run Visualization` to see the violin chart._</figcaption>
+<figcaption>_Click **Run Visualization** to see the violin chart._</figcaption>
 </figure>
 
 2. Once it renders, you will see a **violin chart** showing the version distribution for the specified libraries across repositories.

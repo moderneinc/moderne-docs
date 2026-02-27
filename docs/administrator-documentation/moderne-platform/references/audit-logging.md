@@ -9,7 +9,7 @@ The Moderne Platform records a structured audit log of every user-initiated and 
 
 Tenant administrators (users in your organization that have been granted the `admin` role) can query audit logs through the Moderne UI, a paginated GraphQL API, or export them in CEF (Common Event Format) or CSV for ingestion into a SIEM or other log aggregation system. Access to the audit log is itself audited.
 
-For instructions on exporting audit logs, see [Reporting](./reporting.md).
+Please refer to the [reporting reference](./reporting.md) documentation for instructions on how to export audit logs.
 
 ## Centralized audit framework
 
@@ -55,7 +55,7 @@ Audit logs can be exported in the following formats:
 * **CSV**: Tabular export with all audit log fields.
 * **GraphQL API**: Paginated query interface for programmatic access with filtering and sorting.
 
-For detailed export instructions, see [Reporting](./reporting.md).
+For details on each export format, see the [reporting reference](./reporting.md) documentation.
 
 ## Time synchronization
 
@@ -65,7 +65,7 @@ All timestamps are recorded in UTC (RFC 3339 / ISO-8601 format: `YYYY-MM-DDTHH:M
 
 Audit log access (both UI and API) is restricted to users with the `admin` role. Attempts to access audit logs without the `admin` role are denied. Access to the audit log itself is also logged.
 
-For more information about user roles and permissions, see [User roles](./user-roles.md).
+For more on roles, see the [user roles](./user-roles.md) reference documentation.
 
 ## Confidential data exclusions
 
@@ -77,4 +77,4 @@ The Moderne audit logging system does **not** include:
 * SCM authorization codes (only the exchange event is logged, not the code itself)
 * Cardholder data, PII (other than the user email that took the action), or other highly confidential data
 
-For more information about how Moderne handles sensitive data, see [Sensitive data flow](./flow.md).
+For more details, see the [sensitive data flow](./flow.md) reference documentation.

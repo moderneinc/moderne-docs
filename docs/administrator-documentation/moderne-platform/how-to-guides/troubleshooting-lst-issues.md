@@ -66,7 +66,7 @@ Update your `repos.csv` file to ensure the `origin`, `path`, and `branch` values
 #### To diagnose:
 
 1. Navigate to `https://TENANT.moderne.io/organizations` (replace `TENANT` in the URL with your company's Moderne tenant)
-2. Click `Organization` in the left nav and select the organization you expect this repository to appear in:
+2. Click **Organization** in the left nav and select the organization you expect this repository to appear in:
 
 <figure>
   ![Repositories page showing organization selection in left sidebar navigation](./assets/select-organization.gif)

@@ -1,5 +1,5 @@
 ---
-description: Describes what the activity view is, where to find it, and what each part does
+description: Describes what the activity view is, where to find it, and what each part does.
 ---
 
 import ReactPlayer from '@site/src/components/VideoPlayer';

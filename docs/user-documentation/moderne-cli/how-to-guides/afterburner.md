@@ -36,5 +36,5 @@ mod run . --recipe FindTypes -PfullyQualifiedTypeName="java.util.List"
 ```
 
 :::tip
-If you want to speed up recipe runs even further, check out [our guide on how to use parallelism in the CLI](./parallelism.md).
+If you want to speed up recipe runs even further, see [our guide on using parallelism in the CLI](./parallelism.md) for how to distribute work across multiple threads.
 :::

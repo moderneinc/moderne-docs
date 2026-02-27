@@ -14,7 +14,7 @@ In order to view recipe results and commit changes from a recipe back to Azure D
 Azure DevOps Services supports two OAuth 2.0 models: Microsoft Entra ID OAuth and the legacy Azure DevOps OAuth 2.0 models. The Moderne platform only supports the Microsoft Entra ID OAuth model.
 :::
 
-## Azure DevOps Services Configuration
+## Azure DevOps Services configuration
 
 ### Step 1: Create a Microsoft Entra ID OAuth App registration
 
