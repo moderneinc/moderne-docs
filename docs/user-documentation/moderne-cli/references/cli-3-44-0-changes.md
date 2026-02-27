@@ -42,7 +42,7 @@ Commands like `mod devcenter`, `mod study`, and `mod run` understand this hierar
 `mod git sync` aligns your local directory structure with what's defined in [your repos.csv file](./repos-csv.md). This potentially destructive command will create, move, and delete directories as needed to match the specified organization structure. Since it modifies your filesystem, always verify you're in the correct directory before running it.
 
 <figure>
-  ![](./assets/mod-git-sync.png)
+  ![Terminal output of mod git sync organizing repositories into organizational directories](./assets/mod-git-sync.png)
   <figcaption></figcaption>
 </figure>
 
@@ -118,7 +118,7 @@ The output still shows an entry for each repository, irrespective of which organ
 Each of the "Data table" links represents a data table at a different organization level. You can expect that the "Netflix" data table will always be a subset of the "Netflix + Spring" data table.
 
 <figure>
-  ![](./assets/data-table-filtering.png)
+  ![Spreadsheet data table with organization columns enabling filtering by sub-organization](./assets/data-table-filtering.png)
   <figcaption></figcaption>
 </figure>
 
@@ -137,7 +137,7 @@ At this point, the pattern is probably clear, but `mod devcenter` has also been 
 </figure>
 
 <figure>
-  ![](./assets/devcenter-example.png)
+  ![DevCenter dashboard for Netflix + Spring showing repository stats, migration progress, and upgrade charts](./assets/devcenter-example.png)
   <figcaption></figcaption>
 </figure>
 

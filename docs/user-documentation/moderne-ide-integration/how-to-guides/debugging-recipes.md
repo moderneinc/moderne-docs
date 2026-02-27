@@ -18,7 +18,7 @@ Please ensure that [you've installed and configured the Moderne IDE plugin](./mo
 Open the recipe you wish to debug in IntelliJ IDEA. From there, right-click on the class name. You should see an option to set the active recipe:
 
 <figure>
-  ![](./assets/select-active-recipe.gif)
+  ![Right-clicking a recipe class name in IntelliJ to select Set Active Recipe](./assets/select-active-recipe.gif)
   <figcaption></figcaption>
 </figure>
 
@@ -53,21 +53,21 @@ You should see that the recipe you specified in your IDE is the one that is run 
     * **Note**: Depending on the recipe you may need to provide _additional parameters_ in the run command such as `--recipe-option methodPattern="java.util.Collections emptyList()"`. This will depend on what the recipe itself requires to run. Some recipes may require no params, whereas others may require many.
 
 <figure>
-  ![](./assets/debugger-wait.png)
+  ![Terminal output showing mod run with jvm-debug flag waiting for remote debugger on port 5005](./assets/debugger-wait.png)
   <figcaption>_Debugger attaching_</figcaption>
 </figure>
 
 3. Open up your IDE and create a new debug run configuration. You can do this by clicking on the vertical triple dots in the top-right corner, selecting `Edit...`, and then adding a new `Remote JVM Debug`:
 
 <figure>
-  ![](./assets/add-debug-config.gif)
+  ![Adding a Remote JVM Debug run configuration in IntelliJ via the run configuration menu](./assets/add-debug-config.gif)
   <figcaption>_Adding Remote JVM Debugger_</figcaption>
 </figure>
 
 4. Once you've created the debugger, launch it by clicking on the bug icon in the top-right corner of your screen:
 
 <figure>
-  ![](./assets/debug-icon.png)
+  ![IntelliJ toolbar with the green debug bug icon highlighted](./assets/debug-icon.png)
   <figcaption>_Debug icon_</figcaption>
 </figure>
 

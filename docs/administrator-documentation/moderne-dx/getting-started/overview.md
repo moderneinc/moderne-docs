@@ -33,12 +33,12 @@ Moderne DX can also serve as a stepping stone towards a hybrid SaaS offering. Th
 Now that you understand DX at a high level, let's talk about the various components that make it up. Below you'll find diagrams for both the central team and individual business units (BUs).
 
 <figure>
-  ![](./assets/dx-central-team.png)
+  ![Central team architecture showing repos.csv flowing into mass ingest, publishing LSTs to Artifactory, and CLI telemetry feeding a central BI system](./assets/dx-central-team.png)
   <figcaption>_Central team components._</figcaption>
 </figure>
 
 <figure>
-  ![](./assets/dx-business-unit.png)
+  ![Business unit architecture showing BU leaders using CLI with effective repos.csv and product team developers using CLI on local workstations](./assets/dx-business-unit.png)
   <figcaption>_Business unit components._</figcaption>
 </figure>
 

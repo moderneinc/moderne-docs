@@ -8,7 +8,7 @@ description: A high-level overview of the Moderne DX architecture.
 ## Architecture diagram
 
 <figure>
-  ![](./assets/moderne-dx-architecture.png)
+  ![Moderne DX architecture with mass ingestion publishing LSTs to Artifactory and mass run reading repos.csv to download LSTs](./assets/moderne-dx-architecture.png)
   <figcaption></figcaption>
 </figure>
 

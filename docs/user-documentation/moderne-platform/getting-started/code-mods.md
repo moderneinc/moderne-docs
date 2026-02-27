@@ -22,7 +22,7 @@ In this short getting started guide, we will walk through where you can find the
 You can find all of the Moderne codemods in the [Moderne marketplace](https://app.moderne.io/marketplace) under the [JavaScript Codemods section](https://app.moderne.io/marketplace/org.openrewrite.codemods):
 
 <figure>
-  ![](./assets/codemods-section.png)
+  ![Marketplace showing the JavaScript Codemods category highlighted among recipe groups](./assets/codemods-section.png)
 </figure>
 
 ## Real-world example
@@ -34,16 +34,16 @@ To help combat this, the open source community has created a [better regex codem
 Using this [codemod in Moderne](https://app.moderne.io/recipes/org.openrewrite.codemods.cleanup.javascript.BetterRegex), you can run this codemod against all of your repositories at once. You can do this once, fix all of the code that fails in all of your repositories, and then add this as an enforceable check that runs before any code is merged to ensure safety going forward. By doing it this way, you don't break the flow of any teams using this code.
 
 <figure>
-  ![](./assets/regex-recipe.png)
+  ![BetterRegex codemod recipe page with Dry run button and ESLint configuration](./assets/regex-recipe.png)
   <figcaption>_The codemod to fix regular expressions_</figcaption>
 </figure>
 
 <figure>
-  ![](./assets/regex-results.png)
+  ![Recipe results listing repositories like highlight.js and date-fns with total regex fixes](./assets/regex-results.png)
   <figcaption>_List of results from running the codemod against the popular JavaScript repositories_</figcaption>
 </figure>
 
 <figure>
-  ![](./assets/regex-example-fix.png)
+  ![Diff showing regex patterns simplified from verbose character classes to shorthand notation](./assets/regex-example-fix.png)
   <figcaption>_Example regex changes the codemod makes_</figcaption>
 </figure>

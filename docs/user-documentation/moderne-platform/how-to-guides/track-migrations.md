@@ -22,13 +22,13 @@ All dependencies can be defined with a combination of their group ID, artifact I
 For the group pattern and artifact pattern, you can use the regex `*` to match anything. For instance, if you wanted to search for all `com.fasterxml.jackson` modules (e.g., `com.fasterxml.jackson.dataformat`), you could enter `com.fasterxml.jackson.*` into the group pattern. If you wanted to search for all artifacts in said group, you could enter `*` as the artifact pattern. Here's what this looks like:
 
 <figure>
-  ![](./assets/dep-insight-recipe.png)
+  ![Dependency insight recipe form with group pattern, artifact pattern, and version fields](./assets/dep-insight-recipe.png)
 </figure>
 
 When you're done selecting the dependencies you want to look for, press the `Dry Run` button. You will be redirected to a recipe results page:
 
 <figure>
-  ![](./assets/dep-insight-recipe-results.png)
+  ![Recipe results page showing repository list, run summary, and highlighted dependency diff](./assets/dep-insight-recipe-results.png)
 </figure>
 
 ## Understanding recipe results
@@ -40,7 +40,7 @@ Unlike other recipes that actively change code, this recipe will highlight depen
 For instance, in the following examples, we can see that `org.springframework.boot` was highlighted by the recipe. If you click on the highlighted code, you can see that it was highlighted because that depends on `com.fasterxml.jackson.core`:
 
 <figure>
-  ![](./assets/dep-insight-diff.png)
+  ![Highlighted dependency in pom.xml with popup showing transitive Jackson dependency details](./assets/dep-insight-diff.png)
 </figure>
 
 ## Viewing the visualization
@@ -48,19 +48,19 @@ For instance, in the following examples, we can see that `org.springframework.bo
 While looking at individual dependencies and their transitive dependencies is interesting, it's much more useful to get a glimpse of what versions are being used across all of your repositories. To get this view, start from the recipe results page and click on `Visualizations` at the top of the page:
 
 <figure>
-  ![](./assets/dep-insight-vis-select.png)
+  ![Recipe results tabs with Visualizations tab highlighted by an arrow](./assets/dep-insight-vis-select.png)
 </figure>
 
 Next, run the `Dependency usage` visualization:
 
 <figure>
-  ![](./assets/dep-usage-vis.png)
+  ![Dependency usage visualization card with Run visualization button highlighted](./assets/dep-usage-vis.png)
 </figure>
 
 You'll be redirected to a violin chart that shows all of the artifacts and their corresponding versions across your repositories:
 
 <figure>
-  ![](./assets/violin-vis.png)
+  ![Violin chart showing Jackson artifact version distribution across repositories](./assets/violin-vis.png)
 </figure>
 
 In the above example, you can see that `jackson-annotations` is all over the place across our repositories – ranging from `2.4.0` to `2.16.1` for a total of 27 different versions! Comparatively, `jackson-datatype-hibernate` only has 1 version across all of our repositories.
@@ -72,7 +72,7 @@ If we want to dig deeper into which repositories are using which dependencies an
 To do so, click on `Data tables` at the top of the recipe page as you did earlier. Then download the `direct and transitive dependencies in use` data table by clicking on the `csv` or `xls` download button:
 
 <figure>
-  ![](./assets/dep-in-use-dt.png)
+  ![Data tables tab showing Dependencies in use table with CSV, XLS, and JSON download options](./assets/dep-in-use-dt.png)
 </figure>
 
 The data table contains the following columns:

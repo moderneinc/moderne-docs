@@ -303,7 +303,7 @@ The context export component saves structured data tables as files in your repos
 Each exported context file is accompanied by a markdown file that describes what the data contains and how to interpret it. This helps AI agents understand the schema and meaning of the data without additional prompting.
 
 <figure>
-  ![](./assets/prethink-context-markdown.png)
+  ![Moderne Platform recipe results showing a generated architecture markdown file with data table schemas](./assets/prethink-context-markdown.png)
   <figcaption>_A markdown file describing the CALM architecture context_</figcaption>
 </figure>
 
@@ -316,7 +316,7 @@ The optional code comprehension component uses Moderne's LST analysis combined w
 Prethink can export architecture information in CALM format, providing nodes and relationships that describe your system's structure. These can be visualized with CALM-compatible tools or consumed directly by AI agents for architectural reasoning.
 
 <figure>
-  ![](./assets/prethink-calm-architecture.png)
+  ![Moderne Platform recipe results showing a generated CALM architecture JSON file with service nodes and relationships](./assets/prethink-calm-architecture.png)
   <figcaption>_A generated CALM architecture diagram showing services and their relationships_</figcaption>
 </figure>
 
@@ -325,7 +325,7 @@ Prethink can export architecture information in CALM format, providing nodes and
 When Prethink runs, it updates the agent configuration files in your repository (such as `CLAUDE.md`, `.cursorrules`, or `.github/copilot-instructions.md`) to point AI agents to the generated context. This enables progressive discovery where agents first learn about the available context and then read the relevant files as needed.
 
 <figure>
-  ![](./assets/prethink-claude-md.png)
+  ![Moderne Platform recipe results showing an updated CLAUDE.md file with Prethink context references and instructions](./assets/prethink-claude-md.png)
   <figcaption>_An updated CLAUDE.md file pointing agents to Prethink context_</figcaption>
 </figure>
 

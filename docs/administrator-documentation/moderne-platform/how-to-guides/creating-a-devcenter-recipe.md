@@ -87,7 +87,7 @@ DevCenter recipes have two notable properties worth calling out:
 * `upgradeRecipe` is a property that defines the recipe that should be run to upgrade your repositories. It is the recipe that will get executed when you press the `Upgrade` button on a card.
 
 <figure>
-  ![](./assets/example-card.png)
+  ![DevCenter card for Move to Java 21 showing a donut chart with repo categories and an Upgrade button](./assets/example-card.png)
   <figcaption>_An example of a DevCenter card._</figcaption>
 </figure>
 
@@ -124,7 +124,7 @@ This security recipe differs slightly from a traditional YAML recipe. In the rec
 This recipe takes in a `fixRecipe` property that defines the recipe that can be run to fix the issues reported by the above security recipes.
 
 <figure>
-  ![](./assets/example-security.png)
+  ![DevCenter Security section listing OWASP vulnerabilities with a radar chart and occurrence details](./assets/example-security.png)
   <figcaption>_An example of a security section in a DevCenter._</figcaption>
 </figure>
 

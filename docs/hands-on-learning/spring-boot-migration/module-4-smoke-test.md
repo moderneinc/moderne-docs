@@ -22,7 +22,7 @@ In this module, you will raise the Java baseline to 17 and run a controlled Spri
 3. Click the `Visualizations` tab and run the `Composite recipe results` visualization.
 
 <figure>
-  ![](./assets/run-composite-recipe-results-visualization.png)
+  ![Visualizations tab showing Composite recipe results Sankey diagram options](./assets/run-composite-recipe-results-visualization.png)
   <figcaption>_Click `Run visualization` to view_</figcaption>
 </figure>
 

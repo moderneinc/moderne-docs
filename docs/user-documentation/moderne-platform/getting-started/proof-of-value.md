@@ -20,12 +20,12 @@ This guide walks through a typical proof of value (POV) process to help you eval
 Moderne's value lies in working horizontally across all of your repositories simultaneously. Consider a modernization task that needs to happen across 125 repositories:
 
 <figure>
-  ![](./assets/horizontal-moderne-way.png)
+  ![Grid showing 80% modernized with 100 of 125 repositories completed horizontally](./assets/horizontal-moderne-way.png)
   <figcaption>**The Moderne approach**: Even if you only complete 80% of the work on each repository, that's 80% progress business-wide (100 of 125 tasks done).</figcaption>
 </figure>
 
 <figure>
-  ![](./assets/horizontal-traditional-way.png)
+  ![Grid showing 4% modernized with only 5 of 125 repositories completed sequentially](./assets/horizontal-traditional-way.png)
   <figcaption>**The traditional approach**: If you fully complete one repository before moving to the next, you achieve 100% on that single repo, but that's only 4% progress across the organization (5 of 125 tasks).</figcaption>
 </figure>
 
@@ -118,7 +118,7 @@ mod study . --last-recipe-run --data-table SourcesFileResults
 #### Recipe results
 
 <figure style={{maxWidth: '700px', margin: '0 auto'}}>
-  ![](./assets/code-quality-saas.png)
+  ![Code diff showing static analysis fixes adding curly braces to if statements](./assets/code-quality-saas.png)
   <figcaption>_Static analysis fixes_</figcaption>
 </figure>
 
@@ -156,7 +156,7 @@ mod study . --last-recipe-run --data-table SourcesFileResults
 #### Recipe results
 
 <figure style={{maxWidth: '700px', margin: '0 auto'}}>
-  ![find-types-example.png](./assets/find-types-example.png)
+  ![Java code with highlighted StringUtils.split usages found by type-aware search](./assets/find-types-example.png)
   <figcaption>_Discovering type usage patterns across repositories_</figcaption>
 </figure>
 
@@ -182,7 +182,7 @@ mod study . --last-recipe-run --data-table SourcesFileResults
 #### Recipe results
 
 <figure style={{maxWidth: '700px', margin: '0 auto'}}>
-  ![](./assets/find-methods-example.png)
+  ![Java code with highlighted method invocations on deployedWorkflow and Pair.of](./assets/find-methods-example.png)
   <figcaption>_Finding method usage across repositories_</figcaption>
 </figure>
 
@@ -204,12 +204,12 @@ mod study . --last-recipe-run --data-table SourcesFileResults
 #### Recipe results
 
 <figure style={{maxWidth: '700px', margin: '0 auto'}}>
-  ![find-sensitive-api-endpoints-1.png](./assets/find-sensitive-api-endpoints-1.png)
+  ![Spring controller with highlighted Owner return type on findOwner endpoint](./assets/find-sensitive-api-endpoints-1.png)
   <figcaption>_Identifying sensitive API endpoints for security review_</figcaption>
 </figure>
 
 <figure style={{maxWidth: '700px', margin: '0 auto'}}>
-  ![find-sensitive-api-endpoints-2.png](./assets/find-sensitive-api-endpoints-2.png)
+  ![Search result popup showing Person getLastName and getFirstName as sensitive fields](./assets/find-sensitive-api-endpoints-2.png)
   <figcaption>_Sensitive values can be found on super classes of types used in API endpoints_</figcaption>
 </figure>
 
@@ -229,7 +229,7 @@ mod study . --last-recipe-run --data-table DatabaseColumnsUsed
 #### Recipe results
 
 <figure style={{maxWidth: '700px', margin: '0 auto'}}>
-  ![find-sql-example.png](./assets/find-sql-example.png)
+  ![Java code with highlighted SQL SELECT statements in JPA named query annotations](./assets/find-sql-example.png)
   <figcaption>_Discovering SQL statements across the codebase_</figcaption>
 </figure>
 
@@ -249,7 +249,7 @@ mod study . --last-recipe-run --data-table CallGraph
 #### Recipe results
 
 <figure style={{maxWidth: '700px', margin: '0 auto'}}>
-  ![](./assets/call-graph.png)
+  ![JSON call graph data table showing caller and callee method relationships](./assets/call-graph.png)
   <figcaption>_Example call graph._</figcaption>
 </figure>
 
@@ -269,7 +269,7 @@ mod study . --last-recipe-run --data-table DatabaseColumnsUsed
 #### Recipe results
 
 <figure style={{maxWidth: '700px', margin: '0 auto'}}>
-  ![](./assets/spring-api-endpoints.png)
+  ![Spring controller with highlighted GetMapping and PostMapping endpoint annotations](./assets/spring-api-endpoints.png)
   <figcaption>_Finding Spring API endpoints._</figcaption>
 </figure>
 
@@ -289,7 +289,7 @@ mod study . --last-recipe-run --data-table SourcesFileResults
 #### Recipe results
 
 <figure style={{maxWidth: '700px', margin: '0 auto'}}>
-  ![](./assets/sbom-example.png)
+  ![Generated CycloneDX XML SBOM file showing component metadata and dependencies](./assets/sbom-example.png)
   <figcaption>_Example of a SBOM file created from the recipe._</figcaption>
 </figure>
 
@@ -310,7 +310,7 @@ mod study . --last-recipe-run --data-table TaintFlowTable
 #### Recipe results
 
 <figure style={{maxWidth: '700px', margin: '0 auto'}}>
-  ![](./assets/post-quantum.png)
+  ![Java code with highlighted cryptographic usage patterns flagged for post-quantum review](./assets/post-quantum.png)
   <figcaption>_Identifying code that will be affected by post quantum cryptography._</figcaption>
 </figure>
 
@@ -333,12 +333,12 @@ mod study . --last-recipe-run --data-table DependenciesInUse
 #### Recipe results
 
 <figure>
-  ![](./assets/dependency-insight-dt.png)
+  ![DependenciesInUse data table with repository, group, artifact, version, and depth columns](./assets/dependency-insight-dt.png)
   <figcaption>_A data table that includes information about what repositories use the dependency we specified above._</figcaption>
 </figure>
 
 <figure style={{maxWidth: '400px', margin: '0 auto'}}>
-  ![](./assets/dep-insight-vis.png)
+  ![Violin chart showing Jackson artifact version distribution across repositories](./assets/dep-insight-vis.png)
   <figcaption>_A visualization generated from the recipe results that shows the different versions of the specified dependencies across the selected repositories._</figcaption>
 </figure>
 
@@ -358,7 +358,7 @@ mod study . --last-recipe-run --data-table SourcesFileResults
 #### Recipe results
 
 <figure style={{maxWidth: '500px', margin: '0 auto'}}>
-  ![](./assets/parameterized-logging-saas.png)
+  ![Code diff replacing string concatenation in logger.debug with parameterized placeholders](./assets/parameterized-logging-saas.png)
   <figcaption>_Logging improvements_</figcaption>
 </figure>
 
@@ -376,7 +376,7 @@ mod study . --last-recipe-run --data-table SourcesFileResults
 #### Recipe results
 
 <figure style={{maxWidth: '500px', margin: '0 auto'}}>
-  ![](./assets/complete-exception-saas.png)
+  ![Code diff adding ioException parameter to log.warn for complete stack trace logging](./assets/complete-exception-saas.png)
   <figcaption>_Adding useful exceptions to logs_</figcaption>
 </figure>
 
@@ -396,7 +396,7 @@ mod study . --last-recipe-run --data-table SourcesFileResults
 #### Recipe results
 
 <figure style={{maxWidth: '500px', margin: '0 auto'}}>
-  ![](./assets/gradle-wrapper-update-saas.png)
+  ![Diff updating Gradle wrapper distributionUrl from 8.5 to 9.0.0 with new SHA-256 hash](./assets/gradle-wrapper-update-saas.png)
   <figcaption>_Updating the Gradle wrapper_</figcaption>
 </figure>
 
@@ -418,7 +418,7 @@ mod study . --last-recipe-run --data-table SourcesFileResults
 #### Recipe results
 
 <figure>
-  ![](./assets/gradle-plugin-update.png)
+  ![Diff updating Spring Boot Gradle plugin version from 3.3.0 to 3.4.9](./assets/gradle-plugin-update.png)
   <figcaption>_An example `build.gradle` change._</figcaption>
 </figure>
 
@@ -436,7 +436,7 @@ mod study . --last-recipe-run --data-table SourcesFileResults
 #### Recipe results
 
 <figure style={{maxWidth: '500px', margin: '0 auto'}}>
-  ![](./assets/maven-wrapper-update.png)
+  ![Diff updating Maven wrapper properties with new distribution URL and SHA-256 hash](./assets/maven-wrapper-update.png)
   <figcaption>_Updating the Maven wrapper_</figcaption>
 </figure>
 
@@ -472,7 +472,7 @@ mod study . --last-recipe-run --data-table SourcesFileResults
 #### Recipe results
 
 <figure>
-  ![](./assets/find-secrets-example.png)
+  ![Java test file with highlighted hardcoded JWT token string flagged as a secret](./assets/find-secrets-example.png)
   <figcaption>_Example of a secret being found in the code._</figcaption>
 </figure>
 
@@ -490,7 +490,7 @@ mod study . --last-recipe-run --data-table SourcesFileResults
 #### Recipe results
 
 <figure style={{maxWidth: '500px', margin: '0 auto'}}>
-  ![](./assets/secure-random-example.png)
+  ![Code diff replacing new Random with new SecureRandom and adding import](./assets/secure-random-example.png)
   <figcaption>_Example demonstrating `Random` being replaced with `SecureRandom`._</figcaption>
 </figure>
 
@@ -508,7 +508,7 @@ mod study . --last-recipe-run --data-table SourcesFileResults
 #### Recipe results
 
 <figure>
-  ![](./assets/java-security-example.png)
+  ![Code diff adding Zip slip path traversal check before extracting zip entries](./assets/java-security-example.png)
   <figcaption>_Example demonstrating how this recipe handles security issues such as the Zip slip vulnerability._</figcaption>
 </figure>
 
@@ -527,18 +527,18 @@ mod study . --last-recipe-run --data-table SourcesFileResults
 
 <div style={{display: 'flex'}}>
   <figure style={{maxWidth: '400px'}}>
-    ![](./assets/owasp-top-ten-example.png)
+    ![New SecurityConfig class with CSRF token repository configuration to prevent attacks](./assets/owasp-top-ten-example.png)
     <figcaption>_Example demonstrating how this recipe fixes security issues such as CSRF attacks._</figcaption>
   </figure>
 
   <figure style={{maxWidth: '400px'}}>
-    ![](./assets/owasp-data-table-example.png)
+    ![Vulnerability report table with CVE IDs, artifact versions, fix versions, and severity](./assets/owasp-data-table-example.png)
     <figcaption>_A vulnerability report that includes detailed information about the affected artifact and the corresponding CVEs._</figcaption>
   </figure>
 </div>
 
 <figure style={{maxWidth: '400px', margin: '0 auto'}}>
-  ![](./assets/vuln-report-depth.png)
+  ![Vulnerability report columns showing severity, depth, and CWE classifications](./assets/vuln-report-depth.png)
   <figcaption>_The vulnerability report also shows the severity of the CVE and the depth (transitivity) of the dependency. ~80% of vulnerable dependencies are transitive._</figcaption>
 </figure>
 
@@ -561,18 +561,18 @@ mod study . --last-recipe-run --data-table VulnerabilityReport
 
 <div style={{display: 'flex'}}>
   <figure style={{maxWidth: '400px'}}>
-    ![](./assets/vuln-report-example.png)
+    ![Pom.xml diff upgrading jose4j and xstream dependency versions for security fixes](./assets/vuln-report-example.png)
     <figcaption>_Example demonstrating how this recipe updates minor versions to get critical security fixes._</figcaption>
   </figure>
 
   <figure style={{maxWidth: '400px'}}>
-    ![](./assets/owasp-data-table-example.png)
+    ![Vulnerability report table with CVE IDs, artifact versions, fix versions, and severity](./assets/owasp-data-table-example.png)
     <figcaption>_A vulnerability report that includes detailed information about the affected artifact and the corresponding CVEs._</figcaption>
   </figure>
 </div>
 
 <figure style={{maxWidth: '400px', margin: '0 auto'}}>
-  ![](./assets/vuln-report-depth.png)
+  ![Vulnerability report columns showing severity, depth, and CWE classifications](./assets/vuln-report-depth.png)
   <figcaption>_The vulnerability report also shows the severity of the CVE and the depth (transitivity) of the dependency. ~80% of vulnerable dependencies are transitive._</figcaption>
 </figure>
 
@@ -592,7 +592,7 @@ mod study . --last-recipe-run --data-table SourcesFileResults
 #### Recipe results
 
 <figure style={{maxWidth: '600px', margin: '0 auto'}}>
-  ![](./assets/junit-best-practices-example.png)
+  ![Code diff migrating JUnit 4 imports to JUnit Jupiter and removing test prefix from methods](./assets/junit-best-practices-example.png)
   <figcaption>_Applying best practices to JUnit tests._</figcaption>
 </figure>
 
@@ -610,7 +610,7 @@ mod study . --last-recipe-run --data-table SourcesFileResults
 #### Recipe results
 
 <figure style={{maxWidth: '600px', margin: '0 auto'}}>
-  ![](./assets/assertj-best-practices-example.png)
+  ![Code diff migrating from JUnit assertions to AssertJ assertThatThrownBy pattern](./assets/assertj-best-practices-example.png)
   <figcaption>_Applying AssertJ best practices to a test class._</figcaption>
 </figure>
 
@@ -633,12 +633,12 @@ mod study . --last-recipe-run --data-table SourcesFileResults
 
 <div style={{display: 'flex'}}>
   <figure style={{maxWidth: '400px'}}>
-    ![](./assets/java-version-change.png)
+    ![Pom.xml diff changing javaVersion property from 8 to 25](./assets/java-version-change.png)
     <figcaption>_Updating the Java version_</figcaption>
   </figure>
 
   <figure style={{maxWidth: '400px'}}>
-    ![](./assets/java-deprecated-method.png)
+    ![Code diff replacing Runtime.exec(String) with Runtime.exec(String.split) for safety](./assets/java-deprecated-method.png)
     <figcaption>_Fixing deprecated methods_</figcaption>
   </figure>
 </div>
@@ -657,7 +657,7 @@ mod study . --last-recipe-run --data-table SourcesFileResults
 #### Recipe results
 
 <figure style={{maxWidth: '600px', margin: '0 auto'}}>
-  ![](./assets/spring-boot-best-practice-example.png)
+  ![Code diff migrating javax to jakarta imports and updating Spring annotations](./assets/spring-boot-best-practice-example.png)
   <figcaption>_Applying Spring Boot best practices to a Java class._</figcaption>
 </figure>
 
@@ -680,6 +680,6 @@ mod git apply . --last-recipe-run
 #### Recipe results
 
 <figure>
-  ![](./assets/prethink-noai-results.png)
+  ![Recipe results listing generated .moderne/context files for architecture and conventions](./assets/prethink-noai-results.png)
   <figcaption>_Context files generated by the Prethink recipe._</figcaption>
 </figure>

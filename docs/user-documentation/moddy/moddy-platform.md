@@ -25,14 +25,14 @@ In this guide, we'll walk you through everything you need to know to get started
 To access Moddy in the Moderne Platform, click on the Moddy button in the sidebar:
 
 <figure>
-  ![](./assets/moddy-button.png)
+  ![Moderne Platform sidebar with the Moddy beta button highlighted](./assets/moddy-button.png)
   <figcaption></figcaption>
 </figure>
 
 This will take you to the chat window where you can ask it a variety of useful questions about your code. You can also see what repositories it will evaluate as part of your questions.
 
 <figure style={{maxWidth: '400px', margin: '0 auto'}}>
-  ![](./assets/moddy-chat.png)
+  ![Moddy chat interface with prompt suggestions and repository count for the Default organization](./assets/moddy-chat.png)
   <figcaption></figcaption>
 </figure>
 

@@ -62,7 +62,7 @@ During installation, you can choose which repositories the GitHub App can access
 Moderne requires a select number of OAuth scopes necessary to help you transform your code.
 
 <figure>
-  ![](./assets/authentication-github-permissions.png)
+  ![GitHub OAuth permissions showing Repositories, Organizations and teams, and Personal user data scopes](./assets/authentication-github-permissions.png)
 </figure>
 
 | Permission                            | Access     | Description                                                                                                                                                                                                                                                                                                            |
