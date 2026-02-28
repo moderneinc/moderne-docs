@@ -10,6 +10,13 @@ This page contains release notes for [Moderne proprietary OpenRewrite recipes](h
 This changelog is automatically generated from GitHub releases and only contains information from the past year.
 :::
 
+## February 27, 2026
+
+#### rewrite-spring - v0.26.1
+
+* Remove upgrade duplications from Upgrade Boot 3.5 proprietary vs OSS
+* Update Prethink context
+
 ## February 25, 2026
 
 #### rewrite-ai-search - 0.32.7
