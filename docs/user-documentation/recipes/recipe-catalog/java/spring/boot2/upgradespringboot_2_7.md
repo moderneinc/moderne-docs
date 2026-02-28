@@ -195,7 +195,7 @@ dependencies {
 ```properties title="gradle/wrapper/gradle-wrapper.properties"
 distributionBase=GRADLE_USER_HOME
 distributionPath=wrapper/dists
-distributionUrl=https\://services.gradle.org/distributions/gradle-6.7-bin.zip
+distributionUrl=https\://downloads.gradle.org/distributions/gradle-6.7-bin.zip
 zipStoreBase=GRADLE_USER_HOME
 zipStorePath=wrapper/dists
 ```
@@ -204,7 +204,7 @@ zipStorePath=wrapper/dists
 ```properties title="gradle/wrapper/gradle-wrapper.properties"
 distributionBase=GRADLE_USER_HOME
 distributionPath=wrapper/dists
-distributionUrl=https\://services.gradle.org/distributions/gradle-6.9.4-bin.zip
+distributionUrl=https\://downloads.gradle.org/distributions/gradle-6.9.4-bin.zip
 zipStoreBase=GRADLE_USER_HOME
 zipStorePath=wrapper/dists
 distributionSha256Sum=3e240228538de9f18772a574e99a0ba959e83d6ef351014381acd9631781389a
@@ -219,8 +219,8 @@ distributionSha256Sum=3e240228538de9f18772a574e99a0ba959e83d6ef351014381acd96317
 @@ -3,1 +3,1 @@
 distributionBase=GRADLE_USER_HOME
 distributionPath=wrapper/dists
--distributionUrl=https\://services.gradle.org/distributions/gradle-6.7-bin.zip
-+distributionUrl=https\://services.gradle.org/distributions/gradle-6.9.4-bin.zip
+-distributionUrl=https\://downloads.gradle.org/distributions/gradle-6.7-bin.zip
++distributionUrl=https\://downloads.gradle.org/distributions/gradle-6.9.4-bin.zip
 zipStoreBase=GRADLE_USER_HOME
 @@ -6,0 +6,1 @@
 zipStoreBase=GRADLE_USER_HOME
@@ -262,7 +262,7 @@ dependencies {
 ```properties title="gradle/wrapper/gradle-wrapper.properties"
 distributionBase=GRADLE_USER_HOME
 distributionPath=wrapper/dists
-distributionUrl=https\://services.gradle.org/distributions/gradle-6.7-bin.zip
+distributionUrl=https\://downloads.gradle.org/distributions/gradle-6.7-bin.zip
 zipStoreBase=GRADLE_USER_HOME
 zipStorePath=wrapper/dists
 ```
@@ -271,7 +271,7 @@ zipStorePath=wrapper/dists
 ```properties title="gradle/wrapper/gradle-wrapper.properties"
 distributionBase=GRADLE_USER_HOME
 distributionPath=wrapper/dists
-distributionUrl=https\://services.gradle.org/distributions/gradle-6.9.4-bin.zip
+distributionUrl=https\://downloads.gradle.org/distributions/gradle-6.9.4-bin.zip
 zipStoreBase=GRADLE_USER_HOME
 zipStorePath=wrapper/dists
 distributionSha256Sum=3e240228538de9f18772a574e99a0ba959e83d6ef351014381acd9631781389a
@@ -286,8 +286,8 @@ distributionSha256Sum=3e240228538de9f18772a574e99a0ba959e83d6ef351014381acd96317
 @@ -3,1 +3,1 @@
 distributionBase=GRADLE_USER_HOME
 distributionPath=wrapper/dists
--distributionUrl=https\://services.gradle.org/distributions/gradle-6.7-bin.zip
-+distributionUrl=https\://services.gradle.org/distributions/gradle-6.9.4-bin.zip
+-distributionUrl=https\://downloads.gradle.org/distributions/gradle-6.7-bin.zip
++distributionUrl=https\://downloads.gradle.org/distributions/gradle-6.9.4-bin.zip
 zipStoreBase=GRADLE_USER_HOME
 @@ -6,0 +6,1 @@
 zipStoreBase=GRADLE_USER_HOME
