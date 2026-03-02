@@ -20,50 +20,66 @@ The only removed command is `mod afterburner`, whose functionality has been fold
 
 The CLI ships in three platform-specific distributions:
 
-| Distribution | File                       | Use case                    |
-|--------------|----------------------------|-----------------------------|
-| Linux        | `moderne-cli-linux.tar.gz` | Linux workstations and CI   |
-| macOS        | `moderne-cli-macos.tar.gz` | macOS workstations          |
-| Windows      | `moderne-cli-windows.zip`  | Windows workstations and CI |
+| Distribution | File                      | Use case                    |
+|--------------|---------------------------|-----------------------------|
+| Linux        | `moderne-cli-linux.sh`    | Linux workstations and CI   |
+| macOS        | `moderne-cli-macos.sh`    | macOS workstations          |
+| Windows      | `moderne-cli-windows.zip` | Windows workstations and CI |
+
+The Linux and macOS distributions are self-extracting shell scripts. Run them to install the CLI. The Windows distribution is a zip archive containing an `install.cmd` script.
 
 Each distribution contains the CLI JAR, wrapper scripts, and a bundled JRE — a minimal Java 25 runtime containing only the modules the CLI needs. No separate Java installation is required.
 
-After extraction, the directory structure looks like this:
+After installation, the CLI directory structure looks like this:
 
 ```
-./
-├── install.sh                   # Unix install script (install.cmd on Windows)
-├── modw                         # Unix wrapper script (modw.cmd on Windows)
-├── moderne-wrapper.properties   # Version and download configuration
-├── lib/
-│   └── moderne-cli.jar          # The CLI fat JAR
-└── jre/                         # Bundled JRE (~60 MB)
-    ├── bin/
+~/.moderne/cli/
+├── bin/
+│   ├── mod                         # Symlink to modw
+│   └── modw                        # Wrapper script
+└── dist/
+    ├── moderne-wrapper.properties  # Version and download configuration
     ├── lib/
-    └── ...
+    │   └── moderne-cli.jar         # The CLI fat JAR
+    ├── jre/                        # Bundled JRE (~60 MB)
+    │   ├── bin/
+    │   └── lib/
+    └── aot/                        # Startup cache (generated on first run)
+        └── mod.aot
 ```
 
-The bundled JRE won't conflict with any Java installation you already have on your machine.
+The bundled JRE won't conflict with any Java installation you already have on your machine. After installation, both `mod` and `modw` are available on your `PATH`.
 
 ## Installing 4.0
 
 There are several installation paths, each with different tradeoffs. The right choice depends on whether you have internet access at runtime, whether you need per-project version pinning, and whether your team has Java installed.
 
-| Path                  | How it works                                       | Assumes                                        | Best for                                    |
-|-----------------------|----------------------------------------------------|------------------------------------------------|---------------------------------------------|
-| Package manager       | `brew install mod` / `choco install mod`           | Internet at install time                       | Individual workstations                     |
-| Platform distribution | Download archive, run `install.sh` / `install.cmd` | Internet at download time                      | Teams without Java, controlled environments |
-| Standalone wrapper    | Check `modw` + properties file into your repo      | Internet on first run (downloads distribution) | CI pipelines, per-project version pinning   |
+| Path                  | How it works                                      | Assumes                                        | Best for                                    |
+|-----------------------|---------------------------------------------------|------------------------------------------------|---------------------------------------------|
+| Quick install         | `curl -fsSL "https://app.moderne.io/cli" \| bash` | Internet at install time                       | Getting started quickly                     |
+| Package manager       | `brew install mod` / `choco install mod`          | Internet at install time                       | Individual workstations                     |
+| Platform distribution | Download `.sh` or `.zip`, run it                  | Internet at download time                      | Teams without Java, controlled environments |
+| Standalone wrapper    | Check `modw` + properties file into your repo     | Internet on first run (downloads distribution) | CI pipelines, per-project version pinning   |
 
 All three paths include a bundled JRE.
 
-### Platform distribution (recommended)
+### Quick install
 
-This is the recommended approach. Extract the download and run the install script, which places the CLI in `~/.moderne/cli/` and adds it to your `PATH`:
+On Linux or macOS, you can install the CLI with a single command:
 
 ```bash
-# Linux / macOS
-tar xzf moderne-cli-linux.tar.gz && ./install.sh
+curl -fsSL "https://app.moderne.io/cli" | bash
+```
+
+This downloads the `modw` wrapper, places it on your `PATH`, and configures it to connect to the Moderne Platform. On first run, `modw` will download the full platform distribution (JAR + bundled JRE) automatically.
+
+### Platform distribution (recommended)
+
+If you prefer to download the distribution manually, grab the file for your platform and run it. The installer places the CLI in `~/.moderne/cli/` and adds it to your `PATH`:
+
+```bash
+# Linux / macOS (self-extracting installer)
+bash moderne-cli-linux.sh
 
 # Windows (PowerShell)
 Expand-Archive moderne-cli-windows.zip -DestinationPath . ; .\install.cmd
@@ -89,9 +105,14 @@ On the first run, `modw` will automatically download the correct platform distri
 
 ### Version pinning
 
-Set `version=4.0.0` in the `moderne-wrapper.properties` file to pin a specific version, or `version=latest` to always use the newest release. The installed version is tracked in `~/.moderne/cli/dist/version.txt`.
+Set `version=4.0.0` in the `moderne-wrapper.properties` file to pin a specific version. You can also use these special tokens:
 
-A `.moderne/wrapper/moderne-wrapper.properties` file in a repository root takes priority over the global properties file, allowing you to pin specific versions per project.
+* `version=RELEASE` (the default): Resolves the latest stable release from Maven Central.
+* `version=LATEST`: Resolves the newest early access build. This is useful in environments where distinguished engineers need access to new versions before they are rolled out to the general population.
+
+The installed version is tracked in `~/.moderne/cli/dist/version.txt`.
+
+A `moderne/wrapper/moderne-wrapper.properties` file in a repository root takes priority over the global properties file, allowing you to pin specific versions per project.
 
 ### Version matrix testing
 
@@ -114,7 +135,7 @@ Each `modw` uses the version defined in its neighboring properties file. You can
 
 ## Updating custom scripts
 
-If you have custom wrapper scripts that invoke `mod` directly, you will need to update them to use `modw` or `java -jar`:
+After installation, `mod` is available as a symlink to `modw`, so most existing scripts will continue to work without changes. If you need to adjust paths or use direct Java invocation, here are the patterns:
 
 **3.x pattern (native binary):**
 
@@ -136,14 +157,14 @@ java -jar /path/to/moderne-cli.jar run --recipe=SomeRecipe ...
 
 Custom scripts that set `JAVA_HOME` or other environment variables should be updated to account for:
 
-* `MODERNE_JAVA_HOME`: Overrides JDK location (takes priority over `JAVA_HOME`). Must point to a Java 25+ installation.
+* `MODERNE_JAVA_HOME`: Overrides JDK location (takes priority over `JAVA_HOME`). Should point to a Java 25+ installation. The wrapper uses this unconditionally without a version check.
 * `MODERNE_JAR`: Overrides JAR location. Useful for testing custom builds.
 * `MODERNE_OPTS`: Additional JVM options (e.g., `-Xmx4g` for heap sizing).
 * `MODERNE_CLI_HOME`: Base directory for CLI state (default: `~/.moderne/cli`).
 
 ## Air-gapped and enterprise environments
 
-By default, `modw` downloads the CLI distribution (including the bundled JRE) from the internet. In enterprise environments that restrict outbound internet access, you can point it to an internal mirror instead.
+By default, `modw` downloads the CLI distribution (including the bundled JRE) from Maven Central. In enterprise environments that restrict outbound internet access, you can point it to an internal mirror instead.
 
 ### JDK resolution order
 
@@ -151,9 +172,9 @@ When looking for a Java runtime, the wrapper checks these locations in order:
 
 1. `MODERNE_JAVA_HOME` environment variable (used unconditionally, no version check)
 2. `JAVA_HOME` environment variable (checked for version >= 25)
-3. Bundled JRE at `~/.moderne/cli/dist/jre/bin/java` (included in platform distributions)
-4. `java` on `PATH` (checked for version >= 25)
-5. Well-known locations: SDKMAN, macOS `/Library/Java/JavaVirtualMachines`, IntelliJ/Gradle toolchains, `/usr/lib/jvm`, `C:\Program Files\Java`, etc.
+3. `java` on `PATH` (checked for version >= 25)
+4. Well-known locations: SDKMAN, macOS `/Library/Java/JavaVirtualMachines`, IntelliJ/Gradle toolchains, `/usr/lib/jvm`, etc.
+5. Bundled JRE at `~/.moderne/cli/dist/jre/bin/java` (included in platform distributions)
 6. Auto-download from Eclipse Adoptium (or custom `jdkUrl`)
 
 ### Configuring an internal mirror
@@ -193,18 +214,22 @@ In 4.0, the CLI is a single JVM process with no subprocess spawning. Every distr
 
 ## Troubleshooting
 
-#### "Java version X is less than the minimum required version 25"
+### "Java version X is less than the minimum required version 25"
 
 The wrapper found a JDK but it's too old. Either install Java 25+, use the platform distribution with its bundled JRE, or set `MODERNE_JAVA_HOME` to point to a Java 25+ installation.
 
-#### "Failed to download Moderne CLI distribution"
+### "Failed to download Moderne CLI distribution"
 
 The wrapper can't reach the download server (likely a firewall or proxy issue). Either download the platform distribution manually, or set `distributionUrl` in the `moderne-wrapper.properties` file to point to an internal mirror.
 
-#### "AOT cache appears to be corrupted"
+### "AOT cache appears to be corrupted"
 
 Delete `~/.moderne/cli/dist/aot/mod.aot` and `mod.aot.jar-stamp`. The cache will be regenerated on the next run.
 
-#### Slow first run
+### Slow first run
 
 The first time you run the CLI (or run it after an upgrade), it builds a startup cache that takes a few extra seconds. This is a one-time cost — subsequent runs will be fast.
+
+### Debugging
+
+The wrapper supports remote debugging via `--debug` (defaults to port 5005) or `--debug=PORT` to specify a custom port. This launches the CLI with a JDWP agent so you can attach a debugger from your IDE.
