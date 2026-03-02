@@ -183,7 +183,7 @@ As configuring identity providers between services can be quite complex, the set
 
 The organization management services maintain the hierarchy of repositories that your team has onboarded into Moderne. Organizations provide a logical grouping of repositories that scopes visibility, permissions, and recipe execution targets.
 
-An indexer processes organization data from external sources (such as your Connector or CSV uploads) while a reader serves that data to the rest of the platform. When you run a recipe, you select an organization to run it against — this determines which repositories are included.
+The indexer works with the [Connector](#moderne-connector) to scan your configured artifact sources for updates and pull LST artifacts and recipe JARs into Moderne's internal data store. These artifacts are encrypted in transit and at rest. A reader serves organization and repository data to the rest of the platform. When you run a recipe, you select an organization to run it against — this determines which repositories are included.
 
 **Setup requirements**
 
