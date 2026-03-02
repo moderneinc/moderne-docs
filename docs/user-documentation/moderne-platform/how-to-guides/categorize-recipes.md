@@ -3,6 +3,9 @@ sidebar_label: Managing recipe categories
 description: How to create your own recipe categories in the Moderne Platform.
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 # How to manage recipe categories
 
 When you publish recipes to the Moderne Platform, organizing them into meaningful categories helps users in your organization discover and run them. By default, recipes are categorized based on their package structure, but you can define a custom category hierarchy that better fits your organization's needs.
@@ -46,9 +49,6 @@ For a real-world example, see the [category.yml from rewrite-spring](https://git
 ### Generating and validating the `recipes.csv` file
 
 Once the `category.yml` file is ready, you will need to generate the CSV file using the build plugin for your build tool:
-
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
 
 <Tabs groupId="build-tool">
 <TabItem value="gradle" label="Gradle">

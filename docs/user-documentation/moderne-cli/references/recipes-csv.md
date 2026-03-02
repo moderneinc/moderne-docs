@@ -3,6 +3,9 @@ sidebar_label: CSV recipe marketplace
 description: Learn how the CLI CSV recipe marketplace works.
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 # Defining the recipe marketplace with a CSV file
 
 Starting with CLI version `3.55.0`, the recipe marketplace in the Moderne CLI is defined via a CSV file rather than a binary Lucene index. This provides several benefits:
@@ -115,9 +118,6 @@ If you maintain a recipe library and want to include an embedded `recipes.csv` f
 ### Generating the CSV
 
 To create or update your `recipes.csv` file, run:
-
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
 
 <Tabs groupId="build-tool">
 <TabItem value="gradle" label="Gradle">
