@@ -45,7 +45,6 @@ graph TB
             TRIGREP[Moderne Trigrep]
         end
 
-        STORE[Artifact Storage]
         KC[Keycloak]
     end
 
@@ -179,16 +178,6 @@ You must:
 :::tip
 As configuring identity providers between services can be quite complex, the setup for Keycloak is usually done over a Zoom meeting with Moderne and your company.
 :::
-
-### Moderne artifact storage
-
-The Moderne artifact storage service is responsible for receiving pre-encrypted LST artifacts and recipe JARs and storing them in a private object store depending on the cloud provider you use ([Azure Blob Storage](https://learn.microsoft.com/en-us/azure/storage/blobs/) or [AWS S3](https://aws.amazon.com/pm/serv-s3/)).
-
-The artifact storage service will also write high-level information about where to find these artifacts and when they were last updated to a relational database so that Moderne services know where to go to obtain the artifacts they need.
-
-**Setup requirements**
-
-* None
 
 ### Organization management
 
