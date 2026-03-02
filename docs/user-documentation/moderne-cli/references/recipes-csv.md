@@ -130,7 +130,7 @@ To create or update your `recipes.csv` file, run:
 <TabItem value="maven" label="Maven">
 
 ```bash
-./mvnw rewrite:generateRecipeCsv
+./mvnw rewrite:recipeCsvGenerate
 ```
 
 </TabItem>

@@ -61,7 +61,7 @@ Once the `category.yml` file is ready, you will need to generate the CSV file us
 <TabItem value="maven" label="Maven">
 
 ```bash
-./mvnw rewrite:generateRecipeCsv
+./mvnw rewrite:recipeCsvGenerate
 ```
 
 </TabItem>
@@ -121,7 +121,7 @@ dependencies {
 ### Creating the `recipes.csv` file manually
 
 :::warning
-You **cannot** use `./gradlew recipeCsvGenerate` or `./mvnw rewrite:generateRecipeCsv` for the wrapper artifact. These only scan the project's own classes, and since your wrapper does not define any recipes of its own, they would generate an empty CSV file.
+You **cannot** use `./gradlew recipeCsvGenerate` or `./mvnw rewrite:recipeCsvGenerate` for the wrapper artifact. These only scan the project's own classes, and since your wrapper does not define any recipes of its own, they would generate an empty CSV file.
 
 In addition, the Gradle build validation (`./gradlew check`) would reject any entry for a recipe from a dependency as a "phantom recipe".
 :::
