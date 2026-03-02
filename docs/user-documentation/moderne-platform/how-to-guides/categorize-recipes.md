@@ -45,19 +45,35 @@ For a real-world example, see the [category.yml from rewrite-spring](https://git
 
 ### Generating and validating the `recipes.csv` file
 
-Once the `category.yml` file is ready, you will need to generate the CSV file using the Gradle task from the [OpenRewrite Build Plugin](https://github.com/openrewrite/rewrite-build-gradle-plugin):
+Once the `category.yml` file is ready, you will need to generate the CSV file using the build plugin for your build tool:
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+<Tabs groupId="build-tool">
+<TabItem value="gradle" label="Gradle">
 
 ```bash
 ./gradlew recipeCsvGenerate
 ```
 
-This task will scan your recipe JAR and generate a `recipes.csv` file with `category1`, `category2`, ... `categoryN` columns derived from your `category.yml` file. Any manual adjustments you've made to the CSV file beforehand will be retained.
+</TabItem>
+<TabItem value="maven" label="Maven">
+
+```bash
+./mvnw rewrite:generateRecipeCsv
+```
+
+</TabItem>
+</Tabs>
+
+This will scan your compiled recipe classes and resources and generate a `recipes.csv` file with `category1`, `category2`, ... `categoryN` columns derived from your `category.yml` file. Any manual adjustments you've made to the CSV file beforehand will be retained.
 
 :::warning
-`recipeCsvGenerate` only scans your own JAR — recipes from dependencies are not included.
+CSV generation only scans your own project — recipes from dependencies are not included.
 :::
 
-Validation will run automatically as part of `./gradlew check`. It will verify that the CSV file is synchronized with the JAR content and that formatting conventions are followed (e.g., display names should begin with a capital letter and descriptions should end with a period).
+For Gradle projects, validation will run automatically as part of `./gradlew check`. It will verify that the CSV file is synchronized with the JAR content and that formatting conventions are followed (e.g., display names should begin with a capital letter and descriptions should end with a period).
 
 If any recipes appear in the CSV file but do not exist in the JAR ("phantom recipes"), the build will fail.
 
@@ -105,9 +121,9 @@ dependencies {
 ### Creating the `recipes.csv` file manually
 
 :::warning
-You **cannot** use `./gradlew recipeCsvGenerate` for the wrapper artifact. This task only scans its own JAR, and since your wrapper does not define any recipes of its own, it would generate an empty CSV file.
+You **cannot** use `./gradlew recipeCsvGenerate` or `./mvnw rewrite:generateRecipeCsv` for the wrapper artifact. These only scan the project's own classes, and since your wrapper does not define any recipes of its own, they would generate an empty CSV file.
 
-In addition, the build validation (`./gradlew check`) would reject any entry for a recipe from a dependency as a "phantom recipe".
+In addition, the Gradle build validation (`./gradlew check`) would reject any entry for a recipe from a dependency as a "phantom recipe".
 :::
 
 Instead, you should follow these steps:
