@@ -44,7 +44,7 @@ This recipe is used as part of the following composite recipes:
 * [Add explicit JAXB API dependencies and remove runtimes](/user-documentation/recipes/recipe-catalog/java/migrate/javax/addjaxbdependencieswithoutruntime.md)
 * [Add explicit JAXB API dependencies](/user-documentation/recipes/recipe-catalog/java/migrate/javax/addjaxbapidependencies.md)
 * [Create Spring Boot Application Entry Point](/user-documentation/recipes/recipe-catalog/java/dropwizard/coresetup.md)
-* [Migrate Hibernate dependencies to 6.0.x (Community Edition)](/user-documentation/recipes/recipe-catalog/hibernate/migratetohibernatedependencies60.md)
+* [Migrate Hibernate dependencies to 6.0.x](/user-documentation/recipes/recipe-catalog/hibernate/migratetohibernatedependencies60.md)
 * [Migrate Spring Cloud Sleuth 3.1 to Micrometer Tracing 1.0](/user-documentation/recipes/recipe-catalog/java/spring/cloud2022/migratecloudsleuthtomicrometertracing.md)
 
 ## Example

@@ -40,7 +40,7 @@ This recipe is available under the [Apache License Version 2.0](https://www.apac
 This recipe is used as part of the following composite recipes:
 
 * [Migrate from Micronaut 3.x to 4.x](/user-documentation/recipes/recipe-catalog/java/micronaut/micronaut3to4migration.md)
-* [Migrate from Spring Boot 1.x to 2.0](/user-documentation/recipes/recipe-catalog/java/spring/boot2/upgradespringboot_2_0-community-edition.md)
+* [Migrate from Spring Boot 1.x to 2.0 (Community Edition)](/user-documentation/recipes/recipe-catalog/java/spring/boot2/upgradespringboot_2_0-community-edition.md)
 * [Migrate to Gradle 5 from Gradle 4](/user-documentation/recipes/recipe-catalog/gradle/migratetogradle5.md)
 * [Migrate to Gradle 6 from Gradle 5](/user-documentation/recipes/recipe-catalog/gradle/migratetogradle6.md)
 * [Migrate to Gradle 7 from Gradle 6](/user-documentation/recipes/recipe-catalog/gradle/migratetogradle7.md)

@@ -1,5 +1,5 @@
 ---
-sidebar_label: "Remove invalid `@GeneratedValue` annotation (Community Edition)"
+sidebar_label: "Remove invalid `@GeneratedValue` annotation"
 ---
 
 
@@ -10,7 +10,7 @@ sidebar_label: "Remove invalid `@GeneratedValue` annotation (Community Edition)"
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# Remove invalid `@GeneratedValue` annotation (Community Edition)
+# Remove invalid `@GeneratedValue` annotation
 
 **org.openrewrite.hibernate.RemoveInvalidHibernateGeneratedValueAnnotation**
 
@@ -29,7 +29,7 @@ This recipe is available under the [Moderne Source Available License](https://do
 
 This recipe is used as part of the following composite recipes:
 
-* [Migrate to Hibernate 6.4.x (Community Edition)](/user-documentation/recipes/recipe-catalog/hibernate/migratetohibernate64.md)
+* [Migrate to Hibernate 6.4.x](/user-documentation/recipes/recipe-catalog/hibernate/migratetohibernate64.md)
 
 ## Example
 

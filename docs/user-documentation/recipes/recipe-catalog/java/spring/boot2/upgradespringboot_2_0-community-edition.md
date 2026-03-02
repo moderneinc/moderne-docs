@@ -1,5 +1,5 @@
 ---
-sidebar_label: "Migrate from Spring Boot 1.x to 2.0"
+sidebar_label: "Migrate from Spring Boot 1.x to 2.0 (Community Edition)"
 ---
 
 
@@ -10,7 +10,7 @@ sidebar_label: "Migrate from Spring Boot 1.x to 2.0"
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# Migrate from Spring Boot 1.x to 2.0
+# Migrate from Spring Boot 1.x to 2.0 (Community Edition)
 
 **org.openrewrite.java.spring.boot2.UpgradeSpringBoot\_2\_0**
 
@@ -105,7 +105,7 @@ This recipe is available under the [Moderne Source Available License](https://do
 ---
 type: specs.openrewrite.org/v1beta/recipe
 name: org.openrewrite.java.spring.boot2.UpgradeSpringBoot_2_0
-displayName: Migrate from Spring Boot 1.x to 2.0
+displayName: Migrate from Spring Boot 1.x to 2.0 (Community Edition)
 description: |
   Migrate Spring Boot 1.x applications to the latest Spring Boot 2.0 release. This recipe will modify an application's build files, make changes to deprecated/preferred APIs, and migrate configuration settings that have changes between versions. This recipe will also chain additional framework migrations (Spring Framework, Spring Data, etc) that are required as part of the migration to Spring Boot 2.0.
 tags:
@@ -450,7 +450,7 @@ This recipe has no required configuration options. Users of Moderne can run it v
 You will need to have configured the [Moderne CLI](https://docs.moderne.io/user-documentation/moderne-cli/getting-started/cli-intro) on your machine before you can run the following command.
 
 ```shell title="shell"
-mod run . --recipe UpgradeSpringBoot_2_0
+mod run . --recipe org.openrewrite.java.spring.boot2.UpgradeSpringBoot_2_0
 ```
 
 If the recipe is not available locally, then you can install it using:

@@ -1,5 +1,5 @@
 ---
-sidebar_label: "Migrate to Hibernate 6.1.x (Community Edition)"
+sidebar_label: "Migrate to Hibernate 6.1.x"
 ---
 
 
@@ -10,7 +10,7 @@ sidebar_label: "Migrate to Hibernate 6.1.x (Community Edition)"
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# Migrate to Hibernate 6.1.x (Community Edition)
+# Migrate to Hibernate 6.1.x
 
 **org.openrewrite.hibernate.MigrateToHibernate61**
 
@@ -47,7 +47,7 @@ This recipe is available under the [Moderne Source Available License](https://do
 ---
 type: specs.openrewrite.org/v1beta/recipe
 name: org.openrewrite.hibernate.MigrateToHibernate61
-displayName: Migrate to Hibernate 6.1.x (Community Edition)
+displayName: Migrate to Hibernate 6.1.x
 description: |
   This recipe will apply changes commonly needed when migrating to Hibernate 6.1.x. The hibernate dependencies will   be updated to use the new org.hibernate.orm group ID and the recipe will make changes necessary to use Hibernate with Jakarta EE 9.0.
 recipeList:
@@ -65,7 +65,7 @@ recipeList:
 
 This recipe is used as part of the following composite recipes:
 
-* [Migrate to Hibernate 6.2.x (Community Edition)](/user-documentation/recipes/recipe-catalog/hibernate/migratetohibernate62.md)
+* [Migrate to Hibernate 6.2.x](/user-documentation/recipes/recipe-catalog/hibernate/migratetohibernate62.md)
 * [Migrate to Hibernate for Jakarta EE 9](/user-documentation/recipes/recipe-catalog/com/oracle/weblogic/rewrite/hibernate/migratehibernatetojakartaee9.md)
 * [Migrate to Spring Boot 3.0](/user-documentation/recipes/recipe-catalog/java/spring/boot3/upgradespringboot_3_0.md)
 

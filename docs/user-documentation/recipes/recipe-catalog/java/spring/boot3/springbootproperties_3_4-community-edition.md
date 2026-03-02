@@ -1,5 +1,5 @@
 ---
-sidebar_label: "Migrate Spring Boot properties to 3.4"
+sidebar_label: "Migrate Spring Boot properties to 3.4 (Community Edition)"
 ---
 
 
@@ -10,7 +10,7 @@ sidebar_label: "Migrate Spring Boot properties to 3.4"
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# Migrate Spring Boot properties to 3.4
+# Migrate Spring Boot properties to 3.4 (Community Edition)
 
 **org.openrewrite.java.spring.boot3.SpringBootProperties\_3\_4**
 
@@ -69,7 +69,7 @@ This recipe is available under the [Moderne Source Available License](https://do
 ---
 type: specs.openrewrite.org/v1beta/recipe
 name: org.openrewrite.java.spring.boot3.SpringBootProperties_3_4
-displayName: Migrate Spring Boot properties to 3.4
+displayName: Migrate Spring Boot properties to 3.4 (Community Edition)
 description: |
   Migrate properties found in `application.properties` and `application.yml`.
 tags:
@@ -121,7 +121,7 @@ This recipe has no required configuration options. Users of Moderne can run it v
 You will need to have configured the [Moderne CLI](https://docs.moderne.io/user-documentation/moderne-cli/getting-started/cli-intro) on your machine before you can run the following command.
 
 ```shell title="shell"
-mod run . --recipe SpringBootProperties_3_4
+mod run . --recipe org.openrewrite.java.spring.boot3.SpringBootProperties_3_4
 ```
 
 If the recipe is not available locally, then you can install it using:

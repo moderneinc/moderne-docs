@@ -1,11 +1,11 @@
 ---
-sidebar_label: "Find JPQL definitions (Moderne Edition)"
+sidebar_label: "Find JPQL definitions"
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# Find JPQL definitions (Moderne Edition)
+# Find JPQL definitions
 
 **io.moderne.hibernate.search.FindJPQLDefinitions**
 

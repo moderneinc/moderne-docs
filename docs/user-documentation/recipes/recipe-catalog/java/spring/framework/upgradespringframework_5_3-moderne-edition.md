@@ -1,11 +1,11 @@
 ---
-sidebar_label: "Migrate to Spring Framework 5.3"
+sidebar_label: "Migrate to Spring Framework 5.3 (Moderne Edition)"
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# Migrate to Spring Framework 5.3
+# Migrate to Spring Framework 5.3 (Moderne Edition)
 
 **io.moderne.java.spring.framework.UpgradeSpringFramework\_5\_3**
 
@@ -23,7 +23,7 @@ This recipe is available under the [Moderne Proprietary License](https://docs.mo
 
 This recipe is used as part of the following composite recipes:
 
-* [Migrate to Spring Boot 2.0](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/spring/boot2/upgradespringboot_2_0-moderne-edition)
+* [Migrate to Spring Boot 2.0 (Moderne Edition)](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/spring/boot2/upgradespringboot_2_0-moderne-edition)
 * [Migrate to Spring Framework 7.0](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/spring/framework7/upgradespringframework_7_0)
 
 
@@ -38,7 +38,7 @@ This recipe has no required configuration options. Users of Moderne can run it v
 You will need to have configured the [Moderne CLI](https://docs.moderne.io/user-documentation/moderne-cli/getting-started/cli-intro) on your machine before you can run the following command.
 
 ```shell title="shell"
-mod run . --recipe UpgradeSpringFramework_5_3
+mod run . --recipe io.moderne.java.spring.framework.UpgradeSpringFramework_5_3
 ```
 
 If the recipe is not available locally, then you can install it using:

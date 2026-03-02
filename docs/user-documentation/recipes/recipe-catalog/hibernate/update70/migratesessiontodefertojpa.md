@@ -1,11 +1,11 @@
 ---
-sidebar_label: "Migrate Session save/update/delete method calls (Moderne Edition)"
+sidebar_label: "Migrate Session save/update/delete method calls"
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# Migrate Session save/update/delete method calls (Moderne Edition)
+# Migrate Session save/update/delete method calls
 
 **io.moderne.hibernate.update70.MigrateSessionToDeferToJPA**
 

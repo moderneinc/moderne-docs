@@ -1,11 +1,11 @@
 ---
-sidebar_label: "Migrate to @TargetEmbeddable (Moderne Edition)"
+sidebar_label: "Migrate to @TargetEmbeddable"
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# Migrate to @TargetEmbeddable (Moderne Edition)
+# Migrate to @TargetEmbeddable
 
 **io.moderne.hibernate.update70.MigrateToTargetEmbeddable**
 

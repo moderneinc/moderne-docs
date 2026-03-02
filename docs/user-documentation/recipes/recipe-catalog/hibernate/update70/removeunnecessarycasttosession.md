@@ -1,11 +1,11 @@
 ---
-sidebar_label: "Remove unnecessary cast to `Session` for `SessionFactory.createEntityManager()` (Moderne Edition)"
+sidebar_label: "Remove unnecessary cast to `Session` for `SessionFactory.createEntityManager()`"
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# Remove unnecessary cast to `Session` for `SessionFactory.createEntityManager()` (Moderne Edition)
+# Remove unnecessary cast to `Session` for `SessionFactory.createEntityManager()`
 
 **io.moderne.hibernate.update70.RemoveUnnecessaryCastToSession**
 

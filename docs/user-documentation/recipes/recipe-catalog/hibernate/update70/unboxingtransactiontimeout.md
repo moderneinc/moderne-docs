@@ -1,11 +1,11 @@
 ---
-sidebar_label: "Null safe Transaction#getTimeout() (Moderne Edition)"
+sidebar_label: "Null safe Transaction#getTimeout()"
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# Null safe Transaction#getTimeout() (Moderne Edition)
+# Null safe Transaction#getTimeout()
 
 **io.moderne.hibernate.update70.UnboxingTransactionTimeout**
 

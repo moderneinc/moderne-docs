@@ -1,11 +1,11 @@
 ---
-sidebar_label: "Migrate `MetamodelImplementor` to Hibernate 7.0 (Moderne Edition)"
+sidebar_label: "Migrate `MetamodelImplementor` to Hibernate 7.0"
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# Migrate `MetamodelImplementor` to Hibernate 7.0 (Moderne Edition)
+# Migrate `MetamodelImplementor` to Hibernate 7.0
 
 **io.moderne.hibernate.update70.MigrateMetamodelImplementor**
 

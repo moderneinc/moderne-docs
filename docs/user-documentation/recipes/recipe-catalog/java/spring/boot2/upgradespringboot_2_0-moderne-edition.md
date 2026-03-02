@@ -1,11 +1,11 @@
 ---
-sidebar_label: "Migrate to Spring Boot 2.0"
+sidebar_label: "Migrate to Spring Boot 2.0 (Moderne Edition)"
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# Migrate to Spring Boot 2.0
+# Migrate to Spring Boot 2.0 (Moderne Edition)
 
 **io.moderne.java.spring.boot2.UpgradeSpringBoot\_2\_0**
 
@@ -42,7 +42,7 @@ This recipe has no required configuration options. Users of Moderne can run it v
 You will need to have configured the [Moderne CLI](https://docs.moderne.io/user-documentation/moderne-cli/getting-started/cli-intro) on your machine before you can run the following command.
 
 ```shell title="shell"
-mod run . --recipe UpgradeSpringBoot_2_0
+mod run . --recipe io.moderne.java.spring.boot2.UpgradeSpringBoot_2_0
 ```
 
 If the recipe is not available locally, then you can install it using:

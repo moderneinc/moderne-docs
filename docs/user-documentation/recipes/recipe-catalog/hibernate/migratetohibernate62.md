@@ -1,5 +1,5 @@
 ---
-sidebar_label: "Migrate to Hibernate 6.2.x (Community Edition)"
+sidebar_label: "Migrate to Hibernate 6.2.x"
 ---
 
 
@@ -10,7 +10,7 @@ sidebar_label: "Migrate to Hibernate 6.2.x (Community Edition)"
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# Migrate to Hibernate 6.2.x (Community Edition)
+# Migrate to Hibernate 6.2.x
 
 **org.openrewrite.hibernate.MigrateToHibernate62**
 
@@ -33,13 +33,13 @@ This recipe is available under the [Moderne Source Available License](https://do
 
 <Tabs groupId="recipeType">
 <TabItem value="recipe-list" label="Recipe List" >
-* [Migrate to Hibernate 6.1.x (Community Edition)](../hibernate/migratetohibernate61)
-* [Migrate Hibernate Types to Hypersistence Utils 6.2 (Community Edition)](../hibernate/migratetohypersistenceutilshibernate62)
+* [Migrate to Hibernate 6.1.x](../hibernate/migratetohibernate61)
+* [Migrate Hibernate Types to Hypersistence Utils 6.2](../hibernate/migratetohypersistenceutilshibernate62)
 * [Upgrade Gradle or Maven dependency versions](../java/dependencies/upgradedependencyversion)
   * groupId: `org.hibernate.orm`
   * artifactId: `*`
   * newVersion: `6.2.x`
-* [Replace `@LazyCollection` with `jakarta.persistence.FetchType` (Community Edition)](../hibernate/replacelazycollectionannotation)
+* [Replace `@LazyCollection` with `jakarta.persistence.FetchType`](../hibernate/replacelazycollectionannotation)
 
 </TabItem>
 
@@ -49,7 +49,7 @@ This recipe is available under the [Moderne Source Available License](https://do
 ---
 type: specs.openrewrite.org/v1beta/recipe
 name: org.openrewrite.hibernate.MigrateToHibernate62
-displayName: Migrate to Hibernate 6.2.x (Community Edition)
+displayName: Migrate to Hibernate 6.2.x
 description: |
   This recipe will apply changes commonly needed when migrating to Hibernate 6.2.x.
 recipeList:
@@ -69,7 +69,7 @@ recipeList:
 
 This recipe is used as part of the following composite recipes:
 
-* [Migrate to Hibernate 6.3.x (Community Edition)](/user-documentation/recipes/recipe-catalog/hibernate/migratetohibernate63.md)
+* [Migrate to Hibernate 6.3.x](/user-documentation/recipes/recipe-catalog/hibernate/migratetohibernate63.md)
 * [Migrate to Spring Boot 3.1](/user-documentation/recipes/recipe-catalog/java/spring/boot3/upgradespringboot_3_1.md)
 
 

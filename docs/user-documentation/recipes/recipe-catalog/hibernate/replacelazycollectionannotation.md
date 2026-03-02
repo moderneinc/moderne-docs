@@ -1,5 +1,5 @@
 ---
-sidebar_label: "Replace `@LazyCollection` with `jakarta.persistence.FetchType` (Community Edition)"
+sidebar_label: "Replace `@LazyCollection` with `jakarta.persistence.FetchType`"
 ---
 
 
@@ -10,7 +10,7 @@ sidebar_label: "Replace `@LazyCollection` with `jakarta.persistence.FetchType` (
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# Replace `@LazyCollection` with `jakarta.persistence.FetchType` (Community Edition)
+# Replace `@LazyCollection` with `jakarta.persistence.FetchType`
 
 **org.openrewrite.hibernate.ReplaceLazyCollectionAnnotation**
 
@@ -29,7 +29,7 @@ This recipe is available under the [Moderne Source Available License](https://do
 
 This recipe is used as part of the following composite recipes:
 
-* [Migrate to Hibernate 6.2.x (Community Edition)](/user-documentation/recipes/recipe-catalog/hibernate/migratetohibernate62.md)
+* [Migrate to Hibernate 6.2.x](/user-documentation/recipes/recipe-catalog/hibernate/migratetohibernate62.md)
 
 ## Example
 

@@ -1,5 +1,5 @@
 ---
-sidebar_label: "Migrate Hibernate Types to Hypersistence Utils 6.3 (Community Edition)"
+sidebar_label: "Migrate Hibernate Types to Hypersistence Utils 6.3"
 ---
 
 
@@ -10,7 +10,7 @@ sidebar_label: "Migrate Hibernate Types to Hypersistence Utils 6.3 (Community Ed
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# Migrate Hibernate Types to Hypersistence Utils 6.3 (Community Edition)
+# Migrate Hibernate Types to Hypersistence Utils 6.3
 
 **org.openrewrite.hibernate.MigrateToHypersistenceUtilsHibernate63**
 
@@ -44,7 +44,7 @@ This recipe is available under the [Moderne Source Available License](https://do
 ---
 type: specs.openrewrite.org/v1beta/recipe
 name: org.openrewrite.hibernate.MigrateToHypersistenceUtilsHibernate63
-displayName: Migrate Hibernate Types to Hypersistence Utils 6.3 (Community Edition)
+displayName: Migrate Hibernate Types to Hypersistence Utils 6.3
 description: |
   This recipe will migrate any existing dependencies on `io.hypersistence:hypersistence-utils-hibernate-62` to `io.hypersistence:hypersistence-utils-hibernate-63`.
 recipeList:
@@ -63,7 +63,7 @@ recipeList:
 
 This recipe is used as part of the following composite recipes:
 
-* [Migrate to Hibernate 6.3.x (Community Edition)](/user-documentation/recipes/recipe-catalog/hibernate/migratetohibernate63.md)
+* [Migrate to Hibernate 6.3.x](/user-documentation/recipes/recipe-catalog/hibernate/migratetohibernate63.md)
 
 
 ## Usage

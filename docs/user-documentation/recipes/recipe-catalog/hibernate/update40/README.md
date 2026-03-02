@@ -6,6 +6,6 @@ description: Update40 OpenRewrite recipes.
 
 ## Recipes
 
-* [Migrate `@JoinTable` to `@CollectionTable` for element collections (Moderne Edition)](./migratejointabletocollectiontable.md)
+* [Migrate `@JoinTable` to `@CollectionTable` for element collections](./migratejointabletocollectiontable.md)
 
 

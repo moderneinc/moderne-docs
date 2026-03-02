@@ -1,11 +1,11 @@
 ---
-sidebar_label: "Fix conflicting class type annotation Hibernate 6.6 (Moderne Edition)"
+sidebar_label: "Fix conflicting class type annotation Hibernate 6.6"
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# Fix conflicting class type annotation Hibernate 6.6 (Moderne Edition)
+# Fix conflicting class type annotation Hibernate 6.6
 
 **io.moderne.hibernate.update66.FixConflictingClassTypeAnnotations**
 

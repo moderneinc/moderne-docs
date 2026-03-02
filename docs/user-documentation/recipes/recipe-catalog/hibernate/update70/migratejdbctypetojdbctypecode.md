@@ -1,11 +1,11 @@
 ---
-sidebar_label: "Migrate @JdbcType to @JdbcTypeCode (Moderne Edition)"
+sidebar_label: "Migrate @JdbcType to @JdbcTypeCode"
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# Migrate @JdbcType to @JdbcTypeCode (Moderne Edition)
+# Migrate @JdbcType to @JdbcTypeCode
 
 **io.moderne.hibernate.update70.MigrateJdbcTypeToJdbcTypeCode**
 

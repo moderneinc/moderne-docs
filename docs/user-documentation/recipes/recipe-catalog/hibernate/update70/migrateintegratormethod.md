@@ -1,11 +1,11 @@
 ---
-sidebar_label: "Migrate Hibernate `Integrator#integrate` method (Moderne Edition)"
+sidebar_label: "Migrate Hibernate `Integrator#integrate` method"
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# Migrate Hibernate `Integrator#integrate` method (Moderne Edition)
+# Migrate Hibernate `Integrator#integrate` method
 
 **io.moderne.hibernate.update70.MigrateIntegratorMethod**
 

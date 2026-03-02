@@ -1,11 +1,11 @@
 ---
-sidebar_label: "Remove leaking of SharedSessionContractImplementor from `org.hibernate.usertype.UserType` implementations (Moderne Edition)"
+sidebar_label: "Remove leaking of SharedSessionContractImplementor from `org.hibernate.usertype.UserType` implementations"
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# Remove leaking of SharedSessionContractImplementor from `org.hibernate.usertype.UserType` implementations (Moderne Edition)
+# Remove leaking of SharedSessionContractImplementor from `org.hibernate.usertype.UserType` implementations
 
 **io.moderne.hibernate.update70.UserTypeSharedSessionContractImplementor**
 

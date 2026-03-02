@@ -1,11 +1,11 @@
 ---
-sidebar_label: "Migrate LockOptions to direct parameters (Moderne Edition)"
+sidebar_label: "Migrate LockOptions to direct parameters"
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# Migrate LockOptions to direct parameters (Moderne Edition)
+# Migrate LockOptions to direct parameters
 
 **io.moderne.hibernate.update70.MigrateLockOptionsToDirectParameters**
 

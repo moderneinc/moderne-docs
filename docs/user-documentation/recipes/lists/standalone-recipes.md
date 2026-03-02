@@ -30,10 +30,10 @@ Total standalone recipes: 1771
 ## io.moderne.recipe:rewrite-hibernate
 
 * [io.moderne.hibernate.search.FindJPQLDefinitions](/user-documentation/recipes/recipe-catalog/hibernate/search/findjpqldefinitions.md)
-  * **Find JPQL definitions (Moderne Edition)**
+  * **Find JPQL definitions**
   * Find Java Persistence Query Language definitions in the codebase.
 * [io.moderne.hibernate.update70.MigrateJdbcTypeToJdbcTypeCode](/user-documentation/recipes/recipe-catalog/hibernate/update70/migratejdbctypetojdbctypecode.md)
-  * **Migrate @JdbcType to @JdbcTypeCode (Moderne Edition)**
+  * **Migrate @JdbcType to @JdbcTypeCode**
   * In Hibernate 7.0, various JDBC types were moved to internal packages. Use @JdbcTypeCode with SqlTypes constants instead of @JdbcType with specific classes.
 
 ## io.moderne.recipe:rewrite-java-application-server
@@ -426,7 +426,7 @@ Total standalone recipes: 1771
 ## org.openrewrite.recipe:rewrite-hibernate
 
 * [org.openrewrite.hibernate.MigrateUserType](/user-documentation/recipes/recipe-catalog/hibernate/migrateusertype.md)
-  * **Migrate `UserType` to Hibernate 6 (Community Edition)**
+  * **Migrate `UserType` to Hibernate 6**
   * With Hibernate 6 the `UserType` interface received a type parameter making it more strictly typed. This recipe applies the changes required to adhere to this change.
 
 ## org.openrewrite.recipe:rewrite-java-dependencies
@@ -5025,7 +5025,7 @@ Total standalone recipes: 1771
   * **Remove Develocity**
   * Remove the Develocity plugin and configuration from the Gradle build and settings files.
 * [org.openrewrite.hibernate.validator.HibernateValidator_8_0](/user-documentation/recipes/recipe-catalog/hibernate/validator/hibernatevalidator_8_0.md)
-  * **Migrate to Hibernate Validator 8.0.x (Community Edition)**
+  * **Migrate to Hibernate Validator 8.0.x**
   * This recipe will apply changes commonly needed when migrating to Hibernate Validator 8.0.x.
 * [org.openrewrite.java.AddApache2LicenseHeader](/user-documentation/recipes/recipe-catalog/java/addapache2licenseheader.md)
   * **Add ASLv2 license header**

@@ -1,5 +1,5 @@
 ---
-sidebar_label: "AddScalarPreferStandardBasicTypesForHibernate5 (Community Edition)"
+sidebar_label: "AddScalarPreferStandardBasicTypesForHibernate5"
 ---
 
 
@@ -10,7 +10,7 @@ sidebar_label: "AddScalarPreferStandardBasicTypesForHibernate5 (Community Editio
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# AddScalarPreferStandardBasicTypesForHibernate5 (Community Edition)
+# AddScalarPreferStandardBasicTypesForHibernate5
 
 **org.openrewrite.hibernate.AddScalarPreferStandardBasicTypes**
 

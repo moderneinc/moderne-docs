@@ -86,7 +86,7 @@ This recipe has no required configuration options. Users of Moderne can run it v
 You will need to have configured the [Moderne CLI](https://docs.moderne.io/user-documentation/moderne-cli/getting-started/cli-intro) on your machine before you can run the following command.
 
 ```shell title="shell"
-mod run . --recipe MigrateToHibernate70
+mod run . --recipe io.moderne.hibernate.MigrateToHibernate70
 ```
 
 If the recipe is not available locally, then you can install it using:

@@ -1,11 +1,11 @@
 ---
-sidebar_label: "Migrate NaturalIdMultiLoadAccess method calls (Moderne Edition)"
+sidebar_label: "Migrate NaturalIdMultiLoadAccess method calls"
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# Migrate NaturalIdMultiLoadAccess method calls (Moderne Edition)
+# Migrate NaturalIdMultiLoadAccess method calls
 
 **io.moderne.hibernate.update70.MigrateNaturalIdMultiLoadAccess**
 

@@ -1,11 +1,11 @@
 ---
-sidebar_label: "Migrate `Configurable.configure()` to use `GeneratorCreationContext` (Moderne Edition)"
+sidebar_label: "Migrate `Configurable.configure()` to use `GeneratorCreationContext`"
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# Migrate `Configurable.configure()` to use `GeneratorCreationContext` (Moderne Edition)
+# Migrate `Configurable.configure()` to use `GeneratorCreationContext`
 
 **io.moderne.hibernate.update70.MigrateConfigurableToGeneratorCreationContext**
 

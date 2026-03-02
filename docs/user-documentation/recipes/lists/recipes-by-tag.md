@@ -1022,7 +1022,7 @@ _77 recipes_
   * **Migrate Spring Framework to Spring Boot**
   * Migrate non Spring Boot applications to the latest compatible Spring Boot release. This recipe will modify an application's build files introducing Maven dependency management for Spring Boot, or adding the Gradle Spring Boot build plugin.
 * [io.moderne.java.spring.boot2.UpgradeSpringBoot_2_0](/user-documentation/recipes/recipe-catalog/java/spring/boot2/upgradespringboot_2_0-moderne-edition.md)
-  * **Migrate to Spring Boot 2.0**
+  * **Migrate to Spring Boot 2.0 (Moderne Edition)**
   * Migrate applications to the latest Spring Boot 2.0 release. This recipe will modify an application's build files, make changes to deprecated/preferred APIs, and migrate configuration settings that have changes between versions. This recipe will also chain additional framework migrations (Spring Framework, Spring Data, etc) that are required as part of the migration to Spring Boot 2.0.
 * [io.moderne.java.spring.boot3.CommentDeprecations](/user-documentation/recipes/recipe-catalog/java/spring/boot3/commentdeprecations.md)
   * **Comment deprecated methods in Spring 3.4**
@@ -1043,7 +1043,7 @@ _77 recipes_
   * **Spring Boot 3.5 best practices**
   * Applies best practices to Spring Boot 3.5+ applications.
 * [io.moderne.java.spring.boot3.SpringBootProperties_3_4](/user-documentation/recipes/recipe-catalog/java/spring/boot3/springbootproperties_3_4-moderne-edition.md)
-  * **Migrate `@Endpoint` Security properties to 3.4**
+  * **Migrate `@Endpoint` Security properties to 3.4 (Moderne Edition)**
   * Migrate the settings for Spring Boot Management Endpoint Security from `true`|`false` to `read-only`|`none`.
 * [io.moderne.java.spring.boot3.UpdateOpenTelemetryResourceAttributes](/user-documentation/recipes/recipe-catalog/java/spring/boot3/updateopentelemetryresourceattributes.md)
   * **Update OpenTelemetry resource attributes**
@@ -1088,7 +1088,7 @@ _77 recipes_
   * **Migrate Spring Retry to Spring Resilience**
   * Handle spring-retry no longer managed by Spring Boot and the possible migration to Spring Core Resilience.
 * [io.moderne.java.spring.boot4.MigrateToModularStarters](/user-documentation/recipes/recipe-catalog/java/spring/boot4/migratetomodularstarters-moderne-edition.md)
-  * **Migrate to Spring Boot 4.0 modular starters**
+  * **Migrate to Spring Boot 4.0 modular starters (Moderne Edition)**
   * Remove monolithic starters and adds the necessary Spring Boot 4.0 starter dependencies based on package usage, where any spring-boot-starter was used previously.
 * [io.moderne.java.spring.boot4.ModuleStarterRelocations](/user-documentation/recipes/recipe-catalog/java/spring/boot4/modulestarterrelocations.md)
   * **Spring Boot 4.0 Module Starter Relocations**
@@ -1130,7 +1130,7 @@ _77 recipes_
   * **Migrate Spring Boot properties to 2.7**
   * Migrate properties found in `application.properties` and `application.yml`.
 * [org.openrewrite.java.spring.boot2.UpgradeSpringBoot_2_0](/user-documentation/recipes/recipe-catalog/java/spring/boot2/upgradespringboot_2_0-community-edition.md)
-  * **Migrate from Spring Boot 1.x to 2.0**
+  * **Migrate from Spring Boot 1.x to 2.0 (Community Edition)**
   * Migrate Spring Boot 1.x applications to the latest Spring Boot 2.0 release. This recipe will modify an application's build files, make changes to deprecated/preferred APIs, and migrate configuration settings that have changes between versions. This recipe will also chain additional framework migrations (Spring Framework, Spring Data, etc) that are required as part of the migration to Spring Boot 2.0.
 * [org.openrewrite.java.spring.boot2.UpgradeSpringBoot_2_1](/user-documentation/recipes/recipe-catalog/java/spring/boot2/upgradespringboot_2_1.md)
   * **Migrate to Spring Boot 2.1**
@@ -1193,7 +1193,7 @@ _77 recipes_
   * **Migrate Spring Boot properties to 3.3**
   * Migrate properties found in `application.properties` and `application.yml`.
 * [org.openrewrite.java.spring.boot3.SpringBootProperties_3_4](/user-documentation/recipes/recipe-catalog/java/spring/boot3/springbootproperties_3_4-community-edition.md)
-  * **Migrate Spring Boot properties to 3.4**
+  * **Migrate Spring Boot properties to 3.4 (Community Edition)**
   * Migrate properties found in `application.properties` and `application.yml`.
 * [org.openrewrite.java.spring.boot3.SpringBootProperties_3_4_EnabledToAccess](/user-documentation/recipes/recipe-catalog/java/spring/boot3/springbootproperties_3_4_enabledtoaccess.md)
   * **Migrate Enabled to Access Spring Boot Properties**
@@ -8859,7 +8859,7 @@ _70 recipes_
   * **Migrate from Acegi Security 1.0.x to Spring Security 5.0**
   * Migrates Acegi Security 1.0.x directly to Spring Security 5.0. This recipe handles dependency changes, type renames, XML configuration updates, web.xml filter migration, and adds TODO comments for password encoders that require manual migration.
 * [io.moderne.java.spring.security6.UpgradeSpringSecurity_6_5](/user-documentation/recipes/recipe-catalog/java/spring/security6/upgradespringsecurity_6_5-moderne-edition.md)
-  * **Migrate to Spring Security 6.5**
+  * **Migrate to Spring Security 6.5 (Moderne Edition)**
   * Migrate applications to the latest Spring Security 6.5 release. This recipe will modify an application's build files, make changes to deprecated/preferred APIs, and migrate configuration settings that have changes between versions.
 * [io.moderne.java.spring.security7.MigrateOAuth2AccessTokenResponseClient](/user-documentation/recipes/recipe-catalog/java/spring/security7/migrateoauth2accesstokenresponseclient.md)
   * **Migrate `OAuth2AccessTokenResponseClient` from `RestOperations` to `RestClient` based implementations**
@@ -9042,7 +9042,7 @@ _70 recipes_
   * **Migrate to Spring Security 6.4**
   * Migrate applications to the latest Spring Security 6.4 release. This recipe will modify an application's build files, make changes to deprecated/preferred APIs, and migrate configuration settings that have changes between versions.
 * [org.openrewrite.java.spring.security6.UpgradeSpringSecurity_6_5](/user-documentation/recipes/recipe-catalog/java/spring/security6/upgradespringsecurity_6_5-community-edition.md)
-  * **Migrate to Spring Security 6.5**
+  * **Migrate to Spring Security 6.5 (Community Edition)**
   * Migrate applications to the latest Spring Security 6.5 release. This recipe will modify an application's build files, make changes to deprecated/preferred APIs, and migrate configuration settings that have changes between versions.
 * [org.openrewrite.java.spring.security7.SecurityConfigurerRemoveThrowsException](/user-documentation/recipes/recipe-catalog/java/spring/security7/securityconfigurerremovethrowsexception.md)
   * **Remove throws exception in `SecurityConfigurer` methods `init` and `configure`**
@@ -9169,7 +9169,7 @@ _197 recipes_
   * **Migrate Spring Framework to Spring Boot**
   * Migrate non Spring Boot applications to the latest compatible Spring Boot release. This recipe will modify an application's build files introducing Maven dependency management for Spring Boot, or adding the Gradle Spring Boot build plugin.
 * [io.moderne.java.spring.boot2.UpgradeSpringBoot_2_0](/user-documentation/recipes/recipe-catalog/java/spring/boot2/upgradespringboot_2_0-moderne-edition.md)
-  * **Migrate to Spring Boot 2.0**
+  * **Migrate to Spring Boot 2.0 (Moderne Edition)**
   * Migrate applications to the latest Spring Boot 2.0 release. This recipe will modify an application's build files, make changes to deprecated/preferred APIs, and migrate configuration settings that have changes between versions. This recipe will also chain additional framework migrations (Spring Framework, Spring Data, etc) that are required as part of the migration to Spring Boot 2.0.
 * [io.moderne.java.spring.boot3.CommentDeprecations](/user-documentation/recipes/recipe-catalog/java/spring/boot3/commentdeprecations.md)
   * **Comment deprecated methods in Spring 3.4**
@@ -9190,7 +9190,7 @@ _197 recipes_
   * **Spring Boot 3.5 best practices**
   * Applies best practices to Spring Boot 3.5+ applications.
 * [io.moderne.java.spring.boot3.SpringBootProperties_3_4](/user-documentation/recipes/recipe-catalog/java/spring/boot3/springbootproperties_3_4-moderne-edition.md)
-  * **Migrate `@Endpoint` Security properties to 3.4**
+  * **Migrate `@Endpoint` Security properties to 3.4 (Moderne Edition)**
   * Migrate the settings for Spring Boot Management Endpoint Security from `true`|`false` to `read-only`|`none`.
 * [io.moderne.java.spring.boot3.UpdateOpenTelemetryResourceAttributes](/user-documentation/recipes/recipe-catalog/java/spring/boot3/updateopentelemetryresourceattributes.md)
   * **Update OpenTelemetry resource attributes**
@@ -9238,7 +9238,7 @@ _197 recipes_
   * **Migrate Spring Retry to Spring Resilience**
   * Handle spring-retry no longer managed by Spring Boot and the possible migration to Spring Core Resilience.
 * [io.moderne.java.spring.boot4.MigrateToModularStarters](/user-documentation/recipes/recipe-catalog/java/spring/boot4/migratetomodularstarters-moderne-edition.md)
-  * **Migrate to Spring Boot 4.0 modular starters**
+  * **Migrate to Spring Boot 4.0 modular starters (Moderne Edition)**
   * Remove monolithic starters and adds the necessary Spring Boot 4.0 starter dependencies based on package usage, where any spring-boot-starter was used previously.
 * [io.moderne.java.spring.boot4.ModuleStarterRelocations](/user-documentation/recipes/recipe-catalog/java/spring/boot4/modulestarterrelocations.md)
   * **Spring Boot 4.0 Module Starter Relocations**
@@ -9325,7 +9325,7 @@ _197 recipes_
   * **Migrate from Acegi Security 1.0.x to Spring Security 5.0**
   * Migrates Acegi Security 1.0.x directly to Spring Security 5.0. This recipe handles dependency changes, type renames, XML configuration updates, web.xml filter migration, and adds TODO comments for password encoders that require manual migration.
 * [io.moderne.java.spring.security6.UpgradeSpringSecurity_6_5](/user-documentation/recipes/recipe-catalog/java/spring/security6/upgradespringsecurity_6_5-moderne-edition.md)
-  * **Migrate to Spring Security 6.5**
+  * **Migrate to Spring Security 6.5 (Moderne Edition)**
   * Migrate applications to the latest Spring Security 6.5 release. This recipe will modify an application's build files, make changes to deprecated/preferred APIs, and migrate configuration settings that have changes between versions.
 * [io.moderne.java.spring.security7.MigrateOAuth2AccessTokenResponseClient](/user-documentation/recipes/recipe-catalog/java/spring/security7/migrateoauth2accesstokenresponseclient.md)
   * **Migrate `OAuth2AccessTokenResponseClient` from `RestOperations` to `RestClient` based implementations**
@@ -9370,7 +9370,7 @@ _197 recipes_
   * **Migrate Spring Boot properties to 2.7**
   * Migrate properties found in `application.properties` and `application.yml`.
 * [org.openrewrite.java.spring.boot2.UpgradeSpringBoot_2_0](/user-documentation/recipes/recipe-catalog/java/spring/boot2/upgradespringboot_2_0-community-edition.md)
-  * **Migrate from Spring Boot 1.x to 2.0**
+  * **Migrate from Spring Boot 1.x to 2.0 (Community Edition)**
   * Migrate Spring Boot 1.x applications to the latest Spring Boot 2.0 release. This recipe will modify an application's build files, make changes to deprecated/preferred APIs, and migrate configuration settings that have changes between versions. This recipe will also chain additional framework migrations (Spring Framework, Spring Data, etc) that are required as part of the migration to Spring Boot 2.0.
 * [org.openrewrite.java.spring.boot2.UpgradeSpringBoot_2_1](/user-documentation/recipes/recipe-catalog/java/spring/boot2/upgradespringboot_2_1.md)
   * **Migrate to Spring Boot 2.1**
@@ -9433,7 +9433,7 @@ _197 recipes_
   * **Migrate Spring Boot properties to 3.3**
   * Migrate properties found in `application.properties` and `application.yml`.
 * [org.openrewrite.java.spring.boot3.SpringBootProperties_3_4](/user-documentation/recipes/recipe-catalog/java/spring/boot3/springbootproperties_3_4-community-edition.md)
-  * **Migrate Spring Boot properties to 3.4**
+  * **Migrate Spring Boot properties to 3.4 (Community Edition)**
   * Migrate properties found in `application.properties` and `application.yml`.
 * [org.openrewrite.java.spring.boot3.SpringBootProperties_3_4_EnabledToAccess](/user-documentation/recipes/recipe-catalog/java/spring/boot3/springbootproperties_3_4_enabledtoaccess.md)
   * **Migrate Enabled to Access Spring Boot Properties**
@@ -9577,7 +9577,7 @@ _197 recipes_
   * **Migrate to Spring Security 6.4**
   * Migrate applications to the latest Spring Security 6.4 release. This recipe will modify an application's build files, make changes to deprecated/preferred APIs, and migrate configuration settings that have changes between versions.
 * [org.openrewrite.java.spring.security6.UpgradeSpringSecurity_6_5](/user-documentation/recipes/recipe-catalog/java/spring/security6/upgradespringsecurity_6_5-community-edition.md)
-  * **Migrate to Spring Security 6.5**
+  * **Migrate to Spring Security 6.5 (Community Edition)**
   * Migrate applications to the latest Spring Security 6.5 release. This recipe will modify an application's build files, make changes to deprecated/preferred APIs, and migrate configuration settings that have changes between versions.
 * [org.openrewrite.java.spring.security7.SecurityConfigurerRemoveThrowsException](/user-documentation/recipes/recipe-catalog/java/spring/security7/securityconfigurerremovethrowsexception.md)
   * **Remove throws exception in `SecurityConfigurer` methods `init` and `configure`**

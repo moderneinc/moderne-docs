@@ -1,11 +1,11 @@
 ---
-sidebar_label: "Migrate Session interface method calls (Moderne Edition)"
+sidebar_label: "Migrate Session interface method calls"
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# Migrate Session interface method calls (Moderne Edition)
+# Migrate Session interface method calls
 
 **io.moderne.hibernate.update70.MigrateSessionInterface**
 

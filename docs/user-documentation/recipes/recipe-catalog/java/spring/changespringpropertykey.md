@@ -50,7 +50,7 @@ This recipe is used as part of the following composite recipes:
 * [Migrate Spring Boot properties to 3.1](/user-documentation/recipes/recipe-catalog/java/spring/boot3/springbootproperties_3_1.md)
 * [Migrate Spring Boot properties to 3.2](/user-documentation/recipes/recipe-catalog/java/spring/boot3/springbootproperties_3_2.md)
 * [Migrate Spring Boot properties to 3.3](/user-documentation/recipes/recipe-catalog/java/spring/boot3/springbootproperties_3_3.md)
-* [Migrate Spring Boot properties to 3.4](/user-documentation/recipes/recipe-catalog/java/spring/boot3/springbootproperties_3_4-community-edition.md)
+* [Migrate Spring Boot properties to 3.4 (Community Edition)](/user-documentation/recipes/recipe-catalog/java/spring/boot3/springbootproperties_3_4-community-edition.md)
 * [Migrate Spring Boot properties to 3.5](/user-documentation/recipes/recipe-catalog/java/spring/boot3/springbootproperties_3_5.md)
 * [Migrate Spring Boot properties to 4.0](/user-documentation/recipes/recipe-catalog/java/spring/boot4/springbootproperties_4_0.md)
 * [Migrate Spring Cloud Gateway Properties](/user-documentation/recipes/recipe-catalog/java/spring/cloud2025/springcloudgatewayproperties.md)

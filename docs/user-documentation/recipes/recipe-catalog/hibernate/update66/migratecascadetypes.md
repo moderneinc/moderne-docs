@@ -1,11 +1,11 @@
 ---
-sidebar_label: "Migrate Hibernate CascadeType constants (Moderne Edition)"
+sidebar_label: "Migrate Hibernate CascadeType constants"
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# Migrate Hibernate CascadeType constants (Moderne Edition)
+# Migrate Hibernate CascadeType constants
 
 **io.moderne.hibernate.update66.MigrateCascadeTypes**
 

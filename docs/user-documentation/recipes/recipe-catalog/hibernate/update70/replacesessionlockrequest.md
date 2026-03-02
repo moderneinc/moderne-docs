@@ -1,11 +1,11 @@
 ---
-sidebar_label: "Replace Session.buildLockRequest with LockOptions (Moderne Edition)"
+sidebar_label: "Replace Session.buildLockRequest with LockOptions"
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# Replace Session.buildLockRequest with LockOptions (Moderne Edition)
+# Replace Session.buildLockRequest with LockOptions
 
 **io.moderne.hibernate.update70.ReplaceSessionLockRequest**
 

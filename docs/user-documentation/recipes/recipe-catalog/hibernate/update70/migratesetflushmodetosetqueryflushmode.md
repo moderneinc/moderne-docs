@@ -1,11 +1,11 @@
 ---
-sidebar_label: "Migrate `setFlushMode()` to `setQueryFlushMode()` (Moderne Edition)"
+sidebar_label: "Migrate `setFlushMode()` to `setQueryFlushMode()`"
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# Migrate `setFlushMode()` to `setQueryFlushMode()` (Moderne Edition)
+# Migrate `setFlushMode()` to `setQueryFlushMode()`
 
 **io.moderne.hibernate.update70.MigrateSetFlushModeToSetQueryFlushMode**
 

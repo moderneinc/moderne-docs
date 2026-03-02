@@ -1,11 +1,11 @@
 ---
-sidebar_label: "Migrate `@Endpoint` Security properties to 3.4"
+sidebar_label: "Migrate `@Endpoint` Security properties to 3.4 (Moderne Edition)"
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# Migrate `@Endpoint` Security properties to 3.4
+# Migrate `@Endpoint` Security properties to 3.4 (Moderne Edition)
 
 **io.moderne.java.spring.boot3.SpringBootProperties\_3\_4**
 
@@ -42,7 +42,7 @@ This recipe has no required configuration options. Users of Moderne can run it v
 You will need to have configured the [Moderne CLI](https://docs.moderne.io/user-documentation/moderne-cli/getting-started/cli-intro) on your machine before you can run the following command.
 
 ```shell title="shell"
-mod run . --recipe SpringBootProperties_3_4
+mod run . --recipe io.moderne.java.spring.boot3.SpringBootProperties_3_4
 ```
 
 If the recipe is not available locally, then you can install it using:

@@ -1,5 +1,5 @@
 ---
-sidebar_label: "Migrate to Spring Security 6.5"
+sidebar_label: "Migrate to Spring Security 6.5 (Community Edition)"
 ---
 
 
@@ -10,7 +10,7 @@ sidebar_label: "Migrate to Spring Security 6.5"
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# Migrate to Spring Security 6.5
+# Migrate to Spring Security 6.5 (Community Edition)
 
 **org.openrewrite.java.spring.security6.UpgradeSpringSecurity\_6\_5**
 
@@ -57,7 +57,7 @@ This recipe is available under the [Moderne Source Available License](https://do
 ---
 type: specs.openrewrite.org/v1beta/recipe
 name: org.openrewrite.java.spring.security6.UpgradeSpringSecurity_6_5
-displayName: Migrate to Spring Security 6.5
+displayName: Migrate to Spring Security 6.5 (Community Edition)
 description: |
   Migrate applications to the latest Spring Security 6.5 release. This recipe will modify an application's build files, make changes to deprecated/preferred APIs, and migrate configuration settings that have changes between versions.
 tags:
@@ -84,7 +84,7 @@ recipeList:
 This recipe is used as part of the following composite recipes:
 
 * [Migrate to Spring Boot 3.5 (Community Edition)](/user-documentation/recipes/recipe-catalog/java/spring/boot3/upgradespringboot_3_5-community-edition.md)
-* [Migrate to Spring Security 6.5](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/spring/security6/upgradespringsecurity_6_5-moderne-edition)
+* [Migrate to Spring Security 6.5 (Moderne Edition)](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/spring/security6/upgradespringsecurity_6_5-moderne-edition)
 
 
 ## Usage
@@ -98,7 +98,7 @@ This recipe has no required configuration options. Users of Moderne can run it v
 You will need to have configured the [Moderne CLI](https://docs.moderne.io/user-documentation/moderne-cli/getting-started/cli-intro) on your machine before you can run the following command.
 
 ```shell title="shell"
-mod run . --recipe UpgradeSpringSecurity_6_5
+mod run . --recipe org.openrewrite.java.spring.security6.UpgradeSpringSecurity_6_5
 ```
 
 If the recipe is not available locally, then you can install it using:

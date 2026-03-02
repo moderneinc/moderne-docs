@@ -1,11 +1,11 @@
 ---
-sidebar_label: "Migrate to Hibernate 7 JFR APIs (Moderne Edition)"
+sidebar_label: "Migrate to Hibernate 7 JFR APIs"
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# Migrate to Hibernate 7 JFR APIs (Moderne Edition)
+# Migrate to Hibernate 7 JFR APIs
 
 **io.moderne.hibernate.update70.MigrateToHibernate7JFR**
 

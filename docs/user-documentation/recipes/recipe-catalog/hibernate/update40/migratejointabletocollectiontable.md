@@ -1,11 +1,11 @@
 ---
-sidebar_label: "Migrate `@JoinTable` to `@CollectionTable` for element collections (Moderne Edition)"
+sidebar_label: "Migrate `@JoinTable` to `@CollectionTable` for element collections"
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# Migrate `@JoinTable` to `@CollectionTable` for element collections (Moderne Edition)
+# Migrate `@JoinTable` to `@CollectionTable` for element collections
 
 **io.moderne.hibernate.update40.MigrateJoinTableToCollectionTable**
 
@@ -23,7 +23,7 @@ This recipe is available under the [Moderne Proprietary License](https://docs.mo
 
 This recipe is used as part of the following composite recipes:
 
-* [Migrate to Hibernate 4.0.x (Moderne Edition)](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/hibernate/migratetohibernate40)
+* [Migrate to Hibernate 4.0.x](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/hibernate/migratetohibernate40)
 
 ## Example
 

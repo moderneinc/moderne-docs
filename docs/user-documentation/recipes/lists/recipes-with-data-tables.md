@@ -254,7 +254,7 @@ _This doc contains all of the recipes with **unique** data tables that have been
 
 
 ### [io.moderne.hibernate.search.FindJPQLDefinitions](/user-documentation/recipes/recipe-catalog/hibernate/search/findjpqldefinitions.md)
-  * **Find JPQL definitions (Moderne Edition)**
+  * **Find JPQL definitions**
   * Find Java Persistence Query Language definitions in the codebase.
 
 #### Data tables:
@@ -5641,7 +5641,7 @@ _This doc contains all of the recipes with **unique** data tables that have been
 
 
 ### [org.openrewrite.java.spring.boot2.UpgradeSpringBoot_2_0](/user-documentation/recipes/recipe-catalog/java/spring/boot2/upgradespringboot_2_0-community-edition.md)
-  * **Migrate from Spring Boot 1.x to 2.0**
+  * **Migrate from Spring Boot 1.x to 2.0 (Community Edition)**
   * Migrate Spring Boot 1.x applications to the latest Spring Boot 2.0 release. This recipe will modify an application's build files, make changes to deprecated/preferred APIs, and migrate configuration settings that have changes between versions. This recipe will also chain additional framework migrations (Spring Framework, Spring Data, etc) that are required as part of the migration to Spring Boot 2.0.
 
 #### Data tables:

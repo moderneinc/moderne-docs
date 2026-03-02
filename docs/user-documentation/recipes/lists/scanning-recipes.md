@@ -16,7 +16,7 @@ _This doc contains all [scanning recipes](https://docs.openrewrite.org/concepts-
 ## io.moderne.recipe:rewrite-hibernate
 
 * [io.moderne.hibernate.update66.RemoveTableFromInheritedEntity](/user-documentation/recipes/recipe-catalog/hibernate/update66/removetablefrominheritedentity.md)
-  * **Remove table from single table inherited entity (Moderne Edition)**
+  * **Remove table from single table inherited entity**
   * For Single Table Inherited Entities Hibernate ignores the `@Table` annotation on child entities. From Version 6.6 it is considered an error.
 
 ## io.moderne.recipe:rewrite-java-application-server

@@ -1,11 +1,11 @@
 ---
-sidebar_label: "Migrate to Hibernate 4.0.x (Moderne Edition)"
+sidebar_label: "Migrate to Hibernate 4.0.x"
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# Migrate to Hibernate 4.0.x (Moderne Edition)
+# Migrate to Hibernate 4.0.x
 
 **io.moderne.hibernate.MigrateToHibernate40**
 

@@ -1,5 +1,5 @@
 ---
-sidebar_label: "Migrate to Hibernate 6.4.x (Community Edition)"
+sidebar_label: "Migrate to Hibernate 6.4.x"
 ---
 
 
@@ -10,7 +10,7 @@ sidebar_label: "Migrate to Hibernate 6.4.x (Community Edition)"
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# Migrate to Hibernate 6.4.x (Community Edition)
+# Migrate to Hibernate 6.4.x
 
 **org.openrewrite.hibernate.MigrateToHibernate64**
 
@@ -33,12 +33,12 @@ This recipe is available under the [Moderne Source Available License](https://do
 
 <Tabs groupId="recipeType">
 <TabItem value="recipe-list" label="Recipe List" >
-* [Migrate to Hibernate 6.3.x (Community Edition)](../hibernate/migratetohibernate63)
+* [Migrate to Hibernate 6.3.x](../hibernate/migratetohibernate63)
 * [Upgrade Gradle or Maven dependency versions](../java/dependencies/upgradedependencyversion)
   * groupId: `org.hibernate.orm`
   * artifactId: `*`
   * newVersion: `6.4.x`
-* [Remove invalid `@GeneratedValue` annotation (Community Edition)](../hibernate/removeinvalidhibernategeneratedvalueannotation)
+* [Remove invalid `@GeneratedValue` annotation](../hibernate/removeinvalidhibernategeneratedvalueannotation)
 
 </TabItem>
 
@@ -48,7 +48,7 @@ This recipe is available under the [Moderne Source Available License](https://do
 ---
 type: specs.openrewrite.org/v1beta/recipe
 name: org.openrewrite.hibernate.MigrateToHibernate64
-displayName: Migrate to Hibernate 6.4.x (Community Edition)
+displayName: Migrate to Hibernate 6.4.x
 description: |
   This recipe will apply changes commonly needed when migrating to Hibernate 6.4.x.
 recipeList:
@@ -67,7 +67,7 @@ recipeList:
 
 This recipe is used as part of the following composite recipes:
 
-* [Migrate to Hibernate 6.5.x (Community Edition)](/user-documentation/recipes/recipe-catalog/hibernate/migratetohibernate65.md)
+* [Migrate to Hibernate 6.5.x](/user-documentation/recipes/recipe-catalog/hibernate/migratetohibernate65.md)
 * [Migrate to Spring Boot 3.2](/user-documentation/recipes/recipe-catalog/java/spring/boot3/upgradespringboot_3_2.md)
 
 

@@ -1,5 +1,5 @@
 ---
-sidebar_label: "Replace `extends EmptyInterceptor` with `implements Interceptor` and potentially `StatementInspector` (Community Edition)"
+sidebar_label: "Replace `extends EmptyInterceptor` with `implements Interceptor` and potentially `StatementInspector`"
 ---
 
 
@@ -10,7 +10,7 @@ sidebar_label: "Replace `extends EmptyInterceptor` with `implements Interceptor`
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# Replace `extends EmptyInterceptor` with `implements Interceptor` and potentially `StatementInspector` (Community Edition)
+# Replace `extends EmptyInterceptor` with `implements Interceptor` and potentially `StatementInspector`
 
 **org.openrewrite.hibernate.EmptyInterceptorToInterface**
 

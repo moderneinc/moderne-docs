@@ -1,11 +1,11 @@
 ---
-sidebar_label: "Migrate implicit cascade=PERSIST for @Id and @MapsId associations (Moderne Edition)"
+sidebar_label: "Migrate implicit cascade=PERSIST for @Id and @MapsId associations"
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# Migrate implicit cascade=PERSIST for @Id and @MapsId associations (Moderne Edition)
+# Migrate implicit cascade=PERSIST for @Id and @MapsId associations
 
 **io.moderne.hibernate.update70.AddCascadePersistToIdMappedAssociations**
 

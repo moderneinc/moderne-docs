@@ -1,11 +1,11 @@
 ---
-sidebar_label: "Remove table from single table inherited entity (Moderne Edition)"
+sidebar_label: "Remove table from single table inherited entity"
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# Remove table from single table inherited entity (Moderne Edition)
+# Remove table from single table inherited entity
 
 **io.moderne.hibernate.update66.RemoveTableFromInheritedEntity**
 

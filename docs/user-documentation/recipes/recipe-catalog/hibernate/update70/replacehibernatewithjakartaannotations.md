@@ -1,11 +1,11 @@
 ---
-sidebar_label: "Replace hibernate annotations with Jakarta variants (Moderne Edition)"
+sidebar_label: "Replace hibernate annotations with Jakarta variants"
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# Replace hibernate annotations with Jakarta variants (Moderne Edition)
+# Replace hibernate annotations with Jakarta variants
 
 **io.moderne.hibernate.update70.ReplaceHibernateWithJakartaAnnotations**
 
