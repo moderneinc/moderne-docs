@@ -122,17 +122,17 @@ openssl x509 -pubkey -noout -in bitbucket_publickey.cer  > bitbucket_publickey.p
 6. Click _Continue_
 7. Define a new Incoming Application with the following settings:
 
-    | Field                 | Value                                                     |
-    |-----------------------|-----------------------------------------------------------|
-    | Application Name      | `Moderne`                                                 |
-    | Application Type      | Generic Application                                       |
-    | Service Provider Name | `moderne`                                                 |
-    | Consumer key          | `OauthKey`                                                |
-    | Shared secret         | _Any value is fine. This value is required but not used.  |
-    | Request token URL     | `https://<TENANT>.moderne.io`                             |
-    | Access token URL      | `https://<TENANT>.moderne.io`                             |
-    | Authorize URL         | `https://<TENANT>.moderne.io`                             |
-    | Create incoming link  | ✅                                                        |
+    | Field                 | Value                                                      |
+    |-----------------------|------------------------------------------------------------|
+    | Application Name      | `Moderne`                                                  |
+    | Application Type      | Generic Application                                        |
+    | Service Provider Name | `moderne`                                                  |
+    | Consumer key          | `OauthKey`                                                 |
+    | Shared secret         | _Any value is fine. This value is required but not used._  |
+    | Request token URL     | `https://<TENANT>.moderne.io`                              |
+    | Access token URL      | `https://<TENANT>.moderne.io`                              |
+    | Authorize URL         | `https://<TENANT>.moderne.io`                              |
+    | Create incoming link  | ✅                                                         |
 9. Click _Continue_
 10.  Complete the Incoming Link configuration:
 
