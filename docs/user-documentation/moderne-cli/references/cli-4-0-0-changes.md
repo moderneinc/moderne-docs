@@ -7,8 +7,8 @@ description: The major changes in Moderne CLI 4.0.
 
 Moderne CLI 4.0 is a major release focused on making the CLI simpler to install and more reliable to run. Here's what's new at a glance:
 
-* **No Java required.** The CLI includes a bundled Java runtime so you don't need to worry about installing one.
-* **One artifact, every platform.** The CLI is now a single JAR that behaves identically on Linux, macOS, and Windows, eliminating platform-specific bugs.
+* **No Java installation required.** Each platform distribution includes a bundled Java runtime, so you never need to install Java yourself.
+* **One JAR, identical across platforms.** The CLI is a single JAR — byte-identical on Linux, macOS, and Windows — eliminating the platform-specific native binaries that caused bugs in 3.x.
 * **Consistent across your team.** A new `modw` wrapper script can be checked into your repositories, ensuring every developer and CI build uses the exact same CLI version without any manual setup.
 * **Faster, more reliable releases.** Simplified build process means quicker releases and fewer bugs that only surface in production.
 
@@ -61,7 +61,7 @@ There are several installation paths, each with different tradeoffs. The right c
 | Platform distribution | Download `.sh` or `.zip`, run it                  | Internet at download time                      | Teams without Java, controlled environments |
 | Standalone wrapper    | Check `modw` + properties file into your repo     | Internet on first run (downloads distribution) | CI pipelines, per-project version pinning   |
 
-All three paths include a bundled JRE.
+All four paths include a bundled JRE.
 
 ### Quick install
 
