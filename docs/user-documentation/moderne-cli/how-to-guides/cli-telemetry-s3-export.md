@@ -7,7 +7,7 @@ toc_max_heading_level: 4
 
 # Exporting CLI telemetry to Amazon S3
 
-The Moderne CLI [generates telemetry data](./cli-telemetry.md) for build, run, commit, and [other operations](#commands-that-produce-trace-data). While you could read the resulting trace CSV files locally, uploading them to a centralized, queryable storage system is far more practical.
+The Moderne CLI [generates telemetry data](./cli-telemetry.md) for build, run, and git operations. While you could read the resulting trace CSV files locally, uploading them to a centralized, queryable storage system is far more practical.
 
 In this guide, we'll walk you through how to set up a wrapper script that automatically uploads trace CSV files to S3 after each command that produces telemetry.
 
@@ -43,7 +43,7 @@ flowchart LR
 
 The upload won't interfere with your workflow. If it fails for any reason, the original exit code is still returned. For commands that don't produce trace data, the wrapper simply runs `mod` and returns.
 
-<details id="commands-that-produce-trace-data">
+<details>
 <summary>Commands that produce trace data</summary>
 
 * `mod build`
@@ -288,7 +288,7 @@ CREATE DATABASE IF NOT EXISTS moderne_bi
 LOCATION 's3://my-company-cli-telemetry/';
 ```
 
-Next, create an external table for the command type you want to query. Each CLI command type produces a CSV with a different column structure because trace files [use successive concatenation](./cli-telemetry.md) — each command appends its columns to those from prior commands. This means you should create a separate table for each command type you collect.
+Next, create an external table for the command type you want to query. Each command type produces a CSV with a different column structure because [later commands include columns from earlier steps](./cli-telemetry.md) (e.g., a run trace includes sync and build columns too). This means you should create a separate table for each command type you collect.
 
 All columns are defined as strings, but many contain numeric data like elapsed time or file counts. You can cast these to the appropriate types in your queries to enable sorting, filtering, and aggregation.
 
