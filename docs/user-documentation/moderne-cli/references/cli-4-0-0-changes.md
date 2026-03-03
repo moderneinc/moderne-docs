@@ -60,8 +60,9 @@ There are several installation paths, each with different tradeoffs. The right c
 | Package manager       | `brew install mod` / `choco install mod`          | Internet at install time                       | Individual workstations                     |
 | Platform distribution | Download `.sh` or `.zip`, run it                  | Internet at download time                      | Teams without Java, controlled environments |
 | Standalone wrapper    | Check `modw` + properties file into your repo     | Internet on first run (downloads distribution) | CI pipelines, per-project version pinning   |
+| Standalone JAR        | Download `moderne-cli.jar`                        | Java 25+ already installed                     | Custom environments, advanced users         |
 
-All four paths include a bundled JRE.
+The first four paths all provide a bundled JRE — no separate Java installation is required. The standalone JAR is platform-neutral and requires you to supply your own Java 25+ installation.
 
 ### Quick install
 
