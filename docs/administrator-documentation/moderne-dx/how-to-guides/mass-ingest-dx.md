@@ -11,10 +11,6 @@ To do this, we recommend that you set up a Docker image to pull the CLI, configu
 
 For detailed instructions on how to set up ingestion, follow the directions in the [Moderne mass ingest example repository](https://github.com/moderneinc/mass-ingest-example/blob/main/README.md). You may also want to check out the [repos.csv documentation](../../../user-documentation/moderne-cli/references/repos-csv.md).
 
-:::warning
-If you are using **Nexus 3** as your artifact repository, the maven2 hosted repository **must** have its **layout policy set to Permissive**. Mass ingest uploads build logs alongside LSTs using paths that do not follow Maven coordinate structure, and Nexus will reject these with HTTP 400 if the layout policy is set to Strict.
-:::
-
 ### Including source code with `--with-sources`
 
 By default, `mod git sync` only creates the directory structure and downloads LSTs, which is sufficient for most analysis and recipe operations. If you also need the source code (for example, to commit changes or create pull requests), add the `--with-sources` flag:
