@@ -55,6 +55,12 @@ For a repository to be a source of LSTs, it must be included in the list of repo
 
 <TabItem value="nexus-repository" label="Nexus Repository">
 
+:::warning
+If you are using Nexus 3 for LST storage with [mass ingest](../mass-ingest.md), the repository **must** be created as a **maven2 (hosted)** repository with **layout policy set to Permissive**. Mass ingest uploads build logs alongside LSTs using paths that do not follow Maven coordinate structure, and Nexus will reject these uploads with HTTP 400 if the layout policy is set to Strict.
+
+If the repository already exists with strict layout, you can change this without recreating it: **Repository settings** > **Maven 2** > **Layout policy** > `Permissive`.
+:::
+
 Under the administration view, select `Settings` --> `System` --> `Tasks` on the left nav:
 
 ![Nexus Repository Settings menu with System expanded and Tasks selected](./assets/sona-tasks.png)
