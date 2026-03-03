@@ -65,10 +65,14 @@ All three paths include a bundled JRE.
 
 ### Quick install
 
-On Linux or macOS, you can install the CLI with a single command:
+You can install the CLI with a single command:
 
 ```bash
+# Linux / macOS
 curl -fsSL "https://app.moderne.io/cli" | bash
+
+# Windows (PowerShell)
+curl -fsSL "https://app.moderne.io/CLI" | iex
 ```
 
 This downloads the `modw` wrapper, places it on your `PATH`, and configures it to connect to the Moderne Platform. On first run, `modw` will download the full platform distribution (JAR + bundled JRE) automatically.
@@ -101,7 +105,7 @@ Both package managers include the bundled JRE. No separate Java installation is 
 
 The `modw` wrapper script is modeled after the Gradle wrapper. You can check `modw` and a `moderne-wrapper.properties` file into your repository, and every developer and CI build will get the same CLI version without any global installation step.
 
-On the first run, `modw` will automatically download the correct platform distribution (CLI JAR + bundled JRE) and build a startup cache. Subsequent runs will be fast without any manual setup.
+On the first run, `modw` will automatically download the correct platform distribution (CLI JAR + bundled JRE) and build a startup cache. Subsequent runs will be fast without any manual setup. If the `version` in `moderne-wrapper.properties` changes, `modw` will automatically download and install the new version.
 
 ### Version pinning
 
@@ -196,7 +200,7 @@ Setting `jdkUrl=skip` tells the wrapper not to download a JDK on its own. In thi
 
 Java 25 introduces [Project Leyden](https://openjdk.org/projects/leyden/), which gives the CLI near-native startup performance by caching class loading and compilation work ahead of time.
 
-The first time you run the CLI, it will spend a few extra seconds building this cache. After that, subsequent runs will start up quickly — comparable to the old GraalVM native image.
+The AOT cache is built automatically during installation, so you won't experience a slow first run. After an upgrade, the cache is rebuilt the next time the CLI runs.
 
 The cache is stored at `~/.moderne/cli/dist/aot/` and is rebuilt automatically when the CLI is upgraded.
 
@@ -226,9 +230,9 @@ The wrapper can't reach the download server (likely a firewall or proxy issue). 
 
 Delete `~/.moderne/cli/dist/aot/mod.aot` and `mod.aot.jar-stamp`. The cache will be regenerated on the next run.
 
-### Slow first run
+### Slow first run after upgrade
 
-The first time you run the CLI (or run it after an upgrade), it builds a startup cache that takes a few extra seconds. This is a one-time cost — subsequent runs will be fast.
+After an upgrade, the first run rebuilds the startup cache, which takes a few extra seconds. This is a one-time cost — subsequent runs will be fast.
 
 ### Debugging
 
