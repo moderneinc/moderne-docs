@@ -52,6 +52,10 @@ The bundled JRE won't conflict with any Java installation you already have on yo
 
 ## Installing 4.0
 
+:::info
+As CLI 4.x and the new Moderne Platform are still rolling out, some of the installation options below do not presently work (as of March 2026). We aim to have all of these installation options available shortly, though.
+:::
+
 There are several installation paths, each with different tradeoffs. The right choice depends on whether you have internet access at runtime, whether you need per-project version pinning, and whether your team has Java installed.
 
 | Path                  | How it works                                      | Assumes                                        | Best for                                    |
