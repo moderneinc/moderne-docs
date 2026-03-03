@@ -133,15 +133,15 @@ openssl x509 -pubkey -noout -in bitbucket_publickey.cer  > bitbucket_publickey.p
     | Access token URL      | `https://<TENANT>.moderne.io`                              |
     | Authorize URL         | `https://<TENANT>.moderne.io`                              |
     | Create incoming link  | ✅                                                         |
-9. Click _Continue_
-10.  Complete the Incoming Link configuration:
+8. Click _Continue_
+9.  Complete the Incoming Link configuration:
 
     | Field         | Value                                                        |
     |---------------|--------------------------------------------------------------|
     | Consumer Key  | `OauthKey`                                                   |
     | Consumer Name | `Moderne`                                                    |
     | Public Key    | Paste the public key (`bitbucket_publickey.pem`) from step 1 |
-11. Click _Continue_ to complete the Application Link creation
+10. Click _Continue_ to complete the Application Link creation
 </details>
 
 ## Step 2: Configure the Moderne agent
