@@ -79,11 +79,14 @@ As you run subsequent commands, each `trace.json` file will include telemetry fr
     "recipeArtifact": "org.openrewrite.maven:maven-properties-recipes:0.1.0-SNAPSHOT",
     "estimatedEffortTimeSavingsMs": 13200000,
     "dependencyResolutionTimeMs": 0,
+    "pomCacheHitRate": 0.919,
+    "resolvedPomCacheHitRate": 1.0,
     "filesWithFixResults": 44,
     "filesWithSearchResults": 44,
     "filesWithErrors": 0,
     "filesSearched": 799,
     "dataTables": 2,
+    "thread": "ForkJoinPool.commonPool-worker-10",
     "elapsedTimeMs": 14033
   },
   "build": {
@@ -212,11 +215,14 @@ When you run recipes with `mod run`, a `run` block is created with these fields:
 | `recipeArtifact`               | string  | Maven coordinates of the recipe artifact          |
 | `estimatedEffortTimeSavingsMs` | number  | Estimated developer time saved in milliseconds    |
 | `dependencyResolutionTimeMs`   | number  | Time spent resolving dependencies in milliseconds |
+| `pomCacheHitRate`              | number  | Cache hit rate for POM file resolution            |
+| `resolvedPomCacheHitRate`      | number  | Cache hit rate for resolved POM lookups           |
 | `filesWithFixResults`          | number  | Number of files with changes applied              |
 | `filesWithSearchResults`       | number  | Number of files matching search criteria          |
 | `filesWithErrors`              | number  | Number of files that encountered errors           |
 | `filesSearched`                | number  | Total number of files searched                    |
 | `dataTables`                   | number  | Number of data tables generated                   |
+| `thread`                       | string  | JVM thread that executed the recipe run           |
 
 #### Apply command fields
 
