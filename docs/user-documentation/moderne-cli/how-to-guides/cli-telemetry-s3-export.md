@@ -7,7 +7,7 @@ toc_max_heading_level: 4
 
 # Exporting CLI telemetry to Amazon S3
 
-The Moderne CLI [generates telemetry data](./cli-telemetry.md) for every sync, build, and run operation. While you could manually read the resulting trace CSV files from your local directories, it is much better to upload them into a centralized, queryable storage system.
+The Moderne CLI [generates telemetry data](./cli-telemetry.md) for build, run, commit, and [other operations](#commands-that-produce-trace-data). While you could read the resulting trace CSV files locally, uploading them to a centralized, queryable storage system is far more practical.
 
 In this guide, we'll walk you through how to set up a wrapper script that automatically uploads trace CSV files to S3 after each command that produces telemetry.
 
@@ -43,7 +43,7 @@ flowchart LR
 
 The upload won't interfere with your workflow. If it fails for any reason, the original exit code is still returned. For commands that don't produce trace data, the wrapper simply runs `mod` and returns.
 
-<details>
+<details id="commands-that-produce-trace-data">
 <summary>Commands that produce trace data</summary>
 
 * `mod build`
@@ -275,31 +275,39 @@ You should see output similar to:
 This section is optional. If you use a different BI tool, you can point it directly at your S3 bucket.
 :::
 
-Once your telemetry data is flowing to S3, you can use AWS Athena to run SQL queries against it without loading the data into a database. Athena reads the CSV files directly from S3.
+Once your telemetry data is flowing to S3, you can use AWS Athena to query it in place — no ETL or data loading required. You just need to register a schema in the AWS Glue Data Catalog so Athena knows how to read the files.
 
-### Creating the Glue database and table
+### Registering the schema in the Glue Data Catalog
 
-First, create a Glue database to hold the table definition:
+The `CREATE DATABASE` and `CREATE TABLE` statements below define metadata only — they tell Athena the column names, data types, and where the CSV files live in S3. No data is copied or moved.
+
+First, create a catalog database to group your table definitions:
 
 ```sql
 CREATE DATABASE IF NOT EXISTS moderne_bi
 LOCATION 's3://my-company-cli-telemetry/';
 ```
 
-Next, create an external table that tells Athena how to read your CSV files. All columns are defined as strings, but many of them contain numeric data like elapsed time or file counts. You can cast these to the appropriate types in your queries to enable sorting, filtering, and aggregation.
+Next, create an external table for the command type you want to query. Each CLI command type produces a CSV with a different column structure because trace files [use successive concatenation](./cli-telemetry.md) — each command appends its columns to those from prior commands. This means you should create a separate table for each command type you collect.
+
+All columns are defined as strings, but many contain numeric data like elapsed time or file counts. You can cast these to the appropriate types in your queries to enable sorting, filtering, and aggregation.
 
 The table properties include [partition projection](https://docs.aws.amazon.com/athena/latest/ug/partition-projection.html), so Athena automatically discovers new partitions as data arrives. You don't need to run `MSCK REPAIR TABLE` or manually add partitions each day.
 
 :::info
-The `org` and `type` partitions are _injected_, which means you must include them in the `WHERE` clause of every query. The `year`, `month`, and `day` partitions are range-based and optional but recommended to limit the amount of data scanned.
+The `org` partition is _injected_, which means you must include it in the `WHERE` clause of every query. The `year`, `month`, and `day` partitions are range-based and optional but recommended to limit the amount of data scanned.
+:::
+
+:::tip
+You can create similar tables for other command types (build, commit, push) by adjusting the columns and the `type=run` segment in `storage.location.template` to match the corresponding CSV structure. Refer to the [telemetry field reference](./cli-telemetry.md) for the columns available in each command type.
 :::
 
 <details>
 
-<summary>Full CREATE TABLE statement (37 columns + 5 partition keys)</summary>
+<summary>Run traces table (58 columns + 4 partition keys)</summary>
 
 ```sql
-CREATE EXTERNAL TABLE IF NOT EXISTS moderne_bi.traces (
+CREATE EXTERNAL TABLE IF NOT EXISTS moderne_bi.run_traces (
     origin                          string,
     path                            string,
     branch                          string,
@@ -336,11 +344,31 @@ CREATE EXTERNAL TABLE IF NOT EXISTS moderne_bi.traces (
     buildmaxweightsourcefile        string,
     buildcliversion                 string,
     buildelapsedtimems              string,
+    runoutcome                      string,
+    runstarttime                    string,
+    runendtime                      string,
+    runid                           string,
+    rununlicensedattempt            string,
+    runstreaming                    string,
+    runrecipeid                     string,
+    runrecipeinstancename           string,
+    runrecipeoptions                string,
+    runrecipeartifact               string,
+    runestimatedefforttimesavingsms string,
+    rundependencyresolutiontimems   string,
+    runpomcachehitrate              string,
+    runresolvedpomcachehitrate      string,
+    runfileswithfixresults          string,
+    runfileswithsearchresults       string,
+    runfileswitherrors              string,
+    runfilessearched                string,
+    rundatatables                   string,
+    runthread                       string,
+    runelapsedtimems                string,
     organization                    string
 )
 PARTITIONED BY (
     org     string,
-    type    string,
     year    string,
     month   string,
     day     string
@@ -357,7 +385,6 @@ TBLPROPERTIES (
     'skip.header.line.count'        = '1',
     'projection.enabled'            = 'true',
     'projection.org.type'           = 'injected',
-    'projection.type.type'          = 'injected',
     'projection.year.type'          = 'integer',
     'projection.year.range'         = '2026,2099',
     'projection.month.type'         = 'integer',
@@ -366,7 +393,7 @@ TBLPROPERTIES (
     'projection.day.type'           = 'integer',
     'projection.day.range'          = '1,31',
     'projection.day.digits'         = '2',
-    'storage.location.template'     = 's3://my-company-cli-telemetry/org=${org}/type=${type}/year=${year}/month=${month}/day=${day}/'
+    'storage.location.template'     = 's3://my-company-cli-telemetry/org=${org}/type=run/year=${year}/month=${month}/day=${day}/'
 );
 ```
 
@@ -396,72 +423,61 @@ The example above stores Athena results in the same bucket under `athena-results
 
 ### Example queries
 
-The following queries demonstrate common ways to analyze your CLI telemetry. Each query must include `org` and `type` in the `WHERE` clause because those partitions use injected projection.
+The following queries demonstrate common ways to analyze your CLI telemetry. Each query must include `org` in the `WHERE` clause because it uses injected projection.
 
-**Listing all build traces for a specific day:**
+**Recipe run summary for a specific day:**
+
+Shows which recipes were run, how many repositories they touched, and the estimated time savings.
 
 ```sql
-SELECT origin, path, branch,
-       syncoutcome, CAST(syncelapsedtimems AS bigint) AS sync_ms,
-       buildoutcome, CAST(buildelapsedtimems AS bigint) AS build_ms
-FROM moderne_bi.traces
+SELECT runrecipeid,
+       runrecipeinstancename,
+       COUNT(*) AS repos_run,
+       SUM(CAST(runfileswithfixresults AS bigint)) AS total_files_changed,
+       SUM(CAST(runestimatedefforttimesavingsms AS bigint)) / 3600000.0 AS estimated_hours_saved
+FROM moderne_bi.run_traces
 WHERE org = 'my-company'
-  AND type = 'build'
   AND year = '2026'
   AND month = '02'
   AND day = '24'
-ORDER BY build_ms DESC;
+  AND runoutcome = 'Succeeded'
+GROUP BY runrecipeid, runrecipeinstancename
+ORDER BY estimated_hours_saved DESC;
 ```
 
-**Build success rates for the past month:**
+**Most impactful recipe runs (top 10):**
 
-This is useful for spotting trends in build reliability over time.
+Identifies the individual recipe runs that produced the most changes, useful for highlighting high-value automation.
 
 ```sql
-SELECT buildoutcome, COUNT(*) AS total
-FROM moderne_bi.traces
+SELECT runrecipeid,
+       path,
+       CAST(runfileswithfixresults AS bigint) AS files_changed,
+       CAST(runfilessearched AS bigint) AS files_searched,
+       CAST(runestimatedefforttimesavingsms AS bigint) / 60000.0 AS estimated_minutes_saved,
+       CAST(runelapsedtimems AS bigint) / 1000.0 AS run_seconds
+FROM moderne_bi.run_traces
 WHERE org = 'my-company'
-  AND type = 'build'
   AND year = '2026'
   AND month = '02'
-GROUP BY buildoutcome
+  AND runoutcome = 'Succeeded'
+  AND CAST(runfileswithfixresults AS bigint) > 0
+ORDER BY files_changed DESC
+LIMIT 10;
+```
+
+**Run success rates for the past month:**
+
+Useful for spotting trends in recipe reliability over time.
+
+```sql
+SELECT runoutcome, COUNT(*) AS total
+FROM moderne_bi.run_traces
+WHERE org = 'my-company'
+  AND year = '2026'
+  AND month = '02'
+GROUP BY runoutcome
 ORDER BY total DESC;
-```
-
-**Slowest builds (top 25):**
-
-Helps identify repositories that take the longest to build, which may need attention.
-
-```sql
-SELECT path, origin,
-       CAST(buildelapsedtimems AS bigint) AS build_ms,
-       CAST(buildsourcefilecount AS bigint) AS source_files,
-       CAST(buildlinecount AS bigint) AS lines
-FROM moderne_bi.traces
-WHERE org = 'my-company'
-  AND type = 'build'
-  AND year = '2026'
-  AND month = '02'
-  AND day = '24'
-  AND buildoutcome = 'Succeeded'
-ORDER BY build_ms DESC
-LIMIT 25;
-```
-
-**Repository count by organization:**
-
-Useful if your `BI_ORG` partition covers multiple internal organizations.
-
-```sql
-SELECT organization, COUNT(DISTINCT path) AS repo_count
-FROM moderne_bi.traces
-WHERE org = 'my-company'
-  AND type = 'build'
-  AND year = '2026'
-  AND month = '02'
-  AND day = '24'
-GROUP BY organization
-ORDER BY repo_count DESC;
 ```
 
 ## Troubleshooting
@@ -476,7 +492,7 @@ ORDER BY repo_count DESC;
 **Athena queries return zero rows:**
 
 * Confirm that your `storage.location.template` in `TBLPROPERTIES` matches the actual S3 path structure
-* Verify that your `WHERE` clause includes both `org` and `type` (required by injected partition projection)
+* Verify that your `WHERE` clause includes `org` (required by injected partition projection)
 * Check that the `year`, `month`, and `day` values match partitions that contain data
 
 **Telemetry upload failures do not cause errors:**
