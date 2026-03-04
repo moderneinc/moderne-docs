@@ -23,6 +23,7 @@ You can add mappings for multiple parser types:
 
 ```bash
 mod config build parsers add json "**/*.cfg"
+mod config build parsers add yaml "**/*.conf"
 ```
 
 If you add patterns for a parser type that already has mappings, the new patterns are merged with the existing ones.
