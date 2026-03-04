@@ -128,9 +128,18 @@ This skill helps you with:
 
 ### run-recipe
 
-Use this skill when you're developing a recipe and need to test and debug it against real repositories. This skill guides you through an iterative workflow. It doesn't just run the recipe - rather, it tries to help you understand why the recipe matches or doesn't match the code you expect.
+Use this skill to discover, configure, and run OpenRewrite recipes against real repositories. This skill is especially useful for AI coding agents as they can use it to run recipes as part of automated workflows. With it, they can browse the recipe catalog, configure complex recipe options, and interpret results.
 
-This skill guides you through an iterative development loop:
+:::note
+If you just want to run an existing recipe without iterative debugging, you can use the CLI directly (`mod run`).
+:::
+
+The skill supports two modes:
+
+* **Existing recipe mode** - For pre-built recipes from the catalog or Maven coordinates (uses `mod config recipes jar install`)
+* **Development mode** - For recipes you're actively editing (uses `mod config recipes active set`)
+
+When developing a new recipe, the skill guides you through an iterative loop:
 
 1. **Working set setup** - Syncing repositories from a Moderne organization or custom CSV
 2. **Pre-analysis** - Searching source code to predict which files *should* be affected
@@ -138,15 +147,6 @@ This skill guides you through an iterative development loop:
 4. **Results comparison** - Comparing predictions vs actual results to diagnose mismatches
 5. **Diagnosis** - Investigating why expected changes are missing (e.g., checking matchers, reviewing visitor logic)
 6. **Iteration** - Fixing the recipe and re-running until results match expectations
-
-The skill supports two modes:
-
-* **Development mode** - For recipes you're actively editing (uses `mod config recipes active set`)
-* **Existing recipe mode** - For pre-built recipes from Maven coordinates (uses `mod config recipes jar install`)
-
-:::tip
-If you just want to run an existing recipe without iterative debugging, you can use the CLI directly (`mod run`). This skill is most valuable when you're developing a new recipe and need help diagnosing why it's not working as expected.
-:::
 
 ### analyze-impact
 
