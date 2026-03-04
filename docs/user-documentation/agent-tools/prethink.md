@@ -60,12 +60,33 @@ Prethink is distributed as two complementary modules:
 
 The `io.moderne.recipe:rewrite-prethink` module provides out-of-the-box discovery for common frameworks:
 
+**Java/JVM:**
+
 * **Service endpoint discovery**: Spring MVC, JAX-RS, Micronaut, Quarkus
-* **Database connection discovery**: JPA, Spring Data, JDBC
-* **External service call discovery**: RestTemplate, WebClient, Feign, Apache HttpClient
-* **Messaging pattern discovery**: Kafka, RabbitMQ, JMS, Spring Cloud Stream
+* **Database connection discovery**: JPA, Spring Data, JDBC, MyBatis
+* **External service call discovery**: RestTemplate, WebClient, Feign, Apache HttpClient, OkHttp, JAX-RS clients
+* **Messaging pattern discovery**: Kafka, RabbitMQ, JMS, Spring Cloud Stream, AWS SQS
 * **Security configuration discovery**: Spring Security, CORS, OAuth2
+* **Service component discovery**: @Service, @Component, @Named annotations
+* **Data asset discovery**: JPA entities, Java records, DTOs
+
+**Node.js/TypeScript:**
+
+* **Service endpoint discovery**: Express, Fastify, NestJS
+* **Database connection discovery**: Mongoose, Prisma, TypeORM
+* **External service call discovery**: axios, fetch, got, superagent
+* **Messaging pattern discovery**: KafkaJS, amqplib, Bull/BullMQ
+* **Security configuration discovery**: cors, helmet, passport, JWT middleware
+* **Test coverage discovery**: Jest, Mocha, Vitest
+* **Project metadata**: package.json extraction
+
+**Cross-language:**
+
+* **Coding convention extraction**: Naming patterns, import organization, documentation patterns
+* **Dependency usage extraction**: Which types from external libraries are actually used in the code
+* **Error handling pattern extraction**: Exception types, handling strategies, logging frameworks
 * **LLM integrations**: Code comprehension at the method and class level, test summary generation
+* **Architecture visualization**: CALM architecture diagrams and Mermaid architecture diagrams
 
 ### What the OpenRewrite module provides
 
@@ -73,6 +94,7 @@ The `org.openrewrite.recipe:rewrite-prethink` module provides the building block
 
 * **ExportContext**: Exports data tables as CSV files to your repository
 * **UpdateAgentConfig**: Updates AI agent configuration files with context references
+* **UpdateGitignore**: Updates `.gitignore` to allow committing `.moderne/context/` while ignoring other `.moderne/` files
 * **UpdatePrethinkContext**: Orchestrates context generation from pre-populated data tables
 * **CALM architecture generation**: Produces CALM-formatted architecture diagrams
 
@@ -89,13 +111,14 @@ Generates Moderne Prethink context files with AI-generated code comprehension, t
 
 #### Options
 
-| Option              | Description                           | Example                               |
-|---------------------|---------------------------------------|---------------------------------------|
-| `provider`          | LLM provider for generating summaries | `openai`, `gemini`, `poolside`        |
-| `apiKey`            | API key for the LLM provider          | `ps-...`                              |
-| `model`             | Model name to use                     | `Malibu-v2.20251021`                  |
-| `baseUrl`           | Custom base URL for the provider      | `https://divers.poolsi.de/openai/v1/` |
-| `requestsPerMinute` | Rate limit for LLM requests           | `60`                                  |
+| Option              | Description                                                                  | Example                               |
+|---------------------|------------------------------------------------------------------------------|---------------------------------------|
+| `provider`          | LLM provider for generating summaries                                        | `openai`, `gemini`, `poolside`        |
+| `apiKey`            | API key for the LLM provider                                                 | `ps-...`                              |
+| `model`             | Model name to use                                                            | `Malibu-v2.20251021`                  |
+| `baseUrl`           | Custom base URL for the provider                                             | `https://divers.poolsi.de/openai/v1/` |
+| `requestsPerMinute` | Rate limit for LLM requests                                                  | `60`                                  |
+| `targetConfigFile`  | Which agent config file to update (updates all found files if not specified) | `CLAUDE.md`                           |
 
 ### Update Prethink context (no AI)
 
@@ -106,7 +129,11 @@ Generates Moderne Prethink context files with architectural discovery, test cove
 
 This recipe includes the same architectural discovery, test coverage mapping, dependency inventory, and CALM architecture generation as the AI version, but skips AI-generated code comprehension. Instead, it estimates token usage for methods so you can evaluate AI costs before enabling comprehension.
 
-This recipe has no configurable options.
+#### Options
+
+| Option             | Description                                                                  | Example     |
+|--------------------|------------------------------------------------------------------------------|-------------|
+| `targetConfigFile` | Which agent config file to update (updates all found files if not specified) | `CLAUDE.md` |
 
 ### Update Prethink context (base recipe)
 
@@ -121,10 +148,11 @@ Use this recipe when building custom Prethink configurations with your own disco
 
 The OpenRewrite module also provides these building blocks:
 
-| Recipe                                       | Description                                                                                                                        |
-|----------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------|
-| `org.openrewrite.prethink.ExportContext`     | Exports data tables to CSV files in `.moderne/context/` with markdown documentation describing the schema.                         |
-| `org.openrewrite.prethink.UpdateAgentConfig` | Updates agent configuration files (`CLAUDE.md`, `.cursorrules`, `.github/copilot-instructions.md`) to reference generated context. |
+| Recipe                                       | Description                                                                                                                                     |
+|----------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------|
+| `org.openrewrite.prethink.ExportContext`     | Exports data tables to CSV files in `.moderne/context/` with markdown documentation describing the schema.                                      |
+| `org.openrewrite.prethink.UpdateAgentConfig` | Updates agent configuration files (`AGENTS.md`, `CLAUDE.md`, `.cursorrules`, `.github/copilot-instructions.md`) to reference generated context. |
+| `org.openrewrite.prethink.UpdateGitignore`   | Updates `.gitignore` to allow committing `.moderne/context/` while ignoring other files in `.moderne/`.                                         |
 
 ## Creating custom Prethink recipes
 
@@ -172,12 +200,20 @@ recipeList:
   - io.moderne.prethink.calm.FindSecurityConfiguration
   - io.moderne.prethink.calm.FindDeploymentArtifacts
   - io.moderne.prethink.calm.FindDataAssets
+  - io.moderne.prethink.calm.FindServiceComponents
+  - io.moderne.prethink.calm.FindCalmRelationships
 
-  # Phase 2: Test Coverage
+  # Phase 2: Code Analysis
+  - io.moderne.prethink.ExtractCodingConventions
+  - io.moderne.prethink.ExtractDependencyUsage
+  - io.moderne.prethink.ExtractErrorPatterns
+
+  # Phase 3: Test Coverage
   - io.moderne.prethink.FindTestCoverage
 
-  # Phase 3: Context Generation
+  # Phase 4: Context Generation
   - io.moderne.prethink.calm.GenerateCalmArchitecture
+  - io.moderne.prethink.calm.GenerateCalmMermaidDiagram
   - org.openrewrite.prethink.UpdateAgentConfig
 ```
 
@@ -258,22 +294,29 @@ Recipes do not have to be in the same file or even the same module. You can comp
 
 Prethink recipes populate several data tables that capture different aspects of your codebase:
 
-| Data table              | Description                                                      |
-|-------------------------|------------------------------------------------------------------|
-| `ServiceEndpoints`      | REST/HTTP endpoints with HTTP methods, paths, and framework info |
-| `DatabaseConnections`   | JPA entities, repositories, and JDBC connections                 |
-| `ExternalServiceCalls`  | Outbound HTTP calls to external services                         |
-| `MessagingConnections`  | Kafka, RabbitMQ, JMS, and other messaging patterns               |
-| `TestMapping`           | Mapping of test methods to implementation methods                |
-| `SecurityConfiguration` | Spring Security, CORS, and OAuth2 configurations                 |
-| `ServerConfiguration`   | Port, SSL, and context path settings                             |
-| `DeploymentArtifacts`   | Dockerfile, Kubernetes, and docker-compose files                 |
-| `DataAssets`            | Entities, records, and DTOs                                      |
-| `ProjectMetadata`       | Artifact ID, group ID, and project name                          |
-| `ClassDescriptions`     | AI-generated class descriptions (with AI recipe)                 |
-| `MethodDescriptions`    | AI-generated method descriptions (with AI recipe)                |
+| Data table                 | Description                                                                    |
+|----------------------------|--------------------------------------------------------------------------------|
+| `ServiceEndpoints`         | REST/HTTP endpoints with HTTP methods, paths, and framework info               |
+| `DatabaseConnections`      | JPA entities, repositories, JDBC connections, and Node.js ORM models           |
+| `ExternalServiceCalls`     | Outbound HTTP calls to external services                                       |
+| `MessagingConnections`     | Kafka, RabbitMQ, JMS, and other messaging patterns                             |
+| `TestMapping`              | Mapping of test methods to implementation methods                              |
+| `SecurityConfiguration`    | Spring Security, CORS, OAuth2, and Node.js security middleware                 |
+| `ServerConfiguration`      | Port, SSL, and context path settings                                           |
+| `DeploymentArtifacts`      | Dockerfile, Kubernetes, and docker-compose files                               |
+| `DataAssets`               | Entities, records, and DTOs                                                    |
+| `ProjectMetadata`          | Artifact ID, group ID, and project name                                        |
+| `ServiceComponents`        | Service layer components (@Service, @Component, @Named)                        |
+| `CodingConventions`        | Naming patterns, import organization, and documentation conventions            |
+| `DependencyUsage`          | External library dependencies and how they are used in the codebase            |
+| `ErrorHandlingPatterns`    | Error/exception handling patterns, strategies, and logging frameworks          |
+| `CalmRelationships`        | Method call graph for discovering relationships between architectural entities |
+| `ContextRegistry`          | Registry of available context files for coding agents                          |
+| `SourceSetLanguageSummary` | Language versions, file counts, and build tools per source set                 |
+| `ClassDescriptions`        | AI-generated class descriptions (with AI recipe)                               |
+| `MethodDescriptions`       | AI-generated method descriptions (with AI recipe)                              |
 
-For the full schema definitions, see the [data table source code](https://github.com/openrewrite/rewrite-prethink/tree/main/src/main/java/org/openrewrite/prethink/table).
+For the full schema definitions, see the data table source code in [openrewrite/rewrite-prethink](https://github.com/openrewrite/rewrite-prethink/tree/main/src/main/java/org/openrewrite/prethink/table) and [moderneinc/rewrite-prethink](https://github.com/moderneinc/rewrite-prethink/tree/main/src/main/java/io/moderne/prethink/table).
 
 ## What Prethink generates
 
@@ -281,20 +324,32 @@ After running a Prethink recipe, you'll find generated files in the `.moderne/co
 
 ```
 .moderne/context/
-├── service-endpoints.csv
-├── service-endpoints.md
+├── calm-architecture.json
+├── class-descriptions.csv
+├── class-descriptions.md
+├── coding-conventions.csv
+├── coding-conventions.md
 ├── database-connections.csv
 ├── database-connections.md
-├── test-mapping.csv
-├── test-mapping.md
 ├── dependencies.csv
 ├── dependencies.md
-└── calm-architecture.json
+├── dependency-usage.csv
+├── dependency-usage.md
+├── error-handling.csv
+├── error-handling.md
+├── method-descriptions.csv
+├── method-descriptions.md
+├── service-endpoints.csv
+├── service-endpoints.md
+├── test-mapping.csv
+├── test-mapping.md
+└── architecture-diagram.md
 ```
 
 * **CSV files** contain structured data that AI agents can parse directly
 * **Markdown files** describe the context and schema for human and agent readability
 * **CALM architecture JSON** can be visualized with [CALM](https://calm.finos.org/)-compatible tools
+* **Mermaid architecture diagram** can be rendered by GitHub, GitLab, and other platforms
 
 ### Context export
 
@@ -309,11 +364,11 @@ Each exported context file is accompanied by a markdown file that describes what
 
 ### Code comprehension
 
-The optional code comprehension component uses Moderne's LST analysis combined with your bring-your-own LLM to build a knowledge graph. This graph captures how software components, dependencies, and behaviors relate at a system level.
+The optional code comprehension component uses Moderne's LST analysis combined with your bring-your-own LLM to build a knowledge graph. This graph captures how software components, dependencies, and behaviors relate at a system level. Descriptions are cached based on SHA-256 checksums of the source code, so re-running Prethink only generates descriptions for code that has changed.
 
 ### Architecture visualization
 
-Prethink can export architecture information in CALM format, providing nodes and relationships that describe your system's structure. These can be visualized with CALM-compatible tools or consumed directly by AI agents for architectural reasoning.
+Prethink can export architecture information in CALM format, providing nodes and relationships that describe your system's structure. These can be visualized with CALM-compatible tools or consumed directly by AI agents for architectural reasoning. Prethink also generates a Mermaid architecture diagram in markdown format for easy rendering in GitHub, GitLab, and other platforms that support Mermaid.
 
 <figure>
   ![Moderne Platform recipe results showing a generated CALM architecture JSON file with service nodes and relationships](./assets/prethink-calm-architecture.png)
@@ -322,7 +377,7 @@ Prethink can export architecture information in CALM format, providing nodes and
 
 ## How agents discover Prethink context
 
-When Prethink runs, it updates the agent configuration files in your repository (such as `CLAUDE.md`, `.cursorrules`, or `.github/copilot-instructions.md`) to point AI agents to the generated context. This enables progressive discovery where agents first learn about the available context and then read the relevant files as needed.
+When Prethink runs, it updates the agent configuration files in your repository (such as `AGENTS.md`, `CLAUDE.md`, `.cursorrules`, or `.github/copilot-instructions.md`) to point AI agents to the generated context. This enables progressive discovery where agents first learn about the available context and then read the relevant files as needed.
 
 <figure>
   ![Moderne Platform recipe results showing an updated CLAUDE.md file with Prethink context references and instructions](./assets/prethink-claude-md.png)
