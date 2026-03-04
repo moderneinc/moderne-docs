@@ -113,7 +113,7 @@ When duplicating rows, the recipe metadata (`options`, `dataTables`, `displayNam
 
 ## For recipe authors
 
-If you maintain a recipe library and want to include an embedded `recipes.csv` file in your JAR, both the Gradle and Maven build plugins provide goals to generate the CSV.
+If you maintain a recipe library and want to include an embedded `recipes.csv` file in your JAR, both the [Gradle](https://github.com/openrewrite/rewrite-build-gradle-plugin) and [Maven](https://github.com/openrewrite/rewrite-maven-plugin) build plugins provide goals to generate the CSV.
 
 ### Generating the CSV
 
