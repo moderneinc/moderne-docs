@@ -78,7 +78,7 @@ For Gradle projects, validation will run automatically as part of `./gradlew che
 If any recipes appear in the CSV file but do not exist in the JAR ("phantom recipes"), the build will fail.
 
 :::info
-For more details, see the [recipes.csv reference](../../moderne-cli/references/recipes-csv.md), which covers both [CSV generation](../../moderne-cli/references/recipes-csv.md#generating-the-csv) and [automatic validation](../../moderne-cli/references/recipes-csv.md#automatic-validation).
+For more details, see the [recipes.csv reference](../../moderne-cli/references/recipes-csv.md), which covers both [CSV generation](../../moderne-cli/references/recipes-csv.md#generating-the-csv) and [automatic validation](../../moderne-cli/references/recipes-csv.md#automatic-validation-gradle-only).
 :::
 
 Once validation passes, you can [publish and deploy the artifact to the Moderne Platform](#deploying-recipe-artifacts-to-the-moderne-platform).
