@@ -3,6 +3,9 @@ sidebar_label: CSV recipe marketplace
 description: Learn how the CLI CSV recipe marketplace works.
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 # Defining the recipe marketplace with a CSV file
 
 Starting with CLI version `3.55.0`, the recipe marketplace in the Moderne CLI is defined via a CSV file rather than a binary Lucene index. This provides several benefits:
@@ -110,19 +113,32 @@ When duplicating rows, the recipe metadata (`options`, `dataTables`, `displayNam
 
 ## For recipe authors
 
-If you maintain a recipe library and want to include an embedded `recipes.csv` file in your JAR, the [OpenRewrite Gradle build plugin](https://github.com/openrewrite/rewrite-build-gradle-plugin) provides tasks to generate and validate the CSV.
+If you maintain a recipe library and want to include an embedded `recipes.csv` file in your JAR, both the [Gradle](https://github.com/openrewrite/rewrite-build-gradle-plugin) and [Maven](https://github.com/openrewrite/rewrite-maven-plugin) build plugins provide goals to generate the CSV.
 
 ### Generating the CSV
 
 To create or update your `recipes.csv` file, run:
 
+<Tabs groupId="build-tool">
+<TabItem value="gradle" label="Gradle">
+
 ```bash
 ./gradlew recipeCsvGenerate
 ```
 
-This task scans your recipe JAR and generates the CSV, preserving any manual customizations you've made (such as custom category assignments).
+</TabItem>
+<TabItem value="maven" label="Maven">
 
-### Automatic validation
+```bash
+./mvnw rewrite:recipeCsvGenerate
+```
+
+</TabItem>
+</Tabs>
+
+This scans your compiled recipe classes and resources and generates the CSV, preserving any manual customizations you've made (such as custom category assignments).
+
+### Automatic validation (Gradle only)
 
 Once a `recipes.csv` file exists, validation runs automatically as part of the standard Gradle `check` task. This means every build will verify that:
 
@@ -134,7 +150,7 @@ If validation fails, the build will fail with detailed error messages.
 For more details, see the [Recipe Marketplace CSV Gradle Tasks ADR](https://github.com/openrewrite/rewrite-build-gradle-plugin/blob/main/adr/0001-recipe-marketplace-csv-gradle-tasks.md).
 
 :::note
-There is currently no Maven plugin equivalent. Organizations not using the Gradle plugin will need to implement similar functionality themselves, manually create and maintain a `recipes.csv` file, or rely on the CLI's fallback classpath scanning.
+Automatic CSV validation is currently only available in the Gradle plugin. Maven users should manually verify that the generated CSV matches their JAR contents.
 :::
 
 ## Additional resources
