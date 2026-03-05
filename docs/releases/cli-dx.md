@@ -1,5 +1,18 @@
 # CLI / DX changelog
 
+### CLI / DX v4.0.4 (2026-03-05)
+
+#### What's Changed
+* Fix wrapper distributionUrl to use template format
+* Fix NoSuchFileException when adding second branch to synced repo
+* Add searchResultOnly and invisible to changes.json
+* Fix CommandTraceTest NPE when git email is not configured
+* Improve HttpClientSender error reporting
+* Requote shell-stripped search queries and add --syntax option
+* Add multi-version Node.js auto-discovery, PATH isolation, and devEngines detection
+* Replace `StreamingResultPrinter` with RPC-safe offset computation
+* We're suppressing logging of some errors during maven java version detection
+
 ### CLI / DX v4.0.3 (2026-03-02)
 
 #### What's Changed

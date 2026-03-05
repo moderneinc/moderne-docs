@@ -6305,6 +6305,7 @@ mod search /path/to/working-set "@Autowired"
 | ---- | ----------- |
 | `-m`, `--max` |  Maximum number of results per repository (default: 100) |
 | `--output` |  Output mode: rich (default, highlighted diffs with run directory) or plain (fast text output) |
+| `--syntax` |  Query syntax: sourcegraph (default) or zoekt |
 
 
 ## mod study
