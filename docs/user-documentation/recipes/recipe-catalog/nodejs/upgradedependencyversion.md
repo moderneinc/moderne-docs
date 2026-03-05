@@ -25,6 +25,14 @@ This recipe is available under the [Moderne Proprietary License](https://docs.mo
 | `String` | namePattern | Name glob pattern used to match dependencies | `@apollo*` |
 | `String` | version | Set the version to upgrade to.Node-style [version selectors](https://docs.openrewrite.org/reference/dependency-version-selectors) may be used. | `1.x` |
 
+
+## Used by
+
+This recipe is used as part of the following composite recipes:
+
+* [Upgrade to Angular 19](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/angular/upgradetoangular19)
+* [Upgrade to Angular 20](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/angular/upgradetoangular20)
+
 ## Example
 
 ###### Parameters

@@ -37,7 +37,7 @@ This recipe is available under the [Moderne Source Available License](https://do
 
 This recipe is used as part of the following composite recipes:
 
-* [Remove LaunchDarkly's `boolVariation` for feature key](/user-documentation/recipes/recipe-catalog/featureflags/launchdarkly/removestringvariation.md)
+* [Remove LaunchDarkly's `stringVariation` for feature key](/user-documentation/recipes/recipe-catalog/featureflags/launchdarkly/removestringvariation.md)
 * [Remove OpenFeature's `getStringValue` for feature key](/user-documentation/recipes/recipe-catalog/featureflags/openfeature/removegetstringvalue.md)
 * [Remove Quarkus feature flag's `getString` for feature key](/user-documentation/recipes/recipe-catalog/featureflags/quarkus/removegetstring.md)
 

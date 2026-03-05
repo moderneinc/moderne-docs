@@ -9,7 +9,7 @@ import TabItem from '@theme/TabItem';
 
 **io.moderne.hibernate.update40.MigrateJoinTableToCollectionTable**
 
-_Replaces `@JoinTable` with `@CollectionTable` when used alongside `@CollectionOfElements` or `@ElementCollection`. `@CollectionTable` is the JPA 2.0 standard for defining the table that stores element collections._
+_Replaces `@JoinTable` with `@CollectionTable` when used alongside `@CollectionOfElements` or `@ElementCollection`. `@CollectionTable` is the JPA 2.0 standard for defining the table that stores element collections. When `inverseJoinColumns` is present, its column name is preserved as a `@Column` annotation._
 
 ## Recipe source
 

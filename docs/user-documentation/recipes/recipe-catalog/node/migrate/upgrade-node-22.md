@@ -28,7 +28,13 @@ This recipe is available under the [Moderne Source Available License](https://do
 
 <Tabs groupId="recipeType">
 <TabItem value="recipe-list" label="Recipe List" >
+* [Increase Node.js engine version](../../node/migrate/increase-node-engine-version)
+  * version: `22`
+* [Increase Node.js version in GitHub Actions](../../node/migrate/increase-node-engine-version-in-github-actions)
+  * version: `22`
 * [Replace deprecated `util.types.isWebAssemblyCompiledModule()`](../../node/migrate/util/replace-is-webassembly-compiled-module)
+* [Find deprecated `punycode` module usage](../../node/migrate/find-punycode-usage)
+* [Find deprecated `crypto.createCipher()` and `crypto.createDecipher()` usage](../../node/migrate/crypto/find-create-cipher)
 * [Replace deprecated `util.isX()` methods with native JavaScript](../../node/migrate/util/use-native-type-checking-methods)
 * [Replace deprecated `util._extend()` with `Object.assign()`](../../node/migrate/util/replace-util-extend)
 * [Replace deprecated `new crypto.Hash()` and `new crypto.Hmac()` with factory methods](../../node/migrate/crypto/replace-hash-constructor)
@@ -49,7 +55,13 @@ displayName: Upgrade to Node.js 22
 description: |
   Migrate deprecated APIs for Node.js 22 compatibility. Addresses Node 22 runtime deprecations and deprecations from earlier versions.
 recipeList:
+  - org.openrewrite.node.migrate.increase-node-engine-version:
+      version: 22
+  - org.openrewrite.node.migrate.increase-node-engine-version-in-github-actions:
+      version: 22
   - org.openrewrite.node.migrate.util.replace-is-webassembly-compiled-module
+  - org.openrewrite.node.migrate.find-punycode-usage
+  - org.openrewrite.node.migrate.crypto.find-create-cipher
   - org.openrewrite.node.migrate.util.use-native-type-checking-methods
   - org.openrewrite.node.migrate.util.replace-util-extend
   - org.openrewrite.node.migrate.crypto.replace-hash-constructor

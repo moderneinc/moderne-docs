@@ -41,6 +41,7 @@ This recipe is available under the [Apache License Version 2.0](https://www.apac
 
 This recipe is used as part of the following composite recipes:
 
+* [Migrate from Acegi Security 1.0.x to Spring Security 5.0](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/spring/security/migrateacegitospringsecurity_5_0)
 * [Use correct application namespace values](/user-documentation/recipes/recipe-catalog/xml/liberty/appddnamespacerule.md)
 * [Use correct connector namespace values](/user-documentation/recipes/recipe-catalog/xml/liberty/connectorddnamespacerule.md)
 * [Use correct ejb-jar namespace values](/user-documentation/recipes/recipe-catalog/xml/liberty/ejbddnamespacerule.md)

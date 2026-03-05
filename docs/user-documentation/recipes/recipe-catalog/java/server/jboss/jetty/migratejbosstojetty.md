@@ -20,6 +20,228 @@ This recipe is available under the [Moderne Proprietary License](https://docs.mo
 
 ## Examples
 ##### Example 1
+`MigrateJBossToJettyMultiModuleTest#migratesMultiModuleGradleProject`
+
+
+<Tabs groupId="beforeAfter">
+<TabItem value="build.gradle" label="build.gradle">
+
+
+###### Before
+```groovy title="build.gradle"
+plugins {
+    id 'java'
+    id 'war'
+}
+
+repositories {
+    mavenCentral()
+}
+```
+
+###### After
+```groovy title="build.gradle"
+plugins {
+    id 'java'
+    id 'application'
+}
+
+repositories {
+    mavenCentral()
+}
+
+application {
+    mainClass = 'com.example.JettyServer'
+}
+
+tasks.named('jar') {
+    manifest {
+        attributes 'Main-Class': 'com.example.JettyServer'
+    }
+    from {
+        configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
+    }
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+}
+
+dependencies {
+    implementation "org.eclipse.jetty:jetty-server:12.1.5"
+    implementation "org.eclipse.jetty:jetty-xml:12.1.5"
+    implementation "org.eclipse.jetty.ee10:jetty-ee10-jndi:12.1.5"
+    implementation "org.eclipse.jetty.ee10:jetty-ee10-plus:12.1.5"
+    implementation "org.eclipse.jetty.ee10:jetty-ee10-servlet:12.1.5"
+    implementation "org.eclipse.jetty.ee10:jetty-ee10-webapp:12.1.5"
+}
+```
+
+</TabItem>
+<TabItem value="diff" label="Diff" >
+
+```diff
+--- build.gradle
++++ build.gradle
+@@ -3,1 +3,1 @@
+plugins {
+    id 'java'
+-   id 'war'
++   id 'application'
+}
+@@ -10,0 +10,23 @@
+}
+
++application {
++   mainClass = 'com.example.JettyServer'
++}
++
++tasks.named('jar') {
++   manifest {
++       attributes 'Main-Class': 'com.example.JettyServer'
++   }
++   from {
++       configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
++   }
++   duplicatesStrategy = DuplicatesStrategy.EXCLUDE
++}
++
++dependencies {
++   implementation "org.eclipse.jetty:jetty-server:12.1.5"
++   implementation "org.eclipse.jetty:jetty-xml:12.1.5"
++   implementation "org.eclipse.jetty.ee10:jetty-ee10-jndi:12.1.5"
++   implementation "org.eclipse.jetty.ee10:jetty-ee10-plus:12.1.5"
++   implementation "org.eclipse.jetty.ee10:jetty-ee10-servlet:12.1.5"
++   implementation "org.eclipse.jetty.ee10:jetty-ee10-webapp:12.1.5"
++}
++
+```
+</TabItem>
+</Tabs>
+
+###### Unchanged
+```groovy title="build.gradle"
+plugins {
+    id 'java'
+}
+
+repositories {
+    mavenCentral()
+}
+```
+
+
+###### New file
+```java
+package com.example;
+
+import org.eclipse.jetty.ee10.webapp.WebAppContext;
+import org.eclipse.jetty.server.Server;
+import org.eclipse.jetty.util.resource.Resource;
+import org.eclipse.jetty.util.resource.ResourceFactory;
+import org.eclipse.jetty.xml.XmlConfiguration;
+
+import java.net.URL;
+
+public class JettyServer {
+
+    private static final int DEFAULT_PORT = 9090;
+    private static final String CONTEXT_PATH = "/myapp";
+
+    public static void main(String[] args) throws Exception {
+        Server server = new Server(DEFAULT_PORT);
+        WebAppContext webapp = new WebAppContext();
+
+        webapp.setContextPath(CONTEXT_PATH);
+        Resource webappResource = ResourceFactory.of(server).newClassLoaderResource("webapp");
+        webapp.setBaseResource(webappResource);
+        webapp.setParentLoaderPriority(true);
+
+        URL jettyEnvUrl = JettyServer.class.getClassLoader().getResource("webapp/WEB-INF/jetty-env.xml");
+        if (jettyEnvUrl != null) {
+            XmlConfiguration config = new XmlConfiguration(ResourceFactory.root().newResource(jettyEnvUrl.toURI()));
+            config.configure(webapp);
+        }
+
+        server.setHandler(webapp);
+        server.start();
+        server.join();
+    }
+}
+```
+
+
+###### Unchanged
+```java
+package com.example;
+public class MainServlet {
+    void main(String... args) {
+    }
+}
+```
+
+###### Unchanged
+```mavenProject
+my-app
+```
+
+###### Unchanged
+```mavenProject
+other-module
+```
+
+
+###### New file
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE Configure PUBLIC "-//Jetty//Configure//EN" "https://jetty.org/configure_10_0.dtd">
+<Configure class="org.eclipse.jetty.ee10.webapp.WebAppContext">
+    <Set name="contextPath">/myapp</Set>
+</Configure>
+```
+
+
+###### Unchanged
+```xml
+<jboss-web>
+    <context-root>/myapp</context-root>
+</jboss-web>
+```
+
+<Tabs groupId="beforeAfter">
+<TabItem value="xml" label="xml">
+
+
+###### Before
+```xml
+<web-app xmlns="http://java.sun.com/xml/ns/javaee"
+         version="3.0">
+    <servlet>
+        <servlet-name>main</servlet-name>
+        <servlet-class>com.example.MainServlet</servlet-class>
+    </servlet>
+</web-app>
+```
+
+###### After
+```xml
+<web-app xmlns="http://java.sun.com/xml/ns/javaee"
+         version="3.0">
+    <servlet>
+        <servlet-name>main</servlet-name>
+        <servlet-class>com.example.MainServlet</servlet-class>
+    </servlet>
+</web-app>
+```
+
+</TabItem>
+<TabItem value="diff" label="Diff" >
+
+```diff
+```
+</TabItem>
+</Tabs>
+
+---
+
+##### Example 2
 `MigrateJBossToJettySingleModuleTest#migratesSingleModuleGradleProject`
 
 
@@ -43,10 +265,25 @@ repositories {
 ```groovy title="build.gradle"
 plugins {
     id 'java'
+    id 'application'
 }
 
 repositories {
     mavenCentral()
+}
+
+application {
+    mainClass = 'com.example.JettyServer'
+}
+
+tasks.named('jar') {
+    manifest {
+        attributes 'Main-Class': 'com.example.JettyServer'
+    }
+    from {
+        configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
+    }
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
 }
 
 dependencies {
@@ -65,14 +302,29 @@ dependencies {
 ```diff
 --- build.gradle
 +++ build.gradle
-@@ -3,1 +3,0 @@
+@@ -3,1 +3,1 @@
 plugins {
     id 'java'
 -   id 'war'
++   id 'application'
 }
-@@ -10,0 +9,9 @@
+@@ -10,0 +10,23 @@
 }
 
++application {
++   mainClass = 'com.example.JettyServer'
++}
++
++tasks.named('jar') {
++   manifest {
++       attributes 'Main-Class': 'com.example.JettyServer'
++   }
++   from {
++       configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
++   }
++   duplicatesStrategy = DuplicatesStrategy.EXCLUDE
++}
++
 +dependencies {
 +   implementation "org.eclipse.jetty:jetty-server:12.1.5"
 +   implementation "org.eclipse.jetty:jetty-xml:12.1.5"
@@ -93,27 +345,27 @@ package com.example;
 
 import org.eclipse.jetty.ee10.webapp.WebAppContext;
 import org.eclipse.jetty.server.Server;
+import org.eclipse.jetty.util.resource.Resource;
 import org.eclipse.jetty.util.resource.ResourceFactory;
 import org.eclipse.jetty.xml.XmlConfiguration;
 
 import java.net.URL;
-import java.nio.file.Path;
 
 public class JettyServer {
 
     private static final int DEFAULT_PORT = 9090;
     private static final String CONTEXT_PATH = "/myapp";
-    private static final String WEBAPP_DIR = "src/main/webapp";
 
     public static void main(String[] args) throws Exception {
         Server server = new Server(DEFAULT_PORT);
         WebAppContext webapp = new WebAppContext();
 
         webapp.setContextPath(CONTEXT_PATH);
-        webapp.setBaseResourceAsPath(Path.of(WEBAPP_DIR));
+        Resource webappResource = ResourceFactory.of(server).newClassLoaderResource("webapp");
+        webapp.setBaseResource(webappResource);
         webapp.setParentLoaderPriority(true);
 
-        URL jettyEnvUrl = JettyServer.class.getClassLoader().getResource("jetty-env.xml");
+        URL jettyEnvUrl = JettyServer.class.getClassLoader().getResource("webapp/WEB-INF/jetty-env.xml");
         if (jettyEnvUrl != null) {
             XmlConfiguration config = new XmlConfiguration(ResourceFactory.root().newResource(jettyEnvUrl.toURI()));
             config.configure(webapp);
@@ -193,7 +445,229 @@ public class MainServlet {
 
 ---
 
-##### Example 2
+##### Example 3
+`MigrateJBossToJettyMultiModuleTest#migratesMultiModuleGradleProject`
+
+
+<Tabs groupId="beforeAfter">
+<TabItem value="build.gradle" label="build.gradle">
+
+
+###### Before
+```groovy title="build.gradle"
+plugins {
+    id 'java'
+    id 'war'
+}
+
+repositories {
+    mavenCentral()
+}
+```
+
+###### After
+```groovy title="build.gradle"
+plugins {
+    id 'java'
+    id 'application'
+}
+
+repositories {
+    mavenCentral()
+}
+
+application {
+    mainClass = 'com.example.JettyServer'
+}
+
+tasks.named('jar') {
+    manifest {
+        attributes 'Main-Class': 'com.example.JettyServer'
+    }
+    from {
+        configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
+    }
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+}
+
+dependencies {
+    implementation "org.eclipse.jetty:jetty-server:12.1.5"
+    implementation "org.eclipse.jetty:jetty-xml:12.1.5"
+    implementation "org.eclipse.jetty.ee10:jetty-ee10-jndi:12.1.5"
+    implementation "org.eclipse.jetty.ee10:jetty-ee10-plus:12.1.5"
+    implementation "org.eclipse.jetty.ee10:jetty-ee10-servlet:12.1.5"
+    implementation "org.eclipse.jetty.ee10:jetty-ee10-webapp:12.1.5"
+}
+```
+
+</TabItem>
+<TabItem value="diff" label="Diff" >
+
+```diff
+--- build.gradle
++++ build.gradle
+@@ -3,1 +3,1 @@
+plugins {
+    id 'java'
+-   id 'war'
++   id 'application'
+}
+@@ -10,0 +10,23 @@
+}
+
++application {
++   mainClass = 'com.example.JettyServer'
++}
++
++tasks.named('jar') {
++   manifest {
++       attributes 'Main-Class': 'com.example.JettyServer'
++   }
++   from {
++       configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
++   }
++   duplicatesStrategy = DuplicatesStrategy.EXCLUDE
++}
++
++dependencies {
++   implementation "org.eclipse.jetty:jetty-server:12.1.5"
++   implementation "org.eclipse.jetty:jetty-xml:12.1.5"
++   implementation "org.eclipse.jetty.ee10:jetty-ee10-jndi:12.1.5"
++   implementation "org.eclipse.jetty.ee10:jetty-ee10-plus:12.1.5"
++   implementation "org.eclipse.jetty.ee10:jetty-ee10-servlet:12.1.5"
++   implementation "org.eclipse.jetty.ee10:jetty-ee10-webapp:12.1.5"
++}
++
+```
+</TabItem>
+</Tabs>
+
+###### Unchanged
+```groovy title="build.gradle"
+plugins {
+    id 'java'
+}
+
+repositories {
+    mavenCentral()
+}
+```
+
+
+###### New file
+```java
+package com.example;
+
+import org.eclipse.jetty.ee10.webapp.WebAppContext;
+import org.eclipse.jetty.server.Server;
+import org.eclipse.jetty.util.resource.Resource;
+import org.eclipse.jetty.util.resource.ResourceFactory;
+import org.eclipse.jetty.xml.XmlConfiguration;
+
+import java.net.URL;
+
+public class JettyServer {
+
+    private static final int DEFAULT_PORT = 9090;
+    private static final String CONTEXT_PATH = "/myapp";
+
+    public static void main(String[] args) throws Exception {
+        Server server = new Server(DEFAULT_PORT);
+        WebAppContext webapp = new WebAppContext();
+
+        webapp.setContextPath(CONTEXT_PATH);
+        Resource webappResource = ResourceFactory.of(server).newClassLoaderResource("webapp");
+        webapp.setBaseResource(webappResource);
+        webapp.setParentLoaderPriority(true);
+
+        URL jettyEnvUrl = JettyServer.class.getClassLoader().getResource("webapp/WEB-INF/jetty-env.xml");
+        if (jettyEnvUrl != null) {
+            XmlConfiguration config = new XmlConfiguration(ResourceFactory.root().newResource(jettyEnvUrl.toURI()));
+            config.configure(webapp);
+        }
+
+        server.setHandler(webapp);
+        server.start();
+        server.join();
+    }
+}
+```
+
+
+###### Unchanged
+```java
+package com.example;
+public class MainServlet {
+    void main(String... args) {
+    }
+}
+```
+
+###### Unchanged
+```mavenProject
+my-app
+```
+
+###### Unchanged
+```mavenProject
+other-module
+```
+
+
+###### New file
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE Configure PUBLIC "-//Jetty//Configure//EN" "https://jetty.org/configure_10_0.dtd">
+<Configure class="org.eclipse.jetty.ee10.webapp.WebAppContext">
+    <Set name="contextPath">/myapp</Set>
+</Configure>
+```
+
+
+###### Unchanged
+```xml
+<jboss-web>
+    <context-root>/myapp</context-root>
+</jboss-web>
+```
+
+<Tabs groupId="beforeAfter">
+<TabItem value="xml" label="xml">
+
+
+###### Before
+```xml
+<web-app xmlns="http://java.sun.com/xml/ns/javaee"
+         version="3.0">
+    <servlet>
+        <servlet-name>main</servlet-name>
+        <servlet-class>com.example.MainServlet</servlet-class>
+    </servlet>
+</web-app>
+```
+
+###### After
+```xml
+<web-app xmlns="http://java.sun.com/xml/ns/javaee"
+         version="3.0">
+    <servlet>
+        <servlet-name>main</servlet-name>
+        <servlet-class>com.example.MainServlet</servlet-class>
+    </servlet>
+</web-app>
+```
+
+</TabItem>
+<TabItem value="diff" label="Diff" >
+
+```diff
+```
+</TabItem>
+</Tabs>
+
+---
+
+##### Example 4
 `MigrateJBossToJettySingleModuleTest#migratesSingleModuleGradleProject`
 
 
@@ -217,10 +691,25 @@ repositories {
 ```groovy title="build.gradle"
 plugins {
     id 'java'
+    id 'application'
 }
 
 repositories {
     mavenCentral()
+}
+
+application {
+    mainClass = 'com.example.JettyServer'
+}
+
+tasks.named('jar') {
+    manifest {
+        attributes 'Main-Class': 'com.example.JettyServer'
+    }
+    from {
+        configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
+    }
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
 }
 
 dependencies {
@@ -239,14 +728,29 @@ dependencies {
 ```diff
 --- build.gradle
 +++ build.gradle
-@@ -3,1 +3,0 @@
+@@ -3,1 +3,1 @@
 plugins {
     id 'java'
 -   id 'war'
++   id 'application'
 }
-@@ -10,0 +9,9 @@
+@@ -10,0 +10,23 @@
 }
 
++application {
++   mainClass = 'com.example.JettyServer'
++}
++
++tasks.named('jar') {
++   manifest {
++       attributes 'Main-Class': 'com.example.JettyServer'
++   }
++   from {
++       configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
++   }
++   duplicatesStrategy = DuplicatesStrategy.EXCLUDE
++}
++
 +dependencies {
 +   implementation "org.eclipse.jetty:jetty-server:12.1.5"
 +   implementation "org.eclipse.jetty:jetty-xml:12.1.5"
@@ -267,27 +771,27 @@ package com.example;
 
 import org.eclipse.jetty.ee10.webapp.WebAppContext;
 import org.eclipse.jetty.server.Server;
+import org.eclipse.jetty.util.resource.Resource;
 import org.eclipse.jetty.util.resource.ResourceFactory;
 import org.eclipse.jetty.xml.XmlConfiguration;
 
 import java.net.URL;
-import java.nio.file.Path;
 
 public class JettyServer {
 
     private static final int DEFAULT_PORT = 9090;
     private static final String CONTEXT_PATH = "/myapp";
-    private static final String WEBAPP_DIR = "src/main/webapp";
 
     public static void main(String[] args) throws Exception {
         Server server = new Server(DEFAULT_PORT);
         WebAppContext webapp = new WebAppContext();
 
         webapp.setContextPath(CONTEXT_PATH);
-        webapp.setBaseResourceAsPath(Path.of(WEBAPP_DIR));
+        Resource webappResource = ResourceFactory.of(server).newClassLoaderResource("webapp");
+        webapp.setBaseResource(webappResource);
         webapp.setParentLoaderPriority(true);
 
-        URL jettyEnvUrl = JettyServer.class.getClassLoader().getResource("jetty-env.xml");
+        URL jettyEnvUrl = JettyServer.class.getClassLoader().getResource("webapp/WEB-INF/jetty-env.xml");
         if (jettyEnvUrl != null) {
             XmlConfiguration config = new XmlConfiguration(ResourceFactory.root().newResource(jettyEnvUrl.toURI()));
             config.configure(webapp);

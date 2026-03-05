@@ -29,6 +29,7 @@ _Recipes that include further recipes, often including the individual recipes be
 * [Module uses Liquibase](./moduleusesliquibase.md)
 * [Remove Spring Pulsar Reactive support](./removespringpulsarreactive.md)
 * [Remove `SslBundles` parameter from `KafkaProperties` build methods](./removekafkapropertiessslbundlesparameter.md)
+* [Rename Spring Boot 4.0 starters with managed versions](./renamedeprecatedstartersmanagedversions.md)
 * [Replace `@MockBean` and `@SpyBean`](./replacemockbeanandspybean.md)
 * [Replace deprecated RequestMatcherProvider with new API](./replacedeprecatedrequestmatcherprovider.md)
 * [Spring Boot 4.0 Module Starter Relocations](./modulestarterrelocations.md)

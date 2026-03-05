@@ -17,6 +17,8 @@ _Recipes that include further recipes, often including the individual recipes be
 
 ## Recipes
 
+* [Configure Gradle `application` plugin main class](./configuregradleapplicationplugin.md)
+* [Configure Gradle `jar` task for fat JAR](./configuregradlefatjar.md)
 * [Create Jetty environment XML](./createjettyenvxml.md)
 * [Create Jetty server source file](./createjettysourcefile.md)
 

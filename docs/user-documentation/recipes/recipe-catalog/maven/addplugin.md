@@ -42,6 +42,7 @@ This recipe is available under the [Apache License Version 2.0](https://www.apac
 This recipe is used as part of the following composite recipes:
 
 * [Add Liberty Maven plugin](/user-documentation/recipes/recipe-catalog/maven/liberty/addopenlibertyplugin.md)
+* [Migrate JBoss to Jetty](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/server/jboss/jetty/migratejbosstojetty)
 * [Migrate JavaEE Maven Dependencies to Quarkus 2](/user-documentation/recipes/recipe-catalog/quarkus/migrate/javaee/addquarkus2mavenplugins.md)
 * [Upgrade Surefire Plugin](/user-documentation/recipes/recipe-catalog/java/testing/junit5/upgradesurefireplugin.md)
 

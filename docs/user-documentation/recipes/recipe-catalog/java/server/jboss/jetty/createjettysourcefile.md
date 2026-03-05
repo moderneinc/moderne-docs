@@ -50,27 +50,27 @@ package com.example;
 
 import org.eclipse.jetty.ee10.webapp.WebAppContext;
 import org.eclipse.jetty.server.Server;
+import org.eclipse.jetty.util.resource.Resource;
 import org.eclipse.jetty.util.resource.ResourceFactory;
 import org.eclipse.jetty.xml.XmlConfiguration;
 
 import java.net.URL;
-import java.nio.file.Path;
 
 public class JettyServer {
 
     private static final int DEFAULT_PORT = 9090;
     private static final String CONTEXT_PATH = "/myapp";
-    private static final String WEBAPP_DIR = "src/main/webapp";
 
     public static void main(String[] args) throws Exception {
         Server server = new Server(DEFAULT_PORT);
         WebAppContext webapp = new WebAppContext();
 
         webapp.setContextPath(CONTEXT_PATH);
-        webapp.setBaseResourceAsPath(Path.of(WEBAPP_DIR));
+        Resource webappResource = ResourceFactory.of(server).newClassLoaderResource("webapp");
+        webapp.setBaseResource(webappResource);
         webapp.setParentLoaderPriority(true);
 
-        URL jettyEnvUrl = JettyServer.class.getClassLoader().getResource("jetty-env.xml");
+        URL jettyEnvUrl = JettyServer.class.getClassLoader().getResource("webapp/WEB-INF/jetty-env.xml");
         if (jettyEnvUrl != null) {
             XmlConfiguration config = new XmlConfiguration(ResourceFactory.root().newResource(jettyEnvUrl.toURI()));
             config.configure(webapp);
