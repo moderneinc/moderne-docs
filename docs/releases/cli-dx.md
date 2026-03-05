@@ -1,5 +1,102 @@
 # CLI / DX changelog
 
+### CLI / DX v4.0.3 (2026-03-02)
+
+#### What's Changed
+* Remove snapshot fallback from get-mod installer scripts
+* Remove duplicate publication preventing platform distribution deployment
+* Include sibling branches in repo-level repos-lock.csv
+* Clean up `trace.csv.lock` files after the job is done
+* Improve worktree readiness check and seed LST from parent
+* Fix mod `git push --set-upstream` without remote/branch arguments
+* Add next step suggestions after `mod git rm`
+* Fix `pip install --target` not overwriting existing recipe files
+* Fix OOM in gradle-metadata JSON serialization
+* Fix node config installation edit not persisting for list
+* Publish platform distributions to separate Maven Central artifacts
+
+### CLI / DX v4.0.2 (2026-02-27)
+
+#### What's Changed
+* Fix documentation publishing for release
+
+### CLI / DX v4.0.1 (2026-02-27)
+
+#### What's Changed
+* Fix publishing of platform distributions
+
+### CLI / DX v4.0.0 (2026-02-27)
+
+#### What's Changed
+* JAR only distribution with modw wrapper
+* Update Java version to 25.0.2-zulu in .sdkmanrc
+* Support modw command name in shell completion
+* Add more details to the create and run recipe skills
+* Fix StackOverflowError from mutual recursion in installation discovery
+* Polish - Remove selection sorting of installations.
+* Add V3 LST format support with per-repo conversion reporting
+* Add graceful cancel support to `mod git sync csv` command
+* Fix source file count string concatenation for mainframe build step
+* Support Bazel 8 for building LSTs 
+* Add missing syncs.zip argument in sync next-steps hint
+* Remove org.takes dependency to eliminate CVE-2025-66905
+* Surface fix recipe on DevCenter cards
+* Add MCP server with trigram search integration
+* Fix MalformedURLException in git sync csv on Windows
+* Fix `mod log syncs add` crash on Windows
+* Enable `mod config moderne login` to be able to verify tokens for SaaS2
+* Fall back to root org when current org not found in CSV
+* Drop `--parallel` from `mod config recipes jar install` docs
+* Split MCP search into separate text and structural search tools, add pagination.
+* Redirect JVM unified logging to stderr in wrapper scripts
+* Detecting Node versions based on various configuration files found in the project
+* Add `--debug` to modw wrappers, deprecate `--jvm-debug`
+* Drop daemon related classes
+* Fall back to SNAPSHOT then LATEST when dated snapshots are unavailable in the marketplace
+* Pass marketplace resolvers to JS and Python RPC factories
+* Fix OverlappingFileLockException in parallel trace CSV writes
+* Fix tests writing to user's real ~/.moderne/cli/moderne.yml
+* Bake enable-native-access into the JAR manifest to avoid runtime warning
+* Lazily start Python and JavaScript RPC processes
+* Surface human-readable SSL diagnostics across all CLI commands
+* Refactor `NodeVersionDetectorTest` to use `@Nested`
+* Add multi-line progress bars for parallel repository processing
+* Minor refactoring, rename `Skills` class to `AgentTools` class
+* Add correct line ending handling to ensure shell scripts work 
+* Fix ZipException: zip END header not found
+* Auto-bump old Gradle wrapper versions for LST generation
+* Fix `mod config recipes list` crash and null version display
+* `mod git add` should suggest `mod git commit` with used path and message
+* Pin `io.modelcontextprotocol.sdk:mcp` to 0.18.1
+* Fix progress bar flickering
+* Dropping Copybook absolute path mitigation following fix in `rewrite-cobol`
+* Fix NPE from concurrent TreeSet access in Run command
+* Add `mod git rm` subcommand
+* Make AnimatedProgressBar rendering modes explicit
+* Update common recipe modules to reduce friction
+* Remove trailing whitespace
+* Add `~/.moderne/cli/recipes/pip` to Python path when calling Python Rewrite RPC in build and run
+* Python: Force reinstall pip packages to pick up source changes
+* Use `pipPackagesPath` consistently in Python RPC setup
+* Add MCP tools and GradleBuildStep2 for incremental compilation
+* Update README for modw wrapper workflow
+* Add custom file-extension-to-parser mappings (build.parsers)
+* Gate MCP writes on .git existence to fix Conductor worktree race
+* Add nodeOptions argument to IngestSpec constructor calls
+* Fix missing argument preventing compilation
+* Fix YAML recipe deletion and :null display in listing
+* Add GPG commit signing support to mod git commit
+* Update recipes CSV export and add CSV import command
+* Add granular per-file MCP progress for recipe runs
+* Switch CLI distribution to Maven Central
+* Fix `mod config recipes yaml delete` path handling on Windows
+* Fix yaml delete bare path matching on Windows
+* Fix snapshot upload artifact paths
+* Add `mod config build javascript nodeoptions` commands
+* Fix delete to handle installed YAML recipes where paths are not normalized
+* Isolate openrewrite Python package per version
+* Add distributionUrl customization and v4 minimum to wrapper scripts
+
 ### CLI / DX v3.57.12 (2026-02-26)
 
 #### What's Changed
