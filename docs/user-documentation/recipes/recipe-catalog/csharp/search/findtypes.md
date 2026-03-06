@@ -1,28 +1,28 @@
 ---
-sidebar_label: "Find method usages"
+sidebar_label: "Find types"
 ---
 
 
 <head>
-  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/search/findmethods" />
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/search/findtypes" />
 </head>
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# Find method usages
+# Find types
 
-**org.openrewrite.java.search.FindMethods**
+**org.openrewrite.java.search.FindTypes**
 
-_Find method calls by pattern._
+_Find type references by name._
 
 :::info
-This Java recipe works on C# code.
+This Java recipe works on Csharp code.
 :::
 
 ## Recipe source
 
-[GitHub: FindMethods.java](https://github.com/openrewrite/rewrite/blob/main/rewrite-java/src/main/java/org/openrewrite/java/search/FindMethods.java),
+[GitHub: FindTypes.java](https://github.com/openrewrite/rewrite/blob/main/rewrite-java/src/main/java/org/openrewrite/java/search/FindTypes.java),
 [Issue Tracker](https://github.com/openrewrite/rewrite/issues),
 [Maven Central](https://central.sonatype.com/artifact/org.openrewrite/rewrite-java/)
 
@@ -32,34 +32,26 @@ This recipe is available under the [Apache License Version 2.0](https://www.apac
 
 | Type | Name | Description | Example |
 | --- | --- | --- | --- |
-| `String` | methodPattern | A [method pattern](https://docs.openrewrite.org/reference/method-patterns) is used to find matching method invocations. For example, to find all method invocations in the Guava library, use the pattern: `com.google.common..*#*(..)`.<br/><br/>The pattern format is `<PACKAGE>#<METHOD_NAME>(<ARGS>)`. <br/><br/>`..*` includes all subpackages of `com.google.common`. <br/>`*(..)` matches any method name with any number of arguments. <br/><br/>For more specific queries, like Guava's `ImmutableMap`, use `com.google.common.collect.ImmutableMap#*(..)` to narrow down the results. | `java.util.List add(..)` |
-| `Boolean` | matchOverrides | *Optional*. When enabled, find methods that are overrides of the method pattern. |  |
+| `String` | fullyQualifiedTypeName | A fully-qualified type name, that is used to find matching type references. Supports glob expressions. `java..*` finds every type from every subpackage of the `java` package. | `java.util.List` |
+| `Boolean` | checkAssignability | *Optional*. When enabled, find type references that are assignable to the provided type. |  |
 
 
 ## Used by
 
 This recipe is used as part of the following composite recipes:
 
-* [Find Jackson default type mapping enablement](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/security/search/findjacksondefaulttypemapping)
-* [Find Virtual Thread opportunities](/user-documentation/recipes/recipe-catalog/java/migrate/lang/findvirtualthreadopportunities.md)
-* [Find non-virtual `ExecutorService` creation](/user-documentation/recipes/recipe-catalog/java/migrate/lang/findnonvirtualexecutors.md)
-* [Finds uses of `Encryptors.queryableText()`](/user-documentation/recipes/recipe-catalog/java/spring/security5/search/findencryptorsqueryabletextuses.md)
+* [Find deprecated `PathMatcher` usage](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/spring/framework/finddeprecatedpathmatcherusage)
+* [Report types deprecated or removed in WebLogic version 14.1.2](/user-documentation/recipes/recipe-catalog/com/oracle/weblogic/rewrite/reportdeprecatedorremoved1412.md)
+* [Report types deprecated or removed in WebLogic version 15.1.1](/user-documentation/recipes/recipe-catalog/com/oracle/weblogic/rewrite/reportdeprecatedorremoved1511.md)
 
 ## Example
 
 ###### Parameters
 | Parameter | Value |
 | --- | --- |
-|methodPattern|`A <constructor>(String)`|
-|matchOverrides|`false`|
+|fullyQualifiedTypeName|`a.A1`|
+|checkAssignability|`false`|
 
-
-###### Unchanged
-```java
-class A {
-    public A(String s) {}
-}
-```
 
 <Tabs groupId="beforeAfter">
 <TabItem value="java" label="java">
@@ -67,16 +59,14 @@ class A {
 
 ###### Before
 ```java
-class Test {
-    A a = new A("test");
-}
+import a.A1;
+public class B extends A1 {}
 ```
 
 ###### After
 ```java
-class Test {
-    A a = /*~~>*/new A("test");
-}
+import a.A1;
+public class B extends /*~~>*/A1 {}
 ```
 
 </TabItem>
@@ -84,10 +74,10 @@ class Test {
 
 ```diff
 @@ -2,1 +2,1 @@
-class Test {
--   A a = new A("test");
-+   A a = /*~~>*/new A("test");
-}
+import a.A1;
+-public class B extends A1 {}
++public class B extends /*~~>*/A1 {}
+
 ```
 </TabItem>
 </Tabs>
@@ -102,11 +92,11 @@ Or, if you'd like to create a declarative recipe, please see the below example o
 ```yaml title="rewrite.yml"
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: com.yourorg.FindMethodsExample
-displayName: Find method usages example
+name: com.yourorg.FindTypesExample
+displayName: Find types example
 recipeList:
-  - org.openrewrite.java.search.FindMethods:
-      methodPattern: java.util.List add(..)
+  - org.openrewrite.java.search.FindTypes:
+      fullyQualifiedTypeName: java.util.List
 ```
 
 <Tabs groupId="projectType">
@@ -115,7 +105,7 @@ recipeList:
 You will need to have configured the [Moderne CLI](https://docs.moderne.io/user-documentation/moderne-cli/getting-started/cli-intro) on your machine before you can run the following command.
 
 ```shell title="shell"
-mod run . --recipe FindMethods --recipe-option "methodPattern=java.util.List add(..)"
+mod run . --recipe FindTypes --recipe-option "fullyQualifiedTypeName=java.util.List"
 ```
 
 If the recipe is not available locally, then you can install it using:
@@ -129,7 +119,7 @@ mod config recipes jar install org.openrewrite:rewrite-java:{{VERSION_ORG_OPENRE
 
 import RecipeCallout from '@site/src/components/ModerneLink';
 
-<RecipeCallout link="https://app.moderne.io/recipes/org.openrewrite.java.search.FindMethods" />
+<RecipeCallout link="https://app.moderne.io/recipes/org.openrewrite.java.search.FindTypes" />
 
 The community edition of the Moderne platform enables you to easily run recipes across thousands of open-source repositories.
 
@@ -137,20 +127,18 @@ Please [contact Moderne](https://moderne.io/product) for more information about 
 ## Data Tables
 
 <Tabs groupId="data-tables">
-<TabItem value="org.openrewrite.java.table.MethodCalls" label="MethodCalls">
+<TabItem value="org.openrewrite.java.table.TypeUses" label="TypeUses">
 
-### Method calls
-**org.openrewrite.java.table.MethodCalls**
+### Type uses
+**org.openrewrite.java.table.TypeUses**
 
-_The text of matching method invocations._
+_The source code of matching type uses._
 
 | Column Name | Description |
 | ----------- | ----------- |
 | Source file | The source file that the method call occurred in. |
-| Method call | The text of the method call. |
-| Class name | The class name of the method call. |
-| Method name | The method name of the method call. |
-| Argument types | The argument types of the method call. |
+| Source | The source code of the type use. |
+| Concrete type | The concrete type in use, which may be a subtype of a searched type. |
 
 </TabItem>
 

@@ -18,11 +18,10 @@ _`tls.SecurePair` (DEP0043) and `tls.createSecurePair()` (DEP0064) were deprecat
 
 ## Recipe source
 
-[GitHub: rewrite+org.openrewrite.node.migrate.tls.find-tls-secure-pair](https://github.com/search?type=code&q=repo:openrewrite/rewrite+org.openrewrite.node.migrate.tls.find-tls-secure-pair),
-[Issue Tracker](https://github.com/openrewrite/rewrite/issues),
-[Maven Central](https://central.sonatype.com/artifact/org.openrewrite/rewrite-javascript/)
+This recipe is only available to users of [Moderne](https://docs.moderne.io/).
 
-This recipe is available under the [Moderne Source Available License](https://docs.moderne.io/licensing/moderne-source-available-license).
+
+This recipe is available under the [Moderne Proprietary License](https://docs.moderne.io/licensing/overview).
 
 
 ## Used by
@@ -40,7 +39,7 @@ For JavaScript specific configuration instructions, please see our [configuring 
 Once the CLI is installed, you can install this JavaScript recipe package by running the following command:
 
 ```shell title="Install the recipe package"
-mod config recipes npm install @openrewrite/rewrite
+mod config recipes npm install @openrewrite/recipes-nodejs
 ```
 
 Then, you can run the recipe via:

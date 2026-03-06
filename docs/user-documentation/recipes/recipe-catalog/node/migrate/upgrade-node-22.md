@@ -13,66 +13,11 @@ _Migrate deprecated APIs for Node.js 22 compatibility. Addresses Node 22 runtime
 
 ## Recipe source
 
-[GitHub: rewrite+org.openrewrite.node.migrate.upgrade-node-22](https://github.com/search?type=code&q=repo:openrewrite/rewrite+org.openrewrite.node.migrate.upgrade-node-22),
-[Issue Tracker](https://github.com/openrewrite/rewrite/issues),
-[Maven Central](https://central.sonatype.com/artifact/org.openrewrite/rewrite-javascript/)
-
-:::info
-This recipe is composed of more than one recipe. If you want to customize the set of recipes this is composed of, you can find and copy the GitHub source for the recipe from the link above.
-:::
-
-This recipe is available under the [Moderne Source Available License](https://docs.moderne.io/licensing/moderne-source-available-license).
+This recipe is only available to users of [Moderne](https://docs.moderne.io/).
 
 
-## Definition
+This recipe is available under the [Moderne Proprietary License](https://docs.moderne.io/licensing/overview).
 
-<Tabs groupId="recipeType">
-<TabItem value="recipe-list" label="Recipe List" >
-* [Increase Node.js engine version](../../node/migrate/increase-node-engine-version)
-  * version: `22`
-* [Increase Node.js version in GitHub Actions](../../node/migrate/increase-node-engine-version-in-github-actions)
-  * version: `22`
-* [Replace deprecated `util.types.isWebAssemblyCompiledModule()`](../../node/migrate/util/replace-is-webassembly-compiled-module)
-* [Find deprecated `punycode` module usage](../../node/migrate/find-punycode-usage)
-* [Find deprecated `crypto.createCipher()` and `crypto.createDecipher()` usage](../../node/migrate/crypto/find-create-cipher)
-* [Replace deprecated `util.isX()` methods with native JavaScript](../../node/migrate/util/use-native-type-checking-methods)
-* [Replace deprecated `util._extend()` with `Object.assign()`](../../node/migrate/util/replace-util-extend)
-* [Replace deprecated `new crypto.Hash()` and `new crypto.Hmac()` with factory methods](../../node/migrate/crypto/replace-hash-constructor)
-* [Coerce `process.exit()` and `process.exitCode` to integer](../../node/migrate/process/coerce-process-exit-code)
-* [Replace deprecated `Buffer.slice()` with `Buffer.subarray()`](../../node/migrate/buffer/replace-deprecated-slice)
-* [Remove usage of deprecated `process.features.tls_*` properties](../../node/migrate/process/remove-usage-of-features-tls-underscore_constants)
-* [Remove unnecessary `util.promisify()` on Promise-returning functions](../../node/migrate/util/remove-promisify-on-promise)
-
-</TabItem>
-
-<TabItem value="yaml-recipe-list" label="Yaml Recipe List">
-
-```yaml
----
-type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.node.migrate.upgrade-node-22
-displayName: Upgrade to Node.js 22
-description: |
-  Migrate deprecated APIs for Node.js 22 compatibility. Addresses Node 22 runtime deprecations and deprecations from earlier versions.
-recipeList:
-  - org.openrewrite.node.migrate.increase-node-engine-version:
-      version: 22
-  - org.openrewrite.node.migrate.increase-node-engine-version-in-github-actions:
-      version: 22
-  - org.openrewrite.node.migrate.util.replace-is-webassembly-compiled-module
-  - org.openrewrite.node.migrate.find-punycode-usage
-  - org.openrewrite.node.migrate.crypto.find-create-cipher
-  - org.openrewrite.node.migrate.util.use-native-type-checking-methods
-  - org.openrewrite.node.migrate.util.replace-util-extend
-  - org.openrewrite.node.migrate.crypto.replace-hash-constructor
-  - org.openrewrite.node.migrate.process.coerce-process-exit-code
-  - org.openrewrite.node.migrate.buffer.replace-deprecated-slice
-  - org.openrewrite.node.migrate.process.remove-usage-of-features-tls-underscore_constants
-  - org.openrewrite.node.migrate.util.remove-promisify-on-promise
-
-```
-</TabItem>
-</Tabs>
 
 ## Used by
 
@@ -89,7 +34,7 @@ For JavaScript specific configuration instructions, please see our [configuring 
 Once the CLI is installed, you can install this JavaScript recipe package by running the following command:
 
 ```shell title="Install the recipe package"
-mod config recipes npm install @openrewrite/rewrite
+mod config recipes npm install @openrewrite/recipes-nodejs
 ```
 
 Then, you can run the recipe via:
