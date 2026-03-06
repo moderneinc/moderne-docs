@@ -194,14 +194,14 @@ The default is `sourcegraph`, which is what most online documentation and AI tra
 
 Both dialects share the same core query features: literal search, regex, boolean operators, filters like `file:`, `repo:`, `sym:`, and all of the Java-specific semantic filters (`visibility:`, `extends:`, `implements:`, etc.). The differences are mostly syntactic shortcuts that Sourcegraph adds on top of Zoekt:
 
-| Feature                | Sourcegraph                  | Zoekt                                       |
-|------------------------|------------------------------|---------------------------------------------|
-| Explicit AND keyword   | `foo AND bar`                | Not supported (use implicit AND: `foo bar`) |
-| Path filter alias      | `path:*.java`                | Use `file:*.java`                           |
-| Language shorthand     | `l:java`                     | Use `lang:java`                             |
-| Content prefix         | `content:"text"`             | Not supported (use a bare literal instead)  |
-| Pattern type switching | `patternType:regexp foo.bar` | Not supported (use `/foo.bar/` for regex)   |
-| Revision filter        | `rev:main`                   | Use `branch:main`                           |
+| Feature                | Sourcegraph                  | Zoekt                         |
+|------------------------|------------------------------|-------------------------------|
+| Explicit AND keyword   | `foo AND bar`                | `foo bar` (implicit AND)      |
+| Path filter alias      | `path:*.java`                | `file:*.java`                 |
+| Language shorthand     | `l:java`                     | `lang:java`                   |
+| Content prefix         | `content:"text"`             | `"text"` (bare literal)       |
+| Pattern type switching | `patternType:regexp foo.bar` | `/foo.bar/` (slash-delimited) |
+| Revision filter        | `rev:main`                   | `branch:main`                 |
 
 :::info
 Features like `context:`, `fork:`, `archived:`, and `timeout:` are parsed in Sourcegraph mode but not applicable to local indexes. They produce a warning and are dropped from the query.
