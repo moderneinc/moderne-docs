@@ -10,6 +10,89 @@ This page contains release notes for [Moderne proprietary OpenRewrite recipes](h
 This changelog is automatically generated from GitHub releases and only contains information from the past year.
 :::
 
+## March 4, 2026
+
+#### rewrite-ai-search - 0.32.8
+
+* Updated repository to use OpenRewrite version v8.75.0
+
+#### rewrite-android - 0.15.7
+
+* Updated repository to use OpenRewrite version v8.75.0
+
+#### rewrite-circleci - 3.9.8
+
+* Updated repository to use OpenRewrite version v8.75.0
+
+#### rewrite-codemods-ng - 0.18.1
+
+* Updated repository to use OpenRewrite version v8.75.0
+
+#### rewrite-compiled-analysis - 0.12.1
+
+* Updated repository to use OpenRewrite version v8.75.0
+
+#### rewrite-concourse - 3.9.8
+
+* Updated repository to use OpenRewrite version v8.75.0
+
+#### rewrite-dotnet - 0.14.8
+
+* Updated repository to use OpenRewrite version v8.75.0
+
+#### rewrite-elastic - 0.5.4
+
+* Updated repository to use OpenRewrite version v8.75.0
+
+#### rewrite-hibernate - 0.20.0
+
+* `@Column` and Indexed HQL parameter
+
+#### rewrite-java-security - 3.26.5
+
+* Update tests for GHSA-72hv-8253-57qq jackson-core advisory
+
+#### rewrite-kafka - 0.4.8
+
+* Updated repository to use OpenRewrite version v8.75.0
+
+#### rewrite-kubernetes - 3.15.4
+
+* Updated repository to use OpenRewrite version v8.75.0
+
+#### rewrite-nodejs - v0.39.0
+
+* `IncreaseNodeEngineVersion` recipe
+* Bump minimatch from 3.1.2 to 3.1.4 in /recipes-nodejs
+* Making the `spawnSync(..)` call execute with `shell:true` for Windows
+* `IncreaseNodeEngineVersionInGithubActions` recipe
+* `FindCryptoCreateCipher` recipe
+* Next batch of search recipes
+
+#### rewrite-program-analysis - 0.10.1
+
+* Updated repository to use OpenRewrite version v8.75.0
+
+#### rewrite-reactive-streams - 0.18.8
+
+* Updated repository to use OpenRewrite version v8.75.0
+
+#### rewrite-spring - 0.27.0
+
+* Extend Acegi and RichFaces migration recipes
+
+#### rewrite-sql - 2.10.3
+
+* Updated repository to use OpenRewrite version v8.75.0
+
+#### rewrite-terraform - 3.13.2
+
+* Fix for `ClassCastException` in `UnquoteTypeConstraints`
+
+#### rewrite-terraform - 3.13.1
+
+* Updated repository to use OpenRewrite version v8.75.0
+
 ## February 27, 2026
 
 #### rewrite-spring - v0.26.1
