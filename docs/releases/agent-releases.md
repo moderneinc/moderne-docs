@@ -7,15 +7,18 @@ description: The current version of the Moderne Agent and where to download it.
 
 | Component                             | Current version |
 | ------------------------------------- | --------------- |
-| Agent (recommended to use **latest**) | 0.253.0         |
+| Agent (recommended to use **latest**) | 0.254.0         |
 
 ### Maven download
 
-[Agent download link](https://repo1.maven.org/maven2/io/moderne/moderne-agent/0.253.0/moderne-agent-0.253.0.jar)
+[Agent download link](https://repo1.maven.org/maven2/io/moderne/moderne-agent/0.254.0/moderne-agent-0.254.0.jar)
 
 
 ## Changelog
 
+### v0.254.0 - 2026-03-06
+
+* Add support for LSTs in S3 for agents deployed to EKS where pod assumes ServiceAccount role
 ### v0.253.0 - 2026-02-26
 
 * Update Prethink context (no AI)
