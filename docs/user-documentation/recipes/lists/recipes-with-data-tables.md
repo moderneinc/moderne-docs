@@ -905,15 +905,6 @@ _This doc contains all of the recipes with **unique** data tables that have been
   * **org.openrewrite.docker.table.EolDockerImages**: *Records Docker base images that have reached end-of-life.*
 
 
-### [org.openrewrite.gradle.ChangeDependency](/user-documentation/recipes/recipe-catalog/gradle/changedependency.md)
-  * **Change Gradle dependency**
-  * Change a Gradle dependency coordinates. The `newGroupId` or `newArtifactId` **MUST** be different from before.
-
-#### Data tables:
-
-  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
-
-
 ### [org.openrewrite.gradle.ChangeManagedDependency](/user-documentation/recipes/recipe-catalog/gradle/changemanageddependency.md)
   * **Change Gradle managed dependency**
   * Change a Gradle managed dependency coordinates. The `newGroupId` or `newArtifactId` **MUST** be different from before. For now, only Spring Dependency Management Plugin entries are supported and no other forms of managed dependencies (yet).
@@ -1026,6 +1017,15 @@ _This doc contains all of the recipes with **unique** data tables that have been
 ### [org.openrewrite.gradle.AddPlatformDependency](/user-documentation/recipes/recipe-catalog/gradle/addplatformdependency.md)
   * **Add Gradle platform dependency**
   * Add a gradle platform dependency to a `build.gradle` file in the correct configuration based on where it is used.
+
+#### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+### [org.openrewrite.gradle.ChangeDependency](/user-documentation/recipes/recipe-catalog/gradle/changedependency.md)
+  * **Change Gradle dependency**
+  * Change a Gradle dependency coordinates. The `newGroupId` or `newArtifactId` **MUST** be different from before.
 
 #### Data tables:
 
