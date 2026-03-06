@@ -133,7 +133,7 @@ This recipe includes the same architectural discovery, test coverage mapping, de
 
 | Option             | Description                                                                  | Example     |
 |--------------------|------------------------------------------------------------------------------|-------------|
-| `targetConfigFile` | Which agent config file to update (updates all found files if not specified) | `CLAUDE.md` |
+| `targetConfigFile` | Which agent config file to update. If not specified and no agent config files exist, will create a `CLAUDE.md`. If at least one agent config file exists, it will update each one it finds. | `CLAUDE.md` |
 
 ### Update Prethink context (base recipe)
 
@@ -151,7 +151,7 @@ The OpenRewrite module also provides these building blocks:
 | Recipe                                       | Description                                                                                                                                     |
 |----------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------|
 | `org.openrewrite.prethink.ExportContext`     | Exports data tables to CSV files in `.moderne/context/` with markdown documentation describing the schema.                                      |
-| `org.openrewrite.prethink.UpdateAgentConfig` | Updates agent configuration files (`AGENTS.md`, `CLAUDE.md`, `.cursorrules`, `.github/copilot-instructions.md`) to reference generated context. |
+| `org.openrewrite.prethink.UpdateAgentConfig` | Creates or updates agent configuration files (`AGENTS.md`, `CLAUDE.md`, `.cursorrules`, `.github/copilot-instructions.md`) to reference generated context. |
 | `org.openrewrite.prethink.UpdateGitignore`   | Updates `.gitignore` to allow committing `.moderne/context/` while ignoring other files in `.moderne/`.                                         |
 
 ## Creating custom Prethink recipes
