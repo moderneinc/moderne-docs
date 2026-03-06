@@ -41,7 +41,7 @@ To get started with Moderne Trigrep, you'll first need to sync an organization t
 mod git sync moderne working-set --organization Spring
 
 # Build the indexes on every repository in the working-set directory
-mod postbuild zoekt update working-set
+mod postbuild search index working-set
 
 # Search for the term "KafkaTemplate" across them all
 mod search working-set "KafkaTemplate"
@@ -176,6 +176,59 @@ Structural matching also respects string and comment boundaries, so a pattern wo
 
 </details>
 
+## Choosing a query syntax
+
+Moderne Trigrep supports two query language dialects: **Sourcegraph** and **Zoekt**. You can switch between them with the `--syntax` flag:
+
+```bash
+# Sourcegraph syntax (default) — path: is a Sourcegraph alias for file:
+mod search working-set 'path:*.java' @Autowired
+
+# Zoekt syntax — uses file: directly
+mod search working-set --syntax zoekt 'file:*.java' @Autowired
+```
+
+The default is `sourcegraph`, which is what most online documentation and AI training data use. If you're already familiar with the original [Zoekt query language](https://github.com/google/zoekt), you can switch to `zoekt` to use its native syntax directly.
+
+### Differences between the two syntaxes
+
+Both dialects share the same core query features: literal search, regex, boolean operators, filters like `file:`, `repo:`, `sym:`, and all of the Java-specific semantic filters (`visibility:`, `extends:`, `implements:`, etc.). The differences are mostly syntactic shortcuts that Sourcegraph adds on top of Zoekt:
+
+| Feature                | Sourcegraph                  | Zoekt                                       |
+|------------------------|------------------------------|---------------------------------------------|
+| Explicit AND keyword   | `foo AND bar`                | Not supported (use implicit AND: `foo bar`) |
+| Path filter alias      | `path:*.java`                | Use `file:*.java`                           |
+| Language shorthand     | `l:java`                     | Use `lang:java`                             |
+| Content prefix         | `content:"text"`             | Not supported (use a bare literal instead)  |
+| Pattern type switching | `patternType:regexp foo.bar` | Not supported (use `/foo.bar/` for regex)   |
+| Revision filter        | `rev:main`                   | Use `branch:main`                           |
+
+:::info
+Features like `context:`, `fork:`, `archived:`, and `timeout:` are parsed in Sourcegraph mode but not applicable to local indexes. They produce a warning and are dropped from the query.
+:::
+
+### Example queries in both syntaxes
+
+**Filter by file path:**
+
+```bash
+# Sourcegraph — path: is an alias for file:
+mod search working-set 'path:*.java' @Deprecated
+
+# Zoekt — uses file: directly
+mod search working-set --syntax zoekt 'file:*.java' @Deprecated
+```
+
+**Explicit AND vs implicit AND:**
+
+```bash
+# Sourcegraph — explicit AND keyword supported
+mod search working-set KafkaTemplate AND @Autowired
+
+# Zoekt — implicit AND only (terms separated by space)
+mod search working-set --syntax zoekt KafkaTemplate @Autowired
+```
+
 ## Using search as a prefilter for recipes
 
 Running an OpenRewrite recipe across thousands of repositories can be expensive since each one requires parsing its LST and running visitor patterns across the entire tree. If you know a recipe will only affect files containing a specific pattern, you can search first to skip repositories that don't match.
@@ -183,7 +236,7 @@ Running an OpenRewrite recipe across thousands of repositories can be expensive 
 To do this, use the `--last-search` flag on the run command:
 
 ```bash
-mod search working-set "KafkaTemplate or KafkaProducer or @SendTo"
+mod search working-set KafkaTemplate or KafkaProducer or @SendTo
 mod run working-set --recipe=io.moderne.java.spring.kafka.KafkaMigration --last-search
 ```
 
@@ -331,12 +384,12 @@ The index files use the `.zoekt` extension and live in the `.moderne/search/` di
 
 ## Further reading
 
-Since Moderne Trigrep uses Sourcegraph-compatible query syntax and Comby-style structural patterns, documentation for those tools applies directly here:
+Since Moderne Trigrep supports both Sourcegraph and Zoekt query syntax as well as Comby-style structural patterns, documentation for those tools applies directly here:
 
-* [Sourcegraph query syntax](https://sourcegraph.com/docs/code-search/queries) covers the full query language including boolean operators, filters, and regex patterns.
+* [Sourcegraph query syntax](https://sourcegraph.com/docs/code-search/queries) covers the full Sourcegraph query language including boolean operators, filters, and regex patterns. This is the default syntax for `mod search`.
+* [Zoekt query syntax](https://github.com/google/zoekt) documents the original Zoekt query language. Use `--syntax zoekt` to switch to this dialect.
 * [Comby documentation](https://comby.dev/docs/syntax-reference) explains hole types and matching semantics in depth. The [Comby playground](https://comby.live/) lets you experiment with patterns interactively.
 * [How Trigram Indexing Works](https://swtch.com/~rsc/regexp/regexp4.html) by Russ Cox explains the theory behind trigram indexes.
-* [Zoekt](https://github.com/google/zoekt) is the open-source trigram search engine whose index format Moderne Trigrep is compatible with.
 
 ## Next steps
 
