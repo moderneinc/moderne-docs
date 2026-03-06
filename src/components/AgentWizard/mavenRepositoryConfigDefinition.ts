@@ -19,14 +19,15 @@ const mavenRepositoryConfigDefinition = {
       label: 'Local Repository', 
       key: 'localRepository', 
       envKey: 'MODERNE_AGENT_MAVEN_${i}_LOCALREPOSITORY',
-      description: `The path on disk where LST artifacts and Maven index files will be downloaded to. 
-      This is on the disk where the agent is being run and not on the Maven instance. <br/><br/>
-      LST artifacts are deleted from this location after they are transmitted to Moderne. 
-      Index files will remain behind to be used to detect diffs in the artifacts. <br/><br/>
-      If multiple Maven repositories are configured on the agent, they must have different local repositories configured.`,
-      required: true,
+      description: `The path on disk where LST artifacts and Maven index files will be downloaded to.
+      This is on the disk where the agent is being run and not on the Maven instance.
+      Only used when LST Source is enabled. If not specified, a unique path is automatically generated
+      based on the configuration index (e.g., ~/.moderne-maven/maven0). <br/><br/>
+      LST artifacts are deleted from this location after they are transmitted to Moderne.
+      Index files will remain behind to be used to detect diffs in the artifacts.`,
+      required: false,
       type: 'text',
-      defaultValue: '~/.moderne-maven'
+      defaultValue: ''
     },
     { 
       label: 'Username', 

@@ -170,7 +170,6 @@ MODERNE_AGENT_ARTIFACTORY_0_ASTQUERYFILTERS_1='"repo":{"$eq":"example-maven"}'
 # Remove the `MODERNE_AGENT_MAVEN_0_ASTSOURCE line if you do not use the artifactory repository configuration
 MODERNE_AGENT_MAVEN_0_URL=https://myartifactory.example.com/artifactory/libs-releases-local
 MODERNE_AGENT_MAVEN_0_ASTSOURCE=false
-MODERNE_AGENT_MAVEN_0_LOCALREPOSITORY=~/.moderne-maven
 MODERNE_AGENT_MAVEN_0_USERNAME=${MAVEN_USERNAME}
 MODERNE_AGENT_MAVEN_0_PASSWORD=${MAVEN_PASSWORD}
 ```
@@ -410,7 +409,6 @@ docker run \
 -e MODERNE_AGENT_ARTIFACTORY_0_ASTQUERYFILTERS_0='"name":{"$match":"*-ast.jar"}' \
 -e MODERNE_AGENT_ARTIFACTORY_0_ASTQUERYFILTERS_1='"repo":{"$eq":"example-maven"}' \
 -e MODERNE_AGENT_MAVEN_0_URL=https://myartifactory.example.com/artifactory/libs-releases-local \
--e MODERNE_AGENT_MAVEN_0_LOCALREPOSITORY=~/.moderne-maven \
 -e MODERNE_AGENT_MAVEN_0_USERNAME \
 -e MODERNE_AGENT_MAVEN_0_PASSWORD \
 # ... Additional variables to come
@@ -444,7 +442,6 @@ java -jar moderne-agent-{version}.jar \
 --moderne.agent.artifactory[0].astQueryFilters[0]='{"name":{"$match":"*-ast.jar"}}' \
 --moderne.agent.artifactory[0].astQueryFilters[1]='{"repo":{"$eq":"example-maven"}}' \
 --moderne.agent.maven[0].url=https://myartifactory.example.com/artifactory/libs-releases-local \
---moderne.agent.maven[0].localRepository=~/.moderne-maven \
 # ... Additional arguments to come
 ```
 </TabItem>
@@ -488,7 +485,6 @@ docker run \
 -e MODERNE_AGENT_ARTIFACTORY_0_ASTQUERYFILTERS_0='"name":{"$match":"*-ast.jar"}' \
 -e MODERNE_AGENT_ARTIFACTORY_0_ASTQUERYFILTERS_1='"repo":{"$eq":"example-maven"}' \
 -e MODERNE_AGENT_MAVEN_0_URL=https://myartifactory.example.com/artifactory/libs-releases-local \
--e MODERNE_AGENT_MAVEN_0_LOCALREPOSITORY=~/.moderne-maven \
 -e MODERNE_AGENT_MAVEN_0_USERNAME \
 -e MODERNE_AGENT_MAVEN_0_PASSWORD \
 -e MODERNE_AGENT_RECIPE_USEONLYCONFIGURED=true \
@@ -523,7 +519,6 @@ java -jar moderne-agent-{version}.jar \
 --moderne.agent.artifactory[0].astQueryFilters[0]='{"name":{"$match":"*-ast.jar"}}' \
 --moderne.agent.artifactory[0].astQueryFilters[1]='{"repo":{"$eq":"example-maven"}}' \
 --moderne.agent.maven[0].url=https://myartifactory.example.com/artifactory/libs-releases-local \
---moderne.agent.maven[0].localRepository=~/.moderne-maven \
 --moderne.agent.recipe.useOnlyConfigured=true
 ```
 </TabItem>
@@ -692,7 +687,6 @@ docker run \
 -e MODERNE_AGENT_ARTIFACTORY_0_ASTQUERYFILTERS_0='"name":{"$match":"*-ast.jar"}' \
 -e MODERNE_AGENT_ARTIFACTORY_0_ASTQUERYFILTERS_1='"repo":{"$eq":"example-maven"}' \
 -e MODERNE_AGENT_MAVEN_0_URL=https://myartifactory.example.com/artifactory/libs-releases-local \
--e MODERNE_AGENT_MAVEN_0_LOCALREPOSITORY=~/.moderne-maven \
 -e MODERNE_AGENT_MAVEN_0_USERNAME \
 -e MODERNE_AGENT_MAVEN_0_PASSWORD \
 -p 8080:8080
@@ -727,7 +721,6 @@ java -jar moderne-agent-{version}.jar \
 --moderne.agent.artifactory[0].astQueryFilters[0]='{"name":{"$match":"*-ast.jar"}}' \
 --moderne.agent.artifactory[0].astQueryFilters[1]='{"repo":{"$eq":"example-maven"}}' \
 --moderne.agent.maven[0].url=https://myartifactory.example.com/artifactory/libs-releases-local \
---moderne.agent.maven[0].localRepository=~/.moderne-maven \
 ```
 
 * Note: System properties can be used in place of arguments. For example, you can use `-Dmoderne.agent.token={token_value}` as an argument instead of `--moderne.agent.token={token_value}`.
