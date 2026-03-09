@@ -70,4 +70,5 @@ Once you're satisfied with the generated context, [commit the changes to your re
 ## Next steps
 
 * [Read more about how Prethink works](../../agent-tools/prethink.md)
-* [Create your own Prethink recipe](../../agent-tools/prethink.md#creating-custom-prethink-recipes)
+* [Customize the starter with your own discovery recipes](../../agent-tools/prethink.md#customizing-the-starter-recipes)
+* [Build a custom Prethink recipe from scratch](../../agent-tools/prethink.md#creating-custom-prethink-recipes)
