@@ -14266,6 +14266,51 @@ _1779 recipes_
 * [org.openrewrite.java.testing.truth.MigrateTruthToAssertJ](/user-documentation/recipes/recipe-catalog/java/testing/truth/migratetruthtoassertj.md)
   * **Migrate Google Truth to AssertJ**
   * Migrate Google Truth assertions to AssertJ assertions.
+* [org.openrewrite.javascript.change-import](/user-documentation/recipes/recipe-catalog/javascript/change-import.md)
+  * **Change import**
+  * Changes an import from one module/member to another, updating all type attributions.
+* [org.openrewrite.javascript.cleanup.add-parse-int-radix](/user-documentation/recipes/recipe-catalog/javascript/cleanup/add-parse-int-radix.md)
+  * **Add radix to `parseInt`**
+  * Adds the radix parameter (base 10) to `parseInt()` calls that are missing it, preventing potential parsing issues.
+* [org.openrewrite.javascript.cleanup.async-callback-in-sync-array-method](/user-documentation/recipes/recipe-catalog/javascript/cleanup/async-callback-in-sync-array-method.md)
+  * **Detect async callbacks in synchronous array methods**
+  * Detects async callbacks passed to array methods like .some(), .every(), .filter() which don't await promises. This is a common bug where Promise objects are always truthy.
+* [org.openrewrite.javascript.cleanup.order-imports](/user-documentation/recipes/recipe-catalog/javascript/cleanup/order-imports.md)
+  * **Order imports**
+  * Sort imports by category and module path. Categories: side-effect, namespace, default, named, type. Within each category, imports are sorted alphabetically by module path. Named specifiers within each import are also sorted alphabetically.
+* [org.openrewrite.javascript.cleanup.prefer-optional-chain](/user-documentation/recipes/recipe-catalog/javascript/cleanup/prefer-optional-chain.md)
+  * **Prefer optional chaining**
+  * Converts ternary expressions like `foo ? foo.bar : undefined` to use optional chaining syntax `foo?.bar`.
+* [org.openrewrite.javascript.cleanup.use-object-property-shorthand](/user-documentation/recipes/recipe-catalog/javascript/cleanup/use-object-property-shorthand.md)
+  * **Use object property shorthand**
+  * Simplifies object properties where the property name and value/variable name are the same (e.g., `\{ x: x \}` becomes `\{ x \}`). Applies to both destructuring patterns and object literals.
+* [org.openrewrite.javascript.dependencies.add-dependency](/user-documentation/recipes/recipe-catalog/javascript/dependencies/add-dependency.md)
+  * **Add npm dependency**
+  * Adds a new dependency to `package.json` and updates the lock file by running the package manager.
+* [org.openrewrite.javascript.dependencies.find-dependency](/user-documentation/recipes/recipe-catalog/javascript/dependencies/find-dependency.md)
+  * **Find Node.js dependency**
+  * Finds dependencies in a project's `package.json`. Can find both direct dependencies and dependencies that transitively include the target package. This recipe is commonly used as a precondition for other recipes.
+* [org.openrewrite.javascript.dependencies.upgrade-dependency-version](/user-documentation/recipes/recipe-catalog/javascript/dependencies/upgrade-dependency-version.md)
+  * **Upgrade npm dependency version**
+  * Upgrades the version of a direct dependency in `package.json` and updates the lock file by running the package manager.
+* [org.openrewrite.javascript.dependencies.upgrade-transitive-dependency-version](/user-documentation/recipes/recipe-catalog/javascript/dependencies/upgrade-transitive-dependency-version.md)
+  * **Upgrade transitive npm dependency version**
+  * Upgrades the version of a transitive dependency by adding override/resolution entries to `package.json` and updates the lock file by running the package manager.
+* [org.openrewrite.javascript.format.auto-format](/user-documentation/recipes/recipe-catalog/javascript/format/auto-format.md)
+  * **Auto-format JavaScript/TypeScript code**
+  * Format JavaScript and TypeScript code using formatting rules auto-detected from the project's existing code style.
+* [org.openrewrite.javascript.migrate.es6.modernize-octal-escape-sequences](/user-documentation/recipes/recipe-catalog/javascript/migrate/es6/modernize-octal-escape-sequences.md)
+  * **Modernize octal escape sequences**
+  * Convert old-style octal escape sequences (e.g., `\0`, `\123`) to modern hex escape sequences (e.g., `\x00`, `\x53`) or Unicode escape sequences (e.g., `\u0000`, `\u0053`).
+* [org.openrewrite.javascript.migrate.es6.modernize-octal-literals](/user-documentation/recipes/recipe-catalog/javascript/migrate/es6/modernize-octal-literals.md)
+  * **Modernize octal literals**
+  * Convert old-style octal literals (e.g., `0777`) to modern ES6 syntax (e.g., `0o777`).
+* [org.openrewrite.javascript.migrate.es6.remove-duplicate-object-keys](/user-documentation/recipes/recipe-catalog/javascript/migrate/es6/remove-duplicate-object-keys.md)
+  * **Remove duplicate object keys**
+  * Remove duplicate keys in object literals, keeping only the last occurrence (last-wins semantics).
+* [org.openrewrite.javascript.migrate.typescript.export-assignment-to-export-default](/user-documentation/recipes/recipe-catalog/javascript/migrate/typescript/export-assignment-to-export-default.md)
+  * **Convert `export =` to `export default`**
+  * Converts TypeScript `export =` syntax to ES module `export default` syntax for compatibility with ECMAScript modules.
 * [org.openrewrite.jenkins.CommonsLang3ToApiPlugin](/user-documentation/recipes/recipe-catalog/jenkins/commonslang3toapiplugin.md)
   * **Use commons-lang3 API Plugin**
   * Updates `pom.xml` to depend on `commons-lang3-api` and exclude `commons-lang3` where it is brought in transitively.
@@ -14464,6 +14509,99 @@ _1779 recipes_
 * [org.openrewrite.netty.UpgradeNetty_4_1_to_4_2](/user-documentation/recipes/recipe-catalog/netty/upgradenetty_4_1_to_4_2.md)
   * **Migrates from Netty 4.1.x to Netty 4.2.x**
   * Migrate applications to the latest Netty 4.2.x release.
+* [org.openrewrite.node.dependency-vulnerability-check](/user-documentation/recipes/recipe-catalog/node/dependency-vulnerability-check.md)
+  * **Find and fix vulnerable npm dependencies**
+  * This software composition analysis (SCA) tool detects and upgrades dependencies with publicly disclosed vulnerabilities. This recipe both generates a report of vulnerable dependencies and upgrades to newer versions with fixes. This recipe by default only upgrades to the latest **patch** version. If a minor or major upgrade is required to reach the fixed version, this can be controlled using the `maximumUpgradeDelta` option. Vulnerability information comes from the GitHub Security Advisory Database.
+* [org.openrewrite.node.migrate.buffer.replace-deprecated-slice](/user-documentation/recipes/recipe-catalog/node/migrate/buffer/replace-deprecated-slice.md)
+  * **Replace deprecated `Buffer.slice()` with `Buffer.subarray()`**
+  * Replace deprecated `buffer.slice()` calls with `buffer.subarray()` for compatibility with Uint8Array.prototype.slice().
+* [org.openrewrite.node.migrate.buffer.replace-slow-buffer](/user-documentation/recipes/recipe-catalog/node/migrate/buffer/replace-slow-buffer.md)
+  * **Replace deprecated `SlowBuffer` with `Buffer.allocUnsafeSlow()`**
+  * Replace deprecated `new SlowBuffer(size)` calls with `Buffer.allocUnsafeSlow(size)`. SlowBuffer was used to create un-pooled Buffer instances, but has been removed in favor of the explicit Buffer.allocUnsafeSlow() method.
+* [org.openrewrite.node.migrate.crypto.find-create-cipher](/user-documentation/recipes/recipe-catalog/node/migrate/crypto/find-create-cipher.md)
+  * **Find deprecated `crypto.createCipher()` and `crypto.createDecipher()` usage**
+  * `crypto.createCipher()` and `crypto.createDecipher()` were deprecated in Node.js 10 (DEP0106) and removed in Node.js 22. Use `crypto.createCipheriv()` and `crypto.createDecipheriv()` instead.
+* [org.openrewrite.node.migrate.crypto.replace-crypto-fips](/user-documentation/recipes/recipe-catalog/node/migrate/crypto/replace-crypto-fips.md)
+  * **Replace deprecated `crypto.fips` with `crypto.getFips()` and `crypto.setFips()`**
+  * Replace deprecated `crypto.fips` property access with `crypto.getFips()` for reads and `crypto.setFips(value)` for writes.
+* [org.openrewrite.node.migrate.crypto.replace-hash-constructor](/user-documentation/recipes/recipe-catalog/node/migrate/crypto/replace-hash-constructor.md)
+  * **Replace deprecated `new crypto.Hash()` and `new crypto.Hmac()` with factory methods**
+  * Replace deprecated `new crypto.Hash(algorithm)` constructor calls with `crypto.createHash(algorithm)` and `new crypto.Hmac(algorithm, key)` with `crypto.createHmac(algorithm, key)` factory methods.
+* [org.openrewrite.node.migrate.find-process-assert](/user-documentation/recipes/recipe-catalog/node/migrate/find-process-assert.md)
+  * **Find deprecated `process.assert()` usage**
+  * `process.assert()` was deprecated in Node.js 10 (DEP0100) and removed in Node.js 23. Use the `assert` module instead.
+* [org.openrewrite.node.migrate.find-punycode-usage](/user-documentation/recipes/recipe-catalog/node/migrate/find-punycode-usage.md)
+  * **Find deprecated `punycode` module usage**
+  * The `punycode` built-in module was deprecated in Node.js 21 (DEP0040). Use the userland `punycode` package from npm or `url.domainToASCII`/`url.domainToUnicode` instead.
+* [org.openrewrite.node.migrate.fs.replace-dirent-path](/user-documentation/recipes/recipe-catalog/node/migrate/fs/replace-dirent-path.md)
+  * **Replace `dirent.path` with `dirent.parentPath`**
+  * Replaces deprecated `dirent.path` property access with `dirent.parentPath` on `fs.Dirent` instances to address DEP0178 deprecation.
+* [org.openrewrite.node.migrate.fs.replace-fs-access-constants](/user-documentation/recipes/recipe-catalog/node/migrate/fs/replace-fs-access-constants.md)
+  * **Replace deprecated `fs.F_OK`, `fs.R_OK`, `fs.W_OK`, `fs.X_OK` with `fs.constants.*`**
+  * Replace deprecated file access constants (`fs.F_OK`, `fs.R_OK`, `fs.W_OK`, `fs.X_OK`) with their equivalents from `fs.constants`. These constants were removed in Node.js v24+ and should be accessed through the constants namespace.
+* [org.openrewrite.node.migrate.fs.replace-fs-truncate-fd](/user-documentation/recipes/recipe-catalog/node/migrate/fs/replace-fs-truncate-fd.md)
+  * **Replace `fs.truncate()` with file descriptor to `fs.ftruncate()`**
+  * Replace deprecated `fs.truncate(fd, ...)` and `fs.truncateSync(fd, ...)` calls with `fs.ftruncate(fd, ...)` and `fs.ftruncateSync(fd, ...)` when the first argument is a file descriptor (number).
+* [org.openrewrite.node.migrate.fs.replace-stats-constructor](/user-documentation/recipes/recipe-catalog/node/migrate/fs/replace-stats-constructor.md)
+  * **Replace deprecated `fs.Stats` constructor with object literal**
+  * Replace deprecated `new fs.Stats()` constructor calls with an object literal containing Stats properties initialized to undefined.
+* [org.openrewrite.node.migrate.http.replace-outgoing-message-headers](/user-documentation/recipes/recipe-catalog/node/migrate/http/replace-outgoing-message-headers.md)
+  * **Replace `OutgoingMessage._headers` and `._headerNames` with public methods**
+  * Replace deprecated `OutgoingMessage.prototype._headers` with `getHeaders()`, `setHeader()`, `removeHeader()` and `OutgoingMessage.prototype._headerNames` with `getHeaderNames()` to address DEP0066 deprecation.
+* [org.openrewrite.node.migrate.increase-node-engine-version](/user-documentation/recipes/recipe-catalog/node/migrate/increase-node-engine-version.md)
+  * **Increase Node.js engine version**
+  * Increases the upper bound of the `engines.node` version range in package.json to allow the specified Node.js version.
+* [org.openrewrite.node.migrate.increase-node-engine-version-in-github-actions](/user-documentation/recipes/recipe-catalog/node/migrate/increase-node-engine-version-in-github-actions.md)
+  * **Increase Node.js version in GitHub Actions**
+  * Increases `node-version` in `actions/setup-node` steps in GitHub Actions workflows. Only modifies plain major version values (e.g. `20`) and x-ranges (e.g. `20.x`). Never decreases the version.
+* [org.openrewrite.node.migrate.net.remove-set-simultaneous-accepts](/user-documentation/recipes/recipe-catalog/node/migrate/net/remove-set-simultaneous-accepts.md)
+  * **Remove deprecated `net._setSimultaneousAccepts()`**
+  * Remove calls to deprecated `net._setSimultaneousAccepts()` which was an undocumented internal function that is no longer necessary.
+* [org.openrewrite.node.migrate.process.coerce-process-exit-code](/user-documentation/recipes/recipe-catalog/node/migrate/process/coerce-process-exit-code.md)
+  * **Coerce `process.exit()` and `process.exitCode` to integer**
+  * Wraps non-integer values passed to `process.exit()` or assigned to `process.exitCode` with `Math.trunc()` to avoid the DEP0164 deprecation warning about implicit coercion to integer.
+* [org.openrewrite.node.migrate.process.remove-usage-of-features-tls-underscore_constants](/user-documentation/recipes/recipe-catalog/node/migrate/process/remove-usage-of-features-tls-underscore_constants.md)
+  * **Remove usage of deprecated `process.features.tls_*` properties**
+  * Remove references to deprecated `process.features.tls_*` properties, replace with `process.features.tls`.
+* [org.openrewrite.node.migrate.stream.replace-internal-modules](/user-documentation/recipes/recipe-catalog/node/migrate/stream/replace-internal-modules.md)
+  * **Replace deprecated `node:_stream_*` with `node:stream`**
+  * Replace deprecated internal stream module imports like `require('node:_stream_readable')` with the public `node:stream` module.
+* [org.openrewrite.node.migrate.timers.find-timers-active](/user-documentation/recipes/recipe-catalog/node/migrate/timers/find-timers-active.md)
+  * **Find deprecated `timers.active()` and `timers._unrefActive()` usage**
+  * `timers.active()` (DEP0126) and `timers._unrefActive()` (DEP0127) were deprecated and removed in Node.js 24. Use `timeout.refresh()` instead.
+* [org.openrewrite.node.migrate.tls.find-tls-secure-pair](/user-documentation/recipes/recipe-catalog/node/migrate/tls/find-tls-secure-pair.md)
+  * **Find deprecated `tls.SecurePair` and `tls.createSecurePair()` usage**
+  * `tls.SecurePair` (DEP0043) and `tls.createSecurePair()` (DEP0064) were deprecated and removed in Node.js 24. Use `tls.TLSSocket` instead.
+* [org.openrewrite.node.migrate.tls.replace-internal-modules](/user-documentation/recipes/recipe-catalog/node/migrate/tls/replace-internal-modules.md)
+  * **Replace deprecated `node:_tls_common` and `node:_tls_wrap` with `node:tls`**
+  * Replace deprecated internal TLS module imports `require('node:_tls_common')` and `require('node:_tls_wrap')` with the public `node:tls` module.
+* [org.openrewrite.node.migrate.upgrade-node-22](/user-documentation/recipes/recipe-catalog/node/migrate/upgrade-node-22.md)
+  * **Upgrade to Node.js 22**
+  * Migrate deprecated APIs for Node.js 22 compatibility. Addresses Node 22 runtime deprecations and deprecations from earlier versions.
+* [org.openrewrite.node.migrate.upgrade-node-24](/user-documentation/recipes/recipe-catalog/node/migrate/upgrade-node-24.md)
+  * **Upgrade to Node.js 24**
+  * Migrate deprecated APIs for Node.js 24 compatibility. Includes all migrations from Node.js 22, plus Node 23 and Node 24 deprecations.
+* [org.openrewrite.node.migrate.util.remove-promisify-on-promise](/user-documentation/recipes/recipe-catalog/node/migrate/util/remove-promisify-on-promise.md)
+  * **Remove unnecessary `util.promisify()` on Promise-returning functions**
+  * Removes `util.promisify()` calls on functions that already return a Promise. Since Node.js v17.0.0, calling promisify on a function that returns a Promise emits a runtime deprecation warning (DEP0174).
+* [org.openrewrite.node.migrate.util.replace-is-webassembly-compiled-module](/user-documentation/recipes/recipe-catalog/node/migrate/util/replace-is-webassembly-compiled-module.md)
+  * **Replace deprecated `util.types.isWebAssemblyCompiledModule()`**
+  * Replace `util.types.isWebAssemblyCompiledModule(value)` with `value instanceof WebAssembly.Module`.
+* [org.openrewrite.node.migrate.util.replace-util-extend](/user-documentation/recipes/recipe-catalog/node/migrate/util/replace-util-extend.md)
+  * **Replace deprecated `util._extend()` with `Object.assign()`**
+  * Replace deprecated `util._extend(target, source)` calls with `Object.assign(target, source)` which preserves the mutation behavior.
+* [org.openrewrite.node.migrate.util.replace-util-log](/user-documentation/recipes/recipe-catalog/node/migrate/util/replace-util-log.md)
+  * **Replace deprecated `util.log()` with `console.log()`**
+  * Replace deprecated `util.log()` calls with `console.log()`. Note: `util.log()` included timestamps, but `console.log()` does not.
+* [org.openrewrite.node.migrate.util.use-native-type-checking-methods](/user-documentation/recipes/recipe-catalog/node/migrate/util/use-native-type-checking-methods.md)
+  * **Replace deprecated `util.isX()` methods with native JavaScript**
+  * The `util` module's type-checking methods have been removed in Node 22.
+* [org.openrewrite.node.migrate.zlib.replace-bytes-read](/user-documentation/recipes/recipe-catalog/node/migrate/zlib/replace-bytes-read.md)
+  * **Replace deprecated `zlib.bytesRead` with `zlib.bytesWritten`**
+  * Replace deprecated `bytesRead` property on zlib streams with `bytesWritten`.
+* [org.openrewrite.node.security.remove-redundant-overrides](/user-documentation/recipes/recipe-catalog/node/security/remove-redundant-overrides.md)
+  * **Remove redundant dependency overrides**
+  * Removes overrides/resolutions from package.json that are redundant because the dependency tree already resolves to the overridden version or higher.
 * [org.openrewrite.nodejs.search.DatabaseInteractionInsights](/user-documentation/recipes/recipe-catalog/nodejs/search/databaseinteractioninsights.md)
   * **Javascript database interaction library insights**
   * Discover which popular javascript database interaction libraries (Sequelize, TypeORM, Mongoose, etc.) are being used in your projects.
