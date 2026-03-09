@@ -13,6 +13,25 @@
 * Replace `StreamingResultPrinter` with RPC-safe offset computation
 * We're suppressing logging of some errors during maven java version detection
 
+### CLI / DX v3.57.14 (2026-03-05)
+
+#### What's Changed
+* Includes OpenRewrite v8.75.1
+* Add custom file-extension-to-parser mappings (build.parsers)
+* Add multi-version Node.js auto-discovery, PATH isolation, and devEngines detection
+
+### CLI / DX v3.57.13 (2026-03-04)
+
+#### What's Changed
+* Fix YAML recipe deletion and :null display in listing
+* Add `mod config build javascript nodeoptions` commands
+* Python fixes
+* Add `mod git rm` subcommand
+* Fix node config installation edit not persisting for list
+* Include sibling branches in repo-level repos-lock.csv
+* GPG commit signing
+* Fix delete to handle installed YAML recipes where paths are not normalized
+
 ### CLI / DX v4.0.3 (2026-03-02)
 
 #### What's Changed
