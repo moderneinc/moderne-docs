@@ -13,7 +13,7 @@ _Remove `SecureRandom#setSeed(*)` method invocations having constant or predicta
 
 ### Tags
 
-* [RSPEC-S4347](https://sonarsource.github.io/rspec/#/rspec/S4347)
+* [RSPEC-S4347](https://next.sonarqube.com/sonarqube/coding_rules?languages=java&open=java%3AS4347)
 
 ## Recipe source
 

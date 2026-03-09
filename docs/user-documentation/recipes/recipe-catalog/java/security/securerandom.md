@@ -13,7 +13,7 @@ _Use cryptographically secure Pseudo Random Number Generation in the "main" sour
 
 ### Tags
 
-* [RSPEC-S2245](https://sonarsource.github.io/rspec/#/rspec/S2245)
+* [RSPEC-S2245](https://next.sonarqube.com/sonarqube/coding_rules?languages=java&open=java%3AS2245)
 
 ## Recipe source
 
