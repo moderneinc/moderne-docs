@@ -1,23 +1,22 @@
 ---
-sidebar_label: "Replace `typing.ContextManager` with `contextlib.AbstractContextManager`"
+sidebar_label: "Find deprecated `shutil.rmtree(onerror=...)` parameter"
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# Replace `typing.ContextManager` with `contextlib.AbstractContextManager`
+# Find deprecated `shutil.rmtree(onerror=...)` parameter
 
-**org.openrewrite.python.migrate.ReplaceTypingContextManagerWithContextlib**
+**org.openrewrite.python.migrate.FindShutilRmtreeOnerror**
 
-_Replace `typing.ContextManager` with `contextlib.AbstractContextManager`. Available in Python 3.9+ (PEP 585)._
+_The `onerror` parameter of `shutil.rmtree()` was deprecated in Python 3.12 in favor of `onexc`. The `onexc` callback receives the exception object directly rather than an exc_info tuple._
 
 ### Tags
 
 * [python](/user-documentation/recipes/lists/recipes-by-tag#python)
 * [migration](/user-documentation/recipes/lists/recipes-by-tag#migration)
-* [typing](/user-documentation/recipes/lists/recipes-by-tag#typing)
-* [PEP 585](/user-documentation/recipes/lists/recipes-by-tag#pep-585)
-* [3.9](/user-documentation/recipes/lists/recipes-by-tag#39)
+* [shutil](/user-documentation/recipes/lists/recipes-by-tag#shutil)
+* [3.12](/user-documentation/recipes/lists/recipes-by-tag#312)
 
 ## Recipe source
 
@@ -31,7 +30,7 @@ This recipe is available under the [Moderne Proprietary License](https://docs.mo
 
 This recipe is used as part of the following composite recipes:
 
-* [Upgrade to Python 3.9](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/python/migrate/upgradetopython39)
+* [Upgrade to Python 3.12](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/python/migrate/upgradetopython312)
 
 
 ## Usage
@@ -47,5 +46,5 @@ mod config recipes pip install openrewrite-migrate-python
 Then, you can run the recipe via:
 
 ```shell title="Run the recipe"
-mod run . --recipe org.openrewrite.python.migrate.ReplaceTypingContextManagerWithContextlib
+mod run . --recipe org.openrewrite.python.migrate.FindShutilRmtreeOnerror
 ```

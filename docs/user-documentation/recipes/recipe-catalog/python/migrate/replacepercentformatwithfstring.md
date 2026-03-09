@@ -1,23 +1,22 @@
 ---
-sidebar_label: "Replace `typing.Container` with `collections.abc.Container`"
+sidebar_label: "Replace `%` formatting with f-string"
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# Replace `typing.Container` with `collections.abc.Container`
+# Replace `%` formatting with f-string
 
-**org.openrewrite.python.migrate.ReplaceTypingContainerWithCollectionsAbcContainer**
+**org.openrewrite.python.migrate.ReplacePercentFormatWithFString**
 
-_Replace `typing.Container` with `collections.abc.Container`. Available in Python 3.9+ (PEP 585)._
+_Replace `"..." % (...)` expressions with f-strings (Python 3.6+). Only converts `%s` and `%r` specifiers where the format string is a literal and the conversion is safe._
 
 ### Tags
 
 * [python](/user-documentation/recipes/lists/recipes-by-tag#python)
 * [migration](/user-documentation/recipes/lists/recipes-by-tag#migration)
-* [typing](/user-documentation/recipes/lists/recipes-by-tag#typing)
-* [PEP 585](/user-documentation/recipes/lists/recipes-by-tag#pep-585)
-* [3.9](/user-documentation/recipes/lists/recipes-by-tag#39)
+* [3.6](/user-documentation/recipes/lists/recipes-by-tag#36)
+* [f-string](/user-documentation/recipes/lists/recipes-by-tag#f)
 
 ## Recipe source
 
@@ -31,7 +30,7 @@ This recipe is available under the [Moderne Proprietary License](https://docs.mo
 
 This recipe is used as part of the following composite recipes:
 
-* [Upgrade to Python 3.9](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/python/migrate/upgradetopython39)
+* [Upgrade to Python 3.8](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/python/migrate/upgradetopython38)
 
 
 ## Usage
@@ -47,5 +46,5 @@ mod config recipes pip install openrewrite-migrate-python
 Then, you can run the recipe via:
 
 ```shell title="Run the recipe"
-mod run . --recipe org.openrewrite.python.migrate.ReplaceTypingContainerWithCollectionsAbcContainer
+mod run . --recipe org.openrewrite.python.migrate.ReplacePercentFormatWithFString
 ```

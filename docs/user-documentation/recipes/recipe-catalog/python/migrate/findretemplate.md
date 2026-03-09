@@ -1,23 +1,22 @@
 ---
-sidebar_label: "Replace `typing.Counter` with `collections.Counter`"
+sidebar_label: "Find deprecated `re.template()` / `re.TEMPLATE` usage"
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# Replace `typing.Counter` with `collections.Counter`
+# Find deprecated `re.template()` / `re.TEMPLATE` usage
 
-**org.openrewrite.python.migrate.ReplaceTypingCounterWithCollectionsCounter**
+**org.openrewrite.python.migrate.FindReTemplate**
 
-_Replace `typing.Counter` with `collections.Counter`. Available in Python 3.9+ (PEP 585)._
+_`re.template()` and `re.TEMPLATE` were deprecated in Python 3.11 and removed in 3.13._
 
 ### Tags
 
 * [python](/user-documentation/recipes/lists/recipes-by-tag#python)
+* [re](/user-documentation/recipes/lists/recipes-by-tag#re)
 * [migration](/user-documentation/recipes/lists/recipes-by-tag#migration)
-* [typing](/user-documentation/recipes/lists/recipes-by-tag#typing)
-* [PEP 585](/user-documentation/recipes/lists/recipes-by-tag#pep-585)
-* [3.9](/user-documentation/recipes/lists/recipes-by-tag#39)
+* [3.11](/user-documentation/recipes/lists/recipes-by-tag#311)
 
 ## Recipe source
 
@@ -31,7 +30,7 @@ This recipe is available under the [Moderne Proprietary License](https://docs.mo
 
 This recipe is used as part of the following composite recipes:
 
-* [Upgrade to Python 3.9](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/python/migrate/upgradetopython39)
+* [Upgrade to Python 3.11](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/python/migrate/upgradetopython311)
 
 
 ## Usage
@@ -47,5 +46,5 @@ mod config recipes pip install openrewrite-migrate-python
 Then, you can run the recipe via:
 
 ```shell title="Run the recipe"
-mod run . --recipe org.openrewrite.python.migrate.ReplaceTypingCounterWithCollectionsCounter
+mod run . --recipe org.openrewrite.python.migrate.FindReTemplate
 ```

@@ -1,22 +1,21 @@
 ---
-sidebar_label: "Replace `typing.AbstractSet` with `collections.abc.Set`"
+sidebar_label: "Find removed `HTMLParser.unescape()` usage"
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# Replace `typing.AbstractSet` with `collections.abc.Set`
+# Find removed `HTMLParser.unescape()` usage
 
-**org.openrewrite.python.migrate.ReplaceTypingAbstractSetWithCollectionsAbcSet**
+**org.openrewrite.python.migrate.FindHtmlParserUnescape**
 
-_Replace `typing.AbstractSet` with `collections.abc.Set`. Available in Python 3.9+ (PEP 585)._
+_`HTMLParser.unescape()` was removed in Python 3.9. Use `html.unescape()` instead._
 
 ### Tags
 
 * [python](/user-documentation/recipes/lists/recipes-by-tag#python)
 * [migration](/user-documentation/recipes/lists/recipes-by-tag#migration)
-* [typing](/user-documentation/recipes/lists/recipes-by-tag#typing)
-* [PEP 585](/user-documentation/recipes/lists/recipes-by-tag#pep-585)
+* [html](/user-documentation/recipes/lists/recipes-by-tag#html)
 * [3.9](/user-documentation/recipes/lists/recipes-by-tag#39)
 
 ## Recipe source
@@ -47,5 +46,5 @@ mod config recipes pip install openrewrite-migrate-python
 Then, you can run the recipe via:
 
 ```shell title="Run the recipe"
-mod run . --recipe org.openrewrite.python.migrate.ReplaceTypingAbstractSetWithCollectionsAbcSet
+mod run . --recipe org.openrewrite.python.migrate.FindHtmlParserUnescape
 ```

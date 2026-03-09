@@ -1,22 +1,21 @@
 ---
-sidebar_label: "Replace `typing.Collection` with `collections.abc.Collection`"
+sidebar_label: "Replace `Thread.isAlive()` with `Thread.is_alive()`"
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# Replace `typing.Collection` with `collections.abc.Collection`
+# Replace `Thread.isAlive()` with `Thread.is_alive()`
 
-**org.openrewrite.python.migrate.ReplaceTypingCollectionWithCollectionsAbcCollection**
+**org.openrewrite.python.migrate.ReplaceThreadIsAlive**
 
-_Replace `typing.Collection` with `collections.abc.Collection`. Available in Python 3.9+ (PEP 585)._
+_Replace `isAlive()` method calls with `is_alive()`. Deprecated in Python 3.1 and removed in 3.9._
 
 ### Tags
 
 * [python](/user-documentation/recipes/lists/recipes-by-tag#python)
 * [migration](/user-documentation/recipes/lists/recipes-by-tag#migration)
-* [typing](/user-documentation/recipes/lists/recipes-by-tag#typing)
-* [PEP 585](/user-documentation/recipes/lists/recipes-by-tag#pep-585)
+* [threading](/user-documentation/recipes/lists/recipes-by-tag#threading)
 * [3.9](/user-documentation/recipes/lists/recipes-by-tag#39)
 
 ## Recipe source
@@ -47,5 +46,5 @@ mod config recipes pip install openrewrite-migrate-python
 Then, you can run the recipe via:
 
 ```shell title="Run the recipe"
-mod run . --recipe org.openrewrite.python.migrate.ReplaceTypingCollectionWithCollectionsAbcCollection
+mod run . --recipe org.openrewrite.python.migrate.ReplaceThreadIsAlive
 ```

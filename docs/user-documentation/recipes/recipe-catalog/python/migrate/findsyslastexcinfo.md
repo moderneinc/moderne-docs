@@ -1,23 +1,22 @@
 ---
-sidebar_label: "Replace `typing.Iterator` with `collections.abc.Iterator`"
+sidebar_label: "Find deprecated `sys.last_type` / `sys.last_value` / `sys.last_traceback`"
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# Replace `typing.Iterator` with `collections.abc.Iterator`
+# Find deprecated `sys.last_type` / `sys.last_value` / `sys.last_traceback`
 
-**org.openrewrite.python.migrate.ReplaceTypingIteratorWithCollectionsAbcIterator**
+**org.openrewrite.python.migrate.FindSysLastExcInfo**
 
-_Replace `typing.Iterator` with `collections.abc.Iterator`. Available in Python 3.9+ (PEP 585)._
+_`sys.last_type`, `sys.last_value`, and `sys.last_traceback` were deprecated in Python 3.12. Use `sys.last_exc` instead._
 
 ### Tags
 
 * [python](/user-documentation/recipes/lists/recipes-by-tag#python)
 * [migration](/user-documentation/recipes/lists/recipes-by-tag#migration)
-* [typing](/user-documentation/recipes/lists/recipes-by-tag#typing)
-* [PEP 585](/user-documentation/recipes/lists/recipes-by-tag#pep-585)
-* [3.9](/user-documentation/recipes/lists/recipes-by-tag#39)
+* [3.12](/user-documentation/recipes/lists/recipes-by-tag#312)
+* [sys](/user-documentation/recipes/lists/recipes-by-tag#sys)
 
 ## Recipe source
 
@@ -31,7 +30,7 @@ This recipe is available under the [Moderne Proprietary License](https://docs.mo
 
 This recipe is used as part of the following composite recipes:
 
-* [Upgrade to Python 3.9](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/python/migrate/upgradetopython39)
+* [Upgrade to Python 3.12](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/python/migrate/upgradetopython312)
 
 
 ## Usage
@@ -47,5 +46,5 @@ mod config recipes pip install openrewrite-migrate-python
 Then, you can run the recipe via:
 
 ```shell title="Run the recipe"
-mod run . --recipe org.openrewrite.python.migrate.ReplaceTypingIteratorWithCollectionsAbcIterator
+mod run . --recipe org.openrewrite.python.migrate.FindSysLastExcInfo
 ```

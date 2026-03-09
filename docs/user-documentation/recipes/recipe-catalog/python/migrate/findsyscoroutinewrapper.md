@@ -1,23 +1,22 @@
 ---
-sidebar_label: "Replace `typing.List` with `list`"
+sidebar_label: "Find removed `sys.set_coroutine_wrapper()` / `sys.get_coroutine_wrapper()`"
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# Replace `typing.List` with `list`
+# Find removed `sys.set_coroutine_wrapper()` / `sys.get_coroutine_wrapper()`
 
-**org.openrewrite.python.migrate.ReplaceTypingListWithBuiltin**
+**org.openrewrite.python.migrate.FindSysCoroutineWrapper**
 
-_Replace `typing.List` with the built-in `list` type. Available in Python 3.9+ (PEP 585)._
+_`sys.set_coroutine_wrapper()` and `sys.get_coroutine_wrapper()` were deprecated in Python 3.7 and removed in Python 3.8._
 
 ### Tags
 
 * [python](/user-documentation/recipes/lists/recipes-by-tag#python)
 * [migration](/user-documentation/recipes/lists/recipes-by-tag#migration)
-* [typing](/user-documentation/recipes/lists/recipes-by-tag#typing)
-* [PEP 585](/user-documentation/recipes/lists/recipes-by-tag#pep-585)
-* [3.9](/user-documentation/recipes/lists/recipes-by-tag#39)
+* [sys](/user-documentation/recipes/lists/recipes-by-tag#sys)
+* [3.8](/user-documentation/recipes/lists/recipes-by-tag#38)
 
 ## Recipe source
 
@@ -31,7 +30,7 @@ This recipe is available under the [Moderne Proprietary License](https://docs.mo
 
 This recipe is used as part of the following composite recipes:
 
-* [Upgrade to Python 3.9](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/python/migrate/upgradetopython39)
+* [Upgrade to Python 3.8](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/python/migrate/upgradetopython38)
 
 
 ## Usage
@@ -47,5 +46,5 @@ mod config recipes pip install openrewrite-migrate-python
 Then, you can run the recipe via:
 
 ```shell title="Run the recipe"
-mod run . --recipe org.openrewrite.python.migrate.ReplaceTypingListWithBuiltin
+mod run . --recipe org.openrewrite.python.migrate.FindSysCoroutineWrapper
 ```

@@ -145,15 +145,6 @@ _This doc contains all [scanning recipes](https://docs.openrewrite.org/concepts-
   * **Language composition report**
   * Counts the number of lines of the various kinds of source code and data formats parsed by OpenRewrite. Comments are not included in line counts. This recipe emits its results as two data tables, making no changes to any source file. One data table is per-file, the other is per-repository.
 
-## org.openrewrite.recipe:rewrite-azul
-
-* [io.moderne.azul.EliminateUnusedClasses](/user-documentation/recipes/recipe-catalog/azul/eliminateunusedclasses.md)
-  * **Eliminate unused classes**
-  * Deprecate and later delete classes that are unused, as detected by Azul Intelligence Cloud.
-* [io.moderne.azul.search.FindReachableMethods](/user-documentation/recipes/recipe-catalog/azul/search/findreachablemethods.md)
-  * **Find reachable methods**
-  * Find all methods defined in the repository's source code that are reachable.
-
 ## org.openrewrite.recipe:rewrite-codemods
 
 * [org.openrewrite.codemods.ApplyCodemod](/user-documentation/recipes/recipe-catalog/codemods/applycodemod.md)

@@ -1,23 +1,22 @@
 ---
-sidebar_label: "Replace `typing.AsyncGenerator` with `collections.abc.AsyncGenerator`"
+sidebar_label: "Find removed `cgi.parse_qsl()` usage"
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# Replace `typing.AsyncGenerator` with `collections.abc.AsyncGenerator`
+# Find removed `cgi.parse_qsl()` usage
 
-**org.openrewrite.python.migrate.ReplaceTypingAsyncGeneratorWithCollectionsAbcAsyncGenerator**
+**org.openrewrite.python.migrate.FindCgiParseQsl**
 
-_Replace `typing.AsyncGenerator` with `collections.abc.AsyncGenerator`. Available in Python 3.9+ (PEP 585)._
+_`cgi.parse_qsl()` was removed in Python 3.8. Use `urllib.parse.parse_qsl()` instead._
 
 ### Tags
 
 * [python](/user-documentation/recipes/lists/recipes-by-tag#python)
+* [cgi](/user-documentation/recipes/lists/recipes-by-tag#cgi)
 * [migration](/user-documentation/recipes/lists/recipes-by-tag#migration)
-* [typing](/user-documentation/recipes/lists/recipes-by-tag#typing)
-* [PEP 585](/user-documentation/recipes/lists/recipes-by-tag#pep-585)
-* [3.9](/user-documentation/recipes/lists/recipes-by-tag#39)
+* [3.8](/user-documentation/recipes/lists/recipes-by-tag#38)
 
 ## Recipe source
 
@@ -31,7 +30,7 @@ This recipe is available under the [Moderne Proprietary License](https://docs.mo
 
 This recipe is used as part of the following composite recipes:
 
-* [Upgrade to Python 3.9](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/python/migrate/upgradetopython39)
+* [Upgrade to Python 3.8](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/python/migrate/upgradetopython38)
 
 
 ## Usage
@@ -47,5 +46,5 @@ mod config recipes pip install openrewrite-migrate-python
 Then, you can run the recipe via:
 
 ```shell title="Run the recipe"
-mod run . --recipe org.openrewrite.python.migrate.ReplaceTypingAsyncGeneratorWithCollectionsAbcAsyncGenerator
+mod run . --recipe org.openrewrite.python.migrate.FindCgiParseQsl
 ```

@@ -1,22 +1,22 @@
 ---
-sidebar_label: "Replace `base64.decodestring()` with `base64.decodebytes()`"
+sidebar_label: "Find removed `macpath` module usage"
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# Replace `base64.decodestring()` with `base64.decodebytes()`
+# Find removed `macpath` module usage
 
-**org.openrewrite.python.migrate.ReplaceBase64Decodestring**
+**org.openrewrite.python.migrate.FindMacpathModule**
 
-_Replace `base64.decodestring()` with `base64.decodebytes()`. The decodestring() method was deprecated in Python 3.1 and removed in 3.9._
+_The `macpath` module was removed in Python 3.8. Use `os.path` instead._
 
 ### Tags
 
+* [macpath](/user-documentation/recipes/lists/recipes-by-tag#macpath)
 * [python](/user-documentation/recipes/lists/recipes-by-tag#python)
 * [migration](/user-documentation/recipes/lists/recipes-by-tag#migration)
-* [base64](/user-documentation/recipes/lists/recipes-by-tag#base64)
-* [3.9](/user-documentation/recipes/lists/recipes-by-tag#39)
+* [3.8](/user-documentation/recipes/lists/recipes-by-tag#38)
 
 ## Recipe source
 
@@ -30,7 +30,7 @@ This recipe is available under the [Moderne Proprietary License](https://docs.mo
 
 This recipe is used as part of the following composite recipes:
 
-* [Upgrade to Python 3.9](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/python/migrate/upgradetopython39)
+* [Upgrade to Python 3.8](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/python/migrate/upgradetopython38)
 
 
 ## Usage
@@ -46,5 +46,5 @@ mod config recipes pip install openrewrite-migrate-python
 Then, you can run the recipe via:
 
 ```shell title="Run the recipe"
-mod run . --recipe org.openrewrite.python.migrate.ReplaceBase64Decodestring
+mod run . --recipe org.openrewrite.python.migrate.FindMacpathModule
 ```

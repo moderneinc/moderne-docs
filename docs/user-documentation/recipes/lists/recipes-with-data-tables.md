@@ -1507,25 +1507,6 @@ _This doc contains all of the recipes with **unique** data tables that have been
   * **org.openrewrite.table.LanguageCompositionPerFile**: *A list of individual files and their language composition.*
 
 
-### [io.moderne.azul.EliminateUnusedClasses](/user-documentation/recipes/recipe-catalog/azul/eliminateunusedclasses.md)
-  * **Eliminate unused classes**
-  * Deprecate and later delete classes that are unused, as detected by Azul Intelligence Cloud.
-
-#### Data tables:
-
-  * **io.moderne.azul.table.ReachableClasses**: *Classes in a repository's source code that are reachable. This data table does not contain information about reachability in libraries.*
-
-
-### [io.moderne.azul.search.FindReachableMethods](/user-documentation/recipes/recipe-catalog/azul/search/findreachablemethods.md)
-  * **Find reachable methods**
-  * Find all methods defined in the repository's source code that are reachable.
-
-#### Data tables:
-
-  * **io.moderne.azul.table.ReachableMethods**: *Methods in a repository's source code that are reachable. This data table does not contain information about reachability in libraries.*
-  * **io.moderne.azul.table.UnmatchedReachableMethods**: *Methods that exist in a reachability dataset but didn't match repository source code.*
-
-
 ### [org.openrewrite.codemods.ESLint](/user-documentation/recipes/recipe-catalog/codemods/eslint.md)
   * **Lint source code with ESLint**
   * Run [ESLint](https://eslint.org/) across the code to fix common static analysis issues in the code.  This requires the code to have an existing ESLint configuration.
