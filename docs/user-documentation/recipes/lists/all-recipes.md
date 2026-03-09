@@ -6,7 +6,7 @@ description: A comprehensive list of all recipes organized by module.
 
 _This doc contains all recipes grouped by their module._
 
-Total recipes: 4982
+Total recipes: 5066
 
 
 ## io.moderne.recipe:rewrite-angular
@@ -10406,7 +10406,7 @@ _18 recipes_
 
 _License: Unknown_
 
-_1695 recipes_
+_1779 recipes_
 
 * [ai.timefold.solver.migration.ChangeVersion](/user-documentation/recipes/recipe-catalog/ai/timefold/solver/migration/changeversion.md)
   * **Change the Timefold version**
@@ -14266,51 +14266,6 @@ _1695 recipes_
 * [org.openrewrite.java.testing.truth.MigrateTruthToAssertJ](/user-documentation/recipes/recipe-catalog/java/testing/truth/migratetruthtoassertj.md)
   * **Migrate Google Truth to AssertJ**
   * Migrate Google Truth assertions to AssertJ assertions.
-* [org.openrewrite.javascript.change-import](/user-documentation/recipes/recipe-catalog/javascript/change-import.md)
-  * **Change import**
-  * Changes an import from one module/member to another, updating all type attributions.
-* [org.openrewrite.javascript.cleanup.add-parse-int-radix](/user-documentation/recipes/recipe-catalog/javascript/cleanup/add-parse-int-radix.md)
-  * **Add radix to `parseInt`**
-  * Adds the radix parameter (base 10) to `parseInt()` calls that are missing it, preventing potential parsing issues.
-* [org.openrewrite.javascript.cleanup.async-callback-in-sync-array-method](/user-documentation/recipes/recipe-catalog/javascript/cleanup/async-callback-in-sync-array-method.md)
-  * **Detect async callbacks in synchronous array methods**
-  * Detects async callbacks passed to array methods like .some(), .every(), .filter() which don't await promises. This is a common bug where Promise objects are always truthy.
-* [org.openrewrite.javascript.cleanup.order-imports](/user-documentation/recipes/recipe-catalog/javascript/cleanup/order-imports.md)
-  * **Order imports**
-  * Sort imports by category and module path. Categories: side-effect, namespace, default, named, type. Within each category, imports are sorted alphabetically by module path. Named specifiers within each import are also sorted alphabetically.
-* [org.openrewrite.javascript.cleanup.prefer-optional-chain](/user-documentation/recipes/recipe-catalog/javascript/cleanup/prefer-optional-chain.md)
-  * **Prefer optional chaining**
-  * Converts ternary expressions like `foo ? foo.bar : undefined` to use optional chaining syntax `foo?.bar`.
-* [org.openrewrite.javascript.cleanup.use-object-property-shorthand](/user-documentation/recipes/recipe-catalog/javascript/cleanup/use-object-property-shorthand.md)
-  * **Use object property shorthand**
-  * Simplifies object properties where the property name and value/variable name are the same (e.g., `\{ x: x \}` becomes `\{ x \}`). Applies to both destructuring patterns and object literals.
-* [org.openrewrite.javascript.dependencies.add-dependency](/user-documentation/recipes/recipe-catalog/javascript/dependencies/add-dependency.md)
-  * **Add npm dependency**
-  * Adds a new dependency to `package.json` and updates the lock file by running the package manager.
-* [org.openrewrite.javascript.dependencies.find-dependency](/user-documentation/recipes/recipe-catalog/javascript/dependencies/find-dependency.md)
-  * **Find Node.js dependency**
-  * Finds dependencies in a project's `package.json`. Can find both direct dependencies and dependencies that transitively include the target package. This recipe is commonly used as a precondition for other recipes.
-* [org.openrewrite.javascript.dependencies.upgrade-dependency-version](/user-documentation/recipes/recipe-catalog/javascript/dependencies/upgrade-dependency-version.md)
-  * **Upgrade npm dependency version**
-  * Upgrades the version of a direct dependency in `package.json` and updates the lock file by running the package manager.
-* [org.openrewrite.javascript.dependencies.upgrade-transitive-dependency-version](/user-documentation/recipes/recipe-catalog/javascript/dependencies/upgrade-transitive-dependency-version.md)
-  * **Upgrade transitive npm dependency version**
-  * Upgrades the version of a transitive dependency by adding override/resolution entries to `package.json` and updates the lock file by running the package manager.
-* [org.openrewrite.javascript.format.auto-format](/user-documentation/recipes/recipe-catalog/javascript/format/auto-format.md)
-  * **Auto-format JavaScript/TypeScript code**
-  * Format JavaScript and TypeScript code using formatting rules auto-detected from the project's existing code style.
-* [org.openrewrite.javascript.migrate.es6.modernize-octal-escape-sequences](/user-documentation/recipes/recipe-catalog/javascript/migrate/es6/modernize-octal-escape-sequences.md)
-  * **Modernize octal escape sequences**
-  * Convert old-style octal escape sequences (e.g., `\0`, `\123`) to modern hex escape sequences (e.g., `\x00`, `\x53`) or Unicode escape sequences (e.g., `\u0000`, `\u0053`).
-* [org.openrewrite.javascript.migrate.es6.modernize-octal-literals](/user-documentation/recipes/recipe-catalog/javascript/migrate/es6/modernize-octal-literals.md)
-  * **Modernize octal literals**
-  * Convert old-style octal literals (e.g., `0777`) to modern ES6 syntax (e.g., `0o777`).
-* [org.openrewrite.javascript.migrate.es6.remove-duplicate-object-keys](/user-documentation/recipes/recipe-catalog/javascript/migrate/es6/remove-duplicate-object-keys.md)
-  * **Remove duplicate object keys**
-  * Remove duplicate keys in object literals, keeping only the last occurrence (last-wins semantics).
-* [org.openrewrite.javascript.migrate.typescript.export-assignment-to-export-default](/user-documentation/recipes/recipe-catalog/javascript/migrate/typescript/export-assignment-to-export-default.md)
-  * **Convert `export =` to `export default`**
-  * Converts TypeScript `export =` syntax to ES module `export default` syntax for compatibility with ECMAScript modules.
 * [org.openrewrite.jenkins.CommonsLang3ToApiPlugin](/user-documentation/recipes/recipe-catalog/jenkins/commonslang3toapiplugin.md)
   * **Use commons-lang3 API Plugin**
   * Updates `pom.xml` to depend on `commons-lang3-api` and exclude `commons-lang3` where it is brought in transitively.
@@ -14509,99 +14464,6 @@ _1695 recipes_
 * [org.openrewrite.netty.UpgradeNetty_4_1_to_4_2](/user-documentation/recipes/recipe-catalog/netty/upgradenetty_4_1_to_4_2.md)
   * **Migrates from Netty 4.1.x to Netty 4.2.x**
   * Migrate applications to the latest Netty 4.2.x release.
-* [org.openrewrite.node.dependency-vulnerability-check](/user-documentation/recipes/recipe-catalog/node/dependency-vulnerability-check.md)
-  * **Find and fix vulnerable npm dependencies**
-  * This software composition analysis (SCA) tool detects and upgrades dependencies with publicly disclosed vulnerabilities. This recipe both generates a report of vulnerable dependencies and upgrades to newer versions with fixes. This recipe by default only upgrades to the latest **patch** version. If a minor or major upgrade is required to reach the fixed version, this can be controlled using the `maximumUpgradeDelta` option. Vulnerability information comes from the GitHub Security Advisory Database.
-* [org.openrewrite.node.migrate.buffer.replace-deprecated-slice](/user-documentation/recipes/recipe-catalog/node/migrate/buffer/replace-deprecated-slice.md)
-  * **Replace deprecated `Buffer.slice()` with `Buffer.subarray()`**
-  * Replace deprecated `buffer.slice()` calls with `buffer.subarray()` for compatibility with Uint8Array.prototype.slice().
-* [org.openrewrite.node.migrate.buffer.replace-slow-buffer](/user-documentation/recipes/recipe-catalog/node/migrate/buffer/replace-slow-buffer.md)
-  * **Replace deprecated `SlowBuffer` with `Buffer.allocUnsafeSlow()`**
-  * Replace deprecated `new SlowBuffer(size)` calls with `Buffer.allocUnsafeSlow(size)`. SlowBuffer was used to create un-pooled Buffer instances, but has been removed in favor of the explicit Buffer.allocUnsafeSlow() method.
-* [org.openrewrite.node.migrate.crypto.find-create-cipher](/user-documentation/recipes/recipe-catalog/node/migrate/crypto/find-create-cipher.md)
-  * **Find deprecated `crypto.createCipher()` and `crypto.createDecipher()` usage**
-  * `crypto.createCipher()` and `crypto.createDecipher()` were deprecated in Node.js 10 (DEP0106) and removed in Node.js 22. Use `crypto.createCipheriv()` and `crypto.createDecipheriv()` instead.
-* [org.openrewrite.node.migrate.crypto.replace-crypto-fips](/user-documentation/recipes/recipe-catalog/node/migrate/crypto/replace-crypto-fips.md)
-  * **Replace deprecated `crypto.fips` with `crypto.getFips()` and `crypto.setFips()`**
-  * Replace deprecated `crypto.fips` property access with `crypto.getFips()` for reads and `crypto.setFips(value)` for writes.
-* [org.openrewrite.node.migrate.crypto.replace-hash-constructor](/user-documentation/recipes/recipe-catalog/node/migrate/crypto/replace-hash-constructor.md)
-  * **Replace deprecated `new crypto.Hash()` and `new crypto.Hmac()` with factory methods**
-  * Replace deprecated `new crypto.Hash(algorithm)` constructor calls with `crypto.createHash(algorithm)` and `new crypto.Hmac(algorithm, key)` with `crypto.createHmac(algorithm, key)` factory methods.
-* [org.openrewrite.node.migrate.find-process-assert](/user-documentation/recipes/recipe-catalog/node/migrate/find-process-assert.md)
-  * **Find deprecated `process.assert()` usage**
-  * `process.assert()` was deprecated in Node.js 10 (DEP0100) and removed in Node.js 23. Use the `assert` module instead.
-* [org.openrewrite.node.migrate.find-punycode-usage](/user-documentation/recipes/recipe-catalog/node/migrate/find-punycode-usage.md)
-  * **Find deprecated `punycode` module usage**
-  * The `punycode` built-in module was deprecated in Node.js 21 (DEP0040). Use the userland `punycode` package from npm or `url.domainToASCII`/`url.domainToUnicode` instead.
-* [org.openrewrite.node.migrate.fs.replace-dirent-path](/user-documentation/recipes/recipe-catalog/node/migrate/fs/replace-dirent-path.md)
-  * **Replace `dirent.path` with `dirent.parentPath`**
-  * Replaces deprecated `dirent.path` property access with `dirent.parentPath` on `fs.Dirent` instances to address DEP0178 deprecation.
-* [org.openrewrite.node.migrate.fs.replace-fs-access-constants](/user-documentation/recipes/recipe-catalog/node/migrate/fs/replace-fs-access-constants.md)
-  * **Replace deprecated `fs.F_OK`, `fs.R_OK`, `fs.W_OK`, `fs.X_OK` with `fs.constants.*`**
-  * Replace deprecated file access constants (`fs.F_OK`, `fs.R_OK`, `fs.W_OK`, `fs.X_OK`) with their equivalents from `fs.constants`. These constants were removed in Node.js v24+ and should be accessed through the constants namespace.
-* [org.openrewrite.node.migrate.fs.replace-fs-truncate-fd](/user-documentation/recipes/recipe-catalog/node/migrate/fs/replace-fs-truncate-fd.md)
-  * **Replace `fs.truncate()` with file descriptor to `fs.ftruncate()`**
-  * Replace deprecated `fs.truncate(fd, ...)` and `fs.truncateSync(fd, ...)` calls with `fs.ftruncate(fd, ...)` and `fs.ftruncateSync(fd, ...)` when the first argument is a file descriptor (number).
-* [org.openrewrite.node.migrate.fs.replace-stats-constructor](/user-documentation/recipes/recipe-catalog/node/migrate/fs/replace-stats-constructor.md)
-  * **Replace deprecated `fs.Stats` constructor with object literal**
-  * Replace deprecated `new fs.Stats()` constructor calls with an object literal containing Stats properties initialized to undefined.
-* [org.openrewrite.node.migrate.http.replace-outgoing-message-headers](/user-documentation/recipes/recipe-catalog/node/migrate/http/replace-outgoing-message-headers.md)
-  * **Replace `OutgoingMessage._headers` and `._headerNames` with public methods**
-  * Replace deprecated `OutgoingMessage.prototype._headers` with `getHeaders()`, `setHeader()`, `removeHeader()` and `OutgoingMessage.prototype._headerNames` with `getHeaderNames()` to address DEP0066 deprecation.
-* [org.openrewrite.node.migrate.increase-node-engine-version](/user-documentation/recipes/recipe-catalog/node/migrate/increase-node-engine-version.md)
-  * **Increase Node.js engine version**
-  * Increases the upper bound of the `engines.node` version range in package.json to allow the specified Node.js version.
-* [org.openrewrite.node.migrate.increase-node-engine-version-in-github-actions](/user-documentation/recipes/recipe-catalog/node/migrate/increase-node-engine-version-in-github-actions.md)
-  * **Increase Node.js version in GitHub Actions**
-  * Increases `node-version` in `actions/setup-node` steps in GitHub Actions workflows. Only modifies plain major version values (e.g. `20`) and x-ranges (e.g. `20.x`). Never decreases the version.
-* [org.openrewrite.node.migrate.net.remove-set-simultaneous-accepts](/user-documentation/recipes/recipe-catalog/node/migrate/net/remove-set-simultaneous-accepts.md)
-  * **Remove deprecated `net._setSimultaneousAccepts()`**
-  * Remove calls to deprecated `net._setSimultaneousAccepts()` which was an undocumented internal function that is no longer necessary.
-* [org.openrewrite.node.migrate.process.coerce-process-exit-code](/user-documentation/recipes/recipe-catalog/node/migrate/process/coerce-process-exit-code.md)
-  * **Coerce `process.exit()` and `process.exitCode` to integer**
-  * Wraps non-integer values passed to `process.exit()` or assigned to `process.exitCode` with `Math.trunc()` to avoid the DEP0164 deprecation warning about implicit coercion to integer.
-* [org.openrewrite.node.migrate.process.remove-usage-of-features-tls-underscore_constants](/user-documentation/recipes/recipe-catalog/node/migrate/process/remove-usage-of-features-tls-underscore_constants.md)
-  * **Remove usage of deprecated `process.features.tls_*` properties**
-  * Remove references to deprecated `process.features.tls_*` properties, replace with `process.features.tls`.
-* [org.openrewrite.node.migrate.stream.replace-internal-modules](/user-documentation/recipes/recipe-catalog/node/migrate/stream/replace-internal-modules.md)
-  * **Replace deprecated `node:_stream_*` with `node:stream`**
-  * Replace deprecated internal stream module imports like `require('node:_stream_readable')` with the public `node:stream` module.
-* [org.openrewrite.node.migrate.timers.find-timers-active](/user-documentation/recipes/recipe-catalog/node/migrate/timers/find-timers-active.md)
-  * **Find deprecated `timers.active()` and `timers._unrefActive()` usage**
-  * `timers.active()` (DEP0126) and `timers._unrefActive()` (DEP0127) were deprecated and removed in Node.js 24. Use `timeout.refresh()` instead.
-* [org.openrewrite.node.migrate.tls.find-tls-secure-pair](/user-documentation/recipes/recipe-catalog/node/migrate/tls/find-tls-secure-pair.md)
-  * **Find deprecated `tls.SecurePair` and `tls.createSecurePair()` usage**
-  * `tls.SecurePair` (DEP0043) and `tls.createSecurePair()` (DEP0064) were deprecated and removed in Node.js 24. Use `tls.TLSSocket` instead.
-* [org.openrewrite.node.migrate.tls.replace-internal-modules](/user-documentation/recipes/recipe-catalog/node/migrate/tls/replace-internal-modules.md)
-  * **Replace deprecated `node:_tls_common` and `node:_tls_wrap` with `node:tls`**
-  * Replace deprecated internal TLS module imports `require('node:_tls_common')` and `require('node:_tls_wrap')` with the public `node:tls` module.
-* [org.openrewrite.node.migrate.upgrade-node-22](/user-documentation/recipes/recipe-catalog/node/migrate/upgrade-node-22.md)
-  * **Upgrade to Node.js 22**
-  * Migrate deprecated APIs for Node.js 22 compatibility. Addresses Node 22 runtime deprecations and deprecations from earlier versions.
-* [org.openrewrite.node.migrate.upgrade-node-24](/user-documentation/recipes/recipe-catalog/node/migrate/upgrade-node-24.md)
-  * **Upgrade to Node.js 24**
-  * Migrate deprecated APIs for Node.js 24 compatibility. Includes all migrations from Node.js 22, plus Node 23 and Node 24 deprecations.
-* [org.openrewrite.node.migrate.util.remove-promisify-on-promise](/user-documentation/recipes/recipe-catalog/node/migrate/util/remove-promisify-on-promise.md)
-  * **Remove unnecessary `util.promisify()` on Promise-returning functions**
-  * Removes `util.promisify()` calls on functions that already return a Promise. Since Node.js v17.0.0, calling promisify on a function that returns a Promise emits a runtime deprecation warning (DEP0174).
-* [org.openrewrite.node.migrate.util.replace-is-webassembly-compiled-module](/user-documentation/recipes/recipe-catalog/node/migrate/util/replace-is-webassembly-compiled-module.md)
-  * **Replace deprecated `util.types.isWebAssemblyCompiledModule()`**
-  * Replace `util.types.isWebAssemblyCompiledModule(value)` with `value instanceof WebAssembly.Module`.
-* [org.openrewrite.node.migrate.util.replace-util-extend](/user-documentation/recipes/recipe-catalog/node/migrate/util/replace-util-extend.md)
-  * **Replace deprecated `util._extend()` with `Object.assign()`**
-  * Replace deprecated `util._extend(target, source)` calls with `Object.assign(target, source)` which preserves the mutation behavior.
-* [org.openrewrite.node.migrate.util.replace-util-log](/user-documentation/recipes/recipe-catalog/node/migrate/util/replace-util-log.md)
-  * **Replace deprecated `util.log()` with `console.log()`**
-  * Replace deprecated `util.log()` calls with `console.log()`. Note: `util.log()` included timestamps, but `console.log()` does not.
-* [org.openrewrite.node.migrate.util.use-native-type-checking-methods](/user-documentation/recipes/recipe-catalog/node/migrate/util/use-native-type-checking-methods.md)
-  * **Replace deprecated `util.isX()` methods with native JavaScript**
-  * The `util` module's type-checking methods have been removed in Node 22.
-* [org.openrewrite.node.migrate.zlib.replace-bytes-read](/user-documentation/recipes/recipe-catalog/node/migrate/zlib/replace-bytes-read.md)
-  * **Replace deprecated `zlib.bytesRead` with `zlib.bytesWritten`**
-  * Replace deprecated `bytesRead` property on zlib streams with `bytesWritten`.
-* [org.openrewrite.node.security.remove-redundant-overrides](/user-documentation/recipes/recipe-catalog/node/security/remove-redundant-overrides.md)
-  * **Remove redundant dependency overrides**
-  * Removes overrides/resolutions from package.json that are redundant because the dependency tree already resolves to the overridden version or higher.
 * [org.openrewrite.nodejs.search.DatabaseInteractionInsights](/user-documentation/recipes/recipe-catalog/nodejs/search/databaseinteractioninsights.md)
   * **Javascript database interaction library insights**
   * Discover which popular javascript database interaction libraries (Sequelize, TypeORM, Mongoose, etc.) are being used in your projects.
@@ -14710,6 +14572,396 @@ _1695 recipes_
 * [org.openrewrite.python.ReorderMethodArguments](/user-documentation/recipes/recipe-catalog/python/reordermethodarguments.md)
   * **Reorder method arguments**
   * Reorder arguments in method invocations matching a pattern.
+* [org.openrewrite.python.migrate.DetectPercentFormatting](/user-documentation/recipes/recipe-catalog/python/migrate/detectpercentformatting.md)
+  * **Detect `%` string formatting**
+  * Detect usage of %-style string formatting which could be migrated to f-strings (Python 3.6+). Manual review is recommended for conversion.
+* [org.openrewrite.python.migrate.DetectStrFormat](/user-documentation/recipes/recipe-catalog/python/migrate/detectstrformat.md)
+  * **Detect `str.format()` string formatting**
+  * Detect usage of str.format() method which could be migrated to f-strings (Python 3.6+). Manual review is recommended for conversion.
+* [org.openrewrite.python.migrate.FindAifcModule](/user-documentation/recipes/recipe-catalog/python/migrate/findaifcmodule.md)
+  * **Find deprecated `aifc` module usage**
+  * The `aifc` module was deprecated in Python 3.11 and removed in Python 3.13. Use third-party audio libraries instead.
+* [org.openrewrite.python.migrate.FindAsyncioCoroutineDecorator](/user-documentation/recipes/recipe-catalog/python/migrate/findasynciocoroutinedecorator.md)
+  * **Find deprecated `@asyncio.coroutine` decorator**
+  * Find usage of the deprecated `@asyncio.coroutine` decorator which was removed in Python 3.11. Convert to `async def` syntax with `await` instead of `yield from`.
+* [org.openrewrite.python.migrate.FindAudioopModule](/user-documentation/recipes/recipe-catalog/python/migrate/findaudioopmodule.md)
+  * **Find deprecated `audioop` module usage**
+  * The `audioop` module was deprecated in Python 3.11 and removed in Python 3.13. Use pydub, numpy, or scipy for audio operations.
+* [org.openrewrite.python.migrate.FindCgiModule](/user-documentation/recipes/recipe-catalog/python/migrate/findcgimodule.md)
+  * **Find deprecated `cgi` module usage**
+  * The `cgi` module was deprecated in Python 3.11 and removed in Python 3.13. Use `urllib.parse` for query string parsing, `html.escape()` for escaping, and web frameworks or `email.message` for form handling.
+* [org.openrewrite.python.migrate.FindCgitbModule](/user-documentation/recipes/recipe-catalog/python/migrate/findcgitbmodule.md)
+  * **Find deprecated `cgitb` module usage**
+  * The `cgitb` module was deprecated in Python 3.11 and removed in Python 3.13. Use the standard `logging` and `traceback` modules for error handling.
+* [org.openrewrite.python.migrate.FindChunkModule](/user-documentation/recipes/recipe-catalog/python/migrate/findchunkmodule.md)
+  * **Find deprecated `chunk` module usage**
+  * The `chunk` module was deprecated in Python 3.11 and removed in Python 3.13. Implement IFF chunk reading manually or use specialized libraries.
+* [org.openrewrite.python.migrate.FindCryptModule](/user-documentation/recipes/recipe-catalog/python/migrate/findcryptmodule.md)
+  * **Find deprecated `crypt` module usage**
+  * The `crypt` module was deprecated in Python 3.11 and removed in Python 3.13. Use `bcrypt`, `argon2-cffi`, or `passlib` instead.
+* [org.openrewrite.python.migrate.FindDistutilsUsage](/user-documentation/recipes/recipe-catalog/python/migrate/finddistutilsusage.md)
+  * **Find deprecated distutils module usage**
+  * Find imports of the deprecated `distutils` module which was removed in Python 3.12. Migrate to `setuptools` or other modern build tools.
+* [org.openrewrite.python.migrate.FindElementGetchildren](/user-documentation/recipes/recipe-catalog/python/migrate/findelementgetchildren.md)
+  * **Find deprecated `Element.getchildren()` usage**
+  * Find usage of `getchildren()` method on XML Element objects. Deprecated in Python 3.9. Use `list(element)` instead.
+* [org.openrewrite.python.migrate.FindFunctoolsCmpToKey](/user-documentation/recipes/recipe-catalog/python/migrate/findfunctoolscmptokey.md)
+  * **Find `functools.cmp_to_key()` usage**
+  * Find usage of `functools.cmp_to_key()` which is a Python 2 compatibility function. Consider using a key function directly.
+* [org.openrewrite.python.migrate.FindImghdrModule](/user-documentation/recipes/recipe-catalog/python/migrate/findimghdrmodule.md)
+  * **Find deprecated `imghdr` module usage**
+  * The `imghdr` module was deprecated in Python 3.11 and removed in Python 3.13. Use `filetype`, `python-magic`, or `Pillow` instead.
+* [org.openrewrite.python.migrate.FindImpUsage](/user-documentation/recipes/recipe-catalog/python/migrate/findimpusage.md)
+  * **Find deprecated imp module usage**
+  * Find imports of the deprecated `imp` module which was removed in Python 3.12. Migrate to `importlib`.
+* [org.openrewrite.python.migrate.FindMailcapModule](/user-documentation/recipes/recipe-catalog/python/migrate/findmailcapmodule.md)
+  * **Find deprecated `mailcap` module usage**
+  * The `mailcap` module was deprecated in Python 3.11 and removed in Python 3.13. Use `mimetypes` module for MIME type handling.
+* [org.openrewrite.python.migrate.FindMsilibModule](/user-documentation/recipes/recipe-catalog/python/migrate/findmsilibmodule.md)
+  * **Find deprecated `msilib` module usage**
+  * The `msilib` module was deprecated in Python 3.11 and removed in Python 3.13. Use platform-specific tools for MSI creation.
+* [org.openrewrite.python.migrate.FindNisModule](/user-documentation/recipes/recipe-catalog/python/migrate/findnismodule.md)
+  * **Find deprecated `nis` module usage**
+  * The `nis` module was deprecated in Python 3.11 and removed in Python 3.13. There is no direct replacement.
+* [org.openrewrite.python.migrate.FindNntplibModule](/user-documentation/recipes/recipe-catalog/python/migrate/findnntplibmodule.md)
+  * **Find deprecated `nntplib` module usage**
+  * The `nntplib` module was deprecated in Python 3.11 and removed in Python 3.13. NNTP is largely obsolete; consider alternatives if needed.
+* [org.openrewrite.python.migrate.FindOsPopen](/user-documentation/recipes/recipe-catalog/python/migrate/findospopen.md)
+  * **Find deprecated `os.popen()` usage**
+  * `os.popen()` has been deprecated since Python 3.6. Use `subprocess.run()` or `subprocess.Popen()` instead for better control over process creation and output handling.
+* [org.openrewrite.python.migrate.FindOsSpawn](/user-documentation/recipes/recipe-catalog/python/migrate/findosspawn.md)
+  * **Find deprecated `os.spawn*()` usage**
+  * The `os.spawn*()` family of functions are deprecated. Use `subprocess.run()` or `subprocess.Popen()` instead.
+* [org.openrewrite.python.migrate.FindOssaudiodevModule](/user-documentation/recipes/recipe-catalog/python/migrate/findossaudiodevmodule.md)
+  * **Find deprecated `ossaudiodev` module usage**
+  * The `ossaudiodev` module was deprecated in Python 3.11 and removed in Python 3.13. There is no direct replacement.
+* [org.openrewrite.python.migrate.FindPathlibLinkTo](/user-documentation/recipes/recipe-catalog/python/migrate/findpathliblinkto.md)
+  * **Find deprecated `Path.link_to()` usage**
+  * Find usage of `Path.link_to()` which was deprecated in Python 3.10 and removed in 3.12. Use `hardlink_to()` instead (note: argument order is reversed).
+* [org.openrewrite.python.migrate.FindPipesModule](/user-documentation/recipes/recipe-catalog/python/migrate/findpipesmodule.md)
+  * **Find deprecated `pipes` module usage**
+  * The `pipes` module was deprecated in Python 3.11 and removed in Python 3.13. Use subprocess with shlex.quote() for shell escaping.
+* [org.openrewrite.python.migrate.FindRemovedModules312](/user-documentation/recipes/recipe-catalog/python/migrate/findremovedmodules312.md)
+  * **Find modules removed in Python 3.12**
+  * Find imports of modules that were removed in Python 3.12, including asynchat, asyncore, and smtpd.
+* [org.openrewrite.python.migrate.FindSndhdrModule](/user-documentation/recipes/recipe-catalog/python/migrate/findsndhdrmodule.md)
+  * **Find deprecated `sndhdr` module usage**
+  * The `sndhdr` module was deprecated in Python 3.11 and removed in Python 3.13. Use `filetype` or audio libraries like `pydub` instead.
+* [org.openrewrite.python.migrate.FindSocketGetFQDN](/user-documentation/recipes/recipe-catalog/python/migrate/findsocketgetfqdn.md)
+  * **Find `socket.getfqdn()` usage**
+  * Find usage of `socket.getfqdn()` which can be slow and unreliable. Consider using `socket.gethostname()` instead.
+* [org.openrewrite.python.migrate.FindSpwdModule](/user-documentation/recipes/recipe-catalog/python/migrate/findspwdmodule.md)
+  * **Find deprecated `spwd` module usage**
+  * The `spwd` module was deprecated in Python 3.11 and removed in Python 3.13. There is no direct replacement.
+* [org.openrewrite.python.migrate.FindSslMatchHostname](/user-documentation/recipes/recipe-catalog/python/migrate/findsslmatchhostname.md)
+  * **Find deprecated `ssl.match_hostname()`**
+  * Find usage of the deprecated `ssl.match_hostname()` function which was removed in Python 3.12. Use `ssl.SSLContext.check_hostname` instead.
+* [org.openrewrite.python.migrate.FindSunauModule](/user-documentation/recipes/recipe-catalog/python/migrate/findsunaumodule.md)
+  * **Find deprecated `sunau` module usage**
+  * The `sunau` module was deprecated in Python 3.11 and removed in Python 3.13. Use `soundfile` or `pydub` instead.
+* [org.openrewrite.python.migrate.FindTelnetlibModule](/user-documentation/recipes/recipe-catalog/python/migrate/findtelnetlibmodule.md)
+  * **Find deprecated `telnetlib` module usage**
+  * The `telnetlib` module was deprecated in Python 3.11 and removed in Python 3.13. Consider using `telnetlib3` from PyPI, direct socket usage, or SSH-based alternatives like paramiko.
+* [org.openrewrite.python.migrate.FindTempfileMktemp](/user-documentation/recipes/recipe-catalog/python/migrate/findtempfilemktemp.md)
+  * **Find deprecated `tempfile.mktemp()` usage**
+  * Find usage of `tempfile.mktemp()` which is deprecated due to security concerns (race condition). Use `mkstemp()` or `NamedTemporaryFile()` instead.
+* [org.openrewrite.python.migrate.FindUrllibParseSplitFunctions](/user-documentation/recipes/recipe-catalog/python/migrate/findurllibparsesplitfunctions.md)
+  * **Find deprecated urllib.parse split functions**
+  * Find usage of deprecated urllib.parse split functions (splithost, splitport, etc.) removed in Python 3.14. Use urlparse() instead.
+* [org.openrewrite.python.migrate.FindUrllibParseToBytes](/user-documentation/recipes/recipe-catalog/python/migrate/findurllibparsetobytes.md)
+  * **Find deprecated `urllib.parse.to_bytes()` usage**
+  * Find usage of `urllib.parse.to_bytes()` which was deprecated in Python 3.8 and removed in 3.14. Use str.encode() directly.
+* [org.openrewrite.python.migrate.FindUuModule](/user-documentation/recipes/recipe-catalog/python/migrate/finduumodule.md)
+  * **Find deprecated `uu` module usage**
+  * The `uu` module was deprecated in Python 3.11 and removed in Python 3.13. Use `base64` module instead for encoding binary data.
+* [org.openrewrite.python.migrate.FindXdrlibModule](/user-documentation/recipes/recipe-catalog/python/migrate/findxdrlibmodule.md)
+  * **Find deprecated `xdrlib` module usage**
+  * The `xdrlib` module was deprecated in Python 3.11 and removed in Python 3.13. Use `struct` module for binary packing/unpacking.
+* [org.openrewrite.python.migrate.MigrateAsyncioCoroutine](/user-documentation/recipes/recipe-catalog/python/migrate/migrateasynciocoroutine.md)
+  * **Migrate `@asyncio.coroutine` to `async def`**
+  * Migrate functions using the deprecated `@asyncio.coroutine` decorator to use `async def` syntax. Also transforms `yield from` to `await`. The decorator was removed in Python 3.11.
+* [org.openrewrite.python.migrate.ReplaceArrayFromstring](/user-documentation/recipes/recipe-catalog/python/migrate/replacearrayfromstring.md)
+  * **Replace `array.fromstring()` with `array.frombytes()`**
+  * Replace `fromstring()` with `frombytes()` on array objects. The fromstring() method was deprecated in Python 3.2 and removed in 3.14.
+* [org.openrewrite.python.migrate.ReplaceArrayTostring](/user-documentation/recipes/recipe-catalog/python/migrate/replacearraytostring.md)
+  * **Replace `array.tostring()` with `array.tobytes()`**
+  * Replace `tostring()` with `tobytes()` on array objects. The tostring() method was deprecated in Python 3.2 and removed in 3.14.
+* [org.openrewrite.python.migrate.ReplaceAstBytes](/user-documentation/recipes/recipe-catalog/python/migrate/replaceastbytes.md)
+  * **Replace `ast.Bytes` with `ast.Constant`**
+  * The `ast.Bytes` node type was deprecated in Python 3.8 and removed in Python 3.14. Replace with `ast.Constant` and check `isinstance(node.value, bytes)`.
+* [org.openrewrite.python.migrate.ReplaceAstEllipsis](/user-documentation/recipes/recipe-catalog/python/migrate/replaceastellipsis.md)
+  * **Replace `ast.Ellipsis` with `ast.Constant`**
+  * The `ast.Ellipsis` node type was deprecated in Python 3.8 and removed in Python 3.14. Replace with `ast.Constant` and check `node.value is ...`.
+* [org.openrewrite.python.migrate.ReplaceAstNameConstant](/user-documentation/recipes/recipe-catalog/python/migrate/replaceastnameconstant.md)
+  * **Replace `ast.NameConstant` with `ast.Constant`**
+  * The `ast.NameConstant` node type was deprecated in Python 3.8 and removed in Python 3.14. Replace with `ast.Constant` and check `node.value in (True, False, None)`.
+* [org.openrewrite.python.migrate.ReplaceAstNum](/user-documentation/recipes/recipe-catalog/python/migrate/replaceastnum.md)
+  * **Replace `ast.Num` with `ast.Constant`**
+  * The `ast.Num` node type was deprecated in Python 3.8 and removed in Python 3.14. Replace with `ast.Constant` and check `isinstance(node.value, (int, float, complex))`.
+* [org.openrewrite.python.migrate.ReplaceAstStr](/user-documentation/recipes/recipe-catalog/python/migrate/replaceaststr.md)
+  * **Replace `ast.Str` with `ast.Constant`**
+  * The `ast.Str` node type was deprecated in Python 3.8 and removed in Python 3.14. Replace with `ast.Constant` and check `isinstance(node.value, str)`.
+* [org.openrewrite.python.migrate.ReplaceBase64Decodestring](/user-documentation/recipes/recipe-catalog/python/migrate/replacebase64decodestring.md)
+  * **Replace `base64.decodestring()` with `base64.decodebytes()`**
+  * Replace `base64.decodestring()` with `base64.decodebytes()`. The decodestring() method was deprecated in Python 3.1 and removed in 3.9.
+* [org.openrewrite.python.migrate.ReplaceBase64Encodestring](/user-documentation/recipes/recipe-catalog/python/migrate/replacebase64encodestring.md)
+  * **Replace `base64.encodestring()` with `base64.encodebytes()`**
+  * Replace `base64.encodestring()` with `base64.encodebytes()`. The encodestring() method was deprecated in Python 3.1 and removed in 3.9.
+* [org.openrewrite.python.migrate.ReplaceCalendarConstants](/user-documentation/recipes/recipe-catalog/python/migrate/replacecalendarconstants.md)
+  * **Replace deprecated calendar constants with uppercase**
+  * Replace deprecated mixed-case calendar constants like `calendar.January` with their uppercase equivalents like `calendar.JANUARY`. The mixed-case constants were deprecated in Python 3.12.
+* [org.openrewrite.python.migrate.ReplaceCgiEscape](/user-documentation/recipes/recipe-catalog/python/migrate/replacecgiescape.md)
+  * **Replace `cgi.escape()` with `html.escape()`**
+  * Replace `cgi.escape()` with `html.escape()`. cgi.escape() was deprecated in Python 3.2 and removed in Python 3.8.
+* [org.openrewrite.python.migrate.ReplaceCollectionsAbcImports](/user-documentation/recipes/recipe-catalog/python/migrate/replacecollectionsabcimports.md)
+  * **Replace `collections` ABC imports with `collections.abc`**
+  * Migrate deprecated abstract base class imports from `collections` to `collections.abc`. These imports were deprecated in Python 3.3 and removed in Python 3.10.
+* [org.openrewrite.python.migrate.ReplaceConditionNotifyAll](/user-documentation/recipes/recipe-catalog/python/migrate/replaceconditionnotifyall.md)
+  * **Replace `Condition.notifyAll()` with `Condition.notify_all()`**
+  * Replace `notifyAll()` method calls with `notify_all()`. The camelCase version was deprecated in Python 3.10 and removed in 3.12.
+* [org.openrewrite.python.migrate.ReplaceConfigparserReadfp](/user-documentation/recipes/recipe-catalog/python/migrate/replaceconfigparserreadfp.md)
+  * **Replace `ConfigParser.readfp()` with `read_file()`**
+  * The `ConfigParser.readfp()` method was deprecated in Python 3.2 and removed in Python 3.13. Replace with `read_file()`.
+* [org.openrewrite.python.migrate.ReplaceConfigparserSafeConfigParser](/user-documentation/recipes/recipe-catalog/python/migrate/replaceconfigparsersafeconfigparser.md)
+  * **Replace `configparser.SafeConfigParser` with `ConfigParser`**
+  * The `configparser.SafeConfigParser` class was deprecated in Python 3.2 and removed in Python 3.12. Replace with `configparser.ConfigParser`.
+* [org.openrewrite.python.migrate.ReplaceDatetimeUtcFromTimestamp](/user-documentation/recipes/recipe-catalog/python/migrate/replacedatetimeutcfromtimestamp.md)
+  * **Replace `datetime.utcfromtimestamp()` with `datetime.fromtimestamp(ts, UTC)`**
+  * The `datetime.utcfromtimestamp()` method is deprecated in Python 3.12. Replace it with `datetime.fromtimestamp(ts, datetime.UTC)` for timezone-aware datetime objects.
+* [org.openrewrite.python.migrate.ReplaceDatetimeUtcNow](/user-documentation/recipes/recipe-catalog/python/migrate/replacedatetimeutcnow.md)
+  * **Replace `datetime.utcnow()` with `datetime.now(UTC)`**
+  * The `datetime.utcnow()` method is deprecated in Python 3.12. Replace it with `datetime.now(datetime.UTC)` for timezone-aware datetime objects.
+* [org.openrewrite.python.migrate.ReplaceDistutilsVersion](/user-documentation/recipes/recipe-catalog/python/migrate/replacedistutilsversion.md)
+  * **Replace deprecated distutils.version usage**
+  * Detect usage of deprecated `distutils.version.LooseVersion` and `distutils.version.StrictVersion`. These should be migrated to `packaging.version.Version`. Note: Manual migration is required as `packaging.version.Version` is not a drop-in replacement.
+* [org.openrewrite.python.migrate.ReplaceElementGetiterator](/user-documentation/recipes/recipe-catalog/python/migrate/replaceelementgetiterator.md)
+  * **Replace `Element.getiterator()` with `Element.iter()`**
+  * Replace `getiterator()` with `iter()` on XML Element objects. The getiterator() method was deprecated in Python 3.9.
+* [org.openrewrite.python.migrate.ReplaceEventIsSet](/user-documentation/recipes/recipe-catalog/python/migrate/replaceeventisset.md)
+  * **Replace `Event.isSet()` with `Event.is_set()`**
+  * Replace `isSet()` method calls with `is_set()`. The camelCase version was deprecated in Python 3.10 and removed in 3.12.
+* [org.openrewrite.python.migrate.ReplaceGettextDeprecations](/user-documentation/recipes/recipe-catalog/python/migrate/replacegettextdeprecations.md)
+  * **Replace deprecated gettext l*gettext() functions**
+  * Replace deprecated gettext functions like `lgettext()` with their modern equivalents like `gettext()`. The l*gettext() functions were removed in Python 3.11.
+* [org.openrewrite.python.migrate.ReplaceImpImport](/user-documentation/recipes/recipe-catalog/python/migrate/replaceimpimport.md)
+  * **Replace `import imp` with `import importlib`**
+  * Replace `import imp` with `import importlib` for code that only uses imp.reload(). Also replaces `from imp import reload`.
+* [org.openrewrite.python.migrate.ReplaceImpReload](/user-documentation/recipes/recipe-catalog/python/migrate/replaceimpreload.md)
+  * **Replace `imp.reload()` with `importlib.reload()`**
+  * Replace `imp.reload()` with `importlib.reload()`. This is a direct 1:1 replacement with identical behavior.
+* [org.openrewrite.python.migrate.ReplaceInspectGetargspec](/user-documentation/recipes/recipe-catalog/python/migrate/replaceinspectgetargspec.md)
+  * **Replace `inspect.getargspec()` with `inspect.getfullargspec()`**
+  * The `inspect.getargspec()` function was deprecated in Python 3.0 and removed in Python 3.11. Replace with `inspect.getfullargspec()`. Note that code accessing the `keywords` field must be updated to use `varkw`.
+* [org.openrewrite.python.migrate.ReplaceLocaleResetlocale](/user-documentation/recipes/recipe-catalog/python/migrate/replacelocaleresetlocale.md)
+  * **Replace `locale.resetlocale()` with `locale.setlocale(LC_ALL, '')`**
+  * The `locale.resetlocale()` function was deprecated in Python 3.11 and removed in Python 3.13. Replace with `locale.setlocale(locale.LC_ALL, '')`.
+* [org.openrewrite.python.migrate.ReplaceLoggingWarn](/user-documentation/recipes/recipe-catalog/python/migrate/replaceloggingwarn.md)
+  * **Replace `logging.warn()` with `logging.warning()`**
+  * Replace `warn()` calls with `warning()`. The warn() method was deprecated in Python 3.3.
+* [org.openrewrite.python.migrate.ReplacePkgutilFindLoader](/user-documentation/recipes/recipe-catalog/python/migrate/replacepkgutilfindloader.md)
+  * **Replace `pkgutil.find_loader()` with `importlib.util.find_spec()`**
+  * The `pkgutil.find_loader()` function was deprecated in Python 3.12. Replace with `importlib.util.find_spec()`. Note: returns ModuleSpec, use .loader for loader.
+* [org.openrewrite.python.migrate.ReplacePkgutilGetLoader](/user-documentation/recipes/recipe-catalog/python/migrate/replacepkgutilgetloader.md)
+  * **Replace `pkgutil.get_loader()` with `importlib.util.find_spec()`**
+  * The `pkgutil.get_loader()` function was deprecated in Python 3.12. Replace with `importlib.util.find_spec()`. Note: returns ModuleSpec, use .loader for loader.
+* [org.openrewrite.python.migrate.ReplaceStrFormatWithFString](/user-documentation/recipes/recipe-catalog/python/migrate/replacestrformatwithfstring.md)
+  * **Replace `str.format()` with f-string**
+  * Replace `&quot;...&quot;.format(...)` calls with f-strings (Python 3.6+). Only converts cases where the format string is a literal and the conversion is safe.
+* [org.openrewrite.python.migrate.ReplaceThreadGetName](/user-documentation/recipes/recipe-catalog/python/migrate/replacethreadgetname.md)
+  * **Replace `Thread.getName()` with `Thread.name`**
+  * Replace `getName()` method calls with the `name` property. Deprecated in Python 3.10, removed in 3.12.
+* [org.openrewrite.python.migrate.ReplaceThreadIsDaemon](/user-documentation/recipes/recipe-catalog/python/migrate/replacethreadisdaemon.md)
+  * **Replace `Thread.isDaemon()` with `Thread.daemon`**
+  * Replace `isDaemon()` method calls with the `daemon` property. Deprecated in Python 3.10, removed in 3.12.
+* [org.openrewrite.python.migrate.ReplaceThreadSetDaemon](/user-documentation/recipes/recipe-catalog/python/migrate/replacethreadsetdaemon.md)
+  * **Replace `Thread.setDaemon()` with `Thread.daemon = ...`**
+  * Replace `setDaemon()` method calls with `daemon` property assignment. Deprecated in Python 3.10, removed in 3.12.
+* [org.openrewrite.python.migrate.ReplaceThreadSetName](/user-documentation/recipes/recipe-catalog/python/migrate/replacethreadsetname.md)
+  * **Replace `Thread.setName()` with `Thread.name = ...`**
+  * Replace `setName()` method calls with `name` property assignment. Deprecated in Python 3.10, removed in 3.12.
+* [org.openrewrite.python.migrate.ReplaceThreadingActiveCount](/user-documentation/recipes/recipe-catalog/python/migrate/replacethreadingactivecount.md)
+  * **Replace `threading.activeCount()` with `threading.active_count()`**
+  * Replace `threading.activeCount()` with `threading.active_count()`. The camelCase version was deprecated in Python 3.10 and removed in 3.12.
+* [org.openrewrite.python.migrate.ReplaceThreadingCurrentThread](/user-documentation/recipes/recipe-catalog/python/migrate/replacethreadingcurrentthread.md)
+  * **Replace `threading.currentThread()` with `threading.current_thread()`**
+  * Replace `threading.currentThread()` with `threading.current_thread()`. The camelCase version was deprecated in Python 3.10 and removed in 3.12.
+* [org.openrewrite.python.migrate.ReplaceTypingAbstractSetWithCollectionsAbcSet](/user-documentation/recipes/recipe-catalog/python/migrate/replacetypingabstractsetwithcollectionsabcset.md)
+  * **Replace `typing.AbstractSet` with `collections.abc.Set`**
+  * Replace `typing.AbstractSet` with `collections.abc.Set`. Available in Python 3.9+ (PEP 585).
+* [org.openrewrite.python.migrate.ReplaceTypingAsyncContextManagerWithContextlib](/user-documentation/recipes/recipe-catalog/python/migrate/replacetypingasynccontextmanagerwithcontextlib.md)
+  * **Replace `typing.AsyncContextManager` with `contextlib.AbstractAsyncContextManager`**
+  * Replace `typing.AsyncContextManager` with `contextlib.AbstractAsyncContextManager`. Available in Python 3.9+ (PEP 585).
+* [org.openrewrite.python.migrate.ReplaceTypingAsyncGeneratorWithCollectionsAbcAsyncGenerator](/user-documentation/recipes/recipe-catalog/python/migrate/replacetypingasyncgeneratorwithcollectionsabcasyncgenerator.md)
+  * **Replace `typing.AsyncGenerator` with `collections.abc.AsyncGenerator`**
+  * Replace `typing.AsyncGenerator` with `collections.abc.AsyncGenerator`. Available in Python 3.9+ (PEP 585).
+* [org.openrewrite.python.migrate.ReplaceTypingAsyncIterableWithCollectionsAbcAsyncIterable](/user-documentation/recipes/recipe-catalog/python/migrate/replacetypingasynciterablewithcollectionsabcasynciterable.md)
+  * **Replace `typing.AsyncIterable` with `collections.abc.AsyncIterable`**
+  * Replace `typing.AsyncIterable` with `collections.abc.AsyncIterable`. Available in Python 3.9+ (PEP 585).
+* [org.openrewrite.python.migrate.ReplaceTypingAsyncIteratorWithCollectionsAbcAsyncIterator](/user-documentation/recipes/recipe-catalog/python/migrate/replacetypingasynciteratorwithcollectionsabcasynciterator.md)
+  * **Replace `typing.AsyncIterator` with `collections.abc.AsyncIterator`**
+  * Replace `typing.AsyncIterator` with `collections.abc.AsyncIterator`. Available in Python 3.9+ (PEP 585).
+* [org.openrewrite.python.migrate.ReplaceTypingAwaitableWithCollectionsAbcAwaitable](/user-documentation/recipes/recipe-catalog/python/migrate/replacetypingawaitablewithcollectionsabcawaitable.md)
+  * **Replace `typing.Awaitable` with `collections.abc.Awaitable`**
+  * Replace `typing.Awaitable` with `collections.abc.Awaitable`. Available in Python 3.9+ (PEP 585).
+* [org.openrewrite.python.migrate.ReplaceTypingCallableWithCollectionsAbcCallable](/user-documentation/recipes/recipe-catalog/python/migrate/replacetypingcallablewithcollectionsabccallable.md)
+  * **Replace `typing.Callable` with `collections.abc.Callable`**
+  * PEP 585 deprecated `typing.Callable` in Python 3.9. Replace with `collections.abc.Callable` for type annotations.
+* [org.openrewrite.python.migrate.ReplaceTypingChainMapWithCollectionsChainMap](/user-documentation/recipes/recipe-catalog/python/migrate/replacetypingchainmapwithcollectionschainmap.md)
+  * **Replace `typing.ChainMap` with `collections.ChainMap`**
+  * Replace `typing.ChainMap` with `collections.ChainMap`. Available in Python 3.9+ (PEP 585).
+* [org.openrewrite.python.migrate.ReplaceTypingCollectionWithCollectionsAbcCollection](/user-documentation/recipes/recipe-catalog/python/migrate/replacetypingcollectionwithcollectionsabccollection.md)
+  * **Replace `typing.Collection` with `collections.abc.Collection`**
+  * Replace `typing.Collection` with `collections.abc.Collection`. Available in Python 3.9+ (PEP 585).
+* [org.openrewrite.python.migrate.ReplaceTypingContainerWithCollectionsAbcContainer](/user-documentation/recipes/recipe-catalog/python/migrate/replacetypingcontainerwithcollectionsabccontainer.md)
+  * **Replace `typing.Container` with `collections.abc.Container`**
+  * Replace `typing.Container` with `collections.abc.Container`. Available in Python 3.9+ (PEP 585).
+* [org.openrewrite.python.migrate.ReplaceTypingContextManagerWithContextlib](/user-documentation/recipes/recipe-catalog/python/migrate/replacetypingcontextmanagerwithcontextlib.md)
+  * **Replace `typing.ContextManager` with `contextlib.AbstractContextManager`**
+  * Replace `typing.ContextManager` with `contextlib.AbstractContextManager`. Available in Python 3.9+ (PEP 585).
+* [org.openrewrite.python.migrate.ReplaceTypingCoroutineWithCollectionsAbcCoroutine](/user-documentation/recipes/recipe-catalog/python/migrate/replacetypingcoroutinewithcollectionsabccoroutine.md)
+  * **Replace `typing.Coroutine` with `collections.abc.Coroutine`**
+  * Replace `typing.Coroutine` with `collections.abc.Coroutine`. Available in Python 3.9+ (PEP 585).
+* [org.openrewrite.python.migrate.ReplaceTypingCounterWithCollectionsCounter](/user-documentation/recipes/recipe-catalog/python/migrate/replacetypingcounterwithcollectionscounter.md)
+  * **Replace `typing.Counter` with `collections.Counter`**
+  * Replace `typing.Counter` with `collections.Counter`. Available in Python 3.9+ (PEP 585).
+* [org.openrewrite.python.migrate.ReplaceTypingDefaultDictWithCollectionsDefaultdict](/user-documentation/recipes/recipe-catalog/python/migrate/replacetypingdefaultdictwithcollectionsdefaultdict.md)
+  * **Replace `typing.DefaultDict` with `collections.defaultdict`**
+  * Replace `typing.DefaultDict` with `collections.defaultdict`. Available in Python 3.9+ (PEP 585).
+* [org.openrewrite.python.migrate.ReplaceTypingDequeWithCollectionsDeque](/user-documentation/recipes/recipe-catalog/python/migrate/replacetypingdequewithcollectionsdeque.md)
+  * **Replace `typing.Deque` with `collections.deque`**
+  * Replace `typing.Deque` with `collections.deque`. Available in Python 3.9+ (PEP 585).
+* [org.openrewrite.python.migrate.ReplaceTypingDictWithBuiltin](/user-documentation/recipes/recipe-catalog/python/migrate/replacetypingdictwithbuiltin.md)
+  * **Replace `typing.Dict` with `dict`**
+  * Replace `typing.Dict` with the built-in `dict` type. Available in Python 3.9+ (PEP 585).
+* [org.openrewrite.python.migrate.ReplaceTypingDictWithDict](/user-documentation/recipes/recipe-catalog/python/migrate/replacetypingdictwithdict.md)
+  * **Replace `typing.Dict` with `dict`**
+  * PEP 585 deprecated `typing.Dict` in Python 3.9. Replace with the built-in `dict` type for generic annotations.
+* [org.openrewrite.python.migrate.ReplaceTypingFrozenSetWithBuiltin](/user-documentation/recipes/recipe-catalog/python/migrate/replacetypingfrozensetwithbuiltin.md)
+  * **Replace `typing.FrozenSet` with `frozenset`**
+  * Replace `typing.FrozenSet` with the built-in `frozenset` type. Available in Python 3.9+ (PEP 585).
+* [org.openrewrite.python.migrate.ReplaceTypingGeneratorWithCollectionsAbcGenerator](/user-documentation/recipes/recipe-catalog/python/migrate/replacetypinggeneratorwithcollectionsabcgenerator.md)
+  * **Replace `typing.Generator` with `collections.abc.Generator`**
+  * Replace `typing.Generator` with `collections.abc.Generator`. Available in Python 3.9+ (PEP 585).
+* [org.openrewrite.python.migrate.ReplaceTypingItemsViewWithCollectionsAbcItemsView](/user-documentation/recipes/recipe-catalog/python/migrate/replacetypingitemsviewwithcollectionsabcitemsview.md)
+  * **Replace `typing.ItemsView` with `collections.abc.ItemsView`**
+  * Replace `typing.ItemsView` with `collections.abc.ItemsView`. Available in Python 3.9+ (PEP 585).
+* [org.openrewrite.python.migrate.ReplaceTypingIterableWithCollectionsAbcIterable](/user-documentation/recipes/recipe-catalog/python/migrate/replacetypingiterablewithcollectionsabciterable.md)
+  * **Replace `typing.Iterable` with `collections.abc.Iterable`**
+  * Replace `typing.Iterable` with `collections.abc.Iterable`. Available in Python 3.9+ (PEP 585).
+* [org.openrewrite.python.migrate.ReplaceTypingIteratorWithCollectionsAbcIterator](/user-documentation/recipes/recipe-catalog/python/migrate/replacetypingiteratorwithcollectionsabciterator.md)
+  * **Replace `typing.Iterator` with `collections.abc.Iterator`**
+  * Replace `typing.Iterator` with `collections.abc.Iterator`. Available in Python 3.9+ (PEP 585).
+* [org.openrewrite.python.migrate.ReplaceTypingKeysViewWithCollectionsAbcKeysView](/user-documentation/recipes/recipe-catalog/python/migrate/replacetypingkeysviewwithcollectionsabckeysview.md)
+  * **Replace `typing.KeysView` with `collections.abc.KeysView`**
+  * Replace `typing.KeysView` with `collections.abc.KeysView`. Available in Python 3.9+ (PEP 585).
+* [org.openrewrite.python.migrate.ReplaceTypingListWithBuiltin](/user-documentation/recipes/recipe-catalog/python/migrate/replacetypinglistwithbuiltin.md)
+  * **Replace `typing.List` with `list`**
+  * Replace `typing.List` with the built-in `list` type. Available in Python 3.9+ (PEP 585).
+* [org.openrewrite.python.migrate.ReplaceTypingListWithList](/user-documentation/recipes/recipe-catalog/python/migrate/replacetypinglistwithlist.md)
+  * **Replace `typing.List` with `list`**
+  * PEP 585 deprecated `typing.List` in Python 3.9. Replace with the built-in `list` type for generic annotations.
+* [org.openrewrite.python.migrate.ReplaceTypingMappingViewWithCollectionsAbcMappingView](/user-documentation/recipes/recipe-catalog/python/migrate/replacetypingmappingviewwithcollectionsabcmappingview.md)
+  * **Replace `typing.MappingView` with `collections.abc.MappingView`**
+  * Replace `typing.MappingView` with `collections.abc.MappingView`. Available in Python 3.9+ (PEP 585).
+* [org.openrewrite.python.migrate.ReplaceTypingMappingWithCollectionsAbcMapping](/user-documentation/recipes/recipe-catalog/python/migrate/replacetypingmappingwithcollectionsabcmapping.md)
+  * **Replace `typing.Mapping` with `collections.abc.Mapping`**
+  * Replace `typing.Mapping` with `collections.abc.Mapping`. Available in Python 3.9+ (PEP 585).
+* [org.openrewrite.python.migrate.ReplaceTypingMatchWithReMatch](/user-documentation/recipes/recipe-catalog/python/migrate/replacetypingmatchwithrematch.md)
+  * **Replace `typing.Match` with `re.Match`**
+  * Replace `typing.Match` with `re.Match`. Available in Python 3.9+ (PEP 585).
+* [org.openrewrite.python.migrate.ReplaceTypingMutableMappingWithCollectionsAbcMutableMapping](/user-documentation/recipes/recipe-catalog/python/migrate/replacetypingmutablemappingwithcollectionsabcmutablemapping.md)
+  * **Replace `typing.MutableMapping` with `collections.abc.MutableMapping`**
+  * Replace `typing.MutableMapping` with `collections.abc.MutableMapping`. Available in Python 3.9+ (PEP 585).
+* [org.openrewrite.python.migrate.ReplaceTypingMutableSequenceWithCollectionsAbcMutableSequence](/user-documentation/recipes/recipe-catalog/python/migrate/replacetypingmutablesequencewithcollectionsabcmutablesequence.md)
+  * **Replace `typing.MutableSequence` with `collections.abc.MutableSequence`**
+  * Replace `typing.MutableSequence` with `collections.abc.MutableSequence`. Available in Python 3.9+ (PEP 585).
+* [org.openrewrite.python.migrate.ReplaceTypingMutableSetWithCollectionsAbcMutableSet](/user-documentation/recipes/recipe-catalog/python/migrate/replacetypingmutablesetwithcollectionsabcmutableset.md)
+  * **Replace `typing.MutableSet` with `collections.abc.MutableSet`**
+  * Replace `typing.MutableSet` with `collections.abc.MutableSet`. Available in Python 3.9+ (PEP 585).
+* [org.openrewrite.python.migrate.ReplaceTypingOptionalWithUnion](/user-documentation/recipes/recipe-catalog/python/migrate/replacetypingoptionalwithunion.md)
+  * **Replace `typing.Optional[X]` with `X | None`**
+  * PEP 604 introduced the `|` operator for union types in Python 3.10. Replace `Optional[X]` with the more concise `X | None` syntax.
+* [org.openrewrite.python.migrate.ReplaceTypingOrderedDictWithCollectionsOrderedDict](/user-documentation/recipes/recipe-catalog/python/migrate/replacetypingordereddictwithcollectionsordereddict.md)
+  * **Replace `typing.OrderedDict` with `collections.OrderedDict`**
+  * Replace `typing.OrderedDict` with `collections.OrderedDict`. Available in Python 3.9+ (PEP 585).
+* [org.openrewrite.python.migrate.ReplaceTypingPatternWithRePattern](/user-documentation/recipes/recipe-catalog/python/migrate/replacetypingpatternwithrepattern.md)
+  * **Replace `typing.Pattern` with `re.Pattern`**
+  * Replace `typing.Pattern` with `re.Pattern`. Available in Python 3.9+ (PEP 585).
+* [org.openrewrite.python.migrate.ReplaceTypingReversibleWithCollectionsAbcReversible](/user-documentation/recipes/recipe-catalog/python/migrate/replacetypingreversiblewithcollectionsabcreversible.md)
+  * **Replace `typing.Reversible` with `collections.abc.Reversible`**
+  * Replace `typing.Reversible` with `collections.abc.Reversible`. Available in Python 3.9+ (PEP 585).
+* [org.openrewrite.python.migrate.ReplaceTypingSequenceWithCollectionsAbcSequence](/user-documentation/recipes/recipe-catalog/python/migrate/replacetypingsequencewithcollectionsabcsequence.md)
+  * **Replace `typing.Sequence` with `collections.abc.Sequence`**
+  * Replace `typing.Sequence` with `collections.abc.Sequence`. Available in Python 3.9+ (PEP 585).
+* [org.openrewrite.python.migrate.ReplaceTypingSetWithBuiltin](/user-documentation/recipes/recipe-catalog/python/migrate/replacetypingsetwithbuiltin.md)
+  * **Replace `typing.Set` with `set`**
+  * Replace `typing.Set` with the built-in `set` type. Available in Python 3.9+ (PEP 585).
+* [org.openrewrite.python.migrate.ReplaceTypingSetWithSet](/user-documentation/recipes/recipe-catalog/python/migrate/replacetypingsetwithset.md)
+  * **Replace `typing.Set` with `set`**
+  * PEP 585 deprecated `typing.Set` in Python 3.9. Replace with the built-in `set` type for generic annotations.
+* [org.openrewrite.python.migrate.ReplaceTypingText](/user-documentation/recipes/recipe-catalog/python/migrate/replacetypingtext.md)
+  * **Replace `typing.Text` with `str`**
+  * `typing.Text` is deprecated as of Python 3.11. It was an alias for `str` for Python 2/3 compatibility. Replace with `str`.
+* [org.openrewrite.python.migrate.ReplaceTypingTupleWithBuiltin](/user-documentation/recipes/recipe-catalog/python/migrate/replacetypingtuplewithbuiltin.md)
+  * **Replace `typing.Tuple` with `tuple`**
+  * Replace `typing.Tuple` with the built-in `tuple` type. Available in Python 3.9+ (PEP 585).
+* [org.openrewrite.python.migrate.ReplaceTypingTupleWithTuple](/user-documentation/recipes/recipe-catalog/python/migrate/replacetypingtuplewithtuple.md)
+  * **Replace `typing.Tuple` with `tuple`**
+  * PEP 585 deprecated `typing.Tuple` in Python 3.9. Replace with the built-in `tuple` type for generic annotations.
+* [org.openrewrite.python.migrate.ReplaceTypingTypeWithBuiltin](/user-documentation/recipes/recipe-catalog/python/migrate/replacetypingtypewithbuiltin.md)
+  * **Replace `typing.Type` with `type`**
+  * Replace `typing.Type` with the built-in `type` type. Available in Python 3.9+ (PEP 585).
+* [org.openrewrite.python.migrate.ReplaceTypingUnionWithPipe](/user-documentation/recipes/recipe-catalog/python/migrate/replacetypingunionwithpipe.md)
+  * **Replace `typing.Union[X, Y]` with `X | Y`**
+  * PEP 604 introduced the `|` operator for union types in Python 3.10. Replace `Union[X, Y, ...]` with the more concise `X | Y | ...` syntax.
+* [org.openrewrite.python.migrate.ReplaceTypingValuesViewWithCollectionsAbcValuesView](/user-documentation/recipes/recipe-catalog/python/migrate/replacetypingvaluesviewwithcollectionsabcvaluesview.md)
+  * **Replace `typing.ValuesView` with `collections.abc.ValuesView`**
+  * Replace `typing.ValuesView` with `collections.abc.ValuesView`. Available in Python 3.9+ (PEP 585).
+* [org.openrewrite.python.migrate.ReplaceUnittestDeprecatedAliases](/user-documentation/recipes/recipe-catalog/python/migrate/replaceunittestdeprecatedaliases.md)
+  * **Replace deprecated unittest method aliases**
+  * Replace deprecated unittest.TestCase method aliases like `assertEquals` with their modern equivalents like `assertEqual`. These aliases were removed in Python 3.11/3.12.
+* [org.openrewrite.python.migrate.UpgradeToPython310](/user-documentation/recipes/recipe-catalog/python/migrate/upgradetopython310.md)
+  * **Upgrade to Python 3.10**
+  * Migrate deprecated APIs and adopt new syntax for Python 3.10 compatibility. This includes adopting PEP 604 union type syntax (`X | Y`) and other modernizations between Python 3.9 and 3.10.
+* [org.openrewrite.python.migrate.UpgradeToPython311](/user-documentation/recipes/recipe-catalog/python/migrate/upgradetopython311.md)
+  * **Upgrade to Python 3.11**
+  * Migrate deprecated and removed APIs for Python 3.11 compatibility. This includes handling removed modules, deprecated functions, and API changes between Python 3.10 and 3.11.
+* [org.openrewrite.python.migrate.UpgradeToPython312](/user-documentation/recipes/recipe-catalog/python/migrate/upgradetopython312.md)
+  * **Upgrade to Python 3.12**
+  * Migrate deprecated and removed APIs for Python 3.12 compatibility. This includes detecting usage of the removed `imp` module and other legacy modules that were removed in Python 3.12.
+* [org.openrewrite.python.migrate.UpgradeToPython313](/user-documentation/recipes/recipe-catalog/python/migrate/upgradetopython313.md)
+  * **Upgrade to Python 3.13**
+  * Migrate deprecated and removed APIs for Python 3.13 compatibility. This includes detecting usage of modules removed in PEP 594 ('dead batteries') and other API changes between Python 3.12 and 3.13.
+* [org.openrewrite.python.migrate.UpgradeToPython314](/user-documentation/recipes/recipe-catalog/python/migrate/upgradetopython314.md)
+  * **Upgrade to Python 3.14**
+  * Migrate deprecated and removed APIs for Python 3.14 compatibility. This includes replacing deprecated AST node types with `ast.Constant` and other API changes between Python 3.13 and 3.14.
+* [org.openrewrite.python.migrate.UpgradeToPython38](/user-documentation/recipes/recipe-catalog/python/migrate/upgradetopython38.md)
+  * **Upgrade to Python 3.8**
+  * Migrate deprecated APIs and detect legacy patterns for Python 3.8 compatibility.
+* [org.openrewrite.python.migrate.UpgradeToPython39](/user-documentation/recipes/recipe-catalog/python/migrate/upgradetopython39.md)
+  * **Upgrade to Python 3.9**
+  * Migrate deprecated APIs for Python 3.9 compatibility. This includes PEP 585 built-in generics, removed base64 functions, and deprecated XML Element methods.
+* [org.openrewrite.python.migrate.langchain.FindDeprecatedLangchainAgents](/user-documentation/recipes/recipe-catalog/python/migrate/langchain/finddeprecatedlangchainagents.md)
+  * **Find deprecated LangChain agent patterns**
+  * Find usage of deprecated LangChain agent patterns including `initialize_agent`, `AgentExecutor`, and `LLMChain`. These were deprecated in LangChain v0.2 and removed in v1.0.
+* [org.openrewrite.python.migrate.langchain.FindLangchainCreateReactAgent](/user-documentation/recipes/recipe-catalog/python/migrate/langchain/findlangchaincreatereactagent.md)
+  * **Find `create_react_agent` usage (replace with `create_agent`)**
+  * Find `from langgraph.prebuilt import create_react_agent` which should be replaced with `from langchain.agents import create_agent` in LangChain v1.0.
+* [org.openrewrite.python.migrate.langchain.ReplaceLangchainClassicImports](/user-documentation/recipes/recipe-catalog/python/migrate/langchain/replacelangchainclassicimports.md)
+  * **Replace `langchain` legacy imports with `langchain_classic`**
+  * Migrate legacy chain, retriever, and indexing imports from `langchain` to `langchain_classic`. These were moved in LangChain v1.0.
+* [org.openrewrite.python.migrate.langchain.ReplaceLangchainCommunityImports](/user-documentation/recipes/recipe-catalog/python/migrate/langchain/replacelangchaincommunityimports.md)
+  * **Replace `langchain` imports with `langchain_community`**
+  * Migrate third-party integration imports from `langchain` to `langchain_community`. These integrations were moved in LangChain v0.2.
+* [org.openrewrite.python.migrate.langchain.ReplaceLangchainProviderImports](/user-documentation/recipes/recipe-catalog/python/migrate/langchain/replacelangchainproviderimports.md)
+  * **Replace `langchain_community` imports with provider packages**
+  * Migrate provider-specific imports from `langchain_community` to dedicated provider packages like `langchain_openai`, `langchain_anthropic`, etc.
+* [org.openrewrite.python.migrate.langchain.UpgradeToLangChain02](/user-documentation/recipes/recipe-catalog/python/migrate/langchain/upgradetolangchain02.md)
+  * **Upgrade to LangChain 0.2**
+  * Migrate to LangChain 0.2 by updating imports from `langchain` to `langchain_community` and provider-specific packages.
+* [org.openrewrite.python.migrate.langchain.UpgradeToLangChain1](/user-documentation/recipes/recipe-catalog/python/migrate/langchain/upgradetolangchain1.md)
+  * **Upgrade to LangChain 1.0**
+  * Migrate to LangChain 1.0 by applying all v0.2 migrations and then moving legacy functionality to `langchain_classic`.
 * [org.openrewrite.quarkus.MigrateToQuarkus_v3_0_0](/user-documentation/recipes/recipe-catalog/quarkus/migratetoquarkus_v3_0_0.md)
   * **Quarkus Updates Aggregate 3.0.0**
   * Quarkus update recipes to upgrade your application to 3.0.0.
