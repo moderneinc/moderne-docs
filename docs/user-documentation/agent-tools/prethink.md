@@ -158,7 +158,167 @@ The OpenRewrite module also provides these building blocks:
 
 If the built-in recipes don't meet your needs, you can create custom Prethink recipes. This is useful when you have custom frameworks, proprietary patterns, or want full control over what context is generated.
 
+### Customizing the starter recipes
+
+The starter recipes (`UpdatePrethinkContextStarter` and `UpdatePrethinkContextNoAiStarter`) are composite recipes that bundle all of the [Moderne module's discovery and analysis capabilities](#what-the-moderne-module-discovers) into a single recipe you can run out of the box.
+
+You can customize what Prethink generates by creating your own Prethink recipe. Check out the recipe definition below for a starting point of what the base Prethink recipe looks like. From there, you can wrap it in a new recipe to add custom discovery, or you could copy and modify it to remove built-in recipes you don't need.
+
+<details>
+<summary>UpdatePrethinkContextNoAiStarter recipe definition</summary>
+
+```yaml
+type: specs.openrewrite.org/v1beta/recipe
+name: io.moderne.prethink.UpdatePrethinkContextNoAiStarter
+displayName: Update Prethink context (no AI)
+description: >-
+  Generate Moderne Prethink context files with architectural discovery,
+  test coverage mapping, dependency inventory, and FINOS CALM architecture
+  diagrams. This recipe does not require an LLM provider.
+recipeList:
+  # Phase 1: Architectural Discovery
+  - io.moderne.prethink.FindProjectMetadata
+  - io.moderne.prethink.FindNodeProjectMetadata
+  - io.moderne.prethink.FindPythonProjectMetadata
+  - io.moderne.prethink.FindServiceEndpoints
+  - io.moderne.prethink.FindNestJSEndpoints
+  - io.moderne.prethink.FindExpressEndpoints
+  - io.moderne.prethink.FindDatabaseConnections
+  - io.moderne.prethink.FindTypeORMEntities
+  - io.moderne.prethink.FindMongooseSchemas
+  - io.moderne.prethink.FindPrismaUsage
+  - io.moderne.prethink.FindExternalServiceCalls
+  - io.moderne.prethink.FindNodeHttpClients
+  - io.moderne.prethink.FindMessagingConnections
+  - io.moderne.prethink.FindNodeMessaging
+  - io.moderne.prethink.FindServerConfiguration
+  - io.moderne.prethink.FindDataAssets
+  - io.moderne.prethink.FindDeploymentArtifacts
+  - io.moderne.prethink.FindSecurityConfiguration
+  - io.moderne.prethink.FindNodeSecurityConfig
+  - io.moderne.prethink.FindServiceComponents
+  - io.moderne.prethink.ExtractCodingConventions
+  - io.moderne.prethink.ExtractErrorPatterns
+  - io.moderne.prethink.FindNodeErrorPatterns
+  - io.moderne.prethink.ExtractDependencyUsage
+
+  # Context exports
+  - org.openrewrite.prethink.ExportContext:
+      displayName: Project Identity
+      shortDescription: Build system coordinates, names, and module structure
+      longDescription: >-
+        Project-level identification for each build module including artifact ID,
+        group ID, version, display name, and description.
+      dataTables:
+        - org.openrewrite.prethink.table.ProjectMetadata
+  - org.openrewrite.prethink.ExportContext:
+      displayName: Coding Conventions
+      shortDescription: Naming patterns, import organization, and coding style
+      longDescription: >-
+        Detected coding conventions including naming patterns, import organization,
+        and documentation coverage.
+      dataTables:
+        - org.openrewrite.prethink.table.CodingConventions
+  - org.openrewrite.prethink.ExportContext:
+      displayName: Error Handling
+      shortDescription: Exception handling strategies and logging patterns
+      longDescription: >-
+        Error handling patterns detected in the codebase including try-catch usage,
+        exception types, and handling strategies.
+      dataTables:
+        - org.openrewrite.prethink.table.ErrorHandlingPatterns
+  - org.openrewrite.prethink.ExportContext:
+      displayName: Library Usage
+      shortDescription: How external libraries and frameworks are used
+      longDescription: >-
+        Patterns of how external libraries are used throughout the codebase.
+      dataTables:
+        - org.openrewrite.prethink.table.DependencyUsage
+
+  # Phase 1.5: Relationship Discovery
+  - io.moderne.prethink.calm.FindCalmRelationships
+
+  # Phase 2: Token Estimation (no AI)
+  - io.moderne.prethink.ComprehendCodeTokenCounter
+  - org.openrewrite.prethink.ExportContext:
+      displayName: Token Estimates
+      shortDescription: Estimated input tokens for method comprehension
+      longDescription: >-
+        Estimated input token counts that would be sent to an LLM for method
+        comprehension.
+      dataTables:
+        - io.moderne.prethink.table.MethodDescriptions
+
+  # Phase 3: Test Coverage & Dependencies
+  - io.moderne.prethink.FindNodeTestCoverage
+  - io.moderne.prethink.FindTestCoverage
+  - org.openrewrite.prethink.ExportContext:
+      displayName: Test Coverage
+      shortDescription: Maps test methods to implementation methods they verify
+      longDescription: >-
+        Maps test methods to the implementation methods they exercise.
+      dataTables:
+        - io.moderne.prethink.table.TestMapping
+  - org.openrewrite.java.dependencies.DependencyList:
+      scope: TestRuntime
+      includeTransitive: true
+      validateResolvable: false
+  - org.openrewrite.prethink.ExportContext:
+      displayName: Dependencies
+      shortDescription: Project dependencies including transitive dependencies
+      longDescription: >-
+        Complete dependency tree including transitive dependencies.
+      dataTables:
+        - org.openrewrite.java.dependencies.table.DependencyListReport
+  - org.openrewrite.javascript.search.DependencyInsight:
+      namePattern: "*"
+  - org.openrewrite.prethink.ExportContext:
+      displayName: Node.js Dependencies
+      shortDescription: npm package dependencies with versions, scopes, and licenses
+      longDescription: >-
+        Node.js package dependencies from package.json including resolved versions
+        and dependency scopes.
+      dataTables:
+        - org.openrewrite.javascript.table.NodeDependenciesInUse
+
+  # Phase 4: CALM Architecture & Agent Configuration
+  - org.openrewrite.prethink.UpdatePrethinkContext
+  - io.moderne.prethink.calm.GenerateCalmMermaidDiagram
+```
+
+</details>
+
+For example, if you want to add custom discovery on top of the starter, you could wrap it in your own recipe. Here's what that might look like if you wanted to extract service relationships from proprietary configuration or property files:
+
+```yaml
+type: specs.openrewrite.org/v1beta/recipe
+name: com.example.prethink.ExtendedPrethink
+displayName: Extended Prethink context
+description: >-
+  Extends the standard Prethink starter with custom discovery
+  for internal frameworks and configuration files.
+recipeList:
+  # Include everything from the standard starter
+  - io.moderne.prethink.UpdatePrethinkContextNoAiStarter
+
+  # Add custom discovery for your proprietary patterns
+  - com.example.discovery.FindPropertyFileRelationships
+  - com.example.discovery.FindInternalFrameworkEndpoints
+
+  # Export custom data tables
+  - org.openrewrite.prethink.ExportContext:
+      displayName: Property File Relationships
+      shortDescription: Service relationships from property files
+      longDescription: >-
+        Relationships between services extracted from internal
+        property files that are not detected by standard discovery.
+      dataTables:
+        - com.example.table.PropertyFileRelationships
+```
+
 ### Setting up a recipe repository
+
+If you want full control over what discovery runs, you can build a Prethink recipe from scratch using either the Moderne or OpenRewrite module. To get started:
 
 1. Create a new recipe repository using either the [rewrite-recipe-starter](https://github.com/moderneinc/rewrite-recipe-starter) or your own internal recipe starter template.
 
