@@ -274,7 +274,6 @@ Built 11 repositories.
 
 ⏺ What to do next
     > Run mod run /Users/somebody/workspaces/migration-practice-workspace --recipe=<RecipeName&rt;
-    > Run mod afterburner /Users/somebody/workspaces/migration-practice-workspace to speed up recipe runs
     > Analyze build results with mod trace builds analyze /Users/somebody/workspaces/migration-practice-workspace --last-build
     > Run mod log builds add /Users/somebody/workspaces/migration-practice-workspace logs.zip --last-build to aggregate build logs
 

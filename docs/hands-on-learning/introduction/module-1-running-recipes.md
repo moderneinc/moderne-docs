@@ -103,8 +103,6 @@ Options:
       --version   Display version info.
 Commands:
 
-  afterburner          (INCUBATING) Indexes built LSTs to accelerate recipe
-                         execution.
   audit                (INCUBATING) Perform an audit of recent activity.
   batch                Add batch changes to the Moderne platform.
   build                Generates LST artifacts for one or more repositories.

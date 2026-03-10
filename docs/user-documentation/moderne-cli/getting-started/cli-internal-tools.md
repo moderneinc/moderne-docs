@@ -92,8 +92,6 @@ Options:
       --version   Display version info.
 Commands:
 
-  afterburner          (INCUBATING) Indexes built LSTs to accelerate recipe
-                         execution.
   audit                (INCUBATING) Perform an audit of recent activity.
   build                Generates LST artifacts for one or more repositories.
   clean                Clean build and run artifacts produced by the CLI.

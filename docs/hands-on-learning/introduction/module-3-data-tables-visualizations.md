@@ -182,7 +182,6 @@ Built 8 repositories.
 ⏺ What to do next
     > Run mod run . --recipe FindParseFailures to analyze the parse errors
     > Run mod run . --recipe=<RecipeName>
-    > Run mod afterburner . to speed up recipe runs
     > Analyze build results with mod trace builds analyze . --last-build
     > Run mod log builds add . logs.zip --last-build to aggregate build logs
 
