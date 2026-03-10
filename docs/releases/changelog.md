@@ -1,4 +1,8 @@
 # Platform changelog
+### UI v12.33.0 (2026/03/10)
+
+- add v2 platform toggle to account menu
+
 ### UI v12.32.1 (2026/03/09)
 
 - Bug fixes and other improvements.
