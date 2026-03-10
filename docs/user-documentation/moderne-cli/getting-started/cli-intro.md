@@ -64,8 +64,6 @@ Options:
       --version   Display version info.
 Commands:
 
-  afterburner          (INCUBATING) Indexes built LSTs to accelerate recipe
-                         execution.
   audit                (INCUBATING) Perform an audit of recent activity.
   batch                Add batch changes to the Moderne platform.
   build                Generates LST artifacts for one or more repositories.
@@ -73,22 +71,27 @@ Commands:
   config               Global configuration options that are required by some
                          CLI commands.
   devcenter            Generate DevCenter dashboards.
-  exec                 Execute an arbitrary shell command recursively on
-                         selected repository roots.
+  exec                 Execute an arbitrary shell command on selected
+                         repositories and partitions.
   generate-completion  Generate bash/zsh completion script for mod.
   git                  Multi-repository git operations.
   log                  Manages a log aggregate.
   list                 Lists the repositories that can be built and published.
+  mcp                  Starts an MCP server for code intelligence.
   monitor              (INCUBATING) Launches an HTTP server used to monitor the
                          CLI.
+  postbuild            Post-build operations on LST artifacts.
   publish              Publishes the LST artifacts for one or more projects.
   run                  Runs an OpenRewrite recipe locally on pre-built LSTs.
   run-history          Get information about the most recent recipe runs. This
                          will be transitioning to mod audit runs list
                          eventually. A deprecation notice will be added here
                          when we suggest adopting the alternative.
+  search               Search repositories using trigram indexes.
   study                Produces studies from OpenRewrite recipe data tables
                          locally.
+  trace                Manages trace analysis tools.
+  wrapper              Create or configure a Moderne wrapper.
 ```
 
 </details>
@@ -202,8 +205,6 @@ Options:
       --version   Display version info.
 Commands:
 
-  afterburner          (INCUBATING) Indexes built LSTs to accelerate recipe
-                         execution.
   audit                (INCUBATING) Perform an audit of recent activity.
   batch                Add batch changes to the Moderne platform.
   build                Generates LST artifacts for one or more repositories.
@@ -211,22 +212,27 @@ Commands:
   config               Global configuration options that are required by some
                          CLI commands.
   devcenter            Generate DevCenter dashboards.
-  exec                 Execute an arbitrary shell command recursively on
-                         selected repository roots.
+  exec                 Execute an arbitrary shell command on selected
+                         repositories and partitions.
   generate-completion  Generate bash/zsh completion script for mod.
   git                  Multi-repository git operations.
   log                  Manages a log aggregate.
   list                 Lists the repositories that can be built and published.
+  mcp                  Starts an MCP server for code intelligence.
   monitor              (INCUBATING) Launches an HTTP server used to monitor the
                          CLI.
+  postbuild            Post-build operations on LST artifacts.
   publish              Publishes the LST artifacts for one or more projects.
   run                  Runs an OpenRewrite recipe locally on pre-built LSTs.
   run-history          Get information about the most recent recipe runs. This
                          will be transitioning to mod audit runs list
                          eventually. A deprecation notice will be added here
                          when we suggest adopting the alternative.
+  search               Search repositories using trigram indexes.
   study                Produces studies from OpenRewrite recipe data tables
                          locally.
+  trace                Manages trace analysis tools.
+  wrapper              Create or configure a Moderne wrapper.
 ```
 
 </details>
@@ -672,10 +678,6 @@ Then you can commit the changes:
 mod git commit /path/to/your/workspace -m "<your commit message>" --last-recipe-run
 ```
 
-:::warning
-GPG signing is not currently supported by the `mod git commit` command. If you use GPG signing, you'll need to disable it temporarily or manually commit the changes in each repository.
-:::
-
 #### Creating pull requests
 
 After committing changes, you can push them and create pull requests:
@@ -686,10 +688,10 @@ After committing changes, you can push them and create pull requests:
 mod git push /path/to/your/workspace --last-recipe-run
 ```
 
-**If needed, you can also specify an upstream branch:**
+**If needed, you can also set the upstream tracking reference:**
 
 ```bash
-mod git push /path/to/your/workspace --last-recipe-run --set-upstream <branch-name>
+mod git push /path/to/your/workspace --last-recipe-run -u
 ```
 
 **You can also create PRs using the GitHub CLI:**
