@@ -94,6 +94,8 @@ description: Auto-generated documentation for all Moderne CLI commands.
 * [**mod config environment**](#mod-config-environment)
 * [**mod config environment show**](#mod-config-environment-show)
 * [**mod config features**](#mod-config-features)
+* [**mod config features agent-tools**](#mod-config-features-agent-tools)
+* [**mod config features agent-tools tray**](#mod-config-features-agent-tools-tray)
 * [**mod config features index-recipes**](#mod-config-features-index-recipes)
 * [**mod config features inline-diff**](#mod-config-features-inline-diff)
 * [**mod config features lst**](#mod-config-features-lst)
@@ -206,6 +208,9 @@ description: Auto-generated documentation for all Moderne CLI commands.
 * [**mod config recipes npm**](#mod-config-recipes-npm)
 * [**mod config recipes npm install**](#mod-config-recipes-npm-install)
 * [**mod config recipes npm delete**](#mod-config-recipes-npm-delete)
+* [**mod config recipes nuget**](#mod-config-recipes-nuget)
+* [**mod config recipes nuget install**](#mod-config-recipes-nuget-install)
+* [**mod config recipes nuget delete**](#mod-config-recipes-nuget-delete)
 * [**mod config recipes pip**](#mod-config-recipes-pip)
 * [**mod config recipes pip install**](#mod-config-recipes-pip-install)
 * [**mod config recipes pip delete**](#mod-config-recipes-pip-delete)
@@ -231,7 +236,6 @@ description: Auto-generated documentation for all Moderne CLI commands.
 * ~~[**mod config scm show**](#mod-config-scm-show-deprecated)~~ (deprecated)
 * [**mod devcenter**](#mod-devcenter)
 * [**mod exec**](#mod-exec)
-* [**mod generate-completion**](#mod-generate-completion)
 * [**mod git**](#mod-git)
 * [**mod git add**](#mod-git-add)
 * [**mod git apply**](#mod-git-apply)
@@ -305,7 +309,6 @@ mod [subcommands]
 * `config`: Global configuration options that are required by some CLI commands.
 * `devcenter`: Generate DevCenter dashboards.
 * `exec`: Execute an arbitrary shell command on selected repositories and partitions.
-* `generate-completion`
 * `git`: Multi-repository git operations.
 * `log`: Manages a log aggregate.
 * `list`: Lists the repositories that can be built and published.
@@ -2194,11 +2197,48 @@ mod config features [subcommands]
 
 ### Subcommands
 
+* `agent-tools`: Configure agent tools features.
 * `index-recipes`
 * `inline-diff`: Configure inline diff rendering in the terminal.
 * `lst`: Configure the LST serialization format version.
 * `no-maven-central`: (INCUBATING) Configure the availability of Maven Central and OSS Sonatype Snapshots.
 * `search`: (DEPRECATED) Configure trigram-based code search.
+
+## mod config features agent-tools
+
+Configure agent tools features.
+
+
+### Usage
+
+```
+mod config features agent-tools [subcommands]
+```
+
+
+### Subcommands
+
+* `tray`: Configure the agent tools system tray icon.
+
+## mod config features agent-tools tray
+
+Configure the agent tools system tray icon.
+
+
+When enabled, the MCP server launches a system tray icon with a browser-based dashboard for monitoring LST builds, tool calls, and executing tools. Disabled by default.
+
+### Usage
+
+```
+mod config features agent-tools tray
+```
+
+### Options
+
+| Name | Description |
+| ---- | ----------- |
+| `--enabled` |  |
+
 
 ## mod config features index-recipes
 
@@ -2283,7 +2323,7 @@ mod config features no-maven-central
 (DEPRECATED) Configure trigram-based code search.
 
 
-This command is deprecated. Search indexes are now generated using **mod postbuild trigrep update** and do not require a feature flag.
+This command is deprecated. Search indexes are now generated using **mod postbuild search index** and do not require a feature flag.
 
 ### Usage
 
@@ -3981,6 +4021,7 @@ mod config recipes moderne sync
 * `import`: Import recipes into the marketplace from different formats.
 * `jar`: Adds or updates an artifact that contains recipes that should be added to the recipe marketplace in the CLI.
 * `npm`: Adds or updates an npm package that contain recipes that should be added to the recipe marketplace in the CLI.
+* `nuget`: Adds or updates a NuGet package that contains recipes that should be added to the recipe marketplace in the CLI.
 * `pip`: Adds or updates a pip package that contains recipes that should be added to the recipe marketplace in the CLI.
 * `moderne`: Configures which Moderne recipes should be installed and used in the local CLI marketplace.
 * `delete`: Clear the whole recipe marketplace.
@@ -4620,6 +4661,79 @@ mod config recipes npm delete my-recipe-package
 
 
 
+## mod config recipes nuget
+
+Adds or updates a NuGet package that contains recipes that should be added to the recipe marketplace in the CLI.
+
+
+Allows installing and deleting recipes from NuGet packages.
+
+### Usage
+
+```
+mod config recipes nuget [subcommands]
+```
+
+
+### Subcommands
+
+* `install`: Adds or updates a NuGet package that contains recipes that should be added to the recipe marketplace in the CLI.
+* `delete`: Removes a NuGet package supplying recipes from the marketplace.
+
+## mod config recipes nuget install
+
+Adds or updates a NuGet package that contains recipes that should be added to the recipe marketplace in the CLI.
+
+
+The recipes defined by this NuGet package will then be available to run.
+
+### Usage
+
+```
+mod config recipes nuget install [parameters]
+```
+
+### Examples
+
+```
+mod config recipes nuget install OpenRewrite.Recipes@1.0.0
+```
+
+### Parameters
+
+| Name | Description |
+| ---- | ----------- |
+| `PACKAGE[@VERSION]` |  The NuGet package name with an optional version in the format package@version, where @version is optional. |
+
+
+
+## mod config recipes nuget delete
+
+Removes a NuGet package supplying recipes from the marketplace.
+
+
+The recipes defined by this NuGet package will then no longer be available to run.
+
+### Usage
+
+```
+mod config recipes nuget delete [parameters]
+```
+
+### Examples
+
+```
+mod config recipes nuget delete OpenRewrite.Recipes
+```
+
+### Parameters
+
+| Name | Description | Example |
+| ---- | ----------- | ---------- |
+| `packageName` |  A NuGet package name. | `OpenRewrite.Recipes` |
+
+
+
 ## mod config recipes pip
 
 Adds or updates a pip package that contains recipes that should be added to the recipe marketplace in the CLI.
@@ -5220,24 +5334,6 @@ mod exec /path/to/project rm *.hprof
 | `-o`, `--out`, `--output` |  The output type for the command. Accepts `Console` and `File`. If not specified, the output will be printed to a file. |
 | `--recipe-run` |  A recipe run ID listed by **mod run-history** |
 | `--search` |  A search run ID to filter repositories to only those with matches. |
-
-
-## mod generate-completion
-
-
-Generate bash/zsh completion script for mod.
-
-### Usage
-
-```
-mod generate-completion
-```
-
-### Options
-
-| Name | Description |
-| ---- | ----------- |
-| `-V`, `--version` |  Print version information and exit. |
 
 
 ## mod git
@@ -6278,7 +6374,7 @@ mod run-history [parameters]
 Search repositories using trigram indexes.
 
 
-Searches pre-built trigram indexes for each repository in the working set. You must enable search indexing with **mod config features search --enabled** and run **mod build** to generate the indexes.
+Searches pre-built trigram indexes for each repository in the working set. Run **mod postbuild search index** to generate the indexes.
 
 ### Usage
 
