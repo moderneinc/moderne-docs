@@ -19,9 +19,9 @@ This guide walks you through configuring the Moderne CLI to work in environments
 
 ### Step 0: Ensure recipes exist in your internal artifact repository
 
-[There are numerous OpenRewrite recipe modules available in Maven Central](https://mvnrepository.com/artifact/org.openrewrite). Please ensure that those are copied over to your internal artifact repository (or your internal mirror of Maven Central). 
+[There are numerous OpenRewrite recipe modules available in Maven Central](https://mvnrepository.com/artifact/org.openrewrite). Please ensure that those are copied over to your internal artifact repository (or your internal mirror of Maven Central).
 
-[You can find the full list of all OpenRewrite recipe JARs available here](https://docs.openrewrite.org/reference/latest-versions-of-every-openrewrite-module#cli-installation).
+[You can find the full list of all OpenRewrite recipe JARs available here](../../recipes/lists/latest-versions-of-every-openrewrite-module.md#cli-installation).
 
 ### Step 1: Download the Moderne CLI JAR
 
@@ -156,7 +156,7 @@ The next thing you need to do is ensure your internal artifact repository has al
 
 With that done, you'll need to run the `mod config recipes jar install` command and provide it with the JARs you wish to install.
 
-The latest version of every JAR and the CLI command to install those latest versions can be found at the bottom of the [latest versions of every OpenRewrite module doc](https://docs.openrewrite.org/reference/latest-versions-of-every-openrewrite-module#cli-installation). This is automatically updated whenever we do a new release.
+The latest version of every JAR and the CLI command to install those latest versions can be found at the bottom of the [latest versions of every OpenRewrite module doc](../../recipes/lists/latest-versions-of-every-openrewrite-module.md#cli-installation). This is automatically updated whenever we do a new release.
 
 ### Step 7: Create a list of your repositories
 
