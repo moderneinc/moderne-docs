@@ -14,7 +14,7 @@ The Moderne CLI is a command line tool that complements the Moderne Platform and
 To ensure you can use the Moderne CLI successfully, in this guide, we will walk you through everything you need to get started – from installation, to configuration, to examples demonstrating how to use it.
 
 :::note
-The examples in this guide use the latest staging version of the Moderne CLI.
+The examples in this guide use the latest version of the Moderne CLI.
 :::
 
 <ReactPlayer className="reactPlayer" url='https://www.youtube.com/watch?v=fdPX9e2vsFw' controls={true} />
@@ -31,7 +31,7 @@ Choose the installation path that matches your setup:
 #### Step 1: Download the CLI
 
 1. Go to [app.moderne.io](https://app.moderne.io/) and sign in.
-2. Click on `?` in the top right-hand corner and select the version of the CLI you want to download (Stable or Staging). In general, you should use _staging_ when working with the CLI locally, and you should use _stable_ for crucial mass-ingest process runs.
+2. Click on `?` in the top right-hand corner and select the version of the CLI you want to download.
 3. Either press the download button for your appropriate OS, or select the installation method in the provided table. We recommend using HomeBrew or Chocolatey if you have access to either.
 
 ![Moderne Platform help menu showing CLI download options for different operating systems](./assets/cli-download.gif)
@@ -172,7 +172,7 @@ This will grab _all_ of the recipes from the tenant you specified in `mod config
 #### Step 1: Download the CLI
 
 1. Go to your private tenant URL (e.g., `https://yourcompany.moderne.io`) and sign in.
-2. Click on `Help` in the bottom left-hand corner and select the version of the CLI you want to download (Stable or Staging). In general, you should use _staging_ when working with the CLI locally, and you should use _stable_ for crucial mass-ingest process runs.
+2. Click on `Help` in the bottom left-hand corner and select the version of the CLI you want to download.
 3. Either press the download button for your appropriate OS, or select the installation method in the provided table. We recommend using HomeBrew or Chocolatey if you have access to either.
 
 ![Moderne Platform help menu showing CLI download options for different operating systems](./assets/cli-download.gif)

@@ -62,11 +62,7 @@ In this exercise, you'll download, install, and configure the Moderne CLI, then 
 #### Step 1: Download and install the CLI
 
 1. Go to [app.moderne.io](https://app.moderne.io/) and sign in.
-2. Click on `?` in the top right-hand corner and select the Staging version of the CLI to download. (Make sure to use version 3.54.5 or higher for this workshop.)
-
-:::info
-Use the Staging version for local development purposes. The Stable release is only recommended for use when building LSTs at scale across whole organizations (known as "mass ingest").
-:::
+2. Click on `?` in the top right-hand corner and download the latest version of the CLI. (Make sure to use version 3.54.5 or higher for this workshop.)
 
 3. Either click the download button for your appropriate OS, or select one of the other installation methods like Homebrew (macOS), Chocolatey (Windows), or curl (Linux), then run the provided commands. (If you chose to install the CLI without a package manager, save it somewhere that your terminal can access by updating your `PATH`.)
 

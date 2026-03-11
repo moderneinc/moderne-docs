@@ -755,7 +755,6 @@ const releases = {
     'releases/agent-releases',
     'releases/cli-releases',
     'releases/changelog',
-    'releases/cli-dx',
     'releases/proprietary-recipe-changelog',
   ],
 };
