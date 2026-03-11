@@ -17,7 +17,7 @@ Use `Files#createTempDirectory` when the sequence `File#createTempFile(..)`->`Fi
 ### Tags
 
 * [CWE-379](/user-documentation/recipes/lists/recipes-by-tag#cwe)
-* [RSPEC-S5445](https://next.sonarqube.com/sonarqube/coding_rules?languages=java&open=java%3AS5445)
+* [RSPEC-S5445](https://next.sonarqube.com/sonarqube/coding_rules?languages=java&q=S5445&open=java%3AS5445)
 * [CWE-377](/user-documentation/recipes/lists/recipes-by-tag#cwe)
 
 ## Recipe source

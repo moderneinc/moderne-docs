@@ -475,9 +475,11 @@ _7 recipes_
 * [com.oracle.weblogic.rewrite.WebLogicApplicationClientXmlNamespace1412](/user-documentation/recipes/recipe-catalog/com/oracle/weblogic/rewrite/weblogicapplicationclientxmlnamespace1412.md)
   * **Migrate xmlns entries in `application-client.xml` files to WebLogic 14.1.2**
   * Migrate xmlns entries in WebLogic Application Client schema files to WebLogic 14.1.2
+  * Tags: application-client
 * [com.oracle.weblogic.rewrite.WebLogicApplicationClientXmlNamespace1511](/user-documentation/recipes/recipe-catalog/com/oracle/weblogic/rewrite/weblogicapplicationclientxmlnamespace1511.md)
   * **Migrate xmlns entries in `application-client.xml` files to WebLogic 15.1.1**
   * This recipe will update the `xmlns` entries in `application-client.xml` files to WebLogic 15.1.1
+  * Tags: application-client
 * [com.oracle.weblogic.rewrite.WebLogicApplicationXmlNamespace1412](/user-documentation/recipes/recipe-catalog/com/oracle/weblogic/rewrite/weblogicapplicationxmlnamespace1412.md)
   * **Migrate xmlns entries in `weblogic-application.xml` files to WebLogic 14.1.2**
   * Migrate xmlns entries in WebLogic Application schema files to WebLogic 14.1.2
@@ -487,6 +489,7 @@ _7 recipes_
 * [com.oracle.weblogic.rewrite.jakarta.JavaxApplicationClientXmlToJakarta9ApplicationClientXml](/user-documentation/recipes/recipe-catalog/com/oracle/weblogic/rewrite/jakarta/javaxapplicationclientxmltojakarta9applicationclientxml.md)
   * **Migrate xmlns entries in `application-client.xml` files.**
   * Java EE has been rebranded to Jakarta EE, necessitating an XML namespace relocation.
+  * Tags: application-client
 * [com.oracle.weblogic.rewrite.jakarta.JavaxApplicationXmlToJakarta9ApplicationXml](/user-documentation/recipes/recipe-catalog/com/oracle/weblogic/rewrite/jakarta/javaxapplicationxmltojakarta9applicationxml.md)
   * **Migrate xmlns entries in `application.xml` files.**
   * Java EE has been rebranded to Jakarta EE, necessitating an XML namespace relocation.
@@ -983,6 +986,7 @@ _1 recipe_
 * [org.openrewrite.docker.DockerBestPractices](/user-documentation/recipes/recipe-catalog/docker/dockerbestpractices.md)
   * **Apply Docker best practices**
   * Apply a set of Docker best practices to Dockerfiles. This recipe applies security hardening, build optimization, and maintainability improvements based on CIS Docker Benchmark and industry best practices.
+  * Tags: best-practices
 
 ## best practices
 
@@ -1360,333 +1364,443 @@ _110 recipes_
 * [org.openrewrite.terraform.aws.DisableInstanceMetadataServiceV1](/user-documentation/recipes/recipe-catalog/terraform/aws/disableinstancemetadataservicev1.md)
   * **Disable Instance Metadata Service version 1**
   * As a request/response method IMDSv1 is prone to local misconfigurations.
+  * Tags: CKV_AWS_79
 * [org.openrewrite.terraform.aws.EnableApiGatewayCaching](/user-documentation/recipes/recipe-catalog/terraform/aws/enableapigatewaycaching.md)
   * **Enable API gateway caching**
   * Enable caching for all methods of API Gateway.
+  * Tags: CKV_AWS_120
 * [org.openrewrite.terraform.aws.EnableDynamoDbPITR](/user-documentation/recipes/recipe-catalog/terraform/aws/enabledynamodbpitr.md)
   * **Enable point-in-time recovery for DynamoDB**
   * DynamoDB Point-In-Time Recovery (PITR) is an automatic backup service for DynamoDB table data that helps protect your DynamoDB tables from accidental write or delete operations.
+  * Tags: CKV_AWS_28
 * [org.openrewrite.terraform.aws.EnableECRScanOnPush](/user-documentation/recipes/recipe-catalog/terraform/aws/enableecrscanonpush.md)
   * **Scan images pushed to ECR**
   * ECR Image Scanning assesses and identifies operating system vulnerabilities. Using automated image scans you can ensure container image vulnerabilities are found before getting pushed to production.
+  * Tags: CKV_AWS_33
 * [org.openrewrite.terraform.aws.EncryptAuroraClusters](/user-documentation/recipes/recipe-catalog/terraform/aws/encryptauroraclusters.md)
   * **Encrypt Aurora clusters**
   * Native Aurora encryption helps protect your cloud applications and fulfils compliance requirements for data-at-rest encryption.
+  * Tags: CKV_AWS_96
 * [org.openrewrite.terraform.aws.EncryptCodeBuild](/user-documentation/recipes/recipe-catalog/terraform/aws/encryptcodebuild.md)
   * **Encrypt CodeBuild projects**
   * Build artifacts, such as a cache, logs, exported raw test report data files, and build results, are encrypted by default using CMKs for Amazon S3 that are managed by the AWS Key Management Service.
+  * Tags: CKV_AWS_147
 * [org.openrewrite.terraform.aws.EncryptDAXStorage](/user-documentation/recipes/recipe-catalog/terraform/aws/encryptdaxstorage.md)
   * **Encrypt DAX storage at rest**
   * DAX encryption at rest automatically integrates with AWS KMS for managing the single service default key used to encrypt clusters.
+  * Tags: CKV_AWS_47
 * [org.openrewrite.terraform.aws.EncryptDocumentDB](/user-documentation/recipes/recipe-catalog/terraform/aws/encryptdocumentdb.md)
   * **Encrypt DocumentDB storage**
   * The encryption feature available for Amazon DocumentDB clusters provides an additional layer of data protection by helping secure your data against unauthorized access to the underlying storage.
+  * Tags: CKV_AWS_74
 * [org.openrewrite.terraform.aws.EncryptEBSSnapshots](/user-documentation/recipes/recipe-catalog/terraform/aws/encryptebssnapshots.md)
   * **Encrypt EBS snapshots**
   * EBS snapshots should be encrypted, as they often include sensitive information, customer PII or CPNI.
+  * Tags: CKV_AWS_4
 * [org.openrewrite.terraform.aws.EncryptEBSVolumeLaunchConfiguration](/user-documentation/recipes/recipe-catalog/terraform/aws/encryptebsvolumelaunchconfiguration.md)
   * **Encrypt EBS volume launch configurations**
   * EBS volumes allow you to create encrypted launch configurations when creating EC2 instances and auto scaling. When the entire EBS volume is encrypted, data stored at rest on the volume, disk I/O, snapshots created from the volume, and data in-transit between EBS and EC2 are all encrypted.
+  * Tags: CKV_AWS_8
 * [org.openrewrite.terraform.aws.EncryptEBSVolumes](/user-documentation/recipes/recipe-catalog/terraform/aws/encryptebsvolumes.md)
   * **Encrypt EBS volumes**
   * Encrypting EBS volumes ensures that replicated copies of your images are secure even if they are accidentally exposed. AWS EBS encryption uses AWS KMS customer master keys (CMK) when creating encrypted volumes and snapshots. Storing EBS volumes in their encrypted state reduces the risk of data exposure or data loss.
+  * Tags: CKV_AWS_3
 * [org.openrewrite.terraform.aws.EncryptEFSVolumesInECSTaskDefinitionsInTransit](/user-documentation/recipes/recipe-catalog/terraform/aws/encryptefsvolumesinecstaskdefinitionsintransit.md)
   * **Encrypt EFS Volumes in ECS Task Definitions in transit**
   * Enable attached EFS definitions in ECS tasks to use encryption in transit.
+  * Tags: CKV_AWS_97
 * [org.openrewrite.terraform.aws.EncryptElastiCacheRedisAtRest](/user-documentation/recipes/recipe-catalog/terraform/aws/encryptelasticacheredisatrest.md)
   * **Encrypt ElastiCache Redis at rest**
   * ElastiCache for Redis offers default encryption at rest as a service.
+  * Tags: CKV_AWS_29
 * [org.openrewrite.terraform.aws.EncryptElastiCacheRedisInTransit](/user-documentation/recipes/recipe-catalog/terraform/aws/encryptelasticacheredisintransit.md)
   * **Encrypt ElastiCache Redis in transit**
   * ElastiCache for Redis offers optional encryption in transit. In-transit encryption provides an additional layer of data protection when transferring data over standard HTTPS protocol.
+  * Tags: CKV_AWS_30
 * [org.openrewrite.terraform.aws.EncryptNeptuneStorage](/user-documentation/recipes/recipe-catalog/terraform/aws/encryptneptunestorage.md)
   * **Encrypt Neptune storage**
   * Encryption of Neptune storage protects data and metadata against unauthorized access.
+  * Tags: CKV_AWS_44
 * [org.openrewrite.terraform.aws.EncryptRDSClusters](/user-documentation/recipes/recipe-catalog/terraform/aws/encryptrdsclusters.md)
   * **Encrypt RDS clusters**
   * Native RDS encryption helps protect your cloud applications and fulfils compliance requirements for data-at-rest encryption.
+  * Tags: CKV_AWS_16
 * [org.openrewrite.terraform.aws.EncryptRedshift](/user-documentation/recipes/recipe-catalog/terraform/aws/encryptredshift.md)
   * **Encrypt Redshift storage at rest**
   * Redshift clusters should be securely encrypted at rest.
+  * Tags: CKV_AWS_64
 * [org.openrewrite.terraform.aws.EnsureAWSCMKRotationIsEnabled](/user-documentation/recipes/recipe-catalog/terraform/aws/ensureawscmkrotationisenabled.md)
   * **Ensure AWS CMK rotation is enabled**
   * Ensure AWS CMK rotation is enabled.
+  * Tags: CKV_AWS_7
 * [org.openrewrite.terraform.aws.EnsureAWSEFSWithEncryptionForDataAtRestIsEnabled](/user-documentation/recipes/recipe-catalog/terraform/aws/ensureawsefswithencryptionfordataatrestisenabled.md)
   * **Ensure AWS EFS with encryption for data at rest is enabled**
   * Ensure AWS EFS with encryption for data at rest is enabled.
+  * Tags: CKV_AWS_42
 * [org.openrewrite.terraform.aws.EnsureAWSEKSClusterEndpointAccessIsPubliclyDisabled](/user-documentation/recipes/recipe-catalog/terraform/aws/ensureawseksclusterendpointaccessispubliclydisabled.md)
   * **Ensure AWS EKS cluster endpoint access is publicly disabled**
   * Ensure AWS EKS cluster endpoint access is publicly disabled.
+  * Tags: CKV_AWS_39
 * [org.openrewrite.terraform.aws.EnsureAWSElasticsearchDomainEncryptionForDataAtRestIsEnabled](/user-documentation/recipes/recipe-catalog/terraform/aws/ensureawselasticsearchdomainencryptionfordataatrestisenabled.md)
   * **Ensure AWS Elasticsearch domain encryption for data at rest is enabled**
   * Ensure AWS Elasticsearch domain encryption for data at rest is enabled.
+  * Tags: CKV_AWS_5
 * [org.openrewrite.terraform.aws.EnsureAWSElasticsearchDomainsHaveEnforceHTTPSEnabled](/user-documentation/recipes/recipe-catalog/terraform/aws/ensureawselasticsearchdomainshaveenforcehttpsenabled.md)
   * **Ensure AWS Elasticsearch domains have `EnforceHTTPS` enabled**
   * Ensure AWS Elasticsearch domains have `EnforceHTTPS` enabled.
+  * Tags: CKV_AWS_83
 * [org.openrewrite.terraform.aws.EnsureAWSElasticsearchHasNodeToNodeEncryptionEnabled](/user-documentation/recipes/recipe-catalog/terraform/aws/ensureawselasticsearchhasnodetonodeencryptionenabled.md)
   * **Ensure AWS Elasticsearch has node-to-node encryption enabled**
   * Ensure AWS Elasticsearch has node-to-node encryption enabled.
+  * Tags: CKV_AWS_6
 * [org.openrewrite.terraform.aws.EnsureAWSIAMPasswordPolicyHasAMinimumOf14Characters](/user-documentation/recipes/recipe-catalog/terraform/aws/ensureawsiampasswordpolicyhasaminimumof14characters.md)
   * **Ensure AWS IAM password policy has a minimum of 14 characters**
   * Ensure AWS IAM password policy has a minimum of 14 characters.
+  * Tags: CKV_AWS_10
 * [org.openrewrite.terraform.aws.EnsureAWSLambdaFunctionIsConfiguredForFunctionLevelConcurrentExecutionLimit](/user-documentation/recipes/recipe-catalog/terraform/aws/ensureawslambdafunctionisconfiguredforfunctionlevelconcurrentexecutionlimit.md)
   * **Ensure AWS Lambda function is configured for function-level concurrent execution limit**
   * Ensure AWS Lambda function is configured for function-level concurrent execution limit.
+  * Tags: CKV_AWS_115
 * [org.openrewrite.terraform.aws.EnsureAWSLambdaFunctionsHaveTracingEnabled](/user-documentation/recipes/recipe-catalog/terraform/aws/ensureawslambdafunctionshavetracingenabled.md)
   * **Ensure AWS Lambda functions have tracing enabled**
   * Ensure AWS Lambda functions have tracing enabled.
+  * Tags: CKV_AWS_50
 * [org.openrewrite.terraform.aws.EnsureAWSRDSDatabaseInstanceIsNotPubliclyAccessible](/user-documentation/recipes/recipe-catalog/terraform/aws/ensureawsrdsdatabaseinstanceisnotpubliclyaccessible.md)
   * **Ensure AWS RDS database instance is not publicly accessible**
   * Ensure AWS RDS database instance is not publicly accessible.
+  * Tags: CKV_AWS_17
 * [org.openrewrite.terraform.aws.EnsureAWSS3ObjectVersioningIsEnabled](/user-documentation/recipes/recipe-catalog/terraform/aws/ensureawss3objectversioningisenabled.md)
   * **Ensure AWS S3 object versioning is enabled**
   * Ensure AWS S3 object versioning is enabled.
+  * Tags: CKV_AWS_21
 * [org.openrewrite.terraform.aws.EnsureAmazonEKSControlPlaneLoggingEnabledForAllLogTypes](/user-documentation/recipes/recipe-catalog/terraform/aws/ensureamazonekscontrolplaneloggingenabledforalllogtypes.md)
   * **Ensure Amazon EKS control plane logging enabled for all log types**
   * Ensure Amazon EKS control plane logging enabled for all log types.
+  * Tags: CKV_AWS_37
 * [org.openrewrite.terraform.aws.EnsureCloudTrailLogFileValidationIsEnabled](/user-documentation/recipes/recipe-catalog/terraform/aws/ensurecloudtraillogfilevalidationisenabled.md)
   * **Ensure CloudTrail log file validation is enabled**
   * Ensure CloudTrail log file validation is enabled.
+  * Tags: CKV_AWS_36
 * [org.openrewrite.terraform.aws.EnsureDataStoredInAnS3BucketIsSecurelyEncryptedAtRest](/user-documentation/recipes/recipe-catalog/terraform/aws/ensuredatastoredinans3bucketissecurelyencryptedatrest.md)
   * **Ensure data stored in an S3 bucket is securely encrypted at rest**
   * Ensure data stored in an S3 bucket is securely encrypted at rest.
+  * Tags: CKV_AWS_19
 * [org.openrewrite.terraform.aws.EnsureDetailedMonitoringForEC2InstancesIsEnabled](/user-documentation/recipes/recipe-catalog/terraform/aws/ensuredetailedmonitoringforec2instancesisenabled.md)
   * **Ensure detailed monitoring for EC2 instances is enabled**
   * Ensure detailed monitoring for EC2 instances is enabled.
+  * Tags: CKV_AWS_126
 * [org.openrewrite.terraform.aws.EnsureEC2IsEBSOptimized](/user-documentation/recipes/recipe-catalog/terraform/aws/ensureec2isebsoptimized.md)
   * **Ensure EC2 is EBS optimized**
   * Ensure EC2 is EBS optimized.
+  * Tags: CKV_AWS_135
 * [org.openrewrite.terraform.aws.EnsureECRRepositoriesAreEncrypted](/user-documentation/recipes/recipe-catalog/terraform/aws/ensureecrrepositoriesareencrypted.md)
   * **Ensure ECR repositories are encrypted**
   * Ensure ECR repositories are encrypted.
+  * Tags: CKV_AWS_136
 * [org.openrewrite.terraform.aws.EnsureEnhancedMonitoringForAmazonRDSInstancesIsEnabled](/user-documentation/recipes/recipe-catalog/terraform/aws/ensureenhancedmonitoringforamazonrdsinstancesisenabled.md)
   * **Ensure enhanced monitoring for Amazon RDS instances is enabled**
   * Ensure enhanced monitoring for Amazon RDS instances is enabled.
+  * Tags: CKV_AWS_118
 * [org.openrewrite.terraform.aws.EnsureIAMPasswordPolicyExpiresPasswordsWithin90DaysOrLess](/user-documentation/recipes/recipe-catalog/terraform/aws/ensureiampasswordpolicyexpirespasswordswithin90daysorless.md)
   * **Ensure IAM password policy expires passwords within 90 days or less**
   * Ensure IAM password policy expires passwords within 90 days or less.
+  * Tags: CKV_AWS_9
 * [org.openrewrite.terraform.aws.EnsureIAMPasswordPolicyPreventsPasswordReuse](/user-documentation/recipes/recipe-catalog/terraform/aws/ensureiampasswordpolicypreventspasswordreuse.md)
   * **Ensure IAM password policy prevents password reuse**
   * Ensure IAM password policy prevents password reuse.
+  * Tags: CKV_AWS_13
 * [org.openrewrite.terraform.aws.EnsureIAMPasswordPolicyRequiresAtLeastOneLowercaseLetter](/user-documentation/recipes/recipe-catalog/terraform/aws/ensureiampasswordpolicyrequiresatleastonelowercaseletter.md)
   * **Ensure IAM password policy requires at least one lowercase letter**
   * Ensure IAM password policy requires at least one lowercase letter.
+  * Tags: CKV_AWS_11
 * [org.openrewrite.terraform.aws.EnsureIAMPasswordPolicyRequiresAtLeastOneNumber](/user-documentation/recipes/recipe-catalog/terraform/aws/ensureiampasswordpolicyrequiresatleastonenumber.md)
   * **Ensure IAM password policy requires at least one number**
   * Ensure IAM password policy requires at least one number.
+  * Tags: CKV_AWS_12
 * [org.openrewrite.terraform.aws.EnsureIAMPasswordPolicyRequiresAtLeastOneSymbol](/user-documentation/recipes/recipe-catalog/terraform/aws/ensureiampasswordpolicyrequiresatleastonesymbol.md)
   * **Ensure IAM password policy requires at least one symbol**
   * Ensure IAM password policy requires at least one symbol.
+  * Tags: CKV_AWS_14
 * [org.openrewrite.terraform.aws.EnsureIAMPasswordPolicyRequiresAtLeastOneUppercaseLetter](/user-documentation/recipes/recipe-catalog/terraform/aws/ensureiampasswordpolicyrequiresatleastoneuppercaseletter.md)
   * **Ensure IAM password policy requires at least one uppercase letter**
   * Ensure IAM password policy requires at least one uppercase letter.
+  * Tags: CKV_AWS_15
 * [org.openrewrite.terraform.aws.EnsureKinesisStreamIsSecurelyEncrypted](/user-documentation/recipes/recipe-catalog/terraform/aws/ensurekinesisstreamissecurelyencrypted.md)
   * **Ensure Kinesis Stream is securely encrypted**
   * Ensure Kinesis Stream is securely encrypted.
+  * Tags: CKV_AWS_43
 * [org.openrewrite.terraform.aws.EnsureRDSDatabaseHasIAMAuthenticationEnabled](/user-documentation/recipes/recipe-catalog/terraform/aws/ensurerdsdatabasehasiamauthenticationenabled.md)
   * **Ensure RDS database has IAM authentication enabled**
   * Ensure RDS database has IAM authentication enabled.
+  * Tags: CKV_AWS_161
 * [org.openrewrite.terraform.aws.EnsureRDSInstancesHaveMultiAZEnabled](/user-documentation/recipes/recipe-catalog/terraform/aws/ensurerdsinstanceshavemultiazenabled.md)
   * **Ensure RDS instances have Multi-AZ enabled**
   * Ensure RDS instances have Multi-AZ enabled.
+  * Tags: CKV_AWS_157
 * [org.openrewrite.terraform.aws.EnsureRespectiveLogsOfAmazonRDSAreEnabled](/user-documentation/recipes/recipe-catalog/terraform/aws/ensurerespectivelogsofamazonrdsareenabled.md)
   * **Ensure respective logs of Amazon RDS are enabled**
   * Ensure respective logs of Amazon RDS are enabled.
+  * Tags: CKV_AWS_129
 * [org.openrewrite.terraform.aws.EnsureTheS3BucketHasAccessLoggingEnabled](/user-documentation/recipes/recipe-catalog/terraform/aws/ensurethes3buckethasaccessloggingenabled.md)
   * **Ensure the S3 bucket has access logging enabled**
   * Ensure the S3 bucket has access logging enabled.
+  * Tags: CKV_AWS_18
 * [org.openrewrite.terraform.aws.EnsureVPCSubnetsDoNotAssignPublicIPByDefault](/user-documentation/recipes/recipe-catalog/terraform/aws/ensurevpcsubnetsdonotassignpublicipbydefault.md)
   * **Ensure VPC subnets do not assign public IP by default**
   * Ensure VPC subnets do not assign public IP by default.
+  * Tags: CKV_AWS_130
 * [org.openrewrite.terraform.aws.ImmutableECRTags](/user-documentation/recipes/recipe-catalog/terraform/aws/immutableecrtags.md)
   * **Make ECR tags immutable**
   * Amazon ECR supports immutable tags, preventing image tags from being overwritten. In the past, ECR tags could have been overwritten, this could be overcome by requiring users to uniquely identify an image using a naming convention.
+  * Tags: CKV_AWS_51
 * [org.openrewrite.terraform.aws.UseHttpsForCloudfrontDistribution](/user-documentation/recipes/recipe-catalog/terraform/aws/usehttpsforcloudfrontdistribution.md)
   * **Use HTTPS for Cloudfront distribution**
   * Secure communication by default.
+  * Tags: CKV_AWS_34
 * [org.openrewrite.terraform.azure.DisableKubernetesDashboard](/user-documentation/recipes/recipe-catalog/terraform/azure/disablekubernetesdashboard.md)
   * **Disable Kubernetes dashboard**
   * Disabling the dashboard eliminates it as an attack vector. The dashboard add-on is disabled by default for all new clusters created on Kubernetes 1.18 or greater.
+  * Tags: CKV_AZURE_8
 * [org.openrewrite.terraform.azure.EnableAzureStorageAccountTrustedMicrosoftServicesAccess](/user-documentation/recipes/recipe-catalog/terraform/azure/enableazurestorageaccounttrustedmicrosoftservicesaccess.md)
   * **Enable Azure Storage Account Trusted Microsoft Services access**
   * Certain Microsoft services that interact with storage accounts operate from networks that cannot be granted access through network rules. Using this configuration, you can allow the set of trusted Microsoft services to bypass those network rules.
+  * Tags: CKV_AZURE_36
 * [org.openrewrite.terraform.azure.EnableAzureStorageSecureTransferRequired](/user-documentation/recipes/recipe-catalog/terraform/azure/enableazurestoragesecuretransferrequired.md)
   * **Enable Azure Storage secure transfer required**
   * Microsoft recommends requiring secure transfer for all storage accounts.
+  * Tags: CKV_AZURE_3
 * [org.openrewrite.terraform.azure.EnableGeoRedundantBackupsOnPostgreSQLServer](/user-documentation/recipes/recipe-catalog/terraform/azure/enablegeoredundantbackupsonpostgresqlserver.md)
   * **Enable geo-redundant backups on PostgreSQL server**
   * Ensure PostgreSQL server enables geo-redundant backups.
+  * Tags: CKV_AZURE_102
 * [org.openrewrite.terraform.azure.EncryptAzureVMDataDiskWithADECMK](/user-documentation/recipes/recipe-catalog/terraform/azure/encryptazurevmdatadiskwithadecmk.md)
   * **Encrypt Azure VM data disk with ADE/CMK**
   * Ensure Azure VM data disk is encrypted with ADE/CMK.
+  * Tags: CKV_AZURE_2
 * [org.openrewrite.terraform.azure.EnsureAKSPoliciesAddOn](/user-documentation/recipes/recipe-catalog/terraform/azure/ensureakspoliciesaddon.md)
   * **Ensure AKS policies add-on**
   * Azure Policy Add-on for Kubernetes service (AKS) extends Gatekeeper v3, an admission controller webhook for Open Policy Agent (OPA), to apply at-scale enforcements and safeguards on your clusters in a centralized, consistent manner.
+  * Tags: CKV_AZURE_116
 * [org.openrewrite.terraform.azure.EnsureAKVSecretsHaveAnExpirationDateSet](/user-documentation/recipes/recipe-catalog/terraform/azure/ensureakvsecretshaveanexpirationdateset.md)
   * **Ensure AKV secrets have an expiration date set**
   * Ensure AKV secrets have an expiration date set.
+  * Tags: CKV_AZURE_41
 * [org.openrewrite.terraform.azure.EnsureASecurityContactPhoneNumberIsPresent](/user-documentation/recipes/recipe-catalog/terraform/azure/ensureasecuritycontactphonenumberispresent.md)
   * **Ensure a security contact phone number is present**
   * Ensure a security contact phone number is present.
+  * Tags: CKV_AZURE_20
 * [org.openrewrite.terraform.azure.EnsureActivityLogRetentionIsSetTo365DaysOrGreater](/user-documentation/recipes/recipe-catalog/terraform/azure/ensureactivitylogretentionissetto365daysorgreater.md)
   * **Ensure activity log retention is set to 365 days or greater**
   * Ensure activity log retention is set to 365 days or greater.
+  * Tags: CKV_AZURE_37
 * [org.openrewrite.terraform.azure.EnsureAllKeysHaveAnExpirationDate](/user-documentation/recipes/recipe-catalog/terraform/azure/ensureallkeyshaveanexpirationdate.md)
   * **Ensure all keys have an expiration date**
   * Ensure all keys have an expiration date.
+  * Tags: CKV_AZURE_40
 * [org.openrewrite.terraform.azure.EnsureAppServiceEnablesDetailedErrorMessages](/user-documentation/recipes/recipe-catalog/terraform/azure/ensureappserviceenablesdetailederrormessages.md)
   * **Ensure app service enables detailed error messages**
   * Ensure app service enables detailed error messages.
+  * Tags: CKV_AZURE_65
 * [org.openrewrite.terraform.azure.EnsureAppServiceEnablesFailedRequestTracing](/user-documentation/recipes/recipe-catalog/terraform/azure/ensureappserviceenablesfailedrequesttracing.md)
   * **Ensure app service enables failed request tracing**
   * Ensure app service enables failed request tracing.
+  * Tags: CKV_AZURE_66
 * [org.openrewrite.terraform.azure.EnsureAppServiceEnablesHTTPLogging](/user-documentation/recipes/recipe-catalog/terraform/azure/ensureappserviceenableshttplogging.md)
   * **Ensure app service enables HTTP logging**
   * Ensure app service enables HTTP logging.
+  * Tags: CKV_AZURE_63
 * [org.openrewrite.terraform.azure.EnsureAppServicesUseAzureFiles](/user-documentation/recipes/recipe-catalog/terraform/azure/ensureappservicesuseazurefiles.md)
   * **Ensure app services use Azure files**
   * Ensure app services use Azure files.
+  * Tags: CKV_AZURE_88
 * [org.openrewrite.terraform.azure.EnsureAzureAppServiceWebAppRedirectsHTTPToHTTPS](/user-documentation/recipes/recipe-catalog/terraform/azure/ensureazureappservicewebappredirectshttptohttps.md)
   * **Ensure Azure App Service Web app redirects HTTP to HTTPS**
   * Ensure Azure App Service Web app redirects HTTP to HTTPS.
+  * Tags: CKV_AZURE_14
 * [org.openrewrite.terraform.azure.EnsureAzureApplicationGatewayHasWAFEnabled](/user-documentation/recipes/recipe-catalog/terraform/azure/ensureazureapplicationgatewayhaswafenabled.md)
   * **Ensure Azure application gateway has WAF enabled**
   * Ensure Azure application gateway has WAF enabled.
+  * Tags: CKV_AZURE_120
 * [org.openrewrite.terraform.azure.EnsureAzureKeyVaultIsRecoverable](/user-documentation/recipes/recipe-catalog/terraform/azure/ensureazurekeyvaultisrecoverable.md)
   * **Ensure Azure key vault is recoverable**
   * Ensure Azure key vault is recoverable.
+  * Tags: CKV_AZURE_42
 * [org.openrewrite.terraform.azure.EnsureAzureNetworkWatcherNSGFlowLogsRetentionIsGreaterThan90Days](/user-documentation/recipes/recipe-catalog/terraform/azure/ensureazurenetworkwatchernsgflowlogsretentionisgreaterthan90days.md)
   * **Ensure Azure Network Watcher NSG flow logs retention is greater than 90 days**
   * Ensure Azure Network Watcher NSG flow logs retention is greater than 90 days.
+  * Tags: CKV_AZURE_12
 * [org.openrewrite.terraform.azure.EnsureAzurePostgreSQLDatabaseServerWithSSLConnectionIsEnabled](/user-documentation/recipes/recipe-catalog/terraform/azure/ensureazurepostgresqldatabaseserverwithsslconnectionisenabled.md)
   * **Ensure Azure PostgreSQL database server with SSL connection is enabled**
   * Ensure Azure PostgreSQL database server with SSL connection is enabled.
+  * Tags: CKV_AZURE_29
 * [org.openrewrite.terraform.azure.EnsureAzureSQLServerAuditLogRetentionIsGreaterThan90Days](/user-documentation/recipes/recipe-catalog/terraform/azure/ensureazuresqlserverauditlogretentionisgreaterthan90days.md)
   * **Ensure Azure SQL server audit log retention is greater than 90 days**
   * Ensure Azure SQL server audit log retention is greater than 90 days.
+  * Tags: CKV_AZURE_24
 * [org.openrewrite.terraform.azure.EnsureAzureSQLServerSendAlertsToFieldValueIsSet](/user-documentation/recipes/recipe-catalog/terraform/azure/ensureazuresqlserversendalertstofieldvalueisset.md)
   * **Ensure Azure SQL server send alerts to field value is set**
   * Ensure Azure SQL server send alerts to field value is set.
+  * Tags: CKV_AZURE_26
 * [org.openrewrite.terraform.azure.EnsureAzureSQLServerThreatDetectionAlertsAreEnabledForAllThreatTypes](/user-documentation/recipes/recipe-catalog/terraform/azure/ensureazuresqlserverthreatdetectionalertsareenabledforallthreattypes.md)
   * **Ensure Azure SQL Server threat detection alerts are enabled for all threat types**
   * Ensure Azure SQL Server threat detection alerts are enabled for all threat types.
+  * Tags: CKV_AZURE_25
 * [org.openrewrite.terraform.azure.EnsureFTPDeploymentsAreDisabled](/user-documentation/recipes/recipe-catalog/terraform/azure/ensureftpdeploymentsaredisabled.md)
   * **Ensure FTP Deployments are disabled**
   * Ensure FTP Deployments are disabled.
+  * Tags: CKV_AZURE_78
 * [org.openrewrite.terraform.azure.EnsureKeyVaultAllowsFirewallRulesSettings](/user-documentation/recipes/recipe-catalog/terraform/azure/ensurekeyvaultallowsfirewallrulessettings.md)
   * **Ensure key vault allows firewall rules settings**
   * Ensure key vault allows firewall rules settings.
+  * Tags: CKV_AZURE_109
 * [org.openrewrite.terraform.azure.EnsureKeyVaultEnablesPurgeProtection](/user-documentation/recipes/recipe-catalog/terraform/azure/ensurekeyvaultenablespurgeprotection.md)
   * **Ensure key vault enables purge protection**
   * Ensure key vault enables purge protection.
+  * Tags: CKV_AZURE_110
 * [org.openrewrite.terraform.azure.EnsureKeyVaultKeyIsBackedByHSM](/user-documentation/recipes/recipe-catalog/terraform/azure/ensurekeyvaultkeyisbackedbyhsm.md)
   * **Ensure key vault key is backed by HSM**
   * Ensure key vault key is backed by HSM.
+  * Tags: CKV_AZURE_112
 * [org.openrewrite.terraform.azure.EnsureKeyVaultSecretsHaveContentTypeSet](/user-documentation/recipes/recipe-catalog/terraform/azure/ensurekeyvaultsecretshavecontenttypeset.md)
   * **Ensure key vault secrets have `content_type` set**
   * Ensure key vault secrets have `content_type` set.
+  * Tags: CKV_AZURE_114
 * [org.openrewrite.terraform.azure.EnsureLogProfileIsConfiguredToCaptureAllActivities](/user-documentation/recipes/recipe-catalog/terraform/azure/ensurelogprofileisconfiguredtocaptureallactivities.md)
   * **Ensure log profile is configured to capture all activities**
   * Ensure log profile is configured to capture all activities.
+  * Tags: CKV_AZURE_38
 * [org.openrewrite.terraform.azure.EnsureMSSQLServersHaveEmailServiceAndCoAdministratorsEnabled](/user-documentation/recipes/recipe-catalog/terraform/azure/ensuremssqlservershaveemailserviceandcoadministratorsenabled.md)
   * **Ensure MSSQL servers have email service and co-administrators enabled**
   * Ensure MSSQL servers have email service and co-administrators enabled.
+  * Tags: CKV_AZURE_27
 * [org.openrewrite.terraform.azure.EnsureManagedIdentityProviderIsEnabledForAppServices](/user-documentation/recipes/recipe-catalog/terraform/azure/ensuremanagedidentityproviderisenabledforappservices.md)
   * **Ensure managed identity provider is enabled for app services**
   * Ensure managed identity provider is enabled for app services.
+  * Tags: CKV_AZURE_71
 * [org.openrewrite.terraform.azure.EnsureMySQLIsUsingTheLatestVersionOfTLSEncryption](/user-documentation/recipes/recipe-catalog/terraform/azure/ensuremysqlisusingthelatestversionoftlsencryption.md)
   * **Ensure MySQL is using the latest version of TLS encryption**
   * Ensure MySQL is using the latest version of TLS encryption.
+  * Tags: CKV_AZURE_54
 * [org.openrewrite.terraform.azure.EnsureMySQLServerDatabasesHaveEnforceSSLConnectionEnabled](/user-documentation/recipes/recipe-catalog/terraform/azure/ensuremysqlserverdatabaseshaveenforcesslconnectionenabled.md)
   * **Ensure MySQL server databases have Enforce SSL connection enabled**
   * Ensure MySQL server databases have Enforce SSL connection enabled.
+  * Tags: CKV_AZURE_28
 * [org.openrewrite.terraform.azure.EnsureMySQLServerDisablesPublicNetworkAccess](/user-documentation/recipes/recipe-catalog/terraform/azure/ensuremysqlserverdisablespublicnetworkaccess.md)
   * **Ensure MySQL server disables public network access**
   * Ensure MySQL server disables public network access.
+  * Tags: CKV_AZURE_90
 * [org.openrewrite.terraform.azure.EnsureMySQLServerEnablesGeoRedundantBackups](/user-documentation/recipes/recipe-catalog/terraform/azure/ensuremysqlserverenablesgeoredundantbackups.md)
   * **Ensure MySQL server enables geo-redundant backups**
   * Ensure MySQL server enables geo-redundant backups.
+  * Tags: CKV_AZURE_94
 * [org.openrewrite.terraform.azure.EnsureMySQLServerEnablesThreatDetectionPolicy](/user-documentation/recipes/recipe-catalog/terraform/azure/ensuremysqlserverenablesthreatdetectionpolicy.md)
   * **Ensure MySQL server enables Threat Detection policy**
   * Ensure MySQL server enables Threat Detection policy.
+  * Tags: CKV_AZURE_127
 * [org.openrewrite.terraform.azure.EnsurePostgreSQLServerDisablesPublicNetworkAccess](/user-documentation/recipes/recipe-catalog/terraform/azure/ensurepostgresqlserverdisablespublicnetworkaccess.md)
   * **Ensure PostgreSQL server disables public network access**
   * Ensure PostgreSQL server disables public network access.
+  * Tags: CKV_AZURE_68
 * [org.openrewrite.terraform.azure.EnsurePostgreSQLServerEnablesInfrastructureEncryption](/user-documentation/recipes/recipe-catalog/terraform/azure/ensurepostgresqlserverenablesinfrastructureencryption.md)
   * **Ensure PostgreSQL server enables infrastructure encryption**
   * Ensure PostgreSQL server enables infrastructure encryption.
+  * Tags: CKV_AZURE_130
 * [org.openrewrite.terraform.azure.EnsurePostgreSQLServerEnablesThreatDetectionPolicy](/user-documentation/recipes/recipe-catalog/terraform/azure/ensurepostgresqlserverenablesthreatdetectionpolicy.md)
   * **Ensure PostgreSQL server enables Threat Detection policy**
   * Ensure PostgreSQL server enables Threat Detection policy.
+  * Tags: CKV_AZURE_128
 * [org.openrewrite.terraform.azure.EnsurePublicNetworkAccessEnabledIsSetToFalseForMySQLServers](/user-documentation/recipes/recipe-catalog/terraform/azure/ensurepublicnetworkaccessenabledissettofalseformysqlservers.md)
   * **Ensure public network access enabled is set to False for mySQL servers**
   * Ensure public network access enabled is set to False for mySQL servers.
+  * Tags: CKV_AZURE_53
 * [org.openrewrite.terraform.azure.EnsureSendEmailNotificationForHighSeverityAlertsIsEnabled](/user-documentation/recipes/recipe-catalog/terraform/azure/ensuresendemailnotificationforhighseverityalertsisenabled.md)
   * **Ensure Send email notification for high severity alerts is enabled**
   * Ensure Send email notification for high severity alerts is enabled.
+  * Tags: CKV_AZURE_21
 * [org.openrewrite.terraform.azure.EnsureSendEmailNotificationForHighSeverityAlertsToAdminsIsEnabled](/user-documentation/recipes/recipe-catalog/terraform/azure/ensuresendemailnotificationforhighseverityalertstoadminsisenabled.md)
   * **Ensure Send email notification for high severity alerts to admins is enabled**
   * Ensure Send email notification for high severity alerts to admins is enabled.
+  * Tags: CKV_AZURE_22
 * [org.openrewrite.terraform.azure.EnsureStandardPricingTierIsSelected](/user-documentation/recipes/recipe-catalog/terraform/azure/ensurestandardpricingtierisselected.md)
   * **Ensure standard pricing tier is selected**
   * Ensure standard pricing tier is selected.
+  * Tags: CKV_AZURE_19
 * [org.openrewrite.terraform.azure.EnsureStorageAccountUsesLatestTLSVersion](/user-documentation/recipes/recipe-catalog/terraform/azure/ensurestorageaccountuseslatesttlsversion.md)
   * **Ensure storage account uses latest TLS version**
   * Communication between an Azure Storage account and a client application is encrypted using Transport Layer Security (TLS). Microsoft recommends using the latest version of TLS for all your Microsoft Azure App Service web applications.
+  * Tags: CKV_AZURE_44
 * [org.openrewrite.terraform.azure.EnsureWebAppHasIncomingClientCertificatesEnabled](/user-documentation/recipes/recipe-catalog/terraform/azure/ensurewebapphasincomingclientcertificatesenabled.md)
   * **Ensure Web App has incoming client certificates enabled**
   * Ensure Web App has incoming client certificates enabled.
+  * Tags: CKV_AZURE_17
 * [org.openrewrite.terraform.azure.EnsureWebAppUsesTheLatestVersionOfHTTP](/user-documentation/recipes/recipe-catalog/terraform/azure/ensurewebappusesthelatestversionofhttp.md)
   * **Ensure Web App uses the latest version of HTTP**
   * Ensure Web App uses the latest version of HTTP.
+  * Tags: CKV_AZURE_18
 * [org.openrewrite.terraform.azure.EnsureWebAppUsesTheLatestVersionOfTLSEncryption](/user-documentation/recipes/recipe-catalog/terraform/azure/ensurewebappusesthelatestversionoftlsencryption.md)
   * **Ensure Web App uses the latest version of TLS encryption**
   * Ensure Web App uses the latest version of TLS encryption.
+  * Tags: CKV_AZURE_15
 * [org.openrewrite.terraform.azure.SetAzureStorageAccountDefaultNetworkAccessToDeny](/user-documentation/recipes/recipe-catalog/terraform/azure/setazurestorageaccountdefaultnetworkaccesstodeny.md)
   * **Set Azure Storage Account default network access to deny**
   * Ensure Azure Storage Account default network access is set to Deny.
+  * Tags: CKV_AZURE_35
 * [org.openrewrite.terraform.gcp.EnablePodSecurityPolicyControllerOnGKEClusters](/user-documentation/recipes/recipe-catalog/terraform/gcp/enablepodsecuritypolicycontrollerongkeclusters.md)
   * **Enable `PodSecurityPolicy` controller on Google Kubernetes Engine (GKE) clusters**
   * Ensure `PodSecurityPolicy` controller is enabled on Google Kubernetes Engine (GKE) clusters.
+  * Tags: CKV_GCP_24
 * [org.openrewrite.terraform.gcp.EnableVPCFlowLogsAndIntranodeVisibility](/user-documentation/recipes/recipe-catalog/terraform/gcp/enablevpcflowlogsandintranodevisibility.md)
   * **Enable VPC flow logs and intranode visibility**
   * Enable VPC flow logs and intranode visibility.
+  * Tags: CKV_GCP_61
 * [org.openrewrite.terraform.gcp.EnableVPCFlowLogsForSubnetworks](/user-documentation/recipes/recipe-catalog/terraform/gcp/enablevpcflowlogsforsubnetworks.md)
   * **Enable VPC Flow Logs for subnetworks**
   * Ensure GCP VPC flow logs for subnets are enabled. Flow Logs capture information on IP traffic moving through network interfaces. This information can be used to monitor anomalous traffic and provide security insights.
+  * Tags: CKV_GCP_26
 * [org.openrewrite.terraform.gcp.EnsureBinaryAuthorizationIsUsed](/user-documentation/recipes/recipe-catalog/terraform/gcp/ensurebinaryauthorizationisused.md)
   * **Ensure binary authorization is used**
   * Ensure binary authorization is used.
+  * Tags: CKV_GCP_66
 * [org.openrewrite.terraform.gcp.EnsureComputeInstancesLaunchWithShieldedVMEnabled](/user-documentation/recipes/recipe-catalog/terraform/gcp/ensurecomputeinstanceslaunchwithshieldedvmenabled.md)
   * **Ensure compute instances launch with shielded VM enabled**
   * Ensure compute instances launch with shielded VM enabled.
+  * Tags: CKV_GCP_39
 * [org.openrewrite.terraform.gcp.EnsureGCPCloudStorageBucketWithUniformBucketLevelAccessAreEnabled](/user-documentation/recipes/recipe-catalog/terraform/gcp/ensuregcpcloudstoragebucketwithuniformbucketlevelaccessareenabled.md)
   * **Ensure GCP cloud storage bucket with uniform bucket-level access are enabled**
   * Ensure GCP cloud storage bucket with uniform bucket-level access are enabled.
+  * Tags: CKV_GCP_29
 * [org.openrewrite.terraform.gcp.EnsureGCPKubernetesClusterNodeAutoRepairConfigurationIsEnabled](/user-documentation/recipes/recipe-catalog/terraform/gcp/ensuregcpkubernetesclusternodeautorepairconfigurationisenabled.md)
   * **Ensure GCP Kubernetes cluster node auto-repair configuration is enabled**
   * Ensure GCP Kubernetes cluster node auto-repair configuration is enabled.
+  * Tags: CKV_GCP_9
 * [org.openrewrite.terraform.gcp.EnsureGCPKubernetesEngineClustersHaveLegacyComputeEngineMetadataEndpointsDisabled](/user-documentation/recipes/recipe-catalog/terraform/gcp/ensuregcpkubernetesengineclustershavelegacycomputeenginemetadataendpointsdisabled.md)
   * **Ensure GCP Kubernetes engine clusters have legacy compute engine metadata endpoints disabled**
   * Ensure GCP Kubernetes engine clusters have legacy compute engine metadata endpoints disabled.
+  * Tags: CKV_GCP_67
 * [org.openrewrite.terraform.gcp.EnsureGCPVMInstancesHaveBlockProjectWideSSHKeysFeatureEnabled](/user-documentation/recipes/recipe-catalog/terraform/gcp/ensuregcpvminstanceshaveblockprojectwidesshkeysfeatureenabled.md)
   * **Ensure GCP VM instances have block project-wide SSH keys feature enabled**
   * Ensure GCP VM instances have block project-wide SSH keys feature enabled.
+  * Tags: CKV_GCP_32
 * [org.openrewrite.terraform.gcp.EnsureIPForwardingOnInstancesIsDisabled](/user-documentation/recipes/recipe-catalog/terraform/gcp/ensureipforwardingoninstancesisdisabled.md)
   * **Ensure IP forwarding on instances is disabled**
   * Ensure IP forwarding on instances is disabled.
+  * Tags: CKV_GCP_36
 * [org.openrewrite.terraform.gcp.EnsurePrivateClusterIsEnabledWhenCreatingKubernetesClusters](/user-documentation/recipes/recipe-catalog/terraform/gcp/ensureprivateclusterisenabledwhencreatingkubernetesclusters.md)
   * **Ensure private cluster is enabled when creating Kubernetes clusters**
   * Ensure private cluster is enabled when creating Kubernetes clusters.
+  * Tags: CKV_GCP_25
 * [org.openrewrite.terraform.gcp.EnsureSecureBootForShieldedGKENodesIsEnabled](/user-documentation/recipes/recipe-catalog/terraform/gcp/ensuresecurebootforshieldedgkenodesisenabled.md)
   * **Ensure secure boot for shielded GKE nodes is enabled**
   * Ensure secure boot for shielded GKE nodes is enabled.
+  * Tags: CKV_GCP_68
 * [org.openrewrite.terraform.gcp.EnsureShieldedGKENodesAreEnabled](/user-documentation/recipes/recipe-catalog/terraform/gcp/ensureshieldedgkenodesareenabled.md)
   * **Ensure shielded GKE nodes are enabled**
   * Ensure shielded GKE nodes are enabled.
+  * Tags: CKV_GCP_71
 * [org.openrewrite.terraform.gcp.EnsureTheGKEMetadataServerIsEnabled](/user-documentation/recipes/recipe-catalog/terraform/gcp/ensurethegkemetadataserverisenabled.md)
   * **Ensure the GKE metadata server is enabled**
   * Ensure the GKE metadata server is enabled.
+  * Tags: CKV_GCP_69
 
 ## CKV2
 
@@ -1695,6 +1809,7 @@ _1 recipe_
 * [org.openrewrite.terraform.azure.EnsureTheStorageContainerStoringActivityLogsIsNotPubliclyAccessible](/user-documentation/recipes/recipe-catalog/terraform/azure/ensurethestoragecontainerstoringactivitylogsisnotpubliclyaccessible.md)
   * **Ensure the storage container storing activity logs is not publicly accessible**
   * Ensure the storage container storing activity logs is not publicly accessible.
+  * Tags: CKV2_AZURE_8
 
 ## classic
 
@@ -1821,9 +1936,11 @@ _2 recipes_
 * [org.openrewrite.python.migrate.FindFunctoolsCmpToKey](/user-documentation/recipes/recipe-catalog/python/migrate/findfunctoolscmptokey.md)
   * **Find `functools.cmp_to_key()` usage**
   * Find usage of `functools.cmp_to_key()` which is a Python 2 compatibility function. Consider using a key function directly.
+  * Tags: code-quality
 * [org.openrewrite.python.migrate.FindSocketGetFQDN](/user-documentation/recipes/recipe-catalog/python/migrate/findsocketgetfqdn.md)
   * **Find `socket.getfqdn()` usage**
   * Find usage of `socket.getfqdn()` which can be slow and unreliable. Consider using `socket.gethostname()` instead.
+  * Tags: code-quality
 
 ## codemods
 
@@ -2196,9 +2313,11 @@ _14 recipes_
 * [org.openrewrite.java.logging.log4j.CommonsLoggingToLog4j](/user-documentation/recipes/recipe-catalog/java/logging/log4j/commonsloggingtolog4j.md)
   * **Migrate JCL to Log4j 2.x API**
   * Transforms code written using Apache Commons Logging to use Log4j 2.x API.
+  * Tags: commons-logging
 * [org.openrewrite.java.logging.slf4j.CommonsLogging1ToSlf4j1](/user-documentation/recipes/recipe-catalog/java/logging/slf4j/commonslogging1toslf4j1.md)
   * **Migrate Apache Commons Logging 1.x to SLF4J 1.x**
   * Transforms usages of Apache Commons Logging 1.x to leveraging SLF4J 1.x directly.
+  * Tags: commons-logging
 
 ## compatibility
 
@@ -2297,12 +2416,15 @@ _3 recipes_
 * [org.openrewrite.java.logging.log4j.UpgradeLog4J2DependencyVersion](/user-documentation/recipes/recipe-catalog/java/logging/log4j/upgradelog4j2dependencyversion.md)
   * **Upgrade Log4j 2.x dependency version**
   * Upgrades the Log4j 2.x dependencies to the latest 2.x version. Mitigates the [Log4Shell and other Log4j2-related vulnerabilities](https://www.cisa.gov/news-events/cybersecurity-advisories/aa21-356a).
+  * Tags: CVE-2021-44228
 * [org.openrewrite.java.security.FindTextDirectionChanges](/user-documentation/recipes/recipe-catalog/java/security/findtextdirectionchanges.md)
   * **Find text-direction changes**
   * Finds unicode control characters which can change the direction text is displayed in. These control characters can alter how source code is presented to a human reader without affecting its interpretation by tools like compilers. So a malicious patch could pass code review while introducing vulnerabilities. Note that text direction-changing unicode control characters aren't inherently malicious. These characters can appear for legitimate reasons in code written in or dealing with right-to-left languages. See: https://trojansource.codes/ for more information.
+  * Tags: CVE-2021-42574
 * [org.openrewrite.java.security.spring.InsecureSpringServiceExporter](/user-documentation/recipes/recipe-catalog/java/security/spring/insecurespringserviceexporter.md)
   * **Secure Spring service exporters**
   * The default Java deserialization mechanism is available via `ObjectInputStream` class. This mechanism is known to be vulnerable. If an attacker can make an application deserialize malicious data, it may result in arbitrary code execution.  Spring’s `RemoteInvocationSerializingExporter` uses the default Java deserialization mechanism to parse data. As a result, all classes that extend it are vulnerable to deserialization attacks. The Spring Framework contains at least `HttpInvokerServiceExporter` and `SimpleHttpInvokerServiceExporter` that extend `RemoteInvocationSerializingExporter`. These exporters parse data from the HTTP body using the unsafe Java deserialization mechanism.  See the full [blog post](https://blog.gypsyengineer.com/en/security/detecting-dangerous-spring-exporters-with-codeql.html) by Artem Smotrakov on CVE-2016-1000027 from which the above description is excerpted.
+  * Tags: CVE-2016-1000027
 
 ## CWE
 
@@ -2311,63 +2433,83 @@ _20 recipes_
 * [org.openrewrite.apache.httpclient4.MigrateDefaultHttpClient](/user-documentation/recipes/recipe-catalog/apache/httpclient4/migratedefaulthttpclient.md)
   * **Migrates deprecated `DefaultHttpClient`**
   * Since `DefaultHttpClient` is deprecated, we need to change it to the `CloseableHttpClient`. It only covers the default scenario with no custom `HttpParams` or `ConnectionManager`.  Of note: the `DefaultHttpClient` [does not support TLS 1.2](https://find-sec-bugs.github.io/bugs.htm#DEFAULT_HTTP_CLIENT).  References:  - [Find Sec Bugs](https://find-sec-bugs.github.io/bugs.htm#DEFAULT_HTTP_CLIENT).  - [IBM Support Pages](https://www.ibm.com/support/pages/im-using-apache-httpclient-make-outbound-call-my-web-application-running-websphere-application-server-traditional-and-im-getting-ssl-handshake-error-how-can-i-debug).
+  * Tags: CWE-326
 * [org.openrewrite.java.security.FixCwe338](/user-documentation/recipes/recipe-catalog/java/security/fixcwe338.md)
   * **Fix CWE-338 with `SecureRandom`**
   * Use a cryptographically strong pseudo-random number generator (PRNG).
+  * Tags: CWE-338
 * [org.openrewrite.java.security.FixCwe918](/user-documentation/recipes/recipe-catalog/java/security/fixcwe918.md)
   * **Remediate server-side request forgery (SSRF)**
   * Inserts a guard that validates URLs constructed from user-controlled input do not target internal network addresses, blocking server-side request forgery (SSRF) attacks.
+  * Tags: CWE-918
 * [org.openrewrite.java.security.ImproperPrivilegeManagement](/user-documentation/recipes/recipe-catalog/java/security/improperprivilegemanagement.md)
   * **Improper privilege management**
   * Marking code as privileged enables a piece of trusted code to temporarily enable access to more resources than are available directly to the code that called it.
+  * Tags: CWE-269
 * [org.openrewrite.java.security.PartialPathTraversalVulnerability](/user-documentation/recipes/recipe-catalog/java/security/partialpathtraversalvulnerability.md)
   * **Partial path traversal vulnerability**
   * Replaces `dir.getCanonicalPath().startsWith(parent.getCanonicalPath()`, which is vulnerable to partial path traversal attacks, with the more secure `dir.getCanonicalFile().toPath().startsWith(parent.getCanonicalFile().toPath())`.  To demonstrate this vulnerability, consider `&quot;/usr/outnot&quot;.startsWith(&quot;/usr/out&quot;)`. The check is bypassed although `/outnot` is not under the `/out` directory. It's important to understand that the terminating slash may be removed when using various `String` representations of the `File` object. For example, on Linux, `println(new File(&quot;/var&quot;))` will print `/var`, but `println(new File(&quot;/var&quot;, &quot;/&quot;)` will print `/var/`; however, `println(new File(&quot;/var&quot;, &quot;/&quot;).getCanonicalPath())` will print `/var`.
+  * Tags: CWE-22
 * [org.openrewrite.java.security.SecureTempFileCreation](/user-documentation/recipes/recipe-catalog/java/security/securetempfilecreation.md)
   * **Use secure temporary file creation**
   * `java.io.File.createTempFile()` has exploitable default file permissions. This recipe migrates to the more secure `java.nio.file.Files.createTempFile()`.
+  * Tags: CWE-377
 * [org.openrewrite.java.security.UseFilesCreateTempDirectory](/user-documentation/recipes/recipe-catalog/java/security/usefilescreatetempdirectory.md)
   * **Use `Files#createTempDirectory`**
   * Use `Files#createTempDirectory` when the sequence `File#createTempFile(..)`-&gt;`File#delete()`-&gt;`File#mkdir()` is used for creating a temp directory.
+  * Tags: CWE-377, CWE-379
 * [org.openrewrite.java.security.XmlParserXXEVulnerability](/user-documentation/recipes/recipe-catalog/java/security/xmlparserxxevulnerability.md)
   * **XML parser XXE vulnerability**
   * Avoid exposing dangerous features of the XML parser by updating certain factory settings.
+  * Tags: CWE-611
 * [org.openrewrite.java.security.ZipSlip](/user-documentation/recipes/recipe-catalog/java/security/zipslip.md)
   * **Zip slip**
   * Zip slip is an arbitrary file overwrite critical vulnerability, which typically results in remote command execution. A fuller description of this vulnerability is available in the [Snyk documentation](https://snyk.io/research/zip-slip-vulnerability) on it.
+  * Tags: CWE-22
 * [org.openrewrite.java.security.marshalling.InsecureJmsDeserialization](/user-documentation/recipes/recipe-catalog/java/security/marshalling/insecurejmsdeserialization.md)
   * **Insecure JMS deserialization**
   * JMS `Object` messages depend on Java Serialization for marshalling/unmarshalling of the message payload when `ObjectMessage#getObject` is called. Deserialization of untrusted data can lead to security flaws.
+  * Tags: CWE-502
 * [org.openrewrite.java.security.marshalling.SecureJacksonDefaultTyping](/user-documentation/recipes/recipe-catalog/java/security/marshalling/securejacksondefaulttyping.md)
   * **Secure the use of Jackson default typing**
   * See the [blog post](https://cowtowncoder.medium.com/on-jackson-cves-dont-panic-here-is-what-you-need-to-know-54cd0d6e8062) on this subject.
+  * Tags: CWE-502, CWE-94
 * [org.openrewrite.java.security.marshalling.SecureSnakeYamlConstructor](/user-documentation/recipes/recipe-catalog/java/security/marshalling/securesnakeyamlconstructor.md)
   * **Secure the use of SnakeYAML's constructor**
   * See the [paper](https://github.com/mbechler/marshalsec) on this subject.
+  * Tags: CWE-502, CWE-94
 * [org.openrewrite.java.security.search.FindPermissiveCorsConfiguration](/user-documentation/recipes/recipe-catalog/java/security/search/findpermissivecorsconfiguration.md)
   * **Find permissive CORS configuration**
   * Finds overly permissive CORS configurations that allow all origins, which can expose the application to cross-domain attacks.
+  * Tags: CWE-942
 * [org.openrewrite.java.security.servlet.CookieSetHttpOnly](/user-documentation/recipes/recipe-catalog/java/security/servlet/cookiesethttponly.md)
   * **Cookies missing HttpOnly flag**
   * Check for use of cookies without the HttpOnly flag. Cookies should be marked as HttpOnly to prevent client-side scripts from accessing them, reducing the risk of cross-site scripting (XSS) attacks.
+  * Tags: CWE-1004
 * [org.openrewrite.java.security.servlet.CookieSetSecure](/user-documentation/recipes/recipe-catalog/java/security/servlet/cookiesetsecure.md)
   * **Insecure cookies**
   * Check for use of insecure cookies. Cookies should be marked as secure. This ensures that the cookie is sent only over HTTPS to prevent cross-site scripting attacks.
+  * Tags: CWE-614
 * [org.openrewrite.java.security.spring.CsrfProtection](/user-documentation/recipes/recipe-catalog/java/security/spring/csrfprotection.md)
   * **Enable CSRF attack prevention**
   * Cross-Site Request Forgery (CSRF) is a type of attack that occurs when a malicious web site, email, blog, instant message, or program causes a user's web browser to perform an unwanted action on a trusted site when the user is authenticated. See the full [OWASP cheatsheet](https://cheatsheetseries.owasp.org/cheatsheets/Cross-Site_Request_Forgery_Prevention_Cheat_Sheet.html).
+  * Tags: CWE-352
 * [org.openrewrite.java.security.spring.PreventClickjacking](/user-documentation/recipes/recipe-catalog/java/security/spring/preventclickjacking.md)
   * **Prevent clickjacking**
   * The `frame-ancestors` directive can be used in a Content-Security-Policy HTTP response header to indicate whether or not a browser should be allowed to render a page in a `&lt;frame&gt;` or `&lt;iframe&gt;`. Sites can use this to avoid Clickjacking attacks by ensuring that their content is not embedded into other sites.
+  * Tags: CWE-1021
 * [org.openrewrite.java.security.spring.RemoveEnableWebSecurityDebug](/user-documentation/recipes/recipe-catalog/java/security/spring/removeenablewebsecuritydebug.md)
   * **Remove debug mode from Spring Security**
   * Removes the debug attribute from @EnableWebSecurity annotations to prevent sensitive security information from being logged in production.
+  * Tags: CWE-489
 * [org.openrewrite.maven.security.UseHttpsForRepositories](/user-documentation/recipes/recipe-catalog/maven/security/usehttpsforrepositories.md)
   * **Use HTTPS for repositories**
   * Use HTTPS for repository URLs.
+  * Tags: CWE-829
 * [org.openrewrite.staticanalysis.OnlyCatchDeclaredExceptions](/user-documentation/recipes/recipe-catalog/staticanalysis/onlycatchdeclaredexceptions.md)
   * **Replace `catch(Exception)` with specific declared exceptions thrown in the try block**
   * Replaces `catch(Exception e)` blocks with a multi-catch block (`catch (SpecificException1 | SpecificException2 e)`) containing only the exceptions declared thrown by method or constructor invocations within the `try` block that are not already caught by more specific `catch` clauses.
+  * Tags: CWE-396
 
 ## CycloneDX
 
@@ -2448,6 +2590,7 @@ _1 recipe_
 * [com.oracle.weblogic.rewrite.spring.framework.DefaultServletHandler](/user-documentation/recipes/recipe-catalog/com/oracle/weblogic/rewrite/spring/framework/defaultservlethandler.md)
   * **Update Default Servlet Handler for Spring Framework if empty**
   * This recipe will update Spring Framework default servlet handler if empty, as noted in the Spring Framework 6.2 [documentation](https://docs.spring.io/spring-framework/reference/web/webmvc/mvc-config/default-servlet-handler.html).
+  * Tags: default-servlet-handler
 
 ## demo
 
@@ -2846,9 +2989,11 @@ _2 recipes_
 * [com.oracle.weblogic.rewrite.WebLogicPlanXmlNamespace1412](/user-documentation/recipes/recipe-catalog/com/oracle/weblogic/rewrite/weblogicplanxmlnamespace1412.md)
   * **Migrate xmlns entries in `plan.xml` files to WebLogic 14.1.2**
   * Migrate xmlns entries in WebLogic Plan schema files to WebLogic 14.1.2
+  * Tags: deployment-plan
 * [com.oracle.weblogic.rewrite.WebLogicPlanXmlNamespace1511](/user-documentation/recipes/recipe-catalog/com/oracle/weblogic/rewrite/weblogicplanxmlnamespace1511.md)
   * **Migrate xmlns entries in `plan.xml` files to WebLogic 15.1.1**
   * This recipe will update the `xmlns` entries in `plan.xml` files to WebLogic 15.1.1
+  * Tags: deployment-plan
 
 ## deprecated
 
@@ -2996,15 +3141,19 @@ _7 recipes_
 * [com.oracle.weblogic.rewrite.WebLogicEjbJar32XmlNamespace1412](/user-documentation/recipes/recipe-catalog/com/oracle/weblogic/rewrite/weblogicejbjar32xmlnamespace1412.md)
   * **Migrate xmlns entries in `weblogic-ejb-jar.xml` files to WebLogic 14.1.2**
   * Migrate xmlns entries in WebLogic EJB 3.2 schema files to WebLogic 14.1.2
+  * Tags: ejb-3.2, ejb-jar
 * [com.oracle.weblogic.rewrite.WebLogicEjbJar32XmlNamespace1511](/user-documentation/recipes/recipe-catalog/com/oracle/weblogic/rewrite/weblogicejbjar32xmlnamespace1511.md)
   * **Migrate xmlns entries in `weblogic-ejb-jar.xml` files to WebLogic 15.1.1**
   * This recipe will update the `xmlns` entries in `weblogic-ejb-jar.xml` files to WebLogic 15.1.1
+  * Tags: ejb-jar
 * [com.oracle.weblogic.rewrite.WebLogicPersistenceConfigurationXmlNamespace1412](/user-documentation/recipes/recipe-catalog/com/oracle/weblogic/rewrite/weblogicpersistenceconfigurationxmlnamespace1412.md)
   * **Migrate xmlns entries in `persistence-configuration.xml` files to WebLogic 14.1.2**
   * Migrate xmlns entries in WebLogic EJB 3.2 Persistence Configuration schema files to WebLogic 14.1.2
+  * Tags: ejb-3.2
 * [com.oracle.weblogic.rewrite.WebLogicRdbmsJarXmlNamespace1412](/user-documentation/recipes/recipe-catalog/com/oracle/weblogic/rewrite/weblogicrdbmsjarxmlnamespace1412.md)
   * **Migrate xmlns entries in `weblogic-rdbms-jar.xml` files to WebLogic 14.1.2**
   * Migrate xmlns entries in WebLogic EJB 3.2 RDBMS schema files to WebLogic 14.1.2
+  * Tags: ejb-3.2
 * [com.oracle.weblogic.rewrite.jakarta.JavaxEjbJarXmlToJakarta9EjbJarXml](/user-documentation/recipes/recipe-catalog/com/oracle/weblogic/rewrite/jakarta/javaxejbjarxmltojakarta9ejbjarxml.md)
   * **Migrate xmlns entries in `ejb-jar.xml` files.**
   * Java EE has been rebranded to Jakarta EE, necessitating an XML namespace relocation.
@@ -3068,306 +3217,407 @@ _190 recipes_
 * [org.openrewrite.codemods.cleanup.jest.ConsistentTestIt](/user-documentation/recipes/recipe-catalog/codemods/cleanup/jest/consistenttestit.md)
   * **Enforce test and it usage conventions**
   * Enforce test and it usage conventions See rule details for [jest/consistent-test-it](https://github.com/jest-community/eslint-plugin-jest/blob/HEAD/docs/rules/consistent-test-it.md).
+  * Tags: eslint-plugin-jest
 * [org.openrewrite.codemods.cleanup.jest.NoAliasMethods](/user-documentation/recipes/recipe-catalog/codemods/cleanup/jest/noaliasmethods.md)
   * **Disallow alias methods**
   * Disallow alias methods See rule details for [jest/no-alias-methods](https://github.com/jest-community/eslint-plugin-jest/blob/HEAD/docs/rules/no-alias-methods.md).
+  * Tags: eslint-plugin-jest
 * [org.openrewrite.codemods.cleanup.jest.NoDeprecatedFunctions27](/user-documentation/recipes/recipe-catalog/codemods/cleanup/jest/nodeprecatedfunctions27.md)
   * **Disallow use of deprecated functions from before version 27**
   * Disallow use of deprecated functions from before version 27 See rule details for [jest/no-deprecated-functions](https://github.com/jest-community/eslint-plugin-jest/blob/HEAD/docs/rules/no-deprecated-functions.md).
+  * Tags: eslint-plugin-jest
 * [org.openrewrite.codemods.cleanup.jest.NoJasmineGlobals](/user-documentation/recipes/recipe-catalog/codemods/cleanup/jest/nojasmineglobals.md)
   * **Disallow Jasmine globals**
   * Disallow Jasmine globals See rule details for [jest/no-jasmine-globals](https://github.com/jest-community/eslint-plugin-jest/blob/HEAD/docs/rules/no-jasmine-globals.md).
+  * Tags: eslint-plugin-jest
 * [org.openrewrite.codemods.cleanup.jest.NoTestPrefixes](/user-documentation/recipes/recipe-catalog/codemods/cleanup/jest/notestprefixes.md)
   * **Require using .only and .skip over f and x**
   * Require using .only and .skip over f and x See rule details for [jest/no-test-prefixes](https://github.com/jest-community/eslint-plugin-jest/blob/HEAD/docs/rules/no-test-prefixes.md).
+  * Tags: eslint-plugin-jest
 * [org.openrewrite.codemods.cleanup.jest.NoUntypedMockFactory](/user-documentation/recipes/recipe-catalog/codemods/cleanup/jest/nountypedmockfactory.md)
   * **Disallow using jest.mock() factories without an explicit type parameter**
   * Disallow using jest.mock() factories without an explicit type parameter See rule details for [jest/no-untyped-mock-factory](https://github.com/jest-community/eslint-plugin-jest/blob/HEAD/docs/rules/no-untyped-mock-factory.md).
+  * Tags: eslint-plugin-jest
 * [org.openrewrite.codemods.cleanup.jest.PreferComparisonMatcher](/user-documentation/recipes/recipe-catalog/codemods/cleanup/jest/prefercomparisonmatcher.md)
   * **Suggest using the built-in comparison matchers**
   * Suggest using the built-in comparison matchers See rule details for [jest/prefer-comparison-matcher](https://github.com/jest-community/eslint-plugin-jest/blob/HEAD/docs/rules/prefer-comparison-matcher.md).
+  * Tags: eslint-plugin-jest
 * [org.openrewrite.codemods.cleanup.jest.PreferExpectResolves](/user-documentation/recipes/recipe-catalog/codemods/cleanup/jest/preferexpectresolves.md)
   * **Prefer await expect(...).resolves over expect(await ...) syntax**
   * Prefer await expect(...).resolves over expect(await ...) syntax See rule details for [jest/prefer-expect-resolves](https://github.com/jest-community/eslint-plugin-jest/blob/HEAD/docs/rules/prefer-expect-resolves.md).
+  * Tags: eslint-plugin-jest
 * [org.openrewrite.codemods.cleanup.jest.PreferLowercaseTitle](/user-documentation/recipes/recipe-catalog/codemods/cleanup/jest/preferlowercasetitle.md)
   * **Enforce lowercase test names**
   * Enforce lowercase test names See rule details for [jest/prefer-lowercase-title](https://github.com/jest-community/eslint-plugin-jest/blob/HEAD/docs/rules/prefer-lowercase-title.md).
+  * Tags: eslint-plugin-jest
 * [org.openrewrite.codemods.cleanup.jest.PreferMockPromiseShorthand](/user-documentation/recipes/recipe-catalog/codemods/cleanup/jest/prefermockpromiseshorthand.md)
   * **Prefer mock resolved/rejected shorthands for promises**
   * Prefer mock resolved/rejected shorthands for promises See rule details for [jest/prefer-mock-promise-shorthand](https://github.com/jest-community/eslint-plugin-jest/blob/HEAD/docs/rules/prefer-mock-promise-shorthand.md).
+  * Tags: eslint-plugin-jest
 * [org.openrewrite.codemods.cleanup.jest.PreferSpyOn](/user-documentation/recipes/recipe-catalog/codemods/cleanup/jest/preferspyon.md)
   * **Suggest using jest.spyOn()**
   * Suggest using jest.spyOn() See rule details for [jest/prefer-spy-on](https://github.com/jest-community/eslint-plugin-jest/blob/HEAD/docs/rules/prefer-spy-on.md).
+  * Tags: eslint-plugin-jest
 * [org.openrewrite.codemods.cleanup.jest.PreferToBe](/user-documentation/recipes/recipe-catalog/codemods/cleanup/jest/prefertobe.md)
   * **Suggest using toBe() for primitive literals**
   * Suggest using toBe() for primitive literals See rule details for [jest/prefer-to-be](https://github.com/jest-community/eslint-plugin-jest/blob/HEAD/docs/rules/prefer-to-be.md).
+  * Tags: eslint-plugin-jest
 * [org.openrewrite.codemods.cleanup.jest.PreferToContain](/user-documentation/recipes/recipe-catalog/codemods/cleanup/jest/prefertocontain.md)
   * **Suggest using toContain()**
   * Suggest using toContain() See rule details for [jest/prefer-to-contain](https://github.com/jest-community/eslint-plugin-jest/blob/HEAD/docs/rules/prefer-to-contain.md).
+  * Tags: eslint-plugin-jest
 * [org.openrewrite.codemods.cleanup.jest.PreferToHaveLength](/user-documentation/recipes/recipe-catalog/codemods/cleanup/jest/prefertohavelength.md)
   * **Suggest using toHaveLength()**
   * Suggest using toHaveLength() See rule details for [jest/prefer-to-have-length](https://github.com/jest-community/eslint-plugin-jest/blob/HEAD/docs/rules/prefer-to-have-length.md).
+  * Tags: eslint-plugin-jest
 * [org.openrewrite.codemods.cleanup.jest.PreferTodo](/user-documentation/recipes/recipe-catalog/codemods/cleanup/jest/prefertodo.md)
   * **Suggest using test.todo**
   * Suggest using test.todo See rule details for [jest/prefer-todo](https://github.com/jest-community/eslint-plugin-jest/blob/HEAD/docs/rules/prefer-todo.md).
+  * Tags: eslint-plugin-jest
 * [org.openrewrite.codemods.cleanup.jest.RecommendedJestCodeCleanup](/user-documentation/recipes/recipe-catalog/codemods/cleanup/jest/recommendedjestcodecleanup.md)
   * **Recommended Jest code cleanup**
   * Collection of cleanup ESLint rules that are recommended by [eslint-plugin-jest](https://github.com/jest-community/eslint-plugin-jest).
+  * Tags: eslint-plugin-jest
 * [org.openrewrite.codemods.cleanup.jest.ValidTitle](/user-documentation/recipes/recipe-catalog/codemods/cleanup/jest/validtitle.md)
   * **Enforce valid titles**
   * Enforce valid titles See rule details for [jest/valid-title](https://github.com/jest-community/eslint-plugin-jest/blob/HEAD/docs/rules/valid-title.md).
+  * Tags: eslint-plugin-jest
 * [org.openrewrite.codemods.cleanup.storybook.AwaitInteractions](/user-documentation/recipes/recipe-catalog/codemods/cleanup/storybook/awaitinteractions.md)
   * **Interactions should be awaited**
   * Interactions should be awaited See rule details for [storybook/await-interactions](https://github.com/storybookjs/eslint-plugin-storybook/blob/main/docs/rules/await-interactions.md).
+  * Tags: eslint-plugin-storybook
 * [org.openrewrite.codemods.cleanup.storybook.DefaultExports](/user-documentation/recipes/recipe-catalog/codemods/cleanup/storybook/defaultexports.md)
   * **Story files should have a default export**
   * Story files should have a default export See rule details for [storybook/default-exports](https://github.com/storybookjs/eslint-plugin-storybook/blob/main/docs/rules/default-exports.md).
+  * Tags: eslint-plugin-storybook
 * [org.openrewrite.codemods.cleanup.storybook.HierarchySeparator](/user-documentation/recipes/recipe-catalog/codemods/cleanup/storybook/hierarchyseparator.md)
   * **Deprecated hierarchy separator in title property**
   * Deprecated hierarchy separator in title property See rule details for [storybook/hierarchy-separator](https://github.com/storybookjs/eslint-plugin-storybook/blob/main/docs/rules/hierarchy-separator.md).
+  * Tags: eslint-plugin-storybook
 * [org.openrewrite.codemods.cleanup.storybook.NoRedundantStoryName](/user-documentation/recipes/recipe-catalog/codemods/cleanup/storybook/noredundantstoryname.md)
   * **A story should not have a redundant name property**
   * A story should not have a redundant name property See rule details for [storybook/no-redundant-story-name](https://github.com/storybookjs/eslint-plugin-storybook/blob/main/docs/rules/no-redundant-story-name.md).
+  * Tags: eslint-plugin-storybook
 * [org.openrewrite.codemods.cleanup.storybook.NoTitlePropertyInMeta](/user-documentation/recipes/recipe-catalog/codemods/cleanup/storybook/notitlepropertyinmeta.md)
   * **Do not define a title in meta**
   * Do not define a title in meta See rule details for [storybook/no-title-property-in-meta](https://github.com/storybookjs/eslint-plugin-storybook/blob/main/docs/rules/no-title-property-in-meta.md).
+  * Tags: eslint-plugin-storybook
 * [org.openrewrite.codemods.cleanup.storybook.PreferPascalCase](/user-documentation/recipes/recipe-catalog/codemods/cleanup/storybook/preferpascalcase.md)
   * **Stories should use PascalCase**
   * Stories should use PascalCase See rule details for [storybook/prefer-pascal-case](https://github.com/storybookjs/eslint-plugin-storybook/blob/main/docs/rules/prefer-pascal-case.md).
+  * Tags: eslint-plugin-storybook
 * [org.openrewrite.codemods.cleanup.storybook.RecommendedStorybookCodeCleanup](/user-documentation/recipes/recipe-catalog/codemods/cleanup/storybook/recommendedstorybookcodecleanup.md)
   * **Recommended Storybook code cleanup**
   * Collection of cleanup ESLint rules from [eslint-plugin-storybook](https://github.com/storybookjs/eslint-plugin-storybook#readme).
+  * Tags: eslint-plugin-storybook
 * [org.openrewrite.codemods.cleanup.storybook.UseStorybookExpect](/user-documentation/recipes/recipe-catalog/codemods/cleanup/storybook/usestorybookexpect.md)
   * **Use expect from @storybook/jest**
   * Use expect from @storybook/jest See rule details for [storybook/use-storybook-expect](https://github.com/storybookjs/eslint-plugin-storybook/blob/main/docs/rules/use-storybook-expect.md).
+  * Tags: eslint-plugin-storybook
 * [org.openrewrite.codemods.cleanup.storybook.UseStorybookTestingLibrary](/user-documentation/recipes/recipe-catalog/codemods/cleanup/storybook/usestorybooktestinglibrary.md)
   * **Do not use testing-library directly on stories**
   * Do not use testing-library directly on stories See rule details for [storybook/use-storybook-testing-library](https://github.com/storybookjs/eslint-plugin-storybook/blob/main/docs/rules/use-storybook-testing-library.md).
+  * Tags: eslint-plugin-storybook
 * [org.openrewrite.codemods.cleanup.svelte.FirstAttributeLinebreak](/user-documentation/recipes/recipe-catalog/codemods/cleanup/svelte/firstattributelinebreak.md)
   * **Enforce the location of first attribute**
   * Enforce the location of first attribute See rule details for [svelte/first-attribute-linebreak](https://sveltejs.github.io/eslint-plugin-svelte/rules/first-attribute-linebreak/).
+  * Tags: eslint-plugin-svelte
 * [org.openrewrite.codemods.cleanup.svelte.HtmlClosingBracketSpacing](/user-documentation/recipes/recipe-catalog/codemods/cleanup/svelte/htmlclosingbracketspacing.md)
   * **Require or disallow a space before tag's closing brackets**
   * Require or disallow a space before tag's closing brackets See rule details for [svelte/html-closing-bracket-spacing](https://sveltejs.github.io/eslint-plugin-svelte/rules/html-closing-bracket-spacing/).
+  * Tags: eslint-plugin-svelte
 * [org.openrewrite.codemods.cleanup.svelte.HtmlQuotes](/user-documentation/recipes/recipe-catalog/codemods/cleanup/svelte/htmlquotes.md)
   * **Enforce quotes style of HTML attributes**
   * Enforce quotes style of HTML attributes See rule details for [svelte/html-quotes](https://sveltejs.github.io/eslint-plugin-svelte/rules/html-quotes/).
+  * Tags: eslint-plugin-svelte
 * [org.openrewrite.codemods.cleanup.svelte.HtmlSelfClosing](/user-documentation/recipes/recipe-catalog/codemods/cleanup/svelte/htmlselfclosing.md)
   * **Enforce self-closing style**
   * Enforce self-closing style See rule details for [svelte/html-self-closing](https://sveltejs.github.io/eslint-plugin-svelte/rules/html-self-closing/).
+  * Tags: eslint-plugin-svelte
 * [org.openrewrite.codemods.cleanup.svelte.Indent](/user-documentation/recipes/recipe-catalog/codemods/cleanup/svelte/indent.md)
   * **Enforce consistent indentation**
   * Enforce consistent indentation See rule details for [svelte/indent](https://sveltejs.github.io/eslint-plugin-svelte/rules/indent/).
+  * Tags: eslint-plugin-svelte
 * [org.openrewrite.codemods.cleanup.svelte.MaxAttributesPerLine](/user-documentation/recipes/recipe-catalog/codemods/cleanup/svelte/maxattributesperline.md)
   * **Enforce the maximum number of attributes per line**
   * Enforce the maximum number of attributes per line See rule details for [svelte/max-attributes-per-line](https://sveltejs.github.io/eslint-plugin-svelte/rules/max-attributes-per-line/).
+  * Tags: eslint-plugin-svelte
 * [org.openrewrite.codemods.cleanup.svelte.MustacheSpacing](/user-documentation/recipes/recipe-catalog/codemods/cleanup/svelte/mustachespacing.md)
   * **Enforce unified spacing in mustache**
   * Enforce unified spacing in mustache See rule details for [svelte/mustache-spacing](https://sveltejs.github.io/eslint-plugin-svelte/rules/mustache-spacing/).
+  * Tags: eslint-plugin-svelte
 * [org.openrewrite.codemods.cleanup.svelte.NoDynamicSlotName](/user-documentation/recipes/recipe-catalog/codemods/cleanup/svelte/nodynamicslotname.md)
   * **Disallow dynamic slot name**
   * Disallow dynamic slot name See rule details for [svelte/no-dynamic-slot-name](https://sveltejs.github.io/eslint-plugin-svelte/rules/no-dynamic-slot-name/).
+  * Tags: eslint-plugin-svelte
 * [org.openrewrite.codemods.cleanup.svelte.NoSpacesAroundEqualSignsInAttribute](/user-documentation/recipes/recipe-catalog/codemods/cleanup/svelte/nospacesaroundequalsignsinattribute.md)
   * **Disallow spaces around equal signs in attribute**
   * Disallow spaces around equal signs in attribute See rule details for [svelte/no-spaces-around-equal-signs-in-attribute](https://sveltejs.github.io/eslint-plugin-svelte/rules/no-spaces-around-equal-signs-in-attribute/).
+  * Tags: eslint-plugin-svelte
 * [org.openrewrite.codemods.cleanup.svelte.NoUselessMustaches](/user-documentation/recipes/recipe-catalog/codemods/cleanup/svelte/nouselessmustaches.md)
   * **Disallow unnecessary mustache interpolations**
   * Disallow unnecessary mustache interpolations See rule details for [svelte/no-useless-mustaches](https://sveltejs.github.io/eslint-plugin-svelte/rules/no-useless-mustaches/).
+  * Tags: eslint-plugin-svelte
 * [org.openrewrite.codemods.cleanup.svelte.PreferClassDirective](/user-documentation/recipes/recipe-catalog/codemods/cleanup/svelte/preferclassdirective.md)
   * **Require class directives instead of ternary expressions**
   * Require class directives instead of ternary expressions See rule details for [svelte/prefer-class-directive](https://sveltejs.github.io/eslint-plugin-svelte/rules/prefer-class-directive/).
+  * Tags: eslint-plugin-svelte
 * [org.openrewrite.codemods.cleanup.svelte.PreferStyleDirective](/user-documentation/recipes/recipe-catalog/codemods/cleanup/svelte/preferstyledirective.md)
   * **Require style directives instead of style attribute**
   * Require style directives instead of style attribute See rule details for [svelte/prefer-style-directive](https://sveltejs.github.io/eslint-plugin-svelte/rules/prefer-style-directive/).
+  * Tags: eslint-plugin-svelte
 * [org.openrewrite.codemods.cleanup.svelte.RecommendedsvelteCodeCleanup](/user-documentation/recipes/recipe-catalog/codemods/cleanup/svelte/recommendedsveltecodecleanup.md)
   * **Recommended svelte code cleanup**
   * Collection of cleanup ESLint rules from [eslint-plugin-svelte](https://github.com/sveltejs/eslint-plugin-svelte).
+  * Tags: eslint-plugin-svelte
 * [org.openrewrite.codemods.cleanup.svelte.RequireStoreReactiveAccess](/user-documentation/recipes/recipe-catalog/codemods/cleanup/svelte/requirestorereactiveaccess.md)
   * **Disallow to use of the store itself as an operand. Need to use $ prefix or get function**
   * Disallow to use of the store itself as an operand. Need to use $ prefix or get function. See rule details for [svelte/require-store-reactive-access](https://sveltejs.github.io/eslint-plugin-svelte/rules/require-store-reactive-access/).
+  * Tags: eslint-plugin-svelte
 * [org.openrewrite.codemods.cleanup.svelte.ShorthandAttribute](/user-documentation/recipes/recipe-catalog/codemods/cleanup/svelte/shorthandattribute.md)
   * **Enforce use of shorthand syntax in attribute**
   * Enforce use of shorthand syntax in attribute See rule details for [svelte/shorthand-attribute](https://sveltejs.github.io/eslint-plugin-svelte/rules/shorthand-attribute/).
+  * Tags: eslint-plugin-svelte
 * [org.openrewrite.codemods.cleanup.svelte.ShorthandDirective](/user-documentation/recipes/recipe-catalog/codemods/cleanup/svelte/shorthanddirective.md)
   * **Enforce use of shorthand syntax in directives**
   * Enforce use of shorthand syntax in directives See rule details for [svelte/shorthand-directive](https://sveltejs.github.io/eslint-plugin-svelte/rules/shorthand-directive/).
+  * Tags: eslint-plugin-svelte
 * [org.openrewrite.codemods.cleanup.svelte.SortAttributes](/user-documentation/recipes/recipe-catalog/codemods/cleanup/svelte/sortattributes.md)
   * **Enforce order of attributes**
   * Enforce order of attributes See rule details for [svelte/sort-attributes](https://sveltejs.github.io/eslint-plugin-svelte/rules/sort-attributes/).
+  * Tags: eslint-plugin-svelte
 * [org.openrewrite.codemods.cleanup.svelte.SpacedHtmlComment](/user-documentation/recipes/recipe-catalog/codemods/cleanup/svelte/spacedhtmlcomment.md)
   * **Enforce consistent spacing after the &lt;!-- and before the --&gt; in a HTML comment**
   * Enforce consistent spacing after the &lt;!-- and before the --&gt; in a HTML comment See rule details for [svelte/spaced-html-comment](https://sveltejs.github.io/eslint-plugin-svelte/rules/spaced-html-comment/).
+  * Tags: eslint-plugin-svelte
 * [org.openrewrite.codemods.cleanup.vue.ArrayBracketNewline](/user-documentation/recipes/recipe-catalog/codemods/cleanup/vue/arraybracketnewline.md)
   * **Enforce linebreaks after opening and before closing array brackets in `&lt;template&gt;`**
   * Enforce linebreaks after opening and before closing array brackets in `&lt;template&gt;` See rule details for [vue/array-bracket-newline](https://eslint.vuejs.org/rules/array-bracket-newline.html).
+  * Tags: eslint-plugin-vue
 * [org.openrewrite.codemods.cleanup.vue.ArrayBracketSpacing](/user-documentation/recipes/recipe-catalog/codemods/cleanup/vue/arraybracketspacing.md)
   * **Enforce consistent spacing inside array brackets in `&lt;template&gt;`**
   * Enforce consistent spacing inside array brackets in `&lt;template&gt;` See rule details for [vue/array-bracket-spacing](https://eslint.vuejs.org/rules/array-bracket-spacing.html).
+  * Tags: eslint-plugin-vue
 * [org.openrewrite.codemods.cleanup.vue.ArrayElementNewline](/user-documentation/recipes/recipe-catalog/codemods/cleanup/vue/arrayelementnewline.md)
   * **Enforce line breaks after each array element in `&lt;template&gt;`**
   * Enforce line breaks after each array element in `&lt;template&gt;` See rule details for [vue/array-element-newline](https://eslint.vuejs.org/rules/array-element-newline.html).
+  * Tags: eslint-plugin-vue
 * [org.openrewrite.codemods.cleanup.vue.ArrowSpacing](/user-documentation/recipes/recipe-catalog/codemods/cleanup/vue/arrowspacing.md)
   * **Enforce consistent spacing before and after the arrow in arrow functions in `&lt;template&gt;`**
   * Enforce consistent spacing before and after the arrow in arrow functions in `&lt;template&gt;` See rule details for [vue/arrow-spacing](https://eslint.vuejs.org/rules/arrow-spacing.html).
+  * Tags: eslint-plugin-vue
 * [org.openrewrite.codemods.cleanup.vue.AttributesOrder](/user-documentation/recipes/recipe-catalog/codemods/cleanup/vue/attributesorder.md)
   * **Enforce order of attributes**
   * Enforce order of attributes See rule details for [vue/attributes-order](https://eslint.vuejs.org/rules/attributes-order.html).
+  * Tags: eslint-plugin-vue
 * [org.openrewrite.codemods.cleanup.vue.BlockOrder](/user-documentation/recipes/recipe-catalog/codemods/cleanup/vue/blockorder.md)
   * **Enforce order of component top-level elements**
   * Enforce order of component top-level elements See rule details for [vue/block-order](https://eslint.vuejs.org/rules/block-order.html).
+  * Tags: eslint-plugin-vue
 * [org.openrewrite.codemods.cleanup.vue.BlockSpacing](/user-documentation/recipes/recipe-catalog/codemods/cleanup/vue/blockspacing.md)
   * **Disallow or enforce spaces inside of blocks after opening block and before closing block in `&lt;template&gt;`**
   * Disallow or enforce spaces inside of blocks after opening block and before closing block in `&lt;template&gt;` See rule details for [vue/block-spacing](https://eslint.vuejs.org/rules/block-spacing.html).
+  * Tags: eslint-plugin-vue
 * [org.openrewrite.codemods.cleanup.vue.BlockTagNewline](/user-documentation/recipes/recipe-catalog/codemods/cleanup/vue/blocktagnewline.md)
   * **Enforce line breaks after opening and before closing block-level tags**
   * Enforce line breaks after opening and before closing block-level tags See rule details for [vue/block-tag-newline](https://eslint.vuejs.org/rules/block-tag-newline.html).
+  * Tags: eslint-plugin-vue
 * [org.openrewrite.codemods.cleanup.vue.BraceStyle](/user-documentation/recipes/recipe-catalog/codemods/cleanup/vue/bracestyle.md)
   * **Enforce consistent brace style for blocks in `&lt;template&gt;`**
   * Enforce consistent brace style for blocks in `&lt;template&gt;` See rule details for [vue/brace-style](https://eslint.vuejs.org/rules/brace-style.html).
+  * Tags: eslint-plugin-vue
 * [org.openrewrite.codemods.cleanup.vue.CommaDangle](/user-documentation/recipes/recipe-catalog/codemods/cleanup/vue/commadangle.md)
   * **Require or disallow trailing commas in `&lt;template&gt;`**
   * Require or disallow trailing commas in `&lt;template&gt;` See rule details for [vue/comma-dangle](https://eslint.vuejs.org/rules/comma-dangle.html).
+  * Tags: eslint-plugin-vue
 * [org.openrewrite.codemods.cleanup.vue.CommaSpacing](/user-documentation/recipes/recipe-catalog/codemods/cleanup/vue/commaspacing.md)
   * **Enforce consistent spacing before and after commas in `&lt;template&gt;`**
   * Enforce consistent spacing before and after commas in `&lt;template&gt;` See rule details for [vue/comma-spacing](https://eslint.vuejs.org/rules/comma-spacing.html).
+  * Tags: eslint-plugin-vue
 * [org.openrewrite.codemods.cleanup.vue.CommaStyle](/user-documentation/recipes/recipe-catalog/codemods/cleanup/vue/commastyle.md)
   * **Enforce consistent comma style in `&lt;template&gt;`**
   * Enforce consistent comma style in `&lt;template&gt;` See rule details for [vue/comma-style](https://eslint.vuejs.org/rules/comma-style.html).
+  * Tags: eslint-plugin-vue
 * [org.openrewrite.codemods.cleanup.vue.ComponentNameInTemplateCasing](/user-documentation/recipes/recipe-catalog/codemods/cleanup/vue/componentnameintemplatecasing.md)
   * **Enforce specific casing for the component naming style in template**
   * Enforce specific casing for the component naming style in template See rule details for [vue/component-name-in-template-casing](https://eslint.vuejs.org/rules/component-name-in-template-casing.html).
+  * Tags: eslint-plugin-vue
 * [org.openrewrite.codemods.cleanup.vue.ComponentOptionsNameCasing](/user-documentation/recipes/recipe-catalog/codemods/cleanup/vue/componentoptionsnamecasing.md)
   * **Enforce the casing of component name in components options**
   * Enforce the casing of component name in components options See rule details for [vue/component-options-name-casing](https://eslint.vuejs.org/rules/component-options-name-casing.html).
+  * Tags: eslint-plugin-vue
 * [org.openrewrite.codemods.cleanup.vue.ComponentTagsOrder](/user-documentation/recipes/recipe-catalog/codemods/cleanup/vue/componenttagsorder.md)
   * **Enforce order of component top-level elements**
   * Enforce order of component top-level elements See rule details for [vue/component-tags-order](https://eslint.vuejs.org/rules/component-tags-order.html).
+  * Tags: eslint-plugin-vue
 * [org.openrewrite.codemods.cleanup.vue.DefineMacrosOrder](/user-documentation/recipes/recipe-catalog/codemods/cleanup/vue/definemacrosorder.md)
   * **Enforce order of defineEmits and defineProps compiler macros**
   * Enforce order of defineEmits and defineProps compiler macros See rule details for [vue/define-macros-order](https://eslint.vuejs.org/rules/define-macros-order.html).
+  * Tags: eslint-plugin-vue
 * [org.openrewrite.codemods.cleanup.vue.DotLocation](/user-documentation/recipes/recipe-catalog/codemods/cleanup/vue/dotlocation.md)
   * **Enforce consistent newlines before and after dots in `&lt;template&gt;`**
   * Enforce consistent newlines before and after dots in `&lt;template&gt;` See rule details for [vue/dot-location](https://eslint.vuejs.org/rules/dot-location.html).
+  * Tags: eslint-plugin-vue
 * [org.openrewrite.codemods.cleanup.vue.DotNotation](/user-documentation/recipes/recipe-catalog/codemods/cleanup/vue/dotnotation.md)
   * **Enforce dot notation whenever possible in `&lt;template&gt;`**
   * Enforce dot notation whenever possible in `&lt;template&gt;` See rule details for [vue/dot-notation](https://eslint.vuejs.org/rules/dot-notation.html).
+  * Tags: eslint-plugin-vue
 * [org.openrewrite.codemods.cleanup.vue.Eqeqeq](/user-documentation/recipes/recipe-catalog/codemods/cleanup/vue/eqeqeq.md)
   * **Require the use of === and !== in `&lt;template&gt;`**
   * Require the use of === and !== in `&lt;template&gt;` See rule details for [vue/eqeqeq](https://eslint.vuejs.org/rules/eqeqeq.html).
+  * Tags: eslint-plugin-vue
 * [org.openrewrite.codemods.cleanup.vue.FuncCallSpacing](/user-documentation/recipes/recipe-catalog/codemods/cleanup/vue/funccallspacing.md)
   * **Require or disallow spacing between function identifiers and their invocations in `&lt;template&gt;`**
   * Require or disallow spacing between function identifiers and their invocations in `&lt;template&gt;` See rule details for [vue/func-call-spacing](https://eslint.vuejs.org/rules/func-call-spacing.html).
+  * Tags: eslint-plugin-vue
 * [org.openrewrite.codemods.cleanup.vue.HtmlCommentContentNewline](/user-documentation/recipes/recipe-catalog/codemods/cleanup/vue/htmlcommentcontentnewline.md)
   * **Enforce unified line brake in HTML comments**
   * Enforce unified line brake in HTML comments See rule details for [vue/html-comment-content-newline](https://eslint.vuejs.org/rules/html-comment-content-newline.html).
+  * Tags: eslint-plugin-vue
 * [org.openrewrite.codemods.cleanup.vue.HtmlCommentContentSpacing](/user-documentation/recipes/recipe-catalog/codemods/cleanup/vue/htmlcommentcontentspacing.md)
   * **Enforce unified spacing in HTML comments**
   * Enforce unified spacing in HTML comments See rule details for [vue/html-comment-content-spacing](https://eslint.vuejs.org/rules/html-comment-content-spacing.html).
+  * Tags: eslint-plugin-vue
 * [org.openrewrite.codemods.cleanup.vue.HtmlCommentIndent](/user-documentation/recipes/recipe-catalog/codemods/cleanup/vue/htmlcommentindent.md)
   * **Enforce consistent indentation in HTML comments**
   * Enforce consistent indentation in HTML comments See rule details for [vue/html-comment-indent](https://eslint.vuejs.org/rules/html-comment-indent.html).
+  * Tags: eslint-plugin-vue
 * [org.openrewrite.codemods.cleanup.vue.KeySpacing](/user-documentation/recipes/recipe-catalog/codemods/cleanup/vue/keyspacing.md)
   * **Enforce consistent spacing between keys and values in object literal properties in `&lt;template&gt;`**
   * Enforce consistent spacing between keys and values in object literal properties in `&lt;template&gt;` See rule details for [vue/key-spacing](https://eslint.vuejs.org/rules/key-spacing.html).
+  * Tags: eslint-plugin-vue
 * [org.openrewrite.codemods.cleanup.vue.KeywordSpacing](/user-documentation/recipes/recipe-catalog/codemods/cleanup/vue/keywordspacing.md)
   * **Enforce consistent spacing before and after keywords in `&lt;template&gt;`**
   * Enforce consistent spacing before and after keywords in `&lt;template&gt;` See rule details for [vue/keyword-spacing](https://eslint.vuejs.org/rules/keyword-spacing.html).
+  * Tags: eslint-plugin-vue
 * [org.openrewrite.codemods.cleanup.vue.MultilineTernary](/user-documentation/recipes/recipe-catalog/codemods/cleanup/vue/multilineternary.md)
   * **Enforce newlines between operands of ternary expressions in `&lt;template&gt;`**
   * Enforce newlines between operands of ternary expressions in `&lt;template&gt;` See rule details for [vue/multiline-ternary](https://eslint.vuejs.org/rules/multiline-ternary.html).
+  * Tags: eslint-plugin-vue
 * [org.openrewrite.codemods.cleanup.vue.NewLineBetweenMultiLineProperty](/user-documentation/recipes/recipe-catalog/codemods/cleanup/vue/newlinebetweenmultilineproperty.md)
   * **Enforce new lines between multi-line properties in Vue components**
   * Enforce new lines between multi-line properties in Vue components See rule details for [vue/new-line-between-multi-line-property](https://eslint.vuejs.org/rules/new-line-between-multi-line-property.html).
+  * Tags: eslint-plugin-vue
 * [org.openrewrite.codemods.cleanup.vue.NextTickStyle](/user-documentation/recipes/recipe-catalog/codemods/cleanup/vue/nexttickstyle.md)
   * **Enforce Promise or callback style in nextTick**
   * Enforce Promise or callback style in nextTick See rule details for [vue/next-tick-style](https://eslint.vuejs.org/rules/next-tick-style.html).
+  * Tags: eslint-plugin-vue
 * [org.openrewrite.codemods.cleanup.vue.NoExtraParens](/user-documentation/recipes/recipe-catalog/codemods/cleanup/vue/noextraparens.md)
   * **Disallow unnecessary parentheses in `&lt;template&gt;`**
   * Disallow unnecessary parentheses in `&lt;template&gt;` See rule details for [vue/no-extra-parens](https://eslint.vuejs.org/rules/no-extra-parens.html).
+  * Tags: eslint-plugin-vue
 * [org.openrewrite.codemods.cleanup.vue.NoRequiredPropWithDefault](/user-documentation/recipes/recipe-catalog/codemods/cleanup/vue/norequiredpropwithdefault.md)
   * **Enforce props with default values to be optional**
   * Enforce props with default values to be optional See rule details for [vue/no-required-prop-with-default](https://eslint.vuejs.org/rules/no-required-prop-with-default.html).
+  * Tags: eslint-plugin-vue
 * [org.openrewrite.codemods.cleanup.vue.NoUnsupportedFeatures](/user-documentation/recipes/recipe-catalog/codemods/cleanup/vue/nounsupportedfeatures.md)
   * **Disallow unsupported Vue.js syntax on the specified version**
   * Disallow unsupported Vue.js syntax on the specified version See rule details for [vue/no-unsupported-features](https://eslint.vuejs.org/rules/no-unsupported-features.html).
+  * Tags: eslint-plugin-vue
 * [org.openrewrite.codemods.cleanup.vue.NoUselessMustaches](/user-documentation/recipes/recipe-catalog/codemods/cleanup/vue/nouselessmustaches.md)
   * **Disallow unnecessary mustache interpolations**
   * Disallow unnecessary mustache interpolations See rule details for [vue/no-useless-mustaches](https://eslint.vuejs.org/rules/no-useless-mustaches.html).
+  * Tags: eslint-plugin-vue
 * [org.openrewrite.codemods.cleanup.vue.NoUselessVBind](/user-documentation/recipes/recipe-catalog/codemods/cleanup/vue/nouselessvbind.md)
   * **Disallow unnecessary v-bind directives**
   * Disallow unnecessary v-bind directives See rule details for [vue/no-useless-v-bind](https://eslint.vuejs.org/rules/no-useless-v-bind.html).
+  * Tags: eslint-plugin-vue
 * [org.openrewrite.codemods.cleanup.vue.ObjectCurlyNewline](/user-documentation/recipes/recipe-catalog/codemods/cleanup/vue/objectcurlynewline.md)
   * **Enforce consistent line breaks after opening and before closing braces in `&lt;template&gt;`**
   * Enforce consistent line breaks after opening and before closing braces in `&lt;template&gt;` See rule details for [vue/object-curly-newline](https://eslint.vuejs.org/rules/object-curly-newline.html).
+  * Tags: eslint-plugin-vue
 * [org.openrewrite.codemods.cleanup.vue.ObjectCurlySpacing](/user-documentation/recipes/recipe-catalog/codemods/cleanup/vue/objectcurlyspacing.md)
   * **Enforce consistent spacing inside braces in `&lt;template&gt;`**
   * Enforce consistent spacing inside braces in `&lt;template&gt;` See rule details for [vue/object-curly-spacing](https://eslint.vuejs.org/rules/object-curly-spacing.html).
+  * Tags: eslint-plugin-vue
 * [org.openrewrite.codemods.cleanup.vue.ObjectPropertyNewline](/user-documentation/recipes/recipe-catalog/codemods/cleanup/vue/objectpropertynewline.md)
   * **Enforce placing object properties on separate lines in `&lt;template&gt;`**
   * Enforce placing object properties on separate lines in `&lt;template&gt;` See rule details for [vue/object-property-newline](https://eslint.vuejs.org/rules/object-property-newline.html).
+  * Tags: eslint-plugin-vue
 * [org.openrewrite.codemods.cleanup.vue.ObjectShorthand](/user-documentation/recipes/recipe-catalog/codemods/cleanup/vue/objectshorthand.md)
   * **Require or disallow method and property shorthand syntax for object literals in `&lt;template&gt;`**
   * Require or disallow method and property shorthand syntax for object literals in `&lt;template&gt;` See rule details for [vue/object-shorthand](https://eslint.vuejs.org/rules/object-shorthand.html).
+  * Tags: eslint-plugin-vue
 * [org.openrewrite.codemods.cleanup.vue.OperatorLinebreak](/user-documentation/recipes/recipe-catalog/codemods/cleanup/vue/operatorlinebreak.md)
   * **Enforce consistent linebreak style for operators in `&lt;template&gt;`**
   * Enforce consistent linebreak style for operators in `&lt;template&gt;` See rule details for [vue/operator-linebreak](https://eslint.vuejs.org/rules/operator-linebreak.html).
+  * Tags: eslint-plugin-vue
 * [org.openrewrite.codemods.cleanup.vue.OrderInComponents](/user-documentation/recipes/recipe-catalog/codemods/cleanup/vue/orderincomponents.md)
   * **Enforce order of properties in components**
   * Enforce order of properties in components See rule details for [vue/order-in-components](https://eslint.vuejs.org/rules/order-in-components.html).
+  * Tags: eslint-plugin-vue
 * [org.openrewrite.codemods.cleanup.vue.PaddingLineBetweenBlocks](/user-documentation/recipes/recipe-catalog/codemods/cleanup/vue/paddinglinebetweenblocks.md)
   * **Require or disallow padding lines between blocks**
   * Require or disallow padding lines between blocks See rule details for [vue/padding-line-between-blocks](https://eslint.vuejs.org/rules/padding-line-between-blocks.html).
+  * Tags: eslint-plugin-vue
 * [org.openrewrite.codemods.cleanup.vue.PaddingLineBetweenTags](/user-documentation/recipes/recipe-catalog/codemods/cleanup/vue/paddinglinebetweentags.md)
   * **Require or disallow newlines between sibling tags in template**
   * Require or disallow newlines between sibling tags in template See rule details for [vue/padding-line-between-tags](https://eslint.vuejs.org/rules/padding-line-between-tags.html).
+  * Tags: eslint-plugin-vue
 * [org.openrewrite.codemods.cleanup.vue.PaddingLinesInComponentDefinition](/user-documentation/recipes/recipe-catalog/codemods/cleanup/vue/paddinglinesincomponentdefinition.md)
   * **Require or disallow padding lines in component definition**
   * Require or disallow padding lines in component definition See rule details for [vue/padding-lines-in-component-definition](https://eslint.vuejs.org/rules/padding-lines-in-component-definition.html).
+  * Tags: eslint-plugin-vue
 * [org.openrewrite.codemods.cleanup.vue.PreferDefineOptions](/user-documentation/recipes/recipe-catalog/codemods/cleanup/vue/preferdefineoptions.md)
   * **Enforce use of defineOptions instead of default export**
   * Enforce use of defineOptions instead of default export. See rule details for [vue/prefer-define-options](https://eslint.vuejs.org/rules/prefer-define-options.html).
+  * Tags: eslint-plugin-vue
 * [org.openrewrite.codemods.cleanup.vue.PreferSeparateStaticClass](/user-documentation/recipes/recipe-catalog/codemods/cleanup/vue/preferseparatestaticclass.md)
   * **Require static class names in template to be in a separate class attribute**
   * Require static class names in template to be in a separate class attribute See rule details for [vue/prefer-separate-static-class](https://eslint.vuejs.org/rules/prefer-separate-static-class.html).
+  * Tags: eslint-plugin-vue
 * [org.openrewrite.codemods.cleanup.vue.PreferTemplate](/user-documentation/recipes/recipe-catalog/codemods/cleanup/vue/prefertemplate.md)
   * **Require template literals instead of string concatenation in `&lt;template&gt;`**
   * Require template literals instead of string concatenation in `&lt;template&gt;` See rule details for [vue/prefer-template](https://eslint.vuejs.org/rules/prefer-template.html).
+  * Tags: eslint-plugin-vue
 * [org.openrewrite.codemods.cleanup.vue.QuoteProps](/user-documentation/recipes/recipe-catalog/codemods/cleanup/vue/quoteprops.md)
   * **Require quotes around object literal property names in `&lt;template&gt;`**
   * Require quotes around object literal property names in `&lt;template&gt;` See rule details for [vue/quote-props](https://eslint.vuejs.org/rules/quote-props.html).
+  * Tags: eslint-plugin-vue
 * [org.openrewrite.codemods.cleanup.vue.RecommendedVueCodeCleanup](/user-documentation/recipes/recipe-catalog/codemods/cleanup/vue/recommendedvuecodecleanup.md)
   * **Recommended vue code cleanup**
   * Collection of cleanup ESLint rules from [eslint-plugin-vue](https://eslint.vuejs.org/).
+  * Tags: eslint-plugin-vue
 * [org.openrewrite.codemods.cleanup.vue.ScriptIndent](/user-documentation/recipes/recipe-catalog/codemods/cleanup/vue/scriptindent.md)
   * **Enforce consistent indentation in `&lt;script&gt;`**
   * Enforce consistent indentation in `&lt;script&gt;` See rule details for [vue/script-indent](https://eslint.vuejs.org/rules/script-indent.html).
+  * Tags: eslint-plugin-vue
 * [org.openrewrite.codemods.cleanup.vue.SpaceInParens](/user-documentation/recipes/recipe-catalog/codemods/cleanup/vue/spaceinparens.md)
   * **Enforce consistent spacing inside parentheses in `&lt;template&gt;`**
   * Enforce consistent spacing inside parentheses in `&lt;template&gt;` See rule details for [vue/space-in-parens](https://eslint.vuejs.org/rules/space-in-parens.html).
+  * Tags: eslint-plugin-vue
 * [org.openrewrite.codemods.cleanup.vue.SpaceInfixOps](/user-documentation/recipes/recipe-catalog/codemods/cleanup/vue/spaceinfixops.md)
   * **Require spacing around infix operators in `&lt;template&gt;`**
   * Require spacing around infix operators in `&lt;template&gt;` See rule details for [vue/space-infix-ops](https://eslint.vuejs.org/rules/space-infix-ops.html).
+  * Tags: eslint-plugin-vue
 * [org.openrewrite.codemods.cleanup.vue.SpaceUnaryOps](/user-documentation/recipes/recipe-catalog/codemods/cleanup/vue/spaceunaryops.md)
   * **Enforce consistent spacing before or after unary operators in `&lt;template&gt;`**
   * Enforce consistent spacing before or after unary operators in `&lt;template&gt;` See rule details for [vue/space-unary-ops](https://eslint.vuejs.org/rules/space-unary-ops.html).
+  * Tags: eslint-plugin-vue
 * [org.openrewrite.codemods.cleanup.vue.StaticClassNamesOrder](/user-documentation/recipes/recipe-catalog/codemods/cleanup/vue/staticclassnamesorder.md)
   * **Enforce static class names order**
   * Enforce static class names order See rule details for [vue/static-class-names-order](https://eslint.vuejs.org/rules/static-class-names-order.html).
+  * Tags: eslint-plugin-vue
 * [org.openrewrite.codemods.cleanup.vue.TemplateCurlySpacing](/user-documentation/recipes/recipe-catalog/codemods/cleanup/vue/templatecurlyspacing.md)
   * **Require or disallow spacing around embedded expressions of template strings in `&lt;template&gt;`**
   * Require or disallow spacing around embedded expressions of template strings in `&lt;template&gt;` See rule details for [vue/template-curly-spacing](https://eslint.vuejs.org/rules/template-curly-spacing.html).
+  * Tags: eslint-plugin-vue
 * [org.openrewrite.codemods.cleanup.vue.ThisInTemplate](/user-documentation/recipes/recipe-catalog/codemods/cleanup/vue/thisintemplate.md)
   * **Disallow usage of this in template**
   * Disallow usage of this in template See rule details for [vue/this-in-template](https://eslint.vuejs.org/rules/this-in-template.html).
+  * Tags: eslint-plugin-vue
 * [org.openrewrite.codemods.cleanup.vue.VForDelimiterStyle](/user-documentation/recipes/recipe-catalog/codemods/cleanup/vue/vfordelimiterstyle.md)
   * **Enforce v-for directive's delimiter style**
   * Enforce v-for directive's delimiter style See rule details for [vue/v-for-delimiter-style](https://eslint.vuejs.org/rules/v-for-delimiter-style.html).
+  * Tags: eslint-plugin-vue
 * [org.openrewrite.codemods.cleanup.vue.VIfElseKey](/user-documentation/recipes/recipe-catalog/codemods/cleanup/vue/vifelsekey.md)
   * **Require key attribute for conditionally rendered repeated components**
   * Require key attribute for conditionally rendered repeated components See rule details for [vue/v-if-else-key](https://eslint.vuejs.org/rules/v-if-else-key.html).
+  * Tags: eslint-plugin-vue
 * [org.openrewrite.codemods.cleanup.vue.VOnHandlerStyle](/user-documentation/recipes/recipe-catalog/codemods/cleanup/vue/vonhandlerstyle.md)
   * **Enforce writing style for handlers in v-on directives**
   * Enforce writing style for handlers in v-on directives See rule details for [vue/v-on-handler-style](https://eslint.vuejs.org/rules/v-on-handler-style.html).
+  * Tags: eslint-plugin-vue
 * [org.openrewrite.codemods.ecmascript.ESLintTypeScriptDefaults](/user-documentation/recipes/recipe-catalog/codemods/ecmascript/eslinttypescriptdefaults.md)
   * **Lint TypeScript code using ESLint**
   * The default config includes the `@typescript-eslint` plugin and the corresponding `plugin:@typescript-eslint/recommended` extend.
@@ -3688,9 +3938,11 @@ _2 recipes_
 * [org.openrewrite.python.migrate.ReplacePercentFormatWithFString](/user-documentation/recipes/recipe-catalog/python/migrate/replacepercentformatwithfstring.md)
   * **Replace `%` formatting with f-string**
   * Replace `&quot;...&quot; % (...)` expressions with f-strings (Python 3.6+). Only converts `%s` and `%r` specifiers where the format string is a literal and the conversion is safe.
+  * Tags: f-string
 * [org.openrewrite.python.migrate.ReplaceStrFormatWithFString](/user-documentation/recipes/recipe-catalog/python/migrate/replacestrformatwithfstring.md)
   * **Replace `str.format()` with f-string**
   * Replace `&quot;...&quot;.format(...)` calls with f-strings (Python 3.6+). Only converts cases where the format string is a literal and the conversion is safe.
+  * Tags: f-string
 
 ## faces
 
@@ -3708,6 +3960,7 @@ _29 recipes_
 * [com.oracle.weblogic.rewrite.jakarta.JavaxFacesConfigXmlToJakartaFaces3ConfigXml](/user-documentation/recipes/recipe-catalog/com/oracle/weblogic/rewrite/jakarta/javaxfacesconfigxmltojakartafaces3configxml.md)
   * **Migrate xmlns entries in `faces-config.xml` files for Jakarta Server Faces 3**
   * Java EE has been rebranded to Jakarta EE, necessitating an XML namespace relocation.
+  * Tags: faces-config
 * [com.oracle.weblogic.rewrite.jakarta.JavaxFacesTagLibraryXmlToJakartaFaces3TagLibraryXml](/user-documentation/recipes/recipe-catalog/com/oracle/weblogic/rewrite/jakarta/javaxfacestaglibraryxmltojakartafaces3taglibraryxml.md)
   * **Migrate xmlns entries in `*taglib*.xml` files for Jakarta Server Faces 3**
   * Java EE has been rebranded to Jakarta EE, necessitating an XML namespace relocation.
@@ -4343,66 +4596,87 @@ _21 recipes_
 * [org.openrewrite.java.jackson.CodehausClassesToFasterXML](/user-documentation/recipes/recipe-catalog/java/jackson/codehausclassestofasterxml.md)
   * **Migrate classes from Jackson Codehaus (legacy) to Jackson FasterXML**
   * In Jackson 2, the package and dependency coordinates moved from Codehaus to FasterXML.
+  * Tags: jackson-2
 * [org.openrewrite.java.jackson.CodehausToFasterXML](/user-documentation/recipes/recipe-catalog/java/jackson/codehaustofasterxml.md)
   * **Migrate from Jackson Codehaus (legacy) to Jackson FasterXML**
   * In Jackson 2, the package and dependency coordinates moved from Codehaus to FasterXML.
+  * Tags: jackson-2
 * [org.openrewrite.java.jackson.IOExceptionToJacksonException](/user-documentation/recipes/recipe-catalog/java/jackson/ioexceptiontojacksonexception.md)
   * **Replace `IOException` with `JacksonException` in catch clauses**
   * In Jackson 3, `ObjectMapper` and related classes no longer throw `IOException`. This recipe replaces `catch (IOException e)` with `catch (JacksonException e)` when the try block contains Jackson API calls. When the try block also contains non-Jackson code that throws `IOException`, the catch is changed to a multi-catch `catch (JacksonException | IOException e)`.
+  * Tags: jackson-3
 * [org.openrewrite.java.jackson.JacksonBestPractices](/user-documentation/recipes/recipe-catalog/java/jackson/jacksonbestpractices.md)
   * **Jackson best practices**
   * Apply best practices for using Jackson library, including upgrade to Jackson 2.x and removing redundant annotations.
+  * Tags: jackson-2
 * [org.openrewrite.java.jackson.RemoveBuiltInModuleRegistrations](/user-documentation/recipes/recipe-catalog/java/jackson/removebuiltinmoduleregistrations.md)
   * **Remove registrations of modules built-in to Jackson 3**
   * In Jackson 3, `ParameterNamesModule`, `Jdk8Module`, and `JavaTimeModule` are built into `jackson-databind` and no longer need to be registered manually. This recipe removes `ObjectMapper.registerModule()` and `MapperBuilder.addModule()` calls for these modules.
+  * Tags: jackson-3
 * [org.openrewrite.java.jackson.RemoveRedundantFeatureFlags](/user-documentation/recipes/recipe-catalog/java/jackson/removeredundantfeatureflags.md)
   * **Remove redundant Jackson 3 feature flag configurations**
   * Remove `ObjectMapper` feature flag configurations that set values to their new Jackson 3 defaults. For example, `disable(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES)` and `configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false)` are redundant since this is now disabled by default in Jackson 3.
+  * Tags: jackson-3
 * [org.openrewrite.java.jackson.RemoveRedundantJsonPropertyValue](/user-documentation/recipes/recipe-catalog/java/jackson/removeredundantjsonpropertyvalue.md)
   * **Remove redundant `@JsonProperty` argument**
   * Remove `@JsonProperty` annotation or value attribute when the value matches the argument name.
+  * Tags: jackson-2
 * [org.openrewrite.java.jackson.ReplaceJsonIgnoreWithJsonSetter](/user-documentation/recipes/recipe-catalog/java/jackson/replacejsonignorewithjsonsetter.md)
   * **Replace `@JsonIgnore` with `@JsonSetter` on empty collection fields**
   * In Jackson 3, `@JsonIgnore` on fields initialized with empty collections causes the field value to become `null` instead of maintaining the empty collection. This recipe replaces `@JsonIgnore` with `@JsonSetter(nulls = Nulls.AS_EMPTY)` on `Map` and `Collection` fields that have an empty collection initializer.
+  * Tags: jackson-3
 * [org.openrewrite.java.jackson.ReplaceStreamWriteCapability](/user-documentation/recipes/recipe-catalog/java/jackson/replacestreamwritecapability.md)
   * **Replace removed `JsonGenerator` capability methods with `StreamWriteCapability`**
   * In Jackson 3, `JsonGenerator.canWriteBinaryNatively()` and `canWriteFormattedNumbers()` were removed and replaced with the `StreamWriteCapability` enum. This recipe updates these method calls to use `getWriteCapabilities().isEnabled(StreamWriteCapability.*)` instead.
+  * Tags: jackson-3
 * [org.openrewrite.java.jackson.SimplifyJacksonExceptionCatch](/user-documentation/recipes/recipe-catalog/java/jackson/simplifyjacksonexceptioncatch.md)
   * **Simplify catch clauses for Jackson exceptions**
   * In Jackson 3, `JacksonException` and its subtypes extend `RuntimeException`. This recipe simplifies multi-catch clauses by removing Jackson exception types when `RuntimeException` is also caught, since catching both is redundant. For example, `catch (JacksonException | RuntimeException e)` becomes `catch (RuntimeException e)`.
+  * Tags: jackson-3
 * [org.openrewrite.java.jackson.UpdateSerializationInclusionConfiguration](/user-documentation/recipes/recipe-catalog/java/jackson/updateserializationinclusionconfiguration.md)
   * **Update configuration of serialization inclusion in `ObjectMapper` for Jackson 3**
   * In Jackson 3, `mapper.setSerializationInclusion(JsonInclude.Include.NON_NULL)` is no longer supported and should be replaced by `changeDefaultPropertyInclusion()` for both `valueInclusion` and `contentInclusion`.
+  * Tags: jackson-3
 * [org.openrewrite.java.jackson.UpgradeJackson_2_3](/user-documentation/recipes/recipe-catalog/java/jackson/upgradejackson_2_3.md)
   * **Migrates from Jackson 2.x to Jackson 3.x**
   * Migrate applications to the latest Jackson 3.x release. This recipe handles package changes (`com.fasterxml.jackson` -&gt; `tools.jackson`), dependency updates, core class renames, exception renames, and method renames (e.g., `JsonGenerator.writeObject()` -&gt; `writePOJO()`, `JsonParser.getCurrentValue()` -&gt; `currentValue()`).
+  * Tags: jackson-3
 * [org.openrewrite.java.jackson.UpgradeJackson_2_3_Dependencies](/user-documentation/recipes/recipe-catalog/java/jackson/upgradejackson_2_3_dependencies.md)
   * **Upgrade Jackson 2.x dependencies to 3.x**
   * Upgrade Jackson Maven dependencies from 2.x to 3.x versions and update group IDs.
+  * Tags: jackson-3
 * [org.openrewrite.java.jackson.UpgradeJackson_2_3_JsonGeneratorMethodRenames](/user-documentation/recipes/recipe-catalog/java/jackson/upgradejackson_2_3_jsongeneratormethodrenames.md)
   * **Rename Jackson 2.x methods to 3.x equivalents for JsonGenerator**
   * Rename JsonGenerator methods that were renamed in 3.x (e.g., `writeObject()` to `writePOJO()`, `getCurrentValue()` to `currentValue()`).
+  * Tags: jackson-3
 * [org.openrewrite.java.jackson.UpgradeJackson_2_3_JsonNodeMethodRenames](/user-documentation/recipes/recipe-catalog/java/jackson/upgradejackson_2_3_jsonnodemethodrenames.md)
   * **Rename Jackson 2.x methods to 3.x equivalents for JsonNode**
   * Rename JsonNode methods that were renamed in 3.x (e.g., `elements()` to `values()`, `fields()` to `entries()`).
+  * Tags: jackson-3
 * [org.openrewrite.java.jackson.UpgradeJackson_2_3_JsonParserMethodRenames](/user-documentation/recipes/recipe-catalog/java/jackson/upgradejackson_2_3_jsonparsermethodrenames.md)
   * **Rename Jackson 2.x methods to 3.x equivalents for JsonParser**
   * Rename JsonParser methods that were renamed in 3.x (e.g., `getTextCharacters()` to `getStringCharacters()`, `getCurrentValue()` to `currentValue()`).
+  * Tags: jackson-3
 * [org.openrewrite.java.jackson.UpgradeJackson_2_3_MethodRenames](/user-documentation/recipes/recipe-catalog/java/jackson/upgradejackson_2_3_methodrenames.md)
   * **Rename Jackson 2.x methods to 3.x equivalents**
   * Rename Jackson methods that were renamed in 3.x (e.g., `writeObject()` to `writePOJO()`, `getCurrentValue()` to `currentValue()`).
+  * Tags: jackson-3
 * [org.openrewrite.java.jackson.UpgradeJackson_2_3_PackageChanges](/user-documentation/recipes/recipe-catalog/java/jackson/upgradejackson_2_3_packagechanges.md)
   * **Update Jackson package names from 2.x to 3.x**
   * Update Jackson package imports from `com.fasterxml.jackson` to `tools.jackson`.
+  * Tags: jackson-3
 * [org.openrewrite.java.jackson.UpgradeJackson_2_3_RemoveRedundantFeatureFlags](/user-documentation/recipes/recipe-catalog/java/jackson/upgradejackson_2_3_removeredundantfeatureflags.md)
   * **Remove redundant Jackson 3 feature flag configurations**
   * Remove `ObjectMapper` feature flag configurations that are now defaults in Jackson 3.
+  * Tags: jackson-3
 * [org.openrewrite.java.jackson.UpgradeJackson_2_3_TypeChanges](/user-documentation/recipes/recipe-catalog/java/jackson/upgradejackson_2_3_typechanges.md)
   * **Update Jackson 2.x types to 3.x**
   * Update Jackson type names including exception types and core class renames.
+  * Tags: jackson-3
 * [org.openrewrite.java.jackson.UseModernDateTimeSerialization](/user-documentation/recipes/recipe-catalog/java/jackson/usemoderndatetimeserialization.md)
   * **Use modern date/time serialization defaults**
   * Remove redundant `@JsonFormat` annotations on `java.time` types that specify ISO-8601 patterns, as Jackson 3 uses ISO-8601 as the default format (with `WRITE_DATES_AS_TIMESTAMPS` now disabled by default).
+  * Tags: jackson-3
 
 ## jacoco
 
@@ -4794,9 +5068,11 @@ _10 recipes_
 * [org.openrewrite.java.logging.log4j.JulToLog4j](/user-documentation/recipes/recipe-catalog/java/logging/log4j/jultolog4j.md)
   * **Migrate JUL to Log4j 2.x API**
   * Transforms code written using `java.util.logging` to use Log4j 2.x API.
+  * Tags: java-util-logging
 * [org.openrewrite.java.logging.slf4j.JulToSlf4j](/user-documentation/recipes/recipe-catalog/java/logging/slf4j/jultoslf4j.md)
   * **Migrate JUL to SLF4J**
   * Migrates usage of Java Util Logging (JUL) to using SLF4J directly.
+  * Tags: java-util-logging
 
 ## java10
 
@@ -5323,6 +5599,7 @@ _1 recipe_
 * [org.openrewrite.java.migrate.io.ReplaceFileInOrOutputStreamFinalizeWithClose](/user-documentation/recipes/recipe-catalog/java/migrate/io/replacefileinoroutputstreamfinalizewithclose.md)
   * **Replace invocations of `finalize()` on `FileInputStream` and `FileOutputStream` with `close()`**
   * Replace invocations of the deprecated `finalize()` method on `FileInputStream` and `FileOutputStream` with `close()`.
+  * Tags: JDK-8212050
 
 ## Jest
 
@@ -5442,6 +5719,7 @@ _1 recipe_
 * [org.openrewrite.java.joda.time.NoJodaTime](/user-documentation/recipes/recipe-catalog/java/joda/time/nojodatime.md)
   * **Prefer the Java standard library instead of Joda-Time**
   * Before Java 8, Java lacked a robust date and time library, leading to the widespread use of Joda-Time to fill this gap. With the release of Java 8, the `java.time` package was introduced, incorporating most of Joda-Time's concepts. Features deemed too specialized or bulky for `java.time` were included in the ThreeTen-Extra library.  This recipe migrates Joda-Time types to `java.time` and `threeten-extra` types.
+  * Tags: joda-time
 
 ## jpa
 
@@ -6145,237 +6423,315 @@ _78 recipes_
 * [org.openrewrite.codemods.migrate.mui.AdapterV](/user-documentation/recipes/recipe-catalog/codemods/migrate/mui/adapterv.md)
   * **Converts components to use the v4 adapter module**
   * See Material UI codemod projects for more [details](https://github.com/mui/material-ui/tree/master/packages/mui-codemod#adapter-v4).
+  * Tags: material-ui
 * [org.openrewrite.codemods.migrate.mui.All](/user-documentation/recipes/recipe-catalog/codemods/migrate/mui/all.md)
   * **Combination of all deprecations**
   * See Material UI codemod projects for more [details](https://github.com/mui/material-ui/tree/master/packages/mui-codemod#all).
+  * Tags: material-ui
 * [org.openrewrite.codemods.migrate.mui.AutocompleteRenameCloseicon](/user-documentation/recipes/recipe-catalog/codemods/migrate/mui/autocompleterenamecloseicon.md)
   * **Renames `closeIcon` prop to `closeButtonIcon`**
   * See Material UI codemod projects for more [details](https://github.com/mui/material-ui/tree/master/packages/mui-codemod#autocomplete-rename-closeicon).
+  * Tags: material-ui
 * [org.openrewrite.codemods.migrate.mui.AutocompleteRenameOption](/user-documentation/recipes/recipe-catalog/codemods/migrate/mui/autocompleterenameoption.md)
   * **Renames `option` prop to `getOptionLabel`**
   * See Material UI codemod projects for more [details](https://github.com/mui/material-ui/tree/master/packages/mui-codemod#autocomplete-rename-option).
+  * Tags: material-ui
 * [org.openrewrite.codemods.migrate.mui.AvatarCircleCircular](/user-documentation/recipes/recipe-catalog/codemods/migrate/mui/avatarcirclecircular.md)
   * **Updates `circle` prop to `variant=&quot;circular&quot;`**
   * See Material UI codemod projects for more [details](https://github.com/mui/material-ui/tree/master/packages/mui-codemod#avatar-circle-circular).
+  * Tags: material-ui
 * [org.openrewrite.codemods.migrate.mui.BadgeOverlapValue](/user-documentation/recipes/recipe-catalog/codemods/migrate/mui/badgeoverlapvalue.md)
   * **Updates `overlap` prop to `variant=&quot;dot&quot;`**
   * See Material UI codemod projects for more [details](https://github.com/mui/material-ui/tree/master/packages/mui-codemod#badge-overlap-value).
+  * Tags: material-ui
 * [org.openrewrite.codemods.migrate.mui.BaseHookImports](/user-documentation/recipes/recipe-catalog/codemods/migrate/mui/basehookimports.md)
   * **Converts base imports to use React hooks**
   * See Material UI codemod projects for more [details](https://github.com/mui/material-ui/tree/master/packages/mui-codemod#base-hook-imports).
+  * Tags: material-ui
 * [org.openrewrite.codemods.migrate.mui.BaseRemoveComponentProp](/user-documentation/recipes/recipe-catalog/codemods/migrate/mui/baseremovecomponentprop.md)
   * **Removes `component` prop from base components**
   * See Material UI codemod projects for more [details](https://github.com/mui/material-ui/tree/master/packages/mui-codemod#base-remove-component-prop).
+  * Tags: material-ui
 * [org.openrewrite.codemods.migrate.mui.BaseRemoveUnstyledSuffix](/user-documentation/recipes/recipe-catalog/codemods/migrate/mui/baseremoveunstyledsuffix.md)
   * **Removes `Unstyled` suffix from base components**
   * See Material UI codemod projects for more [details](https://github.com/mui/material-ui/tree/master/packages/mui-codemod#base-remove-unstyled-suffix).
+  * Tags: material-ui
 * [org.openrewrite.codemods.migrate.mui.BaseRenameComponentsToSlots](/user-documentation/recipes/recipe-catalog/codemods/migrate/mui/baserenamecomponentstoslots.md)
   * **Renames base components to slots**
   * See Material UI codemod projects for more [details](https://github.com/mui/material-ui/tree/master/packages/mui-codemod#base-rename-components-to-slots).
+  * Tags: material-ui
 * [org.openrewrite.codemods.migrate.mui.BaseUseNamedExports](/user-documentation/recipes/recipe-catalog/codemods/migrate/mui/baseusenamedexports.md)
   * **Updates base imports to use named exports**
   * See Material UI codemod projects for more [details](https://github.com/mui/material-ui/tree/master/packages/mui-codemod#base-use-named-exports).
+  * Tags: material-ui
 * [org.openrewrite.codemods.migrate.mui.BoxBorderradiusValues](/user-documentation/recipes/recipe-catalog/codemods/migrate/mui/boxborderradiusvalues.md)
   * **Updates `borderRadius` prop values**
   * See Material UI codemod projects for more [details](https://github.com/mui/material-ui/tree/master/packages/mui-codemod#box-borderradius-values).
+  * Tags: material-ui
 * [org.openrewrite.codemods.migrate.mui.BoxRenameCss](/user-documentation/recipes/recipe-catalog/codemods/migrate/mui/boxrenamecss.md)
   * **Renames CSS properties for Box component**
   * See Material UI codemod projects for more [details](https://github.com/mui/material-ui/tree/master/packages/mui-codemod#box-rename-css).
+  * Tags: material-ui
 * [org.openrewrite.codemods.migrate.mui.BoxRenameGap](/user-documentation/recipes/recipe-catalog/codemods/migrate/mui/boxrenamegap.md)
   * **Renames `gap` prop to `spacing`**
   * See Material UI codemod projects for more [details](https://github.com/mui/material-ui/tree/master/packages/mui-codemod#box-rename-gap).
+  * Tags: material-ui
 * [org.openrewrite.codemods.migrate.mui.BoxSxProp](/user-documentation/recipes/recipe-catalog/codemods/migrate/mui/boxsxprop.md)
   * **Converts `sx` prop to `sx` style prop**
   * See Material UI codemod projects for more [details](https://github.com/mui/material-ui/tree/master/packages/mui-codemod#box-sx-prop).
+  * Tags: material-ui
 * [org.openrewrite.codemods.migrate.mui.ButtonColorProp](/user-documentation/recipes/recipe-catalog/codemods/migrate/mui/buttoncolorprop.md)
   * **Renames `color` prop to `colorOverride`**
   * See Material UI codemod projects for more [details](https://github.com/mui/material-ui/tree/master/packages/mui-codemod#button-color-prop).
+  * Tags: material-ui
 * [org.openrewrite.codemods.migrate.mui.ChipVariantProp](/user-documentation/recipes/recipe-catalog/codemods/migrate/mui/chipvariantprop.md)
   * **Updates `variant` prop for Chip component**
   * See Material UI codemod projects for more [details](https://github.com/mui/material-ui/tree/master/packages/mui-codemod#chip-variant-prop).
+  * Tags: material-ui
 * [org.openrewrite.codemods.migrate.mui.CircularprogressVariant](/user-documentation/recipes/recipe-catalog/codemods/migrate/mui/circularprogressvariant.md)
   * **Updates `variant` prop for CircularProgress component**
   * See Material UI codemod projects for more [details](https://github.com/mui/material-ui/tree/master/packages/mui-codemod#circularprogress-variant).
+  * Tags: material-ui
 * [org.openrewrite.codemods.migrate.mui.CollapseRenameCollapsedheight](/user-documentation/recipes/recipe-catalog/codemods/migrate/mui/collapserenamecollapsedheight.md)
   * **Renames `collapsedHeight` prop to `transitionCollapsedHeight`**
   * See Material UI codemod projects for more [details](https://github.com/mui/material-ui/tree/master/packages/mui-codemod#collapse-rename-collapsedheight).
+  * Tags: material-ui
 * [org.openrewrite.codemods.migrate.mui.ComponentRenameProp](/user-documentation/recipes/recipe-catalog/codemods/migrate/mui/componentrenameprop.md)
   * **Renames `component` prop to `as`**
   * See Material UI codemod projects for more [details](https://github.com/mui/material-ui/tree/master/packages/mui-codemod#component-rename-prop).
+  * Tags: material-ui
 * [org.openrewrite.codemods.migrate.mui.CoreStylesImport](/user-documentation/recipes/recipe-catalog/codemods/migrate/mui/corestylesimport.md)
   * **Updates import paths for core styles**
   * See Material UI codemod projects for more [details](https://github.com/mui/material-ui/tree/master/packages/mui-codemod#core-styles-import).
+  * Tags: material-ui
 * [org.openrewrite.codemods.migrate.mui.CreateTheme](/user-documentation/recipes/recipe-catalog/codemods/migrate/mui/createtheme.md)
   * **Updates createMuiTheme usage**
   * See Material UI codemod projects for more [details](https://github.com/mui/material-ui/tree/master/packages/mui-codemod#create-theme).
+  * Tags: material-ui
 * [org.openrewrite.codemods.migrate.mui.DatePickersMovedToX](/user-documentation/recipes/recipe-catalog/codemods/migrate/mui/datepickersmovedtox.md)
   * **Moves date pickers to `@mui/x-date-picker`**
   * See Material UI codemod projects for more [details](https://github.com/mui/material-ui/tree/master/packages/mui-codemod#date-pickers-moved-to-x).
+  * Tags: material-ui
 * [org.openrewrite.codemods.migrate.mui.DialogProps](/user-documentation/recipes/recipe-catalog/codemods/migrate/mui/dialogprops.md)
   * **Updates props for Dialog component**
   * See Material UI codemod projects for more [details](https://github.com/mui/material-ui/tree/master/packages/mui-codemod#dialog-props).
+  * Tags: material-ui
 * [org.openrewrite.codemods.migrate.mui.DialogTitleProps](/user-documentation/recipes/recipe-catalog/codemods/migrate/mui/dialogtitleprops.md)
   * **Updates props for DialogTitle component**
   * See Material UI codemod projects for more [details](https://github.com/mui/material-ui/tree/master/packages/mui-codemod#dialog-title-props).
+  * Tags: material-ui
 * [org.openrewrite.codemods.migrate.mui.EmotionPrependCache](/user-documentation/recipes/recipe-catalog/codemods/migrate/mui/emotionprependcache.md)
   * **Prepends emotion cache**
   * See Material UI codemod projects for more [details](https://github.com/mui/material-ui/tree/master/packages/mui-codemod#emotion-prepend-cache).
+  * Tags: material-ui
 * [org.openrewrite.codemods.migrate.mui.ExpansionPanelComponent](/user-documentation/recipes/recipe-catalog/codemods/migrate/mui/expansionpanelcomponent.md)
   * **Converts ExpansionPanel to use ExpansionPanel component**
   * See Material UI codemod projects for more [details](https://github.com/mui/material-ui/tree/master/packages/mui-codemod#expansion-panel-component).
+  * Tags: material-ui
 * [org.openrewrite.codemods.migrate.mui.FabVariant](/user-documentation/recipes/recipe-catalog/codemods/migrate/mui/fabvariant.md)
   * **Updates `variant` prop for Fab component**
   * See Material UI codemod projects for more [details](https://github.com/mui/material-ui/tree/master/packages/mui-codemod#fab-variant).
+  * Tags: material-ui
 * [org.openrewrite.codemods.migrate.mui.FadeRenameAlpha](/user-documentation/recipes/recipe-catalog/codemods/migrate/mui/faderenamealpha.md)
   * **Renames `alpha` prop to `opacity`**
   * See Material UI codemod projects for more [details](https://github.com/mui/material-ui/tree/master/packages/mui-codemod#fade-rename-alpha).
+  * Tags: material-ui
 * [org.openrewrite.codemods.migrate.mui.GridJustifyJustifycontent](/user-documentation/recipes/recipe-catalog/codemods/migrate/mui/gridjustifyjustifycontent.md)
   * **Updates `justify` prop to `justifyContent` for Grid component**
   * See Material UI codemod projects for more [details](https://github.com/mui/material-ui/tree/master/packages/mui-codemod#grid-justify-justifycontent).
+  * Tags: material-ui
 * [org.openrewrite.codemods.migrate.mui.GridListComponent](/user-documentation/recipes/recipe-catalog/codemods/migrate/mui/gridlistcomponent.md)
   * **Converts GridList to use Grid component**
   * See Material UI codemod projects for more [details](https://github.com/mui/material-ui/tree/master/packages/mui-codemod#grid-list-component).
+  * Tags: material-ui
 * [org.openrewrite.codemods.migrate.mui.GridVProps](/user-documentation/recipes/recipe-catalog/codemods/migrate/mui/gridvprops.md)
   * **Updates the usage of the `@mui/material/Grid2`, `@mui/system/Grid`, and `@mui/joy/Grid` components to their updated APIs**
   * See Material UI codemod projects for more [details](https://github.com/mui/material-ui/tree/master/packages/mui-codemod#grid-v2-props).
+  * Tags: material-ui
 * [org.openrewrite.codemods.migrate.mui.HiddenDownProps](/user-documentation/recipes/recipe-catalog/codemods/migrate/mui/hiddendownprops.md)
   * **Updates `down` prop for Hidden component**
   * See Material UI codemod projects for more [details](https://github.com/mui/material-ui/tree/master/packages/mui-codemod#hidden-down-props).
+  * Tags: material-ui
 * [org.openrewrite.codemods.migrate.mui.IconButtonSize](/user-documentation/recipes/recipe-catalog/codemods/migrate/mui/iconbuttonsize.md)
   * **Updates `size` prop for IconButton component**
   * See Material UI codemod projects for more [details](https://github.com/mui/material-ui/tree/master/packages/mui-codemod#icon-button-size).
+  * Tags: material-ui
 * [org.openrewrite.codemods.migrate.mui.JoyAvatarRemoveImgprops](/user-documentation/recipes/recipe-catalog/codemods/migrate/mui/joyavatarremoveimgprops.md)
   * **Removes `imgProps` prop from Avatar component**
   * See Material UI codemod projects for more [details](https://github.com/mui/material-ui/tree/master/packages/mui-codemod#joy-avatar-remove-imgProps).
+  * Tags: material-ui
 * [org.openrewrite.codemods.migrate.mui.JoyRenameClassnamePrefix](/user-documentation/recipes/recipe-catalog/codemods/migrate/mui/joyrenameclassnameprefix.md)
   * **Renames `Mui` classname prefix**
   * See Material UI codemod projects for more [details](https://github.com/mui/material-ui/tree/master/packages/mui-codemod#joy-rename-classname-prefix).
+  * Tags: material-ui
 * [org.openrewrite.codemods.migrate.mui.JoyRenameComponentsToSlots](/user-documentation/recipes/recipe-catalog/codemods/migrate/mui/joyrenamecomponentstoslots.md)
   * **Renames components to slots**
   * See Material UI codemod projects for more [details](https://github.com/mui/material-ui/tree/master/packages/mui-codemod#joy-rename-components-to-slots).
+  * Tags: material-ui
 * [org.openrewrite.codemods.migrate.mui.JoyRenameRowProp](/user-documentation/recipes/recipe-catalog/codemods/migrate/mui/joyrenamerowprop.md)
   * **Renames `row` prop to `flexDirection=&quot;row&quot;`**
   * See Material UI codemod projects for more [details](https://github.com/mui/material-ui/tree/master/packages/mui-codemod#joy-rename-row-prop).
+  * Tags: material-ui
 * [org.openrewrite.codemods.migrate.mui.JoyTextFieldToInput](/user-documentation/recipes/recipe-catalog/codemods/migrate/mui/joytextfieldtoinput.md)
   * **Renames `TextField` to `Input`**
   * See Material UI codemod projects for more [details](https://github.com/mui/material-ui/tree/master/packages/mui-codemod#joy-text-field-to-input).
+  * Tags: material-ui
 * [org.openrewrite.codemods.migrate.mui.JssToStyled](/user-documentation/recipes/recipe-catalog/codemods/migrate/mui/jsstostyled.md)
   * **Converts JSS styles to styled-components**
   * See Material UI codemod projects for more [details](https://github.com/mui/material-ui/tree/master/packages/mui-codemod#jss-to-styled).
+  * Tags: material-ui
 * [org.openrewrite.codemods.migrate.mui.JssToTssReact](/user-documentation/recipes/recipe-catalog/codemods/migrate/mui/jsstotssreact.md)
   * **Converts JSS to TypeScript in React components**
   * See Material UI codemod projects for more [details](https://github.com/mui/material-ui/tree/master/packages/mui-codemod#jss-to-tss-react).
+  * Tags: material-ui
 * [org.openrewrite.codemods.migrate.mui.LinkUnderlineHover](/user-documentation/recipes/recipe-catalog/codemods/migrate/mui/linkunderlinehover.md)
   * **Updates link underline on hover**
   * See Material UI codemod projects for more [details](https://github.com/mui/material-ui/tree/master/packages/mui-codemod#link-underline-hover).
+  * Tags: material-ui
 * [org.openrewrite.codemods.migrate.mui.MaterialUiStyles](/user-documentation/recipes/recipe-catalog/codemods/migrate/mui/materialuistyles.md)
   * **Updates usage of `@mui/styles`**
   * See Material UI codemod projects for more [details](https://github.com/mui/material-ui/tree/master/packages/mui-codemod#material-ui-styles).
+  * Tags: material-ui
 * [org.openrewrite.codemods.migrate.mui.MaterialUiTypes](/user-documentation/recipes/recipe-catalog/codemods/migrate/mui/materialuitypes.md)
   * **Updates usage of `@mui/types`**
   * See Material UI codemod projects for more [details](https://github.com/mui/material-ui/tree/master/packages/mui-codemod#material-ui-types).
+  * Tags: material-ui
 * [org.openrewrite.codemods.migrate.mui.ModalProps](/user-documentation/recipes/recipe-catalog/codemods/migrate/mui/modalprops.md)
   * **Updates props for Modal component**
   * See Material UI codemod projects for more [details](https://github.com/mui/material-ui/tree/master/packages/mui-codemod#modal-props).
+  * Tags: material-ui
 * [org.openrewrite.codemods.migrate.mui.MovedLabModules](/user-documentation/recipes/recipe-catalog/codemods/migrate/mui/movedlabmodules.md)
   * **Moves lab modules to `@mui/material`**
   * See Material UI codemod projects for more [details](https://github.com/mui/material-ui/tree/master/packages/mui-codemod#moved-lab-modules).
+  * Tags: material-ui
 * [org.openrewrite.codemods.migrate.mui.MuiReplace](/user-documentation/recipes/recipe-catalog/codemods/migrate/mui/muireplace.md)
   * **Replaces `@mui` imports with `@mui/material`**
   * See Material UI codemod projects for more [details](https://github.com/mui/material-ui/tree/master/packages/mui-codemod#mui-replace).
+  * Tags: material-ui
 * [org.openrewrite.codemods.migrate.mui.OptimalImports](/user-documentation/recipes/recipe-catalog/codemods/migrate/mui/optimalimports.md)
   * **Optimizes imports**
   * See Material UI codemod projects for more [details](https://github.com/mui/material-ui/tree/master/packages/mui-codemod#optimal-imports).
+  * Tags: material-ui
 * [org.openrewrite.codemods.migrate.mui.PaginationRoundCircular](/user-documentation/recipes/recipe-catalog/codemods/migrate/mui/paginationroundcircular.md)
   * **Updates `circular` prop to `variant=&quot;circular&quot;`**
   * See Material UI codemod projects for more [details](https://github.com/mui/material-ui/tree/master/packages/mui-codemod#pagination-round-circular).
+  * Tags: material-ui
 * [org.openrewrite.codemods.migrate.mui.PresetSafe](/user-documentation/recipes/recipe-catalog/codemods/migrate/mui/presetsafe.md)
   * **Ensures presets are safe to use**
   * See Material UI codemod projects for more [details](https://github.com/mui/material-ui/tree/master/packages/mui-codemod#preset-safe).
+  * Tags: material-ui
 * [org.openrewrite.codemods.migrate.mui.RenameCssVariables](/user-documentation/recipes/recipe-catalog/codemods/migrate/mui/renamecssvariables.md)
   * **Renames CSS variables**
   * See Material UI codemod projects for more [details](https://github.com/mui/material-ui/tree/master/packages/mui-codemod#rename-css-variables).
+  * Tags: material-ui
 * [org.openrewrite.codemods.migrate.mui.RootRef](/user-documentation/recipes/recipe-catalog/codemods/migrate/mui/rootref.md)
   * **Converts `rootRef` to `ref`**
   * See Material UI codemod projects for more [details](https://github.com/mui/material-ui/tree/master/packages/mui-codemod#root-ref).
+  * Tags: material-ui
 * [org.openrewrite.codemods.migrate.mui.SkeletonVariant](/user-documentation/recipes/recipe-catalog/codemods/migrate/mui/skeletonvariant.md)
   * **Updates `variant` prop for Skeleton component**
   * See Material UI codemod projects for more [details](https://github.com/mui/material-ui/tree/master/packages/mui-codemod#skeleton-variant).
+  * Tags: material-ui
 * [org.openrewrite.codemods.migrate.mui.Styled](/user-documentation/recipes/recipe-catalog/codemods/migrate/mui/styled.md)
   * **Updates the usage of `styled` from `@mui/system@v5` to be compatible with` @pigment-css/react`**
   * See Material UI codemod projects for more [details](https://github.com/mui/material-ui/tree/master/packages/mui-codemod#styled).
+  * Tags: material-ui
 * [org.openrewrite.codemods.migrate.mui.StyledEngineProvider](/user-documentation/recipes/recipe-catalog/codemods/migrate/mui/styledengineprovider.md)
   * **Updates usage of styled engine provider**
   * See Material UI codemod projects for more [details](https://github.com/mui/material-ui/tree/master/packages/mui-codemod#styled-engine-provider).
+  * Tags: material-ui
 * [org.openrewrite.codemods.migrate.mui.SxProp](/user-documentation/recipes/recipe-catalog/codemods/migrate/mui/sxprop.md)
   * **Update the usage of the `sx` prop to be compatible with `@pigment-css/react`**
   * See Material UI codemod projects for more [details](https://github.com/mui/material-ui/tree/master/packages/mui-codemod#sx-prop).
+  * Tags: material-ui
 * [org.openrewrite.codemods.migrate.mui.SystemProps](/user-documentation/recipes/recipe-catalog/codemods/migrate/mui/systemprops.md)
   * **Remove system props and add them to the `sx` prop**
   * See Material UI codemod projects for more [details](https://github.com/mui/material-ui/tree/master/packages/mui-codemod#system-props).
+  * Tags: material-ui
 * [org.openrewrite.codemods.migrate.mui.TableProps](/user-documentation/recipes/recipe-catalog/codemods/migrate/mui/tableprops.md)
   * **Updates props for Table component**
   * See Material UI codemod projects for more [details](https://github.com/mui/material-ui/tree/master/packages/mui-codemod#table-props).
+  * Tags: material-ui
 * [org.openrewrite.codemods.migrate.mui.TabsScrollButtons](/user-documentation/recipes/recipe-catalog/codemods/migrate/mui/tabsscrollbuttons.md)
   * **Updates scroll buttons for Tabs component**
   * See Material UI codemod projects for more [details](https://github.com/mui/material-ui/tree/master/packages/mui-codemod#tabs-scroll-buttons).
+  * Tags: material-ui
 * [org.openrewrite.codemods.migrate.mui.TextareaMinmaxRows](/user-documentation/recipes/recipe-catalog/codemods/migrate/mui/textareaminmaxrows.md)
   * **Updates `minRows` and `maxRows` props for TextareaAutosize component**
   * See Material UI codemod projects for more [details](https://github.com/mui/material-ui/tree/master/packages/mui-codemod#textarea-minmax-rows).
+  * Tags: material-ui
 * [org.openrewrite.codemods.migrate.mui.ThemeAugment](/user-documentation/recipes/recipe-catalog/codemods/migrate/mui/themeaugment.md)
   * **Adds `DefaultTheme` module augmentation to typescript projects**
   * See Material UI codemod projects for more [details](https://github.com/mui/material-ui/tree/master/packages/mui-codemod#theme-augment).
+  * Tags: material-ui
 * [org.openrewrite.codemods.migrate.mui.ThemeBreakpoints](/user-documentation/recipes/recipe-catalog/codemods/migrate/mui/themebreakpoints.md)
   * **Updates theme breakpoints**
   * See Material UI codemod projects for more [details](https://github.com/mui/material-ui/tree/master/packages/mui-codemod#theme-breakpoints).
+  * Tags: material-ui
 * [org.openrewrite.codemods.migrate.mui.ThemeBreakpointsWidth](/user-documentation/recipes/recipe-catalog/codemods/migrate/mui/themebreakpointswidth.md)
   * **Updates `width` values for theme breakpoints**
   * See Material UI codemod projects for more [details](https://github.com/mui/material-ui/tree/master/packages/mui-codemod#theme-breakpoints-width).
+  * Tags: material-ui
 * [org.openrewrite.codemods.migrate.mui.ThemeOptions](/user-documentation/recipes/recipe-catalog/codemods/migrate/mui/themeoptions.md)
   * **Updates theme options**
   * See Material UI codemod projects for more [details](https://github.com/mui/material-ui/tree/master/packages/mui-codemod#theme-options).
+  * Tags: material-ui
 * [org.openrewrite.codemods.migrate.mui.ThemePaletteMode](/user-documentation/recipes/recipe-catalog/codemods/migrate/mui/themepalettemode.md)
   * **Updates theme palette mode**
   * See Material UI codemod projects for more [details](https://github.com/mui/material-ui/tree/master/packages/mui-codemod#theme-palette-mode).
+  * Tags: material-ui
 * [org.openrewrite.codemods.migrate.mui.ThemeProvider](/user-documentation/recipes/recipe-catalog/codemods/migrate/mui/themeprovider.md)
   * **Updates usage of ThemeProvider**
   * See Material UI codemod projects for more [details](https://github.com/mui/material-ui/tree/master/packages/mui-codemod#theme-provider).
+  * Tags: material-ui
 * [org.openrewrite.codemods.migrate.mui.ThemeSpacing](/user-documentation/recipes/recipe-catalog/codemods/migrate/mui/themespacing.md)
   * **Updates theme spacing**
   * See Material UI codemod projects for more [details](https://github.com/mui/material-ui/tree/master/packages/mui-codemod#theme-spacing).
+  * Tags: material-ui
 * [org.openrewrite.codemods.migrate.mui.ThemeSpacingApi](/user-documentation/recipes/recipe-catalog/codemods/migrate/mui/themespacingapi.md)
   * **Updates theme spacing API**
   * See Material UI codemod projects for more [details](https://github.com/mui/material-ui/tree/master/packages/mui-codemod#theme-spacing-api).
+  * Tags: material-ui
 * [org.openrewrite.codemods.migrate.mui.ThemeTypographyRound](/user-documentation/recipes/recipe-catalog/codemods/migrate/mui/themetypographyround.md)
   * **Updates `round` values for theme typography**
   * See Material UI codemod projects for more [details](https://github.com/mui/material-ui/tree/master/packages/mui-codemod#theme-typography-round).
+  * Tags: material-ui
 * [org.openrewrite.codemods.migrate.mui.ThemeV](/user-documentation/recipes/recipe-catalog/codemods/migrate/mui/themev.md)
   * **Update the theme creation from `@mui/system@v5` to be compatible with `@pigment-css/react`**
   * See Material UI codemod projects for more [details](https://github.com/mui/material-ui/tree/master/packages/mui-codemod#theme-v6).
+  * Tags: material-ui
 * [org.openrewrite.codemods.migrate.mui.TopLevelImports](/user-documentation/recipes/recipe-catalog/codemods/migrate/mui/toplevelimports.md)
   * **Converts all `@mui/material` submodule imports to the root module**
   * See Material UI codemod projects for more [details](https://github.com/mui/material-ui/tree/master/packages/mui-codemod#top-level-imports).
+  * Tags: material-ui
 * [org.openrewrite.codemods.migrate.mui.Transitions](/user-documentation/recipes/recipe-catalog/codemods/migrate/mui/transitions.md)
   * **Updates usage of transitions**
   * See Material UI codemod projects for more [details](https://github.com/mui/material-ui/tree/master/packages/mui-codemod#transitions).
+  * Tags: material-ui
 * [org.openrewrite.codemods.migrate.mui.TreeViewMovedToX](/user-documentation/recipes/recipe-catalog/codemods/migrate/mui/treeviewmovedtox.md)
   * **Moves tree view to `@mui/x-tree-view`**
   * See Material UI codemod projects for more [details](https://github.com/mui/material-ui/tree/master/packages/mui-codemod#tree-view-moved-to-x).
+  * Tags: material-ui
 * [org.openrewrite.codemods.migrate.mui.UseAutocomplete](/user-documentation/recipes/recipe-catalog/codemods/migrate/mui/useautocomplete.md)
   * **Updates usage of useAutocomplete**
   * See Material UI codemod projects for more [details](https://github.com/mui/material-ui/tree/master/packages/mui-codemod#use-autocomplete).
+  * Tags: material-ui
 * [org.openrewrite.codemods.migrate.mui.UseTransitionprops](/user-documentation/recipes/recipe-catalog/codemods/migrate/mui/usetransitionprops.md)
   * **Updates usage of useTransitionProps**
   * See Material UI codemod projects for more [details](https://github.com/mui/material-ui/tree/master/packages/mui-codemod#use-transitionprops).
+  * Tags: material-ui
 * [org.openrewrite.codemods.migrate.mui.VariantProp](/user-documentation/recipes/recipe-catalog/codemods/migrate/mui/variantprop.md)
   * **Updates `variant` prop usage**
   * See Material UI codemod projects for more [details](https://github.com/mui/material-ui/tree/master/packages/mui-codemod#variant-prop).
+  * Tags: material-ui
 * [org.openrewrite.codemods.migrate.mui.WithMobileDialog](/user-documentation/recipes/recipe-catalog/codemods/migrate/mui/withmobiledialog.md)
   * **Updates withMobileDialog higher-order component**
   * See Material UI codemod projects for more [details](https://github.com/mui/material-ui/tree/master/packages/mui-codemod#with-mobile-dialog).
+  * Tags: material-ui
 * [org.openrewrite.codemods.migrate.mui.WithWidth](/user-documentation/recipes/recipe-catalog/codemods/migrate/mui/withwidth.md)
   * **Updates withWidth higher-order component**
   * See Material UI codemod projects for more [details](https://github.com/mui/material-ui/tree/master/packages/mui-codemod#with-width).
+  * Tags: material-ui
 
 ## math
 
@@ -7209,6 +7565,7 @@ _1 recipe_
 * [com.oracle.weblogic.rewrite.jakarta.MitigateUnaffectedNonEEJakarta9Packages](/user-documentation/recipes/recipe-catalog/com/oracle/weblogic/rewrite/jakarta/mitigateunaffectednoneejakarta9packages.md)
   * **Mitigate Unaffected Non-EE Jakarta 9 Packages**
   * Mitigate Unaffected Non-EE Jakarta 9 Packages. Reference: [https://github.com/jakartaee/platform/blob/main/namespace/unaffected-packages.adoc](https://github.com/jakartaee/platform/blob/main/namespace/unaffected-packages.adoc)
+  * Tags: non-eejakarta
 
 ## oauth2
 
@@ -7492,9 +7849,11 @@ _7 recipes_
 * [com.oracle.weblogic.rewrite.WebLogicPersistenceConfigurationXmlNamespace1412](/user-documentation/recipes/recipe-catalog/com/oracle/weblogic/rewrite/weblogicpersistenceconfigurationxmlnamespace1412.md)
   * **Migrate xmlns entries in `persistence-configuration.xml` files to WebLogic 14.1.2**
   * Migrate xmlns entries in WebLogic EJB 3.2 Persistence Configuration schema files to WebLogic 14.1.2
+  * Tags: persistence-configuration
 * [com.oracle.weblogic.rewrite.WebLogicPersistenceConfigurationXmlNamespace1511](/user-documentation/recipes/recipe-catalog/com/oracle/weblogic/rewrite/weblogicpersistenceconfigurationxmlnamespace1511.md)
   * **Migrate xmlns entries in `persistence-configuration.xml` files to WebLogic 15.1.1**
   * This recipe will update the `xmlns` entries in `persistence-configuration.xml` files to WebLogic 15.1.1
+  * Tags: persistence-configuration
 * [com.oracle.weblogic.rewrite.hibernate.UpgradeHibernateTo66](/user-documentation/recipes/recipe-catalog/com/oracle/weblogic/rewrite/hibernate/upgradehibernateto66.md)
   * **Upgrade Hibernate to 6.6**
   * This recipe upgrades Hibernate to version 6.6, which is compatible with Jakarta EE 10 and JPA 3.1. It also upgrades a few of the commonly used Hibernate add-ons.
@@ -8038,9 +8397,11 @@ _2 recipes_
 * [com.oracle.weblogic.rewrite.WebLogicRdbmsJarXmlNamespace1412](/user-documentation/recipes/recipe-catalog/com/oracle/weblogic/rewrite/weblogicrdbmsjarxmlnamespace1412.md)
   * **Migrate xmlns entries in `weblogic-rdbms-jar.xml` files to WebLogic 14.1.2**
   * Migrate xmlns entries in WebLogic EJB 3.2 RDBMS schema files to WebLogic 14.1.2
+  * Tags: rdbms-jar
 * [com.oracle.weblogic.rewrite.WebLogicRdbmsJarXmlNamespace1511](/user-documentation/recipes/recipe-catalog/com/oracle/weblogic/rewrite/weblogicrdbmsjarxmlnamespace1511.md)
   * **Migrate xmlns entries in `weblogic-rdbms-jar.xml` files to WebLogic 15.1.1**
   * This recipe will update the `xmlns` entries in `weblogic-rdbms-jar.xml` files to WebLogic 15.1.1
+  * Tags: rdbms-jar
 
 ## RDS
 
@@ -8118,9 +8479,11 @@ _2 recipes_
 * [com.oracle.weblogic.rewrite.WebLogicResourceDeploymentPlanXmlNamespace1412](/user-documentation/recipes/recipe-catalog/com/oracle/weblogic/rewrite/weblogicresourcedeploymentplanxmlnamespace1412.md)
   * **Migrate xmlns entries in `resource-deployment-plan.xml` files to WebLogic 14.1.2**
   * Migrate xmlns entries in WebLogic Resource Deployment Plan schema files to WebLogic 14.1.2
+  * Tags: resource-deployment-plan
 * [com.oracle.weblogic.rewrite.WebLogicResourceDeploymentPlanXmlNamespace1511](/user-documentation/recipes/recipe-catalog/com/oracle/weblogic/rewrite/weblogicresourcedeploymentplanxmlnamespace1511.md)
   * **Migrate xmlns entries in `resource-deployment-plan.xml` files to WebLogic 15.1.1**
   * This recipe will update the `xmlns` entries in `resource-deployment-plan.xml` files to WebLogic 15.1.1
+  * Tags: resource-deployment-plan
 
 ## rest
 
@@ -8151,594 +8514,791 @@ _197 recipes_
 * [org.openrewrite.cobol.cleanup.RemoveWithDebuggingMode](/user-documentation/recipes/recipe-catalog/cobol/cleanup/removewithdebuggingmode.md)
   * **Remove with debugging mode**
   * Remove debugging mode from SOURCE-COMPUTER paragraphs.
+  * Tags: RSPEC-4057
 * [org.openrewrite.java.RemoveUnusedImports](/user-documentation/recipes/recipe-catalog/java/removeunusedimports.md)
   * **Remove unused imports**
   * Remove imports for types that are not referenced. As a precaution against incorrect changes no imports will be removed from any source where unknown types are referenced.
+  * Tags: RSPEC-S1128
 * [org.openrewrite.java.format.EmptyNewlineAtEndOfFile](/user-documentation/recipes/recipe-catalog/java/format/emptynewlineatendoffile.md)
   * **End files with a single newline**
   * Some tools work better when files end with an empty line.
+  * Tags: RSPEC-S113
 * [org.openrewrite.java.format.WrappingAndBraces](/user-documentation/recipes/recipe-catalog/java/format/wrappingandbraces.md)
   * **Wrapping and braces**
   * Format line wraps and braces in Java code.
+  * Tags: RSPEC-S121, RSPEC-S2681, RSPEC-S3972, RSPEC-S3973
 * [org.openrewrite.java.logging.ParameterizedLogging](/user-documentation/recipes/recipe-catalog/java/logging/parameterizedlogging.md)
   * **Parameterize logging statements**
   * Transform logging statements using concatenation for messages and variables into a parameterized format. For example, `logger.info(&quot;hi &quot; + userName)` becomes `logger.info(&quot;hi \{\}&quot;, userName)`. This can significantly boost performance for messages that otherwise would be assembled with String concatenation. Particularly impactful when the log level is not enabled, as no work is done to assemble the message.
+  * Tags: RSPEC-S2629, RSPEC-S3457
 * [org.openrewrite.java.logging.slf4j.LoggersNamedForEnclosingClass](/user-documentation/recipes/recipe-catalog/java/logging/slf4j/loggersnamedforenclosingclass.md)
   * **Loggers should be named for their enclosing classes**
   * Ensure `LoggerFactory#getLogger(Class)` is called with the enclosing class as argument.
+  * Tags: RSPEC-S3416
 * [org.openrewrite.java.logging.slf4j.ParameterizedLogging](/user-documentation/recipes/recipe-catalog/java/logging/slf4j/parameterizedlogging.md)
   * **Parameterize SLF4J's logging statements**
   * Use SLF4J's parameterized logging, which can significantly boost performance for messages that otherwise would be assembled with String concatenation. Particularly impactful when the log level is not enabled, as no work is done to assemble the message.
+  * Tags: RSPEC-S2629
 * [org.openrewrite.java.migrate.guava.NoGuavaCreateTempDir](/user-documentation/recipes/recipe-catalog/java/migrate/guava/noguavacreatetempdir.md)
   * **Prefer `Files#createTempDirectory()`**
   * Replaces Guava `Files#createTempDir()` with Java `Files#createTempDirectory(..)`. Transformations are limited to scopes throwing or catching `java.io.IOException`.
+  * Tags: RSPEC-S4738
 * [org.openrewrite.java.migrate.guava.NoGuavaOptionalFromJavaUtil](/user-documentation/recipes/recipe-catalog/java/migrate/guava/noguavaoptionalfromjavautil.md)
   * **Replace `com.google.common.base.Optional#fromJavaUtil(java.util.Optional)` with argument**
   * Replaces `com.google.common.base.Optional#fromJavaUtil(java.util.Optional)` with argument.
+  * Tags: RSPEC-S4738
 * [org.openrewrite.java.migrate.guava.NoGuavaOptionalToJavaUtil](/user-documentation/recipes/recipe-catalog/java/migrate/guava/noguavaoptionaltojavautil.md)
   * **Remove `com.google.common.base.Optional#toJavaUtil()`**
   * Remove calls to `com.google.common.base.Optional#toJavaUtil()`.
+  * Tags: RSPEC-S4738
 * [org.openrewrite.java.migrate.guava.PreferJavaUtilFunction](/user-documentation/recipes/recipe-catalog/java/migrate/guava/preferjavautilfunction.md)
   * **Prefer `java.util.function.Function`**
   * Prefer `java.util.function.Function` instead of using `com.google.common.base.Function`.
+  * Tags: RSPEC-S4738
 * [org.openrewrite.java.migrate.guava.PreferJavaUtilOptional](/user-documentation/recipes/recipe-catalog/java/migrate/guava/preferjavautiloptional.md)
   * **Prefer `java.util.Optional`**
   * Prefer `java.util.Optional` instead of using `com.google.common.base.Optional`.
+  * Tags: RSPEC-S4738
 * [org.openrewrite.java.migrate.guava.PreferJavaUtilOptionalOrElseNull](/user-documentation/recipes/recipe-catalog/java/migrate/guava/preferjavautiloptionalorelsenull.md)
   * **Prefer `java.util.Optional#orElse(null)` over `com.google.common.base.Optional#orNull()`**
   * Replaces `com.google.common.base.Optional#orNull()` with `java.util.Optional#orElse(null)`.
+  * Tags: RSPEC-S4738
 * [org.openrewrite.java.migrate.guava.PreferJavaUtilOptionalOrSupplier](/user-documentation/recipes/recipe-catalog/java/migrate/guava/preferjavautiloptionalorsupplier.md)
   * **Prefer `java.util.Optional#or(Supplier&lt;T extends java.util.Optional&lt;T&gt;&gt;)`**
   * Prefer `java.util.Optional#or(Supplier&lt;T extends java.util.Optional&lt;T&gt;&gt;)` over `com.google.common.base.Optional#or(com.google.common.base.Optional).
+  * Tags: RSPEC-S4738
 * [org.openrewrite.java.migrate.guava.PreferJavaUtilPredicate](/user-documentation/recipes/recipe-catalog/java/migrate/guava/preferjavautilpredicate.md)
   * **Prefer `java.util.function.Predicate`**
   * Prefer `java.util.function.Predicate` instead of using `com.google.common.base.Predicate`.
+  * Tags: RSPEC-S4738
 * [org.openrewrite.java.migrate.guava.PreferJavaUtilSupplier](/user-documentation/recipes/recipe-catalog/java/migrate/guava/preferjavautilsupplier.md)
   * **Prefer `java.util.function.Supplier`**
   * Prefer `java.util.function.Supplier` instead of using `com.google.common.base.Supplier`.
+  * Tags: RSPEC-S4738
 * [org.openrewrite.java.migrate.util.ReplaceStreamCollectWithToList](/user-documentation/recipes/recipe-catalog/java/migrate/util/replacestreamcollectwithtolist.md)
   * **Replace `Stream.collect(Collectors.toUnmodifiableList())` with `Stream.toList()`**
   * Replace `Stream.collect(Collectors.toUnmodifiableList())` with Java 16+ `Stream.toList()`. Also replaces `Stream.collect(Collectors.toList())` if `convertToList` is set to `true`.
+  * Tags: RSPEC-S6204
 * [org.openrewrite.java.search.FindEmptyClasses](/user-documentation/recipes/recipe-catalog/java/search/findemptyclasses.md)
   * **Find empty classes**
   * Find empty classes without annotations that do not implement an interface or extend a class.
+  * Tags: RSPEC-S2094
 * [org.openrewrite.java.search.FindEmptyMethods](/user-documentation/recipes/recipe-catalog/java/search/findemptymethods.md)
   * **Find methods with empty bodies**
   * Find methods with empty bodies and single public no arg constructors.
+  * Tags: RSPEC-S1186
 * [org.openrewrite.java.security.SecureRandom](/user-documentation/recipes/recipe-catalog/java/security/securerandom.md)
   * **Secure random**
   * Use cryptographically secure Pseudo Random Number Generation in the &quot;main&quot; source set. Replaces instantiation of `java.util.Random` with `java.security.SecureRandom`.
+  * Tags: RSPEC-S2245
 * [org.openrewrite.java.security.SecureRandomPrefersDefaultSeed](/user-documentation/recipes/recipe-catalog/java/security/securerandomprefersdefaultseed.md)
   * **SecureRandom seeds are not constant or predictable**
   * Remove `SecureRandom#setSeed(*)` method invocations having constant or predictable arguments.
+  * Tags: RSPEC-S4347
 * [org.openrewrite.java.security.UseFilesCreateTempDirectory](/user-documentation/recipes/recipe-catalog/java/security/usefilescreatetempdirectory.md)
   * **Use `Files#createTempDirectory`**
   * Use `Files#createTempDirectory` when the sequence `File#createTempFile(..)`-&gt;`File#delete()`-&gt;`File#mkdir()` is used for creating a temp directory.
+  * Tags: RSPEC-S5445
 * [org.openrewrite.java.spring.NoRequestMappingAnnotation](/user-documentation/recipes/recipe-catalog/java/spring/norequestmappingannotation.md)
   * **Remove `@RequestMapping` annotations**
   * Replace method declaration `@RequestMapping` annotations with `@GetMapping`, `@PostMapping`, etc. when possible.
+  * Tags: RSPEC-S4488
 * [org.openrewrite.java.testing.assertj.SimplifyChainedAssertJAssertion](/user-documentation/recipes/recipe-catalog/java/testing/assertj/simplifychainedassertjassertion.md)
   * **Simplify AssertJ chained assertions**
   * Many AssertJ chained assertions have dedicated assertions that function the same. It is best to use the dedicated assertions.
+  * Tags: RSPEC-S5838
 * [org.openrewrite.java.testing.cleanup.AssertionsArgumentOrder](/user-documentation/recipes/recipe-catalog/java/testing/cleanup/assertionsargumentorder.md)
   * **Assertion arguments should be passed in the correct order**
   * Assertions such as `org.junit.Assert.assertEquals` expect the first argument to be the expected value and the second argument to be the actual value; for `org.testng.Assert`, it’s the other way around.  This recipe detects `J.Literal`, `J.NewArray`, and `java.util.Iterable` arguments swapping them if necessary so that the error messages won't be confusing.
+  * Tags: RSPEC-S3415
 * [org.openrewrite.java.testing.cleanup.RemoveEmptyTests](/user-documentation/recipes/recipe-catalog/java/testing/cleanup/removeemptytests.md)
   * **Remove empty tests without comments**
   * Removes empty methods with a `@Test` annotation if the body does not have comments.
+  * Tags: RSPEC-S1186
 * [org.openrewrite.java.testing.cleanup.TestsShouldIncludeAssertions](/user-documentation/recipes/recipe-catalog/java/testing/cleanup/testsshouldincludeassertions.md)
   * **Include an assertion in tests**
   * For tests not having any assertions, wrap the statements with JUnit Jupiter's `Assertions#assertDoesNotThrow(..)`.
+  * Tags: RSPEC-S2699
 * [org.openrewrite.java.testing.cleanup.TestsShouldNotBePublic](/user-documentation/recipes/recipe-catalog/java/testing/cleanup/testsshouldnotbepublic.md)
   * **Remove `public` visibility of JUnit 5 tests**
   * Remove `public` and optionally `protected` modifiers from methods with `@Test`, `@ParameterizedTest`, `@RepeatedTest`, `@TestFactory`, `@BeforeEach`, `@AfterEach`, `@BeforeAll`, or `@AfterAll`. They no longer have to be public visibility to be usable by JUnit 5.
+  * Tags: RSPEC-S5786
 * [org.openrewrite.java.testing.junit5.AddMissingNested](/user-documentation/recipes/recipe-catalog/java/testing/junit5/addmissingnested.md)
   * **JUnit 5 inner test classes should be annotated with `@Nested`**
   * Adds `@Nested` to inner classes that contain JUnit 5 tests.
+  * Tags: RSPEC-S5790
 * [org.openrewrite.java.testing.junit5.RemoveTryCatchFailBlocks](/user-documentation/recipes/recipe-catalog/java/testing/junit5/removetrycatchfailblocks.md)
   * **Replace `fail()` in `try-catch` blocks with `Assertions.assertDoesNotThrow(() -&gt; \{ ... \})`**
   * Replace `try-catch` blocks where `catch` merely contains a `fail()` for `fail(String)` statement with `Assertions.assertDoesNotThrow(() -&gt; \{ ... \})`.
+  * Tags: RSPEC-S3658
 * [org.openrewrite.java.testing.mockito.SimplifyMockitoVerifyWhenGiven](/user-documentation/recipes/recipe-catalog/java/testing/mockito/simplifymockitoverifywhengiven.md)
   * **Call to Mockito method &quot;verify&quot;, &quot;when&quot; or &quot;given&quot; should be simplified**
   * Fixes Sonar issue `java:S6068`: Call to Mockito method &quot;verify&quot;, &quot;when&quot; or &quot;given&quot; should be simplified.
+  * Tags: RSPEC-6068
 * [org.openrewrite.kotlin.cleanup.EqualsMethodUsage](/user-documentation/recipes/recipe-catalog/kotlin/cleanup/equalsmethodusage.md)
   * **Structural equality tests should use `==` or `!=`**
   * In Kotlin, `==` means structural equality and `!=` structural inequality and both map to the left-side term’s `equals()` function. It is, therefore, redundant to call `equals()` as a function. Also, `==` and `!=` are more general than `equals()` and `!equals()` because it allows either of both operands to be `null`. Developers using `equals()` instead of `==` or `!=` is often the result of adapting styles from other languages like Java, where `==` means reference equality and `!=` means reference inequality. The `==` and `!=` operators are a more concise and elegant way to test structural equality than calling a function.
+  * Tags: RSPEC-S6519
 * [org.openrewrite.kotlin.cleanup.ImplicitParameterInLambda](/user-documentation/recipes/recipe-catalog/kotlin/cleanup/implicitparameterinlambda.md)
   * **`it` shouldn't be used as a lambda parameter name**
   * `it` is a special identifier that allows you to refer to the current parameter being passed to a lambda expression without explicitly naming the parameter. Lambda expressions are a concise way of writing anonymous functions. Many lambda expressions have only one parameter, when this is true the compiler can determine the parameter type by context. Thus when using it with single parameter lambda expressions, you do not need to declare the type.
+  * Tags: RSPEC-S6558
 * [org.openrewrite.maven.OrderPomElements](/user-documentation/recipes/recipe-catalog/maven/orderpomelements.md)
   * **Order POM elements**
   * Order POM elements according to the [recommended](https://maven.apache.org/developers/conventions/code.html#pom-code-convention) order.
+  * Tags: RSPEC-S3423
 * [org.openrewrite.staticanalysis.AbstractClassPublicConstructor](/user-documentation/recipes/recipe-catalog/staticanalysis/abstractclasspublicconstructor.md)
   * **Constructors of an `abstract` class should not be declared `public`**
   * Constructors of `abstract` classes can only be called in constructors of their subclasses. Therefore the visibility of `public` constructors are reduced to `protected`.
+  * Tags: RSPEC-S5993
 * [org.openrewrite.staticanalysis.AddSerialVersionUidToSerializable](/user-documentation/recipes/recipe-catalog/staticanalysis/addserialversionuidtoserializable.md)
   * **Add `serialVersionUID` to a `Serializable` class when missing**
   * A `serialVersionUID` field is strongly recommended in all `Serializable` classes. If this is not defined on a `Serializable` class, the compiler will generate this value. If a change is later made to the class, the generated value will change and attempts to deserialize the class will fail.
+  * Tags: RSPEC-S2057
 * [org.openrewrite.staticanalysis.AtomicPrimitiveEqualsUsesGet](/user-documentation/recipes/recipe-catalog/staticanalysis/atomicprimitiveequalsusesget.md)
   * **Atomic Boolean, Integer, and Long equality checks compare their values**
   * `AtomicBoolean#equals(Object)`, `AtomicInteger#equals(Object)` and `AtomicLong#equals(Object)` are only equal to their instance. This recipe converts `a.equals(b)` to `a.get() == b.get()`.
+  * Tags: RSPEC-S2204
 * [org.openrewrite.staticanalysis.AvoidBoxedBooleanExpressions](/user-documentation/recipes/recipe-catalog/staticanalysis/avoidboxedbooleanexpressions.md)
   * **Avoid boxed boolean expressions**
   * Under certain conditions the `java.lang.Boolean` type is used as an expression, and it may throw a `NullPointerException` if the value is null.
+  * Tags: RSPEC-S5411
 * [org.openrewrite.staticanalysis.BigDecimalDoubleConstructorRecipe](/user-documentation/recipes/recipe-catalog/staticanalysis/bigdecimaldoubleconstructorrecipe.md)
   * **`new BigDecimal(double)` should not be used**
   * Use of `new BigDecimal(double)` constructor can lead to loss of precision. Use `BigDecimal.valueOf(double)` instead. For example writing `new BigDecimal(0.1)` does not create a `BigDecimal` which is exactly equal to `0.1`, but it is equal to `0.1000000000000000055511151231257827021181583404541015625`. This is because `0.1` cannot be represented exactly as a double (or, for that matter, as a binary fraction of any finite length).
+  * Tags: RSPEC-S2111
 * [org.openrewrite.staticanalysis.BigDecimalRoundingConstantsToEnums](/user-documentation/recipes/recipe-catalog/staticanalysis/bigdecimalroundingconstantstoenums.md)
   * **`BigDecimal` rounding constants to `RoundingMode` enums**
   * Convert `BigDecimal` rounding constants to the equivalent `RoundingMode` enum.
+  * Tags: RSPEC-S2111
 * [org.openrewrite.staticanalysis.BooleanChecksNotInverted](/user-documentation/recipes/recipe-catalog/staticanalysis/booleanchecksnotinverted.md)
   * **Boolean checks should not be inverted**
   * Ensures that boolean checks are not unnecessarily inverted. Also fixes double negative boolean expressions.
+  * Tags: RSPEC-S1940
 * [org.openrewrite.staticanalysis.CaseInsensitiveComparisonsDoNotChangeCase](/user-documentation/recipes/recipe-catalog/staticanalysis/caseinsensitivecomparisonsdonotchangecase.md)
   * **CaseInsensitive comparisons do not alter case**
   * Remove `String#toLowerCase()` or `String#toUpperCase()` from `String#equalsIgnoreCase(..)` comparisons.
+  * Tags: RSPEC-S1157
 * [org.openrewrite.staticanalysis.CatchClauseOnlyRethrows](/user-documentation/recipes/recipe-catalog/staticanalysis/catchclauseonlyrethrows.md)
   * **Catch clause should do more than just rethrow**
   * A `catch` clause that only rethrows the caught exception is unnecessary. Letting the exception bubble up as normal achieves the same result with less code.
+  * Tags: RSPEC-S2737
 * [org.openrewrite.staticanalysis.CollectionToArrayShouldHaveProperType](/user-documentation/recipes/recipe-catalog/staticanalysis/collectiontoarrayshouldhavepropertype.md)
   * **'Collection.toArray()' should be passed an array of the proper type**
   * Using `Collection.toArray()` without parameters returns an `Object[]`, which requires casting. It is more efficient and clearer to use `Collection.toArray(new T[0])` instead.
+  * Tags: RSPEC-S3020
 * [org.openrewrite.staticanalysis.CombineSemanticallyEqualCatchBlocks](/user-documentation/recipes/recipe-catalog/staticanalysis/combinesemanticallyequalcatchblocks.md)
   * **Combine semantically equal catch blocks**
   * Combine catches in a try that contain semantically equivalent blocks. No change will be made when a caught exception exists if combining catches may change application behavior or type attribution is missing.
+  * Tags: RSPEC-S2147
 * [org.openrewrite.staticanalysis.CommonDeclarationSiteTypeVariances](/user-documentation/recipes/recipe-catalog/staticanalysis/commondeclarationsitetypevariances.md)
   * **Properly use declaration-site type variance for well-known types**
   * When using a method parameter like `Function&lt;IN, OUT&gt;`, it should rather be `Function&lt;? super IN, ? extends OUT&gt;`. This recipe checks for method parameters of well-known types.
+  * Tags: RSPEC-S1217
 * [org.openrewrite.staticanalysis.CompareEnumsWithEqualityOperator](/user-documentation/recipes/recipe-catalog/staticanalysis/compareenumswithequalityoperator.md)
   * **Enum values should be compared with &quot;==&quot;**
   * Replaces `Enum equals(java.lang.Object)` with `Enum == java.lang.Object`. An `!Enum equals(java.lang.Object)` will change to `!=`.
+  * Tags: RSPEC-S4551
 * [org.openrewrite.staticanalysis.ControlFlowIndentation](/user-documentation/recipes/recipe-catalog/staticanalysis/controlflowindentation.md)
   * **Control flow statement indentation**
   * Program flow control statements like `if`, `while`, and `for` can omit curly braces when they apply to only a single statement. This recipe ensures that any statements which follow that statement are correctly indented to show they are not part of the flow control statement.
+  * Tags: RSPEC-S2681
 * [org.openrewrite.staticanalysis.CovariantEquals](/user-documentation/recipes/recipe-catalog/staticanalysis/covariantequals.md)
   * **Covariant equals**
   * Checks that classes and records which define a covariant `equals()` method also override method `equals(Object)`. Covariant `equals()` means a method that is similar to `equals(Object)`, but with a covariant parameter type (any subtype of `Object`).
+  * Tags: RSPEC-S2162
 * [org.openrewrite.staticanalysis.DefaultComesLast](/user-documentation/recipes/recipe-catalog/staticanalysis/defaultcomeslast.md)
   * **Default comes last**
   * Ensure the `default` case comes last after all the cases in a switch statement.
+  * Tags: RSPEC-S4524
 * [org.openrewrite.staticanalysis.EmptyBlock](/user-documentation/recipes/recipe-catalog/staticanalysis/emptyblock.md)
   * **Remove empty blocks**
   * Remove empty blocks that effectively do nothing.
+  * Tags: RSPEC-S108
 * [org.openrewrite.staticanalysis.EqualsAvoidsNull](/user-documentation/recipes/recipe-catalog/staticanalysis/equalsavoidsnull.md)
   * **Equals avoids null**
   * Checks that any combination of String literals is on the left side of an `equals()` comparison. Also checks for String literals assigned to some field (such as `someString.equals(anotherString = &quot;text&quot;))`. And removes redundant null checks in conjunction with equals comparisons.
+  * Tags: RSPEC-S1132
 * [org.openrewrite.staticanalysis.ExplicitInitialization](/user-documentation/recipes/recipe-catalog/staticanalysis/explicitinitialization.md)
   * **Explicit initialization**
   * Checks if any class or object member is explicitly initialized to default for its type value:  - `null` for object references  - zero for numeric types and `char`  - and `false` for `boolean` Removes explicit initializations where they aren't necessary.
+  * Tags: RSPEC-S3052
 * [org.openrewrite.staticanalysis.ExplicitLambdaArgumentTypes](/user-documentation/recipes/recipe-catalog/staticanalysis/explicitlambdaargumenttypes.md)
   * **Use explicit types on lambda arguments**
   * Adds explicit types on lambda arguments, which are otherwise optional. This can make the code clearer and easier to read. This does not add explicit types on arguments when the lambda has one or two parameters and does not have a block body, as things are considered more readable in those cases. For example, `stream.map((a, b) -&gt; a.length);` will not have explicit types added.
+  * Tags: RSPEC-S2211
 * [org.openrewrite.staticanalysis.ExternalizableHasNoArgsConstructor](/user-documentation/recipes/recipe-catalog/staticanalysis/externalizablehasnoargsconstructor.md)
   * **`Externalizable` classes have no-arguments constructor**
   * `Externalizable` classes handle both serialization and deserialization and must have a no-args constructor for the deserialization process.
+  * Tags: RSPEC-S2060
 * [org.openrewrite.staticanalysis.FallThrough](/user-documentation/recipes/recipe-catalog/staticanalysis/fallthrough.md)
   * **Fall through**
   * Checks for fall-through in switch statements, adding `break` statements in locations where a case contains Java code but does not have a `break`, `return`, `throw`, or `continue` statement.
+  * Tags: RSPEC-S128
 * [org.openrewrite.staticanalysis.FinalClass](/user-documentation/recipes/recipe-catalog/staticanalysis/finalclass.md)
   * **Finalize classes with private constructors**
   * Adds the `final` modifier to classes that expose no public or package-private constructors.
+  * Tags: RSPEC-S2974
 * [org.openrewrite.staticanalysis.FixStringFormatExpressions](/user-documentation/recipes/recipe-catalog/staticanalysis/fixstringformatexpressions.md)
   * **Fix `String#format` and `String#formatted` expressions**
   * Fix `String#format` and `String#formatted` expressions by replacing `\n` newline characters with `%n` and removing any unused arguments. Note this recipe is scoped to only transform format expressions which do not specify the argument index.
+  * Tags: RSPEC-S3457
 * [org.openrewrite.staticanalysis.ForLoopIncrementInUpdate](/user-documentation/recipes/recipe-catalog/staticanalysis/forloopincrementinupdate.md)
   * **`for` loop counters incremented in update**
   * The increment should be moved to the loop's increment clause if possible.
+  * Tags: RSPEC-S1994
 * [org.openrewrite.staticanalysis.HiddenField](/user-documentation/recipes/recipe-catalog/staticanalysis/hiddenfield.md)
   * **Hidden field**
   * Refactor local variables or parameters which shadow a field defined in the same class.
+  * Tags: RSPEC-S1117
 * [org.openrewrite.staticanalysis.HideUtilityClassConstructor](/user-documentation/recipes/recipe-catalog/staticanalysis/hideutilityclassconstructor.md)
   * **Hide utility class constructor**
   * Ensures utility classes (classes containing only static methods or fields in their API) do not have a public constructor.
+  * Tags: RSPEC-S1118
 * [org.openrewrite.staticanalysis.IndexOfChecksShouldUseAStartPosition](/user-documentation/recipes/recipe-catalog/staticanalysis/indexofchecksshoulduseastartposition.md)
   * **Use `indexOf(String, int)`**
   * Replaces `indexOf(String)` in binary operations if the compared value is an int and not less than 1.
+  * Tags: RSPEC-S2912
 * [org.openrewrite.staticanalysis.IndexOfReplaceableByContains](/user-documentation/recipes/recipe-catalog/staticanalysis/indexofreplaceablebycontains.md)
   * **`indexOf()` replaceable by `contains()`**
   * Checking if a value is included in a `String` or `List` using `indexOf(value)&gt;-1` or `indexOf(value)&gt;=0` can be replaced with `contains(value)`.
+  * Tags: RSPEC-S2692
 * [org.openrewrite.staticanalysis.IndexOfShouldNotCompareGreaterThanZero](/user-documentation/recipes/recipe-catalog/staticanalysis/indexofshouldnotcomparegreaterthanzero.md)
   * **`indexOf` should not compare greater than zero**
   * Replaces `String#indexOf(String) &gt; 0` and `List#indexOf(Object) &gt; 0` with `&gt;=1`. Checking `indexOf` against `&gt;0` ignores the first element, whereas `&gt;-1` is inclusive of the first element. For clarity, `&gt;=1` is used, because `&gt;0` and `&gt;=1` are semantically equal. Using `&gt;0` may appear to be a mistake with the intent of including all elements. If the intent is to check whether a value in included in a `String` or `List`, the `String#contains(String)` or `List#contains(Object)` methods may be better options altogether.
+  * Tags: RSPEC-S2692
 * [org.openrewrite.staticanalysis.InlineVariable](/user-documentation/recipes/recipe-catalog/staticanalysis/inlinevariable.md)
   * **Inline variable**
   * Inline variables when they are immediately used to return or throw. Supports both variable declarations and assignments to local variables.
+  * Tags: RSPEC-S1488
 * [org.openrewrite.staticanalysis.IsEmptyCallOnCollections](/user-documentation/recipes/recipe-catalog/staticanalysis/isemptycalloncollections.md)
   * **Use `Collection#isEmpty()` instead of comparing `size()`**
   * Also check for _not_ `isEmpty()` when testing for not equal to zero size.
+  * Tags: RSPEC-S1155, RSPEC-S3981
 * [org.openrewrite.staticanalysis.LowercasePackage](/user-documentation/recipes/recipe-catalog/staticanalysis/lowercasepackage.md)
   * **Rename packages to lowercase**
   * By convention all Java package names should contain only lowercase letters, numbers, and dashes. This recipe converts any uppercase letters in package names to be lowercase.
+  * Tags: RSPEC-S120
 * [org.openrewrite.staticanalysis.MethodNameCasing](/user-documentation/recipes/recipe-catalog/staticanalysis/methodnamecasing.md)
   * **Standardize method name casing**
   * Fixes method names that do not follow standard naming conventions. For example, `String getFoo_bar()` would be adjusted to `String getFooBar()` and `int DoSomething()` would be adjusted to `int doSomething()`.
+  * Tags: RSPEC-S100
 * [org.openrewrite.staticanalysis.MinimumSwitchCases](/user-documentation/recipes/recipe-catalog/staticanalysis/minimumswitchcases.md)
   * **`switch` statements should have at least 3 `case` clauses**
   * `switch` statements are useful when many code paths branch depending on the value of a single expression. For just one or two code paths, the code will be more readable with `if` statements.
+  * Tags: RSPEC-S1301
 * [org.openrewrite.staticanalysis.MissingOverrideAnnotation](/user-documentation/recipes/recipe-catalog/staticanalysis/missingoverrideannotation.md)
   * **Add missing `@Override` to overriding and implementing methods**
   * Adds `@Override` to methods overriding superclass methods or implementing interface methods. Annotating methods improves readability by showing the author's intent to override. Additionally, when annotated, the compiler will emit an error when a signature of the overridden method does not match the superclass method.
+  * Tags: RSPEC-S1161
 * [org.openrewrite.staticanalysis.ModifierOrder](/user-documentation/recipes/recipe-catalog/staticanalysis/modifierorder.md)
   * **Modifier order**
   * Modifiers should be declared in the correct order as recommended by the JLS.
+  * Tags: RSPEC-S1124
 * [org.openrewrite.staticanalysis.MultipleVariableDeclarations](/user-documentation/recipes/recipe-catalog/staticanalysis/multiplevariabledeclarations.md)
   * **No multiple variable declarations**
   * Places each variable declaration in its own statement and on its own line. Using one variable declaration per line encourages commenting and can increase readability.
+  * Tags: RSPEC-S1659
 * [org.openrewrite.staticanalysis.NeedBraces](/user-documentation/recipes/recipe-catalog/staticanalysis/needbraces.md)
   * **Fix missing braces**
   * Adds missing braces around code such as single-line `if`, `for`, `while`, and `do-while` block bodies.
+  * Tags: RSPEC-S121
 * [org.openrewrite.staticanalysis.NestedEnumsAreNotStatic](/user-documentation/recipes/recipe-catalog/staticanalysis/nestedenumsarenotstatic.md)
   * **Nested enums are not static**
   * Remove static modifier from nested enum types since they are implicitly static.
+  * Tags: RSPEC-S2786
 * [org.openrewrite.staticanalysis.NewStringBuilderBufferWithCharArgument](/user-documentation/recipes/recipe-catalog/staticanalysis/newstringbuilderbufferwithcharargument.md)
   * **Change `StringBuilder` and `StringBuffer` character constructor argument to `String`**
   * Instantiating a `StringBuilder` or a `StringBuffer` with a `Character` results in the `int` representation of the character being used for the initial size.
+  * Tags: RSPEC-S1317
 * [org.openrewrite.staticanalysis.NoDoubleBraceInitialization](/user-documentation/recipes/recipe-catalog/staticanalysis/nodoublebraceinitialization.md)
   * **No double brace initialization**
   * Replace `List`, `Map`, and `Set` double brace initialization with an initialization block.
+  * Tags: RSPEC-S1171, RSPEC-S3599
 * [org.openrewrite.staticanalysis.NoEmptyCollectionWithRawType](/user-documentation/recipes/recipe-catalog/staticanalysis/noemptycollectionwithrawtype.md)
   * **Use `Collections#emptyList()`, `emptyMap()`, and `emptySet()`**
   * Replaces `Collections#EMPTY_...` with methods that return generic types.
+  * Tags: RSPEC-S1596
 * [org.openrewrite.staticanalysis.NoEqualityInForCondition](/user-documentation/recipes/recipe-catalog/staticanalysis/noequalityinforcondition.md)
   * **Use comparison rather than equality checks in for conditions**
   * Testing for loop termination using an equality operator (`==` and `!=`) is dangerous, because it could set up an infinite loop. Using a relational operator instead makes it harder to accidentally write an infinite loop.
+  * Tags: RSPEC-S888
 * [org.openrewrite.staticanalysis.NoFinalizer](/user-documentation/recipes/recipe-catalog/staticanalysis/nofinalizer.md)
   * **Remove `finalize()` method**
   * Finalizers are deprecated. Use of `finalize()` can lead to performance issues, deadlocks, hangs, and other undesirable behavior.
+  * Tags: RSPEC-S1111
 * [org.openrewrite.staticanalysis.NoPrimitiveWrappersForToStringOrCompareTo](/user-documentation/recipes/recipe-catalog/staticanalysis/noprimitivewrappersfortostringorcompareto.md)
   * **No primitive wrappers for #toString() or #compareTo(..)**
   * Primitive wrappers should not be instantiated only for `#toString()` or `#compareTo(..)` invocations.
+  * Tags: RSPEC-S1158
 * [org.openrewrite.staticanalysis.NoRedundantJumpStatements](/user-documentation/recipes/recipe-catalog/staticanalysis/noredundantjumpstatements.md)
   * **Jump statements should not be redundant**
   * Jump statements such as return and continue let you change the default flow of program execution, but jump statements that direct the control flow to the original direction are just a waste of keystrokes.
+  * Tags: RSPEC-S3626
 * [org.openrewrite.staticanalysis.NoToStringOnStringType](/user-documentation/recipes/recipe-catalog/staticanalysis/notostringonstringtype.md)
   * **Unnecessary `String#toString`**
   * Remove unnecessary `String#toString` invocations on objects which are already a string.
+  * Tags: RSPEC-S1858
 * [org.openrewrite.staticanalysis.NoValueOfOnStringType](/user-documentation/recipes/recipe-catalog/staticanalysis/novalueofonstringtype.md)
   * **Unnecessary `String#valueOf(..)`**
   * Replace unnecessary `String#valueOf(..)` method invocations with the argument directly. This occurs when the argument to `String#valueOf(arg)` is a string literal, such as `String.valueOf(&quot;example&quot;)`. Or, when the `String#valueOf(..)` invocation is used in a concatenation, such as `&quot;example&quot; + String.valueOf(&quot;example&quot;)`.
+  * Tags: RSPEC-S1153
 * [org.openrewrite.staticanalysis.ObjectFinalizeCallsSuper](/user-documentation/recipes/recipe-catalog/staticanalysis/objectfinalizecallssuper.md)
   * **`finalize()` calls super**
   * Overrides of `Object#finalize()` should call super.
+  * Tags: RSPEC-S1114
 * [org.openrewrite.staticanalysis.OnlyCatchDeclaredExceptions](/user-documentation/recipes/recipe-catalog/staticanalysis/onlycatchdeclaredexceptions.md)
   * **Replace `catch(Exception)` with specific declared exceptions thrown in the try block**
   * Replaces `catch(Exception e)` blocks with a multi-catch block (`catch (SpecificException1 | SpecificException2 e)`) containing only the exceptions declared thrown by method or constructor invocations within the `try` block that are not already caught by more specific `catch` clauses.
+  * Tags: RSPEC-S2221
 * [org.openrewrite.staticanalysis.PrimitiveWrapperClassConstructorToValueOf](/user-documentation/recipes/recipe-catalog/staticanalysis/primitivewrapperclassconstructortovalueof.md)
   * **Use primitive wrapper `valueOf` method**
   * The constructor of all primitive types has been deprecated in favor of using the static factory method `valueOf` available for each of the primitive type wrappers.
+  * Tags: RSPEC-S2129
 * [org.openrewrite.staticanalysis.ReferentialEqualityToObjectEquals](/user-documentation/recipes/recipe-catalog/staticanalysis/referentialequalitytoobjectequals.md)
   * **Replace referential equality operators with Object equals method invocations when the operands both override `Object.equals(Object obj)`**
   * Using `==` or `!=` compares object references, not the equality of two objects. This modifies code where both sides of a binary operation (`==` or `!=`) override `Object.equals(Object obj)` except when the comparison is within an overridden `Object.equals(Object obj)` method declaration itself. The resulting transformation must be carefully reviewed since any modifications change the program's semantics.
+  * Tags: RSPEC-S1698
 * [org.openrewrite.staticanalysis.RemoveCallsToObjectFinalize](/user-documentation/recipes/recipe-catalog/staticanalysis/removecallstoobjectfinalize.md)
   * **Remove `Object.finalize()` invocations**
   * Remove calls to `Object.finalize()`. This method is called during garbage collection and calling it manually is misleading.
+  * Tags: RSPEC-S1111
 * [org.openrewrite.staticanalysis.RemoveCallsToSystemGc](/user-documentation/recipes/recipe-catalog/staticanalysis/removecallstosystemgc.md)
   * **Remove garbage collection invocations**
   * Removes calls to `System.gc()` and `Runtime.gc()`. When to invoke garbage collection is best left to the JVM.
+  * Tags: RSPEC-S1215
 * [org.openrewrite.staticanalysis.RemoveExtraSemicolons](/user-documentation/recipes/recipe-catalog/staticanalysis/removeextrasemicolons.md)
   * **Remove extra semicolons**
   * Removes not needed semicolons. Semicolons are considered not needed:  * Optional semicolons at the end of try-with-resources,  * after the last enum value if no field or method is defined,  * no statement between two semicolon.
+  * Tags: RSPEC-S1116, RSPEC-S2959
 * [org.openrewrite.staticanalysis.RemoveHashCodeCallsFromArrayInstances](/user-documentation/recipes/recipe-catalog/staticanalysis/removehashcodecallsfromarrayinstances.md)
   * **`hashCode()` should not be called on array instances**
   * Replace `hashCode()` calls on arrays with `Arrays.hashCode()` because the results from `hashCode()` are not helpful.
+  * Tags: RSPEC-S2116
 * [org.openrewrite.staticanalysis.RemoveRedundantNullCheckBeforeInstanceof](/user-documentation/recipes/recipe-catalog/staticanalysis/removeredundantnullcheckbeforeinstanceof.md)
   * **Remove redundant null checks before instanceof**
   * Removes redundant null checks before instanceof operations since instanceof returns false for null.
+  * Tags: RSPEC-S1697
 * [org.openrewrite.staticanalysis.RemoveRedundantTypeCast](/user-documentation/recipes/recipe-catalog/staticanalysis/removeredundanttypecast.md)
   * **Remove redundant casts**
   * Removes unnecessary type casts. Does not currently check casts in lambdas and class constructors.
+  * Tags: RSPEC-S1905
 * [org.openrewrite.staticanalysis.RemoveToStringCallsFromArrayInstances](/user-documentation/recipes/recipe-catalog/staticanalysis/removetostringcallsfromarrayinstances.md)
   * **Remove `toString()` calls on arrays**
   * The result from `toString()` calls on arrays is largely useless. The output does not actually reflect the contents of the array. `Arrays.toString(array)` should be used instead as it gives the contents of the array.
+  * Tags: RSPEC-S2116
 * [org.openrewrite.staticanalysis.RemoveTrailingWhitespace](/user-documentation/recipes/recipe-catalog/staticanalysis/removetrailingwhitespace.md)
   * **Remove trailing whitespace**
   * Remove trailing whitespace from the end of each line. Trailing whitespace is simply useless and should not stay in code. It may generate noise when comparing different versions of the same file.
+  * Tags: RSPEC-S1131
 * [org.openrewrite.staticanalysis.RemoveUnusedLocalVariables](/user-documentation/recipes/recipe-catalog/staticanalysis/removeunusedlocalvariables.md)
   * **Remove unused local variables**
   * If a local variable is declared but not used, it is dead code and should be removed.
+  * Tags: RSPEC-S1481
 * [org.openrewrite.staticanalysis.RemoveUnusedPrivateFields](/user-documentation/recipes/recipe-catalog/staticanalysis/removeunusedprivatefields.md)
   * **Remove unused private fields**
   * If a private field is declared but not used in the program, it can be considered dead code and should therefore be removed.
+  * Tags: RSPEC-S1068
 * [org.openrewrite.staticanalysis.RemoveUnusedPrivateMethods](/user-documentation/recipes/recipe-catalog/staticanalysis/removeunusedprivatemethods.md)
   * **Remove unused private methods**
   * `private` methods that are never executed are dead code and should be removed.
+  * Tags: RSPEC-S1144
 * [org.openrewrite.staticanalysis.RenameLocalVariablesToCamelCase](/user-documentation/recipes/recipe-catalog/staticanalysis/renamelocalvariablestocamelcase.md)
   * **Reformat local variable names to camelCase**
   * Reformat local variable and method parameter names to camelCase to comply with Java naming convention. The recipe will not rename variables declared in for loop controls or catches with a single character. The first character is set to lower case and existing capital letters are preserved. Special characters that are allowed in java field names `$` and `_` are removed (unless the name starts with one). If a special character is removed the next valid alphanumeric will be capitalized. Currently, does not support renaming members of classes. The recipe will not rename a variable if the result already exists in the class, conflicts with a java reserved keyword, or the result is blank.
+  * Tags: RSPEC-S117
 * [org.openrewrite.staticanalysis.RenameMethodsNamedHashcodeEqualOrToString](/user-documentation/recipes/recipe-catalog/staticanalysis/renamemethodsnamedhashcodeequalortostring.md)
   * **Rename methods named `hashcode`, `equal`, or `tostring`**
   * Methods should not be named `hashcode`, `equal`, or `tostring`. Any of these are confusing as they appear to be intended as overridden methods from the `Object` base class, despite being case-insensitive.
+  * Tags: RSPEC-S1221
 * [org.openrewrite.staticanalysis.RenamePrivateFieldsToCamelCase](/user-documentation/recipes/recipe-catalog/staticanalysis/renameprivatefieldstocamelcase.md)
   * **Reformat private field names to camelCase**
   * Reformat private field names to camelCase to comply with Java naming convention. The recipe will not rename fields with default, protected or public access modifiers. The recipe will not rename private constants. The first character is set to lower case and existing capital letters are preserved. Special characters that are allowed in java field names `$` and `_` are removed. If a special character is removed the next valid alphanumeric will be capitalized. The recipe will not rename a field if the result already exists in the class, conflicts with a java reserved keyword, or the result is blank.
+  * Tags: RSPEC-S116, RSPEC-S3008
 * [org.openrewrite.staticanalysis.ReplaceClassIsInstanceWithInstanceof](/user-documentation/recipes/recipe-catalog/staticanalysis/replaceclassisinstancewithinstanceof.md)
   * **Replace `A.class.isInstance(a)` with `a instanceof A`**
   * There should be no `A.class.isInstance(a)`, it should be replaced by `a instanceof A`.
+  * Tags: RSPEC-S6202
 * [org.openrewrite.staticanalysis.ReplaceDuplicateStringLiterals](/user-documentation/recipes/recipe-catalog/staticanalysis/replaceduplicatestringliterals.md)
   * **Replace duplicate `String` literals**
   * Replaces `String` literals with a length of 5 or greater repeated a minimum of 3 times. Qualified `String` literals include final Strings, method invocations, and new class invocations. Adds a new `private static final String` or uses an existing equivalent class field. A new variable name will be generated based on the literal value if an existing field does not exist. The generated name will append a numeric value to the variable name if a name already exists in the compilation unit.
+  * Tags: RSPEC-1192, RSPEC-1889
 * [org.openrewrite.staticanalysis.ReplaceLambdaWithMethodReference](/user-documentation/recipes/recipe-catalog/staticanalysis/replacelambdawithmethodreference.md)
   * **Use method references in lambda**
   * Replaces the single statement lambdas `o -&gt; o instanceOf X`, `o -&gt; (A) o`, `o -&gt; System.out.println(o)`, `o -&gt; o != null`, `o -&gt; o == null` with the equivalent method reference.
+  * Tags: RSPEC-S1612
 * [org.openrewrite.staticanalysis.ReplaceStringConcatenationWithStringValueOf](/user-documentation/recipes/recipe-catalog/staticanalysis/replacestringconcatenationwithstringvalueof.md)
   * **Replace String concatenation with `String.valueOf()`**
   * Replace inefficient string concatenation patterns like `&quot;&quot; + ...` with `String.valueOf(...)`. This improves code readability and may have minor performance benefits.
+  * Tags: RSPEC-S1153
 * [org.openrewrite.staticanalysis.ReplaceThreadRunWithThreadStart](/user-documentation/recipes/recipe-catalog/staticanalysis/replacethreadrunwiththreadstart.md)
   * **Replace calls to `Thread.run()` with `Thread.start()`**
   * `Thread.run()` should not be called directly.
+  * Tags: RSPEC-S1217
 * [org.openrewrite.staticanalysis.ReplaceWeekYearWithYear](/user-documentation/recipes/recipe-catalog/staticanalysis/replaceweekyearwithyear.md)
   * **Week Year (YYYY) should not be used for date formatting**
   * For most dates Week Year (YYYY) and Year (yyyy) yield the same results. However, on the last week of December and the first week of January, Week Year could produce unexpected results.
+  * Tags: RSPEC-S3986
 * [org.openrewrite.staticanalysis.SimplifyArraysAsList](/user-documentation/recipes/recipe-catalog/staticanalysis/simplifyarraysaslist.md)
   * **Simplify `Arrays.asList(..)` with varargs**
   * Simplifies `Arrays.asList()` method calls that use explicit array creation to use varargs instead. For example, `Arrays.asList(new String[]\{&quot;a&quot;, &quot;b&quot;, &quot;c&quot;\})` becomes `Arrays.asList(&quot;a&quot;, &quot;b&quot;, &quot;c&quot;)`.
+  * Tags: RSPEC-S3878
 * [org.openrewrite.staticanalysis.SimplifyBooleanExpression](/user-documentation/recipes/recipe-catalog/staticanalysis/simplifybooleanexpression.md)
   * **Simplify boolean expression**
   * Checks for overly complicated boolean expressions, such as `if (b == true)`, `b || true`, `!false`, etc.
+  * Tags: RSPEC-1125
 * [org.openrewrite.staticanalysis.SimplifyBooleanExpressionWithDeMorgan](/user-documentation/recipes/recipe-catalog/staticanalysis/simplifybooleanexpressionwithdemorgan.md)
   * **Simplify boolean expressions using De Morgan's laws**
   * Applies De Morgan's laws to simplify boolean expressions with negation. Transforms `!(a &amp;&amp; b)` to `!a || !b` and `!(a || b)` to `!a &amp;&amp; !b`.
+  * Tags: RSPEC-1125
 * [org.openrewrite.staticanalysis.SimplifyBooleanReturn](/user-documentation/recipes/recipe-catalog/staticanalysis/simplifybooleanreturn.md)
   * **Simplify boolean return**
   * Simplifies Boolean expressions by removing redundancies. For example, `a &amp;&amp; true` simplifies to `a`.
+  * Tags: RSPEC-S1126
 * [org.openrewrite.staticanalysis.StaticMethodNotFinal](/user-documentation/recipes/recipe-catalog/staticanalysis/staticmethodnotfinal.md)
   * **Static methods need not be final**
   * Static methods do not need to be declared final because they cannot be overridden.
+  * Tags: RSPEC-S2333
 * [org.openrewrite.staticanalysis.StringLiteralEquality](/user-documentation/recipes/recipe-catalog/staticanalysis/stringliteralequality.md)
   * **Use `String.equals()` on `String` literals**
   * `String.equals()` should be used when checking value equality on String literals. Using `==` or `!=` compares object references, not the actual value of the Strings. This only modifies code where at least one side of the binary operation (`==` or `!=`) is a String literal, such as `&quot;someString&quot; == someVariable;`. This is to prevent inadvertently changing code where referential equality is the user's intent.
+  * Tags: RSPEC-S4973
 * [org.openrewrite.staticanalysis.TernaryOperatorsShouldNotBeNested](/user-documentation/recipes/recipe-catalog/staticanalysis/ternaryoperatorsshouldnotbenested.md)
   * **Ternary operators should not be nested**
   * Nested ternary operators can be hard to read quickly. Prefer simpler constructs for improved readability. If supported, this recipe will try to replace nested ternaries with switch expressions.
+  * Tags: RSPEC-S3358
 * [org.openrewrite.staticanalysis.URLEqualsHashCodeRecipes](/user-documentation/recipes/recipe-catalog/staticanalysis/urlequalshashcoderecipes.md)
   * **URL Equals and Hash Code**
   * Uses of `equals()` and `hashCode()` cause `java.net.URL` to make blocking internet connections. Instead, use `java.net.URI`.
+  * Tags: RSPEC-2112
 * [org.openrewrite.staticanalysis.URLEqualsHashCodeRecipes$URLEqualsRecipe](/user-documentation/recipes/recipe-catalog/staticanalysis/urlequalshashcoderecipes$urlequalsrecipe.md)
   * **URL Equals**
   * Uses of `equals()` cause `java.net.URL` to make blocking internet connections. Instead, use `java.net.URI`.
+  * Tags: RSPEC-2112
 * [org.openrewrite.staticanalysis.URLEqualsHashCodeRecipes$URLHashCodeRecipe](/user-documentation/recipes/recipe-catalog/staticanalysis/urlequalshashcoderecipes$urlhashcoderecipe.md)
   * **URL Hash Code**
   * Uses of `hashCode()` cause `java.net.URL` to make blocking internet connections. Instead, use `java.net.URI`.
+  * Tags: RSPEC-2112
 * [org.openrewrite.staticanalysis.UnnecessaryCloseInTryWithResources](/user-documentation/recipes/recipe-catalog/staticanalysis/unnecessarycloseintrywithresources.md)
   * **Unnecessary close in try-with-resources**
   * Remove unnecessary `AutoCloseable#close()` statements in try-with-resources.
+  * Tags: RSPEC-S4087
 * [org.openrewrite.staticanalysis.UnnecessaryParentheses](/user-documentation/recipes/recipe-catalog/staticanalysis/unnecessaryparentheses.md)
   * **Remove unnecessary parentheses**
   * Removes unnecessary parentheses from code where extra parentheses pairs are redundant.
+  * Tags: RSPEC-S1110, RSPEC-S1611
 * [org.openrewrite.staticanalysis.UnnecessaryPrimitiveAnnotations](/user-documentation/recipes/recipe-catalog/staticanalysis/unnecessaryprimitiveannotations.md)
   * **Remove `@Nullable` and `@CheckForNull` annotations from primitives**
   * Primitives can't be null anyway, so these annotations are not useful in this context.
+  * Tags: RSPEC-S4682
 * [org.openrewrite.staticanalysis.UnnecessaryThrows](/user-documentation/recipes/recipe-catalog/staticanalysis/unnecessarythrows.md)
   * **Unnecessary throws**
   * Remove unnecessary `throws` declarations. This recipe will only remove unused, checked exceptions if:   - The declaring class or the method declaration is `final`.  - The method declaration is `static` or `private`.  - The method overrides a method declaration in a super class and the super class does not throw the exception.  - The method is `public` or `protected` and the exception is not documented via a JavaDoc as a `@throws` tag.
+  * Tags: RSPEC-S1130
 * [org.openrewrite.staticanalysis.UpperCaseLiteralSuffixes](/user-documentation/recipes/recipe-catalog/staticanalysis/uppercaseliteralsuffixes.md)
   * **Upper case literal suffixes**
   * Using upper case literal suffixes for declaring literals is less ambiguous, e.g., `1l` versus `1L`.
+  * Tags: RSPEC-S818
 * [org.openrewrite.staticanalysis.UseCollectionInterfaces](/user-documentation/recipes/recipe-catalog/staticanalysis/usecollectioninterfaces.md)
   * **Use `Collection` interfaces**
   * Use `Deque`, `List`, `Map`, `ConcurrentMap`, `Queue`, and `Set` instead of implemented collections. Replaces the return type of public method declarations and the variable type public variable declarations.
+  * Tags: RSPEC-S1319
 * [org.openrewrite.staticanalysis.UseDiamondOperator](/user-documentation/recipes/recipe-catalog/staticanalysis/usediamondoperator.md)
   * **Use the diamond operator**
   * The diamond operator (`&lt;&gt;`) should be used. Java 7 introduced the diamond operator to reduce the verbosity of generics code. For instance, instead of having to declare a `List`'s type in both its declaration and its constructor, you can now simplify the constructor declaration with `&lt;&gt;`, and the compiler will infer the type.
+  * Tags: RSPEC-S2293
 * [org.openrewrite.staticanalysis.UseJavaStyleArrayDeclarations](/user-documentation/recipes/recipe-catalog/staticanalysis/usejavastylearraydeclarations.md)
   * **No C-style array declarations**
   * Change C-Style array declarations `int i[];` to `int[] i;`.
+  * Tags: RSPEC-S1197
 * [org.openrewrite.staticanalysis.UseLambdaForFunctionalInterface](/user-documentation/recipes/recipe-catalog/staticanalysis/uselambdaforfunctionalinterface.md)
   * **Use lambda expressions instead of anonymous classes**
   * Instead of anonymous class declarations, use a lambda where possible. Using lambdas to replace anonymous classes can lead to more expressive and maintainable code, improve code readability, reduce code duplication, and achieve better performance in some cases.
+  * Tags: RSPEC-S1604
 * [org.openrewrite.staticanalysis.UseObjectNotifyAll](/user-documentation/recipes/recipe-catalog/staticanalysis/useobjectnotifyall.md)
   * **Replaces `Object.notify()` with `Object.notifyAll()`**
   * `Object.notifyAll()` and `Object.notify()` both wake up sleeping threads, but `Object.notify()` only rouses one while `Object.notifyAll()` rouses all of them. Since `Object.notify()` might not wake up the right thread, `Object.notifyAll()` should be used instead. See [this](https://wiki.sei.cmu.edu/confluence/display/java/THI02-J.+Notify+all+waiting+threads+rather+than+a+single+thread) for more information.
+  * Tags: RSPEC-S2446
 * [org.openrewrite.staticanalysis.UsePortableNewlines](/user-documentation/recipes/recipe-catalog/staticanalysis/useportablenewlines.md)
   * **Use %n instead of \n in format strings**
   * Format strings should use %n rather than \n to produce platform-specific line separators.
+  * Tags: RSPEC-S3457
 * [org.openrewrite.staticanalysis.UseStringReplace](/user-documentation/recipes/recipe-catalog/staticanalysis/usestringreplace.md)
   * **Use `String::replace()` when first parameter is not a real regular expression**
   * When `String::replaceAll` is used, the first argument should be a real regular expression. If it’s not the case, `String::replace` does exactly the same thing as `String::replaceAll` without the performance drawback of the regex.
+  * Tags: RSPEC-S5361
 * [org.openrewrite.staticanalysis.WhileInsteadOfFor](/user-documentation/recipes/recipe-catalog/staticanalysis/whileinsteadoffor.md)
   * **Prefer `while` over `for` loops**
   * When only the condition expression is defined in a for loop, and the initialization and increment expressions are missing, a while loop should be used instead to increase readability.
+  * Tags: RSPEC-S1264
 * [org.openrewrite.staticanalysis.WriteOctalValuesAsDecimal](/user-documentation/recipes/recipe-catalog/staticanalysis/writeoctalvaluesasdecimal.md)
   * **Write octal values as decimal**
   * Developers may not recognize octal values as such, mistaking them instead for decimal values.
+  * Tags: RSPEC-S1314
 * [tech.picnic.errorprone.refasterrules.AssortedRulesRecipes$LogicalImplicationRecipe](/user-documentation/recipes/recipe-catalog/tech/picnic/errorprone/refasterrules/assortedrulesrecipes$logicalimplicationrecipe.md)
   * **Refaster template `AssortedRules.LogicalImplication`**
   * Don't unnecessarily repeat boolean expressions.
+  * Tags: RSPEC-S2589
 * [tech.picnic.errorprone.refasterrules.BigDecimalRulesRecipes$BigDecimalValueOfRecipe](/user-documentation/recipes/recipe-catalog/tech/picnic/errorprone/refasterrules/bigdecimalrulesrecipes$bigdecimalvalueofrecipe.md)
   * **Refaster template `BigDecimalRules.BigDecimalValueOf`**
   * Prefer `BigDecimal#valueOf(double)` over the associated constructor.
+  * Tags: RSPEC-S2111
 * [tech.picnic.errorprone.refasterrules.CharSequenceRulesRecipes$CharSequenceIsEmptyRecipe](/user-documentation/recipes/recipe-catalog/tech/picnic/errorprone/refasterrules/charsequencerulesrecipes$charsequenceisemptyrecipe.md)
   * **Refaster template `CharSequenceRules.CharSequenceIsEmpty`**
   * Prefer `CharSequence#isEmpty()` over alternatives that consult the char sequence's length.
+  * Tags: RSPEC-S7158
 * [tech.picnic.errorprone.refasterrules.CollectionRulesRecipes$CollectionIsEmptyRecipe](/user-documentation/recipes/recipe-catalog/tech/picnic/errorprone/refasterrules/collectionrulesrecipes$collectionisemptyrecipe.md)
   * **Refaster template `CollectionRules.CollectionIsEmpty`**
   * Prefer `Collection#isEmpty()` over alternatives that consult the collection's size or are otherwise more contrived.
+  * Tags: RSPEC-S1155
 * [tech.picnic.errorprone.refasterrules.DoubleStreamRulesRecipes$DoubleStreamAnyMatchRecipe](/user-documentation/recipes/recipe-catalog/tech/picnic/errorprone/refasterrules/doublestreamrulesrecipes$doublestreamanymatchrecipe.md)
   * **Refaster template `DoubleStreamRules.DoubleStreamAnyMatch`**
   * Prefer `DoubleStream#anyMatch(DoublePredicate)` over more contrived alternatives.
+  * Tags: RSPEC-S4034
 * [tech.picnic.errorprone.refasterrules.EqualityRulesRecipes$DoubleNegationRecipe](/user-documentation/recipes/recipe-catalog/tech/picnic/errorprone/refasterrules/equalityrulesrecipes$doublenegationrecipe.md)
   * **Refaster template `EqualityRules.DoubleNegation`**
   * Avoid double negations; this is not Javascript.
+  * Tags: RSPEC-S2761
 * [tech.picnic.errorprone.refasterrules.EqualityRulesRecipes$IndirectDoubleNegationRecipe](/user-documentation/recipes/recipe-catalog/tech/picnic/errorprone/refasterrules/equalityrulesrecipes$indirectdoublenegationrecipe.md)
   * **Refaster template `EqualityRules.IndirectDoubleNegation`**
   * Don't negate an inequality test or use the ternary operator to compare two booleans; directly test for equality instead.
+  * Tags: RSPEC-S1244, RSPEC-S1940
 * [tech.picnic.errorprone.refasterrules.EqualityRulesRecipes$NegationRecipe](/user-documentation/recipes/recipe-catalog/tech/picnic/errorprone/refasterrules/equalityrulesrecipes$negationrecipe.md)
   * **Refaster template `EqualityRules.Negation`**
   * Don't negate an equality test or use the ternary operator to compare two booleans; directly test for inequality instead.
+  * Tags: RSPEC-S1244, RSPEC-S1940
 * [tech.picnic.errorprone.refasterrules.FileRulesRecipes$FilesCreateTempFileToFileRecipe](/user-documentation/recipes/recipe-catalog/tech/picnic/errorprone/refasterrules/filerulesrecipes$filescreatetempfiletofilerecipe.md)
   * **Prefer `Files#createTempFile(String, String, FileAttribute[])` over alternatives that create files with more liberal permissions**
   * Note that `File#createTempFile` treats the given prefix as a path, and ignores all but  its file name. That is, the actual prefix used is derived from all characters following the  final file separator (if any). This is not the case with `Files#createTempFile`, which  will instead throw an `IllegalArgumentException` if the prefix contains any file  separators.
+  * Tags: RSPEC-S5443
 * [tech.picnic.errorprone.refasterrules.FileRulesRecipes$FilesNewBufferedReaderPathOfRecipe](/user-documentation/recipes/recipe-catalog/tech/picnic/errorprone/refasterrules/filerulesrecipes$filesnewbufferedreaderpathofrecipe.md)
   * **Refaster template `FileRules.FilesNewBufferedReaderPathOf`**
   * Prefer `Files#newBufferedReader(Path)` over more verbose or contrived alternatives.
+  * Tags: RSPEC-S1943, RSPEC-S2095
 * [tech.picnic.errorprone.refasterrules.FileRulesRecipes$FilesNewBufferedReaderToPathRecipe](/user-documentation/recipes/recipe-catalog/tech/picnic/errorprone/refasterrules/filerulesrecipes$filesnewbufferedreadertopathrecipe.md)
   * **Refaster template `FileRules.FilesNewBufferedReaderToPath`**
   * Prefer `Files#newBufferedReader(Path)` over more verbose or contrived alternatives.
+  * Tags: RSPEC-S1943, RSPEC-S2095
 * [tech.picnic.errorprone.refasterrules.ImmutableMapRulesRecipes$ImmutableMapOf4Recipe](/user-documentation/recipes/recipe-catalog/tech/picnic/errorprone/refasterrules/immutablemaprulesrecipes$immutablemapof4recipe.md)
   * **Refaster template `ImmutableMapRules.ImmutableMapOf4`**
   * Prefer `ImmutableMap#of(Object, Object, Object, Object, Object, Object, Object, Object)` over alternatives that don't communicate the immutability of the resulting map at the type level.
+  * Tags: RSPEC-S107
 * [tech.picnic.errorprone.refasterrules.ImmutableMapRulesRecipes$ImmutableMapOf5Recipe](/user-documentation/recipes/recipe-catalog/tech/picnic/errorprone/refasterrules/immutablemaprulesrecipes$immutablemapof5recipe.md)
   * **Refaster template `ImmutableMapRules.ImmutableMapOf5`**
   * Prefer `ImmutableMap#of(Object, Object, Object, Object, Object, Object, Object, Object, Object, Object)` over alternatives that don't communicate the immutability of the resulting map at the type level.
+  * Tags: RSPEC-S107
 * [tech.picnic.errorprone.refasterrules.IntStreamRulesRecipes$IntStreamAnyMatchRecipe](/user-documentation/recipes/recipe-catalog/tech/picnic/errorprone/refasterrules/intstreamrulesrecipes$intstreamanymatchrecipe.md)
   * **Refaster template `IntStreamRules.IntStreamAnyMatch`**
   * Prefer `IntStream#anyMatch(IntPredicate)` over more contrived alternatives.
+  * Tags: RSPEC-S4034
 * [tech.picnic.errorprone.refasterrules.JUnitToAssertJRulesRecipes$AssertThatBooleanArrayWithFailMessageSupplierContainsExactlyRecipe](/user-documentation/recipes/recipe-catalog/tech/picnic/errorprone/refasterrules/junittoassertjrulesrecipes$assertthatbooleanarraywithfailmessagesuppliercontainsexactlyrecipe.md)
   * **Refaster template `JUnitToAssertJRules.AssertThatBooleanArrayWithFailMessageSupplierContainsExactly`**
   * Recipe created for the following Refaster template: ```java static final class AssertThatBooleanArrayWithFailMessageSupplierContainsExactly \{          @BeforeTemplate     @SuppressWarnings(value = &quot;java:S4449&quot;)     void before(boolean[] actual, Supplier&lt;@Nullable String&gt; message, boolean[] expected) \{         assertArrayEquals(expected, actual, message);     \}          @AfterTemplate     @UseImportPolicy(value = STATIC_IMPORT_ALWAYS)     void after(boolean[] actual, Supplier&lt;@Nullable String&gt; message, boolean[] expected) \{         assertThat(actual).withFailMessage(message).containsExactly(expected);     \} \} ``` .
+  * Tags: RSPEC-S4449
 * [tech.picnic.errorprone.refasterrules.JUnitToAssertJRulesRecipes$AssertThatByteArrayWithFailMessageSupplierContainsExactlyRecipe](/user-documentation/recipes/recipe-catalog/tech/picnic/errorprone/refasterrules/junittoassertjrulesrecipes$assertthatbytearraywithfailmessagesuppliercontainsexactlyrecipe.md)
   * **Refaster template `JUnitToAssertJRules.AssertThatByteArrayWithFailMessageSupplierContainsExactly`**
   * Recipe created for the following Refaster template: ```java static final class AssertThatByteArrayWithFailMessageSupplierContainsExactly \{          @BeforeTemplate     @SuppressWarnings(value = &quot;java:S4449&quot;)     void before(byte[] actual, Supplier&lt;@Nullable String&gt; message, byte[] expected) \{         assertArrayEquals(expected, actual, message);     \}          @AfterTemplate     @UseImportPolicy(value = STATIC_IMPORT_ALWAYS)     void after(byte[] actual, Supplier&lt;@Nullable String&gt; message, byte[] expected) \{         assertThat(actual).withFailMessage(message).containsExactly(expected);     \} \} ``` .
+  * Tags: RSPEC-S4449
 * [tech.picnic.errorprone.refasterrules.JUnitToAssertJRulesRecipes$AssertThatCharArrayWithFailMessageSupplierContainsExactlyRecipe](/user-documentation/recipes/recipe-catalog/tech/picnic/errorprone/refasterrules/junittoassertjrulesrecipes$assertthatchararraywithfailmessagesuppliercontainsexactlyrecipe.md)
   * **Refaster template `JUnitToAssertJRules.AssertThatCharArrayWithFailMessageSupplierContainsExactly`**
   * Recipe created for the following Refaster template: ```java static final class AssertThatCharArrayWithFailMessageSupplierContainsExactly \{          @BeforeTemplate     @SuppressWarnings(value = &quot;java:S4449&quot;)     void before(char[] actual, Supplier&lt;@Nullable String&gt; message, char[] expected) \{         assertArrayEquals(expected, actual, message);     \}          @AfterTemplate     @UseImportPolicy(value = STATIC_IMPORT_ALWAYS)     void after(char[] actual, Supplier&lt;@Nullable String&gt; message, char[] expected) \{         assertThat(actual).withFailMessage(message).containsExactly(expected);     \} \} ``` .
+  * Tags: RSPEC-S4449
 * [tech.picnic.errorprone.refasterrules.JUnitToAssertJRulesRecipes$AssertThatCodeWithFailMessageSupplierDoesNotThrowAnyExceptionRecipe](/user-documentation/recipes/recipe-catalog/tech/picnic/errorprone/refasterrules/junittoassertjrulesrecipes$assertthatcodewithfailmessagesupplierdoesnotthrowanyexceptionrecipe.md)
   * **Refaster template `JUnitToAssertJRules.AssertThatCodeWithFailMessageSupplierDoesNotThrowAnyException`**
   * Recipe created for the following Refaster template: ```java static final class AssertThatCodeWithFailMessageSupplierDoesNotThrowAnyException \{          @BeforeTemplate     @SuppressWarnings(value = &quot;java:S4449&quot;)     void before(Executable throwingCallable, Supplier&lt;@Nullable String&gt; supplier) \{         assertDoesNotThrow(throwingCallable, supplier);     \}          @BeforeTemplate     @SuppressWarnings(value = &quot;java:S4449&quot;)     void before(ThrowingSupplier&lt;?&gt; throwingCallable, Supplier&lt;@Nullable String&gt; supplier) \{         assertDoesNotThrow(throwingCallable, supplier);     \}          @AfterTemplate     @UseImportPolicy(value = STATIC_IMPORT_ALWAYS)     void after(ThrowingCallable throwingCallable, Supplier&lt;@Nullable String&gt; supplier) \{         assertThatCode(throwingCallable).withFailMessage(supplier).doesNotThrowAnyException();     \} \} ``` .
+  * Tags: RSPEC-S4449
 * [tech.picnic.errorprone.refasterrules.JUnitToAssertJRulesRecipes$AssertThatDoubleArrayWithFailMessageSupplierContainsExactlyRecipe](/user-documentation/recipes/recipe-catalog/tech/picnic/errorprone/refasterrules/junittoassertjrulesrecipes$assertthatdoublearraywithfailmessagesuppliercontainsexactlyrecipe.md)
   * **Refaster template `JUnitToAssertJRules.AssertThatDoubleArrayWithFailMessageSupplierContainsExactly`**
   * Recipe created for the following Refaster template: ```java static final class AssertThatDoubleArrayWithFailMessageSupplierContainsExactly \{          @BeforeTemplate     @SuppressWarnings(value = &quot;java:S4449&quot;)     void before(double[] actual, Supplier&lt;@Nullable String&gt; message, double[] expected) \{         assertArrayEquals(expected, actual, message);     \}          @AfterTemplate     @UseImportPolicy(value = STATIC_IMPORT_ALWAYS)     void after(double[] actual, Supplier&lt;@Nullable String&gt; message, double[] expected) \{         assertThat(actual).withFailMessage(message).containsExactly(expected);     \} \} ``` .
+  * Tags: RSPEC-S4449
 * [tech.picnic.errorprone.refasterrules.JUnitToAssertJRulesRecipes$AssertThatDoubleArrayWithFailMessageSupplierContainsExactlyWithOffsetRecipe](/user-documentation/recipes/recipe-catalog/tech/picnic/errorprone/refasterrules/junittoassertjrulesrecipes$assertthatdoublearraywithfailmessagesuppliercontainsexactlywithoffsetrecipe.md)
   * **Refaster template `JUnitToAssertJRules.AssertThatDoubleArrayWithFailMessageSupplierContainsExactlyWithOffset`**
   * Recipe created for the following Refaster template: ```java static final class AssertThatDoubleArrayWithFailMessageSupplierContainsExactlyWithOffset \{          @BeforeTemplate     @SuppressWarnings(value = &quot;java:S4449&quot;)     void before(double[] actual, Supplier&lt;@Nullable String&gt; messageSupplier, double[] expected, double delta) \{         assertArrayEquals(expected, actual, delta, messageSupplier);     \}          @AfterTemplate     @UseImportPolicy(value = STATIC_IMPORT_ALWAYS)     void after(double[] actual, Supplier&lt;@Nullable String&gt; messageSupplier, double[] expected, double delta) \{         assertThat(actual).withFailMessage(messageSupplier).containsExactly(expected, offset(delta));     \} \} ``` .
+  * Tags: RSPEC-S4449
 * [tech.picnic.errorprone.refasterrules.JUnitToAssertJRulesRecipes$AssertThatFloatArrayWithFailMessageSupplierContainsExactlyRecipe](/user-documentation/recipes/recipe-catalog/tech/picnic/errorprone/refasterrules/junittoassertjrulesrecipes$assertthatfloatarraywithfailmessagesuppliercontainsexactlyrecipe.md)
   * **Refaster template `JUnitToAssertJRules.AssertThatFloatArrayWithFailMessageSupplierContainsExactly`**
   * Recipe created for the following Refaster template: ```java static final class AssertThatFloatArrayWithFailMessageSupplierContainsExactly \{          @BeforeTemplate     @SuppressWarnings(value = &quot;java:S4449&quot;)     void before(float[] actual, Supplier&lt;@Nullable String&gt; message, float[] expected) \{         assertArrayEquals(expected, actual, message);     \}          @AfterTemplate     @UseImportPolicy(value = STATIC_IMPORT_ALWAYS)     void after(float[] actual, Supplier&lt;@Nullable String&gt; message, float[] expected) \{         assertThat(actual).withFailMessage(message).containsExactly(expected);     \} \} ``` .
+  * Tags: RSPEC-S4449
 * [tech.picnic.errorprone.refasterrules.JUnitToAssertJRulesRecipes$AssertThatFloatArrayWithFailMessageSupplierContainsExactlyWithOffsetRecipe](/user-documentation/recipes/recipe-catalog/tech/picnic/errorprone/refasterrules/junittoassertjrulesrecipes$assertthatfloatarraywithfailmessagesuppliercontainsexactlywithoffsetrecipe.md)
   * **Refaster template `JUnitToAssertJRules.AssertThatFloatArrayWithFailMessageSupplierContainsExactlyWithOffset`**
   * Recipe created for the following Refaster template: ```java static final class AssertThatFloatArrayWithFailMessageSupplierContainsExactlyWithOffset \{          @BeforeTemplate     @SuppressWarnings(value = &quot;java:S4449&quot;)     void before(float[] actual, Supplier&lt;@Nullable String&gt; message, float[] expected, float delta) \{         assertArrayEquals(expected, actual, delta, message);     \}          @AfterTemplate     @UseImportPolicy(value = STATIC_IMPORT_ALWAYS)     void after(float[] actual, Supplier&lt;@Nullable String&gt; message, float[] expected, float delta) \{         assertThat(actual).withFailMessage(message).containsExactly(expected, offset(delta));     \} \} ``` .
+  * Tags: RSPEC-S4449
 * [tech.picnic.errorprone.refasterrules.JUnitToAssertJRulesRecipes$AssertThatIntArrayWithFailMessageSupplierContainsExactlyRecipe](/user-documentation/recipes/recipe-catalog/tech/picnic/errorprone/refasterrules/junittoassertjrulesrecipes$assertthatintarraywithfailmessagesuppliercontainsexactlyrecipe.md)
   * **Refaster template `JUnitToAssertJRules.AssertThatIntArrayWithFailMessageSupplierContainsExactly`**
   * Recipe created for the following Refaster template: ```java static final class AssertThatIntArrayWithFailMessageSupplierContainsExactly \{          @BeforeTemplate     @SuppressWarnings(value = &quot;java:S4449&quot;)     void before(int[] actual, Supplier&lt;@Nullable String&gt; message, int[] expected) \{         assertArrayEquals(expected, actual, message);     \}          @AfterTemplate     @UseImportPolicy(value = STATIC_IMPORT_ALWAYS)     void after(int[] actual, Supplier&lt;@Nullable String&gt; message, int[] expected) \{         assertThat(actual).withFailMessage(message).containsExactly(expected);     \} \} ``` .
+  * Tags: RSPEC-S4449
 * [tech.picnic.errorprone.refasterrules.JUnitToAssertJRulesRecipes$AssertThatLongArrayWithFailMessageSupplierContainsExactlyRecipe](/user-documentation/recipes/recipe-catalog/tech/picnic/errorprone/refasterrules/junittoassertjrulesrecipes$assertthatlongarraywithfailmessagesuppliercontainsexactlyrecipe.md)
   * **Refaster template `JUnitToAssertJRules.AssertThatLongArrayWithFailMessageSupplierContainsExactly`**
   * Recipe created for the following Refaster template: ```java static final class AssertThatLongArrayWithFailMessageSupplierContainsExactly \{          @BeforeTemplate     @SuppressWarnings(value = &quot;java:S4449&quot;)     void before(long[] actual, Supplier&lt;@Nullable String&gt; message, long[] expected) \{         assertArrayEquals(expected, actual, message);     \}          @AfterTemplate     @UseImportPolicy(value = STATIC_IMPORT_ALWAYS)     void after(long[] actual, Supplier&lt;@Nullable String&gt; message, long[] expected) \{         assertThat(actual).withFailMessage(message).containsExactly(expected);     \} \} ``` .
+  * Tags: RSPEC-S4449
 * [tech.picnic.errorprone.refasterrules.JUnitToAssertJRulesRecipes$AssertThatObjectArrayWithFailMessageSupplierContainsExactlyRecipe](/user-documentation/recipes/recipe-catalog/tech/picnic/errorprone/refasterrules/junittoassertjrulesrecipes$assertthatobjectarraywithfailmessagesuppliercontainsexactlyrecipe.md)
   * **Refaster template `JUnitToAssertJRules.AssertThatObjectArrayWithFailMessageSupplierContainsExactly`**
   * Recipe created for the following Refaster template: ```java static final class AssertThatObjectArrayWithFailMessageSupplierContainsExactly \{          @BeforeTemplate     @SuppressWarnings(value = &quot;java:S4449&quot;)     void before(Object[] actual, Supplier&lt;@Nullable String&gt; message, Object[] expected) \{         assertArrayEquals(expected, actual, message);     \}          @AfterTemplate     @UseImportPolicy(value = STATIC_IMPORT_ALWAYS)     void after(Object[] actual, Supplier&lt;@Nullable String&gt; message, Object[] expected) \{         assertThat(actual).withFailMessage(message).containsExactly(expected);     \} \} ``` .
+  * Tags: RSPEC-S4449
 * [tech.picnic.errorprone.refasterrules.JUnitToAssertJRulesRecipes$AssertThatShortArrayWithFailMessageSupplierContainsExactlyRecipe](/user-documentation/recipes/recipe-catalog/tech/picnic/errorprone/refasterrules/junittoassertjrulesrecipes$assertthatshortarraywithfailmessagesuppliercontainsexactlyrecipe.md)
   * **Refaster template `JUnitToAssertJRules.AssertThatShortArrayWithFailMessageSupplierContainsExactly`**
   * Recipe created for the following Refaster template: ```java static final class AssertThatShortArrayWithFailMessageSupplierContainsExactly \{          @BeforeTemplate     @SuppressWarnings(value = &quot;java:S4449&quot;)     void before(short[] actual, Supplier&lt;@Nullable String&gt; message, short[] expected) \{         assertArrayEquals(expected, actual, message);     \}          @AfterTemplate     @UseImportPolicy(value = STATIC_IMPORT_ALWAYS)     void after(short[] actual, Supplier&lt;@Nullable String&gt; message, short[] expected) \{         assertThat(actual).withFailMessage(message).containsExactly(expected);     \} \} ``` .
+  * Tags: RSPEC-S4449
 * [tech.picnic.errorprone.refasterrules.JUnitToAssertJRulesRecipes$AssertThatThrownByWithFailMessageSupplierIsExactlyInstanceOfRecipe](/user-documentation/recipes/recipe-catalog/tech/picnic/errorprone/refasterrules/junittoassertjrulesrecipes$assertthatthrownbywithfailmessagesupplierisexactlyinstanceofrecipe.md)
   * **Refaster template `JUnitToAssertJRules.AssertThatThrownByWithFailMessageSupplierIsExactlyInstanceOf`**
   * Recipe created for the following Refaster template: ```java static final class AssertThatThrownByWithFailMessageSupplierIsExactlyInstanceOf&lt;T extends Throwable&gt; \{          @BeforeTemplate     @SuppressWarnings(value = &quot;java:S4449&quot;)     void before(Executable throwingCallable, Supplier&lt;@Nullable String&gt; supplier, Class&lt;T&gt; clazz) \{         assertThrowsExactly(clazz, throwingCallable, supplier);     \}          @AfterTemplate     @UseImportPolicy(value = STATIC_IMPORT_ALWAYS)     void after(ThrowingCallable throwingCallable, Supplier&lt;@Nullable String&gt; supplier, Class&lt;T&gt; clazz) \{         assertThatThrownBy(throwingCallable).withFailMessage(supplier).isExactlyInstanceOf(clazz);     \} \} ``` .
+  * Tags: RSPEC-S4449
 * [tech.picnic.errorprone.refasterrules.JUnitToAssertJRulesRecipes$AssertThatThrownByWithFailMessageSupplierIsInstanceOfRecipe](/user-documentation/recipes/recipe-catalog/tech/picnic/errorprone/refasterrules/junittoassertjrulesrecipes$assertthatthrownbywithfailmessagesupplierisinstanceofrecipe.md)
   * **Refaster template `JUnitToAssertJRules.AssertThatThrownByWithFailMessageSupplierIsInstanceOf`**
   * Recipe created for the following Refaster template: ```java static final class AssertThatThrownByWithFailMessageSupplierIsInstanceOf&lt;T extends Throwable&gt; \{          @BeforeTemplate     @SuppressWarnings(value = &quot;java:S4449&quot;)     void before(Executable throwingCallable, Supplier&lt;@Nullable String&gt; supplier, Class&lt;T&gt; clazz) \{         assertThrows(clazz, throwingCallable, supplier);     \}          @AfterTemplate     @UseImportPolicy(value = STATIC_IMPORT_ALWAYS)     void after(ThrowingCallable throwingCallable, Supplier&lt;@Nullable String&gt; supplier, Class&lt;T&gt; clazz) \{         assertThatThrownBy(throwingCallable).withFailMessage(supplier).isInstanceOf(clazz);     \} \} ``` .
+  * Tags: RSPEC-S4449
 * [tech.picnic.errorprone.refasterrules.JUnitToAssertJRulesRecipes$AssertThatWithFailMessageSupplierIsFalseRecipe](/user-documentation/recipes/recipe-catalog/tech/picnic/errorprone/refasterrules/junittoassertjrulesrecipes$assertthatwithfailmessagesupplierisfalserecipe.md)
   * **Refaster template `JUnitToAssertJRules.AssertThatWithFailMessageSupplierIsFalse`**
   * Recipe created for the following Refaster template: ```java static final class AssertThatWithFailMessageSupplierIsFalse \{          @BeforeTemplate     @SuppressWarnings(value = &quot;java:S4449&quot;)     void before(boolean actual, Supplier&lt;@Nullable String&gt; supplier) \{         assertFalse(actual, supplier);     \}          @AfterTemplate     @UseImportPolicy(value = STATIC_IMPORT_ALWAYS)     void after(boolean actual, Supplier&lt;@Nullable String&gt; supplier) \{         assertThat(actual).withFailMessage(supplier).isFalse();     \} \} ``` .
+  * Tags: RSPEC-S4449
 * [tech.picnic.errorprone.refasterrules.JUnitToAssertJRulesRecipes$AssertThatWithFailMessageSupplierIsInstanceOfRecipe](/user-documentation/recipes/recipe-catalog/tech/picnic/errorprone/refasterrules/junittoassertjrulesrecipes$assertthatwithfailmessagesupplierisinstanceofrecipe.md)
   * **Refaster template `JUnitToAssertJRules.AssertThatWithFailMessageSupplierIsInstanceOf`**
   * Recipe created for the following Refaster template: ```java static final class AssertThatWithFailMessageSupplierIsInstanceOf&lt;T&gt; \{          @BeforeTemplate     @SuppressWarnings(value = &quot;java:S4449&quot;)     void before(Object actual, Supplier&lt;@Nullable String&gt; supplier, Class&lt;T&gt; clazz) \{         assertInstanceOf(clazz, actual, supplier);     \}          @AfterTemplate     @UseImportPolicy(value = STATIC_IMPORT_ALWAYS)     void after(Object actual, Supplier&lt;@Nullable String&gt; supplier, Class&lt;T&gt; clazz) \{         assertThat(actual).withFailMessage(supplier).isInstanceOf(clazz);     \} \} ``` .
+  * Tags: RSPEC-S4449
 * [tech.picnic.errorprone.refasterrules.JUnitToAssertJRulesRecipes$AssertThatWithFailMessageSupplierIsNotNullRecipe](/user-documentation/recipes/recipe-catalog/tech/picnic/errorprone/refasterrules/junittoassertjrulesrecipes$assertthatwithfailmessagesupplierisnotnullrecipe.md)
   * **Refaster template `JUnitToAssertJRules.AssertThatWithFailMessageSupplierIsNotNull`**
   * Recipe created for the following Refaster template: ```java static final class AssertThatWithFailMessageSupplierIsNotNull \{          @BeforeTemplate     @SuppressWarnings(value = &quot;java:S4449&quot;)     void before(Object actual, Supplier&lt;@Nullable String&gt; supplier) \{         assertNotNull(actual, supplier);     \}          @AfterTemplate     @UseImportPolicy(value = STATIC_IMPORT_ALWAYS)     void after(Object actual, Supplier&lt;@Nullable String&gt; supplier) \{         assertThat(actual).withFailMessage(supplier).isNotNull();     \} \} ``` .
+  * Tags: RSPEC-S4449
 * [tech.picnic.errorprone.refasterrules.JUnitToAssertJRulesRecipes$AssertThatWithFailMessageSupplierIsNotSameAsRecipe](/user-documentation/recipes/recipe-catalog/tech/picnic/errorprone/refasterrules/junittoassertjrulesrecipes$assertthatwithfailmessagesupplierisnotsameasrecipe.md)
   * **Refaster template `JUnitToAssertJRules.AssertThatWithFailMessageSupplierIsNotSameAs`**
   * Recipe created for the following Refaster template: ```java static final class AssertThatWithFailMessageSupplierIsNotSameAs \{          @BeforeTemplate     @SuppressWarnings(value = &quot;java:S4449&quot;)     void before(Object actual, Supplier&lt;@Nullable String&gt; supplier, Object expected) \{         assertNotSame(expected, actual, supplier);     \}          @AfterTemplate     @UseImportPolicy(value = STATIC_IMPORT_ALWAYS)     void after(Object actual, Supplier&lt;@Nullable String&gt; supplier, Object expected) \{         assertThat(actual).withFailMessage(supplier).isNotSameAs(expected);     \} \} ``` .
+  * Tags: RSPEC-S4449
 * [tech.picnic.errorprone.refasterrules.JUnitToAssertJRulesRecipes$AssertThatWithFailMessageSupplierIsNullRecipe](/user-documentation/recipes/recipe-catalog/tech/picnic/errorprone/refasterrules/junittoassertjrulesrecipes$assertthatwithfailmessagesupplierisnullrecipe.md)
   * **Refaster template `JUnitToAssertJRules.AssertThatWithFailMessageSupplierIsNull`**
   * Recipe created for the following Refaster template: ```java static final class AssertThatWithFailMessageSupplierIsNull \{          @BeforeTemplate     @SuppressWarnings(value = &quot;java:S4449&quot;)     void before(Object actual, Supplier&lt;@Nullable String&gt; supplier) \{         assertNull(actual, supplier);     \}          @AfterTemplate     @UseImportPolicy(value = STATIC_IMPORT_ALWAYS)     void after(Object actual, Supplier&lt;@Nullable String&gt; supplier) \{         assertThat(actual).withFailMessage(supplier).isNull();     \} \} ``` .
+  * Tags: RSPEC-S4449
 * [tech.picnic.errorprone.refasterrules.JUnitToAssertJRulesRecipes$AssertThatWithFailMessageSupplierIsSameAsRecipe](/user-documentation/recipes/recipe-catalog/tech/picnic/errorprone/refasterrules/junittoassertjrulesrecipes$assertthatwithfailmessagesupplierissameasrecipe.md)
   * **Refaster template `JUnitToAssertJRules.AssertThatWithFailMessageSupplierIsSameAs`**
   * Recipe created for the following Refaster template: ```java static final class AssertThatWithFailMessageSupplierIsSameAs \{          @BeforeTemplate     @SuppressWarnings(value = &quot;java:S4449&quot;)     void before(Object actual, Supplier&lt;@Nullable String&gt; supplier, Object expected) \{         assertSame(expected, actual, supplier);     \}          @AfterTemplate     @UseImportPolicy(value = STATIC_IMPORT_ALWAYS)     void after(Object actual, Supplier&lt;@Nullable String&gt; supplier, Object expected) \{         assertThat(actual).withFailMessage(supplier).isSameAs(expected);     \} \} ``` .
+  * Tags: RSPEC-S4449
 * [tech.picnic.errorprone.refasterrules.JUnitToAssertJRulesRecipes$AssertThatWithFailMessageSupplierIsTrueRecipe](/user-documentation/recipes/recipe-catalog/tech/picnic/errorprone/refasterrules/junittoassertjrulesrecipes$assertthatwithfailmessagesupplieristruerecipe.md)
   * **Refaster template `JUnitToAssertJRules.AssertThatWithFailMessageSupplierIsTrue`**
   * Recipe created for the following Refaster template: ```java static final class AssertThatWithFailMessageSupplierIsTrue \{          @BeforeTemplate     @SuppressWarnings(value = &quot;java:S4449&quot;)     void before(boolean actual, Supplier&lt;@Nullable String&gt; supplier) \{         assertTrue(actual, supplier);     \}          @AfterTemplate     @UseImportPolicy(value = STATIC_IMPORT_ALWAYS)     void after(boolean actual, Supplier&lt;@Nullable String&gt; supplier) \{         assertThat(actual).withFailMessage(supplier).isTrue();     \} \} ``` .
+  * Tags: RSPEC-S4449
 * [tech.picnic.errorprone.refasterrules.LongStreamRulesRecipes$LongStreamAnyMatchRecipe](/user-documentation/recipes/recipe-catalog/tech/picnic/errorprone/refasterrules/longstreamrulesrecipes$longstreamanymatchrecipe.md)
   * **Refaster template `LongStreamRules.LongStreamAnyMatch`**
   * Prefer `LongStream#anyMatch(LongPredicate)` over more contrived alternatives.
+  * Tags: RSPEC-S4034
 * [tech.picnic.errorprone.refasterrules.OptionalRulesRecipes$OptionalOrElseThrowRecipe](/user-documentation/recipes/recipe-catalog/tech/picnic/errorprone/refasterrules/optionalrulesrecipes$optionalorelsethrowrecipe.md)
   * **Refaster template `OptionalRules.OptionalOrElseThrow`**
   * Prefer `Optional#orElseThrow()` over the less explicit `Optional#get()`.
+  * Tags: RSPEC-S3655
 * [tech.picnic.errorprone.refasterrules.PrimitiveRulesRecipes$GreaterThanOrEqualToRecipe](/user-documentation/recipes/recipe-catalog/tech/picnic/errorprone/refasterrules/primitiverulesrecipes$greaterthanorequaltorecipe.md)
   * **Refaster template `PrimitiveRules.GreaterThanOrEqualTo`**
   * Avoid contrived ways of expressing the &quot;greater than or equal to&quot; relationship.
+  * Tags: RSPEC-S1940
 * [tech.picnic.errorprone.refasterrules.PrimitiveRulesRecipes$GreaterThanRecipe](/user-documentation/recipes/recipe-catalog/tech/picnic/errorprone/refasterrules/primitiverulesrecipes$greaterthanrecipe.md)
   * **Refaster template `PrimitiveRules.GreaterThan`**
   * Avoid contrived ways of expressing the &quot;greater than&quot; relationship.
+  * Tags: RSPEC-S1940
 * [tech.picnic.errorprone.refasterrules.PrimitiveRulesRecipes$LessThanOrEqualToRecipe](/user-documentation/recipes/recipe-catalog/tech/picnic/errorprone/refasterrules/primitiverulesrecipes$lessthanorequaltorecipe.md)
   * **Refaster template `PrimitiveRules.LessThanOrEqualTo`**
   * Avoid contrived ways of expressing the &quot;less than or equal to&quot; relationship.
+  * Tags: RSPEC-S1940
 * [tech.picnic.errorprone.refasterrules.PrimitiveRulesRecipes$LessThanRecipe](/user-documentation/recipes/recipe-catalog/tech/picnic/errorprone/refasterrules/primitiverulesrecipes$lessthanrecipe.md)
   * **Refaster template `PrimitiveRules.LessThan`**
   * Avoid contrived ways of expressing the &quot;less than&quot; relationship.
+  * Tags: RSPEC-S1940
 * [tech.picnic.errorprone.refasterrules.RandomGeneratorRulesRecipes$RandomGeneratorNextLongRecipe](/user-documentation/recipes/recipe-catalog/tech/picnic/errorprone/refasterrules/randomgeneratorrulesrecipes$randomgeneratornextlongrecipe.md)
   * **Prefer `RandomGenerator#nextLong(long)` over more contrived alternatives**
   * Additionally, for large bounds, the unnecessary floating point arithmetic prevents some  `long` values from being generated.
+  * Tags: RSPEC-S1905
 * [tech.picnic.errorprone.refasterrules.ReactorRulesRecipes$FluxThenEmptyRecipe](/user-documentation/recipes/recipe-catalog/tech/picnic/errorprone/refasterrules/reactorrulesrecipes$fluxthenemptyrecipe.md)
   * **Refaster template `ReactorRules.FluxThenEmpty`**
   * Avoid vacuous invocations of `Flux#ignoreElements()`.
+  * Tags: RSPEC-S4968
 * [tech.picnic.errorprone.refasterrules.ReactorRulesRecipes$FluxThenMonoRecipe](/user-documentation/recipes/recipe-catalog/tech/picnic/errorprone/refasterrules/reactorrulesrecipes$fluxthenmonorecipe.md)
   * **Refaster template `ReactorRules.FluxThenMono`**
   * Avoid vacuous invocations of `Flux#ignoreElements()`.
+  * Tags: RSPEC-S4968
 * [tech.picnic.errorprone.refasterrules.ReactorRulesRecipes$FluxThenRecipe](/user-documentation/recipes/recipe-catalog/tech/picnic/errorprone/refasterrules/reactorrulesrecipes$fluxthenrecipe.md)
   * **Refaster template `ReactorRules.FluxThen`**
   * Avoid vacuous invocations of `Flux#ignoreElements()`.
+  * Tags: RSPEC-S2637, RSPEC-S4968
 * [tech.picnic.errorprone.refasterrules.ReactorRulesRecipes$MonoIdentityRecipe](/user-documentation/recipes/recipe-catalog/tech/picnic/errorprone/refasterrules/reactorrulesrecipes$monoidentityrecipe.md)
   * **Refaster template `ReactorRules.MonoIdentity`**
   * Don't unnecessarily transform a `Mono` to an equivalent instance.
+  * Tags: RSPEC-S2637, RSPEC-S4968
 * [tech.picnic.errorprone.refasterrules.ReactorRulesRecipes$MonoThenEmptyRecipe](/user-documentation/recipes/recipe-catalog/tech/picnic/errorprone/refasterrules/reactorrulesrecipes$monothenemptyrecipe.md)
   * **Refaster template `ReactorRules.MonoThenEmpty`**
   * Avoid vacuous invocations of `Mono#ignoreElement()`.
+  * Tags: RSPEC-S4968
 * [tech.picnic.errorprone.refasterrules.ReactorRulesRecipes$MonoThenMonoRecipe](/user-documentation/recipes/recipe-catalog/tech/picnic/errorprone/refasterrules/reactorrulesrecipes$monothenmonorecipe.md)
   * **Refaster template `ReactorRules.MonoThenMono`**
   * Avoid vacuous operations prior to invocation of `Mono#then(Mono)`.
+  * Tags: RSPEC-S4968
 * [tech.picnic.errorprone.refasterrules.ReactorRulesRecipes$MonoThenRecipe](/user-documentation/recipes/recipe-catalog/tech/picnic/errorprone/refasterrules/reactorrulesrecipes$monothenrecipe.md)
   * **Refaster template `ReactorRules.MonoThen`**
   * Prefer direct invocation of `Mono#then()`\} over more contrived alternatives.
+  * Tags: RSPEC-S4968
 * [tech.picnic.errorprone.refasterrules.RxJava2AdapterRulesRecipes$CompletableToMonoRecipe](/user-documentation/recipes/recipe-catalog/tech/picnic/errorprone/refasterrules/rxjava2adapterrulesrecipes$completabletomonorecipe.md)
   * **Refaster template `RxJava2AdapterRules.CompletableToMono`**
   * Use the fluent API style when using `RxJava2Adapter#completableToMono`.
+  * Tags: RSPEC-S4968
 * [tech.picnic.errorprone.refasterrules.StreamRulesRecipes$StreamCountRecipe](/user-documentation/recipes/recipe-catalog/tech/picnic/errorprone/refasterrules/streamrulesrecipes$streamcountrecipe.md)
   * **Refaster template `StreamRules.StreamCount`**
   * Recipe created for the following Refaster template: ```java static final class StreamCount&lt;T&gt; \{          @BeforeTemplate     @SuppressWarnings(value = &quot;java:S4266&quot;)     long before(Stream&lt;T&gt; stream) \{         return stream.collect(counting());     \}          @AfterTemplate     long after(Stream&lt;T&gt; stream) \{         return stream.count();     \} \} ``` .
+  * Tags: RSPEC-S4266
 * [tech.picnic.errorprone.refasterrules.StreamRulesRecipes$StreamMapCollectRecipe](/user-documentation/recipes/recipe-catalog/tech/picnic/errorprone/refasterrules/streamrulesrecipes$streammapcollectrecipe.md)
   * **Refaster template `StreamRules.StreamMapCollect`**
   * Recipe created for the following Refaster template: ```java static final class StreamMapCollect&lt;T, U, R&gt; \{          @BeforeTemplate     @SuppressWarnings(value = &quot;java:S4266&quot;)     R before(Stream&lt;T&gt; stream, Function&lt;? super T, ? extends U&gt; mapper, Collector&lt;? super U, ?, R&gt; collector) \{         return stream.collect(mapping(mapper, collector));     \}          @AfterTemplate     R after(Stream&lt;T&gt; stream, Function&lt;? super T, ? extends U&gt; mapper, Collector&lt;? super U, ?, R&gt; collector) \{         return stream.map(mapper).collect(collector);     \} \} ``` .
+  * Tags: RSPEC-S4266
 * [tech.picnic.errorprone.refasterrules.StreamRulesRecipes$StreamMaxRecipe](/user-documentation/recipes/recipe-catalog/tech/picnic/errorprone/refasterrules/streamrulesrecipes$streammaxrecipe.md)
   * **Refaster template `StreamRules.StreamMax`**
   * Recipe created for the following Refaster template: ```java static final class StreamMax&lt;T&gt; \{          @BeforeTemplate     @SuppressWarnings(value = &quot;java:S4266&quot;)     Optional&lt;T&gt; before(Stream&lt;T&gt; stream, Comparator&lt;? super T&gt; comparator) \{         return Refaster.anyOf(stream.min(comparator.reversed()), Streams.findLast(stream.sorted(comparator)), stream.collect(maxBy(comparator)));     \}          @AfterTemplate     Optional&lt;T&gt; after(Stream&lt;T&gt; stream, Comparator&lt;? super T&gt; comparator) \{         return stream.max(comparator);     \} \} ``` .
+  * Tags: RSPEC-S4266
 * [tech.picnic.errorprone.refasterrules.StreamRulesRecipes$StreamMinRecipe](/user-documentation/recipes/recipe-catalog/tech/picnic/errorprone/refasterrules/streamrulesrecipes$streamminrecipe.md)
   * **Refaster template `StreamRules.StreamMin`**
   * Recipe created for the following Refaster template: ```java static final class StreamMin&lt;T&gt; \{          @BeforeTemplate     @SuppressWarnings(value = &quot;java:S4266&quot;)     Optional&lt;T&gt; before(Stream&lt;T&gt; stream, Comparator&lt;? super T&gt; comparator) \{         return Refaster.anyOf(stream.max(comparator.reversed()), stream.sorted(comparator).findFirst(), stream.collect(minBy(comparator)));     \}          @AfterTemplate     Optional&lt;T&gt; after(Stream&lt;T&gt; stream, Comparator&lt;? super T&gt; comparator) \{         return stream.min(comparator);     \} \} ``` .
+  * Tags: RSPEC-S4266
 * [tech.picnic.errorprone.refasterrules.StreamRulesRecipes$StreamReduceRecipe](/user-documentation/recipes/recipe-catalog/tech/picnic/errorprone/refasterrules/streamrulesrecipes$streamreducerecipe.md)
   * **Refaster template `StreamRules.StreamReduce`**
   * Recipe created for the following Refaster template: ```java static final class StreamReduce&lt;T&gt; \{          @BeforeTemplate     @SuppressWarnings(value = &quot;java:S4266&quot;)     Optional&lt;T&gt; before(Stream&lt;T&gt; stream, BinaryOperator&lt;T&gt; accumulator) \{         return stream.collect(reducing(accumulator));     \}          @AfterTemplate     Optional&lt;T&gt; after(Stream&lt;T&gt; stream, BinaryOperator&lt;T&gt; accumulator) \{         return stream.reduce(accumulator);     \} \} ``` .
+  * Tags: RSPEC-S4266
 * [tech.picnic.errorprone.refasterrules.StreamRulesRecipes$StreamReduceWithIdentityRecipe](/user-documentation/recipes/recipe-catalog/tech/picnic/errorprone/refasterrules/streamrulesrecipes$streamreducewithidentityrecipe.md)
   * **Refaster template `StreamRules.StreamReduceWithIdentity`**
   * Recipe created for the following Refaster template: ```java static final class StreamReduceWithIdentity&lt;T&gt; \{          @BeforeTemplate     @SuppressWarnings(value = &quot;java:S4266&quot;)     T before(Stream&lt;T&gt; stream, T identity, BinaryOperator&lt;T&gt; accumulator) \{         return stream.collect(reducing(identity, accumulator));     \}          @AfterTemplate     T after(Stream&lt;T&gt; stream, T identity, BinaryOperator&lt;T&gt; accumulator) \{         return stream.reduce(identity, accumulator);     \} \} ``` .
+  * Tags: RSPEC-S4266
 * [tech.picnic.errorprone.refasterrules.StringRulesRecipes$EmptyStringRecipe](/user-documentation/recipes/recipe-catalog/tech/picnic/errorprone/refasterrules/stringrulesrecipes$emptystringrecipe.md)
   * **Refaster template `StringRules.EmptyString`**
   * Avoid unnecessary creation of new empty `String` objects; use the empty string literal instead.
+  * Tags: RSPEC-S2129
 * [tech.picnic.errorprone.refasterrules.StringRulesRecipes$StringIdentityRecipe](/user-documentation/recipes/recipe-catalog/tech/picnic/errorprone/refasterrules/stringrulesrecipes$stringidentityrecipe.md)
   * **Refaster template `StringRules.StringIdentity`**
   * Avoid unnecessary creation of new `String` objects.
+  * Tags: RSPEC-S2129
 * [tech.picnic.errorprone.refasterrules.StringRulesRecipes$StringIndexOfCharFromIndexRecipe](/user-documentation/recipes/recipe-catalog/tech/picnic/errorprone/refasterrules/stringrulesrecipes$stringindexofcharfromindexrecipe.md)
   * **Refaster template `StringRules.StringIndexOfCharFromIndex`**
   * Prefer `String#indexOf(int, int)` over less efficient alternatives.
+  * Tags: RSPEC-S4635
 * [tech.picnic.errorprone.refasterrules.StringRulesRecipes$StringIndexOfStringFromIndexRecipe](/user-documentation/recipes/recipe-catalog/tech/picnic/errorprone/refasterrules/stringrulesrecipes$stringindexofstringfromindexrecipe.md)
   * **Refaster template `StringRules.StringIndexOfStringFromIndex`**
   * Prefer `String#indexOf(String, int)` over less efficient alternatives.
+  * Tags: RSPEC-S4635
 * [tech.picnic.errorprone.refasterrules.StringRulesRecipes$StringIsEmptyRecipe](/user-documentation/recipes/recipe-catalog/tech/picnic/errorprone/refasterrules/stringrulesrecipes$stringisemptyrecipe.md)
   * **Refaster template `StringRules.StringIsEmpty`**
   * Prefer `String#isEmpty()` over alternatives that consult the string's length.
+  * Tags: RSPEC-S7158
 * [tech.picnic.errorprone.refasterrules.StringRulesRecipes$StringLastIndexOfCharRecipe](/user-documentation/recipes/recipe-catalog/tech/picnic/errorprone/refasterrules/stringrulesrecipes$stringlastindexofcharrecipe.md)
   * **Refaster template `StringRules.StringLastIndexOfChar`**
   * Prefer `String#lastIndexOf(int, int)` over less efficient alternatives.
+  * Tags: RSPEC-S4635
 * [tech.picnic.errorprone.refasterrules.StringRulesRecipes$StringLastIndexOfStringRecipe](/user-documentation/recipes/recipe-catalog/tech/picnic/errorprone/refasterrules/stringrulesrecipes$stringlastindexofstringrecipe.md)
   * **Refaster template `StringRules.StringLastIndexOfString`**
   * Prefer `String#lastIndexOf(String, int)` over less efficient alternatives.
+  * Tags: RSPEC-S4635
 * [tech.picnic.errorprone.refasterrules.StringRulesRecipes$StringStartsWithRecipe](/user-documentation/recipes/recipe-catalog/tech/picnic/errorprone/refasterrules/stringrulesrecipes$stringstartswithrecipe.md)
   * **Refaster template `StringRules.StringStartsWith`**
   * Prefer `String#startsWith(String, int)` over less efficient alternatives.
+  * Tags: RSPEC-S4635
 * [tech.picnic.errorprone.refasterrules.TestNGToAssertJRulesRecipes$AssertEqualRecipe](/user-documentation/recipes/recipe-catalog/tech/picnic/errorprone/refasterrules/testngtoassertjrulesrecipes$assertequalrecipe.md)
   * **Refaster template `TestNGToAssertJRules.AssertEqual`**
   * Recipe created for the following Refaster template: ```java @SuppressWarnings(value = &quot;java:S1448&quot;) static final class AssertEqual \{          @BeforeTemplate     void before(boolean actual, boolean expected) \{         assertEquals(actual, expected);     \}          @BeforeTemplate     void before(boolean actual, Boolean expected) \{         assertEquals(actual, expected);     \}          @BeforeTemplate     void before(Boolean actual, boolean expected) \{         assertEquals(actual, expected);     \}          @BeforeTemplate     void before(Boolean actual, Boolean expected) \{         assertEquals(actual, expected);     \}          @BeforeTemplate     void before(byte actual, byte expected) \{         assertEquals(actual, expected);     \}          @BeforeTemplate     void before(byte actual, Byte expected) \{         assertEquals(actual, expected);     \}          @BeforeTemplate     void before(Byte actual, byte expected) \{         assertEquals(actual, expected);     \}          @BeforeTemplate     void before(Byte actual, Byte expected) \{         assertEquals(actual, expected);     \}          @BeforeTemplate     void before(char actual, char expected) \{         assertEquals(actual, expected);     \}          @BeforeTemplate     void before(char actual, Character expected) \{         assertEquals(actual, expected);     \}          @BeforeTemplate     void before(Character actual, char expected) \{         assertEquals(actual, expected);     \}          @BeforeTemplate     void before(Character actual, Character expected) \{         assertEquals(actual, expected);     \}          @BeforeTemplate     void before(short actual, short expected) \{         assertEquals(actual, expected);     \}          @BeforeTemplate     void before(short actual, Short expected) \{         assertEquals(actual, expected);     \}          @BeforeTemplate     void before(Short actual, short expected) \{         assertEquals(actual, expected);     \}          @BeforeTemplate     void before(Short actual, Short expected) \{         assertEquals(actual, expected);     \}          @BeforeTemplate     void before(int actual, int expected) \{         assertEquals(actual, expected);     \}          @BeforeTemplate     void before(int actual, Integer expected) \{         assertEquals(actual, expected);     \}          @BeforeTemplate     void before(Integer actual, int expected) \{         assertEquals(actual, expected);     \}          @BeforeTemplate     void before(Integer actual, Integer expected) \{         assertEquals(actual, expected);     \}          @BeforeTemplate     void before(long actual, long expected) \{         assertEquals(actual, expected);     \}          @BeforeTemplate     void before(long actual, Long expected) \{         assertEquals(actual, expected);     \}          @BeforeTemplate     void before(Long actual, long expected) \{         assertEquals(actual, expected);     \}          @BeforeTemplate     void before(Long actual, Long expected) \{         assertEquals(actual, expected);     \}          @BeforeTemplate     void before(float actual, float expected) \{         assertEquals(actual, expected);     \}          @BeforeTemplate     void before(float actual, Float expected) \{         assertEquals(actual, expected);     \}          @BeforeTemplate     void before(Float actual, float expected) \{         assertEquals(actual, expected);     \}          @BeforeTemplate     void before(Float actual, Float expected) \{         assertEquals(actual, expected);     \}          @BeforeTemplate     void before(double actual, double expected) \{         assertEquals(actual, expected);     \}          @BeforeTemplate     void before(double actual, Double expected) \{         assertEquals(actual, expected);     \}          @BeforeTemplate     void before(Double actual, double expected) \{         assertEquals(actual, expected);     \}          @BeforeTemplate     void before(Double actual, Double expected) \{         assertEquals(actual, expected);     \}          @BeforeTemplate     void before(Object actual, Object expected) \{         assertEquals(actual, expected);     \}          @BeforeTemplate     void before(String actual, String expected) \{         assertEquals(actual, expected);     \}          @BeforeTemplate     void before(Map&lt;?, ?&gt; actual, Map&lt;?, ?&gt; expected) \{         assertEquals(actual, expected);     \}          @AfterTemplate     @UseImportPolicy(value = STATIC_IMPORT_ALWAYS)     void after(Object actual, Object expected) \{         assertThat(actual).isEqualTo(expected);     \} \} ``` .
+  * Tags: RSPEC-S1448
 * [tech.picnic.errorprone.refasterrules.TestNGToAssertJRulesRecipes$AssertEqualWithMessageRecipe](/user-documentation/recipes/recipe-catalog/tech/picnic/errorprone/refasterrules/testngtoassertjrulesrecipes$assertequalwithmessagerecipe.md)
   * **Refaster template `TestNGToAssertJRules.AssertEqualWithMessage`**
   * Recipe created for the following Refaster template: ```java @SuppressWarnings(value = &quot;java:S1448&quot;) static final class AssertEqualWithMessage \{          @BeforeTemplate     void before(boolean actual, String message, boolean expected) \{         assertEquals(actual, expected, message);     \}          @BeforeTemplate     void before(boolean actual, String message, Boolean expected) \{         assertEquals(actual, expected, message);     \}          @BeforeTemplate     void before(Boolean actual, String message, boolean expected) \{         assertEquals(actual, expected, message);     \}          @BeforeTemplate     void before(Boolean actual, String message, Boolean expected) \{         assertEquals(actual, expected, message);     \}          @BeforeTemplate     void before(byte actual, String message, byte expected) \{         assertEquals(actual, expected, message);     \}          @BeforeTemplate     void before(byte actual, String message, Byte expected) \{         assertEquals(actual, expected, message);     \}          @BeforeTemplate     void before(Byte actual, String message, byte expected) \{         assertEquals(actual, expected, message);     \}          @BeforeTemplate     void before(Byte actual, String message, Byte expected) \{         assertEquals(actual, expected, message);     \}          @BeforeTemplate     void before(char actual, String message, char expected) \{         assertEquals(actual, expected, message);     \}          @BeforeTemplate     void before(char actual, String message, Character expected) \{         assertEquals(actual, expected, message);     \}          @BeforeTemplate     void before(Character actual, String message, char expected) \{         assertEquals(actual, expected, message);     \}          @BeforeTemplate     void before(Character actual, String message, Character expected) \{         assertEquals(actual, expected, message);     \}          @BeforeTemplate     void before(short actual, String message, short expected) \{         assertEquals(actual, expected, message);     \}          @BeforeTemplate     void before(short actual, String message, Short expected) \{         assertEquals(actual, expected, message);     \}          @BeforeTemplate     void before(Short actual, String message, short expected) \{         assertEquals(actual, expected, message);     \}          @BeforeTemplate     void before(Short actual, String message, Short expected) \{         assertEquals(actual, expected, message);     \}          @BeforeTemplate     void before(int actual, String message, int expected) \{         assertEquals(actual, expected, message);     \}          @BeforeTemplate     void before(int actual, String message, Integer expected) \{         assertEquals(actual, expected, message);     \}          @BeforeTemplate     void before(Integer actual, String message, int expected) \{         assertEquals(actual, expected, message);     \}          @BeforeTemplate     void before(Integer actual, String message, Integer expected) \{         assertEquals(actual, expected, message);     \}          @BeforeTemplate     void before(long actual, String message, long expected) \{         assertEquals(actual, expected, message);     \}          @BeforeTemplate     void before(long actual, String message, Long expected) \{         assertEquals(actual, expected, message);     \}          @BeforeTemplate     void before(Long actual, String message, long expected) \{         assertEquals(actual, expected, message);     \}          @BeforeTemplate     void before(Long actual, String message, Long expected) \{         assertEquals(actual, expected, message);     \}          @BeforeTemplate     void before(float actual, String message, float expected) \{         assertEquals(actual, expected, message);     \}          @BeforeTemplate     void before(float actual, String message, Float expected) \{         assertEquals(actual, expected, message);     \}          @BeforeTemplate     void before(Float actual, String message, float expected) \{         assertEquals(actual, expected, message);     \}          @BeforeTemplate     void before(Float actual, String message, Float expected) \{         assertEquals(actual, expected, message);     \}          @BeforeTemplate     void before(double actual, String message, double expected) \{         assertEquals(actual, expected, message);     \}          @BeforeTemplate     void before(double actual, String message, Double expected) \{         assertEquals(actual, expected, message);     \}          @BeforeTemplate     void before(Double actual, String message, double expected) \{         assertEquals(actual, expected, message);     \}          @BeforeTemplate     void before(Double actual, String message, Double expected) \{         assertEquals(actual, expected, message);     \}          @BeforeTemplate     void before(Object actual, String message, Object expected) \{         assertEquals(actual, expected, message);     \}          @BeforeTemplate     void before(String actual, String message, String expected) \{         assertEquals(actual, expected, message);     \}          @BeforeTemplate     void before(Map&lt;?, ?&gt; actual, String message, Map&lt;?, ?&gt; expected) \{         assertEquals(actual, expected, message);     \}          @AfterTemplate     @UseImportPolicy(value = STATIC_IMPORT_ALWAYS)     void after(Object actual, String message, Object expected) \{         assertThat(actual).withFailMessage(message).isEqualTo(expected);     \} \} ``` .
+  * Tags: RSPEC-S1448
 
 ## sap
 
@@ -9144,6 +9704,7 @@ _1 recipe_
 * [org.openrewrite.quarkus.spring.MigrateSpringCloudServiceDiscovery](/user-documentation/recipes/recipe-catalog/quarkus/spring/migratespringcloudservicediscovery.md)
   * **Migrate Spring Cloud Service Discovery to Quarkus**
   * Migrates Spring Cloud Service Discovery annotations and configurations to Quarkus equivalents. Converts @EnableDiscoveryClient and related patterns to Quarkus Stork service discovery.
+  * Tags: service-discovery
 
 ## servlet
 
@@ -9668,9 +10229,11 @@ _197 recipes_
 * [org.openrewrite.java.spring.ws.MigrateAxiomToSaaj](/user-documentation/recipes/recipe-catalog/java/spring/ws/migrateaxiomtosaaj.md)
   * **Migrate Spring WS Axiom to SAAJ**
   * Migrate from Apache Axiom SOAP message handling to SAAJ (SOAP with Attachments API for Java). Spring WS 4.0.x removed support for Apache Axiom because Axiom did not support Jakarta EE at the time. This recipe changes Axiom types to their SAAJ equivalents.
+  * Tags: spring-ws
 * [org.openrewrite.java.spring.ws.UpgradeSpringWs_4_0](/user-documentation/recipes/recipe-catalog/java/spring/ws/upgradespringws_4_0.md)
   * **Migrate to Spring WS 4.0**
   * Migrate applications to Spring WS 4.0. This recipe handles the removal of Apache Axiom support in Spring WS 4.0.x by migrating Axiom-based SOAP message handling to SAAJ (SOAP with Attachments API for Java). Note that Spring WS 4.1+ restores Axiom support if upgrading to that version is preferred.
+  * Tags: spring-ws
 * [org.openrewrite.java.testing.dbrider.MigrateDbRiderSpringToDbRiderJUnit5](/user-documentation/recipes/recipe-catalog/java/testing/dbrider/migratedbriderspringtodbriderjunit5.md)
   * **Migrate rider-spring (JUnit4) to rider-junit5 (JUnit5)**
   * This recipe will migrate the necessary dependencies and annotations from DbRider with JUnit4 to JUnit5 in a Spring application.
@@ -10279,6 +10842,7 @@ _1 recipe_
 * [org.openrewrite.github.security.GitHubActionsSecurity](/user-documentation/recipes/recipe-catalog/github/security/githubactionssecurity.md)
   * **GitHub Actions security insights**
   * Finds potential security issues in GitHub Actions workflows, based on [Zizmor](https://docs.zizmor.sh) security analysis rules.
+  * Tags: supply-chain
 
 ## svelte
 
@@ -11144,6 +11708,7 @@ _5 recipes_
 * [com.oracle.weblogic.rewrite.jakarta.JavaxValidationMappingXmlsToJakarta9ValidationMappingXmls](/user-documentation/recipes/recipe-catalog/com/oracle/weblogic/rewrite/jakarta/javaxvalidationmappingxmlstojakarta9validationmappingxmls.md)
   * **Migrate xmlns entries in `**/validation/*.xml` files.**
   * Java EE has been rebranded to Jakarta EE, necessitating an XML namespace relocation.
+  * Tags: validation-mapping
 * [io.quarkus.updates.core.quarkus30.JavaxValidationMigrationToJakartaValidation](/user-documentation/recipes/recipe-catalog/io/quarkus/updates/core/quarkus30/javaxvalidationmigrationtojakartavalidation.md)
   * **Migrate deprecated `javax.validation` packages to `jakarta.validation`**
   * Java EE has been rebranded to Jakarta EE, necessitating a package relocation.
@@ -11180,9 +11745,11 @@ _2 recipes_
 * [org.openrewrite.java.migrate.lang.FindNonVirtualExecutors](/user-documentation/recipes/recipe-catalog/java/migrate/lang/findnonvirtualexecutors.md)
   * **Find non-virtual `ExecutorService` creation**
   * Find all places where static `java.util.concurrent.Executors` method creates a non-virtual `java.util.concurrent.ExecutorService`. This recipe can be used to search fro `ExecutorService` that can be replaced by Virtual Thread executor.
+  * Tags: virtual_threads
 * [org.openrewrite.java.migrate.lang.FindVirtualThreadOpportunities](/user-documentation/recipes/recipe-catalog/java/migrate/lang/findvirtualthreadopportunities.md)
   * **Find Virtual Thread opportunities**
   * Find opportunities to convert existing code to use Virtual Threads.
+  * Tags: virtual_threads
 
 ## vue
 
@@ -11367,24 +11934,31 @@ _10 recipes_
 * [com.oracle.weblogic.rewrite.WebLogicXmlCreateIfNotExists1511](/user-documentation/recipes/recipe-catalog/com/oracle/weblogic/rewrite/weblogicxmlcreateifnotexists1511.md)
   * **Create `weblogic.xml` if it does not exist**
   * This recipe will create a `weblogic.xml` file with the WebLogic 15.1.1 namespace if it does not already exist.
+  * Tags: web-app
 * [com.oracle.weblogic.rewrite.WebLogicXmlPreferApplicationPackagesJPA](/user-documentation/recipes/recipe-catalog/com/oracle/weblogic/rewrite/weblogicxmlpreferapplicationpackagesjpa.md)
   * **Add `prefer-application-packages` for JPA in `weblogic.xml`**
   * This recipe will add a `prefer-application-packages` entry for Jakarta Persistence in `weblogic.xml` if it does not already exist.
+  * Tags: web-app
 * [com.oracle.weblogic.rewrite.WebLogicXmlPreferApplicationPackagesSlf4j](/user-documentation/recipes/recipe-catalog/com/oracle/weblogic/rewrite/weblogicxmlpreferapplicationpackagesslf4j.md)
   * **Add `prefer-application-packages` for SLF4J in `weblogic.xml`**
   * This recipe will add a `prefer-application-packages` entry for SLF4J in `weblogic.xml` if it does not already exist.
+  * Tags: web-app
 * [com.oracle.weblogic.rewrite.WebLogicXmlWebAppNamespace1412](/user-documentation/recipes/recipe-catalog/com/oracle/weblogic/rewrite/weblogicxmlwebappnamespace1412.md)
   * **Migrate xmlns entries in `weblogic.xml` files to WebLogic 14.1.2**
   * Migrate xmlns entries in WebLogic schema files to WebLogic 14.1.2
+  * Tags: web-app
 * [com.oracle.weblogic.rewrite.WebLogicXmlWebAppNamespace1511](/user-documentation/recipes/recipe-catalog/com/oracle/weblogic/rewrite/weblogicxmlwebappnamespace1511.md)
   * **Migrate xmlns entries in `weblogic.xml` files to WebLogic 15.1.1**
   * This recipe will update the `xmlns` entries in `weblogic.xml` files to WebLogic 15.1.1
+  * Tags: web-app
 * [com.oracle.weblogic.rewrite.jakarta.JavaxWebFragmentXmlToJakartaWebFragmentXml5](/user-documentation/recipes/recipe-catalog/com/oracle/weblogic/rewrite/jakarta/javaxwebfragmentxmltojakartawebfragmentxml5.md)
   * **Migrate xmlns entries in `web-fragment.xml` files for Jakarta Server Faces 3**
   * Java EE has been rebranded to Jakarta EE, necessitating an XML namespace relocation.
+  * Tags: web-fragment
 * [com.oracle.weblogic.rewrite.jakarta.MigrateJavaxWebToJakartaWeb9](/user-documentation/recipes/recipe-catalog/com/oracle/weblogic/rewrite/jakarta/migratejavaxwebtojakartaweb9.md)
   * **Migrate javax.javaee-web-api to jakarta.jakartaee-web-api (Jakarta EE 9)**
   * Update Java EE Web API dependency to Jakarta EE Web Profile API 9.1
+  * Tags: web-api
 * [org.openrewrite.quarkus.spring.MigrateRequestParameterEdgeCases](/user-documentation/recipes/recipe-catalog/quarkus/spring/migraterequestparameteredgecases.md)
   * **Migrate Additional Spring Web Parameter Annotations**
   * Migrates additional Spring Web parameter annotations not covered by the main WebToJaxRs recipe. Includes @MatrixVariable, @CookieValue, and other edge cases.
@@ -11589,9 +12163,11 @@ _5 recipes_
 * [com.oracle.weblogic.rewrite.WebLogicWebservicesPolicyRefXmlNamespace1412](/user-documentation/recipes/recipe-catalog/com/oracle/weblogic/rewrite/weblogicwebservicespolicyrefxmlnamespace1412.md)
   * **Migrate xmlns entries in `weblogic-webservices-policy.xml` files to WebLogic 14.1.2**
   * Migrate xmlns entries in WebLogic Web Service Policy Reference schema files to WebLogic 14.1.2
+  * Tags: webservices-policy
 * [com.oracle.weblogic.rewrite.WebLogicWebservicesPolicyRefXmlNamespace1511](/user-documentation/recipes/recipe-catalog/com/oracle/weblogic/rewrite/weblogicwebservicespolicyrefxmlnamespace1511.md)
   * **Migrate xmlns entries in `weblogic-webservices-policy.xml` files to WebLogic 15.1.1**
   * This recipe will update the `xmlns` entries in `weblogic-webservices-policy.xml` files to WebLogic 15.1.1
+  * Tags: webservices-policy
 * [com.oracle.weblogic.rewrite.jakarta.JavaxWebServicesXmlToJakarta9WebServicesXml](/user-documentation/recipes/recipe-catalog/com/oracle/weblogic/rewrite/jakarta/javaxwebservicesxmltojakarta9webservicesxml.md)
   * **Migrate xmlns entries in `webservices.xml` files.**
   * Java EE has been rebranded to Jakarta EE, necessitating an XML namespace relocation.
@@ -11619,15 +12195,19 @@ _4 recipes_
 * [com.oracle.weblogic.rewrite.WebLogicWseeClientHandlerChainXmlNamespace1412](/user-documentation/recipes/recipe-catalog/com/oracle/weblogic/rewrite/weblogicwseeclienthandlerchainxmlnamespace1412.md)
   * **Migrate xmlns entries in `weblogic-wsee-clientHandlerChain.xml` files to WebLogic 14.1.2**
   * Migrate xmlns entries in WebLogic WSEE Client Handler Chains schema files to WebLogic 14.1.2
+  * Tags: wsee-clientHandlerChain
 * [com.oracle.weblogic.rewrite.WebLogicWseeClientHandlerChainXmlNamespace1511](/user-documentation/recipes/recipe-catalog/com/oracle/weblogic/rewrite/weblogicwseeclienthandlerchainxmlnamespace1511.md)
   * **Migrate xmlns entries in `weblogic-wsee-clientHandlerChain.xml` files to WebLogic 15.1.1**
   * This recipe will update the `xmlns` entries in `weblogic-wsee-clientHandlerChain.xml` files to WebLogic 15.1.1
+  * Tags: wsee-clientHandlerChain
 * [com.oracle.weblogic.rewrite.WebLogicWseeStandaloneClientXmlNamespace1412](/user-documentation/recipes/recipe-catalog/com/oracle/weblogic/rewrite/weblogicwseestandaloneclientxmlnamespace1412.md)
   * **Migrate xmlns entries in `weblogic-wsee-standaloneclient.xml` files to WebLogic 14.1.2**
   * Migrate xmlns entries in WebLogic WSEE Standalone Client schema files to WebLogic 14.1.2
+  * Tags: wsee-standaloneclient
 * [com.oracle.weblogic.rewrite.WebLogicWseeStandaloneClientXmlNamespace1511](/user-documentation/recipes/recipe-catalog/com/oracle/weblogic/rewrite/weblogicwseestandaloneclientxmlnamespace1511.md)
   * **Migrate xmlns entries in `weblogic-wsee-standaloneclient.xml` files to WebLogic 15.1.1**
   * This recipe will update the `xmlns` entries in `weblogic-wsee-standaloneclient.xml` files to WebLogic 15.1.1
+  * Tags: wsee-standaloneclient
 
 ## xhtml
 
