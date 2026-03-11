@@ -77,7 +77,7 @@ You can install the CLI with a single command:
 curl -fsSL https://api.devsaas.moderne.io/cli | bash
 
 # Windows (PowerShell)
-curl -fsSL https://api.devsaas.moderne.io/cli | iex
+iwr https://api.devsaas.moderne.io/cli | iex
 ```
 
 This downloads the `modw` wrapper, places it on your `PATH`, and configures it to connect to the Moderne Platform. On first run, `modw` will download the full platform distribution (JAR + bundled JRE) automatically.
