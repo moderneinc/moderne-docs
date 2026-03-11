@@ -10,6 +10,15 @@ This page contains release notes for [Moderne proprietary OpenRewrite recipes](h
 This changelog is automatically generated from GitHub releases and only contains information from the past year.
 :::
 
+## March 11, 2026
+
+#### rewrite-spring - 0.27.1
+
+* Bump MyBatis to compatible versions for Spring Boot 3.5 and 4.0
+* Skip array and vararg parameters in NullableSpringWebParameters
+* Move `MigrateMockMvcToAssertJ` into SB4 best practices
+* Only add trailing slash routes when explicitly enabled
+
 ## March 4, 2026
 
 #### rewrite-ai-search - 0.32.8
