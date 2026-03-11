@@ -224,10 +224,6 @@ export const releasesItems: NavLink[] = [
     href: '/releases/changelog',
   },
   {
-    name: 'CLI / DX changelog',
-    href: '/releases/cli-dx',
-  },
-  {
     name: 'Proprietary recipe changelog',
     href: '/releases/proprietary-recipe-changelog',
   },

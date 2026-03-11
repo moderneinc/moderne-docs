@@ -27,7 +27,7 @@ This guide assumes that:
 * You have a basic understanding of running terminal commands
 
 :::note
-The examples in this guide use the latest staging version of the Moderne CLI. We'd strongly recommend you use the same version.
+The examples in this guide use the latest version of the Moderne CLI. We'd strongly recommend you use the same version.
 :::
 
 ## Part 1: Setting up your workspace
