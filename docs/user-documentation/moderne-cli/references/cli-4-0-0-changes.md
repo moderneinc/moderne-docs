@@ -60,7 +60,7 @@ There are several installation paths, each with different tradeoffs. The right c
 
 | Path                  | How it works                                            | Assumes                                        | Best for                                    |
 |-----------------------|---------------------------------------------------------|------------------------------------------------|---------------------------------------------|
-| Quick install         | `curl -fsSL https://api.devsaas.moderne.io/cli \| bash` | Internet at install time                       | Getting started quickly                     |
+| Quick install         | `curl -fsSL https://api.<TENANT>.moderne.io/cli \| bash` | Internet at install time                       | Getting started quickly                     |
 | Package manager       | `brew install mod` / `choco install mod`                | Internet at install time                       | Individual workstations                     |
 | Platform distribution | Download `.sh` or `.zip`, run it                        | Internet at download time                      | Teams without Java, controlled environments |
 | Standalone wrapper    | Check `modw` + properties file into your repo           | Internet on first run (downloads distribution) | CI pipelines, per-project version pinning   |
@@ -74,10 +74,10 @@ You can install the CLI with a single command:
 
 ```bash
 # Linux / macOS
-curl -fsSL https://api.devsaas.moderne.io/cli | bash
+curl -fsSL https://api.<TENANT>.moderne.io/cli | bash
 
 # Windows (PowerShell)
-iwr https://api.devsaas.moderne.io/cli | iex
+iwr https://api.<TENANT>.moderne.io/cli | iex
 ```
 
 This downloads the `modw` wrapper, places it on your `PATH`, and configures it to connect to the Moderne Platform. On first run, `modw` will download the full platform distribution (JAR + bundled JRE) automatically.
