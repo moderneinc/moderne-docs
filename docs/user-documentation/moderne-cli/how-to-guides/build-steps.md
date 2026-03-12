@@ -9,15 +9,21 @@ description: Explains what build steps are and the various ways you can configur
 
 The Moderne CLI detects build tools, produces a list of build “steps”, and executes each of those steps to produce LSTs. Any file parsed by a previous build step is skipped by its successors.
 
-In the default configuration, the CLI first looks for Maven build files, then Gradle, and then Bazel. The identification of one of those build tools in a repository causes others to be skipped. These external build tools are followed by a resource parsing step that scoops up any files that weren't parsed by the external build tool steps, because not every file in a repository is part of a source set under management by a build tool. For example, the top level `README.md` in a repository is generally parsed by the resource parsing step because it isn't located in a place that it would be part of a source set defined by an external build tool.
+In the default configuration, the CLI first looks for Gradle build files, then Bazel, and then Maven. These external build tools are followed by a resource parsing step that scoops up any files that weren't parsed by the external build tool steps, because not every file in a repository is part of a source set under management by a build tool. For example, the top level `README.md` in a repository is generally parsed by the resource parsing step because it isn't located in a place that it would be part of a source set defined by an external build tool.
 
-## Build steps
+## Build step types
 
-The CLI supports 3 external build step types and a resource build step.
+The CLI supports the following build step types:
 
-The external build step types are Maven, Gradle, and Bazel. For each of these steps, the CLI will do a file walk from the root directory of a repository looking for top level build files of that type. The execution of that step will execute each top level build file.
+* **External build tool steps**: `maven`, `gradle`, and `bazel`. These shell out to the respective build tool to compile and parse source code with full type attribution.
+* **Language-specific steps**: `python`, `javascript`, `dotnet`, and `mainframe`. These use dedicated parsers to handle their respective language ecosystems.
+* **Resource step**: `resource`. A catch-all step that parses files not handled by other steps (YAML, XML, JSON, Terraform, properties, etc.).
+
+In the default configuration, only the external build tool steps and the resource step run automatically. Language-specific steps must be [explicitly configured](#configuring-build-steps-explicitly) in your `moderne.yml` file.
 
 ### External build tool steps
+
+Each external build tool step scans the repository for the root build files of its type — that is, the build files that represent independent projects rather than submodules — and invokes the build tool on each one.
 
 For most projects, an external build tool step will result in one execution of the external build tool. For example, even a multi-module Gradle project with the following directory structure results in one execution of the Moderne Gradle plugin to parse all the source sets of all projects in the multi-module project:
 
@@ -52,7 +58,16 @@ insurance-policy-administration/
     build.gradle
 ```
 
-### Resource build step
+### Language-specific steps
+
+Language-specific steps use dedicated parsers via RPC to handle their respective ecosystems. Unlike external build tool steps, these do not run in the default pipeline and must be explicitly configured.
+
+* **`python`** - Parses Python projects. Detects projects via `pyproject.toml`, `setup.py`, or `.py` files. Requires Python 3.9+. See [Python configuration](./python.md) for setup details.
+* **`javascript`** - Parses JavaScript and TypeScript projects. Detects projects via `package.json` files. Automatically discovers the appropriate package manager (npm, yarn, pnpm, or bun) and Node.js version. See [JavaScript configuration](./javascript.md) for setup details.
+* **`dotnet`** - Parses C# projects. Detects projects via `.sln`, `.slnx`, or `.csproj` files. Requires .NET SDK 10.0+.
+* **`mainframe`** - Parses COBOL, JCL, and Control-M code.
+
+### Resource step
 
 The resource build step parses resource files using OpenRewrite parsers in situations where there is no source set with binary dependency list necessary to [type-attribute](https://docs.openrewrite.org/concepts-and-explanations/lossless-semantic-trees) the resulting LSTs. These include YAML, XML, Terraform, properties, JSON, some Groovy DSLs, etc.
 
@@ -60,21 +75,36 @@ In the default build steps, the resource build step runs after all external buil
 
 ## Configuring build steps explicitly
 
-Build steps can be configured explicitly in [Moderne CLI configuration](./layer-config-cli.md). The out-of-the-box behavior described above can also be explicitly defined in the `.moderne/cli/moderne.yml` file:
+Build steps can be configured explicitly in [Moderne CLI configuration](./layer-config-cli.md). The out-of-the-box default behavior described above can also be explicitly defined in the `.moderne/cli/moderne.yml` file:
 
 ```yaml
 specs: specs.moderne.ai/v1/cli
 build:
   steps:
-    - type: maven
     - type: gradle
     - type: bazel
+    - type: maven
     - type: resource
       inclusion: |-
         **/*
 ```
 
 The order of the steps is important, as any file parsed by one step will be skipped by a subsequent step. In this way, the steps drive the order of precedence of build tools.
+
+To add language-specific parsing, include the corresponding step types. For example, to parse a repository that contains both a Gradle project and Python code:
+
+```yaml
+specs: specs.moderne.ai/v1/cli
+build:
+  steps:
+    - type: gradle
+    - type: python
+    - type: resource
+      inclusion: |-
+        **/*
+```
+
+The available step types are: `maven`, `gradle`, `bazel`, `python`, `javascript`, `dotnet`, `mainframe`, and `resource`.
 
 :::danger
 Be careful if you remove a build step type as that will make it so that build type will never be used. For instance, if you removed the `bazel` build step, Bazel will never be used to build any files -- even if there were Bazel files present. Instead, Bazel files would be parsed with the `resource` parser.
