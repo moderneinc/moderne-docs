@@ -7,15 +7,18 @@ description: The current version of the Moderne Agent and where to download it.
 
 | Component                             | Current version |
 | ------------------------------------- | --------------- |
-| Agent (recommended to use **latest**) | 0.255.0         |
+| Agent (recommended to use **latest**) | 0.256.0         |
 
 ### Maven download
 
-[Agent download link](https://repo1.maven.org/maven2/io/moderne/moderne-agent/0.255.0/moderne-agent-0.255.0.jar)
+[Agent download link](https://repo1.maven.org/maven2/io/moderne/moderne-agent/0.256.0/moderne-agent-0.256.0.jar)
 
 
 ## Changelog
 
+### v0.256.0 - 2026-03-12
+
+* Add absolute read timeout on agent outbound proxy
 ### v0.255.0 - 2026-03-11
 
 * Propagate tool connect timeout to agent outbound proxy WebClient
