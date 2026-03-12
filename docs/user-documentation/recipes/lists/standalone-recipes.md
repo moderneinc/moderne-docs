@@ -779,6 +779,9 @@ Total standalone recipes: 1200
 * [org.openrewrite.java.spring.boot2.search.IntegrationSchedulerPoolRecipe](/user-documentation/recipes/recipe-catalog/java/spring/boot2/search/integrationschedulerpoolrecipe.md)
   * **Integration scheduler pool size**
   * Spring Integration now reuses an available `TaskScheduler` rather than configuring its own. In a typical application setup relying on the auto-configuration, this means that Spring Integration uses the auto-configured task scheduler that has a pool size of 1. To restore Spring Integration’s default of 10 threads, use the `spring.task.scheduling.pool.size` property.
+* [org.openrewrite.java.spring.boot3.AddRouteTrailingSlash](/user-documentation/recipes/recipe-catalog/java/spring/boot3/addroutetrailingslash.md)
+  * **Add trailing slash to Spring routes**
+  * This is part of Spring MVC and WebFlux URL Matching Changes, as of Spring Framework 6.0, the trailing slash matching configuration option has been deprecated and its default value set to false. This means that previously, a controller `@GetMapping(&quot;/some/greeting&quot;)` would match both `GET /some/greeting` and `GET /some/greeting/`, but it doesn't match `GET /some/greeting/` anymore by default and will result in an HTTP 404 error. This recipe is to add declaration of additional route explicitly on the controller handler (like `@GetMapping(&quot;/some/greeting&quot;, &quot;/some/greeting/&quot;)`.
 * [org.openrewrite.java.spring.boot3.AddSetUseTrailingSlashMatch](/user-documentation/recipes/recipe-catalog/java/spring/boot3/addsetusetrailingslashmatch.md)
   * **Add `SetUseTrailingSlashMatch()` in configuration**
   * This is part of Spring MVC and WebFlux URL Matching Changes, as of Spring Framework 6.0, the trailing slash matching configuration option has been deprecated and its default value set to false. This means that previously, a controller `@GetMapping(&quot;/some/greeting&quot;)` would match both `GET /some/greeting` and `GET /some/greeting/`, but it doesn't match `GET /some/greeting/` anymore by default and will result in an HTTP 404 error. This recipe is change the default with the global Spring MVC or Webflux configuration.
@@ -1868,9 +1871,6 @@ Total standalone recipes: 1200
 * [io.moderne.java.spring.boot.SpringToSpringBoot](/user-documentation/recipes/recipe-catalog/java/spring/boot/springtospringboot.md)
   * **Migrate Spring Framework to Spring Boot**
   * Migrate non Spring Boot applications to the latest compatible Spring Boot release. This recipe will modify an application's build files introducing Maven dependency management for Spring Boot, or adding the Gradle Spring Boot build plugin.
-* [io.moderne.java.spring.boot3.SpringBoot3BestPractices](/user-documentation/recipes/recipe-catalog/java/spring/boot3/springboot3bestpractices.md)
-  * **Spring Boot 3.5 best practices**
-  * Applies best practices to Spring Boot 3.5+ applications.
 * [io.moderne.java.spring.boot4.ModuleHasMonolithicStarter](/user-documentation/recipes/recipe-catalog/java/spring/boot4/modulehasmonolithicstarter.md)
   * **Module has monolithic Spring Boot starter**
   * Precondition that matches modules with the monolithic Spring Boot starters that need to be migrated to modular starters. Matches the production monolithic spring-boot-starter and spring-boot-starter-classic, but not specific modular starters like spring-boot-starter-test or spring-boot-starter-ldap.
@@ -1880,9 +1880,9 @@ Total standalone recipes: 1200
 * [io.moderne.java.spring.boot4.ModuleUsesLiquibase](/user-documentation/recipes/recipe-catalog/java/spring/boot4/moduleusesliquibase.md)
   * **Module uses Liquibase**
   * Precondition that marks all files in a module if Liquibase usage is detected. Detection is based on having a Liquibase dependency, using Liquibase types, or having changelog files.
-* [io.moderne.java.spring.boot4.UpgradeSpringBoot_4_0](/user-documentation/recipes/recipe-catalog/java/spring/boot4/upgradespringboot_4_0-moderne-edition.md)
-  * **Migrate to Spring Boot 4.0 (Moderne Edition)**
-  * Migrate applications to the latest Spring Boot 4.0 release. This recipe will modify an application's build files, make changes to deprecated/preferred APIs, and migrate configuration settings that have changes between versions. This recipe will also chain additional framework migrations (Spring Framework, Spring Data, etc) that are required as part of the migration to Spring Boot 4.0.
+* [io.moderne.java.spring.boot4.SpringBoot4BestPractices](/user-documentation/recipes/recipe-catalog/java/spring/boot4/springboot4bestpractices.md)
+  * **Spring Boot 4.0 best practices**
+  * Applies best practices to Spring Boot 4.+ applications.
 * [io.moderne.java.spring.framework.FindDeprecatedPathMatcherUsage](/user-documentation/recipes/recipe-catalog/java/spring/framework/finddeprecatedpathmatcherusage.md)
   * **Find deprecated `PathMatcher` usage**
   * In Spring Framework 7.0, `PathMatcher` and `AntPathMatcher` are deprecated in favor of `PathPatternParser`. This recipe finds usages of the deprecated `AntPathMatcher` class that may require manual migration to `PathPatternParser`.

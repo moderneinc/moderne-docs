@@ -9,12 +9,7 @@ import TabItem from '@theme/TabItem';
 
 **io.moderne.java.spring.framework.MigrateTrailingSlashMatch**
 
-_Migrates deprecated `setUseTrailingSlashMatch(true)` configuration by adding explicit trailing slash routes to controller methods, then removing the deprecated configuration call. This ensures applications that relied on automatic trailing slash matching continue to work after upgrading to Spring Framework 7.0._
-
-### Tags
-
-* [spring](/user-documentation/recipes/lists/recipes-by-tag#spring)
-* [framework](/user-documentation/recipes/lists/recipes-by-tag#framework)
+_Migrates deprecated `setUseTrailingSlashMatch()` configuration removed in Spring Framework 7.0. Only adds explicit trailing slash routes when the project previously enabled trailing slash matching via `setUseTrailingSlashMatch(true)`. The deprecated configuration calls are always removed._
 
 ## Recipe source
 

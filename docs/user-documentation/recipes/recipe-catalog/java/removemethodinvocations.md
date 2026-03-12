@@ -46,7 +46,6 @@ This recipe is used as part of the following composite recipes:
 * [Migrate to Java 8](/user-documentation/recipes/recipe-catalog/java/migrate/upgradetojava8.md)
 * [Migrate to Spring Framework 6.1](/user-documentation/recipes/recipe-catalog/java/spring/framework/upgradespringframework_6_1.md)
 * [Migrate to Spring ORM to 5](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/spring/orm/springorm5)
-* [Migrate trailing slash matching to explicit routes](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/spring/framework/migratetrailingslashmatch)
 * [Remove Security AccessController](/user-documentation/recipes/recipe-catalog/java/migrate/accesscontroller.md)
 * [Remove Security Policy](/user-documentation/recipes/recipe-catalog/java/migrate/removesecuritypolicy.md)
 * [Remove Security SecurityManager](/user-documentation/recipes/recipe-catalog/java/migrate/removesecuritymanager.md)

@@ -33,6 +33,8 @@ _Recipes that include further recipes, often including the individual recipes be
 * [Replace `@MockBean` and `@SpyBean`](./replacemockbeanandspybean.md)
 * [Replace deprecated RequestMatcherProvider with new API](./replacedeprecatedrequestmatcherprovider.md)
 * [Spring Boot 4.0 Module Starter Relocations](./modulestarterrelocations.md)
+* [Spring Boot 4.0 best practices](./springboot4bestpractices.md)
+* [Upgrade MyBatis to Spring Boot 4.0](./upgrademybatistospringboot_4_0.md)
 
 ## Recipes
 

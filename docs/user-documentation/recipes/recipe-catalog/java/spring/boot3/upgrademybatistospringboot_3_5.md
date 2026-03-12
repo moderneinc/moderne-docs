@@ -1,15 +1,15 @@
 ---
-sidebar_label: "Upgrade MyBatis to Spring Boot 3.4"
+sidebar_label: "Upgrade MyBatis to Spring Boot 3.5"
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# Upgrade MyBatis to Spring Boot 3.4
+# Upgrade MyBatis to Spring Boot 3.5
 
-**io.moderne.java.spring.boot3.UpgradeMyBatisToSpringBoot\_3\_4**
+**io.moderne.java.spring.boot3.UpgradeMyBatisToSpringBoot\_3\_5**
 
-_Upgrade MyBatis Spring modules to a version corresponding to Spring Boot 3.4._
+_Upgrade MyBatis Spring modules to a version corresponding to Spring Boot 3.5._
 
 ## Recipe source
 
@@ -23,8 +23,8 @@ This recipe is available under the [Moderne Proprietary License](https://docs.mo
 
 This recipe is used as part of the following composite recipes:
 
-* [Migrate to Spring Boot 3.4 (Moderne Edition)](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/spring/boot3/upgradespringboot_3_4-moderne-edition)
-* [Upgrade MyBatis to Spring Boot 3.5](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/spring/boot3/upgrademybatistospringboot_3_5)
+* [Migrate to Spring Boot 3.5 (Moderne Edition)](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/spring/boot3/upgradespringboot_3_5-moderne-edition)
+* [Upgrade MyBatis to Spring Boot 4.0](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/spring/boot4/upgrademybatistospringboot_4_0)
 
 
 ## Usage
@@ -38,7 +38,7 @@ This recipe has no required configuration options. Users of Moderne can run it v
 You will need to have configured the [Moderne CLI](https://docs.moderne.io/user-documentation/moderne-cli/getting-started/cli-intro) on your machine before you can run the following command.
 
 ```shell title="shell"
-mod run . --recipe UpgradeMyBatisToSpringBoot_3_4
+mod run . --recipe UpgradeMyBatisToSpringBoot_3_5
 ```
 
 If the recipe is not available locally, then you can install it using:
@@ -52,7 +52,7 @@ mod config recipes jar install io.moderne.recipe:rewrite-spring:{{VERSION_IO_MOD
 
 import RecipeCallout from '@site/src/components/ModerneLink';
 
-<RecipeCallout link="https://app.moderne.io/recipes/io.moderne.java.spring.boot3.UpgradeMyBatisToSpringBoot_3_4" />
+<RecipeCallout link="https://app.moderne.io/recipes/io.moderne.java.spring.boot3.UpgradeMyBatisToSpringBoot_3_5" />
 
 The community edition of the Moderne platform enables you to easily run recipes across thousands of open-source repositories.
 

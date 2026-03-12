@@ -30,7 +30,6 @@ _Recipes that include further recipes, often including the individual recipes be
 * [Migrate to Spring Framework 6.1](./upgradespringframework_6_1.md)
 * [Migrate to Spring Framework 6.2](./upgradespringframework_6_2.md)
 * [Migrate to Spring Framework 7.0](./upgradespringframework_7_0.md)
-* [Migrate trailing slash matching to explicit routes](./migratetrailingslashmatch.md)
 * [Remove path extension content negotiation methods](./removepathextensioncontentnegotiation.md)
 
 ## Recipes
@@ -61,6 +60,7 @@ _Recipes that include further recipes, often including the individual recipes be
 * [Migrate `org.springframework.web.reactive.HandlerResult.setExceptionHandler` method](./migratehandlerresultsetexceptionhandlermethod.md)
 * [Migrate `setConnectTimeout(..)` to ConnectionConfig `setConnectTimeout(..)`](./httpcomponentsclienthttprequestfactoryconnecttimeout.md)
 * [Migrate `setReadTimeout(java.lang.int)` to SocketConfig `setSoTimeout(..)`](./httpcomponentsclienthttprequestfactoryreadtimeout.md)
+* [Migrate trailing slash matching to explicit routes](./migratetrailingslashmatch.md)
 * [Remove deprecated `setPathMatcher()` calls](./removesetpathmatchercall.md)
 * [Remove empty path match configuration methods](./removeemptypathmatchconfiguration.md)
 * [Remove `public` from `@Bean` methods](./beanmethodsnotpublic.md)

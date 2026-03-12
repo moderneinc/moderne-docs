@@ -1,15 +1,20 @@
 ---
-sidebar_label: "Upgrade MyBatis to Spring Boot 3.4"
+sidebar_label: "Spring Boot 4.0 best practices"
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# Upgrade MyBatis to Spring Boot 3.4
+# Spring Boot 4.0 best practices
 
-**io.moderne.java.spring.boot3.UpgradeMyBatisToSpringBoot\_3\_4**
+**io.moderne.java.spring.boot4.SpringBoot4BestPractices**
 
-_Upgrade MyBatis Spring modules to a version corresponding to Spring Boot 3.4._
+_Applies best practices to Spring Boot 4.+ applications._
+
+### Tags
+
+* [spring](/user-documentation/recipes/lists/recipes-by-tag#spring)
+* [boot](/user-documentation/recipes/lists/recipes-by-tag#boot)
 
 ## Recipe source
 
@@ -17,14 +22,6 @@ This recipe is only available to users of [Moderne](https://docs.moderne.io/).
 
 
 This recipe is available under the [Moderne Proprietary License](https://docs.moderne.io/licensing/overview).
-
-
-## Used by
-
-This recipe is used as part of the following composite recipes:
-
-* [Migrate to Spring Boot 3.4 (Moderne Edition)](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/spring/boot3/upgradespringboot_3_4-moderne-edition)
-* [Upgrade MyBatis to Spring Boot 3.5](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/spring/boot3/upgrademybatistospringboot_3_5)
 
 
 ## Usage
@@ -38,7 +35,7 @@ This recipe has no required configuration options. Users of Moderne can run it v
 You will need to have configured the [Moderne CLI](https://docs.moderne.io/user-documentation/moderne-cli/getting-started/cli-intro) on your machine before you can run the following command.
 
 ```shell title="shell"
-mod run . --recipe UpgradeMyBatisToSpringBoot_3_4
+mod run . --recipe SpringBoot4BestPractices
 ```
 
 If the recipe is not available locally, then you can install it using:
@@ -52,7 +49,7 @@ mod config recipes jar install io.moderne.recipe:rewrite-spring:{{VERSION_IO_MOD
 
 import RecipeCallout from '@site/src/components/ModerneLink';
 
-<RecipeCallout link="https://app.moderne.io/recipes/io.moderne.java.spring.boot3.UpgradeMyBatisToSpringBoot_3_4" />
+<RecipeCallout link="https://app.moderne.io/recipes/io.moderne.java.spring.boot4.SpringBoot4BestPractices" />
 
 The community edition of the Moderne platform enables you to easily run recipes across thousands of open-source repositories.
 
@@ -126,6 +123,25 @@ _Statistics used in analyzing the performance of recipes._
 | Max scanning time (ns) | The max time scanning any one source file. |
 | Cumulative edit time (ns) | The total time spent across the editing phase of this recipe. |
 | Max edit time (ns) | The max time editing any one source file. |
+
+</TabItem>
+
+<TabItem value="org.openrewrite.maven.table.MavenMetadataFailures" label="MavenMetadataFailures">
+
+### Maven metadata failures
+**org.openrewrite.maven.table.MavenMetadataFailures**
+
+_Attempts to resolve maven metadata that failed._
+
+| Column Name | Description |
+| ----------- | ----------- |
+| Group id | The groupId of the artifact for which the metadata download failed. |
+| Artifact id | The artifactId of the artifact for which the metadata download failed. |
+| Version | The version of the artifact for which the metadata download failed. |
+| Maven repository | The URL of the Maven repository that the metadata download failed on. |
+| Snapshots | Does the repository support snapshots. |
+| Releases | Does the repository support releases. |
+| Failure | The reason the metadata download failed. |
 
 </TabItem>
 

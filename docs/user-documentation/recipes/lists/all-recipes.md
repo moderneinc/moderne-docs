@@ -6,7 +6,7 @@ description: A comprehensive list of all recipes organized by module.
 
 _This doc contains all recipes grouped by their module._
 
-Total recipes: 5078
+Total recipes: 5081
 
 
 ## io.moderne.recipe:rewrite-angular
@@ -441,7 +441,7 @@ _2 recipes_
 
 _License: Moderne Proprietary License_
 
-_72 recipes_
+_73 recipes_
 
 * [io.moderne.java.jsf.richfaces.ConvertExtendedDataTableHeightToStyle](/user-documentation/recipes/recipe-catalog/java/jsf/richfaces/convertextendeddatatableheighttostyle.md)
   * **Convert height/width attributes to `extendedDataTable` style**
@@ -587,6 +587,9 @@ _72 recipes_
 * [io.moderne.java.spring.framework.MigrateHttpHeadersMultiValueMapMethods](/user-documentation/recipes/recipe-catalog/java/spring/framework/migratehttpheadersmultivaluemapmethods.md)
   * **Migrate `HttpHeaders` methods removed when `MultiValueMap` contract was dropped**
   * Spring Framework 7.0 changed `HttpHeaders` to no longer implement `MultiValueMap`. This recipe replaces removed inherited method calls: `containsKey()` with `containsHeader()`, `keySet()` with `headerNames()`, and `entrySet()` with `headerSet()`.
+* [io.moderne.java.spring.framework.MigrateTrailingSlashMatch](/user-documentation/recipes/recipe-catalog/java/spring/framework/migratetrailingslashmatch.md)
+  * **Migrate trailing slash matching to explicit routes**
+  * Migrates deprecated `setUseTrailingSlashMatch()` configuration removed in Spring Framework 7.0. Only adds explicit trailing slash routes when the project previously enabled trailing slash matching via `setUseTrailingSlashMatch(true)`. The deprecated configuration calls are always removed.
 * [io.moderne.java.spring.framework.NullableSpringWebParameters](/user-documentation/recipes/recipe-catalog/java/spring/framework/nullablespringwebparameters.md)
   * **Add `@Nullable` to optional Spring web parameters**
   * In Spring Boot 4, JSpecify's `@Nullable` annotation should be used to indicate that a parameter can be null. This recipe adds `@Nullable` to parameters annotated with `@PathVariable(required = false)` or `@RequestParam(required = false)` and removes the now-redundant `required = false` attribute.
@@ -10393,7 +10396,7 @@ _18 recipes_
 
 _License: Unknown_
 
-_1793 recipes_
+_1795 recipes_
 
 * [ai.timefold.solver.migration.ChangeVersion](/user-documentation/recipes/recipe-catalog/ai/timefold/solver/migration/changeversion.md)
   * **Change the Timefold version**
@@ -10575,6 +10578,9 @@ _1793 recipes_
 * [io.moderne.java.spring.boot3.UpgradeMyBatisToSpringBoot_3_4](/user-documentation/recipes/recipe-catalog/java/spring/boot3/upgrademybatistospringboot_3_4.md)
   * **Upgrade MyBatis to Spring Boot 3.4**
   * Upgrade MyBatis Spring modules to a version corresponding to Spring Boot 3.4.
+* [io.moderne.java.spring.boot3.UpgradeMyBatisToSpringBoot_3_5](/user-documentation/recipes/recipe-catalog/java/spring/boot3/upgrademybatistospringboot_3_5.md)
+  * **Upgrade MyBatis to Spring Boot 3.5**
+  * Upgrade MyBatis Spring modules to a version corresponding to Spring Boot 3.5.
 * [io.moderne.java.spring.boot3.UpgradeSpringBoot_3_4](/user-documentation/recipes/recipe-catalog/java/spring/boot3/upgradespringboot_3_4-moderne-edition.md)
   * **Migrate to Spring Boot 3.4 (Moderne Edition)**
   * Migrate applications to the latest Spring Boot 3.4 release. This recipe will modify an application's build files, make changes to deprecated/preferred APIs, and migrate configuration settings that have changes between versions. This recipe will also chain additional framework migrations (Spring Framework, Spring Data, etc) that are required as part of the migration to Spring Boot 3.4.
@@ -10641,6 +10647,12 @@ _1793 recipes_
 * [io.moderne.java.spring.boot4.RemoveSpringPulsarReactive](/user-documentation/recipes/recipe-catalog/java/spring/boot4/removespringpulsarreactive.md)
   * **Remove Spring Pulsar Reactive support**
   * Spring Boot 4.0 removed support for Spring Pulsar Reactive as it is no longer maintained. This recipe removes the Spring Pulsar Reactive dependencies.
+* [io.moderne.java.spring.boot4.SpringBoot4BestPractices](/user-documentation/recipes/recipe-catalog/java/spring/boot4/springboot4bestpractices.md)
+  * **Spring Boot 4.0 best practices**
+  * Applies best practices to Spring Boot 4.+ applications.
+* [io.moderne.java.spring.boot4.UpgradeMyBatisToSpringBoot_4_0](/user-documentation/recipes/recipe-catalog/java/spring/boot4/upgrademybatistospringboot_4_0.md)
+  * **Upgrade MyBatis to Spring Boot 4.0**
+  * Upgrade MyBatis Spring modules to a version corresponding to Spring Boot 4.0.
 * [io.moderne.java.spring.boot4.UpgradeSpringBoot_4_0](/user-documentation/recipes/recipe-catalog/java/spring/boot4/upgradespringboot_4_0-moderne-edition.md)
   * **Migrate to Spring Boot 4.0 (Moderne Edition)**
   * Migrate applications to the latest Spring Boot 4.0 release. This recipe will modify an application's build files, make changes to deprecated/preferred APIs, and migrate configuration settings that have changes between versions. This recipe will also chain additional framework migrations (Spring Framework, Spring Data, etc) that are required as part of the migration to Spring Boot 4.0.
@@ -10680,9 +10692,6 @@ _1793 recipes_
 * [io.moderne.java.spring.framework.MigrateDeprecatedBeanXmlProperties](/user-documentation/recipes/recipe-catalog/java/spring/framework/migratedeprecatedbeanxmlproperties.md)
   * **Migrate Bean XML properties deprecated in Spring Framework 3.0**
   * Migrate Bean XML properties that were deprecated in Spring Framework 3.0.
-* [io.moderne.java.spring.framework.MigrateTrailingSlashMatch](/user-documentation/recipes/recipe-catalog/java/spring/framework/migratetrailingslashmatch.md)
-  * **Migrate trailing slash matching to explicit routes**
-  * Migrates deprecated `setUseTrailingSlashMatch(true)` configuration by adding explicit trailing slash routes to controller methods, then removing the deprecated configuration call. This ensures applications that relied on automatic trailing slash matching continue to work after upgrading to Spring Framework 7.0.
 * [io.moderne.java.spring.framework.ModularSpringFrameworkDependencies](/user-documentation/recipes/recipe-catalog/java/spring/framework/modularspringframeworkdependencies.md)
   * **Add Spring Framework modular dependencies**
   * Adds Spring Framework modular dependencies based on package usage, replacing legacy monolithic `org.springframework:spring`.

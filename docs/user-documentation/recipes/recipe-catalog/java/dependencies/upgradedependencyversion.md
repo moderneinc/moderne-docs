@@ -218,6 +218,8 @@ This recipe is used as part of the following composite recipes:
 * [Upgrade MyBatis to Spring Boot 3.0](/user-documentation/recipes/recipe-catalog/java/spring/boot3/upgrademybatistospringboot_3_0.md)
 * [Upgrade MyBatis to Spring Boot 3.2](/user-documentation/recipes/recipe-catalog/java/spring/boot3/upgrademybatistospringboot_3_2.md)
 * [Upgrade MyBatis to Spring Boot 3.4](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/spring/boot3/upgrademybatistospringboot_3_4)
+* [Upgrade MyBatis to Spring Boot 3.5](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/spring/boot3/upgrademybatistospringboot_3_5)
+* [Upgrade MyBatis to Spring Boot 4.0](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/spring/boot4/upgrademybatistospringboot_4_0)
 * [Upgrade Spock to a Groovy 3 compatible variant](/user-documentation/recipes/recipe-catalog/java/spring/boot2/upgradespocktogroovy3.md)
 * [Upgrade Spring Cloud AWS to Spring Boot 3.4 compatible version](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/spring/boot3/upgradespringcloudawstospringboot_3_4)
 * [Upgrade Spring Data BOM to 2024.1.x](/user-documentation/recipes/recipe-catalog/com/oracle/weblogic/rewrite/spring/data/upgradespringdatabom.md)

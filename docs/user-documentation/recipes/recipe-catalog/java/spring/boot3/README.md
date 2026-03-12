@@ -47,6 +47,7 @@ _Recipes that include further recipes, often including the individual recipes be
 * [Upgrade MyBatis to Spring Boot 3.0](./upgrademybatistospringboot_3_0.md)
 * [Upgrade MyBatis to Spring Boot 3.2](./upgrademybatistospringboot_3_2.md)
 * [Upgrade MyBatis to Spring Boot 3.4](./upgrademybatistospringboot_3_4.md)
+* [Upgrade MyBatis to Spring Boot 3.5](./upgrademybatistospringboot_3_5.md)
 * [Use bean name `applicationTaskExecutor` instead of `taskExecutor`](./replacetaskexecutornamebyapplicationtaskexecutorname.md)
 
 ## Recipes

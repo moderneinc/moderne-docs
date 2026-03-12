@@ -99,6 +99,9 @@ _This doc contains all [scanning recipes](https://docs.openrewrite.org/concepts-
 * [io.moderne.java.spring.framework.IsLikelySpringFramework](/user-documentation/recipes/recipe-catalog/java/spring/framework/islikelyspringframework.md)
   * **Is likely a Spring Framework project**
   * Marks the project if it's likely a Spring Framework project.
+* [io.moderne.java.spring.framework.MigrateTrailingSlashMatch](/user-documentation/recipes/recipe-catalog/java/spring/framework/migratetrailingslashmatch.md)
+  * **Migrate trailing slash matching to explicit routes**
+  * Migrates deprecated `setUseTrailingSlashMatch()` configuration removed in Spring Framework 7.0. Only adds explicit trailing slash routes when the project previously enabled trailing slash matching via `setUseTrailingSlashMatch(true)`. The deprecated configuration calls are always removed.
 * [io.moderne.java.spring.framework.beansxml.BeansXmlToConfiguration](/user-documentation/recipes/recipe-catalog/java/spring/framework/beansxml/beansxmltoconfiguration.md)
   * **Migrate `beans.xml` to Spring Framework configuration class**
   * Converts Java/Jakarta EE `beans.xml` configuration files to Spring Framework `@Configuration` classes.
