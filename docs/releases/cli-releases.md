@@ -7,7 +7,7 @@ description: The current version of the Moderne CLI and links to useful CLI docu
 
 | Component   | Current version |
 | ----------- | --------------- |
-| CLI version | 4.0.4           |
+| CLI version | 4.0.5           |
 
 For CLI command documentation, see the [CLI reference](../user-documentation/moderne-cli/cli-reference.md).
 
@@ -16,6 +16,38 @@ The Moderne CLI previously followed a two-track release model with separate "sta
 :::
 
 ## Changelog
+
+### CLI / DX v4.0.5 (2026-03-12)
+
+#### What's Changed
+* Skip --experimental_show_artifacts on Bazel 7+
+* Fix CLI upgrade failing on read-only JRE legal files
+* Remove some synchronization overhead
+* Fix `mod search` rich output and deprecated command references
+* Avoid selecting a Graal runtime as those are incompatible with AOT cache
+* Automatic shell completion for mod/modw
+* Add single-line progress bars when downloading large artifacts
+* Hint about missing password when PKCS12 trust store reports no certificates
+* Invalidate AOT cache when the CLI jar path changes
+* Fix MCP server support for Windows and backfill MCP server support to other AI agents
+* Expand MCP server instructions to promote search and edit tools
+* Invalidate AOT cache when jar is rebuilt at the same path
+* Add pattern_replace MCP tool for Refaster template execution
+* Gradle: `moderne.classpath.dir` in `org.gradle.jvmargs`
+* Fix node not found when PATH env var is unset
+* Add C# build and run support via CSharpRewriteRpc
+* Add macOS tray icon with tool browser for MCP monitoring
+* Fix tracked files matching .gitignore being skipped during LST building
+* Use customized HttpSender when running recipes
+* Fix Windows bug with determination of AOT jar fingerprint
+* Support login against both SaaS v1 and v2
+* Pass JVM options during Gradle project discovery
+* Support deleting jar recipe artifacts by full GAV coordinates using `mod config recipes jar delete`
+* Avoid excessive printing of detected Java versions
+* Sync recipe marketplace from REST endpoint on SaaS v2
+* Wire nodeVersion from repos.csv to per-repo Node.js selection
+* JavaScript: Prefer node from `PATH` if it satisfies constraints
+* Convert dotted groupIds to slashes in Maven GAV download URL
 
 
 ### CLI / DX v4.0.4 (2026-03-05)
