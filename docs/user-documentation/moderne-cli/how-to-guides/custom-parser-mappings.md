@@ -80,11 +80,11 @@ mod config build parsers add xml "**/*.mst"
 
 ### Matching extensionless files
 
-Files without extensions (such as `Dockerfile`, `Makefile`, or `config`) can be matched by their exact filename:
+Files without extensions can be matched by their exact filename:
 
 ```bash
 mod config build parsers add json "**/config"
-mod config build parsers add docker "**/Dockerfile"
+mod config build parsers add yaml "**/Brewfile"
 ```
 
 ### Restricting to a directory
