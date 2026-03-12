@@ -1,11 +1,11 @@
 ---
 sidebar_label: Custom parser mappings
-description: How to configure custom file-extension-to-parser mappings so non-standard file types are parsed structurally.
+description: How to configure custom parser mappings so non-standard file types are parsed structurally.
 ---
 
 # Custom parser mappings
 
-Some codebases use non-standard file extensions for files that are actually XML, JSON, YAML, or other structured formats. For example, a project might use `.mst` files for XML-based templates or `.cfg` files for JSON configuration. By default, the Moderne CLI parses these as plain text, which means recipes cannot inspect or transform their structure.
+Some codebases use non-standard file extensions — or no extensions at all — for files that are actually XML, JSON, YAML, or other structured formats. For example, a project might use `.mst` files for XML-based templates, `.cfg` files for JSON configuration, or extensionless files like `config` for structured data. By default, the Moderne CLI parses these as plain text, which means recipes cannot inspect or transform their structure.
 
 The `build.parsers` configuration lets you tell the CLI which parser to use for files matching specific glob patterns. Once configured, these files will be parsed into the appropriate [Lossless Semantic Tree (LST)](../../../administrator-documentation/moderne-platform/references/lossless-semantic-trees.md) type, enabling recipes to work with their full structure.
 
@@ -13,7 +13,7 @@ In this guide, you will learn how to add, view, and remove custom parser mapping
 
 ## Adding parser mappings via the CLI
 
-To map file extensions to a parser type, use `mod config build parsers add` followed by the parser type and one or more glob patterns:
+To map files to a parser type, use `mod config build parsers add` followed by the parser type and one or more glob patterns:
 
 ```bash
 mod config build parsers add xml "**/*.mst" "**/*.xbind"
@@ -65,6 +65,43 @@ build:
 ```
 
 See the [layered configuration guide](./layer-config-cli.md) for details on global vs. local configuration files.
+
+## Glob pattern syntax
+
+Patterns use standard glob syntax. All patterns **must start with `**/`** to match files at any depth in the repository.
+
+### Matching by file extension
+
+Use `**/*.ext` to match all files with a given extension:
+
+```bash
+mod config build parsers add xml "**/*.mst"
+```
+
+### Matching extensionless files
+
+Files without extensions (such as `Dockerfile`, `Makefile`, or `config`) can be matched by their exact filename:
+
+```bash
+mod config build parsers add json "**/config"
+mod config build parsers add docker "**/Dockerfile"
+```
+
+### Restricting to a directory
+
+To match files only within a specific directory tree, include the directory name in the pattern. The leading `**/` is still required because the CLI matches against absolute paths internally:
+
+```bash
+# Only .cfg files under any conf/ directory
+mod config build parsers add json "**/conf/**/*.cfg"
+
+# Only extensionless config files under conf/
+mod config build parsers add json "**/conf/**/config"
+```
+
+:::warning
+A pattern like `conf/**/*.cfg` (without the leading `**/`) will not match any files. Always start patterns with `**/`.
+:::
 
 ## Viewing configured mappings
 
