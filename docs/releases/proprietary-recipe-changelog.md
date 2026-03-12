@@ -10,6 +10,60 @@ This page contains release notes for [Moderne proprietary OpenRewrite recipes](h
 This changelog is automatically generated from GitHub releases and only contains information from the past year.
 :::
 
+## March 12, 2026
+
+#### rewrite-ai-search - 0.32.9
+
+* Updated repository to use OpenRewrite version v8.75.5
+
+#### rewrite-android - 0.15.8
+
+* Updated repository to use OpenRewrite version v8.75.5
+
+#### rewrite-circleci - 3.9.9
+
+* Updated repository to use OpenRewrite version v8.75.5
+
+#### rewrite-codemods-ng - 0.18.2
+
+* Updated repository to use OpenRewrite version v8.75.5
+
+#### rewrite-compiled-analysis - 0.12.2
+
+* Updated repository to use OpenRewrite version v8.75.5
+
+#### rewrite-concourse - 3.9.9
+
+* Updated repository to use OpenRewrite version v8.75.5
+
+#### rewrite-dotnet - 0.14.9
+
+* Updated repository to use OpenRewrite version v8.75.5
+
+#### rewrite-kubernetes - 3.15.5
+
+* Updated repository to use OpenRewrite version v8.75.5
+
+#### rewrite-nodejs - 0.40.0
+
+* Replace immer with mutative
+
+#### rewrite-program-analysis - 0.11.0
+
+* Lombok Best Practices
+
+#### rewrite-reactive-streams - 0.18.9
+
+* Updated repository to use OpenRewrite version v8.75.5
+
+#### rewrite-sql - 2.10.4
+
+* Updated repository to use OpenRewrite version v8.75.5
+
+#### rewrite-terraform - 3.13.3
+
+* Updated repository to use OpenRewrite version v8.75.5
+
 ## March 11, 2026
 
 #### rewrite-spring - 0.27.1
@@ -2177,63 +2231,4 @@ This changelog is automatically generated from GitHub releases and only contains
 #### rewrite-terraform - 3.1.4
 
 * Updated repository to use OpenRewrite version v8.49.0
-
-## March 11, 2025
-
-#### rewrite-ai-search - 0.25.1
-
-* Updated repository to use OpenRewrite version v8.48.0
-
-#### rewrite-android - 0.7.4
-
-* Updated repository to use OpenRewrite version v8.48.0
-
-#### rewrite-circleci - 3.3.1
-
-* Updated repository to use OpenRewrite version v8.48.0
-
-#### rewrite-codemods-ng - 0.7.4
-
-* Updated repository to use OpenRewrite version v8.48.0
-
-#### rewrite-compiled-analysis - 0.2.6
-
-* Updated repository to use OpenRewrite version v8.48.0
-
-#### rewrite-concourse - 3.2.1
-
-* Updated repository to use OpenRewrite version v8.48.0
-
-#### rewrite-dotnet - 0.8.1
-
-* Updated repository to use OpenRewrite version v8.48.0
-
-#### rewrite-hibernate - 0.2.1
-
-* Updated repository to use OpenRewrite version v8.48.0
-
-#### rewrite-java-security - 3.3.0
-
-* Fix failing `PreventClickjackingTest` test cases
-* Add date to dependency vulnerability check recipe description
-* `DependencyVulnerabilityCheck`: Allow Maven Central access for Maven projects
-* `VulnerabilityReport` must contain all vulnerabilities
-* Fix storing of date
-* Add scope explanation
-
-#### rewrite-kubernetes - 3.2.2
-
-* Updated repository to use OpenRewrite version v8.48.0
-
-#### rewrite-spring - 0.3.2
-
-* Updated repository to use OpenRewrite version v8.48.0
-
-#### rewrite-sql - 2.1.3
-
-* Updated repository to use OpenRewrite version v8.48.0
-
-#### rewrite-terraform - 3.1.3
-
-* Updated repository to use OpenRewrite version v8.48.0
 
