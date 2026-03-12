@@ -33,7 +33,7 @@ If you haven’t been through the [Introduction to OpenRewrite](../introduction/
 
 ## Workshop modules
 
-1. [Module 1: Environment setup](./module-1-recipe-development-environment)
-2. [Module 2: Declarative YAML recipes & preconditions](./module-2-declarative-yaml-recipes)
-3. [Module 3: Refaster recipes](./module-3-refaster-recipes)
-4. [Module 4: Imperative recipes and testing](./module-4-imperative-recipes)
+1. [Module 1: Environment setup](./module-1-recipe-development-environment.md)
+2. [Module 2: Declarative YAML recipes & preconditions](./module-2-declarative-yaml-recipes.md)
+3. [Module 3: Refaster recipes](./module-3-refaster-recipes.md)
+4. [Module 4: Imperative recipes and testing](./module-4-imperative-recipes.md)
