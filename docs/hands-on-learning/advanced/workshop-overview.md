@@ -5,7 +5,7 @@ description: A high-level overview of what this workshop will entail.
 
 # Advanced OpenRewrite recipe development workshop
 
-This workshop builds on the foundations covered in the [Fundamentals of OpenRewrite recipe development](../fundamentals/workshop-overview) workshop and focuses on deeper, more powerful features of the OpenRewrite and Moderne ecosystem.
+This workshop builds on the foundations covered in the [Fundamentals of OpenRewrite recipe development](../fundamentals/workshop-overview.md) workshop and focuses on deeper, more powerful features of the OpenRewrite and Moderne ecosystem.
 
 You will gain experience with advanced recipe development tooling, understand how to extract insights using data tables, write scanning recipes that reason across multiple files, use traits for abstraction and generalization, and compose powerful imperative workflows that combine existing recipes and generate new code. This workshop is designed to be hands-on, so you can follow along with the examples in your own environment. The workshop consists of a series of modules that highlight key concepts, each with one or more exercises to help you practice what you've learned.
 
@@ -30,4 +30,4 @@ To get the most out of this workshop, you should be comfortable with:
 * Running recipes using the Moderne platform, CLI, or IDE plugin
 * Java and build tools like Maven or Gradle
 
-If you haven’t been through the [Fundamentals of OpenRewrite recipe development](../fundamentals/workshop-overview) workshop yet, we recommend completing it first before returning here.
+If you haven’t been through the [Fundamentals of OpenRewrite recipe development](../fundamentals/workshop-overview.md) workshop yet, we recommend completing it first before returning here.

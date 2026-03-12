@@ -349,7 +349,7 @@ You will use the third option in this workshop so you can run both org-wide reci
 1. In the root of your `$WORKSHOP`, review the wave-aware CSV file (`repos-waves.csv`) and note the addition of the organization fields and the grouping of repositories based on the wave plan from the previous exercise.
 
 :::note
-There is a `repos.csv` file in the root of the workshop as well, which represents the flat structure that is reflected in the platform and in the local directory after syncing with the platform earlier in this module. The `repos-waves.csv` is the one that includes the addition of organization fields that group the repositories by wave, in order, as determined in the previous exercise. For more information, [check out our repos.csv documentation](../../user-documentation/moderne-cli/references/repos-csv).
+There is a `repos.csv` file in the root of the workshop as well, which represents the flat structure that is reflected in the platform and in the local directory after syncing with the platform earlier in this module. The `repos-waves.csv` is the one that includes the addition of organization fields that group the repositories by wave, in order, as determined in the previous exercise. For more information, [check out our repos.csv documentation](../../user-documentation/moderne-cli/references/repos-csv.md).
 :::
 
 2. Sync the repos again, this time using the wave-aware CSV file:
