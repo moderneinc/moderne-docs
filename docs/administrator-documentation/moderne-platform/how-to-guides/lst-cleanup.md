@@ -36,14 +36,14 @@ To address this issue, you have two main options:
 Be very careful before running the GraphQL query mentioned in this section. Depending on the parameters provided, it can cause some LSTs to be unavailable for up to 24 hours. There is no way to cancel or stop this query once it has been started.
 :::
 
-Moderne provides a [GraphQL reindex query that you can run to force a sync of all LSTs](https://app.moderne.io/graphql?url=https%253A%252F%252Fapi.app.moderne.io%252Fgraphql\&query=bXV0YXRpb24gcmVpbmRleCB7CiAgaW5kZXgoZm9yY2VVcGRhdGU6IHRydWUsIG1vZGlmaWVkU2luY2UgOiIyMDIzLTAxLTAxVDAwOjAwWiIpewogICAgY291bnQKICB9Cn0%3D).
+Moderne provides a [GraphQL reindex query that you can run to force a sync of all LSTs](https://app.moderne.io/graphql?url=https%253A%252F%252Fapi.app.moderne.io%252Fgraphql\&query=bXV0YXRpb24gcmVpbmRleCB7CiAgaW5kZXgoZm9yY2VVcGRhdGU6IHRydWUsIG1vZGlmaWVkQWZ0ZXI6ICIyMDIzLTAxLTAxVDAwOjAwWiIpIHsKICAgIGNvdW50CiAgfQp9).
 
 <Tabs>
 <TabItem value="reindex-mutation" label="Reindex mutation">
 
 ```graphql
 mutation reindex {
-  index(forceUpdate: true, modifiedSince :"2023-01-01T00:00Z"){
+  index(forceUpdate: true, modifiedAfter: "2023-01-01T00:00Z") {
     count
   }
 }
@@ -57,7 +57,7 @@ mutation reindex {
 curl -X POST https://api.app.moderne.io/graphql \
     -H 'Authorization: Bearer <session token or Moderne PAT here>' \
     -H 'Content-Type: application/json' \
-    -d '{ "query": "mutation reindex {\n  index(forceUpdate: true, modifiedSince :\"2023-01-01T00:00Z\"){\n    count\n  }\n}" }'
+    -d '{ "query": "mutation reindex {\n  index(forceUpdate: true, modifiedAfter: \"2023-01-01T00:00Z\") {\n    count\n  }\n}" }'
 ```
 
 </TabItem>
