@@ -49,6 +49,13 @@ The Moderne CLI previously followed a two-track release model with separate "sta
 * JavaScript: Prefer node from `PATH` if it satisfies constraints
 * Convert dotted groupIds to slashes in Maven GAV download URL
 
+### CLI / DX v3.57.15 (2026-03-12)
+
+#### What's Changed
+* Support Bazel 8 for building LSTs
+* Fix node not found when PATH env var is unset
+* Pass JVM options during Gradle project discovery
+* Use `nodeVersion` from `repos.csv`
 
 ### CLI / DX v4.0.4 (2026-03-05)
 
