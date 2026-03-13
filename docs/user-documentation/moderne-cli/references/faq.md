@@ -75,3 +75,49 @@ All configuration is stored in `~/.moderne/cli/moderne.yml` and can be inspected
 ## Can I run multiple CLI commands at once?
 
 **No**. The CLI was not designed to run multiple commands simultaneously.
+
+## HTTP 401 errors during recipe execution on Gradle projects
+
+If `mod build` succeeds but `mod run` fails with HTTP 401 errors when resolving dependencies, this is because Gradle and OpenRewrite use separate authentication mechanisms.
+
+During `mod build`, Gradle resolves dependencies using the credentials you configured in your `build.gradle` file. However, during `mod run`, when a recipe needs to resolve new dependency versions (e.g., for a Spring Boot upgrade), it goes through OpenRewrite's own Maven-based dependency resolution. This resolution uses the repository URLs captured in the LST but does not have access to the credentials from your `build.gradle` file.
+
+To fix this, you should create a Maven `settings.xml` file with your repository credentials and point the CLI at it:
+
+```bash
+mod config build maven settings edit /path/to/settings.xml
+```
+
+Your `settings.xml` file should contain server credentials that match your repository. For example:
+
+```xml
+<settings>
+    <servers>
+        <server>
+            <id>my-artifactory</id>
+            <username>${env.ARTIFACTORY_USER}</username>
+            <password>${env.ARTIFACTORY_PASSWORD}</password>
+        </server>
+    </servers>
+    <profiles>
+        <profile>
+            <id>default</id>
+            <repositories>
+                <repository>
+                    <id>my-artifactory</id>
+                    <url>https://your-artifactory-url/</url>
+                </repository>
+            </repositories>
+        </profile>
+    </profiles>
+    <activeProfiles>
+        <activeProfile>default</activeProfile>
+    </activeProfiles>
+</settings>
+```
+
+:::tip
+The `<server><id>` must match the `<repository><id>`. The repository URL should match what is declared in your `build.gradle` file. Environment variables (`${env.VAR_NAME}`) and system properties (`${prop.name}`) are supported in server credentials.
+:::
+
+This configuration is used as a universal credential format for dependency resolution at recipe execution time, regardless of whether your project uses Maven or Gradle.
