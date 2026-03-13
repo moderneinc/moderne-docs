@@ -40,6 +40,22 @@ This changelog is automatically generated from GitHub releases and only contains
 
 * Updated repository to use OpenRewrite version v8.75.5
 
+#### rewrite-elastic - 0.5.5
+
+* Updated repository to use OpenRewrite version v8.75.5
+
+#### rewrite-hibernate - 0.20.1
+
+* Updated repository to use OpenRewrite version v8.75.5
+
+#### rewrite-java-security - 3.26.6
+
+* Updated repository to use OpenRewrite version v8.75.5
+
+#### rewrite-kafka - 0.4.9
+
+* Updated repository to use OpenRewrite version v8.75.5
+
 #### rewrite-kubernetes - 3.15.5
 
 * Updated repository to use OpenRewrite version v8.75.5
@@ -55,6 +71,10 @@ This changelog is automatically generated from GitHub releases and only contains
 #### rewrite-reactive-streams - 0.18.9
 
 * Updated repository to use OpenRewrite version v8.75.5
+
+#### rewrite-spring - 0.28.0
+
+* Add test sources to starter dependency test fixtures
 
 #### rewrite-sql - 2.10.4
 
