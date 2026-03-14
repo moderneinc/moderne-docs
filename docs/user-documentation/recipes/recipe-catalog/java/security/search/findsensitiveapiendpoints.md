@@ -98,7 +98,8 @@ name: com.yourorg.FindSensitiveApiEndpointsExample
 displayName: Find sensitive API endpoints example
 recipeList:
   - org.openrewrite.java.security.search.FindSensitiveApiEndpoints:
-      fieldNames: password,dateOfBirth,dob,ssn
+      fieldNames:
+        - password,dateOfBirth,dob,ssn
 ```
 
 <Tabs groupId="projectType">

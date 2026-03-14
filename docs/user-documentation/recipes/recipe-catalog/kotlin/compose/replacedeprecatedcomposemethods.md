@@ -23,6 +23,89 @@ This recipe is only available to users of [Moderne](https://docs.moderne.io/).
 
 This recipe is available under the [Moderne Proprietary License](https://docs.moderne.io/licensing/overview).
 
+## Examples
+##### Example 1
+`ReplaceDeprecatedComposeMethodsTest#replaceImmutableListOfWithPersistentListOf`
+
+
+<Tabs groupId="beforeAfter">
+<TabItem value="kotlin" label="kotlin">
+
+
+###### Before
+```kotlin
+import androidx.compose.runtime.external.kotlinx.collections.immutable.immutableListOf
+
+fun test() {
+    val list = immutableListOf()
+}
+```
+
+###### After
+```kotlin
+import androidx.compose.runtime.external.kotlinx.collections.immutable.immutableListOf
+
+fun test() {
+    val list = persistentListOf()
+}
+```
+
+</TabItem>
+<TabItem value="diff" label="Diff" >
+
+```diff
+@@ -4,1 +4,1 @@
+
+fun test() {
+-   val list = immutableListOf()
++   val list = persistentListOf()
+}
+```
+</TabItem>
+</Tabs>
+
+---
+
+##### Example 2
+`ReplaceDeprecatedComposeMethodsTest#replaceImmutableListOfWithPersistentListOf`
+
+
+<Tabs groupId="beforeAfter">
+<TabItem value="kotlin" label="kotlin">
+
+
+###### Before
+```kotlin
+import androidx.compose.runtime.external.kotlinx.collections.immutable.immutableListOf
+
+fun test() {
+    val list = immutableListOf()
+}
+```
+
+###### After
+```kotlin
+import androidx.compose.runtime.external.kotlinx.collections.immutable.immutableListOf
+
+fun test() {
+    val list = persistentListOf()
+}
+```
+
+</TabItem>
+<TabItem value="diff" label="Diff" >
+
+```diff
+@@ -4,1 +4,1 @@
+
+fun test() {
+-   val list = immutableListOf()
++   val list = persistentListOf()
+}
+```
+</TabItem>
+</Tabs>
+
 
 ## Usage
 

@@ -25,6 +25,89 @@ This recipe is used as part of the following composite recipes:
 
 * [Upgrade to `kotlinx-serialization` 1.8](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/kotlin/migrate/upgradekotlinxserialization_1_8)
 
+## Examples
+##### Example 1
+`KotlinxSerializationTest#replaceDefaultWithDefaultDeserializer`
+
+
+<Tabs groupId="beforeAfter">
+<TabItem value="kotlin" label="kotlin">
+
+
+###### Before
+```kotlin
+import kotlinx.serialization.modules.PolymorphicModuleBuilder
+
+fun <T : Any> configure(builder: PolymorphicModuleBuilder<T>) {
+    builder.default { className -> null }
+}
+```
+
+###### After
+```kotlin
+import kotlinx.serialization.modules.PolymorphicModuleBuilder
+
+fun <T : Any> configure(builder: PolymorphicModuleBuilder<T>) {
+    builder.defaultDeserializer(){ className -> null }
+}
+```
+
+</TabItem>
+<TabItem value="diff" label="Diff" >
+
+```diff
+@@ -4,1 +4,1 @@
+
+fun <T : Any> configure(builder: PolymorphicModuleBuilder<T>) {
+-   builder.default { className -> null }
++   builder.defaultDeserializer(){ className -> null }
+}
+```
+</TabItem>
+</Tabs>
+
+---
+
+##### Example 2
+`KotlinxSerializationTest#replaceDefaultWithDefaultDeserializer`
+
+
+<Tabs groupId="beforeAfter">
+<TabItem value="kotlin" label="kotlin">
+
+
+###### Before
+```kotlin
+import kotlinx.serialization.modules.PolymorphicModuleBuilder
+
+fun <T : Any> configure(builder: PolymorphicModuleBuilder<T>) {
+    builder.default { className -> null }
+}
+```
+
+###### After
+```kotlin
+import kotlinx.serialization.modules.PolymorphicModuleBuilder
+
+fun <T : Any> configure(builder: PolymorphicModuleBuilder<T>) {
+    builder.defaultDeserializer(){ className -> null }
+}
+```
+
+</TabItem>
+<TabItem value="diff" label="Diff" >
+
+```diff
+@@ -4,1 +4,1 @@
+
+fun <T : Any> configure(builder: PolymorphicModuleBuilder<T>) {
+-   builder.default { className -> null }
++   builder.defaultDeserializer(){ className -> null }
+}
+```
+</TabItem>
+</Tabs>
+
 
 ## Usage
 

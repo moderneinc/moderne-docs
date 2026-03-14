@@ -39,6 +39,9 @@ This recipe is used as part of the following composite recipes:
 
 * [ArchUnit 0.x upgrade](/user-documentation/recipes/recipe-catalog/java/testing/archunit/archunit0to1migration.md)
 * [Change Tapestry 4 packages to Tapestry 5](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/tapestry/changetapestrypackages)
+* [DataNucleus 4.0 package moves](/user-documentation/recipes/recipe-catalog/java/migrate/datanucleus/datanucleuspackagemoves_4_0.md)
+* [DataNucleus 5.0 package moves](/user-documentation/recipes/recipe-catalog/java/migrate/datanucleus/datanucleuspackagemoves_5_0.md)
+* [DataNucleus 5.2 package moves](/user-documentation/recipes/recipe-catalog/java/migrate/datanucleus/datanucleuspackagemoves_5_2.md)
 * [Migrate Fest 2.x to AssertJ](/user-documentation/recipes/recipe-catalog/java/testing/assertj/festtoassertj.md)
 * [Migrate Hibernate Types to Hypersistence Utils 6.0](/user-documentation/recipes/recipe-catalog/hibernate/migratetohypersistenceutilshibernate60.md)
 * [Migrate Jackson from javax to jakarta namespace](/user-documentation/recipes/recipe-catalog/io/quarkus/updates/core/quarkus30/jacksonjavaxtojakarta.md)
@@ -113,7 +116,6 @@ This recipe is used as part of the following composite recipes:
 * [Migrate dropWizard dependencies to Spring Boot 3.x](/user-documentation/recipes/recipe-catalog/java/spring/boot3/migratedropwizarddependencies.md)
 * [Migrate from Java Faker to Datafaker](/user-documentation/recipes/recipe-catalog/java/testing/datafaker/javafakertodatafaker.md)
 * [Migrate from Micronaut 2.x to 3.x](/user-documentation/recipes/recipe-catalog/java/micronaut/micronaut2to3migration.md)
-* [Migrate from OptaPlanner to Timefold Solver](/user-documentation/recipes/recipe-catalog/ai/timefold/solver/migration/fromoptaplannertotimefoldsolver.md)
 * [Migrate from Spring Cloud Sleuth to OpenTelemetry](/user-documentation/recipes/recipe-catalog/java/spring/opentelemetry/migratesleuthtoopentelemetry.md)
 * [Migrate javax.mvc to 2.0 (Jakarta EE 9)](/user-documentation/recipes/recipe-catalog/com/oracle/weblogic/rewrite/jakarta/migratejavaxmvctojakartaee9.md)
 * [Migrate packages to modular starters](/user-documentation/recipes/recipe-catalog/java/spring/boot4/migrateautoconfigurepackages.md)

@@ -32,6 +32,61 @@ This recipe is used as part of the following composite recipes:
 
 * [Migrate to Hibernate 4.0.x](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/hibernate/migratetohibernate40)
 
+## Example
+
+###### Parameters
+| Parameter | Value |
+| --- | --- |
+|annotationPattern|`@example.HqlQuery`|
+|attributeName|`query`|
+
+
+<Tabs groupId="beforeAfter">
+<TabItem value="java" label="java">
+
+
+###### Before
+```java
+import example.HqlQuery;
+
+@HqlQuery(query = "SELECT e FROM Employee e WHERE e.name = ?")
+class MyEntity {}
+```
+
+###### After
+```java
+import example.HqlQuery;
+
+@HqlQuery(query = "SELECT e FROM Employee e WHERE e.name = ?1")
+class MyEntity {}
+```
+
+</TabItem>
+<TabItem value="diff" label="Diff" >
+
+```diff
+@@ -3,1 +3,1 @@
+import example.HqlQuery;
+
+-@HqlQuery(query = "SELECT e FROM Employee e WHERE e.name = ?")
++@HqlQuery(query = "SELECT e FROM Employee e WHERE e.name = ?1")
+class MyEntity {}
+```
+</TabItem>
+</Tabs>
+
+###### Unchanged
+```java
+package example;
+
+import java.lang.annotation.*;
+
+@Retention(RetentionPolicy.RUNTIME)
+public @interface HqlQuery {
+    String query();
+}
+```
+
 
 ## Usage
 

@@ -48,6 +48,48 @@ This recipe is used as part of the following composite recipes:
 * [Replace deprecated `material` methods](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/androidx/compose/material/replacedeprecatedmaterial1methods)
 * [Replace deprecated `runtime` methods](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/androidx/compose/runtime/replacedeprecatedruntime1methods)
 
+## Example
+
+###### Parameters
+| Parameter | Value |
+| --- | --- |
+|methodPattern|`kotlin.Char toInt()`|
+|replacement|`code`|
+|imports|`null`|
+|classpathFromResources|`null`|
+
+
+<Tabs groupId="beforeAfter">
+<TabItem value="kotlin" label="kotlin">
+
+
+###### Before
+```kotlin
+fun test(c: Char): Int {
+    return c.toInt()
+}
+```
+
+###### After
+```kotlin
+fun test(c: Char): Int {
+    return c.code
+}
+```
+
+</TabItem>
+<TabItem value="diff" label="Diff" >
+
+```diff
+@@ -2,1 +2,1 @@
+fun test(c: Char): Int {
+-   return c.toInt()
++   return c.code
+}
+```
+</TabItem>
+</Tabs>
+
 
 ## Usage
 
@@ -64,8 +106,10 @@ recipeList:
   - org.openrewrite.kotlin.replace.ReplaceKotlinMethod:
       methodPattern: arrow.core.MapKt mapOrAccumulate(kotlin.Function2)
       replacement: mapValuesOrAccumulate(transform)
-      imports: ["arrow.core.Either"]
-      classpathFromResources: ["arrow-core-2"]
+      imports:
+        - ["arrow.core.Either"]
+      classpathFromResources:
+        - ["arrow-core-2"]
 ```
 
 <Tabs groupId="projectType">

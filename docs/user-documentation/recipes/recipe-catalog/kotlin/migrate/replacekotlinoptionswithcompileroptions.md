@@ -29,11 +29,11 @@ This recipe is used as part of the following composite recipes:
 
 
 <Tabs groupId="beforeAfter">
-<TabItem value="gradle" label="gradle">
+<TabItem value="build.gradle" label="build.gradle">
 
 
 ###### Before
-```gradle
+```groovy title="build.gradle"
 plugins {
     id "org.jetbrains.kotlin.jvm" version "1.9.24"
 }
@@ -45,7 +45,7 @@ tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile).configureEach {
 ```
 
 ###### After
-```gradle
+```groovy title="build.gradle"
 plugins {
     id "org.jetbrains.kotlin.jvm" version "1.9.24"
 }
@@ -60,6 +60,8 @@ tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile).configureEach {
 <TabItem value="diff" label="Diff" >
 
 ```diff
+--- build.gradle
++++ build.gradle
 @@ -5,1 +5,1 @@
 }
 tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile).configureEach {

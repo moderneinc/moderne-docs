@@ -138,7 +138,8 @@ recipeList:
       value: 9090
       comment: This is a comment
       profile: dev
-      pathExpressions: ["**/application.yaml"]
+      pathExpressions:
+        - ["**/application.yaml"]
 ```
 
 <Tabs groupId="projectType">

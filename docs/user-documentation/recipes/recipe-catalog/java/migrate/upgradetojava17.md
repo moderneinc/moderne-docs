@@ -82,6 +82,7 @@ This recipe is available under the [Moderne Source Available License](https://do
   * artifactId: `mapstruct*`
   * newVersion: `1.6.x`
 * [Add `lombok-mapstruct-binding` when both MapStruct and Lombok are used](../../java/migrate/addlombokmapstructbinding)
+* [Enable Lombok annotation processor](../../java/migrate/enablelombokannotationprocessor)
 
 </TabItem>
 
@@ -142,6 +143,7 @@ recipeList:
       artifactId: mapstruct*
       newVersion: 1.6.x
   - org.openrewrite.java.migrate.AddLombokMapstructBinding
+  - org.openrewrite.java.migrate.EnableLombokAnnotationProcessor
 
 ```
 </TabItem>

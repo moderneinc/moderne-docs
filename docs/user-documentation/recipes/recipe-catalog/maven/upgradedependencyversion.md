@@ -263,7 +263,8 @@ recipeList:
       artifactId: jackson-module*
       newVersion: 29.X
       versionPattern: '-jre'
-      retainVersions: com.jcraft:jsch
+      retainVersions:
+        - com.jcraft:jsch
 ```
 
 <Tabs groupId="projectType">

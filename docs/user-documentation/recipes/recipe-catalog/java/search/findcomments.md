@@ -118,7 +118,8 @@ name: com.yourorg.FindCommentsExample
 displayName: Find within comments and literals example
 recipeList:
   - org.openrewrite.java.search.FindComments:
-      patterns: -----BEGIN RSA PRIVATE KEY-----
+      patterns:
+        - -----BEGIN RSA PRIVATE KEY-----
 ```
 
 <Tabs groupId="projectType">

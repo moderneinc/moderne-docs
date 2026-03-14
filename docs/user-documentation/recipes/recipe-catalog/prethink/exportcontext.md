@@ -59,7 +59,8 @@ recipeList:
       displayName: Test Coverage
       shortDescription: Maps test methods to implementation methods they verify
       longDescription: This context maps each test method to the implementation methods it calls...
-      dataTables: org.openrewrite.prethink.table.TestMapping
+      dataTables:
+        - org.openrewrite.prethink.table.TestMapping
 ```
 
 <Tabs groupId="projectType">

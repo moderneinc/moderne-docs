@@ -72,8 +72,12 @@ recipeList:
       fullyQualifiedTargetTypeName: org.hamcrest.junit.MatcherAssume
   - org.openrewrite.java.ReorderMethodArguments:
       methodPattern: org.junit.Assume assume*(String, boolean)
-      newParameterNames: [assumption, message]
-      oldParameterNames: [message, assumption]
+      newParameterNames:
+        - assumption
+        - message
+      oldParameterNames:
+        - message
+        - assumption
   - org.openrewrite.java.testing.junit5.AssumeNotNullToAssumptionsRecipes
   - org.openrewrite.java.ChangeType:
       oldFullyQualifiedTypeName: org.junit.Assume

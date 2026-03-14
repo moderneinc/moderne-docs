@@ -31,6 +31,73 @@ This recipe is used as part of the following composite recipes:
 
 * [Migrate JBoss to Jetty](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/server/jboss/jetty/migratejbosstojetty)
 
+## Example
+
+###### Parameters
+| Parameter | Value |
+| --- | --- |
+|mainClass|`com.example.JettyServer`|
+
+
+<Tabs groupId="beforeAfter">
+<TabItem value="build.gradle" label="build.gradle">
+
+
+###### Before
+```groovy title="build.gradle"
+plugins {
+    id 'java'
+}
+
+repositories {
+    mavenCentral()
+}
+```
+
+###### After
+```groovy title="build.gradle"
+plugins {
+    id 'java'
+}
+
+repositories {
+    mavenCentral()
+}
+
+tasks.named('jar') {
+    manifest {
+        attributes 'Main-Class': 'com.example.JettyServer'
+    }
+    from {
+        configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
+    }
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+}
+```
+
+</TabItem>
+<TabItem value="diff" label="Diff" >
+
+```diff
+--- build.gradle
++++ build.gradle
+@@ -9,0 +9,10 @@
+}
+
++tasks.named('jar') {
++   manifest {
++       attributes 'Main-Class': 'com.example.JettyServer'
++   }
++   from {
++       configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
++   }
++   duplicatesStrategy = DuplicatesStrategy.EXCLUDE
++}
++
+```
+</TabItem>
+</Tabs>
+
 
 ## Usage
 

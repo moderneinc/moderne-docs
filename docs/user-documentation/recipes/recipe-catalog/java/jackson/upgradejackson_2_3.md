@@ -41,6 +41,14 @@ This recipe is available under the [Apache License Version 2.0](https://www.apac
 <Tabs groupId="recipeType">
 <TabItem value="recipe-list" label="Recipe List" >
 * [Replace `IOException` with `JacksonException` in catch clauses](../../java/jackson/ioexceptiontojacksonexception)
+* [Remove elements from a method declaration `throws` clause](../../java/removemethodthrows)
+  * methodPattern: `com.fasterxml.jackson.databind.JsonSerializer serialize(..)`
+  * exceptionTypePattern: `java.io.IOException`
+* [Remove elements from a method declaration `throws` clause](../../java/removemethodthrows)
+  * methodPattern: `com.fasterxml.jackson.databind.JsonDeserializer deserialize(..)`
+  * exceptionTypePattern: `java.io.IOException`
+* [Replace `null` type in `StdDeserializer` constructor with actual type](../../java/jackson/stddeserializernullconstructor)
+* [Update `lombok.config` for Jackson 3 compatibility](../../java/jackson/lombokjacksonizedconfig)
 * [Update configuration of serialization inclusion in `ObjectMapper` for Jackson 3](../../java/jackson/updateserializationinclusionconfiguration)
 * [Use format alignment `ObjectMappers`](../../java/jackson/useformatalignedobjectmappers)
 * [Upgrade Jackson 2.x dependencies to 3.x](../../java/jackson/upgradejackson_2_3_dependencies)
@@ -69,6 +77,14 @@ tags:
   - jackson-3
 recipeList:
   - org.openrewrite.java.jackson.IOExceptionToJacksonException
+  - org.openrewrite.java.RemoveMethodThrows:
+      methodPattern: com.fasterxml.jackson.databind.JsonSerializer serialize(..)
+      exceptionTypePattern: java.io.IOException
+  - org.openrewrite.java.RemoveMethodThrows:
+      methodPattern: com.fasterxml.jackson.databind.JsonDeserializer deserialize(..)
+      exceptionTypePattern: java.io.IOException
+  - org.openrewrite.java.jackson.StdDeserializerNullConstructor
+  - org.openrewrite.java.jackson.LombokJacksonizedConfig
   - org.openrewrite.java.jackson.UpdateSerializationInclusionConfiguration
   - org.openrewrite.java.jackson.UseFormatAlignedObjectMappers
   - org.openrewrite.java.jackson.UpgradeJackson_2_3_Dependencies

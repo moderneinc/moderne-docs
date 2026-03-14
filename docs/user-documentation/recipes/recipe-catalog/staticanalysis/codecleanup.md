@@ -55,6 +55,7 @@ This recipe is available under the [Moderne Source Available License](https://do
 * [Replace `StringBuilder#append` with `String`](../staticanalysis/replacestringbuilderwithstring)
 * [Add imports for fully qualified references to types](../java/shortenfullyqualifiedtypereferences)
 * [Simplify single-element annotation](../java/simplifysingleelementannotation)
+* [Order imports](../java/orderimports)
 
 </TabItem>
 
@@ -90,6 +91,7 @@ recipeList:
   - org.openrewrite.staticanalysis.ReplaceStringBuilderWithString
   - org.openrewrite.java.ShortenFullyQualifiedTypeReferences
   - org.openrewrite.java.SimplifySingleElementAnnotation
+  - org.openrewrite.java.OrderImports
 
 ```
 </TabItem>

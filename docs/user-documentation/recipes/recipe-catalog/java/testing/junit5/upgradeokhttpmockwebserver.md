@@ -44,6 +44,9 @@ This recipe is available under the [Moderne Source Available License](https://do
   * oldArtifactId: `mockwebserver`
   * newArtifactId: `mockwebserver3`
   * newVersion: `5.x`
+* [Change method name](../../../java/changemethodname)
+  * methodPattern: `mockwebserver3.MockWebServer shutdown()`
+  * newMethodName: `close`
 * [OkHttp `MockWebServer` `MockResponse` to 5.x `MockWebServer3` `MockResponse`](../../../java/testing/junit5/updatemockwebservermockresponse)
 
 </TabItem>
@@ -67,6 +70,9 @@ recipeList:
       oldArtifactId: mockwebserver
       newArtifactId: mockwebserver3
       newVersion: 5.x
+  - org.openrewrite.java.ChangeMethodName:
+      methodPattern: mockwebserver3.MockWebServer shutdown()
+      newMethodName: close
   - org.openrewrite.java.testing.junit5.UpdateMockWebServerMockResponse
 
 ```

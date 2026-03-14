@@ -52,6 +52,7 @@ _Recipes that include further recipes, often including the individual recipes be
 * [Migrate multi-condition `@ConditionalOnBean` annotations](./conditionalonbeananynestedcondition.md)
 * [Migrate null credentials](./migratedatabasecredentialsfortoolproperties.md)
 * [Migrate null credentials](./migratedatabasecredentialsfortoolyaml.md)
+* [Migrate `spring.artemis.host` and `spring.artemis.port` to `spring.artemis.broker-url`](./migrateartemisproperties.md)
 * [Migrate to Spring Boot 2.0 (Moderne Edition)](./upgradespringboot_2_0-moderne-edition.md)
 * [Migrate to recommended constants in `LogbackLoggingSystemProperties` from deprecated values in `LoggingSystemProperties`](./migrateloggingsystempropertyconstants.md)
 * [Move SAML relying party identity provider property to asserting party](./samlrelyingpartypropertyapplicationpropertiesmove.md)

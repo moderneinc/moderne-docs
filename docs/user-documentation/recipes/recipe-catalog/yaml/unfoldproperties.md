@@ -124,8 +124,10 @@ name: com.yourorg.UnfoldPropertiesExample
 displayName: Unfold YAML properties example
 recipeList:
   - org.openrewrite.yaml.UnfoldProperties:
-      exclusions: $..[org.springframework.security]
-      applyTo: $..[org.springframework.security]
+      exclusions:
+        - $..[org.springframework.security]
+      applyTo:
+        - $..[org.springframework.security]
 ```
 
 <Tabs groupId="projectType">

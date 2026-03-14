@@ -35,9 +35,11 @@ _Recipes that include further recipes, often including the individual recipes be
 * [Remove registrations of modules built-in to Jackson 3](./removebuiltinmoduleregistrations.md)
 * [Replace `@JsonIgnore` with `@JsonSetter` on empty collection fields](./replacejsonignorewithjsonsetter.md)
 * [Replace `IOException` with `JacksonException` in catch clauses](./ioexceptiontojacksonexception.md)
+* [Replace `null` type in `StdDeserializer` constructor with actual type](./stddeserializernullconstructor.md)
 * [Replace removed `JsonGenerator` capability methods with `StreamWriteCapability`](./replacestreamwritecapability.md)
 * [Simplify catch clauses for Jackson exceptions](./simplifyjacksonexceptioncatch.md)
 * [Update configuration of serialization inclusion in `ObjectMapper` for Jackson 3](./updateserializationinclusionconfiguration.md)
+* [Update `lombok.config` for Jackson 3 compatibility](./lombokjacksonizedconfig.md)
 * [Use format alignment `ObjectMappers`](./useformatalignedobjectmappers.md)
 * [Use modern date/time serialization defaults](./usemoderndatetimeserialization.md)
 

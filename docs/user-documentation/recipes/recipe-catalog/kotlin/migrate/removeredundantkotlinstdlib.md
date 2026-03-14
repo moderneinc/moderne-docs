@@ -36,13 +36,16 @@ This recipe is used as part of the following composite recipes:
 
 
 <Tabs groupId="beforeAfter">
-<TabItem value="gradle" label="gradle">
+<TabItem value="build.gradle" label="build.gradle">
 
 
 ###### Before
-```gradle
+```groovy title="build.gradle"
 plugins {
     id "org.jetbrains.kotlin.jvm" version "2.1.0"
+}
+repositories {
+    mavenCentral()
 }
 dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib:1.9.24"
@@ -51,9 +54,14 @@ dependencies {
 ```
 
 ###### After
-```gradle
+```groovy title="build.gradle"
 plugins {
     id "org.jetbrains.kotlin.jvm" version "2.1.0"
+}
+repositories {
+    mavenCentral()
+}
+dependencies {
 }
 ```
 
@@ -61,14 +69,14 @@ plugins {
 <TabItem value="diff" label="Diff" >
 
 ```diff
-@@ -4,4 +4,0 @@
-    id "org.jetbrains.kotlin.jvm" version "2.1.0"
+--- build.gradle
++++ build.gradle
+@@ -8,2 +8,0 @@
 }
--dependencies {
+dependencies {
 -   implementation "org.jetbrains.kotlin:kotlin-stdlib:1.9.24"
 -   implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.9.24"
--}
-
+}
 ```
 </TabItem>
 </Tabs>
@@ -80,13 +88,16 @@ plugins {
 
 
 <Tabs groupId="beforeAfter">
-<TabItem value="gradle" label="gradle">
+<TabItem value="build.gradle" label="build.gradle">
 
 
 ###### Before
-```gradle
+```groovy title="build.gradle"
 plugins {
     id "org.jetbrains.kotlin.jvm" version "2.1.0"
+}
+repositories {
+    mavenCentral()
 }
 dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib:1.9.24"
@@ -95,9 +106,14 @@ dependencies {
 ```
 
 ###### After
-```gradle
+```groovy title="build.gradle"
 plugins {
     id "org.jetbrains.kotlin.jvm" version "2.1.0"
+}
+repositories {
+    mavenCentral()
+}
+dependencies {
 }
 ```
 
@@ -105,14 +121,14 @@ plugins {
 <TabItem value="diff" label="Diff" >
 
 ```diff
-@@ -4,4 +4,0 @@
-    id "org.jetbrains.kotlin.jvm" version "2.1.0"
+--- build.gradle
++++ build.gradle
+@@ -8,2 +8,0 @@
 }
--dependencies {
+dependencies {
 -   implementation "org.jetbrains.kotlin:kotlin-stdlib:1.9.24"
 -   implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.9.24"
--}
-
+}
 ```
 </TabItem>
 </Tabs>

@@ -25,6 +25,89 @@ This recipe is used as part of the following composite recipes:
 
 * [Replace deprecated Jetpack Compose methods](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/kotlin/compose/replacedeprecatedcomposemethods)
 
+## Examples
+##### Example 1
+`ReplaceDeprecatedRuntimeMethodsTest#replaceImmutableListOfWithPersistentListOf`
+
+
+<Tabs groupId="beforeAfter">
+<TabItem value="kotlin" label="kotlin">
+
+
+###### Before
+```kotlin
+import androidx.compose.runtime.external.kotlinx.collections.immutable.immutableListOf
+
+fun test() {
+    val list = immutableListOf()
+}
+```
+
+###### After
+```kotlin
+import androidx.compose.runtime.external.kotlinx.collections.immutable.immutableListOf
+
+fun test() {
+    val list = persistentListOf()
+}
+```
+
+</TabItem>
+<TabItem value="diff" label="Diff" >
+
+```diff
+@@ -4,1 +4,1 @@
+
+fun test() {
+-   val list = immutableListOf()
++   val list = persistentListOf()
+}
+```
+</TabItem>
+</Tabs>
+
+---
+
+##### Example 2
+`ReplaceDeprecatedRuntimeMethodsTest#replaceImmutableListOfWithPersistentListOf`
+
+
+<Tabs groupId="beforeAfter">
+<TabItem value="kotlin" label="kotlin">
+
+
+###### Before
+```kotlin
+import androidx.compose.runtime.external.kotlinx.collections.immutable.immutableListOf
+
+fun test() {
+    val list = immutableListOf()
+}
+```
+
+###### After
+```kotlin
+import androidx.compose.runtime.external.kotlinx.collections.immutable.immutableListOf
+
+fun test() {
+    val list = persistentListOf()
+}
+```
+
+</TabItem>
+<TabItem value="diff" label="Diff" >
+
+```diff
+@@ -4,1 +4,1 @@
+
+fun test() {
+-   val list = immutableListOf()
++   val list = persistentListOf()
+}
+```
+</TabItem>
+</Tabs>
+
 
 ## Usage
 

@@ -97,7 +97,8 @@ name: com.yourorg.RemoveObsoleteRunnersExample
 displayName: Remove JUnit 4 `@RunWith` annotations that do not require an `@ExtendsWith` replacement example
 recipeList:
   - org.openrewrite.java.testing.junit5.RemoveObsoleteRunners:
-      obsoleteRunners: org.junit.runners.JUnit4
+      obsoleteRunners:
+        - org.junit.runners.JUnit4
 ```
 
 <Tabs groupId="projectType">

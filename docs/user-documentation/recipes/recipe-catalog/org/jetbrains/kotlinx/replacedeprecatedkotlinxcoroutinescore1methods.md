@@ -25,6 +25,93 @@ This recipe is used as part of the following composite recipes:
 
 * [Upgrade to `kotlinx-coroutines` 1.10](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/kotlin/migrate/upgradekotlinxcoroutines_1_10)
 
+## Examples
+##### Example 1
+`KotlinxCoroutinesTest#replacePollWithTryReceive`
+
+
+<Tabs groupId="beforeAfter">
+<TabItem value="kotlin" label="kotlin">
+
+
+###### Before
+```kotlin
+import kotlinx.coroutines.channels.ReceiveChannel
+
+@Suppress("DEPRECATION")
+fun <T> pollChannel(channel: ReceiveChannel<T>): T? {
+    return channel.poll()
+}
+```
+
+###### After
+```kotlin
+import kotlinx.coroutines.channels.ReceiveChannel
+
+@Suppress("DEPRECATION")
+fun <T> pollChannel(channel: ReceiveChannel<T>): T? {
+    return channel.tryReceive().getOrNull()
+}
+```
+
+</TabItem>
+<TabItem value="diff" label="Diff" >
+
+```diff
+@@ -5,1 +5,1 @@
+@Suppress("DEPRECATION")
+fun <T> pollChannel(channel: ReceiveChannel<T>): T? {
+-   return channel.poll()
++   return channel.tryReceive().getOrNull()
+}
+```
+</TabItem>
+</Tabs>
+
+---
+
+##### Example 2
+`KotlinxCoroutinesTest#replacePollWithTryReceive`
+
+
+<Tabs groupId="beforeAfter">
+<TabItem value="kotlin" label="kotlin">
+
+
+###### Before
+```kotlin
+import kotlinx.coroutines.channels.ReceiveChannel
+
+@Suppress("DEPRECATION")
+fun <T> pollChannel(channel: ReceiveChannel<T>): T? {
+    return channel.poll()
+}
+```
+
+###### After
+```kotlin
+import kotlinx.coroutines.channels.ReceiveChannel
+
+@Suppress("DEPRECATION")
+fun <T> pollChannel(channel: ReceiveChannel<T>): T? {
+    return channel.tryReceive().getOrNull()
+}
+```
+
+</TabItem>
+<TabItem value="diff" label="Diff" >
+
+```diff
+@@ -5,1 +5,1 @@
+@Suppress("DEPRECATION")
+fun <T> pollChannel(channel: ReceiveChannel<T>): T? {
+-   return channel.poll()
++   return channel.tryReceive().getOrNull()
+}
+```
+</TabItem>
+</Tabs>
+
 
 ## Usage
 

@@ -1,22 +1,22 @@
 ---
-sidebar_label: "Find removed `cgi.parse_qs()` usage"
+sidebar_label: "Replace `tarfile.filemode` with `stat.filemode`"
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# Find removed `cgi.parse_qs()` usage
+# Replace `tarfile.filemode` with `stat.filemode`
 
-**org.openrewrite.python.migrate.FindCgiParseQs**
+**org.openrewrite.python.migrate.ReplaceTarfileFilemode**
 
-_`cgi.parse_qs()` was removed in Python 3.8. Use `urllib.parse.parse_qs()` instead._
+_`tarfile.filemode` was removed in Python 3.8. Use `stat.filemode()` instead._
 
 ### Tags
 
 * [python](/user-documentation/recipes/lists/recipes-by-tag#python)
-* [cgi](/user-documentation/recipes/lists/recipes-by-tag#cgi)
 * [migration](/user-documentation/recipes/lists/recipes-by-tag#migration)
 * [3.8](/user-documentation/recipes/lists/recipes-by-tag#38)
+* [tarfile](/user-documentation/recipes/lists/recipes-by-tag#tarfile)
 
 ## Recipe source
 
@@ -46,5 +46,5 @@ mod config recipes pip install openrewrite-migrate-python
 Then, you can run the recipe via:
 
 ```shell title="Run the recipe"
-mod run . --recipe org.openrewrite.python.migrate.FindCgiParseQs
+mod run . --recipe org.openrewrite.python.migrate.ReplaceTarfileFilemode
 ```

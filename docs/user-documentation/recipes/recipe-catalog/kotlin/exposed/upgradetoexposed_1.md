@@ -23,6 +23,97 @@ This recipe is only available to users of [Moderne](https://docs.moderne.io/).
 
 This recipe is available under the [Moderne Proprietary License](https://docs.moderne.io/licensing/overview).
 
+## Examples
+##### Example 1
+`UpgradeExposed_1Test#migrateTableDefinition`
+
+
+<Tabs groupId="beforeAfter">
+<TabItem value="kotlin" label="kotlin">
+
+
+###### Before
+```kotlin
+import org.jetbrains.exposed.sql.Column
+import org.jetbrains.exposed.sql.Table
+
+object Users : Table() {
+    val id: Column<Int> = integer("id")
+    val name: Column<String> = varchar("name", 50)
+}
+```
+
+###### After
+```kotlin
+import org.jetbrains.exposed.v1.core.Column
+import org.jetbrains.exposed.v1.core.Table
+
+object Users : Table() {
+    val id: Column<Int> = integer("id")
+    val name: Column<String> = varchar("name", 50)
+}
+```
+
+</TabItem>
+<TabItem value="diff" label="Diff" >
+
+```diff
+@@ -1,2 +1,2 @@
+-import org.jetbrains.exposed.sql.Column
+-import org.jetbrains.exposed.sql.Table
++import org.jetbrains.exposed.v1.core.Column
++import org.jetbrains.exposed.v1.core.Table
+
+```
+</TabItem>
+</Tabs>
+
+---
+
+##### Example 2
+`UpgradeExposed_1Test#migrateTableDefinition`
+
+
+<Tabs groupId="beforeAfter">
+<TabItem value="kotlin" label="kotlin">
+
+
+###### Before
+```kotlin
+import org.jetbrains.exposed.sql.Column
+import org.jetbrains.exposed.sql.Table
+
+object Users : Table() {
+    val id: Column<Int> = integer("id")
+    val name: Column<String> = varchar("name", 50)
+}
+```
+
+###### After
+```kotlin
+import org.jetbrains.exposed.v1.core.Column
+import org.jetbrains.exposed.v1.core.Table
+
+object Users : Table() {
+    val id: Column<Int> = integer("id")
+    val name: Column<String> = varchar("name", 50)
+}
+```
+
+</TabItem>
+<TabItem value="diff" label="Diff" >
+
+```diff
+@@ -1,2 +1,2 @@
+-import org.jetbrains.exposed.sql.Column
+-import org.jetbrains.exposed.sql.Table
++import org.jetbrains.exposed.v1.core.Column
++import org.jetbrains.exposed.v1.core.Table
+
+```
+</TabItem>
+</Tabs>
+
 
 ## Usage
 

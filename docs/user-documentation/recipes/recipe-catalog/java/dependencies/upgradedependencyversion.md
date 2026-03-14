@@ -96,6 +96,10 @@ This recipe is used as part of the following composite recipes:
 * [Migrate deprecated `javax.xml.ws` packages to `jakarta.xml.ws`](/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/javaxxmlwsmigrationtojakartaxmlws.md)
 * [Migrate from Elasticsearch 8 to 9](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/elastic/elastic9/migratetoelasticsearch9)
 * [Migrate from Spring Boot 1.x to 2.0 (Community Edition)](/user-documentation/recipes/recipe-catalog/java/spring/boot2/upgradespringboot_2_0-community-edition.md)
+* [Migrate to DataNucleus 4.0](/user-documentation/recipes/recipe-catalog/java/migrate/datanucleus/upgradedatanucleus_4_0.md)
+* [Migrate to DataNucleus 5.0](/user-documentation/recipes/recipe-catalog/java/migrate/datanucleus/upgradedatanucleus_5_0.md)
+* [Migrate to DataNucleus 5.1](/user-documentation/recipes/recipe-catalog/java/migrate/datanucleus/upgradedatanucleus_5_1.md)
+* [Migrate to DataNucleus 5.2](/user-documentation/recipes/recipe-catalog/java/migrate/datanucleus/upgradedatanucleus_5_2.md)
 * [Migrate to Dropwizard 5.0.x from 4.x](/user-documentation/recipes/recipe-catalog/java/dropwizard/migratetodropwizard5.md)
 * [Migrate to Hibernate 4.0.x](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/hibernate/migratetohibernate40)
 * [Migrate to Hibernate 6.0.x (Moderne Edition)](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/hibernate/migratetohibernate60-moderne-edition)
@@ -331,7 +335,8 @@ recipeList:
       artifactId: jackson-module*
       newVersion: 29.X
       versionPattern: '-jre'
-      retainVersions: com.jcraft:jsch
+      retainVersions:
+        - com.jcraft:jsch
 ```
 
 <Tabs groupId="projectType">

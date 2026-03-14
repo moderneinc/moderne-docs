@@ -25,6 +25,89 @@ This recipe is used as part of the following composite recipes:
 
 * [Migrate to `kotlinx-datetime` 0.7](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/kotlin/migrate/upgradekotlinxdatetime_0_7)
 
+## Examples
+##### Example 1
+`KotlinxDatetimeTest#replaceTodayAtWithTodayIn`
+
+
+<Tabs groupId="beforeAfter">
+<TabItem value="kotlin" label="kotlin">
+
+
+###### Before
+```kotlin
+import kotlinx.datetime.Clock
+import kotlinx.datetime.TimeZone
+import kotlinx.datetime.todayAt
+
+fun today() = Clock.System.todayAt(TimeZone.currentSystemDefault())
+```
+
+###### After
+```kotlin
+import kotlinx.datetime.Clock
+import kotlinx.datetime.TimeZone
+import kotlinx.datetime.todayAt
+
+fun today() = Clock.System.todayIn(TimeZone.currentSystemDefault())
+```
+
+</TabItem>
+<TabItem value="diff" label="Diff" >
+
+```diff
+@@ -5,1 +5,1 @@
+import kotlinx.datetime.todayAt
+
+-fun today() = Clock.System.todayAt(TimeZone.currentSystemDefault())
++fun today() = Clock.System.todayIn(TimeZone.currentSystemDefault())
+
+```
+</TabItem>
+</Tabs>
+
+---
+
+##### Example 2
+`KotlinxDatetimeTest#replaceTodayAtWithTodayIn`
+
+
+<Tabs groupId="beforeAfter">
+<TabItem value="kotlin" label="kotlin">
+
+
+###### Before
+```kotlin
+import kotlinx.datetime.Clock
+import kotlinx.datetime.TimeZone
+import kotlinx.datetime.todayAt
+
+fun today() = Clock.System.todayAt(TimeZone.currentSystemDefault())
+```
+
+###### After
+```kotlin
+import kotlinx.datetime.Clock
+import kotlinx.datetime.TimeZone
+import kotlinx.datetime.todayAt
+
+fun today() = Clock.System.todayIn(TimeZone.currentSystemDefault())
+```
+
+</TabItem>
+<TabItem value="diff" label="Diff" >
+
+```diff
+@@ -5,1 +5,1 @@
+import kotlinx.datetime.todayAt
+
+-fun today() = Clock.System.todayAt(TimeZone.currentSystemDefault())
++fun today() = Clock.System.todayIn(TimeZone.currentSystemDefault())
+
+```
+</TabItem>
+</Tabs>
+
 
 ## Usage
 

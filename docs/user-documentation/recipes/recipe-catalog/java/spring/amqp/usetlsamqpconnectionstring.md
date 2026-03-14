@@ -139,7 +139,8 @@ recipeList:
       oldPort: 1234
       port: 1234
       tlsPropertyKey: spring.rabbitmq.ssl.enabled
-      pathExpressions: **/application.yml
+      pathExpressions:
+        - **/application.yml
 ```
 
 <Tabs groupId="projectType">

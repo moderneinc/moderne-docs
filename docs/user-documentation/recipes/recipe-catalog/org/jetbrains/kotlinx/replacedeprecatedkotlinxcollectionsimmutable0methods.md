@@ -25,6 +25,85 @@ This recipe is used as part of the following composite recipes:
 
 * [Replace deprecated `kotlinx` methods](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/kotlin/kotlinx/replacedeprecatedkotlinxmethods)
 
+## Examples
+##### Example 1
+`KotlinxCollectionsImmutableTest#replaceEmptyImmutableListOfWithPersistentListOf`
+
+
+<Tabs groupId="beforeAfter">
+<TabItem value="kotlin" label="kotlin">
+
+
+###### Before
+```kotlin
+import kotlinx.collections.immutable.immutableListOf
+
+@Suppress("DEPRECATION")
+fun emptyList() = immutableListOf<String>()
+```
+
+###### After
+```kotlin
+import kotlinx.collections.immutable.immutableListOf
+
+@Suppress("DEPRECATION")
+fun emptyList() = persistentListOf()
+```
+
+</TabItem>
+<TabItem value="diff" label="Diff" >
+
+```diff
+@@ -4,1 +4,1 @@
+
+@Suppress("DEPRECATION")
+-fun emptyList() = immutableListOf<String>()
++fun emptyList() = persistentListOf()
+
+```
+</TabItem>
+</Tabs>
+
+---
+
+##### Example 2
+`KotlinxCollectionsImmutableTest#replaceEmptyImmutableListOfWithPersistentListOf`
+
+
+<Tabs groupId="beforeAfter">
+<TabItem value="kotlin" label="kotlin">
+
+
+###### Before
+```kotlin
+import kotlinx.collections.immutable.immutableListOf
+
+@Suppress("DEPRECATION")
+fun emptyList() = immutableListOf<String>()
+```
+
+###### After
+```kotlin
+import kotlinx.collections.immutable.immutableListOf
+
+@Suppress("DEPRECATION")
+fun emptyList() = persistentListOf()
+```
+
+</TabItem>
+<TabItem value="diff" label="Diff" >
+
+```diff
+@@ -4,1 +4,1 @@
+
+@Suppress("DEPRECATION")
+-fun emptyList() = immutableListOf<String>()
++fun emptyList() = persistentListOf()
+
+```
+</TabItem>
+</Tabs>
+
 
 ## Usage
 

@@ -50,7 +50,8 @@ recipeList:
       propertyKey: quarkus.http.port
       profile: dev
       searchAllProfiles: false
-      pathExpressions: ["**/application.yaml"]
+      pathExpressions:
+        - ["**/application.yaml"]
 ```
 
 <Tabs groupId="projectType">

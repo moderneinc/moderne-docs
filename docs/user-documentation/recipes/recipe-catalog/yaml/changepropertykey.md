@@ -243,7 +243,8 @@ recipeList:
   - org.openrewrite.yaml.ChangePropertyKey:
       oldPropertyKey: management.metrics.binders.*.enabled
       newPropertyKey: management.metrics.enable.process.files
-      except: List.of("group")
+      except:
+        - List.of("group")
       filePattern: .github/workflows/*.yml
 ```
 

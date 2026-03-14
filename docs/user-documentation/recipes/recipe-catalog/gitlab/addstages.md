@@ -102,7 +102,8 @@ name: com.yourorg.AddStagesExample
 displayName: Add GitLab stages example
 recipeList:
   - org.openrewrite.gitlab.AddStages:
-      stages: build,test,deploy
+      stages:
+        - build,test,deploy
 ```
 
 <Tabs groupId="projectType">

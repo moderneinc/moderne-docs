@@ -61,7 +61,8 @@ recipeList:
       newGroupId: corp.internal.openrewrite.recipe
       newArtifactId: my-new-annotation-processor
       newVersion: micronaut.validation
-      exclusions: io.micronaut:micronaut-inject
+      exclusions:
+        - io.micronaut:micronaut-inject
 ```
 
 <Tabs groupId="projectType">

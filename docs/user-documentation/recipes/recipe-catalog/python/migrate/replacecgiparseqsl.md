@@ -1,22 +1,22 @@
 ---
-sidebar_label: "Find deprecated `sys.last_type` / `sys.last_value` / `sys.last_traceback`"
+sidebar_label: "Replace `cgi.parse_qsl()` with `urllib.parse.parse_qsl()`"
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# Find deprecated `sys.last_type` / `sys.last_value` / `sys.last_traceback`
+# Replace `cgi.parse_qsl()` with `urllib.parse.parse_qsl()`
 
-**org.openrewrite.python.migrate.FindSysLastExcInfo**
+**org.openrewrite.python.migrate.ReplaceCgiParseQsl**
 
-_`sys.last_type`, `sys.last_value`, and `sys.last_traceback` were deprecated in Python 3.12. Use `sys.last_exc` instead._
+_`cgi.parse_qsl()` was removed in Python 3.8. Use `urllib.parse.parse_qsl()` instead. Note: this rewrites call sites but does not manage imports. Use with `ChangeImport` in a composite recipe to update `from` imports._
 
 ### Tags
 
 * [python](/user-documentation/recipes/lists/recipes-by-tag#python)
+* [cgi](/user-documentation/recipes/lists/recipes-by-tag#cgi)
 * [migration](/user-documentation/recipes/lists/recipes-by-tag#migration)
-* [3.12](/user-documentation/recipes/lists/recipes-by-tag#312)
-* [sys](/user-documentation/recipes/lists/recipes-by-tag#sys)
+* [3.8](/user-documentation/recipes/lists/recipes-by-tag#38)
 
 ## Recipe source
 
@@ -30,7 +30,7 @@ This recipe is available under the [Moderne Proprietary License](https://docs.mo
 
 This recipe is used as part of the following composite recipes:
 
-* [Upgrade to Python 3.12](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/python/migrate/upgradetopython312)
+* [Upgrade to Python 3.8](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/python/migrate/upgradetopython38)
 
 
 ## Usage
@@ -46,5 +46,5 @@ mod config recipes pip install openrewrite-migrate-python
 Then, you can run the recipe via:
 
 ```shell title="Run the recipe"
-mod run . --recipe org.openrewrite.python.migrate.FindSysLastExcInfo
+mod run . --recipe org.openrewrite.python.migrate.ReplaceCgiParseQsl
 ```

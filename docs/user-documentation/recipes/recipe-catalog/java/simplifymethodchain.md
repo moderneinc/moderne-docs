@@ -112,7 +112,8 @@ name: com.yourorg.SimplifyMethodChainExample
 displayName: Simplify a call chain example
 recipeList:
   - org.openrewrite.java.SimplifyMethodChain:
-      methodPatternChain: ['java.util.Map keySet()', 'java.util.Set contains(..)']
+      methodPatternChain:
+        - ['java.util.Map keySet()', 'java.util.Set contains(..)']
       newMethodName: containsKey
       matchOverrides: false
 ```

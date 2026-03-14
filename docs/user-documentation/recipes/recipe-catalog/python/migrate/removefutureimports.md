@@ -1,22 +1,21 @@
 ---
-sidebar_label: "Find removed `platform.popen()` usage"
+sidebar_label: "Remove obsolete `__future__` imports"
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# Find removed `platform.popen()` usage
+# Remove obsolete `__future__` imports
 
-**org.openrewrite.python.migrate.FindPlatformPopen**
+**org.openrewrite.python.migrate.RemoveFutureImports**
 
-_`platform.popen()` was removed in Python 3.8. Use `os.popen()` or `subprocess.run()` instead._
+_Remove `from __future__ import ...` statements for features that are enabled by default in Python 3._
 
 ### Tags
 
 * [python](/user-documentation/recipes/lists/recipes-by-tag#python)
+* [future](/user-documentation/recipes/lists/recipes-by-tag#future)
 * [migration](/user-documentation/recipes/lists/recipes-by-tag#migration)
-* [3.8](/user-documentation/recipes/lists/recipes-by-tag#38)
-* [platform](/user-documentation/recipes/lists/recipes-by-tag#platform)
 
 ## Recipe source
 
@@ -46,5 +45,5 @@ mod config recipes pip install openrewrite-migrate-python
 Then, you can run the recipe via:
 
 ```shell title="Run the recipe"
-mod run . --recipe org.openrewrite.python.migrate.FindPlatformPopen
+mod run . --recipe org.openrewrite.python.migrate.RemoveFutureImports
 ```

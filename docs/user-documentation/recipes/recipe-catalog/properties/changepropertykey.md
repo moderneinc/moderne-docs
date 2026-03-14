@@ -38,9 +38,12 @@ This recipe is available under the [Apache License Version 2.0](https://www.apac
 
 This recipe is used as part of the following composite recipes:
 
+* [DataNucleus 4.0 property migrations](/user-documentation/recipes/recipe-catalog/java/migrate/datanucleus/datanucleusproperties_4_0.md)
+* [DataNucleus 5.0 property migrations](/user-documentation/recipes/recipe-catalog/java/migrate/datanucleus/datanucleusproperties_5_0.md)
+* [DataNucleus 5.1 property migrations](/user-documentation/recipes/recipe-catalog/java/migrate/datanucleus/datanucleusproperties_5_1.md)
+* [DataNucleus 5.2 property migrations](/user-documentation/recipes/recipe-catalog/java/migrate/datanucleus/datanucleusproperties_5_2.md)
 * [Migrate Spring Boot Actuator to Quarkus Health and Metrics](/user-documentation/recipes/recipe-catalog/quarkus/spring/migratespringactuator.md)
 * [Migrate Spring Cloud Config Client to Quarkus Config](/user-documentation/recipes/recipe-catalog/quarkus/spring/migratespringcloudconfig.md)
-* [Migrate from OptaPlanner to Timefold Solver](/user-documentation/recipes/recipe-catalog/ai/timefold/solver/migration/fromoptaplannertotimefoldsolver.md)
 * [Quarkus 1.13 migration from Quarkus 1.11](/user-documentation/recipes/recipe-catalog/quarkus/quarkus1to1_13migration.md)
 * [Quarkus 2.x migration from Quarkus 1.x](/user-documentation/recipes/recipe-catalog/quarkus/quarkus2/quarkus1to2migration.md)
 * [Replace 'camel.main.backlogTracing' with `camel.trace.enabled'](/user-documentation/recipes/recipe-catalog/org/apache/camel/upgrade/camel45/traceproperties.md)
@@ -48,7 +51,7 @@ This recipe is used as part of the following composite recipes:
 * [The option camel.main.debugger has been renamed](/user-documentation/recipes/recipe-catalog/org/apache/camel/upgrade/camel42/camelmaindebugger.md)
 * [Update Apache Camel configurations keys](/user-documentation/recipes/recipe-catalog/org/apache/camel/upgrade/customrecipes/propertiesandyamlkeyupdate.md)
 * [Update relocated Micronaut Security config properties](/user-documentation/recipes/recipe-catalog/java/micronaut/updatesecuritypropertiesifneeded.md)
-* [Upgrade to the latest Timefold Solver](/user-documentation/recipes/recipe-catalog/ai/timefold/solver/migration/tolatest.md)
+* [Upgrade to the latest Timefold Solver 1.x](/user-documentation/recipes/recipe-catalog/ai/timefold/solver/migration/tolatestv1.md)
 * [io.quarkus.updates.core.quarkus30.ApplicationProperties](/user-documentation/recipes/recipe-catalog/io/quarkus/updates/core/quarkus30/applicationproperties.md)
 * [io.quarkus.updates.core.quarkus32.ApplicationProperties](/user-documentation/recipes/recipe-catalog/io/quarkus/updates/core/quarkus32/applicationproperties.md)
 * [io.quarkus.updates.core.quarkus33.ApplicationProperties](/user-documentation/recipes/recipe-catalog/io/quarkus/updates/core/quarkus33/applicationproperties.md)

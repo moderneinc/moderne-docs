@@ -1,15 +1,15 @@
 ---
-sidebar_label: "Find deprecated `Element.getchildren()` usage"
+sidebar_label: "Replace `Element.getchildren()` with `list(element)`"
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# Find deprecated `Element.getchildren()` usage
+# Replace `Element.getchildren()` with `list(element)`
 
-**org.openrewrite.python.migrate.FindElementGetchildren**
+**org.openrewrite.python.migrate.ReplaceElementGetchildren**
 
-_Find usage of `getchildren()` method on XML Element objects. Deprecated in Python 3.9. Use `list(element)` instead._
+_Replace `getchildren()` with `list(element)` on XML Element objects. Deprecated in Python 3.9._
 
 ### Tags
 
@@ -46,5 +46,5 @@ mod config recipes pip install openrewrite-migrate-python
 Then, you can run the recipe via:
 
 ```shell title="Run the recipe"
-mod run . --recipe org.openrewrite.python.migrate.FindElementGetchildren
+mod run . --recipe org.openrewrite.python.migrate.ReplaceElementGetchildren
 ```

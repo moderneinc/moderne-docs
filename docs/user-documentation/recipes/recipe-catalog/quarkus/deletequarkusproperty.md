@@ -65,7 +65,8 @@ recipeList:
       oldValue: read-sync
       profile: dev
       deleteFromAllProfiles: false
-      pathExpressions: ["**/application.yaml"]
+      pathExpressions:
+        - ["**/application.yaml"]
 ```
 
 <Tabs groupId="projectType">

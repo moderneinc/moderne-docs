@@ -1,22 +1,22 @@
 ---
-sidebar_label: "Find removed `cgi.parse_qsl()` usage"
+sidebar_label: "Replace `platform.popen()` with `subprocess.check_output()`"
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# Find removed `cgi.parse_qsl()` usage
+# Replace `platform.popen()` with `subprocess.check_output()`
 
-**org.openrewrite.python.migrate.FindCgiParseQsl**
+**org.openrewrite.python.migrate.ReplacePlatformPopen**
 
-_`cgi.parse_qsl()` was removed in Python 3.8. Use `urllib.parse.parse_qsl()` instead._
+_`platform.popen()` was removed in Python 3.8. Use `subprocess.check_output(cmd, shell=True)` instead. Note: this rewrites call sites but does not manage imports._
 
 ### Tags
 
 * [python](/user-documentation/recipes/lists/recipes-by-tag#python)
-* [cgi](/user-documentation/recipes/lists/recipes-by-tag#cgi)
 * [migration](/user-documentation/recipes/lists/recipes-by-tag#migration)
 * [3.8](/user-documentation/recipes/lists/recipes-by-tag#38)
+* [platform](/user-documentation/recipes/lists/recipes-by-tag#platform)
 
 ## Recipe source
 
@@ -46,5 +46,5 @@ mod config recipes pip install openrewrite-migrate-python
 Then, you can run the recipe via:
 
 ```shell title="Run the recipe"
-mod run . --recipe org.openrewrite.python.migrate.FindCgiParseQsl
+mod run . --recipe org.openrewrite.python.migrate.ReplacePlatformPopen
 ```

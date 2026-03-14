@@ -93,7 +93,8 @@ displayName: Replace runners for a job example
 recipeList:
   - org.openrewrite.github.ReplaceRunners:
       jobName: build
-      runners: ubuntu-latest
+      runners:
+        - ubuntu-latest
 ```
 
 <Tabs groupId="projectType">

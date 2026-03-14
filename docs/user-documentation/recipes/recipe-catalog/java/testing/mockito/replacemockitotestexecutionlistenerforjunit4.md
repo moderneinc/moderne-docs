@@ -1,29 +1,61 @@
 ---
-sidebar_label: "Upgrade to Angular 19"
+sidebar_label: "Replace `MockitoTestExecutionListener` (JUnit 4 projects)"
 ---
+
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/testing/mockito/replacemockitotestexecutionlistenerforjunit4" />
+</head>
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# Upgrade to Angular 19
+# Replace `MockitoTestExecutionListener` (JUnit 4 projects)
 
-**org.openrewrite.angular.UpgradeToAngular19**
+**org.openrewrite.java.testing.mockito.ReplaceMockitoTestExecutionListenerForJUnit4**
 
-_Migrates Angular 18.x applications to Angular 19. This includes updating Angular package versions, adjusting the standalone default, renaming `ExperimentalPendingTasks` to `PendingTasks`, and updating `zone.js`._
+_Replace `MockitoTestExecutionListener` in projects that have JUnit 4 as a dependency. Uses `@RunWith(MockitoJUnitRunner.class)` as the replacement._
 
 ## Recipe source
 
-This recipe is only available to users of [Moderne](https://docs.moderne.io/).
+[GitHub: mockito.yml](https://github.com/openrewrite/rewrite-testing-frameworks/blob/main/src/main/resources/META-INF/rewrite/mockito.yml),
+[Issue Tracker](https://github.com/openrewrite/rewrite-testing-frameworks/issues),
+[Maven Central](https://central.sonatype.com/artifact/org.openrewrite.recipe/rewrite-testing-frameworks/)
+
+This recipe is available under the [Moderne Source Available License](https://docs.moderne.io/licensing/moderne-source-available-license).
 
 
-This recipe is available under the [Moderne Proprietary License](https://docs.moderne.io/licensing/overview).
+## Definition
 
+<Tabs groupId="recipeType">
+<TabItem value="recipe-list" label="Recipe List" >
+* [Replace `MockitoTestExecutionListener` with the equivalent Mockito test initialization](../../../java/testing/mockito/replacemockitotestexecutionlistener)
+  * targetFramework: `junit4`
+
+</TabItem>
+
+<TabItem value="yaml-recipe-list" label="Yaml Recipe List">
+
+```yaml
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.java.testing.mockito.ReplaceMockitoTestExecutionListenerForJUnit4
+displayName: Replace `MockitoTestExecutionListener` (JUnit 4 projects)
+description: |
+  Replace `MockitoTestExecutionListener` in projects that have JUnit 4 as a dependency. Uses `@RunWith(MockitoJUnitRunner.class)` as the replacement.
+recipeList:
+  - org.openrewrite.java.testing.mockito.ReplaceMockitoTestExecutionListener:
+      targetFramework: junit4
+
+```
+</TabItem>
+</Tabs>
 
 ## Used by
 
 This recipe is used as part of the following composite recipes:
 
-* [Upgrade to Angular 20](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/angular/upgradetoangular20)
+* [Mockito 3.x migration from 1.x](/user-documentation/recipes/recipe-catalog/java/testing/mockito/mockito1to3migration.md)
 
 
 ## Usage
@@ -37,12 +69,12 @@ This recipe has no required configuration options. Users of Moderne can run it v
 You will need to have configured the [Moderne CLI](https://docs.moderne.io/user-documentation/moderne-cli/getting-started/cli-intro) on your machine before you can run the following command.
 
 ```shell title="shell"
-mod run . --recipe UpgradeToAngular19
+mod run . --recipe ReplaceMockitoTestExecutionListenerForJUnit4
 ```
 
 If the recipe is not available locally, then you can install it using:
 ```shell
-mod config recipes jar install io.moderne.recipe:rewrite-angular:{{VERSION_IO_MODERNE_RECIPE_REWRITE_ANGULAR}}
+mod config recipes jar install org.openrewrite.recipe:rewrite-testing-frameworks:{{VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_TESTING_FRAMEWORKS}}
 ```
 </TabItem>
 </Tabs>
@@ -51,7 +83,7 @@ mod config recipes jar install io.moderne.recipe:rewrite-angular:{{VERSION_IO_MO
 
 import RecipeCallout from '@site/src/components/ModerneLink';
 
-<RecipeCallout link="https://app.moderne.io/recipes/org.openrewrite.angular.UpgradeToAngular19" />
+<RecipeCallout link="https://app.moderne.io/recipes/org.openrewrite.java.testing.mockito.ReplaceMockitoTestExecutionListenerForJUnit4" />
 
 The community edition of the Moderne platform enables you to easily run recipes across thousands of open-source repositories.
 

@@ -31,6 +31,54 @@ This recipe is used as part of the following composite recipes:
 
 * [Migrate to Hibernate 4.0.x](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/hibernate/migratetohibernate40)
 
+## Example
+
+###### Parameters
+| Parameter | Value |
+| --- | --- |
+|methodPattern|`org.hibernate.Session createQuery(String,..)`|
+
+
+<Tabs groupId="beforeAfter">
+<TabItem value="java" label="java">
+
+
+###### Before
+```java
+import org.hibernate.Session;
+
+class MyDao {
+    void query(Session session) {
+        session.createQuery("from Foo where a = ? and b = ?", Object.class);
+    }
+}
+```
+
+###### After
+```java
+import org.hibernate.Session;
+
+class MyDao {
+    void query(Session session) {
+        session.createQuery("from Foo where a = ?1 and b = ?2", Object.class);
+    }
+}
+```
+
+</TabItem>
+<TabItem value="diff" label="Diff" >
+
+```diff
+@@ -5,1 +5,1 @@
+class MyDao {
+    void query(Session session) {
+-       session.createQuery("from Foo where a = ? and b = ?", Object.class);
++       session.createQuery("from Foo where a = ?1 and b = ?2", Object.class);
+    }
+```
+</TabItem>
+</Tabs>
+
 
 ## Usage
 

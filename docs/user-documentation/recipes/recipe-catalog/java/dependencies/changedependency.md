@@ -142,6 +142,7 @@ This recipe is used as part of the following composite recipes:
 * [Migrate javax.mvc to 2.0 (Jakarta EE 9)](/user-documentation/recipes/recipe-catalog/com/oracle/weblogic/rewrite/jakarta/migratejavaxmvctojakartaee9.md)
 * [Migrate rider-spring (JUnit4) to rider-junit5 (JUnit5)](/user-documentation/recipes/recipe-catalog/java/testing/dbrider/migratedbriderspringtodbriderjunit5.md)
 * [Migrate thymeleaf dependencies to Spring Boot 3.x](/user-documentation/recipes/recipe-catalog/java/spring/boot3/migratethymeleafdependencies.md)
+* [Migrate to DataNucleus 5.0](/user-documentation/recipes/recipe-catalog/java/migrate/datanucleus/upgradedatanucleus_5_0.md)
 * [Migrate to Hibernate 6.0.x (Moderne Edition)](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/hibernate/migratetohibernate60-moderne-edition)
 * [Migrate to Hibernate 7.0.x (Community Edition)](/user-documentation/recipes/recipe-catalog/hibernate/migratetohibernate70-community-edition.md)
 * [Migrate to Hibernate 7.0.x (Moderne Edition)](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/hibernate/migratetohibernate70-moderne-edition)

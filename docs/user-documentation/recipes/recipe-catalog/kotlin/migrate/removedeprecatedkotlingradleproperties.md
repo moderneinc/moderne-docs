@@ -36,17 +36,17 @@ This recipe is used as part of the following composite recipes:
 
 
 <Tabs groupId="beforeAfter">
-<TabItem value="properties" label="properties">
+<TabItem value="gradle.properties" label="gradle.properties">
 
 
 ###### Before
-```properties
+```properties title="gradle.properties"
 kotlin.experimental.coroutines=enable
 org.gradle.caching=true
 ```
 
 ###### After
-```properties
+```properties title="gradle.properties"
 org.gradle.caching=true
 ```
 
@@ -54,6 +54,8 @@ org.gradle.caching=true
 <TabItem value="diff" label="Diff" >
 
 ```diff
+--- gradle.properties
++++ gradle.properties
 @@ -1,1 +1,0 @@
 -kotlin.experimental.coroutines=enable
 org.gradle.caching=true
@@ -68,17 +70,17 @@ org.gradle.caching=true
 
 
 <Tabs groupId="beforeAfter">
-<TabItem value="properties" label="properties">
+<TabItem value="gradle.properties" label="gradle.properties">
 
 
 ###### Before
-```properties
+```properties title="gradle.properties"
 kotlin.experimental.coroutines=enable
 org.gradle.caching=true
 ```
 
 ###### After
-```properties
+```properties title="gradle.properties"
 org.gradle.caching=true
 ```
 
@@ -86,6 +88,8 @@ org.gradle.caching=true
 <TabItem value="diff" label="Diff" >
 
 ```diff
+--- gradle.properties
++++ gradle.properties
 @@ -1,1 +1,0 @@
 -kotlin.experimental.coroutines=enable
 org.gradle.caching=true

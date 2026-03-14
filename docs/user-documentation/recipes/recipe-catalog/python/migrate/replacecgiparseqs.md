@@ -1,22 +1,22 @@
 ---
-sidebar_label: "Find deprecated `re.template()` / `re.TEMPLATE` usage"
+sidebar_label: "Replace `cgi.parse_qs()` with `urllib.parse.parse_qs()`"
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# Find deprecated `re.template()` / `re.TEMPLATE` usage
+# Replace `cgi.parse_qs()` with `urllib.parse.parse_qs()`
 
-**org.openrewrite.python.migrate.FindReTemplate**
+**org.openrewrite.python.migrate.ReplaceCgiParseQs**
 
-_`re.template()` and `re.TEMPLATE` were deprecated in Python 3.11 and removed in 3.13._
+_`cgi.parse_qs()` was removed in Python 3.8. Use `urllib.parse.parse_qs()` instead. Note: this rewrites call sites but does not manage imports. Use with `ChangeImport` in a composite recipe to update `from` imports._
 
 ### Tags
 
 * [python](/user-documentation/recipes/lists/recipes-by-tag#python)
-* [re](/user-documentation/recipes/lists/recipes-by-tag#re)
+* [cgi](/user-documentation/recipes/lists/recipes-by-tag#cgi)
 * [migration](/user-documentation/recipes/lists/recipes-by-tag#migration)
-* [3.11](/user-documentation/recipes/lists/recipes-by-tag#311)
+* [3.8](/user-documentation/recipes/lists/recipes-by-tag#38)
 
 ## Recipe source
 
@@ -30,7 +30,7 @@ This recipe is available under the [Moderne Proprietary License](https://docs.mo
 
 This recipe is used as part of the following composite recipes:
 
-* [Upgrade to Python 3.11](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/python/migrate/upgradetopython311)
+* [Upgrade to Python 3.8](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/python/migrate/upgradetopython38)
 
 
 ## Usage
@@ -46,5 +46,5 @@ mod config recipes pip install openrewrite-migrate-python
 Then, you can run the recipe via:
 
 ```shell title="Run the recipe"
-mod run . --recipe org.openrewrite.python.migrate.FindReTemplate
+mod run . --recipe org.openrewrite.python.migrate.ReplaceCgiParseQs
 ```

@@ -36,18 +36,18 @@ This recipe is used as part of the following composite recipes:
 
 
 <Tabs groupId="beforeAfter">
-<TabItem value="gradle" label="gradle">
+<TabItem value="build.gradle" label="build.gradle">
 
 
 ###### Before
-```gradle
+```groovy title="build.gradle"
 plugins {
     id "org.jetbrains.kotlin.jvm" version "1.9.24"
 }
 ```
 
 ###### After
-```gradle
+```groovy title="build.gradle"
 plugins {
     id "org.jetbrains.kotlin.jvm" version "2.1.20"
 }
@@ -57,6 +57,8 @@ plugins {
 <TabItem value="diff" label="Diff" >
 
 ```diff
+--- build.gradle
++++ build.gradle
 @@ -2,1 +2,1 @@
 plugins {
 -   id "org.jetbrains.kotlin.jvm" version "1.9.24"
@@ -73,18 +75,18 @@ plugins {
 
 
 <Tabs groupId="beforeAfter">
-<TabItem value="gradle" label="gradle">
+<TabItem value="build.gradle" label="build.gradle">
 
 
 ###### Before
-```gradle
+```groovy title="build.gradle"
 plugins {
     id "org.jetbrains.kotlin.jvm" version "1.9.24"
 }
 ```
 
 ###### After
-```gradle
+```groovy title="build.gradle"
 plugins {
     id "org.jetbrains.kotlin.jvm" version "2.1.20"
 }
@@ -94,6 +96,8 @@ plugins {
 <TabItem value="diff" label="Diff" >
 
 ```diff
+--- build.gradle
++++ build.gradle
 @@ -2,1 +2,1 @@
 plugins {
 -   id "org.jetbrains.kotlin.jvm" version "1.9.24"

@@ -66,7 +66,8 @@ recipeList:
       newPropertyKey: quarkus.hibernate-search-orm.indexing.plan.synchronization.strategy
       profile: dev
       changeAllProfiles: false
-      pathExpressions: ["**/application.yaml"]
+      pathExpressions:
+        - ["**/application.yaml"]
 ```
 
 <Tabs groupId="projectType">

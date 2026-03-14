@@ -46,6 +46,7 @@ This recipe is used as part of the following composite recipes:
 * [Remove debug mode from Spring Security](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/security/spring/removeenablewebsecuritydebug)
 * [Replace `@MockBean` and `@SpyBean`](/user-documentation/recipes/recipe-catalog/java/spring/boot4/replacemockbeanandspybean.md)
 * [Replace `@Timed` (Dropwizard) with `@Timed` (Micrometer)](/user-documentation/recipes/recipe-catalog/java/dropwizard/annotation/micrometer/codahaletimedtomicrometertimed.md)
+* [Upgrade to the latest Timefold Solver](/user-documentation/recipes/recipe-catalog/ai/timefold/solver/migration/tolatest.md)
 
 ## Examples
 ##### Example 1

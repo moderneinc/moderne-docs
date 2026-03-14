@@ -121,7 +121,8 @@ recipeList:
       version: 29.X
       versionPattern: '-jre'
       because: CVE-2021-1234
-      onlyForConfigurations: implementation, runtimeOnly
+      onlyForConfigurations:
+        - implementation, runtimeOnly
 ```
 
 <Tabs groupId="projectType">

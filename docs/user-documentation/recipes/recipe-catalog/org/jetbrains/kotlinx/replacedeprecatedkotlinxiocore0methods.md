@@ -25,6 +25,103 @@ This recipe is used as part of the following composite recipes:
 
 * [Replace deprecated `kotlinx` methods](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/kotlin/kotlinx/replacedeprecatedkotlinxmethods)
 
+## Examples
+##### Example 1
+`KotlinxIoTest#replacePathSourceWithFileSystemSource`
+
+
+<Tabs groupId="beforeAfter">
+<TabItem value="kotlin" label="kotlin">
+
+
+###### Before
+```kotlin
+import kotlinx.io.Source
+import kotlinx.io.files.Path
+import kotlinx.io.files.source
+
+@Suppress("DEPRECATION")
+fun readFile(path: Path): Source = path.source()
+```
+
+###### After
+```kotlin
+import kotlinx.io.Source
+import kotlinx.io.files.*
+
+@Suppress("DEPRECATION")
+fun readFile(path: Path): Source = SystemFileSystem.source(path).buffered()
+```
+
+</TabItem>
+<TabItem value="diff" label="Diff" >
+
+```diff
+@@ -2,2 +2,1 @@
+import kotlinx.io.Source
+-import kotlinx.io.files.Path
+-import kotlinx.io.files.source
++import kotlinx.io.files.*
+
+@@ -6,1 +5,1 @@
+
+@Suppress("DEPRECATION")
+-fun readFile(path: Path): Source = path.source()
++fun readFile(path: Path): Source = SystemFileSystem.source(path).buffered()
+
+```
+</TabItem>
+</Tabs>
+
+---
+
+##### Example 2
+`KotlinxIoTest#replacePathSourceWithFileSystemSource`
+
+
+<Tabs groupId="beforeAfter">
+<TabItem value="kotlin" label="kotlin">
+
+
+###### Before
+```kotlin
+import kotlinx.io.Source
+import kotlinx.io.files.Path
+import kotlinx.io.files.source
+
+@Suppress("DEPRECATION")
+fun readFile(path: Path): Source = path.source()
+```
+
+###### After
+```kotlin
+import kotlinx.io.Source
+import kotlinx.io.files.*
+
+@Suppress("DEPRECATION")
+fun readFile(path: Path): Source = SystemFileSystem.source(path).buffered()
+```
+
+</TabItem>
+<TabItem value="diff" label="Diff" >
+
+```diff
+@@ -2,2 +2,1 @@
+import kotlinx.io.Source
+-import kotlinx.io.files.Path
+-import kotlinx.io.files.source
++import kotlinx.io.files.*
+
+@@ -6,1 +5,1 @@
+
+@Suppress("DEPRECATION")
+-fun readFile(path: Path): Source = path.source()
++fun readFile(path: Path): Source = SystemFileSystem.source(path).buffered()
+
+```
+</TabItem>
+</Tabs>
+
 
 ## Usage
 

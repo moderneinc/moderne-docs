@@ -155,7 +155,8 @@ recipeList:
       transform: '-t path/to/transform/optimus-prime'
       executable: '@next/codemod/bin/next-codemod.js'
       fileFilter: '**/*.(j|t)sx'
-      codemodArgs: --force --jscodeshift='--parser=${parser}'
+      codemodArgs:
+        - --force --jscodeshift='--parser=${parser}'
 ```
 
 <Tabs groupId="projectType">

@@ -17,6 +17,7 @@ description: Calm OpenRewrite recipes.
 * [Find Node.js security configuration](./findnodesecurityconfig.md)
 * [Find Node.js test coverage](./findnodetestcoverage.md)
 * [Find Prisma usage](./findprismausage.md)
+* [Find Python project metadata](./findpythonprojectmetadata.md)
 * [Find TypeORM entities](./findtypeormentities.md)
 * [Find data assets](./finddataassets.md)
 * [Find database connections](./finddatabaseconnections.md)

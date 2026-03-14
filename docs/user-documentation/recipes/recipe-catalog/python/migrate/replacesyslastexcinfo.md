@@ -1,22 +1,22 @@
 ---
-sidebar_label: "Find removed `tarfile.filemode` usage"
+sidebar_label: "Replace `sys.last_value` with `sys.last_exc` and flag `sys.last_type` / `sys.last_traceback`"
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# Find removed `tarfile.filemode` usage
+# Replace `sys.last_value` with `sys.last_exc` and flag `sys.last_type` / `sys.last_traceback`
 
-**org.openrewrite.python.migrate.FindTarfileFilemode**
+**org.openrewrite.python.migrate.ReplaceSysLastExcInfo**
 
-_`tarfile.filemode` was removed in Python 3.8. Use `stat.filemode()` instead._
+_`sys.last_type`, `sys.last_value`, and `sys.last_traceback` were deprecated in Python 3.12. `sys.last_value` is auto-replaced with `sys.last_exc`; `sys.last_type` and `sys.last_traceback` are flagged for manual review._
 
 ### Tags
 
 * [python](/user-documentation/recipes/lists/recipes-by-tag#python)
 * [migration](/user-documentation/recipes/lists/recipes-by-tag#migration)
-* [3.8](/user-documentation/recipes/lists/recipes-by-tag#38)
-* [tarfile](/user-documentation/recipes/lists/recipes-by-tag#tarfile)
+* [3.12](/user-documentation/recipes/lists/recipes-by-tag#312)
+* [sys](/user-documentation/recipes/lists/recipes-by-tag#sys)
 
 ## Recipe source
 
@@ -30,7 +30,7 @@ This recipe is available under the [Moderne Proprietary License](https://docs.mo
 
 This recipe is used as part of the following composite recipes:
 
-* [Upgrade to Python 3.8](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/python/migrate/upgradetopython38)
+* [Upgrade to Python 3.12](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/python/migrate/upgradetopython312)
 
 
 ## Usage
@@ -46,5 +46,5 @@ mod config recipes pip install openrewrite-migrate-python
 Then, you can run the recipe via:
 
 ```shell title="Run the recipe"
-mod run . --recipe org.openrewrite.python.migrate.FindTarfileFilemode
+mod run . --recipe org.openrewrite.python.migrate.ReplaceSysLastExcInfo
 ```

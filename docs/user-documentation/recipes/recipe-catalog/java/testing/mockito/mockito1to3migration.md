@@ -111,7 +111,9 @@ This recipe is available under the [Moderne Source Available License](https://do
 * [Use static form of Mockito `MockUtil`](../../../java/testing/mockito/mockutilstostatic)
 * [JUnit 4 `MockitoJUnit` to JUnit Jupiter `MockitoExtension`](../../../java/testing/junit5/mockitojunittomockitoextension)
 * [Adds Mockito extensions to Mockito tests](../../../java/testing/mockito/addmockitoextensionifannotationsused)
-* [Replace `MockitoTestExecutionListener` with the equivalent Mockito test initialization](../../../java/testing/mockito/replacemockitotestexecutionlistener)
+* [Replace `MockitoTestExecutionListener` (JUnit Jupiter projects)](../../../java/testing/mockito/replacemockitotestexecutionlistenerforjupiter)
+* [Replace `MockitoTestExecutionListener` (JUnit 4 projects)](../../../java/testing/mockito/replacemockitotestexecutionlistenerforjunit4)
+* [Replace `MockitoTestExecutionListener` (TestNG projects)](../../../java/testing/mockito/replacemockitotestexecutionlistenerfortestng)
 * [Remove `MockitoAnnotations.initMocks(this)` and `openMocks(this)` if JUnit runners specified](../../../java/testing/mockito/removeinitmocksifrunnersspecified)
 * [Replace PowerMock with raw Mockito](../../../java/testing/mockito/replacepowermockito)
 * [Change Gradle or Maven dependency](../../../java/dependencies/changedependency)
@@ -194,8 +196,12 @@ recipeList:
       argumentIndex: 0
   - org.openrewrite.java.ReorderMethodArguments:
       methodPattern: org.mockito.MockedStatic verify(org.mockito.verification.VerificationMode, org.mockito.MockedStatic.Verification)
-      newParameterNames: [verification, mode]
-      oldParameterNames: [mode, verification]
+      newParameterNames:
+        - verification
+        - mode
+      oldParameterNames:
+        - mode
+        - verification
   - org.openrewrite.java.testing.mockito.VerifyZeroToNoMoreInteractions
   - org.openrewrite.java.ChangeMethodName:
       methodPattern: org.mockito.Mockito verifyZeroInteractions(..)
@@ -219,7 +225,9 @@ recipeList:
   - org.openrewrite.java.testing.mockito.MockUtilsToStatic
   - org.openrewrite.java.testing.junit5.MockitoJUnitToMockitoExtension
   - org.openrewrite.java.testing.mockito.AddMockitoExtensionIfAnnotationsUsed
-  - org.openrewrite.java.testing.mockito.ReplaceMockitoTestExecutionListener
+  - org.openrewrite.java.testing.mockito.ReplaceMockitoTestExecutionListenerForJupiter
+  - org.openrewrite.java.testing.mockito.ReplaceMockitoTestExecutionListenerForJUnit4
+  - org.openrewrite.java.testing.mockito.ReplaceMockitoTestExecutionListenerForTestNG
   - org.openrewrite.java.testing.mockito.RemoveInitMocksIfRunnersSpecified
   - org.openrewrite.java.testing.mockito.ReplacePowerMockito
   - org.openrewrite.java.dependencies.ChangeDependency:

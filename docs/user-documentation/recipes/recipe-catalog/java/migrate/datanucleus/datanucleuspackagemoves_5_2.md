@@ -1,46 +1,63 @@
 ---
-sidebar_label: "Remove trailing whitespace"
+sidebar_label: "DataNucleus 5.2 package moves"
 ---
 
 
 <head>
-  <link rel="canonical" href="https://docs.openrewrite.org/recipes/staticanalysis/removetrailingwhitespace" />
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/migrate/datanucleus/datanucleuspackagemoves_5_2" />
 </head>
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# Remove trailing whitespace
+# DataNucleus 5.2 package moves
 
-**org.openrewrite.staticanalysis.RemoveTrailingWhitespace**
+**org.openrewrite.java.migrate.datanucleus.DataNucleusPackageMoves\_5\_2**
 
-_Remove trailing whitespace from the end of each line. Trailing whitespace is simply useless and should not stay in code. It may generate noise when comparing different versions of the same file._
-
-### Tags
-
-* [RSPEC-S1131](https://next.sonarqube.com/sonarqube/coding_rules?languages=java&q=S1131&open=java%3AS1131)
+_Relocate packages that were moved in DataNucleus 5.2._
 
 ## Recipe source
 
-[GitHub: RemoveTrailingWhitespace.java](https://github.com/openrewrite/rewrite-static-analysis/blob/main/src/main/java/org/openrewrite/staticanalysis/RemoveTrailingWhitespace.java),
-[Issue Tracker](https://github.com/openrewrite/rewrite-static-analysis/issues),
-[Maven Central](https://central.sonatype.com/artifact/org.openrewrite.recipe/rewrite-static-analysis/)
+[GitHub: datanucleus-5.2.yml](https://github.com/openrewrite/rewrite-migrate-java/blob/main/src/main/resources/META-INF/rewrite/datanucleus-5.2.yml),
+[Issue Tracker](https://github.com/openrewrite/rewrite-migrate-java/issues),
+[Maven Central](https://central.sonatype.com/artifact/org.openrewrite.recipe/rewrite-migrate-java/)
 
 This recipe is available under the [Moderne Source Available License](https://docs.moderne.io/licensing/moderne-source-available-license).
 
-## Example
 
+## Definition
 
+<Tabs groupId="recipeType">
+<TabItem value="recipe-list" label="Recipe List" >
+* [Rename package name](../../../java/changepackage)
+  * oldPackageName: `org.datanucleus.store.rdbms.mapping.datastore`
+  * newPackageName: `org.datanucleus.store.rdbms.mapping.column`
 
-###### New file
-```java
-class Test {
-    void foo() {
-        int a = 1;
-    }
-}
+</TabItem>
+
+<TabItem value="yaml-recipe-list" label="Yaml Recipe List">
+
+```yaml
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.java.migrate.datanucleus.DataNucleusPackageMoves_5_2
+displayName: DataNucleus 5.2 package moves
+description: |
+  Relocate packages that were moved in DataNucleus 5.2.
+recipeList:
+  - org.openrewrite.java.ChangePackage:
+      oldPackageName: org.datanucleus.store.rdbms.mapping.datastore
+      newPackageName: org.datanucleus.store.rdbms.mapping.column
+
 ```
+</TabItem>
+</Tabs>
 
+## Used by
+
+This recipe is used as part of the following composite recipes:
+
+* [Migrate to DataNucleus 5.2](/user-documentation/recipes/recipe-catalog/java/migrate/datanucleus/upgradedatanucleus_5_2.md)
 
 
 ## Usage
@@ -54,12 +71,12 @@ This recipe has no required configuration options. Users of Moderne can run it v
 You will need to have configured the [Moderne CLI](https://docs.moderne.io/user-documentation/moderne-cli/getting-started/cli-intro) on your machine before you can run the following command.
 
 ```shell title="shell"
-mod run . --recipe RemoveTrailingWhitespace
+mod run . --recipe DataNucleusPackageMoves_5_2
 ```
 
 If the recipe is not available locally, then you can install it using:
 ```shell
-mod config recipes jar install org.openrewrite.recipe:rewrite-static-analysis:{{VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_STATIC_ANALYSIS}}
+mod config recipes jar install org.openrewrite.recipe:rewrite-migrate-java:{{VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_MIGRATE_JAVA}}
 ```
 </TabItem>
 </Tabs>
@@ -68,7 +85,7 @@ mod config recipes jar install org.openrewrite.recipe:rewrite-static-analysis:{{
 
 import RecipeCallout from '@site/src/components/ModerneLink';
 
-<RecipeCallout link="https://app.moderne.io/recipes/org.openrewrite.staticanalysis.RemoveTrailingWhitespace" />
+<RecipeCallout link="https://app.moderne.io/recipes/org.openrewrite.java.migrate.datanucleus.DataNucleusPackageMoves_5_2" />
 
 The community edition of the Moderne platform enables you to easily run recipes across thousands of open-source repositories.
 

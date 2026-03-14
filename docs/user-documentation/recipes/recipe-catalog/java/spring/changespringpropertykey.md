@@ -156,7 +156,8 @@ recipeList:
   - org.openrewrite.java.spring.ChangeSpringPropertyKey:
       oldPropertyKey: management.metrics.binders.*.enabled
       newPropertyKey: management.metrics.enable.process.files
-      except: jvm
+      except:
+        - jvm
 ```
 
 <Tabs groupId="projectType">

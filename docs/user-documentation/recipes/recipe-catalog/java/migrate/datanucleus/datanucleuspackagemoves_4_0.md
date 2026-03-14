@@ -1,22 +1,91 @@
 ---
-sidebar_label: "Upgrade to Angular 20"
+sidebar_label: "DataNucleus 4.0 package moves"
 ---
+
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/migrate/datanucleus/datanucleuspackagemoves_4_0" />
+</head>
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# Upgrade to Angular 20
+# DataNucleus 4.0 package moves
 
-**org.openrewrite.angular.UpgradeToAngular20**
+**org.openrewrite.java.migrate.datanucleus.DataNucleusPackageMoves\_4\_0**
 
-_Migrates Angular 19.x applications to Angular 20. This includes running the Angular 19 migration first, then updating Angular package versions, renaming experimental APIs promoted to stable, and upgrading TypeScript to 5.8.x._
+_Relocate packages that were moved in DataNucleus 4.0._
 
 ## Recipe source
 
-This recipe is only available to users of [Moderne](https://docs.moderne.io/).
+[GitHub: datanucleus-4.0.yml](https://github.com/openrewrite/rewrite-migrate-java/blob/main/src/main/resources/META-INF/rewrite/datanucleus-4.0.yml),
+[Issue Tracker](https://github.com/openrewrite/rewrite-migrate-java/issues),
+[Maven Central](https://central.sonatype.com/artifact/org.openrewrite.recipe/rewrite-migrate-java/)
+
+:::info
+This recipe is composed of more than one recipe. If you want to customize the set of recipes this is composed of, you can find and copy the GitHub source for the recipe from the link above.
+:::
+
+This recipe is available under the [Moderne Source Available License](https://docs.moderne.io/licensing/moderne-source-available-license).
 
 
-This recipe is available under the [Moderne Proprietary License](https://docs.moderne.io/licensing/overview).
+## Definition
+
+<Tabs groupId="recipeType">
+<TabItem value="recipe-list" label="Recipe List" >
+* [Rename package name](../../../java/changepackage)
+  * oldPackageName: `org.datanucleus.store.types.simple`
+  * newPackageName: `org.datanucleus.store.types.wrappers`
+* [Rename package name](../../../java/changepackage)
+  * oldPackageName: `org.datanucleus.store.types.backed`
+  * newPackageName: `org.datanucleus.store.types.wrappers.backed`
+* [Rename package name](../../../java/changepackage)
+  * oldPackageName: `org.datanucleus.query.evaluator.memory`
+  * newPackageName: `org.datanucleus.query.inmemory`
+* [Rename package name](../../../java/changepackage)
+  * oldPackageName: `org.datanucleus.query.node`
+  * newPackageName: `org.datanucleus.query.compiler`
+* [Rename package name](../../../java/changepackage)
+  * oldPackageName: `org.datanucleus.jta`
+  * newPackageName: `org.datanucleus.transaction.jta`
+
+</TabItem>
+
+<TabItem value="yaml-recipe-list" label="Yaml Recipe List">
+
+```yaml
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.java.migrate.datanucleus.DataNucleusPackageMoves_4_0
+displayName: DataNucleus 4.0 package moves
+description: |
+  Relocate packages that were moved in DataNucleus 4.0.
+recipeList:
+  - org.openrewrite.java.ChangePackage:
+      oldPackageName: org.datanucleus.store.types.simple
+      newPackageName: org.datanucleus.store.types.wrappers
+  - org.openrewrite.java.ChangePackage:
+      oldPackageName: org.datanucleus.store.types.backed
+      newPackageName: org.datanucleus.store.types.wrappers.backed
+  - org.openrewrite.java.ChangePackage:
+      oldPackageName: org.datanucleus.query.evaluator.memory
+      newPackageName: org.datanucleus.query.inmemory
+  - org.openrewrite.java.ChangePackage:
+      oldPackageName: org.datanucleus.query.node
+      newPackageName: org.datanucleus.query.compiler
+  - org.openrewrite.java.ChangePackage:
+      oldPackageName: org.datanucleus.jta
+      newPackageName: org.datanucleus.transaction.jta
+
+```
+</TabItem>
+</Tabs>
+
+## Used by
+
+This recipe is used as part of the following composite recipes:
+
+* [Migrate to DataNucleus 4.0](/user-documentation/recipes/recipe-catalog/java/migrate/datanucleus/upgradedatanucleus_4_0.md)
 
 
 ## Usage
@@ -30,12 +99,12 @@ This recipe has no required configuration options. Users of Moderne can run it v
 You will need to have configured the [Moderne CLI](https://docs.moderne.io/user-documentation/moderne-cli/getting-started/cli-intro) on your machine before you can run the following command.
 
 ```shell title="shell"
-mod run . --recipe UpgradeToAngular20
+mod run . --recipe DataNucleusPackageMoves_4_0
 ```
 
 If the recipe is not available locally, then you can install it using:
 ```shell
-mod config recipes jar install io.moderne.recipe:rewrite-angular:{{VERSION_IO_MODERNE_RECIPE_REWRITE_ANGULAR}}
+mod config recipes jar install org.openrewrite.recipe:rewrite-migrate-java:{{VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_MIGRATE_JAVA}}
 ```
 </TabItem>
 </Tabs>
@@ -44,7 +113,7 @@ mod config recipes jar install io.moderne.recipe:rewrite-angular:{{VERSION_IO_MO
 
 import RecipeCallout from '@site/src/components/ModerneLink';
 
-<RecipeCallout link="https://app.moderne.io/recipes/org.openrewrite.angular.UpgradeToAngular20" />
+<RecipeCallout link="https://app.moderne.io/recipes/org.openrewrite.java.migrate.datanucleus.DataNucleusPackageMoves_4_0" />
 
 The community edition of the Moderne platform enables you to easily run recipes across thousands of open-source repositories.
 

@@ -237,7 +237,8 @@ recipeList:
       oldRelativePath: ../../pom.xml
       newRelativePath: ../pom.xml
       versionPattern: '-jre'
-      except: com.jcraft:jsch
+      except:
+        - com.jcraft:jsch
 ```
 
 <Tabs groupId="projectType">

@@ -59,7 +59,8 @@ recipeList:
       artifactId: my-new-annotation-processor
       version: ${micronaut.validation}
       onlyIfUsing: jakarta.validation.constraints.*
-      exclusions: io.micronaut:micronaut-inject
+      exclusions:
+        - io.micronaut:micronaut-inject
 ```
 
 <Tabs groupId="projectType">

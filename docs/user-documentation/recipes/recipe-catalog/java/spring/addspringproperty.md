@@ -128,7 +128,8 @@ recipeList:
       property: management.metrics.enable.process.files
       value: true
       comment: This is a comment
-      pathExpressions: ["**/application.yml"]
+      pathExpressions:
+        - ["**/application.yml"]
 ```
 
 <Tabs groupId="projectType">
