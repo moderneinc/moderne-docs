@@ -78,9 +78,7 @@ All configuration is stored in `~/.moderne/cli/moderne.yml` and can be inspected
 
 ## HTTP 401 errors during recipe execution on Gradle projects
 
-If `mod build` succeeds but `mod run` fails with HTTP 401 errors when resolving dependencies, this is because Gradle and OpenRewrite use separate authentication mechanisms.
-
-During `mod build`, Gradle resolves dependencies using the credentials you configured in your `build.gradle` file. However, during `mod run`, when a recipe needs to resolve new dependency versions (e.g., for a Spring Boot upgrade), it goes through OpenRewrite's own Maven-based dependency resolution. This resolution uses the repository URLs captured in the LST but does not have access to the credentials from your `build.gradle` file.
+Gradle and OpenRewrite use separate authentication mechanisms for dependency resolution. During `mod build`, Gradle resolves dependencies using the credentials in your `build.gradle` file. During `mod run`, however, recipes that need to resolve new dependency versions (e.g., for a Spring Boot upgrade) go through OpenRewrite's own Maven-based resolution. This resolution uses the repository URLs captured in the LST but does not have access to your Gradle credentials — resulting in HTTP 401 errors.
 
 To fix this, you should create a Maven `settings.xml` file with your repository credentials and point the CLI at it:
 
