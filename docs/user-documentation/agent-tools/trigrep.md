@@ -126,11 +126,13 @@ Moderne Trigrep optimizes regex searches by extracting literal fragments from yo
 
 When you need to match code shapes that regular expressions struggle with (like balanced parentheses or nested generics), you can use structural pattern matching. Instead of working with raw text, structural matching understands code as code.
 
-The key concept is the **hole**, written as `:[name]`. A hole matches content and optionally captures it for reference. For example, the pattern `logger.:[level](:[message])` matches any logger call, capturing the log level and message separately. Unlike the regex equivalent, this correctly handles nested parentheses in the message argument.
+To use structural matching, add the `struct:` prefix before your pattern (e.g., `struct:'pattern'`). This tells Moderne Trigrep to interpret the pattern as a structural query rather than a literal or regex search. Without the `struct:` prefix, hole syntax like `:[name]` will be treated as literal text.
+
+The key concept is the **hole**, written as `:[name]`. A hole matches content and optionally captures it for reference. For example, the pattern `struct:'logger.:[level](:[message])'` matches any logger call, capturing the log level and message separately. Unlike the regex equivalent, this correctly handles nested parentheses in the message argument.
 
 You can use typed holes to constrain what they match:
 
-* `:[name:e]` matches a syntactically complete expression, respecting balanced parentheses, brackets, and braces. For example, `doSomething(:[args:e])` correctly matches `doSomething(foo(bar), baz)` where a naive regex would stop at the first closing paren.
+* `:[name:e]` matches a syntactically complete expression, respecting balanced parentheses, brackets, and braces. For example, `struct:'doSomething(:[args:e])'` correctly matches `doSomething(foo(bar), baz)` where a naive regex would stop at the first closing paren.
 * `:[name:id]` matches a valid identifier.
 * `:[name:stmt]` matches to the next semicolon or newline.
 * `:[name:block]` matches balanced braces, useful for capturing method bodies or control flow blocks.
@@ -149,30 +151,30 @@ Structural matching also respects string and comment boundaries, so a pattern wo
 <details>
 <summary>Common structural queries</summary>
 
-| Category     | Command                                                                       | What it finds                                         |
-|--------------|-------------------------------------------------------------------------------|-------------------------------------------------------|
-| Logging      | `mod search working-set 'logger.:[level](:[msg] + :[rest])'`                  | String concatenation in log calls (performance issue) |
-| Logging      | `mod search working-set 'log.:[level:!trace,debug](:[args:e])'`               | Non-debug logging only                                |
-| Logging      | `mod search working-set 'catch (:[ex:e] :[var:id]) { :[_].printStackTrace()'` | Catch blocks that only print stack traces             |
-| Logging      | `mod search working-set 'if (log.isDebugEnabled()) :[body:block]'`            | Guarded debug logging                                 |
-| Spring       | `mod search working-set '@RequestMapping(:[attrs:e])'`                        | Request mappings with any attributes                  |
-| Spring       | `mod search working-set '@Autowired :[type:id] :[field:id]'`                  | Field injection candidates                            |
-| Spring       | `mod search working-set '@Value(":[expr]") :[type:id] :[field:id]'`           | Value-injected fields                                 |
-| Spring       | `mod search working-set 'ResponseEntity<:[type:g]>'`                          | Typed REST responses                                  |
-| Spring       | `mod search working-set '@Transactional(:[attrs:e])'`                         | Transactional methods with attributes                 |
-| Kafka        | `mod search working-set 'kafkaTemplate.send(:[topic:e], :[payload:e])'`       | Kafka message sends                                   |
-| Kafka        | `mod search working-set '@KafkaListener(topics = :[topics:e])'`               | Kafka listener topic bindings                         |
-| Kafka        | `mod search working-set 'new ProducerRecord<>(:[args:e])'`                    | Producer record construction                          |
-| Kafka        | `mod search working-set 'ConsumerRecords<:[key:g], :[val:g]>'`                | Typed consumer records                                |
-| Security     | `mod search working-set 'http.:[method](:[args:e]).permitAll()'`              | Endpoints with permitAll                              |
-| Security     | `mod search working-set '.antMatchers(:[patterns:e]).:[auth]()'`              | Ant matcher security rules                            |
-| Security     | `mod search working-set '@PreAuthorize(":[expr]")'`                           | Method security expressions                           |
-| Security     | `mod search working-set 'new BCryptPasswordEncoder(:[strength:e])'`           | BCrypt with configurable strength                     |
-| Cryptography | `mod search working-set 'Cipher.getInstance(:[algo:e], :[provider:e])'`       | Cipher with explicit provider                         |
-| Cryptography | `mod search working-set 'KeyFactory.getInstance(:[algo:e])'`                  | Key factory algorithm selection                       |
-| Cryptography | `mod search working-set 'SecretKeySpec(:[key:e], :[algo:e])'`                 | Secret key construction                               |
-| PQC          | `mod search working-set 'KeyPairGenerator.getInstance(:[algo~ML-.*])'`        | ML-KEM/ML-DSA key generation                          |
-| PQC          | `mod search working-set 'Signature.getInstance(:[algo:e], :[pqc~.*PQC.*])'`   | PQC signature with provider                           |
+| Category     | Command                                                                              | What it finds                                         |
+|--------------|--------------------------------------------------------------------------------------|-------------------------------------------------------|
+| Logging      | `mod search working-set struct:'logger.:[level](:[msg] + :[rest])'`                  | String concatenation in log calls (performance issue) |
+| Logging      | `mod search working-set struct:'log.:[level:!trace,debug](:[args:e])'`               | Non-debug logging only                                |
+| Logging      | `mod search working-set struct:'catch (:[ex:e] :[var:id]) { :[_].printStackTrace()'` | Catch blocks that only print stack traces             |
+| Logging      | `mod search working-set struct:'if (log.isDebugEnabled()) :[body:block]'`            | Guarded debug logging                                 |
+| Spring       | `mod search working-set struct:'@RequestMapping(:[attrs:e])'`                        | Request mappings with any attributes                  |
+| Spring       | `mod search working-set struct:'@Autowired :[type:id] :[field:id]'`                  | Field injection candidates                            |
+| Spring       | `mod search working-set struct:'@Value(":[expr]") :[type:id] :[field:id]'`           | Value-injected fields                                 |
+| Spring       | `mod search working-set struct:'ResponseEntity<:[type:g]>'`                          | Typed REST responses                                  |
+| Spring       | `mod search working-set struct:'@Transactional(:[attrs:e])'`                         | Transactional methods with attributes                 |
+| Kafka        | `mod search working-set struct:'kafkaTemplate.send(:[topic:e], :[payload:e])'`       | Kafka message sends                                   |
+| Kafka        | `mod search working-set struct:'@KafkaListener(topics = :[topics:e])'`               | Kafka listener topic bindings                         |
+| Kafka        | `mod search working-set struct:'new ProducerRecord<>(:[args:e])'`                    | Producer record construction                          |
+| Kafka        | `mod search working-set struct:'ConsumerRecords<:[key:g], :[val:g]>'`                | Typed consumer records                                |
+| Security     | `mod search working-set struct:'http.:[method](:[args:e]).permitAll()'`              | Endpoints with permitAll                              |
+| Security     | `mod search working-set struct:'.antMatchers(:[patterns:e]).:[auth]()'`              | Ant matcher security rules                            |
+| Security     | `mod search working-set struct:'@PreAuthorize(":[expr]")'`                           | Method security expressions                           |
+| Security     | `mod search working-set struct:'new BCryptPasswordEncoder(:[strength:e])'`           | BCrypt with configurable strength                     |
+| Cryptography | `mod search working-set struct:'Cipher.getInstance(:[algo:e], :[provider:e])'`       | Cipher with explicit provider                         |
+| Cryptography | `mod search working-set struct:'KeyFactory.getInstance(:[algo:e])'`                  | Key factory algorithm selection                       |
+| Cryptography | `mod search working-set struct:'SecretKeySpec(:[key:e], :[algo:e])'`                 | Secret key construction                               |
+| PQC          | `mod search working-set struct:'KeyPairGenerator.getInstance(:[algo~ML-.*])'`        | ML-KEM/ML-DSA key generation                          |
+| PQC          | `mod search working-set struct:'Signature.getInstance(:[algo:e], :[pqc~.*PQC.*])'`   | PQC signature with provider                           |
 
 </details>
 
@@ -297,6 +299,8 @@ Terms separated by space are implicitly ANDed. The `or` keyword creates disjunct
 | `throws:`     | Match methods by declared exceptions    | `throws:IOException`     |
 
 ### Structural holes
+
+Structural patterns require the `struct:` prefix. For example: `mod search working-set struct:'logger.:[level](:[msg])'`.
 
 | Syntax            | Description                                |
 |-------------------|--------------------------------------------|
