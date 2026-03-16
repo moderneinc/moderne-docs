@@ -274,12 +274,23 @@ function useTabsMountPoint(
     // Try immediately (modal may already be rendered)
     ensureMountPoint();
 
-    // Watch for the modal/dropdown appearing if not yet in the DOM
-    const observer = new MutationObserver(() => ensureMountPoint());
-    observer.observe(document.body, {childList: true, subtree: true});
+    // Watch for the modal/dropdown appearing if not yet in the DOM.
+    // Once the mount point is created, disconnect — no need to keep
+    // observing every DOM mutation while the modal is open.
+    let observer: MutationObserver | null = null;
+    if (!mountRef.current?.isConnected) {
+      observer = new MutationObserver(() => {
+        ensureMountPoint();
+        if (mountRef.current?.isConnected) {
+          observer?.disconnect();
+          observer = null;
+        }
+      });
+      observer.observe(document.body, {childList: true, subtree: true});
+    }
 
     return () => {
-      observer.disconnect();
+      observer?.disconnect();
       mountRef.current?.remove();
       mountRef.current = null;
     };
@@ -340,8 +351,9 @@ function DocSearch({externalUrlRegex, ...props}: DocSearchV4Props) {
 
   const handleInput = useCallback(
     (event: KeyboardEvent) => {
-      if (event.key === 'f' && (event.metaKey || event.ctrlKey)) {
-        // ignore browser's ctrl+f
+      if (event.metaKey || event.ctrlKey) {
+        // Let modifier combos (Cmd+K, Ctrl+F, etc.) pass through to
+        // useDocSearchKeyboardEvents which handles them directly.
         return;
       }
       // prevents duplicate key insertion in the modal input
