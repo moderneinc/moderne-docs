@@ -126,13 +126,13 @@ Moderne Trigrep optimizes regex searches by extracting literal fragments from yo
 
 When you need to match code shapes that regular expressions struggle with (like balanced parentheses or nested generics), you can use structural pattern matching. Instead of working with raw text, structural matching understands code as code.
 
-To use structural matching, add the `struct:` prefix before your pattern (e.g., `struct:'pattern'`). This tells Moderne Trigrep to interpret the pattern as a structural query rather than a literal or regex search. Without the `struct:` prefix, hole syntax like `:[name]` will be treated as literal text.
+The key concept is the **hole**, written as `:[name]`. A hole matches content and optionally captures it for reference. For example, the pattern `logger.:[level](:[message])` matches any logger call, capturing the log level and message separately. Unlike the regex equivalent, this correctly handles nested parentheses in the message argument.
 
-The key concept is the **hole**, written as `:[name]`. A hole matches content and optionally captures it for reference. For example, the pattern `struct:'logger.:[level](:[message])'` matches any logger call, capturing the log level and message separately. Unlike the regex equivalent, this correctly handles nested parentheses in the message argument.
+To use structural matching, add the `struct:` prefix before your pattern (e.g., `mod search working-set struct:'logger.:[level](:[message])'`). Without this prefix, hole syntax is treated as literal text.
 
 You can use typed holes to constrain what they match:
 
-* `:[name:e]` matches a syntactically complete expression, respecting balanced parentheses, brackets, and braces. For example, `struct:'doSomething(:[args:e])'` correctly matches `doSomething(foo(bar), baz)` where a naive regex would stop at the first closing paren.
+* `:[name:e]` matches a syntactically complete expression, respecting balanced parentheses, brackets, and braces. For example, `doSomething(:[args:e])` correctly matches `doSomething(foo(bar), baz)` where a naive regex would stop at the first closing paren.
 * `:[name:id]` matches a valid identifier.
 * `:[name:stmt]` matches to the next semicolon or newline.
 * `:[name:block]` matches balanced braces, useful for capturing method bodies or control flow blocks.
@@ -300,7 +300,7 @@ Terms separated by space are implicitly ANDed. The `or` keyword creates disjunct
 
 ### Structural holes
 
-Structural patterns require the `struct:` prefix. For example: `mod search working-set struct:'logger.:[level](:[msg])'`.
+These holes require the `struct:` prefix (see [structural pattern matching](#structural-pattern-matching)).
 
 | Syntax            | Description                                |
 |-------------------|--------------------------------------------|
