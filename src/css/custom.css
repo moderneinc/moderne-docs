@@ -296,6 +296,11 @@ figure figcaption {
   margin: auto;
 }
 
+/* Video session summary: spacing between player and admonition */
+.reactPlayer {
+  margin-bottom: var(--neo-spacing_2);
+}
+
 /* Zoomed image background */
 [data-rmiz-modal-content] {
   background-color: var(--neo-surfaces-black);

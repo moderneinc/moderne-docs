@@ -110,6 +110,10 @@ const config: Config = {
               },
             ],
           ],
+          admonitions: {
+            keywords: ['summary'],
+            extendDefaults: true,
+          },
         },
         gtag: {
           trackingID: "G-Q1CMC219Y5",
