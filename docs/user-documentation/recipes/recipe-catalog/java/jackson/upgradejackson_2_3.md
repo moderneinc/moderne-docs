@@ -59,6 +59,7 @@ This recipe is available under the [Apache License Version 2.0](https://www.apac
 * [Use modern date/time serialization defaults](../../java/jackson/usemoderndatetimeserialization)
 * [Replace removed `JsonGenerator` capability methods with `StreamWriteCapability`](../../java/jackson/replacestreamwritecapability)
 * [Replace `@JsonIgnore` with `@JsonSetter` on empty collection fields](../../java/jackson/replacejsonignorewithjsonsetter)
+* [Add `@JsonCreator` to non-public constructors](../../java/jackson/addjsoncreatortoprivateconstructors)
 * [Update Jackson package names from 2.x to 3.x](../../java/jackson/upgradejackson_2_3_packagechanges)
 * [Simplify catch clauses for Jackson exceptions](../../java/jackson/simplifyjacksonexceptioncatch)
 
@@ -95,6 +96,7 @@ recipeList:
   - org.openrewrite.java.jackson.UseModernDateTimeSerialization
   - org.openrewrite.java.jackson.ReplaceStreamWriteCapability
   - org.openrewrite.java.jackson.ReplaceJsonIgnoreWithJsonSetter
+  - org.openrewrite.java.jackson.AddJsonCreatorToPrivateConstructors
   - org.openrewrite.java.jackson.UpgradeJackson_2_3_PackageChanges
   - org.openrewrite.java.jackson.SimplifyJacksonExceptionCatch
 
@@ -266,6 +268,235 @@ class Test {
 ---
 
 ##### Example 4
+`LombokJacksonizedConfigTest#addJacksonVersionToLombokConfig`
+
+
+###### Unchanged
+```java
+import lombok.Builder;
+import lombok.Value;
+import lombok.extern.jackson.Jacksonized;
+
+@Value
+@Builder
+@Jacksonized
+class MyDto {
+    String name;
+    int age;
+}
+```
+
+---
+
+##### Example 5
+`RemoveThrowsIOExceptionFromJacksonOverridesTest#removeThrowsIOExceptionFromSerializer`
+
+
+<Tabs groupId="beforeAfter">
+<TabItem value="java" label="java">
+
+
+###### Before
+```java
+import com.fasterxml.jackson.core.JsonGenerator;
+import com.fasterxml.jackson.databind.JsonSerializer;
+import com.fasterxml.jackson.databind.SerializerProvider;
+import java.io.IOException;
+
+class MySerializer extends JsonSerializer<String> {
+    @Override
+    public void serialize(String value, JsonGenerator gen, SerializerProvider provider) throws IOException {
+        gen.writeString(value.toUpperCase());
+    }
+}
+```
+
+###### After
+```java
+import tools.jackson.core.JsonGenerator;
+import tools.jackson.databind.SerializationContext;
+import tools.jackson.databind.ValueSerializer;
+
+class MySerializer extends ValueSerializer<String> {
+    @Override
+    public void serialize(String value, JsonGenerator gen, SerializationContext provider) {
+        gen.writeString(value.toUpperCase());
+    }
+}
+```
+
+</TabItem>
+<TabItem value="diff" label="Diff" >
+
+```diff
+@@ -1,4 +1,3 @@
+-import com.fasterxml.jackson.core.JsonGenerator;
+-import com.fasterxml.jackson.databind.JsonSerializer;
+-import com.fasterxml.jackson.databind.SerializerProvider;
+-import java.io.IOException;
++import tools.jackson.core.JsonGenerator;
++import tools.jackson.databind.SerializationContext;
++import tools.jackson.databind.ValueSerializer;
+
+@@ -6,1 +5,1 @@
+import java.io.IOException;
+
+-class MySerializer extends JsonSerializer<String> {
++class MySerializer extends ValueSerializer<String> {
+    @Override
+@@ -8,1 +7,1 @@
+class MySerializer extends JsonSerializer<String> {
+    @Override
+-   public void serialize(String value, JsonGenerator gen, SerializerProvider provider) throws IOException {
++   public void serialize(String value, JsonGenerator gen, SerializationContext provider) {
+        gen.writeString(value.toUpperCase());
+```
+</TabItem>
+</Tabs>
+
+---
+
+##### Example 6
+`StdDeserializerNullConstructorTest#stdDeserializerThisNullPattern`
+
+
+<Tabs groupId="beforeAfter">
+<TabItem value="java" label="java">
+
+
+###### Before
+```java
+import com.fasterxml.jackson.core.JsonParser;
+import com.fasterxml.jackson.databind.DeserializationContext;
+import com.fasterxml.jackson.databind.deser.std.StdDeserializer;
+import java.io.IOException;
+
+class MyDeserializer extends StdDeserializer<String> {
+    public MyDeserializer() {
+        this(null);
+    }
+
+    public MyDeserializer(Class<?> vc) {
+        super(vc);
+    }
+
+    @Override
+    public String deserialize(JsonParser p, DeserializationContext ctxt)
+            throws IOException {
+        return p.getValueAsString();
+    }
+}
+```
+
+###### After
+```java
+import tools.jackson.core.JsonParser;
+import tools.jackson.databind.DeserializationContext;
+import tools.jackson.databind.deser.std.StdDeserializer;
+
+class MyDeserializer extends StdDeserializer<String> {
+    public MyDeserializer() {
+        this(String.class);
+    }
+
+    public MyDeserializer(Class<?> vc) {
+        super(vc);
+    }
+
+    @Override
+    public String deserialize(JsonParser p, DeserializationContext ctxt) {
+        return p.getValueAsString();
+    }
+}
+```
+
+</TabItem>
+<TabItem value="diff" label="Diff" >
+
+```diff
+@@ -1,4 +1,3 @@
+-import com.fasterxml.jackson.core.JsonParser;
+-import com.fasterxml.jackson.databind.DeserializationContext;
+-import com.fasterxml.jackson.databind.deser.std.StdDeserializer;
+-import java.io.IOException;
++import tools.jackson.core.JsonParser;
++import tools.jackson.databind.DeserializationContext;
++import tools.jackson.databind.deser.std.StdDeserializer;
+
+@@ -8,1 +7,1 @@
+class MyDeserializer extends StdDeserializer<String> {
+    public MyDeserializer() {
+-       this(null);
++       this(String.class);
+    }
+@@ -16,2 +15,1 @@
+
+    @Override
+-   public String deserialize(JsonParser p, DeserializationContext ctxt)
+-           throws IOException {
++   public String deserialize(JsonParser p, DeserializationContext ctxt) {
+        return p.getValueAsString();
+```
+</TabItem>
+</Tabs>
+
+---
+
+##### Example 7
+`TypeFactoryDefaultInstanceTest#typeFactoryDefaultInstanceRenamed`
+
+
+<Tabs groupId="beforeAfter">
+<TabItem value="java" label="java">
+
+
+###### Before
+```java
+import com.fasterxml.jackson.databind.JavaType;
+import com.fasterxml.jackson.databind.type.TypeFactory;
+
+class Test {
+    JavaType getType() {
+        return TypeFactory.defaultInstance().constructType(String.class);
+    }
+}
+```
+
+###### After
+```java
+import tools.jackson.databind.JavaType;
+import tools.jackson.databind.type.TypeFactory;
+
+class Test {
+    JavaType getType() {
+        return TypeFactory.createDefaultInstance().constructType(String.class);
+    }
+}
+```
+
+</TabItem>
+<TabItem value="diff" label="Diff" >
+
+```diff
+@@ -1,2 +1,2 @@
+-import com.fasterxml.jackson.databind.JavaType;
+-import com.fasterxml.jackson.databind.type.TypeFactory;
++import tools.jackson.databind.JavaType;
++import tools.jackson.databind.type.TypeFactory;
+
+@@ -6,1 +6,1 @@
+class Test {
+    JavaType getType() {
+-       return TypeFactory.defaultInstance().constructType(String.class);
++       return TypeFactory.createDefaultInstance().constructType(String.class);
+    }
+```
+</TabItem>
+</Tabs>
+
+---
+
+##### Example 8
 `UpgradeJackson_2_3Test#jacksonUpgradeToVersion3`
 
 
@@ -378,7 +609,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 ---
 
-##### Example 5
+##### Example 9
 `Jackson3DependenciesTest#jacksonAnnotations`
 
 
@@ -438,7 +669,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 ---
 
-##### Example 6
+##### Example 10
 `Jackson3MethodRenamesTest#jsonGeneratorWriteObject`
 
 
@@ -488,7 +719,7 @@ class Test {
 
 ---
 
-##### Example 7
+##### Example 11
 `Jackson3TypeChangesTest#jsonFactory`
 
 
@@ -534,7 +765,236 @@ class Test {
 
 ---
 
-##### Example 8
+##### Example 12
+`LombokJacksonizedConfigTest#addJacksonVersionToLombokConfig`
+
+
+###### Unchanged
+```java
+import lombok.Builder;
+import lombok.Value;
+import lombok.extern.jackson.Jacksonized;
+
+@Value
+@Builder
+@Jacksonized
+class MyDto {
+    String name;
+    int age;
+}
+```
+
+---
+
+##### Example 13
+`RemoveThrowsIOExceptionFromJacksonOverridesTest#removeThrowsIOExceptionFromSerializer`
+
+
+<Tabs groupId="beforeAfter">
+<TabItem value="java" label="java">
+
+
+###### Before
+```java
+import com.fasterxml.jackson.core.JsonGenerator;
+import com.fasterxml.jackson.databind.JsonSerializer;
+import com.fasterxml.jackson.databind.SerializerProvider;
+import java.io.IOException;
+
+class MySerializer extends JsonSerializer<String> {
+    @Override
+    public void serialize(String value, JsonGenerator gen, SerializerProvider provider) throws IOException {
+        gen.writeString(value.toUpperCase());
+    }
+}
+```
+
+###### After
+```java
+import tools.jackson.core.JsonGenerator;
+import tools.jackson.databind.SerializationContext;
+import tools.jackson.databind.ValueSerializer;
+
+class MySerializer extends ValueSerializer<String> {
+    @Override
+    public void serialize(String value, JsonGenerator gen, SerializationContext provider) {
+        gen.writeString(value.toUpperCase());
+    }
+}
+```
+
+</TabItem>
+<TabItem value="diff" label="Diff" >
+
+```diff
+@@ -1,4 +1,3 @@
+-import com.fasterxml.jackson.core.JsonGenerator;
+-import com.fasterxml.jackson.databind.JsonSerializer;
+-import com.fasterxml.jackson.databind.SerializerProvider;
+-import java.io.IOException;
++import tools.jackson.core.JsonGenerator;
++import tools.jackson.databind.SerializationContext;
++import tools.jackson.databind.ValueSerializer;
+
+@@ -6,1 +5,1 @@
+import java.io.IOException;
+
+-class MySerializer extends JsonSerializer<String> {
++class MySerializer extends ValueSerializer<String> {
+    @Override
+@@ -8,1 +7,1 @@
+class MySerializer extends JsonSerializer<String> {
+    @Override
+-   public void serialize(String value, JsonGenerator gen, SerializerProvider provider) throws IOException {
++   public void serialize(String value, JsonGenerator gen, SerializationContext provider) {
+        gen.writeString(value.toUpperCase());
+```
+</TabItem>
+</Tabs>
+
+---
+
+##### Example 14
+`StdDeserializerNullConstructorTest#stdDeserializerThisNullPattern`
+
+
+<Tabs groupId="beforeAfter">
+<TabItem value="java" label="java">
+
+
+###### Before
+```java
+import com.fasterxml.jackson.core.JsonParser;
+import com.fasterxml.jackson.databind.DeserializationContext;
+import com.fasterxml.jackson.databind.deser.std.StdDeserializer;
+import java.io.IOException;
+
+class MyDeserializer extends StdDeserializer<String> {
+    public MyDeserializer() {
+        this(null);
+    }
+
+    public MyDeserializer(Class<?> vc) {
+        super(vc);
+    }
+
+    @Override
+    public String deserialize(JsonParser p, DeserializationContext ctxt)
+            throws IOException {
+        return p.getValueAsString();
+    }
+}
+```
+
+###### After
+```java
+import tools.jackson.core.JsonParser;
+import tools.jackson.databind.DeserializationContext;
+import tools.jackson.databind.deser.std.StdDeserializer;
+
+class MyDeserializer extends StdDeserializer<String> {
+    public MyDeserializer() {
+        this(String.class);
+    }
+
+    public MyDeserializer(Class<?> vc) {
+        super(vc);
+    }
+
+    @Override
+    public String deserialize(JsonParser p, DeserializationContext ctxt) {
+        return p.getValueAsString();
+    }
+}
+```
+
+</TabItem>
+<TabItem value="diff" label="Diff" >
+
+```diff
+@@ -1,4 +1,3 @@
+-import com.fasterxml.jackson.core.JsonParser;
+-import com.fasterxml.jackson.databind.DeserializationContext;
+-import com.fasterxml.jackson.databind.deser.std.StdDeserializer;
+-import java.io.IOException;
++import tools.jackson.core.JsonParser;
++import tools.jackson.databind.DeserializationContext;
++import tools.jackson.databind.deser.std.StdDeserializer;
+
+@@ -8,1 +7,1 @@
+class MyDeserializer extends StdDeserializer<String> {
+    public MyDeserializer() {
+-       this(null);
++       this(String.class);
+    }
+@@ -16,2 +15,1 @@
+
+    @Override
+-   public String deserialize(JsonParser p, DeserializationContext ctxt)
+-           throws IOException {
++   public String deserialize(JsonParser p, DeserializationContext ctxt) {
+        return p.getValueAsString();
+```
+</TabItem>
+</Tabs>
+
+---
+
+##### Example 15
+`TypeFactoryDefaultInstanceTest#typeFactoryDefaultInstanceRenamed`
+
+
+<Tabs groupId="beforeAfter">
+<TabItem value="java" label="java">
+
+
+###### Before
+```java
+import com.fasterxml.jackson.databind.JavaType;
+import com.fasterxml.jackson.databind.type.TypeFactory;
+
+class Test {
+    JavaType getType() {
+        return TypeFactory.defaultInstance().constructType(String.class);
+    }
+}
+```
+
+###### After
+```java
+import tools.jackson.databind.JavaType;
+import tools.jackson.databind.type.TypeFactory;
+
+class Test {
+    JavaType getType() {
+        return TypeFactory.createDefaultInstance().constructType(String.class);
+    }
+}
+```
+
+</TabItem>
+<TabItem value="diff" label="Diff" >
+
+```diff
+@@ -1,2 +1,2 @@
+-import com.fasterxml.jackson.databind.JavaType;
+-import com.fasterxml.jackson.databind.type.TypeFactory;
++import tools.jackson.databind.JavaType;
++import tools.jackson.databind.type.TypeFactory;
+
+@@ -6,1 +6,1 @@
+class Test {
+    JavaType getType() {
+-       return TypeFactory.defaultInstance().constructType(String.class);
++       return TypeFactory.createDefaultInstance().constructType(String.class);
+    }
+```
+</TabItem>
+</Tabs>
+
+---
+
+##### Example 16
 `UpgradeJackson_2_3Test#jacksonUpgradeToVersion3`
 
 

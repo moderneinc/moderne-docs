@@ -6,7 +6,7 @@ description: A comprehensive list of all recipes organized by module.
 
 _This doc contains all recipes grouped by their module._
 
-Total recipes: 5101
+Total recipes: 5102
 
 
 ## io.moderne.recipe:rewrite-angular
@@ -1502,8 +1502,11 @@ _8 recipes_
 
 _License: Apache License Version 2.0_
 
-_18 recipes_
+_19 recipes_
 
+* [org.openrewrite.java.jackson.AddJsonCreatorToPrivateConstructors](/user-documentation/recipes/recipe-catalog/java/jackson/addjsoncreatortoprivateconstructors.md)
+  * **Add `@JsonCreator` to non-public constructors**
+  * Jackson 3 strictly enforces creator visibility rules. Non-public constructors in Jackson-annotated classes that were auto-detected in Jackson 2 need an explicit `@JsonCreator` annotation to work for deserialization in Jackson 3.
 * [org.openrewrite.java.jackson.IOExceptionToJacksonException](/user-documentation/recipes/recipe-catalog/java/jackson/ioexceptiontojacksonexception.md)
   * **Replace `IOException` with `JacksonException` in catch clauses**
   * In Jackson 3, `ObjectMapper` and related classes no longer throw `IOException`. This recipe replaces `catch (IOException e)` with `catch (JacksonException e)` when the try block contains Jackson API calls. When the try block also contains non-Jackson code that throws `IOException`, the catch is changed to a multi-catch `catch (JacksonException | IOException e)`.

@@ -29,6 +29,7 @@ _Recipes that include further recipes, often including the individual recipes be
 
 ## Recipes
 
+* [Add `@JsonCreator` to non-public constructors](./addjsoncreatortoprivateconstructors.md)
 * [Migrate `JSONNode` field iterator for Jackson 3](./jackson3jsonnodefielditerators.md)
 * [Remove redundant `@JsonProperty` argument](./removeredundantjsonpropertyvalue.md)
 * [Remove redundant Jackson 3 feature flag configurations](./removeredundantfeatureflags.md)

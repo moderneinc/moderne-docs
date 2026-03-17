@@ -39,6 +39,15 @@ This recipe is used as part of the following composite recipes:
 ```java
 import org.springframework.ldap.core.LdapClient;
 
+class PersonRepoImplTest {
+   private LdapClient ldapClient;
+}
+```
+
+###### Unchanged
+```java
+import org.springframework.ldap.core.LdapClient;
+
 public class PersonRepoImpl {
    private LdapClient ldapClient;
 }
@@ -146,6 +155,15 @@ test
 ##### Example 2
 `MigrateToModularStartersTest#addStarters`
 
+
+###### Unchanged
+```java
+import org.springframework.ldap.core.LdapClient;
+
+class PersonRepoImplTest {
+   private LdapClient ldapClient;
+}
+```
 
 ###### Unchanged
 ```java

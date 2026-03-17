@@ -4599,8 +4599,12 @@ _1 recipe_
 
 ## jackson
 
-_21 recipes_
+_22 recipes_
 
+* [org.openrewrite.java.jackson.AddJsonCreatorToPrivateConstructors](/user-documentation/recipes/recipe-catalog/java/jackson/addjsoncreatortoprivateconstructors.md)
+  * **Add `@JsonCreator` to non-public constructors**
+  * Jackson 3 strictly enforces creator visibility rules. Non-public constructors in Jackson-annotated classes that were auto-detected in Jackson 2 need an explicit `@JsonCreator` annotation to work for deserialization in Jackson 3.
+  * Tags: jackson-3
 * [org.openrewrite.java.jackson.CodehausClassesToFasterXML](/user-documentation/recipes/recipe-catalog/java/jackson/codehausclassestofasterxml.md)
   * **Migrate classes from Jackson Codehaus (legacy) to Jackson FasterXML**
   * In Jackson 2, the package and dependency coordinates moved from Codehaus to FasterXML.
