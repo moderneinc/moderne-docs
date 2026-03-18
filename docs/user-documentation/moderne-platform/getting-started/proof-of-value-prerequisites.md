@@ -39,7 +39,7 @@ The mass ingest environment builds all of your repositories and creates the [LST
 | Memory   | 16 GB   |
 | Disk     | 32 GB   |
 
-These resources are sufficient for up to ~1,000 repositories. For larger organizations, mass ingest can be scaled using cloud batch services like AWS Batch or Azure Batch. The [mass ingest repository](https://github.com/moderneinc/mass-ingest-example) has scaling tiers and detailed setup instructions.
+These resources are sufficient for up to ~1,000 repositories. For larger organizations, mass ingest can be scaled using cloud batch services like AWS Batch, Google Cloud Batch, or Azure Batch. The [mass ingest repository](https://github.com/moderneinc/mass-ingest-example) has scaling tiers and detailed setup instructions. See the [choosing a deployment approach](../../../administrator-documentation/moderne-platform/how-to-guides/mass-ingest.md#choosing-a-deployment-approach) section for guidance on selecting the right compute environment.
 
 :::tip
 If you have a standard base image that includes your existing certificates or other configuration, we can build on top of that. If you don't, we'll build from standard open-source base images and configure it with any certificates, credentials, and build tool settings during the first few days of the engagement.
