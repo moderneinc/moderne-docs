@@ -25,7 +25,7 @@ A single Docker container is all you need. Run it manually or on a cron schedule
 * Manual or cron-based execution
 * Basic monitoring via the CLI metrics endpoint
 
-See [1-quickstart](https://github.com/moderneinc/mass-ingest-example/tree/main/1-quickstart) in the mass ingest example repository.
+See the [quickstart guide](https://github.com/moderneinc/mass-ingest-example/tree/main/1-quickstart) in the mass ingest example repository.
 
 ### Medium scale (1,000 to 10,000 repositories)
 
@@ -35,7 +35,7 @@ Add observability with Docker Compose and optionally scale by running multiple c
 * Docker Compose orchestration with integrated Grafana dashboards and Prometheus
 * Automated restarts and scheduling
 
-See [2-observability](https://github.com/moderneinc/mass-ingest-example/tree/main/2-observability) in the mass ingest example repository.
+See the [observability setup guide](https://github.com/moderneinc/mass-ingest-example/tree/main/2-observability) in the mass ingest example repository.
 
 ### Large scale (more than 10,000 repositories)
 
@@ -47,7 +47,7 @@ For large repository counts, we recommend VM-based batch services that provision
 
 These services run your container on a dedicated VM where it gets the full CPU and memory you allocate. VMs are provisioned on demand and deleted when the job completes, so you only pay for actual compute time. The same Docker image works on all three platforms.
 
-See [3-scalability](https://github.com/moderneinc/mass-ingest-example/tree/main/3-scalability) in the mass ingest example repository.
+See the [scalability guide](https://github.com/moderneinc/mass-ingest-example/tree/main/3-scalability) in the mass ingest example repository.
 
 ### A note on Kubernetes
 
