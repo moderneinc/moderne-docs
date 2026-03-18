@@ -2,11 +2,6 @@
 sidebar_label: "Parent POM upgrade"
 ---
 
-
-<head>
-  <link rel="canonical" href="https://docs.openrewrite.org/recipes/devcenter/parentpomupgrade" />
-</head>
-
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
@@ -39,9 +34,9 @@ This recipe is available under the [Moderne Source Available License](https://do
 
 This recipe is used as part of the following composite recipes:
 
-* [DevCenter for Apache Maven](/user-documentation/recipes/recipe-catalog/devcenter/apachemavendevcenter.md)
-* [DevCenter for Apache](/user-documentation/recipes/recipe-catalog/devcenter/apachedevcenter.md)
-* [DevCenter for Quarkus](/user-documentation/recipes/recipe-catalog/devcenter/quarkusdevcenter.md)
+* [DevCenter for Apache Maven](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/devcenter/apachemavendevcenter)
+* [DevCenter for Apache](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/devcenter/apachedevcenter)
+* [DevCenter for Quarkus](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/devcenter/quarkusdevcenter)
 
 
 ## Usage

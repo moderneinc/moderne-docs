@@ -35,7 +35,7 @@ This recipe is available under the [Apache License Version 2.0](https://www.apac
 
 This recipe is used as part of the following composite recipes:
 
-* [DevCenter](/user-documentation/recipes/recipe-catalog/devcenter/devcenterstarter.md)
+* [DevCenter](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/devcenter/devcenterstarter)
 
 
 ## Usage

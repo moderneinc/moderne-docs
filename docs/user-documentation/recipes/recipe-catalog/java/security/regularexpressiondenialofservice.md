@@ -23,7 +23,7 @@ This recipe is available under the [Moderne Proprietary License](https://docs.mo
 
 This recipe is used as part of the following composite recipes:
 
-* [OWASP top ten](/user-documentation/recipes/recipe-catalog/devcenter/securitystarter.md)
+* [OWASP top ten](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/devcenter/securitystarter)
 * [Remediate OWASP A03:2021 Injection](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/security/owaspa03)
 
 ## Example

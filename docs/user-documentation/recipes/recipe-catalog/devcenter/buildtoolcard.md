@@ -2,11 +2,6 @@
 sidebar_label: "Build tool"
 ---
 
-
-<head>
-  <link rel="canonical" href="https://docs.openrewrite.org/recipes/devcenter/buildtoolcard" />
-</head>
-
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
@@ -38,7 +33,7 @@ This recipe is available under the [Moderne Source Available License](https://do
 
 This recipe is used as part of the following composite recipes:
 
-* [DevCenter for Gradle and Maven](/user-documentation/recipes/recipe-catalog/devcenter/buildtoolstarter.md)
+* [DevCenter for Gradle and Maven](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/devcenter/buildtoolstarter)
 
 
 ## Usage

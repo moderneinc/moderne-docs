@@ -2,11 +2,6 @@
 sidebar_label: "Move to JUnit 6"
 ---
 
-
-<head>
-  <link rel="canonical" href="https://docs.openrewrite.org/recipes/devcenter/junitjupiterupgrade" />
-</head>
-
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
@@ -35,8 +30,8 @@ This recipe is available under the [Moderne Source Available License](https://do
 
 This recipe is used as part of the following composite recipes:
 
-* [DevCenter for Apache](/user-documentation/recipes/recipe-catalog/devcenter/apachedevcenter.md)
-* [DevCenter](/user-documentation/recipes/recipe-catalog/devcenter/devcenterstarter.md)
+* [DevCenter for Apache](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/devcenter/apachedevcenter)
+* [DevCenter](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/devcenter/devcenterstarter)
 
 
 ## Usage

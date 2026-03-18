@@ -2,11 +2,6 @@
 sidebar_label: "Find organization statistics"
 ---
 
-
-<head>
-  <link rel="canonical" href="https://docs.openrewrite.org/recipes/devcenter/findorganizationstatistics" />
-</head>
-
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
@@ -29,7 +24,7 @@ This recipe is available under the [Moderne Source Available License](https://do
 
 This recipe is used as part of the following composite recipes:
 
-* [DevCenter](/user-documentation/recipes/recipe-catalog/devcenter/devcenterstarter.md)
+* [DevCenter](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/devcenter/devcenterstarter)
 
 
 ## Usage

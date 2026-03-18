@@ -1,88 +1,34 @@
 ---
-sidebar_label: "Delete method argument"
+sidebar_label: "Remove NuGet package reference"
 ---
 
 
 <head>
-  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/deletemethodargument" />
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/csharp/removenugetpackagereference" />
 </head>
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# Delete method argument
+# Remove NuGet package reference
 
-**org.openrewrite.java.DeleteMethodArgument**
+**org.openrewrite.csharp.RemoveNuGetPackageReference**
 
-_Delete an argument from method invocations._
-
-:::info
-This Java recipe works on Javascript code.
-:::
+_Removes a `<PackageReference>` element from .csproj files._
 
 ## Recipe source
 
-[GitHub: DeleteMethodArgument.java](https://github.com/openrewrite/rewrite/blob/main/rewrite-java/src/main/java/org/openrewrite/java/DeleteMethodArgument.java),
+[GitHub: RemoveNuGetPackageReference.java](https://github.com/openrewrite/rewrite/blob/main/src/main/java/org/openrewrite/csharp/RemoveNuGetPackageReference.java),
 [Issue Tracker](https://github.com/openrewrite/rewrite/issues),
-[Maven Central](https://central.sonatype.com/artifact/org.openrewrite/rewrite-java/)
+[Maven Central](https://central.sonatype.com/artifact/org.openrewrite/rewrite-csharp/)
 
-This recipe is available under the [Apache License Version 2.0](https://www.apache.org/licenses/LICENSE-2.0).
+This recipe is available under the [Moderne Source Available License](https://docs.moderne.io/licensing/moderne-source-available-license).
 
 ## Options
 
 | Type | Name | Description | Example |
 | --- | --- | --- | --- |
-| `String` | methodPattern | A [method pattern](https://docs.openrewrite.org/reference/method-patterns) is used to find matching method invocations. For example, to find all method invocations in the Guava library, use the pattern: `com.google.common..*#*(..)`.<br/><br/>The pattern format is `<PACKAGE>#<METHOD_NAME>(<ARGS>)`. <br/><br/>`..*` includes all subpackages of `com.google.common`. <br/>`*(..)` matches any method name with any number of arguments. <br/><br/>For more specific queries, like Guava's `ImmutableMap`, use `com.google.common.collect.ImmutableMap#*(..)` to narrow down the results. | `com.yourorg.A foo(int, int)` |
-| `int` | argumentIndex | A zero-based index that indicates which argument will be removed from the method invocation. | `0` |
-
-
-## Used by
-
-This recipe is used as part of the following composite recipes:
-
-* [Migrate Apache HttpCore Nio Input Buffer classes to Apache HttpCore 5.x](/user-documentation/recipes/recipe-catalog/apache/httpclient5/upgradeapachehttpcore_5_nioinputbuffers.md)
-* [Migrate Apache HttpCore Nio Output Buffer classes to Apache HttpCore 5.x](/user-documentation/recipes/recipe-catalog/apache/httpclient5/upgradeapachehttpcore_5_niooutputbuffers.md)
-* [Migrate to ApacheHttpClient 5.x](/user-documentation/recipes/recipe-catalog/apache/httpclient5/upgradeapachehttpclient_5.md)
-* [Migrate to Hibernate 7.2.x](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/hibernate/migratetohibernate72)
-* [Migrate to Kafka 4.0](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/kafka/migratetokafka40)
-* [Mockito 3.x migration from 1.x](/user-documentation/recipes/recipe-catalog/java/testing/mockito/mockito1to3migration.md)
-* [Remove `SslBundles` parameter from `KafkaProperties` build methods](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/spring/boot4/removekafkapropertiessslbundlesparameter)
-* [Replace  deprecated Jakarta Servlet methods and classes](/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/removalsservletjakarta10.md)
-* [Replace deprecated Jakarta Servlet methods and classes](/user-documentation/recipes/recipe-catalog/com/oracle/weblogic/rewrite/jakarta/removalsservletjakarta9.md)
-
-## Example
-
-###### Parameters
-| Parameter | Value |
-| --- | --- |
-|methodPattern|`B foo(int, int, int)`|
-|argumentIndex|`1`|
-
-
-<Tabs groupId="beforeAfter">
-<TabItem value="java" label="java">
-
-
-###### Before
-```java
-public class A {{ B.foo(0, 1, 2); }}
-```
-
-###### After
-```java
-public class A {{ B.foo(0, 2); }}
-```
-
-</TabItem>
-<TabItem value="diff" label="Diff" >
-
-```diff
-@@ -1,1 +1,1 @@
--public class A {{ B.foo(0, 1, 2); }}
-+public class A {{ B.foo(0, 2); }}
-```
-</TabItem>
-</Tabs>
+| `String` | packageName | The NuGet package name to remove. Supports glob patterns. | `Newtonsoft.Json` |
 
 
 ## Usage
@@ -94,12 +40,11 @@ Or, if you'd like to create a declarative recipe, please see the below example o
 ```yaml title="rewrite.yml"
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: com.yourorg.DeleteMethodArgumentExample
-displayName: Delete method argument example
+name: com.yourorg.RemoveNuGetPackageReferenceExample
+displayName: Remove NuGet package reference example
 recipeList:
-  - org.openrewrite.java.DeleteMethodArgument:
-      methodPattern: com.yourorg.A foo(int, int)
-      argumentIndex: 0
+  - org.openrewrite.csharp.RemoveNuGetPackageReference:
+      packageName: Newtonsoft.Json
 ```
 
 <Tabs groupId="projectType">
@@ -108,12 +53,12 @@ recipeList:
 You will need to have configured the [Moderne CLI](https://docs.moderne.io/user-documentation/moderne-cli/getting-started/cli-intro) on your machine before you can run the following command.
 
 ```shell title="shell"
-mod run . --recipe DeleteMethodArgument --recipe-option "methodPattern=com.yourorg.A foo(int, int)" --recipe-option "argumentIndex=0"
+mod run . --recipe RemoveNuGetPackageReference --recipe-option "packageName=Newtonsoft.Json"
 ```
 
 If the recipe is not available locally, then you can install it using:
 ```shell
-mod config recipes jar install org.openrewrite:rewrite-java:{{VERSION_ORG_OPENREWRITE_REWRITE_JAVA}}
+mod config recipes jar install org.openrewrite:rewrite-csharp:{{VERSION_ORG_OPENREWRITE_REWRITE_CSHARP}}
 ```
 </TabItem>
 </Tabs>
@@ -122,7 +67,7 @@ mod config recipes jar install org.openrewrite:rewrite-java:{{VERSION_ORG_OPENRE
 
 import RecipeCallout from '@site/src/components/ModerneLink';
 
-<RecipeCallout link="https://app.moderne.io/recipes/org.openrewrite.java.DeleteMethodArgument" />
+<RecipeCallout link="https://app.moderne.io/recipes/org.openrewrite.csharp.RemoveNuGetPackageReference" />
 
 The community edition of the Moderne platform enables you to easily run recipes across thousands of open-source repositories.
 

@@ -29,8 +29,8 @@ This recipe is available under the [Apache License Version 2.0](https://www.apac
 
 This recipe is used as part of the following composite recipes:
 
-* [Apache Maven best practices](/user-documentation/recipes/recipe-catalog/devcenter/apachemavenbestpractices.md)
 * [Apache Maven best practices](/user-documentation/recipes/recipe-catalog/maven/bestpractices.md)
+* [Apache Maven best practices](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/devcenter/apachemavenbestpractices)
 * [Migrate to ApacheHttpClient 5.x](/user-documentation/recipes/recipe-catalog/apache/httpclient5/upgradeapachehttpclient_5.md)
 * [Mockito 4 to 5.x upgrade only](/user-documentation/recipes/recipe-catalog/java/testing/mockito/mockito4to5only.md)
 

@@ -2,11 +2,6 @@
 sidebar_label: "Apache Maven best practices"
 ---
 
-
-<head>
-  <link rel="canonical" href="https://docs.openrewrite.org/recipes/devcenter/apachemavenbestpractices" />
-</head>
-
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
@@ -79,7 +74,7 @@ recipeList:
 
 This recipe is used as part of the following composite recipes:
 
-* [DevCenter for Apache Maven](/user-documentation/recipes/recipe-catalog/devcenter/apachemavendevcenter.md)
+* [DevCenter for Apache Maven](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/devcenter/apachemavendevcenter)
 
 
 ## Usage

@@ -2,11 +2,6 @@
 sidebar_label: "Report as security issues"
 ---
 
-
-<head>
-  <link rel="canonical" href="https://docs.openrewrite.org/recipes/devcenter/reportassecurityissues" />
-</head>
-
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
@@ -35,8 +30,8 @@ This recipe is available under the [Moderne Source Available License](https://do
 
 This recipe is used as part of the following composite recipes:
 
-* [Apache Maven best practices](/user-documentation/recipes/recipe-catalog/devcenter/apachemavenbestpractices.md)
-* [OWASP top ten](/user-documentation/recipes/recipe-catalog/devcenter/securitystarter.md)
+* [Apache Maven best practices](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/devcenter/apachemavenbestpractices)
+* [OWASP top ten](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/devcenter/securitystarter)
 * [Post quantum cryptography](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/cryptography/postquantumcryptography)
 
 

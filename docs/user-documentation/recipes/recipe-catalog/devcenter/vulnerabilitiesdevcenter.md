@@ -2,11 +2,6 @@
 sidebar_label: "DevCenter for Vulnerability Management"
 ---
 
-
-<head>
-  <link rel="canonical" href="https://docs.openrewrite.org/recipes/devcenter/vulnerabilitiesdevcenter" />
-</head>
-
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

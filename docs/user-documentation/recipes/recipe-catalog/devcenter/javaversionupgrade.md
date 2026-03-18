@@ -2,11 +2,6 @@
 sidebar_label: "Move to a later Java version"
 ---
 
-
-<head>
-  <link rel="canonical" href="https://docs.openrewrite.org/recipes/devcenter/javaversionupgrade" />
-</head>
-
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
@@ -36,11 +31,11 @@ This recipe is available under the [Moderne Source Available License](https://do
 
 This recipe is used as part of the following composite recipes:
 
-* [DevCenter for Apache Maven](/user-documentation/recipes/recipe-catalog/devcenter/apachemavendevcenter.md)
-* [DevCenter for Apache](/user-documentation/recipes/recipe-catalog/devcenter/apachedevcenter.md)
-* [DevCenter for Gradle and Maven](/user-documentation/recipes/recipe-catalog/devcenter/buildtoolstarter.md)
-* [DevCenter for Quarkus](/user-documentation/recipes/recipe-catalog/devcenter/quarkusdevcenter.md)
-* [DevCenter](/user-documentation/recipes/recipe-catalog/devcenter/devcenterstarter.md)
+* [DevCenter for Apache Maven](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/devcenter/apachemavendevcenter)
+* [DevCenter for Apache](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/devcenter/apachedevcenter)
+* [DevCenter for Gradle and Maven](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/devcenter/buildtoolstarter)
+* [DevCenter for Quarkus](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/devcenter/quarkusdevcenter)
+* [DevCenter](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/devcenter/devcenterstarter)
 
 
 ## Usage

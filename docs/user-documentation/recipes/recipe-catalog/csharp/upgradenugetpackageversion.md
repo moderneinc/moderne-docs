@@ -1,86 +1,36 @@
 ---
-sidebar_label: "Find types"
+sidebar_label: "Upgrade NuGet package version"
 ---
 
 
 <head>
-  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/search/findtypes" />
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/csharp/upgradenugetpackageversion" />
 </head>
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# Find types
+# Upgrade NuGet package version
 
-**org.openrewrite.java.search.FindTypes**
+**org.openrewrite.csharp.UpgradeNuGetPackageVersion**
 
-_Find type references by name._
-
-:::info
-This Java recipe works on Csharp code.
-:::
+_Upgrades the version of a NuGet `<PackageReference>` or `<PackageVersion>` in .csproj and Directory.Packages.props files. Handles property references by updating the property value instead of the version attribute. Supports semver version selectors._
 
 ## Recipe source
 
-[GitHub: FindTypes.java](https://github.com/openrewrite/rewrite/blob/main/rewrite-java/src/main/java/org/openrewrite/java/search/FindTypes.java),
+[GitHub: UpgradeNuGetPackageVersion.java](https://github.com/openrewrite/rewrite/blob/main/src/main/java/org/openrewrite/csharp/UpgradeNuGetPackageVersion.java),
 [Issue Tracker](https://github.com/openrewrite/rewrite/issues),
-[Maven Central](https://central.sonatype.com/artifact/org.openrewrite/rewrite-java/)
+[Maven Central](https://central.sonatype.com/artifact/org.openrewrite/rewrite-csharp/)
 
-This recipe is available under the [Apache License Version 2.0](https://www.apache.org/licenses/LICENSE-2.0).
+This recipe is available under the [Moderne Source Available License](https://docs.moderne.io/licensing/moderne-source-available-license).
 
 ## Options
 
 | Type | Name | Description | Example |
 | --- | --- | --- | --- |
-| `String` | fullyQualifiedTypeName | A fully-qualified type name, that is used to find matching type references. Supports glob expressions. `java..*` finds every type from every subpackage of the `java` package. | `java.util.List` |
-| `Boolean` | checkAssignability | *Optional*. When enabled, find type references that are assignable to the provided type. |  |
-
-
-## Used by
-
-This recipe is used as part of the following composite recipes:
-
-* [Find deprecated `PathMatcher` usage](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/spring/framework/finddeprecatedpathmatcherusage)
-* [Report types deprecated or removed in WebLogic version 14.1.2](/user-documentation/recipes/recipe-catalog/com/oracle/weblogic/rewrite/reportdeprecatedorremoved1412.md)
-* [Report types deprecated or removed in WebLogic version 15.1.1](/user-documentation/recipes/recipe-catalog/com/oracle/weblogic/rewrite/reportdeprecatedorremoved1511.md)
-
-## Example
-
-###### Parameters
-| Parameter | Value |
-| --- | --- |
-|fullyQualifiedTypeName|`a.A1`|
-|checkAssignability|`false`|
-
-
-<Tabs groupId="beforeAfter">
-<TabItem value="java" label="java">
-
-
-###### Before
-```java
-import a.A1;
-public class B extends A1 {}
-```
-
-###### After
-```java
-import a.A1;
-public class B extends /*~~>*/A1 {}
-```
-
-</TabItem>
-<TabItem value="diff" label="Diff" >
-
-```diff
-@@ -2,1 +2,1 @@
-import a.A1;
--public class B extends A1 {}
-+public class B extends /*~~>*/A1 {}
-
-```
-</TabItem>
-</Tabs>
+| `String` | packageName | The NuGet package name to upgrade. Supports glob patterns. | `Newtonsoft.Json` |
+| `String` | newVersion | An exact version number or node-style semver selector used to select the version number. You can also use `latest.release` for the latest available version and `latest.patch` if the current version is a valid semantic version. For more details, you can look at the documentation page of [version selectors](https://docs.openrewrite.org/reference/dependency-version-selectors). | `latest.release` |
+| `String` | versionPattern | *Optional*. Allows version selection to be extended beyond the original Node Semver semantics. So for example, setting 'newVersion' to "25-29" can be paired with a metadata pattern of "-jre" to select version 29.0-jre. | `-jre` |
 
 
 ## Usage
@@ -92,11 +42,13 @@ Or, if you'd like to create a declarative recipe, please see the below example o
 ```yaml title="rewrite.yml"
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: com.yourorg.FindTypesExample
-displayName: Find types example
+name: com.yourorg.UpgradeNuGetPackageVersionExample
+displayName: Upgrade NuGet package version example
 recipeList:
-  - org.openrewrite.java.search.FindTypes:
-      fullyQualifiedTypeName: java.util.List
+  - org.openrewrite.csharp.UpgradeNuGetPackageVersion:
+      packageName: Newtonsoft.Json
+      newVersion: latest.release
+      versionPattern: '-jre'
 ```
 
 <Tabs groupId="projectType">
@@ -105,12 +57,12 @@ recipeList:
 You will need to have configured the [Moderne CLI](https://docs.moderne.io/user-documentation/moderne-cli/getting-started/cli-intro) on your machine before you can run the following command.
 
 ```shell title="shell"
-mod run . --recipe FindTypes --recipe-option "fullyQualifiedTypeName=java.util.List"
+mod run . --recipe UpgradeNuGetPackageVersion --recipe-option "packageName=Newtonsoft.Json" --recipe-option "newVersion=latest.release" --recipe-option "versionPattern='-jre'"
 ```
 
 If the recipe is not available locally, then you can install it using:
 ```shell
-mod config recipes jar install org.openrewrite:rewrite-java:{{VERSION_ORG_OPENREWRITE_REWRITE_JAVA}}
+mod config recipes jar install org.openrewrite:rewrite-csharp:{{VERSION_ORG_OPENREWRITE_REWRITE_CSHARP}}
 ```
 </TabItem>
 </Tabs>
@@ -119,7 +71,7 @@ mod config recipes jar install org.openrewrite:rewrite-java:{{VERSION_ORG_OPENRE
 
 import RecipeCallout from '@site/src/components/ModerneLink';
 
-<RecipeCallout link="https://app.moderne.io/recipes/org.openrewrite.java.search.FindTypes" />
+<RecipeCallout link="https://app.moderne.io/recipes/org.openrewrite.csharp.UpgradeNuGetPackageVersion" />
 
 The community edition of the Moderne platform enables you to easily run recipes across thousands of open-source repositories.
 
@@ -127,21 +79,6 @@ Please [contact Moderne](https://moderne.io/product) for more information about 
 ## Data Tables
 
 <Tabs groupId="data-tables">
-<TabItem value="org.openrewrite.java.table.TypeUses" label="TypeUses">
-
-### Type uses
-**org.openrewrite.java.table.TypeUses**
-
-_The source code of matching type uses._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| Source file | The source file that the method call occurred in. |
-| Source | The source code of the type use. |
-| Concrete type | The concrete type in use, which may be a subtype of a searched type. |
-
-</TabItem>
-
 <TabItem value="org.openrewrite.table.SourcesFileResults" label="SourcesFileResults">
 
 ### Source files that had results

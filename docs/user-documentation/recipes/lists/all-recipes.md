@@ -6,7 +6,7 @@ description: A comprehensive list of all recipes organized by module.
 
 _This doc contains all recipes grouped by their module._
 
-Total recipes: 5102
+Total recipes: 5106
 
 
 ## io.moderne.recipe:rewrite-angular
@@ -9252,6 +9252,25 @@ _28 recipes_
 * [org.openrewrite.text.RemoveByteOrderMark](/user-documentation/recipes/recipe-catalog/text/removebyteordermark.md)
   * **Remove byte order mark (BOM)**
   * Removes UTF-8 byte order marks from the beginning of files.  The BOM character (U+FEFF) is generally unnecessary in UTF-8 files and can cause issues with some tools.
+
+## org.openrewrite:rewrite-csharp
+
+_License: Moderne Source Available License_
+
+_4 recipes_
+
+* [org.openrewrite.csharp.AddNuGetPackageReference](/user-documentation/recipes/recipe-catalog/csharp/addnugetpackagereference.md)
+  * **Add NuGet package reference**
+  * Adds a `&lt;PackageReference&gt;` element to .csproj files if not already present.
+* [org.openrewrite.csharp.ChangeDotNetTargetFramework](/user-documentation/recipes/recipe-catalog/csharp/changedotnettargetframework.md)
+  * **Change .NET target framework**
+  * Changes the `&lt;TargetFramework&gt;` or `&lt;TargetFrameworks&gt;` value in .csproj files. For multi-TFM projects, replaces the matching framework within the semicolon-delimited list.
+* [org.openrewrite.csharp.RemoveNuGetPackageReference](/user-documentation/recipes/recipe-catalog/csharp/removenugetpackagereference.md)
+  * **Remove NuGet package reference**
+  * Removes a `&lt;PackageReference&gt;` element from .csproj files.
+* [org.openrewrite.csharp.UpgradeNuGetPackageVersion](/user-documentation/recipes/recipe-catalog/csharp/upgradenugetpackageversion.md)
+  * **Upgrade NuGet package version**
+  * Upgrades the version of a NuGet `&lt;PackageReference&gt;` or `&lt;PackageVersion&gt;` in .csproj and Directory.Packages.props files. Handles property references by updating the property value instead of the version attribute. Supports semver version selectors.
 
 ## org.openrewrite:rewrite-docker
 

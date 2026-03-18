@@ -499,6 +499,12 @@ _This doc contains all [scanning recipes](https://docs.openrewrite.org/concepts-
   * **Create text file**
   * Creates a new plain text file.
 
+## org.openrewrite:rewrite-csharp
+
+* [org.openrewrite.csharp.UpgradeNuGetPackageVersion](/user-documentation/recipes/recipe-catalog/csharp/upgradenugetpackageversion.md)
+  * **Upgrade NuGet package version**
+  * Upgrades the version of a NuGet `&lt;PackageReference&gt;` or `&lt;PackageVersion&gt;` in .csproj and Directory.Packages.props files. Handles property references by updating the property value instead of the version attribute. Supports semver version selectors.
+
 ## org.openrewrite:rewrite-gradle
 
 * [org.openrewrite.gradle.AddDependency](/user-documentation/recipes/recipe-catalog/gradle/adddependency.md)

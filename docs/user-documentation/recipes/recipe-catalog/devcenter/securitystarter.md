@@ -2,11 +2,6 @@
 sidebar_label: "OWASP top ten"
 ---
 
-
-<head>
-  <link rel="canonical" href="https://docs.openrewrite.org/recipes/devcenter/securitystarter" />
-</head>
-
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
@@ -73,9 +68,9 @@ recipeList:
 
 This recipe is used as part of the following composite recipes:
 
-* [DevCenter for Apache](/user-documentation/recipes/recipe-catalog/devcenter/apachedevcenter.md)
-* [DevCenter for Quarkus](/user-documentation/recipes/recipe-catalog/devcenter/quarkusdevcenter.md)
-* [DevCenter](/user-documentation/recipes/recipe-catalog/devcenter/devcenterstarter.md)
+* [DevCenter for Apache](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/devcenter/apachedevcenter)
+* [DevCenter for Quarkus](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/devcenter/quarkusdevcenter)
+* [DevCenter](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/devcenter/devcenterstarter)
 
 ## Examples
 ##### Example 1
