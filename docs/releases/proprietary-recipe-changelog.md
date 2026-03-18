@@ -10,6 +10,12 @@ This page contains release notes for [Moderne proprietary OpenRewrite recipes](h
 This changelog is automatically generated from GitHub releases and only contains information from the past year.
 :::
 
+## March 17, 2026
+
+#### rewrite-spring - 0.28.2
+
+* Migrate ObjectPostProcessor import for Spring Security 7
+
 ## March 12, 2026
 
 #### rewrite-ai-search - 0.32.9
