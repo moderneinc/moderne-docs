@@ -7,15 +7,18 @@ description: The current version of the Moderne Agent and where to download it.
 
 | Component                             | Current version |
 | ------------------------------------- | --------------- |
-| Agent (recommended to use **latest**) | 0.256.0         |
+| Agent (recommended to use **latest**) | 0.257.0         |
 
 ### Maven download
 
-[Agent download link](https://repo1.maven.org/maven2/io/moderne/moderne-agent/0.256.0/moderne-agent-0.256.0.jar)
+[Agent download link](https://repo1.maven.org/maven2/io/moderne/moderne-agent/0.257.0/moderne-agent-0.257.0.jar)
 
 
 ## Changelog
 
+### v0.257.0 - 2026-03-18
+
+* Pin Jackson 2.x to 2.18.6 to fix GHSA-72hv-8253-57qq
 ### v0.256.0 - 2026-03-12
 
 * Add absolute read timeout on agent outbound proxy
