@@ -4817,11 +4817,8 @@ _178 recipes_
 
 _License: Apache License Version 2.0_
 
-_1440 recipes_
+_1439 recipes_
 
-* [ai.timefold.solver.migration.common.RemoveGenericTypeRecipe](/user-documentation/recipes/recipe-catalog/ai/timefold/solver/migration/common/removegenerictyperecipe.md)
-  * **Remove one generic type**
-  * Removes a generic type from a multi-type generic declaration.
 * [com.oracle.weblogic.rewrite.ChangeJAXBBindAPIDependencyScope](/user-documentation/recipes/recipe-catalog/com/oracle/weblogic/rewrite/changejaxbbindapidependencyscope.md)
   * **Change the jakarta.xml.bind-api dependency to scope provided when jakartaee-api 9.x is provided.**
   * This recipe will change the jakarta.xml.bind-api dependency scope to provided when jakarta.jakartaee-api version 9.x is provided in WebLogic 15.1.1. This prevents the jakarta.xml.bind-api jar from being deployed to WebLogic which can cause class conflicts.
@@ -10414,16 +10411,16 @@ _18 recipes_
 
 _License: Unknown_
 
-_1810 recipes_
+_1811 recipes_
 
 * [ai.timefold.solver.migration.ChangeVersion](/user-documentation/recipes/recipe-catalog/ai/timefold/solver/migration/changeversion.md)
   * **Change the Timefold version**
   * Replaces the version of Timefold
+* [ai.timefold.solver.migration.FromOptaPlannerToTimefoldSolver](/user-documentation/recipes/recipe-catalog/ai/timefold/solver/migration/fromoptaplannertotimefoldsolver.md)
+  * **Migrate from OptaPlanner to Timefold Solver**
+  * Replaces your method/field calls, GAVs, etc. To replace deprecated methods too, use the recipe ToLatest
 * [ai.timefold.solver.migration.ToLatest](/user-documentation/recipes/recipe-catalog/ai/timefold/solver/migration/tolatest.md)
   * **Upgrade to the latest Timefold Solver**
-  * Replace all your calls to deleted/deprecated types and methods of Timefold Solver with their proper alternatives.
-* [ai.timefold.solver.migration.ToLatestV1](/user-documentation/recipes/recipe-catalog/ai/timefold/solver/migration/tolatestv1.md)
-  * **Upgrade to the latest Timefold Solver 1.x**
   * Replace all your calls to deleted/deprecated types and methods of Timefold Solver with their proper alternatives.
 * [androidx.compose.animation.ReplaceDeprecatedAnimationCore1Methods](/user-documentation/recipes/recipe-catalog/androidx/compose/animation/replacedeprecatedanimationcore1methods.md)
   * **Replace deprecated `animation-core` methods**
@@ -12612,6 +12609,9 @@ _1810 recipes_
 * [org.openrewrite.java.jackson.UpgradeJackson_2_3_PackageChanges](/user-documentation/recipes/recipe-catalog/java/jackson/upgradejackson_2_3_packagechanges.md)
   * **Update Jackson package names from 2.x to 3.x**
   * Update Jackson package imports from `com.fasterxml.jackson` to `tools.jackson`.
+* [org.openrewrite.java.jackson.UpgradeJackson_2_3_RelocatedFeatureConstants](/user-documentation/recipes/recipe-catalog/java/jackson/upgradejackson_2_3_relocatedfeatureconstants.md)
+  * **Migrate relocated feature constants to DateTimeFeature and EnumFeature**
+  * Jackson 3 moved date/time-related feature constants from `SerializationFeature` and `DeserializationFeature` into `DateTimeFeature`, and enum-related constants into `EnumFeature`.
 * [org.openrewrite.java.jackson.UpgradeJackson_2_3_RemoveRedundantFeatureFlags](/user-documentation/recipes/recipe-catalog/java/jackson/upgradejackson_2_3_removeredundantfeatureflags.md)
   * **Remove redundant Jackson 3 feature flag configurations**
   * Remove `ObjectMapper` feature flag configurations that are now defaults in Jackson 3.

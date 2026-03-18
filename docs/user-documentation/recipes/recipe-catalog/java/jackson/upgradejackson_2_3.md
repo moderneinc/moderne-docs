@@ -55,11 +55,18 @@ This recipe is available under the [Apache License Version 2.0](https://www.apac
 * [Update Jackson 2.x types to 3.x](../../java/jackson/upgradejackson_2_3_typechanges)
 * [Rename Jackson 2.x methods to 3.x equivalents](../../java/jackson/upgradejackson_2_3_methodrenames)
 * [Remove redundant Jackson 3 feature flag configurations](../../java/jackson/upgradejackson_2_3_removeredundantfeatureflags)
+* [Migrate relocated feature constants to DateTimeFeature and EnumFeature](../../java/jackson/upgradejackson_2_3_relocatedfeatureconstants)
 * [Remove registrations of modules built-in to Jackson 3](../../java/jackson/removebuiltinmoduleregistrations)
 * [Use modern date/time serialization defaults](../../java/jackson/usemoderndatetimeserialization)
 * [Replace removed `JsonGenerator` capability methods with `StreamWriteCapability`](../../java/jackson/replacestreamwritecapability)
 * [Replace `@JsonIgnore` with `@JsonSetter` on empty collection fields](../../java/jackson/replacejsonignorewithjsonsetter)
 * [Add `@JsonCreator` to non-public constructors](../../java/jackson/addjsoncreatortoprivateconstructors)
+* [Add comment to method invocations](../../java/addcommenttomethodinvocations)
+  * comment: `TODO canSerialize was removed in Jackson 3 with no replacement (see https://github.com/FasterXML/jackson-databind/issues/1917). Attempt serialization/deserialization and catch exceptions instead.`
+  * methodPattern: `com.fasterxml.jackson.databind.ObjectMapper canSerialize(..)`
+* [Add comment to method invocations](../../java/addcommenttomethodinvocations)
+  * comment: `TODO canDeserialize was removed in Jackson 3 with no replacement (see https://github.com/FasterXML/jackson-databind/issues/1917). Attempt serialization/deserialization and catch exceptions instead.`
+  * methodPattern: `com.fasterxml.jackson.databind.ObjectMapper canDeserialize(..)`
 * [Update Jackson package names from 2.x to 3.x](../../java/jackson/upgradejackson_2_3_packagechanges)
 * [Simplify catch clauses for Jackson exceptions](../../java/jackson/simplifyjacksonexceptioncatch)
 
@@ -92,11 +99,18 @@ recipeList:
   - org.openrewrite.java.jackson.UpgradeJackson_2_3_TypeChanges
   - org.openrewrite.java.jackson.UpgradeJackson_2_3_MethodRenames
   - org.openrewrite.java.jackson.UpgradeJackson_2_3_RemoveRedundantFeatureFlags
+  - org.openrewrite.java.jackson.UpgradeJackson_2_3_RelocatedFeatureConstants
   - org.openrewrite.java.jackson.RemoveBuiltInModuleRegistrations
   - org.openrewrite.java.jackson.UseModernDateTimeSerialization
   - org.openrewrite.java.jackson.ReplaceStreamWriteCapability
   - org.openrewrite.java.jackson.ReplaceJsonIgnoreWithJsonSetter
   - org.openrewrite.java.jackson.AddJsonCreatorToPrivateConstructors
+  - org.openrewrite.java.AddCommentToMethodInvocations:
+      comment: TODO canSerialize was removed in Jackson 3 with no replacement (see https://github.com/FasterXML/jackson-databind/issues/1917). Attempt serialization/deserialization and catch exceptions instead.
+      methodPattern: com.fasterxml.jackson.databind.ObjectMapper canSerialize(..)
+  - org.openrewrite.java.AddCommentToMethodInvocations:
+      comment: TODO canDeserialize was removed in Jackson 3 with no replacement (see https://github.com/FasterXML/jackson-databind/issues/1917). Attempt serialization/deserialization and catch exceptions instead.
+      methodPattern: com.fasterxml.jackson.databind.ObjectMapper canDeserialize(..)
   - org.openrewrite.java.jackson.UpgradeJackson_2_3_PackageChanges
   - org.openrewrite.java.jackson.SimplifyJacksonExceptionCatch
 

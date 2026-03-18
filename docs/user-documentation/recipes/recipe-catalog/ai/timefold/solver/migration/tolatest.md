@@ -33,21 +33,28 @@ This recipe is available under the [Apache License Version 2.0](https://www.apac
 
 <Tabs groupId="recipeType">
 <TabItem value="recipe-list" label="Recipe List" >
-* [Upgrade to the latest Timefold Solver 1.x](../../../../ai/timefold/solver/migration/tolatestv1)
-* [Change the Timefold version](../../../../ai/timefold/solver/migration/changeversion)
-* [Delete method argument](../../../../java/deletemethodargument)
-  * methodPattern: `ai.timefold.solver.core.api.score.constraint.ConstraintRef of(String, String)`
-  * argumentIndex: `0`
-* [Delete method argument](../../../../java/deletemethodargument)
-  * methodPattern: `ai.timefold.solver.core.api.score.stream.ConstraintBuilder asConstraint(String, String)`
-  * argumentIndex: `0`
-* [Remove annotation attribute](../../../../java/removeannotationattribute)
-  * annotationType: `ai.timefold.solver.core.api.domain.solution.PlanningSolution`
-  * attributeName: `lookUpStrategyType`
-* [Remove annotation attribute](../../../../java/removeannotationattribute)
-  * annotationType: `ai.timefold.solver.core.api.domain.solution.PlanningSolution`
-  * attributeName: `autoDiscoverMemberType`
+* [Migrate from OptaPlanner to Timefold Solver](../../../../ai/timefold/solver/migration/fromoptaplannertotimefoldsolver)
+* [Change property key](../../../../properties/changepropertykey)
+  * oldPropertyKey: `timefold.solver.solve-length`
+  * newPropertyKey: `timefold.solver.solve.duration`
+* [Change property key](../../../../properties/changepropertykey)
+  * oldPropertyKey: `quarkus.timefold.solver.solve-length`
+  * newPropertyKey: `quarkus.timefold.solver.solve.duration`
+* [Change method name](../../../../java/changemethodname)
+  * methodPattern: `ai.timefold.solver.core.api.score.stream.ConstraintFactory from(Class)`
+  * newMethodName: `forEach`
+* [Change method name](../../../../java/changemethodname)
+  * methodPattern: `ai.timefold.solver.core.api.score.stream.ConstraintFactory fromUnfiltered(Class)`
+  * newMethodName: `forEachIncludingUnassigned`
+* [Change method name](../../../../java/changemethodname)
+  * methodPattern: `ai.timefold.solver.core.api.score.stream.ConstraintFactory fromUniquePair(..)`
+  * newMethodName: `forEachUniquePair`
+* [Change type](../../../../java/changetype)
+  * oldFullyQualifiedTypeName: `ai.timefold.solver.core.api.score.ScoreManager`
+  * newFullyQualifiedTypeName: `ai.timefold.solver.core.api.solver.SolutionManager`
+  * ignoreDefinition: `true`
 * [Remove unused imports](../../../../java/removeunusedimports)
+* [Change the Timefold version](../../../../ai/timefold/solver/migration/changeversion)
 
 </TabItem>
 
@@ -61,21 +68,28 @@ displayName: Upgrade to the latest Timefold Solver
 description: |
   Replace all your calls to deleted/deprecated types and methods of Timefold Solver with their proper alternatives.
 recipeList:
-  - ai.timefold.solver.migration.ToLatestV1
-  - ai.timefold.solver.migration.ChangeVersion
-  - org.openrewrite.java.DeleteMethodArgument:
-      methodPattern: ai.timefold.solver.core.api.score.constraint.ConstraintRef of(String, String)
-      argumentIndex: 0
-  - org.openrewrite.java.DeleteMethodArgument:
-      methodPattern: ai.timefold.solver.core.api.score.stream.ConstraintBuilder asConstraint(String, String)
-      argumentIndex: 0
-  - org.openrewrite.java.RemoveAnnotationAttribute:
-      annotationType: ai.timefold.solver.core.api.domain.solution.PlanningSolution
-      attributeName: lookUpStrategyType
-  - org.openrewrite.java.RemoveAnnotationAttribute:
-      annotationType: ai.timefold.solver.core.api.domain.solution.PlanningSolution
-      attributeName: autoDiscoverMemberType
+  - ai.timefold.solver.migration.FromOptaPlannerToTimefoldSolver
+  - org.openrewrite.properties.ChangePropertyKey:
+      oldPropertyKey: timefold.solver.solve-length
+      newPropertyKey: timefold.solver.solve.duration
+  - org.openrewrite.properties.ChangePropertyKey:
+      oldPropertyKey: quarkus.timefold.solver.solve-length
+      newPropertyKey: quarkus.timefold.solver.solve.duration
+  - org.openrewrite.java.ChangeMethodName:
+      methodPattern: ai.timefold.solver.core.api.score.stream.ConstraintFactory from(Class)
+      newMethodName: forEach
+  - org.openrewrite.java.ChangeMethodName:
+      methodPattern: ai.timefold.solver.core.api.score.stream.ConstraintFactory fromUnfiltered(Class)
+      newMethodName: forEachIncludingUnassigned
+  - org.openrewrite.java.ChangeMethodName:
+      methodPattern: ai.timefold.solver.core.api.score.stream.ConstraintFactory fromUniquePair(..)
+      newMethodName: forEachUniquePair
+  - org.openrewrite.java.ChangeType:
+      oldFullyQualifiedTypeName: ai.timefold.solver.core.api.score.ScoreManager
+      newFullyQualifiedTypeName: ai.timefold.solver.core.api.solver.SolutionManager
+      ignoreDefinition: true
   - org.openrewrite.java.RemoveUnusedImports
+  - ai.timefold.solver.migration.ChangeVersion
 
 ```
 </TabItem>

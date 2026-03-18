@@ -50,6 +50,7 @@ This recipe is used as part of the following composite recipes:
 * [Migrate RichFaces tags in `xhtml` files](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/jsf/richfaces/update45/updatexhtmltags)
 * [Migrate XJC Bindings to Jakata XML](/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/javaxxmltojakartaxmlxjcbinding.md)
 * [Migrate from Acegi Security 1.0.x to Spring Security 5.0](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/spring/security/migrateacegitospringsecurity_5_0)
+* [Migrate from OptaPlanner to Timefold Solver](/user-documentation/recipes/recipe-catalog/ai/timefold/solver/migration/fromoptaplannertotimefoldsolver.md)
 * [Migrate to JSF 2.3](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/jsf/migratetojsf_2_3)
 * [Migrate to Spring ORM to 5](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/spring/orm/springorm5)
 * [Migrate to Struts 6.0 constants](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/struts/migrate6/migratestruts6constants)

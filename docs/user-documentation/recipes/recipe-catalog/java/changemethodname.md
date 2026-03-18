@@ -138,7 +138,7 @@ This recipe is used as part of the following composite recipes:
 * [The header name for the List metadata has changed](/user-documentation/recipes/recipe-catalog/org/apache/camel/upgrade/camel43/kafkametadata.md)
 * [Upgrade to JUnit 5.14](/user-documentation/recipes/recipe-catalog/java/testing/junit5/upgradetojunit514.md)
 * [Upgrade to SpringDoc 2.1](/user-documentation/recipes/recipe-catalog/java/springdoc/upgradespringdoc_2.md)
-* [Upgrade to the latest Timefold Solver 1.x](/user-documentation/recipes/recipe-catalog/ai/timefold/solver/migration/tolatestv1.md)
+* [Upgrade to the latest Timefold Solver](/user-documentation/recipes/recipe-catalog/ai/timefold/solver/migration/tolatest.md)
 * [Use OkHttp 3 MockWebServer for JUnit 5](/user-documentation/recipes/recipe-catalog/java/testing/junit5/upgradeokhttpmockwebserver.md)
 * [Use `AtomicBoolean#weakCompareAndSetPlain(boolean, boolean)`](/user-documentation/recipes/recipe-catalog/java/migrate/concurrent/migrateatomicbooleanweakcompareandsettoweakcompareandsetplain.md)
 * [Use `AtomicInteger#weakCompareAndSetPlain(int, int)`](/user-documentation/recipes/recipe-catalog/java/migrate/concurrent/migrateatomicintegerweakcompareandsettoweakcompareandsetplain.md)

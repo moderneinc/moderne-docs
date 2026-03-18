@@ -124,6 +124,12 @@ This recipe is available under the [Apache License Version 2.0](https://www.apac
 * [Change type](../../java/changetype)
   * oldFullyQualifiedTypeName: `com.fasterxml.jackson.databind.Module`
   * newFullyQualifiedTypeName: `tools.jackson.databind.JacksonModule`
+* [Change type](../../java/changetype)
+  * oldFullyQualifiedTypeName: `com.fasterxml.jackson.databind.ser.impl.SimpleFilterProvider`
+  * newFullyQualifiedTypeName: `tools.jackson.databind.ser.std.SimpleFilterProvider`
+* [Change type](../../java/changetype)
+  * oldFullyQualifiedTypeName: `com.fasterxml.jackson.databind.ser.impl.SimpleBeanPropertyFilter`
+  * newFullyQualifiedTypeName: `tools.jackson.databind.ser.std.SimpleBeanPropertyFilter`
 
 </TabItem>
 
@@ -226,6 +232,12 @@ recipeList:
   - org.openrewrite.java.ChangeType:
       oldFullyQualifiedTypeName: com.fasterxml.jackson.databind.Module
       newFullyQualifiedTypeName: tools.jackson.databind.JacksonModule
+  - org.openrewrite.java.ChangeType:
+      oldFullyQualifiedTypeName: com.fasterxml.jackson.databind.ser.impl.SimpleFilterProvider
+      newFullyQualifiedTypeName: tools.jackson.databind.ser.std.SimpleFilterProvider
+  - org.openrewrite.java.ChangeType:
+      oldFullyQualifiedTypeName: com.fasterxml.jackson.databind.ser.impl.SimpleBeanPropertyFilter
+      newFullyQualifiedTypeName: tools.jackson.databind.ser.std.SimpleBeanPropertyFilter
 
 ```
 </TabItem>

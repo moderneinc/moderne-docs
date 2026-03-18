@@ -49,7 +49,6 @@ This recipe is used as part of the following composite recipes:
 * [Remove `SslBundles` parameter from `KafkaProperties` build methods](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/spring/boot4/removekafkapropertiessslbundlesparameter)
 * [Replace  deprecated Jakarta Servlet methods and classes](/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/removalsservletjakarta10.md)
 * [Replace deprecated Jakarta Servlet methods and classes](/user-documentation/recipes/recipe-catalog/com/oracle/weblogic/rewrite/jakarta/removalsservletjakarta9.md)
-* [Upgrade to the latest Timefold Solver](/user-documentation/recipes/recipe-catalog/ai/timefold/solver/migration/tolatest.md)
 
 ## Example
 

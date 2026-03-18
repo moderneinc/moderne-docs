@@ -4599,7 +4599,7 @@ _1 recipe_
 
 ## jackson
 
-_22 recipes_
+_23 recipes_
 
 * [org.openrewrite.java.jackson.AddJsonCreatorToPrivateConstructors](/user-documentation/recipes/recipe-catalog/java/jackson/addjsoncreatortoprivateconstructors.md)
   * **Add `@JsonCreator` to non-public constructors**
@@ -4676,6 +4676,10 @@ _22 recipes_
 * [org.openrewrite.java.jackson.UpgradeJackson_2_3_PackageChanges](/user-documentation/recipes/recipe-catalog/java/jackson/upgradejackson_2_3_packagechanges.md)
   * **Update Jackson package names from 2.x to 3.x**
   * Update Jackson package imports from `com.fasterxml.jackson` to `tools.jackson`.
+  * Tags: jackson-3
+* [org.openrewrite.java.jackson.UpgradeJackson_2_3_RelocatedFeatureConstants](/user-documentation/recipes/recipe-catalog/java/jackson/upgradejackson_2_3_relocatedfeatureconstants.md)
+  * **Migrate relocated feature constants to DateTimeFeature and EnumFeature**
+  * Jackson 3 moved date/time-related feature constants from `SerializationFeature` and `DeserializationFeature` into `DateTimeFeature`, and enum-related constants into `EnumFeature`.
   * Tags: jackson-3
 * [org.openrewrite.java.jackson.UpgradeJackson_2_3_RemoveRedundantFeatureFlags](/user-documentation/recipes/recipe-catalog/java/jackson/upgradejackson_2_3_removeredundantfeatureflags.md)
   * **Remove redundant Jackson 3 feature flag configurations**
