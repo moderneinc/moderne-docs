@@ -49,6 +49,12 @@ The Moderne CLI previously followed a two-track release model with separate "sta
 * JavaScript: Prefer node from `PATH` if it satisfies constraints
 * Convert dotted groupIds to slashes in Maven GAV download URL
 
+### CLI / DX v3.57.16 (2026-03-19)
+
+#### What's Changed
+* Fix Bitbucket Server repos with org columns skipped as no source code
+* Daemon running recipes not to advertise port number until the server is started
+
 ### CLI / DX v3.57.15 (2026-03-12)
 
 #### What's Changed
