@@ -246,6 +246,7 @@ const dx = {
       },
       items: [
         'administrator-documentation/moderne-dx/getting-started/overview',
+        'administrator-documentation/moderne-dx/getting-started/proof-of-value-prerequisites',
       ],
     },
     {
