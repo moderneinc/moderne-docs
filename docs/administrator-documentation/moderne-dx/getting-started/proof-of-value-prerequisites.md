@@ -25,7 +25,6 @@ This page covers everything you need to do so nothing is missed on day one.
 
 You will need a source control management (SCM) service account with **read access** to all in-scope repositories. This is used by the Moderne CLI and mass ingest to clone repositories and build LSTs. Credentials are mounted at runtime and never baked into images. The [mass ingest source control credentials documentation](https://github.com/moderneinc/mass-ingest-example#source-control-credentials) has setup details.
 
-You will also need an **OAuth application** configured in your SCM. This enables users to authenticate through the Moderne CLI to commit changes back to your repositories.
 
 ### Preparing your repository list
 
