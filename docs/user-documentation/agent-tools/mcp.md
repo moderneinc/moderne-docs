@@ -5,7 +5,7 @@ description: Give AI coding agents tools for semantic code search, navigation, a
 
 # Moderne MCP server
 
-The Moderne CLI includes a [Model Context Protocol (MCP)](https://modelcontextprotocol.io/) server that gives AI coding agents tools for semantic code search, navigation, and refactoring. While [skills](./skills.md) teach agents *how* to work with recipes, the MCP server gives agents direct access to these tools, backed by OpenRewrite's [Lossless Semantic Tree (LST)](/administrator-documentation/moderne-platform/references/lossless-semantic-trees) and [Moderne Trigrep](./trigrep.md).
+The Moderne CLI includes a [Model Context Protocol (MCP)](https://modelcontextprotocol.io/) server that gives AI coding agents tools for semantic code search, navigation, and refactoring. While [skills](./skills.md) teach agents *how* to work with recipes, the MCP server gives agents direct access to these tools, backed by OpenRewrite's [Lossless Semantic Tree (LST)](../../administrator-documentation/moderne-platform/references/lossless-semantic-trees.md) and [Moderne Trigrep](./trigrep.md).
 
 ## Why use the Moderne MCP server
 
@@ -26,7 +26,7 @@ Because these tools are backed by a semantic model of your code, they understand
 When the MCP server starts, it builds two things in the background:
 
 1. **[Moderne Trigrep](./trigrep.md)**: a pre-computed trigram index that enables sub-second text search across the entire repository. This powers the `search` and `structural_search` tools.
-2. **LST (Lossless Semantic Tree)**: a type-attributed tree representation of your source code that enables semantic tools like `find_types`, `find_methods`, `change_type`, and recipe execution.
+2. **[LSTs (Lossless Semantic Trees)](../../administrator-documentation/moderne-platform/references/lossless-semantic-trees.md)**: a type-attributed tree representation of your source code that enables semantic tools like `find_types`, `find_methods`, `change_type`, and recipe execution.
 
 Tools become available progressively as each build completes. You can check their progress with the `build_status` and `lst_status` tools.
 
