@@ -6,7 +6,7 @@ description: A comprehensive list of all recipes organized by module.
 
 _This doc contains all recipes grouped by their module._
 
-Total recipes: 5106
+Total recipes: 5113
 
 
 ## io.moderne.recipe:rewrite-angular
@@ -444,7 +444,7 @@ _2 recipes_
 
 _License: Moderne Proprietary License_
 
-_73 recipes_
+_74 recipes_
 
 * [io.moderne.java.jsf.richfaces.ConvertExtendedDataTableHeightToStyle](/user-documentation/recipes/recipe-catalog/java/jsf/richfaces/convertextendeddatatableheighttostyle.md)
   * **Convert height/width attributes to `extendedDataTable` style**
@@ -629,6 +629,9 @@ _73 recipes_
 * [io.moderne.java.spring.framework7.MigrateListenableFuture](/user-documentation/recipes/recipe-catalog/java/spring/framework7/migratelistenablefuture.md)
   * **Migrate `ListenableFuture` to `CompletableFuture`**
   * Spring Framework 6.0 deprecated `ListenableFuture` in favor of `CompletableFuture`. Spring Framework 7.0 removes `ListenableFuture` entirely. This recipe migrates usages of `ListenableFuture` and its callbacks to use `CompletableFuture` and `BiConsumer` instead.
+* [io.moderne.java.spring.framework7.MigrateResponseEntityGetStatusCodeValueMethod](/user-documentation/recipes/recipe-catalog/java/spring/framework7/migrateresponseentitygetstatuscodevaluemethod.md)
+  * **Migrate `ResponseEntity#getStatusCodeValue()` to `getStatusCode().value()`**
+  * Replaces calls to `ResponseEntity#getStatusCodeValue()` which was deprecated in Spring Framework 6.0 and removed in Spring Framework 7.0 with `getStatusCode().value()`.
 * [io.moderne.java.spring.framework7.ReplaceJUnit4SpringTestBaseClasses](/user-documentation/recipes/recipe-catalog/java/spring/framework7/replacejunit4springtestbaseclasses.md)
   * **Replace JUnit 4 Spring test base classes with JUnit Jupiter annotations**
   * Replace `AbstractJUnit4SpringContextTests` and `AbstractTransactionalJUnit4SpringContextTests` base classes with `@ExtendWith(SpringExtension.class)` and `@Transactional` annotations. These base classes are deprecated in Spring Framework 7.0 in favor of the SpringExtension for JUnit Jupiter.
@@ -1502,7 +1505,7 @@ _8 recipes_
 
 _License: Apache License Version 2.0_
 
-_19 recipes_
+_21 recipes_
 
 * [org.openrewrite.java.jackson.AddJsonCreatorToPrivateConstructors](/user-documentation/recipes/recipe-catalog/java/jackson/addjsoncreatortoprivateconstructors.md)
   * **Add `@JsonCreator` to non-public constructors**
@@ -1516,6 +1519,9 @@ _19 recipes_
 * [org.openrewrite.java.jackson.LombokJacksonizedConfig](/user-documentation/recipes/recipe-catalog/java/jackson/lombokjacksonizedconfig.md)
   * **Update `lombok.config` for Jackson 3 compatibility**
   * When `@Jacksonized` is used, Lombok generates Jackson annotations. By default it generates Jackson 2.x annotations. This recipe adds `lombok.jacksonized.jacksonVersion = 3` to `lombok.config` so Lombok generates Jackson 3 compatible annotations.
+* [org.openrewrite.java.jackson.MigrateMapperSettersToBuilder](/user-documentation/recipes/recipe-catalog/java/jackson/migratemappersetterstobuilder.md)
+  * **Migrate `JsonMapper` setter calls to builder pattern**
+  * In Jackson 3, `JsonMapper` is immutable. Configuration methods like `setFilterProvider`, `addMixIn`, `disable`, `enable`, etc. must be called on the builder instead. This recipe migrates setter calls to the builder pattern when safe, or adds TODO comments when automatic migration is not possible.
 * [org.openrewrite.java.jackson.RemoveBuiltInModuleRegistrations](/user-documentation/recipes/recipe-catalog/java/jackson/removebuiltinmoduleregistrations.md)
   * **Remove registrations of modules built-in to Jackson 3**
   * In Jackson 3, `ParameterNamesModule`, `Jdk8Module`, and `JavaTimeModule` are built into `jackson-databind` and no longer need to be registered manually. This recipe removes `ObjectMapper.registerModule()` and `MapperBuilder.addModule()` calls for these modules.
@@ -1528,6 +1534,9 @@ _19 recipes_
 * [org.openrewrite.java.jackson.ReplaceJsonIgnoreWithJsonSetter](/user-documentation/recipes/recipe-catalog/java/jackson/replacejsonignorewithjsonsetter.md)
   * **Replace `@JsonIgnore` with `@JsonSetter` on empty collection fields**
   * In Jackson 3, `@JsonIgnore` on fields initialized with empty collections causes the field value to become `null` instead of maintaining the empty collection. This recipe replaces `@JsonIgnore` with `@JsonSetter(nulls = Nulls.AS_EMPTY)` on `Map` and `Collection` fields that have an empty collection initializer.
+* [org.openrewrite.java.jackson.ReplaceObjectMapperCopy](/user-documentation/recipes/recipe-catalog/java/jackson/replaceobjectmappercopy.md)
+  * **Replace `ObjectMapper.copy()` with `rebuild().build()`**
+  * In Jackson 3, `ObjectMapper.copy()` was removed. Use `mapper.rebuild().build()` instead.
 * [org.openrewrite.java.jackson.ReplaceStreamWriteCapability](/user-documentation/recipes/recipe-catalog/java/jackson/replacestreamwritecapability.md)
   * **Replace removed `JsonGenerator` capability methods with `StreamWriteCapability`**
   * In Jackson 3, `JsonGenerator.canWriteBinaryNatively()` and `canWriteFormattedNumbers()` were removed and replaced with the `StreamWriteCapability` enum. This recipe updates these method calls to use `getWriteCapabilities().isEnabled(StreamWriteCapability.*)` instead.
@@ -1646,7 +1655,7 @@ _37 recipes_
   * Locates and reports on all licenses in use.
 * [org.openrewrite.java.dependencies.DependencyVulnerabilityCheck](/user-documentation/recipes/recipe-catalog/java/dependencies/dependencyvulnerabilitycheck.md)
   * **Find and fix vulnerable dependencies**
-  * This software composition analysis (SCA) tool detects and upgrades dependencies with publicly disclosed vulnerabilities. This recipe both generates a report of vulnerable dependencies and upgrades to newer versions with fixes. This recipe by default only upgrades to the latest **patch** version.  If a minor or major upgrade is required to reach the fixed version, this can be controlled using the `maximumUpgradeDelta` option. Vulnerability information comes from the [GitHub Security Advisory Database](https://docs.github.com/en/code-security/security-advisories/global-security-advisories/about-the-github-advisory-database), which aggregates vulnerability data from several public databases, including the [National Vulnerability Database](https://nvd.nist.gov/) maintained by the United States government. Upgrades dependencies versioned according to [Semantic Versioning](https://semver.org/).   ## Customizing Vulnerability Data  This recipe can be customized by extending `DependencyVulnerabilityCheckBase` and overriding the vulnerability data sources:   - **`baselineVulnerabilities(ExecutionContext ctx)`**: Provides the default set of known vulnerabilities. The base implementation loads vulnerability data from the GitHub Security Advisory Database CSV file using `ResourceUtils.parseResourceAsCsv()`. Override this method to replace the entire vulnerability dataset with your own curated list.   - **`supplementalVulnerabilities(ExecutionContext ctx)`**: Allows adding custom vulnerability data beyond the baseline. The base implementation returns an empty list. Override this method to add organization-specific vulnerabilities, internal security advisories, or vulnerabilities from additional sources while retaining the baseline GitHub Advisory Database.  Both methods return `List&lt;Vulnerability&gt;` objects. Vulnerability data can be loaded from CSV files using `ResourceUtils.parseResourceAsCsv(path, Vulnerability.class, consumer)` or constructed programmatically. To customize, extend `DependencyVulnerabilityCheckBase` and override one or both methods depending on your needs. For example, override `supplementalVulnerabilities()` to add custom CVEs while keeping the standard vulnerability database, or override `baselineVulnerabilities()` to use an entirely different vulnerability data source. Last updated: 2026-03-12T0841.
+  * This software composition analysis (SCA) tool detects and upgrades dependencies with publicly disclosed vulnerabilities. This recipe both generates a report of vulnerable dependencies and upgrades to newer versions with fixes. This recipe by default only upgrades to the latest **patch** version.  If a minor or major upgrade is required to reach the fixed version, this can be controlled using the `maximumUpgradeDelta` option. Vulnerability information comes from the [GitHub Security Advisory Database](https://docs.github.com/en/code-security/security-advisories/global-security-advisories/about-the-github-advisory-database), which aggregates vulnerability data from several public databases, including the [National Vulnerability Database](https://nvd.nist.gov/) maintained by the United States government. Upgrades dependencies versioned according to [Semantic Versioning](https://semver.org/).   ## Customizing Vulnerability Data  This recipe can be customized by extending `DependencyVulnerabilityCheckBase` and overriding the vulnerability data sources:   - **`baselineVulnerabilities(ExecutionContext ctx)`**: Provides the default set of known vulnerabilities. The base implementation loads vulnerability data from the GitHub Security Advisory Database CSV file using `ResourceUtils.parseResourceAsCsv()`. Override this method to replace the entire vulnerability dataset with your own curated list.   - **`supplementalVulnerabilities(ExecutionContext ctx)`**: Allows adding custom vulnerability data beyond the baseline. The base implementation returns an empty list. Override this method to add organization-specific vulnerabilities, internal security advisories, or vulnerabilities from additional sources while retaining the baseline GitHub Advisory Database.  Both methods return `List&lt;Vulnerability&gt;` objects. Vulnerability data can be loaded from CSV files using `ResourceUtils.parseResourceAsCsv(path, Vulnerability.class, consumer)` or constructed programmatically. To customize, extend `DependencyVulnerabilityCheckBase` and override one or both methods depending on your needs. For example, override `supplementalVulnerabilities()` to add custom CVEs while keeping the standard vulnerability database, or override `baselineVulnerabilities()` to use an entirely different vulnerability data source. Last updated: 2026-03-19T1924.
 * [org.openrewrite.java.dependencies.RemoveUnusedDependencies](/user-documentation/recipes/recipe-catalog/java/dependencies/removeunuseddependencies.md)
   * **Remove unused dependencies**
   * Scans through source code collecting references to types and methods, removing any dependencies that are not used from Maven or Gradle build files. This is best effort and not guaranteed to work well in all cases; false positives are still possible.  This recipe takes reflective access into account: - When reflective access to a class is made unambiguously via a string literal, such as: `Class.forName(&quot;java.util.List&quot;)` that is counted correctly. - When reflective access to a class is made ambiguously via anything other than a string literal no dependencies will be removed.  This recipe takes transitive dependencies into account: - When a direct dependency is not used but a transitive dependency it brings in _is_ in use the direct dependency is not removed.
@@ -3697,7 +3706,7 @@ _5 recipes_
 
 _License: Moderne Source Available License_
 
-_163 recipes_
+_165 recipes_
 
 * [org.openrewrite.staticanalysis.AbstractClassPublicConstructor](/user-documentation/recipes/recipe-catalog/staticanalysis/abstractclasspublicconstructor.md)
   * **Constructors of an `abstract` class should not be declared `public`**
@@ -3855,6 +3864,9 @@ _163 recipes_
 * [org.openrewrite.staticanalysis.MaskCreditCardNumbers](/user-documentation/recipes/recipe-catalog/staticanalysis/maskcreditcardnumbers.md)
   * **Mask credit card numbers**
   * When encountering string literals which appear to be credit card numbers, mask the last eight digits with the letter 'X'.
+* [org.openrewrite.staticanalysis.MemberNameCaseInsensitiveDuplicates](/user-documentation/recipes/recipe-catalog/staticanalysis/membernamecaseinsensitiveduplicates.md)
+  * **Members should not have names differing only by capitalization**
+  * Looking at the set of methods and fields in a class and all of its parents, no two members should have names that differ only in capitalization. This rule will not report if a method overrides a parent method.
 * [org.openrewrite.staticanalysis.MethodNameCasing](/user-documentation/recipes/recipe-catalog/staticanalysis/methodnamecasing.md)
   * **Standardize method name casing**
   * Fixes method names that do not follow standard naming conventions. For example, `String getFoo_bar()` would be adjusted to `String getFooBar()` and `int DoSomething()` would be adjusted to `int doSomething()`.
@@ -4176,6 +4188,9 @@ _163 recipes_
 * [org.openrewrite.staticanalysis.UseSystemLineSeparator](/user-documentation/recipes/recipe-catalog/staticanalysis/usesystemlineseparator.md)
   * **Use `System.lineSeparator()`**
   * Replace calls to `System.getProperty(&quot;line.separator&quot;)` with `System.lineSeparator()`.
+* [org.openrewrite.staticanalysis.UseTryWithResources](/user-documentation/recipes/recipe-catalog/staticanalysis/usetrywithresources.md)
+  * **Use try-with-resources**
+  * Refactor try/finally blocks to use try-with-resources when the finally block only closes an `AutoCloseable` resource.
 * [org.openrewrite.staticanalysis.WhileInsteadOfFor](/user-documentation/recipes/recipe-catalog/staticanalysis/whileinsteadoffor.md)
   * **Prefer `while` over `for` loops**
   * When only the condition expression is defined in a for loop, and the initialization and increment expressions are missing, a while loop should be used instead to increase readability.
@@ -10430,7 +10445,7 @@ _18 recipes_
 
 _License: Unknown_
 
-_1811 recipes_
+_1813 recipes_
 
 * [ai.timefold.solver.migration.ChangeVersion](/user-documentation/recipes/recipe-catalog/ai/timefold/solver/migration/changeversion.md)
   * **Change the Timefold version**
@@ -10690,6 +10705,9 @@ _1811 recipes_
 * [io.moderne.java.spring.boot4.UpgradeSpringBoot_4_0](/user-documentation/recipes/recipe-catalog/java/spring/boot4/upgradespringboot_4_0-moderne-edition.md)
   * **Migrate to Spring Boot 4.0 (Moderne Edition)**
   * Migrate applications to the latest Spring Boot 4.0 release. This recipe will modify an application's build files, make changes to deprecated/preferred APIs, and migrate configuration settings that have changes between versions. This recipe will also chain additional framework migrations (Spring Framework, Spring Data, etc) that are required as part of the migration to Spring Boot 4.0.
+* [io.moderne.java.spring.boot4.UpgradeSpringKafka_4_0](/user-documentation/recipes/recipe-catalog/java/spring/boot4/upgradespringkafka_4_0.md)
+  * **Migrate to Spring Kafka 4.0**
+  * Migrate applications to Spring Kafka 4.0. This includes removing deprecated configuration options that are no longer supported.
 * [io.moderne.java.spring.cloud2020.SpringCloudProperties_2020](/user-documentation/recipes/recipe-catalog/java/spring/cloud2020/springcloudproperties_2020.md)
   * **Migrate Spring Cloud properties to 2020**
   * Migrate properties found in `application.properties` and `application.yml`.
@@ -13564,6 +13582,9 @@ _1811 recipes_
 * [org.openrewrite.java.security.Owasp2025A02](/user-documentation/recipes/recipe-catalog/java/security/owasp2025a02.md)
   * **Remediate OWASP A02:2025 Security misconfiguration**
   * OWASP [A02:2025](https://owasp.org/Top10/2025/A02_2025-Security_Misconfiguration/) describes failures related to security misconfiguration. Previously A05:2021, this category moved up to #2 in 2025.
+* [org.openrewrite.java.security.Owasp2025A03](/user-documentation/recipes/recipe-catalog/java/security/owasp2025a03.md)
+  * **Remediate OWASP A03:2025 Software supply chain failures**
+  * OWASP [A03:2025](https://owasp.org/Top10/2025/A03_2025-Software_Supply_Chain_Failures/) describes failures related to the software supply chain, including vulnerable and outdated components. Expanded from A06:2021 Vulnerable and Outdated Components.
 * [org.openrewrite.java.security.OwaspA01](/user-documentation/recipes/recipe-catalog/java/security/owaspa01.md)
   * **Remediate OWASP A01:2021 Broken access control**
   * OWASP [A01:2021](https://owasp.org/Top10/A01_2021-Broken_Access_Control/) describes failures related to broken access control.

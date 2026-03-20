@@ -137,6 +137,11 @@ description: Auto-generated documentation for all Moderne CLI commands.
 * [**mod config license show**](#mod-config-license-show)
 * [**mod config license moderne**](#mod-config-license-moderne)
 * [**mod config license moderne sync**](#mod-config-license-moderne-sync)
+* [**mod config llm**](#mod-config-llm)
+* [**mod config llm login**](#mod-config-llm-login)
+* [**mod config llm show**](#mod-config-llm-show)
+* [**mod config llm delete**](#mod-config-llm-delete)
+* [**mod config llm edit**](#mod-config-llm-edit)
 * [**mod config lsts**](#mod-config-lsts)
 * [**mod config lsts artifacts**](#mod-config-lsts-artifacts)
 * [**mod config lsts artifacts artifactory**](#mod-config-lsts-artifacts-artifactory)
@@ -180,6 +185,10 @@ description: Auto-generated documentation for all Moderne CLI commands.
 * [**mod config python installation edit**](#mod-config-python-installation-edit)
 * [**mod config python installation delete**](#mod-config-python-installation-delete)
 * [**mod config python installation list**](#mod-config-python-installation-list)
+* [**mod config python version**](#mod-config-python-version)
+* [**mod config python version edit**](#mod-config-python-version-edit)
+* [**mod config python version delete**](#mod-config-python-version-delete)
+* [**mod config python version show**](#mod-config-python-version-show)
 * [**mod config recipes**](#mod-config-recipes)
 * [**mod config recipes active**](#mod-config-recipes-active)
 * [**mod config recipes active set**](#mod-config-recipes-active-set)
@@ -236,6 +245,8 @@ description: Auto-generated documentation for all Moderne CLI commands.
 * ~~[**mod config scm show**](#mod-config-scm-show-deprecated)~~ (deprecated)
 * [**mod devcenter**](#mod-devcenter)
 * [**mod exec**](#mod-exec)
+* [**mod factory**](#mod-factory)
+* [**mod factory run**](#mod-factory-run)
 * [**mod git**](#mod-git)
 * [**mod git add**](#mod-git-add)
 * [**mod git apply**](#mod-git-apply)
@@ -264,7 +275,6 @@ description: Auto-generated documentation for all Moderne CLI commands.
 * [**mod log syncs**](#mod-log-syncs)
 * [**mod log syncs add**](#mod-log-syncs-add)
 * [**mod list**](#mod-list)
-* [**mod mcp**](#mod-mcp)
 * [**mod monitor**](#mod-monitor)
 * [**mod postbuild**](#mod-postbuild)
 * [**mod postbuild search**](#mod-postbuild-search)
@@ -309,10 +319,10 @@ mod [subcommands]
 * `config`: Global configuration options that are required by some CLI commands.
 * `devcenter`: Generate DevCenter dashboards.
 * `exec`: Execute an arbitrary shell command on selected repositories and partitions.
+* `factory`: (INCUBATING) Automated recipe improvement through gap analysis.
 * `git`: Multi-repository git operations.
 * `log`: Manages a log aggregate.
 * `list`: Lists the repositories that can be built and published.
-* `mcp`: Starts an MCP server for code intelligence.
 * `monitor`: (INCUBATING) Launches an HTTP server used to monitor the CLI.
 * `postbuild`: Post-build operations on LST artifacts.
 * `publish`: Publishes the LST artifacts for one or more projects.
@@ -655,6 +665,7 @@ mod config moderne edit --api <tenant-api-gateway> --token <token>
 * `http`: Configures HTTP options that will be used throughout the CLI.
 * `java`: Configures Java options used for building LSTs and running recipes.
 * `license`: Configure a license key.
+* `llm`: Configures LLM provider credentials for the factory agent.
 * `lsts`: Configures LSTs production and publishing. 
 * `moderne`: Configures the connection to Moderne. Must be configured before you can install and run recipes.
 * `node`: Configures Node options used for building LSTs and running recipes.
@@ -3073,6 +3084,101 @@ mod config license moderne sync
 
 
 
+## mod config llm
+
+Configures LLM provider credentials for the factory agent.
+
+
+Credentials are managed by the Pi SDK and stored in ~/.pi/agent/. Use **login** for OAuth (subscription tokens) or **edit** for API keys.
+
+### Usage
+
+```
+mod config llm [subcommands]
+```
+
+
+### Subcommands
+
+* `login`: Logs in to an LLM provider via OAuth.
+* `show`: Displays the current LLM provider configuration.
+* `delete`: Removes all LLM provider credentials and model defaults.
+* `edit`: Sets an API key for an LLM provider.
+
+## mod config llm login
+
+Logs in to an LLM provider via OAuth.
+
+
+Starts an OAuth device flow for the specified provider. After authentication, prompts for model selection.
+
+Providers: **anthropic**, **openai-codex**, **github-copilot**, **google-gemini-cli**
+
+### Usage
+
+```
+mod config llm login [parameters]
+```
+
+### Parameters
+
+| Name | Description |
+| ---- | ----------- |
+| `provider` |  The provider to authenticate with (e.g., openai-codex, anthropic, github-copilot, google-gemini-cli). |
+
+
+
+## mod config llm show
+
+Displays the current LLM provider configuration.
+
+
+Shows configured credentials and default model from the Pi agent config.
+
+### Usage
+
+```
+mod config llm show
+```
+
+
+
+## mod config llm delete
+
+Removes all LLM provider credentials and model defaults.
+
+
+
+
+### Usage
+
+```
+mod config llm delete
+```
+
+
+
+## mod config llm edit
+
+Sets an API key for an LLM provider.
+
+
+For providers that use API keys rather than OAuth subscriptions. Common providers: **openai**, **anthropic**, **google**, **mistral**, **groq**
+
+### Usage
+
+```
+mod config llm edit
+```
+
+### Options
+
+| Name | Description |
+| ---- | ----------- |
+| `--api-key` |  The API key. Will prompt interactively if not provided. |
+| `--provider` |  The provider name (e.g., openai, anthropic, google). |
+
+
 ## mod config lsts
 
 Configures LSTs production and publishing. 
@@ -3920,6 +4026,7 @@ mod config python [subcommands]
 ### Subcommands
 
 * `installation`: Configures locations of Python that can be used by build tools.
+* `version`: Configures the Python version to use.
 
 ## mod config python installation
 
@@ -3991,6 +4098,91 @@ mod config python installation list
 | Name | Description |
 | ---- | ----------- |
 | `--named` |  Filter the list of Python installations to a specific version. |
+
+
+## mod config python version
+
+Configures the Python version to use.
+
+
+Configure a name like "3", "3.12", or "3.12.1" depending on the degree of control needed.
+
+### Usage
+
+```
+mod config python version [subcommands]
+```
+
+
+### Subcommands
+
+* `edit`: Configures the Python version to use.
+* `delete`: Reverts to auto-detection of a Python version to use when building a repository.
+* `show`: Displays the configured Python version.
+
+## mod config python version edit
+
+Configures the Python version to use.
+
+
+Configure a name like "3", "3.12", or "3.12.1" depending on the degree of control needed.
+
+### Usage
+
+```
+mod config python version edit [parameters]
+```
+
+### Parameters
+
+| Name | Description |
+| ---- | ----------- |
+| `selectedPython` |  The named Python version to use. If set to "auto", the CLI will revert to detecting the correct Python version to use from signals available in the repository. |
+
+### Options
+
+| Name | Description |
+| ---- | ----------- |
+| `--local` |  Apply this command recursively to all repositories found within the specified directory path, modifying each repository's git-ignored file **.moderne/moderne-uncommitted.yml**<br/>Has no impact on the global configuration. |
+| `--save` |  Apply the operation to the file **.moderne/moderne.yml** which can be committed to source control as opposed to the git-ignored variant.<br/>Can only be used with `--local`.<br/>Has no effect on the global configuration. |
+
+
+## mod config python version delete
+
+Reverts to auto-detection of a Python version to use when building a repository.
+
+
+### Usage
+
+```
+mod config python version delete
+```
+
+### Options
+
+| Name | Description |
+| ---- | ----------- |
+| `--local` |  Apply this command recursively to all repositories found within the specified directory path, modifying each repository's git-ignored file **.moderne/moderne-uncommitted.yml**<br/>Has no impact on the global configuration. |
+| `--save` |  Apply the operation to the file **.moderne/moderne.yml** which can be committed to source control as opposed to the git-ignored variant.<br/>Can only be used with `--local`.<br/>Has no effect on the global configuration. |
+
+
+## mod config python version show
+
+Displays the configured Python version.
+
+
+### Usage
+
+```
+mod config python version show
+```
+
+### Options
+
+| Name | Description |
+| ---- | ----------- |
+| `--local` |  Apply this command recursively to all repositories found within the specified directory path, modifying each repository's git-ignored file **.moderne/moderne-uncommitted.yml**<br/>Has no impact on the global configuration. |
+| `--save` |  Apply the operation to the file **.moderne/moderne.yml** which can be committed to source control as opposed to the git-ignored variant.<br/>Can only be used with `--local`.<br/>Has no effect on the global configuration. |
 
 
 ## mod config recipes
@@ -5336,6 +5528,59 @@ mod exec /path/to/project rm *.hprof
 | `--search` |  A search run ID to filter repositories to only those with matches. |
 
 
+## mod factory
+
+(INCUBATING) Automated recipe improvement through gap analysis.
+
+
+
+
+### Usage
+
+```
+mod factory [subcommands]
+```
+
+
+### Subcommands
+
+* `run`: (INCUBATING) Goal-driven recipe factory with per-repo agent sessions.
+
+## mod factory run
+
+(INCUBATING) Goal-driven recipe factory with per-repo agent sessions.
+
+
+Given a desired outcome (e.g., 'Upgrade to Java 25'), spawns an agent session per repository with access to MCP tools (search, change_type, run_recipe, etc.). The agent selects recipes, applies changes, and verifies results per-repo. Changes are isolated on a git branch.
+
+### Usage
+
+```
+mod factory run [parameters]
+```
+
+### Examples
+
+```
+mod factory run /path/to/working-set "Upgrade to Java 25"
+```
+
+### Parameters
+
+| Name | Description | Example |
+| ---- | ----------- | ---------- |
+| `path` |  The absolute or relative path on disk to a directory containing one or more checked-out Git repositories that you want to operate on. This typically takes the form of targeting a single, checked-out copy of a Git repository or it can be a folder containing a collection of Git repositories that will be discovered by recursively scanning the initial provided directory. | `/path/to/repos` |
+| `goal` |  The desired outcome (e.g., 'Upgrade to Java 25'). |  |
+
+### Options
+
+| Name | Description |
+| ---- | ----------- |
+| `--max-iterations` |  Maximum improvement iterations per repository. Default: 5 |
+| `--notify` |  Webhook URL for progress notifications (e.g., webhook:https://example.com/hook). |
+| `--resume` |  Resume a previous factory run by its run ID. Skips already-completed repositories. |
+
+
 ## mod git
 
 Multi-repository git operations.
@@ -6166,21 +6411,6 @@ mod list /path/to/project
 | `--json` |  (INCUBATING) Output the repository listing in JSON. The format of this JSON is unsettled at this point, and the data structuremay change. |
 
 
-## mod mcp
-
-Starts an MCP server for code intelligence.
-
-
-Launches a Model Context Protocol (MCP) server over stdio that exposes code intelligence tools backed by OpenRewrite LST data and zoekt search indices. Intended to be launched automatically by Claude Code via .mcp.json configuration.
-
-### Usage
-
-```
-mod mcp
-```
-
-
-
 ## mod monitor
 
 (INCUBATING) Launches an HTTP server used to monitor the CLI.
@@ -6437,10 +6667,8 @@ mod study /path/to/project --last-recipe-run --data-table <DATA-TABLE-NAME>
 | `--data-table` |  The name of the data table to study. |
 | `--json` |  Output the data table in JSON format with the specified fields. If no value is provided, all columns from the data table will be kept. |
 | `--last-recipe-run` |  Select the ID of the last recipe run. The last recipe run is determined from the whole repository group, not on an individual repository basis. |
-| `--last-search` |  Select the ID of the last search run to filter repositories. Only repositories that had search matches will be processed. |
 | `-o`, `--output-file` |  The location to output the data table. |
 | `--recipe-run` |  A recipe run ID listed by **mod run-history** |
-| `--search` |  A search run ID to filter repositories to only those with matches. |
 | `--template` |  |
 
 

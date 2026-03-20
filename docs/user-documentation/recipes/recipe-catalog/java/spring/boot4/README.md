@@ -24,6 +24,7 @@ _Recipes that include further recipes, often including the individual recipes be
 * [Migrate to Spring Boot 4.0 (Community Edition)](./upgradespringboot_4_0-community-edition.md)
 * [Migrate to Spring Boot 4.0 modular starters (Moderne Edition)](./migratetomodularstarters-moderne-edition.md)
 * [Migrate to Spring Boot 4.0 modular starters (Community Edition)](./migratetomodularstarters-community-edition.md)
+* [Migrate to Spring Kafka 4.0](./upgradespringkafka_4_0.md)
 * [Module has monolithic Spring Boot starter](./modulehasmonolithicstarter.md)
 * [Module uses Flyway](./moduleusesflyway.md)
 * [Module uses Liquibase](./moduleusesliquibase.md)

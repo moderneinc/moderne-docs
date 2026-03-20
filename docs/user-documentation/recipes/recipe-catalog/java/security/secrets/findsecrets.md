@@ -14,6 +14,7 @@ _Locates secrets stored in plain text in code._
 ### Tags
 
 * [security](/user-documentation/recipes/lists/recipes-by-tag#security)
+* [RSPEC-S6437](https://next.sonarqube.com/sonarqube/coding_rules?languages=java&q=S6437&open=java%3AS6437)
 
 ## Recipe source
 

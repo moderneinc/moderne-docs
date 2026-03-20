@@ -72,6 +72,7 @@ recipeList:
 
 This recipe is used as part of the following composite recipes:
 
+* [Remediate OWASP A03:2025 Software supply chain failures](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/security/owasp2025a03)
 * [Report uses of Java types deprecated or removed in WebLogic](/user-documentation/recipes/recipe-catalog/com/oracle/weblogic/rewrite/reportdeprecated.md)
 
 

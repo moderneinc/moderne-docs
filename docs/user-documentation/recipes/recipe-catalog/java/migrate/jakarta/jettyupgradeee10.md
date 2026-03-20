@@ -35,6 +35,12 @@ This recipe is available under the [Moderne Source Available License](https://do
 <TabItem value="recipe-list" label="Recipe List" >
 * [Change Gradle or Maven dependency](../../../java/dependencies/changedependency)
   * oldGroupId: `org.eclipse.jetty.ee9.websocket`
+  * oldArtifactId: `jetty-ee9-websocket-jetty-api`
+  * newGroupId: `org.eclipse.jetty.ee10.websocket`
+  * newArtifactId: `jetty-ee10-websocket-jetty-api`
+  * newVersion: `12.0.x`
+* [Change Gradle or Maven dependency](../../../java/dependencies/changedependency)
+  * oldGroupId: `org.eclipse.jetty.ee9.websocket`
   * oldArtifactId: `jetty-ee9-websocket-jetty-server`
   * newGroupId: `org.eclipse.jetty.ee10.websocket`
   * newArtifactId: `jetty-ee10-websocket-jetty-server`
@@ -45,6 +51,18 @@ This recipe is available under the [Moderne Source Available License](https://do
   * newGroupId: `org.eclipse.jetty.ee10.websocket`
   * newArtifactId: `jetty-ee10-websocket-jetty-client`
   * newVersion: `12.0.x`
+* [Change Gradle or Maven dependency](../../../java/dependencies/changedependency)
+  * oldGroupId: `org.eclipse.jetty.ee9.websocket`
+  * oldArtifactId: `jetty-ee9-websocket-jakarta-server`
+  * newGroupId: `org.eclipse.jetty.ee10.websocket`
+  * newArtifactId: `jetty-ee10-websocket-jakarta-server`
+  * newVersion: `12.x`
+* [Change Gradle or Maven dependency](../../../java/dependencies/changedependency)
+  * oldGroupId: `org.eclipse.jetty.ee9.websocket`
+  * oldArtifactId: `jetty-ee9-websocket-jakarta-client`
+  * newGroupId: `org.eclipse.jetty.ee10.websocket`
+  * newArtifactId: `jetty-ee10-websocket-jakarta-client`
+  * newVersion: `12.x`
 * [Change Gradle or Maven dependency](../../../java/dependencies/changedependency)
   * oldGroupId: `org.eclipse.jetty.ee9`
   * oldArtifactId: `jetty-ee9-apache-jsp`
@@ -87,12 +105,6 @@ This recipe is available under the [Moderne Source Available License](https://do
   * newGroupId: `org.eclipse.jetty.ee10`
   * newArtifactId: `jetty-ee10-annotations`
   * newVersion: `12.0.x`
-* [Change Gradle or Maven dependency](../../../java/dependencies/changedependency)
-  * oldGroupId: `org.eclipse.jetty.ee9.websocket`
-  * oldArtifactId: `jetty-ee9-websocket-jetty-server`
-  * newGroupId: `org.eclipse.jetty.ee10.websocket`
-  * newArtifactId: `jetty-ee10-websocket-jakarta-server`
-  * newVersion: `12.x`
 * [Change type](../../../java/changetype)
   * oldFullyQualifiedTypeName: `org.eclipse.jetty.util.resource.ResourceCollection`
   * newFullyQualifiedTypeName: `org.eclipse.jetty.util.resource.Resource`
@@ -111,6 +123,12 @@ description: |
 recipeList:
   - org.openrewrite.java.dependencies.ChangeDependency:
       oldGroupId: org.eclipse.jetty.ee9.websocket
+      oldArtifactId: jetty-ee9-websocket-jetty-api
+      newGroupId: org.eclipse.jetty.ee10.websocket
+      newArtifactId: jetty-ee10-websocket-jetty-api
+      newVersion: 12.0.x
+  - org.openrewrite.java.dependencies.ChangeDependency:
+      oldGroupId: org.eclipse.jetty.ee9.websocket
       oldArtifactId: jetty-ee9-websocket-jetty-server
       newGroupId: org.eclipse.jetty.ee10.websocket
       newArtifactId: jetty-ee10-websocket-jetty-server
@@ -121,6 +139,18 @@ recipeList:
       newGroupId: org.eclipse.jetty.ee10.websocket
       newArtifactId: jetty-ee10-websocket-jetty-client
       newVersion: 12.0.x
+  - org.openrewrite.java.dependencies.ChangeDependency:
+      oldGroupId: org.eclipse.jetty.ee9.websocket
+      oldArtifactId: jetty-ee9-websocket-jakarta-server
+      newGroupId: org.eclipse.jetty.ee10.websocket
+      newArtifactId: jetty-ee10-websocket-jakarta-server
+      newVersion: 12.x
+  - org.openrewrite.java.dependencies.ChangeDependency:
+      oldGroupId: org.eclipse.jetty.ee9.websocket
+      oldArtifactId: jetty-ee9-websocket-jakarta-client
+      newGroupId: org.eclipse.jetty.ee10.websocket
+      newArtifactId: jetty-ee10-websocket-jakarta-client
+      newVersion: 12.x
   - org.openrewrite.java.dependencies.ChangeDependency:
       oldGroupId: org.eclipse.jetty.ee9
       oldArtifactId: jetty-ee9-apache-jsp
@@ -163,12 +193,6 @@ recipeList:
       newGroupId: org.eclipse.jetty.ee10
       newArtifactId: jetty-ee10-annotations
       newVersion: 12.0.x
-  - org.openrewrite.java.dependencies.ChangeDependency:
-      oldGroupId: org.eclipse.jetty.ee9.websocket
-      oldArtifactId: jetty-ee9-websocket-jetty-server
-      newGroupId: org.eclipse.jetty.ee10.websocket
-      newArtifactId: jetty-ee10-websocket-jakarta-server
-      newVersion: 12.x
   - org.openrewrite.java.ChangeType:
       oldFullyQualifiedTypeName: org.eclipse.jetty.util.resource.ResourceCollection
       newFullyQualifiedTypeName: org.eclipse.jetty.util.resource.Resource

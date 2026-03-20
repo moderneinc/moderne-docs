@@ -18,13 +18,13 @@ The only removed command is `mod afterburner`, whose functionality has been fold
 
 ## Distribution formats
 
-The CLI ships in three platform-specific distributions:
+The CLI ships in three platform-specific distributions, all of which are available on [Maven Central](https://repo1.maven.org/maven2/io/moderne/):
 
-| Distribution | File                      | Use case                    |
-|--------------|---------------------------|-----------------------------|
-| Linux        | `moderne-cli-linux.sh`    | Linux workstations and CI   |
-| macOS        | `moderne-cli-macos.sh`    | macOS workstations          |
-| Windows      | `moderne-cli-windows.zip` | Windows workstations and CI |
+| Distribution | Maven Central artifact                                                                | File pattern                        | Use case                    |
+|--------------|---------------------------------------------------------------------------------------|-------------------------------------|-----------------------------|
+| Linux        | [moderne-cli-linux](https://repo1.maven.org/maven2/io/moderne/moderne-cli-linux/)     | `moderne-cli-linux-{version}.sh`    | Linux workstations and CI   |
+| macOS        | [moderne-cli-osx](https://repo1.maven.org/maven2/io/moderne/moderne-cli-osx/)         | `moderne-cli-osx-{version}.sh`      | macOS workstations          |
+| Windows      | [moderne-cli-windows](https://repo1.maven.org/maven2/io/moderne/moderne-cli-windows/) | `moderne-cli-windows-{version}.zip` | Windows workstations and CI |
 
 The Linux and macOS distributions are self-extracting shell scripts. Run them to install the CLI. The Windows distribution is a zip archive containing an `install.cmd` script.
 
@@ -52,10 +52,6 @@ The bundled JRE won't conflict with any Java installation you already have on yo
 
 ## Installing 4.0
 
-:::info
-As CLI 4.x and the new Moderne Platform are still rolling out, some of the installation options below do not presently work (as of March 2026). We aim to have all of these installation options available shortly, though.
-:::
-
 There are several installation paths, each with different tradeoffs. The right choice depends on whether you have internet access at runtime, whether you need per-project version pinning, and whether your team has Java installed.
 
 | Path                  | How it works                                                                                            | Assumes                                        | Best for                                    |
@@ -68,7 +64,7 @@ There are several installation paths, each with different tradeoffs. The right c
 
 The first four paths all provide a bundled JRE — no separate Java installation is required. The standalone JAR is platform-neutral and requires you to supply your own Java 25+ installation.
 
-### Quick install
+### Quick install (recommended)
 
 You can install the CLI with a single command:
 
@@ -82,16 +78,19 @@ iwr https://app.moderne.io/cli | iex
 
 This downloads the `modw` wrapper, places it on your `PATH`, and configures it to connect to the Moderne Platform. On first run, `modw` will download the full platform distribution (JAR + bundled JRE) automatically.
 
-### Platform distribution (recommended)
+### Platform distribution
 
-If you prefer to download the distribution manually, grab the file for your platform and run it. The installer places the CLI in `~/.moderne/cli/` and adds it to your `PATH`:
+Download the distribution for your platform from Maven Central (see [distribution formats](#distribution-formats) for links) and run it. The installer places the CLI in `~/.moderne/cli/` and adds it to your `PATH`:
 
 ```bash
-# Linux / macOS (self-extracting installer)
-bash moderne-cli-linux.sh
+# Linux (self-extracting installer)
+bash moderne-cli-linux-4.0.6.sh
+
+# macOS (self-extracting installer)
+bash moderne-cli-osx-4.0.6.sh
 
 # Windows (PowerShell)
-Expand-Archive moderne-cli-windows.zip -DestinationPath . ; .\install.cmd
+Expand-Archive moderne-cli-windows-4.0.6.zip -DestinationPath . ; .\install.cmd
 ```
 
 After installation, the CLI binary lives in `~/.moderne/cli/bin/` (on your `PATH`), and everything the CLI needs to run (JAR, JRE, startup cache) lives in `~/.moderne/cli/dist/`.
