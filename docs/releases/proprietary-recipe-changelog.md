@@ -12,6 +12,14 @@ This changelog is automatically generated from GitHub releases and only contains
 
 ## March 19, 2026
 
+#### rewrite-java-security - 3.26.7
+
+* Add RSPEC tags to XmlParserXXEVulnerability and FindSecrets
+* Add OWASP A03:2025 Software Supply Chain recipe
+* Run CI after automated advisory commits
+* Skip direct dependency upgrade when transitive is managed
+* Update tests for CVE-2026-24734 tomcat-embed-core advisory
+
 #### rewrite-spring - 0.28.3
 
 * Add `ResponseEntity.getStatusCodeValue()` and `EmbeddedKafka` kraft migration recipes
