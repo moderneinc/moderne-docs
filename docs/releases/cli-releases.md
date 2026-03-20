@@ -7,7 +7,7 @@ description: The current version of the Moderne CLI and links to useful CLI docu
 
 | Component   | Current version |
 | ----------- | --------------- |
-| CLI version | 4.0.5           |
+| CLI version | 4.0.6           |
 
 For CLI command documentation, see the [CLI reference](../user-documentation/moderne-cli/cli-reference.md).
 
@@ -16,6 +16,36 @@ The Moderne CLI previously followed a two-track release model with separate "sta
 :::
 
 ## Changelog
+
+### CLI / DX v4.0.6 (2026-03-20)
+
+#### What's Changed
+* Remove --last-search and --search from mod study
+* Native Build summaries in the logs
+* Handle read-only and locked files during directory deletion on Windows
+* Exclude .moderne from resource build to fix race with trigram indexer
+* MCP: exit quickly for non-git dirs, hide from help
+* Add continueOnError property to build steps
+* Fix Bitbucket Server repos with org columns skipped as no source code
+* `build.log` to have explicit logging on build steps start/stop
+* CI: 60 min timeout for build
+* Add mod factory command and MavenBuildStep2 with LstManager refactor
+* Harden AOT cache invalidation and prevent RELEASE downgrades
+* Add Python, .NET, and Bazel to build trace analysis
+* Make tray icon a macOS template image
+* Pass Maven resolvers to C# RPC for cross-ecosystem recipe preparation
+* Permit old .NET builds with new .NET on path, relax audit checks, etc
+* When reading recipe bundle from the cache, set the version of all recipes
+* Fix mod config moderne login deserialization failure
+* Cap default recipe run parallelism at 4
+* CI improvement: Remove Android SDK
+* Fix .NET NuGet restore semicolon escaping and deduplicate rewrite-csharp
+* Update docs action to handle more versions
+* Add CsprojParser to DotNetBuildStep
+* Fix MalformedInputException when build output is non-UTF-8
+* Fix flaky Windows CI: remove ON_SUCCESS TempDir cleanup mode
+* Fix version downgrading issue
+* Add `mod config python version edit/delete/show` commands
 
 ### CLI / DX v4.0.5 (2026-03-12)
 
