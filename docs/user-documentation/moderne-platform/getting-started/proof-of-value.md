@@ -323,8 +323,8 @@ mod study . --last-recipe-run --data-table TaintFlowTable
 ```bash
 # Example: Find all Jackson library versions
 mod run . --recipe org.openrewrite.java.dependencies.DependencyInsight \
-  -P "groupIdPattern=com.fasterxml.jackson.*" \
-  -P "artifactIdPattern=*" \
+  -P "groupIdPattern="*" \
+  -P "artifactIdPattern="jackson*" \
   -P "scope=runtime"
 
 mod study . --last-recipe-run --data-table DependenciesInUse
