@@ -24,6 +24,7 @@ _Recipes that include further recipes, often including the individual recipes be
 * [Remediate OWASP A02:2021 Cryptographic failures](./owaspa02.md)
 * [Remediate OWASP A02:2025 Security misconfiguration](./owasp2025a02.md)
 * [Remediate OWASP A03:2021 Injection](./owaspa03.md)
+* [Remediate OWASP A03:2025 Software supply chain failures](./owasp2025a03.md)
 * [Remediate OWASP A08:2021 Software and data integrity failures](./owaspa08.md)
 * [Remediate vulnerabilities from the OWASP Top Ten](./owasptopten.md)
 

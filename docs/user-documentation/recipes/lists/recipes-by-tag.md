@@ -2414,7 +2414,7 @@ _3 recipes_
 
 ## CWE
 
-_20 recipes_
+_21 recipes_
 
 * [org.openrewrite.apache.httpclient4.MigrateDefaultHttpClient](/user-documentation/recipes/recipe-catalog/apache/httpclient4/migratedefaulthttpclient.md)
   * **Migrates deprecated `DefaultHttpClient`**
@@ -2432,6 +2432,10 @@ _20 recipes_
   * **Improper privilege management**
   * Marking code as privileged enables a piece of trusted code to temporarily enable access to more resources than are available directly to the code that called it.
   * Tags: CWE-269
+* [org.openrewrite.java.security.Owasp2025A03](/user-documentation/recipes/recipe-catalog/java/security/owasp2025a03.md)
+  * **Remediate OWASP A03:2025 Software supply chain failures**
+  * OWASP [A03:2025](https://owasp.org/Top10/2025/A03_2025-Software_Supply_Chain_Failures/) describes failures related to the software supply chain, including vulnerable and outdated components. Expanded from A06:2021 Vulnerable and Outdated Components.
+  * Tags: CWE-1104, CWE-1395, CWE-477
 * [org.openrewrite.java.security.PartialPathTraversalVulnerability](/user-documentation/recipes/recipe-catalog/java/security/partialpathtraversalvulnerability.md)
   * **Partial path traversal vulnerability**
   * Replaces `dir.getCanonicalPath().startsWith(parent.getCanonicalPath()`, which is vulnerable to partial path traversal attacks, with the more secure `dir.getCanonicalFile().toPath().startsWith(parent.getCanonicalFile().toPath())`.  To demonstrate this vulnerability, consider `&quot;/usr/outnot&quot;.startsWith(&quot;/usr/out&quot;)`. The check is bypassed although `/outnot` is not under the `/out` directory. It's important to understand that the terminating slash may be removed when using various `String` representations of the `File` object. For example, on Linux, `println(new File(&quot;/var&quot;))` will print `/var`, but `println(new File(&quot;/var&quot;, &quot;/&quot;)` will print `/var/`; however, `println(new File(&quot;/var&quot;, &quot;/&quot;).getCanonicalPath())` will print `/var`.
@@ -4599,7 +4603,7 @@ _1 recipe_
 
 ## jackson
 
-_23 recipes_
+_25 recipes_
 
 * [org.openrewrite.java.jackson.AddJsonCreatorToPrivateConstructors](/user-documentation/recipes/recipe-catalog/java/jackson/addjsoncreatortoprivateconstructors.md)
   * **Add `@JsonCreator` to non-public constructors**
@@ -4621,6 +4625,10 @@ _23 recipes_
   * **Jackson best practices**
   * Apply best practices for using Jackson library, including upgrade to Jackson 2.x and removing redundant annotations.
   * Tags: jackson-2
+* [org.openrewrite.java.jackson.MigrateMapperSettersToBuilder](/user-documentation/recipes/recipe-catalog/java/jackson/migratemappersetterstobuilder.md)
+  * **Migrate `JsonMapper` setter calls to builder pattern**
+  * In Jackson 3, `JsonMapper` is immutable. Configuration methods like `setFilterProvider`, `addMixIn`, `disable`, `enable`, etc. must be called on the builder instead. This recipe migrates setter calls to the builder pattern when safe, or adds TODO comments when automatic migration is not possible.
+  * Tags: jackson-3
 * [org.openrewrite.java.jackson.RemoveBuiltInModuleRegistrations](/user-documentation/recipes/recipe-catalog/java/jackson/removebuiltinmoduleregistrations.md)
   * **Remove registrations of modules built-in to Jackson 3**
   * In Jackson 3, `ParameterNamesModule`, `Jdk8Module`, and `JavaTimeModule` are built into `jackson-databind` and no longer need to be registered manually. This recipe removes `ObjectMapper.registerModule()` and `MapperBuilder.addModule()` calls for these modules.
@@ -4636,6 +4644,10 @@ _23 recipes_
 * [org.openrewrite.java.jackson.ReplaceJsonIgnoreWithJsonSetter](/user-documentation/recipes/recipe-catalog/java/jackson/replacejsonignorewithjsonsetter.md)
   * **Replace `@JsonIgnore` with `@JsonSetter` on empty collection fields**
   * In Jackson 3, `@JsonIgnore` on fields initialized with empty collections causes the field value to become `null` instead of maintaining the empty collection. This recipe replaces `@JsonIgnore` with `@JsonSetter(nulls = Nulls.AS_EMPTY)` on `Map` and `Collection` fields that have an empty collection initializer.
+  * Tags: jackson-3
+* [org.openrewrite.java.jackson.ReplaceObjectMapperCopy](/user-documentation/recipes/recipe-catalog/java/jackson/replaceobjectmappercopy.md)
+  * **Replace `ObjectMapper.copy()` with `rebuild().build()`**
+  * In Jackson 3, `ObjectMapper.copy()` was removed. Use `mapper.rebuild().build()` instead.
   * Tags: jackson-3
 * [org.openrewrite.java.jackson.ReplaceStreamWriteCapability](/user-documentation/recipes/recipe-catalog/java/jackson/replacestreamwritecapability.md)
   * **Replace removed `JsonGenerator` capability methods with `StreamWriteCapability`**
@@ -6000,11 +6012,14 @@ _2 recipes_
 
 ## kafka
 
-_22 recipes_
+_23 recipes_
 
 * [io.moderne.java.spring.boot3.UpgradeSpringKafka_3_3](/user-documentation/recipes/recipe-catalog/java/spring/boot3/upgradespringkafka_3_3.md)
   * **Migrate to Spring Kafka 3.3**
   * Migrate applications to the latest Spring Kafka 3.3 release.
+* [io.moderne.java.spring.boot4.UpgradeSpringKafka_4_0](/user-documentation/recipes/recipe-catalog/java/spring/boot4/upgradespringkafka_4_0.md)
+  * **Migrate to Spring Kafka 4.0**
+  * Migrate applications to Spring Kafka 4.0. This includes removing deprecated configuration options that are no longer supported.
 * [io.moderne.kafka.MigrateToKafka23](/user-documentation/recipes/recipe-catalog/kafka/migratetokafka23.md)
   * **Migrate to Kafka 2.3**
   * Migrate applications to the latest Kafka 2.3 release.
@@ -8560,7 +8575,7 @@ _3 recipes_
 
 ## RSPEC
 
-_209 recipes_
+_213 recipes_
 
 * [org.openrewrite.cobol.cleanup.RemoveWithDebuggingMode](/user-documentation/recipes/recipe-catalog/cobol/cleanup/removewithdebuggingmode.md)
   * **Remove with debugging mode**
@@ -8650,6 +8665,14 @@ _209 recipes_
   * **Use `Files#createTempDirectory`**
   * Use `Files#createTempDirectory` when the sequence `File#createTempFile(..)`-&gt;`File#delete()`-&gt;`File#mkdir()` is used for creating a temp directory.
   * Tags: RSPEC-S5445
+* [org.openrewrite.java.security.XmlParserXXEVulnerability](/user-documentation/recipes/recipe-catalog/java/security/xmlparserxxevulnerability.md)
+  * **XML parser XXE vulnerability**
+  * Avoid exposing dangerous features of the XML parser by updating certain factory settings.
+  * Tags: RSPEC-S2755
+* [org.openrewrite.java.security.secrets.FindSecrets](/user-documentation/recipes/recipe-catalog/java/security/secrets/findsecrets.md)
+  * **Find secrets**
+  * Locates secrets stored in plain text in code.
+  * Tags: RSPEC-S6437
 * [org.openrewrite.java.spring.NoRequestMappingAnnotation](/user-documentation/recipes/recipe-catalog/java/spring/norequestmappingannotation.md)
   * **Remove `@RequestMapping` annotations**
   * Replace method declaration `@RequestMapping` annotations with `@GetMapping`, `@PostMapping`, etc. when possible.
@@ -8809,7 +8832,7 @@ _209 recipes_
 * [org.openrewrite.staticanalysis.HiddenField](/user-documentation/recipes/recipe-catalog/staticanalysis/hiddenfield.md)
   * **Hidden field**
   * Refactor local variables or parameters which shadow a field defined in the same class.
-  * Tags: RSPEC-S1117
+  * Tags: RSPEC-S1117, RSPEC-S2387
 * [org.openrewrite.staticanalysis.HideUtilityClassConstructor](/user-documentation/recipes/recipe-catalog/staticanalysis/hideutilityclassconstructor.md)
   * **Hide utility class constructor**
   * Ensures utility classes (classes containing only static methods or fields in their API) do not have a public constructor.
@@ -8846,6 +8869,10 @@ _209 recipes_
   * **Rename packages to lowercase**
   * By convention all Java package names should contain only lowercase letters, numbers, and dashes. This recipe converts any uppercase letters in package names to be lowercase.
   * Tags: RSPEC-S120
+* [org.openrewrite.staticanalysis.MemberNameCaseInsensitiveDuplicates](/user-documentation/recipes/recipe-catalog/staticanalysis/membernamecaseinsensitiveduplicates.md)
+  * **Members should not have names differing only by capitalization**
+  * Looking at the set of methods and fields in a class and all of its parents, no two members should have names that differ only in capitalization. This rule will not report if a method overrides a parent method.
+  * Tags: RSPEC-S1845
 * [org.openrewrite.staticanalysis.MethodNameCasing](/user-documentation/recipes/recipe-catalog/staticanalysis/methodnamecasing.md)
   * **Standardize method name casing**
   * Fixes method names that do not follow standard naming conventions. For example, `String getFoo_bar()` would be adjusted to `String getFooBar()` and `int DoSomething()` would be adjusted to `int doSomething()`.
@@ -9126,6 +9153,10 @@ _209 recipes_
   * **Use `String::replace()` when first parameter is not a real regular expression**
   * When `String::replaceAll` is used, the first argument should be a real regular expression. If it’s not the case, `String::replace` does exactly the same thing as `String::replaceAll` without the performance drawback of the regex.
   * Tags: RSPEC-S5361
+* [org.openrewrite.staticanalysis.UseTryWithResources](/user-documentation/recipes/recipe-catalog/staticanalysis/usetrywithresources.md)
+  * **Use try-with-resources**
+  * Refactor try/finally blocks to use try-with-resources when the finally block only closes an `AutoCloseable` resource.
+  * Tags: RSPEC-S2093
 * [org.openrewrite.staticanalysis.WhileInsteadOfFor](/user-documentation/recipes/recipe-catalog/staticanalysis/whileinsteadoffor.md)
   * **Prefer `while` over `for` loops**
   * When only the condition expression is defined in a for loop, and the initialization and increment expressions are missing, a while loop should be used instead to increase readability.
@@ -9583,7 +9614,7 @@ _1 recipe_
 
 ## security
 
-_69 recipes_
+_70 recipes_
 
 * [io.moderne.java.spring.security.MigrateAcegiToSpringSecurity_5_0](/user-documentation/recipes/recipe-catalog/java/spring/security/migrateacegitospringsecurity_5_0.md)
   * **Migrate from Acegi Security 1.0.x to Spring Security 5.0**
@@ -9654,6 +9685,9 @@ _69 recipes_
 * [org.openrewrite.java.security.JavaSecurityBestPractices](/user-documentation/recipes/recipe-catalog/java/security/javasecuritybestpractices.md)
   * **Java security best practices**
   * Applies security best practices to Java code.
+* [org.openrewrite.java.security.Owasp2025A03](/user-documentation/recipes/recipe-catalog/java/security/owasp2025a03.md)
+  * **Remediate OWASP A03:2025 Software supply chain failures**
+  * OWASP [A03:2025](https://owasp.org/Top10/2025/A03_2025-Software_Supply_Chain_Failures/) describes failures related to the software supply chain, including vulnerable and outdated components. Expanded from A06:2021 Vulnerable and Outdated Components.
 * [org.openrewrite.java.security.secrets.FindArtifactorySecrets](/user-documentation/recipes/recipe-catalog/java/security/secrets/findartifactorysecrets.md)
   * **Find Artifactory secrets**
   * Locates Artifactory secrets stored in plain text in code.
@@ -9897,7 +9931,7 @@ _1 recipe_
 
 ## spring
 
-_197 recipes_
+_198 recipes_
 
 * [io.moderne.java.spring.boot.ReplaceSpringFrameworkDepsWithBootStarters](/user-documentation/recipes/recipe-catalog/java/spring/boot/replacespringframeworkdepswithbootstarters.md)
   * **Replace Spring Framework dependencies with Spring Boot starters**
@@ -9989,6 +10023,9 @@ _197 recipes_
 * [io.moderne.java.spring.boot4.UpgradeSpringBoot_4_0](/user-documentation/recipes/recipe-catalog/java/spring/boot4/upgradespringboot_4_0-moderne-edition.md)
   * **Migrate to Spring Boot 4.0 (Moderne Edition)**
   * Migrate applications to the latest Spring Boot 4.0 release. This recipe will modify an application's build files, make changes to deprecated/preferred APIs, and migrate configuration settings that have changes between versions. This recipe will also chain additional framework migrations (Spring Framework, Spring Data, etc) that are required as part of the migration to Spring Boot 4.0.
+* [io.moderne.java.spring.boot4.UpgradeSpringKafka_4_0](/user-documentation/recipes/recipe-catalog/java/spring/boot4/upgradespringkafka_4_0.md)
+  * **Migrate to Spring Kafka 4.0**
+  * Migrate applications to Spring Kafka 4.0. This includes removing deprecated configuration options that are no longer supported.
 * [io.moderne.java.spring.cloud2020.SpringCloudProperties_2020](/user-documentation/recipes/recipe-catalog/java/spring/cloud2020/springcloudproperties_2020.md)
   * **Migrate Spring Cloud properties to 2020**
   * Migrate properties found in `application.properties` and `application.yml`.

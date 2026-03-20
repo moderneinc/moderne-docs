@@ -1,15 +1,20 @@
 ---
-sidebar_label: "Remediate OWASP A06:2021 Vulnerable and outdated components"
+sidebar_label: "Migrate to Spring Kafka 4.0"
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# Remediate OWASP A06:2021 Vulnerable and outdated components
+# Migrate to Spring Kafka 4.0
 
-**org.openrewrite.java.security.OwaspA06**
+**io.moderne.java.spring.boot4.UpgradeSpringKafka\_4\_0**
 
-_OWASP [A06:2021](https://owasp.org/Top10/A06_2021-Vulnerable_and_Outdated_Components/) describes failures related to vulnerable and outdated components._
+_Migrate applications to Spring Kafka 4.0. This includes removing deprecated configuration options that are no longer supported._
+
+### Tags
+
+* [spring](/user-documentation/recipes/lists/recipes-by-tag#spring)
+* [kafka](/user-documentation/recipes/lists/recipes-by-tag#kafka)
 
 ## Recipe source
 
@@ -23,8 +28,7 @@ This recipe is available under the [Moderne Proprietary License](https://docs.mo
 
 This recipe is used as part of the following composite recipes:
 
-* [Remediate OWASP A03:2025 Software supply chain failures](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/security/owasp2025a03)
-* [Remediate vulnerabilities from the OWASP Top Ten](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/security/owasptopten)
+* [Migrate to Spring Boot 4.0 (Moderne Edition)](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/spring/boot4/upgradespringboot_4_0-moderne-edition)
 
 
 ## Usage
@@ -38,12 +42,12 @@ This recipe has no required configuration options. Users of Moderne can run it v
 You will need to have configured the [Moderne CLI](https://docs.moderne.io/user-documentation/moderne-cli/getting-started/cli-intro) on your machine before you can run the following command.
 
 ```shell title="shell"
-mod run . --recipe OwaspA06
+mod run . --recipe UpgradeSpringKafka_4_0
 ```
 
 If the recipe is not available locally, then you can install it using:
 ```shell
-mod config recipes jar install org.openrewrite.recipe:rewrite-java-security:{{VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_JAVA_SECURITY}}
+mod config recipes jar install io.moderne.recipe:rewrite-spring:{{VERSION_IO_MODERNE_RECIPE_REWRITE_SPRING}}
 ```
 </TabItem>
 </Tabs>
@@ -52,7 +56,7 @@ mod config recipes jar install org.openrewrite.recipe:rewrite-java-security:{{VE
 
 import RecipeCallout from '@site/src/components/ModerneLink';
 
-<RecipeCallout link="https://app.moderne.io/recipes/org.openrewrite.java.security.OwaspA06" />
+<RecipeCallout link="https://app.moderne.io/recipes/io.moderne.java.spring.boot4.UpgradeSpringKafka_4_0" />
 
 The community edition of the Moderne platform enables you to easily run recipes across thousands of open-source repositories.
 
@@ -60,67 +64,6 @@ Please [contact Moderne](https://moderne.io/product) for more information about 
 ## Data Tables
 
 <Tabs groupId="data-tables">
-<TabItem value="org.openrewrite.maven.table.MavenMetadataFailures" label="MavenMetadataFailures">
-
-### Maven metadata failures
-**org.openrewrite.maven.table.MavenMetadataFailures**
-
-_Attempts to resolve maven metadata that failed._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| Group id | The groupId of the artifact for which the metadata download failed. |
-| Artifact id | The artifactId of the artifact for which the metadata download failed. |
-| Version | The version of the artifact for which the metadata download failed. |
-| Maven repository | The URL of the Maven repository that the metadata download failed on. |
-| Snapshots | Does the repository support snapshots. |
-| Releases | Does the repository support releases. |
-| Failure | The reason the metadata download failed. |
-
-</TabItem>
-
-<TabItem value="org.openrewrite.java.dependencies.table.VulnerabilityReport" label="VulnerabilityReport">
-
-### Vulnerability report
-**org.openrewrite.java.dependencies.table.VulnerabilityReport**
-
-_A vulnerability report that includes detailed information about the affected artifact and the corresponding CVEs._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| Project | The name of the project / module taking the dependency. Relevant in repositories with multiple modules. |
-| CVE | The CVE number. |
-| Group | The first part of a dependency coordinate `com.google.guava:guava:VERSION`. |
-| Artifact | The second part of a dependency coordinate `com.google.guava:guava:VERSION`. |
-| Version | The resolved version. |
-| Fixed in version | The minimum version that is no longer vulnerable. |
-| Last affected version | The last version which was vulnerable. |
-| Version within delta | The difference between the version in use and the fixed version is within the configured maximum version delta. The recipe attempted to upgrade the version in use to a fixed version. |
-| Summary | The summary of the CVE. |
-| Base score | The calculated base score. |
-| Depth | Zero for direct dependencies. |
-| CWEs | Common Weakness Enumeration (CWE) identifiers; semicolon separated. |
-| EPSS | EPSS probability score (0.0 to 1.0), or null if no EPSS data available. |
-
-</TabItem>
-
-<TabItem value="org.openrewrite.java.dependencies.table.DependencyOriginsReport" label="DependencyOriginsReport">
-
-### Dependency origins report
-**org.openrewrite.java.dependencies.table.DependencyOriginsReport**
-
-_A report that maps dependencies to their originating root node represented as dependency graph. The information can be used to understand which direct dependencies are responsible for bringing in specific transitive dependencies._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| Group | The first part of a dependency coordinate `com.google.guava:guava:VERSION`. |
-| Artifact | The second part of a dependency coordinate `com.google.guava:guava:VERSION`. |
-| Version | The resolved version. |
-| Depth | Zero for direct dependencies. |
-| Dependency graph | The dependency path showing how this vulnerable dependency is included in the project. |
-
-</TabItem>
-
 <TabItem value="org.openrewrite.table.SourcesFileResults" label="SourcesFileResults">
 
 ### Source files that had results

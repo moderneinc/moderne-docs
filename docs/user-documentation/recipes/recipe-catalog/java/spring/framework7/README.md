@@ -10,6 +10,7 @@ _Recipes that include further recipes, often including the individual recipes be
 
 * [Find removed APIs in Spring Framework 7.0](./findremovedapis.md)
 * [Migrate `HttpStatus` enum values to RFC 9110 names](./migratehttpstatustorfc9110.md)
+* [Migrate deprecated APIs removed in Spring Framework 7.0](./migratedeprecatedapis.md)
 * [Migrate to Spring Framework 7.0](./upgradespringframework_7_0.md)
 * [Rename MemberCategory field constants for Spring Framework 7.0](./renamemembercategoryconstants.md)
 * [Update GraalVM native reflection hints for Spring Framework 7.0](./updategraalvmnativehints.md)
@@ -22,7 +23,7 @@ _Recipes that include further recipes, often including the individual recipes be
 * [Find Spring Theme support usage](./findthemesupportusage.md)
 * [Find removed Spring servlet view classes](./findservletviewsupportusage.md)
 * [Migrate `ListenableFuture` to `CompletableFuture`](./migratelistenablefuture.md)
-* [Migrate deprecated APIs removed in Spring Framework 7.0](./migratedeprecatedapis.md)
+* [Migrate `ResponseEntity#getStatusCodeValue()` to `getStatusCode().value()`](./migrateresponseentitygetstatuscodevaluemethod.md)
 * [Preserve DynamicDestinationResolver behavior for JmsTemplate](./migratejmsdestinationresolver.md)
 * [Remove spring-jcl dependency](./removespringjcl.md)
 * [Rename `RequestContext.jstPresent` to `JSTL_PRESENT`](./renamerequestcontextjstlpresent.md)

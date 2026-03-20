@@ -1,74 +1,32 @@
 ---
-sidebar_label: "Hidden field"
+sidebar_label: "Use try-with-resources"
 ---
 
 
 <head>
-  <link rel="canonical" href="https://docs.openrewrite.org/recipes/staticanalysis/hiddenfield" />
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/staticanalysis/usetrywithresources" />
 </head>
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# Hidden field
+# Use try-with-resources
 
-**org.openrewrite.staticanalysis.HiddenField**
+**org.openrewrite.staticanalysis.UseTryWithResources**
 
-_Refactor local variables or parameters which shadow a field defined in the same class._
+_Refactor try/finally blocks to use try-with-resources when the finally block only closes an `AutoCloseable` resource._
 
 ### Tags
 
-* [RSPEC-S1117](https://next.sonarqube.com/sonarqube/coding_rules?languages=java&q=S1117&open=java%3AS1117)
-* [RSPEC-S2387](https://next.sonarqube.com/sonarqube/coding_rules?languages=java&q=S2387&open=java%3AS2387)
+* [RSPEC-S2093](https://next.sonarqube.com/sonarqube/coding_rules?languages=java&q=S2093&open=java%3AS2093)
 
 ## Recipe source
 
-[GitHub: HiddenField.java](https://github.com/openrewrite/rewrite-static-analysis/blob/main/src/main/java/org/openrewrite/staticanalysis/HiddenField.java),
+[GitHub: UseTryWithResources.java](https://github.com/openrewrite/rewrite-static-analysis/blob/main/src/main/java/org/openrewrite/staticanalysis/UseTryWithResources.java),
 [Issue Tracker](https://github.com/openrewrite/rewrite-static-analysis/issues),
 [Maven Central](https://central.sonatype.com/artifact/org.openrewrite.recipe/rewrite-static-analysis/)
 
 This recipe is available under the [Moderne Source Available License](https://docs.moderne.io/licensing/moderne-source-available-license).
-
-## Example
-
-
-<Tabs groupId="beforeAfter">
-<TabItem value="java" label="java">
-
-
-###### Before
-```java
-public class A {
-    private String field;
-
-    public A(String field) {
-    }
-}
-```
-
-###### After
-```java
-public class A {
-    private String field;
-
-    public A(String field1) {
-    }
-}
-```
-
-</TabItem>
-<TabItem value="diff" label="Diff" >
-
-```diff
-@@ -4,1 +4,1 @@
-    private String field;
-
--   public A(String field) {
-+   public A(String field1) {
-    }
-```
-</TabItem>
-</Tabs>
 
 
 ## Usage
@@ -82,7 +40,7 @@ This recipe has no required configuration options. Users of Moderne can run it v
 You will need to have configured the [Moderne CLI](https://docs.moderne.io/user-documentation/moderne-cli/getting-started/cli-intro) on your machine before you can run the following command.
 
 ```shell title="shell"
-mod run . --recipe HiddenField
+mod run . --recipe UseTryWithResources
 ```
 
 If the recipe is not available locally, then you can install it using:
@@ -96,7 +54,7 @@ mod config recipes jar install org.openrewrite.recipe:rewrite-static-analysis:{{
 
 import RecipeCallout from '@site/src/components/ModerneLink';
 
-<RecipeCallout link="https://app.moderne.io/recipes/org.openrewrite.staticanalysis.HiddenField" />
+<RecipeCallout link="https://app.moderne.io/recipes/org.openrewrite.staticanalysis.UseTryWithResources" />
 
 The community edition of the Moderne platform enables you to easily run recipes across thousands of open-source repositories.
 
