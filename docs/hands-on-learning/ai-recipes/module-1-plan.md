@@ -20,11 +20,11 @@ The Moderne CLI ships with AI skills that teach your coding agent how to work wi
 
 The three skills you'll use today:
 
-| Skill | What it does |
-|-------|-------------|
-| **create-recipe** | Guides the agent through recipe type selection, project scaffolding, writing tests, and implementing recipes following OpenRewrite best practices |
-| **run-recipe** | Handles compiling the recipe, setting up a working set of real repositories, running the recipe, and diagnosing results |
-| **create-organization** | Helps find and assemble a curated set of repositories to test against |
+| Skill                   | What it does                                                                                                                                      |
+|-------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------|
+| **create-recipe**       | Guides the agent through recipe type selection, project scaffolding, writing tests, and implementing recipes following OpenRewrite best practices |
+| **run-recipe**          | Handles compiling the recipe, setting up a working set of real repositories, running the recipe, and diagnosing results                           |
+| **create-organization** | Helps find and assemble a curated set of repositories to test against                                                                             |
 
 These skills are supported across multiple agents. See [Skills for AI coding agents](../../user-documentation/agent-tools/skills.md) for details on supported agents and how to invoke skills in each one.
 
@@ -39,7 +39,7 @@ This workshop demos with **Claude Code**, but skills are also supported for Wind
 If you haven't already, install the Moderne skills for all detected coding agents using the CLI:
 
 ```bash
-mod config moderne skills update
+mod config agent-tools install
 ```
 
 #### Step 2: Verify the skills are available
@@ -179,18 +179,18 @@ For reference, here's what a reasonable subset might look like:
 <details>
 <summary>Reference: example scoped subset</summary>
 
-| Change (old → new) | Recipe type |
-|---------------------|-------------|
-| `com.fasterxml.jackson` → `tools.jackson` (package) | Declarative (`ChangePackage`) |
-| `com.fasterxml.jackson.*` → `tools.jackson.*` (dependencies, version 3.x) | Declarative (`ChangeDependency`) |
-| `JsonProcessingException` → `JacksonException` | Declarative (`ChangeType`) |
-| `JsonSerializer` → `ValueSerializer` | Declarative (`ChangeType`) |
-| `JsonDeserializer` → `ValueDeserializer` | Declarative (`ChangeType`) |
-| `SerializerProvider` → `SerializationContext` | Declarative (`ChangeType`) |
-| `JsonToken.FIELD_NAME` → `JsonToken.PROPERTY_NAME` | Refaster template |
-| `SerializationFeature` constants → `DateTimeFeature` / `EnumFeature` | Refaster template |
-| Java 8 module deps + `registerModule()` calls → removed | Declarative (`RemoveDependency` + `RemoveMethodInvocations`) |
-| `new ObjectMapper()` → `JsonMapper.builder().build()` | Imperative Java recipe |
+| Change (old → new)                                                        | Recipe type                                                  |
+|---------------------------------------------------------------------------|--------------------------------------------------------------|
+| `com.fasterxml.jackson` → `tools.jackson` (package)                       | Declarative (`ChangePackage`)                                |
+| `com.fasterxml.jackson.*` → `tools.jackson.*` (dependencies, version 3.x) | Declarative (`ChangeDependency`)                             |
+| `JsonProcessingException` → `JacksonException`                            | Declarative (`ChangeType`)                                   |
+| `JsonSerializer` → `ValueSerializer`                                      | Declarative (`ChangeType`)                                   |
+| `JsonDeserializer` → `ValueDeserializer`                                  | Declarative (`ChangeType`)                                   |
+| `SerializerProvider` → `SerializationContext`                             | Declarative (`ChangeType`)                                   |
+| `JsonToken.FIELD_NAME` → `JsonToken.PROPERTY_NAME`                        | Refaster template                                            |
+| `SerializationFeature` constants → `DateTimeFeature` / `EnumFeature`      | Refaster template                                            |
+| Java 8 module deps + `registerModule()` calls → removed                   | Declarative (`RemoveDependency` + `RemoveMethodInvocations`) |
+| `new ObjectMapper()` → `JsonMapper.builder().build()`                     | Imperative Java recipe                                       |
 
 </details>
 

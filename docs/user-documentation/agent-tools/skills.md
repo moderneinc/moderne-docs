@@ -5,7 +5,7 @@ description: How to use Moderne skills with AI coding agents for recipe developm
 
 # Using Moderne skills with AI coding agents
 
-The Moderne CLI can install skills that teach AI coding agents how to work with OpenRewrite recipes. With a single command, you can install skills for all detected agents, giving them guidance through the full recipe workflow: creating recipes, running them at scale, and analyzing the impact of what changed.
+The Moderne CLI can install agent tools (skills and MCP servers) that teach AI coding agents how to work with OpenRewrite recipes. With a single command, you can install these tools for all detected agents, giving them guidance through the full recipe workflow: creating recipes, running them at scale, and analyzing the impact of what changed.
 
 ## Why use Moderne skills
 
@@ -23,43 +23,34 @@ The skills are bundled with the CLI and stay current when you update.
 
 The CLI auto-detects installed coding agents and installs skills to each one:
 
-| Agent           | Detection                             | Install location                                             |
-|-----------------|---------------------------------------|--------------------------------------------------------------|
-| Claude Code     | `~/.claude/` (or `CLAUDE_CONFIG_DIR`) | `~/.claude/marketplaces/moderne/moderne/commands/<skill>.md` |
-| Windsurf        | `~/.codeium/`                         | `~/.codeium/windsurf/skills/<skill>/SKILL.md`                |
-| Sourcegraph Amp | `~/.config/agents/`                   | `~/.config/agents/skills/<skill>/SKILL.md`                   |
-| Cursor          | `.cursor/` in current directory       | `.cursor/rules/moderne-<skill>.mdc`                          |
-| GitHub Copilot  | `.github/` in current directory       | `.github/instructions/moderne-<skill>.instructions.md`       |
+| Agent              | Detection                             | Install location                                             |
+|--------------------|---------------------------------------|--------------------------------------------------------------|
+| Claude Code        | `~/.claude/` (or `CLAUDE_CONFIG_DIR`) | `~/.claude/marketplaces/moderne/moderne/commands/<skill>.md` |
+| Windsurf           | `~/.codeium/`                         | `~/.codeium/windsurf/skills/<skill>/SKILL.md`                |
+| Sourcegraph Amp    | `~/.config/agents/`                   | `~/.config/agents/skills/<skill>/SKILL.md`                   |
+| OpenAI Codex       | `~/.agents/`                          | `~/.agents/skills/<skill>/SKILL.md`                          |
+| GitHub Copilot CLI | `~/.copilot/`                         | MCP server only (`~/.copilot/mcp-config.json`)               |
+| Cursor             | `.cursor/` in current directory       | `.cursor/rules/moderne-<skill>.mdc`                          |
+| GitHub Copilot     | `.github/` in current directory       | `.github/instructions/moderne-<skill>.instructions.md`       |
 
 :::note
 Cursor and GitHub Copilot skills are per-project. Unlike the other agents which install skills globally, these require running the install command from each project root where you want the skills available.
 :::
 
+In addition to installing skills, the command also registers a Moderne MCP server for each agent, providing tools for semantic code search, navigation, and refactoring.
+
 ## Installation
 
-The following command scans for installed coding agents and installs skills to each one. If no agents are detected, it displays a message listing the supported agents and their detection paths.
+The following command scans for installed coding agents and installs agent tools (skills and MCP servers) to each one. If no agents are detected, it displays a message listing the supported agents and their detection paths.
 
 ```bash
-mod config moderne skills update
+mod config agent-tools install
 ```
 
-To remove skills, delete the installed files for each agent:
+To remove all installed agent tools:
 
 ```bash
-# Claude Code
-rm -rf ~/.claude/marketplaces/moderne
-
-# Windsurf
-rm -rf ~/.codeium/windsurf/skills/run-recipe ~/.codeium/windsurf/skills/create-recipe ~/.codeium/windsurf/skills/create-organization ~/.codeium/windsurf/skills/analyze-impact
-
-# Sourcegraph Amp
-rm -rf ~/.config/agents/skills/run-recipe ~/.config/agents/skills/create-recipe ~/.config/agents/skills/create-organization ~/.config/agents/skills/analyze-impact
-
-# Cursor (from project root)
-rm -f .cursor/rules/moderne-*.mdc
-
-# GitHub Copilot (from project root)
-rm -f .github/instructions/moderne-*.instructions.md
+mod config agent-tools uninstall
 ```
 
 ## Invoking skills
@@ -173,13 +164,13 @@ The skills work together to support the full recipe lifecycle:
 
 ## Keeping skills up to date
 
-The skills are bundled with the CLI. When you upgrade the CLI, run the update command again to sync:
+The skills are bundled with the CLI. When you upgrade the CLI, run the install command again to sync:
 
 ```bash
-mod config moderne skills update
+mod config agent-tools install
 ```
 
-This ensures the skills stay current as CLI capabilities evolve.
+This ensures the agent tools stay current as CLI capabilities evolve.
 
 ## Next steps
 
