@@ -30,16 +30,31 @@ Choose the installation path that matches your setup:
 
 #### Step 1: Download the CLI
 
-1. Go to [app.moderne.io](https://app.moderne.io/) and sign in.
-2. Click on `?` in the top right-hand corner and select the version of the CLI you want to download.
-3. Either press the download button for your appropriate OS, or select the installation method in the provided table. We recommend using HomeBrew or Chocolatey if you have access to either.
+The recommended way to install the Moderne CLI is via the install script:
 
-![Moderne Platform help menu showing CLI download options for different operating systems](./assets/cli-download.gif)
+<Tabs groupId="cli-install-os" queryString="os">
+<TabItem value="linux-macos" label="Linux / macOS" default>
 
-4. If you chose to install the CLI without a package manager, you'll need to save it somewhere that your terminal can access. This could involve updating your `PATH` to point to a specific location – or this could involve putting it in a directory that's already on your `PATH` (such as a `/user/bin` directory).
-   * Remember to refresh any open terminals if you modify the `PATH`.
+```bash
+curl https://app.moderne.io/cli | bash
+```
 
-If everything was configured correctly, you should be able to type `mod` into your terminal and see a list of commands:
+</TabItem>
+<TabItem value="windows" label="Windows">
+
+```powershell
+irm https://app.moderne.io/cli/windows | iex
+```
+
+</TabItem>
+</Tabs>
+
+Alternatively, you can install via a package manager:
+
+* **Homebrew** (macOS/Linux): `brew install moderneinc/moderne/mod`
+* **Chocolatey** (Windows): `choco install mod --prerelease`
+
+After installation, verify by running `mod` in your terminal:
 
 <details>
 
@@ -171,16 +186,31 @@ This will grab _all_ of the recipes from the tenant you specified in `mod config
 
 #### Step 1: Download the CLI
 
-1. Go to your private tenant URL (e.g., `https://yourcompany.moderne.io`) and sign in.
-2. Click on `Help` in the bottom left-hand corner and select the version of the CLI you want to download.
-3. Either press the download button for your appropriate OS, or select the installation method in the provided table. We recommend using HomeBrew or Chocolatey if you have access to either.
+The recommended way to install the Moderne CLI is via the install script. Replace `<TENANT>` with your actual tenant name (e.g., `yourcompany`):
 
-![Moderne Platform help menu showing CLI download options for different operating systems](./assets/cli-download.gif)
+<Tabs groupId="cli-install-os" queryString="os">
+<TabItem value="linux-macos" label="Linux / macOS" default>
 
-4. If you chose to install the CLI without a package manager, you'll need to save it somewhere that your terminal can access. This could involve updating your `PATH` to point to a specific location – or this could involve putting it in a directory that's already on your `PATH` (such as a `/user/bin` directory).
-   * Remember to refresh any open terminals if you modify the `PATH`.
+```bash
+curl https://<TENANT>.moderne.io/cli | bash
+```
 
-If everything was configured correctly, you should be able to type `mod` into your terminal and see a list of commands:
+</TabItem>
+<TabItem value="windows" label="Windows">
+
+```powershell
+irm https://<TENANT>.moderne.io/cli/windows | iex
+```
+
+</TabItem>
+</Tabs>
+
+Alternatively, you can install via a package manager:
+
+* **Homebrew** (macOS/Linux): `brew install moderneinc/moderne/mod`
+* **Chocolatey** (Windows): `choco install mod --prerelease`
+
+After installation, verify by running `mod` in your terminal:
 
 <details>
 

@@ -61,14 +61,34 @@ In this exercise, you'll download, install, and configure the Moderne CLI, then 
 
 #### Step 1: Download and install the CLI
 
-1. Go to [app.moderne.io](https://app.moderne.io/) and sign in.
-2. Click on `?` in the top right-hand corner and download the latest version of the CLI. (Make sure to use version 3.54.5 or higher for this workshop.)
+The recommended way to install the Moderne CLI is via the install script:
 
-3. Either click the download button for your appropriate OS, or select one of the other installation methods like Homebrew (macOS), Chocolatey (Windows), or curl (Linux), then run the provided commands. (If you chose to install the CLI without a package manager, save it somewhere that your terminal can access by updating your `PATH`.)
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-![Moderne Platform Marketplace page with CLI download options](../../user-documentation/moderne-cli/getting-started/assets/cli-download.gif)
+<Tabs groupId="cli-install-os" queryString="os">
+<TabItem value="linux-macos" label="Linux / macOS" default>
 
-4. Verify the installation by opening a terminal and typing:
+```bash
+curl https://app.moderne.io/cli | bash
+```
+
+</TabItem>
+<TabItem value="windows" label="Windows">
+
+```powershell
+irm https://app.moderne.io/cli/windows | iex
+```
+
+</TabItem>
+</Tabs>
+
+Alternatively, you can install via a package manager:
+
+* **Homebrew** (macOS/Linux): `brew install moderneinc/moderne/mod`
+* **Chocolatey** (Windows): `choco install mod --prerelease`
+
+Verify the installation by opening a terminal and typing:
 
 ```bash
 mod --help
