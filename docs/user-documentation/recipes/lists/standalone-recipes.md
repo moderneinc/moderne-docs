@@ -9,13 +9,28 @@ _This doc contains recipes that are not included as part of any larger composite
 Total standalone recipes: 1206
 
 
-## io.moderne.recipe:rewrite-angular
+## io.moderne.recipe
+
+
+### rewrite-ai
+
+* [io.moderne.ai.FindAgentsInUse](/user-documentation/recipes/recipe-catalog/ai/findagentsinuse.md)
+  * **Find AI agents configuration files**
+  * Scans codebases to identify usage of AI agents by looking at the agent configuration files present in the repository.
+* [io.moderne.ai.FindLibrariesInUse](/user-documentation/recipes/recipe-catalog/ai/findlibrariesinuse.md)
+  * **Find AI libraries in use**
+  * Scans codebases to identify usage of AI services. Detects AI libraries across Java dependencies. Useful for auditing and understanding AI integration patterns.
+* [io.moderne.ai.FindModelsInUse](/user-documentation/recipes/recipe-catalog/ai/findmodelsinuse.md)
+  * **Find AI models in use**
+  * Scans codebases to identify usage of Large Language Models (LLMs). Detects model references and configuration patterns across Java classes, properties files, YAML configs... Useful for identifying model usage.
+
+### rewrite-angular
 
 * [org.openrewrite.angular.search.FindAngularComponent](/user-documentation/recipes/recipe-catalog/angular/search/findangularcomponent.md)
   * **Find Angular component**
   * Locates usages of Angular components across the codebase including template elements and other references. If `componentName` is `null`, finds all Angular components.
 
-## io.moderne.recipe:rewrite-cryptography
+### rewrite-cryptography
 
 * [io.moderne.cryptography.FindRSAKeyGenParameters](/user-documentation/recipes/recipe-catalog/cryptography/findrsakeygenparameters.md)
   * **Find RSA key generation parameters**
@@ -26,8 +41,50 @@ Total standalone recipes: 1206
 * [io.moderne.cryptography.FindSecurityModifications](/user-documentation/recipes/recipe-catalog/cryptography/findsecuritymodifications.md)
   * **Find Security class modifications**
   * Finds invocations of java.security.Security methods that modify security configuration such as removeProvider, addProvider, insertProviderAt, setProperty, and removeProperty.
+* [io.moderne.cryptography.PostQuantumCryptography](/user-documentation/recipes/recipe-catalog/cryptography/postquantumcryptography.md)
+  * **Post quantum cryptography**
+  * This recipe searches for instances in code that may be impacted by post quantum cryptography. Applications may need to support larger key sizes, different algorithms, or use crypto agility to handle the migration. The recipe includes detection of hardcoded values that affect behavior in a post-quantum world, programmatic configuration that may prevent algorithm changes, and general cryptographic usage patterns that should be reviewed.
 
-## io.moderne.recipe:rewrite-hibernate
+### rewrite-devcenter
+
+* [io.moderne.devcenter.ApacheDevCenter](/user-documentation/recipes/recipe-catalog/devcenter/apachedevcenter.md)
+  * **DevCenter for Apache**
+  * A DevCenter that tracks the latest Apache Maven parent POM versions and applies best practices.
+* [io.moderne.devcenter.ApacheMavenDevCenter](/user-documentation/recipes/recipe-catalog/devcenter/apachemavendevcenter.md)
+  * **DevCenter for Apache Maven**
+  * A DevCenter that tracks the latest Apache Maven parent POM versions and applies best practices. This DevCenter includes recipes to upgrade the parent POMs of Apache Maven, as well as a collection of best practices for Maven POMs.
+* [io.moderne.devcenter.BuildToolStarter](/user-documentation/recipes/recipe-catalog/devcenter/buildtoolstarter.md)
+  * **DevCenter for Gradle and Maven**
+  * Track and automate upgrades for Gradle, Maven, and Java versions.
+* [io.moderne.devcenter.DevCenterStarter](/user-documentation/recipes/recipe-catalog/devcenter/devcenterstarter.md)
+  * **DevCenter**
+  * This is a default DevCenter configuration that can be used as a starting point for your own DevCenter configuration. It includes a combination of upgrades, migrations, and security fixes. You can customize this configuration to suit your needs. For more information on how to customize your DevCenter configuration, see the [DevCenter documentation](https://docs.moderne.io/administrator-documentation/moderne-platform/how-to-guides/recipe-based-devcenter-beta/).
+* [io.moderne.devcenter.QuarkusDevCenter](/user-documentation/recipes/recipe-catalog/devcenter/quarkusdevcenter.md)
+  * **DevCenter for Quarkus**
+  * A DevCenter that tracks the latest Quarkus framework versions and applies best practices. This DevCenter includes recipes to upgrade Quarkus versions, migrate from deprecated APIs, and ensure compatibility with the latest Java versions and testing frameworks.
+* [io.moderne.devcenter.UpgradeApacheParent](/user-documentation/recipes/recipe-catalog/devcenter/upgradeapacheparent.md)
+  * **Upgrade Apache Parent POM**
+  * Upgrades the Apache parent POM to the latest version.
+* [io.moderne.devcenter.UpgradeMavenParent](/user-documentation/recipes/recipe-catalog/devcenter/upgrademavenparent.md)
+  * **Upgrade Apache Maven Parent**
+  * Upgrades the Apache Maven parent POM to the latest version.
+* [io.moderne.devcenter.UpgradeMavenPluginsParent](/user-documentation/recipes/recipe-catalog/devcenter/upgrademavenpluginsparent.md)
+  * **Upgrade Maven Plugins Parent**
+  * Upgrades the Apache Maven parent POM to the latest version.
+* [io.moderne.devcenter.UpgradeMavenSharedParent](/user-documentation/recipes/recipe-catalog/devcenter/upgrademavensharedparent.md)
+  * **Upgrade Maven Shared Parent**
+  * Upgrades the Apache Maven parent POM to the latest version.
+* [io.moderne.devcenter.UpgradeQuarkus3_x](/user-documentation/recipes/recipe-catalog/devcenter/upgradequarkus3_x.md)
+  * **Upgrade to Quarkus 3.26**
+  * Upgrades Quarkus dependencies to version 3.26.x, including core, extensions, and tooling.
+* [io.moderne.devcenter.UpgradeQuarkusUniverseBom](/user-documentation/recipes/recipe-catalog/devcenter/upgradequarkusuniversebom.md)
+  * **Upgrade Quarkus Universe BOM**
+  * Upgrades the Quarkus Universe BOM parent to the latest version.
+* [io.moderne.devcenter.VulnerabilitiesDevCenter](/user-documentation/recipes/recipe-catalog/devcenter/vulnerabilitiesdevcenter.md)
+  * **DevCenter for Vulnerability Management**
+  * Recipes to analyze and manage dependency vulnerabilities using Moderne DevCenter.
+
+### rewrite-hibernate
 
 * [io.moderne.hibernate.search.FindJPQLDefinitions](/user-documentation/recipes/recipe-catalog/hibernate/search/findjpqldefinitions.md)
   * **Find JPQL definitions**
@@ -36,7 +93,13 @@ Total standalone recipes: 1206
   * **Migrate @JdbcType to @JdbcTypeCode**
   * In Hibernate 7.0, various JDBC types were moved to internal packages. Use @JdbcTypeCode with SqlTypes constants instead of @JdbcType with specific classes.
 
-## io.moderne.recipe:rewrite-java-application-server
+### rewrite-jasperreports
+
+* [io.moderne.jasperreports.UpgradeToJasperReports6](/user-documentation/recipes/recipe-catalog/jasperreports/upgradetojasperreports6.md)
+  * **Migrate to JasperReports 6**
+  * Migrates JasperReports from 5.x to 6.x with the new exporter API, XLS to XLSX move, and removal of Spring JasperReports views.
+
+### rewrite-java-application-server
 
 * [io.moderne.java.server.jboss.ModuleHasJBossDescriptor](/user-documentation/recipes/recipe-catalog/java/server/jboss/modulehasjbossdescriptor.md)
   * **Module has JBoss descriptor**
@@ -44,11 +107,14 @@ Total standalone recipes: 1206
 * [io.moderne.java.server.jboss.PlanJBossMigration](/user-documentation/recipes/recipe-catalog/java/server/jboss/planjbossmigration.md)
   * **Plan JBoss migration**
   * Analyzes the repository to plan a JBoss migration, identifying JBoss descriptor files (jboss-web.xml, jboss-deployment-structure.xml) and recording them in a data table.
+* [io.moderne.java.server.jboss.jetty.MigrateJBossToJetty](/user-documentation/recipes/recipe-catalog/java/server/jboss/jetty/migratejbosstojetty.md)
+  * **Migrate JBoss to Jetty**
+  * Comprehensive migration from JBoss to Jetty.
 * [io.moderne.java.server.jboss.jetty.devcenter.JBossToJettyMigrationCard$Scanner](/user-documentation/recipes/recipe-catalog/java/server/jboss/jetty/devcenter/jbosstojettymigrationcard$scanner.md)
   * **JBoss to Jetty migration scanner**
   * Scans for JBoss and Jetty configuration files.
 
-## io.moderne.recipe:rewrite-prethink
+### rewrite-prethink
 
 * [io.moderne.prethink.UpdatePrethinkContextNoAiStarter](/user-documentation/recipes/recipe-catalog/prethink/updateprethinkcontextnoaistarter.md)
   * **Update Prethink context (no AI)**
@@ -57,8 +123,11 @@ Total standalone recipes: 1206
   * **Update Prethink context (with AI)**
   * Generate Moderne Prethink context files with AI-generated code comprehension, test coverage mapping, dependency inventory, and FINOS CALM architecture diagrams. Maps tests to implementation methods and optionally generates AI summaries of what each test verifies when LLM provider is configured.
 
-## io.moderne.recipe:rewrite-program-analysis
+### rewrite-program-analysis
 
+* [io.moderne.recipe.rewrite-program-analysis.InlineDeprecatedMethods](/user-documentation/recipes/recipe-catalog/recipe/rewrite-program-analysis/inlinedeprecatedmethods.md)
+  * **Inline deprecated delegating methods**
+  * Automatically generated recipes to inline deprecated method calls that delegate to other methods in the same class.
 * [org.openrewrite.analysis.java.FindNullPointerIssues](/user-documentation/recipes/recipe-catalog/analysis/java/findnullpointerissues.md)
   * **Find null pointer issues**
   * Detects potential null pointer dereferences using path-sensitive analysis to distinguish between definite NPEs, possible NPEs, and safe dereferences.
@@ -87,7 +156,7 @@ Total standalone recipes: 1206
   * **Find security vulnerabilities using taint analysis**
   * Identifies potential security vulnerabilities where untrusted data from sources flows to sensitive sinks without proper sanitization.
 
-## io.moderne.recipe:rewrite-react
+### rewrite-react
 
 * [org.openrewrite.react.search.FindPropUsage](/user-documentation/recipes/recipe-catalog/react/search/findpropusage.md)
   * **Find React prop usage**
@@ -96,7 +165,7 @@ Total standalone recipes: 1206
   * **Find React component**
   * Locates usages of React components across the codebase including JSX elements and other references. If `componentName` is `null`, finds all React components.
 
-## io.moderne.recipe:rewrite-spring
+### rewrite-spring
 
 * [io.moderne.java.spring.boot.IsLikelyNotSpringBoot](/user-documentation/recipes/recipe-catalog/java/spring/boot/islikelynotspringboot.md)
   * **Is likely not a Spring Boot project**
@@ -104,6 +173,24 @@ Total standalone recipes: 1206
 * [io.moderne.java.spring.boot.IsLikelySpringBoot](/user-documentation/recipes/recipe-catalog/java/spring/boot/islikelyspringboot.md)
   * **Is likely a Spring Boot project**
   * Marks the project if it's likely a Spring Boot project.
+* [io.moderne.java.spring.boot.SpringToSpringBoot](/user-documentation/recipes/recipe-catalog/java/spring/boot/springtospringboot.md)
+  * **Migrate Spring Framework to Spring Boot**
+  * Migrate non Spring Boot applications to the latest compatible Spring Boot release. This recipe will modify an application's build files introducing Maven dependency management for Spring Boot, or adding the Gradle Spring Boot build plugin.
+* [io.moderne.java.spring.boot4.ModuleHasMonolithicStarter](/user-documentation/recipes/recipe-catalog/java/spring/boot4/modulehasmonolithicstarter.md)
+  * **Module has monolithic Spring Boot starter**
+  * Precondition that matches modules with the monolithic Spring Boot starters that need to be migrated to modular starters. Matches the production monolithic spring-boot-starter and spring-boot-starter-classic, but not specific modular starters like spring-boot-starter-test or spring-boot-starter-ldap.
+* [io.moderne.java.spring.boot4.ModuleUsesFlyway](/user-documentation/recipes/recipe-catalog/java/spring/boot4/moduleusesflyway.md)
+  * **Module uses Flyway**
+  * Precondition that marks all files in a module if Flyway usage is detected. Detection is based on having a Flyway dependency, using Flyway types, or having migration files.
+* [io.moderne.java.spring.boot4.ModuleUsesLiquibase](/user-documentation/recipes/recipe-catalog/java/spring/boot4/moduleusesliquibase.md)
+  * **Module uses Liquibase**
+  * Precondition that marks all files in a module if Liquibase usage is detected. Detection is based on having a Liquibase dependency, using Liquibase types, or having changelog files.
+* [io.moderne.java.spring.boot4.SpringBoot4BestPractices](/user-documentation/recipes/recipe-catalog/java/spring/boot4/springboot4bestpractices.md)
+  * **Spring Boot 4.0 best practices**
+  * Applies best practices to Spring Boot 4.+ applications.
+* [io.moderne.java.spring.framework.FindDeprecatedPathMatcherUsage](/user-documentation/recipes/recipe-catalog/java/spring/framework/finddeprecatedpathmatcherusage.md)
+  * **Find deprecated `PathMatcher` usage**
+  * In Spring Framework 7.0, `PathMatcher` and `AntPathMatcher` are deprecated in favor of `PathPatternParser`. This recipe finds usages of the deprecated `AntPathMatcher` class that may require manual migration to `PathPatternParser`.
 * [io.moderne.java.spring.framework.IsLikelySpringFramework](/user-documentation/recipes/recipe-catalog/java/spring/framework/islikelyspringframework.md)
   * **Is likely a Spring Framework project**
   * Marks the project if it's likely a Spring Framework project.
@@ -129,973 +216,22 @@ Total standalone recipes: 1206
   * **Is likely a Kafka producer module**
   * Marks the project if it's likely a Kafka producer module.
 
-## io.moderne.recipe:rewrite-vulncheck
+### rewrite-tapestry
+
+* [org.openrewrite.tapestry.MigrateTapestry4To5](/user-documentation/recipes/recipe-catalog/tapestry/migratetapestry4to5.md)
+  * **Migrate Tapestry 4 to Tapestry 5**
+  * Migrates Apache Tapestry 4 applications to Tapestry 5. This includes package renames, removing base class inheritance, converting listener interfaces to annotations, and updating dependencies.
+
+### rewrite-vulncheck
 
 * [io.moderne.vulncheck.FixVulnCheckVulnerabilities](/user-documentation/recipes/recipe-catalog/vulncheck/fixvulncheckvulnerabilities.md)
   * **Use VulnCheck Exploit Intelligence to fix vulnerabilities**
   * This software composition analysis (SCA) tool detects and upgrades dependencies with publicly disclosed vulnerabilities. This recipe both generates a report of vulnerable dependencies and upgrades to newer versions with fixes. This recipe by default only upgrades to the latest **patch** version.  If a minor or major upgrade is required to reach the fixed version, this can be controlled using the `maximumUpgradeDelta` option. Vulnerability information comes from VulnCheck Vulnerability Intelligence. The recipe has an option to limit fixes to only those vulnerabilities that have evidence of exploitation at various levels of severity.
 
-## org.openrewrite.meta:rewrite-analysis
+## org.openrewrite
 
-* [org.openrewrite.analysis.controlflow.ControlFlowVisualization](/user-documentation/recipes/recipe-catalog/analysis/controlflow/controlflowvisualization.md)
-  * **Control flow visualization**
-  * Visualize the control flow of a Java program.
-* [org.openrewrite.analysis.search.FindFlowBetweenMethods](/user-documentation/recipes/recipe-catalog/analysis/search/findflowbetweenmethods.md)
-  * **Finds flow between two methods**
-  * Takes two patterns for the start/end methods to find flow between.
-* [org.openrewrite.analysis.search.FindMethods](/user-documentation/recipes/recipe-catalog/analysis/search/findmethods.md)
-  * **Find method usages**
-  * Find method usages by pattern.
-* [org.openrewrite.analysis.search.UriCreatedWithHttpScheme](/user-documentation/recipes/recipe-catalog/analysis/search/uricreatedwithhttpscheme.md)
-  * **URIs created with an HTTP scheme**
-  * This is a sample recipe demonstrating a simple application of local data flow analysis.
 
-## org.openrewrite.recipe:rewrite-ai-search
-
-* [io.moderne.ai.FindCommentsLanguage](/user-documentation/recipes/recipe-catalog/ai/findcommentslanguage.md)
-  * **Find comments' language distribution**
-  * Finds all comments and uses AI to predict which language the comment is in.
-* [io.moderne.ai.ListAllMethodsUsed](/user-documentation/recipes/recipe-catalog/ai/listallmethodsused.md)
-  * **List all methods used**
-  * List all methods used in any Java source file.
-* [io.moderne.ai.research.FindCodeThatResembles](/user-documentation/recipes/recipe-catalog/ai/research/findcodethatresembles.md)
-  * **Find method invocations that resemble a pattern**
-  * This recipe uses two phase AI approach to find a method invocation that resembles a search string.
-* [io.moderne.ai.research.GetCodeEmbedding](/user-documentation/recipes/recipe-catalog/ai/research/getcodeembedding.md)
-  * **Get embeddings for code snippets in code**
-  * This recipe calls an AI model to get an embedding for either classes or methods which can then be used for downstream tasks.
-* [io.moderne.ai.research.GetRecommendations](/user-documentation/recipes/recipe-catalog/ai/research/getrecommendations.md)
-  * **Get recommendations**
-  * This recipe calls an AI model to get recommendations for modernizing the code base by looking at a sample of method declarations.
-
-## org.openrewrite.recipe:rewrite-all
-
-* [org.openrewrite.FindCallGraph](/user-documentation/recipes/recipe-catalog/core/findcallgraph.md)
-  * **Find call graph**
-  * Produces a data table where each row represents a method call.
-* [org.openrewrite.FindDuplicateSourceFiles](/user-documentation/recipes/recipe-catalog/core/findduplicatesourcefiles.md)
-  * **Find duplicate source files**
-  * Record the presence of LSTs with duplicate paths, indicating that the same file was parsed more than once.
-* [org.openrewrite.LanguageComposition](/user-documentation/recipes/recipe-catalog/core/languagecomposition.md)
-  * **Language composition report**
-  * Counts the number of lines of the various kinds of source code and data formats parsed by OpenRewrite. Comments are not included in line counts. This recipe emits its results as two data tables, making no changes to any source file. One data table is per-file, the other is per-repository.
-
-## org.openrewrite.recipe:rewrite-apache
-
-* [org.openrewrite.apache.commons.codec.ApacheBase64ToJavaBase64](/user-documentation/recipes/recipe-catalog/apache/commons/codec/apachebase64tojavabase64.md)
-  * **Prefer `java.util.Base64`**
-  * Prefer the Java standard library's `java.util.Base64` over third-party usage of apache's `apache.commons.codec.binary.Base64`.
-* [org.openrewrite.apache.commons.io.ApacheCommonsFileUtilsRecipes](/user-documentation/recipes/recipe-catalog/apache/commons/io/apachecommonsfileutilsrecipes.md)
-  * **`ApacheCommonsFileUtils` Refaster recipes**
-  * Refaster template recipes for `org.openrewrite.apache.commons.io.ApacheCommonsFileUtils`.
-* [org.openrewrite.apache.commons.io.ApacheFileUtilsToJavaFiles](/user-documentation/recipes/recipe-catalog/apache/commons/io/apachefileutilstojavafiles.md)
-  * **Prefer `java.nio.file.Files`**
-  * Prefer the Java standard library's `java.nio.file.Files` over third-party usage of apache's `apache.commons.io.FileUtils`.
-* [org.openrewrite.apache.commons.io.ApacheIOUtilsUseExplicitCharset](/user-documentation/recipes/recipe-catalog/apache/commons/io/apacheioutilsuseexplicitcharset.md)
-  * **Use IOUtils method that include  their charset encoding**
-  * Use `IOUtils` method invocations that include the charset encoding instead of using the deprecated versions that do not include a charset encoding. (e.g. converts `IOUtils.readLines(inputStream)` to `IOUtils.readLines(inputStream, StandardCharsets.UTF_8)`.
-* [org.openrewrite.apache.commons.lang.ApacheCommonsStringUtilsRecipes](/user-documentation/recipes/recipe-catalog/apache/commons/lang/apachecommonsstringutilsrecipes.md)
-  * **`ApacheCommonsStringUtils` Refaster recipes**
-  * Refaster template recipes for `org.openrewrite.apache.commons.lang.ApacheCommonsStringUtils`.
-* [org.openrewrite.apache.commons.lang.IsNotEmptyToJdk](/user-documentation/recipes/recipe-catalog/apache/commons/lang/isnotemptytojdk.md)
-  * **Replace any StringUtils#isEmpty(String) and #isNotEmpty(String)**
-  * Replace any `StringUtils#isEmpty(String)` and `#isNotEmpty(String)` with `s == null || s.isEmpty()` and `s != null &amp;&amp; !s.isEmpty()`.
-* [org.openrewrite.apache.maven.shared.MavenSharedStringUtilsRecipes](/user-documentation/recipes/recipe-catalog/apache/maven/shared/mavensharedstringutilsrecipes.md)
-  * **`MavenSharedStringUtils` Refaster recipes**
-  * Refaster template recipes for `org.openrewrite.apache.maven.shared.MavenSharedStringUtils`.
-* [org.openrewrite.codehaus.plexus.AbstractLogEnabledToSlf4j](/user-documentation/recipes/recipe-catalog/codehaus/plexus/abstractlogenabledtoslf4j.md)
-  * **Migrate from Plexus `AbstractLogEnabled` to SLF4J**
-  * Introduce a SLF4J `Logger` field and replace calls to `getLogger()` with calls to the field.
-* [org.openrewrite.codehaus.plexus.PlexusFileUtilsRecipes](/user-documentation/recipes/recipe-catalog/codehaus/plexus/plexusfileutilsrecipes.md)
-  * **`PlexusFileUtils` Refaster recipes**
-  * Refaster template recipes for `org.openrewrite.codehaus.plexus.PlexusFileUtils`.
-* [org.openrewrite.codehaus.plexus.PlexusStringUtilsRecipes](/user-documentation/recipes/recipe-catalog/codehaus/plexus/plexusstringutilsrecipes.md)
-  * **`PlexusStringUtils` Refaster recipes**
-  * Refaster template recipes for `org.openrewrite.codehaus.plexus.PlexusStringUtils`.
-
-## org.openrewrite.recipe:rewrite-circleci
-
-* [org.openrewrite.circleci.InstallOrb](/user-documentation/recipes/recipe-catalog/circleci/installorb.md)
-  * **Install an orb**
-  * Install a CircleCI [orb](https://circleci.com/docs/2.0/orb-intro/) if it is not already installed.
-* [org.openrewrite.circleci.UpdateImage](/user-documentation/recipes/recipe-catalog/circleci/updateimage.md)
-  * **Update CircleCI image**
-  * See the list of [pre-built CircleCI images](https://circleci.com/docs/2.0/circleci-images/).
-
-## org.openrewrite.recipe:rewrite-codemods
-
-* [org.openrewrite.codemods.Biome](/user-documentation/recipes/recipe-catalog/codemods/biome.md)
-  * **Biome recommendations**
-  * Run [Biome](https://biomejs.dev/) recommended settings on your projects.
-* [org.openrewrite.codemods.Putout](/user-documentation/recipes/recipe-catalog/codemods/putout.md)
-  * **Run Putout**
-  * Run [Putout](https://github.com/coderaiser/putout) on your projects.
-* [org.openrewrite.codemods.ReactI18Next](/user-documentation/recipes/recipe-catalog/codemods/reacti18next.md)
-  * **React i18next internationalization**
-  * Automatically internationalizes React applications by extracting hardcoded strings and replacing them with [react-i18next](https://react.i18next.com) translation calls. Handles JSX text, attributes, and template literals with variables. Creates and updates a translation JSON file with extracted strings.
-* [org.openrewrite.codemods.UI5](/user-documentation/recipes/recipe-catalog/codemods/ui5.md)
-  * **Lint UI5 projects with UI5 linter**
-  * Runs the [UI5 Linter](https://github.com/SAP/ui5-linter), a static code analysis tool for UI5 projects. It checks JavaScript, TypeScript, XML, JSON, and other files in your project and reports findings.
-
-## org.openrewrite.recipe:rewrite-compiled-analysis
-
-* [io.moderne.compiled.verification.ChangeListMethodAndVerify](/user-documentation/recipes/recipe-catalog/compiled/verification/changelistmethodandverify.md)
-  * **Change `List#add` to `List#plus` and verify**
-  * We know this won't compile.
-
-## org.openrewrite.recipe:rewrite-concourse
-
-* [org.openrewrite.concourse.ChangeResourceVersion](/user-documentation/recipes/recipe-catalog/concourse/changeresourceversion.md)
-  * **Change resource version**
-  * Pin or unpin a resource to a particular version.
-* [org.openrewrite.concourse.FindResource](/user-documentation/recipes/recipe-catalog/concourse/findresource.md)
-  * **Find resource**
-  * Find a Concourse resource by name.
-* [org.openrewrite.concourse.UpdateGitResourceUri](/user-documentation/recipes/recipe-catalog/concourse/updategitresourceuri.md)
-  * **Update git resource `source.uri` references**
-  * Update git resource `source.uri` URI values to point to a new URI value.
-* [org.openrewrite.concourse.search.FindPinnedResource](/user-documentation/recipes/recipe-catalog/concourse/search/findpinnedresource.md)
-  * **Find pinned resources by type**
-  * Find resources of a particular type that have pinned versions.
-
-## org.openrewrite.recipe:rewrite-dotnet
-
-* [org.openrewrite.dotnet.UpgradeAssistantAnalyze](/user-documentation/recipes/recipe-catalog/dotnet/upgradeassistantanalyze.md)
-  * **Analyze a .NET project using upgrade-assistant**
-  * Run [upgrade-assistant analyze](https://learn.microsoft.com/en-us/dotnet/core/porting/upgrade-assistant-overview) across a repository to analyze changes required to upgrade projects to a newer version of .NET. This recipe will generate an `org.openrewrite.dotnet.UpgradeAssistantAnalysis` data table containing the report details.
-
-## org.openrewrite.recipe:rewrite-dropwizard
-
-* [org.openrewrite.java.dropwizard.method.RemoveUnnecessarySuperCalls](/user-documentation/recipes/recipe-catalog/java/dropwizard/method/removeunnecessarysupercalls.md)
-  * **Remove `super` calls when the class does not extend another class**
-  * Removes calls to `super(...)` or `super.someMethod(...)` if the class does not have a real superclass besides `java.lang.Object`.
-
-## org.openrewrite.recipe:rewrite-feature-flags
-
-* [org.openrewrite.featureflags.ff4j.RemoveCheck](/user-documentation/recipes/recipe-catalog/featureflags/ff4j/removecheck.md)
-  * **Remove FF4j's `check` for feature key**
-  * Replace `check()` invocations for `featureKey` with `replacementValue`, and simplify constant if branch execution.
-* [org.openrewrite.featureflags.ff4j.search.FindFeatureFlag](/user-documentation/recipes/recipe-catalog/featureflags/ff4j/search/findfeatureflag.md)
-  * **Find a FF4j feature flag**
-  * Find a FF4j feature flag.
-* [org.openrewrite.featureflags.launchdarkly.ChangeVariationDefault](/user-documentation/recipes/recipe-catalog/featureflags/launchdarkly/changevariationdefault.md)
-  * **Change the default value for feature key**
-  * Change the default value for `Variation` invocations for feature key.
-* [org.openrewrite.featureflags.launchdarkly.RemoveBoolVariation](/user-documentation/recipes/recipe-catalog/featureflags/launchdarkly/removeboolvariation.md)
-  * **Remove LaunchDarkly's `boolVariation` for feature key**
-  * Replace `boolVariation` invocations for feature key with value, and simplify constant if branch execution.
-* [org.openrewrite.featureflags.launchdarkly.RemoveDoubleVariation](/user-documentation/recipes/recipe-catalog/featureflags/launchdarkly/removedoublevariation.md)
-  * **Remove LaunchDarkly's `doubleVariation` for feature key**
-  * Replace `doubleVariation` invocations for feature key with value, and simplify constant if branch execution.
-* [org.openrewrite.featureflags.launchdarkly.RemoveIntVariation](/user-documentation/recipes/recipe-catalog/featureflags/launchdarkly/removeintvariation.md)
-  * **Remove LaunchDarkly's `intVariation` for feature key**
-  * Replace `intVariation` invocations for feature key with value, and simplify constant if branch execution.
-* [org.openrewrite.featureflags.launchdarkly.RemoveStringVariation](/user-documentation/recipes/recipe-catalog/featureflags/launchdarkly/removestringvariation.md)
-  * **Remove LaunchDarkly's `stringVariation` for feature key**
-  * Replace `stringVariation` invocations for feature key with value, and simplify constant if branch execution.
-* [org.openrewrite.featureflags.launchdarkly.search.FindFeatureFlag](/user-documentation/recipes/recipe-catalog/featureflags/launchdarkly/search/findfeatureflag.md)
-  * **Find a LaunchDarkly feature flag**
-  * Find a LaunchDarkly feature flag.
-* [org.openrewrite.featureflags.openfeature.RemoveGetBooleanValue](/user-documentation/recipes/recipe-catalog/featureflags/openfeature/removegetbooleanvalue.md)
-  * **Remove OpenFeature's `getBooleanValue` for feature key**
-  * Replace `getBooleanValue()` invocations for `featureKey` with `replacementValue`, and simplify constant if branch execution.
-* [org.openrewrite.featureflags.openfeature.RemoveGetDoubleValue](/user-documentation/recipes/recipe-catalog/featureflags/openfeature/removegetdoublevalue.md)
-  * **Remove OpenFeature's `getDoubleValue` for feature key**
-  * Replace `getDoubleValue()` invocations for `featureKey` with `replacementValue`, and simplify constant if branch execution.
-* [org.openrewrite.featureflags.openfeature.RemoveGetIntegerValue](/user-documentation/recipes/recipe-catalog/featureflags/openfeature/removegetintegervalue.md)
-  * **Remove OpenFeature's `getIntegerValue` for feature key**
-  * Replace `getIntegerValue()` invocations for `featureKey` with `replacementValue`, and simplify constant if branch execution.
-* [org.openrewrite.featureflags.openfeature.RemoveGetStringValue](/user-documentation/recipes/recipe-catalog/featureflags/openfeature/removegetstringvalue.md)
-  * **Remove OpenFeature's `getStringValue` for feature key**
-  * Replace `getStringValue()` invocations for `featureKey` with `replacementValue`, and simplify constant if branch execution.
-* [org.openrewrite.featureflags.openfeature.search.FindFeatureFlag](/user-documentation/recipes/recipe-catalog/featureflags/openfeature/search/findfeatureflag.md)
-  * **Find an OpenFeature feature flag**
-  * Find an OpenFeature feature flag.
-* [org.openrewrite.featureflags.quarkus.RemoveGetInt](/user-documentation/recipes/recipe-catalog/featureflags/quarkus/removegetint.md)
-  * **Remove Quarkus feature flag's `getInt` for feature key**
-  * Replace `getInt()` invocations for `featureKey` with `replacementValue`, and simplify constant if branch execution.
-* [org.openrewrite.featureflags.quarkus.RemoveGetString](/user-documentation/recipes/recipe-catalog/featureflags/quarkus/removegetstring.md)
-  * **Remove Quarkus feature flag's `getString` for feature key**
-  * Replace `getString()` invocations for `featureKey` with `replacementValue`, and simplify constant if branch execution.
-* [org.openrewrite.featureflags.quarkus.RemoveIsEnabled](/user-documentation/recipes/recipe-catalog/featureflags/quarkus/removeisenabled.md)
-  * **Remove Quarkus feature flag's `isEnabled` for feature key**
-  * Replace `isEnabled()` invocations for `featureKey` with `replacementValue`, and simplify constant if branch execution.
-* [org.openrewrite.featureflags.quarkus.search.FindFeatureFlag](/user-documentation/recipes/recipe-catalog/featureflags/quarkus/search/findfeatureflag.md)
-  * **Find a Quarkus feature flag**
-  * Find a Quarkus feature flag.
-* [org.openrewrite.featureflags.unleash.RemoveIsEnabled](/user-documentation/recipes/recipe-catalog/featureflags/unleash/removeisenabled.md)
-  * **Remove Unleash's `isEnabled` for feature key**
-  * Replace `isEnabled()` invocations for `featureKey` with `replacementValue`, and simplify constant if branch execution.
-* [org.openrewrite.featureflags.unleash.search.FindFeatureFlag](/user-documentation/recipes/recipe-catalog/featureflags/unleash/search/findfeatureflag.md)
-  * **Find an Unleash feature flag**
-  * Find an Unleash feature flag.
-
-## org.openrewrite.recipe:rewrite-github-actions
-
-* [org.openrewrite.github.AddCronTrigger](/user-documentation/recipes/recipe-catalog/github/addcrontrigger.md)
-  * **Add cron workflow trigger**
-  * The `schedule` [event](https://docs.github.com/en/actions/reference/events-that-trigger-workflows#scheduled-events) allows you to trigger a workflow at a scheduled time.
-* [org.openrewrite.github.AddDependabotCooldown](/user-documentation/recipes/recipe-catalog/github/adddependabotcooldown.md)
-  * **Add cooldown periods to Dependabot configuration**
-  * Adds a `cooldown` section to each update configuration in Dependabot files. Supports `default-days`, `semver-major-days`, `semver-minor-days`, `semver-patch-days`, `include`, and `exclude` options. This implements a security best practice where dependencies are not immediately adopted upon release, allowing time for security vendors to identify potential supply chain compromises. Cooldown applies only to version updates, not security updates. [Read more about dependency cooldowns](https://blog.yossarian.net/2025/11/21/We-should-all-be-using-dependency-cooldowns). [The available configuration options for dependabot are listed on GitHub](https://docs.github.com/en/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/configuration-options-for-dependency-updates).
-* [org.openrewrite.github.AutoCancelInProgressWorkflow](/user-documentation/recipes/recipe-catalog/github/autocancelinprogressworkflow.md)
-  * **Cancel in-progress workflow when it is triggered again**
-  * When a workflow is already running and would be triggered again, cancel the existing workflow. See [`styfle/cancel-workflow-action`](https://github.com/styfle/cancel-workflow-action) for details.
-* [org.openrewrite.github.FindMissingTimeout](/user-documentation/recipes/recipe-catalog/github/findmissingtimeout.md)
-  * **Find jobs missing timeout**
-  * Find GitHub Actions jobs missing a timeout.
-* [org.openrewrite.github.IsGitHubActionsWorkflow](/user-documentation/recipes/recipe-catalog/github/isgithubactionsworkflow.md)
-  * **Is GitHub Actions Workflow**
-  * Checks if the file is a GitHub Actions workflow file.
-* [org.openrewrite.github.PreferSecretsInheritWorkflow](/user-documentation/recipes/recipe-catalog/github/prefersecretsinheritworkflow.md)
-  * **Use `secrets: inherit` if possible**
-  * Pass all secrets to a reusable workflow using `secrets: inherit`. See [Simplify using secrets with reusable workflows](https://github.blog/changelog/2022-05-03-github-actions-simplify-using-secrets-with-reusable-workflows/) for details.
-* [org.openrewrite.github.PreferTemurinDistributions](/user-documentation/recipes/recipe-catalog/github/prefertemurindistributions.md)
-  * **Use `actions/setup-java` `temurin` distribution as they are cached in hosted runners**
-  * [Host runners](https://docs.github.com/en/actions/using-github-hosted-runners/about-github-hosted-runners#supported-runners-and-hardware-resources/) include Temurin by default as part of the [hosted tool cache](https://github.com/actions/setup-java/blob/main/docs/advanced-usage.md#hosted-tool-cache). Using Temurin speeds up builds as there is no need to download and configure the Java SDK with every build.
-* [org.openrewrite.github.RemoveAllCronTriggers](/user-documentation/recipes/recipe-catalog/github/removeallcrontriggers.md)
-  * **Remove all cron triggers**
-  * Removes all cron triggers from a workflow.
-* [org.openrewrite.github.RemoveUnusedWorkflowDispatchInputs](/user-documentation/recipes/recipe-catalog/github/removeunusedworkflowdispatchinputs.md)
-  * **Remove unused workflow dispatch inputs**
-  * Remove workflow_dispatch inputs that are not referenced anywhere in the workflow file.
-* [org.openrewrite.github.RemoveWorkflowInputArgument](/user-documentation/recipes/recipe-catalog/github/removeworkflowinputargument.md)
-  * **Remove workflow input argument**
-  * Remove a specific input argument from calls to a reusable workflow.
-* [org.openrewrite.github.ReplaceRunners](/user-documentation/recipes/recipe-catalog/github/replacerunners.md)
-  * **Replace runners for a job**
-  * Replaces the runners of a given job.
-* [org.openrewrite.github.SetupJavaAdoptOpenJDKToTemurin](/user-documentation/recipes/recipe-catalog/github/setupjavaadoptopenjdktotemurin.md)
-  * **Use `actions/setup-java` `temurin` distribution**
-  * Adopt OpenJDK got moved to Eclipse Temurin and won't be updated anymore. It is highly recommended to migrate workflows from adopt to temurin to keep receiving software and security updates. See more details in the [Good-bye AdoptOpenJDK post](https://blog.adoptopenjdk.net/2021/08/goodbye-adoptopenjdk-hello-adoptium/).
-* [org.openrewrite.github.SetupJavaAdoptOpenj9ToSemeru](/user-documentation/recipes/recipe-catalog/github/setupjavaadoptopenj9tosemeru.md)
-  * **Use `actions/setup-java` IBM `semeru` distribution**
-  * Adopt OpenJDK got moved to Eclipse Temurin and won't be updated anymore. It is highly recommended to migrate workflows from adopt-openj9 to IBM semeru to keep receiving software and security updates. See more details in the [Good-bye AdoptOpenJDK post](https://blog.adoptopenjdk.net/2021/08/goodbye-adoptopenjdk-hello-adoptium/).
-* [org.openrewrite.github.SetupJavaCaching](/user-documentation/recipes/recipe-catalog/github/setupjavacaching.md)
-  * **Setup Java dependency caching**
-  * GitHub actions supports dependency caching on Maven and Gradle projects. See the [blog post](https://github.blog/changelog/2021-08-30-github-actions-setup-java-now-supports-dependency-caching/).
-* [org.openrewrite.github.SetupNodeUpgradeNodeVersion](/user-documentation/recipes/recipe-catalog/github/setupnodeupgradenodeversion.md)
-  * **Upgrade `actions/setup-node` `node-version`**
-  * Update the Node.js version used by `actions/setup-node` if it is below the expected version number.
-* [org.openrewrite.github.SetupPythonToUv](/user-documentation/recipes/recipe-catalog/github/setuppythontouv.md)
-  * **Replace `actions/setup-python` with `astral-sh/setup-uv`**
-  * Replace `actions/setup-python` action with `astral-sh/setup-uv` action for faster Python environment setup and dependency management.  **Benefits of UV:**  - Significantly faster package installation and environment setup  - Built-in dependency resolution and locking  - Integrated caching for improved CI performance  - Drop-in replacement for pip workflows  **Transformations applied:**  - `actions/setup-python@v5` → `astral-sh/setup-uv@v6`  - `cache: 'pip'` → `enable-cache: 'true'`  - `pip install -r requirements.txt` → `uv sync` (configurable strategy)  - `python -m &lt;module&gt;` → `uv run &lt;module&gt;`  - Removes unnecessary `pip install --upgrade pip` steps  **Sync strategies:**  - `basic`: Basic synchronization (`uv sync`)  - `locked`: Use locked dependencies (`uv sync --locked`)  - `full`: Install all extras and dev dependencies (`uv sync --all-extras --dev`)  See the [UV GitHub integration guide](https://docs.astral.sh/uv/guides/integration/github/) for more details.
-* [org.openrewrite.github.UpgradeSlackNotificationVersion2](/user-documentation/recipes/recipe-catalog/github/upgradeslacknotificationversion2.md)
-  * **Upgrade `slackapi/slack-github-action`**
-  * Update the Slack GitHub Action to use version 2.0.
-* [org.openrewrite.github.security.AnonymousJobsRecipe](/user-documentation/recipes/recipe-catalog/github/security/anonymousjobsrecipe.md)
-  * **Find jobs without descriptive names**
-  * Find jobs that lack descriptive names, making them harder to identify in workflow runs. Jobs without `name` properties default to their job ID, which may not be descriptive. Based on [zizmor's anonymous-definition audit](https://github.com/woodruffw/zizmor/blob/main/crates/zizmor/src/audit/anonymous_definition.rs).
-
-## org.openrewrite.recipe:rewrite-gitlab
-
-* [org.openrewrite.gitlab.AddCache](/user-documentation/recipes/recipe-catalog/gitlab/addcache.md)
-  * **Add cache configuration**
-  * Add `cache` configuration to `.gitlab-ci.yml` for faster builds.
-* [org.openrewrite.gitlab.AddComponent](/user-documentation/recipes/recipe-catalog/gitlab/addcomponent.md)
-  * **Add GitLab component**
-  * Add a GitLab component to an existing list, or add a new list where none was present.
-* [org.openrewrite.gitlab.AddDefaultKeyword](/user-documentation/recipes/recipe-catalog/gitlab/adddefaultkeyword.md)
-  * **Add default keyword**
-  * Add or update a keyword in the `default` section of `.gitlab-ci.yml`.
-* [org.openrewrite.gitlab.AddStages](/user-documentation/recipes/recipe-catalog/gitlab/addstages.md)
-  * **Add GitLab stages**
-  * Add or Update the set of stages defined in `.gitlab-ci.yml`.
-* [org.openrewrite.gitlab.AddTemplate](/user-documentation/recipes/recipe-catalog/gitlab/addtemplate.md)
-  * **Add GitLab template**
-  * Add a GitLab template to an existing list, or add a new list where none was present.
-* [org.openrewrite.gitlab.ChangeComponent](/user-documentation/recipes/recipe-catalog/gitlab/changecomponent.md)
-  * **Change GitLab Component**
-  * Change a GitLab Component in use.
-* [org.openrewrite.gitlab.ChangeTemplate](/user-documentation/recipes/recipe-catalog/gitlab/changetemplate.md)
-  * **Change GitLab template**
-  * Change a GitLab template in use.
-* [org.openrewrite.gitlab.RemoveTemplate](/user-documentation/recipes/recipe-catalog/gitlab/removetemplate.md)
-  * **Remove GitLab template**
-  * Remove a GitLab template from use.
-* [org.openrewrite.gitlab.search.FindComponent](/user-documentation/recipes/recipe-catalog/gitlab/search/findcomponent.md)
-  * **Find GitLab Component**
-  * Find a GitLab Component in use.
-* [org.openrewrite.gitlab.search.FindTemplate](/user-documentation/recipes/recipe-catalog/gitlab/search/findtemplate.md)
-  * **Find GitLab Template**
-  * Find a GitLab Template in use.
-
-## org.openrewrite.recipe:rewrite-hibernate
-
-* [org.openrewrite.hibernate.MigrateUserType](/user-documentation/recipes/recipe-catalog/hibernate/migrateusertype.md)
-  * **Migrate `UserType` to Hibernate 6**
-  * With Hibernate 6 the `UserType` interface received a type parameter making it more strictly typed. This recipe applies the changes required to adhere to this change.
-
-## org.openrewrite.recipe:rewrite-java-dependencies
-
-* [org.openrewrite.java.dependencies.DependencyResolutionDiagnostic](/user-documentation/recipes/recipe-catalog/java/dependencies/dependencyresolutiondiagnostic.md)
-  * **Dependency resolution diagnostic**
-  * Recipes which manipulate dependencies must be able to successfully access the artifact repositories and resolve dependencies from them. This recipe produces two data tables used to understand the state of dependency resolution.   The Repository accessibility report lists all the artifact repositories known to the project and whether respond to network access. The network access is attempted while the recipe is run and so is representative of current conditions.   The Gradle dependency configuration errors lists all the dependency configurations that failed to resolve one or more dependencies when the project was parsed. This is representative of conditions at the time the LST was parsed.
-* [org.openrewrite.java.dependencies.FindDependency](/user-documentation/recipes/recipe-catalog/java/dependencies/finddependency.md)
-  * **Find Maven and Gradle dependencies**
-  * Finds direct dependencies declared in Maven and Gradle build files. This does *not* search transitive dependencies. To detect both direct and transitive dependencies use `org.openrewrite.java.dependencies.DependencyInsight` This recipe works for both Maven and Gradle projects.
-* [org.openrewrite.java.dependencies.FindRepositoryOrder](/user-documentation/recipes/recipe-catalog/java/dependencies/findrepositoryorder.md)
-  * **Maven repository order**
-  * Determine the order in which dependencies will be resolved for each `pom.xml` or `build.gradle` based on its defined repositories and effective settings.
-* [org.openrewrite.java.dependencies.RelocatedDependencyCheck](/user-documentation/recipes/recipe-catalog/java/dependencies/relocateddependencycheck.md)
-  * **Find relocated dependencies**
-  * Find Maven and Gradle dependencies and Maven plugins that have relocated to a new `groupId` or `artifactId`. Relocation information comes from the [oga-maven-plugin](https://github.com/jonathanlermitage/oga-maven-plugin/) maintained by Jonathan Lermitage, Filipe Roque and others.  This recipe makes no changes to any source file by default. Add `changeDependencies=true` to change dependencies, but note that you might need to run additional recipes to update imports and adopt other breaking changes.
-* [org.openrewrite.java.dependencies.UpgradeTransitiveDependencyVersion](/user-documentation/recipes/recipe-catalog/java/dependencies/upgradetransitivedependencyversion.md)
-  * **Upgrade transitive Gradle or Maven dependencies**
-  * Upgrades the version of a transitive dependency in a Maven pom.xml or Gradle build.gradle. Leaves direct dependencies unmodified. Can be paired with the regular Upgrade Dependency Version recipe to upgrade a dependency everywhere, regardless of whether it is direct or transitive.
-* [org.openrewrite.java.dependencies.search.DoesNotIncludeDependency](/user-documentation/recipes/recipe-catalog/java/dependencies/search/doesnotincludedependency.md)
-  * **Does not include dependency for Gradle and Maven**
-  * A precondition which returns false if visiting a Gradle file / Maven pom which includes the specified dependency in the classpath of some Gradle configuration / Maven scope. For compatibility with multimodule projects, this should most often be applied as a precondition.
-* [org.openrewrite.java.dependencies.search.FindDuplicateClasses](/user-documentation/recipes/recipe-catalog/java/dependencies/search/findduplicateclasses.md)
-  * **Find duplicate classes on the classpath**
-  * Detects classes that appear in multiple dependencies on the classpath. This is similar to what the Maven duplicate-finder-maven-plugin does. Duplicate classes can cause runtime issues when different versions of the same class are loaded.
-* [org.openrewrite.java.dependencies.search.FindMinimumDependencyVersion](/user-documentation/recipes/recipe-catalog/java/dependencies/search/findminimumdependencyversion.md)
-  * **Find the oldest matching dependency version in use**
-  * The oldest dependency version in use is the lowest dependency version in use in any source set of any subproject of a repository. It is possible that, for example, the main source set of a project uses Jackson 2.11, but a test source set uses Jackson 2.16. In this case, the oldest Jackson version in use is Java 2.11.
-* [org.openrewrite.java.dependencies.search.FindMinimumJUnitVersion](/user-documentation/recipes/recipe-catalog/java/dependencies/search/findminimumjunitversion.md)
-  * **Find minimum JUnit version**
-  * A recipe to find the minimum version of JUnit dependencies. This recipe is designed to return the minimum version of JUnit in a project. It will search for JUnit 4 and JUnit 5 dependencies in the project. If both versions are found, it will return the minimum version of JUnit 4. If a minimumVersion is provided, the recipe will search to see if the minimum version of JUnit used by the project is no lower than the minimumVersion. For example: if the minimumVersion is 4, and the project has JUnit 4.12 and JUnit 5.7, the recipe will return JUnit 4.12. If the project has only JUnit 5.7, the recipe will return JUnit 5.7. Another example: if the minimumVersion is 5, and the project has JUnit 4.12 and JUnit 5.7, the recipe will not return any results.
-* [org.openrewrite.java.dependencies.search.RepositoryHasDependency](/user-documentation/recipes/recipe-catalog/java/dependencies/search/repositoryhasdependency.md)
-  * **Repository has dependency**
-  * Searches for both Gradle and Maven modules that have a dependency matching the specified groupId and artifactId. Places a `SearchResult` marker on all sources within a repository with a matching dependency. This recipe is intended to be used as a precondition for other recipes. For example this could be used to limit the application of a spring boot migration to only projects that use a springframework dependency, limiting unnecessary upgrading. If the search result you want is instead just the build.gradle(.kts) or pom.xml file applying the plugin, use the `FindDependency` recipe instead.
-
-## org.openrewrite.recipe:rewrite-java-security
-
-* [org.openrewrite.csharp.dependencies.DependencyInsight](/user-documentation/recipes/recipe-catalog/csharp/dependencies/dependencyinsight.md)
-  * **Dependency insight for C#**
-  * Finds dependencies in `*.csproj` and `packages.config`.
-* [org.openrewrite.csharp.dependencies.DependencyVulnerabilityCheck](/user-documentation/recipes/recipe-catalog/csharp/dependencies/dependencyvulnerabilitycheck.md)
-  * **Find and fix vulnerable Nuget dependencies**
-  * This software composition analysis (SCA) tool detects and upgrades dependencies with publicly disclosed vulnerabilities. This recipe both generates a report of vulnerable dependencies and upgrades to newer versions with fixes. This recipe **only** upgrades to the latest **patch** version.  If a minor or major upgrade is required to reach the fixed version, this recipe will not make any changes. Vulnerability information comes from the [GitHub Security Advisory Database](https://docs.github.com/en/code-security/security-advisories/global-security-advisories/about-the-github-advisory-database), which aggregates vulnerability data from several public databases, including the [National Vulnerability Database](https://nvd.nist.gov/) maintained by the United States government. Dependencies following [Semantic Versioning](https://semver.org/) will see their _patch_ version updated where applicable.
-* [org.openrewrite.csharp.dependencies.UpgradeDependencyVersion](/user-documentation/recipes/recipe-catalog/csharp/dependencies/upgradedependencyversion.md)
-  * **Upgrade C# dependency versions**
-  * Upgrades dependencies in `*.csproj`, `Directory.Packages.props`, and `packages.config`.
-* [org.openrewrite.java.dependencies.AddExplicitTransitiveDependencies](/user-documentation/recipes/recipe-catalog/java/dependencies/addexplicittransitivedependencies.md)
-  * **Add explicit transitive dependencies**
-  * Detects when Java source code or configuration files reference types from transitive Maven dependencies and promotes those transitive dependencies to explicit direct dependencies in the pom.xml. This ensures the build is resilient against changes in transitive dependency trees of upstream libraries.
-* [org.openrewrite.java.dependencies.DependencyLicenseCheck](/user-documentation/recipes/recipe-catalog/java/dependencies/dependencylicensecheck.md)
-  * **Find licenses in use in third-party dependencies**
-  * Locates and reports on all licenses in use.
-* [org.openrewrite.java.dependencies.RemoveUnusedDependencies](/user-documentation/recipes/recipe-catalog/java/dependencies/removeunuseddependencies.md)
-  * **Remove unused dependencies**
-  * Scans through source code collecting references to types and methods, removing any dependencies that are not used from Maven or Gradle build files. This is best effort and not guaranteed to work well in all cases; false positives are still possible.  This recipe takes reflective access into account: - When reflective access to a class is made unambiguously via a string literal, such as: `Class.forName(&quot;java.util.List&quot;)` that is counted correctly. - When reflective access to a class is made ambiguously via anything other than a string literal no dependencies will be removed.  This recipe takes transitive dependencies into account: - When a direct dependency is not used but a transitive dependency it brings in _is_ in use the direct dependency is not removed.
-* [org.openrewrite.java.dependencies.SoftwareBillOfMaterials](/user-documentation/recipes/recipe-catalog/java/dependencies/softwarebillofmaterials.md)
-  * **Software bill of materials**
-  * Produces a software bill of materials (SBOM) for a project. An SBOM is a complete list of all dependencies used in a project, including transitive dependencies. The produced SBOM is in the [CycloneDX](https://cyclonedx.org/) XML format. Supports Gradle and Maven. Places a file named sbom.xml adjacent to the Gradle or Maven build file.
-* [org.openrewrite.java.security.FixCwe338](/user-documentation/recipes/recipe-catalog/java/security/fixcwe338.md)
-  * **Fix CWE-338 with `SecureRandom`**
-  * Use a cryptographically strong pseudo-random number generator (PRNG).
-* [org.openrewrite.java.security.FixCwe918](/user-documentation/recipes/recipe-catalog/java/security/fixcwe918.md)
-  * **Remediate server-side request forgery (SSRF)**
-  * Inserts a guard that validates URLs constructed from user-controlled input do not target internal network addresses, blocking server-side request forgery (SSRF) attacks.
-* [org.openrewrite.java.security.ImproperPrivilegeManagement](/user-documentation/recipes/recipe-catalog/java/security/improperprivilegemanagement.md)
-  * **Improper privilege management**
-  * Marking code as privileged enables a piece of trusted code to temporarily enable access to more resources than are available directly to the code that called it.
-* [org.openrewrite.java.security.SecureRandom](/user-documentation/recipes/recipe-catalog/java/security/securerandom.md)
-  * **Secure random**
-  * Use cryptographically secure Pseudo Random Number Generation in the &quot;main&quot; source set. Replaces instantiation of `java.util.Random` with `java.security.SecureRandom`.
-* [org.openrewrite.java.security.SecureRandomPrefersDefaultSeed](/user-documentation/recipes/recipe-catalog/java/security/securerandomprefersdefaultseed.md)
-  * **SecureRandom seeds are not constant or predictable**
-  * Remove `SecureRandom#setSeed(*)` method invocations having constant or predictable arguments.
-* [org.openrewrite.java.security.search.FindSensitiveApiEndpoints](/user-documentation/recipes/recipe-catalog/java/security/search/findsensitiveapiendpoints.md)
-  * **Find sensitive API endpoints**
-  * Find data models exposed by REST APIs that contain sensitive information like PII and secrets.
-* [org.openrewrite.java.security.spring.InsecureSpringServiceExporter](/user-documentation/recipes/recipe-catalog/java/security/spring/insecurespringserviceexporter.md)
-  * **Secure Spring service exporters**
-  * The default Java deserialization mechanism is available via `ObjectInputStream` class. This mechanism is known to be vulnerable. If an attacker can make an application deserialize malicious data, it may result in arbitrary code execution.  Spring’s `RemoteInvocationSerializingExporter` uses the default Java deserialization mechanism to parse data. As a result, all classes that extend it are vulnerable to deserialization attacks. The Spring Framework contains at least `HttpInvokerServiceExporter` and `SimpleHttpInvokerServiceExporter` that extend `RemoteInvocationSerializingExporter`. These exporters parse data from the HTTP body using the unsafe Java deserialization mechanism.  See the full [blog post](https://blog.gypsyengineer.com/en/security/detecting-dangerous-spring-exporters-with-codeql.html) by Artem Smotrakov on CVE-2016-1000027 from which the above description is excerpted.
-* [org.openrewrite.java.security.spring.PreventClickjacking](/user-documentation/recipes/recipe-catalog/java/security/spring/preventclickjacking.md)
-  * **Prevent clickjacking**
-  * The `frame-ancestors` directive can be used in a Content-Security-Policy HTTP response header to indicate whether or not a browser should be allowed to render a page in a `&lt;frame&gt;` or `&lt;iframe&gt;`. Sites can use this to avoid Clickjacking attacks by ensuring that their content is not embedded into other sites.
-* [org.openrewrite.python.dependencies.DependencyVulnerabilityCheck](/user-documentation/recipes/recipe-catalog/python/dependencies/dependencyvulnerabilitycheck.md)
-  * **Find and fix vulnerable PyPI dependencies**
-  * This software composition analysis (SCA) tool detects and upgrades dependencies with publicly disclosed vulnerabilities. This recipe both generates a report of vulnerable dependencies and upgrades to newer versions with fixes. This recipe by default only upgrades to the latest **patch** version. If a minor or major upgrade is required to reach the fixed version, this can be controlled using the `maximumUpgradeDelta` option. Vulnerability information comes from the [GitHub Security Advisory Database](https://docs.github.com/en/code-security/security-advisories/global-security-advisories/about-the-github-advisory-database), which aggregates vulnerability data from several public databases, including the [National Vulnerability Database](https://nvd.nist.gov/) maintained by the United States government. Dependencies following [Semantic Versioning](https://semver.org/) will see their _patch_ version updated where applicable.
-* [org.openrewrite.text.FindHardcodedLoopbackAddresses](/user-documentation/recipes/recipe-catalog/text/findhardcodedloopbackaddresses.md)
-  * **Find hard-coded loopback IPv4 addresses**
-  * Locates mentions of hard-coded IPv4 addresses from the loopback IP range. The loopback IP range includes `127.0.0.0` to `127.255.255.255`. This detects the entire localhost/loopback subnet range, not just the commonly used `127.0.0.1`.
-* [org.openrewrite.text.FindHardcodedPrivateIPAddresses](/user-documentation/recipes/recipe-catalog/text/findhardcodedprivateipaddresses.md)
-  * **Find hard-coded private IPv4 addresses**
-  * Locates mentions of hard-coded IPv4 addresses from private IP ranges. Private IP ranges include:   * `192.168.0.0` to `192.168.255.255`  * `10.0.0.0` to `10.255.255.255`  * `172.16.0.0` to `172.31.255.255`  It is not detecting the localhost subnet `127.0.0.0` to `127.255.255.255`.
-* [org.openrewrite.text.RemoveHardcodedIPAddressesFromComments](/user-documentation/recipes/recipe-catalog/text/removehardcodedipaddressesfromcomments.md)
-  * **Remove hard-coded IP addresses from comments**
-  * Removes hard-coded IPv4 addresses from comments when they match private IP ranges or loopback addresses. This targets IP addresses that are commented out in various comment formats:  **Private IP ranges:**  * `192.168.0.0` to `192.168.255.255`  * `10.0.0.0` to `10.255.255.255`  * `172.16.0.0` to `172.31.255.255`  **Loopback IP range:**  * `127.0.0.0` to `127.255.255.255`  **Supported comment formats:**  * C-style line comments (`//`)  * C-style block comments (`/* */`)  * Shell/Python style comments (`#`)  * XML comments (`&lt;!-- --&gt;`)  * YAML comments (`#`)  * Properties file comments (`#` or `!`)  For line comments, the entire line is removed. For block comments, only the IP address is removed.
-
-## org.openrewrite.recipe:rewrite-jenkins
-
-* [org.openrewrite.jenkins.AddJellyXmlDeclaration](/user-documentation/recipes/recipe-catalog/jenkins/addjellyxmldeclaration.md)
-  * **Add XML declaration to Jelly files**
-  * Ensure the XML declaration `&lt;?jelly escape-by-default='true'?&gt;` is present in all `.jelly` files.
-* [org.openrewrite.jenkins.CreateIndexJelly](/user-documentation/recipes/recipe-catalog/jenkins/createindexjelly.md)
-  * **Create `index.jelly` if it doesn't exist**
-  * Jenkins tooling [requires](https://github.com/jenkinsci/maven-hpi-plugin/pull/302) `src/main/resources/index.jelly` exists with a description.
-* [org.openrewrite.jenkins.IsJenkinsPlugin](/user-documentation/recipes/recipe-catalog/jenkins/isjenkinsplugin.md)
-  * **Is the project a Jenkins plugin?**
-  * Checks if the project is a Jenkins plugin by the presence of a managed version of `jenkins-core`.
-* [org.openrewrite.jenkins.github.AddTeamToCodeowners](/user-documentation/recipes/recipe-catalog/jenkins/github/addteamtocodeowners.md)
-  * **Add plugin developer team to CODEOWNERS**
-  * Adds the `\{artifactId\}-plugin-developers` team to all files in `.github/CODEOWNERS` if absent.
-
-## org.openrewrite.recipe:rewrite-kubernetes
-
-* [org.openrewrite.kubernetes.UpdateContainerImageName](/user-documentation/recipes/recipe-catalog/kubernetes/updatecontainerimagename.md)
-  * **Update image name**
-  * Search for image names that match patterns and replace the components of the name with new values.
-* [org.openrewrite.kubernetes.rbac.AddRuleToRole](/user-documentation/recipes/recipe-catalog/kubernetes/rbac/addruletorole.md)
-  * **Add RBAC rules**
-  * Add RBAC rules to ClusterRoles or namespaced Roles.
-* [org.openrewrite.kubernetes.resource.CapResourceValueToMaximum](/user-documentation/recipes/recipe-catalog/kubernetes/resource/capresourcevaluetomaximum.md)
-  * **Cap exceeds resource value**
-  * Cap resource values that exceed a specific maximum.
-* [org.openrewrite.kubernetes.resource.FindExceedsResourceRatio](/user-documentation/recipes/recipe-catalog/kubernetes/resource/findexceedsresourceratio.md)
-  * **Find exceeds resource ratio**
-  * Find resource manifests that have requests to limits ratios beyond a specific maximum.
-* [org.openrewrite.kubernetes.resource.FindExceedsResourceValue](/user-documentation/recipes/recipe-catalog/kubernetes/resource/findexceedsresourcevalue.md)
-  * **Find exceeds resource limit**
-  * Find resource manifests that have limits set beyond a specific maximum.
-* [org.openrewrite.kubernetes.search.FindAnnotation](/user-documentation/recipes/recipe-catalog/kubernetes/search/findannotation.md)
-  * **Find annotation**
-  * Find annotations that optionally match a given regex.
-* [org.openrewrite.kubernetes.search.FindDisallowedImageTags](/user-documentation/recipes/recipe-catalog/kubernetes/search/finddisallowedimagetags.md)
-  * **Find disallowed image tags**
-  * The set of image tags to find which are considered disallowed.
-* [org.openrewrite.kubernetes.search.FindImage](/user-documentation/recipes/recipe-catalog/kubernetes/search/findimage.md)
-  * **Find image by name**
-  * The image name to search for in containers and initContainers.
-* [org.openrewrite.kubernetes.search.FindMissingDigest](/user-documentation/recipes/recipe-catalog/kubernetes/search/findmissingdigest.md)
-  * **Find missing image digest**
-  * Find instances of a container name that fails to specify a digest.
-* [org.openrewrite.kubernetes.search.FindMissingOrInvalidAnnotation](/user-documentation/recipes/recipe-catalog/kubernetes/search/findmissingorinvalidannotation.md)
-  * **Find annotation**
-  * Find annotations that optionally match a given value.
-* [org.openrewrite.kubernetes.search.FindMissingOrInvalidLabel](/user-documentation/recipes/recipe-catalog/kubernetes/search/findmissingorinvalidlabel.md)
-  * **Find label**
-  * Find labels that optionally match a given regex.
-* [org.openrewrite.kubernetes.search.FindNonTlsIngress](/user-documentation/recipes/recipe-catalog/kubernetes/search/findnontlsingress.md)
-  * **Find non-TLS Ingresses**
-  * Find Ingress resources that don't disallow HTTP or don't have TLS configured.
-* [org.openrewrite.kubernetes.services.FindServiceExternalIPs](/user-documentation/recipes/recipe-catalog/kubernetes/services/findserviceexternalips.md)
-  * **Find uses of `externalIP`**
-  * Find any `Service` whose `externalIP` list contains, or does not contain, one of a list of IPs.
-* [org.openrewrite.kubernetes.services.FindServicesByType](/user-documentation/recipes/recipe-catalog/kubernetes/services/findservicesbytype.md)
-  * **Service type**
-  * Type of Kubernetes `Service` to find.
-* [org.openrewrite.kubernetes.services.UpdateServiceExternalIP](/user-documentation/recipes/recipe-catalog/kubernetes/services/updateserviceexternalip.md)
-  * **Update `Service` `externalIP`**
-  * Swap out an IP address with another one in `Service` `externalIP` settings.
-
-## org.openrewrite.recipe:rewrite-liberty
-
-* [org.openrewrite.java.liberty.ReplaceWSPrincipalGetCredential](/user-documentation/recipes/recipe-catalog/java/liberty/replacewsprincipalgetcredential.md)
-  * **Replace `WSPrincipal.getCredential()` with `WSSubject` lookup**
-  * Replaces `WSCredential credential = WSPrincipal.getCredential();` with a `null` initializer + `try/catch` lookup.
-* [org.openrewrite.xml.liberty.WebBeansXmlRule](/user-documentation/recipes/recipe-catalog/xml/liberty/webbeansxmlrule.md)
-  * **Replace beans.xml file**
-  * This Recipe replaces OpenWebBeans schema in every beans.xml with the standard CDI schema.
-
-## org.openrewrite.recipe:rewrite-logging-frameworks
-
-* [org.openrewrite.java.logging.SystemPrintToLogging](/user-documentation/recipes/recipe-catalog/java/logging/systemprinttologging.md)
-  * **Use logger instead of system print statements**
-  * Replace `System.out` and `System.err` print statements with a logger.
-* [org.openrewrite.java.logging.log4j.LoggingExceptionConcatenationRecipe](/user-documentation/recipes/recipe-catalog/java/logging/log4j/loggingexceptionconcatenationrecipe.md)
-  * **Log exceptions as parameters rather than as string concatenations**
-  * By using the exception as another parameter you get the whole stack trace.
-* [org.openrewrite.java.logging.log4j.PrependRandomName](/user-documentation/recipes/recipe-catalog/java/logging/log4j/prependrandomname.md)
-  * **Prepend a random name to each Log4J statement**
-  * To make finding the callsite of a logging statement easier in code search.
-* [org.openrewrite.java.logging.logback.ConfigureLoggerLevel](/user-documentation/recipes/recipe-catalog/java/logging/logback/configureloggerlevel.md)
-  * **Configure logback logger level**
-  * Within logback.xml configuration files sets the specified log level for a particular class. Will not create a logback.xml if one does not already exist.
-* [org.openrewrite.java.logging.slf4j.ChangeLogLevel](/user-documentation/recipes/recipe-catalog/java/logging/slf4j/changeloglevel.md)
-  * **Change SLF4J log level**
-  * Change the log level of SLF4J log statements.
-
-## org.openrewrite.recipe:rewrite-micrometer
-
-* [org.openrewrite.micrometer.dropwizard.FindDropwizardMetrics](/user-documentation/recipes/recipe-catalog/micrometer/dropwizard/finddropwizardmetrics.md)
-  * **Find Dropwizard metrics**
-  * Find uses of Dropwizard metrics that could be converted to a more modern metrics instrumentation library.
-
-## org.openrewrite.recipe:rewrite-micronaut
-
-* [org.openrewrite.java.micronaut.FindPropertiesConfig](/user-documentation/recipes/recipe-catalog/java/micronaut/findpropertiesconfig.md)
-  * **Find Micronaut properties config**
-  * Find Micronaut properties configuration files.
-* [org.openrewrite.java.micronaut.FindYamlConfig](/user-documentation/recipes/recipe-catalog/java/micronaut/findyamlconfig.md)
-  * **Find Micronaut yaml config**
-  * Find Micronaut yaml configuration files.
-
-## org.openrewrite.recipe:rewrite-migrate-java
-
-* [org.openrewrite.java.migrate.AddJDeprScanPlugin](/user-documentation/recipes/recipe-catalog/java/migrate/addjdeprscanplugin.md)
-  * **Add `JDeprScan` Maven Plug-in**
-  * Add the `JDeprScan` Maven plugin to scan class files for uses of deprecated APIs.
-* [org.openrewrite.java.migrate.AddSuppressionForIllegalReflectionWarningsPlugin](/user-documentation/recipes/recipe-catalog/java/migrate/addsuppressionforillegalreflectionwarningsplugin.md)
-  * **Add maven jar plugin to suppress illegal reflection warnings**
-  * Adds a maven jar plugin that's configured to suppress Illegal Reflection Warnings.
-* [org.openrewrite.java.migrate.DontOverfetchDto](/user-documentation/recipes/recipe-catalog/java/migrate/dontoverfetchdto.md)
-  * **Replace DTO method parameters with data elements**
-  * Replace method parameters that have DTOs with their data elements when only the specified data element is used.
-* [org.openrewrite.java.migrate.RemoveIllegalSemicolons](/user-documentation/recipes/recipe-catalog/java/migrate/removeillegalsemicolons.md)
-  * **Remove illegal semicolons**
-  * Remove semicolons after package declarations and imports, no longer accepted in Java 21 as of [JDK-8027682](https://bugs.openjdk.org/browse/JDK-8027682).
-* [org.openrewrite.java.migrate.ReplaceStringLiteralValue](/user-documentation/recipes/recipe-catalog/java/migrate/replacestringliteralvalue.md)
-  * **Replace `String` literal**
-  * Replace the value of a complete `String` literal.
-* [org.openrewrite.java.migrate.UseTabsOrSpaces](/user-documentation/recipes/recipe-catalog/java/migrate/usetabsorspaces.md)
-  * **Force indentation to either tabs or spaces**
-  * This is useful for one-off migrations of a codebase that has mixed indentation styles, while preserving all other auto-detected formatting rules.
-* [org.openrewrite.java.migrate.io.AddInputStreamBulkReadMethod](/user-documentation/recipes/recipe-catalog/java/migrate/io/addinputstreambulkreadmethod.md)
-  * **Add bulk read method to `InputStream` implementations**
-  * Adds a `read(byte[], int, int)` method to `InputStream` subclasses that only override the single-byte `read()` method. Java's default `InputStream.read(byte[], int, int)` implementation calls the single-byte `read()` method in a loop, which can cause severe performance degradation (up to 350x slower) for bulk reads. This recipe detects `InputStream` implementations that delegate to another stream and adds the missing bulk read method to delegate bulk reads as well.
-* [org.openrewrite.java.migrate.io.ReplaceFileInOrOutputStreamFinalizeWithClose](/user-documentation/recipes/recipe-catalog/java/migrate/io/replacefileinoroutputstreamfinalizewithclose.md)
-  * **Replace invocations of `finalize()` on `FileInputStream` and `FileOutputStream` with `close()`**
-  * Replace invocations of the deprecated `finalize()` method on `FileInputStream` and `FileOutputStream` with `close()`.
-* [org.openrewrite.java.migrate.jakarta.HasNoJakartaAnnotations](/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/hasnojakartaannotations.md)
-  * **Project has no Jakarta annotations**
-  * Mark all source as found per `JavaProject` where no Jakarta annotations are found. This is useful mostly as a precondition for recipes that require Jakarta annotations to be present.
-* [org.openrewrite.java.migrate.javax.AddScopeToInjectedClass](/user-documentation/recipes/recipe-catalog/java/migrate/javax/addscopetoinjectedclass.md)
-  * **Add scope annotation to injected classes**
-  * Finds member variables annotated with `@Inject' and applies `@Dependent` scope annotation to the variable's type.
-* [org.openrewrite.java.migrate.lang.StringRulesRecipes](/user-documentation/recipes/recipe-catalog/java/migrate/lang/stringrulesrecipes.md)
-  * **A collection of `String` rules**
-  * A collection of rules for refactoring methods called on `String` instances in Java code.
-* [org.openrewrite.java.migrate.lang.UseStringIsEmptyRecipe](/user-documentation/recipes/recipe-catalog/java/migrate/lang/usestringisemptyrecipe.md)
-  * **Replace `0 &lt; s.length()` with `!s.isEmpty()`**
-  * Replace `0 &lt; s.length()` and `s.length() != 0` with `!s.isEmpty()`.
-* [org.openrewrite.java.migrate.lombok.AdoptLombokGetterMethodNames](/user-documentation/recipes/recipe-catalog/java/migrate/lombok/adoptlombokgettermethodnames.md)
-  * **Rename getter methods to fit Lombok**
-  * Rename methods that are effectively getter to the name Lombok would give them.  Limitations:  - If two methods in a class are effectively the same getter then one's name will be corrected and the others name will be left as it is.  - If the correct name for a method is already taken by another method then the name will not be corrected.  - Method name swaps or circular renaming within a class cannot be performed because the names block each other. E.g. `int getFoo() \{ return ba; \} int getBa() \{ return foo; \}` stays as it is.
-* [org.openrewrite.java.migrate.lombok.AdoptLombokSetterMethodNames](/user-documentation/recipes/recipe-catalog/java/migrate/lombok/adoptlomboksettermethodnames.md)
-  * **Rename setter methods to fit Lombok**
-  * Rename methods that are effectively setter to the name Lombok would give them. Limitations:  - If two methods in a class are effectively the same setter then one's name will be corrected and the others name will be left as it is.  - If the correct name for a method is already taken by another method then the name will not be corrected.  - Method name swaps or circular renaming within a class cannot be performed because the names block each other. E.g. `int getFoo() \{ return ba; \} int getBa() \{ return foo; \}` stays as it is.
-* [org.openrewrite.java.migrate.lombok.LombokValueToRecord](/user-documentation/recipes/recipe-catalog/java/migrate/lombok/lombokvaluetorecord.md)
-  * **Convert `@lombok.Value` class to Record**
-  * Convert Lombok `@Value` annotated classes to standard Java Records.
-* [org.openrewrite.java.migrate.maven.UpdateMavenProjectPropertyJavaVersion](/user-documentation/recipes/recipe-catalog/java/migrate/maven/updatemavenprojectpropertyjavaversion.md)
-  * **Update Maven Java project properties**
-  * The Java version is determined by several project properties, including:   * `java.version`  * `jdk.version`  * `javaVersion`  * `jdkVersion`  * `maven.compiler.source`  * `maven.compiler.target`  * `maven.compiler.release`  * `release.version`  If none of these properties are in use and the maven compiler plugin is not otherwise configured, adds the `maven.compiler.release` property.
-* [org.openrewrite.java.migrate.maven.UseMavenCompilerPluginReleaseConfiguration](/user-documentation/recipes/recipe-catalog/java/migrate/maven/usemavencompilerpluginreleaseconfiguration.md)
-  * **Use Maven compiler plugin release configuration**
-  * Replaces any explicit `source` or `target` configuration (if present) on the `maven-compiler-plugin` with `release`, and updates the `release` value if needed. Will not downgrade the Java version if the current version is higher.
-* [org.openrewrite.java.migrate.metrics.SimplifyMicrometerMeterTags](/user-documentation/recipes/recipe-catalog/java/migrate/metrics/simplifymicrometermetertags.md)
-  * **Simplify Micrometer meter tags**
-  * Use the simplest method to add new tags.
-* [org.openrewrite.java.migrate.net.URLConstructorsToNewURI](/user-documentation/recipes/recipe-catalog/java/migrate/net/urlconstructorstonewuri.md)
-  * **Convert `new URL(String, ..)` to `new URI(String, ..).toURL()`**
-  * Converts `new URL(String, ..)` constructors to `new URI(String, ..).toURL()`.
-* [org.openrewrite.java.migrate.search.AboutJavaVersion](/user-documentation/recipes/recipe-catalog/java/migrate/search/aboutjavaversion.md)
-  * **Find which Java version is in use**
-  * A diagnostic for studying the distribution of Java language version levels (both source and target compatibility across files and source sets).
-* [org.openrewrite.java.migrate.search.FindDataUsedOnDto](/user-documentation/recipes/recipe-catalog/java/migrate/search/finddatausedondto.md)
-  * **Find data used on DTOs**
-  * Find data elements used on DTOs. This is useful to provide information where data over-fetching may be a problem.
-* [org.openrewrite.java.migrate.search.FindDtoOverfetching](/user-documentation/recipes/recipe-catalog/java/migrate/search/finddtooverfetching.md)
-  * **Find methods that only use one DTO data element**
-  * Find methods that have 'opportunities' for improvement.
-* [org.openrewrite.java.migrate.search.FindInternalJavaxApis](/user-documentation/recipes/recipe-catalog/java/migrate/search/findinternaljavaxapis.md)
-  * **Find uses of internal javax APIs**
-  * The libraries that define these APIs will have to be migrated before any of the repositories that use them.
-* [org.openrewrite.java.migrate.search.FindJavaVersion](/user-documentation/recipes/recipe-catalog/java/migrate/search/findjavaversion.md)
-  * **Find Java versions in use**
-  * Finds Java versions in use.
-* [org.openrewrite.java.migrate.search.FindLocaleDateTimeFormats](/user-documentation/recipes/recipe-catalog/java/migrate/search/findlocaledatetimeformats.md)
-  * **Find locale-sensitive date/time formatting**
-  * Finds usages of locale-based date/time formatting APIs that may be affected by JDK 20+ CLDR locale data changes, where the space before AM/PM was changed from a regular space to a narrow no-break space (NNBSP).
-* [org.openrewrite.java.migrate.search.PlanJavaMigration](/user-documentation/recipes/recipe-catalog/java/migrate/search/planjavamigration.md)
-  * **Plan a Java version migration**
-  * Study the set of Java versions and associated tools in use across many repositories.
-* [org.openrewrite.java.migrate.util.RemoveFinalizerFromZip](/user-documentation/recipes/recipe-catalog/java/migrate/util/removefinalizerfromzip.md)
-  * **Remove invocations of deprecated invocations from Deflater, Inflater, ZipFile**
-  * Remove invocations of finalize() deprecated invocations from Deflater, Inflater, ZipFile.
-* [org.openrewrite.java.migrate.util.UseEnumSetOf](/user-documentation/recipes/recipe-catalog/java/migrate/util/useenumsetof.md)
-  * **Prefer `EnumSet of(..)`**
-  * Prefer `EnumSet of(..)` instead of using `Set of(..)` when the arguments are enums in Java 9 or higher.
-* [org.openrewrite.java.migrate.util.UseListOf](/user-documentation/recipes/recipe-catalog/java/migrate/util/uselistof.md)
-  * **Prefer `List.of(..)`**
-  * Prefer `List.of(..)` instead of using `java.util.List#add(..)` in anonymous ArrayList initializers in Java 10 or higher. This recipe will not modify code where the List is later mutated since `List.of` returns an immutable list.
-* [org.openrewrite.java.migrate.util.UseSetOf](/user-documentation/recipes/recipe-catalog/java/migrate/util/usesetof.md)
-  * **Prefer `Set.of(..)`**
-  * Prefer `Set.of(..)` instead of using `java.util.Set#add(..)` in anonymous HashSet initializers in Java 10 or higher. This recipe will not modify code where the Set is later mutated since `Set.of` returns an immutable set.
-
-## org.openrewrite.recipe:rewrite-migrate-python
-
-* [org.openrewrite.python.migrate.FindFutureImports](/user-documentation/recipes/recipe-catalog/python/migrate/findfutureimports.md)
-  * **Find `__future__` imports**
-  * Find `__future__` imports and add a search marker.
-* [org.openrewrite.python.migrate.MigrateToPyprojectToml](/user-documentation/recipes/recipe-catalog/python/migrate/migratetopyprojecttoml.md)
-  * **Migrate to `pyproject.toml`**
-  * Migrate Python projects from `requirements.txt` and/or `setup.cfg` to `pyproject.toml` with `hatchling` build backend.
-
-## org.openrewrite.recipe:rewrite-nodejs
-
-* [org.openrewrite.nodejs.DependencyVulnerabilityCheck](/user-documentation/recipes/recipe-catalog/nodejs/dependencyvulnerabilitycheck.md)
-  * **Find and fix vulnerable npm dependencies**
-  * This software composition analysis (SCA) tool detects and upgrades dependencies with publicly disclosed vulnerabilities. This recipe both generates a report of vulnerable dependencies and upgrades to newer versions with fixes. This recipe **only** upgrades to the latest **patch** version.  If a minor or major upgrade is required to reach the fixed version, this recipe will not make any changes. Vulnerability information comes from the [GitHub Security Advisory Database](https://docs.github.com/en/code-security/security-advisories/global-security-advisories/about-the-github-advisory-database), which aggregates vulnerability data from several public databases, including the [National Vulnerability Database](https://nvd.nist.gov/) maintained by the United States government. Dependencies following [Semantic Versioning](https://semver.org/) will see their _patch_ version updated where applicable.
-* [org.openrewrite.nodejs.UpgradeDependencyVersion](/user-documentation/recipes/recipe-catalog/nodejs/upgradedependencyversion.md)
-  * **Upgrade Node.js dependencies**
-  * Upgrade matching Node.js direct dependencies.
-* [org.openrewrite.nodejs.search.FindNodeProjects](/user-documentation/recipes/recipe-catalog/nodejs/search/findnodeprojects.md)
-  * **Find Node.js projects**
-  * Find Node.js projects and summarize data about them.
-
-## org.openrewrite.recipe:rewrite-quarkus
-
-* [org.openrewrite.quarkus.Slf4jToQuarkusLogger](/user-documentation/recipes/recipe-catalog/quarkus/slf4jtoquarkuslogger.md)
-  * **Migrate SLF4J Logger injection and usage to Quarkus static `Log`**
-  * Removes usage of SLF4J Logger fields, adjusts imports, and replaces logger method calls with static Quarkus Log calls, including message formatting and method renaming for parameterized logging.
-* [org.openrewrite.quarkus.search.FindQuarkusProfiles](/user-documentation/recipes/recipe-catalog/quarkus/search/findquarkusprofiles.md)
-  * **Search Quarkus profiles**
-  * Search the properties for existing Quarkus profiles.
-* [org.openrewrite.quarkus.search.FindQuarkusProperties](/user-documentation/recipes/recipe-catalog/quarkus/search/findquarkusproperties.md)
-  * **Find Quarkus property**
-  * Finds occurrences of a Quarkus property key.
-
-## org.openrewrite.recipe:rewrite-rewrite
-
-* [org.openrewrite.java.recipes.DeclarativeSingleton](/user-documentation/recipes/recipe-catalog/java/recipes/declarativesingleton.md)
-  * **Make declarative recipes singletons**
-  * Adds the `org.openrewrite.Singleton` precondition to declarative YAML recipes to ensure they only execute once, even when included multiple times.
-* [org.openrewrite.java.recipes.FindRecipes](/user-documentation/recipes/recipe-catalog/java/recipes/findrecipes.md)
-  * **Find OpenRewrite recipes**
-  * This recipe finds all OpenRewrite recipes, primarily to produce a data table that is being used to experiment with fine-tuning a large language model to produce more recipes.
-
-## org.openrewrite.recipe:rewrite-spring
-
-* [org.openrewrite.gradle.spring.AddSpringDependencyManagementPlugin](/user-documentation/recipes/recipe-catalog/gradle/spring/addspringdependencymanagementplugin.md)
-  * **Add `io.spring.dependency-management` plugin, if in use**
-  * Prior to Spring Boot 2.0 the dependency management plugin was applied automatically as part of the overall spring boot plugin. Afterwards the dependency-management plugin must be applied explicitly, or Gradle's `platform()` feature may be used instead. This recipe makes usage of io-spring.dependency-management explicit in anticipation of upgrade to Spring Boot 2.0 or later.
-* [org.openrewrite.java.spring.ExpandProperties](/user-documentation/recipes/recipe-catalog/java/spring/expandproperties.md)
-  * **Expand Spring YAML properties**
-  * Expand YAML properties to not use the dot syntax shortcut.
-* [org.openrewrite.java.spring.ImplicitWebAnnotationNames](/user-documentation/recipes/recipe-catalog/java/spring/implicitwebannotationnames.md)
-  * **Remove implicit web annotation names**
-  * Removes implicit web annotation names.
-* [org.openrewrite.java.spring.NoHttpExchangeAnnotation](/user-documentation/recipes/recipe-catalog/java/spring/nohttpexchangeannotation.md)
-  * **Remove `HttpExchange` annotations**
-  * Replace method declaration `@HttpExchange` annotations with `@GetExchange`, `@PostExchange`, etc.
-* [org.openrewrite.java.spring.RenameBean](/user-documentation/recipes/recipe-catalog/java/spring/renamebean.md)
-  * **Rename bean**
-  * Renames a Spring bean, both declaration and references.
-* [org.openrewrite.java.spring.UpdateApiManifest](/user-documentation/recipes/recipe-catalog/java/spring/updateapimanifest.md)
-  * **Update the API manifest**
-  * Keep a consolidated manifest of the API endpoints that this application exposes up-to-date.
-* [org.openrewrite.java.spring.boot2.search.IntegrationSchedulerPoolRecipe](/user-documentation/recipes/recipe-catalog/java/spring/boot2/search/integrationschedulerpoolrecipe.md)
-  * **Integration scheduler pool size**
-  * Spring Integration now reuses an available `TaskScheduler` rather than configuring its own. In a typical application setup relying on the auto-configuration, this means that Spring Integration uses the auto-configured task scheduler that has a pool size of 1. To restore Spring Integration’s default of 10 threads, use the `spring.task.scheduling.pool.size` property.
-* [org.openrewrite.java.spring.boot3.AddRouteTrailingSlash](/user-documentation/recipes/recipe-catalog/java/spring/boot3/addroutetrailingslash.md)
-  * **Add trailing slash to Spring routes**
-  * This is part of Spring MVC and WebFlux URL Matching Changes, as of Spring Framework 6.0, the trailing slash matching configuration option has been deprecated and its default value set to false. This means that previously, a controller `@GetMapping(&quot;/some/greeting&quot;)` would match both `GET /some/greeting` and `GET /some/greeting/`, but it doesn't match `GET /some/greeting/` anymore by default and will result in an HTTP 404 error. This recipe is to add declaration of additional route explicitly on the controller handler (like `@GetMapping(&quot;/some/greeting&quot;, &quot;/some/greeting/&quot;)`.
-* [org.openrewrite.java.spring.boot3.AddSetUseTrailingSlashMatch](/user-documentation/recipes/recipe-catalog/java/spring/boot3/addsetusetrailingslashmatch.md)
-  * **Add `SetUseTrailingSlashMatch()` in configuration**
-  * This is part of Spring MVC and WebFlux URL Matching Changes, as of Spring Framework 6.0, the trailing slash matching configuration option has been deprecated and its default value set to false. This means that previously, a controller `@GetMapping(&quot;/some/greeting&quot;)` would match both `GET /some/greeting` and `GET /some/greeting/`, but it doesn't match `GET /some/greeting/` anymore by default and will result in an HTTP 404 error. This recipe is change the default with the global Spring MVC or Webflux configuration.
-* [org.openrewrite.java.spring.boot3.MaintainTrailingSlashURLMappings](/user-documentation/recipes/recipe-catalog/java/spring/boot3/maintaintrailingslashurlmappings.md)
-  * **Maintain trailing slash URL mappings**
-  * This is part of Spring MVC and WebFlux URL Matching Changes, as of Spring Framework 6.0, the trailing slash matching configuration option has been deprecated and its default value set to false. This means that previously, a controller `@GetMapping(&quot;/some/greeting&quot;)` would match both `GET /some/greeting` and `GET /some/greeting/`, but it doesn't match `GET /some/greeting/` anymore by default and will result in an HTTP 404 error. This recipe is to maintain trailing slash in all HTTP url mappings.
-* [org.openrewrite.java.spring.search.FindApiCalls](/user-documentation/recipes/recipe-catalog/java/spring/search/findapicalls.md)
-  * **Find HTTP API calls via `RestTemplate`**
-  * Find outbound HTTP API calls made via Spring's `RestTemplate` class.
-* [org.openrewrite.java.spring.search.FindApiEndpoints](/user-documentation/recipes/recipe-catalog/java/spring/search/findapiendpoints.md)
-  * **Find Spring API endpoints**
-  * Find all HTTP API endpoints exposed by Spring applications. More specifically, this marks method declarations annotated with `@RequestMapping`, `@GetMapping`, `@PostMapping`, `@PutMapping`, `@DeleteMapping`, and `@PatchMapping` as search results.
-* [org.openrewrite.java.spring.search.FindConfigurationProperties](/user-documentation/recipes/recipe-catalog/java/spring/search/findconfigurationproperties.md)
-  * **Find Spring `@ConfigurationProperties`**
-  * Find all classes annotated with `@ConfigurationProperties` and extract their prefix values. This is useful for discovering all externalized configuration properties in Spring Boot applications.
-* [org.openrewrite.java.spring.search.FindSpringComponents](/user-documentation/recipes/recipe-catalog/java/spring/search/findspringcomponents.md)
-  * **Find Spring components**
-  * Find Spring components, including controllers, services, repositories, return types of `@Bean` annotated methods, etc.
-* [org.openrewrite.java.spring.security6.RemoveOauth2LoginConfig](/user-documentation/recipes/recipe-catalog/java/spring/security6/removeoauth2loginconfig.md)
-  * **Remove unneeded `oauth2Login` config when upgrading to Spring Security 6**
-  * `oauth2Login()` is a Spring Security feature that allows users to authenticate with an OAuth2 or OpenID Connect 1.0 provider. When a user is authenticated using this feature, they are granted a set of authorities that determines what actions they are allowed to perform within the application.  In Spring Security 5, the default authority given to a user authenticated with an OAuth2 or OpenID Connect 1.0 provider via `oauth2Login()` is `ROLE_USER`. This means that the user is allowed to access the application's resources as a regular user.  However, in Spring Security 6, the default authority given to a user authenticated with an OAuth2 provider is `OAUTH2_USER`, and the default authority given to a user authenticated with an OpenID Connect 1.0 provider is `OIDC_USER`. These authorities are more specific and allow for better customization of the user's permissions within the application.  If you are upgrading to Spring Security 6 and you have previously configured a `GrantedAuthoritiesMapper` to handle the authorities of users authenticated via `oauth2Login()`, you can remove it completely as the new default authorities should be sufficient.
-* [org.openrewrite.maven.spring.UpgradeExplicitSpringBootDependencies](/user-documentation/recipes/recipe-catalog/maven/spring/upgradeexplicitspringbootdependencies.md)
-  * **Upgrade Spring dependencies**
-  * Upgrades dependencies according to the specified version of spring boot. Spring boot has many direct and transitive dependencies. When a module has an explicit dependency on one of these it may also need to be upgraded to match the version used by spring boot.
-
-## org.openrewrite.recipe:rewrite-sql
-
-* [org.openrewrite.sql.FindSql](/user-documentation/recipes/recipe-catalog/sql/findsql.md)
-  * **Find SQL in code and resource files**
-  * Find SQL in code (e.g. in string literals) and in resources like those ending with `.sql`.
-* [org.openrewrite.sql.search.FindFunction](/user-documentation/recipes/recipe-catalog/sql/search/findfunction.md)
-  * **Find SQL function**
-  * Find SQL functions by name.
-
-## org.openrewrite.recipe:rewrite-static-analysis
-
-* [org.openrewrite.staticanalysis.AddSerialVersionUidToSerializable](/user-documentation/recipes/recipe-catalog/staticanalysis/addserialversionuidtoserializable.md)
-  * **Add `serialVersionUID` to a `Serializable` class when missing**
-  * A `serialVersionUID` field is strongly recommended in all `Serializable` classes. If this is not defined on a `Serializable` class, the compiler will generate this value. If a change is later made to the class, the generated value will change and attempts to deserialize the class will fail.
-* [org.openrewrite.staticanalysis.AvoidBoxedBooleanExpressions](/user-documentation/recipes/recipe-catalog/staticanalysis/avoidboxedbooleanexpressions.md)
-  * **Avoid boxed boolean expressions**
-  * Under certain conditions the `java.lang.Boolean` type is used as an expression, and it may throw a `NullPointerException` if the value is null.
-* [org.openrewrite.staticanalysis.CombineSemanticallyEqualCatchBlocks](/user-documentation/recipes/recipe-catalog/staticanalysis/combinesemanticallyequalcatchblocks.md)
-  * **Combine semantically equal catch blocks**
-  * Combine catches in a try that contain semantically equivalent blocks. No change will be made when a caught exception exists if combining catches may change application behavior or type attribution is missing.
-* [org.openrewrite.staticanalysis.ControlFlowIndentation](/user-documentation/recipes/recipe-catalog/staticanalysis/controlflowindentation.md)
-  * **Control flow statement indentation**
-  * Program flow control statements like `if`, `while`, and `for` can omit curly braces when they apply to only a single statement. This recipe ensures that any statements which follow that statement are correctly indented to show they are not part of the flow control statement.
-* [org.openrewrite.staticanalysis.EqualsToContentEquals](/user-documentation/recipes/recipe-catalog/staticanalysis/equalstocontentequals.md)
-  * **Use `String.contentEquals(CharSequence)` instead of `String.equals(CharSequence.toString())`**
-  * Use `String.contentEquals(CharSequence)` instead of `String.equals(CharSequence.toString())`.
-* [org.openrewrite.staticanalysis.ExplicitCharsetOnStringGetBytes](/user-documentation/recipes/recipe-catalog/staticanalysis/explicitcharsetonstringgetbytes.md)
-  * **Set charset encoding explicitly when calling `String#getBytes`**
-  * This makes the behavior of the code platform neutral. It will not override any existing explicit encodings, even if they don't match the default encoding option.
-* [org.openrewrite.staticanalysis.ExplicitLambdaArgumentTypes](/user-documentation/recipes/recipe-catalog/staticanalysis/explicitlambdaargumenttypes.md)
-  * **Use explicit types on lambda arguments**
-  * Adds explicit types on lambda arguments, which are otherwise optional. This can make the code clearer and easier to read. This does not add explicit types on arguments when the lambda has one or two parameters and does not have a block body, as things are considered more readable in those cases. For example, `stream.map((a, b) -&gt; a.length);` will not have explicit types added.
-* [org.openrewrite.staticanalysis.FinalizeLocalVariables](/user-documentation/recipes/recipe-catalog/staticanalysis/finalizelocalvariables.md)
-  * **Finalize local variables**
-  * Adds the `final` modifier keyword to local variables which are not reassigned.
-* [org.openrewrite.staticanalysis.FinalizeMethodArguments](/user-documentation/recipes/recipe-catalog/staticanalysis/finalizemethodarguments.md)
-  * **Finalize method arguments**
-  * Adds the `final` modifier keyword to method parameters.
-* [org.openrewrite.staticanalysis.HiddenField](/user-documentation/recipes/recipe-catalog/staticanalysis/hiddenfield.md)
-  * **Hidden field**
-  * Refactor local variables or parameters which shadow a field defined in the same class.
-* [org.openrewrite.staticanalysis.LowercasePackage](/user-documentation/recipes/recipe-catalog/staticanalysis/lowercasepackage.md)
-  * **Rename packages to lowercase**
-  * By convention all Java package names should contain only lowercase letters, numbers, and dashes. This recipe converts any uppercase letters in package names to be lowercase.
-* [org.openrewrite.staticanalysis.MaskCreditCardNumbers](/user-documentation/recipes/recipe-catalog/staticanalysis/maskcreditcardnumbers.md)
-  * **Mask credit card numbers**
-  * When encountering string literals which appear to be credit card numbers, mask the last eight digits with the letter 'X'.
-* [org.openrewrite.staticanalysis.MemberNameCaseInsensitiveDuplicates](/user-documentation/recipes/recipe-catalog/staticanalysis/membernamecaseinsensitiveduplicates.md)
-  * **Members should not have names differing only by capitalization**
-  * Looking at the set of methods and fields in a class and all of its parents, no two members should have names that differ only in capitalization. This rule will not report if a method overrides a parent method.
-* [org.openrewrite.staticanalysis.MoveConditionsToWhile](/user-documentation/recipes/recipe-catalog/staticanalysis/moveconditionstowhile.md)
-  * **Convert `while (true)` with initial `if` break to loop condition**
-  * Simplifies `while (true)` loops where the first statement is an `if` statement that only contains a `break`. The condition is inverted and moved to the loop condition for better readability.
-* [org.openrewrite.staticanalysis.NoFinalizedLocalVariables](/user-documentation/recipes/recipe-catalog/staticanalysis/nofinalizedlocalvariables.md)
-  * **Don't use final on local variables**
-  * Remove the `final` modifier keyword from local variables regardless of whether they are used within a local class or an anonymous class.
-* [org.openrewrite.staticanalysis.OnlyCatchDeclaredExceptions](/user-documentation/recipes/recipe-catalog/staticanalysis/onlycatchdeclaredexceptions.md)
-  * **Replace `catch(Exception)` with specific declared exceptions thrown in the try block**
-  * Replaces `catch(Exception e)` blocks with a multi-catch block (`catch (SpecificException1 | SpecificException2 e)`) containing only the exceptions declared thrown by method or constructor invocations within the `try` block that are not already caught by more specific `catch` clauses.
-* [org.openrewrite.staticanalysis.PreferEqualityComparisonOverDifferenceCheck](/user-documentation/recipes/recipe-catalog/staticanalysis/preferequalitycomparisonoverdifferencecheck.md)
-  * **Prefer direct comparison of numbers**
-  * Replace `a - b == 0` with `a == b`, `a - b != 0` with `a != b`, `a - b &lt; 0` with `a &lt; b`, and similar transformations for all comparison operators to improve readability and avoid overflow issues.
-* [org.openrewrite.staticanalysis.PreferIncrementOperator](/user-documentation/recipes/recipe-catalog/staticanalysis/preferincrementoperator.md)
-  * **Prefer increment/decrement and compound assignment operators**
-  * Prefer the use of increment and decrement operators (`++`, `--`, `+=`, `-=`) over their more verbose equivalents.
-* [org.openrewrite.staticanalysis.ReferentialEqualityToObjectEquals](/user-documentation/recipes/recipe-catalog/staticanalysis/referentialequalitytoobjectequals.md)
-  * **Replace referential equality operators with Object equals method invocations when the operands both override `Object.equals(Object obj)`**
-  * Using `==` or `!=` compares object references, not the equality of two objects. This modifies code where both sides of a binary operation (`==` or `!=`) override `Object.equals(Object obj)` except when the comparison is within an overridden `Object.equals(Object obj)` method declaration itself. The resulting transformation must be carefully reviewed since any modifications change the program's semantics.
-* [org.openrewrite.staticanalysis.RemoveCallsToObjectFinalize](/user-documentation/recipes/recipe-catalog/staticanalysis/removecallstoobjectfinalize.md)
-  * **Remove `Object.finalize()` invocations**
-  * Remove calls to `Object.finalize()`. This method is called during garbage collection and calling it manually is misleading.
-* [org.openrewrite.staticanalysis.RemoveCallsToSystemGc](/user-documentation/recipes/recipe-catalog/staticanalysis/removecallstosystemgc.md)
-  * **Remove garbage collection invocations**
-  * Removes calls to `System.gc()` and `Runtime.gc()`. When to invoke garbage collection is best left to the JVM.
-* [org.openrewrite.staticanalysis.RemoveEmptyJavaDocParameters](/user-documentation/recipes/recipe-catalog/staticanalysis/removeemptyjavadocparameters.md)
-  * **Remove JavaDoc `@param`, `@return`, and `@throws` with no description**
-  * Removes `@param`, `@return`, and `@throws` with no description from JavaDocs.
-* [org.openrewrite.staticanalysis.RemoveHashCodeCallsFromArrayInstances](/user-documentation/recipes/recipe-catalog/staticanalysis/removehashcodecallsfromarrayinstances.md)
-  * **`hashCode()` should not be called on array instances**
-  * Replace `hashCode()` calls on arrays with `Arrays.hashCode()` because the results from `hashCode()` are not helpful.
-* [org.openrewrite.staticanalysis.RemoveInstanceOfPatternMatch](/user-documentation/recipes/recipe-catalog/staticanalysis/removeinstanceofpatternmatch.md)
-  * **Removes from code Java 14's `instanceof` pattern matching**
-  * Adds an explicit variable declaration at the beginning of `if` statement instead of `instanceof` pattern matching.
-* [org.openrewrite.staticanalysis.RemoveJavaDocAuthorTag](/user-documentation/recipes/recipe-catalog/staticanalysis/removejavadocauthortag.md)
-  * **Remove author tags from JavaDocs**
-  * Removes author tags from JavaDocs to reduce code maintenance.
-* [org.openrewrite.staticanalysis.RemoveRedundantTypeCast](/user-documentation/recipes/recipe-catalog/staticanalysis/removeredundanttypecast.md)
-  * **Remove redundant casts**
-  * Removes unnecessary type casts. Does not currently check casts in lambdas and class constructors.
-* [org.openrewrite.staticanalysis.RemoveToStringCallsFromArrayInstances](/user-documentation/recipes/recipe-catalog/staticanalysis/removetostringcallsfromarrayinstances.md)
-  * **Remove `toString()` calls on arrays**
-  * The result from `toString()` calls on arrays is largely useless. The output does not actually reflect the contents of the array. `Arrays.toString(array)` should be used instead as it gives the contents of the array.
-* [org.openrewrite.staticanalysis.RemoveUnneededAssertion](/user-documentation/recipes/recipe-catalog/staticanalysis/removeunneededassertion.md)
-  * **Remove unneeded assertions**
-  * Remove unneeded assertions like `assert true`, `assertTrue(true)`, or `assertFalse(false)`.
-* [org.openrewrite.staticanalysis.RemoveUnneededBlock](/user-documentation/recipes/recipe-catalog/staticanalysis/removeunneededblock.md)
-  * **Remove unneeded block**
-  * Flatten blocks into inline statements when possible.
-* [org.openrewrite.staticanalysis.RenameExceptionInEmptyCatch](/user-documentation/recipes/recipe-catalog/staticanalysis/renameexceptioninemptycatch.md)
-  * **Rename caught exceptions in empty catch blocks to `ignored`**
-  * Renames caught exceptions in empty catch blocks to `ignored`. `ignored` will be incremented by 1 if a namespace conflict exists.
-* [org.openrewrite.staticanalysis.RenameLocalVariablesToCamelCase](/user-documentation/recipes/recipe-catalog/staticanalysis/renamelocalvariablestocamelcase.md)
-  * **Reformat local variable names to camelCase**
-  * Reformat local variable and method parameter names to camelCase to comply with Java naming convention. The recipe will not rename variables declared in for loop controls or catches with a single character. The first character is set to lower case and existing capital letters are preserved. Special characters that are allowed in java field names `$` and `_` are removed (unless the name starts with one). If a special character is removed the next valid alphanumeric will be capitalized. Currently, does not support renaming members of classes. The recipe will not rename a variable if the result already exists in the class, conflicts with a java reserved keyword, or the result is blank.
-* [org.openrewrite.staticanalysis.RenamePrivateFieldsToCamelCase](/user-documentation/recipes/recipe-catalog/staticanalysis/renameprivatefieldstocamelcase.md)
-  * **Reformat private field names to camelCase**
-  * Reformat private field names to camelCase to comply with Java naming convention. The recipe will not rename fields with default, protected or public access modifiers. The recipe will not rename private constants. The first character is set to lower case and existing capital letters are preserved. Special characters that are allowed in java field names `$` and `_` are removed. If a special character is removed the next valid alphanumeric will be capitalized. The recipe will not rename a field if the result already exists in the class, conflicts with a java reserved keyword, or the result is blank.
-* [org.openrewrite.staticanalysis.ReorderAnnotationAttributes](/user-documentation/recipes/recipe-catalog/staticanalysis/reorderannotationattributes.md)
-  * **Reorder annotation attributes alphabetically**
-  * Reorder annotation attributes to be alphabetical. Positional arguments (those without explicit attribute names) are left in their original position.
-* [org.openrewrite.staticanalysis.ReplaceCollectionToArrayArgWithEmptyArray](/user-documentation/recipes/recipe-catalog/staticanalysis/replacecollectiontoarrayargwithemptyarray.md)
-  * **Use Empty Array for `Collection.toArray()`**
-  * Changes new array creation with `Collection#toArray(T[])` to use an empty array argument, which is better for performance.  According to the `Collection#toArray(T[])` documentation:  &gt; If the collection fits in the specified array, it is returned therein.  However, although it's not intuitive, allocating a right-sized array ahead of time to pass to the API appears to be [generally worse for performance](https://shipilev.net/blog/2016/arrays-wisdom-ancients/#_conclusion) according to benchmarking and JVM developers due to a number of implementation details in both Java and the virtual machine.  H2 achieved significant performance gains by [switching to empty arrays instead pre-sized ones](https://github.com/h2database/h2database/issues/311).
-* [org.openrewrite.staticanalysis.ReplaceDuplicateStringLiterals](/user-documentation/recipes/recipe-catalog/staticanalysis/replaceduplicatestringliterals.md)
-  * **Replace duplicate `String` literals**
-  * Replaces `String` literals with a length of 5 or greater repeated a minimum of 3 times. Qualified `String` literals include final Strings, method invocations, and new class invocations. Adds a new `private static final String` or uses an existing equivalent class field. A new variable name will be generated based on the literal value if an existing field does not exist. The generated name will append a numeric value to the variable name if a name already exists in the compilation unit.
-* [org.openrewrite.staticanalysis.ReplaceOptionalIsPresentWithIfPresent](/user-documentation/recipes/recipe-catalog/staticanalysis/replaceoptionalispresentwithifpresent.md)
-  * **Replace `Optional#isPresent()` with `Optional#ifPresent()`**
-  * Replace `Optional#isPresent()` with `Optional#ifPresent()`. Please note that this recipe is only suitable for if-blocks that lack an Else-block and have a single condition applied.
-* [org.openrewrite.staticanalysis.ReplaceRedundantFormatWithPrintf](/user-documentation/recipes/recipe-catalog/staticanalysis/replaceredundantformatwithprintf.md)
-  * **Replace redundant String format invocations that are wrapped with PrintStream operations**
-  * Replaces `PrintStream.print(String.format(format, ...args))` with `PrintStream.printf(format, ...args)` (and for `println`, appends a newline to the format string).
-* [org.openrewrite.staticanalysis.ReplaceStackWithDeque](/user-documentation/recipes/recipe-catalog/staticanalysis/replacestackwithdeque.md)
-  * **Replace `java.util.Stack` with `java.util.Deque`**
-  * From the Javadoc of `Stack`: &gt; A more complete and consistent set of LIFO stack operations is provided by the Deque interface and its implementations, which should be used in preference to this class.
-* [org.openrewrite.staticanalysis.ReplaceTextBlockWithString](/user-documentation/recipes/recipe-catalog/staticanalysis/replacetextblockwithstring.md)
-  * **Replace text block with regular string**
-  * Replace text block with a regular multi-line string.
-* [org.openrewrite.staticanalysis.ReplaceWeekYearWithYear](/user-documentation/recipes/recipe-catalog/staticanalysis/replaceweekyearwithyear.md)
-  * **Week Year (YYYY) should not be used for date formatting**
-  * For most dates Week Year (YYYY) and Year (yyyy) yield the same results. However, on the last week of December and the first week of January, Week Year could produce unexpected results.
-* [org.openrewrite.staticanalysis.SimplifyBooleanExpressionWithDeMorgan](/user-documentation/recipes/recipe-catalog/staticanalysis/simplifybooleanexpressionwithdemorgan.md)
-  * **Simplify boolean expressions using De Morgan's laws**
-  * Applies De Morgan's laws to simplify boolean expressions with negation. Transforms `!(a &amp;&amp; b)` to `!a || !b` and `!(a || b)` to `!a &amp;&amp; !b`.
-* [org.openrewrite.staticanalysis.SimplifyCompoundStatement](/user-documentation/recipes/recipe-catalog/staticanalysis/simplifycompoundstatement.md)
-  * **Simplify compound statement**
-  * Fixes or removes useless compound statements. For example, removing `b &amp;= true`, and replacing `b &amp;= false` with `b = false`.
-* [org.openrewrite.staticanalysis.SimplifyConsecutiveAssignments](/user-documentation/recipes/recipe-catalog/staticanalysis/simplifyconsecutiveassignments.md)
-  * **Simplify consecutive assignments**
-  * Combine consecutive assignments into a single statement where possible.
-* [org.openrewrite.staticanalysis.SimplifyDurationCreationUnits](/user-documentation/recipes/recipe-catalog/staticanalysis/simplifydurationcreationunits.md)
-  * **Simplify `java.time.Duration` units**
-  * Simplifies `java.time.Duration` units to be more human-readable.
-* [org.openrewrite.staticanalysis.SimplifyElseBranch](/user-documentation/recipes/recipe-catalog/staticanalysis/simplifyelsebranch.md)
-  * **Simplify `else` branch if it only has a single `if`**
-  * Simplify `else` branch if it only has a single `if`.
-* [org.openrewrite.staticanalysis.SimplifyForLoopBoundaryComparison](/user-documentation/recipes/recipe-catalog/staticanalysis/simplifyforloopboundarycomparison.md)
-  * **Simplify for loop boundary comparisons**
-  * Replace `&lt;=` with `&lt;` in for loop conditions by adjusting the comparison operands. For example, `i &lt;= n - 1` simplifies to `i &lt; n`, and `i &lt;= n` becomes `i &lt; n + 1`.
-* [org.openrewrite.staticanalysis.SimplifyTernaryRecipes](/user-documentation/recipes/recipe-catalog/staticanalysis/simplifyternaryrecipes.md)
-  * **Simplify ternary expressions**
-  * Simplifies various types of ternary expressions to improve code readability.
-* [org.openrewrite.staticanalysis.SortedSetStreamToLinkedHashSet](/user-documentation/recipes/recipe-catalog/staticanalysis/sortedsetstreamtolinkedhashset.md)
-  * **Sorted set stream should be collected to LinkedHashSet**
-  * Converts `set.stream().sorted().collect(Collectors.toSet())` to `set.stream().sorted().collect(LinkedHashSet::new)`.
-* [org.openrewrite.staticanalysis.TernaryOperatorsShouldNotBeNested](/user-documentation/recipes/recipe-catalog/staticanalysis/ternaryoperatorsshouldnotbenested.md)
-  * **Ternary operators should not be nested**
-  * Nested ternary operators can be hard to read quickly. Prefer simpler constructs for improved readability. If supported, this recipe will try to replace nested ternaries with switch expressions.
-* [org.openrewrite.staticanalysis.URLEqualsHashCodeRecipes](/user-documentation/recipes/recipe-catalog/staticanalysis/urlequalshashcoderecipes.md)
-  * **URL Equals and Hash Code**
-  * Uses of `equals()` and `hashCode()` cause `java.net.URL` to make blocking internet connections. Instead, use `java.net.URI`.
-* [org.openrewrite.staticanalysis.UnwrapRepeatableAnnotations](/user-documentation/recipes/recipe-catalog/staticanalysis/unwraprepeatableannotations.md)
-  * **Unwrap `@Repeatable` annotations**
-  * Java 8 introduced the concept of `@Repeatable` annotations, making the wrapper annotation unnecessary.
-* [org.openrewrite.staticanalysis.UseAsBuilder](/user-documentation/recipes/recipe-catalog/staticanalysis/useasbuilder.md)
-  * **Chain calls to builder methods**
-  * Chain calls to builder methods that are on separate lines into one chain of builder calls.
-* [org.openrewrite.staticanalysis.UseCollectionInterfaces](/user-documentation/recipes/recipe-catalog/staticanalysis/usecollectioninterfaces.md)
-  * **Use `Collection` interfaces**
-  * Use `Deque`, `List`, `Map`, `ConcurrentMap`, `Queue`, and `Set` instead of implemented collections. Replaces the return type of public method declarations and the variable type public variable declarations.
-* [org.openrewrite.staticanalysis.UseForEachRemoveInsteadOfSetRemoveAll](/user-documentation/recipes/recipe-catalog/staticanalysis/useforeachremoveinsteadofsetremoveall.md)
-  * **Replace `java.util.Set#removeAll(java.util.Collection)` with `java.util.Collection#forEach(Set::remove)`**
-  * Using `java.util.Collection#forEach(Set::remove)` rather than `java.util.Set#removeAll(java.util.Collection)` may improve performance due to a possible O(n^2) complexity.
-* [org.openrewrite.staticanalysis.UseLambdaForFunctionalInterface](/user-documentation/recipes/recipe-catalog/staticanalysis/uselambdaforfunctionalinterface.md)
-  * **Use lambda expressions instead of anonymous classes**
-  * Instead of anonymous class declarations, use a lambda where possible. Using lambdas to replace anonymous classes can lead to more expressive and maintainable code, improve code readability, reduce code duplication, and achieve better performance in some cases.
-* [org.openrewrite.staticanalysis.UseListSort](/user-documentation/recipes/recipe-catalog/staticanalysis/uselistsort.md)
-  * **Replace invocations of `Collections#sort(List, Comparator)` with `List#sort(Comparator)`**
-  * The `java.util.Collections#sort(..)` implementation defers to the `java.util.List#sort(Comparator)`, replaced it with the `java.util.List#sort(Comparator)` implementation for better readability.
-* [org.openrewrite.staticanalysis.UseObjectNotifyAll](/user-documentation/recipes/recipe-catalog/staticanalysis/useobjectnotifyall.md)
-  * **Replaces `Object.notify()` with `Object.notifyAll()`**
-  * `Object.notifyAll()` and `Object.notify()` both wake up sleeping threads, but `Object.notify()` only rouses one while `Object.notifyAll()` rouses all of them. Since `Object.notify()` might not wake up the right thread, `Object.notifyAll()` should be used instead. See [this](https://wiki.sei.cmu.edu/confluence/display/java/THI02-J.+Notify+all+waiting+threads+rather+than+a+single+thread) for more information.
-* [org.openrewrite.staticanalysis.UseStandardCharset](/user-documentation/recipes/recipe-catalog/staticanalysis/usestandardcharset.md)
-  * **Use `StandardCharset` constants**
-  * Replaces `Charset.forName(java.lang.String)` with the equivalent `StandardCharset` constant.
-* [org.openrewrite.staticanalysis.UseStringReplace](/user-documentation/recipes/recipe-catalog/staticanalysis/usestringreplace.md)
-  * **Use `String::replace()` when first parameter is not a real regular expression**
-  * When `String::replaceAll` is used, the first argument should be a real regular expression. If it’s not the case, `String::replace` does exactly the same thing as `String::replaceAll` without the performance drawback of the regex.
-* [org.openrewrite.staticanalysis.UseSystemLineSeparator](/user-documentation/recipes/recipe-catalog/staticanalysis/usesystemlineseparator.md)
-  * **Use `System.lineSeparator()`**
-  * Replace calls to `System.getProperty(&quot;line.separator&quot;)` with `System.lineSeparator()`.
-* [org.openrewrite.staticanalysis.UseTryWithResources](/user-documentation/recipes/recipe-catalog/staticanalysis/usetrywithresources.md)
-  * **Use try-with-resources**
-  * Refactor try/finally blocks to use try-with-resources when the finally block only closes an `AutoCloseable` resource.
-* [org.openrewrite.staticanalysis.maven.MavenJavadocNonAsciiRecipe](/user-documentation/recipes/recipe-catalog/staticanalysis/maven/mavenjavadocnonasciirecipe.md)
-  * **Remove non-ASCII characters from Javadoc**
-  * Maven's javadoc-plugin configuration does not support non-ASCII characters. What makes it tricky is the error is very ambiguous and doesn't help in any way. This recipe removes those non-ASCII characters.
-
-## org.openrewrite.recipe:rewrite-struts
-
-* [org.openrewrite.java.struts.search.FindStaticOgnlMethodAccess](/user-documentation/recipes/recipe-catalog/java/struts/search/findstaticognlmethodaccess.md)
-  * **Find static OGNL method access**
-  * Find OGNL expressions that use static method access (e.g., `@com.app.Util@makeCode()`), which is disabled by default in Struts 6 for security reasons. These expressions need to be migrated to use action instance methods instead.
-* [org.openrewrite.java.struts.search.FindStrutsActions](/user-documentation/recipes/recipe-catalog/java/struts/search/findstrutsactions.md)
-  * **Find Struts actions**
-  * Find actions and their associated definitions.
-
-## org.openrewrite.recipe:rewrite-terraform
-
-* [org.openrewrite.terraform.SecureRandom](/user-documentation/recipes/recipe-catalog/terraform/securerandom.md)
-  * **Use a long enough byte length for `random` resources**
-  * Use a long enough byte length for `random` resources.
-* [org.openrewrite.terraform.search.FindRequiredProvider](/user-documentation/recipes/recipe-catalog/terraform/search/findrequiredprovider.md)
-  * **Find required providers**
-  * Find `required_providers` blocks in Terraform configuration files. Produces a data table of the provider names and their versions.
-* [org.openrewrite.terraform.search.FindResource](/user-documentation/recipes/recipe-catalog/terraform/search/findresource.md)
-  * **Find Terraform resource**
-  * Find a Terraform resource by resource type.
-
-## org.openrewrite.recipe:rewrite-testing-frameworks
-
-* [org.openrewrite.java.testing.cleanup.RemoveEmptyTests](/user-documentation/recipes/recipe-catalog/java/testing/cleanup/removeemptytests.md)
-  * **Remove empty tests without comments**
-  * Removes empty methods with a `@Test` annotation if the body does not have comments.
-* [org.openrewrite.java.testing.mockito.AnyStringToNullable](/user-documentation/recipes/recipe-catalog/java/testing/mockito/anystringtonullable.md)
-  * **Replace Mockito 1.x `anyString()` with `nullable(String.class)`**
-  * Since Mockito 2.10 `anyString()` no longer matches null values. Use `nullable(Class)` instead.
-* [org.openrewrite.java.testing.mockito.CloseUnclosedStaticMocks](/user-documentation/recipes/recipe-catalog/java/testing/mockito/closeunclosedstaticmocks.md)
-  * **Close unclosed static mocks**
-  * Ensures that all `mockStatic` calls are properly closed. If `mockStatic` is in lifecycle methods like `@BeforeEach` or `@BeforeAll`, creates a class variable and closes it in `@AfterEach` or `@AfterAll`. If `mockStatic` is inside a test method, wraps it in a try-with-resources block.
-* [org.openrewrite.java.testing.mockito.MockitoJUnitRunnerSilentToExtension](/user-documentation/recipes/recipe-catalog/java/testing/mockito/mockitojunitrunnersilenttoextension.md)
-  * **JUnit 4 MockitoJUnitRunner.Silent to JUnit Jupiter MockitoExtension with LENIENT settings**
-  * Replace `@RunWith(MockitoJUnitRunner.Silent.class)` with `@ExtendWith(MockitoExtension.class)` and `@MockitoSettings(strictness = Strictness.LENIENT)`.
-
-## org.openrewrite.recipe:rewrite-third-party
-
-* [com.oracle.weblogic.rewrite.CheckAndCommentOutDeprecations1511](/user-documentation/recipes/recipe-catalog/com/oracle/weblogic/rewrite/checkandcommentoutdeprecations1511.md)
-  * **Report types deprecated or removed in WebLogic version 15.1.1**
-  * This recipe will report Java types that have been deprecated or removed in WebLogic version 15.1.1. This is an alias to prevent breaking existing recipes.
-* [com.oracle.weblogic.rewrite.JakartaEE9_1](/user-documentation/recipes/recipe-catalog/com/oracle/weblogic/rewrite/jakartaee9_1.md)
-  * **Migrate to Jakarta EE 9.1**
-  * These recipes help with Migration to Jakarta EE 9.1, flagging and updating deprecated methods.
-* [com.oracle.weblogic.rewrite.UpgradeJPATo31HibernateTo66](/user-documentation/recipes/recipe-catalog/com/oracle/weblogic/rewrite/upgradejpato31hibernateto66.md)
-  * **Upgrade Jakarta JPA to 3.1 and Hibernate 6.6**
-  * This recipe upgrades Jakarta JPA to 3.1 and Hibernate to 6.6 (compatible with Jakarta EE 10).
-* [com.oracle.weblogic.rewrite.UpgradeTo1411](/user-documentation/recipes/recipe-catalog/com/oracle/weblogic/rewrite/upgradeto1411.md)
-  * **Migrate to WebLogic 14.1.1**
-  * This recipe will apply changes required for migrating to WebLogic 14.1.1
-* [com.oracle.weblogic.rewrite.UpgradeTo1412](/user-documentation/recipes/recipe-catalog/com/oracle/weblogic/rewrite/upgradeto1412.md)
-  * **Migrate to WebLogic 14.1.2**
-  * This recipe will apply changes required for migrating to WebLogic 14.1.2
-* [com.oracle.weblogic.rewrite.UpgradeTo1511](/user-documentation/recipes/recipe-catalog/com/oracle/weblogic/rewrite/upgradeto1511.md)
-  * **Migrate to WebLogic 15.1.1**
-  * This recipe will apply changes required for migrating to WebLogic 15.1.1 and Jakarta EE 9.1
-* [com.oracle.weblogic.rewrite.WebLogicXmlCreateIfNotExists1511](/user-documentation/recipes/recipe-catalog/com/oracle/weblogic/rewrite/weblogicxmlcreateifnotexists1511.md)
-  * **Create `weblogic.xml` if it does not exist**
-  * This recipe will create a `weblogic.xml` file with the WebLogic 15.1.1 namespace if it does not already exist.
-* [com.oracle.weblogic.rewrite.WebLogicXmlPreferApplicationPackagesJPA](/user-documentation/recipes/recipe-catalog/com/oracle/weblogic/rewrite/weblogicxmlpreferapplicationpackagesjpa.md)
-  * **Add `prefer-application-packages` for JPA in `weblogic.xml`**
-  * This recipe will add a `prefer-application-packages` entry for Jakarta Persistence in `weblogic.xml` if it does not already exist.
-* [com.oracle.weblogic.rewrite.WebLogicXmlPreferApplicationPackagesSlf4j](/user-documentation/recipes/recipe-catalog/com/oracle/weblogic/rewrite/weblogicxmlpreferapplicationpackagesslf4j.md)
-  * **Add `prefer-application-packages` for SLF4J in `weblogic.xml`**
-  * This recipe will add a `prefer-application-packages` entry for SLF4J in `weblogic.xml` if it does not already exist.
-* [com.oracle.weblogic.rewrite.examples.spring.MigratedPetClinicExtrasFor1511](/user-documentation/recipes/recipe-catalog/com/oracle/weblogic/rewrite/examples/spring/migratedpetclinicextrasfor1511.md)
-  * **Add WebLogic 15.1.1 PetClinic extras**
-  * Run migration extras for migrated Spring Framework PetClinic example run on WebLogic 15.1.1.
-* [com.oracle.weblogic.rewrite.examples.spring.SetupSpringFrameworkPetClinicFor1412](/user-documentation/recipes/recipe-catalog/com/oracle/weblogic/rewrite/examples/spring/setupspringframeworkpetclinicfor1412.md)
-  * **Setup Spring Framework 5.3.x PetClinic for WebLogic 14.1.2**
-  * Setup Spring Framework 5.3.x PetClinic for WebLogic 14.1.2.
-* [com.oracle.weblogic.rewrite.hibernate.MigrateHibernateToJakartaEE9](/user-documentation/recipes/recipe-catalog/com/oracle/weblogic/rewrite/hibernate/migratehibernatetojakartaee9.md)
-  * **Migrate to Hibernate for Jakarta EE 9**
-  * Upgrade hibernate libraries to Jakarta EE9 versions.
-* [com.oracle.weblogic.rewrite.jakarta.UpdateJakartaPersistenceTo32](/user-documentation/recipes/recipe-catalog/com/oracle/weblogic/rewrite/jakarta/updatejakartapersistenceto32.md)
-  * **Update Jakarta Persistence to 3.2**
-  * Update Jakarta Persistence to 3.2.
-* [com.oracle.weblogic.rewrite.spring.framework.UpgradeToSpringFramework_6_2](/user-documentation/recipes/recipe-catalog/com/oracle/weblogic/rewrite/spring/framework/upgradetospringframework_6_2.md)
-  * **Migrate to Spring Framework 6.2 for WebLogic 15.1.1**
-  * Migrate applications to the Spring Framework 6.2 release and compatibility with WebLogic 15.1.1.
-* [org.apache.camel.upgrade.Camel410LTSMigrationRecipe](/user-documentation/recipes/recipe-catalog/org/apache/camel/upgrade/camel410ltsmigrationrecipe.md)
-  * **Migrate to 4.10.6**
-  * Migrates Apache Camel application to 4.10.6.
-* [org.apache.camel.upgrade.CamelMigrationRecipe](/user-documentation/recipes/recipe-catalog/org/apache/camel/upgrade/camelmigrationrecipe.md)
-  * **Migrate to 4.18.0**
-  * Migrates Apache Camel application to 4.18.0.
-
-## org.openrewrite:rewrite-cobol
+### rewrite-cobol
 
 * [org.openrewrite.cobol.cleanup.RemoveWithDebuggingMode](/user-documentation/recipes/recipe-catalog/cobol/cleanup/removewithdebuggingmode.md)
   * **Remove with debugging mode**
@@ -1116,7 +252,7 @@ Total standalone recipes: 1206
   * **Find matching words in the source code**
   * Search for COBOL words based on a search term.
 
-## org.openrewrite:rewrite-core
+### rewrite-core
 
 * [org.openrewrite.AddToGitignore](/user-documentation/recipes/recipe-catalog/core/addtogitignore.md)
   * **Add entries to `.gitignore`**
@@ -1182,7 +318,7 @@ Total standalone recipes: 1206
   * **Remove byte order mark (BOM)**
   * Removes UTF-8 byte order marks from the beginning of files.  The BOM character (U+FEFF) is generally unnecessary in UTF-8 files and can cause issues with some tools.
 
-## org.openrewrite:rewrite-csharp
+### rewrite-csharp
 
 * [org.openrewrite.csharp.AddNuGetPackageReference](/user-documentation/recipes/recipe-catalog/csharp/addnugetpackagereference.md)
   * **Add NuGet package reference**
@@ -1197,7 +333,7 @@ Total standalone recipes: 1206
   * **Upgrade NuGet package version**
   * Upgrades the version of a NuGet `&lt;PackageReference&gt;` or `&lt;PackageVersion&gt;` in .csproj and Directory.Packages.props files. Handles property references by updating the property value instead of the version attribute. Supports semver version selectors.
 
-## org.openrewrite:rewrite-docker
+### rewrite-docker
 
 * [org.openrewrite.docker.AddOciLabels](/user-documentation/recipes/recipe-catalog/docker/addocilabels.md)
   * **Add OCI image labels**
@@ -1208,6 +344,9 @@ Total standalone recipes: 1206
 * [org.openrewrite.docker.ChangeFrom](/user-documentation/recipes/recipe-catalog/docker/changefrom.md)
   * **Change Docker FROM**
   * Change the base image in a Dockerfile FROM instruction.
+* [org.openrewrite.docker.DockerBestPractices](/user-documentation/recipes/recipe-catalog/docker/dockerbestpractices.md)
+  * **Apply Docker best practices**
+  * Apply a set of Docker best practices to Dockerfiles. This recipe applies security hardening, build optimization, and maintainability improvements based on CIS Docker Benchmark and industry best practices.
 * [org.openrewrite.docker.search.FindBaseImages](/user-documentation/recipes/recipe-catalog/docker/search/findbaseimages.md)
   * **Find Docker base images**
   * Find all base images (`FROM` instructions) in Dockerfiles.
@@ -1215,7 +354,7 @@ Total standalone recipes: 1206
   * **Find exposed ports**
   * Find all `EXPOSE` instructions in Dockerfiles and report the exposed ports.
 
-## org.openrewrite:rewrite-gradle
+### rewrite-gradle
 
 * [org.openrewrite.gradle.AddPlatformDependency](/user-documentation/recipes/recipe-catalog/gradle/addplatformdependency.md)
   * **Add Gradle platform dependency**
@@ -1241,6 +380,9 @@ Total standalone recipes: 1206
 * [org.openrewrite.gradle.EnableDevelocityBuildCache](/user-documentation/recipes/recipe-catalog/gradle/enabledevelocitybuildcache.md)
   * **Enable Develocity build cache**
   * Adds `buildCache` configuration to `develocity` where not yet present.
+* [org.openrewrite.gradle.GradleBestPractices](/user-documentation/recipes/recipe-catalog/gradle/gradlebestpractices.md)
+  * **Apply Gradle best practices**
+  * Apply a set of [Gradle best practices](https://docs.gradle.org/current/userguide/best_practices_general.html) to the build files, for more efficient and ideomatic builds.
 * [org.openrewrite.gradle.MigrateDependenciesToVersionCatalog](/user-documentation/recipes/recipe-catalog/gradle/migratedependenciestoversioncatalog.md)
   * **Migrate Gradle project dependencies to version catalog**
   * Migrates Gradle project dependencies to use the [version catalog](https://docs.gradle.org/current/userguide/platforms.html) feature. Supports migrating dependency declarations of various forms:  * `String` notation: `&quot;group:artifact:version&quot;`  * `Map` notation: `group: 'group', name: 'artifact', version: 'version'`  * Property references: `&quot;group:artifact:$version&quot;` or `&quot;group:artifact:$\{version\}&quot;`  The recipe will:  * Create a `gradle/libs.versions.toml` file with version declarations  * Replace dependency declarations with catalog references (e.g., `libs.springCore`)  * Migrate version properties from `gradle.properties` to the version catalog  * Preserve project dependencies unchanged  **Note:** If a version catalog already exists, the recipe will not modify it.
@@ -1271,6 +413,9 @@ Total standalone recipes: 1206
 * [org.openrewrite.gradle.plugins.MigrateGradleEnterpriseToDevelocity](/user-documentation/recipes/recipe-catalog/gradle/plugins/migrategradleenterprisetodevelocity.md)
   * **Migrate from Gradle Enterprise to Develocity**
   * Migrate from the Gradle Enterprise Gradle plugin to the Develocity Gradle plugin.
+* [org.openrewrite.gradle.plugins.RemoveDevelocity](/user-documentation/recipes/recipe-catalog/gradle/plugins/removedevelocity.md)
+  * **Remove Develocity**
+  * Remove the Develocity plugin and configuration from the Gradle build and settings files.
 * [org.openrewrite.gradle.search.DoesNotIncludeDependency](/user-documentation/recipes/recipe-catalog/gradle/search/doesnotincludedependency.md)
   * **Does not include Gradle dependency**
   * A precondition which returns false if visiting a Gradle file which includes the specified dependency in the classpath of some scope. For compatibility with multimodule projects, this should most often be applied as a precondition.
@@ -1314,7 +459,7 @@ Total standalone recipes: 1206
   * **Use HTTPS for repositories**
   * Use HTTPS for repository URLs.
 
-## org.openrewrite:rewrite-groovy
+### rewrite-groovy
 
 * [org.openrewrite.groovy.format.AutoFormat](/user-documentation/recipes/recipe-catalog/groovy/format/autoformat.md)
   * **Format Groovy code**
@@ -1329,7 +474,7 @@ Total standalone recipes: 1206
   * **Stylize Groovy code to omit parentheses**
   * Omit parentheses for last argument lambdas in Groovy code.
 
-## org.openrewrite:rewrite-hcl
+### rewrite-hcl
 
 * [org.openrewrite.hcl.DeleteContent](/user-documentation/recipes/recipe-catalog/hcl/deletecontent.md)
   * **Delete content**
@@ -1362,8 +507,11 @@ Total standalone recipes: 1206
   * **Find content**
   * Find HCL content by path.
 
-## org.openrewrite:rewrite-java
+### rewrite-java
 
+* [org.openrewrite.java.AddApache2LicenseHeader](/user-documentation/recipes/recipe-catalog/java/addapache2licenseheader.md)
+  * **Add ASLv2 license header**
+  * Adds the Apache Software License Version 2.0 to Java source files which are missing a license header.
 * [org.openrewrite.java.ChangeMethodTargetToVariable](/user-documentation/recipes/recipe-catalog/java/changemethodtargettovariable.md)
   * **Change method target to variable**
   * Change method invocations to method calls on a variable.
@@ -1469,6 +617,9 @@ Total standalone recipes: 1206
 * [org.openrewrite.java.search.FindRepeatableAnnotations](/user-documentation/recipes/recipe-catalog/java/search/findrepeatableannotations.md)
   * **Find uses of `@Repeatable` annotations**
   * Java 8 introduced the concept of `@Repeatable` annotations.
+* [org.openrewrite.java.search.FindSecrets](/user-documentation/recipes/recipe-catalog/java/search/findsecrets.md)
+  * **Find plain text secrets**
+  * Find secrets stored in plain text in code.
 * [org.openrewrite.java.search.FindSymbols](/user-documentation/recipes/recipe-catalog/java/search/findsymbols.md)
   * **Find symbols**
   * Lists all symbols (classes, methods, fields, etc.) declared in the codebase. Results are emitted into a data table with symbol kind, name, parent type, signature, and visibility.
@@ -1503,7 +654,55 @@ Total standalone recipes: 1206
   * **Result of method call ignored**
   * Find locations where the result of the method call is being ignored.
 
-## org.openrewrite:rewrite-json
+### rewrite-javascript
+
+* [org.openrewrite.javascript.change-import](/user-documentation/recipes/recipe-catalog/javascript/change-import.md)
+  * **Change import**
+  * Changes an import from one module/member to another, updating all type attributions.
+* [org.openrewrite.javascript.cleanup.add-parse-int-radix](/user-documentation/recipes/recipe-catalog/javascript/cleanup/add-parse-int-radix.md)
+  * **Add radix to `parseInt`**
+  * Adds the radix parameter (base 10) to `parseInt()` calls that are missing it, preventing potential parsing issues.
+* [org.openrewrite.javascript.cleanup.async-callback-in-sync-array-method](/user-documentation/recipes/recipe-catalog/javascript/cleanup/async-callback-in-sync-array-method.md)
+  * **Detect async callbacks in synchronous array methods**
+  * Detects async callbacks passed to array methods like .some(), .every(), .filter() which don't await promises. This is a common bug where Promise objects are always truthy.
+* [org.openrewrite.javascript.cleanup.order-imports](/user-documentation/recipes/recipe-catalog/javascript/cleanup/order-imports.md)
+  * **Order imports**
+  * Sort imports by category and module path. Categories: side-effect, namespace, default, named, type. Within each category, imports are sorted alphabetically by module path. Named specifiers within each import are also sorted alphabetically.
+* [org.openrewrite.javascript.cleanup.prefer-optional-chain](/user-documentation/recipes/recipe-catalog/javascript/cleanup/prefer-optional-chain.md)
+  * **Prefer optional chaining**
+  * Converts ternary expressions like `foo ? foo.bar : undefined` to use optional chaining syntax `foo?.bar`.
+* [org.openrewrite.javascript.cleanup.use-object-property-shorthand](/user-documentation/recipes/recipe-catalog/javascript/cleanup/use-object-property-shorthand.md)
+  * **Use object property shorthand**
+  * Simplifies object properties where the property name and value/variable name are the same (e.g., `\{ x: x \}` becomes `\{ x \}`). Applies to both destructuring patterns and object literals.
+* [org.openrewrite.javascript.dependencies.add-dependency](/user-documentation/recipes/recipe-catalog/javascript/dependencies/add-dependency.md)
+  * **Add npm dependency**
+  * Adds a new dependency to `package.json` and updates the lock file by running the package manager.
+* [org.openrewrite.javascript.dependencies.find-dependency](/user-documentation/recipes/recipe-catalog/javascript/dependencies/find-dependency.md)
+  * **Find Node.js dependency**
+  * Finds dependencies in a project's `package.json`. Can find both direct dependencies and dependencies that transitively include the target package. This recipe is commonly used as a precondition for other recipes.
+* [org.openrewrite.javascript.dependencies.upgrade-dependency-version](/user-documentation/recipes/recipe-catalog/javascript/dependencies/upgrade-dependency-version.md)
+  * **Upgrade npm dependency version**
+  * Upgrades the version of a direct dependency in `package.json` and updates the lock file by running the package manager.
+* [org.openrewrite.javascript.dependencies.upgrade-transitive-dependency-version](/user-documentation/recipes/recipe-catalog/javascript/dependencies/upgrade-transitive-dependency-version.md)
+  * **Upgrade transitive npm dependency version**
+  * Upgrades the version of a transitive dependency by adding override/resolution entries to `package.json` and updates the lock file by running the package manager.
+* [org.openrewrite.javascript.format.auto-format](/user-documentation/recipes/recipe-catalog/javascript/format/auto-format.md)
+  * **Auto-format JavaScript/TypeScript code**
+  * Format JavaScript and TypeScript code using formatting rules auto-detected from the project's existing code style.
+* [org.openrewrite.javascript.migrate.es6.modernize-octal-escape-sequences](/user-documentation/recipes/recipe-catalog/javascript/migrate/es6/modernize-octal-escape-sequences.md)
+  * **Modernize octal escape sequences**
+  * Convert old-style octal escape sequences (e.g., `\0`, `\123`) to modern hex escape sequences (e.g., `\x00`, `\x53`) or Unicode escape sequences (e.g., `\u0000`, `\u0053`).
+* [org.openrewrite.javascript.migrate.es6.modernize-octal-literals](/user-documentation/recipes/recipe-catalog/javascript/migrate/es6/modernize-octal-literals.md)
+  * **Modernize octal literals**
+  * Convert old-style octal literals (e.g., `0777`) to modern ES6 syntax (e.g., `0o777`).
+* [org.openrewrite.javascript.migrate.es6.remove-duplicate-object-keys](/user-documentation/recipes/recipe-catalog/javascript/migrate/es6/remove-duplicate-object-keys.md)
+  * **Remove duplicate object keys**
+  * Remove duplicate keys in object literals, keeping only the last occurrence (last-wins semantics).
+* [org.openrewrite.javascript.migrate.typescript.export-assignment-to-export-default](/user-documentation/recipes/recipe-catalog/javascript/migrate/typescript/export-assignment-to-export-default.md)
+  * **Convert `export =` to `export default`**
+  * Converts TypeScript `export =` syntax to ES module `export default` syntax for compatibility with ECMAScript modules.
+
+### rewrite-json
 
 * [org.openrewrite.json.AddKeyValue](/user-documentation/recipes/recipe-catalog/json/addkeyvalue.md)
   * **Add value to JSON Object**
@@ -1536,7 +735,7 @@ Total standalone recipes: 1206
   * **Find JSON object members**
   * Find JSON object members by JsonPath expression.
 
-## org.openrewrite:rewrite-kotlin
+### rewrite-kotlin
 
 * [org.openrewrite.kotlin.FindKotlinSources](/user-documentation/recipes/recipe-catalog/kotlin/findkotlinsources.md)
   * **Find Kotlin sources and collect data metrics**
@@ -1563,7 +762,7 @@ Total standalone recipes: 1206
   * **Format Kotlin code**
   * Format Kotlin code using a standard comprehensive set of Kotlin formatting recipes.
 
-## org.openrewrite:rewrite-maven
+### rewrite-maven
 
 * [org.openrewrite.maven.AddCommentToMavenDependency](/user-documentation/recipes/recipe-catalog/maven/addcommenttomavendependency.md)
   * **Add a comment to a `Maven` dependency or plugin**
@@ -1607,9 +806,15 @@ Total standalone recipes: 1206
 * [org.openrewrite.maven.ManagedToRuntimeDependencies](/user-documentation/recipes/recipe-catalog/maven/managedtoruntimedependencies.md)
   * **Convert managed dependencies to runtime dependencies**
   * This recipe processes Maven POMs, converting all `&lt;dependencyManagement&gt;` entries into runtime scoped `&lt;dependencies&gt;` entries. Import scoped BOMs (like jackson-bom) are left unmodified in `&lt;dependencyManagement&gt;`. Some style guidelines prefer that `&lt;dependencyManagement&gt;` be used only for BOMs. This maintain that style while avoiding introducing new symbols onto the compile classpath unintentionally.
+* [org.openrewrite.maven.MigrateToMaven4](/user-documentation/recipes/recipe-catalog/maven/migratetomaven4.md)
+  * **Migrate to Maven 4**
+  * Migrates Maven POMs from Maven 3 to Maven 4, addressing breaking changes and deprecations. This recipe updates property expressions, lifecycle phases, removes duplicate plugin declarations, and replaces removed properties to ensure compatibility with Maven 4.
 * [org.openrewrite.maven.ModernizeObsoletePoms](/user-documentation/recipes/recipe-catalog/maven/modernizeobsoletepoms.md)
   * **Modernize obsolete Maven poms**
   * Very old Maven poms are no longer supported by current versions of Maven. This recipe updates poms with `&lt;pomVersion&gt;3&lt;/pomVersion&gt;` to `&lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;` of the Maven pom schema. This does not attempt to upgrade old dependencies or plugins and is best regarded as the starting point of a migration rather than an end-point.
+* [org.openrewrite.maven.RemoveMavenWrapper](/user-documentation/recipes/recipe-catalog/maven/removemavenwrapper.md)
+  * **Remove Maven wrapper**
+  * Remove Maven wrapper files from a project. This includes the `mvnw` and `mvnw.cmd` scripts, and the `.mvn/wrapper` directory.
 * [org.openrewrite.maven.RemoveRepository](/user-documentation/recipes/recipe-catalog/maven/removerepository.md)
   * **Remove repository**
   * Removes a matching Maven repository.
@@ -1671,23 +876,44 @@ Total standalone recipes: 1206
   * **Print Maven dependency hierarchy in DOT format**
   * The DOT language format is specified [here](https://graphviz.org/doc/info/lang.html).
 
-## org.openrewrite:rewrite-properties
+### rewrite-properties
 
 * [org.openrewrite.properties.AddPropertyComment](/user-documentation/recipes/recipe-catalog/properties/addpropertycomment.md)
   * **Add comment before property key**
   * Add a new comment before a property key if not already present, optionally commenting out the property.
 
-## org.openrewrite:rewrite-python
+### rewrite-python
 
 * [org.openrewrite.python.AddDependency](/user-documentation/recipes/recipe-catalog/python/adddependency.md)
   * **Add Python dependency**
   * Add a dependency to the `[project].dependencies` array in `pyproject.toml`. When `uv` is available, the `uv.lock` file is regenerated.
+* [org.openrewrite.python.AddLiteralMethodArgument](/user-documentation/recipes/recipe-catalog/python/addliteralmethodargument.md)
+  * **Add literal method argument**
+  * Add a literal argument to method invocations matching a pattern.
 * [org.openrewrite.python.ChangeDependency](/user-documentation/recipes/recipe-catalog/python/changedependency.md)
   * **Change Python dependency**
   * Change a dependency to a different package in `pyproject.toml`. Searches all dependency arrays. When `uv` is available, the `uv.lock` file is regenerated.
+* [org.openrewrite.python.ChangeMethodName](/user-documentation/recipes/recipe-catalog/python/changemethodname.md)
+  * **Change method name**
+  * Rename method invocations matching a pattern.
+* [org.openrewrite.python.ChangePackage](/user-documentation/recipes/recipe-catalog/python/changepackage.md)
+  * **Change package**
+  * Change package/module references from one name to another.
+* [org.openrewrite.python.ChangeType](/user-documentation/recipes/recipe-catalog/python/changetype.md)
+  * **Change type**
+  * Change a type reference from one fully qualified name to another.
+* [org.openrewrite.python.DeleteMethodArgument](/user-documentation/recipes/recipe-catalog/python/deletemethodargument.md)
+  * **Delete method argument**
+  * Remove an argument from method invocations matching a pattern.
 * [org.openrewrite.python.RemoveDependency](/user-documentation/recipes/recipe-catalog/python/removedependency.md)
   * **Remove Python dependency**
   * Remove a dependency from the `[project].dependencies` array in `pyproject.toml`. When `uv` is available, the `uv.lock` file is regenerated.
+* [org.openrewrite.python.RemovePass](/user-documentation/recipes/recipe-catalog/python/removepass.md)
+  * **Remove redundant pass statements**
+  * Remove redundant `pass` statements from Python code when there are other executable statements in the block.
+* [org.openrewrite.python.ReorderMethodArguments](/user-documentation/recipes/recipe-catalog/python/reordermethodarguments.md)
+  * **Reorder method arguments**
+  * Reorder arguments in method invocations matching a pattern.
 * [org.openrewrite.python.UpgradeDependencyVersion](/user-documentation/recipes/recipe-catalog/python/upgradedependencyversion.md)
   * **Upgrade Python dependency version**
   * Upgrade the version constraint for a dependency in `[project].dependencies` in `pyproject.toml`. When `uv` is available, the `uv.lock` file is regenerated.
@@ -1701,7 +927,7 @@ Total standalone recipes: 1206
   * **Python dependency insight**
   * Find direct and transitive Python dependencies matching a package name pattern. Results include dependencies that either directly match or transitively include a matching dependency.
 
-## org.openrewrite:rewrite-toml
+### rewrite-toml
 
 * [org.openrewrite.toml.ChangeKey](/user-documentation/recipes/recipe-catalog/toml/changekey.md)
   * **Change TOML key**
@@ -1734,7 +960,7 @@ Total standalone recipes: 1206
   * **Replace TOML table row**
   * Replace a TOML table row with new content. If a row with the same identifying property exists, replace it entirely.
 
-## org.openrewrite:rewrite-xml
+### rewrite-xml
 
 * [org.openrewrite.xml.AddTagAttribute](/user-documentation/recipes/recipe-catalog/xml/addtagattribute.md)
   * **Add new XML attribute for an Element**
@@ -1794,7 +1020,7 @@ Total standalone recipes: 1206
   * **XML style Auto-detection debug**
   * Runs XML Autodetect and records the results in data tables and search markers. A debugging tool for figuring out why XML documents get styled the way they do.
 
-## org.openrewrite:rewrite-yaml
+### rewrite-yaml
 
 * [org.openrewrite.yaml.AddCommentToProperty](/user-documentation/recipes/recipe-catalog/yaml/addcommenttoproperty.md)
   * **Add comment to a YAML property**
@@ -1824,107 +1050,86 @@ Total standalone recipes: 1206
   * **YAML indent**
   * Format tabs and indents in YAML.
 
-## other
+## org.openrewrite.meta
 
-* [ai.timefold.solver.migration.ToLatest](/user-documentation/recipes/recipe-catalog/ai/timefold/solver/migration/tolatest.md)
-  * **Upgrade to the latest Timefold Solver**
-  * Replace all your calls to deleted/deprecated types and methods of Timefold Solver with their proper alternatives.
-* [io.moderne.ai.FindAgentsInUse](/user-documentation/recipes/recipe-catalog/ai/findagentsinuse.md)
-  * **Find AI agents configuration files**
-  * Scans codebases to identify usage of AI agents by looking at the agent configuration files present in the repository.
-* [io.moderne.ai.FindLibrariesInUse](/user-documentation/recipes/recipe-catalog/ai/findlibrariesinuse.md)
-  * **Find AI libraries in use**
-  * Scans codebases to identify usage of AI services. Detects AI libraries across Java dependencies. Useful for auditing and understanding AI integration patterns.
-* [io.moderne.ai.FindModelsInUse](/user-documentation/recipes/recipe-catalog/ai/findmodelsinuse.md)
-  * **Find AI models in use**
-  * Scans codebases to identify usage of Large Language Models (LLMs). Detects model references and configuration patterns across Java classes, properties files, YAML configs... Useful for identifying model usage.
+
+### rewrite-analysis
+
+* [org.openrewrite.analysis.controlflow.ControlFlowVisualization](/user-documentation/recipes/recipe-catalog/analysis/controlflow/controlflowvisualization.md)
+  * **Control flow visualization**
+  * Visualize the control flow of a Java program.
+* [org.openrewrite.analysis.search.FindFlowBetweenMethods](/user-documentation/recipes/recipe-catalog/analysis/search/findflowbetweenmethods.md)
+  * **Finds flow between two methods**
+  * Takes two patterns for the start/end methods to find flow between.
+* [org.openrewrite.analysis.search.FindMethods](/user-documentation/recipes/recipe-catalog/analysis/search/findmethods.md)
+  * **Find method usages**
+  * Find method usages by pattern.
+* [org.openrewrite.analysis.search.UriCreatedWithHttpScheme](/user-documentation/recipes/recipe-catalog/analysis/search/uricreatedwithhttpscheme.md)
+  * **URIs created with an HTTP scheme**
+  * This is a sample recipe demonstrating a simple application of local data flow analysis.
+
+## org.openrewrite.recipe
+
+
+### rewrite-ai-search
+
+* [io.moderne.ai.FindCommentsLanguage](/user-documentation/recipes/recipe-catalog/ai/findcommentslanguage.md)
+  * **Find comments' language distribution**
+  * Finds all comments and uses AI to predict which language the comment is in.
 * [io.moderne.ai.FixMisencodedCommentsInFrench](/user-documentation/recipes/recipe-catalog/ai/fixmisencodedcommentsinfrench.md)
   * **Fix mis-encoded French comments, javadocs and pom.xml comments**
   * Fixes mis-encoded French comments in your code, javadocs and in your pom.xml files. Mis-encoded comments contain a ? or � character.
-* [io.moderne.cryptography.PostQuantumCryptography](/user-documentation/recipes/recipe-catalog/cryptography/postquantumcryptography.md)
-  * **Post quantum cryptography**
-  * This recipe searches for instances in code that may be impacted by post quantum cryptography. Applications may need to support larger key sizes, different algorithms, or use crypto agility to handle the migration. The recipe includes detection of hardcoded values that affect behavior in a post-quantum world, programmatic configuration that may prevent algorithm changes, and general cryptographic usage patterns that should be reviewed.
-* [io.moderne.devcenter.ApacheDevCenter](/user-documentation/recipes/recipe-catalog/devcenter/apachedevcenter.md)
-  * **DevCenter for Apache**
-  * A DevCenter that tracks the latest Apache Maven parent POM versions and applies best practices.
-* [io.moderne.devcenter.ApacheMavenDevCenter](/user-documentation/recipes/recipe-catalog/devcenter/apachemavendevcenter.md)
-  * **DevCenter for Apache Maven**
-  * A DevCenter that tracks the latest Apache Maven parent POM versions and applies best practices. This DevCenter includes recipes to upgrade the parent POMs of Apache Maven, as well as a collection of best practices for Maven POMs.
-* [io.moderne.devcenter.BuildToolStarter](/user-documentation/recipes/recipe-catalog/devcenter/buildtoolstarter.md)
-  * **DevCenter for Gradle and Maven**
-  * Track and automate upgrades for Gradle, Maven, and Java versions.
-* [io.moderne.devcenter.DevCenterStarter](/user-documentation/recipes/recipe-catalog/devcenter/devcenterstarter.md)
-  * **DevCenter**
-  * This is a default DevCenter configuration that can be used as a starting point for your own DevCenter configuration. It includes a combination of upgrades, migrations, and security fixes. You can customize this configuration to suit your needs. For more information on how to customize your DevCenter configuration, see the [DevCenter documentation](https://docs.moderne.io/administrator-documentation/moderne-platform/how-to-guides/recipe-based-devcenter-beta/).
-* [io.moderne.devcenter.QuarkusDevCenter](/user-documentation/recipes/recipe-catalog/devcenter/quarkusdevcenter.md)
-  * **DevCenter for Quarkus**
-  * A DevCenter that tracks the latest Quarkus framework versions and applies best practices. This DevCenter includes recipes to upgrade Quarkus versions, migrate from deprecated APIs, and ensure compatibility with the latest Java versions and testing frameworks.
-* [io.moderne.devcenter.UpgradeApacheParent](/user-documentation/recipes/recipe-catalog/devcenter/upgradeapacheparent.md)
-  * **Upgrade Apache Parent POM**
-  * Upgrades the Apache parent POM to the latest version.
-* [io.moderne.devcenter.UpgradeMavenParent](/user-documentation/recipes/recipe-catalog/devcenter/upgrademavenparent.md)
-  * **Upgrade Apache Maven Parent**
-  * Upgrades the Apache Maven parent POM to the latest version.
-* [io.moderne.devcenter.UpgradeMavenPluginsParent](/user-documentation/recipes/recipe-catalog/devcenter/upgrademavenpluginsparent.md)
-  * **Upgrade Maven Plugins Parent**
-  * Upgrades the Apache Maven parent POM to the latest version.
-* [io.moderne.devcenter.UpgradeMavenSharedParent](/user-documentation/recipes/recipe-catalog/devcenter/upgrademavensharedparent.md)
-  * **Upgrade Maven Shared Parent**
-  * Upgrades the Apache Maven parent POM to the latest version.
-* [io.moderne.devcenter.UpgradeQuarkus3_x](/user-documentation/recipes/recipe-catalog/devcenter/upgradequarkus3_x.md)
-  * **Upgrade to Quarkus 3.26**
-  * Upgrades Quarkus dependencies to version 3.26.x, including core, extensions, and tooling.
-* [io.moderne.devcenter.UpgradeQuarkusUniverseBom](/user-documentation/recipes/recipe-catalog/devcenter/upgradequarkusuniversebom.md)
-  * **Upgrade Quarkus Universe BOM**
-  * Upgrades the Quarkus Universe BOM parent to the latest version.
-* [io.moderne.devcenter.VulnerabilitiesDevCenter](/user-documentation/recipes/recipe-catalog/devcenter/vulnerabilitiesdevcenter.md)
-  * **DevCenter for Vulnerability Management**
-  * Recipes to analyze and manage dependency vulnerabilities using Moderne DevCenter.
-* [io.moderne.jasperreports.UpgradeToJasperReports6](/user-documentation/recipes/recipe-catalog/jasperreports/upgradetojasperreports6.md)
-  * **Migrate to JasperReports 6**
-  * Migrates JasperReports from 5.x to 6.x with the new exporter API, XLS to XLSX move, and removal of Spring JasperReports views.
-* [io.moderne.java.server.jboss.jetty.MigrateJBossToJetty](/user-documentation/recipes/recipe-catalog/java/server/jboss/jetty/migratejbosstojetty.md)
-  * **Migrate JBoss to Jetty**
-  * Comprehensive migration from JBoss to Jetty.
-* [io.moderne.java.spring.boot.SpringToSpringBoot](/user-documentation/recipes/recipe-catalog/java/spring/boot/springtospringboot.md)
-  * **Migrate Spring Framework to Spring Boot**
-  * Migrate non Spring Boot applications to the latest compatible Spring Boot release. This recipe will modify an application's build files introducing Maven dependency management for Spring Boot, or adding the Gradle Spring Boot build plugin.
-* [io.moderne.java.spring.boot4.ModuleHasMonolithicStarter](/user-documentation/recipes/recipe-catalog/java/spring/boot4/modulehasmonolithicstarter.md)
-  * **Module has monolithic Spring Boot starter**
-  * Precondition that matches modules with the monolithic Spring Boot starters that need to be migrated to modular starters. Matches the production monolithic spring-boot-starter and spring-boot-starter-classic, but not specific modular starters like spring-boot-starter-test or spring-boot-starter-ldap.
-* [io.moderne.java.spring.boot4.ModuleUsesFlyway](/user-documentation/recipes/recipe-catalog/java/spring/boot4/moduleusesflyway.md)
-  * **Module uses Flyway**
-  * Precondition that marks all files in a module if Flyway usage is detected. Detection is based on having a Flyway dependency, using Flyway types, or having migration files.
-* [io.moderne.java.spring.boot4.ModuleUsesLiquibase](/user-documentation/recipes/recipe-catalog/java/spring/boot4/moduleusesliquibase.md)
-  * **Module uses Liquibase**
-  * Precondition that marks all files in a module if Liquibase usage is detected. Detection is based on having a Liquibase dependency, using Liquibase types, or having changelog files.
-* [io.moderne.java.spring.boot4.SpringBoot4BestPractices](/user-documentation/recipes/recipe-catalog/java/spring/boot4/springboot4bestpractices.md)
-  * **Spring Boot 4.0 best practices**
-  * Applies best practices to Spring Boot 4.+ applications.
-* [io.moderne.java.spring.framework.FindDeprecatedPathMatcherUsage](/user-documentation/recipes/recipe-catalog/java/spring/framework/finddeprecatedpathmatcherusage.md)
-  * **Find deprecated `PathMatcher` usage**
-  * In Spring Framework 7.0, `PathMatcher` and `AntPathMatcher` are deprecated in favor of `PathPatternParser`. This recipe finds usages of the deprecated `AntPathMatcher` class that may require manual migration to `PathPatternParser`.
-* [io.moderne.recipe.rewrite-program-analysis.InlineDeprecatedMethods](/user-documentation/recipes/recipe-catalog/recipe/rewrite-program-analysis/inlinedeprecatedmethods.md)
-  * **Inline deprecated delegating methods**
-  * Automatically generated recipes to inline deprecated method calls that delegate to other methods in the same class.
-* [org.apache.wicket.BestPractices](/user-documentation/recipes/recipe-catalog/org/apache/wicket/bestpractices.md)
-  * **Wicket best practices**
-  * Applies Wicket best practices such as minimizing anonymous inner classes and upgrading to the latest version.
-* [org.axonframework.migration.UpgradeAxonFramework_4_Jakarta](/user-documentation/recipes/recipe-catalog/org/axonframework/migration/upgradeaxonframework_4_jakarta.md)
-  * **Upgrade to Axonframework 4.x Jakarta**
-  * Migration file to upgrade from an Axon Framework Javax-specific project to Jakarta.
-* [org.axonframework.migration.UpgradeAxonFramework_4_Javax](/user-documentation/recipes/recipe-catalog/org/axonframework/migration/upgradeaxonframework_4_javax.md)
-  * **Upgrade to Axonframework 4.x Javax**
-  * Migration file to upgrade an Axon Framework Javax-specific project and remain on Javax.
+* [io.moderne.ai.ListAllMethodsUsed](/user-documentation/recipes/recipe-catalog/ai/listallmethodsused.md)
+  * **List all methods used**
+  * List all methods used in any Java source file.
+* [io.moderne.ai.research.FindCodeThatResembles](/user-documentation/recipes/recipe-catalog/ai/research/findcodethatresembles.md)
+  * **Find method invocations that resemble a pattern**
+  * This recipe uses two phase AI approach to find a method invocation that resembles a search string.
+* [io.moderne.ai.research.GetCodeEmbedding](/user-documentation/recipes/recipe-catalog/ai/research/getcodeembedding.md)
+  * **Get embeddings for code snippets in code**
+  * This recipe calls an AI model to get an embedding for either classes or methods which can then be used for downstream tasks.
+* [io.moderne.ai.research.GetRecommendations](/user-documentation/recipes/recipe-catalog/ai/research/getrecommendations.md)
+  * **Get recommendations**
+  * This recipe calls an AI model to get recommendations for modernizing the code base by looking at a sample of method declarations.
+
+### rewrite-all
+
+* [org.openrewrite.FindCallGraph](/user-documentation/recipes/recipe-catalog/core/findcallgraph.md)
+  * **Find call graph**
+  * Produces a data table where each row represents a method call.
+* [org.openrewrite.FindDuplicateSourceFiles](/user-documentation/recipes/recipe-catalog/core/findduplicatesourcefiles.md)
+  * **Find duplicate source files**
+  * Record the presence of LSTs with duplicate paths, indicating that the same file was parsed more than once.
+* [org.openrewrite.LanguageComposition](/user-documentation/recipes/recipe-catalog/core/languagecomposition.md)
+  * **Language composition report**
+  * Counts the number of lines of the various kinds of source code and data formats parsed by OpenRewrite. Comments are not included in line counts. This recipe emits its results as two data tables, making no changes to any source file. One data table is per-file, the other is per-repository.
+
+### rewrite-android
+
 * [org.openrewrite.android.MigrateToAndroidGradlePlugin_8_7](/user-documentation/recipes/recipe-catalog/android/migratetoandroidgradleplugin_8_7.md)
   * **Migrate to Android Gradle Plugin 8.7**
   * Recipes to migrate to Android Gradle Plugin version 8.7.
 * [org.openrewrite.android.UpgradeToAndroidSDK35](/user-documentation/recipes/recipe-catalog/android/upgradetoandroidsdk35.md)
   * **Upgrade to Android SDK 35**
   * Recipes to upgrade to Android SDK version 35.
+
+### rewrite-apache
+
+* [org.openrewrite.apache.commons.codec.ApacheBase64ToJavaBase64](/user-documentation/recipes/recipe-catalog/apache/commons/codec/apachebase64tojavabase64.md)
+  * **Prefer `java.util.Base64`**
+  * Prefer the Java standard library's `java.util.Base64` over third-party usage of apache's `apache.commons.codec.binary.Base64`.
 * [org.openrewrite.apache.commons.collections.UpgradeApacheCommonsCollections_3_4](/user-documentation/recipes/recipe-catalog/apache/commons/collections/upgradeapachecommonscollections_3_4.md)
   * **Migrates to Apache Commons Collections 4.x**
   * Migrate applications to the latest Apache Commons Collections 4.x release. This recipe modifies application's build files, make changes to deprecated/preferred APIs, and migrates configuration settings that have changes between versions.
+* [org.openrewrite.apache.commons.io.ApacheCommonsFileUtilsRecipes](/user-documentation/recipes/recipe-catalog/apache/commons/io/apachecommonsfileutilsrecipes.md)
+  * **`ApacheCommonsFileUtils` Refaster recipes**
+  * Refaster template recipes for `org.openrewrite.apache.commons.io.ApacheCommonsFileUtils`.
+* [org.openrewrite.apache.commons.io.ApacheFileUtilsToJavaFiles](/user-documentation/recipes/recipe-catalog/apache/commons/io/apachefileutilstojavafiles.md)
+  * **Prefer `java.nio.file.Files`**
+  * Prefer the Java standard library's `java.nio.file.Files` over third-party usage of apache's `apache.commons.io.FileUtils`.
+* [org.openrewrite.apache.commons.io.ApacheIOUtilsUseExplicitCharset](/user-documentation/recipes/recipe-catalog/apache/commons/io/apacheioutilsuseexplicitcharset.md)
+  * **Use IOUtils method that include  their charset encoding**
+  * Use `IOUtils` method invocations that include the charset encoding instead of using the deprecated versions that do not include a charset encoding. (e.g. converts `IOUtils.readLines(inputStream)` to `IOUtils.readLines(inputStream, StandardCharsets.UTF_8)`.
 * [org.openrewrite.apache.commons.io.RelocateApacheCommonsIo](/user-documentation/recipes/recipe-catalog/apache/commons/io/relocateapachecommonsio.md)
   * **Relocate `org.apache.commons:commons-io` to `commons-io:commons-io`**
   * The deployment of `org.apache.commons:commons-io` [was a publishing mistake around 2012](https://issues.sonatype.org/browse/MVNCENTRAL-244) which was corrected by changing the deployment GAV to be located under `commons-io:commons-io`.
@@ -1934,12 +1139,54 @@ Total standalone recipes: 1206
 * [org.openrewrite.apache.commons.io.UseSystemLineSeparator](/user-documentation/recipes/recipe-catalog/apache/commons/io/usesystemlineseparator.md)
   * **Prefer `System.lineSeparator()`**
   * Prefer the Java standard library's `System.lineSeparator()` over third-party usage of apache's `IOUtils.LINE_SEPARATOR`.
+* [org.openrewrite.apache.commons.lang.ApacheCommonsStringUtilsRecipes](/user-documentation/recipes/recipe-catalog/apache/commons/lang/apachecommonsstringutilsrecipes.md)
+  * **`ApacheCommonsStringUtils` Refaster recipes**
+  * Refaster template recipes for `org.openrewrite.apache.commons.lang.ApacheCommonsStringUtils`.
+* [org.openrewrite.apache.commons.lang.IsNotEmptyToJdk](/user-documentation/recipes/recipe-catalog/apache/commons/lang/isnotemptytojdk.md)
+  * **Replace any StringUtils#isEmpty(String) and #isNotEmpty(String)**
+  * Replace any `StringUtils#isEmpty(String)` and `#isNotEmpty(String)` with `s == null || s.isEmpty()` and `s != null &amp;&amp; !s.isEmpty()`.
 * [org.openrewrite.apache.commons.math.UpgradeApacheCommonsMath_2_3](/user-documentation/recipes/recipe-catalog/apache/commons/math/upgradeapachecommonsmath_2_3.md)
   * **Migrates to Apache Commons Math 3.x**
   * Migrate applications to the latest Apache Commons Math 3.x release. This recipe modifies  application's build files, make changes to deprecated/preferred APIs, and migrates configuration settings that have changes between versions.
+* [org.openrewrite.apache.maven.shared.MavenSharedStringUtilsRecipes](/user-documentation/recipes/recipe-catalog/apache/maven/shared/mavensharedstringutilsrecipes.md)
+  * **`MavenSharedStringUtils` Refaster recipes**
+  * Refaster template recipes for `org.openrewrite.apache.maven.shared.MavenSharedStringUtils`.
 * [org.openrewrite.apache.poi.UpgradeApachePoi_5](/user-documentation/recipes/recipe-catalog/apache/poi/upgradeapachepoi_5.md)
   * **Migrates to Apache POI 5.x**
   * Migrates to the latest Apache POI 5.x release. This recipe modifies build files to account for artifact renames and upgrades dependency versions. It also chains the 4.1 recipe to handle all prior API migrations.
+* [org.openrewrite.codehaus.plexus.AbstractLogEnabledToSlf4j](/user-documentation/recipes/recipe-catalog/codehaus/plexus/abstractlogenabledtoslf4j.md)
+  * **Migrate from Plexus `AbstractLogEnabled` to SLF4J**
+  * Introduce a SLF4J `Logger` field and replace calls to `getLogger()` with calls to the field.
+* [org.openrewrite.codehaus.plexus.PlexusFileUtilsRecipes](/user-documentation/recipes/recipe-catalog/codehaus/plexus/plexusfileutilsrecipes.md)
+  * **`PlexusFileUtils` Refaster recipes**
+  * Refaster template recipes for `org.openrewrite.codehaus.plexus.PlexusFileUtils`.
+* [org.openrewrite.codehaus.plexus.PlexusStringUtilsRecipes](/user-documentation/recipes/recipe-catalog/codehaus/plexus/plexusstringutilsrecipes.md)
+  * **`PlexusStringUtils` Refaster recipes**
+  * Refaster template recipes for `org.openrewrite.codehaus.plexus.PlexusStringUtils`.
+
+### rewrite-circleci
+
+* [org.openrewrite.circleci.InstallOrb](/user-documentation/recipes/recipe-catalog/circleci/installorb.md)
+  * **Install an orb**
+  * Install a CircleCI [orb](https://circleci.com/docs/2.0/orb-intro/) if it is not already installed.
+* [org.openrewrite.circleci.UpdateImage](/user-documentation/recipes/recipe-catalog/circleci/updateimage.md)
+  * **Update CircleCI image**
+  * See the list of [pre-built CircleCI images](https://circleci.com/docs/2.0/circleci-images/).
+
+### rewrite-codemods
+
+* [org.openrewrite.codemods.Biome](/user-documentation/recipes/recipe-catalog/codemods/biome.md)
+  * **Biome recommendations**
+  * Run [Biome](https://biomejs.dev/) recommended settings on your projects.
+* [org.openrewrite.codemods.Putout](/user-documentation/recipes/recipe-catalog/codemods/putout.md)
+  * **Run Putout**
+  * Run [Putout](https://github.com/coderaiser/putout) on your projects.
+* [org.openrewrite.codemods.ReactI18Next](/user-documentation/recipes/recipe-catalog/codemods/reacti18next.md)
+  * **React i18next internationalization**
+  * Automatically internationalizes React applications by extracting hardcoded strings and replacing them with [react-i18next](https://react.i18next.com) translation calls. Handles JSX text, attributes, and template literals with variables. Creates and updates a translation JSON file with extracted strings.
+* [org.openrewrite.codemods.UI5](/user-documentation/recipes/recipe-catalog/codemods/ui5.md)
+  * **Lint UI5 projects with UI5 linter**
+  * Runs the [UI5 Linter](https://github.com/SAP/ui5-linter), a static code analysis tool for UI5 projects. It checks JavaScript, TypeScript, XML, JSON, and other files in your project and reports findings.
 * [org.openrewrite.codemods.cleanup.javascript.ArrowBodyStyle](/user-documentation/recipes/recipe-catalog/codemods/cleanup/javascript/arrowbodystyle.md)
   * **Require braces around arrow function bodies**
   * Require braces around arrow function bodies See [rule details](https://eslint.org/docs/latest/rules/arrow-body-style).
@@ -2984,27 +2231,6 @@ Total standalone recipes: 1206
 * [org.openrewrite.codemods.format.YieldStarSpacing](/user-documentation/recipes/recipe-catalog/codemods/format/yieldstarspacing.md)
   * **Require or disallow spacing around the &amp;#x60;*&amp;#x60; in &amp;#x60;yield*&amp;#x60; expressions**
   * Require or disallow spacing around the &amp;#x60;*&amp;#x60; in &amp;#x60;yield*&amp;#x60; expressions  See [rule details](https://eslint.style/rules/default/yield-star-spacing).
-* [org.openrewrite.codemods.migrate.angular.v15](/user-documentation/recipes/recipe-catalog/codemods/migrate/angular/v15.md)
-  * **Update to Angular v15**
-  * Upgrade to Angular v15 through `ApplyAngularCLI`.
-* [org.openrewrite.codemods.migrate.angular.v16](/user-documentation/recipes/recipe-catalog/codemods/migrate/angular/v16.md)
-  * **Update to Angular v16**
-  * Upgrade to Angular v16 through `ApplyAngularCLI`.
-* [org.openrewrite.codemods.migrate.angular.v17](/user-documentation/recipes/recipe-catalog/codemods/migrate/angular/v17.md)
-  * **Update to Angular v17**
-  * Upgrade to Angular v17 through `ApplyAngularCLI`.
-* [org.openrewrite.codemods.migrate.angular.v18](/user-documentation/recipes/recipe-catalog/codemods/migrate/angular/v18.md)
-  * **Update to Angular v18**
-  * Upgrade to Angular v18 through `ApplyAngularCLI`.
-* [org.openrewrite.codemods.migrate.angular.v19](/user-documentation/recipes/recipe-catalog/codemods/migrate/angular/v19.md)
-  * **Update to Angular v19**
-  * Upgrade to Angular v19 through `ApplyAngularCLI`.
-* [org.openrewrite.codemods.migrate.angular.v20](/user-documentation/recipes/recipe-catalog/codemods/migrate/angular/v20.md)
-  * **Update to Angular v20**
-  * Upgrade to Angular v20 through `ApplyAngularCLI`.
-* [org.openrewrite.codemods.migrate.angular.v21](/user-documentation/recipes/recipe-catalog/codemods/migrate/angular/v21.md)
-  * **Update to Angular v21**
-  * Upgrade to Angular v21 through `ApplyAngularCLI`.
 * [org.openrewrite.codemods.migrate.lodash.LodashUnderscoreArray](/user-documentation/recipes/recipe-catalog/codemods/migrate/lodash/lodashunderscorearray.md)
   * **Replace lodash and underscore array functions with native JavaScript**
   * - `_.head(x)` -&gt; `x[0]` - `_.head(x, n)` -&gt; `x.slice(n)` - `_.first` (alias for `_.head`) - `_.tail(x)` -&gt; `x.slice(1)` - `_.tail(x, n)` -&gt; `x.slice(n)` - `_.rest` (alias for `_.tail`) - `_.last(x)` -&gt; `x[x.length - 1]` - `_.last(x, n)` -&gt; `x.slice(x.length - n)`.
@@ -3254,15 +2480,63 @@ Total standalone recipes: 1206
 * [org.openrewrite.codemods.migrate.nextjs.NextJsCodemods](/user-documentation/recipes/recipe-catalog/codemods/migrate/nextjs/nextjscodemods.md)
   * **Next.js Codemods for API Updates**
   * Next.js provides Codemod transformations to help upgrade your [Next.js](https://nextjs.org/) codebase when an API is updated or deprecated.
+
+### rewrite-codemods-ng
+
+* [org.openrewrite.codemods.migrate.angular.v15](/user-documentation/recipes/recipe-catalog/codemods/migrate/angular/v15.md)
+  * **Update to Angular v15**
+  * Upgrade to Angular v15 through `ApplyAngularCLI`.
+* [org.openrewrite.codemods.migrate.angular.v16](/user-documentation/recipes/recipe-catalog/codemods/migrate/angular/v16.md)
+  * **Update to Angular v16**
+  * Upgrade to Angular v16 through `ApplyAngularCLI`.
+* [org.openrewrite.codemods.migrate.angular.v17](/user-documentation/recipes/recipe-catalog/codemods/migrate/angular/v17.md)
+  * **Update to Angular v17**
+  * Upgrade to Angular v17 through `ApplyAngularCLI`.
+* [org.openrewrite.codemods.migrate.angular.v18](/user-documentation/recipes/recipe-catalog/codemods/migrate/angular/v18.md)
+  * **Update to Angular v18**
+  * Upgrade to Angular v18 through `ApplyAngularCLI`.
+* [org.openrewrite.codemods.migrate.angular.v19](/user-documentation/recipes/recipe-catalog/codemods/migrate/angular/v19.md)
+  * **Update to Angular v19**
+  * Upgrade to Angular v19 through `ApplyAngularCLI`.
+* [org.openrewrite.codemods.migrate.angular.v20](/user-documentation/recipes/recipe-catalog/codemods/migrate/angular/v20.md)
+  * **Update to Angular v20**
+  * Upgrade to Angular v20 through `ApplyAngularCLI`.
+* [org.openrewrite.codemods.migrate.angular.v21](/user-documentation/recipes/recipe-catalog/codemods/migrate/angular/v21.md)
+  * **Update to Angular v21**
+  * Upgrade to Angular v21 through `ApplyAngularCLI`.
+
+### rewrite-compiled-analysis
+
+* [io.moderne.compiled.verification.ChangeListMethodAndVerify](/user-documentation/recipes/recipe-catalog/compiled/verification/changelistmethodandverify.md)
+  * **Change `List#add` to `List#plus` and verify**
+  * We know this won't compile.
+
+### rewrite-concourse
+
+* [org.openrewrite.concourse.ChangeResourceVersion](/user-documentation/recipes/recipe-catalog/concourse/changeresourceversion.md)
+  * **Change resource version**
+  * Pin or unpin a resource to a particular version.
+* [org.openrewrite.concourse.FindResource](/user-documentation/recipes/recipe-catalog/concourse/findresource.md)
+  * **Find resource**
+  * Find a Concourse resource by name.
+* [org.openrewrite.concourse.UpdateGitResourceUri](/user-documentation/recipes/recipe-catalog/concourse/updategitresourceuri.md)
+  * **Update git resource `source.uri` references**
+  * Update git resource `source.uri` URI values to point to a new URI value.
+* [org.openrewrite.concourse.search.FindPinnedResource](/user-documentation/recipes/recipe-catalog/concourse/search/findpinnedresource.md)
+  * **Find pinned resources by type**
+  * Find resources of a particular type that have pinned versions.
 * [org.openrewrite.concourse.search.FindPrivilegedResourceType](/user-documentation/recipes/recipe-catalog/concourse/search/findprivilegedresourcetype.md)
   * **Find privileged `resource_type` definitions**
   * By default, `resource_type` definitions are unprivileged.
+
+### rewrite-cucumber-jvm
+
 * [org.openrewrite.cucumber.jvm.UpgradeCucumber7x](/user-documentation/recipes/recipe-catalog/cucumber/jvm/upgradecucumber7x.md)
   * **Upgrade to Cucumber-JVM 7.x**
   * Upgrade to Cucumber-JVM 7.x from any previous version.
-* [org.openrewrite.docker.DockerBestPractices](/user-documentation/recipes/recipe-catalog/docker/dockerbestpractices.md)
-  * **Apply Docker best practices**
-  * Apply a set of Docker best practices to Dockerfiles. This recipe applies security hardening, build optimization, and maintainability improvements based on CIS Docker Benchmark and industry best practices.
+
+### rewrite-dotnet
+
 * [org.openrewrite.dotnet.MigrateToNet6](/user-documentation/recipes/recipe-catalog/dotnet/migratetonet6.md)
   * **Upgrade to .NET 6.0 using upgrade-assistant**
   * Run [upgrade-assistant upgrade](https://learn.microsoft.com/en-us/dotnet/core/porting/upgrade-assistant-overview) across a repository to upgrade projects to .NET 6.0.
@@ -3275,57 +2549,12 @@ Total standalone recipes: 1206
 * [org.openrewrite.dotnet.MigrateToNet9](/user-documentation/recipes/recipe-catalog/dotnet/migratetonet9.md)
   * **Upgrade to .NET 9.0 using upgrade-assistant**
   * Run [upgrade-assistant upgrade](https://learn.microsoft.com/en-us/dotnet/core/porting/upgrade-assistant-overview) across a repository to upgrade projects to .NET 9.0.
-* [org.openrewrite.featureflags.launchdarkly.UpgradeLaunchDarkly7](/user-documentation/recipes/recipe-catalog/featureflags/launchdarkly/upgradelaunchdarkly7.md)
-  * **Migrate to LaunchDarkly 7.x**
-  * This recipe will apply changes commonly needed when migrating to LaunchDarkly 7.x.
-* [org.openrewrite.github.AddManualTrigger](/user-documentation/recipes/recipe-catalog/github/addmanualtrigger.md)
-  * **Add manual workflow trigger**
-  * You can manually trigger workflow runs. To trigger specific workflows in a repository, use the `workflow_dispatch` event.
-* [org.openrewrite.github.DependabotCheckForGithubActionsUpdatesDaily](/user-documentation/recipes/recipe-catalog/github/dependabotcheckforgithubactionsupdatesdaily.md)
-  * **Check for github-actions updates daily**
-  * Set dependabot to check for github-actions updates daily.
-* [org.openrewrite.github.DependabotCheckForGithubActionsUpdatesWeekly](/user-documentation/recipes/recipe-catalog/github/dependabotcheckforgithubactionsupdatesweekly.md)
-  * **Check for github-actions updates weekly**
-  * Set dependabot to check for github-actions updates weekly.
-* [org.openrewrite.github.FindGitHubActionSecretReferences](/user-documentation/recipes/recipe-catalog/github/findgithubactionsecretreferences.md)
-  * **Find GitHub action secret references**
-  * Help identify and inventory your GitHub secrets that are being used in GitHub actions.
-* [org.openrewrite.github.MigrateSetupUvV6ToV7](/user-documentation/recipes/recipe-catalog/github/migratesetupuvv6tov7.md)
-  * **Migrate `astral-sh/setup-uv` from v6 to v7**
-  * Migrates `astral-sh/setup-uv` from v6 to v7. Updates the action version and removes the deprecated `server-url` input. See the [v7.0.0 release notes](https://github.com/astral-sh/setup-uv/releases/tag/v7.0.0) for breaking changes.
-* [org.openrewrite.github.MigrateTibdexGitHubAppTokenToActions](/user-documentation/recipes/recipe-catalog/github/migratetibdexgithubapptokentoactions.md)
-  * **Migrate from tibdex/github-app-token to actions/create-github-app-token**
-  * Migrates from tibdex/github-app-token@v2 to actions/create-github-app-token@v2 and updates parameter names from snake_case to kebab-case.
-* [org.openrewrite.github.ReplaceOssrhSecretsWithSonatype](/user-documentation/recipes/recipe-catalog/github/replaceossrhsecretswithsonatype.md)
-  * **Replace OSSRH secrets with Sonatype secrets**
-  * Replace deprecated OSSRH_S01 secrets with new Sonatype secrets in GitHub Actions workflows. This is an example use of the `ReplaceSecrets` and `ReplaceSecretKeys` recipes combined used to update the Maven publishing secrets in OpenRewrite's GitHub organization.
-* [org.openrewrite.github.gradle.RenameGradleBuildActionToSetupGradle](/user-documentation/recipes/recipe-catalog/github/gradle/renamegradlebuildactiontosetupgradle.md)
-  * **Rename `gradle/gradle-build-action` to `gradle/actions/setup-gradle`**
-  * Rename the deprecated `gradle/gradle-build-action` to `gradle/actions/setup-gradle@v3`.
-* [org.openrewrite.github.gradle.RenameWrapperValidationAction](/user-documentation/recipes/recipe-catalog/github/gradle/renamewrappervalidationaction.md)
-  * **Rename `gradle/wrapper-validation-action` to `gradle/actions/wrapper-validation`**
-  * Rename the deprecated `gradle/wrapper-validation-action` to `gradle/actions/wrapper-validation@v3`.
-* [org.openrewrite.github.security.GitHubActionsSecurity](/user-documentation/recipes/recipe-catalog/github/security/githubactionssecurity.md)
-  * **GitHub Actions security insights**
-  * Finds potential security issues in GitHub Actions workflows, based on [Zizmor](https://docs.zizmor.sh) security analysis rules.
-* [org.openrewrite.gitlab.BestPractices](/user-documentation/recipes/recipe-catalog/gitlab/bestpractices.md)
-  * **GitLab CI best practices**
-  * Apply GitLab CI/CD best practices to `.gitlab-ci.yml`. This includes adding `workflow:rules` to prevent duplicate pipelines, setting `interruptible: true` and `retry` in the `default` section, configuring `artifacts:expire_in`, and setting a job `timeout`.
-* [org.openrewrite.gitlab.search.FindDeprecatedSyntax](/user-documentation/recipes/recipe-catalog/gitlab/search/finddeprecatedsyntax.md)
-  * **Find deprecated GitLab CI syntax**
-  * Find usages of deprecated `only` and `except` keywords in `.gitlab-ci.yml`. These keywords are deprecated in favor of `rules`.
-* [org.openrewrite.gradle.GradleBestPractices](/user-documentation/recipes/recipe-catalog/gradle/gradlebestpractices.md)
-  * **Apply Gradle best practices**
-  * Apply a set of [Gradle best practices](https://docs.gradle.org/current/userguide/best_practices_general.html) to the build files, for more efficient and ideomatic builds.
-* [org.openrewrite.gradle.plugins.RemoveDevelocity](/user-documentation/recipes/recipe-catalog/gradle/plugins/removedevelocity.md)
-  * **Remove Develocity**
-  * Remove the Develocity plugin and configuration from the Gradle build and settings files.
-* [org.openrewrite.hibernate.validator.HibernateValidator_8_0](/user-documentation/recipes/recipe-catalog/hibernate/validator/hibernatevalidator_8_0.md)
-  * **Migrate to Hibernate Validator 8.0.x**
-  * This recipe will apply changes commonly needed when migrating to Hibernate Validator 8.0.x.
-* [org.openrewrite.java.AddApache2LicenseHeader](/user-documentation/recipes/recipe-catalog/java/addapache2licenseheader.md)
-  * **Add ASLv2 license header**
-  * Adds the Apache Software License Version 2.0 to Java source files which are missing a license header.
+* [org.openrewrite.dotnet.UpgradeAssistantAnalyze](/user-documentation/recipes/recipe-catalog/dotnet/upgradeassistantanalyze.md)
+  * **Analyze a .NET project using upgrade-assistant**
+  * Run [upgrade-assistant analyze](https://learn.microsoft.com/en-us/dotnet/core/porting/upgrade-assistant-overview) across a repository to analyze changes required to upgrade projects to a newer version of .NET. This recipe will generate an `org.openrewrite.dotnet.UpgradeAssistantAnalysis` data table containing the report details.
+
+### rewrite-dropwizard
+
 * [org.openrewrite.java.dropwizard.MigrateDropwizardToSpringBoot](/user-documentation/recipes/recipe-catalog/java/dropwizard/migratedropwizardtospringboot.md)
   * **Migrate Dropwizard to Spring Boot**
   * Apply various changes to migrate Dropwizard applications to Spring Boot.
@@ -3338,99 +2567,282 @@ Total standalone recipes: 1206
 * [org.openrewrite.java.dropwizard.ModifyDropwizardHealthChecksToSpringVariants](/user-documentation/recipes/recipe-catalog/java/dropwizard/modifydropwizardhealthcheckstospringvariants.md)
   * **Convert Health Check Implementations**
   * Transforms Dropwizard HealthCheck classes to Spring Boot HealthIndicator.
+* [org.openrewrite.java.dropwizard.method.RemoveUnnecessarySuperCalls](/user-documentation/recipes/recipe-catalog/java/dropwizard/method/removeunnecessarysupercalls.md)
+  * **Remove `super` calls when the class does not extend another class**
+  * Removes calls to `super(...)` or `super.someMethod(...)` if the class does not have a real superclass besides `java.lang.Object`.
+
+### rewrite-feature-flags
+
+* [org.openrewrite.featureflags.ff4j.RemoveCheck](/user-documentation/recipes/recipe-catalog/featureflags/ff4j/removecheck.md)
+  * **Remove FF4j's `check` for feature key**
+  * Replace `check()` invocations for `featureKey` with `replacementValue`, and simplify constant if branch execution.
+* [org.openrewrite.featureflags.ff4j.search.FindFeatureFlag](/user-documentation/recipes/recipe-catalog/featureflags/ff4j/search/findfeatureflag.md)
+  * **Find a FF4j feature flag**
+  * Find a FF4j feature flag.
+* [org.openrewrite.featureflags.launchdarkly.ChangeVariationDefault](/user-documentation/recipes/recipe-catalog/featureflags/launchdarkly/changevariationdefault.md)
+  * **Change the default value for feature key**
+  * Change the default value for `Variation` invocations for feature key.
+* [org.openrewrite.featureflags.launchdarkly.RemoveBoolVariation](/user-documentation/recipes/recipe-catalog/featureflags/launchdarkly/removeboolvariation.md)
+  * **Remove LaunchDarkly's `boolVariation` for feature key**
+  * Replace `boolVariation` invocations for feature key with value, and simplify constant if branch execution.
+* [org.openrewrite.featureflags.launchdarkly.RemoveDoubleVariation](/user-documentation/recipes/recipe-catalog/featureflags/launchdarkly/removedoublevariation.md)
+  * **Remove LaunchDarkly's `doubleVariation` for feature key**
+  * Replace `doubleVariation` invocations for feature key with value, and simplify constant if branch execution.
+* [org.openrewrite.featureflags.launchdarkly.RemoveIntVariation](/user-documentation/recipes/recipe-catalog/featureflags/launchdarkly/removeintvariation.md)
+  * **Remove LaunchDarkly's `intVariation` for feature key**
+  * Replace `intVariation` invocations for feature key with value, and simplify constant if branch execution.
+* [org.openrewrite.featureflags.launchdarkly.RemoveStringVariation](/user-documentation/recipes/recipe-catalog/featureflags/launchdarkly/removestringvariation.md)
+  * **Remove LaunchDarkly's `stringVariation` for feature key**
+  * Replace `stringVariation` invocations for feature key with value, and simplify constant if branch execution.
+* [org.openrewrite.featureflags.launchdarkly.UpgradeLaunchDarkly7](/user-documentation/recipes/recipe-catalog/featureflags/launchdarkly/upgradelaunchdarkly7.md)
+  * **Migrate to LaunchDarkly 7.x**
+  * This recipe will apply changes commonly needed when migrating to LaunchDarkly 7.x.
+* [org.openrewrite.featureflags.launchdarkly.search.FindFeatureFlag](/user-documentation/recipes/recipe-catalog/featureflags/launchdarkly/search/findfeatureflag.md)
+  * **Find a LaunchDarkly feature flag**
+  * Find a LaunchDarkly feature flag.
+* [org.openrewrite.featureflags.openfeature.RemoveGetBooleanValue](/user-documentation/recipes/recipe-catalog/featureflags/openfeature/removegetbooleanvalue.md)
+  * **Remove OpenFeature's `getBooleanValue` for feature key**
+  * Replace `getBooleanValue()` invocations for `featureKey` with `replacementValue`, and simplify constant if branch execution.
+* [org.openrewrite.featureflags.openfeature.RemoveGetDoubleValue](/user-documentation/recipes/recipe-catalog/featureflags/openfeature/removegetdoublevalue.md)
+  * **Remove OpenFeature's `getDoubleValue` for feature key**
+  * Replace `getDoubleValue()` invocations for `featureKey` with `replacementValue`, and simplify constant if branch execution.
+* [org.openrewrite.featureflags.openfeature.RemoveGetIntegerValue](/user-documentation/recipes/recipe-catalog/featureflags/openfeature/removegetintegervalue.md)
+  * **Remove OpenFeature's `getIntegerValue` for feature key**
+  * Replace `getIntegerValue()` invocations for `featureKey` with `replacementValue`, and simplify constant if branch execution.
+* [org.openrewrite.featureflags.openfeature.RemoveGetStringValue](/user-documentation/recipes/recipe-catalog/featureflags/openfeature/removegetstringvalue.md)
+  * **Remove OpenFeature's `getStringValue` for feature key**
+  * Replace `getStringValue()` invocations for `featureKey` with `replacementValue`, and simplify constant if branch execution.
+* [org.openrewrite.featureflags.openfeature.search.FindFeatureFlag](/user-documentation/recipes/recipe-catalog/featureflags/openfeature/search/findfeatureflag.md)
+  * **Find an OpenFeature feature flag**
+  * Find an OpenFeature feature flag.
+* [org.openrewrite.featureflags.quarkus.RemoveGetInt](/user-documentation/recipes/recipe-catalog/featureflags/quarkus/removegetint.md)
+  * **Remove Quarkus feature flag's `getInt` for feature key**
+  * Replace `getInt()` invocations for `featureKey` with `replacementValue`, and simplify constant if branch execution.
+* [org.openrewrite.featureflags.quarkus.RemoveGetString](/user-documentation/recipes/recipe-catalog/featureflags/quarkus/removegetstring.md)
+  * **Remove Quarkus feature flag's `getString` for feature key**
+  * Replace `getString()` invocations for `featureKey` with `replacementValue`, and simplify constant if branch execution.
+* [org.openrewrite.featureflags.quarkus.RemoveIsEnabled](/user-documentation/recipes/recipe-catalog/featureflags/quarkus/removeisenabled.md)
+  * **Remove Quarkus feature flag's `isEnabled` for feature key**
+  * Replace `isEnabled()` invocations for `featureKey` with `replacementValue`, and simplify constant if branch execution.
+* [org.openrewrite.featureflags.quarkus.search.FindFeatureFlag](/user-documentation/recipes/recipe-catalog/featureflags/quarkus/search/findfeatureflag.md)
+  * **Find a Quarkus feature flag**
+  * Find a Quarkus feature flag.
+* [org.openrewrite.featureflags.unleash.RemoveIsEnabled](/user-documentation/recipes/recipe-catalog/featureflags/unleash/removeisenabled.md)
+  * **Remove Unleash's `isEnabled` for feature key**
+  * Replace `isEnabled()` invocations for `featureKey` with `replacementValue`, and simplify constant if branch execution.
+* [org.openrewrite.featureflags.unleash.search.FindFeatureFlag](/user-documentation/recipes/recipe-catalog/featureflags/unleash/search/findfeatureflag.md)
+  * **Find an Unleash feature flag**
+  * Find an Unleash feature flag.
+
+### rewrite-github-actions
+
+* [org.openrewrite.github.AddCronTrigger](/user-documentation/recipes/recipe-catalog/github/addcrontrigger.md)
+  * **Add cron workflow trigger**
+  * The `schedule` [event](https://docs.github.com/en/actions/reference/events-that-trigger-workflows#scheduled-events) allows you to trigger a workflow at a scheduled time.
+* [org.openrewrite.github.AddDependabotCooldown](/user-documentation/recipes/recipe-catalog/github/adddependabotcooldown.md)
+  * **Add cooldown periods to Dependabot configuration**
+  * Adds a `cooldown` section to each update configuration in Dependabot files. Supports `default-days`, `semver-major-days`, `semver-minor-days`, `semver-patch-days`, `include`, and `exclude` options. This implements a security best practice where dependencies are not immediately adopted upon release, allowing time for security vendors to identify potential supply chain compromises. Cooldown applies only to version updates, not security updates. [Read more about dependency cooldowns](https://blog.yossarian.net/2025/11/21/We-should-all-be-using-dependency-cooldowns). [The available configuration options for dependabot are listed on GitHub](https://docs.github.com/en/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/configuration-options-for-dependency-updates).
+* [org.openrewrite.github.AddManualTrigger](/user-documentation/recipes/recipe-catalog/github/addmanualtrigger.md)
+  * **Add manual workflow trigger**
+  * You can manually trigger workflow runs. To trigger specific workflows in a repository, use the `workflow_dispatch` event.
+* [org.openrewrite.github.AutoCancelInProgressWorkflow](/user-documentation/recipes/recipe-catalog/github/autocancelinprogressworkflow.md)
+  * **Cancel in-progress workflow when it is triggered again**
+  * When a workflow is already running and would be triggered again, cancel the existing workflow. See [`styfle/cancel-workflow-action`](https://github.com/styfle/cancel-workflow-action) for details.
+* [org.openrewrite.github.DependabotCheckForGithubActionsUpdatesDaily](/user-documentation/recipes/recipe-catalog/github/dependabotcheckforgithubactionsupdatesdaily.md)
+  * **Check for github-actions updates daily**
+  * Set dependabot to check for github-actions updates daily.
+* [org.openrewrite.github.DependabotCheckForGithubActionsUpdatesWeekly](/user-documentation/recipes/recipe-catalog/github/dependabotcheckforgithubactionsupdatesweekly.md)
+  * **Check for github-actions updates weekly**
+  * Set dependabot to check for github-actions updates weekly.
+* [org.openrewrite.github.FindGitHubActionSecretReferences](/user-documentation/recipes/recipe-catalog/github/findgithubactionsecretreferences.md)
+  * **Find GitHub action secret references**
+  * Help identify and inventory your GitHub secrets that are being used in GitHub actions.
+* [org.openrewrite.github.FindMissingTimeout](/user-documentation/recipes/recipe-catalog/github/findmissingtimeout.md)
+  * **Find jobs missing timeout**
+  * Find GitHub Actions jobs missing a timeout.
+* [org.openrewrite.github.IsGitHubActionsWorkflow](/user-documentation/recipes/recipe-catalog/github/isgithubactionsworkflow.md)
+  * **Is GitHub Actions Workflow**
+  * Checks if the file is a GitHub Actions workflow file.
+* [org.openrewrite.github.MigrateSetupUvV6ToV7](/user-documentation/recipes/recipe-catalog/github/migratesetupuvv6tov7.md)
+  * **Migrate `astral-sh/setup-uv` from v6 to v7**
+  * Migrates `astral-sh/setup-uv` from v6 to v7. Updates the action version and removes the deprecated `server-url` input. See the [v7.0.0 release notes](https://github.com/astral-sh/setup-uv/releases/tag/v7.0.0) for breaking changes.
+* [org.openrewrite.github.MigrateTibdexGitHubAppTokenToActions](/user-documentation/recipes/recipe-catalog/github/migratetibdexgithubapptokentoactions.md)
+  * **Migrate from tibdex/github-app-token to actions/create-github-app-token**
+  * Migrates from tibdex/github-app-token@v2 to actions/create-github-app-token@v2 and updates parameter names from snake_case to kebab-case.
+* [org.openrewrite.github.PreferSecretsInheritWorkflow](/user-documentation/recipes/recipe-catalog/github/prefersecretsinheritworkflow.md)
+  * **Use `secrets: inherit` if possible**
+  * Pass all secrets to a reusable workflow using `secrets: inherit`. See [Simplify using secrets with reusable workflows](https://github.blog/changelog/2022-05-03-github-actions-simplify-using-secrets-with-reusable-workflows/) for details.
+* [org.openrewrite.github.PreferTemurinDistributions](/user-documentation/recipes/recipe-catalog/github/prefertemurindistributions.md)
+  * **Use `actions/setup-java` `temurin` distribution as they are cached in hosted runners**
+  * [Host runners](https://docs.github.com/en/actions/using-github-hosted-runners/about-github-hosted-runners#supported-runners-and-hardware-resources/) include Temurin by default as part of the [hosted tool cache](https://github.com/actions/setup-java/blob/main/docs/advanced-usage.md#hosted-tool-cache). Using Temurin speeds up builds as there is no need to download and configure the Java SDK with every build.
+* [org.openrewrite.github.RemoveAllCronTriggers](/user-documentation/recipes/recipe-catalog/github/removeallcrontriggers.md)
+  * **Remove all cron triggers**
+  * Removes all cron triggers from a workflow.
+* [org.openrewrite.github.RemoveUnusedWorkflowDispatchInputs](/user-documentation/recipes/recipe-catalog/github/removeunusedworkflowdispatchinputs.md)
+  * **Remove unused workflow dispatch inputs**
+  * Remove workflow_dispatch inputs that are not referenced anywhere in the workflow file.
+* [org.openrewrite.github.RemoveWorkflowInputArgument](/user-documentation/recipes/recipe-catalog/github/removeworkflowinputargument.md)
+  * **Remove workflow input argument**
+  * Remove a specific input argument from calls to a reusable workflow.
+* [org.openrewrite.github.ReplaceOssrhSecretsWithSonatype](/user-documentation/recipes/recipe-catalog/github/replaceossrhsecretswithsonatype.md)
+  * **Replace OSSRH secrets with Sonatype secrets**
+  * Replace deprecated OSSRH_S01 secrets with new Sonatype secrets in GitHub Actions workflows. This is an example use of the `ReplaceSecrets` and `ReplaceSecretKeys` recipes combined used to update the Maven publishing secrets in OpenRewrite's GitHub organization.
+* [org.openrewrite.github.ReplaceRunners](/user-documentation/recipes/recipe-catalog/github/replacerunners.md)
+  * **Replace runners for a job**
+  * Replaces the runners of a given job.
+* [org.openrewrite.github.SetupJavaAdoptOpenJDKToTemurin](/user-documentation/recipes/recipe-catalog/github/setupjavaadoptopenjdktotemurin.md)
+  * **Use `actions/setup-java` `temurin` distribution**
+  * Adopt OpenJDK got moved to Eclipse Temurin and won't be updated anymore. It is highly recommended to migrate workflows from adopt to temurin to keep receiving software and security updates. See more details in the [Good-bye AdoptOpenJDK post](https://blog.adoptopenjdk.net/2021/08/goodbye-adoptopenjdk-hello-adoptium/).
+* [org.openrewrite.github.SetupJavaAdoptOpenj9ToSemeru](/user-documentation/recipes/recipe-catalog/github/setupjavaadoptopenj9tosemeru.md)
+  * **Use `actions/setup-java` IBM `semeru` distribution**
+  * Adopt OpenJDK got moved to Eclipse Temurin and won't be updated anymore. It is highly recommended to migrate workflows from adopt-openj9 to IBM semeru to keep receiving software and security updates. See more details in the [Good-bye AdoptOpenJDK post](https://blog.adoptopenjdk.net/2021/08/goodbye-adoptopenjdk-hello-adoptium/).
+* [org.openrewrite.github.SetupJavaCaching](/user-documentation/recipes/recipe-catalog/github/setupjavacaching.md)
+  * **Setup Java dependency caching**
+  * GitHub actions supports dependency caching on Maven and Gradle projects. See the [blog post](https://github.blog/changelog/2021-08-30-github-actions-setup-java-now-supports-dependency-caching/).
+* [org.openrewrite.github.SetupNodeUpgradeNodeVersion](/user-documentation/recipes/recipe-catalog/github/setupnodeupgradenodeversion.md)
+  * **Upgrade `actions/setup-node` `node-version`**
+  * Update the Node.js version used by `actions/setup-node` if it is below the expected version number.
+* [org.openrewrite.github.SetupPythonToUv](/user-documentation/recipes/recipe-catalog/github/setuppythontouv.md)
+  * **Replace `actions/setup-python` with `astral-sh/setup-uv`**
+  * Replace `actions/setup-python` action with `astral-sh/setup-uv` action for faster Python environment setup and dependency management.  **Benefits of UV:**  - Significantly faster package installation and environment setup  - Built-in dependency resolution and locking  - Integrated caching for improved CI performance  - Drop-in replacement for pip workflows  **Transformations applied:**  - `actions/setup-python@v5` → `astral-sh/setup-uv@v6`  - `cache: 'pip'` → `enable-cache: 'true'`  - `pip install -r requirements.txt` → `uv sync` (configurable strategy)  - `python -m &lt;module&gt;` → `uv run &lt;module&gt;`  - Removes unnecessary `pip install --upgrade pip` steps  **Sync strategies:**  - `basic`: Basic synchronization (`uv sync`)  - `locked`: Use locked dependencies (`uv sync --locked`)  - `full`: Install all extras and dev dependencies (`uv sync --all-extras --dev`)  See the [UV GitHub integration guide](https://docs.astral.sh/uv/guides/integration/github/) for more details.
+* [org.openrewrite.github.UpgradeSlackNotificationVersion2](/user-documentation/recipes/recipe-catalog/github/upgradeslacknotificationversion2.md)
+  * **Upgrade `slackapi/slack-github-action`**
+  * Update the Slack GitHub Action to use version 2.0.
+* [org.openrewrite.github.gradle.RenameGradleBuildActionToSetupGradle](/user-documentation/recipes/recipe-catalog/github/gradle/renamegradlebuildactiontosetupgradle.md)
+  * **Rename `gradle/gradle-build-action` to `gradle/actions/setup-gradle`**
+  * Rename the deprecated `gradle/gradle-build-action` to `gradle/actions/setup-gradle@v3`.
+* [org.openrewrite.github.gradle.RenameWrapperValidationAction](/user-documentation/recipes/recipe-catalog/github/gradle/renamewrappervalidationaction.md)
+  * **Rename `gradle/wrapper-validation-action` to `gradle/actions/wrapper-validation`**
+  * Rename the deprecated `gradle/wrapper-validation-action` to `gradle/actions/wrapper-validation@v3`.
+* [org.openrewrite.github.security.AnonymousJobsRecipe](/user-documentation/recipes/recipe-catalog/github/security/anonymousjobsrecipe.md)
+  * **Find jobs without descriptive names**
+  * Find jobs that lack descriptive names, making them harder to identify in workflow runs. Jobs without `name` properties default to their job ID, which may not be descriptive. Based on [zizmor's anonymous-definition audit](https://github.com/woodruffw/zizmor/blob/main/crates/zizmor/src/audit/anonymous_definition.rs).
+* [org.openrewrite.github.security.GitHubActionsSecurity](/user-documentation/recipes/recipe-catalog/github/security/githubactionssecurity.md)
+  * **GitHub Actions security insights**
+  * Finds potential security issues in GitHub Actions workflows, based on [Zizmor](https://docs.zizmor.sh) security analysis rules.
+
+### rewrite-gitlab
+
+* [org.openrewrite.gitlab.AddCache](/user-documentation/recipes/recipe-catalog/gitlab/addcache.md)
+  * **Add cache configuration**
+  * Add `cache` configuration to `.gitlab-ci.yml` for faster builds.
+* [org.openrewrite.gitlab.AddComponent](/user-documentation/recipes/recipe-catalog/gitlab/addcomponent.md)
+  * **Add GitLab component**
+  * Add a GitLab component to an existing list, or add a new list where none was present.
+* [org.openrewrite.gitlab.AddDefaultKeyword](/user-documentation/recipes/recipe-catalog/gitlab/adddefaultkeyword.md)
+  * **Add default keyword**
+  * Add or update a keyword in the `default` section of `.gitlab-ci.yml`.
+* [org.openrewrite.gitlab.AddStages](/user-documentation/recipes/recipe-catalog/gitlab/addstages.md)
+  * **Add GitLab stages**
+  * Add or Update the set of stages defined in `.gitlab-ci.yml`.
+* [org.openrewrite.gitlab.AddTemplate](/user-documentation/recipes/recipe-catalog/gitlab/addtemplate.md)
+  * **Add GitLab template**
+  * Add a GitLab template to an existing list, or add a new list where none was present.
+* [org.openrewrite.gitlab.BestPractices](/user-documentation/recipes/recipe-catalog/gitlab/bestpractices.md)
+  * **GitLab CI best practices**
+  * Apply GitLab CI/CD best practices to `.gitlab-ci.yml`. This includes adding `workflow:rules` to prevent duplicate pipelines, setting `interruptible: true` and `retry` in the `default` section, configuring `artifacts:expire_in`, and setting a job `timeout`.
+* [org.openrewrite.gitlab.ChangeComponent](/user-documentation/recipes/recipe-catalog/gitlab/changecomponent.md)
+  * **Change GitLab Component**
+  * Change a GitLab Component in use.
+* [org.openrewrite.gitlab.ChangeTemplate](/user-documentation/recipes/recipe-catalog/gitlab/changetemplate.md)
+  * **Change GitLab template**
+  * Change a GitLab template in use.
+* [org.openrewrite.gitlab.RemoveTemplate](/user-documentation/recipes/recipe-catalog/gitlab/removetemplate.md)
+  * **Remove GitLab template**
+  * Remove a GitLab template from use.
+* [org.openrewrite.gitlab.search.FindComponent](/user-documentation/recipes/recipe-catalog/gitlab/search/findcomponent.md)
+  * **Find GitLab Component**
+  * Find a GitLab Component in use.
+* [org.openrewrite.gitlab.search.FindDeprecatedSyntax](/user-documentation/recipes/recipe-catalog/gitlab/search/finddeprecatedsyntax.md)
+  * **Find deprecated GitLab CI syntax**
+  * Find usages of deprecated `only` and `except` keywords in `.gitlab-ci.yml`. These keywords are deprecated in favor of `rules`.
+* [org.openrewrite.gitlab.search.FindTemplate](/user-documentation/recipes/recipe-catalog/gitlab/search/findtemplate.md)
+  * **Find GitLab Template**
+  * Find a GitLab Template in use.
+
+### rewrite-hibernate
+
+* [org.openrewrite.hibernate.MigrateUserType](/user-documentation/recipes/recipe-catalog/hibernate/migrateusertype.md)
+  * **Migrate `UserType` to Hibernate 6**
+  * With Hibernate 6 the `UserType` interface received a type parameter making it more strictly typed. This recipe applies the changes required to adhere to this change.
+* [org.openrewrite.hibernate.validator.HibernateValidator_8_0](/user-documentation/recipes/recipe-catalog/hibernate/validator/hibernatevalidator_8_0.md)
+  * **Migrate to Hibernate Validator 8.0.x**
+  * This recipe will apply changes commonly needed when migrating to Hibernate Validator 8.0.x.
+
+### rewrite-jackson
+
 * [org.openrewrite.java.jackson.CodehausToFasterXML](/user-documentation/recipes/recipe-catalog/java/jackson/codehaustofasterxml.md)
   * **Migrate from Jackson Codehaus (legacy) to Jackson FasterXML**
   * In Jackson 2, the package and dependency coordinates moved from Codehaus to FasterXML.
 * [org.openrewrite.java.jackson.JacksonBestPractices](/user-documentation/recipes/recipe-catalog/java/jackson/jacksonbestpractices.md)
   * **Jackson best practices**
   * Apply best practices for using Jackson library, including upgrade to Jackson 2.x and removing redundant annotations.
-* [org.openrewrite.java.joda.time.NoJodaTime](/user-documentation/recipes/recipe-catalog/java/joda/time/nojodatime.md)
-  * **Prefer the Java standard library instead of Joda-Time**
-  * Before Java 8, Java lacked a robust date and time library, leading to the widespread use of Joda-Time to fill this gap. With the release of Java 8, the `java.time` package was introduced, incorporating most of Joda-Time's concepts. Features deemed too specialized or bulky for `java.time` were included in the ThreeTen-Extra library.  This recipe migrates Joda-Time types to `java.time` and `threeten-extra` types.
-* [org.openrewrite.java.jspecify.JSpecifyBestPractices](/user-documentation/recipes/recipe-catalog/java/jspecify/jspecifybestpractices.md)
-  * **JSpecify best practices**
-  * Apply JSpecify best practices, such as migrating off of alternatives, and adding missing `@Nullable` annotations.
-* [org.openrewrite.java.liberty.MigrateFromWebSphereToLiberty](/user-documentation/recipes/recipe-catalog/java/liberty/migratefromwebspheretoliberty.md)
-  * **Migrate from WebSphere traditional to Liberty**
-  * Use this category of rules to identify code changes needed when migrating from WebSphere Application Server traditional to Liberty.
-* [org.openrewrite.java.logging.log4j.CommonsLoggingToLog4j](/user-documentation/recipes/recipe-catalog/java/logging/log4j/commonsloggingtolog4j.md)
-  * **Migrate JCL to Log4j 2.x API**
-  * Transforms code written using Apache Commons Logging to use Log4j 2.x API.
-* [org.openrewrite.java.logging.log4j.Slf4jToLog4j](/user-documentation/recipes/recipe-catalog/java/logging/log4j/slf4jtolog4j.md)
-  * **Migrate SLF4J to Log4j 2.x API**
-  * Transforms code written using SLF4J to use Log4j 2.x API.
-* [org.openrewrite.java.logging.logback.Log4jToLogback](/user-documentation/recipes/recipe-catalog/java/logging/logback/log4jtologback.md)
-  * **Migrate Log4j 2.x to Logback**
-  * Migrates usage of Apache Log4j 2.x to using `logback` as an SLF4J implementation directly. Note, this currently does not modify `log4j.properties` files.
-* [org.openrewrite.java.logging.slf4j.CommonsLogging1ToSlf4j1](/user-documentation/recipes/recipe-catalog/java/logging/slf4j/commonslogging1toslf4j1.md)
-  * **Migrate Apache Commons Logging 1.x to SLF4J 1.x**
-  * Transforms usages of Apache Commons Logging 1.x to leveraging SLF4J 1.x directly.
-* [org.openrewrite.java.logging.slf4j.JBossLoggingToSlf4j](/user-documentation/recipes/recipe-catalog/java/logging/slf4j/jbossloggingtoslf4j.md)
-  * **Migrate JBoss Logging to SLF4J**
-  * Migrates usage of the JBoss Logging facade to using SLF4J.
-* [org.openrewrite.java.logging.slf4j.JulToSlf4j](/user-documentation/recipes/recipe-catalog/java/logging/slf4j/jultoslf4j.md)
-  * **Migrate JUL to SLF4J**
-  * Migrates usage of Java Util Logging (JUL) to using SLF4J directly.
-* [org.openrewrite.java.logging.slf4j.Slf4jBestPractices](/user-documentation/recipes/recipe-catalog/java/logging/slf4j/slf4jbestpractices.md)
-  * **SLF4J best practices**
-  * Applies best practices to logging with SLF4J.
-* [org.openrewrite.java.micronaut.Micronaut2to3Migration](/user-documentation/recipes/recipe-catalog/java/micronaut/micronaut2to3migration.md)
-  * **Migrate from Micronaut 2.x to 3.x**
-  * This recipe will apply changes required for migrating from Micronaut 2 to Micronaut 3.
-* [org.openrewrite.java.micronaut.Micronaut3to4Migration](/user-documentation/recipes/recipe-catalog/java/micronaut/micronaut3to4migration.md)
-  * **Migrate from Micronaut 3.x to 4.x**
-  * This recipe will apply changes required for migrating from Micronaut 3 to Micronaut 4.
-* [org.openrewrite.java.micronaut.UpdateBlockingTaskExecutors](/user-documentation/recipes/recipe-catalog/java/micronaut/updateblockingtaskexecutors.md)
-  * **Migrate the use of TaskExecutors with blocking IO**
-  * This recipe will any usage of TaskExecutors.IO to TaskExecutors.BLOCKING in order to be compatible with virtual threads.
-* [org.openrewrite.java.migrate.ComIntelliJAnnotationsToOrgJetbrainsAnnotations](/user-documentation/recipes/recipe-catalog/java/migrate/comintellijannotationstoorgjetbrainsannotations.md)
-  * **Migrate com.intellij:annotations to org.jetbrains:annotations**
-  * This recipe will upgrade old dependency of com.intellij:annotations to the newer org.jetbrains:annotations.
-* [org.openrewrite.java.migrate.IBMJDKtoOracleJDK](/user-documentation/recipes/recipe-catalog/java/migrate/ibmjdktooraclejdk.md)
-  * **Migrate from IBM Runtimes to Oracle Runtimes**
-  * This recipe will apply changes commonly needed when upgrading Java versions. The solutions provided in this list are solutions necessary for migrating from IBM Runtimes to Oracle Runtimes.
-* [org.openrewrite.java.migrate.IBMSemeru](/user-documentation/recipes/recipe-catalog/java/migrate/ibmsemeru.md)
-  * **Migrate to IBM Semeru Runtimes**
-  * This recipe will apply changes commonly needed when upgrading Java versions. The solutions provided in this list are solutions only available in IBM Semeru Runtimes.
-* [org.openrewrite.java.migrate.UpgradeToJava25](/user-documentation/recipes/recipe-catalog/java/migrate/upgradetojava25.md)
-  * **Migrate to Java 25**
-  * This recipe will apply changes commonly needed when migrating to Java 25. This recipe will also replace deprecated API with equivalents when there is a clear migration strategy. Build files will also be updated to use Java 25 as the target/source and plugins will be also be upgraded to versions that are compatible with Java 25.
-* [org.openrewrite.java.migrate.WasDevMvnChangeParentArtifactId](/user-documentation/recipes/recipe-catalog/java/migrate/wasdevmvnchangeparentartifactid.md)
-  * **Change `net.wasdev.maven.parent:java8-parent` to `:parent`**
-  * This recipe changes the artifactId of the `&lt;parent&gt;` tag in the `pom.xml` from `java8-parent` to `parent`.
-* [org.openrewrite.java.migrate.datanucleus.UpgradeDataNucleus_5_2](/user-documentation/recipes/recipe-catalog/java/migrate/datanucleus/upgradedatanucleus_5_2.md)
-  * **Migrate to DataNucleus 5.2**
-  * Migrate DataNucleus applications to 5.2. This recipe first applies the 5.1 migration, then handles the column mapping package move and query-related property renames introduced in 5.2.
-* [org.openrewrite.java.migrate.guava.NoGuava](/user-documentation/recipes/recipe-catalog/java/migrate/guava/noguava.md)
-  * **Prefer the Java standard library instead of Guava**
-  * Guava filled in important gaps in the Java standard library and still does. But at least some of Guava's API surface area is covered by the Java standard library now, and some projects may be able to remove Guava altogether if they migrate to standard library for these functions.
-* [org.openrewrite.java.migrate.guava.PreferIntegerRemainderUnsigned](/user-documentation/recipes/recipe-catalog/java/migrate/guava/preferintegerremainderunsigned.md)
-  * **Prefer `Integer#remainderUnsigned`**
-  * Prefer `java.lang.Integer#remainderUnsigned` instead of using `com.google.common.primitives.UnsignedInts#remainderUnsigned`.
-* [org.openrewrite.java.migrate.jakarta.UpdateJakartaAnnotations2](/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/updatejakartaannotations2.md)
-  * **Update Jakarta EE annotation Dependencies to 2.1.x**
-  * Update Jakarta EE annotation Dependencies to 2.1.x.
-* [org.openrewrite.java.migrate.javax.AddJaxbDependenciesWithoutRuntime](/user-documentation/recipes/recipe-catalog/java/migrate/javax/addjaxbdependencieswithoutruntime.md)
-  * **Add explicit JAXB API dependencies and remove runtimes**
-  * This recipe will add explicit API dependencies without runtime dependencies for Jakarta EE 8 when a Java 8 application is using JAXB. Any existing API dependencies will be upgraded to the latest version of Jakarta EE 8. The artifacts are moved to Jakarta EE 8 version 2.x which allows for the continued use of the `javax.xml.bind` namespace. All JAXB runtime implementation dependencies are removed.
-* [org.openrewrite.java.migrate.javax.openJPAToEclipseLink](/user-documentation/recipes/recipe-catalog/java/migrate/javax/openjpatoeclipselink.md)
-  * **Migrate from OpenJPA to EclipseLink JPA**
-  * These recipes help migrate Java Persistence applications using OpenJPA to EclipseLink JPA.
-* [org.openrewrite.java.migrate.lang.FindVirtualThreadOpportunities](/user-documentation/recipes/recipe-catalog/java/migrate/lang/findvirtualthreadopportunities.md)
-  * **Find Virtual Thread opportunities**
-  * Find opportunities to convert existing code to use Virtual Threads.
-* [org.openrewrite.java.migrate.lang.UseVar](/user-documentation/recipes/recipe-catalog/java/migrate/lang/usevar.md)
-  * **Use local variable type inference**
-  * Apply local variable type inference (`var`) for primitives and objects. These recipes can cause unused imports, be advised to run `org.openrewrite.java.RemoveUnusedImports afterwards.
-* [org.openrewrite.java.migrate.lombok.LombokBestPractices](/user-documentation/recipes/recipe-catalog/java/migrate/lombok/lombokbestpractices.md)
-  * **Lombok Best Practices**
-  * Applies all recipes that enforce best practices for using Lombok.
-* [org.openrewrite.java.migrate.util.JavaUtilAPIs](/user-documentation/recipes/recipe-catalog/java/migrate/util/javautilapis.md)
-  * **Use modernized `java.util` APIs**
-  * Certain java util APIs have been introduced and are favored over previous APIs.
-* [org.openrewrite.java.search.FindSecrets](/user-documentation/recipes/recipe-catalog/java/search/findsecrets.md)
-  * **Find plain text secrets**
-  * Find secrets stored in plain text in code.
+
+### rewrite-java-dependencies
+
+* [org.openrewrite.java.dependencies.DependencyResolutionDiagnostic](/user-documentation/recipes/recipe-catalog/java/dependencies/dependencyresolutiondiagnostic.md)
+  * **Dependency resolution diagnostic**
+  * Recipes which manipulate dependencies must be able to successfully access the artifact repositories and resolve dependencies from them. This recipe produces two data tables used to understand the state of dependency resolution.   The Repository accessibility report lists all the artifact repositories known to the project and whether respond to network access. The network access is attempted while the recipe is run and so is representative of current conditions.   The Gradle dependency configuration errors lists all the dependency configurations that failed to resolve one or more dependencies when the project was parsed. This is representative of conditions at the time the LST was parsed.
+* [org.openrewrite.java.dependencies.FindDependency](/user-documentation/recipes/recipe-catalog/java/dependencies/finddependency.md)
+  * **Find Maven and Gradle dependencies**
+  * Finds direct dependencies declared in Maven and Gradle build files. This does *not* search transitive dependencies. To detect both direct and transitive dependencies use `org.openrewrite.java.dependencies.DependencyInsight` This recipe works for both Maven and Gradle projects.
+* [org.openrewrite.java.dependencies.FindRepositoryOrder](/user-documentation/recipes/recipe-catalog/java/dependencies/findrepositoryorder.md)
+  * **Maven repository order**
+  * Determine the order in which dependencies will be resolved for each `pom.xml` or `build.gradle` based on its defined repositories and effective settings.
+* [org.openrewrite.java.dependencies.RelocatedDependencyCheck](/user-documentation/recipes/recipe-catalog/java/dependencies/relocateddependencycheck.md)
+  * **Find relocated dependencies**
+  * Find Maven and Gradle dependencies and Maven plugins that have relocated to a new `groupId` or `artifactId`. Relocation information comes from the [oga-maven-plugin](https://github.com/jonathanlermitage/oga-maven-plugin/) maintained by Jonathan Lermitage, Filipe Roque and others.  This recipe makes no changes to any source file by default. Add `changeDependencies=true` to change dependencies, but note that you might need to run additional recipes to update imports and adopt other breaking changes.
+* [org.openrewrite.java.dependencies.UpgradeTransitiveDependencyVersion](/user-documentation/recipes/recipe-catalog/java/dependencies/upgradetransitivedependencyversion.md)
+  * **Upgrade transitive Gradle or Maven dependencies**
+  * Upgrades the version of a transitive dependency in a Maven pom.xml or Gradle build.gradle. Leaves direct dependencies unmodified. Can be paired with the regular Upgrade Dependency Version recipe to upgrade a dependency everywhere, regardless of whether it is direct or transitive.
+* [org.openrewrite.java.dependencies.search.DoesNotIncludeDependency](/user-documentation/recipes/recipe-catalog/java/dependencies/search/doesnotincludedependency.md)
+  * **Does not include dependency for Gradle and Maven**
+  * A precondition which returns false if visiting a Gradle file / Maven pom which includes the specified dependency in the classpath of some Gradle configuration / Maven scope. For compatibility with multimodule projects, this should most often be applied as a precondition.
+* [org.openrewrite.java.dependencies.search.FindDuplicateClasses](/user-documentation/recipes/recipe-catalog/java/dependencies/search/findduplicateclasses.md)
+  * **Find duplicate classes on the classpath**
+  * Detects classes that appear in multiple dependencies on the classpath. This is similar to what the Maven duplicate-finder-maven-plugin does. Duplicate classes can cause runtime issues when different versions of the same class are loaded.
+* [org.openrewrite.java.dependencies.search.FindMinimumDependencyVersion](/user-documentation/recipes/recipe-catalog/java/dependencies/search/findminimumdependencyversion.md)
+  * **Find the oldest matching dependency version in use**
+  * The oldest dependency version in use is the lowest dependency version in use in any source set of any subproject of a repository. It is possible that, for example, the main source set of a project uses Jackson 2.11, but a test source set uses Jackson 2.16. In this case, the oldest Jackson version in use is Java 2.11.
+* [org.openrewrite.java.dependencies.search.FindMinimumJUnitVersion](/user-documentation/recipes/recipe-catalog/java/dependencies/search/findminimumjunitversion.md)
+  * **Find minimum JUnit version**
+  * A recipe to find the minimum version of JUnit dependencies. This recipe is designed to return the minimum version of JUnit in a project. It will search for JUnit 4 and JUnit 5 dependencies in the project. If both versions are found, it will return the minimum version of JUnit 4. If a minimumVersion is provided, the recipe will search to see if the minimum version of JUnit used by the project is no lower than the minimumVersion. For example: if the minimumVersion is 4, and the project has JUnit 4.12 and JUnit 5.7, the recipe will return JUnit 4.12. If the project has only JUnit 5.7, the recipe will return JUnit 5.7. Another example: if the minimumVersion is 5, and the project has JUnit 4.12 and JUnit 5.7, the recipe will not return any results.
+* [org.openrewrite.java.dependencies.search.RepositoryHasDependency](/user-documentation/recipes/recipe-catalog/java/dependencies/search/repositoryhasdependency.md)
+  * **Repository has dependency**
+  * Searches for both Gradle and Maven modules that have a dependency matching the specified groupId and artifactId. Places a `SearchResult` marker on all sources within a repository with a matching dependency. This recipe is intended to be used as a precondition for other recipes. For example this could be used to limit the application of a spring boot migration to only projects that use a springframework dependency, limiting unnecessary upgrading. If the search result you want is instead just the build.gradle(.kts) or pom.xml file applying the plugin, use the `FindDependency` recipe instead.
+
+### rewrite-java-security
+
+* [org.openrewrite.csharp.dependencies.DependencyInsight](/user-documentation/recipes/recipe-catalog/csharp/dependencies/dependencyinsight.md)
+  * **Dependency insight for C#**
+  * Finds dependencies in `*.csproj` and `packages.config`.
+* [org.openrewrite.csharp.dependencies.DependencyVulnerabilityCheck](/user-documentation/recipes/recipe-catalog/csharp/dependencies/dependencyvulnerabilitycheck.md)
+  * **Find and fix vulnerable Nuget dependencies**
+  * This software composition analysis (SCA) tool detects and upgrades dependencies with publicly disclosed vulnerabilities. This recipe both generates a report of vulnerable dependencies and upgrades to newer versions with fixes. This recipe **only** upgrades to the latest **patch** version.  If a minor or major upgrade is required to reach the fixed version, this recipe will not make any changes. Vulnerability information comes from the [GitHub Security Advisory Database](https://docs.github.com/en/code-security/security-advisories/global-security-advisories/about-the-github-advisory-database), which aggregates vulnerability data from several public databases, including the [National Vulnerability Database](https://nvd.nist.gov/) maintained by the United States government. Dependencies following [Semantic Versioning](https://semver.org/) will see their _patch_ version updated where applicable.
+* [org.openrewrite.csharp.dependencies.UpgradeDependencyVersion](/user-documentation/recipes/recipe-catalog/csharp/dependencies/upgradedependencyversion.md)
+  * **Upgrade C# dependency versions**
+  * Upgrades dependencies in `*.csproj`, `Directory.Packages.props`, and `packages.config`.
+* [org.openrewrite.java.dependencies.AddExplicitTransitiveDependencies](/user-documentation/recipes/recipe-catalog/java/dependencies/addexplicittransitivedependencies.md)
+  * **Add explicit transitive dependencies**
+  * Detects when Java source code or configuration files reference types from transitive Maven dependencies and promotes those transitive dependencies to explicit direct dependencies in the pom.xml. This ensures the build is resilient against changes in transitive dependency trees of upstream libraries.
+* [org.openrewrite.java.dependencies.DependencyLicenseCheck](/user-documentation/recipes/recipe-catalog/java/dependencies/dependencylicensecheck.md)
+  * **Find licenses in use in third-party dependencies**
+  * Locates and reports on all licenses in use.
+* [org.openrewrite.java.dependencies.RemoveUnusedDependencies](/user-documentation/recipes/recipe-catalog/java/dependencies/removeunuseddependencies.md)
+  * **Remove unused dependencies**
+  * Scans through source code collecting references to types and methods, removing any dependencies that are not used from Maven or Gradle build files. This is best effort and not guaranteed to work well in all cases; false positives are still possible.  This recipe takes reflective access into account: - When reflective access to a class is made unambiguously via a string literal, such as: `Class.forName(&quot;java.util.List&quot;)` that is counted correctly. - When reflective access to a class is made ambiguously via anything other than a string literal no dependencies will be removed.  This recipe takes transitive dependencies into account: - When a direct dependency is not used but a transitive dependency it brings in _is_ in use the direct dependency is not removed.
+* [org.openrewrite.java.dependencies.SoftwareBillOfMaterials](/user-documentation/recipes/recipe-catalog/java/dependencies/softwarebillofmaterials.md)
+  * **Software bill of materials**
+  * Produces a software bill of materials (SBOM) for a project. An SBOM is a complete list of all dependencies used in a project, including transitive dependencies. The produced SBOM is in the [CycloneDX](https://cyclonedx.org/) XML format. Supports Gradle and Maven. Places a file named sbom.xml adjacent to the Gradle or Maven build file.
+* [org.openrewrite.java.security.FixCwe338](/user-documentation/recipes/recipe-catalog/java/security/fixcwe338.md)
+  * **Fix CWE-338 with `SecureRandom`**
+  * Use a cryptographically strong pseudo-random number generator (PRNG).
+* [org.openrewrite.java.security.FixCwe918](/user-documentation/recipes/recipe-catalog/java/security/fixcwe918.md)
+  * **Remediate server-side request forgery (SSRF)**
+  * Inserts a guard that validates URLs constructed from user-controlled input do not target internal network addresses, blocking server-side request forgery (SSRF) attacks.
+* [org.openrewrite.java.security.ImproperPrivilegeManagement](/user-documentation/recipes/recipe-catalog/java/security/improperprivilegemanagement.md)
+  * **Improper privilege management**
+  * Marking code as privileged enables a piece of trusted code to temporarily enable access to more resources than are available directly to the code that called it.
 * [org.openrewrite.java.security.JavaSecurityBestPractices](/user-documentation/recipes/recipe-catalog/java/security/javasecuritybestpractices.md)
   * **Java security best practices**
   * Applies security best practices to Java code.
@@ -3446,108 +2858,57 @@ Total standalone recipes: 1206
 * [org.openrewrite.java.security.OwaspTopTen](/user-documentation/recipes/recipe-catalog/java/security/owasptopten.md)
   * **Remediate vulnerabilities from the OWASP Top Ten**
   * [OWASP](https://owasp.org) publishes a list of the most impactful common security vulnerabilities. These recipes identify and remediate vulnerabilities from the OWASP Top Ten.
+* [org.openrewrite.java.security.SecureRandom](/user-documentation/recipes/recipe-catalog/java/security/securerandom.md)
+  * **Secure random**
+  * Use cryptographically secure Pseudo Random Number Generation in the &quot;main&quot; source set. Replaces instantiation of `java.util.Random` with `java.security.SecureRandom`.
+* [org.openrewrite.java.security.SecureRandomPrefersDefaultSeed](/user-documentation/recipes/recipe-catalog/java/security/securerandomprefersdefaultseed.md)
+  * **SecureRandom seeds are not constant or predictable**
+  * Remove `SecureRandom#setSeed(*)` method invocations having constant or predictable arguments.
+* [org.openrewrite.java.security.search.FindSensitiveApiEndpoints](/user-documentation/recipes/recipe-catalog/java/security/search/findsensitiveapiendpoints.md)
+  * **Find sensitive API endpoints**
+  * Find data models exposed by REST APIs that contain sensitive information like PII and secrets.
 * [org.openrewrite.java.security.secrets.FindSecrets](/user-documentation/recipes/recipe-catalog/java/security/secrets/findsecrets.md)
   * **Find secrets**
   * Locates secrets stored in plain text in code.
-* [org.openrewrite.java.spring.boot2.search.FindUpgradeRequirementsSpringBoot_2_5](/user-documentation/recipes/recipe-catalog/java/spring/boot2/search/findupgraderequirementsspringboot_2_5.md)
-  * **Find patterns that require updating for Spring Boot 2.5**
-  * Looks for a series of patterns that have not yet had auto-remediation recipes developed for.
-* [org.openrewrite.java.spring.boot3.SpringBoot33BestPractices](/user-documentation/recipes/recipe-catalog/java/spring/boot3/springboot33bestpractices.md)
-  * **Spring Boot 3.3 best practices**
-  * Applies best practices to Spring Boot 3 applications.
-* [org.openrewrite.java.spring.http.SpringWebDependency](/user-documentation/recipes/recipe-catalog/java/spring/http/springwebdependency.md)
-  * **Find Spring Web dependency**
-  * Find compile scoped Spring Web dependency for Maven and Gradle, both direct and transitive.
-* [org.openrewrite.java.spring.opentelemetry.MigrateToOpenTelemetry](/user-documentation/recipes/recipe-catalog/java/spring/opentelemetry/migratetoopentelemetry.md)
-  * **Complete migration to OpenTelemetry**
-  * Comprehensive migration to OpenTelemetry including dependencies, configuration properties, and Java code changes. This recipe handles migration from Spring Cloud Sleuth, Brave/Zipkin, and OpenTracing to OpenTelemetry.
-* [org.openrewrite.java.spring.ws.UpgradeSpringWs_4_0](/user-documentation/recipes/recipe-catalog/java/spring/ws/upgradespringws_4_0.md)
-  * **Migrate to Spring WS 4.0**
-  * Migrate applications to Spring WS 4.0. This recipe handles the removal of Apache Axiom support in Spring WS 4.0.x by migrating Axiom-based SOAP message handling to SAAJ (SOAP with Attachments API for Java). Note that Spring WS 4.1+ restores Axiom support if upgrading to that version is preferred.
-* [org.openrewrite.java.struts.migrate2.MigrateStruts2](/user-documentation/recipes/recipe-catalog/java/struts/migrate2/migratestruts2.md)
-  * **Migrate to Struts 2.x from Struts 1.x**
-  * Comprehensive migration from Struts 1.x to Struts 2.x framework.
-* [org.openrewrite.java.struts.migrate6.MigrateStruts6](/user-documentation/recipes/recipe-catalog/java/struts/migrate6/migratestruts6.md)
-  * **Migrate to Struts 6.0**
-  * Migrate Struts 2.x to Struts 6.0.
-* [org.openrewrite.java.struts.migrate7.MigrateStruts7](/user-documentation/recipes/recipe-catalog/java/struts/migrate7/migratestruts7.md)
-  * **Migrate to Struts 7.0**
-  * Migrate Struts 6.x to Struts 7.x.
-* [org.openrewrite.java.testing.archunit.ArchUnit0to1Migration](/user-documentation/recipes/recipe-catalog/java/testing/archunit/archunit0to1migration.md)
-  * **ArchUnit 0.x upgrade**
-  * Upgrade ArchUnit from 0.x to 1.x.
-* [org.openrewrite.java.testing.assertj.Assertj](/user-documentation/recipes/recipe-catalog/java/testing/assertj/assertj-best-practices.md)
-  * **AssertJ best practices**
-  * Migrates JUnit asserts to AssertJ and applies best practices to assertions.
-* [org.openrewrite.java.testing.cleanup.BestPractices](/user-documentation/recipes/recipe-catalog/java/testing/cleanup/bestpractices.md)
-  * **Testing best practices**
-  * Applies best practices to tests.
-* [org.openrewrite.java.testing.datafaker.JavaFakerToDataFaker](/user-documentation/recipes/recipe-catalog/java/testing/datafaker/javafakertodatafaker.md)
-  * **Migrate from Java Faker to Datafaker**
-  * Change imports and dependencies related to Java Faker to Datafaker replacements.
-* [org.openrewrite.java.testing.easymock.EasyMockToMockito](/user-documentation/recipes/recipe-catalog/java/testing/easymock/easymocktomockito.md)
-  * **Migrate from EasyMock to Mockito**
-  * This recipe will apply changes commonly needed when migrating from EasyMock to Mockito.
-* [org.openrewrite.java.testing.jmockit.JMockitToMockito](/user-documentation/recipes/recipe-catalog/java/testing/jmockit/jmockittomockito.md)
-  * **Migrate from JMockit to Mockito**
-  * This recipe will apply changes commonly needed when migrating from JMockit to Mockito.
-* [org.openrewrite.java.testing.junit.JUnit6BestPractices](/user-documentation/recipes/recipe-catalog/java/testing/junit/junit6bestpractices.md)
-  * **JUnit 6 best practices**
-  * Applies best practices to tests.
-* [org.openrewrite.java.testing.testcontainers.TestContainersBestPractices](/user-documentation/recipes/recipe-catalog/java/testing/testcontainers/testcontainersbestpractices.md)
-  * **Testcontainers best practices**
-  * Apply best practices to Testcontainers usage.
-* [org.openrewrite.javascript.change-import](/user-documentation/recipes/recipe-catalog/javascript/change-import.md)
-  * **Change import**
-  * Changes an import from one module/member to another, updating all type attributions.
-* [org.openrewrite.javascript.cleanup.add-parse-int-radix](/user-documentation/recipes/recipe-catalog/javascript/cleanup/add-parse-int-radix.md)
-  * **Add radix to `parseInt`**
-  * Adds the radix parameter (base 10) to `parseInt()` calls that are missing it, preventing potential parsing issues.
-* [org.openrewrite.javascript.cleanup.async-callback-in-sync-array-method](/user-documentation/recipes/recipe-catalog/javascript/cleanup/async-callback-in-sync-array-method.md)
-  * **Detect async callbacks in synchronous array methods**
-  * Detects async callbacks passed to array methods like .some(), .every(), .filter() which don't await promises. This is a common bug where Promise objects are always truthy.
-* [org.openrewrite.javascript.cleanup.order-imports](/user-documentation/recipes/recipe-catalog/javascript/cleanup/order-imports.md)
-  * **Order imports**
-  * Sort imports by category and module path. Categories: side-effect, namespace, default, named, type. Within each category, imports are sorted alphabetically by module path. Named specifiers within each import are also sorted alphabetically.
-* [org.openrewrite.javascript.cleanup.prefer-optional-chain](/user-documentation/recipes/recipe-catalog/javascript/cleanup/prefer-optional-chain.md)
-  * **Prefer optional chaining**
-  * Converts ternary expressions like `foo ? foo.bar : undefined` to use optional chaining syntax `foo?.bar`.
-* [org.openrewrite.javascript.cleanup.use-object-property-shorthand](/user-documentation/recipes/recipe-catalog/javascript/cleanup/use-object-property-shorthand.md)
-  * **Use object property shorthand**
-  * Simplifies object properties where the property name and value/variable name are the same (e.g., `\{ x: x \}` becomes `\{ x \}`). Applies to both destructuring patterns and object literals.
-* [org.openrewrite.javascript.dependencies.add-dependency](/user-documentation/recipes/recipe-catalog/javascript/dependencies/add-dependency.md)
-  * **Add npm dependency**
-  * Adds a new dependency to `package.json` and updates the lock file by running the package manager.
-* [org.openrewrite.javascript.dependencies.find-dependency](/user-documentation/recipes/recipe-catalog/javascript/dependencies/find-dependency.md)
-  * **Find Node.js dependency**
-  * Finds dependencies in a project's `package.json`. Can find both direct dependencies and dependencies that transitively include the target package. This recipe is commonly used as a precondition for other recipes.
-* [org.openrewrite.javascript.dependencies.upgrade-dependency-version](/user-documentation/recipes/recipe-catalog/javascript/dependencies/upgrade-dependency-version.md)
-  * **Upgrade npm dependency version**
-  * Upgrades the version of a direct dependency in `package.json` and updates the lock file by running the package manager.
-* [org.openrewrite.javascript.dependencies.upgrade-transitive-dependency-version](/user-documentation/recipes/recipe-catalog/javascript/dependencies/upgrade-transitive-dependency-version.md)
-  * **Upgrade transitive npm dependency version**
-  * Upgrades the version of a transitive dependency by adding override/resolution entries to `package.json` and updates the lock file by running the package manager.
-* [org.openrewrite.javascript.format.auto-format](/user-documentation/recipes/recipe-catalog/javascript/format/auto-format.md)
-  * **Auto-format JavaScript/TypeScript code**
-  * Format JavaScript and TypeScript code using formatting rules auto-detected from the project's existing code style.
-* [org.openrewrite.javascript.migrate.es6.modernize-octal-escape-sequences](/user-documentation/recipes/recipe-catalog/javascript/migrate/es6/modernize-octal-escape-sequences.md)
-  * **Modernize octal escape sequences**
-  * Convert old-style octal escape sequences (e.g., `\0`, `\123`) to modern hex escape sequences (e.g., `\x00`, `\x53`) or Unicode escape sequences (e.g., `\u0000`, `\u0053`).
-* [org.openrewrite.javascript.migrate.es6.modernize-octal-literals](/user-documentation/recipes/recipe-catalog/javascript/migrate/es6/modernize-octal-literals.md)
-  * **Modernize octal literals**
-  * Convert old-style octal literals (e.g., `0777`) to modern ES6 syntax (e.g., `0o777`).
-* [org.openrewrite.javascript.migrate.es6.remove-duplicate-object-keys](/user-documentation/recipes/recipe-catalog/javascript/migrate/es6/remove-duplicate-object-keys.md)
-  * **Remove duplicate object keys**
-  * Remove duplicate keys in object literals, keeping only the last occurrence (last-wins semantics).
-* [org.openrewrite.javascript.migrate.typescript.export-assignment-to-export-default](/user-documentation/recipes/recipe-catalog/javascript/migrate/typescript/export-assignment-to-export-default.md)
-  * **Convert `export =` to `export default`**
-  * Converts TypeScript `export =` syntax to ES module `export default` syntax for compatibility with ECMAScript modules.
+* [org.openrewrite.java.security.spring.InsecureSpringServiceExporter](/user-documentation/recipes/recipe-catalog/java/security/spring/insecurespringserviceexporter.md)
+  * **Secure Spring service exporters**
+  * The default Java deserialization mechanism is available via `ObjectInputStream` class. This mechanism is known to be vulnerable. If an attacker can make an application deserialize malicious data, it may result in arbitrary code execution.  Spring’s `RemoteInvocationSerializingExporter` uses the default Java deserialization mechanism to parse data. As a result, all classes that extend it are vulnerable to deserialization attacks. The Spring Framework contains at least `HttpInvokerServiceExporter` and `SimpleHttpInvokerServiceExporter` that extend `RemoteInvocationSerializingExporter`. These exporters parse data from the HTTP body using the unsafe Java deserialization mechanism.  See the full [blog post](https://blog.gypsyengineer.com/en/security/detecting-dangerous-spring-exporters-with-codeql.html) by Artem Smotrakov on CVE-2016-1000027 from which the above description is excerpted.
+* [org.openrewrite.java.security.spring.PreventClickjacking](/user-documentation/recipes/recipe-catalog/java/security/spring/preventclickjacking.md)
+  * **Prevent clickjacking**
+  * The `frame-ancestors` directive can be used in a Content-Security-Policy HTTP response header to indicate whether or not a browser should be allowed to render a page in a `&lt;frame&gt;` or `&lt;iframe&gt;`. Sites can use this to avoid Clickjacking attacks by ensuring that their content is not embedded into other sites.
+* [org.openrewrite.python.dependencies.DependencyVulnerabilityCheck](/user-documentation/recipes/recipe-catalog/python/dependencies/dependencyvulnerabilitycheck.md)
+  * **Find and fix vulnerable PyPI dependencies**
+  * This software composition analysis (SCA) tool detects and upgrades dependencies with publicly disclosed vulnerabilities. This recipe both generates a report of vulnerable dependencies and upgrades to newer versions with fixes. This recipe by default only upgrades to the latest **patch** version. If a minor or major upgrade is required to reach the fixed version, this can be controlled using the `maximumUpgradeDelta` option. Vulnerability information comes from the [GitHub Security Advisory Database](https://docs.github.com/en/code-security/security-advisories/global-security-advisories/about-the-github-advisory-database), which aggregates vulnerability data from several public databases, including the [National Vulnerability Database](https://nvd.nist.gov/) maintained by the United States government. Dependencies following [Semantic Versioning](https://semver.org/) will see their _patch_ version updated where applicable.
+* [org.openrewrite.recipe.rewrite-java-security.InlineDeprecatedMethods](/user-documentation/recipes/recipe-catalog/recipe/rewrite-java-security/inlinedeprecatedmethods.md)
+  * **Inline deprecated delegating methods**
+  * Automatically generated recipes to inline deprecated method calls that delegate to other methods in the same class.
+* [org.openrewrite.text.FindHardcodedLoopbackAddresses](/user-documentation/recipes/recipe-catalog/text/findhardcodedloopbackaddresses.md)
+  * **Find hard-coded loopback IPv4 addresses**
+  * Locates mentions of hard-coded IPv4 addresses from the loopback IP range. The loopback IP range includes `127.0.0.0` to `127.255.255.255`. This detects the entire localhost/loopback subnet range, not just the commonly used `127.0.0.1`.
+* [org.openrewrite.text.FindHardcodedPrivateIPAddresses](/user-documentation/recipes/recipe-catalog/text/findhardcodedprivateipaddresses.md)
+  * **Find hard-coded private IPv4 addresses**
+  * Locates mentions of hard-coded IPv4 addresses from private IP ranges. Private IP ranges include:   * `192.168.0.0` to `192.168.255.255`  * `10.0.0.0` to `10.255.255.255`  * `172.16.0.0` to `172.31.255.255`  It is not detecting the localhost subnet `127.0.0.0` to `127.255.255.255`.
+* [org.openrewrite.text.RemoveHardcodedIPAddressesFromComments](/user-documentation/recipes/recipe-catalog/text/removehardcodedipaddressesfromcomments.md)
+  * **Remove hard-coded IP addresses from comments**
+  * Removes hard-coded IPv4 addresses from comments when they match private IP ranges or loopback addresses. This targets IP addresses that are commented out in various comment formats:  **Private IP ranges:**  * `192.168.0.0` to `192.168.255.255`  * `10.0.0.0` to `10.255.255.255`  * `172.16.0.0` to `172.31.255.255`  **Loopback IP range:**  * `127.0.0.0` to `127.255.255.255`  **Supported comment formats:**  * C-style line comments (`//`)  * C-style block comments (`/* */`)  * Shell/Python style comments (`#`)  * XML comments (`&lt;!-- --&gt;`)  * YAML comments (`#`)  * Properties file comments (`#` or `!`)  For line comments, the entire line is removed. For block comments, only the IP address is removed.
+
+### rewrite-jenkins
+
+* [org.openrewrite.jenkins.AddJellyXmlDeclaration](/user-documentation/recipes/recipe-catalog/jenkins/addjellyxmldeclaration.md)
+  * **Add XML declaration to Jelly files**
+  * Ensure the XML declaration `&lt;?jelly escape-by-default='true'?&gt;` is present in all `.jelly` files.
 * [org.openrewrite.jenkins.CommonsLang3ToApiPlugin](/user-documentation/recipes/recipe-catalog/jenkins/commonslang3toapiplugin.md)
   * **Use commons-lang3 API Plugin**
   * Updates `pom.xml` to depend on `commons-lang3-api` and exclude `commons-lang3` where it is brought in transitively.
+* [org.openrewrite.jenkins.CreateIndexJelly](/user-documentation/recipes/recipe-catalog/jenkins/createindexjelly.md)
+  * **Create `index.jelly` if it doesn't exist**
+  * Jenkins tooling [requires](https://github.com/jenkinsci/maven-hpi-plugin/pull/302) `src/main/resources/index.jelly` exists with a description.
 * [org.openrewrite.jenkins.CreateJenkinsfile](/user-documentation/recipes/recipe-catalog/jenkins/createjenkinsfile.md)
   * **Create Jenkinsfile**
   * Creates a simple base Jenkinsfile in Groovy for a Declarative Pipeline - located in the root of the project.
+* [org.openrewrite.jenkins.IsJenkinsPlugin](/user-documentation/recipes/recipe-catalog/jenkins/isjenkinsplugin.md)
+  * **Is the project a Jenkins plugin?**
+  * Checks if the project is a Jenkins plugin by the presence of a managed version of `jenkins-core`.
 * [org.openrewrite.jenkins.JavaxAnnotationsToSpotbugs](/user-documentation/recipes/recipe-catalog/jenkins/javaxannotationstospotbugs.md)
   * **Migrate `javax.annotations` to SpotBugs annotations**
   * SpotBugs is the [preferred replacement](https://www.jenkins.io/doc/developer/tutorial-improve/replace-jsr-305-annotations/) of JSR-305 annotations for Jenkins plugins.
@@ -3560,9 +2921,300 @@ Total standalone recipes: 1206
 * [org.openrewrite.jenkins.ModernizePluginForJava8](/user-documentation/recipes/recipe-catalog/jenkins/modernizepluginforjava8.md)
   * **Modernize a Jenkins plugin to the latest versions supported by Java 8**
   * This recipe is intended to break down the modernization of very old plugins into distinct steps. It allows modernizing all tooling up to the last versions that supported Java 8. This can then be followed by another recipe that makes the jump to Java 11.
+* [org.openrewrite.jenkins.github.AddTeamToCodeowners](/user-documentation/recipes/recipe-catalog/jenkins/github/addteamtocodeowners.md)
+  * **Add plugin developer team to CODEOWNERS**
+  * Adds the `\{artifactId\}-plugin-developers` team to all files in `.github/CODEOWNERS` if absent.
 * [org.openrewrite.jenkins.migrate.hudson.UtilGetPastTimeStringToGetTimeSpanString](/user-documentation/recipes/recipe-catalog/jenkins/migrate/hudson/utilgetpasttimestringtogettimespanstring.md)
   * **Replace `hudson.Util.getPastTimeString` with `getTimeSpanString`**
   * `hudson.Util.getPastTimeString` has been [deprecated](https://github.com/jenkinsci/jenkins/pull/4174) since the [2.204.1 LTS release](https://www.jenkins.io/changelog-stable/#v2.204.1) on 2019-12-18.
+
+### rewrite-joda
+
+* [org.openrewrite.java.joda.time.NoJodaTime](/user-documentation/recipes/recipe-catalog/java/joda/time/nojodatime.md)
+  * **Prefer the Java standard library instead of Joda-Time**
+  * Before Java 8, Java lacked a robust date and time library, leading to the widespread use of Joda-Time to fill this gap. With the release of Java 8, the `java.time` package was introduced, incorporating most of Joda-Time's concepts. Features deemed too specialized or bulky for `java.time` were included in the ThreeTen-Extra library.  This recipe migrates Joda-Time types to `java.time` and `threeten-extra` types.
+
+### rewrite-kubernetes
+
+* [org.openrewrite.kubernetes.KubernetesBestPractices](/user-documentation/recipes/recipe-catalog/kubernetes/kubernetesbestpractices.md)
+  * **Kubernetes best practices**
+  * Applies best practices to Kubernetes manifests.
+* [org.openrewrite.kubernetes.UpdateContainerImageName](/user-documentation/recipes/recipe-catalog/kubernetes/updatecontainerimagename.md)
+  * **Update image name**
+  * Search for image names that match patterns and replace the components of the name with new values.
+* [org.openrewrite.kubernetes.migrate.MigrateToAPIv1_35](/user-documentation/recipes/recipe-catalog/kubernetes/migrate/migratetoapiv1_35.md)
+  * **Migrate to Kubernetes API v1.35**
+  * This recipe will apply changes commonly needed when migrating to Kubernetes API v1.35.
+* [org.openrewrite.kubernetes.rbac.AddRuleToRole](/user-documentation/recipes/recipe-catalog/kubernetes/rbac/addruletorole.md)
+  * **Add RBAC rules**
+  * Add RBAC rules to ClusterRoles or namespaced Roles.
+* [org.openrewrite.kubernetes.resource.CapResourceValueToMaximum](/user-documentation/recipes/recipe-catalog/kubernetes/resource/capresourcevaluetomaximum.md)
+  * **Cap exceeds resource value**
+  * Cap resource values that exceed a specific maximum.
+* [org.openrewrite.kubernetes.resource.FindExceedsResourceRatio](/user-documentation/recipes/recipe-catalog/kubernetes/resource/findexceedsresourceratio.md)
+  * **Find exceeds resource ratio**
+  * Find resource manifests that have requests to limits ratios beyond a specific maximum.
+* [org.openrewrite.kubernetes.resource.FindExceedsResourceValue](/user-documentation/recipes/recipe-catalog/kubernetes/resource/findexceedsresourcevalue.md)
+  * **Find exceeds resource limit**
+  * Find resource manifests that have limits set beyond a specific maximum.
+* [org.openrewrite.kubernetes.search.FindAnnotation](/user-documentation/recipes/recipe-catalog/kubernetes/search/findannotation.md)
+  * **Find annotation**
+  * Find annotations that optionally match a given regex.
+* [org.openrewrite.kubernetes.search.FindDisallowedImageTags](/user-documentation/recipes/recipe-catalog/kubernetes/search/finddisallowedimagetags.md)
+  * **Find disallowed image tags**
+  * The set of image tags to find which are considered disallowed.
+* [org.openrewrite.kubernetes.search.FindHarcodedIPAddresses](/user-documentation/recipes/recipe-catalog/kubernetes/search/findharcodedipaddresses.md)
+  * **Find hardcoded IP addresses**
+  * Find hardcoded IP address anywhere in text-based files.
+* [org.openrewrite.kubernetes.search.FindImage](/user-documentation/recipes/recipe-catalog/kubernetes/search/findimage.md)
+  * **Find image by name**
+  * The image name to search for in containers and initContainers.
+* [org.openrewrite.kubernetes.search.FindMissingDigest](/user-documentation/recipes/recipe-catalog/kubernetes/search/findmissingdigest.md)
+  * **Find missing image digest**
+  * Find instances of a container name that fails to specify a digest.
+* [org.openrewrite.kubernetes.search.FindMissingOrInvalidAnnotation](/user-documentation/recipes/recipe-catalog/kubernetes/search/findmissingorinvalidannotation.md)
+  * **Find annotation**
+  * Find annotations that optionally match a given value.
+* [org.openrewrite.kubernetes.search.FindMissingOrInvalidLabel](/user-documentation/recipes/recipe-catalog/kubernetes/search/findmissingorinvalidlabel.md)
+  * **Find label**
+  * Find labels that optionally match a given regex.
+* [org.openrewrite.kubernetes.search.FindNonTlsIngress](/user-documentation/recipes/recipe-catalog/kubernetes/search/findnontlsingress.md)
+  * **Find non-TLS Ingresses**
+  * Find Ingress resources that don't disallow HTTP or don't have TLS configured.
+* [org.openrewrite.kubernetes.services.FindServiceExternalIPs](/user-documentation/recipes/recipe-catalog/kubernetes/services/findserviceexternalips.md)
+  * **Find uses of `externalIP`**
+  * Find any `Service` whose `externalIP` list contains, or does not contain, one of a list of IPs.
+* [org.openrewrite.kubernetes.services.FindServicesByType](/user-documentation/recipes/recipe-catalog/kubernetes/services/findservicesbytype.md)
+  * **Service type**
+  * Type of Kubernetes `Service` to find.
+* [org.openrewrite.kubernetes.services.UpdateServiceExternalIP](/user-documentation/recipes/recipe-catalog/kubernetes/services/updateserviceexternalip.md)
+  * **Update `Service` `externalIP`**
+  * Swap out an IP address with another one in `Service` `externalIP` settings.
+
+### rewrite-liberty
+
+* [org.openrewrite.java.liberty.MigrateFromWebSphereToLiberty](/user-documentation/recipes/recipe-catalog/java/liberty/migratefromwebspheretoliberty.md)
+  * **Migrate from WebSphere traditional to Liberty**
+  * Use this category of rules to identify code changes needed when migrating from WebSphere Application Server traditional to Liberty.
+* [org.openrewrite.java.liberty.ReplaceWSPrincipalGetCredential](/user-documentation/recipes/recipe-catalog/java/liberty/replacewsprincipalgetcredential.md)
+  * **Replace `WSPrincipal.getCredential()` with `WSSubject` lookup**
+  * Replaces `WSCredential credential = WSPrincipal.getCredential();` with a `null` initializer + `try/catch` lookup.
+* [org.openrewrite.xml.liberty.WebBeansXmlRule](/user-documentation/recipes/recipe-catalog/xml/liberty/webbeansxmlrule.md)
+  * **Replace beans.xml file**
+  * This Recipe replaces OpenWebBeans schema in every beans.xml with the standard CDI schema.
+
+### rewrite-logging-frameworks
+
+* [org.openrewrite.java.logging.SystemPrintToLogging](/user-documentation/recipes/recipe-catalog/java/logging/systemprinttologging.md)
+  * **Use logger instead of system print statements**
+  * Replace `System.out` and `System.err` print statements with a logger.
+* [org.openrewrite.java.logging.log4j.CommonsLoggingToLog4j](/user-documentation/recipes/recipe-catalog/java/logging/log4j/commonsloggingtolog4j.md)
+  * **Migrate JCL to Log4j 2.x API**
+  * Transforms code written using Apache Commons Logging to use Log4j 2.x API.
+* [org.openrewrite.java.logging.log4j.LoggingExceptionConcatenationRecipe](/user-documentation/recipes/recipe-catalog/java/logging/log4j/loggingexceptionconcatenationrecipe.md)
+  * **Log exceptions as parameters rather than as string concatenations**
+  * By using the exception as another parameter you get the whole stack trace.
+* [org.openrewrite.java.logging.log4j.PrependRandomName](/user-documentation/recipes/recipe-catalog/java/logging/log4j/prependrandomname.md)
+  * **Prepend a random name to each Log4J statement**
+  * To make finding the callsite of a logging statement easier in code search.
+* [org.openrewrite.java.logging.log4j.Slf4jToLog4j](/user-documentation/recipes/recipe-catalog/java/logging/log4j/slf4jtolog4j.md)
+  * **Migrate SLF4J to Log4j 2.x API**
+  * Transforms code written using SLF4J to use Log4j 2.x API.
+* [org.openrewrite.java.logging.logback.ConfigureLoggerLevel](/user-documentation/recipes/recipe-catalog/java/logging/logback/configureloggerlevel.md)
+  * **Configure logback logger level**
+  * Within logback.xml configuration files sets the specified log level for a particular class. Will not create a logback.xml if one does not already exist.
+* [org.openrewrite.java.logging.logback.Log4jToLogback](/user-documentation/recipes/recipe-catalog/java/logging/logback/log4jtologback.md)
+  * **Migrate Log4j 2.x to Logback**
+  * Migrates usage of Apache Log4j 2.x to using `logback` as an SLF4J implementation directly. Note, this currently does not modify `log4j.properties` files.
+* [org.openrewrite.java.logging.slf4j.ChangeLogLevel](/user-documentation/recipes/recipe-catalog/java/logging/slf4j/changeloglevel.md)
+  * **Change SLF4J log level**
+  * Change the log level of SLF4J log statements.
+* [org.openrewrite.java.logging.slf4j.CommonsLogging1ToSlf4j1](/user-documentation/recipes/recipe-catalog/java/logging/slf4j/commonslogging1toslf4j1.md)
+  * **Migrate Apache Commons Logging 1.x to SLF4J 1.x**
+  * Transforms usages of Apache Commons Logging 1.x to leveraging SLF4J 1.x directly.
+* [org.openrewrite.java.logging.slf4j.JBossLoggingToSlf4j](/user-documentation/recipes/recipe-catalog/java/logging/slf4j/jbossloggingtoslf4j.md)
+  * **Migrate JBoss Logging to SLF4J**
+  * Migrates usage of the JBoss Logging facade to using SLF4J.
+* [org.openrewrite.java.logging.slf4j.JulToSlf4j](/user-documentation/recipes/recipe-catalog/java/logging/slf4j/jultoslf4j.md)
+  * **Migrate JUL to SLF4J**
+  * Migrates usage of Java Util Logging (JUL) to using SLF4J directly.
+* [org.openrewrite.java.logging.slf4j.Slf4jBestPractices](/user-documentation/recipes/recipe-catalog/java/logging/slf4j/slf4jbestpractices.md)
+  * **SLF4J best practices**
+  * Applies best practices to logging with SLF4J.
+
+### rewrite-micrometer
+
+* [org.openrewrite.micrometer.MicrometerBestPractices](/user-documentation/recipes/recipe-catalog/micrometer/micrometerbestpractices.md)
+  * **Micrometer best practices**
+  * This recipe will apply a set of best practice refactorings for Micrometer, like adopting `Observations` instead of `Timers`.
+* [org.openrewrite.micrometer.dropwizard.FindDropwizardMetrics](/user-documentation/recipes/recipe-catalog/micrometer/dropwizard/finddropwizardmetrics.md)
+  * **Find Dropwizard metrics**
+  * Find uses of Dropwizard metrics that could be converted to a more modern metrics instrumentation library.
+* [org.openrewrite.micrometer.misk.MigrateMiskToMicrometer](/user-documentation/recipes/recipe-catalog/micrometer/misk/migratemisktomicrometer.md)
+  * **Migrate Misk metrics to Micrometer**
+  * This recipe will move Misk metrics to Micrometer, where that is possible to do without a loss of fidelity.
+
+### rewrite-micronaut
+
+* [org.openrewrite.java.micronaut.FindPropertiesConfig](/user-documentation/recipes/recipe-catalog/java/micronaut/findpropertiesconfig.md)
+  * **Find Micronaut properties config**
+  * Find Micronaut properties configuration files.
+* [org.openrewrite.java.micronaut.FindYamlConfig](/user-documentation/recipes/recipe-catalog/java/micronaut/findyamlconfig.md)
+  * **Find Micronaut yaml config**
+  * Find Micronaut yaml configuration files.
+* [org.openrewrite.java.micronaut.Micronaut2to3Migration](/user-documentation/recipes/recipe-catalog/java/micronaut/micronaut2to3migration.md)
+  * **Migrate from Micronaut 2.x to 3.x**
+  * This recipe will apply changes required for migrating from Micronaut 2 to Micronaut 3.
+* [org.openrewrite.java.micronaut.Micronaut3to4Migration](/user-documentation/recipes/recipe-catalog/java/micronaut/micronaut3to4migration.md)
+  * **Migrate from Micronaut 3.x to 4.x**
+  * This recipe will apply changes required for migrating from Micronaut 3 to Micronaut 4.
+* [org.openrewrite.java.micronaut.UpdateBlockingTaskExecutors](/user-documentation/recipes/recipe-catalog/java/micronaut/updateblockingtaskexecutors.md)
+  * **Migrate the use of TaskExecutors with blocking IO**
+  * This recipe will any usage of TaskExecutors.IO to TaskExecutors.BLOCKING in order to be compatible with virtual threads.
+
+### rewrite-migrate-java
+
+* [org.openrewrite.java.jspecify.JSpecifyBestPractices](/user-documentation/recipes/recipe-catalog/java/jspecify/jspecifybestpractices.md)
+  * **JSpecify best practices**
+  * Apply JSpecify best practices, such as migrating off of alternatives, and adding missing `@Nullable` annotations.
+* [org.openrewrite.java.migrate.AddJDeprScanPlugin](/user-documentation/recipes/recipe-catalog/java/migrate/addjdeprscanplugin.md)
+  * **Add `JDeprScan` Maven Plug-in**
+  * Add the `JDeprScan` Maven plugin to scan class files for uses of deprecated APIs.
+* [org.openrewrite.java.migrate.AddSuppressionForIllegalReflectionWarningsPlugin](/user-documentation/recipes/recipe-catalog/java/migrate/addsuppressionforillegalreflectionwarningsplugin.md)
+  * **Add maven jar plugin to suppress illegal reflection warnings**
+  * Adds a maven jar plugin that's configured to suppress Illegal Reflection Warnings.
+* [org.openrewrite.java.migrate.ComIntelliJAnnotationsToOrgJetbrainsAnnotations](/user-documentation/recipes/recipe-catalog/java/migrate/comintellijannotationstoorgjetbrainsannotations.md)
+  * **Migrate com.intellij:annotations to org.jetbrains:annotations**
+  * This recipe will upgrade old dependency of com.intellij:annotations to the newer org.jetbrains:annotations.
+* [org.openrewrite.java.migrate.DontOverfetchDto](/user-documentation/recipes/recipe-catalog/java/migrate/dontoverfetchdto.md)
+  * **Replace DTO method parameters with data elements**
+  * Replace method parameters that have DTOs with their data elements when only the specified data element is used.
+* [org.openrewrite.java.migrate.IBMJDKtoOracleJDK](/user-documentation/recipes/recipe-catalog/java/migrate/ibmjdktooraclejdk.md)
+  * **Migrate from IBM Runtimes to Oracle Runtimes**
+  * This recipe will apply changes commonly needed when upgrading Java versions. The solutions provided in this list are solutions necessary for migrating from IBM Runtimes to Oracle Runtimes.
+* [org.openrewrite.java.migrate.IBMSemeru](/user-documentation/recipes/recipe-catalog/java/migrate/ibmsemeru.md)
+  * **Migrate to IBM Semeru Runtimes**
+  * This recipe will apply changes commonly needed when upgrading Java versions. The solutions provided in this list are solutions only available in IBM Semeru Runtimes.
+* [org.openrewrite.java.migrate.RemoveIllegalSemicolons](/user-documentation/recipes/recipe-catalog/java/migrate/removeillegalsemicolons.md)
+  * **Remove illegal semicolons**
+  * Remove semicolons after package declarations and imports, no longer accepted in Java 21 as of [JDK-8027682](https://bugs.openjdk.org/browse/JDK-8027682).
+* [org.openrewrite.java.migrate.ReplaceStringLiteralValue](/user-documentation/recipes/recipe-catalog/java/migrate/replacestringliteralvalue.md)
+  * **Replace `String` literal**
+  * Replace the value of a complete `String` literal.
+* [org.openrewrite.java.migrate.UpgradeToJava25](/user-documentation/recipes/recipe-catalog/java/migrate/upgradetojava25.md)
+  * **Migrate to Java 25**
+  * This recipe will apply changes commonly needed when migrating to Java 25. This recipe will also replace deprecated API with equivalents when there is a clear migration strategy. Build files will also be updated to use Java 25 as the target/source and plugins will be also be upgraded to versions that are compatible with Java 25.
+* [org.openrewrite.java.migrate.UseTabsOrSpaces](/user-documentation/recipes/recipe-catalog/java/migrate/usetabsorspaces.md)
+  * **Force indentation to either tabs or spaces**
+  * This is useful for one-off migrations of a codebase that has mixed indentation styles, while preserving all other auto-detected formatting rules.
+* [org.openrewrite.java.migrate.WasDevMvnChangeParentArtifactId](/user-documentation/recipes/recipe-catalog/java/migrate/wasdevmvnchangeparentartifactid.md)
+  * **Change `net.wasdev.maven.parent:java8-parent` to `:parent`**
+  * This recipe changes the artifactId of the `&lt;parent&gt;` tag in the `pom.xml` from `java8-parent` to `parent`.
+* [org.openrewrite.java.migrate.datanucleus.UpgradeDataNucleus_5_2](/user-documentation/recipes/recipe-catalog/java/migrate/datanucleus/upgradedatanucleus_5_2.md)
+  * **Migrate to DataNucleus 5.2**
+  * Migrate DataNucleus applications to 5.2. This recipe first applies the 5.1 migration, then handles the column mapping package move and query-related property renames introduced in 5.2.
+* [org.openrewrite.java.migrate.guava.NoGuava](/user-documentation/recipes/recipe-catalog/java/migrate/guava/noguava.md)
+  * **Prefer the Java standard library instead of Guava**
+  * Guava filled in important gaps in the Java standard library and still does. But at least some of Guava's API surface area is covered by the Java standard library now, and some projects may be able to remove Guava altogether if they migrate to standard library for these functions.
+* [org.openrewrite.java.migrate.guava.PreferIntegerRemainderUnsigned](/user-documentation/recipes/recipe-catalog/java/migrate/guava/preferintegerremainderunsigned.md)
+  * **Prefer `Integer#remainderUnsigned`**
+  * Prefer `java.lang.Integer#remainderUnsigned` instead of using `com.google.common.primitives.UnsignedInts#remainderUnsigned`.
+* [org.openrewrite.java.migrate.io.AddInputStreamBulkReadMethod](/user-documentation/recipes/recipe-catalog/java/migrate/io/addinputstreambulkreadmethod.md)
+  * **Add bulk read method to `InputStream` implementations**
+  * Adds a `read(byte[], int, int)` method to `InputStream` subclasses that only override the single-byte `read()` method. Java's default `InputStream.read(byte[], int, int)` implementation calls the single-byte `read()` method in a loop, which can cause severe performance degradation (up to 350x slower) for bulk reads. This recipe detects `InputStream` implementations that delegate to another stream and adds the missing bulk read method to delegate bulk reads as well.
+* [org.openrewrite.java.migrate.io.ReplaceFileInOrOutputStreamFinalizeWithClose](/user-documentation/recipes/recipe-catalog/java/migrate/io/replacefileinoroutputstreamfinalizewithclose.md)
+  * **Replace invocations of `finalize()` on `FileInputStream` and `FileOutputStream` with `close()`**
+  * Replace invocations of the deprecated `finalize()` method on `FileInputStream` and `FileOutputStream` with `close()`.
+* [org.openrewrite.java.migrate.jakarta.HasNoJakartaAnnotations](/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/hasnojakartaannotations.md)
+  * **Project has no Jakarta annotations**
+  * Mark all source as found per `JavaProject` where no Jakarta annotations are found. This is useful mostly as a precondition for recipes that require Jakarta annotations to be present.
+* [org.openrewrite.java.migrate.jakarta.UpdateJakartaAnnotations2](/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/updatejakartaannotations2.md)
+  * **Update Jakarta EE annotation Dependencies to 2.1.x**
+  * Update Jakarta EE annotation Dependencies to 2.1.x.
+* [org.openrewrite.java.migrate.javax.AddJaxbDependenciesWithoutRuntime](/user-documentation/recipes/recipe-catalog/java/migrate/javax/addjaxbdependencieswithoutruntime.md)
+  * **Add explicit JAXB API dependencies and remove runtimes**
+  * This recipe will add explicit API dependencies without runtime dependencies for Jakarta EE 8 when a Java 8 application is using JAXB. Any existing API dependencies will be upgraded to the latest version of Jakarta EE 8. The artifacts are moved to Jakarta EE 8 version 2.x which allows for the continued use of the `javax.xml.bind` namespace. All JAXB runtime implementation dependencies are removed.
+* [org.openrewrite.java.migrate.javax.AddScopeToInjectedClass](/user-documentation/recipes/recipe-catalog/java/migrate/javax/addscopetoinjectedclass.md)
+  * **Add scope annotation to injected classes**
+  * Finds member variables annotated with `@Inject' and applies `@Dependent` scope annotation to the variable's type.
+* [org.openrewrite.java.migrate.javax.openJPAToEclipseLink](/user-documentation/recipes/recipe-catalog/java/migrate/javax/openjpatoeclipselink.md)
+  * **Migrate from OpenJPA to EclipseLink JPA**
+  * These recipes help migrate Java Persistence applications using OpenJPA to EclipseLink JPA.
+* [org.openrewrite.java.migrate.lang.FindVirtualThreadOpportunities](/user-documentation/recipes/recipe-catalog/java/migrate/lang/findvirtualthreadopportunities.md)
+  * **Find Virtual Thread opportunities**
+  * Find opportunities to convert existing code to use Virtual Threads.
+* [org.openrewrite.java.migrate.lang.StringRulesRecipes](/user-documentation/recipes/recipe-catalog/java/migrate/lang/stringrulesrecipes.md)
+  * **A collection of `String` rules**
+  * A collection of rules for refactoring methods called on `String` instances in Java code.
+* [org.openrewrite.java.migrate.lang.UseStringIsEmptyRecipe](/user-documentation/recipes/recipe-catalog/java/migrate/lang/usestringisemptyrecipe.md)
+  * **Replace `0 &lt; s.length()` with `!s.isEmpty()`**
+  * Replace `0 &lt; s.length()` and `s.length() != 0` with `!s.isEmpty()`.
+* [org.openrewrite.java.migrate.lang.UseVar](/user-documentation/recipes/recipe-catalog/java/migrate/lang/usevar.md)
+  * **Use local variable type inference**
+  * Apply local variable type inference (`var`) for primitives and objects. These recipes can cause unused imports, be advised to run `org.openrewrite.java.RemoveUnusedImports afterwards.
+* [org.openrewrite.java.migrate.lombok.AdoptLombokGetterMethodNames](/user-documentation/recipes/recipe-catalog/java/migrate/lombok/adoptlombokgettermethodnames.md)
+  * **Rename getter methods to fit Lombok**
+  * Rename methods that are effectively getter to the name Lombok would give them.  Limitations:  - If two methods in a class are effectively the same getter then one's name will be corrected and the others name will be left as it is.  - If the correct name for a method is already taken by another method then the name will not be corrected.  - Method name swaps or circular renaming within a class cannot be performed because the names block each other. E.g. `int getFoo() \{ return ba; \} int getBa() \{ return foo; \}` stays as it is.
+* [org.openrewrite.java.migrate.lombok.AdoptLombokSetterMethodNames](/user-documentation/recipes/recipe-catalog/java/migrate/lombok/adoptlomboksettermethodnames.md)
+  * **Rename setter methods to fit Lombok**
+  * Rename methods that are effectively setter to the name Lombok would give them. Limitations:  - If two methods in a class are effectively the same setter then one's name will be corrected and the others name will be left as it is.  - If the correct name for a method is already taken by another method then the name will not be corrected.  - Method name swaps or circular renaming within a class cannot be performed because the names block each other. E.g. `int getFoo() \{ return ba; \} int getBa() \{ return foo; \}` stays as it is.
+* [org.openrewrite.java.migrate.lombok.LombokBestPractices](/user-documentation/recipes/recipe-catalog/java/migrate/lombok/lombokbestpractices.md)
+  * **Lombok Best Practices**
+  * Applies all recipes that enforce best practices for using Lombok.
+* [org.openrewrite.java.migrate.lombok.LombokValueToRecord](/user-documentation/recipes/recipe-catalog/java/migrate/lombok/lombokvaluetorecord.md)
+  * **Convert `@lombok.Value` class to Record**
+  * Convert Lombok `@Value` annotated classes to standard Java Records.
+* [org.openrewrite.java.migrate.maven.UpdateMavenProjectPropertyJavaVersion](/user-documentation/recipes/recipe-catalog/java/migrate/maven/updatemavenprojectpropertyjavaversion.md)
+  * **Update Maven Java project properties**
+  * The Java version is determined by several project properties, including:   * `java.version`  * `jdk.version`  * `javaVersion`  * `jdkVersion`  * `maven.compiler.source`  * `maven.compiler.target`  * `maven.compiler.release`  * `release.version`  If none of these properties are in use and the maven compiler plugin is not otherwise configured, adds the `maven.compiler.release` property.
+* [org.openrewrite.java.migrate.maven.UseMavenCompilerPluginReleaseConfiguration](/user-documentation/recipes/recipe-catalog/java/migrate/maven/usemavencompilerpluginreleaseconfiguration.md)
+  * **Use Maven compiler plugin release configuration**
+  * Replaces any explicit `source` or `target` configuration (if present) on the `maven-compiler-plugin` with `release`, and updates the `release` value if needed. Will not downgrade the Java version if the current version is higher.
+* [org.openrewrite.java.migrate.metrics.SimplifyMicrometerMeterTags](/user-documentation/recipes/recipe-catalog/java/migrate/metrics/simplifymicrometermetertags.md)
+  * **Simplify Micrometer meter tags**
+  * Use the simplest method to add new tags.
+* [org.openrewrite.java.migrate.net.URLConstructorsToNewURI](/user-documentation/recipes/recipe-catalog/java/migrate/net/urlconstructorstonewuri.md)
+  * **Convert `new URL(String, ..)` to `new URI(String, ..).toURL()`**
+  * Converts `new URL(String, ..)` constructors to `new URI(String, ..).toURL()`.
+* [org.openrewrite.java.migrate.search.AboutJavaVersion](/user-documentation/recipes/recipe-catalog/java/migrate/search/aboutjavaversion.md)
+  * **Find which Java version is in use**
+  * A diagnostic for studying the distribution of Java language version levels (both source and target compatibility across files and source sets).
+* [org.openrewrite.java.migrate.search.FindDataUsedOnDto](/user-documentation/recipes/recipe-catalog/java/migrate/search/finddatausedondto.md)
+  * **Find data used on DTOs**
+  * Find data elements used on DTOs. This is useful to provide information where data over-fetching may be a problem.
+* [org.openrewrite.java.migrate.search.FindDtoOverfetching](/user-documentation/recipes/recipe-catalog/java/migrate/search/finddtooverfetching.md)
+  * **Find methods that only use one DTO data element**
+  * Find methods that have 'opportunities' for improvement.
+* [org.openrewrite.java.migrate.search.FindInternalJavaxApis](/user-documentation/recipes/recipe-catalog/java/migrate/search/findinternaljavaxapis.md)
+  * **Find uses of internal javax APIs**
+  * The libraries that define these APIs will have to be migrated before any of the repositories that use them.
+* [org.openrewrite.java.migrate.search.FindJavaVersion](/user-documentation/recipes/recipe-catalog/java/migrate/search/findjavaversion.md)
+  * **Find Java versions in use**
+  * Finds Java versions in use.
+* [org.openrewrite.java.migrate.search.FindLocaleDateTimeFormats](/user-documentation/recipes/recipe-catalog/java/migrate/search/findlocaledatetimeformats.md)
+  * **Find locale-sensitive date/time formatting**
+  * Finds usages of locale-based date/time formatting APIs that may be affected by JDK 20+ CLDR locale data changes, where the space before AM/PM was changed from a regular space to a narrow no-break space (NNBSP).
+* [org.openrewrite.java.migrate.search.PlanJavaMigration](/user-documentation/recipes/recipe-catalog/java/migrate/search/planjavamigration.md)
+  * **Plan a Java version migration**
+  * Study the set of Java versions and associated tools in use across many repositories.
+* [org.openrewrite.java.migrate.util.JavaUtilAPIs](/user-documentation/recipes/recipe-catalog/java/migrate/util/javautilapis.md)
+  * **Use modernized `java.util` APIs**
+  * Certain java util APIs have been introduced and are favored over previous APIs.
+* [org.openrewrite.java.migrate.util.RemoveFinalizerFromZip](/user-documentation/recipes/recipe-catalog/java/migrate/util/removefinalizerfromzip.md)
+  * **Remove invocations of deprecated invocations from Deflater, Inflater, ZipFile**
+  * Remove invocations of finalize() deprecated invocations from Deflater, Inflater, ZipFile.
+* [org.openrewrite.java.migrate.util.UseEnumSetOf](/user-documentation/recipes/recipe-catalog/java/migrate/util/useenumsetof.md)
+  * **Prefer `EnumSet of(..)`**
+  * Prefer `EnumSet of(..)` instead of using `Set of(..)` when the arguments are enums in Java 9 or higher.
+* [org.openrewrite.java.migrate.util.UseListOf](/user-documentation/recipes/recipe-catalog/java/migrate/util/uselistof.md)
+  * **Prefer `List.of(..)`**
+  * Prefer `List.of(..)` instead of using `java.util.List#add(..)` in anonymous ArrayList initializers in Java 10 or higher. This recipe will not modify code where the List is later mutated since `List.of` returns an immutable list.
+* [org.openrewrite.java.migrate.util.UseSetOf](/user-documentation/recipes/recipe-catalog/java/migrate/util/usesetof.md)
+  * **Prefer `Set.of(..)`**
+  * Prefer `Set.of(..)` instead of using `java.util.Set#add(..)` in anonymous HashSet initializers in Java 10 or higher. This recipe will not modify code where the Set is later mutated since `Set.of` returns an immutable set.
+
+### rewrite-migrate-kotlin
+
 * [org.openrewrite.kotlin.compose.ReplaceDeprecatedComposeMethods](/user-documentation/recipes/recipe-catalog/kotlin/compose/replacedeprecatedcomposemethods.md)
   * **Replace deprecated Jetpack Compose methods**
   * Replace deprecated Jetpack Compose method calls with their recommended replacements, based on `@Deprecated(replaceWith=ReplaceWith(...))` annotations.
@@ -3575,30 +3227,45 @@ Total standalone recipes: 1206
 * [org.openrewrite.kotlin.migrate.UpgradeToKotlin2](/user-documentation/recipes/recipe-catalog/kotlin/migrate/upgradetokotlin2.md)
   * **Migrate to Kotlin 2**
   * Migrate deprecated Kotlin 1.x APIs to their Kotlin 2.x replacements and update Gradle build files for Kotlin 2.x compatibility. Deprecated APIs were deprecated in Kotlin 1.4-1.5 and become errors in Kotlin 2.1.
-* [org.openrewrite.kubernetes.KubernetesBestPractices](/user-documentation/recipes/recipe-catalog/kubernetes/kubernetesbestpractices.md)
-  * **Kubernetes best practices**
-  * Applies best practices to Kubernetes manifests.
-* [org.openrewrite.kubernetes.migrate.MigrateToAPIv1_35](/user-documentation/recipes/recipe-catalog/kubernetes/migrate/migratetoapiv1_35.md)
-  * **Migrate to Kubernetes API v1.35**
-  * This recipe will apply changes commonly needed when migrating to Kubernetes API v1.35.
-* [org.openrewrite.kubernetes.search.FindHarcodedIPAddresses](/user-documentation/recipes/recipe-catalog/kubernetes/search/findharcodedipaddresses.md)
-  * **Find hardcoded IP addresses**
-  * Find hardcoded IP address anywhere in text-based files.
-* [org.openrewrite.maven.MigrateToMaven4](/user-documentation/recipes/recipe-catalog/maven/migratetomaven4.md)
-  * **Migrate to Maven 4**
-  * Migrates Maven POMs from Maven 3 to Maven 4, addressing breaking changes and deprecations. This recipe updates property expressions, lifecycle phases, removes duplicate plugin declarations, and replaces removed properties to ensure compatibility with Maven 4.
-* [org.openrewrite.maven.RemoveMavenWrapper](/user-documentation/recipes/recipe-catalog/maven/removemavenwrapper.md)
-  * **Remove Maven wrapper**
-  * Remove Maven wrapper files from a project. This includes the `mvnw` and `mvnw.cmd` scripts, and the `.mvn/wrapper` directory.
-* [org.openrewrite.micrometer.MicrometerBestPractices](/user-documentation/recipes/recipe-catalog/micrometer/micrometerbestpractices.md)
-  * **Micrometer best practices**
-  * This recipe will apply a set of best practice refactorings for Micrometer, like adopting `Observations` instead of `Timers`.
-* [org.openrewrite.micrometer.misk.MigrateMiskToMicrometer](/user-documentation/recipes/recipe-catalog/micrometer/misk/migratemisktomicrometer.md)
-  * **Migrate Misk metrics to Micrometer**
-  * This recipe will move Misk metrics to Micrometer, where that is possible to do without a loss of fidelity.
+
+### rewrite-migrate-python
+
+* [org.openrewrite.python.migrate.FindFutureImports](/user-documentation/recipes/recipe-catalog/python/migrate/findfutureimports.md)
+  * **Find `__future__` imports**
+  * Find `__future__` imports and add a search marker.
+* [org.openrewrite.python.migrate.MigrateToPyprojectToml](/user-documentation/recipes/recipe-catalog/python/migrate/migratetopyprojecttoml.md)
+  * **Migrate to `pyproject.toml`**
+  * Migrate Python projects from `requirements.txt` and/or `setup.cfg` to `pyproject.toml` with `hatchling` build backend.
+* [org.openrewrite.python.migrate.ReplaceTypingDictWithDict](/user-documentation/recipes/recipe-catalog/python/migrate/replacetypingdictwithdict.md)
+  * **Replace `typing.Dict` with `dict`**
+  * PEP 585 deprecated `typing.Dict` in Python 3.9. Replace with the built-in `dict` type for generic annotations.
+* [org.openrewrite.python.migrate.ReplaceTypingListWithList](/user-documentation/recipes/recipe-catalog/python/migrate/replacetypinglistwithlist.md)
+  * **Replace `typing.List` with `list`**
+  * PEP 585 deprecated `typing.List` in Python 3.9. Replace with the built-in `list` type for generic annotations.
+* [org.openrewrite.python.migrate.ReplaceTypingSetWithSet](/user-documentation/recipes/recipe-catalog/python/migrate/replacetypingsetwithset.md)
+  * **Replace `typing.Set` with `set`**
+  * PEP 585 deprecated `typing.Set` in Python 3.9. Replace with the built-in `set` type for generic annotations.
+* [org.openrewrite.python.migrate.ReplaceTypingText](/user-documentation/recipes/recipe-catalog/python/migrate/replacetypingtext.md)
+  * **Replace `typing.Text` with `str`**
+  * `typing.Text` is deprecated as of Python 3.11. It was an alias for `str` for Python 2/3 compatibility. Replace with `str`.
+* [org.openrewrite.python.migrate.ReplaceTypingTupleWithTuple](/user-documentation/recipes/recipe-catalog/python/migrate/replacetypingtuplewithtuple.md)
+  * **Replace `typing.Tuple` with `tuple`**
+  * PEP 585 deprecated `typing.Tuple` in Python 3.9. Replace with the built-in `tuple` type for generic annotations.
+* [org.openrewrite.python.migrate.UpgradeToPython314](/user-documentation/recipes/recipe-catalog/python/migrate/upgradetopython314.md)
+  * **Upgrade to Python 3.14**
+  * Migrate deprecated and removed APIs for Python 3.14 compatibility. This includes replacing deprecated AST node types with `ast.Constant` and other API changes between Python 3.13 and 3.14.
+* [org.openrewrite.python.migrate.langchain.UpgradeToLangChain1](/user-documentation/recipes/recipe-catalog/python/migrate/langchain/upgradetolangchain1.md)
+  * **Upgrade to LangChain 1.0**
+  * Migrate to LangChain 1.0 by applying all v0.2 migrations and then moving legacy functionality to `langchain_classic`.
+
+### rewrite-netty
+
 * [org.openrewrite.netty.UpgradeNetty_4_1_to_4_2](/user-documentation/recipes/recipe-catalog/netty/upgradenetty_4_1_to_4_2.md)
   * **Migrates from Netty 4.1.x to Netty 4.2.x**
   * Migrate applications to the latest Netty 4.2.x release.
+
+### rewrite-nodejs
+
 * [org.openrewrite.node.dependency-vulnerability-check](/user-documentation/recipes/recipe-catalog/node/dependency-vulnerability-check.md)
   * **Find and fix vulnerable npm dependencies**
   * This software composition analysis (SCA) tool detects and upgrades dependencies with publicly disclosed vulnerabilities. This recipe both generates a report of vulnerable dependencies and upgrades to newer versions with fixes. This recipe by default only upgrades to the latest **patch** version. If a minor or major upgrade is required to reach the fixed version, this can be controlled using the `maximumUpgradeDelta` option. Vulnerability information comes from the GitHub Security Advisory Database.
@@ -3626,9 +3293,18 @@ Total standalone recipes: 1206
 * [org.openrewrite.node.security.remove-redundant-overrides](/user-documentation/recipes/recipe-catalog/node/security/remove-redundant-overrides.md)
   * **Remove redundant dependency overrides**
   * Removes overrides/resolutions from package.json that are redundant because the dependency tree already resolves to the overridden version or higher.
+* [org.openrewrite.nodejs.DependencyVulnerabilityCheck](/user-documentation/recipes/recipe-catalog/nodejs/dependencyvulnerabilitycheck.md)
+  * **Find and fix vulnerable npm dependencies**
+  * This software composition analysis (SCA) tool detects and upgrades dependencies with publicly disclosed vulnerabilities. This recipe both generates a report of vulnerable dependencies and upgrades to newer versions with fixes. This recipe **only** upgrades to the latest **patch** version.  If a minor or major upgrade is required to reach the fixed version, this recipe will not make any changes. Vulnerability information comes from the [GitHub Security Advisory Database](https://docs.github.com/en/code-security/security-advisories/global-security-advisories/about-the-github-advisory-database), which aggregates vulnerability data from several public databases, including the [National Vulnerability Database](https://nvd.nist.gov/) maintained by the United States government. Dependencies following [Semantic Versioning](https://semver.org/) will see their _patch_ version updated where applicable.
+* [org.openrewrite.nodejs.UpgradeDependencyVersion](/user-documentation/recipes/recipe-catalog/nodejs/upgradedependencyversion.md)
+  * **Upgrade Node.js dependencies**
+  * Upgrade matching Node.js direct dependencies.
 * [org.openrewrite.nodejs.search.DatabaseInteractionInsights](/user-documentation/recipes/recipe-catalog/nodejs/search/databaseinteractioninsights.md)
   * **Javascript database interaction library insights**
   * Discover which popular javascript database interaction libraries (Sequelize, TypeORM, Mongoose, etc.) are being used in your projects.
+* [org.openrewrite.nodejs.search.FindNodeProjects](/user-documentation/recipes/recipe-catalog/nodejs/search/findnodeprojects.md)
+  * **Find Node.js projects**
+  * Find Node.js projects and summarize data about them.
 * [org.openrewrite.nodejs.search.FormHandlingInsights](/user-documentation/recipes/recipe-catalog/nodejs/search/formhandlinginsights.md)
   * **Javascript form handling library insights**
   * Discover which popular javascript form handling libraries (Formik, React Hook Form, Yup, etc.) are being used in your projects.
@@ -3659,6 +3335,12 @@ Total standalone recipes: 1206
 * [org.openrewrite.nodejs.search.UtilityInsights](/user-documentation/recipes/recipe-catalog/nodejs/search/utilityinsights.md)
   * **Javascript utility library insights**
   * Discover which popular javascript utility libraries (Lodash, Moment.js, Date-fns, etc.) are being used in your projects.
+* [org.openrewrite.recipe.rewrite-nodejs.InlineDeprecatedMethods](/user-documentation/recipes/recipe-catalog/recipe/rewrite-nodejs/inlinedeprecatedmethods.md)
+  * **Inline deprecated delegating methods**
+  * Automatically generated recipes to inline deprecated method calls that delegate to other methods in the same class.
+
+### rewrite-okhttp
+
 * [org.openrewrite.okhttp.UpgradeMockWebServer3](/user-documentation/recipes/recipe-catalog/okhttp/upgrademockwebserver3.md)
   * **Migrate to MockWebServer3 (core module)**
   * Migrate from the legacy `mockwebserver` artifact to `mockwebserver3` core module without JUnit dependency.
@@ -3668,54 +3350,108 @@ Total standalone recipes: 1206
 * [org.openrewrite.okhttp.UpgradeOkHttp5](/user-documentation/recipes/recipe-catalog/okhttp/upgradeokhttp5.md)
   * **Migrate to OkHttp 5.x**
   * This recipe will apply changes commonly needed when migrating to OkHttp 5.x.
-* [org.openrewrite.python.AddLiteralMethodArgument](/user-documentation/recipes/recipe-catalog/python/addliteralmethodargument.md)
-  * **Add literal method argument**
-  * Add a literal argument to method invocations matching a pattern.
-* [org.openrewrite.python.ChangeMethodName](/user-documentation/recipes/recipe-catalog/python/changemethodname.md)
-  * **Change method name**
-  * Rename method invocations matching a pattern.
-* [org.openrewrite.python.ChangePackage](/user-documentation/recipes/recipe-catalog/python/changepackage.md)
-  * **Change package**
-  * Change package/module references from one name to another.
-* [org.openrewrite.python.ChangeType](/user-documentation/recipes/recipe-catalog/python/changetype.md)
-  * **Change type**
-  * Change a type reference from one fully qualified name to another.
-* [org.openrewrite.python.DeleteMethodArgument](/user-documentation/recipes/recipe-catalog/python/deletemethodargument.md)
-  * **Delete method argument**
-  * Remove an argument from method invocations matching a pattern.
-* [org.openrewrite.python.RemovePass](/user-documentation/recipes/recipe-catalog/python/removepass.md)
-  * **Remove redundant pass statements**
-  * Remove redundant `pass` statements from Python code when there are other executable statements in the block.
-* [org.openrewrite.python.ReorderMethodArguments](/user-documentation/recipes/recipe-catalog/python/reordermethodarguments.md)
-  * **Reorder method arguments**
-  * Reorder arguments in method invocations matching a pattern.
-* [org.openrewrite.python.migrate.ReplaceTypingDictWithDict](/user-documentation/recipes/recipe-catalog/python/migrate/replacetypingdictwithdict.md)
-  * **Replace `typing.Dict` with `dict`**
-  * PEP 585 deprecated `typing.Dict` in Python 3.9. Replace with the built-in `dict` type for generic annotations.
-* [org.openrewrite.python.migrate.ReplaceTypingListWithList](/user-documentation/recipes/recipe-catalog/python/migrate/replacetypinglistwithlist.md)
-  * **Replace `typing.List` with `list`**
-  * PEP 585 deprecated `typing.List` in Python 3.9. Replace with the built-in `list` type for generic annotations.
-* [org.openrewrite.python.migrate.ReplaceTypingSetWithSet](/user-documentation/recipes/recipe-catalog/python/migrate/replacetypingsetwithset.md)
-  * **Replace `typing.Set` with `set`**
-  * PEP 585 deprecated `typing.Set` in Python 3.9. Replace with the built-in `set` type for generic annotations.
-* [org.openrewrite.python.migrate.ReplaceTypingText](/user-documentation/recipes/recipe-catalog/python/migrate/replacetypingtext.md)
-  * **Replace `typing.Text` with `str`**
-  * `typing.Text` is deprecated as of Python 3.11. It was an alias for `str` for Python 2/3 compatibility. Replace with `str`.
-* [org.openrewrite.python.migrate.ReplaceTypingTupleWithTuple](/user-documentation/recipes/recipe-catalog/python/migrate/replacetypingtuplewithtuple.md)
-  * **Replace `typing.Tuple` with `tuple`**
-  * PEP 585 deprecated `typing.Tuple` in Python 3.9. Replace with the built-in `tuple` type for generic annotations.
-* [org.openrewrite.python.migrate.UpgradeToPython314](/user-documentation/recipes/recipe-catalog/python/migrate/upgradetopython314.md)
-  * **Upgrade to Python 3.14**
-  * Migrate deprecated and removed APIs for Python 3.14 compatibility. This includes replacing deprecated AST node types with `ast.Constant` and other API changes between Python 3.13 and 3.14.
-* [org.openrewrite.python.migrate.langchain.UpgradeToLangChain1](/user-documentation/recipes/recipe-catalog/python/migrate/langchain/upgradetolangchain1.md)
-  * **Upgrade to LangChain 1.0**
-  * Migrate to LangChain 1.0 by applying all v0.2 migrations and then moving legacy functionality to `langchain_classic`.
-* [org.openrewrite.quarkus.MigrateToQuarkus_v3_32_0](/user-documentation/recipes/recipe-catalog/quarkus/migratetoquarkus_v3_32_0.md)
-  * **Quarkus Updates Aggregate 3.32.0**
-  * Quarkus update recipes to upgrade your application to 3.32.0.
+
+### rewrite-quarkus
+
+* [org.openrewrite.quarkus.Slf4jToQuarkusLogger](/user-documentation/recipes/recipe-catalog/quarkus/slf4jtoquarkuslogger.md)
+  * **Migrate SLF4J Logger injection and usage to Quarkus static `Log`**
+  * Removes usage of SLF4J Logger fields, adjusts imports, and replaces logger method calls with static Quarkus Log calls, including message formatting and method renaming for parameterized logging.
 * [org.openrewrite.quarkus.migrate.javaee.JavaEEtoQuarkus2Migration](/user-documentation/recipes/recipe-catalog/quarkus/migrate/javaee/javaeetoquarkus2migration.md)
   * **Migrate JavaEE to Quarkus 2**
   * These recipes help with the migration of a JavaEE application using EJBs and Hibernate to Quarkus 2. Additional transformations like JSF, JMS, Quarkus Tests may be necessary.
+* [org.openrewrite.quarkus.search.FindQuarkusProfiles](/user-documentation/recipes/recipe-catalog/quarkus/search/findquarkusprofiles.md)
+  * **Search Quarkus profiles**
+  * Search the properties for existing Quarkus profiles.
+* [org.openrewrite.quarkus.search.FindQuarkusProperties](/user-documentation/recipes/recipe-catalog/quarkus/search/findquarkusproperties.md)
+  * **Find Quarkus property**
+  * Finds occurrences of a Quarkus property key.
+
+### rewrite-reactive-streams
+
+* [org.openrewrite.reactive.reactor.ReactorBestPractices](/user-documentation/recipes/recipe-catalog/reactive/reactor/reactorbestpractices.md)
+  * **Reactor Best Practices**
+  * This recipe applies best practices for using Reactor.
+
+### rewrite-rewrite
+
+* [org.openrewrite.java.recipes.DeclarativeSingleton](/user-documentation/recipes/recipe-catalog/java/recipes/declarativesingleton.md)
+  * **Make declarative recipes singletons**
+  * Adds the `org.openrewrite.Singleton` precondition to declarative YAML recipes to ensure they only execute once, even when included multiple times.
+* [org.openrewrite.java.recipes.FindRecipes](/user-documentation/recipes/recipe-catalog/java/recipes/findrecipes.md)
+  * **Find OpenRewrite recipes**
+  * This recipe finds all OpenRewrite recipes, primarily to produce a data table that is being used to experiment with fine-tuning a large language model to produce more recipes.
+* [org.openrewrite.recipes.rewrite.OpenRewriteRecipeBestPractices](/user-documentation/recipes/recipe-catalog/recipes/rewrite/openrewriterecipebestpractices.md)
+  * **OpenRewrite recipe best practices**
+  * Best practices for OpenRewrite recipe development.
+
+### rewrite-spring
+
+* [org.openrewrite.gradle.spring.AddSpringDependencyManagementPlugin](/user-documentation/recipes/recipe-catalog/gradle/spring/addspringdependencymanagementplugin.md)
+  * **Add `io.spring.dependency-management` plugin, if in use**
+  * Prior to Spring Boot 2.0 the dependency management plugin was applied automatically as part of the overall spring boot plugin. Afterwards the dependency-management plugin must be applied explicitly, or Gradle's `platform()` feature may be used instead. This recipe makes usage of io-spring.dependency-management explicit in anticipation of upgrade to Spring Boot 2.0 or later.
+* [org.openrewrite.java.spring.ExpandProperties](/user-documentation/recipes/recipe-catalog/java/spring/expandproperties.md)
+  * **Expand Spring YAML properties**
+  * Expand YAML properties to not use the dot syntax shortcut.
+* [org.openrewrite.java.spring.ImplicitWebAnnotationNames](/user-documentation/recipes/recipe-catalog/java/spring/implicitwebannotationnames.md)
+  * **Remove implicit web annotation names**
+  * Removes implicit web annotation names.
+* [org.openrewrite.java.spring.NoHttpExchangeAnnotation](/user-documentation/recipes/recipe-catalog/java/spring/nohttpexchangeannotation.md)
+  * **Remove `HttpExchange` annotations**
+  * Replace method declaration `@HttpExchange` annotations with `@GetExchange`, `@PostExchange`, etc.
+* [org.openrewrite.java.spring.RenameBean](/user-documentation/recipes/recipe-catalog/java/spring/renamebean.md)
+  * **Rename bean**
+  * Renames a Spring bean, both declaration and references.
+* [org.openrewrite.java.spring.UpdateApiManifest](/user-documentation/recipes/recipe-catalog/java/spring/updateapimanifest.md)
+  * **Update the API manifest**
+  * Keep a consolidated manifest of the API endpoints that this application exposes up-to-date.
+* [org.openrewrite.java.spring.boot2.search.FindUpgradeRequirementsSpringBoot_2_5](/user-documentation/recipes/recipe-catalog/java/spring/boot2/search/findupgraderequirementsspringboot_2_5.md)
+  * **Find patterns that require updating for Spring Boot 2.5**
+  * Looks for a series of patterns that have not yet had auto-remediation recipes developed for.
+* [org.openrewrite.java.spring.boot2.search.IntegrationSchedulerPoolRecipe](/user-documentation/recipes/recipe-catalog/java/spring/boot2/search/integrationschedulerpoolrecipe.md)
+  * **Integration scheduler pool size**
+  * Spring Integration now reuses an available `TaskScheduler` rather than configuring its own. In a typical application setup relying on the auto-configuration, this means that Spring Integration uses the auto-configured task scheduler that has a pool size of 1. To restore Spring Integration’s default of 10 threads, use the `spring.task.scheduling.pool.size` property.
+* [org.openrewrite.java.spring.boot3.AddRouteTrailingSlash](/user-documentation/recipes/recipe-catalog/java/spring/boot3/addroutetrailingslash.md)
+  * **Add trailing slash to Spring routes**
+  * This is part of Spring MVC and WebFlux URL Matching Changes, as of Spring Framework 6.0, the trailing slash matching configuration option has been deprecated and its default value set to false. This means that previously, a controller `@GetMapping(&quot;/some/greeting&quot;)` would match both `GET /some/greeting` and `GET /some/greeting/`, but it doesn't match `GET /some/greeting/` anymore by default and will result in an HTTP 404 error. This recipe is to add declaration of additional route explicitly on the controller handler (like `@GetMapping(&quot;/some/greeting&quot;, &quot;/some/greeting/&quot;)`.
+* [org.openrewrite.java.spring.boot3.AddSetUseTrailingSlashMatch](/user-documentation/recipes/recipe-catalog/java/spring/boot3/addsetusetrailingslashmatch.md)
+  * **Add `SetUseTrailingSlashMatch()` in configuration**
+  * This is part of Spring MVC and WebFlux URL Matching Changes, as of Spring Framework 6.0, the trailing slash matching configuration option has been deprecated and its default value set to false. This means that previously, a controller `@GetMapping(&quot;/some/greeting&quot;)` would match both `GET /some/greeting` and `GET /some/greeting/`, but it doesn't match `GET /some/greeting/` anymore by default and will result in an HTTP 404 error. This recipe is change the default with the global Spring MVC or Webflux configuration.
+* [org.openrewrite.java.spring.boot3.MaintainTrailingSlashURLMappings](/user-documentation/recipes/recipe-catalog/java/spring/boot3/maintaintrailingslashurlmappings.md)
+  * **Maintain trailing slash URL mappings**
+  * This is part of Spring MVC and WebFlux URL Matching Changes, as of Spring Framework 6.0, the trailing slash matching configuration option has been deprecated and its default value set to false. This means that previously, a controller `@GetMapping(&quot;/some/greeting&quot;)` would match both `GET /some/greeting` and `GET /some/greeting/`, but it doesn't match `GET /some/greeting/` anymore by default and will result in an HTTP 404 error. This recipe is to maintain trailing slash in all HTTP url mappings.
+* [org.openrewrite.java.spring.boot3.SpringBoot33BestPractices](/user-documentation/recipes/recipe-catalog/java/spring/boot3/springboot33bestpractices.md)
+  * **Spring Boot 3.3 best practices**
+  * Applies best practices to Spring Boot 3 applications.
+* [org.openrewrite.java.spring.http.SpringWebDependency](/user-documentation/recipes/recipe-catalog/java/spring/http/springwebdependency.md)
+  * **Find Spring Web dependency**
+  * Find compile scoped Spring Web dependency for Maven and Gradle, both direct and transitive.
+* [org.openrewrite.java.spring.opentelemetry.MigrateToOpenTelemetry](/user-documentation/recipes/recipe-catalog/java/spring/opentelemetry/migratetoopentelemetry.md)
+  * **Complete migration to OpenTelemetry**
+  * Comprehensive migration to OpenTelemetry including dependencies, configuration properties, and Java code changes. This recipe handles migration from Spring Cloud Sleuth, Brave/Zipkin, and OpenTracing to OpenTelemetry.
+* [org.openrewrite.java.spring.search.FindApiCalls](/user-documentation/recipes/recipe-catalog/java/spring/search/findapicalls.md)
+  * **Find HTTP API calls via `RestTemplate`**
+  * Find outbound HTTP API calls made via Spring's `RestTemplate` class.
+* [org.openrewrite.java.spring.search.FindApiEndpoints](/user-documentation/recipes/recipe-catalog/java/spring/search/findapiendpoints.md)
+  * **Find Spring API endpoints**
+  * Find all HTTP API endpoints exposed by Spring applications. More specifically, this marks method declarations annotated with `@RequestMapping`, `@GetMapping`, `@PostMapping`, `@PutMapping`, `@DeleteMapping`, and `@PatchMapping` as search results.
+* [org.openrewrite.java.spring.search.FindConfigurationProperties](/user-documentation/recipes/recipe-catalog/java/spring/search/findconfigurationproperties.md)
+  * **Find Spring `@ConfigurationProperties`**
+  * Find all classes annotated with `@ConfigurationProperties` and extract their prefix values. This is useful for discovering all externalized configuration properties in Spring Boot applications.
+* [org.openrewrite.java.spring.search.FindSpringComponents](/user-documentation/recipes/recipe-catalog/java/spring/search/findspringcomponents.md)
+  * **Find Spring components**
+  * Find Spring components, including controllers, services, repositories, return types of `@Bean` annotated methods, etc.
+* [org.openrewrite.java.spring.security6.RemoveOauth2LoginConfig](/user-documentation/recipes/recipe-catalog/java/spring/security6/removeoauth2loginconfig.md)
+  * **Remove unneeded `oauth2Login` config when upgrading to Spring Security 6**
+  * `oauth2Login()` is a Spring Security feature that allows users to authenticate with an OAuth2 or OpenID Connect 1.0 provider. When a user is authenticated using this feature, they are granted a set of authorities that determines what actions they are allowed to perform within the application.  In Spring Security 5, the default authority given to a user authenticated with an OAuth2 or OpenID Connect 1.0 provider via `oauth2Login()` is `ROLE_USER`. This means that the user is allowed to access the application's resources as a regular user.  However, in Spring Security 6, the default authority given to a user authenticated with an OAuth2 provider is `OAUTH2_USER`, and the default authority given to a user authenticated with an OpenID Connect 1.0 provider is `OIDC_USER`. These authorities are more specific and allow for better customization of the user's permissions within the application.  If you are upgrading to Spring Security 6 and you have previously configured a `GrantedAuthoritiesMapper` to handle the authorities of users authenticated via `oauth2Login()`, you can remove it completely as the new default authorities should be sufficient.
+* [org.openrewrite.java.spring.ws.UpgradeSpringWs_4_0](/user-documentation/recipes/recipe-catalog/java/spring/ws/upgradespringws_4_0.md)
+  * **Migrate to Spring WS 4.0**
+  * Migrate applications to Spring WS 4.0. This recipe handles the removal of Apache Axiom support in Spring WS 4.0.x by migrating Axiom-based SOAP message handling to SAAJ (SOAP with Attachments API for Java). Note that Spring WS 4.1+ restores Axiom support if upgrading to that version is preferred.
+* [org.openrewrite.maven.spring.UpgradeExplicitSpringBootDependencies](/user-documentation/recipes/recipe-catalog/maven/spring/upgradeexplicitspringbootdependencies.md)
+  * **Upgrade Spring dependencies**
+  * Upgrades dependencies according to the specified version of spring boot. Spring boot has many direct and transitive dependencies. When a module has an explicit dependency on one of these it may also need to be upgraded to match the version used by spring boot.
+
+### rewrite-spring-to-quarkus
+
 * [org.openrewrite.quarkus.spring.ConfigureNativeBuild](/user-documentation/recipes/recipe-catalog/quarkus/spring/configurenativebuild.md)
   * **Configure Quarkus Native Build Support**
   * Adds configuration and dependencies required for Quarkus native image compilation with GraalVM. Includes native profile configuration and reflection hints where needed.
@@ -3725,45 +3461,252 @@ Total standalone recipes: 1206
 * [org.openrewrite.quarkus.spring.SpringBootToQuarkus](/user-documentation/recipes/recipe-catalog/quarkus/spring/springboottoquarkus.md)
   * **Migrate Spring Boot to Quarkus**
   * Replace Spring Boot with Quarkus.
-* [org.openrewrite.reactive.reactor.ReactorBestPractices](/user-documentation/recipes/recipe-catalog/reactive/reactor/reactorbestpractices.md)
-  * **Reactor Best Practices**
-  * This recipe applies best practices for using Reactor.
-* [org.openrewrite.recipe.rewrite-java-security.InlineDeprecatedMethods](/user-documentation/recipes/recipe-catalog/recipe/rewrite-java-security/inlinedeprecatedmethods.md)
-  * **Inline deprecated delegating methods**
-  * Automatically generated recipes to inline deprecated method calls that delegate to other methods in the same class.
-* [org.openrewrite.recipe.rewrite-nodejs.InlineDeprecatedMethods](/user-documentation/recipes/recipe-catalog/recipe/rewrite-nodejs/inlinedeprecatedmethods.md)
-  * **Inline deprecated delegating methods**
-  * Automatically generated recipes to inline deprecated method calls that delegate to other methods in the same class.
-* [org.openrewrite.recipe.rewrite-static-analysis.InlineDeprecatedMethods](/user-documentation/recipes/recipe-catalog/recipe/rewrite-static-analysis/inlinedeprecatedmethods.md)
-  * **Inline deprecated delegating methods**
-  * Automatically generated recipes to inline deprecated method calls that delegate to other methods in the same class.
-* [org.openrewrite.recipes.rewrite.OpenRewriteRecipeBestPractices](/user-documentation/recipes/recipe-catalog/recipes/rewrite/openrewriterecipebestpractices.md)
-  * **OpenRewrite recipe best practices**
-  * Best practices for OpenRewrite recipe development.
+
+### rewrite-sql
+
+* [org.openrewrite.sql.FindSql](/user-documentation/recipes/recipe-catalog/sql/findsql.md)
+  * **Find SQL in code and resource files**
+  * Find SQL in code (e.g. in string literals) and in resources like those ending with `.sql`.
 * [org.openrewrite.sql.MigrateOracleToPostgres](/user-documentation/recipes/recipe-catalog/sql/migrateoracletopostgres.md)
   * **Migrate Oracle SQL to PostgreSQL**
   * Converts Oracle-specific SQL syntax and functions to PostgreSQL equivalents.
 * [org.openrewrite.sql.MigrateSqlServerToPostgres](/user-documentation/recipes/recipe-catalog/sql/migratesqlservertopostgres.md)
   * **Migrate SQL Server to PostgreSQL**
   * Converts Microsoft SQL Server-specific SQL syntax and functions to PostgreSQL equivalents.
+* [org.openrewrite.sql.search.FindFunction](/user-documentation/recipes/recipe-catalog/sql/search/findfunction.md)
+  * **Find SQL function**
+  * Find SQL functions by name.
+
+### rewrite-static-analysis
+
+* [org.openrewrite.recipe.rewrite-static-analysis.InlineDeprecatedMethods](/user-documentation/recipes/recipe-catalog/recipe/rewrite-static-analysis/inlinedeprecatedmethods.md)
+  * **Inline deprecated delegating methods**
+  * Automatically generated recipes to inline deprecated method calls that delegate to other methods in the same class.
+* [org.openrewrite.staticanalysis.AddSerialVersionUidToSerializable](/user-documentation/recipes/recipe-catalog/staticanalysis/addserialversionuidtoserializable.md)
+  * **Add `serialVersionUID` to a `Serializable` class when missing**
+  * A `serialVersionUID` field is strongly recommended in all `Serializable` classes. If this is not defined on a `Serializable` class, the compiler will generate this value. If a change is later made to the class, the generated value will change and attempts to deserialize the class will fail.
+* [org.openrewrite.staticanalysis.AvoidBoxedBooleanExpressions](/user-documentation/recipes/recipe-catalog/staticanalysis/avoidboxedbooleanexpressions.md)
+  * **Avoid boxed boolean expressions**
+  * Under certain conditions the `java.lang.Boolean` type is used as an expression, and it may throw a `NullPointerException` if the value is null.
 * [org.openrewrite.staticanalysis.CodeCleanup](/user-documentation/recipes/recipe-catalog/staticanalysis/codecleanup.md)
   * **Code cleanup**
   * Automatically cleanup code, e.g. remove unnecessary parentheses, simplify expressions.
+* [org.openrewrite.staticanalysis.CombineSemanticallyEqualCatchBlocks](/user-documentation/recipes/recipe-catalog/staticanalysis/combinesemanticallyequalcatchblocks.md)
+  * **Combine semantically equal catch blocks**
+  * Combine catches in a try that contain semantically equivalent blocks. No change will be made when a caught exception exists if combining catches may change application behavior or type attribution is missing.
 * [org.openrewrite.staticanalysis.CommonDeclarationSiteTypeVariances](/user-documentation/recipes/recipe-catalog/staticanalysis/commondeclarationsitetypevariances.md)
   * **Properly use declaration-site type variance for well-known types**
   * When using a method parameter like `Function&lt;IN, OUT&gt;`, it should rather be `Function&lt;? super IN, ? extends OUT&gt;`. This recipe checks for method parameters of well-known types.
 * [org.openrewrite.staticanalysis.CommonStaticAnalysis](/user-documentation/recipes/recipe-catalog/staticanalysis/commonstaticanalysis.md)
   * **Common static analysis issues**
   * Resolve common static analysis issues (also known as SAST issues).
+* [org.openrewrite.staticanalysis.ControlFlowIndentation](/user-documentation/recipes/recipe-catalog/staticanalysis/controlflowindentation.md)
+  * **Control flow statement indentation**
+  * Program flow control statements like `if`, `while`, and `for` can omit curly braces when they apply to only a single statement. This recipe ensures that any statements which follow that statement are correctly indented to show they are not part of the flow control statement.
+* [org.openrewrite.staticanalysis.EqualsToContentEquals](/user-documentation/recipes/recipe-catalog/staticanalysis/equalstocontentequals.md)
+  * **Use `String.contentEquals(CharSequence)` instead of `String.equals(CharSequence.toString())`**
+  * Use `String.contentEquals(CharSequence)` instead of `String.equals(CharSequence.toString())`.
+* [org.openrewrite.staticanalysis.ExplicitCharsetOnStringGetBytes](/user-documentation/recipes/recipe-catalog/staticanalysis/explicitcharsetonstringgetbytes.md)
+  * **Set charset encoding explicitly when calling `String#getBytes`**
+  * This makes the behavior of the code platform neutral. It will not override any existing explicit encodings, even if they don't match the default encoding option.
+* [org.openrewrite.staticanalysis.ExplicitLambdaArgumentTypes](/user-documentation/recipes/recipe-catalog/staticanalysis/explicitlambdaargumenttypes.md)
+  * **Use explicit types on lambda arguments**
+  * Adds explicit types on lambda arguments, which are otherwise optional. This can make the code clearer and easier to read. This does not add explicit types on arguments when the lambda has one or two parameters and does not have a block body, as things are considered more readable in those cases. For example, `stream.map((a, b) -&gt; a.length);` will not have explicit types added.
+* [org.openrewrite.staticanalysis.FinalizeLocalVariables](/user-documentation/recipes/recipe-catalog/staticanalysis/finalizelocalvariables.md)
+  * **Finalize local variables**
+  * Adds the `final` modifier keyword to local variables which are not reassigned.
+* [org.openrewrite.staticanalysis.FinalizeMethodArguments](/user-documentation/recipes/recipe-catalog/staticanalysis/finalizemethodarguments.md)
+  * **Finalize method arguments**
+  * Adds the `final` modifier keyword to method parameters.
+* [org.openrewrite.staticanalysis.HiddenField](/user-documentation/recipes/recipe-catalog/staticanalysis/hiddenfield.md)
+  * **Hidden field**
+  * Refactor local variables or parameters which shadow a field defined in the same class.
 * [org.openrewrite.staticanalysis.JavaApiBestPractices](/user-documentation/recipes/recipe-catalog/staticanalysis/javaapibestpractices.md)
   * **Java API best practices**
   * Use the Java standard library in a way that is most idiomatic.
+* [org.openrewrite.staticanalysis.LowercasePackage](/user-documentation/recipes/recipe-catalog/staticanalysis/lowercasepackage.md)
+  * **Rename packages to lowercase**
+  * By convention all Java package names should contain only lowercase letters, numbers, and dashes. This recipe converts any uppercase letters in package names to be lowercase.
+* [org.openrewrite.staticanalysis.MaskCreditCardNumbers](/user-documentation/recipes/recipe-catalog/staticanalysis/maskcreditcardnumbers.md)
+  * **Mask credit card numbers**
+  * When encountering string literals which appear to be credit card numbers, mask the last eight digits with the letter 'X'.
+* [org.openrewrite.staticanalysis.MemberNameCaseInsensitiveDuplicates](/user-documentation/recipes/recipe-catalog/staticanalysis/membernamecaseinsensitiveduplicates.md)
+  * **Members should not have names differing only by capitalization**
+  * Looking at the set of methods and fields in a class and all of its parents, no two members should have names that differ only in capitalization. This rule will not report if a method overrides a parent method.
+* [org.openrewrite.staticanalysis.MoveConditionsToWhile](/user-documentation/recipes/recipe-catalog/staticanalysis/moveconditionstowhile.md)
+  * **Convert `while (true)` with initial `if` break to loop condition**
+  * Simplifies `while (true)` loops where the first statement is an `if` statement that only contains a `break`. The condition is inverted and moved to the loop condition for better readability.
+* [org.openrewrite.staticanalysis.NoFinalizedLocalVariables](/user-documentation/recipes/recipe-catalog/staticanalysis/nofinalizedlocalvariables.md)
+  * **Don't use final on local variables**
+  * Remove the `final` modifier keyword from local variables regardless of whether they are used within a local class or an anonymous class.
+* [org.openrewrite.staticanalysis.OnlyCatchDeclaredExceptions](/user-documentation/recipes/recipe-catalog/staticanalysis/onlycatchdeclaredexceptions.md)
+  * **Replace `catch(Exception)` with specific declared exceptions thrown in the try block**
+  * Replaces `catch(Exception e)` blocks with a multi-catch block (`catch (SpecificException1 | SpecificException2 e)`) containing only the exceptions declared thrown by method or constructor invocations within the `try` block that are not already caught by more specific `catch` clauses.
+* [org.openrewrite.staticanalysis.PreferEqualityComparisonOverDifferenceCheck](/user-documentation/recipes/recipe-catalog/staticanalysis/preferequalitycomparisonoverdifferencecheck.md)
+  * **Prefer direct comparison of numbers**
+  * Replace `a - b == 0` with `a == b`, `a - b != 0` with `a != b`, `a - b &lt; 0` with `a &lt; b`, and similar transformations for all comparison operators to improve readability and avoid overflow issues.
+* [org.openrewrite.staticanalysis.PreferIncrementOperator](/user-documentation/recipes/recipe-catalog/staticanalysis/preferincrementoperator.md)
+  * **Prefer increment/decrement and compound assignment operators**
+  * Prefer the use of increment and decrement operators (`++`, `--`, `+=`, `-=`) over their more verbose equivalents.
+* [org.openrewrite.staticanalysis.ReferentialEqualityToObjectEquals](/user-documentation/recipes/recipe-catalog/staticanalysis/referentialequalitytoobjectequals.md)
+  * **Replace referential equality operators with Object equals method invocations when the operands both override `Object.equals(Object obj)`**
+  * Using `==` or `!=` compares object references, not the equality of two objects. This modifies code where both sides of a binary operation (`==` or `!=`) override `Object.equals(Object obj)` except when the comparison is within an overridden `Object.equals(Object obj)` method declaration itself. The resulting transformation must be carefully reviewed since any modifications change the program's semantics.
+* [org.openrewrite.staticanalysis.RemoveCallsToObjectFinalize](/user-documentation/recipes/recipe-catalog/staticanalysis/removecallstoobjectfinalize.md)
+  * **Remove `Object.finalize()` invocations**
+  * Remove calls to `Object.finalize()`. This method is called during garbage collection and calling it manually is misleading.
+* [org.openrewrite.staticanalysis.RemoveCallsToSystemGc](/user-documentation/recipes/recipe-catalog/staticanalysis/removecallstosystemgc.md)
+  * **Remove garbage collection invocations**
+  * Removes calls to `System.gc()` and `Runtime.gc()`. When to invoke garbage collection is best left to the JVM.
+* [org.openrewrite.staticanalysis.RemoveEmptyJavaDocParameters](/user-documentation/recipes/recipe-catalog/staticanalysis/removeemptyjavadocparameters.md)
+  * **Remove JavaDoc `@param`, `@return`, and `@throws` with no description**
+  * Removes `@param`, `@return`, and `@throws` with no description from JavaDocs.
+* [org.openrewrite.staticanalysis.RemoveHashCodeCallsFromArrayInstances](/user-documentation/recipes/recipe-catalog/staticanalysis/removehashcodecallsfromarrayinstances.md)
+  * **`hashCode()` should not be called on array instances**
+  * Replace `hashCode()` calls on arrays with `Arrays.hashCode()` because the results from `hashCode()` are not helpful.
+* [org.openrewrite.staticanalysis.RemoveInstanceOfPatternMatch](/user-documentation/recipes/recipe-catalog/staticanalysis/removeinstanceofpatternmatch.md)
+  * **Removes from code Java 14's `instanceof` pattern matching**
+  * Adds an explicit variable declaration at the beginning of `if` statement instead of `instanceof` pattern matching.
+* [org.openrewrite.staticanalysis.RemoveJavaDocAuthorTag](/user-documentation/recipes/recipe-catalog/staticanalysis/removejavadocauthortag.md)
+  * **Remove author tags from JavaDocs**
+  * Removes author tags from JavaDocs to reduce code maintenance.
+* [org.openrewrite.staticanalysis.RemoveRedundantTypeCast](/user-documentation/recipes/recipe-catalog/staticanalysis/removeredundanttypecast.md)
+  * **Remove redundant casts**
+  * Removes unnecessary type casts. Does not currently check casts in lambdas and class constructors.
+* [org.openrewrite.staticanalysis.RemoveToStringCallsFromArrayInstances](/user-documentation/recipes/recipe-catalog/staticanalysis/removetostringcallsfromarrayinstances.md)
+  * **Remove `toString()` calls on arrays**
+  * The result from `toString()` calls on arrays is largely useless. The output does not actually reflect the contents of the array. `Arrays.toString(array)` should be used instead as it gives the contents of the array.
+* [org.openrewrite.staticanalysis.RemoveUnneededAssertion](/user-documentation/recipes/recipe-catalog/staticanalysis/removeunneededassertion.md)
+  * **Remove unneeded assertions**
+  * Remove unneeded assertions like `assert true`, `assertTrue(true)`, or `assertFalse(false)`.
+* [org.openrewrite.staticanalysis.RemoveUnneededBlock](/user-documentation/recipes/recipe-catalog/staticanalysis/removeunneededblock.md)
+  * **Remove unneeded block**
+  * Flatten blocks into inline statements when possible.
+* [org.openrewrite.staticanalysis.RenameExceptionInEmptyCatch](/user-documentation/recipes/recipe-catalog/staticanalysis/renameexceptioninemptycatch.md)
+  * **Rename caught exceptions in empty catch blocks to `ignored`**
+  * Renames caught exceptions in empty catch blocks to `ignored`. `ignored` will be incremented by 1 if a namespace conflict exists.
+* [org.openrewrite.staticanalysis.RenameLocalVariablesToCamelCase](/user-documentation/recipes/recipe-catalog/staticanalysis/renamelocalvariablestocamelcase.md)
+  * **Reformat local variable names to camelCase**
+  * Reformat local variable and method parameter names to camelCase to comply with Java naming convention. The recipe will not rename variables declared in for loop controls or catches with a single character. The first character is set to lower case and existing capital letters are preserved. Special characters that are allowed in java field names `$` and `_` are removed (unless the name starts with one). If a special character is removed the next valid alphanumeric will be capitalized. Currently, does not support renaming members of classes. The recipe will not rename a variable if the result already exists in the class, conflicts with a java reserved keyword, or the result is blank.
+* [org.openrewrite.staticanalysis.RenamePrivateFieldsToCamelCase](/user-documentation/recipes/recipe-catalog/staticanalysis/renameprivatefieldstocamelcase.md)
+  * **Reformat private field names to camelCase**
+  * Reformat private field names to camelCase to comply with Java naming convention. The recipe will not rename fields with default, protected or public access modifiers. The recipe will not rename private constants. The first character is set to lower case and existing capital letters are preserved. Special characters that are allowed in java field names `$` and `_` are removed. If a special character is removed the next valid alphanumeric will be capitalized. The recipe will not rename a field if the result already exists in the class, conflicts with a java reserved keyword, or the result is blank.
+* [org.openrewrite.staticanalysis.ReorderAnnotationAttributes](/user-documentation/recipes/recipe-catalog/staticanalysis/reorderannotationattributes.md)
+  * **Reorder annotation attributes alphabetically**
+  * Reorder annotation attributes to be alphabetical. Positional arguments (those without explicit attribute names) are left in their original position.
 * [org.openrewrite.staticanalysis.ReplaceApacheCommonsLang3ValidateNotNullWithObjectsRequireNonNull](/user-documentation/recipes/recipe-catalog/staticanalysis/replaceapachecommonslang3validatenotnullwithobjectsrequirenonnull.md)
   * **Replace `org.apache.commons.lang3.Validate#notNull` with `Objects#requireNonNull`**
   * Replace `org.apache.commons.lang3.Validate.notNull(..)` with `Objects.requireNonNull(..)`.
-* [org.openrewrite.tapestry.MigrateTapestry4To5](/user-documentation/recipes/recipe-catalog/tapestry/migratetapestry4to5.md)
-  * **Migrate Tapestry 4 to Tapestry 5**
-  * Migrates Apache Tapestry 4 applications to Tapestry 5. This includes package renames, removing base class inheritance, converting listener interfaces to annotations, and updating dependencies.
+* [org.openrewrite.staticanalysis.ReplaceCollectionToArrayArgWithEmptyArray](/user-documentation/recipes/recipe-catalog/staticanalysis/replacecollectiontoarrayargwithemptyarray.md)
+  * **Use Empty Array for `Collection.toArray()`**
+  * Changes new array creation with `Collection#toArray(T[])` to use an empty array argument, which is better for performance.  According to the `Collection#toArray(T[])` documentation:  &gt; If the collection fits in the specified array, it is returned therein.  However, although it's not intuitive, allocating a right-sized array ahead of time to pass to the API appears to be [generally worse for performance](https://shipilev.net/blog/2016/arrays-wisdom-ancients/#_conclusion) according to benchmarking and JVM developers due to a number of implementation details in both Java and the virtual machine.  H2 achieved significant performance gains by [switching to empty arrays instead pre-sized ones](https://github.com/h2database/h2database/issues/311).
+* [org.openrewrite.staticanalysis.ReplaceDuplicateStringLiterals](/user-documentation/recipes/recipe-catalog/staticanalysis/replaceduplicatestringliterals.md)
+  * **Replace duplicate `String` literals**
+  * Replaces `String` literals with a length of 5 or greater repeated a minimum of 3 times. Qualified `String` literals include final Strings, method invocations, and new class invocations. Adds a new `private static final String` or uses an existing equivalent class field. A new variable name will be generated based on the literal value if an existing field does not exist. The generated name will append a numeric value to the variable name if a name already exists in the compilation unit.
+* [org.openrewrite.staticanalysis.ReplaceOptionalIsPresentWithIfPresent](/user-documentation/recipes/recipe-catalog/staticanalysis/replaceoptionalispresentwithifpresent.md)
+  * **Replace `Optional#isPresent()` with `Optional#ifPresent()`**
+  * Replace `Optional#isPresent()` with `Optional#ifPresent()`. Please note that this recipe is only suitable for if-blocks that lack an Else-block and have a single condition applied.
+* [org.openrewrite.staticanalysis.ReplaceRedundantFormatWithPrintf](/user-documentation/recipes/recipe-catalog/staticanalysis/replaceredundantformatwithprintf.md)
+  * **Replace redundant String format invocations that are wrapped with PrintStream operations**
+  * Replaces `PrintStream.print(String.format(format, ...args))` with `PrintStream.printf(format, ...args)` (and for `println`, appends a newline to the format string).
+* [org.openrewrite.staticanalysis.ReplaceStackWithDeque](/user-documentation/recipes/recipe-catalog/staticanalysis/replacestackwithdeque.md)
+  * **Replace `java.util.Stack` with `java.util.Deque`**
+  * From the Javadoc of `Stack`: &gt; A more complete and consistent set of LIFO stack operations is provided by the Deque interface and its implementations, which should be used in preference to this class.
+* [org.openrewrite.staticanalysis.ReplaceTextBlockWithString](/user-documentation/recipes/recipe-catalog/staticanalysis/replacetextblockwithstring.md)
+  * **Replace text block with regular string**
+  * Replace text block with a regular multi-line string.
+* [org.openrewrite.staticanalysis.ReplaceWeekYearWithYear](/user-documentation/recipes/recipe-catalog/staticanalysis/replaceweekyearwithyear.md)
+  * **Week Year (YYYY) should not be used for date formatting**
+  * For most dates Week Year (YYYY) and Year (yyyy) yield the same results. However, on the last week of December and the first week of January, Week Year could produce unexpected results.
+* [org.openrewrite.staticanalysis.SimplifyBooleanExpressionWithDeMorgan](/user-documentation/recipes/recipe-catalog/staticanalysis/simplifybooleanexpressionwithdemorgan.md)
+  * **Simplify boolean expressions using De Morgan's laws**
+  * Applies De Morgan's laws to simplify boolean expressions with negation. Transforms `!(a &amp;&amp; b)` to `!a || !b` and `!(a || b)` to `!a &amp;&amp; !b`.
+* [org.openrewrite.staticanalysis.SimplifyCompoundStatement](/user-documentation/recipes/recipe-catalog/staticanalysis/simplifycompoundstatement.md)
+  * **Simplify compound statement**
+  * Fixes or removes useless compound statements. For example, removing `b &amp;= true`, and replacing `b &amp;= false` with `b = false`.
+* [org.openrewrite.staticanalysis.SimplifyConsecutiveAssignments](/user-documentation/recipes/recipe-catalog/staticanalysis/simplifyconsecutiveassignments.md)
+  * **Simplify consecutive assignments**
+  * Combine consecutive assignments into a single statement where possible.
+* [org.openrewrite.staticanalysis.SimplifyDurationCreationUnits](/user-documentation/recipes/recipe-catalog/staticanalysis/simplifydurationcreationunits.md)
+  * **Simplify `java.time.Duration` units**
+  * Simplifies `java.time.Duration` units to be more human-readable.
+* [org.openrewrite.staticanalysis.SimplifyElseBranch](/user-documentation/recipes/recipe-catalog/staticanalysis/simplifyelsebranch.md)
+  * **Simplify `else` branch if it only has a single `if`**
+  * Simplify `else` branch if it only has a single `if`.
+* [org.openrewrite.staticanalysis.SimplifyForLoopBoundaryComparison](/user-documentation/recipes/recipe-catalog/staticanalysis/simplifyforloopboundarycomparison.md)
+  * **Simplify for loop boundary comparisons**
+  * Replace `&lt;=` with `&lt;` in for loop conditions by adjusting the comparison operands. For example, `i &lt;= n - 1` simplifies to `i &lt; n`, and `i &lt;= n` becomes `i &lt; n + 1`.
+* [org.openrewrite.staticanalysis.SimplifyTernaryRecipes](/user-documentation/recipes/recipe-catalog/staticanalysis/simplifyternaryrecipes.md)
+  * **Simplify ternary expressions**
+  * Simplifies various types of ternary expressions to improve code readability.
+* [org.openrewrite.staticanalysis.SortedSetStreamToLinkedHashSet](/user-documentation/recipes/recipe-catalog/staticanalysis/sortedsetstreamtolinkedhashset.md)
+  * **Sorted set stream should be collected to LinkedHashSet**
+  * Converts `set.stream().sorted().collect(Collectors.toSet())` to `set.stream().sorted().collect(LinkedHashSet::new)`.
+* [org.openrewrite.staticanalysis.TernaryOperatorsShouldNotBeNested](/user-documentation/recipes/recipe-catalog/staticanalysis/ternaryoperatorsshouldnotbenested.md)
+  * **Ternary operators should not be nested**
+  * Nested ternary operators can be hard to read quickly. Prefer simpler constructs for improved readability. If supported, this recipe will try to replace nested ternaries with switch expressions.
+* [org.openrewrite.staticanalysis.URLEqualsHashCodeRecipes](/user-documentation/recipes/recipe-catalog/staticanalysis/urlequalshashcoderecipes.md)
+  * **URL Equals and Hash Code**
+  * Uses of `equals()` and `hashCode()` cause `java.net.URL` to make blocking internet connections. Instead, use `java.net.URI`.
+* [org.openrewrite.staticanalysis.UnwrapRepeatableAnnotations](/user-documentation/recipes/recipe-catalog/staticanalysis/unwraprepeatableannotations.md)
+  * **Unwrap `@Repeatable` annotations**
+  * Java 8 introduced the concept of `@Repeatable` annotations, making the wrapper annotation unnecessary.
+* [org.openrewrite.staticanalysis.UseAsBuilder](/user-documentation/recipes/recipe-catalog/staticanalysis/useasbuilder.md)
+  * **Chain calls to builder methods**
+  * Chain calls to builder methods that are on separate lines into one chain of builder calls.
+* [org.openrewrite.staticanalysis.UseCollectionInterfaces](/user-documentation/recipes/recipe-catalog/staticanalysis/usecollectioninterfaces.md)
+  * **Use `Collection` interfaces**
+  * Use `Deque`, `List`, `Map`, `ConcurrentMap`, `Queue`, and `Set` instead of implemented collections. Replaces the return type of public method declarations and the variable type public variable declarations.
+* [org.openrewrite.staticanalysis.UseForEachRemoveInsteadOfSetRemoveAll](/user-documentation/recipes/recipe-catalog/staticanalysis/useforeachremoveinsteadofsetremoveall.md)
+  * **Replace `java.util.Set#removeAll(java.util.Collection)` with `java.util.Collection#forEach(Set::remove)`**
+  * Using `java.util.Collection#forEach(Set::remove)` rather than `java.util.Set#removeAll(java.util.Collection)` may improve performance due to a possible O(n^2) complexity.
+* [org.openrewrite.staticanalysis.UseLambdaForFunctionalInterface](/user-documentation/recipes/recipe-catalog/staticanalysis/uselambdaforfunctionalinterface.md)
+  * **Use lambda expressions instead of anonymous classes**
+  * Instead of anonymous class declarations, use a lambda where possible. Using lambdas to replace anonymous classes can lead to more expressive and maintainable code, improve code readability, reduce code duplication, and achieve better performance in some cases.
+* [org.openrewrite.staticanalysis.UseListSort](/user-documentation/recipes/recipe-catalog/staticanalysis/uselistsort.md)
+  * **Replace invocations of `Collections#sort(List, Comparator)` with `List#sort(Comparator)`**
+  * The `java.util.Collections#sort(..)` implementation defers to the `java.util.List#sort(Comparator)`, replaced it with the `java.util.List#sort(Comparator)` implementation for better readability.
+* [org.openrewrite.staticanalysis.UseObjectNotifyAll](/user-documentation/recipes/recipe-catalog/staticanalysis/useobjectnotifyall.md)
+  * **Replaces `Object.notify()` with `Object.notifyAll()`**
+  * `Object.notifyAll()` and `Object.notify()` both wake up sleeping threads, but `Object.notify()` only rouses one while `Object.notifyAll()` rouses all of them. Since `Object.notify()` might not wake up the right thread, `Object.notifyAll()` should be used instead. See [this](https://wiki.sei.cmu.edu/confluence/display/java/THI02-J.+Notify+all+waiting+threads+rather+than+a+single+thread) for more information.
+* [org.openrewrite.staticanalysis.UseStandardCharset](/user-documentation/recipes/recipe-catalog/staticanalysis/usestandardcharset.md)
+  * **Use `StandardCharset` constants**
+  * Replaces `Charset.forName(java.lang.String)` with the equivalent `StandardCharset` constant.
+* [org.openrewrite.staticanalysis.UseStringReplace](/user-documentation/recipes/recipe-catalog/staticanalysis/usestringreplace.md)
+  * **Use `String::replace()` when first parameter is not a real regular expression**
+  * When `String::replaceAll` is used, the first argument should be a real regular expression. If it’s not the case, `String::replace` does exactly the same thing as `String::replaceAll` without the performance drawback of the regex.
+* [org.openrewrite.staticanalysis.UseSystemLineSeparator](/user-documentation/recipes/recipe-catalog/staticanalysis/usesystemlineseparator.md)
+  * **Use `System.lineSeparator()`**
+  * Replace calls to `System.getProperty(&quot;line.separator&quot;)` with `System.lineSeparator()`.
+* [org.openrewrite.staticanalysis.UseTryWithResources](/user-documentation/recipes/recipe-catalog/staticanalysis/usetrywithresources.md)
+  * **Use try-with-resources**
+  * Refactor try/finally blocks to use try-with-resources when the finally block only closes an `AutoCloseable` resource.
+* [org.openrewrite.staticanalysis.maven.MavenJavadocNonAsciiRecipe](/user-documentation/recipes/recipe-catalog/staticanalysis/maven/mavenjavadocnonasciirecipe.md)
+  * **Remove non-ASCII characters from Javadoc**
+  * Maven's javadoc-plugin configuration does not support non-ASCII characters. What makes it tricky is the error is very ambiguous and doesn't help in any way. This recipe removes those non-ASCII characters.
+
+### rewrite-struts
+
+* [org.openrewrite.java.struts.migrate2.MigrateStruts2](/user-documentation/recipes/recipe-catalog/java/struts/migrate2/migratestruts2.md)
+  * **Migrate to Struts 2.x from Struts 1.x**
+  * Comprehensive migration from Struts 1.x to Struts 2.x framework.
+* [org.openrewrite.java.struts.migrate6.MigrateStruts6](/user-documentation/recipes/recipe-catalog/java/struts/migrate6/migratestruts6.md)
+  * **Migrate to Struts 6.0**
+  * Migrate Struts 2.x to Struts 6.0.
+* [org.openrewrite.java.struts.migrate7.MigrateStruts7](/user-documentation/recipes/recipe-catalog/java/struts/migrate7/migratestruts7.md)
+  * **Migrate to Struts 7.0**
+  * Migrate Struts 6.x to Struts 7.x.
+* [org.openrewrite.java.struts.search.FindStaticOgnlMethodAccess](/user-documentation/recipes/recipe-catalog/java/struts/search/findstaticognlmethodaccess.md)
+  * **Find static OGNL method access**
+  * Find OGNL expressions that use static method access (e.g., `@com.app.Util@makeCode()`), which is disabled by default in Struts 6 for security reasons. These expressions need to be migrated to use action instance methods instead.
+* [org.openrewrite.java.struts.search.FindStrutsActions](/user-documentation/recipes/recipe-catalog/java/struts/search/findstrutsactions.md)
+  * **Find Struts actions**
+  * Find actions and their associated definitions.
+
+### rewrite-terraform
+
+* [org.openrewrite.terraform.SecureRandom](/user-documentation/recipes/recipe-catalog/terraform/securerandom.md)
+  * **Use a long enough byte length for `random` resources**
+  * Use a long enough byte length for `random` resources.
 * [org.openrewrite.terraform.aws.AWSBestPractices](/user-documentation/recipes/recipe-catalog/terraform/aws/awsbestpractices.md)
   * **Best practices for AWS**
   * Securely operate on Amazon Web Services.
@@ -3797,9 +3740,120 @@ Total standalone recipes: 1206
 * [org.openrewrite.terraform.gcp.GCPBestPractices](/user-documentation/recipes/recipe-catalog/terraform/gcp/gcpbestpractices.md)
   * **Best practices for GCP**
   * Securely operate on Google Cloud Platform.
+* [org.openrewrite.terraform.search.FindRequiredProvider](/user-documentation/recipes/recipe-catalog/terraform/search/findrequiredprovider.md)
+  * **Find required providers**
+  * Find `required_providers` blocks in Terraform configuration files. Produces a data table of the provider names and their versions.
+* [org.openrewrite.terraform.search.FindResource](/user-documentation/recipes/recipe-catalog/terraform/search/findresource.md)
+  * **Find Terraform resource**
+  * Find a Terraform resource by resource type.
 * [org.openrewrite.terraform.terraform015.UpgradeTerraformTo0_15](/user-documentation/recipes/recipe-catalog/terraform/terraform015/upgradeterraformto0_15.md)
   * **Upgrade Terraform to 0.15**
   * Migrate Terraform configuration from 0.14 to 0.15. Finds usage of provisioners that were removed in Terraform 0.15: `chef`, `habitat`, `puppet`, and `salt-masterless`.
+
+### rewrite-testing-frameworks
+
+* [org.openrewrite.java.testing.archunit.ArchUnit0to1Migration](/user-documentation/recipes/recipe-catalog/java/testing/archunit/archunit0to1migration.md)
+  * **ArchUnit 0.x upgrade**
+  * Upgrade ArchUnit from 0.x to 1.x.
+* [org.openrewrite.java.testing.assertj.Assertj](/user-documentation/recipes/recipe-catalog/java/testing/assertj/assertj-best-practices.md)
+  * **AssertJ best practices**
+  * Migrates JUnit asserts to AssertJ and applies best practices to assertions.
+* [org.openrewrite.java.testing.cleanup.BestPractices](/user-documentation/recipes/recipe-catalog/java/testing/cleanup/bestpractices.md)
+  * **Testing best practices**
+  * Applies best practices to tests.
+* [org.openrewrite.java.testing.cleanup.RemoveEmptyTests](/user-documentation/recipes/recipe-catalog/java/testing/cleanup/removeemptytests.md)
+  * **Remove empty tests without comments**
+  * Removes empty methods with a `@Test` annotation if the body does not have comments.
+* [org.openrewrite.java.testing.datafaker.JavaFakerToDataFaker](/user-documentation/recipes/recipe-catalog/java/testing/datafaker/javafakertodatafaker.md)
+  * **Migrate from Java Faker to Datafaker**
+  * Change imports and dependencies related to Java Faker to Datafaker replacements.
+* [org.openrewrite.java.testing.easymock.EasyMockToMockito](/user-documentation/recipes/recipe-catalog/java/testing/easymock/easymocktomockito.md)
+  * **Migrate from EasyMock to Mockito**
+  * This recipe will apply changes commonly needed when migrating from EasyMock to Mockito.
+* [org.openrewrite.java.testing.jmockit.JMockitToMockito](/user-documentation/recipes/recipe-catalog/java/testing/jmockit/jmockittomockito.md)
+  * **Migrate from JMockit to Mockito**
+  * This recipe will apply changes commonly needed when migrating from JMockit to Mockito.
+* [org.openrewrite.java.testing.junit.JUnit6BestPractices](/user-documentation/recipes/recipe-catalog/java/testing/junit/junit6bestpractices.md)
+  * **JUnit 6 best practices**
+  * Applies best practices to tests.
+* [org.openrewrite.java.testing.mockito.AnyStringToNullable](/user-documentation/recipes/recipe-catalog/java/testing/mockito/anystringtonullable.md)
+  * **Replace Mockito 1.x `anyString()` with `nullable(String.class)`**
+  * Since Mockito 2.10 `anyString()` no longer matches null values. Use `nullable(Class)` instead.
+* [org.openrewrite.java.testing.mockito.CloseUnclosedStaticMocks](/user-documentation/recipes/recipe-catalog/java/testing/mockito/closeunclosedstaticmocks.md)
+  * **Close unclosed static mocks**
+  * Ensures that all `mockStatic` calls are properly closed. If `mockStatic` is in lifecycle methods like `@BeforeEach` or `@BeforeAll`, creates a class variable and closes it in `@AfterEach` or `@AfterAll`. If `mockStatic` is inside a test method, wraps it in a try-with-resources block.
+* [org.openrewrite.java.testing.mockito.MockitoJUnitRunnerSilentToExtension](/user-documentation/recipes/recipe-catalog/java/testing/mockito/mockitojunitrunnersilenttoextension.md)
+  * **JUnit 4 MockitoJUnitRunner.Silent to JUnit Jupiter MockitoExtension with LENIENT settings**
+  * Replace `@RunWith(MockitoJUnitRunner.Silent.class)` with `@ExtendWith(MockitoExtension.class)` and `@MockitoSettings(strictness = Strictness.LENIENT)`.
+* [org.openrewrite.java.testing.testcontainers.TestContainersBestPractices](/user-documentation/recipes/recipe-catalog/java/testing/testcontainers/testcontainersbestpractices.md)
+  * **Testcontainers best practices**
+  * Apply best practices to Testcontainers usage.
+
+### rewrite-third-party
+
+* [ai.timefold.solver.migration.ToLatest](/user-documentation/recipes/recipe-catalog/ai/timefold/solver/migration/tolatest.md)
+  * **Upgrade to the latest Timefold Solver**
+  * Replace all your calls to deleted/deprecated types and methods of Timefold Solver with their proper alternatives.
+* [com.oracle.weblogic.rewrite.CheckAndCommentOutDeprecations1511](/user-documentation/recipes/recipe-catalog/com/oracle/weblogic/rewrite/checkandcommentoutdeprecations1511.md)
+  * **Report types deprecated or removed in WebLogic version 15.1.1**
+  * This recipe will report Java types that have been deprecated or removed in WebLogic version 15.1.1. This is an alias to prevent breaking existing recipes.
+* [com.oracle.weblogic.rewrite.JakartaEE9_1](/user-documentation/recipes/recipe-catalog/com/oracle/weblogic/rewrite/jakartaee9_1.md)
+  * **Migrate to Jakarta EE 9.1**
+  * These recipes help with Migration to Jakarta EE 9.1, flagging and updating deprecated methods.
+* [com.oracle.weblogic.rewrite.UpgradeJPATo31HibernateTo66](/user-documentation/recipes/recipe-catalog/com/oracle/weblogic/rewrite/upgradejpato31hibernateto66.md)
+  * **Upgrade Jakarta JPA to 3.1 and Hibernate 6.6**
+  * This recipe upgrades Jakarta JPA to 3.1 and Hibernate to 6.6 (compatible with Jakarta EE 10).
+* [com.oracle.weblogic.rewrite.UpgradeTo1411](/user-documentation/recipes/recipe-catalog/com/oracle/weblogic/rewrite/upgradeto1411.md)
+  * **Migrate to WebLogic 14.1.1**
+  * This recipe will apply changes required for migrating to WebLogic 14.1.1
+* [com.oracle.weblogic.rewrite.UpgradeTo1412](/user-documentation/recipes/recipe-catalog/com/oracle/weblogic/rewrite/upgradeto1412.md)
+  * **Migrate to WebLogic 14.1.2**
+  * This recipe will apply changes required for migrating to WebLogic 14.1.2
+* [com.oracle.weblogic.rewrite.UpgradeTo1511](/user-documentation/recipes/recipe-catalog/com/oracle/weblogic/rewrite/upgradeto1511.md)
+  * **Migrate to WebLogic 15.1.1**
+  * This recipe will apply changes required for migrating to WebLogic 15.1.1 and Jakarta EE 9.1
+* [com.oracle.weblogic.rewrite.WebLogicXmlCreateIfNotExists1511](/user-documentation/recipes/recipe-catalog/com/oracle/weblogic/rewrite/weblogicxmlcreateifnotexists1511.md)
+  * **Create `weblogic.xml` if it does not exist**
+  * This recipe will create a `weblogic.xml` file with the WebLogic 15.1.1 namespace if it does not already exist.
+* [com.oracle.weblogic.rewrite.WebLogicXmlPreferApplicationPackagesJPA](/user-documentation/recipes/recipe-catalog/com/oracle/weblogic/rewrite/weblogicxmlpreferapplicationpackagesjpa.md)
+  * **Add `prefer-application-packages` for JPA in `weblogic.xml`**
+  * This recipe will add a `prefer-application-packages` entry for Jakarta Persistence in `weblogic.xml` if it does not already exist.
+* [com.oracle.weblogic.rewrite.WebLogicXmlPreferApplicationPackagesSlf4j](/user-documentation/recipes/recipe-catalog/com/oracle/weblogic/rewrite/weblogicxmlpreferapplicationpackagesslf4j.md)
+  * **Add `prefer-application-packages` for SLF4J in `weblogic.xml`**
+  * This recipe will add a `prefer-application-packages` entry for SLF4J in `weblogic.xml` if it does not already exist.
+* [com.oracle.weblogic.rewrite.examples.spring.MigratedPetClinicExtrasFor1511](/user-documentation/recipes/recipe-catalog/com/oracle/weblogic/rewrite/examples/spring/migratedpetclinicextrasfor1511.md)
+  * **Add WebLogic 15.1.1 PetClinic extras**
+  * Run migration extras for migrated Spring Framework PetClinic example run on WebLogic 15.1.1.
+* [com.oracle.weblogic.rewrite.examples.spring.SetupSpringFrameworkPetClinicFor1412](/user-documentation/recipes/recipe-catalog/com/oracle/weblogic/rewrite/examples/spring/setupspringframeworkpetclinicfor1412.md)
+  * **Setup Spring Framework 5.3.x PetClinic for WebLogic 14.1.2**
+  * Setup Spring Framework 5.3.x PetClinic for WebLogic 14.1.2.
+* [com.oracle.weblogic.rewrite.hibernate.MigrateHibernateToJakartaEE9](/user-documentation/recipes/recipe-catalog/com/oracle/weblogic/rewrite/hibernate/migratehibernatetojakartaee9.md)
+  * **Migrate to Hibernate for Jakarta EE 9**
+  * Upgrade hibernate libraries to Jakarta EE9 versions.
+* [com.oracle.weblogic.rewrite.jakarta.UpdateJakartaPersistenceTo32](/user-documentation/recipes/recipe-catalog/com/oracle/weblogic/rewrite/jakarta/updatejakartapersistenceto32.md)
+  * **Update Jakarta Persistence to 3.2**
+  * Update Jakarta Persistence to 3.2.
+* [com.oracle.weblogic.rewrite.spring.framework.UpgradeToSpringFramework_6_2](/user-documentation/recipes/recipe-catalog/com/oracle/weblogic/rewrite/spring/framework/upgradetospringframework_6_2.md)
+  * **Migrate to Spring Framework 6.2 for WebLogic 15.1.1**
+  * Migrate applications to the Spring Framework 6.2 release and compatibility with WebLogic 15.1.1.
+* [org.apache.camel.upgrade.Camel410LTSMigrationRecipe](/user-documentation/recipes/recipe-catalog/org/apache/camel/upgrade/camel410ltsmigrationrecipe.md)
+  * **Migrate to 4.10.6**
+  * Migrates Apache Camel application to 4.10.6.
+* [org.apache.camel.upgrade.CamelMigrationRecipe](/user-documentation/recipes/recipe-catalog/org/apache/camel/upgrade/camelmigrationrecipe.md)
+  * **Migrate to 4.18.0**
+  * Migrates Apache Camel application to 4.18.0.
+* [org.apache.wicket.BestPractices](/user-documentation/recipes/recipe-catalog/org/apache/wicket/bestpractices.md)
+  * **Wicket best practices**
+  * Applies Wicket best practices such as minimizing anonymous inner classes and upgrading to the latest version.
+* [org.axonframework.migration.UpgradeAxonFramework_4_Jakarta](/user-documentation/recipes/recipe-catalog/org/axonframework/migration/upgradeaxonframework_4_jakarta.md)
+  * **Upgrade to Axonframework 4.x Jakarta**
+  * Migration file to upgrade from an Axon Framework Javax-specific project to Jakarta.
+* [org.axonframework.migration.UpgradeAxonFramework_4_Javax](/user-documentation/recipes/recipe-catalog/org/axonframework/migration/upgradeaxonframework_4_javax.md)
+  * **Upgrade to Axonframework 4.x Javax**
+  * Migration file to upgrade an Axon Framework Javax-specific project and remain on Javax.
+* [org.openrewrite.quarkus.MigrateToQuarkus_v3_32_0](/user-documentation/recipes/recipe-catalog/quarkus/migratetoquarkus_v3_32_0.md)
+  * **Quarkus Updates Aggregate 3.32.0**
+  * Quarkus update recipes to upgrade your application to 3.32.0.
 * [software.amazon.awssdk.v2migration.AwsSdkJavaV1ToV2](/user-documentation/recipes/recipe-catalog/software/amazon/awssdk/v2migration/awssdkjavav1tov2.md)
   * **Migrate from the AWS SDK for Java v1 to the AWS SDK for Java v2**
   * This recipe will apply changes required for migrating from the AWS SDK for Java v1 to the AWS SDK for Java v2.

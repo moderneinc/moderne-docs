@@ -9,6 +9,7 @@ sidebar_label: "Change dependabot schedule interval"
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import RunRecipe from '@site/src/components/RunRecipe';
 
 # Change dependabot schedule interval
 
@@ -128,21 +129,18 @@ recipeList:
       interval: weekly
 ```
 
-<Tabs groupId="projectType">
-<TabItem value="moderne-cli" label="Moderne CLI">
-
-You will need to have configured the [Moderne CLI](https://docs.moderne.io/user-documentation/moderne-cli/getting-started/cli-intro) on your machine before you can run the following command.
-
-```shell title="shell"
-mod run . --recipe ChangeDependabotScheduleInterval --recipe-option "packageEcosystem=maven" --recipe-option "interval=weekly"
-```
-
-If the recipe is not available locally, then you can install it using:
-```shell
-mod config recipes jar install org.openrewrite.recipe:rewrite-github-actions:{{VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_GITHUB_ACTIONS}}
-```
-</TabItem>
-</Tabs>
+<RunRecipe
+  recipeName="org.openrewrite.github.ChangeDependabotScheduleInterval"
+  displayName="Change dependabot schedule interval"
+  groupId="org.openrewrite.recipe"
+  artifactId="rewrite-github-actions"
+  versionKey="VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_GITHUB_ACTIONS"
+  requiresConfiguration
+  cliOptions={' --recipe-option "packageEcosystem=maven" --recipe-option "interval=weekly"'}
+  showGradle={false}
+  showMaven={false}
+  hasDataTables
+/>
 
 ## See how this recipe works across multiple open-source repositories
 

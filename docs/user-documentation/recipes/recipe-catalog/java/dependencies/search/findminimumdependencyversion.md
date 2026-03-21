@@ -9,6 +9,7 @@ sidebar_label: "Find the oldest matching dependency version in use"
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import RunRecipe from '@site/src/components/RunRecipe';
 
 # Find the oldest matching dependency version in use
 
@@ -147,21 +148,18 @@ recipeList:
       version: 1.x
 ```
 
-<Tabs groupId="projectType">
-<TabItem value="moderne-cli" label="Moderne CLI">
-
-You will need to have configured the [Moderne CLI](https://docs.moderne.io/user-documentation/moderne-cli/getting-started/cli-intro) on your machine before you can run the following command.
-
-```shell title="shell"
-mod run . --recipe FindMinimumDependencyVersion --recipe-option "groupIdPattern=com.fasterxml.jackson.module" --recipe-option "artifactIdPattern=jackson-module-*" --recipe-option "version=1.x"
-```
-
-If the recipe is not available locally, then you can install it using:
-```shell
-mod config recipes jar install org.openrewrite.recipe:rewrite-java-dependencies:{{VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_JAVA_DEPENDENCIES}}
-```
-</TabItem>
-</Tabs>
+<RunRecipe
+  recipeName="org.openrewrite.java.dependencies.search.FindMinimumDependencyVersion"
+  displayName="Find the oldest matching dependency version in use"
+  groupId="org.openrewrite.recipe"
+  artifactId="rewrite-java-dependencies"
+  versionKey="VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_JAVA_DEPENDENCIES"
+  requiresConfiguration
+  cliOptions={' --recipe-option "groupIdPattern=com.fasterxml.jackson.module" --recipe-option "artifactIdPattern=jackson-module-*" --recipe-option "version=1.x"'}
+  showGradle={false}
+  showMaven={false}
+  hasDataTables
+/>
 
 ## See how this recipe works across multiple open-source repositories
 

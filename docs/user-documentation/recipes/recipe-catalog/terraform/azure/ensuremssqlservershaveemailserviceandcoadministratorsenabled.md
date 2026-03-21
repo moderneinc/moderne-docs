@@ -4,6 +4,7 @@ sidebar_label: "Ensure MSSQL servers have email service and co-administrators en
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import RunRecipe from '@site/src/components/RunRecipe';
 
 # Ensure MSSQL servers have email service and co-administrators enabled
 
@@ -34,24 +35,16 @@ This recipe is used as part of the following composite recipes:
 
 ## Usage
 
-This recipe has no required configuration options. Users of Moderne can run it via the Moderne CLI.
-<Tabs groupId="projectType">
-
-
-<TabItem value="moderne-cli" label="Moderne CLI">
-
-You will need to have configured the [Moderne CLI](https://docs.moderne.io/user-documentation/moderne-cli/getting-started/cli-intro) on your machine before you can run the following command.
-
-```shell title="shell"
-mod run . --recipe EnsureMSSQLServersHaveEmailServiceAndCoAdministratorsEnabled
-```
-
-If the recipe is not available locally, then you can install it using:
-```shell
-mod config recipes jar install org.openrewrite.recipe:rewrite-terraform:{{VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_TERRAFORM}}
-```
-</TabItem>
-</Tabs>
+<RunRecipe
+  recipeName="org.openrewrite.terraform.azure.EnsureMSSQLServersHaveEmailServiceAndCoAdministratorsEnabled"
+  displayName="Ensure MSSQL servers have email service and co-administrators enabled"
+  groupId="org.openrewrite.recipe"
+  artifactId="rewrite-terraform"
+  versionKey="VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_TERRAFORM"
+  showGradle={false}
+  showMaven={false}
+  hasDataTables
+/>
 
 ## See how this recipe works across multiple open-source repositories
 

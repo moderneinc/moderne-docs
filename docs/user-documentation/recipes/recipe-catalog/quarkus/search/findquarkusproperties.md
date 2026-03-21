@@ -9,6 +9,7 @@ sidebar_label: "Find Quarkus property"
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import RunRecipe from '@site/src/components/RunRecipe';
 
 # Find Quarkus property
 
@@ -54,21 +55,18 @@ recipeList:
         - ["**/application.yaml"]
 ```
 
-<Tabs groupId="projectType">
-<TabItem value="moderne-cli" label="Moderne CLI">
-
-You will need to have configured the [Moderne CLI](https://docs.moderne.io/user-documentation/moderne-cli/getting-started/cli-intro) on your machine before you can run the following command.
-
-```shell title="shell"
-mod run . --recipe FindQuarkusProperties --recipe-option "propertyKey=quarkus.http.port" --recipe-option "profile=dev" --recipe-option "searchAllProfiles=false" --recipe-option "pathExpressions=["**/application.yaml"]"
-```
-
-If the recipe is not available locally, then you can install it using:
-```shell
-mod config recipes jar install org.openrewrite.recipe:rewrite-quarkus:{{VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_QUARKUS}}
-```
-</TabItem>
-</Tabs>
+<RunRecipe
+  recipeName="org.openrewrite.quarkus.search.FindQuarkusProperties"
+  displayName="Find Quarkus property"
+  groupId="org.openrewrite.recipe"
+  artifactId="rewrite-quarkus"
+  versionKey="VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_QUARKUS"
+  requiresConfiguration
+  cliOptions={' --recipe-option "propertyKey=quarkus.http.port" --recipe-option "profile=dev" --recipe-option "searchAllProfiles=false" --recipe-option "pathExpressions=["**/application.yaml"]"'}
+  showGradle={false}
+  showMaven={false}
+  hasDataTables
+/>
 
 ## See how this recipe works across multiple open-source repositories
 

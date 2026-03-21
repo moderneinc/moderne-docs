@@ -9,6 +9,7 @@ sidebar_label: "Change TOML table row value"
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import RunRecipe from '@site/src/components/RunRecipe';
 
 # Change TOML table row value
 
@@ -109,21 +110,15 @@ recipeList:
       newValue: "alice.new@example.com"
 ```
 
-<Tabs groupId="projectType">
-<TabItem value="moderne-cli" label="Moderne CLI">
-
-You will need to have configured the [Moderne CLI](https://docs.moderne.io/user-documentation/moderne-cli/getting-started/cli-intro) on your machine before you can run the following command.
-
-```shell title="shell"
-mod run . --recipe ChangeTableRowValue --recipe-option "tableName=package.contributors" --recipe-option "identifyingKey=name" --recipe-option "identifyingValue=Alice Smith" --recipe-option "propertyKey=email" --recipe-option "newValue="alice.new@example.com""
-```
-
-If the recipe is not available locally, then you can install it using:
-```shell
-mod config recipes jar install org.openrewrite:rewrite-toml:{{VERSION_ORG_OPENREWRITE_REWRITE_TOML}}
-```
-</TabItem>
-</Tabs>
+<RunRecipe
+  recipeName="org.openrewrite.toml.ChangeTableRowValue"
+  displayName="Change TOML table row value"
+  requiresConfiguration
+  cliOptions={' --recipe-option "tableName=package.contributors" --recipe-option "identifyingKey=name" --recipe-option "identifyingValue=Alice Smith" --recipe-option "propertyKey=email" --recipe-option "newValue="alice.new@example.com""'}
+  showGradle={false}
+  showMaven={false}
+  hasDataTables
+/>
 
 ## See how this recipe works across multiple open-source repositories
 

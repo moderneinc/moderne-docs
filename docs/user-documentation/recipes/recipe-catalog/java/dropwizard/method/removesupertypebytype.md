@@ -9,6 +9,7 @@ sidebar_label: "Remove supertype by fully qualified name matches"
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import RunRecipe from '@site/src/components/RunRecipe';
 
 # Remove supertype by fully qualified name matches
 
@@ -113,21 +114,18 @@ recipeList:
       typeToRemove: io.dropwizard.Configuration
 ```
 
-<Tabs groupId="projectType">
-<TabItem value="moderne-cli" label="Moderne CLI">
-
-You will need to have configured the [Moderne CLI](https://docs.moderne.io/user-documentation/moderne-cli/getting-started/cli-intro) on your machine before you can run the following command.
-
-```shell title="shell"
-mod run . --recipe RemoveSuperTypeByType --recipe-option "typeToRemove=io.dropwizard.Configuration"
-```
-
-If the recipe is not available locally, then you can install it using:
-```shell
-mod config recipes jar install org.openrewrite.recipe:rewrite-dropwizard:{{VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_DROPWIZARD}}
-```
-</TabItem>
-</Tabs>
+<RunRecipe
+  recipeName="org.openrewrite.java.dropwizard.method.RemoveSuperTypeByType"
+  displayName="Remove supertype by fully qualified name matches"
+  groupId="org.openrewrite.recipe"
+  artifactId="rewrite-dropwizard"
+  versionKey="VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_DROPWIZARD"
+  requiresConfiguration
+  cliOptions={' --recipe-option "typeToRemove=io.dropwizard.Configuration"'}
+  showGradle={false}
+  showMaven={false}
+  hasDataTables
+/>
 
 ## See how this recipe works across multiple open-source repositories
 

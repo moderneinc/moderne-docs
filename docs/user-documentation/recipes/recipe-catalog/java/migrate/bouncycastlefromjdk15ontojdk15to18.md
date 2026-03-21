@@ -9,6 +9,7 @@ sidebar_label: "Migrate Bouncy Castle from `jdk15on` to `jdk15to18` for Java &lt
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import RunRecipe from '@site/src/components/RunRecipe';
 
 # Migrate Bouncy Castle from `jdk15on` to `jdk15to18` for Java &lt; 8
 
@@ -139,24 +140,16 @@ This recipe is used as part of the following composite recipes:
 
 ## Usage
 
-This recipe has no required configuration options. Users of Moderne can run it via the Moderne CLI.
-<Tabs groupId="projectType">
-
-
-<TabItem value="moderne-cli" label="Moderne CLI">
-
-You will need to have configured the [Moderne CLI](https://docs.moderne.io/user-documentation/moderne-cli/getting-started/cli-intro) on your machine before you can run the following command.
-
-```shell title="shell"
-mod run . --recipe BouncyCastleFromJdk15OnToJdk15to18
-```
-
-If the recipe is not available locally, then you can install it using:
-```shell
-mod config recipes jar install org.openrewrite.recipe:rewrite-migrate-java:{{VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_MIGRATE_JAVA}}
-```
-</TabItem>
-</Tabs>
+<RunRecipe
+  recipeName="org.openrewrite.java.migrate.BouncyCastleFromJdk15OnToJdk15to18"
+  displayName="Migrate Bouncy Castle from `jdk15on` to `jdk15to18` for Java &lt; 8"
+  groupId="org.openrewrite.recipe"
+  artifactId="rewrite-migrate-java"
+  versionKey="VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_MIGRATE_JAVA"
+  showGradle={false}
+  showMaven={false}
+  hasDataTables
+/>
 
 ## See how this recipe works across multiple open-source repositories
 

@@ -4,6 +4,7 @@ sidebar_label: "Find deprecated `Path.link_to()` usage"
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import RunRecipe from '@site/src/components/RunRecipe';
 
 # Find deprecated `Path.link_to()` usage
 
@@ -35,16 +36,8 @@ This recipe is used as part of the following composite recipes:
 
 ## Usage
 
-In order to run Python recipes, you will need to use the [Moderne CLI](https://docs.moderne.io/user-documentation/moderne-cli/getting-started/cli-intro).
-
-Once the CLI is installed, you can install this Python recipe package by running the following command:
-
-```shell title="Install the recipe package"
-mod config recipes pip install openrewrite-migrate-python
-```
-
-Then, you can run the recipe via:
-
-```shell title="Run the recipe"
-mod run . --recipe org.openrewrite.python.migrate.FindPathlibLinkTo
-```
+<RunRecipe
+  recipeName="org.openrewrite.python.migrate.FindPathlibLinkTo"
+  displayName="Find deprecated `Path.link_to()` usage"
+  pipPackage="openrewrite-migrate-python"
+/>

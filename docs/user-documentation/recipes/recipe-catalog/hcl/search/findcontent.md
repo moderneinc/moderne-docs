@@ -9,6 +9,7 @@ sidebar_label: "Find content"
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import RunRecipe from '@site/src/components/RunRecipe';
 
 # Find content
 
@@ -83,21 +84,15 @@ recipeList:
       contentPath: $.provider
 ```
 
-<Tabs groupId="projectType">
-<TabItem value="moderne-cli" label="Moderne CLI">
-
-You will need to have configured the [Moderne CLI](https://docs.moderne.io/user-documentation/moderne-cli/getting-started/cli-intro) on your machine before you can run the following command.
-
-```shell title="shell"
-mod run . --recipe FindContent --recipe-option "contentPath=$.provider"
-```
-
-If the recipe is not available locally, then you can install it using:
-```shell
-mod config recipes jar install org.openrewrite:rewrite-hcl:{{VERSION_ORG_OPENREWRITE_REWRITE_HCL}}
-```
-</TabItem>
-</Tabs>
+<RunRecipe
+  recipeName="org.openrewrite.hcl.search.FindContent"
+  displayName="Find content"
+  requiresConfiguration
+  cliOptions={' --recipe-option "contentPath=$.provider"'}
+  showGradle={false}
+  showMaven={false}
+  hasDataTables
+/>
 
 ## See how this recipe works across multiple open-source repositories
 

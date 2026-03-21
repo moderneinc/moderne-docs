@@ -9,6 +9,7 @@ sidebar_label: "Change Quarkus configuration property value"
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import RunRecipe from '@site/src/components/RunRecipe';
 
 # Change Quarkus configuration property value
 
@@ -65,21 +66,18 @@ recipeList:
         - ["**/application.yaml"]
 ```
 
-<Tabs groupId="projectType">
-<TabItem value="moderne-cli" label="Moderne CLI">
-
-You will need to have configured the [Moderne CLI](https://docs.moderne.io/user-documentation/moderne-cli/getting-started/cli-intro) on your machine before you can run the following command.
-
-```shell title="shell"
-mod run . --recipe ChangeQuarkusPropertyValue --recipe-option "propertyKey=quarkus.hibernate-search-orm.indexing.plan.synchronization.strategy" --recipe-option "newValue=read-sync" --recipe-option "oldValue=read-sync" --recipe-option "profile=dev" --recipe-option "changeAllProfiles=false" --recipe-option "pathExpressions=["**/application.yaml"]"
-```
-
-If the recipe is not available locally, then you can install it using:
-```shell
-mod config recipes jar install org.openrewrite.recipe:rewrite-quarkus:{{VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_QUARKUS}}
-```
-</TabItem>
-</Tabs>
+<RunRecipe
+  recipeName="org.openrewrite.quarkus.ChangeQuarkusPropertyValue"
+  displayName="Change Quarkus configuration property value"
+  groupId="org.openrewrite.recipe"
+  artifactId="rewrite-quarkus"
+  versionKey="VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_QUARKUS"
+  requiresConfiguration
+  cliOptions={' --recipe-option "propertyKey=quarkus.hibernate-search-orm.indexing.plan.synchronization.strategy" --recipe-option "newValue=read-sync" --recipe-option "oldValue=read-sync" --recipe-option "profile=dev" --recipe-option "changeAllProfiles=false" --recipe-option "pathExpressions=["**/application.yaml"]"'}
+  showGradle={false}
+  showMaven={false}
+  hasDataTables
+/>
 
 ## See how this recipe works across multiple open-source repositories
 

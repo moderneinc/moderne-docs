@@ -4,6 +4,7 @@ sidebar_label: "Find deprecated `crypto.createCipher()` and `crypto.createDeciph
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import RunRecipe from '@site/src/components/RunRecipe';
 
 # Find deprecated `crypto.createCipher()` and `crypto.createDecipher()` usage
 
@@ -32,17 +33,8 @@ This recipe is used as part of the following composite recipes:
 
 ## Usage
 
-In order to run JavaScript recipes, you will need to use the [Moderne CLI](https://docs.moderne.io/user-documentation/moderne-cli/getting-started/cli-intro).
-For JavaScript specific configuration instructions, please see our [configuring JavaScript guide](https://docs.moderne.io/user-documentation/moderne-cli/how-to-guides/javascript).
-
-Once the CLI is installed, you can install this JavaScript recipe package by running the following command:
-
-```shell title="Install the recipe package"
-mod config recipes npm install @openrewrite/recipes-nodejs
-```
-
-Then, you can run the recipe via:
-
-```shell title="Run the recipe"
-mod run . --recipe org.openrewrite.node.migrate.crypto.find-create-cipher
-```
+<RunRecipe
+  recipeName="org.openrewrite.node.migrate.crypto.find-create-cipher"
+  displayName="Find deprecated `crypto.createCipher()` and `crypto.createDecipher()` usage"
+  npmPackage="@openrewrite/recipes-nodejs"
+/>

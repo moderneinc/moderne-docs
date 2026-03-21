@@ -4,6 +4,7 @@ sidebar_label: "Update `Service` `externalIP`"
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import RunRecipe from '@site/src/components/RunRecipe';
 
 # Update `Service` `externalIP`
 
@@ -109,21 +110,18 @@ recipeList:
       fileMatcher: '**/pod-*.yml'
 ```
 
-<Tabs groupId="projectType">
-<TabItem value="moderne-cli" label="Moderne CLI">
-
-You will need to have configured the [Moderne CLI](https://docs.moderne.io/user-documentation/moderne-cli/getting-started/cli-intro) on your machine before you can run the following command.
-
-```shell title="shell"
-mod run . --recipe UpdateServiceExternalIP --recipe-option "ipToFind=192.168.0.1" --recipe-option "ipToUpdate=10.10.0.1" --recipe-option "fileMatcher='**/pod-*.yml'"
-```
-
-If the recipe is not available locally, then you can install it using:
-```shell
-mod config recipes jar install org.openrewrite.recipe:rewrite-kubernetes:{{VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_KUBERNETES}}
-```
-</TabItem>
-</Tabs>
+<RunRecipe
+  recipeName="org.openrewrite.kubernetes.services.UpdateServiceExternalIP"
+  displayName="Update `Service` `externalIP`"
+  groupId="org.openrewrite.recipe"
+  artifactId="rewrite-kubernetes"
+  versionKey="VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_KUBERNETES"
+  requiresConfiguration
+  cliOptions={' --recipe-option "ipToFind=192.168.0.1" --recipe-option "ipToUpdate=10.10.0.1" --recipe-option "fileMatcher='**/pod-*.yml'"'}
+  showGradle={false}
+  showMaven={false}
+  hasDataTables
+/>
 
 ## See how this recipe works across multiple open-source repositories
 

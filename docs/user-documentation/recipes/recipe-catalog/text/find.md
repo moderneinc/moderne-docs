@@ -9,6 +9,7 @@ sidebar_label: "Find text"
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import RunRecipe from '@site/src/components/RunRecipe';
 
 # Find text
 
@@ -65,21 +66,15 @@ recipeList:
       contextSize: 50
 ```
 
-<Tabs groupId="projectType">
-<TabItem value="moderne-cli" label="Moderne CLI">
-
-You will need to have configured the [Moderne CLI](https://docs.moderne.io/user-documentation/moderne-cli/getting-started/cli-intro) on your machine before you can run the following command.
-
-```shell title="shell"
-mod run . --recipe Find --recipe-option "find=blacklist" --recipe-option "filePattern='**/*.java'" --recipe-option "contextSize=50"
-```
-
-If the recipe is not available locally, then you can install it using:
-```shell
-mod config recipes jar install org.openrewrite:rewrite-core:{{VERSION_ORG_OPENREWRITE_REWRITE_CORE}}
-```
-</TabItem>
-</Tabs>
+<RunRecipe
+  recipeName="org.openrewrite.text.Find"
+  displayName="Find text"
+  requiresConfiguration
+  cliOptions={' --recipe-option "find=blacklist" --recipe-option "filePattern='**/*.java'" --recipe-option "contextSize=50"'}
+  showGradle={false}
+  showMaven={false}
+  hasDataTables
+/>
 
 ## See how this recipe works across multiple open-source repositories
 

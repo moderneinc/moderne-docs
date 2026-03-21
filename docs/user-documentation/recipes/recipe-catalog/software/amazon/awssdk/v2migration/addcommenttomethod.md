@@ -9,6 +9,7 @@ sidebar_label: "Add a comment to a method"
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import RunRecipe from '@site/src/components/RunRecipe';
 
 # Add a comment to a method
 
@@ -57,21 +58,18 @@ recipeList:
       comment: This method is not supported in AWS SDK for Java v2.
 ```
 
-<Tabs groupId="projectType">
-<TabItem value="moderne-cli" label="Moderne CLI">
-
-You will need to have configured the [Moderne CLI](https://docs.moderne.io/user-documentation/moderne-cli/getting-started/cli-intro) on your machine before you can run the following command.
-
-```shell title="shell"
-mod run . --recipe AddCommentToMethod --recipe-option "methodPattern=org.mockito.Matchers anyVararg()" --recipe-option "comment=This method is not supported in AWS SDK for Java v2."
-```
-
-If the recipe is not available locally, then you can install it using:
-```shell
-mod config recipes jar install org.openrewrite.recipe:rewrite-third-party:{{VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY}}
-```
-</TabItem>
-</Tabs>
+<RunRecipe
+  recipeName="software.amazon.awssdk.v2migration.AddCommentToMethod"
+  displayName="Add a comment to a method"
+  groupId="org.openrewrite.recipe"
+  artifactId="rewrite-third-party"
+  versionKey="VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY"
+  requiresConfiguration
+  cliOptions={' --recipe-option "methodPattern=org.mockito.Matchers anyVararg()" --recipe-option "comment=This method is not supported in AWS SDK for Java v2."'}
+  showGradle={false}
+  showMaven={false}
+  hasDataTables
+/>
 
 ## See how this recipe works across multiple open-source repositories
 

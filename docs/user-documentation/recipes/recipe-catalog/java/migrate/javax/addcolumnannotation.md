@@ -9,6 +9,7 @@ sidebar_label: "`@ElementCollection` annotations must be accompanied by a define
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import RunRecipe from '@site/src/components/RunRecipe';
 
 # `@ElementCollection` annotations must be accompanied by a defined `@Column` annotation
 
@@ -97,24 +98,16 @@ import javax.persistence.ElementCollection;
 
 ## Usage
 
-This recipe has no required configuration options. Users of Moderne can run it via the Moderne CLI.
-<Tabs groupId="projectType">
-
-
-<TabItem value="moderne-cli" label="Moderne CLI">
-
-You will need to have configured the [Moderne CLI](https://docs.moderne.io/user-documentation/moderne-cli/getting-started/cli-intro) on your machine before you can run the following command.
-
-```shell title="shell"
-mod run . --recipe AddColumnAnnotation
-```
-
-If the recipe is not available locally, then you can install it using:
-```shell
-mod config recipes jar install org.openrewrite.recipe:rewrite-migrate-java:{{VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_MIGRATE_JAVA}}
-```
-</TabItem>
-</Tabs>
+<RunRecipe
+  recipeName="org.openrewrite.java.migrate.javax.AddColumnAnnotation"
+  displayName="`@ElementCollection` annotations must be accompanied by a defined `@Column` annotation"
+  groupId="org.openrewrite.recipe"
+  artifactId="rewrite-migrate-java"
+  versionKey="VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_MIGRATE_JAVA"
+  showGradle={false}
+  showMaven={false}
+  hasDataTables
+/>
 
 ## See how this recipe works across multiple open-source repositories
 

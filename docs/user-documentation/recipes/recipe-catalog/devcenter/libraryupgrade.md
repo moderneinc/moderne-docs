@@ -4,6 +4,7 @@ sidebar_label: "Library upgrade"
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import RunRecipe from '@site/src/components/RunRecipe';
 
 # Library upgrade
 
@@ -58,21 +59,18 @@ recipeList:
       upgradeRecipe: io.moderne.java.spring.boot3.UpgradeSpringBoot_3_5
 ```
 
-<Tabs groupId="projectType">
-<TabItem value="moderne-cli" label="Moderne CLI">
-
-You will need to have configured the [Moderne CLI](https://docs.moderne.io/user-documentation/moderne-cli/getting-started/cli-intro) on your machine before you can run the following command.
-
-```shell title="shell"
-mod run . --recipe LibraryUpgrade --recipe-option "cardName=Move to Spring Boot 4.0" --recipe-option "groupIdPattern=com.fasterxml.jackson.module" --recipe-option "artifactIdPattern=jackson-module-*" --recipe-option "version=3.4.1" --recipe-option "upgradeRecipe=io.moderne.java.spring.boot3.UpgradeSpringBoot_3_5"
-```
-
-If the recipe is not available locally, then you can install it using:
-```shell
-mod config recipes jar install io.moderne.recipe:rewrite-devcenter:{{VERSION_IO_MODERNE_RECIPE_REWRITE_DEVCENTER}}
-```
-</TabItem>
-</Tabs>
+<RunRecipe
+  recipeName="io.moderne.devcenter.LibraryUpgrade"
+  displayName="Library upgrade"
+  groupId="io.moderne.recipe"
+  artifactId="rewrite-devcenter"
+  versionKey="VERSION_IO_MODERNE_RECIPE_REWRITE_DEVCENTER"
+  requiresConfiguration
+  cliOptions={' --recipe-option "cardName=Move to Spring Boot 4.0" --recipe-option "groupIdPattern=com.fasterxml.jackson.module" --recipe-option "artifactIdPattern=jackson-module-*" --recipe-option "version=3.4.1" --recipe-option "upgradeRecipe=io.moderne.java.spring.boot3.UpgradeSpringBoot_3_5"'}
+  showGradle={false}
+  showMaven={false}
+  hasDataTables
+/>
 
 ## See how this recipe works across multiple open-source repositories
 

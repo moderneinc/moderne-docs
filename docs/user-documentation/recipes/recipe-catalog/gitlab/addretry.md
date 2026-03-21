@@ -9,6 +9,7 @@ sidebar_label: "Add retry configuration"
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import RunRecipe from '@site/src/components/RunRecipe';
 
 # Add retry configuration
 
@@ -120,21 +121,18 @@ recipeList:
       jobName: build_job
 ```
 
-<Tabs groupId="projectType">
-<TabItem value="moderne-cli" label="Moderne CLI">
-
-You will need to have configured the [Moderne CLI](https://docs.moderne.io/user-documentation/moderne-cli/getting-started/cli-intro) on your machine before you can run the following command.
-
-```shell title="shell"
-mod run . --recipe AddRetry --recipe-option "max=2" --recipe-option "when=runner_system_failure,stuck_or_timeout_failure" --recipe-option "jobName=build_job"
-```
-
-If the recipe is not available locally, then you can install it using:
-```shell
-mod config recipes jar install org.openrewrite.recipe:rewrite-gitlab:{{VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_GITLAB}}
-```
-</TabItem>
-</Tabs>
+<RunRecipe
+  recipeName="org.openrewrite.gitlab.AddRetry"
+  displayName="Add retry configuration"
+  groupId="org.openrewrite.recipe"
+  artifactId="rewrite-gitlab"
+  versionKey="VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_GITLAB"
+  requiresConfiguration
+  cliOptions={' --recipe-option "max=2" --recipe-option "when=runner_system_failure,stuck_or_timeout_failure" --recipe-option "jobName=build_job"'}
+  showGradle={false}
+  showMaven={false}
+  hasDataTables
+/>
 
 ## See how this recipe works across multiple open-source repositories
 

@@ -4,6 +4,7 @@ sidebar_label: "Migrate `HttpStatus` enum values to RFC 9110 names"
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import RunRecipe from '@site/src/components/RunRecipe';
 
 # Migrate `HttpStatus` enum values to RFC 9110 names
 
@@ -124,24 +125,16 @@ class MyController {
 
 ## Usage
 
-This recipe has no required configuration options. Users of Moderne can run it via the Moderne CLI.
-<Tabs groupId="projectType">
-
-
-<TabItem value="moderne-cli" label="Moderne CLI">
-
-You will need to have configured the [Moderne CLI](https://docs.moderne.io/user-documentation/moderne-cli/getting-started/cli-intro) on your machine before you can run the following command.
-
-```shell title="shell"
-mod run . --recipe MigrateHttpStatusToRfc9110
-```
-
-If the recipe is not available locally, then you can install it using:
-```shell
-mod config recipes jar install io.moderne.recipe:rewrite-spring:{{VERSION_IO_MODERNE_RECIPE_REWRITE_SPRING}}
-```
-</TabItem>
-</Tabs>
+<RunRecipe
+  recipeName="io.moderne.java.spring.framework7.MigrateHttpStatusToRfc9110"
+  displayName="Migrate `HttpStatus` enum values to RFC 9110 names"
+  groupId="io.moderne.recipe"
+  artifactId="rewrite-spring"
+  versionKey="VERSION_IO_MODERNE_RECIPE_REWRITE_SPRING"
+  showGradle={false}
+  showMaven={false}
+  hasDataTables
+/>
 
 ## See how this recipe works across multiple open-source repositories
 

@@ -9,6 +9,7 @@ sidebar_label: "Comment out property"
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import RunRecipe from '@site/src/components/RunRecipe';
 
 # Comment out property
 
@@ -103,21 +104,15 @@ recipeList:
       commentOutProperty: true
 ```
 
-<Tabs groupId="projectType">
-<TabItem value="moderne-cli" label="Moderne CLI">
-
-You will need to have configured the [Moderne CLI](https://docs.moderne.io/user-documentation/moderne-cli/getting-started/cli-intro) on your machine before you can run the following command.
-
-```shell title="shell"
-mod run . --recipe CommentOutProperty --recipe-option "propertyKey=applicability.singleSource" --recipe-option "commentText=The `foo` property is deprecated, please migrate" --recipe-option "commentOutProperty=true"
-```
-
-If the recipe is not available locally, then you can install it using:
-```shell
-mod config recipes jar install org.openrewrite:rewrite-yaml:{{VERSION_ORG_OPENREWRITE_REWRITE_YAML}}
-```
-</TabItem>
-</Tabs>
+<RunRecipe
+  recipeName="org.openrewrite.yaml.CommentOutProperty"
+  displayName="Comment out property"
+  requiresConfiguration
+  cliOptions={' --recipe-option "propertyKey=applicability.singleSource" --recipe-option "commentText=The `foo` property is deprecated, please migrate" --recipe-option "commentOutProperty=true"'}
+  showGradle={false}
+  showMaven={false}
+  hasDataTables
+/>
 
 ## See how this recipe works across multiple open-source repositories
 

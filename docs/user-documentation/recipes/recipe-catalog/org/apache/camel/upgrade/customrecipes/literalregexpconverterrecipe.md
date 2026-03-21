@@ -9,6 +9,7 @@ sidebar_label: "Replaces a literal matching an expression"
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import RunRecipe from '@site/src/components/RunRecipe';
 
 # Replaces a literal matching an expression
 
@@ -62,21 +63,18 @@ recipeList:
       replacement: TODO Provide a usage example for the docs
 ```
 
-<Tabs groupId="projectType">
-<TabItem value="moderne-cli" label="Moderne CLI">
-
-You will need to have configured the [Moderne CLI](https://docs.moderne.io/user-documentation/moderne-cli/getting-started/cli-intro) on your machine before you can run the following command.
-
-```shell title="shell"
-mod run . --recipe LiteralRegexpConverterRecipe --recipe-option "regexp=TODO Provide a usage example for the docs" --recipe-option "replacement=TODO Provide a usage example for the docs"
-```
-
-If the recipe is not available locally, then you can install it using:
-```shell
-mod config recipes jar install org.openrewrite.recipe:rewrite-third-party:{{VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY}}
-```
-</TabItem>
-</Tabs>
+<RunRecipe
+  recipeName="org.apache.camel.upgrade.customRecipes.LiteralRegexpConverterRecipe"
+  displayName="Replaces a literal matching an expression"
+  groupId="org.openrewrite.recipe"
+  artifactId="rewrite-third-party"
+  versionKey="VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY"
+  requiresConfiguration
+  cliOptions={' --recipe-option "regexp=TODO Provide a usage example for the docs" --recipe-option "replacement=TODO Provide a usage example for the docs"'}
+  showGradle={false}
+  showMaven={false}
+  hasDataTables
+/>
 
 ## See how this recipe works across multiple open-source repositories
 

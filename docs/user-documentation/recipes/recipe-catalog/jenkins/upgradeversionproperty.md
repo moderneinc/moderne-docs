@@ -9,6 +9,7 @@ sidebar_label: "Upgrade property's value to version"
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import RunRecipe from '@site/src/components/RunRecipe';
 
 # Upgrade property's value to version
 
@@ -135,21 +136,18 @@ recipeList:
       minimumVersion: 2.375.1
 ```
 
-<Tabs groupId="projectType">
-<TabItem value="moderne-cli" label="Moderne CLI">
-
-You will need to have configured the [Moderne CLI](https://docs.moderne.io/user-documentation/moderne-cli/getting-started/cli-intro) on your machine before you can run the following command.
-
-```shell title="shell"
-mod run . --recipe UpgradeVersionProperty --recipe-option "key=jenkins.version" --recipe-option "minimumVersion=2.375.1"
-```
-
-If the recipe is not available locally, then you can install it using:
-```shell
-mod config recipes jar install org.openrewrite.recipe:rewrite-jenkins:{{VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_JENKINS}}
-```
-</TabItem>
-</Tabs>
+<RunRecipe
+  recipeName="org.openrewrite.jenkins.UpgradeVersionProperty"
+  displayName="Upgrade property's value to version"
+  groupId="org.openrewrite.recipe"
+  artifactId="rewrite-jenkins"
+  versionKey="VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_JENKINS"
+  requiresConfiguration
+  cliOptions={' --recipe-option "key=jenkins.version" --recipe-option "minimumVersion=2.375.1"'}
+  showGradle={false}
+  showMaven={false}
+  hasDataTables
+/>
 
 ## See how this recipe works across multiple open-source repositories
 

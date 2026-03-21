@@ -9,6 +9,7 @@ sidebar_label: "Extract lambda expressions"
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import RunRecipe from '@site/src/components/RunRecipe';
 
 # Extract lambda expressions
 
@@ -109,21 +110,18 @@ recipeList:
       matchingPattern: '*..DAOTestRule inTransaction(..)'
 ```
 
-<Tabs groupId="projectType">
-<TabItem value="moderne-cli" label="Moderne CLI">
-
-You will need to have configured the [Moderne CLI](https://docs.moderne.io/user-documentation/moderne-cli/getting-started/cli-intro) on your machine before you can run the following command.
-
-```shell title="shell"
-mod run . --recipe MethodLambdaExtractor --recipe-option "preconditionType=io.dropwizard.testing.junit.DAOTestRule" --recipe-option "matchingPattern='*..DAOTestRule inTransaction(..)'"
-```
-
-If the recipe is not available locally, then you can install it using:
-```shell
-mod config recipes jar install org.openrewrite.recipe:rewrite-dropwizard:{{VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_DROPWIZARD}}
-```
-</TabItem>
-</Tabs>
+<RunRecipe
+  recipeName="org.openrewrite.java.dropwizard.test.MethodLambdaExtractor"
+  displayName="Extract lambda expressions"
+  groupId="org.openrewrite.recipe"
+  artifactId="rewrite-dropwizard"
+  versionKey="VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_DROPWIZARD"
+  requiresConfiguration
+  cliOptions={' --recipe-option "preconditionType=io.dropwizard.testing.junit.DAOTestRule" --recipe-option "matchingPattern='*..DAOTestRule inTransaction(..)'"'}
+  showGradle={false}
+  showMaven={false}
+  hasDataTables
+/>
 
 ## See how this recipe works across multiple open-source repositories
 

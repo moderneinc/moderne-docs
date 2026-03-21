@@ -9,6 +9,7 @@ sidebar_label: "Change Maven dependency exclusion"
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import RunRecipe from '@site/src/components/RunRecipe';
 
 # Change Maven dependency exclusion
 
@@ -142,21 +143,15 @@ recipeList:
       newArtifactId: spring-boot-starter-web
 ```
 
-<Tabs groupId="projectType">
-<TabItem value="moderne-cli" label="Moderne CLI">
-
-You will need to have configured the [Moderne CLI](https://docs.moderne.io/user-documentation/moderne-cli/getting-started/cli-intro) on your machine before you can run the following command.
-
-```shell title="shell"
-mod run . --recipe ChangeExclusion --recipe-option "oldGroupId=org.springframework" --recipe-option "oldArtifactId=spring-web*" --recipe-option "newGroupId=org.springframework.boot" --recipe-option "newArtifactId=spring-boot-starter-web"
-```
-
-If the recipe is not available locally, then you can install it using:
-```shell
-mod config recipes jar install org.openrewrite:rewrite-maven:{{VERSION_ORG_OPENREWRITE_REWRITE_MAVEN}}
-```
-</TabItem>
-</Tabs>
+<RunRecipe
+  recipeName="org.openrewrite.maven.ChangeExclusion"
+  displayName="Change Maven dependency exclusion"
+  requiresConfiguration
+  cliOptions={' --recipe-option "oldGroupId=org.springframework" --recipe-option "oldArtifactId=spring-web*" --recipe-option "newGroupId=org.springframework.boot" --recipe-option "newArtifactId=spring-boot-starter-web"'}
+  showGradle={false}
+  showMaven={false}
+  hasDataTables
+/>
 
 ## See how this recipe works across multiple open-source repositories
 

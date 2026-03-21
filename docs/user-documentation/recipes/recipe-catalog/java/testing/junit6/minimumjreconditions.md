@@ -9,6 +9,7 @@ sidebar_label: "Migrate JUnit JRE conditions"
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import RunRecipe from '@site/src/components/RunRecipe';
 
 # Migrate JUnit JRE conditions
 
@@ -186,21 +187,18 @@ recipeList:
       javaVersion: 17
 ```
 
-<Tabs groupId="projectType">
-<TabItem value="moderne-cli" label="Moderne CLI">
-
-You will need to have configured the [Moderne CLI](https://docs.moderne.io/user-documentation/moderne-cli/getting-started/cli-intro) on your machine before you can run the following command.
-
-```shell title="shell"
-mod run . --recipe MinimumJreConditions --recipe-option "javaVersion=17"
-```
-
-If the recipe is not available locally, then you can install it using:
-```shell
-mod config recipes jar install org.openrewrite.recipe:rewrite-testing-frameworks:{{VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_TESTING_FRAMEWORKS}}
-```
-</TabItem>
-</Tabs>
+<RunRecipe
+  recipeName="org.openrewrite.java.testing.junit6.MinimumJreConditions"
+  displayName="Migrate JUnit JRE conditions"
+  groupId="org.openrewrite.recipe"
+  artifactId="rewrite-testing-frameworks"
+  versionKey="VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_TESTING_FRAMEWORKS"
+  requiresConfiguration
+  cliOptions={' --recipe-option "javaVersion=17"'}
+  showGradle={false}
+  showMaven={false}
+  hasDataTables
+/>
 
 ## See how this recipe works across multiple open-source repositories
 

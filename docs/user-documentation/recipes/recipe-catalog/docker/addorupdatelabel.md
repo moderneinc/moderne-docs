@@ -9,6 +9,7 @@ sidebar_label: "Add Docker LABEL instruction"
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import RunRecipe from '@site/src/components/RunRecipe';
 
 # Add Docker LABEL instruction
 
@@ -92,21 +93,18 @@ recipeList:
       stageName: final
 ```
 
-<Tabs groupId="projectType">
-<TabItem value="moderne-cli" label="Moderne CLI">
-
-You will need to have configured the [Moderne CLI](https://docs.moderne.io/user-documentation/moderne-cli/getting-started/cli-intro) on your machine before you can run the following command.
-
-```shell title="shell"
-mod run . --recipe AddOrUpdateLabel --recipe-option "key=org.opencontainers.image.version" --recipe-option "value=1.0.0" --recipe-option "stageName=final"
-```
-
-If the recipe is not available locally, then you can install it using:
-```shell
-mod config recipes jar install org.openrewrite:rewrite-docker:{{VERSION_ORG_OPENREWRITE_REWRITE_DOCKER}}
-```
-</TabItem>
-</Tabs>
+<RunRecipe
+  recipeName="org.openrewrite.docker.AddOrUpdateLabel"
+  displayName="Add Docker LABEL instruction"
+  groupId="org.openrewrite"
+  artifactId="rewrite-docker"
+  versionKey="VERSION_ORG_OPENREWRITE_REWRITE_DOCKER"
+  requiresConfiguration
+  cliOptions={' --recipe-option "key=org.opencontainers.image.version" --recipe-option "value=1.0.0" --recipe-option "stageName=final"'}
+  showGradle={false}
+  showMaven={false}
+  hasDataTables
+/>
 
 ## See how this recipe works across multiple open-source repositories
 

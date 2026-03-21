@@ -9,6 +9,7 @@ sidebar_label: "Replace `SpringApplication.run()` with `Quarkus.run()`"
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import RunRecipe from '@site/src/components/RunRecipe';
 
 # Replace `SpringApplication.run()` with `Quarkus.run()`
 
@@ -92,24 +93,16 @@ public class DemoApplication {
 
 ## Usage
 
-This recipe has no required configuration options. Users of Moderne can run it via the Moderne CLI.
-<Tabs groupId="projectType">
-
-
-<TabItem value="moderne-cli" label="Moderne CLI">
-
-You will need to have configured the [Moderne CLI](https://docs.moderne.io/user-documentation/moderne-cli/getting-started/cli-intro) on your machine before you can run the following command.
-
-```shell title="shell"
-mod run . --recipe SpringApplicationRunToQuarkusRun
-```
-
-If the recipe is not available locally, then you can install it using:
-```shell
-mod config recipes jar install org.openrewrite.recipe:rewrite-spring-to-quarkus:{{VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_SPRING_TO_QUARKUS}}
-```
-</TabItem>
-</Tabs>
+<RunRecipe
+  recipeName="org.openrewrite.quarkus.spring.SpringApplicationRunToQuarkusRun"
+  displayName="Replace `SpringApplication.run()` with `Quarkus.run()`"
+  groupId="org.openrewrite.recipe"
+  artifactId="rewrite-spring-to-quarkus"
+  versionKey="VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_SPRING_TO_QUARKUS"
+  showGradle={false}
+  showMaven={false}
+  hasDataTables
+/>
 
 ## See how this recipe works across multiple open-source repositories
 

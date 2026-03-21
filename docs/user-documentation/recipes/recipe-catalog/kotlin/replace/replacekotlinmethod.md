@@ -4,6 +4,7 @@ sidebar_label: "Replace Kotlin method"
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import RunRecipe from '@site/src/components/RunRecipe';
 
 # Replace Kotlin method
 
@@ -112,21 +113,18 @@ recipeList:
         - ["arrow-core-2"]
 ```
 
-<Tabs groupId="projectType">
-<TabItem value="moderne-cli" label="Moderne CLI">
-
-You will need to have configured the [Moderne CLI](https://docs.moderne.io/user-documentation/moderne-cli/getting-started/cli-intro) on your machine before you can run the following command.
-
-```shell title="shell"
-mod run . --recipe ReplaceKotlinMethod --recipe-option "methodPattern=arrow.core.MapKt mapOrAccumulate(kotlin.Function2)" --recipe-option "replacement=mapValuesOrAccumulate(transform)" --recipe-option "imports=["arrow.core.Either"]" --recipe-option "classpathFromResources=["arrow-core-2"]"
-```
-
-If the recipe is not available locally, then you can install it using:
-```shell
-mod config recipes jar install org.openrewrite.recipe:rewrite-migrate-kotlin:{{VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_MIGRATE_KOTLIN}}
-```
-</TabItem>
-</Tabs>
+<RunRecipe
+  recipeName="org.openrewrite.kotlin.replace.ReplaceKotlinMethod"
+  displayName="Replace Kotlin method"
+  groupId="org.openrewrite.recipe"
+  artifactId="rewrite-migrate-kotlin"
+  versionKey="VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_MIGRATE_KOTLIN"
+  requiresConfiguration
+  cliOptions={' --recipe-option "methodPattern=arrow.core.MapKt mapOrAccumulate(kotlin.Function2)" --recipe-option "replacement=mapValuesOrAccumulate(transform)" --recipe-option "imports=["arrow.core.Either"]" --recipe-option "classpathFromResources=["arrow-core-2"]"'}
+  showGradle={false}
+  showMaven={false}
+  hasDataTables
+/>
 
 ## See how this recipe works across multiple open-source repositories
 

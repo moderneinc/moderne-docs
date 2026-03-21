@@ -4,6 +4,7 @@ sidebar_label: "Install an orb"
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import RunRecipe from '@site/src/components/RunRecipe';
 
 # Install an orb
 
@@ -86,21 +87,18 @@ recipeList:
       slug: circleci/kubernetes@0.11.0
 ```
 
-<Tabs groupId="projectType">
-<TabItem value="moderne-cli" label="Moderne CLI">
-
-You will need to have configured the [Moderne CLI](https://docs.moderne.io/user-documentation/moderne-cli/getting-started/cli-intro) on your machine before you can run the following command.
-
-```shell title="shell"
-mod run . --recipe InstallOrb --recipe-option "orbKey=kube" --recipe-option "slug=circleci/kubernetes@0.11.0"
-```
-
-If the recipe is not available locally, then you can install it using:
-```shell
-mod config recipes jar install org.openrewrite.recipe:rewrite-circleci:{{VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_CIRCLECI}}
-```
-</TabItem>
-</Tabs>
+<RunRecipe
+  recipeName="org.openrewrite.circleci.InstallOrb"
+  displayName="Install an orb"
+  groupId="org.openrewrite.recipe"
+  artifactId="rewrite-circleci"
+  versionKey="VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_CIRCLECI"
+  requiresConfiguration
+  cliOptions={' --recipe-option "orbKey=kube" --recipe-option "slug=circleci/kubernetes@0.11.0"'}
+  showGradle={false}
+  showMaven={false}
+  hasDataTables
+/>
 
 ## See how this recipe works across multiple open-source repositories
 

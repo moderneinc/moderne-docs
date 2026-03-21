@@ -9,6 +9,7 @@ sidebar_label: "Replace `ResourceResolver` with `ResourceHandler`"
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import RunRecipe from '@site/src/components/RunRecipe';
 
 # Replace `ResourceResolver` with `ResourceHandler`
 
@@ -223,24 +224,16 @@ import jakarta.faces.view.facelets.ResourceResolver;
 
 ## Usage
 
-This recipe has no required configuration options. Users of Moderne can run it via the Moderne CLI.
-<Tabs groupId="projectType">
-
-
-<TabItem value="moderne-cli" label="Moderne CLI">
-
-You will need to have configured the [Moderne CLI](https://docs.moderne.io/user-documentation/moderne-cli/getting-started/cli-intro) on your machine before you can run the following command.
-
-```shell title="shell"
-mod run . --recipe RemovedJakartaFacesResourceResolver
-```
-
-If the recipe is not available locally, then you can install it using:
-```shell
-mod config recipes jar install org.openrewrite.recipe:rewrite-migrate-java:{{VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_MIGRATE_JAVA}}
-```
-</TabItem>
-</Tabs>
+<RunRecipe
+  recipeName="org.openrewrite.java.migrate.jakarta.RemovedJakartaFacesResourceResolver"
+  displayName="Replace `ResourceResolver` with `ResourceHandler`"
+  groupId="org.openrewrite.recipe"
+  artifactId="rewrite-migrate-java"
+  versionKey="VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_MIGRATE_JAVA"
+  showGradle={false}
+  showMaven={false}
+  hasDataTables
+/>
 
 ## See how this recipe works across multiple open-source repositories
 

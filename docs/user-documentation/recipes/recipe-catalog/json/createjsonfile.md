@@ -9,6 +9,7 @@ sidebar_label: "Create JSON file"
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import RunRecipe from '@site/src/components/RunRecipe';
 
 # Create JSON file
 
@@ -52,21 +53,15 @@ recipeList:
       fileContentsUrl: http://foo.bar/baz.json
 ```
 
-<Tabs groupId="projectType">
-<TabItem value="moderne-cli" label="Moderne CLI">
-
-You will need to have configured the [Moderne CLI](https://docs.moderne.io/user-documentation/moderne-cli/getting-started/cli-intro) on your machine before you can run the following command.
-
-```shell title="shell"
-mod run . --recipe CreateJsonFile --recipe-option "relativeFileName=foo/bar/baz.json" --recipe-option "fileContents='{"a": {"property": "value"}, "another": {"property": "value"}}'" --recipe-option "fileContentsUrl=http://foo.bar/baz.json"
-```
-
-If the recipe is not available locally, then you can install it using:
-```shell
-mod config recipes jar install org.openrewrite:rewrite-json:{{VERSION_ORG_OPENREWRITE_REWRITE_JSON}}
-```
-</TabItem>
-</Tabs>
+<RunRecipe
+  recipeName="org.openrewrite.json.CreateJsonFile"
+  displayName="Create JSON file"
+  requiresConfiguration
+  cliOptions={' --recipe-option "relativeFileName=foo/bar/baz.json" --recipe-option "fileContents='{"a": {"property": "value"}, "another": {"property": "value"}}'" --recipe-option "fileContentsUrl=http://foo.bar/baz.json"'}
+  showGradle={false}
+  showMaven={false}
+  hasDataTables
+/>
 
 ## See how this recipe works across multiple open-source repositories
 

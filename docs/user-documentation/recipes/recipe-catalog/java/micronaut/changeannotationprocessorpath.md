@@ -9,6 +9,7 @@ sidebar_label: "Change Maven annotation processor path"
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import RunRecipe from '@site/src/components/RunRecipe';
 
 # Change Maven annotation processor path
 
@@ -65,21 +66,18 @@ recipeList:
         - io.micronaut:micronaut-inject
 ```
 
-<Tabs groupId="projectType">
-<TabItem value="moderne-cli" label="Moderne CLI">
-
-You will need to have configured the [Moderne CLI](https://docs.moderne.io/user-documentation/moderne-cli/getting-started/cli-intro) on your machine before you can run the following command.
-
-```shell title="shell"
-mod run . --recipe ChangeAnnotationProcessorPath --recipe-option "oldGroupId=org.openrewrite.recipe" --recipe-option "oldArtifactId=my-deprecated-annotation-processor" --recipe-option "newGroupId=corp.internal.openrewrite.recipe" --recipe-option "newArtifactId=my-new-annotation-processor" --recipe-option "newVersion=micronaut.validation" --recipe-option "exclusions=io.micronaut:micronaut-inject"
-```
-
-If the recipe is not available locally, then you can install it using:
-```shell
-mod config recipes jar install org.openrewrite.recipe:rewrite-micronaut:{{VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_MICRONAUT}}
-```
-</TabItem>
-</Tabs>
+<RunRecipe
+  recipeName="org.openrewrite.java.micronaut.ChangeAnnotationProcessorPath"
+  displayName="Change Maven annotation processor path"
+  groupId="org.openrewrite.recipe"
+  artifactId="rewrite-micronaut"
+  versionKey="VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_MICRONAUT"
+  requiresConfiguration
+  cliOptions={' --recipe-option "oldGroupId=org.openrewrite.recipe" --recipe-option "oldArtifactId=my-deprecated-annotation-processor" --recipe-option "newGroupId=corp.internal.openrewrite.recipe" --recipe-option "newArtifactId=my-new-annotation-processor" --recipe-option "newVersion=micronaut.validation" --recipe-option "exclusions=io.micronaut:micronaut-inject"'}
+  showGradle={false}
+  showMaven={false}
+  hasDataTables
+/>
 
 ## See how this recipe works across multiple open-source repositories
 

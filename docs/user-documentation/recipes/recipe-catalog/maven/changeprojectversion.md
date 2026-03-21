@@ -9,6 +9,7 @@ sidebar_label: "Change Maven Project Version"
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import RunRecipe from '@site/src/components/RunRecipe';
 
 # Change Maven Project Version
 
@@ -101,21 +102,15 @@ recipeList:
       newVersion: 8.4.2
 ```
 
-<Tabs groupId="projectType">
-<TabItem value="moderne-cli" label="Moderne CLI">
-
-You will need to have configured the [Moderne CLI](https://docs.moderne.io/user-documentation/moderne-cli/getting-started/cli-intro) on your machine before you can run the following command.
-
-```shell title="shell"
-mod run . --recipe ChangeProjectVersion --recipe-option "groupId=org.openrewrite" --recipe-option "artifactId='*'" --recipe-option "newVersion=8.4.2"
-```
-
-If the recipe is not available locally, then you can install it using:
-```shell
-mod config recipes jar install org.openrewrite:rewrite-maven:{{VERSION_ORG_OPENREWRITE_REWRITE_MAVEN}}
-```
-</TabItem>
-</Tabs>
+<RunRecipe
+  recipeName="org.openrewrite.maven.ChangeProjectVersion"
+  displayName="Change Maven Project Version"
+  requiresConfiguration
+  cliOptions={' --recipe-option "groupId=org.openrewrite" --recipe-option "artifactId='*'" --recipe-option "newVersion=8.4.2"'}
+  showGradle={false}
+  showMaven={false}
+  hasDataTables
+/>
 
 ## See how this recipe works across multiple open-source repositories
 

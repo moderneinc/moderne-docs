@@ -9,6 +9,7 @@ sidebar_label: "Adjust configuration classes to use the `WebServerFactoryCustomi
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import RunRecipe from '@site/src/components/RunRecipe';
 
 # Adjust configuration classes to use the `WebServerFactoryCustomizer` interface
 
@@ -34,24 +35,16 @@ This recipe is used as part of the following composite recipes:
 
 ## Usage
 
-This recipe has no required configuration options. Users of Moderne can run it via the Moderne CLI.
-<Tabs groupId="projectType">
-
-
-<TabItem value="moderne-cli" label="Moderne CLI">
-
-You will need to have configured the [Moderne CLI](https://docs.moderne.io/user-documentation/moderne-cli/getting-started/cli-intro) on your machine before you can run the following command.
-
-```shell title="shell"
-mod run . --recipe ChangeEmbeddedServletContainerCustomizer
-```
-
-If the recipe is not available locally, then you can install it using:
-```shell
-mod config recipes jar install org.openrewrite.recipe:rewrite-spring:{{VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_SPRING}}
-```
-</TabItem>
-</Tabs>
+<RunRecipe
+  recipeName="org.openrewrite.java.spring.boot2.ChangeEmbeddedServletContainerCustomizer"
+  displayName="Adjust configuration classes to use the `WebServerFactoryCustomizer` interface"
+  groupId="org.openrewrite.recipe"
+  artifactId="rewrite-spring"
+  versionKey="VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_SPRING"
+  showGradle={false}
+  showMaven={false}
+  hasDataTables
+/>
 
 ## See how this recipe works across multiple open-source repositories
 

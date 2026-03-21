@@ -9,6 +9,7 @@ sidebar_label: "Replace beans.xml file"
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import RunRecipe from '@site/src/components/RunRecipe';
 
 # Replace beans.xml file
 
@@ -80,24 +81,16 @@ This recipe is available under the [Apache License Version 2.0](https://www.apac
 
 ## Usage
 
-This recipe has no required configuration options. Users of Moderne can run it via the Moderne CLI.
-<Tabs groupId="projectType">
-
-
-<TabItem value="moderne-cli" label="Moderne CLI">
-
-You will need to have configured the [Moderne CLI](https://docs.moderne.io/user-documentation/moderne-cli/getting-started/cli-intro) on your machine before you can run the following command.
-
-```shell title="shell"
-mod run . --recipe WebBeansXmlRule
-```
-
-If the recipe is not available locally, then you can install it using:
-```shell
-mod config recipes jar install org.openrewrite.recipe:rewrite-liberty:{{VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_LIBERTY}}
-```
-</TabItem>
-</Tabs>
+<RunRecipe
+  recipeName="org.openrewrite.xml.liberty.WebBeansXmlRule"
+  displayName="Replace beans.xml file"
+  groupId="org.openrewrite.recipe"
+  artifactId="rewrite-liberty"
+  versionKey="VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_LIBERTY"
+  showGradle={false}
+  showMaven={false}
+  hasDataTables
+/>
 
 ## See how this recipe works across multiple open-source repositories
 

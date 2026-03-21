@@ -4,6 +4,7 @@ sidebar_label: "Upgrade to .NET 7.0 using upgrade-assistant"
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import RunRecipe from '@site/src/components/RunRecipe';
 
 # Upgrade to .NET 7.0 using upgrade-assistant
 
@@ -21,24 +22,16 @@ This recipe is available under the [Moderne Proprietary License](https://docs.mo
 
 ## Usage
 
-This recipe has no required configuration options. Users of Moderne can run it via the Moderne CLI.
-<Tabs groupId="projectType">
-
-
-<TabItem value="moderne-cli" label="Moderne CLI">
-
-You will need to have configured the [Moderne CLI](https://docs.moderne.io/user-documentation/moderne-cli/getting-started/cli-intro) on your machine before you can run the following command.
-
-```shell title="shell"
-mod run . --recipe MigrateToNet7
-```
-
-If the recipe is not available locally, then you can install it using:
-```shell
-mod config recipes jar install org.openrewrite.recipe:rewrite-dotnet:{{VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_DOTNET}}
-```
-</TabItem>
-</Tabs>
+<RunRecipe
+  recipeName="org.openrewrite.dotnet.MigrateToNet7"
+  displayName="Upgrade to .NET 7.0 using upgrade-assistant"
+  groupId="org.openrewrite.recipe"
+  artifactId="rewrite-dotnet"
+  versionKey="VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_DOTNET"
+  showGradle={false}
+  showMaven={false}
+  hasDataTables
+/>
 
 ## See how this recipe works across multiple open-source repositories
 

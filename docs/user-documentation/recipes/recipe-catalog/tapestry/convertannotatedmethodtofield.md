@@ -4,6 +4,7 @@ sidebar_label: "Convert annotated abstract method to field"
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import RunRecipe from '@site/src/components/RunRecipe';
 
 # Convert annotated abstract method to field
 
@@ -177,21 +178,18 @@ recipeList:
       preserveAnnotationArguments: true
 ```
 
-<Tabs groupId="projectType">
-<TabItem value="moderne-cli" label="Moderne CLI">
-
-You will need to have configured the [Moderne CLI](https://docs.moderne.io/user-documentation/moderne-cli/getting-started/cli-intro) on your machine before you can run the following command.
-
-```shell title="shell"
-mod run . --recipe ConvertAnnotatedMethodToField --recipe-option "sourceAnnotation=org.apache.tapestry.annotations.InjectObject" --recipe-option "targetAnnotation=org.apache.tapestry5.ioc.annotations.Inject" --recipe-option "preserveAnnotationArguments=true"
-```
-
-If the recipe is not available locally, then you can install it using:
-```shell
-mod config recipes jar install io.moderne.recipe:rewrite-tapestry:{{VERSION_IO_MODERNE_RECIPE_REWRITE_TAPESTRY}}
-```
-</TabItem>
-</Tabs>
+<RunRecipe
+  recipeName="org.openrewrite.tapestry.ConvertAnnotatedMethodToField"
+  displayName="Convert annotated abstract method to field"
+  groupId="io.moderne.recipe"
+  artifactId="rewrite-tapestry"
+  versionKey="VERSION_IO_MODERNE_RECIPE_REWRITE_TAPESTRY"
+  requiresConfiguration
+  cliOptions={' --recipe-option "sourceAnnotation=org.apache.tapestry.annotations.InjectObject" --recipe-option "targetAnnotation=org.apache.tapestry5.ioc.annotations.Inject" --recipe-option "preserveAnnotationArguments=true"'}
+  showGradle={false}
+  showMaven={false}
+  hasDataTables
+/>
 
 ## See how this recipe works across multiple open-source repositories
 

@@ -9,6 +9,7 @@ sidebar_label: "Upgrade `weblogic.version` Maven property"
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import RunRecipe from '@site/src/components/RunRecipe';
 
 # Upgrade `weblogic.version` Maven property
 
@@ -55,21 +56,18 @@ recipeList:
       newVersion: 14.1.2-0-0
 ```
 
-<Tabs groupId="projectType">
-<TabItem value="moderne-cli" label="Moderne CLI">
-
-You will need to have configured the [Moderne CLI](https://docs.moderne.io/user-documentation/moderne-cli/getting-started/cli-intro) on your machine before you can run the following command.
-
-```shell title="shell"
-mod run . --recipe UpgradeWeblogicMavenPropertyVersion --recipe-option "newVersion=14.1.2-0-0"
-```
-
-If the recipe is not available locally, then you can install it using:
-```shell
-mod config recipes jar install org.openrewrite.recipe:rewrite-third-party:{{VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY}}
-```
-</TabItem>
-</Tabs>
+<RunRecipe
+  recipeName="com.oracle.weblogic.rewrite.UpgradeWeblogicMavenPropertyVersion"
+  displayName="Upgrade `weblogic.version` Maven property"
+  groupId="org.openrewrite.recipe"
+  artifactId="rewrite-third-party"
+  versionKey="VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY"
+  requiresConfiguration
+  cliOptions={' --recipe-option "newVersion=14.1.2-0-0"'}
+  showGradle={false}
+  showMaven={false}
+  hasDataTables
+/>
 
 ## See how this recipe works across multiple open-source repositories
 

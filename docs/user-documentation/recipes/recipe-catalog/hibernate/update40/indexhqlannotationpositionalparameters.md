@@ -4,6 +4,7 @@ sidebar_label: "Index HQL/JPQL positional parameters in annotations"
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import RunRecipe from '@site/src/components/RunRecipe';
 
 # Index HQL/JPQL positional parameters in annotations
 
@@ -105,21 +106,18 @@ recipeList:
       attributeName: value
 ```
 
-<Tabs groupId="projectType">
-<TabItem value="moderne-cli" label="Moderne CLI">
-
-You will need to have configured the [Moderne CLI](https://docs.moderne.io/user-documentation/moderne-cli/getting-started/cli-intro) on your machine before you can run the following command.
-
-```shell title="shell"
-mod run . --recipe IndexHqlAnnotationPositionalParameters --recipe-option "annotationPattern='@jakarta.persistence.NamedQuery'" --recipe-option "attributeName=value"
-```
-
-If the recipe is not available locally, then you can install it using:
-```shell
-mod config recipes jar install io.moderne.recipe:rewrite-hibernate:{{VERSION_IO_MODERNE_RECIPE_REWRITE_HIBERNATE}}
-```
-</TabItem>
-</Tabs>
+<RunRecipe
+  recipeName="io.moderne.hibernate.update40.IndexHqlAnnotationPositionalParameters"
+  displayName="Index HQL/JPQL positional parameters in annotations"
+  groupId="io.moderne.recipe"
+  artifactId="rewrite-hibernate"
+  versionKey="VERSION_IO_MODERNE_RECIPE_REWRITE_HIBERNATE"
+  requiresConfiguration
+  cliOptions={' --recipe-option "annotationPattern='@jakarta.persistence.NamedQuery'" --recipe-option "attributeName=value"'}
+  showGradle={false}
+  showMaven={false}
+  hasDataTables
+/>
 
 ## See how this recipe works across multiple open-source repositories
 

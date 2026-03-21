@@ -9,6 +9,7 @@ sidebar_label: "Use Maven compiler plugin release configuration"
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import RunRecipe from '@site/src/components/RunRecipe';
 
 # Use Maven compiler plugin release configuration
 
@@ -152,21 +153,18 @@ recipeList:
       releaseVersion: 11
 ```
 
-<Tabs groupId="projectType">
-<TabItem value="moderne-cli" label="Moderne CLI">
-
-You will need to have configured the [Moderne CLI](https://docs.moderne.io/user-documentation/moderne-cli/getting-started/cli-intro) on your machine before you can run the following command.
-
-```shell title="shell"
-mod run . --recipe UseMavenCompilerPluginReleaseConfiguration --recipe-option "releaseVersion=11"
-```
-
-If the recipe is not available locally, then you can install it using:
-```shell
-mod config recipes jar install org.openrewrite.recipe:rewrite-migrate-java:{{VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_MIGRATE_JAVA}}
-```
-</TabItem>
-</Tabs>
+<RunRecipe
+  recipeName="org.openrewrite.java.migrate.maven.UseMavenCompilerPluginReleaseConfiguration"
+  displayName="Use Maven compiler plugin release configuration"
+  groupId="org.openrewrite.recipe"
+  artifactId="rewrite-migrate-java"
+  versionKey="VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_MIGRATE_JAVA"
+  requiresConfiguration
+  cliOptions={' --recipe-option "releaseVersion=11"'}
+  showGradle={false}
+  showMaven={false}
+  hasDataTables
+/>
 
 ## See how this recipe works across multiple open-source repositories
 

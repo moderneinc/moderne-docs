@@ -4,6 +4,7 @@ sidebar_label: "Get embeddings for code snippets in code"
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import RunRecipe from '@site/src/components/RunRecipe';
 
 # Get embeddings for code snippets in code
 
@@ -41,21 +42,18 @@ recipeList:
       codeSnippetType: methods
 ```
 
-<Tabs groupId="projectType">
-<TabItem value="moderne-cli" label="Moderne CLI">
-
-You will need to have configured the [Moderne CLI](https://docs.moderne.io/user-documentation/moderne-cli/getting-started/cli-intro) on your machine before you can run the following command.
-
-```shell title="shell"
-mod run . --recipe GetCodeEmbedding --recipe-option "codeSnippetType=methods"
-```
-
-If the recipe is not available locally, then you can install it using:
-```shell
-mod config recipes jar install org.openrewrite.recipe:rewrite-ai-search:{{VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_AI_SEARCH}}
-```
-</TabItem>
-</Tabs>
+<RunRecipe
+  recipeName="io.moderne.ai.research.GetCodeEmbedding"
+  displayName="Get embeddings for code snippets in code"
+  groupId="org.openrewrite.recipe"
+  artifactId="rewrite-ai-search"
+  versionKey="VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_AI_SEARCH"
+  requiresConfiguration
+  cliOptions={' --recipe-option "codeSnippetType=methods"'}
+  showGradle={false}
+  showMaven={false}
+  hasDataTables
+/>
 
 ## See how this recipe works across multiple open-source repositories
 

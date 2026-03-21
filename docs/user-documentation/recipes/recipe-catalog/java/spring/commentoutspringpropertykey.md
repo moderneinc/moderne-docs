@@ -9,6 +9,7 @@ sidebar_label: "Comment out Spring properties"
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import RunRecipe from '@site/src/components/RunRecipe';
 
 # Comment out Spring properties
 
@@ -118,21 +119,18 @@ recipeList:
       comment: This property is deprecated and no longer applicable starting from Spring Boot 3.0.x
 ```
 
-<Tabs groupId="projectType">
-<TabItem value="moderne-cli" label="Moderne CLI">
-
-You will need to have configured the [Moderne CLI](https://docs.moderne.io/user-documentation/moderne-cli/getting-started/cli-intro) on your machine before you can run the following command.
-
-```shell title="shell"
-mod run . --recipe CommentOutSpringPropertyKey --recipe-option "propertyKey=management.metrics.binders.files.enabled" --recipe-option "comment=This property is deprecated and no longer applicable starting from Spring Boot 3.0.x"
-```
-
-If the recipe is not available locally, then you can install it using:
-```shell
-mod config recipes jar install org.openrewrite.recipe:rewrite-spring:{{VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_SPRING}}
-```
-</TabItem>
-</Tabs>
+<RunRecipe
+  recipeName="org.openrewrite.java.spring.CommentOutSpringPropertyKey"
+  displayName="Comment out Spring properties"
+  groupId="org.openrewrite.recipe"
+  artifactId="rewrite-spring"
+  versionKey="VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_SPRING"
+  requiresConfiguration
+  cliOptions={' --recipe-option "propertyKey=management.metrics.binders.files.enabled" --recipe-option "comment=This property is deprecated and no longer applicable starting from Spring Boot 3.0.x"'}
+  showGradle={false}
+  showMaven={false}
+  hasDataTables
+/>
 
 ## See how this recipe works across multiple open-source repositories
 

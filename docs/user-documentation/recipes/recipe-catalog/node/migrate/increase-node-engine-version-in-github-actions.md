@@ -4,6 +4,7 @@ sidebar_label: "Increase Node.js version in GitHub Actions"
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import RunRecipe from '@site/src/components/RunRecipe';
 
 # Increase Node.js version in GitHub Actions
 
@@ -35,17 +36,8 @@ This recipe is used as part of the following composite recipes:
 
 ## Usage
 
-In order to run JavaScript recipes, you will need to use the [Moderne CLI](https://docs.moderne.io/user-documentation/moderne-cli/getting-started/cli-intro).
-For JavaScript specific configuration instructions, please see our [configuring JavaScript guide](https://docs.moderne.io/user-documentation/moderne-cli/how-to-guides/javascript).
-
-Once the CLI is installed, you can install this JavaScript recipe package by running the following command:
-
-```shell title="Install the recipe package"
-mod config recipes npm install @openrewrite/recipes-nodejs
-```
-
-Then, you can run the recipe via:
-
-```shell title="Run the recipe"
-mod run . --recipe org.openrewrite.node.migrate.increase-node-engine-version-in-github-actions
-```
+<RunRecipe
+  recipeName="org.openrewrite.node.migrate.increase-node-engine-version-in-github-actions"
+  displayName="Increase Node.js version in GitHub Actions"
+  npmPackage="@openrewrite/recipes-nodejs"
+/>

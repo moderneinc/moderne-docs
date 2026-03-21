@@ -9,6 +9,7 @@ sidebar_label: "Sync Maven Compiler plugin annotation processor version with the
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import RunRecipe from '@site/src/components/RunRecipe';
 
 # Sync Maven Compiler plugin annotation processor version with the one provided by the BOM
 
@@ -62,21 +63,18 @@ recipeList:
       artifactId: hibernate-jpamodelgen
 ```
 
-<Tabs groupId="projectType">
-<TabItem value="moderne-cli" label="Moderne CLI">
-
-You will need to have configured the [Moderne CLI](https://docs.moderne.io/user-documentation/moderne-cli/getting-started/cli-intro) on your machine before you can run the following command.
-
-```shell title="shell"
-mod run . --recipe SyncMavenCompilerAnnotationProcessorVersion --recipe-option "groupId=org.hibernate.orm" --recipe-option "artifactId=hibernate-jpamodelgen"
-```
-
-If the recipe is not available locally, then you can install it using:
-```shell
-mod config recipes jar install org.openrewrite.recipe:rewrite-third-party:{{VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY}}
-```
-</TabItem>
-</Tabs>
+<RunRecipe
+  recipeName="io.quarkus.updates.core.quarkus37.SyncMavenCompilerAnnotationProcessorVersion"
+  displayName="Sync Maven Compiler plugin annotation processor version with the one provided by the BOM"
+  groupId="org.openrewrite.recipe"
+  artifactId="rewrite-third-party"
+  versionKey="VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY"
+  requiresConfiguration
+  cliOptions={' --recipe-option "groupId=org.hibernate.orm" --recipe-option "artifactId=hibernate-jpamodelgen"'}
+  showGradle={false}
+  showMaven={false}
+  hasDataTables
+/>
 
 ## See how this recipe works across multiple open-source repositories
 

@@ -9,6 +9,7 @@ sidebar_label: "Find Gradle dependency"
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import RunRecipe from '@site/src/components/RunRecipe';
 
 # Find Gradle dependency
 
@@ -121,21 +122,15 @@ recipeList:
       versionPattern: '-jre'
 ```
 
-<Tabs groupId="projectType">
-<TabItem value="moderne-cli" label="Moderne CLI">
-
-You will need to have configured the [Moderne CLI](https://docs.moderne.io/user-documentation/moderne-cli/getting-started/cli-intro) on your machine before you can run the following command.
-
-```shell title="shell"
-mod run . --recipe FindDependency --recipe-option "groupId=com.google.guava" --recipe-option "artifactId=guava" --recipe-option "configuration=api" --recipe-option "version=3.0.0" --recipe-option "versionPattern='-jre'"
-```
-
-If the recipe is not available locally, then you can install it using:
-```shell
-mod config recipes jar install org.openrewrite:rewrite-gradle:{{VERSION_ORG_OPENREWRITE_REWRITE_GRADLE}}
-```
-</TabItem>
-</Tabs>
+<RunRecipe
+  recipeName="org.openrewrite.gradle.search.FindDependency"
+  displayName="Find Gradle dependency"
+  requiresConfiguration
+  cliOptions={' --recipe-option "groupId=com.google.guava" --recipe-option "artifactId=guava" --recipe-option "configuration=api" --recipe-option "version=3.0.0" --recipe-option "versionPattern='-jre'"'}
+  showGradle={false}
+  showMaven={false}
+  hasDataTables
+/>
 
 ## See how this recipe works across multiple open-source repositories
 

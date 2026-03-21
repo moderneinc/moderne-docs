@@ -4,6 +4,7 @@ sidebar_label: "Service type"
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import RunRecipe from '@site/src/components/RunRecipe';
 
 # Service type
 
@@ -172,21 +173,18 @@ recipeList:
       fileMatcher: '**/pod-*.yml'
 ```
 
-<Tabs groupId="projectType">
-<TabItem value="moderne-cli" label="Moderne CLI">
-
-You will need to have configured the [Moderne CLI](https://docs.moderne.io/user-documentation/moderne-cli/getting-started/cli-intro) on your machine before you can run the following command.
-
-```shell title="shell"
-mod run . --recipe FindServicesByType --recipe-option "serviceType=NodePort" --recipe-option "fileMatcher='**/pod-*.yml'"
-```
-
-If the recipe is not available locally, then you can install it using:
-```shell
-mod config recipes jar install org.openrewrite.recipe:rewrite-kubernetes:{{VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_KUBERNETES}}
-```
-</TabItem>
-</Tabs>
+<RunRecipe
+  recipeName="org.openrewrite.kubernetes.services.FindServicesByType"
+  displayName="Service type"
+  groupId="org.openrewrite.recipe"
+  artifactId="rewrite-kubernetes"
+  versionKey="VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_KUBERNETES"
+  requiresConfiguration
+  cliOptions={' --recipe-option "serviceType=NodePort" --recipe-option "fileMatcher='**/pod-*.yml'"'}
+  showGradle={false}
+  showMaven={false}
+  hasDataTables
+/>
 
 ## See how this recipe works across multiple open-source repositories
 

@@ -9,6 +9,7 @@ sidebar_label: "Adds offset and length arguments to the write method of SharedOu
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import RunRecipe from '@site/src/components/RunRecipe';
 
 # Adds offset and length arguments to the write method of SharedOutputBuffer
 
@@ -34,24 +35,16 @@ This recipe is used as part of the following composite recipes:
 
 ## Usage
 
-This recipe has no required configuration options. Users of Moderne can run it via the Moderne CLI.
-<Tabs groupId="projectType">
-
-
-<TabItem value="moderne-cli" label="Moderne CLI">
-
-You will need to have configured the [Moderne CLI](https://docs.moderne.io/user-documentation/moderne-cli/getting-started/cli-intro) on your machine before you can run the following command.
-
-```shell title="shell"
-mod run . --recipe OutputBufferWriteAddOffsetAndLengthArguments
-```
-
-If the recipe is not available locally, then you can install it using:
-```shell
-mod config recipes jar install org.openrewrite.recipe:rewrite-apache:{{VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_APACHE}}
-```
-</TabItem>
-</Tabs>
+<RunRecipe
+  recipeName="org.openrewrite.apache.httpclient5.OutputBufferWriteAddOffsetAndLengthArguments"
+  displayName="Adds offset and length arguments to the write method of SharedOutputBuffer"
+  groupId="org.openrewrite.recipe"
+  artifactId="rewrite-apache"
+  versionKey="VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_APACHE"
+  showGradle={false}
+  showMaven={false}
+  hasDataTables
+/>
 
 ## See how this recipe works across multiple open-source repositories
 

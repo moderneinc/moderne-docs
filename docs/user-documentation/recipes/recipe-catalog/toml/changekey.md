@@ -9,6 +9,7 @@ sidebar_label: "Change TOML key"
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import RunRecipe from '@site/src/components/RunRecipe';
 
 # Change TOML key
 
@@ -86,21 +87,15 @@ recipeList:
       newKey: project-name
 ```
 
-<Tabs groupId="projectType">
-<TabItem value="moderne-cli" label="Moderne CLI">
-
-You will need to have configured the [Moderne CLI](https://docs.moderne.io/user-documentation/moderne-cli/getting-started/cli-intro) on your machine before you can run the following command.
-
-```shell title="shell"
-mod run . --recipe ChangeKey --recipe-option "oldKeyPath=package.name" --recipe-option "newKey=project-name"
-```
-
-If the recipe is not available locally, then you can install it using:
-```shell
-mod config recipes jar install org.openrewrite:rewrite-toml:{{VERSION_ORG_OPENREWRITE_REWRITE_TOML}}
-```
-</TabItem>
-</Tabs>
+<RunRecipe
+  recipeName="org.openrewrite.toml.ChangeKey"
+  displayName="Change TOML key"
+  requiresConfiguration
+  cliOptions={' --recipe-option "oldKeyPath=package.name" --recipe-option "newKey=project-name"'}
+  showGradle={false}
+  showMaven={false}
+  hasDataTables
+/>
 
 ## See how this recipe works across multiple open-source repositories
 

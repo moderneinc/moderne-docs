@@ -9,6 +9,7 @@ sidebar_label: "Upgrade Spring dependencies"
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import RunRecipe from '@site/src/components/RunRecipe';
 
 # Upgrade Spring dependencies
 
@@ -146,21 +147,18 @@ recipeList:
       toVersion: 3.0.0-M3
 ```
 
-<Tabs groupId="projectType">
-<TabItem value="moderne-cli" label="Moderne CLI">
-
-You will need to have configured the [Moderne CLI](https://docs.moderne.io/user-documentation/moderne-cli/getting-started/cli-intro) on your machine before you can run the following command.
-
-```shell title="shell"
-mod run . --recipe UpgradeExplicitSpringBootDependencies --recipe-option "fromVersion= 2.7.+" --recipe-option "toVersion=3.0.0-M3"
-```
-
-If the recipe is not available locally, then you can install it using:
-```shell
-mod config recipes jar install org.openrewrite.recipe:rewrite-spring:{{VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_SPRING}}
-```
-</TabItem>
-</Tabs>
+<RunRecipe
+  recipeName="org.openrewrite.maven.spring.UpgradeExplicitSpringBootDependencies"
+  displayName="Upgrade Spring dependencies"
+  groupId="org.openrewrite.recipe"
+  artifactId="rewrite-spring"
+  versionKey="VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_SPRING"
+  requiresConfiguration
+  cliOptions={' --recipe-option "fromVersion= 2.7.+" --recipe-option "toVersion=3.0.0-M3"'}
+  showGradle={false}
+  showMaven={false}
+  hasDataTables
+/>
 
 ## See how this recipe works across multiple open-source repositories
 

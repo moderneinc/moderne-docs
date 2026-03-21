@@ -9,6 +9,7 @@ sidebar_label: "Remove a Gradle or Maven dependency"
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import RunRecipe from '@site/src/components/RunRecipe';
 
 # Remove a Gradle or Maven dependency
 
@@ -209,21 +210,18 @@ recipeList:
       scope: compile
 ```
 
-<Tabs groupId="projectType">
-<TabItem value="moderne-cli" label="Moderne CLI">
-
-You will need to have configured the [Moderne CLI](https://docs.moderne.io/user-documentation/moderne-cli/getting-started/cli-intro) on your machine before you can run the following command.
-
-```shell title="shell"
-mod run . --recipe RemoveDependency --recipe-option "groupId=com.fasterxml.jackson*" --recipe-option "artifactId=jackson-module*" --recipe-option "unlessUsing=org.aspectj.lang.*" --recipe-option "configuration=api" --recipe-option "scope=compile"
-```
-
-If the recipe is not available locally, then you can install it using:
-```shell
-mod config recipes jar install org.openrewrite.recipe:rewrite-java-dependencies:{{VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_JAVA_DEPENDENCIES}}
-```
-</TabItem>
-</Tabs>
+<RunRecipe
+  recipeName="org.openrewrite.java.dependencies.RemoveDependency"
+  displayName="Remove a Gradle or Maven dependency"
+  groupId="org.openrewrite.recipe"
+  artifactId="rewrite-java-dependencies"
+  versionKey="VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_JAVA_DEPENDENCIES"
+  requiresConfiguration
+  cliOptions={' --recipe-option "groupId=com.fasterxml.jackson*" --recipe-option "artifactId=jackson-module*" --recipe-option "unlessUsing=org.aspectj.lang.*" --recipe-option "configuration=api" --recipe-option "scope=compile"'}
+  showGradle={false}
+  showMaven={false}
+  hasDataTables
+/>
 
 ## See how this recipe works across multiple open-source repositories
 

@@ -4,6 +4,7 @@ sidebar_label: "Remove leaking of SharedSessionContractImplementor from `org.hib
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import RunRecipe from '@site/src/components/RunRecipe';
 
 # Remove leaking of SharedSessionContractImplementor from `org.hibernate.usertype.UserType` implementations
 
@@ -103,24 +104,16 @@ import org.hibernate.usertype.UserType;
 
 ## Usage
 
-This recipe has no required configuration options. Users of Moderne can run it via the Moderne CLI.
-<Tabs groupId="projectType">
-
-
-<TabItem value="moderne-cli" label="Moderne CLI">
-
-You will need to have configured the [Moderne CLI](https://docs.moderne.io/user-documentation/moderne-cli/getting-started/cli-intro) on your machine before you can run the following command.
-
-```shell title="shell"
-mod run . --recipe UserTypeSharedSessionContractImplementor
-```
-
-If the recipe is not available locally, then you can install it using:
-```shell
-mod config recipes jar install io.moderne.recipe:rewrite-hibernate:{{VERSION_IO_MODERNE_RECIPE_REWRITE_HIBERNATE}}
-```
-</TabItem>
-</Tabs>
+<RunRecipe
+  recipeName="io.moderne.hibernate.update70.UserTypeSharedSessionContractImplementor"
+  displayName="Remove leaking of SharedSessionContractImplementor from `org.hibernate.usertype.UserType` implementations"
+  groupId="io.moderne.recipe"
+  artifactId="rewrite-hibernate"
+  versionKey="VERSION_IO_MODERNE_RECIPE_REWRITE_HIBERNATE"
+  showGradle={false}
+  showMaven={false}
+  hasDataTables
+/>
 
 ## See how this recipe works across multiple open-source repositories
 

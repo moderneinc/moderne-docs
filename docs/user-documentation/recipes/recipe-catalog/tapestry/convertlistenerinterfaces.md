@@ -4,6 +4,7 @@ sidebar_label: "Convert Tapestry 4 listener interfaces to Tapestry 5 annotations
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import RunRecipe from '@site/src/components/RunRecipe';
 
 # Convert Tapestry 4 listener interfaces to Tapestry 5 annotations
 
@@ -85,24 +86,16 @@ public class MyPage implements PageBeginRenderListener {
 
 ## Usage
 
-This recipe has no required configuration options. Users of Moderne can run it via the Moderne CLI.
-<Tabs groupId="projectType">
-
-
-<TabItem value="moderne-cli" label="Moderne CLI">
-
-You will need to have configured the [Moderne CLI](https://docs.moderne.io/user-documentation/moderne-cli/getting-started/cli-intro) on your machine before you can run the following command.
-
-```shell title="shell"
-mod run . --recipe ConvertListenerInterfaces
-```
-
-If the recipe is not available locally, then you can install it using:
-```shell
-mod config recipes jar install io.moderne.recipe:rewrite-tapestry:{{VERSION_IO_MODERNE_RECIPE_REWRITE_TAPESTRY}}
-```
-</TabItem>
-</Tabs>
+<RunRecipe
+  recipeName="org.openrewrite.tapestry.ConvertListenerInterfaces"
+  displayName="Convert Tapestry 4 listener interfaces to Tapestry 5 annotations"
+  groupId="io.moderne.recipe"
+  artifactId="rewrite-tapestry"
+  versionKey="VERSION_IO_MODERNE_RECIPE_REWRITE_TAPESTRY"
+  showGradle={false}
+  showMaven={false}
+  hasDataTables
+/>
 
 ## See how this recipe works across multiple open-source repositories
 

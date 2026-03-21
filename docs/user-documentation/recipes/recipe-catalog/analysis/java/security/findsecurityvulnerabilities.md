@@ -4,6 +4,7 @@ sidebar_label: "Find security vulnerabilities using taint analysis"
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import RunRecipe from '@site/src/components/RunRecipe';
 
 # Find security vulnerabilities using taint analysis
 
@@ -70,24 +71,16 @@ public class UserController {
 
 ## Usage
 
-This recipe has no required configuration options. Users of Moderne can run it via the Moderne CLI.
-<Tabs groupId="projectType">
-
-
-<TabItem value="moderne-cli" label="Moderne CLI">
-
-You will need to have configured the [Moderne CLI](https://docs.moderne.io/user-documentation/moderne-cli/getting-started/cli-intro) on your machine before you can run the following command.
-
-```shell title="shell"
-mod run . --recipe FindSecurityVulnerabilities
-```
-
-If the recipe is not available locally, then you can install it using:
-```shell
-mod config recipes jar install io.moderne.recipe:rewrite-program-analysis:{{VERSION_IO_MODERNE_RECIPE_REWRITE_PROGRAM_ANALYSIS}}
-```
-</TabItem>
-</Tabs>
+<RunRecipe
+  recipeName="org.openrewrite.analysis.java.security.FindSecurityVulnerabilities"
+  displayName="Find security vulnerabilities using taint analysis"
+  groupId="io.moderne.recipe"
+  artifactId="rewrite-program-analysis"
+  versionKey="VERSION_IO_MODERNE_RECIPE_REWRITE_PROGRAM_ANALYSIS"
+  showGradle={false}
+  showMaven={false}
+  hasDataTables
+/>
 
 ## See how this recipe works across multiple open-source repositories
 

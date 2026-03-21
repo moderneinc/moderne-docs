@@ -9,6 +9,7 @@ sidebar_label: "Update OWASP suppression date bounds"
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import RunRecipe from '@site/src/components/RunRecipe';
 
 # Update OWASP suppression date bounds
 
@@ -105,21 +106,15 @@ recipeList:
       untilDate: 2023-01-01
 ```
 
-<Tabs groupId="projectType">
-<TabItem value="moderne-cli" label="Moderne CLI">
-
-You will need to have configured the [Moderne CLI](https://docs.moderne.io/user-documentation/moderne-cli/getting-started/cli-intro) on your machine before you can run the following command.
-
-```shell title="shell"
-mod run . --recipe UpdateOwaspSuppressionDate --recipe-option "cveList=CVE-2022-1234" --recipe-option "untilDate=2023-01-01"
-```
-
-If the recipe is not available locally, then you can install it using:
-```shell
-mod config recipes jar install org.openrewrite:rewrite-xml:{{VERSION_ORG_OPENREWRITE_REWRITE_XML}}
-```
-</TabItem>
-</Tabs>
+<RunRecipe
+  recipeName="org.openrewrite.xml.security.UpdateOwaspSuppressionDate"
+  displayName="Update OWASP suppression date bounds"
+  requiresConfiguration
+  cliOptions={' --recipe-option "cveList=CVE-2022-1234" --recipe-option "untilDate=2023-01-01"'}
+  showGradle={false}
+  showMaven={false}
+  hasDataTables
+/>
 
 ## See how this recipe works across multiple open-source repositories
 

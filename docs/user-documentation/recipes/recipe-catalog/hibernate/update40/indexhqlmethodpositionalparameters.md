@@ -4,6 +4,7 @@ sidebar_label: "Index HQL/JPQL positional parameters in method calls"
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import RunRecipe from '@site/src/components/RunRecipe';
 
 # Index HQL/JPQL positional parameters in method calls
 
@@ -96,21 +97,18 @@ recipeList:
       methodPattern: org.hibernate.Session createQuery(String,..)
 ```
 
-<Tabs groupId="projectType">
-<TabItem value="moderne-cli" label="Moderne CLI">
-
-You will need to have configured the [Moderne CLI](https://docs.moderne.io/user-documentation/moderne-cli/getting-started/cli-intro) on your machine before you can run the following command.
-
-```shell title="shell"
-mod run . --recipe IndexHqlMethodPositionalParameters --recipe-option "methodPattern=org.hibernate.Session createQuery(String,..)"
-```
-
-If the recipe is not available locally, then you can install it using:
-```shell
-mod config recipes jar install io.moderne.recipe:rewrite-hibernate:{{VERSION_IO_MODERNE_RECIPE_REWRITE_HIBERNATE}}
-```
-</TabItem>
-</Tabs>
+<RunRecipe
+  recipeName="io.moderne.hibernate.update40.IndexHqlMethodPositionalParameters"
+  displayName="Index HQL/JPQL positional parameters in method calls"
+  groupId="io.moderne.recipe"
+  artifactId="rewrite-hibernate"
+  versionKey="VERSION_IO_MODERNE_RECIPE_REWRITE_HIBERNATE"
+  requiresConfiguration
+  cliOptions={' --recipe-option "methodPattern=org.hibernate.Session createQuery(String,..)"'}
+  showGradle={false}
+  showMaven={false}
+  hasDataTables
+/>
 
 ## See how this recipe works across multiple open-source repositories
 

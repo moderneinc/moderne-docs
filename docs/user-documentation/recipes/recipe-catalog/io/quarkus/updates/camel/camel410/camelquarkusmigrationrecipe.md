@@ -9,6 +9,7 @@ sidebar_label: "Migrates `camel 4.9` application to `camel 4.10`"
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import RunRecipe from '@site/src/components/RunRecipe';
 
 # Migrates `camel 4.9` application to `camel 4.10`
 
@@ -58,24 +59,16 @@ This recipe is used as part of the following composite recipes:
 
 ## Usage
 
-This recipe has no required configuration options. Users of Moderne can run it via the Moderne CLI.
-<Tabs groupId="projectType">
-
-
-<TabItem value="moderne-cli" label="Moderne CLI">
-
-You will need to have configured the [Moderne CLI](https://docs.moderne.io/user-documentation/moderne-cli/getting-started/cli-intro) on your machine before you can run the following command.
-
-```shell title="shell"
-mod run . --recipe CamelQuarkusMigrationRecipe
-```
-
-If the recipe is not available locally, then you can install it using:
-```shell
-mod config recipes jar install org.openrewrite.recipe:rewrite-third-party:{{VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY}}
-```
-</TabItem>
-</Tabs>
+<RunRecipe
+  recipeName="io.quarkus.updates.camel.camel410.CamelQuarkusMigrationRecipe"
+  displayName="Migrates `camel 4.9` application to `camel 4.10`"
+  groupId="org.openrewrite.recipe"
+  artifactId="rewrite-third-party"
+  versionKey="VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY"
+  showGradle={false}
+  showMaven={false}
+  hasDataTables
+/>
 
 ## See how this recipe works across multiple open-source repositories
 

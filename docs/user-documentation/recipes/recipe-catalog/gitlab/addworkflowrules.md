@@ -9,6 +9,7 @@ sidebar_label: "Add workflow rules"
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import RunRecipe from '@site/src/components/RunRecipe';
 
 # Add workflow rules
 
@@ -113,21 +114,18 @@ recipeList:
       rules: '- if: $CI_PIPELINE_SOURCE == 'merge_request_event'\n- if: $CI_COMMIT_BRANCH && $CI_OPEN_MERGE_REQUESTS\n  when: never\n- if: $CI_COMMIT_BRANCH'
 ```
 
-<Tabs groupId="projectType">
-<TabItem value="moderne-cli" label="Moderne CLI">
-
-You will need to have configured the [Moderne CLI](https://docs.moderne.io/user-documentation/moderne-cli/getting-started/cli-intro) on your machine before you can run the following command.
-
-```shell title="shell"
-mod run . --recipe AddWorkflowRules --recipe-option "rules='- if: $CI_PIPELINE_SOURCE == 'merge_request_event'\n- if: $CI_COMMIT_BRANCH && $CI_OPEN_MERGE_REQUESTS\n  when: never\n- if: $CI_COMMIT_BRANCH'"
-```
-
-If the recipe is not available locally, then you can install it using:
-```shell
-mod config recipes jar install org.openrewrite.recipe:rewrite-gitlab:{{VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_GITLAB}}
-```
-</TabItem>
-</Tabs>
+<RunRecipe
+  recipeName="org.openrewrite.gitlab.AddWorkflowRules"
+  displayName="Add workflow rules"
+  groupId="org.openrewrite.recipe"
+  artifactId="rewrite-gitlab"
+  versionKey="VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_GITLAB"
+  requiresConfiguration
+  cliOptions={' --recipe-option "rules='- if: $CI_PIPELINE_SOURCE == 'merge_request_event'\n- if: $CI_COMMIT_BRANCH && $CI_OPEN_MERGE_REQUESTS\n  when: never\n- if: $CI_COMMIT_BRANCH'"'}
+  showGradle={false}
+  showMaven={false}
+  hasDataTables
+/>
 
 ## See how this recipe works across multiple open-source repositories
 

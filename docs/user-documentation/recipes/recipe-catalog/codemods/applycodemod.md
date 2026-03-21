@@ -9,6 +9,7 @@ sidebar_label: "Applies a codemod to all source files"
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import RunRecipe from '@site/src/components/RunRecipe';
 
 # Applies a codemod to all source files
 
@@ -159,21 +160,18 @@ recipeList:
         - --force --jscodeshift='--parser=${parser}'
 ```
 
-<Tabs groupId="projectType">
-<TabItem value="moderne-cli" label="Moderne CLI">
-
-You will need to have configured the [Moderne CLI](https://docs.moderne.io/user-documentation/moderne-cli/getting-started/cli-intro) on your machine before you can run the following command.
-
-```shell title="shell"
-mod run . --recipe ApplyCodemod --recipe-option "transform='-t path/to/transform/optimus-prime'" --recipe-option "executable='@next/codemod/bin/next-codemod.js'" --recipe-option "fileFilter='**/*.(j|t)sx'" --recipe-option "codemodArgs=--force --jscodeshift='--parser=${parser}'"
-```
-
-If the recipe is not available locally, then you can install it using:
-```shell
-mod config recipes jar install org.openrewrite.recipe:rewrite-codemods:{{VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_CODEMODS}}
-```
-</TabItem>
-</Tabs>
+<RunRecipe
+  recipeName="org.openrewrite.codemods.ApplyCodemod"
+  displayName="Applies a codemod to all source files"
+  groupId="org.openrewrite.recipe"
+  artifactId="rewrite-codemods"
+  versionKey="VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_CODEMODS"
+  requiresConfiguration
+  cliOptions={' --recipe-option "transform='-t path/to/transform/optimus-prime'" --recipe-option "executable='@next/codemod/bin/next-codemod.js'" --recipe-option "fileFilter='**/*.(j|t)sx'" --recipe-option "codemodArgs=--force --jscodeshift='--parser=${parser}'"'}
+  showGradle={false}
+  showMaven={false}
+  hasDataTables
+/>
 
 ## See how this recipe works across multiple open-source repositories
 

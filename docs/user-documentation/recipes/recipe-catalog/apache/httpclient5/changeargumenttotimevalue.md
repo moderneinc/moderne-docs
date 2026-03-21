@@ -9,6 +9,7 @@ sidebar_label: "Changes an argument (or pair of arguments) to a `TimeValue` for 
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import RunRecipe from '@site/src/components/RunRecipe';
 
 # Changes an argument (or pair of arguments) to a `TimeValue` for matched method invocations
 
@@ -114,21 +115,18 @@ recipeList:
       timeUnit: MILLISECONDS
 ```
 
-<Tabs groupId="projectType">
-<TabItem value="moderne-cli" label="Moderne CLI">
-
-You will need to have configured the [Moderne CLI](https://docs.moderne.io/user-documentation/moderne-cli/getting-started/cli-intro) on your machine before you can run the following command.
-
-```shell title="shell"
-mod run . --recipe ChangeArgumentToTimeValue --recipe-option "methodPattern=org.apache.http.impl.nio.reactor.IOReactorConfig.Builder setSelectInterval(long)" --recipe-option "timeUnit=MILLISECONDS"
-```
-
-If the recipe is not available locally, then you can install it using:
-```shell
-mod config recipes jar install org.openrewrite.recipe:rewrite-apache:{{VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_APACHE}}
-```
-</TabItem>
-</Tabs>
+<RunRecipe
+  recipeName="org.openrewrite.apache.httpclient5.ChangeArgumentToTimeValue"
+  displayName="Changes an argument (or pair of arguments) to a `TimeValue` for matched method invocations"
+  groupId="org.openrewrite.recipe"
+  artifactId="rewrite-apache"
+  versionKey="VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_APACHE"
+  requiresConfiguration
+  cliOptions={' --recipe-option "methodPattern=org.apache.http.impl.nio.reactor.IOReactorConfig.Builder setSelectInterval(long)" --recipe-option "timeUnit=MILLISECONDS"'}
+  showGradle={false}
+  showMaven={false}
+  hasDataTables
+/>
 
 ## See how this recipe works across multiple open-source repositories
 

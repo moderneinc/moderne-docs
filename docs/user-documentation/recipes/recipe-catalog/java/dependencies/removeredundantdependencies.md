@@ -9,6 +9,7 @@ sidebar_label: "Remove redundant explicit dependencies"
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import RunRecipe from '@site/src/components/RunRecipe';
 
 # Remove redundant explicit dependencies
 
@@ -132,21 +133,18 @@ recipeList:
       artifactId: jackson-databind
 ```
 
-<Tabs groupId="projectType">
-<TabItem value="moderne-cli" label="Moderne CLI">
-
-You will need to have configured the [Moderne CLI](https://docs.moderne.io/user-documentation/moderne-cli/getting-started/cli-intro) on your machine before you can run the following command.
-
-```shell title="shell"
-mod run . --recipe RemoveRedundantDependencies --recipe-option "groupId=com.fasterxml.jackson.core" --recipe-option "artifactId=jackson-databind"
-```
-
-If the recipe is not available locally, then you can install it using:
-```shell
-mod config recipes jar install org.openrewrite.recipe:rewrite-java-dependencies:{{VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_JAVA_DEPENDENCIES}}
-```
-</TabItem>
-</Tabs>
+<RunRecipe
+  recipeName="org.openrewrite.java.dependencies.RemoveRedundantDependencies"
+  displayName="Remove redundant explicit dependencies"
+  groupId="org.openrewrite.recipe"
+  artifactId="rewrite-java-dependencies"
+  versionKey="VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_JAVA_DEPENDENCIES"
+  requiresConfiguration
+  cliOptions={' --recipe-option "groupId=com.fasterxml.jackson.core" --recipe-option "artifactId=jackson-databind"'}
+  showGradle={false}
+  showMaven={false}
+  hasDataTables
+/>
 
 ## See how this recipe works across multiple open-source repositories
 

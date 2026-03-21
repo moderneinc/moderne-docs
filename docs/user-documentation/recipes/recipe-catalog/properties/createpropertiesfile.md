@@ -9,6 +9,7 @@ sidebar_label: "Create Properties file"
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import RunRecipe from '@site/src/components/RunRecipe';
 
 # Create Properties file
 
@@ -77,21 +78,15 @@ recipeList:
       fileContents: a.property=value
 ```
 
-<Tabs groupId="projectType">
-<TabItem value="moderne-cli" label="Moderne CLI">
-
-You will need to have configured the [Moderne CLI](https://docs.moderne.io/user-documentation/moderne-cli/getting-started/cli-intro) on your machine before you can run the following command.
-
-```shell title="shell"
-mod run . --recipe CreatePropertiesFile --recipe-option "relativeFileName=foo/bar/baz.properties" --recipe-option "fileContents=a.property=value"
-```
-
-If the recipe is not available locally, then you can install it using:
-```shell
-mod config recipes jar install org.openrewrite:rewrite-properties:{{VERSION_ORG_OPENREWRITE_REWRITE_PROPERTIES}}
-```
-</TabItem>
-</Tabs>
+<RunRecipe
+  recipeName="org.openrewrite.properties.CreatePropertiesFile"
+  displayName="Create Properties file"
+  requiresConfiguration
+  cliOptions={' --recipe-option "relativeFileName=foo/bar/baz.properties" --recipe-option "fileContents=a.property=value"'}
+  showGradle={false}
+  showMaven={false}
+  hasDataTables
+/>
 
 ## See how this recipe works across multiple open-source repositories
 

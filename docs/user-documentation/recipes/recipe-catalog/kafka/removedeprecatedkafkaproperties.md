@@ -4,6 +4,7 @@ sidebar_label: "Remove deprecated Kafka property"
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import RunRecipe from '@site/src/components/RunRecipe';
 
 # Remove deprecated Kafka property
 
@@ -103,21 +104,18 @@ recipeList:
       propertyKey: log.message.format.version
 ```
 
-<Tabs groupId="projectType">
-<TabItem value="moderne-cli" label="Moderne CLI">
-
-You will need to have configured the [Moderne CLI](https://docs.moderne.io/user-documentation/moderne-cli/getting-started/cli-intro) on your machine before you can run the following command.
-
-```shell title="shell"
-mod run . --recipe RemoveDeprecatedKafkaProperties --recipe-option "propertyKey=log.message.format.version"
-```
-
-If the recipe is not available locally, then you can install it using:
-```shell
-mod config recipes jar install io.moderne.recipe:rewrite-kafka:{{VERSION_IO_MODERNE_RECIPE_REWRITE_KAFKA}}
-```
-</TabItem>
-</Tabs>
+<RunRecipe
+  recipeName="io.moderne.kafka.RemoveDeprecatedKafkaProperties"
+  displayName="Remove deprecated Kafka property"
+  groupId="io.moderne.recipe"
+  artifactId="rewrite-kafka"
+  versionKey="VERSION_IO_MODERNE_RECIPE_REWRITE_KAFKA"
+  requiresConfiguration
+  cliOptions={' --recipe-option "propertyKey=log.message.format.version"'}
+  showGradle={false}
+  showMaven={false}
+  hasDataTables
+/>
 
 ## See how this recipe works across multiple open-source repositories
 

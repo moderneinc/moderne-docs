@@ -4,6 +4,7 @@ sidebar_label: "Migrate to Spring Boot 4.0 modular starters (Moderne Edition)"
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import RunRecipe from '@site/src/components/RunRecipe';
 
 # Migrate to Spring Boot 4.0 modular starters (Moderne Edition)
 
@@ -274,24 +275,17 @@ test
 
 ## Usage
 
-This recipe has no required configuration options. Users of Moderne can run it via the Moderne CLI.
-<Tabs groupId="projectType">
-
-
-<TabItem value="moderne-cli" label="Moderne CLI">
-
-You will need to have configured the [Moderne CLI](https://docs.moderne.io/user-documentation/moderne-cli/getting-started/cli-intro) on your machine before you can run the following command.
-
-```shell title="shell"
-mod run . --recipe io.moderne.java.spring.boot4.MigrateToModularStarters
-```
-
-If the recipe is not available locally, then you can install it using:
-```shell
-mod config recipes jar install io.moderne.recipe:rewrite-spring:{{VERSION_IO_MODERNE_RECIPE_REWRITE_SPRING}}
-```
-</TabItem>
-</Tabs>
+<RunRecipe
+  recipeName="io.moderne.java.spring.boot4.MigrateToModularStarters"
+  displayName="Migrate to Spring Boot 4.0 modular starters (Moderne Edition)"
+  groupId="io.moderne.recipe"
+  artifactId="rewrite-spring"
+  versionKey="VERSION_IO_MODERNE_RECIPE_REWRITE_SPRING"
+  showGradle={false}
+  showMaven={false}
+  hasDataTables
+  useFullyQualifiedCliName
+/>
 
 ## See how this recipe works across multiple open-source repositories
 

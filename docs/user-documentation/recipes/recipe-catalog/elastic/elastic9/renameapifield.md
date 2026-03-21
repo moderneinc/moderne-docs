@@ -4,6 +4,7 @@ sidebar_label: "Rename `Elasticsearch valueBody()` methods"
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import RunRecipe from '@site/src/components/RunRecipe';
 
 # Rename `Elasticsearch valueBody()` methods
 
@@ -57,21 +58,18 @@ recipeList:
       newField: result
 ```
 
-<Tabs groupId="projectType">
-<TabItem value="moderne-cli" label="Moderne CLI">
-
-You will need to have configured the [Moderne CLI](https://docs.moderne.io/user-documentation/moderne-cli/getting-started/cli-intro) on your machine before you can run the following command.
-
-```shell title="shell"
-mod run . --recipe RenameApiField --recipe-option "fullyQualifiedName=co.elastic.clients.elasticsearch.snapshot.RepositoryVerifyIntegrityResponse" --recipe-option "field=valueBody" --recipe-option "newField=result"
-```
-
-If the recipe is not available locally, then you can install it using:
-```shell
-mod config recipes jar install io.moderne.recipe:rewrite-elastic:{{VERSION_IO_MODERNE_RECIPE_REWRITE_ELASTIC}}
-```
-</TabItem>
-</Tabs>
+<RunRecipe
+  recipeName="io.moderne.elastic.elastic9.RenameApiField"
+  displayName="Rename `Elasticsearch valueBody()` methods"
+  groupId="io.moderne.recipe"
+  artifactId="rewrite-elastic"
+  versionKey="VERSION_IO_MODERNE_RECIPE_REWRITE_ELASTIC"
+  requiresConfiguration
+  cliOptions={' --recipe-option "fullyQualifiedName=co.elastic.clients.elasticsearch.snapshot.RepositoryVerifyIntegrityResponse" --recipe-option "field=valueBody" --recipe-option "newField=result"'}
+  showGradle={false}
+  showMaven={false}
+  hasDataTables
+/>
 
 ## See how this recipe works across multiple open-source repositories
 

@@ -9,6 +9,7 @@ sidebar_label: "Rename Maven property key"
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import RunRecipe from '@site/src/components/RunRecipe';
 
 # Rename Maven property key
 
@@ -140,21 +141,15 @@ recipeList:
       newKey: version.org.junit
 ```
 
-<Tabs groupId="projectType">
-<TabItem value="moderne-cli" label="Moderne CLI">
-
-You will need to have configured the [Moderne CLI](https://docs.moderne.io/user-documentation/moderne-cli/getting-started/cli-intro) on your machine before you can run the following command.
-
-```shell title="shell"
-mod run . --recipe RenamePropertyKey --recipe-option "oldKey=junit.version" --recipe-option "newKey=version.org.junit"
-```
-
-If the recipe is not available locally, then you can install it using:
-```shell
-mod config recipes jar install org.openrewrite:rewrite-maven:{{VERSION_ORG_OPENREWRITE_REWRITE_MAVEN}}
-```
-</TabItem>
-</Tabs>
+<RunRecipe
+  recipeName="org.openrewrite.maven.RenamePropertyKey"
+  displayName="Rename Maven property key"
+  requiresConfiguration
+  cliOptions={' --recipe-option "oldKey=junit.version" --recipe-option "newKey=version.org.junit"'}
+  showGradle={false}
+  showMaven={false}
+  hasDataTables
+/>
 
 ## See how this recipe works across multiple open-source repositories
 

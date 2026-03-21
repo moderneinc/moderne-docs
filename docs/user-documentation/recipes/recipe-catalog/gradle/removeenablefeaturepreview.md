@@ -9,6 +9,7 @@ sidebar_label: "Remove an enabled Gradle preview feature"
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import RunRecipe from '@site/src/components/RunRecipe';
 
 # Remove an enabled Gradle preview feature
 
@@ -104,21 +105,15 @@ recipeList:
       previewFeatureName: ONE_LOCKFILE_PER_PROJECT
 ```
 
-<Tabs groupId="projectType">
-<TabItem value="moderne-cli" label="Moderne CLI">
-
-You will need to have configured the [Moderne CLI](https://docs.moderne.io/user-documentation/moderne-cli/getting-started/cli-intro) on your machine before you can run the following command.
-
-```shell title="shell"
-mod run . --recipe RemoveEnableFeaturePreview --recipe-option "previewFeatureName=ONE_LOCKFILE_PER_PROJECT"
-```
-
-If the recipe is not available locally, then you can install it using:
-```shell
-mod config recipes jar install org.openrewrite:rewrite-gradle:{{VERSION_ORG_OPENREWRITE_REWRITE_GRADLE}}
-```
-</TabItem>
-</Tabs>
+<RunRecipe
+  recipeName="org.openrewrite.gradle.RemoveEnableFeaturePreview"
+  displayName="Remove an enabled Gradle preview feature"
+  requiresConfiguration
+  cliOptions={' --recipe-option "previewFeatureName=ONE_LOCKFILE_PER_PROJECT"'}
+  showGradle={false}
+  showMaven={false}
+  hasDataTables
+/>
 
 ## See how this recipe works across multiple open-source repositories
 

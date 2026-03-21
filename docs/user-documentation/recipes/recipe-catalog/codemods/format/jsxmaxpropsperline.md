@@ -9,6 +9,7 @@ sidebar_label: "Enforce maximum of props on a single line in JSX"
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import RunRecipe from '@site/src/components/RunRecipe';
 
 # Enforce maximum of props on a single line in JSX
 
@@ -76,24 +77,16 @@ recipeList:
 
 ## Usage
 
-This recipe has no required configuration options. Users of Moderne can run it via the Moderne CLI.
-<Tabs groupId="projectType">
-
-
-<TabItem value="moderne-cli" label="Moderne CLI">
-
-You will need to have configured the [Moderne CLI](https://docs.moderne.io/user-documentation/moderne-cli/getting-started/cli-intro) on your machine before you can run the following command.
-
-```shell title="shell"
-mod run . --recipe JsxMaxPropsPerLine
-```
-
-If the recipe is not available locally, then you can install it using:
-```shell
-mod config recipes jar install org.openrewrite.recipe:rewrite-codemods:{{VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_CODEMODS}}
-```
-</TabItem>
-</Tabs>
+<RunRecipe
+  recipeName="org.openrewrite.codemods.format.JsxMaxPropsPerLine"
+  displayName="Enforce maximum of props on a single line in JSX"
+  groupId="org.openrewrite.recipe"
+  artifactId="rewrite-codemods"
+  versionKey="VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_CODEMODS"
+  showGradle={false}
+  showMaven={false}
+  hasDataTables
+/>
 
 ## See how this recipe works across multiple open-source repositories
 

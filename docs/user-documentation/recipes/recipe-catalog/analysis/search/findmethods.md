@@ -9,6 +9,7 @@ sidebar_label: "Find method usages"
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import RunRecipe from '@site/src/components/RunRecipe';
 
 # Find method usages
 
@@ -97,21 +98,18 @@ recipeList:
       methodPattern: java.util.List add(..)
 ```
 
-<Tabs groupId="projectType">
-<TabItem value="moderne-cli" label="Moderne CLI">
-
-You will need to have configured the [Moderne CLI](https://docs.moderne.io/user-documentation/moderne-cli/getting-started/cli-intro) on your machine before you can run the following command.
-
-```shell title="shell"
-mod run . --recipe FindMethods --recipe-option "methodPattern=java.util.List add(..)"
-```
-
-If the recipe is not available locally, then you can install it using:
-```shell
-mod config recipes jar install org.openrewrite.meta:rewrite-analysis:{{VERSION_ORG_OPENREWRITE_META_REWRITE_ANALYSIS}}
-```
-</TabItem>
-</Tabs>
+<RunRecipe
+  recipeName="org.openrewrite.analysis.search.FindMethods"
+  displayName="Find method usages"
+  groupId="org.openrewrite.meta"
+  artifactId="rewrite-analysis"
+  versionKey="VERSION_ORG_OPENREWRITE_META_REWRITE_ANALYSIS"
+  requiresConfiguration
+  cliOptions={' --recipe-option "methodPattern=java.util.List add(..)"'}
+  showGradle={false}
+  showMaven={false}
+  hasDataTables
+/>
 
 ## See how this recipe works across multiple open-source repositories
 

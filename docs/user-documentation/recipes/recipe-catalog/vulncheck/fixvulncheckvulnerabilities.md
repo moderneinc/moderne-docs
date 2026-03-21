@@ -4,6 +4,7 @@ sidebar_label: "Use VulnCheck Exploit Intelligence to fix vulnerabilities"
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import RunRecipe from '@site/src/components/RunRecipe';
 
 # Use VulnCheck Exploit Intelligence to fix vulnerabilities
 
@@ -113,21 +114,18 @@ recipeList:
       exploitMaturity: weaponized
 ```
 
-<Tabs groupId="projectType">
-<TabItem value="moderne-cli" label="Moderne CLI">
-
-You will need to have configured the [Moderne CLI](https://docs.moderne.io/user-documentation/moderne-cli/getting-started/cli-intro) on your machine before you can run the following command.
-
-```shell title="shell"
-mod run . --recipe FixVulnCheckVulnerabilities --recipe-option "apiToken=A_TOKEN_GENERATED_FROM_VULNCHECK" --recipe-option "scope=compile" --recipe-option "overrideTransitive=false" --recipe-option "maximumUpgradeDelta=patch" --recipe-option "exploitMaturity=weaponized"
-```
-
-If the recipe is not available locally, then you can install it using:
-```shell
-mod config recipes jar install io.moderne.recipe:rewrite-vulncheck:{{VERSION_IO_MODERNE_RECIPE_REWRITE_VULNCHECK}}
-```
-</TabItem>
-</Tabs>
+<RunRecipe
+  recipeName="io.moderne.vulncheck.FixVulnCheckVulnerabilities"
+  displayName="Use VulnCheck Exploit Intelligence to fix vulnerabilities"
+  groupId="io.moderne.recipe"
+  artifactId="rewrite-vulncheck"
+  versionKey="VERSION_IO_MODERNE_RECIPE_REWRITE_VULNCHECK"
+  requiresConfiguration
+  cliOptions={' --recipe-option "apiToken=A_TOKEN_GENERATED_FROM_VULNCHECK" --recipe-option "scope=compile" --recipe-option "overrideTransitive=false" --recipe-option "maximumUpgradeDelta=patch" --recipe-option "exploitMaturity=weaponized"'}
+  showGradle={false}
+  showMaven={false}
+  hasDataTables
+/>
 
 ## See how this recipe works across multiple open-source repositories
 

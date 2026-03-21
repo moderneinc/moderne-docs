@@ -9,6 +9,7 @@ sidebar_label: "Change SLF4J log level"
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import RunRecipe from '@site/src/components/RunRecipe';
 
 # Change SLF4J log level
 
@@ -107,21 +108,18 @@ recipeList:
       startsWith: LaunchDarkly
 ```
 
-<Tabs groupId="projectType">
-<TabItem value="moderne-cli" label="Moderne CLI">
-
-You will need to have configured the [Moderne CLI](https://docs.moderne.io/user-documentation/moderne-cli/getting-started/cli-intro) on your machine before you can run the following command.
-
-```shell title="shell"
-mod run . --recipe ChangeLogLevel --recipe-option "from=INFO" --recipe-option "to=DEBUG" --recipe-option "startsWith=LaunchDarkly"
-```
-
-If the recipe is not available locally, then you can install it using:
-```shell
-mod config recipes jar install org.openrewrite.recipe:rewrite-logging-frameworks:{{VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_LOGGING_FRAMEWORKS}}
-```
-</TabItem>
-</Tabs>
+<RunRecipe
+  recipeName="org.openrewrite.java.logging.slf4j.ChangeLogLevel"
+  displayName="Change SLF4J log level"
+  groupId="org.openrewrite.recipe"
+  artifactId="rewrite-logging-frameworks"
+  versionKey="VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_LOGGING_FRAMEWORKS"
+  requiresConfiguration
+  cliOptions={' --recipe-option "from=INFO" --recipe-option "to=DEBUG" --recipe-option "startsWith=LaunchDarkly"'}
+  showGradle={false}
+  showMaven={false}
+  hasDataTables
+/>
 
 ## See how this recipe works across multiple open-source repositories
 

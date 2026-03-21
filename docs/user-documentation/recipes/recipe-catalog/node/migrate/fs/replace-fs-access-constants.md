@@ -4,6 +4,7 @@ sidebar_label: "Replace deprecated `fs.F_OK`, `fs.R_OK`, `fs.W_OK`, `fs.X_OK` wi
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import RunRecipe from '@site/src/components/RunRecipe';
 
 # Replace deprecated `fs.F_OK`, `fs.R_OK`, `fs.W_OK`, `fs.X_OK` with `fs.constants.*`
 
@@ -25,17 +26,8 @@ This recipe is available under the [Moderne Proprietary License](https://docs.mo
 
 ## Usage
 
-In order to run JavaScript recipes, you will need to use the [Moderne CLI](https://docs.moderne.io/user-documentation/moderne-cli/getting-started/cli-intro).
-For JavaScript specific configuration instructions, please see our [configuring JavaScript guide](https://docs.moderne.io/user-documentation/moderne-cli/how-to-guides/javascript).
-
-Once the CLI is installed, you can install this JavaScript recipe package by running the following command:
-
-```shell title="Install the recipe package"
-mod config recipes npm install @openrewrite/recipes-nodejs
-```
-
-Then, you can run the recipe via:
-
-```shell title="Run the recipe"
-mod run . --recipe org.openrewrite.node.migrate.fs.replace-fs-access-constants
-```
+<RunRecipe
+  recipeName="org.openrewrite.node.migrate.fs.replace-fs-access-constants"
+  displayName="Replace deprecated `fs.F_OK`, `fs.R_OK`, `fs.W_OK`, `fs.X_OK` with `fs.constants.*`"
+  npmPackage="@openrewrite/recipes-nodejs"
+/>

@@ -9,6 +9,7 @@ sidebar_label: "Change property key"
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import RunRecipe from '@site/src/components/RunRecipe';
 
 # Change property key
 
@@ -248,21 +249,15 @@ recipeList:
       filePattern: .github/workflows/*.yml
 ```
 
-<Tabs groupId="projectType">
-<TabItem value="moderne-cli" label="Moderne CLI">
-
-You will need to have configured the [Moderne CLI](https://docs.moderne.io/user-documentation/moderne-cli/getting-started/cli-intro) on your machine before you can run the following command.
-
-```shell title="shell"
-mod run . --recipe ChangePropertyKey --recipe-option "oldPropertyKey=management.metrics.binders.*.enabled" --recipe-option "newPropertyKey=management.metrics.enable.process.files" --recipe-option "except=List.of("group")" --recipe-option "filePattern=.github/workflows/*.yml"
-```
-
-If the recipe is not available locally, then you can install it using:
-```shell
-mod config recipes jar install org.openrewrite:rewrite-yaml:{{VERSION_ORG_OPENREWRITE_REWRITE_YAML}}
-```
-</TabItem>
-</Tabs>
+<RunRecipe
+  recipeName="org.openrewrite.yaml.ChangePropertyKey"
+  displayName="Change property key"
+  requiresConfiguration
+  cliOptions={' --recipe-option "oldPropertyKey=management.metrics.binders.*.enabled" --recipe-option "newPropertyKey=management.metrics.enable.process.files" --recipe-option "except=List.of("group")" --recipe-option "filePattern=.github/workflows/*.yml"'}
+  showGradle={false}
+  showMaven={false}
+  hasDataTables
+/>
 
 ## See how this recipe works across multiple open-source repositories
 

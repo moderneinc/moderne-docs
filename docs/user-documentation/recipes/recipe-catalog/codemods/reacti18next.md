@@ -9,6 +9,7 @@ sidebar_label: "React i18next internationalization"
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import RunRecipe from '@site/src/components/RunRecipe';
 
 # React i18next internationalization
 
@@ -55,21 +56,18 @@ recipeList:
       parser: tsx
 ```
 
-<Tabs groupId="projectType">
-<TabItem value="moderne-cli" label="Moderne CLI">
-
-You will need to have configured the [Moderne CLI](https://docs.moderne.io/user-documentation/moderne-cli/getting-started/cli-intro) on your machine before you can run the following command.
-
-```shell title="shell"
-mod run . --recipe ReactI18Next --recipe-option "translationFilePath=./src/locales/en.json" --recipe-option "importName=react-i18next" --recipe-option "translationRoot=common" --recipe-option "filePattern=src/**/*.tsx" --recipe-option "parser=tsx"
-```
-
-If the recipe is not available locally, then you can install it using:
-```shell
-mod config recipes jar install org.openrewrite.recipe:rewrite-codemods:{{VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_CODEMODS}}
-```
-</TabItem>
-</Tabs>
+<RunRecipe
+  recipeName="org.openrewrite.codemods.ReactI18Next"
+  displayName="React i18next internationalization"
+  groupId="org.openrewrite.recipe"
+  artifactId="rewrite-codemods"
+  versionKey="VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_CODEMODS"
+  requiresConfiguration
+  cliOptions={' --recipe-option "translationFilePath=./src/locales/en.json" --recipe-option "importName=react-i18next" --recipe-option "translationRoot=common" --recipe-option "filePattern=src/**/*.tsx" --recipe-option "parser=tsx"'}
+  showGradle={false}
+  showMaven={false}
+  hasDataTables
+/>
 
 ## See how this recipe works across multiple open-source repositories
 

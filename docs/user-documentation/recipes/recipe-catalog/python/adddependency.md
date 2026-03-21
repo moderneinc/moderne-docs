@@ -4,6 +4,7 @@ sidebar_label: "Add Python dependency"
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import RunRecipe from '@site/src/components/RunRecipe';
 
 # Add Python dependency
 
@@ -47,21 +48,18 @@ recipeList:
       groupName: dev
 ```
 
-<Tabs groupId="projectType">
-<TabItem value="moderne-cli" label="Moderne CLI">
-
-You will need to have configured the [Moderne CLI](https://docs.moderne.io/user-documentation/moderne-cli/getting-started/cli-intro) on your machine before you can run the following command.
-
-```shell title="shell"
-mod run . --recipe AddDependency --recipe-option "packageName=requests" --recipe-option "version=>=2.28.0" --recipe-option "scope=project.dependencies" --recipe-option "groupName=dev"
-```
-
-If the recipe is not available locally, then you can install it using:
-```shell
-mod config recipes jar install org.openrewrite:rewrite-python:{{VERSION_ORG_OPENREWRITE_REWRITE_PYTHON}}
-```
-</TabItem>
-</Tabs>
+<RunRecipe
+  recipeName="org.openrewrite.python.AddDependency"
+  displayName="Add Python dependency"
+  groupId="org.openrewrite"
+  artifactId="rewrite-python"
+  versionKey="VERSION_ORG_OPENREWRITE_REWRITE_PYTHON"
+  requiresConfiguration
+  cliOptions={' --recipe-option "packageName=requests" --recipe-option "version=>=2.28.0" --recipe-option "scope=project.dependencies" --recipe-option "groupName=dev"'}
+  showGradle={false}
+  showMaven={false}
+  hasDataTables
+/>
 
 ## See how this recipe works across multiple open-source repositories
 

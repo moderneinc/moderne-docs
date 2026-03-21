@@ -9,6 +9,7 @@ sidebar_label: "Change GitLab Component"
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import RunRecipe from '@site/src/components/RunRecipe';
 
 # Change GitLab Component
 
@@ -129,21 +130,18 @@ recipeList:
       newComponentVersion: 0.10.0
 ```
 
-<Tabs groupId="projectType">
-<TabItem value="moderne-cli" label="Moderne CLI">
-
-You will need to have configured the [Moderne CLI](https://docs.moderne.io/user-documentation/moderne-cli/getting-started/cli-intro) on your machine before you can run the following command.
-
-```shell title="shell"
-mod run . --recipe ChangeComponent --recipe-option "oldComponent=$CI_SERVER_FQDN/components/opentofu/full-pipeline" --recipe-option "oldComponentVersion=0.10.0" --recipe-option "newComponent=$CI_SERVER_FQDN/components/opentofu/full-pipeline" --recipe-option "newComponentVersion=0.10.0"
-```
-
-If the recipe is not available locally, then you can install it using:
-```shell
-mod config recipes jar install org.openrewrite.recipe:rewrite-gitlab:{{VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_GITLAB}}
-```
-</TabItem>
-</Tabs>
+<RunRecipe
+  recipeName="org.openrewrite.gitlab.ChangeComponent"
+  displayName="Change GitLab Component"
+  groupId="org.openrewrite.recipe"
+  artifactId="rewrite-gitlab"
+  versionKey="VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_GITLAB"
+  requiresConfiguration
+  cliOptions={' --recipe-option "oldComponent=$CI_SERVER_FQDN/components/opentofu/full-pipeline" --recipe-option "oldComponentVersion=0.10.0" --recipe-option "newComponent=$CI_SERVER_FQDN/components/opentofu/full-pipeline" --recipe-option "newComponentVersion=0.10.0"'}
+  showGradle={false}
+  showMaven={false}
+  hasDataTables
+/>
 
 ## See how this recipe works across multiple open-source repositories
 

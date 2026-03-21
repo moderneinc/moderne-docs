@@ -9,6 +9,7 @@ sidebar_label: "Add Maven annotation processor path"
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import RunRecipe from '@site/src/components/RunRecipe';
 
 # Add Maven annotation processor path
 
@@ -63,21 +64,18 @@ recipeList:
         - io.micronaut:micronaut-inject
 ```
 
-<Tabs groupId="projectType">
-<TabItem value="moderne-cli" label="Moderne CLI">
-
-You will need to have configured the [Moderne CLI](https://docs.moderne.io/user-documentation/moderne-cli/getting-started/cli-intro) on your machine before you can run the following command.
-
-```shell title="shell"
-mod run . --recipe AddAnnotationProcessorPath --recipe-option "groupId=corp.internal.openrewrite.recipe" --recipe-option "artifactId=my-new-annotation-processor" --recipe-option "version=${micronaut.validation}" --recipe-option "onlyIfUsing=jakarta.validation.constraints.*" --recipe-option "exclusions=io.micronaut:micronaut-inject"
-```
-
-If the recipe is not available locally, then you can install it using:
-```shell
-mod config recipes jar install org.openrewrite.recipe:rewrite-micronaut:{{VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_MICRONAUT}}
-```
-</TabItem>
-</Tabs>
+<RunRecipe
+  recipeName="org.openrewrite.java.micronaut.AddAnnotationProcessorPath"
+  displayName="Add Maven annotation processor path"
+  groupId="org.openrewrite.recipe"
+  artifactId="rewrite-micronaut"
+  versionKey="VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_MICRONAUT"
+  requiresConfiguration
+  cliOptions={' --recipe-option "groupId=corp.internal.openrewrite.recipe" --recipe-option "artifactId=my-new-annotation-processor" --recipe-option "version=${micronaut.validation}" --recipe-option "onlyIfUsing=jakarta.validation.constraints.*" --recipe-option "exclusions=io.micronaut:micronaut-inject"'}
+  showGradle={false}
+  showMaven={false}
+  hasDataTables
+/>
 
 ## See how this recipe works across multiple open-source repositories
 

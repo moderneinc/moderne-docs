@@ -9,6 +9,7 @@ sidebar_label: "Merge TOML table row"
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import RunRecipe from '@site/src/components/RunRecipe';
 
 # Merge TOML table row
 
@@ -105,21 +106,15 @@ recipeList:
       identifyingKey: name
 ```
 
-<Tabs groupId="projectType">
-<TabItem value="moderne-cli" label="Moderne CLI">
-
-You will need to have configured the [Moderne CLI](https://docs.moderne.io/user-documentation/moderne-cli/getting-started/cli-intro) on your machine before you can run the following command.
-
-```shell title="shell"
-mod run . --recipe MergeTableRow --recipe-option "tableName=package.contributors" --recipe-option "row=name = "Alice Smith"\nemail = "alice@example.com"" --recipe-option "identifyingKey=name"
-```
-
-If the recipe is not available locally, then you can install it using:
-```shell
-mod config recipes jar install org.openrewrite:rewrite-toml:{{VERSION_ORG_OPENREWRITE_REWRITE_TOML}}
-```
-</TabItem>
-</Tabs>
+<RunRecipe
+  recipeName="org.openrewrite.toml.MergeTableRow"
+  displayName="Merge TOML table row"
+  requiresConfiguration
+  cliOptions={' --recipe-option "tableName=package.contributors" --recipe-option "row=name = "Alice Smith"\nemail = "alice@example.com"" --recipe-option "identifyingKey=name"'}
+  showGradle={false}
+  showMaven={false}
+  hasDataTables
+/>
 
 ## See how this recipe works across multiple open-source repositories
 

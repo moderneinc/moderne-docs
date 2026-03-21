@@ -9,6 +9,7 @@ sidebar_label: "Adds a TimeUnit argument to the matched method invocations"
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import RunRecipe from '@site/src/components/RunRecipe';
 
 # Adds a TimeUnit argument to the matched method invocations
 
@@ -110,21 +111,18 @@ recipeList:
       timeUnit: MILLISECONDS
 ```
 
-<Tabs groupId="projectType">
-<TabItem value="moderne-cli" label="Moderne CLI">
-
-You will need to have configured the [Moderne CLI](https://docs.moderne.io/user-documentation/moderne-cli/getting-started/cli-intro) on your machine before you can run the following command.
-
-```shell title="shell"
-mod run . --recipe AddTimeUnitArgument --recipe-option "methodPattern=org.apache.http.client.config.RequestConfig.Builder setConnectionRequestTimeout(int)" --recipe-option "timeUnit=MILLISECONDS"
-```
-
-If the recipe is not available locally, then you can install it using:
-```shell
-mod config recipes jar install org.openrewrite.recipe:rewrite-apache:{{VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_APACHE}}
-```
-</TabItem>
-</Tabs>
+<RunRecipe
+  recipeName="org.openrewrite.apache.httpclient5.AddTimeUnitArgument"
+  displayName="Adds a TimeUnit argument to the matched method invocations"
+  groupId="org.openrewrite.recipe"
+  artifactId="rewrite-apache"
+  versionKey="VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_APACHE"
+  requiresConfiguration
+  cliOptions={' --recipe-option "methodPattern=org.apache.http.client.config.RequestConfig.Builder setConnectionRequestTimeout(int)" --recipe-option "timeUnit=MILLISECONDS"'}
+  showGradle={false}
+  showMaven={false}
+  hasDataTables
+/>
 
 ## See how this recipe works across multiple open-source repositories
 

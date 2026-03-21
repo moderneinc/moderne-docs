@@ -9,6 +9,7 @@ sidebar_label: "Simplify a call chain"
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import RunRecipe from '@site/src/components/RunRecipe';
 
 # Simplify a call chain
 
@@ -118,21 +119,15 @@ recipeList:
       matchOverrides: false
 ```
 
-<Tabs groupId="projectType">
-<TabItem value="moderne-cli" label="Moderne CLI">
-
-You will need to have configured the [Moderne CLI](https://docs.moderne.io/user-documentation/moderne-cli/getting-started/cli-intro) on your machine before you can run the following command.
-
-```shell title="shell"
-mod run . --recipe SimplifyMethodChain --recipe-option "methodPatternChain=['java.util.Map keySet()', 'java.util.Set contains(..)']" --recipe-option "newMethodName=containsKey" --recipe-option "matchOverrides=false"
-```
-
-If the recipe is not available locally, then you can install it using:
-```shell
-mod config recipes jar install org.openrewrite:rewrite-java:{{VERSION_ORG_OPENREWRITE_REWRITE_JAVA}}
-```
-</TabItem>
-</Tabs>
+<RunRecipe
+  recipeName="org.openrewrite.java.SimplifyMethodChain"
+  displayName="Simplify a call chain"
+  requiresConfiguration
+  cliOptions={' --recipe-option "methodPatternChain=['java.util.Map keySet()', 'java.util.Set contains(..)']" --recipe-option "newMethodName=containsKey" --recipe-option "matchOverrides=false"'}
+  showGradle={false}
+  showMaven={false}
+  hasDataTables
+/>
 
 ## See how this recipe works across multiple open-source repositories
 

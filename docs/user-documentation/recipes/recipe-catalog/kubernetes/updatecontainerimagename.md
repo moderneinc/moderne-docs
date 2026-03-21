@@ -4,6 +4,7 @@ sidebar_label: "Update image name"
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import RunRecipe from '@site/src/components/RunRecipe';
 
 # Update image name
 
@@ -128,21 +129,18 @@ recipeList:
       fileMatcher: '**/pod-*.yml'
 ```
 
-<Tabs groupId="projectType">
-<TabItem value="moderne-cli" label="Moderne CLI">
-
-You will need to have configured the [Moderne CLI](https://docs.moderne.io/user-documentation/moderne-cli/getting-started/cli-intro) on your machine before you can run the following command.
-
-```shell title="shell"
-mod run . --recipe UpdateContainerImageName --recipe-option "repoToFind=gcr.io" --recipe-option "imageToFind=nginx" --recipe-option "tagToFind=v1.2.3" --recipe-option "digestToFind=sha256:cb5c1bddd1b5665e1867a7fa1b5fa843a47ee433bbb75d4293888b71def53229" --recipe-option "repoToUpdate=gcr.io/account/bucket" --recipe-option "imageToUpdate=nginx" --recipe-option "tagToUpdate=v1.2.3" --recipe-option "digestToUpdate=sha256:cb5c1bddd1b5665e1867a7fa1b5fa843a47ee433bbb75d4293888b71def53229" --recipe-option "includeInitContainers=false" --recipe-option "fileMatcher='**/pod-*.yml'"
-```
-
-If the recipe is not available locally, then you can install it using:
-```shell
-mod config recipes jar install org.openrewrite.recipe:rewrite-kubernetes:{{VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_KUBERNETES}}
-```
-</TabItem>
-</Tabs>
+<RunRecipe
+  recipeName="org.openrewrite.kubernetes.UpdateContainerImageName"
+  displayName="Update image name"
+  groupId="org.openrewrite.recipe"
+  artifactId="rewrite-kubernetes"
+  versionKey="VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_KUBERNETES"
+  requiresConfiguration
+  cliOptions={' --recipe-option "repoToFind=gcr.io" --recipe-option "imageToFind=nginx" --recipe-option "tagToFind=v1.2.3" --recipe-option "digestToFind=sha256:cb5c1bddd1b5665e1867a7fa1b5fa843a47ee433bbb75d4293888b71def53229" --recipe-option "repoToUpdate=gcr.io/account/bucket" --recipe-option "imageToUpdate=nginx" --recipe-option "tagToUpdate=v1.2.3" --recipe-option "digestToUpdate=sha256:cb5c1bddd1b5665e1867a7fa1b5fa843a47ee433bbb75d4293888b71def53229" --recipe-option "includeInitContainers=false" --recipe-option "fileMatcher='**/pod-*.yml'"'}
+  showGradle={false}
+  showMaven={false}
+  hasDataTables
+/>
 
 ## See how this recipe works across multiple open-source repositories
 

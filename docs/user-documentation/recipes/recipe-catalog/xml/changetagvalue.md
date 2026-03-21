@@ -9,6 +9,7 @@ sidebar_label: "Change XML tag value"
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import RunRecipe from '@site/src/components/RunRecipe';
 
 # Change XML tag value
 
@@ -110,21 +111,15 @@ recipeList:
       newValue: user
 ```
 
-<Tabs groupId="projectType">
-<TabItem value="moderne-cli" label="Moderne CLI">
-
-You will need to have configured the [Moderne CLI](https://docs.moderne.io/user-documentation/moderne-cli/getting-started/cli-intro) on your machine before you can run the following command.
-
-```shell title="shell"
-mod run . --recipe ChangeTagValue --recipe-option "elementName=/settings/servers/server/username" --recipe-option "oldValue=user" --recipe-option "newValue=user"
-```
-
-If the recipe is not available locally, then you can install it using:
-```shell
-mod config recipes jar install org.openrewrite:rewrite-xml:{{VERSION_ORG_OPENREWRITE_REWRITE_XML}}
-```
-</TabItem>
-</Tabs>
+<RunRecipe
+  recipeName="org.openrewrite.xml.ChangeTagValue"
+  displayName="Change XML tag value"
+  requiresConfiguration
+  cliOptions={' --recipe-option "elementName=/settings/servers/server/username" --recipe-option "oldValue=user" --recipe-option "newValue=user"'}
+  showGradle={false}
+  showMaven={false}
+  hasDataTables
+/>
 
 ## See how this recipe works across multiple open-source repositories
 

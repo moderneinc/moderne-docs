@@ -9,6 +9,7 @@ sidebar_label: "Change method target to static"
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import RunRecipe from '@site/src/components/RunRecipe';
 
 # Change method target to static
 
@@ -100,21 +101,15 @@ recipeList:
       returnType: java.util.Set
 ```
 
-<Tabs groupId="projectType">
-<TabItem value="moderne-cli" label="Moderne CLI">
-
-You will need to have configured the [Moderne CLI](https://docs.moderne.io/user-documentation/moderne-cli/getting-started/cli-intro) on your machine before you can run the following command.
-
-```shell title="shell"
-mod run . --recipe ChangeMethodTargetToStatic --recipe-option "methodPattern=com.google.common.collect.ImmutableSet of(..)" --recipe-option "fullyQualifiedTargetTypeName=java.util.Set" --recipe-option "returnType=java.util.Set"
-```
-
-If the recipe is not available locally, then you can install it using:
-```shell
-mod config recipes jar install org.openrewrite:rewrite-java:{{VERSION_ORG_OPENREWRITE_REWRITE_JAVA}}
-```
-</TabItem>
-</Tabs>
+<RunRecipe
+  recipeName="org.openrewrite.java.ChangeMethodTargetToStatic"
+  displayName="Change method target to static"
+  requiresConfiguration
+  cliOptions={' --recipe-option "methodPattern=com.google.common.collect.ImmutableSet of(..)" --recipe-option "fullyQualifiedTargetTypeName=java.util.Set" --recipe-option "returnType=java.util.Set"'}
+  showGradle={false}
+  showMaven={false}
+  hasDataTables
+/>
 
 ## See how this recipe works across multiple open-source repositories
 

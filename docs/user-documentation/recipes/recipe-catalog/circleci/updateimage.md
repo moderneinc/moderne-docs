@@ -4,6 +4,7 @@ sidebar_label: "Update CircleCI image"
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import RunRecipe from '@site/src/components/RunRecipe';
 
 # Update CircleCI image
 
@@ -105,21 +106,18 @@ recipeList:
       image: circleci/openjdk:jdk
 ```
 
-<Tabs groupId="projectType">
-<TabItem value="moderne-cli" label="Moderne CLI">
-
-You will need to have configured the [Moderne CLI](https://docs.moderne.io/user-documentation/moderne-cli/getting-started/cli-intro) on your machine before you can run the following command.
-
-```shell title="shell"
-mod run . --recipe UpdateImage --recipe-option "image=circleci/openjdk:jdk"
-```
-
-If the recipe is not available locally, then you can install it using:
-```shell
-mod config recipes jar install org.openrewrite.recipe:rewrite-circleci:{{VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_CIRCLECI}}
-```
-</TabItem>
-</Tabs>
+<RunRecipe
+  recipeName="org.openrewrite.circleci.UpdateImage"
+  displayName="Update CircleCI image"
+  groupId="org.openrewrite.recipe"
+  artifactId="rewrite-circleci"
+  versionKey="VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_CIRCLECI"
+  requiresConfiguration
+  cliOptions={' --recipe-option "image=circleci/openjdk:jdk"'}
+  showGradle={false}
+  showMaven={false}
+  hasDataTables
+/>
 
 ## See how this recipe works across multiple open-source repositories
 

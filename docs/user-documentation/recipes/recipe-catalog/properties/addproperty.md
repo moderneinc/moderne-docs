@@ -9,6 +9,7 @@ sidebar_label: "Add a new property"
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import RunRecipe from '@site/src/components/RunRecipe';
 
 # Add a new property
 
@@ -104,21 +105,15 @@ recipeList:
       orderedInsertion: false
 ```
 
-<Tabs groupId="projectType">
-<TabItem value="moderne-cli" label="Moderne CLI">
-
-You will need to have configured the [Moderne CLI](https://docs.moderne.io/user-documentation/moderne-cli/getting-started/cli-intro) on your machine before you can run the following command.
-
-```shell title="shell"
-mod run . --recipe AddProperty --recipe-option "property=management.metrics.enable.process.files" --recipe-option "value=newPropValue" --recipe-option "comment=This is a comment" --recipe-option "delimiter=:" --recipe-option "orderedInsertion=false"
-```
-
-If the recipe is not available locally, then you can install it using:
-```shell
-mod config recipes jar install org.openrewrite:rewrite-properties:{{VERSION_ORG_OPENREWRITE_REWRITE_PROPERTIES}}
-```
-</TabItem>
-</Tabs>
+<RunRecipe
+  recipeName="org.openrewrite.properties.AddProperty"
+  displayName="Add a new property"
+  requiresConfiguration
+  cliOptions={' --recipe-option "property=management.metrics.enable.process.files" --recipe-option "value=newPropValue" --recipe-option "comment=This is a comment" --recipe-option "delimiter=:" --recipe-option "orderedInsertion=false"'}
+  showGradle={false}
+  showMaven={false}
+  hasDataTables
+/>
 
 ## See how this recipe works across multiple open-source repositories
 

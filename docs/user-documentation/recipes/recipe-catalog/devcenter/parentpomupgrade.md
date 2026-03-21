@@ -4,6 +4,7 @@ sidebar_label: "Parent POM upgrade"
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import RunRecipe from '@site/src/components/RunRecipe';
 
 # Parent POM upgrade
 
@@ -59,21 +60,18 @@ recipeList:
       upgradeRecipe: com.acme.UpgradeInternalParentPom
 ```
 
-<Tabs groupId="projectType">
-<TabItem value="moderne-cli" label="Moderne CLI">
-
-You will need to have configured the [Moderne CLI](https://docs.moderne.io/user-documentation/moderne-cli/getting-started/cli-intro) on your machine before you can run the following command.
-
-```shell title="shell"
-mod run . --recipe ParentPomUpgrade --recipe-option "cardName=Upgrade internal Parent POM" --recipe-option "groupIdPattern=org.springframework.boot" --recipe-option "artifactIdPattern=spring-boot-parent" --recipe-option "version=3.4.5" --recipe-option "upgradeRecipe=com.acme.UpgradeInternalParentPom"
-```
-
-If the recipe is not available locally, then you can install it using:
-```shell
-mod config recipes jar install io.moderne.recipe:rewrite-devcenter:{{VERSION_IO_MODERNE_RECIPE_REWRITE_DEVCENTER}}
-```
-</TabItem>
-</Tabs>
+<RunRecipe
+  recipeName="io.moderne.devcenter.ParentPomUpgrade"
+  displayName="Parent POM upgrade"
+  groupId="io.moderne.recipe"
+  artifactId="rewrite-devcenter"
+  versionKey="VERSION_IO_MODERNE_RECIPE_REWRITE_DEVCENTER"
+  requiresConfiguration
+  cliOptions={' --recipe-option "cardName=Upgrade internal Parent POM" --recipe-option "groupIdPattern=org.springframework.boot" --recipe-option "artifactIdPattern=spring-boot-parent" --recipe-option "version=3.4.5" --recipe-option "upgradeRecipe=com.acme.UpgradeInternalParentPom"'}
+  showGradle={false}
+  showMaven={false}
+  hasDataTables
+/>
 
 ## See how this recipe works across multiple open-source repositories
 

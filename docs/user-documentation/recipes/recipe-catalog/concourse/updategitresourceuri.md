@@ -4,6 +4,7 @@ sidebar_label: "Update git resource `source.uri` references"
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import RunRecipe from '@site/src/components/RunRecipe';
 
 # Update git resource `source.uri` references
 
@@ -99,21 +100,18 @@ recipeList:
       fileMatcher: '**/pipeline*.yml'
 ```
 
-<Tabs groupId="projectType">
-<TabItem value="moderne-cli" label="Moderne CLI">
-
-You will need to have configured the [Moderne CLI](https://docs.moderne.io/user-documentation/moderne-cli/getting-started/cli-intro) on your machine before you can run the following command.
-
-```shell title="shell"
-mod run . --recipe UpdateGitResourceUri --recipe-option "oldURIPattern=https://github.com/openrewrite/rewrite" --recipe-option "newURI=git@gitlab.com:openrewrite/rewrite.git" --recipe-option "fileMatcher='**/pipeline*.yml'"
-```
-
-If the recipe is not available locally, then you can install it using:
-```shell
-mod config recipes jar install org.openrewrite.recipe:rewrite-concourse:{{VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_CONCOURSE}}
-```
-</TabItem>
-</Tabs>
+<RunRecipe
+  recipeName="org.openrewrite.concourse.UpdateGitResourceUri"
+  displayName="Update git resource `source.uri` references"
+  groupId="org.openrewrite.recipe"
+  artifactId="rewrite-concourse"
+  versionKey="VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_CONCOURSE"
+  requiresConfiguration
+  cliOptions={' --recipe-option "oldURIPattern=https://github.com/openrewrite/rewrite" --recipe-option "newURI=git@gitlab.com:openrewrite/rewrite.git" --recipe-option "fileMatcher='**/pipeline*.yml'"'}
+  showGradle={false}
+  showMaven={false}
+  hasDataTables
+/>
 
 ## See how this recipe works across multiple open-source repositories
 

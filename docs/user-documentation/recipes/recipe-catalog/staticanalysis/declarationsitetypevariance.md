@@ -9,6 +9,7 @@ sidebar_label: "Properly use declaration-site type variance"
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import RunRecipe from '@site/src/components/RunRecipe';
 
 # Properly use declaration-site type variance
 
@@ -111,21 +112,18 @@ recipeList:
         - java.lang.*
 ```
 
-<Tabs groupId="projectType">
-<TabItem value="moderne-cli" label="Moderne CLI">
-
-You will need to have configured the [Moderne CLI](https://docs.moderne.io/user-documentation/moderne-cli/getting-started/cli-intro) on your machine before you can run the following command.
-
-```shell title="shell"
-mod run . --recipe DeclarationSiteTypeVariance --recipe-option "variantTypes=java.util.function.Function<IN, OUT>" --recipe-option "excludedBounds=java.lang.*"
-```
-
-If the recipe is not available locally, then you can install it using:
-```shell
-mod config recipes jar install org.openrewrite.recipe:rewrite-static-analysis:{{VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_STATIC_ANALYSIS}}
-```
-</TabItem>
-</Tabs>
+<RunRecipe
+  recipeName="org.openrewrite.staticanalysis.DeclarationSiteTypeVariance"
+  displayName="Properly use declaration-site type variance"
+  groupId="org.openrewrite.recipe"
+  artifactId="rewrite-static-analysis"
+  versionKey="VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_STATIC_ANALYSIS"
+  requiresConfiguration
+  cliOptions={' --recipe-option "variantTypes=java.util.function.Function<IN, OUT>" --recipe-option "excludedBounds=java.lang.*"'}
+  showGradle={false}
+  showMaven={false}
+  hasDataTables
+/>
 
 ## See how this recipe works across multiple open-source repositories
 

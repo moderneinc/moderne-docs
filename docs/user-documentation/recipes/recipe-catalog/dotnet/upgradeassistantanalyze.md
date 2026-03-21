@@ -4,6 +4,7 @@ sidebar_label: "Analyze a .NET project using upgrade-assistant"
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import RunRecipe from '@site/src/components/RunRecipe';
 
 # Analyze a .NET project using upgrade-assistant
 
@@ -43,21 +44,18 @@ recipeList:
       privacyMode: Restricted
 ```
 
-<Tabs groupId="projectType">
-<TabItem value="moderne-cli" label="Moderne CLI">
-
-You will need to have configured the [Moderne CLI](https://docs.moderne.io/user-documentation/moderne-cli/getting-started/cli-intro) on your machine before you can run the following command.
-
-```shell title="shell"
-mod run . --recipe UpgradeAssistantAnalyze --recipe-option "targetFramework=net9.0" --recipe-option "privacyMode=Restricted"
-```
-
-If the recipe is not available locally, then you can install it using:
-```shell
-mod config recipes jar install org.openrewrite.recipe:rewrite-dotnet:{{VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_DOTNET}}
-```
-</TabItem>
-</Tabs>
+<RunRecipe
+  recipeName="org.openrewrite.dotnet.UpgradeAssistantAnalyze"
+  displayName="Analyze a .NET project using upgrade-assistant"
+  groupId="org.openrewrite.recipe"
+  artifactId="rewrite-dotnet"
+  versionKey="VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_DOTNET"
+  requiresConfiguration
+  cliOptions={' --recipe-option "targetFramework=net9.0" --recipe-option "privacyMode=Restricted"'}
+  showGradle={false}
+  showMaven={false}
+  hasDataTables
+/>
 
 ## See how this recipe works across multiple open-source repositories
 

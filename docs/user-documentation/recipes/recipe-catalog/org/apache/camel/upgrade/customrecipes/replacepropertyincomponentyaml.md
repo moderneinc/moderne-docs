@@ -9,6 +9,7 @@ sidebar_label: "Renames property of the component"
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import RunRecipe from '@site/src/components/RunRecipe';
 
 # Renames property of the component
 
@@ -60,21 +61,18 @@ recipeList:
       valuePrefix: file:
 ```
 
-<Tabs groupId="projectType">
-<TabItem value="moderne-cli" label="Moderne CLI">
-
-You will need to have configured the [Moderne CLI](https://docs.moderne.io/user-documentation/moderne-cli/getting-started/cli-intro) on your machine before you can run the following command.
-
-```shell title="shell"
-mod run . --recipe ReplacePropertyInComponentYaml --recipe-option "component=TODO Provide a usage example for the docs" --recipe-option "oldPropertyKey=TODO Provide a usage example for the docs" --recipe-option "newPropertyKey=TODO Provide a usage example for the docs" --recipe-option "valuePrefix=file:"
-```
-
-If the recipe is not available locally, then you can install it using:
-```shell
-mod config recipes jar install org.openrewrite.recipe:rewrite-third-party:{{VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY}}
-```
-</TabItem>
-</Tabs>
+<RunRecipe
+  recipeName="org.apache.camel.upgrade.customRecipes.ReplacePropertyInComponentYaml"
+  displayName="Renames property of the component"
+  groupId="org.openrewrite.recipe"
+  artifactId="rewrite-third-party"
+  versionKey="VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY"
+  requiresConfiguration
+  cliOptions={' --recipe-option "component=TODO Provide a usage example for the docs" --recipe-option "oldPropertyKey=TODO Provide a usage example for the docs" --recipe-option "newPropertyKey=TODO Provide a usage example for the docs" --recipe-option "valuePrefix=file:"'}
+  showGradle={false}
+  showMaven={false}
+  hasDataTables
+/>
 
 ## See how this recipe works across multiple open-source repositories
 

@@ -9,6 +9,7 @@ sidebar_label: "Find GitLab Component"
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import RunRecipe from '@site/src/components/RunRecipe';
 
 # Find GitLab Component
 
@@ -119,21 +120,18 @@ recipeList:
       component: $CI_SERVER_FQDN/components/opentofu/full-pipeline
 ```
 
-<Tabs groupId="projectType">
-<TabItem value="moderne-cli" label="Moderne CLI">
-
-You will need to have configured the [Moderne CLI](https://docs.moderne.io/user-documentation/moderne-cli/getting-started/cli-intro) on your machine before you can run the following command.
-
-```shell title="shell"
-mod run . --recipe FindComponent --recipe-option "component=$CI_SERVER_FQDN/components/opentofu/full-pipeline"
-```
-
-If the recipe is not available locally, then you can install it using:
-```shell
-mod config recipes jar install org.openrewrite.recipe:rewrite-gitlab:{{VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_GITLAB}}
-```
-</TabItem>
-</Tabs>
+<RunRecipe
+  recipeName="org.openrewrite.gitlab.search.FindComponent"
+  displayName="Find GitLab Component"
+  groupId="org.openrewrite.recipe"
+  artifactId="rewrite-gitlab"
+  versionKey="VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_GITLAB"
+  requiresConfiguration
+  cliOptions={' --recipe-option "component=$CI_SERVER_FQDN/components/opentofu/full-pipeline"'}
+  showGradle={false}
+  showMaven={false}
+  hasDataTables
+/>
 
 ## See how this recipe works across multiple open-source repositories
 

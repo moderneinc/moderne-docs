@@ -9,6 +9,7 @@ sidebar_label: "Find matching identifiers in COBOL, copybooks, and JCL"
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import RunRecipe from '@site/src/components/RunRecipe';
 
 # Find matching identifiers in COBOL, copybooks, and JCL
 
@@ -49,21 +50,18 @@ recipeList:
       exactMatch: true
 ```
 
-<Tabs groupId="projectType">
-<TabItem value="moderne-cli" label="Moderne CLI">
-
-You will need to have configured the [Moderne CLI](https://docs.moderne.io/user-documentation/moderne-cli/getting-started/cli-intro) on your machine before you can run the following command.
-
-```shell title="shell"
-mod run . --recipe FindReference --recipe-option "searchTerm=CM102M or cm1.*" --recipe-option "exactMatch=true"
-```
-
-If the recipe is not available locally, then you can install it using:
-```shell
-mod config recipes jar install org.openrewrite:rewrite-cobol:{{VERSION_ORG_OPENREWRITE_REWRITE_COBOL}}
-```
-</TabItem>
-</Tabs>
+<RunRecipe
+  recipeName="org.openrewrite.cobol.search.FindReference"
+  displayName="Find matching identifiers in COBOL, copybooks, and JCL"
+  groupId="org.openrewrite"
+  artifactId="rewrite-cobol"
+  versionKey="VERSION_ORG_OPENREWRITE_REWRITE_COBOL"
+  requiresConfiguration
+  cliOptions={' --recipe-option "searchTerm=CM102M or cm1.*" --recipe-option "exactMatch=true"'}
+  showGradle={false}
+  showMaven={false}
+  hasDataTables
+/>
 
 ## See how this recipe works across multiple open-source repositories
 

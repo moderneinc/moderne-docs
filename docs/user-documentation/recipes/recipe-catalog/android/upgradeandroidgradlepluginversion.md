@@ -4,6 +4,7 @@ sidebar_label: "Upgrade Android Gradle Plugin (AGP) version"
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import RunRecipe from '@site/src/components/RunRecipe';
 
 # Upgrade Android Gradle Plugin (AGP) version
 
@@ -61,21 +62,18 @@ recipeList:
       gradleWrapperVersion: (8.7, 9]
 ```
 
-<Tabs groupId="projectType">
-<TabItem value="moderne-cli" label="Moderne CLI">
-
-You will need to have configured the [Moderne CLI](https://docs.moderne.io/user-documentation/moderne-cli/getting-started/cli-intro) on your machine before you can run the following command.
-
-```shell title="shell"
-mod run . --recipe UpgradeAndroidGradlePluginVersion --recipe-option "agpVersion=8.6.x" --recipe-option "gradleWrapperVersion=(8.7, 9]"
-```
-
-If the recipe is not available locally, then you can install it using:
-```shell
-mod config recipes jar install org.openrewrite.recipe:rewrite-android:{{VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_ANDROID}}
-```
-</TabItem>
-</Tabs>
+<RunRecipe
+  recipeName="org.openrewrite.android.UpgradeAndroidGradlePluginVersion"
+  displayName="Upgrade Android Gradle Plugin (AGP) version"
+  groupId="org.openrewrite.recipe"
+  artifactId="rewrite-android"
+  versionKey="VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_ANDROID"
+  requiresConfiguration
+  cliOptions={' --recipe-option "agpVersion=8.6.x" --recipe-option "gradleWrapperVersion=(8.7, 9]"'}
+  showGradle={false}
+  showMaven={false}
+  hasDataTables
+/>
 
 ## See how this recipe works across multiple open-source repositories
 

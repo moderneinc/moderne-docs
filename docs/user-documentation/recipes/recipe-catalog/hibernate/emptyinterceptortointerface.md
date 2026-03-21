@@ -9,6 +9,7 @@ sidebar_label: "Replace `extends EmptyInterceptor` with `implements Interceptor`
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import RunRecipe from '@site/src/components/RunRecipe';
 
 # Replace `extends EmptyInterceptor` with `implements Interceptor` and potentially `StatementInspector`
 
@@ -93,24 +94,16 @@ import org.hibernate.EmptyInterceptor;
 
 ## Usage
 
-This recipe has no required configuration options. Users of Moderne can run it via the Moderne CLI.
-<Tabs groupId="projectType">
-
-
-<TabItem value="moderne-cli" label="Moderne CLI">
-
-You will need to have configured the [Moderne CLI](https://docs.moderne.io/user-documentation/moderne-cli/getting-started/cli-intro) on your machine before you can run the following command.
-
-```shell title="shell"
-mod run . --recipe EmptyInterceptorToInterface
-```
-
-If the recipe is not available locally, then you can install it using:
-```shell
-mod config recipes jar install org.openrewrite.recipe:rewrite-hibernate:{{VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_HIBERNATE}}
-```
-</TabItem>
-</Tabs>
+<RunRecipe
+  recipeName="org.openrewrite.hibernate.EmptyInterceptorToInterface"
+  displayName="Replace `extends EmptyInterceptor` with `implements Interceptor` and potentially `StatementInspector`"
+  groupId="org.openrewrite.recipe"
+  artifactId="rewrite-hibernate"
+  versionKey="VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_HIBERNATE"
+  showGradle={false}
+  showMaven={false}
+  hasDataTables
+/>
 
 ## See how this recipe works across multiple open-source repositories
 

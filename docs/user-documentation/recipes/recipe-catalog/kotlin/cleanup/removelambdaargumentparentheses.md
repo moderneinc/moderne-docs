@@ -9,6 +9,7 @@ sidebar_label: "Remove method invocation parentheses around single lambda argume
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import RunRecipe from '@site/src/components/RunRecipe';
 
 # Remove method invocation parentheses around single lambda argument
 
@@ -61,24 +62,13 @@ fun method(number: Int) {
 
 ## Usage
 
-This recipe has no required configuration options. Users of Moderne can run it via the Moderne CLI.
-<Tabs groupId="projectType">
-
-
-<TabItem value="moderne-cli" label="Moderne CLI">
-
-You will need to have configured the [Moderne CLI](https://docs.moderne.io/user-documentation/moderne-cli/getting-started/cli-intro) on your machine before you can run the following command.
-
-```shell title="shell"
-mod run . --recipe RemoveLambdaArgumentParentheses
-```
-
-If the recipe is not available locally, then you can install it using:
-```shell
-mod config recipes jar install org.openrewrite:rewrite-kotlin:{{VERSION_ORG_OPENREWRITE_REWRITE_KOTLIN}}
-```
-</TabItem>
-</Tabs>
+<RunRecipe
+  recipeName="org.openrewrite.kotlin.cleanup.RemoveLambdaArgumentParentheses"
+  displayName="Remove method invocation parentheses around single lambda argument"
+  showGradle={false}
+  showMaven={false}
+  hasDataTables
+/>
 
 ## See how this recipe works across multiple open-source repositories
 

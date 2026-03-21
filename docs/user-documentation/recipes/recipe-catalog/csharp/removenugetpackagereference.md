@@ -9,6 +9,7 @@ sidebar_label: "Remove NuGet package reference"
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import RunRecipe from '@site/src/components/RunRecipe';
 
 # Remove NuGet package reference
 
@@ -47,21 +48,18 @@ recipeList:
       packageName: Newtonsoft.Json
 ```
 
-<Tabs groupId="projectType">
-<TabItem value="moderne-cli" label="Moderne CLI">
-
-You will need to have configured the [Moderne CLI](https://docs.moderne.io/user-documentation/moderne-cli/getting-started/cli-intro) on your machine before you can run the following command.
-
-```shell title="shell"
-mod run . --recipe RemoveNuGetPackageReference --recipe-option "packageName=Newtonsoft.Json"
-```
-
-If the recipe is not available locally, then you can install it using:
-```shell
-mod config recipes jar install org.openrewrite:rewrite-csharp:{{VERSION_ORG_OPENREWRITE_REWRITE_CSHARP}}
-```
-</TabItem>
-</Tabs>
+<RunRecipe
+  recipeName="org.openrewrite.csharp.RemoveNuGetPackageReference"
+  displayName="Remove NuGet package reference"
+  groupId="org.openrewrite"
+  artifactId="rewrite-csharp"
+  versionKey="VERSION_ORG_OPENREWRITE_REWRITE_CSHARP"
+  requiresConfiguration
+  cliOptions={' --recipe-option "packageName=Newtonsoft.Json"'}
+  showGradle={false}
+  showMaven={false}
+  hasDataTables
+/>
 
 ## See how this recipe works across multiple open-source repositories
 

@@ -9,6 +9,7 @@ sidebar_label: "Remove elements from a method declaration `throws` clause"
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import RunRecipe from '@site/src/components/RunRecipe';
 
 # Remove elements from a method declaration `throws` clause
 
@@ -110,21 +111,15 @@ recipeList:
       exceptionTypePattern: java.io.IOException
 ```
 
-<Tabs groupId="projectType">
-<TabItem value="moderne-cli" label="Moderne CLI">
-
-You will need to have configured the [Moderne CLI](https://docs.moderne.io/user-documentation/moderne-cli/getting-started/cli-intro) on your machine before you can run the following command.
-
-```shell title="shell"
-mod run . --recipe RemoveMethodThrows --recipe-option "methodPattern=java.util.List add(..)" --recipe-option "exceptionTypePattern=java.io.IOException"
-```
-
-If the recipe is not available locally, then you can install it using:
-```shell
-mod config recipes jar install org.openrewrite:rewrite-java:{{VERSION_ORG_OPENREWRITE_REWRITE_JAVA}}
-```
-</TabItem>
-</Tabs>
+<RunRecipe
+  recipeName="org.openrewrite.java.RemoveMethodThrows"
+  displayName="Remove elements from a method declaration `throws` clause"
+  requiresConfiguration
+  cliOptions={' --recipe-option "methodPattern=java.util.List add(..)" --recipe-option "exceptionTypePattern=java.io.IOException"'}
+  showGradle={false}
+  showMaven={false}
+  hasDataTables
+/>
 
 ## See how this recipe works across multiple open-source repositories
 

@@ -9,6 +9,7 @@ sidebar_label: "Add the Develocity Maven extension"
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import RunRecipe from '@site/src/components/RunRecipe';
 
 # Add the Develocity Maven extension
 
@@ -132,21 +133,15 @@ recipeList:
       publishCriteria: Always
 ```
 
-<Tabs groupId="projectType">
-<TabItem value="moderne-cli" label="Moderne CLI">
-
-You will need to have configured the [Moderne CLI](https://docs.moderne.io/user-documentation/moderne-cli/getting-started/cli-intro) on your machine before you can run the following command.
-
-```shell title="shell"
-mod run . --recipe AddDevelocityMavenExtension --recipe-option "version=1.17.4" --recipe-option "server=https://scans.gradle.com/" --recipe-option "allowUntrustedServer=true" --recipe-option "fileFingerprints=true" --recipe-option "uploadInBackground=false" --recipe-option "publishCriteria=Always"
-```
-
-If the recipe is not available locally, then you can install it using:
-```shell
-mod config recipes jar install org.openrewrite:rewrite-maven:{{VERSION_ORG_OPENREWRITE_REWRITE_MAVEN}}
-```
-</TabItem>
-</Tabs>
+<RunRecipe
+  recipeName="org.openrewrite.maven.AddDevelocityMavenExtension"
+  displayName="Add the Develocity Maven extension"
+  requiresConfiguration
+  cliOptions={' --recipe-option "version=1.17.4" --recipe-option "server=https://scans.gradle.com/" --recipe-option "allowUntrustedServer=true" --recipe-option "fileFingerprints=true" --recipe-option "uploadInBackground=false" --recipe-option "publishCriteria=Always"'}
+  showGradle={false}
+  showMaven={false}
+  hasDataTables
+/>
 
 ## See how this recipe works across multiple open-source repositories
 

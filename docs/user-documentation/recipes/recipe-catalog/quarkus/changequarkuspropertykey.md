@@ -9,6 +9,7 @@ sidebar_label: "Change Quarkus configuration property key"
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import RunRecipe from '@site/src/components/RunRecipe';
 
 # Change Quarkus configuration property key
 
@@ -70,21 +71,18 @@ recipeList:
         - ["**/application.yaml"]
 ```
 
-<Tabs groupId="projectType">
-<TabItem value="moderne-cli" label="Moderne CLI">
-
-You will need to have configured the [Moderne CLI](https://docs.moderne.io/user-documentation/moderne-cli/getting-started/cli-intro) on your machine before you can run the following command.
-
-```shell title="shell"
-mod run . --recipe ChangeQuarkusPropertyKey --recipe-option "oldPropertyKey=quarkus.hibernate-search-orm.automatic-indexing.synchronization.strategy" --recipe-option "newPropertyKey=quarkus.hibernate-search-orm.indexing.plan.synchronization.strategy" --recipe-option "profile=dev" --recipe-option "changeAllProfiles=false" --recipe-option "pathExpressions=["**/application.yaml"]"
-```
-
-If the recipe is not available locally, then you can install it using:
-```shell
-mod config recipes jar install org.openrewrite.recipe:rewrite-quarkus:{{VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_QUARKUS}}
-```
-</TabItem>
-</Tabs>
+<RunRecipe
+  recipeName="org.openrewrite.quarkus.ChangeQuarkusPropertyKey"
+  displayName="Change Quarkus configuration property key"
+  groupId="org.openrewrite.recipe"
+  artifactId="rewrite-quarkus"
+  versionKey="VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_QUARKUS"
+  requiresConfiguration
+  cliOptions={' --recipe-option "oldPropertyKey=quarkus.hibernate-search-orm.automatic-indexing.synchronization.strategy" --recipe-option "newPropertyKey=quarkus.hibernate-search-orm.indexing.plan.synchronization.strategy" --recipe-option "profile=dev" --recipe-option "changeAllProfiles=false" --recipe-option "pathExpressions=["**/application.yaml"]"'}
+  showGradle={false}
+  showMaven={false}
+  hasDataTables
+/>
 
 ## See how this recipe works across multiple open-source repositories
 

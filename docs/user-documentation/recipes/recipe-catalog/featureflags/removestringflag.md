@@ -9,6 +9,7 @@ sidebar_label: "Remove a String feature flag for feature key"
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import RunRecipe from '@site/src/components/RunRecipe';
 
 # Remove a String feature flag for feature key
 
@@ -118,21 +119,18 @@ recipeList:
       replacementValue: topic-456
 ```
 
-<Tabs groupId="projectType">
-<TabItem value="moderne-cli" label="Moderne CLI">
-
-You will need to have configured the [Moderne CLI](https://docs.moderne.io/user-documentation/moderne-cli/getting-started/cli-intro) on your machine before you can run the following command.
-
-```shell title="shell"
-mod run . --recipe RemoveStringFlag --recipe-option "methodPattern=dev.openfeature.sdk.Client getBooleanValue(String, Boolean)" --recipe-option "featureKey=flag-key-123abc" --recipe-option "replacementValue=topic-456"
-```
-
-If the recipe is not available locally, then you can install it using:
-```shell
-mod config recipes jar install org.openrewrite.recipe:rewrite-feature-flags:{{VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_FEATURE_FLAGS}}
-```
-</TabItem>
-</Tabs>
+<RunRecipe
+  recipeName="org.openrewrite.featureflags.RemoveStringFlag"
+  displayName="Remove a String feature flag for feature key"
+  groupId="org.openrewrite.recipe"
+  artifactId="rewrite-feature-flags"
+  versionKey="VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_FEATURE_FLAGS"
+  requiresConfiguration
+  cliOptions={' --recipe-option "methodPattern=dev.openfeature.sdk.Client getBooleanValue(String, Boolean)" --recipe-option "featureKey=flag-key-123abc" --recipe-option "replacementValue=topic-456"'}
+  showGradle={false}
+  showMaven={false}
+  hasDataTables
+/>
 
 ## See how this recipe works across multiple open-source repositories
 

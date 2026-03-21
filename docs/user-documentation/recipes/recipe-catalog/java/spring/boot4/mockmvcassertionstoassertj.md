@@ -4,6 +4,7 @@ sidebar_label: "Migrate MockMvc `andExpect()` chains to AssertJ assertions"
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import RunRecipe from '@site/src/components/RunRecipe';
 
 # Migrate MockMvc `andExpect()` chains to AssertJ assertions
 
@@ -90,24 +91,16 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 
 ## Usage
 
-This recipe has no required configuration options. Users of Moderne can run it via the Moderne CLI.
-<Tabs groupId="projectType">
-
-
-<TabItem value="moderne-cli" label="Moderne CLI">
-
-You will need to have configured the [Moderne CLI](https://docs.moderne.io/user-documentation/moderne-cli/getting-started/cli-intro) on your machine before you can run the following command.
-
-```shell title="shell"
-mod run . --recipe MockMvcAssertionsToAssertJ
-```
-
-If the recipe is not available locally, then you can install it using:
-```shell
-mod config recipes jar install io.moderne.recipe:rewrite-spring:{{VERSION_IO_MODERNE_RECIPE_REWRITE_SPRING}}
-```
-</TabItem>
-</Tabs>
+<RunRecipe
+  recipeName="io.moderne.java.spring.boot4.MockMvcAssertionsToAssertJ"
+  displayName="Migrate MockMvc `andExpect()` chains to AssertJ assertions"
+  groupId="io.moderne.recipe"
+  artifactId="rewrite-spring"
+  versionKey="VERSION_IO_MODERNE_RECIPE_REWRITE_SPRING"
+  showGradle={false}
+  showMaven={false}
+  hasDataTables
+/>
 
 ## See how this recipe works across multiple open-source repositories
 

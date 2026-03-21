@@ -9,6 +9,7 @@ sidebar_label: "Create TOML file"
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import RunRecipe from '@site/src/components/RunRecipe';
 
 # Create TOML file
 
@@ -80,24 +81,18 @@ recipeList:
       fileContentsUrl: https://raw.githubusercontent.com/example/repo/main/pyproject.toml
 ```
 
-<Tabs groupId="projectType">
-    <TabItem value="moderne-cli" label="Moderne CLI">
-
-    You will need to have configured the [Moderne CLI](https://docs.moderne.io/user-documentation/moderne-cli/getting-started/cli-intro) on your machine before you can run the following command.
-
-    ```shell title="shell"
-    mod run . --recipe CreateTomlFile --recipe-option "relativeFileName=pyproject.toml" --recipe-option "fileContents=>
-[tool.poetry]
-name = "my-project"
-version = "0.1.0"" --recipe-option "fileContentsUrl=https://raw.githubusercontent.com/example/repo/main/pyproject.toml"
-    ```
-
-    If the recipe is not available locally, then you can install it using:
-    ```shell
-    mod config recipes jar install org.openrewrite:rewrite-toml:{{VERSION_ORG_OPENREWRITE_REWRITE_TOML}}
-    ```
-    </TabItem>
-</Tabs>
+<RunRecipe
+  recipeName="org.openrewrite.toml.CreateTomlFile"
+  displayName="Create TOML file"
+  requiresConfiguration
+  cliOptions={' --recipe-option "relativeFileName=pyproject.toml" --recipe-option "fileContents=>
+        [tool.poetry]
+        name = "my-project"
+        version = "0.1.0"" --recipe-option "fileContentsUrl=https://raw.githubusercontent.com/example/repo/main/pyproject.toml"'}
+  showGradle={false}
+  showMaven={false}
+  hasDataTables
+/>
 
 ## See how this recipe works across multiple open-source repositories
 

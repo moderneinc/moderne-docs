@@ -9,6 +9,7 @@ sidebar_label: "Move a closure which is the last argument of a method invocation
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import RunRecipe from '@site/src/components/RunRecipe';
 
 # Move a closure which is the last argument of a method invocation out of parentheses
 
@@ -27,24 +28,13 @@ This recipe is available under the [Apache License Version 2.0](https://www.apac
 
 ## Usage
 
-This recipe has no required configuration options. Users of Moderne can run it via the Moderne CLI.
-<Tabs groupId="projectType">
-
-
-<TabItem value="moderne-cli" label="Moderne CLI">
-
-You will need to have configured the [Moderne CLI](https://docs.moderne.io/user-documentation/moderne-cli/getting-started/cli-intro) on your machine before you can run the following command.
-
-```shell title="shell"
-mod run . --recipe OmitParenthesesForLastArgumentLambda
-```
-
-If the recipe is not available locally, then you can install it using:
-```shell
-mod config recipes jar install org.openrewrite:rewrite-groovy:{{VERSION_ORG_OPENREWRITE_REWRITE_GROOVY}}
-```
-</TabItem>
-</Tabs>
+<RunRecipe
+  recipeName="org.openrewrite.groovy.format.OmitParenthesesForLastArgumentLambda"
+  displayName="Move a closure which is the last argument of a method invocation out of parentheses"
+  showGradle={false}
+  showMaven={false}
+  hasDataTables
+/>
 
 ## See how this recipe works across multiple open-source repositories
 

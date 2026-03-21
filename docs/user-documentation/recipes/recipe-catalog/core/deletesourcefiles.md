@@ -9,6 +9,7 @@ sidebar_label: "Delete files"
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import RunRecipe from '@site/src/components/RunRecipe';
 
 # Delete files
 
@@ -55,21 +56,15 @@ recipeList:
       filePattern: .github/workflows/*.yml
 ```
 
-<Tabs groupId="projectType">
-<TabItem value="moderne-cli" label="Moderne CLI">
-
-You will need to have configured the [Moderne CLI](https://docs.moderne.io/user-documentation/moderne-cli/getting-started/cli-intro) on your machine before you can run the following command.
-
-```shell title="shell"
-mod run . --recipe DeleteSourceFiles --recipe-option "filePattern=.github/workflows/*.yml"
-```
-
-If the recipe is not available locally, then you can install it using:
-```shell
-mod config recipes jar install org.openrewrite:rewrite-core:{{VERSION_ORG_OPENREWRITE_REWRITE_CORE}}
-```
-</TabItem>
-</Tabs>
+<RunRecipe
+  recipeName="org.openrewrite.DeleteSourceFiles"
+  displayName="Delete files"
+  requiresConfiguration
+  cliOptions={' --recipe-option "filePattern=.github/workflows/*.yml"'}
+  showGradle={false}
+  showMaven={false}
+  hasDataTables
+/>
 
 ## See how this recipe works across multiple open-source repositories
 

@@ -4,6 +4,7 @@ sidebar_label: "Upgrade to LangChain 0.2"
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import RunRecipe from '@site/src/components/RunRecipe';
 
 # Upgrade to LangChain 0.2
 
@@ -35,16 +36,8 @@ This recipe is used as part of the following composite recipes:
 
 ## Usage
 
-In order to run Python recipes, you will need to use the [Moderne CLI](https://docs.moderne.io/user-documentation/moderne-cli/getting-started/cli-intro).
-
-Once the CLI is installed, you can install this Python recipe package by running the following command:
-
-```shell title="Install the recipe package"
-mod config recipes pip install openrewrite-migrate-python
-```
-
-Then, you can run the recipe via:
-
-```shell title="Run the recipe"
-mod run . --recipe org.openrewrite.python.migrate.langchain.UpgradeToLangChain02
-```
+<RunRecipe
+  recipeName="org.openrewrite.python.migrate.langchain.UpgradeToLangChain02"
+  displayName="Upgrade to LangChain 0.2"
+  pipPackage="openrewrite-migrate-python"
+/>

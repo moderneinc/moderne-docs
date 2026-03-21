@@ -4,6 +4,7 @@ sidebar_label: "Delete method argument"
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import RunRecipe from '@site/src/components/RunRecipe';
 
 # Delete method argument
 
@@ -21,16 +22,8 @@ This recipe is available under the [Moderne Proprietary License](https://docs.mo
 
 ## Usage
 
-In order to run Python recipes, you will need to use the [Moderne CLI](https://docs.moderne.io/user-documentation/moderne-cli/getting-started/cli-intro).
-
-Once the CLI is installed, you can install this Python recipe package by running the following command:
-
-```shell title="Install the recipe package"
-mod config recipes pip install openrewrite
-```
-
-Then, you can run the recipe via:
-
-```shell title="Run the recipe"
-mod run . --recipe org.openrewrite.python.DeleteMethodArgument
-```
+<RunRecipe
+  recipeName="org.openrewrite.python.DeleteMethodArgument"
+  displayName="Delete method argument"
+  pipPackage="openrewrite"
+/>

@@ -4,6 +4,7 @@ sidebar_label: "Upgrade Node.js dependencies"
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import RunRecipe from '@site/src/components/RunRecipe';
 
 # Upgrade Node.js dependencies
 
@@ -139,21 +140,18 @@ recipeList:
       version: 1.x
 ```
 
-<Tabs groupId="projectType">
-<TabItem value="moderne-cli" label="Moderne CLI">
-
-You will need to have configured the [Moderne CLI](https://docs.moderne.io/user-documentation/moderne-cli/getting-started/cli-intro) on your machine before you can run the following command.
-
-```shell title="shell"
-mod run . --recipe UpgradeDependencyVersion --recipe-option "namePattern='@apollo*'" --recipe-option "version=1.x"
-```
-
-If the recipe is not available locally, then you can install it using:
-```shell
-mod config recipes jar install org.openrewrite.recipe:rewrite-nodejs:{{VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_NODEJS}}
-```
-</TabItem>
-</Tabs>
+<RunRecipe
+  recipeName="org.openrewrite.nodejs.UpgradeDependencyVersion"
+  displayName="Upgrade Node.js dependencies"
+  groupId="org.openrewrite.recipe"
+  artifactId="rewrite-nodejs"
+  versionKey="VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_NODEJS"
+  requiresConfiguration
+  cliOptions={' --recipe-option "namePattern='@apollo*'" --recipe-option "version=1.x"'}
+  showGradle={false}
+  showMaven={false}
+  hasDataTables
+/>
 
 ## See how this recipe works across multiple open-source repositories
 

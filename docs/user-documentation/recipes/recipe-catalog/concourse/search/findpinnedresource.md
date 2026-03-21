@@ -4,6 +4,7 @@ sidebar_label: "Find pinned resources by type"
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import RunRecipe from '@site/src/components/RunRecipe';
 
 # Find pinned resources by type
 
@@ -85,24 +86,16 @@ resources:
 
 ## Usage
 
-This recipe has no required configuration options. Users of Moderne can run it via the Moderne CLI.
-<Tabs groupId="projectType">
-
-
-<TabItem value="moderne-cli" label="Moderne CLI">
-
-You will need to have configured the [Moderne CLI](https://docs.moderne.io/user-documentation/moderne-cli/getting-started/cli-intro) on your machine before you can run the following command.
-
-```shell title="shell"
-mod run . --recipe FindPinnedResource
-```
-
-If the recipe is not available locally, then you can install it using:
-```shell
-mod config recipes jar install org.openrewrite.recipe:rewrite-concourse:{{VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_CONCOURSE}}
-```
-</TabItem>
-</Tabs>
+<RunRecipe
+  recipeName="org.openrewrite.concourse.search.FindPinnedResource"
+  displayName="Find pinned resources by type"
+  groupId="org.openrewrite.recipe"
+  artifactId="rewrite-concourse"
+  versionKey="VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_CONCOURSE"
+  showGradle={false}
+  showMaven={false}
+  hasDataTables
+/>
 
 ## See how this recipe works across multiple open-source repositories
 

@@ -9,6 +9,7 @@ sidebar_label: "URIs created with an HTTP scheme"
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import RunRecipe from '@site/src/components/RunRecipe';
 
 # URIs created with an HTTP scheme
 
@@ -80,24 +81,16 @@ class Test {
 
 ## Usage
 
-This recipe has no required configuration options. Users of Moderne can run it via the Moderne CLI.
-<Tabs groupId="projectType">
-
-
-<TabItem value="moderne-cli" label="Moderne CLI">
-
-You will need to have configured the [Moderne CLI](https://docs.moderne.io/user-documentation/moderne-cli/getting-started/cli-intro) on your machine before you can run the following command.
-
-```shell title="shell"
-mod run . --recipe UriCreatedWithHttpScheme
-```
-
-If the recipe is not available locally, then you can install it using:
-```shell
-mod config recipes jar install org.openrewrite.meta:rewrite-analysis:{{VERSION_ORG_OPENREWRITE_META_REWRITE_ANALYSIS}}
-```
-</TabItem>
-</Tabs>
+<RunRecipe
+  recipeName="org.openrewrite.analysis.search.UriCreatedWithHttpScheme"
+  displayName="URIs created with an HTTP scheme"
+  groupId="org.openrewrite.meta"
+  artifactId="rewrite-analysis"
+  versionKey="VERSION_ORG_OPENREWRITE_META_REWRITE_ANALYSIS"
+  showGradle={false}
+  showMaven={false}
+  hasDataTables
+/>
 
 ## See how this recipe works across multiple open-source repositories
 
