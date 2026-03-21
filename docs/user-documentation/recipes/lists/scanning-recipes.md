@@ -45,12 +45,24 @@ _This doc contains all [scanning recipes](https://docs.openrewrite.org/concepts-
 * [io.moderne.prethink.FindTestCoverage](/user-documentation/recipes/recipe-catalog/prethink/findtestcoverage.md)
   * **Find test coverage mapping**
   * Map test methods to their corresponding implementation methods. Uses JavaType.Method matching to determine coverage relationships. Optionally generates AI summaries of what each test is verifying when LLM provider is configured.
+* [io.moderne.prethink.FindTestGaps](/user-documentation/recipes/recipe-catalog/prethink/findtestgaps.md)
+  * **Find test coverage gaps**
+  * Identify public non-trivial methods that lack test coverage. Reports gaps with cyclomatic complexity and risk scores to help prioritize where to add tests.
 * [io.moderne.prethink.calm.FindCalmRelationships](/user-documentation/recipes/recipe-catalog/prethink/calm/findcalmrelationships.md)
   * **Find CALM relationships**
   * Discover method call relationships within the repository for building interaction diagrams. Captures all method-to-method calls between in-repo classes. Entity IDs are resolved by GenerateCalmArchitecture when building CALM relationships.
 * [io.moderne.prethink.calm.GenerateCalmMermaidDiagram](/user-documentation/recipes/recipe-catalog/prethink/calm/generatecalmmermaiddiagram.md)
   * **Generate architecture mermaid diagram**
   * Generate a markdown file with a mermaid architecture diagram from discovered service endpoints, database connections, external service calls, and messaging connections.
+* [io.moderne.prethink.quality.FindClassMetrics](/user-documentation/recipes/recipe-catalog/prethink/quality/findclassmetrics.md)
+  * **Find class quality metrics**
+  * Compute per-class code quality metrics including WMC, LCOM4, TCC, CBO, and maintainability index.
+* [io.moderne.prethink.quality.FindCodeSmells](/user-documentation/recipes/recipe-catalog/prethink/quality/findcodesmells.md)
+  * **Find code smells**
+  * Detect code smells including God Class, Feature Envy, and Data Class using composite metric thresholds with severity ratings.
+* [io.moderne.prethink.quality.FindPackageMetrics](/user-documentation/recipes/recipe-catalog/prethink/quality/findpackagemetrics.md)
+  * **Find package quality metrics**
+  * Compute per-package architectural quality metrics including afferent/efferent coupling, instability, abstractness, distance from the main sequence, and dependency cycle detection using Tarjan's strongly connected components algorithm.
 
 ## io.moderne.recipe:rewrite-program-analysis
 
@@ -369,6 +381,9 @@ _This doc contains all [scanning recipes](https://docs.openrewrite.org/concepts-
 * [org.openrewrite.prethink.UpdateAgentConfig](/user-documentation/recipes/recipe-catalog/prethink/updateagentconfig.md)
   * **Update agent configuration files**
   * Update coding agent configuration files (CLAUDE.md, .cursorrules, etc.) to include references to Moderne Prethink context files in .moderne/context/.
+* [org.openrewrite.prethink.UpdateGitignore](/user-documentation/recipes/recipe-catalog/prethink/updategitignore.md)
+  * **Update .gitignore for Prethink context**
+  * Updates .gitignore to allow committing the `.moderne/context/` directory while ignoring other files in `.moderne/`. Only modifies .gitignore when context files exist in `.moderne/context/`. Transforms `.moderne/` into `.moderne/*` with an exception for `!.moderne/context/`.
 * [org.openrewrite.prethink.calm.GenerateCalmArchitecture](/user-documentation/recipes/recipe-catalog/prethink/calm/generatecalmarchitecture.md)
   * **Generate CALM architecture**
   * Generate a FINOS CALM (Common Architecture Language Model) JSON file from discovered service endpoints, database connections, external service calls, and messaging connections.

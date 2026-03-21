@@ -6,7 +6,7 @@ description: A comprehensive list of all recipes organized by module.
 
 _This doc contains all recipes grouped by their module._
 
-Total recipes: 5113
+Total recipes: 5127
 
 
 ## io.moderne.recipe:rewrite-angular
@@ -276,7 +276,7 @@ _12 recipes_
 
 _License: Moderne Proprietary License_
 
-_32 recipes_
+_46 recipes_
 
 * [io.moderne.prethink.ComprehendCode](/user-documentation/recipes/recipe-catalog/prethink/comprehendcode.md)
   * **Comprehend code with AI**
@@ -296,6 +296,9 @@ _32 recipes_
 * [io.moderne.prethink.FindTestCoverage](/user-documentation/recipes/recipe-catalog/prethink/findtestcoverage.md)
   * **Find test coverage mapping**
   * Map test methods to their corresponding implementation methods. Uses JavaType.Method matching to determine coverage relationships. Optionally generates AI summaries of what each test is verifying when LLM provider is configured.
+* [io.moderne.prethink.FindTestGaps](/user-documentation/recipes/recipe-catalog/prethink/findtestgaps.md)
+  * **Find test coverage gaps**
+  * Identify public non-trivial methods that lack test coverage. Reports gaps with cyclomatic complexity and risk scores to help prioritize where to add tests.
 * [io.moderne.prethink.UpdatePrethinkContextNoAiStarter](/user-documentation/recipes/recipe-catalog/prethink/updateprethinkcontextnoaistarter.md)
   * **Update Prethink context (no AI)**
   * Generate Moderne Prethink context files with architectural discovery, test coverage mapping, dependency inventory, and FINOS CALM architecture diagrams. This recipe does not require an LLM provider - use UpdatePrethinkContextStarter if you want AI-generated code comprehension and test summaries.
@@ -314,12 +317,27 @@ _32 recipes_
 * [io.moderne.prethink.calm.FindDeploymentArtifacts](/user-documentation/recipes/recipe-catalog/prethink/calm/finddeploymentartifacts.md)
   * **Find deployment artifacts**
   * Identify deployment artifacts including Dockerfiles, docker-compose files, and Kubernetes manifests.
+* [io.moderne.prethink.calm.FindDjangoEndpoints](/user-documentation/recipes/recipe-catalog/prethink/calm/finddjangoendpoints.md)
+  * **Find Django endpoints**
+  * Identify REST/HTTP endpoints in Django and Django REST Framework applications. Detects class-based views, function-based views with @api_view, and regular Django views with @require_http_methods decorators.
 * [io.moderne.prethink.calm.FindExpressEndpoints](/user-documentation/recipes/recipe-catalog/prethink/calm/findexpressendpoints.md)
   * **Find Express endpoints**
   * Identify REST/HTTP endpoints in Express and Fastify applications. Detects app.get(), router.post(), and similar route definition patterns.
 * [io.moderne.prethink.calm.FindExternalServiceCalls](/user-documentation/recipes/recipe-catalog/prethink/calm/findexternalservicecalls.md)
   * **Find external service calls**
   * Identify outbound HTTP calls to external services. Detects RestTemplate, WebClient, Feign clients, Apache HttpClient, OkHttp, and JAX-RS clients.
+* [io.moderne.prethink.calm.FindFastAPIEndpoints](/user-documentation/recipes/recipe-catalog/prethink/calm/findfastapiendpoints.md)
+  * **Find FastAPI endpoints**
+  * Identify REST/HTTP endpoints in FastAPI applications. Detects @app.get(), @router.post(), and similar route decorator patterns.
+* [io.moderne.prethink.calm.FindFlaskEndpoints](/user-documentation/recipes/recipe-catalog/prethink/calm/findflaskendpoints.md)
+  * **Find Flask endpoints**
+  * Identify REST/HTTP endpoints in Flask applications. Detects @app.route(), @blueprint.route(), and Flask 2.0+ shortcut decorators like @app.get() and @app.post().
+* [io.moderne.prethink.calm.FindGraphQLEndpoints](/user-documentation/recipes/recipe-catalog/prethink/calm/findgraphqlendpoints.md)
+  * **Find GraphQL endpoints**
+  * Identify GraphQL endpoints exposed by the application. Supports Spring GraphQL, Netflix DGS, and GraphQL Java (graphql-java-tools).
+* [io.moderne.prethink.calm.FindGrpcServices](/user-documentation/recipes/recipe-catalog/prethink/calm/findgrpcservices.md)
+  * **Find gRPC services**
+  * Identify gRPC service implementations in the application. Detects classes extending generated ImplBase classes and @GrpcService annotations.
 * [io.moderne.prethink.calm.FindMessagingConnections](/user-documentation/recipes/recipe-catalog/prethink/calm/findmessagingconnections.md)
   * **Find messaging connections**
   * Identify message queue producers and consumers. Detects Kafka, RabbitMQ, JMS, Spring Cloud Stream, and AWS SQS messaging.
@@ -356,6 +374,15 @@ _32 recipes_
 * [io.moderne.prethink.calm.FindPythonProjectMetadata](/user-documentation/recipes/recipe-catalog/prethink/calm/findpythonprojectmetadata.md)
   * **Find Python project metadata**
   * Extract project metadata (name, version, description) from Python pyproject.toml files.
+* [io.moderne.prethink.calm.FindPythonTestCoverage](/user-documentation/recipes/recipe-catalog/prethink/calm/findpythontestcoverage.md)
+  * **Find Python test coverage**
+  * Identify test methods in Python test files. Detects pytest test functions/classes and unittest.TestCase subclasses, and populates the TestMapping table.
+* [io.moderne.prethink.calm.FindSQLAlchemyModels](/user-documentation/recipes/recipe-catalog/prethink/calm/findsqlalchemymodels.md)
+  * **Find SQLAlchemy and Django ORM models**
+  * Identify ORM model classes in Python applications. Detects SQLAlchemy models with DeclarativeBase inheritance, Flask-SQLAlchemy models with db.Model, and Django ORM models extending models.Model.
+* [io.moderne.prethink.calm.FindScheduledTasks](/user-documentation/recipes/recipe-catalog/prethink/calm/findscheduledtasks.md)
+  * **Find scheduled tasks**
+  * Identify scheduled tasks and background jobs in the application. Supports Spring @Scheduled, Quartz Job, and Jakarta/Javax EJB Timer annotations.
 * [io.moderne.prethink.calm.FindSecurityConfiguration](/user-documentation/recipes/recipe-catalog/prethink/calm/findsecurityconfiguration.md)
   * **Find security configuration**
   * Identify security configurations including Spring Security, OAuth2, and CORS settings.
@@ -371,9 +398,24 @@ _32 recipes_
 * [io.moderne.prethink.calm.FindTypeORMEntities](/user-documentation/recipes/recipe-catalog/prethink/calm/findtypeormentities.md)
   * **Find TypeORM entities**
   * Identify TypeORM entities in Node.js applications. Detects @Entity() decorator on classes and populates the DatabaseConnections table.
+* [io.moderne.prethink.calm.FindWebSocketEndpoints](/user-documentation/recipes/recipe-catalog/prethink/calm/findwebsocketendpoints.md)
+  * **Find WebSocket endpoints**
+  * Identify WebSocket endpoints in the application. Supports Spring WebSocket, Spring STOMP messaging, and Jakarta/Javax WebSocket.
 * [io.moderne.prethink.calm.GenerateCalmMermaidDiagram](/user-documentation/recipes/recipe-catalog/prethink/calm/generatecalmmermaiddiagram.md)
   * **Generate architecture mermaid diagram**
   * Generate a markdown file with a mermaid architecture diagram from discovered service endpoints, database connections, external service calls, and messaging connections.
+* [io.moderne.prethink.quality.FindClassMetrics](/user-documentation/recipes/recipe-catalog/prethink/quality/findclassmetrics.md)
+  * **Find class quality metrics**
+  * Compute per-class code quality metrics including WMC, LCOM4, TCC, CBO, and maintainability index.
+* [io.moderne.prethink.quality.FindCodeSmells](/user-documentation/recipes/recipe-catalog/prethink/quality/findcodesmells.md)
+  * **Find code smells**
+  * Detect code smells including God Class, Feature Envy, and Data Class using composite metric thresholds with severity ratings.
+* [io.moderne.prethink.quality.FindMethodComplexity](/user-documentation/recipes/recipe-catalog/prethink/quality/findmethodcomplexity.md)
+  * **Find method complexity**
+  * Compute per-method code quality metrics including cyclomatic complexity, cognitive complexity, max nesting depth, line count, parameter count, ABC metric, and Halstead measures.
+* [io.moderne.prethink.quality.FindPackageMetrics](/user-documentation/recipes/recipe-catalog/prethink/quality/findpackagemetrics.md)
+  * **Find package quality metrics**
+  * Compute per-package architectural quality metrics including afferent/efferent coupling, instability, abstractness, distance from the main sequence, and dependency cycle detection using Tarjan's strongly connected components algorithm.
 
 ## io.moderne.recipe:rewrite-program-analysis
 
@@ -2956,7 +2998,7 @@ _5 recipes_
   * Update coding agent configuration files (CLAUDE.md, .cursorrules, etc.) to include references to Moderne Prethink context files in .moderne/context/.
 * [org.openrewrite.prethink.UpdateGitignore](/user-documentation/recipes/recipe-catalog/prethink/updategitignore.md)
   * **Update .gitignore for Prethink context**
-  * Updates .gitignore to allow committing the `.moderne/context/` directory while ignoring other files in `.moderne/`. Transforms `.moderne/` into `.moderne/*` with an exception for `!.moderne/context/`.
+  * Updates .gitignore to allow committing the `.moderne/context/` directory while ignoring other files in `.moderne/`. Only modifies .gitignore when context files exist in `.moderne/context/`. Transforms `.moderne/` into `.moderne/*` with an exception for `!.moderne/context/`.
 * [org.openrewrite.prethink.UpdatePrethinkContext](/user-documentation/recipes/recipe-catalog/prethink/updateprethinkcontext.md)
   * **Update Prethink context**
   * Generate FINOS CALM architecture diagram and update agent configuration files. This recipe expects CALM-related data tables (ServiceEndpoints, DatabaseConnections, ExternalServiceCalls, MessagingConnections, etc.) to be populated by other recipes in a composite.

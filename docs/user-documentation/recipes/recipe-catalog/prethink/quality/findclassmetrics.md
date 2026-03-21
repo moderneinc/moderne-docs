@@ -1,35 +1,30 @@
 ---
-sidebar_label: "Update .gitignore for Prethink context"
+sidebar_label: "Find class quality metrics"
 ---
-
-
-<head>
-  <link rel="canonical" href="https://docs.openrewrite.org/recipes/prethink/updategitignore" />
-</head>
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# Update .gitignore for Prethink context
+# Find class quality metrics
 
-**org.openrewrite.prethink.UpdateGitignore**
+**io.moderne.prethink.quality.FindClassMetrics**
 
-_Updates .gitignore to allow committing the `.moderne/context/` directory while ignoring other files in `.moderne/`. Only modifies .gitignore when context files exist in `.moderne/context/`. Transforms `.moderne/` into `.moderne/*` with an exception for `!.moderne/context/`._
+_Compute per-class code quality metrics including WMC, LCOM4, TCC, CBO, and maintainability index._
 
 ## Recipe source
 
-[GitHub: UpdateGitignore.java](https://github.com/openrewrite/rewrite-prethink/blob/main/src/main/java/org/openrewrite/prethink/UpdateGitignore.java),
-[Issue Tracker](https://github.com/openrewrite/rewrite-prethink/issues),
-[Maven Central](https://central.sonatype.com/artifact/org.openrewrite.recipe/rewrite-prethink/)
+This recipe is only available to users of [Moderne](https://docs.moderne.io/).
 
-This recipe is available under the [Moderne Source Available License](https://docs.moderne.io/licensing/moderne-source-available-license).
+
+This recipe is available under the [Moderne Proprietary License](https://docs.moderne.io/licensing/overview).
 
 
 ## Used by
 
 This recipe is used as part of the following composite recipes:
 
-* [Update Prethink context](/user-documentation/recipes/recipe-catalog/prethink/updateprethinkcontext.md)
+* [Update Prethink context (no AI)](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/prethink/updateprethinkcontextnoaistarter)
+* [Update Prethink context (with AI)](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/prethink/updateprethinkcontextstarter)
 
 
 ## Usage
@@ -43,12 +38,12 @@ This recipe has no required configuration options. Users of Moderne can run it v
 You will need to have configured the [Moderne CLI](https://docs.moderne.io/user-documentation/moderne-cli/getting-started/cli-intro) on your machine before you can run the following command.
 
 ```shell title="shell"
-mod run . --recipe UpdateGitignore
+mod run . --recipe FindClassMetrics
 ```
 
 If the recipe is not available locally, then you can install it using:
 ```shell
-mod config recipes jar install org.openrewrite.recipe:rewrite-prethink:{{VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_PRETHINK}}
+mod config recipes jar install io.moderne.recipe:rewrite-prethink:{{VERSION_IO_MODERNE_RECIPE_REWRITE_PRETHINK}}
 ```
 </TabItem>
 </Tabs>
@@ -57,7 +52,7 @@ mod config recipes jar install org.openrewrite.recipe:rewrite-prethink:{{VERSION
 
 import RecipeCallout from '@site/src/components/ModerneLink';
 
-<RecipeCallout link="https://app.moderne.io/recipes/org.openrewrite.prethink.UpdateGitignore" />
+<RecipeCallout link="https://app.moderne.io/recipes/io.moderne.prethink.quality.FindClassMetrics" />
 
 The community edition of the Moderne platform enables you to easily run recipes across thousands of open-source repositories.
 
@@ -65,6 +60,28 @@ Please [contact Moderne](https://moderne.io/product) for more information about 
 ## Data Tables
 
 <Tabs groupId="data-tables">
+<TabItem value="io.moderne.prethink.table.ClassQualityMetrics" label="ClassQualityMetrics">
+
+### Class quality metrics
+**io.moderne.prethink.table.ClassQualityMetrics**
+
+_Per-class code quality metrics including WMC, LCOM4, TCC, CBO, and maintainability index._
+
+| Column Name | Description |
+| ----------- | ----------- |
+| Source path | The path to the source file containing the class. |
+| Class name | The fully qualified name of the class. |
+| Line count | Number of lines in the class. |
+| Method count | Number of methods defined in the class. |
+| Field count | Number of fields defined in the class. |
+| WMC | Weighted Methods per Class: sum of cyclomatic complexities of all methods. |
+| LCOM4 | Lack of Cohesion of Methods (Hitz-Montazeri): number of connected components in the method-field access graph. 1 = cohesive, &gt;1 = should be split. |
+| TCC | Tight Class Cohesion: proportion of directly connected method pairs (sharing field access). 0.0-1.0, higher is more cohesive. |
+| CBO | Coupling Between Objects: number of distinct classes this class is coupled to. |
+| Maintainability index | Composite score (0-100) combining Halstead Volume, cyclomatic complexity, and LOC. Higher is more maintainable. |
+
+</TabItem>
+
 <TabItem value="org.openrewrite.table.SourcesFileResults" label="SourcesFileResults">
 
 ### Source files that had results

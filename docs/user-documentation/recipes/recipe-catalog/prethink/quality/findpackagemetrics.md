@@ -1,35 +1,30 @@
 ---
-sidebar_label: "Update .gitignore for Prethink context"
+sidebar_label: "Find package quality metrics"
 ---
-
-
-<head>
-  <link rel="canonical" href="https://docs.openrewrite.org/recipes/prethink/updategitignore" />
-</head>
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# Update .gitignore for Prethink context
+# Find package quality metrics
 
-**org.openrewrite.prethink.UpdateGitignore**
+**io.moderne.prethink.quality.FindPackageMetrics**
 
-_Updates .gitignore to allow committing the `.moderne/context/` directory while ignoring other files in `.moderne/`. Only modifies .gitignore when context files exist in `.moderne/context/`. Transforms `.moderne/` into `.moderne/*` with an exception for `!.moderne/context/`._
+_Compute per-package architectural quality metrics including afferent/efferent coupling, instability, abstractness, distance from the main sequence, and dependency cycle detection using Tarjan's strongly connected components algorithm._
 
 ## Recipe source
 
-[GitHub: UpdateGitignore.java](https://github.com/openrewrite/rewrite-prethink/blob/main/src/main/java/org/openrewrite/prethink/UpdateGitignore.java),
-[Issue Tracker](https://github.com/openrewrite/rewrite-prethink/issues),
-[Maven Central](https://central.sonatype.com/artifact/org.openrewrite.recipe/rewrite-prethink/)
+This recipe is only available to users of [Moderne](https://docs.moderne.io/).
 
-This recipe is available under the [Moderne Source Available License](https://docs.moderne.io/licensing/moderne-source-available-license).
+
+This recipe is available under the [Moderne Proprietary License](https://docs.moderne.io/licensing/overview).
 
 
 ## Used by
 
 This recipe is used as part of the following composite recipes:
 
-* [Update Prethink context](/user-documentation/recipes/recipe-catalog/prethink/updateprethinkcontext.md)
+* [Update Prethink context (no AI)](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/prethink/updateprethinkcontextnoaistarter)
+* [Update Prethink context (with AI)](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/prethink/updateprethinkcontextstarter)
 
 
 ## Usage
@@ -43,12 +38,12 @@ This recipe has no required configuration options. Users of Moderne can run it v
 You will need to have configured the [Moderne CLI](https://docs.moderne.io/user-documentation/moderne-cli/getting-started/cli-intro) on your machine before you can run the following command.
 
 ```shell title="shell"
-mod run . --recipe UpdateGitignore
+mod run . --recipe FindPackageMetrics
 ```
 
 If the recipe is not available locally, then you can install it using:
 ```shell
-mod config recipes jar install org.openrewrite.recipe:rewrite-prethink:{{VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_PRETHINK}}
+mod config recipes jar install io.moderne.recipe:rewrite-prethink:{{VERSION_IO_MODERNE_RECIPE_REWRITE_PRETHINK}}
 ```
 </TabItem>
 </Tabs>
@@ -57,7 +52,7 @@ mod config recipes jar install org.openrewrite.recipe:rewrite-prethink:{{VERSION
 
 import RecipeCallout from '@site/src/components/ModerneLink';
 
-<RecipeCallout link="https://app.moderne.io/recipes/org.openrewrite.prethink.UpdateGitignore" />
+<RecipeCallout link="https://app.moderne.io/recipes/io.moderne.prethink.quality.FindPackageMetrics" />
 
 The community edition of the Moderne platform enables you to easily run recipes across thousands of open-source repositories.
 
@@ -65,6 +60,26 @@ Please [contact Moderne](https://moderne.io/product) for more information about 
 ## Data Tables
 
 <Tabs groupId="data-tables">
+<TabItem value="io.moderne.prethink.table.PackageQualityMetrics" label="PackageQualityMetrics">
+
+### Package quality metrics
+**io.moderne.prethink.table.PackageQualityMetrics**
+
+_Per-package architectural metrics including afferent/efferent coupling, instability, abstractness, distance from main sequence, and dependency cycle membership._
+
+| Column Name | Description |
+| ----------- | ----------- |
+| Package name | The fully qualified package name. |
+| Afferent coupling (Ca) | Number of external packages that depend on this package. |
+| Efferent coupling (Ce) | Number of external packages this package depends on. |
+| Instability | Ce / (Ce + Ca). 0.0 = maximally stable, 1.0 = maximally unstable. |
+| Abstractness | Ratio of abstract classes + interfaces to total classes in the package. |
+| Distance from main sequence | |A + I - 1|. 0.0 = ideal balance, high = Zone of Pain or Zone of Uselessness. |
+| In cycle | Whether this package is part of a dependency cycle. |
+| Cycle members | Comma-separated list of packages in the same dependency cycle, or null if not in a cycle. |
+
+</TabItem>
+
 <TabItem value="org.openrewrite.table.SourcesFileResults" label="SourcesFileResults">
 
 ### Source files that had results

@@ -7,6 +7,7 @@ description: Prethink OpenRewrite recipes.
 ## Categories
 
 * [Calm](/user-documentation/recipes/recipe-catalog/prethink/calm)
+* [Quality](/user-documentation/recipes/recipe-catalog/prethink/quality)
 
 ## Composite Recipes
 
@@ -24,6 +25,7 @@ _Recipes that include further recipes, often including the individual recipes be
 * [Extract coding conventions](./extractcodingconventions.md)
 * [Extract dependency usage patterns](./extractdependencyusage.md)
 * [Extract error handling patterns](./extracterrorpatterns.md)
+* [Find test coverage gaps](./findtestgaps.md)
 * [Find test coverage mapping](./findtestcoverage.md)
 * [Update .gitignore for Prethink context](./updategitignore.md)
 * [Update agent configuration files](./updateagentconfig.md)

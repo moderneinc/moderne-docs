@@ -352,6 +352,15 @@ _This doc contains all of the recipes with **unique** data tables that have been
   * **org.openrewrite.prethink.table.DeploymentArtifacts**: *Deployment configuration files (Dockerfile, Kubernetes manifests, docker-compose).*
 
 
+### [io.moderne.prethink.calm.FindDjangoEndpoints](/user-documentation/recipes/recipe-catalog/prethink/calm/finddjangoendpoints.md)
+  * **Find Django endpoints**
+  * Identify REST/HTTP endpoints in Django and Django REST Framework applications. Detects class-based views, function-based views with @api_view, and regular Django views with @require_http_methods decorators.
+
+#### Data tables:
+
+  * **org.openrewrite.prethink.table.ServiceEndpoints**: *REST/HTTP endpoints exposed by the application.*
+
+
 ### [io.moderne.prethink.calm.FindExpressEndpoints](/user-documentation/recipes/recipe-catalog/prethink/calm/findexpressendpoints.md)
   * **Find Express endpoints**
   * Identify REST/HTTP endpoints in Express and Fastify applications. Detects app.get(), router.post(), and similar route definition patterns.
@@ -368,6 +377,42 @@ _This doc contains all of the recipes with **unique** data tables that have been
 #### Data tables:
 
   * **org.openrewrite.prethink.table.ExternalServiceCalls**: *Outbound HTTP/REST calls to external services.*
+
+
+### [io.moderne.prethink.calm.FindFastAPIEndpoints](/user-documentation/recipes/recipe-catalog/prethink/calm/findfastapiendpoints.md)
+  * **Find FastAPI endpoints**
+  * Identify REST/HTTP endpoints in FastAPI applications. Detects @app.get(), @router.post(), and similar route decorator patterns.
+
+#### Data tables:
+
+  * **org.openrewrite.prethink.table.ServiceEndpoints**: *REST/HTTP endpoints exposed by the application.*
+
+
+### [io.moderne.prethink.calm.FindFlaskEndpoints](/user-documentation/recipes/recipe-catalog/prethink/calm/findflaskendpoints.md)
+  * **Find Flask endpoints**
+  * Identify REST/HTTP endpoints in Flask applications. Detects @app.route(), @blueprint.route(), and Flask 2.0+ shortcut decorators like @app.get() and @app.post().
+
+#### Data tables:
+
+  * **org.openrewrite.prethink.table.ServiceEndpoints**: *REST/HTTP endpoints exposed by the application.*
+
+
+### [io.moderne.prethink.calm.FindGraphQLEndpoints](/user-documentation/recipes/recipe-catalog/prethink/calm/findgraphqlendpoints.md)
+  * **Find GraphQL endpoints**
+  * Identify GraphQL endpoints exposed by the application. Supports Spring GraphQL, Netflix DGS, and GraphQL Java (graphql-java-tools).
+
+#### Data tables:
+
+  * **org.openrewrite.prethink.table.ServiceEndpoints**: *REST/HTTP endpoints exposed by the application.*
+
+
+### [io.moderne.prethink.calm.FindGrpcServices](/user-documentation/recipes/recipe-catalog/prethink/calm/findgrpcservices.md)
+  * **Find gRPC services**
+  * Identify gRPC service implementations in the application. Detects classes extending generated ImplBase classes and @GrpcService annotations.
+
+#### Data tables:
+
+  * **org.openrewrite.prethink.table.ServiceEndpoints**: *REST/HTTP endpoints exposed by the application.*
 
 
 ### [io.moderne.prethink.calm.FindMessagingConnections](/user-documentation/recipes/recipe-catalog/prethink/calm/findmessagingconnections.md)
@@ -478,6 +523,33 @@ _This doc contains all of the recipes with **unique** data tables that have been
   * **org.openrewrite.prethink.table.ProjectMetadata**: *Project-level identity and structure for each build module. Includes Maven GAV coordinates, display name, description, parent project lineage, and submodule count. Use this to understand what the project is, how it relates to parent projects, and whether it is a multi-module aggregator.*
 
 
+### [io.moderne.prethink.calm.FindPythonTestCoverage](/user-documentation/recipes/recipe-catalog/prethink/calm/findpythontestcoverage.md)
+  * **Find Python test coverage**
+  * Identify test methods in Python test files. Detects pytest test functions/classes and unittest.TestCase subclasses, and populates the TestMapping table.
+
+#### Data tables:
+
+  * **io.moderne.prethink.table.TestMapping**: *Maps test methods to implementation methods with optional AI-generated summaries and inference metrics.*
+
+
+### [io.moderne.prethink.calm.FindSQLAlchemyModels](/user-documentation/recipes/recipe-catalog/prethink/calm/findsqlalchemymodels.md)
+  * **Find SQLAlchemy and Django ORM models**
+  * Identify ORM model classes in Python applications. Detects SQLAlchemy models with DeclarativeBase inheritance, Flask-SQLAlchemy models with db.Model, and Django ORM models extending models.Model.
+
+#### Data tables:
+
+  * **org.openrewrite.prethink.table.DatabaseConnections**: *Database connections and data access patterns in the application.*
+
+
+### [io.moderne.prethink.calm.FindScheduledTasks](/user-documentation/recipes/recipe-catalog/prethink/calm/findscheduledtasks.md)
+  * **Find scheduled tasks**
+  * Identify scheduled tasks and background jobs in the application. Supports Spring @Scheduled, Quartz Job, and Jakarta/Javax EJB Timer annotations.
+
+#### Data tables:
+
+  * **io.moderne.prethink.table.ScheduledTasks**: *Scheduled tasks, cron jobs, and background processing detected in the application.*
+
+
 ### [io.moderne.prethink.calm.FindSecurityConfiguration](/user-documentation/recipes/recipe-catalog/prethink/calm/findsecurityconfiguration.md)
   * **Find security configuration**
   * Identify security configurations including Spring Security, OAuth2, and CORS settings.
@@ -523,6 +595,24 @@ _This doc contains all of the recipes with **unique** data tables that have been
   * **org.openrewrite.prethink.table.DatabaseConnections**: *Database connections and data access patterns in the application.*
 
 
+### [io.moderne.prethink.calm.FindWebSocketEndpoints](/user-documentation/recipes/recipe-catalog/prethink/calm/findwebsocketendpoints.md)
+  * **Find WebSocket endpoints**
+  * Identify WebSocket endpoints in the application. Supports Spring WebSocket, Spring STOMP messaging, and Jakarta/Javax WebSocket.
+
+#### Data tables:
+
+  * **org.openrewrite.prethink.table.ServiceEndpoints**: *REST/HTTP endpoints exposed by the application.*
+
+
+### [io.moderne.prethink.quality.FindMethodComplexity](/user-documentation/recipes/recipe-catalog/prethink/quality/findmethodcomplexity.md)
+  * **Find method complexity**
+  * Compute per-method code quality metrics including cyclomatic complexity, cognitive complexity, max nesting depth, line count, parameter count, ABC metric, and Halstead measures.
+
+#### Data tables:
+
+  * **io.moderne.prethink.table.MethodQualityMetrics**: *Per-method code quality metrics including cyclomatic complexity, cognitive complexity, nesting depth, Halstead measures, and ABC metric.*
+
+
 ### [io.moderne.prethink.ComprehendCode](/user-documentation/recipes/recipe-catalog/prethink/comprehendcode.md)
   * **Comprehend code with AI**
   * Use an LLM to generate descriptions for classes and methods in the codebase. Descriptions are cached based on source code checksums to avoid regenerating descriptions for unchanged code.
@@ -551,6 +641,15 @@ _This doc contains all of the recipes with **unique** data tables that have been
   * **io.moderne.prethink.table.TestMapping**: *Maps test methods to implementation methods with optional AI-generated summaries and inference metrics.*
 
 
+### [io.moderne.prethink.FindTestGaps](/user-documentation/recipes/recipe-catalog/prethink/findtestgaps.md)
+  * **Find test coverage gaps**
+  * Identify public non-trivial methods that lack test coverage. Reports gaps with cyclomatic complexity and risk scores to help prioritize where to add tests.
+
+#### Data tables:
+
+  * **io.moderne.prethink.table.TestGaps**: *Public non-trivial methods that have no test coverage, ranked by risk score.*
+
+
 ### [io.moderne.prethink.calm.FindCalmRelationships](/user-documentation/recipes/recipe-catalog/prethink/calm/findcalmrelationships.md)
   * **Find CALM relationships**
   * Discover method call relationships within the repository for building interaction diagrams. Captures all method-to-method calls between in-repo classes. Entity IDs are resolved by GenerateCalmArchitecture when building CALM relationships.
@@ -558,6 +657,33 @@ _This doc contains all of the recipes with **unique** data tables that have been
 #### Data tables:
 
   * **org.openrewrite.prethink.table.CalmRelationships**: *Method call graph for discovering relationships between architectural entities. Records all method calls within the repository with entity markers for graph traversal.*
+
+
+### [io.moderne.prethink.quality.FindClassMetrics](/user-documentation/recipes/recipe-catalog/prethink/quality/findclassmetrics.md)
+  * **Find class quality metrics**
+  * Compute per-class code quality metrics including WMC, LCOM4, TCC, CBO, and maintainability index.
+
+#### Data tables:
+
+  * **io.moderne.prethink.table.ClassQualityMetrics**: *Per-class code quality metrics including WMC, LCOM4, TCC, CBO, and maintainability index.*
+
+
+### [io.moderne.prethink.quality.FindCodeSmells](/user-documentation/recipes/recipe-catalog/prethink/quality/findcodesmells.md)
+  * **Find code smells**
+  * Detect code smells including God Class, Feature Envy, and Data Class using composite metric thresholds with severity ratings.
+
+#### Data tables:
+
+  * **io.moderne.prethink.table.CodeSmells**: *Detected code smells including God Class, Feature Envy, and Data Class with severity ratings and the metric evidence that triggered detection.*
+
+
+### [io.moderne.prethink.quality.FindPackageMetrics](/user-documentation/recipes/recipe-catalog/prethink/quality/findpackagemetrics.md)
+  * **Find package quality metrics**
+  * Compute per-package architectural quality metrics including afferent/efferent coupling, instability, abstractness, distance from the main sequence, and dependency cycle detection using Tarjan's strongly connected components algorithm.
+
+#### Data tables:
+
+  * **io.moderne.prethink.table.PackageQualityMetrics**: *Per-package architectural metrics including afferent/efferent coupling, instability, abstractness, distance from main sequence, and dependency cycle membership.*
 
 
 ### [org.openrewrite.analysis.java.controlflow.search.FindCyclomaticComplexity](/user-documentation/recipes/recipe-catalog/analysis/java/controlflow/search/findcyclomaticcomplexity.md)
