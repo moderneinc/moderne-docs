@@ -16,10 +16,6 @@ const config: Config = {
 
   onBrokenLinks: 'warn',
 
-  customFields: {
-    isModerneDocs: true,
-  },
-
   i18n: {
     defaultLocale: 'en',
     locales: ['en'],
