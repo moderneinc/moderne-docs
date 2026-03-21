@@ -105,7 +105,7 @@ recipeList:
   artifactId="rewrite-kubernetes"
   versionKey="VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_KUBERNETES"
   requiresConfiguration
-  cliOptions={' --recipe-option "oldApiVersion=flowcontrol.apiserver.k8s.io/v1beta3" --recipe-option "newApiVersion=flowcontrol.apiserver.k8s.io/v1" --recipe-option "fileMatcher='**/pod-*.yml'"'}
+  cliOptions={' --recipe-option "oldApiVersion=flowcontrol.apiserver.k8s.io/v1beta3" --recipe-option "newApiVersion=flowcontrol.apiserver.k8s.io/v1" --recipe-option "fileMatcher=\'**/pod-*.yml\'"'}
   showGradle={false}
   showMaven={false}
   hasDataTables

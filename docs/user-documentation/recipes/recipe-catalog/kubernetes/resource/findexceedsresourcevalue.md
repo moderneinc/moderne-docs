@@ -116,7 +116,7 @@ recipeList:
   artifactId="rewrite-kubernetes"
   versionKey="VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_KUBERNETES"
   requiresConfiguration
-  cliOptions={' --recipe-option "resourceValueType=limits" --recipe-option "resourceType=memory" --recipe-option "resourceLimit=2Gi" --recipe-option "fileMatcher='**/pod-*.yml'"'}
+  cliOptions={' --recipe-option "resourceValueType=limits" --recipe-option "resourceType=memory" --recipe-option "resourceLimit=2Gi" --recipe-option "fileMatcher=\'**/pod-*.yml\'"'}
   showGradle={false}
   showMaven={false}
   hasDataTables

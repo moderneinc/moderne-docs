@@ -122,7 +122,7 @@ recipeList:
   recipeName="org.openrewrite.gradle.plugins.UpgradePluginVersion"
   displayName="Update a Gradle plugin by id"
   requiresConfiguration
-  cliOptions={' --recipe-option "pluginIdPattern=com.jfrog.bintray" --recipe-option "newVersion=29.X" --recipe-option "versionPattern='-jre'"'}
+  cliOptions={' --recipe-option "pluginIdPattern=com.jfrog.bintray" --recipe-option "newVersion=29.X" --recipe-option "versionPattern=\'-jre\'"'}
   showGradle={false}
   showMaven={false}
   hasDataTables

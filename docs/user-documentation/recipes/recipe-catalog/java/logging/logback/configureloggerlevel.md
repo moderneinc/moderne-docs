@@ -123,7 +123,7 @@ recipeList:
   artifactId="rewrite-logging-frameworks"
   versionKey="VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_LOGGING_FRAMEWORKS"
   requiresConfiguration
-  cliOptions={' --recipe-option "className=com.example.MyClass" --recipe-option "logLevel=off" --recipe-option "filePattern='**/logback-spring.xml'"'}
+  cliOptions={' --recipe-option "className=com.example.MyClass" --recipe-option "logLevel=off" --recipe-option "filePattern=\'**/logback-spring.xml\'"'}
   showGradle={false}
   showMaven={false}
   hasDataTables

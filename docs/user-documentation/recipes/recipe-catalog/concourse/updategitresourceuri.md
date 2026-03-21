@@ -107,7 +107,7 @@ recipeList:
   artifactId="rewrite-concourse"
   versionKey="VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_CONCOURSE"
   requiresConfiguration
-  cliOptions={' --recipe-option "oldURIPattern=https://github.com/openrewrite/rewrite" --recipe-option "newURI=git@gitlab.com:openrewrite/rewrite.git" --recipe-option "fileMatcher='**/pipeline*.yml'"'}
+  cliOptions={' --recipe-option "oldURIPattern=https://github.com/openrewrite/rewrite" --recipe-option "newURI=git@gitlab.com:openrewrite/rewrite.git" --recipe-option "fileMatcher=\'**/pipeline*.yml\'"'}
   showGradle={false}
   showMaven={false}
   hasDataTables

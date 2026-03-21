@@ -167,7 +167,7 @@ recipeList:
   artifactId="rewrite-nodejs"
   versionKey="VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_NODEJS"
   requiresConfiguration
-  cliOptions={' --recipe-option "namePattern='@apollo*'" --recipe-option "version=1.x" --recipe-option "onlyDirect=true"'}
+  cliOptions={' --recipe-option "namePattern=\'@apollo*\'" --recipe-option "version=1.x" --recipe-option "onlyDirect=true"'}
   showGradle={false}
   showMaven={false}
   hasDataTables

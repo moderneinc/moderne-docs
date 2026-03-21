@@ -124,7 +124,7 @@ recipeList:
   artifactId="rewrite-kubernetes"
   versionKey="VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_KUBERNETES"
   requiresConfiguration
-  cliOptions={' --recipe-option "apiVersion=policy/v1beta1" --recipe-option "resourceKind=PodSecurityPolicy" --recipe-option "configurationPath=$.spec" --recipe-option "value='privileged: false'"'}
+  cliOptions={' --recipe-option "apiVersion=policy/v1beta1" --recipe-option "resourceKind=PodSecurityPolicy" --recipe-option "configurationPath=$.spec" --recipe-option "value=\'privileged: false\'"'}
   showGradle={false}
   showMaven={false}
   hasDataTables

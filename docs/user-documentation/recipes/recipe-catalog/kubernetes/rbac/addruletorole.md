@@ -141,7 +141,7 @@ recipeList:
   artifactId="rewrite-kubernetes"
   versionKey="VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_KUBERNETES"
   requiresConfiguration
-  cliOptions={' --recipe-option "rbacResourceType=ClusterRole" --recipe-option "rbacResourceName=my-cluster-role" --recipe-option "apiGroups=,v1" --recipe-option "resources=pods" --recipe-option "resourceNames=my-pod" --recipe-option "verbs=get,list" --recipe-option "fileMatcher='**/pod-*.yml'"'}
+  cliOptions={' --recipe-option "rbacResourceType=ClusterRole" --recipe-option "rbacResourceName=my-cluster-role" --recipe-option "apiGroups=,v1" --recipe-option "resources=pods" --recipe-option "resourceNames=my-pod" --recipe-option "verbs=get,list" --recipe-option "fileMatcher=\'**/pod-*.yml\'"'}
   showGradle={false}
   showMaven={false}
   hasDataTables

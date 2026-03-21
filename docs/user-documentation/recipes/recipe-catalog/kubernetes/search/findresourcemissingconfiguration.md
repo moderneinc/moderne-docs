@@ -111,7 +111,7 @@ recipeList:
   artifactId="rewrite-kubernetes"
   versionKey="VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_KUBERNETES"
   requiresConfiguration
-  cliOptions={' --recipe-option "resourceKind=Pod" --recipe-option "configurationPath=$.spec.containers.livenessProbe" --recipe-option "fileMatcher='**/pod-*.yml'"'}
+  cliOptions={' --recipe-option "resourceKind=Pod" --recipe-option "configurationPath=$.spec.containers.livenessProbe" --recipe-option "fileMatcher=\'**/pod-*.yml\'"'}
   showGradle={false}
   showMaven={false}
   hasDataTables

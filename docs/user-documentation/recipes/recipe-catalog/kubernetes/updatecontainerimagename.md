@@ -136,7 +136,7 @@ recipeList:
   artifactId="rewrite-kubernetes"
   versionKey="VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_KUBERNETES"
   requiresConfiguration
-  cliOptions={' --recipe-option "repoToFind=gcr.io" --recipe-option "imageToFind=nginx" --recipe-option "tagToFind=v1.2.3" --recipe-option "digestToFind=sha256:cb5c1bddd1b5665e1867a7fa1b5fa843a47ee433bbb75d4293888b71def53229" --recipe-option "repoToUpdate=gcr.io/account/bucket" --recipe-option "imageToUpdate=nginx" --recipe-option "tagToUpdate=v1.2.3" --recipe-option "digestToUpdate=sha256:cb5c1bddd1b5665e1867a7fa1b5fa843a47ee433bbb75d4293888b71def53229" --recipe-option "includeInitContainers=false" --recipe-option "fileMatcher='**/pod-*.yml'"'}
+  cliOptions={' --recipe-option "repoToFind=gcr.io" --recipe-option "imageToFind=nginx" --recipe-option "tagToFind=v1.2.3" --recipe-option "digestToFind=sha256:cb5c1bddd1b5665e1867a7fa1b5fa843a47ee433bbb75d4293888b71def53229" --recipe-option "repoToUpdate=gcr.io/account/bucket" --recipe-option "imageToUpdate=nginx" --recipe-option "tagToUpdate=v1.2.3" --recipe-option "digestToUpdate=sha256:cb5c1bddd1b5665e1867a7fa1b5fa843a47ee433bbb75d4293888b71def53229" --recipe-option "includeInitContainers=false" --recipe-option "fileMatcher=\'**/pod-*.yml\'"'}
   showGradle={false}
   showMaven={false}
   hasDataTables

@@ -127,7 +127,7 @@ recipeList:
   artifactId="rewrite-jenkins"
   versionKey="VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_JENKINS"
   requiresConfiguration
-  cliOptions={' --recipe-option "version='[1,)'"'}
+  cliOptions={' --recipe-option "version=\'[1,)\'"'}
   showGradle={false}
   showMaven={false}
   hasDataTables

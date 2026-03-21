@@ -103,7 +103,7 @@ recipeList:
   recipeName="org.openrewrite.java.search.FindAnnotations"
   displayName="Find annotations"
   requiresConfiguration
-  cliOptions={' --recipe-option "annotationPattern='@java.lang.SuppressWarnings("deprecation")'"'}
+  cliOptions={' --recipe-option "annotationPattern=\'@java.lang.SuppressWarnings("deprecation")\'"'}
   showGradle={false}
   showMaven={false}
   hasDataTables

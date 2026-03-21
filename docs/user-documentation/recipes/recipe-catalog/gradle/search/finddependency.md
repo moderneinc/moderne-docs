@@ -126,7 +126,7 @@ recipeList:
   recipeName="org.openrewrite.gradle.search.FindDependency"
   displayName="Find Gradle dependency"
   requiresConfiguration
-  cliOptions={' --recipe-option "groupId=com.google.guava" --recipe-option "artifactId=guava" --recipe-option "configuration=api" --recipe-option "version=3.0.0" --recipe-option "versionPattern='-jre'"'}
+  cliOptions={' --recipe-option "groupId=com.google.guava" --recipe-option "artifactId=guava" --recipe-option "configuration=api" --recipe-option "version=3.0.0" --recipe-option "versionPattern=\'-jre\'"'}
   showGradle={false}
   showMaven={false}
   hasDataTables

@@ -112,7 +112,7 @@ recipeList:
   artifactId="rewrite-terraform"
   versionKey="VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_TERRAFORM"
   requiresConfiguration
-  cliOptions={' --recipe-option "resourceName=aws_db_instance" --recipe-option "attributeName=engine_version" --recipe-option "oldValuePattern=5\.7.*" --recipe-option "newValue=8.0"'}
+  cliOptions={' --recipe-option "resourceName=aws_db_instance" --recipe-option "attributeName=engine_version" --recipe-option "oldValuePattern=5\\.7.*" --recipe-option "newValue=8.0"'}
   showGradle={false}
   showMaven={false}
   hasDataTables

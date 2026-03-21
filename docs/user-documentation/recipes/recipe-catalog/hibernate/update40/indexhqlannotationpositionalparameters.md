@@ -113,7 +113,7 @@ recipeList:
   artifactId="rewrite-hibernate"
   versionKey="VERSION_IO_MODERNE_RECIPE_REWRITE_HIBERNATE"
   requiresConfiguration
-  cliOptions={' --recipe-option "annotationPattern='@jakarta.persistence.NamedQuery'" --recipe-option "attributeName=value"'}
+  cliOptions={' --recipe-option "annotationPattern=\'@jakarta.persistence.NamedQuery\'" --recipe-option "attributeName=value"'}
   showGradle={false}
   showMaven={false}
   hasDataTables

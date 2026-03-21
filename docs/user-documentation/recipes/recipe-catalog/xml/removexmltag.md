@@ -110,7 +110,7 @@ recipeList:
   recipeName="org.openrewrite.xml.RemoveXmlTag"
   displayName="Remove XML tag"
   requiresConfiguration
-  cliOptions={' --recipe-option "xPath=/project/dependencies/dependency" --recipe-option "fileMatcher='**/application-*.xml'"'}
+  cliOptions={' --recipe-option "xPath=/project/dependencies/dependency" --recipe-option "fileMatcher=\'**/application-*.xml\'"'}
   showGradle={false}
   showMaven={false}
   hasDataTables

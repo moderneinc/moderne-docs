@@ -83,7 +83,7 @@ recipeList:
   artifactId="rewrite-java-security"
   versionKey="VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_JAVA_SECURITY"
   requiresConfiguration
-  cliOptions={' --recipe-option "secretName=AWS Access Key" --recipe-option "keyPattern='[a-zA-Z0-9+\/=]{88}'" --recipe-option "valuePattern='[a-zA-Z0-9+\/=]{88}'"'}
+  cliOptions={' --recipe-option "secretName=AWS Access Key" --recipe-option "keyPattern=\'[a-zA-Z0-9+\\/=]{88}\'" --recipe-option "valuePattern=\'[a-zA-Z0-9+\\/=]{88}\'"'}
   showGradle={false}
   showMaven={false}
   hasDataTables

@@ -64,7 +64,7 @@ recipeList:
   recipeName="org.openrewrite.RenameFile"
   displayName="Rename a file"
   requiresConfiguration
-  cliOptions={' --recipe-option "fileMatcher='**/application-*.yml'" --recipe-option "fileName=application.yml"'}
+  cliOptions={' --recipe-option "fileMatcher=\'**/application-*.yml\'" --recipe-option "fileName=application.yml"'}
   showGradle={false}
   showMaven={false}
   hasDataTables

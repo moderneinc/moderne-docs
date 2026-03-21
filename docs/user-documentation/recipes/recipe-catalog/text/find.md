@@ -70,7 +70,7 @@ recipeList:
   recipeName="org.openrewrite.text.Find"
   displayName="Find text"
   requiresConfiguration
-  cliOptions={' --recipe-option "find=blacklist" --recipe-option "filePattern='**/*.java'" --recipe-option "contextSize=50"'}
+  cliOptions={' --recipe-option "find=blacklist" --recipe-option "filePattern=\'**/*.java\'" --recipe-option "contextSize=50"'}
   showGradle={false}
   showMaven={false}
   hasDataTables

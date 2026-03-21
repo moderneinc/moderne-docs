@@ -56,7 +56,7 @@ recipeList:
   recipeName="org.openrewrite.text.FindMultiselect"
   displayName="Experimental find text with multiselect"
   requiresConfiguration
-  cliOptions={' --recipe-option "find=blacklist" --recipe-option "filePattern='**/*.java'"'}
+  cliOptions={' --recipe-option "find=blacklist" --recipe-option "filePattern=\'**/*.java\'"'}
   showGradle={false}
   showMaven={false}
   hasDataTables

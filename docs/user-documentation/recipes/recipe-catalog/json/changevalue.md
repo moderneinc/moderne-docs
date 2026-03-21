@@ -103,7 +103,7 @@ recipeList:
   recipeName="org.openrewrite.json.ChangeValue"
   displayName="Change value"
   requiresConfiguration
-  cliOptions={' --recipe-option "oldKeyPath=$.subjects.kind" --recipe-option "value='Deployment'"'}
+  cliOptions={' --recipe-option "oldKeyPath=$.subjects.kind" --recipe-option "value=\'Deployment\'"'}
   showGradle={false}
   showMaven={false}
   hasDataTables

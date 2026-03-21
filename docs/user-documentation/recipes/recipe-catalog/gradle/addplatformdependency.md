@@ -62,7 +62,7 @@ recipeList:
   recipeName="org.openrewrite.gradle.AddPlatformDependency"
   displayName="Add Gradle platform dependency"
   requiresConfiguration
-  cliOptions={' --recipe-option "groupId=com.google.guava" --recipe-option "artifactId=guava" --recipe-option "version=29.X" --recipe-option "versionPattern='-jre'" --recipe-option "configuration=implementation" --recipe-option "enforced=true"'}
+  cliOptions={' --recipe-option "groupId=com.google.guava" --recipe-option "artifactId=guava" --recipe-option "version=29.X" --recipe-option "versionPattern=\'-jre\'" --recipe-option "configuration=implementation" --recipe-option "enforced=true"'}
   showGradle={false}
   showMaven={false}
   hasDataTables

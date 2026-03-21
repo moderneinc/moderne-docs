@@ -57,7 +57,7 @@ recipeList:
   recipeName="org.openrewrite.json.CreateJsonFile"
   displayName="Create JSON file"
   requiresConfiguration
-  cliOptions={' --recipe-option "relativeFileName=foo/bar/baz.json" --recipe-option "fileContents='{"a": {"property": "value"}, "another": {"property": "value"}}'" --recipe-option "fileContentsUrl=http://foo.bar/baz.json"'}
+  cliOptions={' --recipe-option "relativeFileName=foo/bar/baz.json" --recipe-option "fileContents=\'{"a": {"property": "value"}, "another": {"property": "value"}}\'" --recipe-option "fileContentsUrl=http://foo.bar/baz.json"'}
   showGradle={false}
   showMaven={false}
   hasDataTables

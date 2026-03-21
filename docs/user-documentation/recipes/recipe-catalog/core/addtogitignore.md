@@ -57,10 +57,7 @@ recipeList:
   recipeName="org.openrewrite.AddToGitignore"
   displayName="Add entries to `.gitignore`"
   requiresConfiguration
-  cliOptions={' --recipe-option "entries=>
-        *.tmp
-        .DS_Store
-        target/" --recipe-option "filePattern=.gitignore"'}
+  cliOptions={' --recipe-option "entries=>\n        *.tmp\n        .DS_Store\n        target/" --recipe-option "filePattern=.gitignore"'}
   showGradle={false}
   showMaven={false}
   hasDataTables
