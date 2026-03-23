@@ -23,6 +23,8 @@ Because these tools are backed by a semantic model of your code, they understand
 
 ## How it works
 
+The MCP server **must be started from within a git repository**. If the working directory is not part of a git repository, the server will exit immediately and none of the tools will be available.
+
 When the MCP server starts, it builds two things in the background:
 
 1. **[Moderne Trigrep](./trigrep.md)**: a pre-computed trigram index that enables sub-second text search across the entire repository. This powers the `search` and `structural_search` tools.
