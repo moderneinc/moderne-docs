@@ -7,7 +7,7 @@ description: The major changes in Moderne CLI 4.0.
 
 Moderne CLI 4.0 is a major release focused on making the CLI simpler to install and more reliable to run. Here's what's new at a glance:
 
-* **No Java installation required.** Each platform distribution includes a bundled Java runtime, so you never need to install Java yourself.
+* **No Java installation required (Apple Silicon Mac, Linux, Windows).** Each platform distribution includes a bundled Java runtime, so you never need to install Java yourself.
 * **One JAR, identical across platforms.** The CLI is a single JAR — byte-identical on Linux, macOS, and Windows — eliminating the platform-specific native binaries that caused bugs in 3.x.
 * **Consistent across your team.** A new `modw` wrapper script can be checked into your repositories, ensuring every developer and CI build uses the exact same CLI version without any manual setup.
 * **Faster, more reliable releases.** Simplified build process means quicker releases and fewer bugs that only surface in production.
@@ -29,6 +29,10 @@ The CLI ships in three platform-specific distributions, all of which are availab
 The Linux and macOS distributions are self-extracting shell scripts. Run them to install the CLI. The Windows distribution is a zip archive containing an `install.cmd` script.
 
 Each distribution contains the CLI JAR, wrapper scripts, and a bundled JRE — a minimal Java 25 runtime containing only the modules the CLI needs. No separate Java installation is required.
+
+:::info
+The macOS distribution bundles a JRE for **Apple Silicon only**. If you are using an Intel Mac, the bundled JRE will not be compatible. You will need to install your own Java 25+ runtime to one of the standard default installation locations described in [JDK resolution order](#jdk-resolution-order) (e.g., SDKMAN, `/Library/Java/JavaVirtualMachines`, `JAVA_HOME`, or `MODERNE_JAVA_HOME`). You can download a Java 25 JDK from [Eclipse Adoptium](https://adoptium.net/).
+:::
 
 After installation, the CLI directory structure looks like this:
 
@@ -237,6 +241,10 @@ Delete `~/.moderne/cli/dist/aot/mod.aot` and `mod.aot.jar-stamp`. The cache will
 ### Slow first run after upgrade
 
 After an upgrade, the first run rebuilds the startup cache, which takes a few extra seconds. This is a one-time cost — subsequent runs will be fast.
+
+### Intel Mac: no compatible JRE
+
+The macOS platform distribution includes a bundled JRE for Apple Silicon only. If you are running on an Intel Mac, the bundled JRE will be incompatible. Install Java 25+ separately (for example, from [Eclipse Adoptium](https://adoptium.net/)) and ensure it is available via one of the locations described in [JDK resolution order](#jdk-resolution-order).
 
 ### Debugging
 
