@@ -49,11 +49,11 @@ You should see that the recipe you specified in your IDE is the one that is run 
 ## Step 4: Debug your recipe
 
 1. In IntelliJ IDEA, set one or more breakpoints
-2. Go to your terminal and run the command `mod run . --jvm-debug --active-recipe`. The CLI will wait for a debugger to be attached to run the recipe.
+2. Go to your terminal and run the command `modw --debug run . --active-recipe`. The CLI will suspend on startup and wait for a debugger to be attached before running the recipe. By default, it listens on port 5005. You can specify a custom port with `modw --debug=PORT run . --active-recipe`.
     * **Note**: Depending on the recipe you may need to provide _additional parameters_ in the run command such as `--recipe-option methodPattern="java.util.Collections emptyList()"`. This will depend on what the recipe itself requires to run. Some recipes may require no params, whereas others may require many.
 
 <figure>
-  ![Terminal output showing mod run with jvm-debug flag waiting for remote debugger on port 5005](./assets/debugger-wait.png)
+  ![Terminal output showing modw --debug waiting for remote debugger on port 5005](./assets/debugger-wait.png)
   <figcaption>_Debugger attaching_</figcaption>
 </figure>
 
