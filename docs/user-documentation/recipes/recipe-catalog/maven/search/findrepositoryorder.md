@@ -96,6 +96,10 @@ https://repo.spring.io/milestone)~~>--><project>
 <RunRecipe
   recipeName="org.openrewrite.maven.search.FindRepositoryOrder"
   displayName="Maven repository order"
+  groupId="org.openrewrite"
+  artifactId="rewrite-maven"
+  versionKey="VERSION_ORG_OPENREWRITE_REWRITE_MAVEN"
+  isCoreLibrary
   showGradle={false}
   showMaven={false}
   hasDataTables

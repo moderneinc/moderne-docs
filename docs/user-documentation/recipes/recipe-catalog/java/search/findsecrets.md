@@ -63,6 +63,10 @@ recipeList:
 <RunRecipe
   recipeName="org.openrewrite.java.search.FindSecrets"
   displayName="Find plain text secrets"
+  groupId="org.openrewrite"
+  artifactId="rewrite-java"
+  versionKey="VERSION_ORG_OPENREWRITE_REWRITE_JAVA"
+  isCoreLibrary
   showGradle={false}
   showMaven={false}
   hasDataTables

@@ -52,6 +52,7 @@ recipeList:
   groupId="org.openrewrite"
   artifactId="rewrite-python"
   versionKey="VERSION_ORG_OPENREWRITE_REWRITE_PYTHON"
+  isCoreLibrary
   requiresConfiguration
   cliOptions={' --recipe-option "packageNamePattern=requests*" --recipe-option "scope=project.dependencies" --recipe-option "onlyDirect=true"'}
   showGradle={false}

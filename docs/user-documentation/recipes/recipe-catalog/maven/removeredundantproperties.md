@@ -132,6 +132,10 @@ parent
 <RunRecipe
   recipeName="org.openrewrite.maven.RemoveRedundantProperties"
   displayName="Remove redundant properties"
+  groupId="org.openrewrite"
+  artifactId="rewrite-maven"
+  versionKey="VERSION_ORG_OPENREWRITE_REWRITE_MAVEN"
+  isCoreLibrary
   showGradle={false}
   showMaven={false}
   hasDataTables

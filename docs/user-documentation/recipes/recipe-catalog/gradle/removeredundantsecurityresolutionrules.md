@@ -176,6 +176,10 @@ dependencies {
 <RunRecipe
   recipeName="org.openrewrite.gradle.RemoveRedundantSecurityResolutionRules"
   displayName="Remove redundant security resolution rules"
+  groupId="org.openrewrite"
+  artifactId="rewrite-gradle"
+  versionKey="VERSION_ORG_OPENREWRITE_REWRITE_GRADLE"
+  isCoreLibrary
   showGradle={false}
   showMaven={false}
   hasDataTables

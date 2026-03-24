@@ -19,7 +19,7 @@ _Finds FROM instructions that use unpinned base images (CIS Docker Benchmark 4.2
 
 ## Recipe source
 
-[GitHub: FindUnpinnedBaseImages.java](https://github.com/openrewrite/rewrite/blob/main/src/main/java/org/openrewrite/docker/search/FindUnpinnedBaseImages.java),
+[GitHub: FindUnpinnedBaseImages.java](https://github.com/openrewrite/rewrite/blob/main/rewrite-docker/src/main/java/org/openrewrite/docker/search/FindUnpinnedBaseImages.java),
 [Issue Tracker](https://github.com/openrewrite/rewrite/issues),
 [Maven Central](https://central.sonatype.com/artifact/org.openrewrite/rewrite-docker/)
 
@@ -72,6 +72,7 @@ RUN apt-get update
   groupId="org.openrewrite"
   artifactId="rewrite-docker"
   versionKey="VERSION_ORG_OPENREWRITE_REWRITE_DOCKER"
+  isCoreLibrary
   showGradle={false}
   showMaven={false}
   hasDataTables

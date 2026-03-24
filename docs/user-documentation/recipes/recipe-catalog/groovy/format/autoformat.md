@@ -80,6 +80,10 @@ package com.intellij.samples
 <RunRecipe
   recipeName="org.openrewrite.groovy.format.AutoFormat"
   displayName="Format Groovy code"
+  groupId="org.openrewrite"
+  artifactId="rewrite-groovy"
+  versionKey="VERSION_ORG_OPENREWRITE_REWRITE_GROOVY"
+  isCoreLibrary
   showGradle={false}
   showMaven={false}
   hasDataTables

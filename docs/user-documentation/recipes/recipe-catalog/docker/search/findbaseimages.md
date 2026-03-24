@@ -19,7 +19,7 @@ _Find all base images (`FROM` instructions) in Dockerfiles._
 
 ## Recipe source
 
-[GitHub: FindBaseImages.java](https://github.com/openrewrite/rewrite/blob/main/src/main/java/org/openrewrite/docker/search/FindBaseImages.java),
+[GitHub: FindBaseImages.java](https://github.com/openrewrite/rewrite/blob/main/rewrite-docker/src/main/java/org/openrewrite/docker/search/FindBaseImages.java),
 [Issue Tracker](https://github.com/openrewrite/rewrite/issues),
 [Maven Central](https://central.sonatype.com/artifact/org.openrewrite/rewrite-docker/)
 
@@ -82,6 +82,7 @@ RUN apt-get update
   groupId="org.openrewrite"
   artifactId="rewrite-docker"
   versionKey="VERSION_ORG_OPENREWRITE_REWRITE_DOCKER"
+  isCoreLibrary
   showGradle={false}
   showMaven={false}
   hasDataTables

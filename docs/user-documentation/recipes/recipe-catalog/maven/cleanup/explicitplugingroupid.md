@@ -39,6 +39,10 @@ This recipe is used as part of the following composite recipes:
 <RunRecipe
   recipeName="org.openrewrite.maven.cleanup.ExplicitPluginGroupId"
   displayName="Add explicit `groupId` to Maven plugins"
+  groupId="org.openrewrite"
+  artifactId="rewrite-maven"
+  versionKey="VERSION_ORG_OPENREWRITE_REWRITE_MAVEN"
+  isCoreLibrary
   showGradle={false}
   showMaven={false}
   hasDataTables

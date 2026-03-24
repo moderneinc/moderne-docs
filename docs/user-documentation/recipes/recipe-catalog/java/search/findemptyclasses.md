@@ -66,6 +66,10 @@ class IsEmpty {
 <RunRecipe
   recipeName="org.openrewrite.java.search.FindEmptyClasses"
   displayName="Find empty classes"
+  groupId="org.openrewrite"
+  artifactId="rewrite-java"
+  versionKey="VERSION_ORG_OPENREWRITE_REWRITE_JAVA"
+  isCoreLibrary
   showGradle={false}
   showMaven={false}
   hasDataTables

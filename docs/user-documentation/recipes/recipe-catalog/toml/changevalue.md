@@ -90,6 +90,10 @@ recipeList:
 <RunRecipe
   recipeName="org.openrewrite.toml.ChangeValue"
   displayName="Change TOML value"
+  groupId="org.openrewrite"
+  artifactId="rewrite-toml"
+  versionKey="VERSION_ORG_OPENREWRITE_REWRITE_TOML"
+  isCoreLibrary
   requiresConfiguration
   cliOptions={' --recipe-option "keyPath=package.version" --recipe-option "newValue="2.0.0""'}
   showGradle={false}

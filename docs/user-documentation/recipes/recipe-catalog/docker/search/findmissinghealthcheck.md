@@ -19,7 +19,7 @@ _Finds Dockerfiles where the final stage is missing a `HEALTHCHECK` instruction 
 
 ## Recipe source
 
-[GitHub: FindMissingHealthcheck.java](https://github.com/openrewrite/rewrite/blob/main/src/main/java/org/openrewrite/docker/search/FindMissingHealthcheck.java),
+[GitHub: FindMissingHealthcheck.java](https://github.com/openrewrite/rewrite/blob/main/rewrite-docker/src/main/java/org/openrewrite/docker/search/FindMissingHealthcheck.java),
 [Issue Tracker](https://github.com/openrewrite/rewrite/issues),
 [Maven Central](https://central.sonatype.com/artifact/org.openrewrite/rewrite-docker/)
 
@@ -72,6 +72,7 @@ CMD ["./app"]
   groupId="org.openrewrite"
   artifactId="rewrite-docker"
   versionKey="VERSION_ORG_OPENREWRITE_REWRITE_DOCKER"
+  isCoreLibrary
   showGradle={false}
   showMaven={false}
   hasDataTables

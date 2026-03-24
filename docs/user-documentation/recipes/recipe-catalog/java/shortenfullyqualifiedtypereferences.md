@@ -80,6 +80,10 @@ class T {
 <RunRecipe
   recipeName="org.openrewrite.java.ShortenFullyQualifiedTypeReferences"
   displayName="Add imports for fully qualified references to types"
+  groupId="org.openrewrite"
+  artifactId="rewrite-java"
+  versionKey="VERSION_ORG_OPENREWRITE_REWRITE_JAVA"
+  isCoreLibrary
   showGradle={false}
   showMaven={false}
   hasDataTables

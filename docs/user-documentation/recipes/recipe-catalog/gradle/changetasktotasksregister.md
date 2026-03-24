@@ -1,31 +1,39 @@
 ---
-sidebar_label: "Dependency constraint to resolution rule"
+sidebar_label: "Change Gradle task eager creation to lazy registration"
 ---
 
 
 <head>
-  <link rel="canonical" href="https://docs.openrewrite.org/recipes/gradle/dependencyconstrainttorule" />
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/gradle/changetasktotasksregister" />
 </head>
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import RunRecipe from '@site/src/components/RunRecipe';
 
-# Dependency constraint to resolution rule
+# Change Gradle task eager creation to lazy registration
 
-**org.openrewrite.gradle.DependencyConstraintToRule**
+**org.openrewrite.gradle.ChangeTaskToTasksRegister**
 
-_Gradle [dependency constraints](https://docs.gradle.org/current/userguide/dependency_constraints.html#dependency-constraints) are useful for managing the versions of transitive dependencies. Some plugins, such as the Spring Dependency Management plugin, do not respect these constraints. This recipe converts constraints into [resolution rules](https://docs.gradle.org/current/userguide/resolution_rules.html), which can achieve similar effects to constraints but are harder for plugins to ignore._
+_Changes eager task creation `task exampleName(type: ExampleType)` to lazy registration `tasks.register("exampleName", ExampleType)`. Also supports Kotlin DSL: `task<ExampleType>("exampleName")` to `tasks.register<ExampleType>("exampleName")`._
 
 ## Recipe source
 
-[GitHub: DependencyConstraintToRule.java](https://github.com/openrewrite/rewrite/blob/main/rewrite-gradle/src/main/java/org/openrewrite/gradle/DependencyConstraintToRule.java),
+[GitHub: ChangeTaskToTasksRegister.java](https://github.com/openrewrite/rewrite/blob/main/rewrite-gradle/src/main/java/org/openrewrite/gradle/ChangeTaskToTasksRegister.java),
 [Issue Tracker](https://github.com/openrewrite/rewrite/issues),
 [Maven Central](https://central.sonatype.com/artifact/org.openrewrite/rewrite-gradle/)
 
 This recipe is available under the [Apache License Version 2.0](https://www.apache.org/licenses/LICENSE-2.0).
 
-## Example
+
+## Used by
+
+This recipe is used as part of the following composite recipes:
+
+* [Apply Gradle best practices](/user-documentation/recipes/recipe-catalog/gradle/gradlebestpractices.md)
+
+## Examples
+##### Example 1
 
 
 <Tabs groupId="beforeAfter">
@@ -34,36 +42,17 @@ This recipe is available under the [Apache License Version 2.0](https://www.apac
 
 ###### Before
 ```groovy title="build.gradle"
-plugins {
-    id 'java'
-}
-repositories { mavenCentral() }
-dependencies {
-    constraints {
-        implementation('com.fasterxml.jackson.core:jackson-core:2.12.5') {
-            because 'CVE-2024-BAD'
-        }
-    }
-    implementation 'org.openrewrite:rewrite-java:7.0.0'
+task exampleName(type: Copy) {
+    from 'src/main/resources'
+    into 'build/generated-resources'
 }
 ```
 
 ###### After
 ```groovy title="build.gradle"
-plugins {
-    id 'java'
-}
-repositories { mavenCentral() }
-configurations.all {
-    resolutionStrategy.eachDependency { details ->
-        if (details.requested.group == 'com.fasterxml.jackson.core' && details.requested.name == 'jackson-core') {
-            details.useVersion('2.12.5')
-            details.because('CVE-2024-BAD')
-        }
-    }
-}
-dependencies {
-    implementation 'org.openrewrite:rewrite-java:7.0.0'
+tasks.register("exampleName", Copy) {
+    from 'src/main/resources'
+    into 'build/generated-resources'
 }
 ```
 
@@ -73,25 +62,49 @@ dependencies {
 ```diff
 --- build.gradle
 +++ build.gradle
-@@ -5,4 +5,5 @@
+@@ -1,1 +1,1 @@
+-task exampleName(type: Copy) {
++tasks.register("exampleName", Copy) {
+    from 'src/main/resources'
+```
+</TabItem>
+</Tabs>
+
+---
+
+##### Example 2
+
+
+<Tabs groupId="beforeAfter">
+<TabItem value="build.gradle.kts" label="build.gradle.kts">
+
+
+###### Before
+```kotlin title="build.gradle.kts"
+task<Copy>("exampleName") {
+    from("src")
+    into("dest")
 }
-repositories { mavenCentral() }
--dependencies {
--   constraints {
--       implementation('com.fasterxml.jackson.core:jackson-core:2.12.5') {
--           because 'CVE-2024-BAD'
-+configurations.all {
-+   resolutionStrategy.eachDependency { details ->
-+       if (details.requested.group == 'com.fasterxml.jackson.core' && details.requested.name == 'jackson-core') {
-+           details.useVersion('2.12.5')
-+           details.because('CVE-2024-BAD')
-        }
-@@ -11,0 +12,2 @@
-        }
-    }
-+}
-+dependencies {
-    implementation 'org.openrewrite:rewrite-java:7.0.0'
+```
+
+###### After
+```kotlin title="build.gradle.kts"
+tasks.register<Copy>("exampleName") {
+    from("src")
+    into("dest")
+}
+```
+
+</TabItem>
+<TabItem value="diff" label="Diff" >
+
+```diff
+--- build.gradle.kts
++++ build.gradle.kts
+@@ -1,1 +1,1 @@
+-task<Copy>("exampleName") {
++tasks.register<Copy>("exampleName") {
+    from("src")
 ```
 </TabItem>
 </Tabs>
@@ -100,8 +113,8 @@ repositories { mavenCentral() }
 ## Usage
 
 <RunRecipe
-  recipeName="org.openrewrite.gradle.DependencyConstraintToRule"
-  displayName="Dependency constraint to resolution rule"
+  recipeName="org.openrewrite.gradle.ChangeTaskToTasksRegister"
+  displayName="Change Gradle task eager creation to lazy registration"
   groupId="org.openrewrite"
   artifactId="rewrite-gradle"
   versionKey="VERSION_ORG_OPENREWRITE_REWRITE_GRADLE"
@@ -115,7 +128,7 @@ repositories { mavenCentral() }
 
 import RecipeCallout from '@site/src/components/ModerneLink';
 
-<RecipeCallout link="https://app.moderne.io/recipes/org.openrewrite.gradle.DependencyConstraintToRule" />
+<RecipeCallout link="https://app.moderne.io/recipes/org.openrewrite.gradle.ChangeTaskToTasksRegister" />
 
 The community edition of the Moderne platform enables you to easily run recipes across thousands of open-source repositories.
 

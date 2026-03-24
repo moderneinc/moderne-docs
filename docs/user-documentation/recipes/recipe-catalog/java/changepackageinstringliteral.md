@@ -104,6 +104,10 @@ recipeList:
 <RunRecipe
   recipeName="org.openrewrite.java.ChangePackageInStringLiteral"
   displayName="Rename package name in String literals"
+  groupId="org.openrewrite"
+  artifactId="rewrite-java"
+  versionKey="VERSION_ORG_OPENREWRITE_REWRITE_JAVA"
+  isCoreLibrary
   requiresConfiguration
   cliOptions={' --recipe-option "oldPackageName=com.yourorg.foo" --recipe-option "newPackageName=com.yourorg.bar"'}
   showGradle={false}

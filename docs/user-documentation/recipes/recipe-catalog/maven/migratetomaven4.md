@@ -494,6 +494,10 @@ recipeList:
 <RunRecipe
   recipeName="org.openrewrite.maven.MigrateToMaven4"
   displayName="Migrate to Maven 4"
+  groupId="org.openrewrite"
+  artifactId="rewrite-maven"
+  versionKey="VERSION_ORG_OPENREWRITE_REWRITE_MAVEN"
+  isCoreLibrary
   showGradle={false}
   showMaven={false}
   hasDataTables

@@ -19,7 +19,7 @@ _Adds cleanup commands to apt-get RUN instructions to reduce Docker image size. 
 
 ## Recipe source
 
-[GitHub: AddAptGetCleanup.java](https://github.com/openrewrite/rewrite/blob/main/src/main/java/org/openrewrite/docker/AddAptGetCleanup.java),
+[GitHub: AddAptGetCleanup.java](https://github.com/openrewrite/rewrite/blob/main/rewrite-docker/src/main/java/org/openrewrite/docker/AddAptGetCleanup.java),
 [Issue Tracker](https://github.com/openrewrite/rewrite/issues),
 [Maven Central](https://central.sonatype.com/artifact/org.openrewrite/rewrite-docker/)
 
@@ -84,6 +84,7 @@ FROM ubuntu:22.04
   groupId="org.openrewrite"
   artifactId="rewrite-docker"
   versionKey="VERSION_ORG_OPENREWRITE_REWRITE_DOCKER"
+  isCoreLibrary
   showGradle={false}
   showMaven={false}
   hasDataTables

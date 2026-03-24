@@ -1,110 +1,46 @@
 ---
-sidebar_label: "Dependency constraint to resolution rule"
+sidebar_label: "Dependencies should not have `system` scope"
 ---
 
 
 <head>
-  <link rel="canonical" href="https://docs.openrewrite.org/recipes/gradle/dependencyconstrainttorule" />
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/maven/cleanup/nosystemscopedependencies" />
 </head>
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import RunRecipe from '@site/src/components/RunRecipe';
 
-# Dependency constraint to resolution rule
+# Dependencies should not have `system` scope
 
-**org.openrewrite.gradle.DependencyConstraintToRule**
+**org.openrewrite.maven.cleanup.NoSystemScopeDependencies**
 
-_Gradle [dependency constraints](https://docs.gradle.org/current/userguide/dependency_constraints.html#dependency-constraints) are useful for managing the versions of transitive dependencies. Some plugins, such as the Spring Dependency Management plugin, do not respect these constraints. This recipe converts constraints into [resolution rules](https://docs.gradle.org/current/userguide/resolution_rules.html), which can achieve similar effects to constraints but are harder for plugins to ignore._
+_Replaces `<scope>system</scope>` with the default compile scope and removes `<systemPath>` for dependencies that are available in configured repositories._
 
 ## Recipe source
 
-[GitHub: DependencyConstraintToRule.java](https://github.com/openrewrite/rewrite/blob/main/rewrite-gradle/src/main/java/org/openrewrite/gradle/DependencyConstraintToRule.java),
+[GitHub: NoSystemScopeDependencies.java](https://github.com/openrewrite/rewrite/blob/main/rewrite-maven/src/main/java/org/openrewrite/maven/cleanup/NoSystemScopeDependencies.java),
 [Issue Tracker](https://github.com/openrewrite/rewrite/issues),
-[Maven Central](https://central.sonatype.com/artifact/org.openrewrite/rewrite-gradle/)
+[Maven Central](https://central.sonatype.com/artifact/org.openrewrite/rewrite-maven/)
 
 This recipe is available under the [Apache License Version 2.0](https://www.apache.org/licenses/LICENSE-2.0).
 
-## Example
 
+## Used by
 
-<Tabs groupId="beforeAfter">
-<TabItem value="build.gradle" label="build.gradle">
+This recipe is used as part of the following composite recipes:
 
-
-###### Before
-```groovy title="build.gradle"
-plugins {
-    id 'java'
-}
-repositories { mavenCentral() }
-dependencies {
-    constraints {
-        implementation('com.fasterxml.jackson.core:jackson-core:2.12.5') {
-            because 'CVE-2024-BAD'
-        }
-    }
-    implementation 'org.openrewrite:rewrite-java:7.0.0'
-}
-```
-
-###### After
-```groovy title="build.gradle"
-plugins {
-    id 'java'
-}
-repositories { mavenCentral() }
-configurations.all {
-    resolutionStrategy.eachDependency { details ->
-        if (details.requested.group == 'com.fasterxml.jackson.core' && details.requested.name == 'jackson-core') {
-            details.useVersion('2.12.5')
-            details.because('CVE-2024-BAD')
-        }
-    }
-}
-dependencies {
-    implementation 'org.openrewrite:rewrite-java:7.0.0'
-}
-```
-
-</TabItem>
-<TabItem value="diff" label="Diff" >
-
-```diff
---- build.gradle
-+++ build.gradle
-@@ -5,4 +5,5 @@
-}
-repositories { mavenCentral() }
--dependencies {
--   constraints {
--       implementation('com.fasterxml.jackson.core:jackson-core:2.12.5') {
--           because 'CVE-2024-BAD'
-+configurations.all {
-+   resolutionStrategy.eachDependency { details ->
-+       if (details.requested.group == 'com.fasterxml.jackson.core' && details.requested.name == 'jackson-core') {
-+           details.useVersion('2.12.5')
-+           details.because('CVE-2024-BAD')
-        }
-@@ -11,0 +12,2 @@
-        }
-    }
-+}
-+dependencies {
-    implementation 'org.openrewrite:rewrite-java:7.0.0'
-```
-</TabItem>
-</Tabs>
+* [Apache Maven best practices](/user-documentation/recipes/recipe-catalog/maven/bestpractices.md)
 
 
 ## Usage
 
 <RunRecipe
-  recipeName="org.openrewrite.gradle.DependencyConstraintToRule"
-  displayName="Dependency constraint to resolution rule"
+  recipeName="org.openrewrite.maven.cleanup.NoSystemScopeDependencies"
+  displayName="Dependencies should not have `system` scope"
   groupId="org.openrewrite"
-  artifactId="rewrite-gradle"
-  versionKey="VERSION_ORG_OPENREWRITE_REWRITE_GRADLE"
+  artifactId="rewrite-maven"
+  versionKey="VERSION_ORG_OPENREWRITE_REWRITE_MAVEN"
   isCoreLibrary
   showGradle={false}
   showMaven={false}
@@ -115,7 +51,7 @@ repositories { mavenCentral() }
 
 import RecipeCallout from '@site/src/components/ModerneLink';
 
-<RecipeCallout link="https://app.moderne.io/recipes/org.openrewrite.gradle.DependencyConstraintToRule" />
+<RecipeCallout link="https://app.moderne.io/recipes/org.openrewrite.maven.cleanup.NoSystemScopeDependencies" />
 
 The community edition of the Moderne platform enables you to easily run recipes across thousands of open-source repositories.
 

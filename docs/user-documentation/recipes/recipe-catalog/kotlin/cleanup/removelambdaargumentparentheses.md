@@ -65,6 +65,10 @@ fun method(number: Int) {
 <RunRecipe
   recipeName="org.openrewrite.kotlin.cleanup.RemoveLambdaArgumentParentheses"
   displayName="Remove method invocation parentheses around single lambda argument"
+  groupId="org.openrewrite"
+  artifactId="rewrite-kotlin"
+  versionKey="VERSION_ORG_OPENREWRITE_REWRITE_KOTLIN"
+  isCoreLibrary
   showGradle={false}
   showMaven={false}
   hasDataTables

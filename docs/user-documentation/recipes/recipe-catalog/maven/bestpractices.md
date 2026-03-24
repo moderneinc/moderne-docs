@@ -37,6 +37,7 @@ This recipe is available under the [Apache License Version 2.0](https://www.apac
 * [Add explicit dependency versions](../maven/cleanup/explicitdependencyversion)
 * [Add explicit `groupId` to Maven plugins](../maven/cleanup/explicitplugingroupid)
 * [Add explicit plugin versions](../maven/cleanup/explicitpluginversion)
+* [Dependencies should not have `system` scope](../maven/cleanup/nosystemscopedependencies)
 * [Drop prefixless expressions in POM](../maven/cleanup/prefixlessexpressions)
 * [Order POM elements](../maven/orderpomelements)
 * [Remove duplicate Maven dependencies](../maven/removeduplicatedependencies)
@@ -61,6 +62,7 @@ recipeList:
   - org.openrewrite.maven.cleanup.ExplicitDependencyVersion
   - org.openrewrite.maven.cleanup.ExplicitPluginGroupId
   - org.openrewrite.maven.cleanup.ExplicitPluginVersion
+  - org.openrewrite.maven.cleanup.NoSystemScopeDependencies
   - org.openrewrite.maven.cleanup.PrefixlessExpressions
   - org.openrewrite.maven.OrderPomElements
   - org.openrewrite.maven.RemoveDuplicateDependencies
@@ -86,6 +88,10 @@ This recipe is used as part of the following composite recipes:
 <RunRecipe
   recipeName="org.openrewrite.maven.BestPractices"
   displayName="Apache Maven best practices"
+  groupId="org.openrewrite"
+  artifactId="rewrite-maven"
+  versionKey="VERSION_ORG_OPENREWRITE_REWRITE_MAVEN"
+  isCoreLibrary
   showGradle={false}
   showMaven={false}
   hasDataTables

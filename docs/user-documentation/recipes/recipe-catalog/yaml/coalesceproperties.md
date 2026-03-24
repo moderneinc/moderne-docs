@@ -92,6 +92,10 @@ management:
 <RunRecipe
   recipeName="org.openrewrite.yaml.CoalesceProperties"
   displayName="Coalesce YAML properties"
+  groupId="org.openrewrite"
+  artifactId="rewrite-yaml"
+  versionKey="VERSION_ORG_OPENREWRITE_REWRITE_YAML"
+  isCoreLibrary
   showGradle={false}
   showMaven={false}
   hasDataTables

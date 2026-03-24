@@ -77,6 +77,10 @@ class A {}
 <RunRecipe
   recipeName="org.openrewrite.java.RemoveUnusedImports"
   displayName="Remove unused imports"
+  groupId="org.openrewrite"
+  artifactId="rewrite-java"
+  versionKey="VERSION_ORG_OPENREWRITE_REWRITE_JAVA"
+  isCoreLibrary
   showGradle={false}
   showMaven={false}
   hasDataTables

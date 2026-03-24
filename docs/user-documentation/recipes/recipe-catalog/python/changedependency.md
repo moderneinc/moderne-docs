@@ -52,6 +52,7 @@ recipeList:
   groupId="org.openrewrite"
   artifactId="rewrite-python"
   versionKey="VERSION_ORG_OPENREWRITE_REWRITE_PYTHON"
+  isCoreLibrary
   requiresConfiguration
   cliOptions={' --recipe-option "oldPackageName=requests" --recipe-option "newPackageName=httpx" --recipe-option "newVersion=>=0.24.0"'}
   showGradle={false}

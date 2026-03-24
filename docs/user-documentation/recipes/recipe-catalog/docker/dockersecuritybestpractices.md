@@ -24,7 +24,7 @@ _Apply security-focused Docker best practices to Dockerfiles. This includes runn
 
 ## Recipe source
 
-[GitHub: docker.yml](https://github.com/openrewrite/rewrite/blob/main/src/main/resources/META-INF/rewrite/docker.yml),
+[GitHub: docker.yml](https://github.com/openrewrite/rewrite/blob/main/rewrite-docker/src/main/resources/META-INF/rewrite/docker.yml),
 [Issue Tracker](https://github.com/openrewrite/rewrite/issues),
 [Maven Central](https://central.sonatype.com/artifact/org.openrewrite/rewrite-docker/)
 
@@ -89,6 +89,7 @@ This recipe is used as part of the following composite recipes:
   groupId="org.openrewrite"
   artifactId="rewrite-docker"
   versionKey="VERSION_ORG_OPENREWRITE_REWRITE_DOCKER"
+  isCoreLibrary
   showGradle={false}
   showMaven={false}
   hasDataTables

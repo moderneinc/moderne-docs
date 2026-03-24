@@ -19,7 +19,7 @@ _Identifies Docker base images that have reached end-of-life. Using EOL images p
 
 ## Recipe source
 
-[GitHub: FindEndOfLifeImages.java](https://github.com/openrewrite/rewrite/blob/main/src/main/java/org/openrewrite/docker/search/FindEndOfLifeImages.java),
+[GitHub: FindEndOfLifeImages.java](https://github.com/openrewrite/rewrite/blob/main/rewrite-docker/src/main/java/org/openrewrite/docker/search/FindEndOfLifeImages.java),
 [Issue Tracker](https://github.com/openrewrite/rewrite/issues),
 [Maven Central](https://central.sonatype.com/artifact/org.openrewrite/rewrite-docker/)
 
@@ -83,6 +83,7 @@ RUN apt-get update
   groupId="org.openrewrite"
   artifactId="rewrite-docker"
   versionKey="VERSION_ORG_OPENREWRITE_REWRITE_DOCKER"
+  isCoreLibrary
   showGradle={false}
   showMaven={false}
   hasDataTables

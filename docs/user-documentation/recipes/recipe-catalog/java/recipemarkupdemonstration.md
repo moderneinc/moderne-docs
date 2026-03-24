@@ -51,6 +51,10 @@ recipeList:
 <RunRecipe
   recipeName="org.openrewrite.java.RecipeMarkupDemonstration"
   displayName="Demonstrate rendering of `Markup` markers"
+  groupId="org.openrewrite"
+  artifactId="rewrite-java"
+  versionKey="VERSION_ORG_OPENREWRITE_REWRITE_JAVA"
+  isCoreLibrary
   requiresConfiguration
   cliOptions={' --recipe-option "level=null"'}
   showGradle={false}

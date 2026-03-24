@@ -57,6 +57,10 @@ recipeList:
 <RunRecipe
   recipeName="org.openrewrite.SetFilePermissions"
   displayName="Set file permission attributes"
+  groupId="org.openrewrite"
+  artifactId="rewrite-core"
+  versionKey="VERSION_ORG_OPENREWRITE_REWRITE_CORE"
+  isCoreLibrary
   requiresConfiguration
   cliOptions={' --recipe-option "fileMatcher=\'**/gradlew.bat\'" --recipe-option "isReadable=null" --recipe-option "isWritable=null" --recipe-option "isExecutable=null"'}
   showGradle={false}

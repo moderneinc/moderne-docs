@@ -19,7 +19,7 @@ _Adds or updates a LABEL instruction in a Dockerfile. By default, adds to the fi
 
 ## Recipe source
 
-[GitHub: AddOrUpdateLabel.java](https://github.com/openrewrite/rewrite/blob/main/src/main/java/org/openrewrite/docker/AddOrUpdateLabel.java),
+[GitHub: AddOrUpdateLabel.java](https://github.com/openrewrite/rewrite/blob/main/rewrite-docker/src/main/java/org/openrewrite/docker/AddOrUpdateLabel.java),
 [Issue Tracker](https://github.com/openrewrite/rewrite/issues),
 [Maven Central](https://central.sonatype.com/artifact/org.openrewrite/rewrite-docker/)
 
@@ -99,6 +99,7 @@ recipeList:
   groupId="org.openrewrite"
   artifactId="rewrite-docker"
   versionKey="VERSION_ORG_OPENREWRITE_REWRITE_DOCKER"
+  isCoreLibrary
   requiresConfiguration
   cliOptions={' --recipe-option "key=org.opencontainers.image.version" --recipe-option "value=1.0.0" --recipe-option "stageName=final"'}
   showGradle={false}

@@ -37,6 +37,10 @@ This recipe is available under the [Apache License Version 2.0](https://www.apac
 <RunRecipe
   recipeName="org.openrewrite.search.RepositoryContainsFile"
   displayName="Repository contains file"
+  groupId="org.openrewrite"
+  artifactId="rewrite-core"
+  versionKey="VERSION_ORG_OPENREWRITE_REWRITE_CORE"
+  isCoreLibrary
   showGradle={false}
   showMaven={false}
   hasDataTables

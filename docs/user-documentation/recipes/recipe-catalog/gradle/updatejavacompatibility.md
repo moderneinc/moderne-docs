@@ -115,6 +115,10 @@ recipeList:
 <RunRecipe
   recipeName="org.openrewrite.gradle.UpdateJavaCompatibility"
   displayName="Update Gradle project Java compatibility"
+  groupId="org.openrewrite"
+  artifactId="rewrite-gradle"
+  versionKey="VERSION_ORG_OPENREWRITE_REWRITE_GRADLE"
+  isCoreLibrary
   requiresConfiguration
   cliOptions={' --recipe-option "version=11"'}
   showGradle={false}

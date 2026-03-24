@@ -83,6 +83,10 @@ class Test {
 <RunRecipe
   recipeName="org.openrewrite.java.format.NoWhitespaceAfter"
   displayName="No whitespace after"
+  groupId="org.openrewrite"
+  artifactId="rewrite-java"
+  versionKey="VERSION_ORG_OPENREWRITE_REWRITE_JAVA"
+  isCoreLibrary
   showGradle={false}
   showMaven={false}
   hasDataTables

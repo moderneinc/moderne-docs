@@ -73,6 +73,7 @@ class Foo:
   groupId="org.openrewrite"
   artifactId="rewrite-python"
   versionKey="VERSION_ORG_OPENREWRITE_REWRITE_PYTHON"
+  isCoreLibrary
   showGradle={false}
   showMaven={false}
   hasDataTables

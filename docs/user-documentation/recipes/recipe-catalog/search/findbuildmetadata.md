@@ -53,6 +53,10 @@ recipeList:
 <RunRecipe
   recipeName="org.openrewrite.search.FindBuildMetadata"
   displayName="Find build metadata"
+  groupId="org.openrewrite"
+  artifactId="rewrite-core"
+  versionKey="VERSION_ORG_OPENREWRITE_REWRITE_CORE"
+  isCoreLibrary
   requiresConfiguration
   cliOptions={' --recipe-option "key=lstFormatVersion" --recipe-option "value=2"'}
   showGradle={false}

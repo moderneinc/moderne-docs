@@ -19,7 +19,7 @@ _Adds a `<PackageReference>` element to .csproj files if not already present._
 
 ## Recipe source
 
-[GitHub: AddNuGetPackageReference.java](https://github.com/openrewrite/rewrite/blob/main/src/main/java/org/openrewrite/csharp/AddNuGetPackageReference.java),
+[GitHub: AddNuGetPackageReference.java](https://github.com/openrewrite/rewrite/blob/main/rewrite-csharp/src/main/java/org/openrewrite/csharp/AddNuGetPackageReference.java),
 [Issue Tracker](https://github.com/openrewrite/rewrite/issues),
 [Maven Central](https://central.sonatype.com/artifact/org.openrewrite/rewrite-csharp/)
 
@@ -56,6 +56,7 @@ recipeList:
   groupId="org.openrewrite"
   artifactId="rewrite-csharp"
   versionKey="VERSION_ORG_OPENREWRITE_REWRITE_CSHARP"
+  isCoreLibrary
   requiresConfiguration
   cliOptions={' --recipe-option "packageName=Newtonsoft.Json" --recipe-option "version=13.0.3"'}
   showGradle={false}

@@ -99,6 +99,10 @@ recipeList:
 <RunRecipe
   recipeName="org.openrewrite.json.search.FindKey"
   displayName="Find JSON object members"
+  groupId="org.openrewrite"
+  artifactId="rewrite-json"
+  versionKey="VERSION_ORG_OPENREWRITE_REWRITE_JSON"
+  isCoreLibrary
   requiresConfiguration
   cliOptions={' --recipe-option "key=$.subjects.kind"'}
   showGradle={false}

@@ -111,6 +111,10 @@ recipeList:
 <RunRecipe
   recipeName="org.openrewrite.xml.ChangeTagName"
   displayName="Change XML tag name"
+  groupId="org.openrewrite"
+  artifactId="rewrite-xml"
+  versionKey="VERSION_ORG_OPENREWRITE_REWRITE_XML"
+  isCoreLibrary
   requiresConfiguration
   cliOptions={' --recipe-option "elementName=/settings/servers/server/username" --recipe-option "newName=user"'}
   showGradle={false}

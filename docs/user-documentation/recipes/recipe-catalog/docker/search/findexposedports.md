@@ -19,7 +19,7 @@ _Find all `EXPOSE` instructions in Dockerfiles and report the exposed ports._
 
 ## Recipe source
 
-[GitHub: FindExposedPorts.java](https://github.com/openrewrite/rewrite/blob/main/src/main/java/org/openrewrite/docker/search/FindExposedPorts.java),
+[GitHub: FindExposedPorts.java](https://github.com/openrewrite/rewrite/blob/main/rewrite-docker/src/main/java/org/openrewrite/docker/search/FindExposedPorts.java),
 [Issue Tracker](https://github.com/openrewrite/rewrite/issues),
 [Maven Central](https://central.sonatype.com/artifact/org.openrewrite/rewrite-docker/)
 
@@ -77,6 +77,7 @@ FROM nginx:latest
   groupId="org.openrewrite"
   artifactId="rewrite-docker"
   versionKey="VERSION_ORG_OPENREWRITE_REWRITE_DOCKER"
+  isCoreLibrary
   showGradle={false}
   showMaven={false}
   hasDataTables

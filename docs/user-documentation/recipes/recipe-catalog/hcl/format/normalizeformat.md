@@ -31,6 +31,10 @@ This recipe is available under the [Apache License Version 2.0](https://www.apac
 <RunRecipe
   recipeName="org.openrewrite.hcl.format.NormalizeFormat"
   displayName="Normalize format"
+  groupId="org.openrewrite"
+  artifactId="rewrite-hcl"
+  versionKey="VERSION_ORG_OPENREWRITE_REWRITE_HCL"
+  isCoreLibrary
   showGradle={false}
   showMaven={false}
   hasDataTables

@@ -80,6 +80,10 @@ package com.intellij.samples
 <RunRecipe
   recipeName="org.openrewrite.kotlin.format.AutoFormat"
   displayName="Format Kotlin code"
+  groupId="org.openrewrite"
+  artifactId="rewrite-kotlin"
+  versionKey="VERSION_ORG_OPENREWRITE_REWRITE_KOTLIN"
+  isCoreLibrary
   showGradle={false}
   showMaven={false}
   hasDataTables

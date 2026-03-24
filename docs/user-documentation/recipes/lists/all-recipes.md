@@ -6,7 +6,7 @@ description: A comprehensive list of all recipes organized by module.
 
 _This doc contains all recipes grouped by their module._
 
-Total recipes: 5127
+Total recipes: 5129
 
 
 ## io.moderne.recipe
@@ -1367,7 +1367,7 @@ _18 recipes_
 
 _License: Apache License Version 2.0_
 
-_63 recipes_
+_64 recipes_
 
 * [org.openrewrite.gradle.AddDependency](/user-documentation/recipes/recipe-catalog/gradle/adddependency.md)
   * **Add Gradle dependency**
@@ -1405,6 +1405,9 @@ _63 recipes_
 * [org.openrewrite.gradle.ChangeManagedDependency](/user-documentation/recipes/recipe-catalog/gradle/changemanageddependency.md)
   * **Change Gradle managed dependency**
   * Change a Gradle managed dependency coordinates. The `newGroupId` or `newArtifactId` **MUST** be different from before. For now, only Spring Dependency Management Plugin entries are supported and no other forms of managed dependencies (yet).
+* [org.openrewrite.gradle.ChangeTaskToTasksRegister](/user-documentation/recipes/recipe-catalog/gradle/changetasktotasksregister.md)
+  * **Change Gradle task eager creation to lazy registration**
+  * Changes eager task creation `task exampleName(type: ExampleType)` to lazy registration `tasks.register(&quot;exampleName&quot;, ExampleType)`. Also supports Kotlin DSL: `task&lt;ExampleType&gt;(&quot;exampleName&quot;)` to `tasks.register&lt;ExampleType&gt;(&quot;exampleName&quot;)`.
 * [org.openrewrite.gradle.DependencyConstraintToRule](/user-documentation/recipes/recipe-catalog/gradle/dependencyconstrainttorule.md)
   * **Dependency constraint to resolution rule**
   * Gradle [dependency constraints](https://docs.gradle.org/current/userguide/dependency_constraints.html#dependency-constraints) are useful for managing the versions of transitive dependencies. Some plugins, such as the Spring Dependency Management plugin, do not respect these constraints. This recipe converts constraints into [resolution rules](https://docs.gradle.org/current/userguide/resolution_rules.html), which can achieve similar effects to constraints but are harder for plugins to ignore.
@@ -2064,7 +2067,7 @@ _11 recipes_
 
 _License: Apache License Version 2.0_
 
-_86 recipes_
+_87 recipes_
 
 * [org.openrewrite.maven.AddAnnotationProcessor](/user-documentation/recipes/recipe-catalog/maven/addannotationprocessor.md)
   * **Add an annotation processor to `maven-compiler-plugin`**
@@ -2264,6 +2267,9 @@ _86 recipes_
 * [org.openrewrite.maven.cleanup.ExplicitPluginVersion](/user-documentation/recipes/recipe-catalog/maven/cleanup/explicitpluginversion.md)
   * **Add explicit plugin versions**
   * Add explicit plugin versions to POMs for reproducibility, as [MNG-4173](https://issues.apache.org/jira/browse/MNG-4173) removes automatic version resolution for POM plugins.
+* [org.openrewrite.maven.cleanup.NoSystemScopeDependencies](/user-documentation/recipes/recipe-catalog/maven/cleanup/nosystemscopedependencies.md)
+  * **Dependencies should not have `system` scope**
+  * Replaces `&lt;scope&gt;system&lt;/scope&gt;` with the default compile scope and removes `&lt;systemPath&gt;` for dependencies that are available in configured repositories.
 * [org.openrewrite.maven.cleanup.PrefixlessExpressions](/user-documentation/recipes/recipe-catalog/maven/cleanup/prefixlessexpressions.md)
   * **Drop prefixless expressions in POM**
   * MNG-7404 drops support for prefixless in POMs. This recipe will add the `project.` prefix where missing.

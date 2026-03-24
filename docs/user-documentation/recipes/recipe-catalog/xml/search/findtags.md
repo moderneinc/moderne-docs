@@ -94,6 +94,10 @@ recipeList:
 <RunRecipe
   recipeName="org.openrewrite.xml.search.FindTags"
   displayName="Find XML tags"
+  groupId="org.openrewrite"
+  artifactId="rewrite-xml"
+  versionKey="VERSION_ORG_OPENREWRITE_REWRITE_XML"
+  isCoreLibrary
   requiresConfiguration
   cliOptions={' --recipe-option "xPath=//dependencies/dependency"'}
   showGradle={false}
