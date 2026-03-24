@@ -86,6 +86,20 @@ description: Auto-generated documentation for all Moderne CLI commands.
 * [**mod config clone timeout delete**](#mod-config-clone-timeout-delete)
 * [**mod config clone timeout edit**](#mod-config-clone-timeout-edit)
 * [**mod config clone timeout show**](#mod-config-clone-timeout-show)
+* [**mod config comms**](#mod-config-comms)
+* [**mod config comms slack**](#mod-config-comms-slack)
+* [**mod config comms slack setup**](#mod-config-comms-slack-setup)
+* [**mod config comms slack edit**](#mod-config-comms-slack-edit)
+* [**mod config comms slack show**](#mod-config-comms-slack-show)
+* [**mod config comms slack delete**](#mod-config-comms-slack-delete)
+* [**mod config comms webhook**](#mod-config-comms-webhook)
+* [**mod config comms webhook edit**](#mod-config-comms-webhook-edit)
+* [**mod config comms webhook show**](#mod-config-comms-webhook-show)
+* [**mod config comms webhook delete**](#mod-config-comms-webhook-delete)
+* [**mod config comms sms**](#mod-config-comms-sms)
+* [**mod config comms sms edit**](#mod-config-comms-sms-edit)
+* [**mod config comms sms show**](#mod-config-comms-sms-show)
+* [**mod config comms sms delete**](#mod-config-comms-sms-delete)
 * [**mod config dotnet**](#mod-config-dotnet)
 * [**mod config dotnet installation**](#mod-config-dotnet-installation)
 * [**mod config dotnet installation edit**](#mod-config-dotnet-installation-edit)
@@ -659,6 +673,7 @@ mod config moderne edit --api <tenant-api-gateway> --token <token>
 * `agent-tools`: Manage Moderne agent tools for coding agents.
 * `build`: Configures build tools used to produce LSTs.
 * `clone`: Configures cloning behavior.
+* `comms`: Configures communication channels for factory notifications.
 * `dotnet`: Configures DotNet options used for building LSTs and running recipes.
 * `environment`: The build environment that the CLI is running in.
 * `features`: Configures experimental features.
@@ -2065,6 +2080,258 @@ This timeout governs all subsequent clone attempts.
 
 ```
 mod config clone timeout show
+```
+
+
+
+## mod config comms
+
+Configures communication channels for factory notifications.
+
+
+Channels are accumulative — configuring Slack does not remove webhook config. The factory automatically uses all configured channels. Delete a channel to stop receiving notifications on it.
+
+### Usage
+
+```
+mod config comms [subcommands]
+```
+
+
+### Subcommands
+
+* `slack`: Configures Slack notifications for the factory.
+* `webhook`: Configures webhook notifications for the factory.
+* `sms`: Configures SMS notifications for the factory.
+
+## mod config comms slack
+
+Configures Slack notifications for the factory.
+
+
+Run 'setup' first to create the Slack app, then 'edit' to save the tokens. The factory will post a thread with per-phase and per-repo updates.
+
+### Usage
+
+```
+mod config comms slack [subcommands]
+```
+
+
+### Subcommands
+
+* `setup`: Prints the Slack app manifest and setup instructions.
+* `edit`: Saves the Slack bot token, app token, and channel ID.
+* `show`: Displays the configured Slack notification settings.
+* `delete`: Removes Slack notification configuration.
+
+## mod config comms slack setup
+
+Prints the Slack app manifest and setup instructions.
+
+
+Generates a Slack App Manifest JSON that you paste into Slack's 'Create App from Manifest' flow. This pre-configures all required bot scopes — no manual scope configuration needed.
+
+### Usage
+
+```
+mod config comms slack setup
+```
+
+
+
+## mod config comms slack edit
+
+Saves the Slack bot token, app token, and channel ID.
+
+
+Run 'mod config comms slack setup' first to create the Slack app and get these values.
+
+### Usage
+
+```
+mod config comms slack edit
+```
+
+### Options
+
+| Name | Description |
+| ---- | ----------- |
+| `--app-token` |  Slack app-level token for Socket Mode (starts with xapp-). Enables bidirectional communication — reply in the factory thread to pause, resume, or adjust the factory. |
+| `--channel` |  Slack channel ID (starts with C, e.g., C0123ABCDEF). Not the channel name. |
+| `--token` |  Slack bot token (starts with xoxb-). |
+
+
+## mod config comms slack show
+
+Displays the configured Slack notification settings.
+
+
+Shows the bot token (masked) and channel ID.
+
+### Usage
+
+```
+mod config comms slack show
+```
+
+
+
+## mod config comms slack delete
+
+Removes Slack notification configuration.
+
+
+The factory will no longer send Slack notifications. The Slack app itself is not removed — delete it at https://api.slack.com/apps if needed.
+
+### Usage
+
+```
+mod config comms slack delete
+```
+
+
+
+## mod config comms webhook
+
+Configures webhook notifications for the factory.
+
+
+The factory will POST JSON events to the configured URL at each lifecycle point.
+
+### Usage
+
+```
+mod config comms webhook [subcommands]
+```
+
+
+### Subcommands
+
+* `edit`: Configures the webhook URL for factory notifications.
+* `show`: Displays the configured webhook settings.
+* `delete`: Removes webhook notification configuration.
+
+## mod config comms webhook edit
+
+Configures the webhook URL for factory notifications.
+
+
+Events are POSTed as JSON with Content-Type: application/json. An optional bearer token is sent in the Authorization header.
+
+### Usage
+
+```
+mod config comms webhook edit
+```
+
+### Options
+
+| Name | Description |
+| ---- | ----------- |
+| `--token` |  Optional bearer token for the Authorization header. |
+| `--url` |  The webhook URL to POST events to. |
+
+
+## mod config comms webhook show
+
+Displays the configured webhook settings.
+
+
+Shows the webhook URL and whether a bearer token is set.
+
+### Usage
+
+```
+mod config comms webhook show
+```
+
+
+
+## mod config comms webhook delete
+
+Removes webhook notification configuration.
+
+
+The factory will no longer send webhook notifications.
+
+### Usage
+
+```
+mod config comms webhook delete
+```
+
+
+
+## mod config comms sms
+
+Configures SMS notifications for the factory.
+
+
+Uses a Twilio-compatible HTTP API. Only sends high-signal events: factory start, complete, and errors.
+
+### Usage
+
+```
+mod config comms sms [subcommands]
+```
+
+
+### Subcommands
+
+* `edit`: Configures SMS notification settings.
+* `show`: Displays the configured SMS notification settings.
+* `delete`: Removes SMS notification configuration.
+
+## mod config comms sms edit
+
+Configures SMS notification settings.
+
+
+Requires a Twilio-compatible API URL, auth credentials, and phone numbers.
+
+### Usage
+
+```
+mod config comms sms edit
+```
+
+### Options
+
+| Name | Description |
+| ---- | ----------- |
+| `--api-url` |  Twilio Messages API URL (e.g., https://api.twilio.com/2010-04-01/Accounts/{SID}/Messages.json). |
+| `--auth` |  Authorization header value (e.g., 'Basic base64(SID:AuthToken)'). |
+| `--from` |  Sender phone number (e.g., +1234567890). |
+| `--to` |  Recipient phone number (e.g., +0987654321). |
+
+
+## mod config comms sms show
+
+Displays the configured SMS notification settings.
+
+
+Shows the API URL, phone numbers, and whether auth is configured.
+
+### Usage
+
+```
+mod config comms sms show
+```
+
+
+
+## mod config comms sms delete
+
+Removes SMS notification configuration.
+
+
+The factory will no longer send SMS notifications.
+
+### Usage
+
+```
+mod config comms sms delete
 ```
 
 
@@ -5544,14 +5811,14 @@ mod factory [subcommands]
 
 ### Subcommands
 
-* `run`: (INCUBATING) Goal-driven recipe factory with per-repo agent sessions.
+* `run`: (INCUBATING) Goal-driven recipe factory with 5-phase pipeline.
 
 ## mod factory run
 
-(INCUBATING) Goal-driven recipe factory with per-repo agent sessions.
+(INCUBATING) Goal-driven recipe factory with 5-phase pipeline.
 
 
-Given a desired outcome (e.g., 'Upgrade to Java 25'), spawns an agent session per repository with access to MCP tools (search, change_type, run_recipe, etc.). The agent selects recipes, applies changes, and verifies results per-repo. Changes are isolated on a git branch.
+Given a desired outcome, runs a 5-phase pipeline: (1) LST seeding, (2) goal analysis (recipes, strategy, continuous mode), (3) per-repo agent sessions with LST repair and self-reflection, (4) output production (PRs or impact reports), (5) continuous loop if indicated. The goal can be a short phrase or a detailed document — the analysis agent infers all operational parameters from it. Notifications are sent to channels configured via 'mod config comms'.
 
 ### Usage
 
@@ -5570,14 +5837,13 @@ mod factory run /path/to/working-set "Upgrade to Java 25"
 | Name | Description | Example |
 | ---- | ----------- | ---------- |
 | `path` |  The absolute or relative path on disk to a directory containing one or more checked-out Git repositories that you want to operate on. This typically takes the form of targeting a single, checked-out copy of a Git repository or it can be a folder containing a collection of Git repositories that will be discovered by recursively scanning the initial provided directory. | `/path/to/repos` |
-| `goal` |  The desired outcome (e.g., 'Upgrade to Java 25'). |  |
+| `goal` |  The desired outcome. Can be a short phrase (e.g., 'Upgrade to Java 25') or a detailed prompt describing the transformation, study, or continuous monitoring task. |  |
 
 ### Options
 
 | Name | Description |
 | ---- | ----------- |
 | `--max-iterations` |  Maximum improvement iterations per repository. Default: 5 |
-| `--notify` |  Webhook URL for progress notifications (e.g., webhook:https://example.com/hook). |
 | `--resume` |  Resume a previous factory run by its run ID. Skips already-completed repositories. |
 
 

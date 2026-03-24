@@ -63,7 +63,7 @@ After installation, verify by running `mod` in your terminal:
 ```bash
 ➜ mod
 
-Moderne CLI 4.0.6
+Moderne CLI 4.0.7
 
 Usage:
 
@@ -219,7 +219,7 @@ After installation, verify by running `mod` in your terminal:
 ```bash
 ➜ mod
 
-Moderne CLI 4.0.6
+Moderne CLI 4.0.7
 
 Usage:
 
@@ -412,7 +412,7 @@ mod config moderne organizations show
 <summary>You should see something like this:</summary>
 
 ```bash
-Moderne CLI 4.0.6
+Moderne CLI 4.0.7
 
 ⏺ Retrieving the configured organizations
 
@@ -484,7 +484,7 @@ mod config moderne organizations show
 <summary>You should see something that looks similar to this (it will have your organizations instead):</summary>
 
 ```bash
-Moderne CLI 4.0.6
+Moderne CLI 4.0.7
 
 ⏺ Retrieving the configured organizations
 

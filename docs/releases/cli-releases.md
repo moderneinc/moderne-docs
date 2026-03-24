@@ -7,7 +7,7 @@ description: The current version of the Moderne CLI and links to useful CLI docu
 
 | Component   | Current version |
 | ----------- | --------------- |
-| CLI version | 4.0.6           |
+| CLI version | 4.0.7           |
 
 For CLI command documentation, see the [CLI reference](../user-documentation/moderne-cli/cli-reference.md).
 
@@ -16,6 +16,19 @@ The Moderne CLI previously followed a two-track release model with separate "sta
 :::
 
 ## Changelog
+
+### CLI / DX v4.0.7 (2026-03-23)
+
+#### What's Changed
+* Fix Windows terminal rendering: UTF-8 icons and inline-diff contrast
+* Use `CsvDataTableStore` for streaming data table output
+* Fix Chocolatey package install failure due to stderr
+* Upgrade Jackson from 2.17.2 to 2.21.1
+* Fix CLI auto-update not working on unix systems
+* Factory V2: foreman, smart verification, conversational output
+* Artifacts without `recipes.csv` not to cause emptying of the marketplace
+* Preserve clone error when .git cleanup fails
+* Start MCP server transport before heavy initialization
 
 ### CLI / DX v4.0.6 (2026-03-20)
 
