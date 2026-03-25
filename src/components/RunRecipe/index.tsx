@@ -13,6 +13,7 @@ interface RunRecipeProps {
   useFullyQualifiedCliName?: boolean;
   npmPackage?: string;
   pipPackage?: string;
+  nugetPackage?: string;
 }
 
 export default function RunRecipe({
@@ -26,6 +27,7 @@ export default function RunRecipe({
   useFullyQualifiedCliName = false,
   npmPackage,
   pipPackage,
+  nugetPackage,
 }: RunRecipeProps) {
   // Replace {{VERSION_...}} placeholders with actual version numbers
   const resolveVersions = (text: string): string => {
@@ -73,6 +75,26 @@ export default function RunRecipe({
         <p>Once the CLI is installed, you can install this Python recipe package by running the following command:</p>
         <CodeBlock language="shell" title="Install the recipe package">
           {`mod config recipes pip install ${pipPackage}`}
+        </CodeBlock>
+        <p>Then, you can run the recipe via:</p>
+        <CodeBlock language="shell" title="Run the recipe">
+          {`mod run . --recipe ${recipeName}`}
+        </CodeBlock>
+      </>
+    );
+  }
+
+  // C# recipes
+  if (nugetPackage) {
+    return (
+      <>
+        <p>
+          In order to run C# recipes, you will need to use the{' '}
+          <a href="https://docs.moderne.io/user-documentation/moderne-cli/getting-started/cli-intro">Moderne CLI</a>.
+        </p>
+        <p>Once the CLI is installed, you can install this C# recipe package by running the following command:</p>
+        <CodeBlock language="shell" title="Install the recipe package">
+          {`mod config recipes nuget install ${nugetPackage}`}
         </CodeBlock>
         <p>Then, you can run the recipe via:</p>
         <CodeBlock language="shell" title="Run the recipe">
