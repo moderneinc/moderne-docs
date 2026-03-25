@@ -7,7 +7,7 @@ description: The current version of the Moderne CLI and links to useful CLI docu
 
 | Component   | Current version |
 | ----------- | --------------- |
-| CLI version | 4.0.7           |
+| CLI version | 4.0.8           |
 
 For CLI command documentation, see the [CLI reference](../user-documentation/moderne-cli/cli-reference.md).
 
@@ -16,6 +16,17 @@ The Moderne CLI previously followed a two-track release model with separate "sta
 :::
 
 ## Changelog
+
+### CLI / DX v4.0.8 (2026-03-24)
+
+#### What's Changed
+* When node installation fails to be found, include information on what were the constraints
+* Suggest mod trace runs analyze after recipe run
+* Detect JDKs from JAVA_HOME env var and Amazon Corretto install directory
+* Use skills/ directory with SKILL.md for Claude Code plugin
+* Warn when deprecated --jvm-debug flag is used
+* Suppress stderr in Chocolatey install instead of moving echo to stdout
+* Set PATH for npx version check so symlinked npx can find node
 
 ### CLI / DX v4.0.7 (2026-03-23)
 
