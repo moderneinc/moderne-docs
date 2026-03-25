@@ -10,6 +10,100 @@ This page contains release notes for [Moderne proprietary OpenRewrite recipes](h
 This changelog is automatically generated from GitHub releases and only contains information from the past year.
 :::
 
+## March 25, 2026
+
+#### rewrite-ai-search - 0.32.10
+
+* Updated repository to use OpenRewrite version v8.77.0
+
+#### rewrite-android - 0.15.9
+
+* Updated repository to use OpenRewrite version v8.77.0
+
+#### rewrite-circleci - 3.9.10
+
+* Updated repository to use OpenRewrite version v8.77.0
+
+#### rewrite-codemods-ng - 0.19.0
+
+* Fix MarkerPrinter RPC serialization for JS/TS files
+* Upgrade Angular
+* chore(ci): bump actions/setup-node from 4 to 6[bot]
+* chore(ci): bump actions/checkout from 4 to 6[bot]
+* chore(ci): bump gradle/actions from 4 to 6[bot]
+* chore(ci): bump actions/upload-artifact from 4 to 7[bot]
+* chore(ci): bump actions/download-artifact from 4 to 8[bot]
+* chore(ci): bump actions/setup-java from 4 to 5[bot]
+
+#### rewrite-compiled-analysis - 0.12.3
+
+* Updated repository to use OpenRewrite version v8.77.0
+
+#### rewrite-concourse - 3.9.10
+
+* Updated repository to use OpenRewrite version v8.77.0
+
+#### rewrite-dotnet - 0.14.10
+
+* Updated repository to use OpenRewrite version v8.77.0
+
+#### rewrite-elastic - 0.5.6
+
+* Updated repository to use OpenRewrite version v8.77.0
+
+#### rewrite-hibernate - 0.20.2
+
+* Updated repository to use OpenRewrite version v8.77.0
+
+#### rewrite-java-security - 3.27.0
+
+* Update tests for tomcat-embed-core 9.0.116 advisory
+* Fix NPE in FindSensitiveApiEndpoints when fieldNames is null
+* Fix CI: update tests for RecipeRun data table API change
+* Fix missing version prefixes in GenerateSecurityConfig classpath
+* Fix CI: update test expectations for spring-webmvc CVEs
+* Use pattern matching in tests to avoid version drift failures
+* Add OWASP A04:2025 Cryptographic Failures recipe
+
+#### rewrite-kafka - 0.4.10
+
+* Updated repository to use OpenRewrite version v8.77.0
+
+#### rewrite-kubernetes - 3.15.6
+
+* Updated repository to use OpenRewrite version v8.77.0
+
+#### rewrite-nodejs - 0.41.0
+
+* Moderne Proprietary License
+
+#### rewrite-program-analysis - 0.11.1
+
+* Updated repository to use OpenRewrite version v8.77.0
+
+#### rewrite-reactive-streams - 0.18.10
+
+* Updated repository to use OpenRewrite version v8.77.0
+
+#### rewrite-spring - 0.29.0
+
+* Fix config class placement in src/main/java instead of src/
+* Fix null annotation type in AddSpringBootApplication
+* Upgrade Spring Cloud GCP in Boot 3.4, 3.5, and 4.0 recipes
+* Fold `setObjectMapper` into constructor for `JacksonJsonHttpMessageConverter`
+* Add RestTemplate to RestClient migration recipe
+* Add @MockitoSettings(strictness=LENIENT) for @MockitoBean migration
+* Add exchange() support to RestTemplate to RestClient migration
+* Complete JAX-RS to Spring migration and fix AdoptJackson3 setter folding
+
+#### rewrite-sql - 2.10.5
+
+* Updated repository to use OpenRewrite version v8.77.0
+
+#### rewrite-terraform - 3.13.4
+
+* Updated repository to use OpenRewrite version v8.77.0
+
 ## March 19, 2026
 
 #### rewrite-java-security - 3.26.7
