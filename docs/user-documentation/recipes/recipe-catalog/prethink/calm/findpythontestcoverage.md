@@ -27,6 +27,23 @@ This recipe is used as part of the following composite recipes:
 * [Update Prethink context (no AI)](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/prethink/updateprethinkcontextnoaistarter)
 * [Update Prethink context (with AI)](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/prethink/updateprethinkcontextstarter)
 
+## Example
+
+
+###### Unchanged
+```pyproject
+[project]
+name = "test-app"
+version = "0.1.0"
+dependencies = ["pytest>=7.0"]
+```
+
+###### Unchanged
+```python title="tests/test_math.py"
+def test_addition():
+    assert 1 + 1 == 2
+```
+
 
 ## Usage
 

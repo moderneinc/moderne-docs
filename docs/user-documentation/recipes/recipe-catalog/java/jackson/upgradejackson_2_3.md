@@ -52,17 +52,17 @@ This recipe is available under the [Apache License Version 2.0](https://www.apac
 * [Update `lombok.config` for Jackson 3 compatibility](../../java/jackson/lombokjacksonizedconfig)
 * [Update configuration of serialization inclusion in `ObjectMapper` for Jackson 3](../../java/jackson/updateserializationinclusionconfiguration)
 * [Use format alignment `ObjectMappers`](../../java/jackson/useformatalignedobjectmappers)
+* [Remove redundant Jackson 3 feature flag configurations](../../java/jackson/upgradejackson_2_3_removeredundantfeatureflags)
+* [Remove registrations of modules built-in to Jackson 3](../../java/jackson/removebuiltinmoduleregistrations)
 * [Migrate `JsonMapper` setter calls to builder pattern](../../java/jackson/migratemappersetterstobuilder)
 * [Upgrade Jackson 2.x dependencies to 3.x](../../java/jackson/upgradejackson_2_3_dependencies)
 * [Update Jackson 2.x types to 3.x](../../java/jackson/upgradejackson_2_3_typechanges)
 * [Rename Jackson 2.x methods to 3.x equivalents](../../java/jackson/upgradejackson_2_3_methodrenames)
-* [Remove redundant Jackson 3 feature flag configurations](../../java/jackson/upgradejackson_2_3_removeredundantfeatureflags)
 * [Migrate relocated feature constants to DateTimeFeature and EnumFeature](../../java/jackson/upgradejackson_2_3_relocatedfeatureconstants)
 * [Replace constant with another constant](../../java/replaceconstantwithanotherconstant)
   * existingFullyQualifiedConstantName: `com.fasterxml.jackson.core.JsonToken.FIELD_NAME`
   * fullyQualifiedConstantName: `com.fasterxml.jackson.core.JsonToken.PROPERTY_NAME`
 * [Replace `ObjectMapper.copy()` with `rebuild().build()`](../../java/jackson/replaceobjectmappercopy)
-* [Remove registrations of modules built-in to Jackson 3](../../java/jackson/removebuiltinmoduleregistrations)
 * [Use modern date/time serialization defaults](../../java/jackson/usemoderndatetimeserialization)
 * [Replace removed `JsonGenerator` capability methods with `StreamWriteCapability`](../../java/jackson/replacestreamwritecapability)
 * [Replace `@JsonIgnore` with `@JsonSetter` on empty collection fields](../../java/jackson/replacejsonignorewithjsonsetter)
@@ -101,17 +101,17 @@ recipeList:
   - org.openrewrite.java.jackson.LombokJacksonizedConfig
   - org.openrewrite.java.jackson.UpdateSerializationInclusionConfiguration
   - org.openrewrite.java.jackson.UseFormatAlignedObjectMappers
+  - org.openrewrite.java.jackson.UpgradeJackson_2_3_RemoveRedundantFeatureFlags
+  - org.openrewrite.java.jackson.RemoveBuiltInModuleRegistrations
   - org.openrewrite.java.jackson.MigrateMapperSettersToBuilder
   - org.openrewrite.java.jackson.UpgradeJackson_2_3_Dependencies
   - org.openrewrite.java.jackson.UpgradeJackson_2_3_TypeChanges
   - org.openrewrite.java.jackson.UpgradeJackson_2_3_MethodRenames
-  - org.openrewrite.java.jackson.UpgradeJackson_2_3_RemoveRedundantFeatureFlags
   - org.openrewrite.java.jackson.UpgradeJackson_2_3_RelocatedFeatureConstants
   - org.openrewrite.java.ReplaceConstantWithAnotherConstant:
       existingFullyQualifiedConstantName: com.fasterxml.jackson.core.JsonToken.FIELD_NAME
       fullyQualifiedConstantName: com.fasterxml.jackson.core.JsonToken.PROPERTY_NAME
   - org.openrewrite.java.jackson.ReplaceObjectMapperCopy
-  - org.openrewrite.java.jackson.RemoveBuiltInModuleRegistrations
   - org.openrewrite.java.jackson.UseModernDateTimeSerialization
   - org.openrewrite.java.jackson.ReplaceStreamWriteCapability
   - org.openrewrite.java.jackson.ReplaceJsonIgnoreWithJsonSetter
@@ -382,6 +382,64 @@ class MySerializer extends JsonSerializer<String> {
 ---
 
 ##### Example 6
+`RenameJsonTokenFieldNameTest#renameFieldNameToPropertyName`
+
+
+<Tabs groupId="beforeAfter">
+<TabItem value="java" label="java">
+
+
+###### Before
+```java
+import com.fasterxml.jackson.core.JsonParser;
+import com.fasterxml.jackson.core.JsonToken;
+
+class Test {
+    void parse(JsonParser parser) {
+        if (parser.currentToken() == JsonToken.FIELD_NAME) {
+            System.out.println("It's a field");
+        }
+    }
+}
+```
+
+###### After
+```java
+import tools.jackson.core.JsonParser;
+import tools.jackson.core.JsonToken;
+
+class Test {
+    void parse(JsonParser parser) {
+        if (parser.currentToken() == JsonToken.PROPERTY_NAME) {
+            System.out.println("It's a field");
+        }
+    }
+}
+```
+
+</TabItem>
+<TabItem value="diff" label="Diff" >
+
+```diff
+@@ -1,2 +1,2 @@
+-import com.fasterxml.jackson.core.JsonParser;
+-import com.fasterxml.jackson.core.JsonToken;
++import tools.jackson.core.JsonParser;
++import tools.jackson.core.JsonToken;
+
+@@ -6,1 +6,1 @@
+class Test {
+    void parse(JsonParser parser) {
+-       if (parser.currentToken() == JsonToken.FIELD_NAME) {
++       if (parser.currentToken() == JsonToken.PROPERTY_NAME) {
+            System.out.println("It's a field");
+```
+</TabItem>
+</Tabs>
+
+---
+
+##### Example 7
 `StdDeserializerNullConstructorTest#stdDeserializerThisNullPattern`
 
 
@@ -467,7 +525,7 @@ class MyDeserializer extends StdDeserializer<String> {
 
 ---
 
-##### Example 7
+##### Example 8
 `TypeFactoryDefaultInstanceTest#typeFactoryDefaultInstanceRenamed`
 
 
@@ -521,7 +579,7 @@ class Test {
 
 ---
 
-##### Example 8
+##### Example 9
 `UpgradeJackson_2_3Test#jacksonUpgradeToVersion3`
 
 
@@ -634,7 +692,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 ---
 
-##### Example 9
+##### Example 10
 `Jackson3DependenciesTest#jacksonAnnotations`
 
 
@@ -694,7 +752,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 ---
 
-##### Example 10
+##### Example 11
 `Jackson3MethodRenamesTest#jsonGeneratorWriteObject`
 
 
@@ -744,7 +802,7 @@ class Test {
 
 ---
 
-##### Example 11
+##### Example 12
 `Jackson3TypeChangesTest#jsonFactory`
 
 
@@ -790,7 +848,7 @@ class Test {
 
 ---
 
-##### Example 12
+##### Example 13
 `LombokJacksonizedConfigTest#addJacksonVersionToLombokConfig`
 
 
@@ -811,7 +869,7 @@ class MyDto {
 
 ---
 
-##### Example 13
+##### Example 14
 `RemoveThrowsIOExceptionFromJacksonOverridesTest#removeThrowsIOExceptionFromSerializer`
 
 
@@ -879,7 +937,65 @@ class MySerializer extends JsonSerializer<String> {
 
 ---
 
-##### Example 14
+##### Example 15
+`RenameJsonTokenFieldNameTest#renameFieldNameToPropertyName`
+
+
+<Tabs groupId="beforeAfter">
+<TabItem value="java" label="java">
+
+
+###### Before
+```java
+import com.fasterxml.jackson.core.JsonParser;
+import com.fasterxml.jackson.core.JsonToken;
+
+class Test {
+    void parse(JsonParser parser) {
+        if (parser.currentToken() == JsonToken.FIELD_NAME) {
+            System.out.println("It's a field");
+        }
+    }
+}
+```
+
+###### After
+```java
+import tools.jackson.core.JsonParser;
+import tools.jackson.core.JsonToken;
+
+class Test {
+    void parse(JsonParser parser) {
+        if (parser.currentToken() == JsonToken.PROPERTY_NAME) {
+            System.out.println("It's a field");
+        }
+    }
+}
+```
+
+</TabItem>
+<TabItem value="diff" label="Diff" >
+
+```diff
+@@ -1,2 +1,2 @@
+-import com.fasterxml.jackson.core.JsonParser;
+-import com.fasterxml.jackson.core.JsonToken;
++import tools.jackson.core.JsonParser;
++import tools.jackson.core.JsonToken;
+
+@@ -6,1 +6,1 @@
+class Test {
+    void parse(JsonParser parser) {
+-       if (parser.currentToken() == JsonToken.FIELD_NAME) {
++       if (parser.currentToken() == JsonToken.PROPERTY_NAME) {
+            System.out.println("It's a field");
+```
+</TabItem>
+</Tabs>
+
+---
+
+##### Example 16
 `StdDeserializerNullConstructorTest#stdDeserializerThisNullPattern`
 
 
@@ -965,7 +1081,7 @@ class MyDeserializer extends StdDeserializer<String> {
 
 ---
 
-##### Example 15
+##### Example 17
 `TypeFactoryDefaultInstanceTest#typeFactoryDefaultInstanceRenamed`
 
 
@@ -1019,7 +1135,7 @@ class Test {
 
 ---
 
-##### Example 16
+##### Example 18
 `UpgradeJackson_2_3Test#jacksonUpgradeToVersion3`
 
 

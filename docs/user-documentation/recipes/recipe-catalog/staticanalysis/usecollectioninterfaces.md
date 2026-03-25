@@ -29,6 +29,13 @@ _Use `Deque`, `List`, `Map`, `ConcurrentMap`, `Queue`, and `Set` instead of impl
 
 This recipe is available under the [Moderne Source Available License](https://docs.moderne.io/licensing/moderne-source-available-license).
 
+
+## Used by
+
+This recipe is used as part of the following composite recipes:
+
+* [Java best practices](/user-documentation/recipes/recipe-catalog/java/migrate/javabestpractices.md)
+
 ## Example
 
 

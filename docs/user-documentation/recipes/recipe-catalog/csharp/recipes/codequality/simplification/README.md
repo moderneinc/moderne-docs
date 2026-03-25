@@ -1,0 +1,82 @@
+---
+description: Simplification OpenRewrite recipes.
+---
+
+# Simplification
+
+## Composite Recipes
+
+_Recipes that include further recipes, often including the individual recipes below._
+
+* [Simplification code quality](./simplificationcodequality.md)
+
+## Recipes
+
+* [Combine 'Enumerable.Where' method chain](./combinewheremethodchain.md)
+* [Convert 'if' to assignment](./convertiftoassignment.md)
+* [Convert anonymous method to lambda](./convertanonymousmethodtolambda.md)
+* [Convert interpolated string to concatenation](./convertinterpolatedstringtoconcatenation.md)
+* [Expression is always true or false](./expressionalwaystrueorfalse.md)
+* [Inline lazy initialization](./inlinelazyinitialization.md)
+* [Inline local variable](./inlinelocalvariable.md)
+* [Join string expressions](./joinstringexpressions.md)
+* [Merge consecutive Where calls](./simplifyredundantwherewhere.md)
+* [Merge else with nested if](./mergeelsewithnestedif.md)
+* [Merge if with parent if](./mergeifwithparentif.md)
+* [Merge switch sections with equivalent content](./mergeswitchsections.md)
+* [Operator is unnecessary](./unnecessaryoperator.md)
+* [Remove redundant boolean literal](./removeredundantbooleanliteral.md)
+* [Remove unnecessary braces](./removeunnecessarybraces.md)
+* [Simplify Nullable&lt;T&gt; to T?](./simplifynullabletoshorthand.md)
+* [Simplify Nullable&lt;T&gt;.HasValue](./simplifynullablehasvalue.md)
+* [Simplify argument null check](./simplifyargumentnullcheck.md)
+* [Simplify boolean comparison](./simplifybooleancomparison.md)
+* [Simplify coalesce expression](./simplifycoalesceexpression.md)
+* [Simplify code branching](./simplifycodebranching.md)
+* [Simplify conditional expression](./simplifyconditionalexpression.md)
+* [Simplify do-while(true) to while(true)](./simplifydowhiletowhile.md)
+* [Simplify lazy initialization](./simplifylazyinitialization.md)
+* [Simplify logical negation](./simplifylogicalnegation.md)
+* [Simplify negated is null pattern](./simplifynegatedisnull.md)
+* [Simplify nested using statement](./simplifynestedusingstatement.md)
+* [Simplify numeric comparison](./simplifynumericcomparison.md)
+* [Unconstrained type parameter checked for null](./unconstrainedtypeparamnullcheck.md)
+* [Use 'is' operator instead of 'as' operator](./useisoperatorinsteadofas.md)
+* [Use 'is' pattern instead of SequenceEqual](./useispatterninsteadofsequenceequal.md)
+* [Use 'not' pattern instead of negation](./usenotpattern.md)
+* [Use DateTime.UnixEpoch](./usedatetimeunixepoch.md)
+* [Use DateTimeOffset.UnixEpoch](./usedatetimeoffsetunixepoch.md)
+* [Use Guid.Empty](./useguidempty.md)
+* [Use TimeSpan.Zero](./usetimespanzero.md)
+* [Use ^ operator for boolean inequality](./usexorforbooleaninequality.md)
+* [Use anonymous function or method group](./useanonymousfunctionormethodgroup.md)
+* [Use coalesce expression](./usecoalesceexpression.md)
+* [Use coalesce expression instead of 'if'](./usecoalesceexpressioninsteadofif.md)
+* [Use compound assignment](./usecompoundassignment.md)
+* [Use conditional access](./useconditionalaccess.md)
+* [Use conditional access instead of conditional expression](./useconditionalaccessinsteadofif.md)
+* [Use conditional expression in declaration](./useconditionalexpressionfordeclaration.md)
+* [Use conditional return expression](./useconditionalexpressionforreturn.md)
+* [Use conditional throw expression](./useconditionalexpressionforthrow.md)
+* [Use default literal](./usedefaultliteral.md)
+* [Use exception filter](./useexceptionfilter.md)
+* [Use expression-bodied lambda](./useexpressionbodiedlambda.md)
+* [Use for statement instead of while](./useforinsteadofwhile.md)
+* [Use pattern matching for equality comparison](./usepatternmatchingforequality.md)
+* [Use pattern matching for inequality comparison](./usepatternmatchingforinequality.md)
+* [Use pattern matching for null check](./usepatternmatchingnullcheck.md)
+* [Use pattern matching instead of HasValue](./usepatternmatchinginsteadofhasvalue.md)
+* [Use pattern matching instead of as](./usepatternmatchinginsteadofas.md)
+* [Use pattern matching instead of is](./usepatternmatchinginsteadofis.md)
+* [Use postfix increment/decrement](./usepostfixincrement.md)
+* [Use range operator](./userangeoperator.md)
+* [Use short-circuit operator](./useshortcircuitoperator.md)
+* [Use string interpolation instead of concatenation](./usestringinterpolationinsteadofconcat.md)
+* [Use string interpolation instead of string.Format](./usestringinterpolation.md)
+* [Use string.EndsWith](./usestringendswith.md)
+* [Use string.Equals instead of == for string comparison](./usestringequals.md)
+* [Use string.StartsWith instead of IndexOf comparison](./usestringstartswith.md)
+* [Use switch expression](./useswitchexpression.md)
+* [Use throw expression](./usethrowexpression.md)
+
+

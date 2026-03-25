@@ -39,6 +39,7 @@ This recipe is used as part of the following composite recipes:
 
 * [Maps deprecated classes from Apache HttpClient 4.5.x to suggested replacements](/user-documentation/recipes/recipe-catalog/apache/httpclient4/mappingdeprecatedclasses.md)
 * [Migrate Hibernate CascadeType constants](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/hibernate/update66/migratecascadetypes)
+* [Migrate JAX-RS MediaType to Spring MVC MediaType](/user-documentation/recipes/recipe-catalog/java/spring/mvc/jaxrstospringmvcmediatype.md)
 * [Migrate `HttpStatus` enum values to RFC 9110 names](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/spring/framework7/migratehttpstatustorfc9110)
 * [Migrate `exactly_once` and `exactly_once_beta` to `exactly_once_v2`](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/kafka/streams/processingguaranteeexactlyoncetov2)
 * [Migrate `exactly_once` to `exactly_once_beta`](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/kafka/streams/processingguaranteeexactlyoncetobeta)

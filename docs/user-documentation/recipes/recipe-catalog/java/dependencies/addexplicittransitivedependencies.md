@@ -47,11 +47,7 @@ public class A {
 project
 ```
 
-<Tabs groupId="beforeAfter">
-<TabItem value="pom.xml" label="pom.xml">
-
-
-###### Before
+###### Unchanged
 ```xml title="pom.xml"
 <project>
     <groupId>com.mycompany</groupId>
@@ -66,46 +62,6 @@ project
     </dependencies>
 </project>
 ```
-
-###### After
-```xml title="pom.xml"
-<project>
-    <groupId>com.mycompany</groupId>
-    <artifactId>app</artifactId>
-    <version>1</version>
-    <dependencies>
-        <dependency>
-            <groupId>com.fasterxml.jackson.core</groupId>
-            <artifactId>jackson-databind</artifactId>
-            <version>2.17.2</version>
-        </dependency>
-        <dependency>
-            <groupId>org.openrewrite</groupId>
-            <artifactId>rewrite-core</artifactId>
-            <version>8.56.0</version>
-        </dependency>
-    </dependencies>
-</project>
-```
-
-</TabItem>
-<TabItem value="diff" label="Diff" >
-
-```diff
---- pom.xml
-+++ pom.xml
-@@ -7,0 +7,5 @@
-    <dependencies>
-        <dependency>
-+           <groupId>com.fasterxml.jackson.core</groupId>
-+           <artifactId>jackson-databind</artifactId>
-+           <version>2.17.2</version>
-+       </dependency>
-+       <dependency>
-            <groupId>org.openrewrite</groupId>
-```
-</TabItem>
-</Tabs>
 
 
 ## Usage

@@ -34,6 +34,7 @@ This recipe is available under the [Moderne Source Available License](https://do
 
 <Tabs groupId="recipeType">
 <TabItem value="recipe-list" label="Recipe List" >
+* [Unwrap `@MockBeans` and `@SpyBeans` container annotations](../../../java/spring/boot4/unwrapmockandspybeancontainers)
 * [Change annotation attribute name](../../../java/changeannotationattributename)
   * annotationType: `org.springframework.boot.test.mock.mockito.MockBean`
   * oldAttributeName: `answer`
@@ -75,6 +76,7 @@ displayName: Replace `@MockBean` and `@SpyBean`
 description: |
   Replaces `@MockBean` and `@SpyBean` annotations with `@MockitoBean` and `@MockitoSpyBean`.
 recipeList:
+  - org.openrewrite.java.spring.boot4.UnwrapMockAndSpyBeanContainers
   - org.openrewrite.java.ChangeAnnotationAttributeName:
       annotationType: org.springframework.boot.test.mock.mockito.MockBean
       oldAttributeName: answer

@@ -27,6 +27,31 @@ This recipe is used as part of the following composite recipes:
 * [Update Prethink context (no AI)](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/prethink/updateprethinkcontextnoaistarter)
 * [Update Prethink context (with AI)](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/prethink/updateprethinkcontextstarter)
 
+## Example
+
+
+###### Unchanged
+```pyproject
+[project]
+name = "test-app"
+version = "0.1.0"
+dependencies = ["sqlalchemy>=2.0"]
+```
+
+###### Unchanged
+```python title="models.py"
+from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column
+from sqlalchemy import String
+
+class Base(DeclarativeBase):
+    pass
+
+class User(Base):
+    __tablename__ = "users"
+    id: Mapped[int] = mapped_column(primary_key=True)
+    name: Mapped[str] = mapped_column(String(50))
+```
+
 
 ## Usage
 

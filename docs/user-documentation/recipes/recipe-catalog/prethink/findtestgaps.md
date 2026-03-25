@@ -27,6 +27,41 @@ This recipe is used as part of the following composite recipes:
 * [Update Prethink context (no AI)](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/prethink/updateprethinkcontextnoaistarter)
 * [Update Prethink context (with AI)](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/prethink/updateprethinkcontextstarter)
 
+## Example
+
+
+###### Unchanged
+```java
+package com.example;
+
+import org.junit.jupiter.api.Test;
+
+public class ServiceTest {
+    @Test
+    void placeholder() {
+    }
+}
+```
+
+###### Unchanged
+```java
+package com.example;
+
+public class Service {
+    public String process(String input) {
+        if (input == null) {
+            return "empty";
+        }
+        return input.toUpperCase();
+    }
+}
+```
+
+###### Unchanged
+```mavenProject
+test-project
+```
+
 
 ## Usage
 

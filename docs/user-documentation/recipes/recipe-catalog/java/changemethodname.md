@@ -92,6 +92,7 @@ This recipe is used as part of the following composite recipes:
 * [Migrate to Reactor 3.5](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/reactive/reactor/upgradereactor_3_5)
 * [Migrate to Spring Batch 6.0 from 5.2](/user-documentation/recipes/recipe-catalog/java/spring/batch/springbatch5to6migration.md)
 * [Migrate to Spring Framework 6.2](/user-documentation/recipes/recipe-catalog/java/spring/framework/upgradespringframework_6_2.md)
+* [Migrate to Spring Security 7.0](/user-documentation/recipes/recipe-catalog/java/spring/security7/upgradespringsecurity_7_0.md)
 * [Migrates Spring Kafka deprecated error handlers](/user-documentation/recipes/recipe-catalog/java/spring/kafka/upgradespringkafka_2_8_errorhandlers.md)
 * [Migrates `camel 4.16` application to `camel 4.17`](/user-documentation/recipes/recipe-catalog/org/apache/camel/upgrade/camel417/camelmigrationrecipe.md)
 * [Migrates to Apache Commons Lang 3.x](/user-documentation/recipes/recipe-catalog/apache/commons/lang/upgradeapachecommonslang_2_3.md)

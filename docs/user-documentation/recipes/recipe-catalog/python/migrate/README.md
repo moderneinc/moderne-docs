@@ -22,6 +22,8 @@ _Recipes that include further recipes, often including the individual recipes be
 
 ## Recipes
 
+* [Find Python function and method usages](./findmethods.md)
+* [Find Python types](./findtypes.md)
 * [Find `__future__` imports](./findfutureimports.md)
 * [Find deprecated `@asyncio.coroutine` decorator](./findasynciocoroutinedecorator.md)
 * [Find deprecated `Path.link_to()` usage](./findpathliblinkto.md)
@@ -61,6 +63,7 @@ _Recipes that include further recipes, often including the individual recipes be
 * [Find `socket.getfqdn()` usage](./findsocketgetfqdn.md)
 * [Migrate `@asyncio.coroutine` to `async def`](./migrateasynciocoroutine.md)
 * [Migrate to `pyproject.toml`](./migratetopyprojecttoml.md)
+* [Python dependency insight](./dependencyinsight.md)
 * [Remove obsolete `__future__` imports](./removefutureimports.md)
 * [Replace `%` formatting with f-string](./replacepercentformatwithfstring.md)
 * [Replace `Condition.notifyAll()` with `Condition.notify_all()`](./replaceconditionnotifyall.md)

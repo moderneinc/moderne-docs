@@ -958,6 +958,15 @@ _This doc contains all of the recipes with **unique** data tables that have been
   * **org.openrewrite.cobol.table.WordSearchResult**: *Words in COBOL source code that match the search criteria.*
 
 
+#### [org.openrewrite.jcl.search.FindWord](/user-documentation/recipes/recipe-catalog/jcl/search/findword.md)
+  * **Find matching words in JCL source code**
+  * Search for JCL words based on a search term.
+
+##### Data tables:
+
+  * **org.openrewrite.jcl.table.JclWordSearchResult**: *Words in JCL source code that match the search criteria.*
+
+
 
 ### rewrite-core
 
@@ -5111,7 +5120,7 @@ _This doc contains all of the recipes with **unique** data tables that have been
 
 #### [org.openrewrite.java.dependencies.DependencyVulnerabilityCheck](/user-documentation/recipes/recipe-catalog/java/dependencies/dependencyvulnerabilitycheck.md)
   * **Find and fix vulnerable dependencies**
-  * This software composition analysis (SCA) tool detects and upgrades dependencies with publicly disclosed vulnerabilities. This recipe both generates a report of vulnerable dependencies and upgrades to newer versions with fixes. This recipe by default only upgrades to the latest **patch** version.  If a minor or major upgrade is required to reach the fixed version, this can be controlled using the `maximumUpgradeDelta` option. Vulnerability information comes from the [GitHub Security Advisory Database](https://docs.github.com/en/code-security/security-advisories/global-security-advisories/about-the-github-advisory-database), which aggregates vulnerability data from several public databases, including the [National Vulnerability Database](https://nvd.nist.gov/) maintained by the United States government. Upgrades dependencies versioned according to [Semantic Versioning](https://semver.org/).   ## Customizing Vulnerability Data  This recipe can be customized by extending `DependencyVulnerabilityCheckBase` and overriding the vulnerability data sources:   - **`baselineVulnerabilities(ExecutionContext ctx)`**: Provides the default set of known vulnerabilities. The base implementation loads vulnerability data from the GitHub Security Advisory Database CSV file using `ResourceUtils.parseResourceAsCsv()`. Override this method to replace the entire vulnerability dataset with your own curated list.   - **`supplementalVulnerabilities(ExecutionContext ctx)`**: Allows adding custom vulnerability data beyond the baseline. The base implementation returns an empty list. Override this method to add organization-specific vulnerabilities, internal security advisories, or vulnerabilities from additional sources while retaining the baseline GitHub Advisory Database.  Both methods return `List&lt;Vulnerability&gt;` objects. Vulnerability data can be loaded from CSV files using `ResourceUtils.parseResourceAsCsv(path, Vulnerability.class, consumer)` or constructed programmatically. To customize, extend `DependencyVulnerabilityCheckBase` and override one or both methods depending on your needs. For example, override `supplementalVulnerabilities()` to add custom CVEs while keeping the standard vulnerability database, or override `baselineVulnerabilities()` to use an entirely different vulnerability data source. Last updated: 2026-03-19T1924.
+  * This software composition analysis (SCA) tool detects and upgrades dependencies with publicly disclosed vulnerabilities. This recipe both generates a report of vulnerable dependencies and upgrades to newer versions with fixes. This recipe by default only upgrades to the latest **patch** version.  If a minor or major upgrade is required to reach the fixed version, this can be controlled using the `maximumUpgradeDelta` option. Vulnerability information comes from the [GitHub Security Advisory Database](https://docs.github.com/en/code-security/security-advisories/global-security-advisories/about-the-github-advisory-database), which aggregates vulnerability data from several public databases, including the [National Vulnerability Database](https://nvd.nist.gov/) maintained by the United States government. Upgrades dependencies versioned according to [Semantic Versioning](https://semver.org/).   ## Customizing Vulnerability Data  This recipe can be customized by extending `DependencyVulnerabilityCheckBase` and overriding the vulnerability data sources:   - **`baselineVulnerabilities(ExecutionContext ctx)`**: Provides the default set of known vulnerabilities. The base implementation loads vulnerability data from the GitHub Security Advisory Database CSV file using `ResourceUtils.parseResourceAsCsv()`. Override this method to replace the entire vulnerability dataset with your own curated list.   - **`supplementalVulnerabilities(ExecutionContext ctx)`**: Allows adding custom vulnerability data beyond the baseline. The base implementation returns an empty list. Override this method to add organization-specific vulnerabilities, internal security advisories, or vulnerabilities from additional sources while retaining the baseline GitHub Advisory Database.  Both methods return `List&lt;Vulnerability&gt;` objects. Vulnerability data can be loaded from CSV files using `ResourceUtils.parseResourceAsCsv(path, Vulnerability.class, consumer)` or constructed programmatically. To customize, extend `DependencyVulnerabilityCheckBase` and override one or both methods depending on your needs. For example, override `supplementalVulnerabilities()` to add custom CVEs while keeping the standard vulnerability database, or override `baselineVulnerabilities()` to use an entirely different vulnerability data source. Last updated: 2026-03-23T1116.
 
 ##### Data tables:
 
@@ -5147,6 +5156,15 @@ _This doc contains all of the recipes with **unique** data tables that have been
   * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
   * **org.openrewrite.java.dependencies.table.VulnerabilityReport**: *A vulnerability report that includes detailed information about the affected artifact and the corresponding CVEs.*
   * **org.openrewrite.java.dependencies.table.DependencyOriginsReport**: *A report that maps dependencies to their originating root node represented as dependency graph. The information can be used to understand which direct dependencies are responsible for bringing in specific transitive dependencies.*
+
+
+#### [org.openrewrite.java.security.Owasp2025A04](/user-documentation/recipes/recipe-catalog/java/security/owasp2025a04.md)
+  * **Remediate OWASP A04:2025 Cryptographic failures**
+  * OWASP [A04:2025](https://owasp.org/Top10/2025/A04_2025-Cryptographic_Failures/) describes failures related to cryptography (or lack thereof), which often lead to exposure of sensitive data. Previously A02:2021.
+
+##### Data tables:
+
+  * **org.openrewrite.java.table.MethodCalls**: *The text of matching method invocations.*
 
 
 #### [org.openrewrite.java.security.OwaspA01](/user-documentation/recipes/recipe-catalog/java/security/owaspa01.md)
@@ -5379,6 +5397,15 @@ _This doc contains all of the recipes with **unique** data tables that have been
 #### [org.openrewrite.java.migrate.Java8toJava11](/user-documentation/recipes/recipe-catalog/java/migrate/java8tojava11.md)
   * **Migrate to Java 11**
   * This recipe will apply changes commonly needed when upgrading to Java 11. Specifically, for those applications that are built on Java 8, this recipe will update and add dependencies on J2EE libraries that are no longer directly bundled with the JDK. This recipe will also replace deprecated API with equivalents when there is a clear migration strategy. Build files will also be updated to use Java 11 as the target/source and plugins will be also be upgraded to versions that are compatible with Java 11.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.java.migrate.JavaBestPractices](/user-documentation/recipes/recipe-catalog/java/migrate/javabestpractices.md)
+  * **Java best practices**
+  * Applies opinionated best practices for Java projects targeting Java 25. This recipe includes the full Java 25 upgrade chain plus additional improvements to code style, API usage, and third-party dependency reduction that go beyond what the version migration recipes apply.
 
 ##### Data tables:
 
@@ -5665,6 +5692,27 @@ _This doc contains all of the recipes with **unique** data tables that have been
 ##### Data tables:
 
   * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+
+### rewrite-migrate-python
+
+#### [org.openrewrite.python.migrate.DependencyInsight](/user-documentation/recipes/recipe-catalog/python/migrate/dependencyinsight.md)
+  * **Python dependency insight**
+  * Find Python dependencies, including transitive dependencies, matching a package name pattern. Results include the resolved version, scope, and whether the dependency is direct or transitive.
+
+##### Data tables:
+
+  * **org.openrewrite.python.table.PythonDependenciesInUse**: *Direct and transitive dependencies in use in Python projects.*
+
+
+#### [org.openrewrite.python.migrate.FindMethods](/user-documentation/recipes/recipe-catalog/python/migrate/findmethods.md)
+  * **Find Python function and method usages**
+  * Find function and method calls by pattern. Covers standalone functions, class methods, static methods, and constructor calls.
+
+##### Data tables:
+
+  * **org.openrewrite.java.table.MethodCalls**: *The text of matching method invocations.*
 
 
 

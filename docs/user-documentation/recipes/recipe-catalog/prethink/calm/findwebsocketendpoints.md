@@ -27,6 +27,25 @@ This recipe is used as part of the following composite recipes:
 * [Update Prethink context (no AI)](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/prethink/updateprethinkcontextnoaistarter)
 * [Update Prethink context (with AI)](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/prethink/updateprethinkcontextstarter)
 
+## Example
+
+
+###### Unchanged
+```java
+package com.example;
+
+import org.springframework.messaging.handler.annotation.MessageMapping;
+import org.springframework.stereotype.Controller;
+
+@Controller
+public class ChatController {
+    @MessageMapping("/chat")
+    public String handleMessage(String message) {
+        return message;
+    }
+}
+```
+
 
 ## Usage
 

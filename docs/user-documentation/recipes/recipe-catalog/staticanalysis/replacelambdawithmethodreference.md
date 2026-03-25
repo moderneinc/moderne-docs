@@ -35,6 +35,7 @@ This recipe is available under the [Moderne Source Available License](https://do
 This recipe is used as part of the following composite recipes:
 
 * [Common static analysis issues](/user-documentation/recipes/recipe-catalog/staticanalysis/commonstaticanalysis.md)
+* [Java best practices](/user-documentation/recipes/recipe-catalog/java/migrate/javabestpractices.md)
 
 ## Examples
 ##### Example 1

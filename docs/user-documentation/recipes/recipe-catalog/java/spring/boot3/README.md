@@ -71,6 +71,7 @@ _Recipes that include further recipes, often including the individual recipes be
 * [Migrate `EndpointDiscoverer` deprecated constructor](./migrateendpointdiscovererconstructor.md)
 * [Migrate `EntityManagerFactoryBuilder` deprecated constructor](./migrateentitymanagerfactorybuilderconstructor.md)
 * [Migrate `JmxEndpointDiscoverer` deprecated constructor](./migratejmxendpointdiscovererconstructor.md)
+* [Migrate `RestTemplate` to `RestClient`](./migrateresttemplatetorestclient.md)
 * [Migrate SAP cloud foundry logging support to Spring Boot 3.x](./migratesapcfjavaloggingsupport.md)
 * [Migrate WebEndpointDiscoverer 6-parameter constructor to 8-parameter](./migratewebendpointdiscovererconstructor.md)
 * [Migrate `WebMvcTagsProvider` to `DefaultServerRequestObservationConvention`](./migratewebmvctagstoobservationconvention.md)

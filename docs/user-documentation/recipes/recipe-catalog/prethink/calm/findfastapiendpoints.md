@@ -27,6 +27,27 @@ This recipe is used as part of the following composite recipes:
 * [Update Prethink context (no AI)](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/prethink/updateprethinkcontextnoaistarter)
 * [Update Prethink context (with AI)](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/prethink/updateprethinkcontextstarter)
 
+## Example
+
+
+###### Unchanged
+```pyproject
+[project]
+name = "test-app"
+version = "0.1.0"
+dependencies = ["fastapi>=0.100"]
+```
+
+###### Unchanged
+```python title="main.py"
+from fastapi import FastAPI
+app = FastAPI()
+
+@app.get("/items")
+def read_items():
+    return [{"item": "Foo"}]
+```
+
 
 ## Usage
 

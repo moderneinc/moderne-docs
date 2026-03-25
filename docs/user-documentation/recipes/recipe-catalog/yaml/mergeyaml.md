@@ -55,7 +55,6 @@ This recipe is used as part of the following composite recipes:
 * [Add retry configuration](/user-documentation/recipes/recipe-catalog/gitlab/addretry.md)
 * [Add workflow rules](/user-documentation/recipes/recipe-catalog/gitlab/addworkflowrules.md)
 * [Migrate from tibdex/github-app-token to actions/create-github-app-token](/user-documentation/recipes/recipe-catalog/github/migratetibdexgithubapptokentoactions.md)
-* [Update relocated Micronaut Security config yaml keys](/user-documentation/recipes/recipe-catalog/java/micronaut/updatesecurityyamlifneeded.md)
 
 ## Example
 

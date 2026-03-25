@@ -36,7 +36,6 @@ This recipe is available under the [Apache License Version 2.0](https://www.apac
 
 This recipe is used as part of the following composite recipes:
 
-* [Java Recipe best practices](/user-documentation/recipes/recipe-catalog/java/recipes/javarecipebestpractices.md)
 * [Migrate @ConfigurationProperties to Quarkus @ConfigMapping](/user-documentation/recipes/recipe-catalog/quarkus/spring/migrateconfigurationproperties.md)
 * [Migrate Additional Spring Web Parameter Annotations](/user-documentation/recipes/recipe-catalog/quarkus/spring/migraterequestparameteredgecases.md)
 * [Migrate JavaEE Code to Quarkus 2](/user-documentation/recipes/recipe-catalog/quarkus/migrate/javaee/javaeetoquarkus2codemigration.md)

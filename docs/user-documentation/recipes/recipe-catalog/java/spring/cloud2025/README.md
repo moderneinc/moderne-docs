@@ -12,6 +12,7 @@ _Recipes that include further recipes, often including the individual recipes be
 * [Migrate Spring Cloud properties to 2025](./springcloudproperties_2025.md)
 * [Migrate to New Spring Cloud Gateway Modules and Starters](./springcloudgatewaydeprecatedmodulesandstarters.md)
 * [Migrate to Spring Cloud 2025](./upgradespringcloud_2025.md)
+* [Migrate to Spring Cloud 2025.1](./upgradespringcloud_2025_1.md)
 * [Upgrade dependencies to Spring Cloud 2025](./dependencyupgrades.md)
 
 ## Recipes

@@ -30,7 +30,7 @@ This recipe is available under the [Moderne Source Available License](https://do
 
 This recipe is used as part of the following composite recipes:
 
-* [Spring Boot 2.x best practices](/user-documentation/recipes/recipe-catalog/java/spring/boot2/springboot2bestpractices.md)
+* [Migrate multi-condition `@ConditionalOnBean` annotations from Boot 1.x](/user-documentation/recipes/recipe-catalog/java/spring/boot2/conditionalonbeananynestedconditionboot1.md)
 
 ## Example
 

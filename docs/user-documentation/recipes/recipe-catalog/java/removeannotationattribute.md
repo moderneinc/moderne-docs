@@ -48,6 +48,7 @@ This recipe is used as part of the following composite recipes:
 * [Remove debug mode from Spring Security](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/security/spring/removeenablewebsecuritydebug)
 * [Replace `@MockBean` and `@SpyBean`](/user-documentation/recipes/recipe-catalog/java/spring/boot4/replacemockbeanandspybean.md)
 * [Replace `@Timed` (Dropwizard) with `@Timed` (Micrometer)](/user-documentation/recipes/recipe-catalog/java/dropwizard/annotation/micrometer/codahaletimedtomicrometertimed.md)
+* [Substitute removed Faces Managed Beans](/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/facesmanagedbeansremoved.md)
 
 ## Examples
 ##### Example 1

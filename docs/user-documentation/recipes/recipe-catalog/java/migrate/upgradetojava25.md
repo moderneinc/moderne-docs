@@ -89,6 +89,13 @@ recipeList:
 ```
 </TabItem>
 </Tabs>
+
+## Used by
+
+This recipe is used as part of the following composite recipes:
+
+* [Java best practices](/user-documentation/recipes/recipe-catalog/java/migrate/javabestpractices.md)
+
 ## Examples
 ##### Example 1
 `UpgradeToJava25Test#updateCompilerVersion`

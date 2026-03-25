@@ -27,6 +27,27 @@ This recipe is used as part of the following composite recipes:
 * [Update Prethink context (no AI)](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/prethink/updateprethinkcontextnoaistarter)
 * [Update Prethink context (with AI)](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/prethink/updateprethinkcontextstarter)
 
+## Example
+
+
+###### Unchanged
+```pyproject
+[project]
+name = "test-app"
+version = "0.1.0"
+dependencies = ["djangorestframework>=3.14", "djangorestframework-stubs>=3.14"]
+```
+
+###### Unchanged
+```python title="views.py"
+from rest_framework.decorators import api_view
+from rest_framework.response import Response
+
+@api_view(['GET'])
+def item_list(request):
+    return Response({"items": []})
+```
+
 
 ## Usage
 

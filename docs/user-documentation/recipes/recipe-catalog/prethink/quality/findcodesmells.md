@@ -27,6 +27,166 @@ This recipe is used as part of the following composite recipes:
 * [Update Prethink context (no AI)](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/prethink/updateprethinkcontextnoaistarter)
 * [Update Prethink context (with AI)](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/prethink/updateprethinkcontextstarter)
 
+## Example
+
+
+###### Unchanged
+```java
+package com.example;
+
+/**
+ * Intentionally bloated class to trigger God Class detection.
+ * WMC >= 47 (each method has if/else = CC 2, 24 methods = WMC 48).
+ * TCC < 0.33 (each method accesses a different field).
+ * ATFD > 5 (methods directly access public fields of Other).
+ */
+public class BigService {
+    private int f1;
+    private int f2;
+    private int f3;
+    private int f4;
+    private int f5;
+    private int f6;
+    private int f7;
+    private int f8;
+    private int f9;
+    private int f10;
+    private int f11;
+    private int f12;
+    private int f13;
+    private int f14;
+    private int f15;
+    private int f16;
+    private int f17;
+    private int f18;
+    private int f19;
+    private int f20;
+    private int f21;
+    private int f22;
+    private int f23;
+    private int f24;
+
+    public int method1(Other ext) {
+        if (ext.x > 0) { return ext.y; }
+        return f1;
+    }
+    public int method2(Other ext) {
+        if (ext.y > 0) { return ext.z; }
+        return f2;
+    }
+    public int method3(Other ext) {
+        if (ext.z > 0) { return ext.w; }
+        return f3;
+    }
+    public int method4(Other ext) {
+        if (ext.w > 0) { return ext.v; }
+        return f4;
+    }
+    public int method5(Other ext) {
+        if (ext.v > 0) { return ext.u; }
+        return f5;
+    }
+    public int method6(Other ext) {
+        if (ext.u > 0) { return ext.t; }
+        return f6;
+    }
+    public int method7(Other ext) {
+        if (ext.x > 0) { return ext.y; }
+        return f7;
+    }
+    public int method8(Other ext) {
+        if (ext.y > 0) { return ext.z; }
+        return f8;
+    }
+    public int method9(Other ext) {
+        if (ext.z > 0) { return ext.w; }
+        return f9;
+    }
+    public int method10(Other ext) {
+        if (ext.w > 0) { return ext.v; }
+        return f10;
+    }
+    public int method11(Other ext) {
+        if (ext.v > 0) { return ext.u; }
+        return f11;
+    }
+    public int method12(Other ext) {
+        if (ext.u > 0) { return ext.t; }
+        return f12;
+    }
+    public int method13(Other ext) {
+        if (ext.x > 0) { return ext.y; }
+        return f13;
+    }
+    public int method14(Other ext) {
+        if (ext.y > 0) { return ext.z; }
+        return f14;
+    }
+    public int method15(Other ext) {
+        if (ext.z > 0) { return ext.w; }
+        return f15;
+    }
+    public int method16(Other ext) {
+        if (ext.w > 0) { return ext.v; }
+        return f16;
+    }
+    public int method17(Other ext) {
+        if (ext.v > 0) { return ext.u; }
+        return f17;
+    }
+    public int method18(Other ext) {
+        if (ext.u > 0) { return ext.t; }
+        return f18;
+    }
+    public int method19(Other ext) {
+        if (ext.x > 0) { return ext.y; }
+        return f19;
+    }
+    public int method20(Other ext) {
+        if (ext.y > 0) { return ext.z; }
+        return f20;
+    }
+    public int method21(Other ext) {
+        if (ext.z > 0) { return ext.w; }
+        return f21;
+    }
+    public int method22(Other ext) {
+        if (ext.w > 0) { return ext.v; }
+        return f22;
+    }
+    public int method23(Other ext) {
+        if (ext.v > 0) { return ext.u; }
+        return f23;
+    }
+    public int method24(Other ext) {
+        if (ext.u > 0) { return ext.t; }
+        return f24;
+    }
+}
+```
+
+###### Unchanged
+```java
+package com.example;
+
+public class Other {
+    public int x;
+    public int y;
+    public int z;
+    public int w;
+    public int v;
+    public int u;
+    public int t;
+
+    public int compute(int a, int b) { return a + b; }
+}
+```
+
+###### Unchanged
+```mavenProject
+test-project
+```
+
 
 ## Usage
 

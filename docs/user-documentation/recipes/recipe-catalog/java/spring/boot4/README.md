@@ -42,6 +42,7 @@ _Recipes that include further recipes, often including the individual recipes be
 * [Add `@AutoConfigureMockMvc` to `@SpringBootTest` classes using `MockMvc`](./addautoconfiguremockmvc.md)
 * [Add `@AutoConfigureTestRestTemplate` if necessary](./addautoconfiguretestresttemplate.md)
 * [Add `@AutoConfigureWebTestClient` if necessary](./addautoconfigurewebtestclient.md)
+* [Add `@MockitoSettings(strictness = Strictness.LENIENT)` for `@MockitoBean` tests](./addlenientmockitosettings.md)
 * [Add explicit version for REST Assured](./migraterestassured.md)
 * [Add `spring-boot-starter-flyway` if using Flyway](./addspringbootstarterflyway.md)
 * [Add `useDefaultJaasConfig=true` to MSSQL Kerberos JDBC URLs](./addmssqlkerberosjaasconfig.md)
@@ -58,5 +59,6 @@ _Recipes that include further recipes, often including the individual recipes be
 * [Replace deprecated `DockerApi`](./replacedeprecateddockerapi.md)
 * [Replace deprecated `ThreadPoolTaskSchedulerBuilder` constructor](./replacedeprecatedthreadpooltaskschedulerbuilderapi.md)
 * [Replace deprecated `org.springframework.boot.autoconfigure.mongo` API](./replacedeprecatedautoconfiguremongoapi.md)
+* [Unwrap `@MockBeans` and `@SpyBeans` container annotations](./unwrapmockandspybeancontainers.md)
 
 

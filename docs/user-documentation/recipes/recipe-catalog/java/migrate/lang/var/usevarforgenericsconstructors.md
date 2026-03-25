@@ -30,6 +30,7 @@ This recipe is available under the [Moderne Source Available License](https://do
 
 This recipe is used as part of the following composite recipes:
 
+* [Java best practices](/user-documentation/recipes/recipe-catalog/java/migrate/javabestpractices.md)
 * [Use local variable type inference](/user-documentation/recipes/recipe-catalog/java/migrate/lang/usevar.md)
 
 ## Example

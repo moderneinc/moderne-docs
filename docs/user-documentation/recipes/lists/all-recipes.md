@@ -6,15 +6,1737 @@ description: A comprehensive list of all recipes organized by module.
 
 _This doc contains all recipes grouped by their module._
 
-Total recipes: 5129
+Total recipes: 5727
 
 
 ## io.moderne.recipe
 
 
+### recipes-code-quality
+
+_License: Moderne Proprietary License_
+
+_403 recipes_
+
+* [OpenRewrite.Recipes.CodeQuality.CodeQuality](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/codequality.md)
+  * **Code quality**
+  * All C# code quality recipes, organized by category.
+* [OpenRewrite.Recipes.CodeQuality.Formatting.AddNewLineAfterOpeningBrace](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/formatting/addnewlineafteropeningbrace.md)
+  * **Add newline after opening brace**
+  * Add newline after opening brace so the first statement starts on its own line.
+* [OpenRewrite.Recipes.CodeQuality.Formatting.AddNewLineBeforeReturn](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/formatting/addnewlinebeforereturn.md)
+  * **Add newline before return**
+  * Add a blank line before return statements that follow other statements.
+* [OpenRewrite.Recipes.CodeQuality.Formatting.AddParagraphToDocComment](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/formatting/addparagraphtodoccomment.md)
+  * **Add paragraph to documentation comment**
+  * Format multi-line documentation comments with paragraph elements.
+* [OpenRewrite.Recipes.CodeQuality.Formatting.AddParameterToDocComment](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/formatting/addparametertodoccomment.md)
+  * **Add parameter name to documentation comment**
+  * Add missing param elements to XML documentation comments.
+* [OpenRewrite.Recipes.CodeQuality.Formatting.AddSummaryElementToDocComment](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/formatting/addsummaryelementtodoccomment.md)
+  * **Add summary to documentation comment**
+  * Add summary text to documentation comments with empty summary elements.
+* [OpenRewrite.Recipes.CodeQuality.Formatting.AddSummaryToDocComment](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/formatting/addsummarytodoccomment.md)
+  * **Add summary element to documentation comment**
+  * Add missing summary element to XML documentation comments.
+* [OpenRewrite.Recipes.CodeQuality.Formatting.AddTypeParamToDocComment](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/formatting/addtypeparamtodoccomment.md)
+  * **Add 'typeparam' element to documentation comment**
+  * Add missing 'typeparam' elements to XML documentation comments.
+* [OpenRewrite.Recipes.CodeQuality.Formatting.FixDocCommentTag](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/formatting/fixdoccommenttag.md)
+  * **Fix documentation comment tag**
+  * Replace inline &lt;code&gt; elements with &lt;c&gt; elements in XML documentation comments.
+* [OpenRewrite.Recipes.CodeQuality.Formatting.FormatAccessorList](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/formatting/formataccessorlist.md)
+  * **Format accessor list**
+  * Format property accessor list for consistent whitespace.
+* [OpenRewrite.Recipes.CodeQuality.Formatting.FormatDocumentationSummary](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/formatting/formatdocumentationsummary.md)
+  * **Format documentation summary**
+  * Format XML documentation summary on a single line or multiple lines.
+* [OpenRewrite.Recipes.CodeQuality.Formatting.FormatSwitchSection](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/formatting/formatswitchsection.md)
+  * **Format switch section**
+  * Ensure consistent formatting of switch sections.
+* [OpenRewrite.Recipes.CodeQuality.Formatting.FormattingCodeQuality](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/formatting/formattingcodequality.md)
+  * **Formatting code quality**
+  * Code formatting recipes for C#.
+* [OpenRewrite.Recipes.CodeQuality.Formatting.InvalidDocCommentReference](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/formatting/invaliddoccommentreference.md)
+  * **Invalid reference in a documentation comment**
+  * Find invalid cref or paramref references in XML documentation comments.
+* [OpenRewrite.Recipes.CodeQuality.Formatting.NormalizeWhitespace](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/formatting/normalizewhitespace.md)
+  * **Normalize whitespace**
+  * Normalize whitespace for consistent formatting.
+* [OpenRewrite.Recipes.CodeQuality.Formatting.OrderDocCommentElements](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/formatting/orderdoccommentelements.md)
+  * **Order elements in documentation comment**
+  * Order param/typeparam elements to match declaration order.
+* [OpenRewrite.Recipes.CodeQuality.Linq.CombineLinqMethods](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/linq/combinelinqmethods.md)
+  * **Combine LINQ methods**
+  * Combine `.Where(predicate).First()` and similar patterns into `.First(predicate)`, and consecutive `.Where().Where()` calls into a single `.Where()` with a combined predicate. Eliminating intermediate LINQ calls improves readability.
+* [OpenRewrite.Recipes.CodeQuality.Linq.FindOptimizeCountUsage](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/linq/findoptimizecountusage.md)
+  * **Find Count() comparison that could be optimized**
+  * Detect `Count(pred) == n` and `Count() &gt; n` comparisons which could use `Where().Take(n+1).Count()` or `Skip(n).Any()` for better performance.
+* [OpenRewrite.Recipes.CodeQuality.Linq.FindWhereBeforeOrderBy](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/linq/findwherebeforeorderby.md)
+  * **Use Where before OrderBy**
+  * Place `.Where()` before `.OrderBy()` to filter elements before sorting. This reduces the number of items that need to be sorted.
+* [OpenRewrite.Recipes.CodeQuality.Linq.LinqCodeQuality](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/linq/linqcodequality.md)
+  * **LINQ code quality**
+  * Optimize LINQ method calls for better readability and performance.
+* [OpenRewrite.Recipes.CodeQuality.Linq.OptimizeLinqSelectAverage](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/linq/optimizelinqselectaverage.md)
+  * **Optimize LINQ Select().Average()**
+  * Replace `items.Select(selector).Average()` with `items.Average(selector)`.
+* [OpenRewrite.Recipes.CodeQuality.Linq.OptimizeLinqSelectMax](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/linq/optimizelinqselectmax.md)
+  * **Optimize LINQ Select().Max()**
+  * Replace `items.Select(selector).Max()` with `items.Max(selector)`. Passing the selector directly to `Max` avoids an intermediate iterator.
+* [OpenRewrite.Recipes.CodeQuality.Linq.OptimizeLinqSelectMin](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/linq/optimizelinqselectmin.md)
+  * **Optimize LINQ Select().Min()**
+  * Replace `items.Select(selector).Min()` with `items.Min(selector)`. Passing the selector directly to `Min` avoids an intermediate iterator.
+* [OpenRewrite.Recipes.CodeQuality.Linq.OptimizeLinqSelectSum](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/linq/optimizelinqselectsum.md)
+  * **Optimize LINQ Select().Sum()**
+  * Replace `items.Select(selector).Sum()` with `items.Sum(selector)`.
+* [OpenRewrite.Recipes.CodeQuality.Linq.OptimizeLinqWhereAny](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/linq/optimizelinqwhereany.md)
+  * **Optimize LINQ Where().Any()**
+  * Replace `items.Where(predicate).Any()` with `items.Any(predicate)`. Passing the predicate directly to `Any` avoids an intermediate iterator.
+* [OpenRewrite.Recipes.CodeQuality.Linq.OptimizeLinqWhereCount](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/linq/optimizelinqwherecount.md)
+  * **Optimize LINQ Where().Count()**
+  * Replace `items.Where(predicate).Count()` with `items.Count(predicate)`. Passing the predicate directly to `Count` avoids an intermediate iterator.
+* [OpenRewrite.Recipes.CodeQuality.Linq.OptimizeLinqWhereCountLong](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/linq/optimizelinqwherecountlong.md)
+  * **Optimize LINQ Where().LongCount()**
+  * Replace `.Where(predicate).LongCount()` with `.LongCount(predicate)`.
+* [OpenRewrite.Recipes.CodeQuality.Linq.OptimizeLinqWhereFirst](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/linq/optimizelinqwherefirst.md)
+  * **Optimize LINQ Where().First()**
+  * Replace `items.Where(predicate).First()` with `items.First(predicate)`.
+* [OpenRewrite.Recipes.CodeQuality.Linq.OptimizeLinqWhereFirstOrDefault](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/linq/optimizelinqwherefirstordefault.md)
+  * **Optimize LINQ Where().FirstOrDefault()**
+  * Replace `items.Where(predicate).FirstOrDefault()` with `items.FirstOrDefault(predicate)`.
+* [OpenRewrite.Recipes.CodeQuality.Linq.OptimizeLinqWhereLast](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/linq/optimizelinqwherelast.md)
+  * **Optimize LINQ Where().Last()**
+  * Replace `items.Where(predicate).Last()` with `items.Last(predicate)`.
+* [OpenRewrite.Recipes.CodeQuality.Linq.OptimizeLinqWhereLastOrDefault](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/linq/optimizelinqwherelastordefault.md)
+  * **Optimize LINQ Where().LastOrDefault()**
+  * Replace `.Where(predicate).LastOrDefault()` with `.LastOrDefault(predicate)`.
+* [OpenRewrite.Recipes.CodeQuality.Linq.OptimizeLinqWhereSingle](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/linq/optimizelinqwheresingle.md)
+  * **Optimize LINQ Where().Single()**
+  * Replace `items.Where(predicate).Single()` with `items.Single(predicate)`.
+* [OpenRewrite.Recipes.CodeQuality.Linq.OptimizeLinqWhereSingleOrDefault](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/linq/optimizelinqwheresingleordefault.md)
+  * **Optimize LINQ Where().SingleOrDefault()**
+  * Replace `items.Where(predicate).SingleOrDefault()` with `items.SingleOrDefault(predicate)`.
+* [OpenRewrite.Recipes.CodeQuality.Linq.RemoveUselessOrderBy](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/linq/removeuselessorderby.md)
+  * **Remove useless OrderBy call**
+  * Replace `.OrderBy(a).OrderBy(b)` with `.OrderBy(b)`. A second `OrderBy` completely replaces the first sort, making the first call useless.
+* [OpenRewrite.Recipes.CodeQuality.Linq.UseAnyInsteadOfCount](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/linq/useanyinsteadofcount.md)
+  * **Use Any() instead of Count() &gt; 0**
+  * Replace `.Count() &gt; 0` with `.Any()`. `Any()` short-circuits after the first match, while `Count()` enumerates all elements.
+* [OpenRewrite.Recipes.CodeQuality.Linq.UseCastInsteadOfSelect](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/linq/usecastinsteadofselect.md)
+  * **Use Cast&lt;T&gt;() instead of Select with cast**
+  * Replace `.Select(x =&gt; (T)x)` with `.Cast&lt;T&gt;()`. The `Cast&lt;T&gt;()` method is more concise and clearly expresses the intent.
+* [OpenRewrite.Recipes.CodeQuality.Linq.UseOrderByDescendingThenByDescending](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/linq/useorderbydescendingthenbydescending.md)
+  * **Use OrderByDescending().ThenByDescending()**
+  * Replace `.OrderByDescending(a).OrderByDescending(b)` with `.OrderByDescending(a).ThenByDescending(b)`.
+* [OpenRewrite.Recipes.CodeQuality.Linq.UseOrderByThenBy](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/linq/useorderbythenby.md)
+  * **Use ThenBy instead of second OrderBy**
+  * Replace `items.OrderBy(a).OrderBy(b)` with `items.OrderBy(a).ThenBy(b)`. A second `OrderBy` discards the first sort; `ThenBy` preserves it as a secondary key.
+* [OpenRewrite.Recipes.CodeQuality.Linq.UseOrderByThenByDescending](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/linq/useorderbythenbydescending.md)
+  * **Use OrderBy().ThenByDescending()**
+  * Replace `.OrderBy(a).OrderByDescending(b)` with `.OrderBy(a).ThenByDescending(b)`.
+* [OpenRewrite.Recipes.CodeQuality.Linq.UseOrderInsteadOfOrderBy](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/linq/useorderinsteadoforderby.md)
+  * **Use Order() instead of OrderBy() with identity**
+  * Replace `.OrderBy(x =&gt; x)` with `.Order()`. The `Order()` method (available since .NET 7) is a cleaner way to sort elements in their natural order.
+* [OpenRewrite.Recipes.CodeQuality.Naming.AsyncMethodNameShouldEndWithAsync](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/naming/asyncmethodnameshouldendwithasync.md)
+  * **Async method name should end with Async**
+  * Rename async methods to end with 'Async' suffix.
+* [OpenRewrite.Recipes.CodeQuality.Naming.FindAttributeNameShouldEndWithAttribute](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/naming/findattributenameshouldendwithattribute.md)
+  * **Attribute name should end with 'Attribute'**
+  * Classes that inherit from `System.Attribute` should have names ending with 'Attribute' by convention.
+* [OpenRewrite.Recipes.CodeQuality.Naming.FindEventArgsNameConvention](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/naming/findeventargsnameconvention.md)
+  * **EventArgs name should end with 'EventArgs'**
+  * Classes that inherit from `System.EventArgs` should have names ending with 'EventArgs' by convention.
+* [OpenRewrite.Recipes.CodeQuality.Naming.FindExceptionNameShouldEndWithException](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/naming/findexceptionnameshouldendwithexception.md)
+  * **Exception name should end with 'Exception'**
+  * Classes that inherit from `System.Exception` should have names ending with 'Exception' by convention.
+* [OpenRewrite.Recipes.CodeQuality.Naming.FindFixTodoComment](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/naming/findfixtodocomment.md)
+  * **Find TODO/HACK/FIXME comments**
+  * Detect TODO, HACK, UNDONE, and FIXME comments that indicate unfinished work.
+* [OpenRewrite.Recipes.CodeQuality.Naming.NamingCodeQuality](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/naming/namingcodequality.md)
+  * **Naming code quality**
+  * Naming convention recipes for C# code.
+* [OpenRewrite.Recipes.CodeQuality.Naming.NonAsyncMethodNameShouldNotEndWithAsync](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/naming/nonasyncmethodnameshouldnotendwithasync.md)
+  * **Non-async method should not end with Async**
+  * Remove 'Async' suffix from non-async methods.
+* [OpenRewrite.Recipes.CodeQuality.Naming.ParameterNameMatchesBase](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/naming/parameternamematchesbase.md)
+  * **Parameter name should match base definition**
+  * Ensure parameter names match the names used in base class or interface.
+* [OpenRewrite.Recipes.CodeQuality.Naming.RenameParameterAccordingToConvention](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/naming/renameparameteraccordingtoconvention.md)
+  * **Rename parameter to camelCase**
+  * Detect parameters not following camelCase naming convention.
+* [OpenRewrite.Recipes.CodeQuality.Naming.RenamePrivateFieldAccordingToConvention](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/naming/renameprivatefieldaccordingtoconvention.md)
+  * **Rename private field according to _camelCase convention**
+  * Detect private fields not following _camelCase naming convention.
+* [OpenRewrite.Recipes.CodeQuality.Naming.UseNameofOperator](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/naming/usenameofoperator.md)
+  * **Use nameof operator**
+  * Use nameof(parameter) instead of string literal for argument exception constructors.
+* [OpenRewrite.Recipes.CodeQuality.Performance.AvoidBoxingOfValueType](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/performance/avoidboxingofvaluetype.md)
+  * **Avoid boxing of value type**
+  * Avoid boxing of value type by using generic overloads or ToString().
+* [OpenRewrite.Recipes.CodeQuality.Performance.AvoidLockingOnPubliclyAccessible](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/performance/avoidlockingonpubliclyaccessible.md)
+  * **Avoid locking on publicly accessible instance**
+  * Avoid lock(this), lock(typeof(T)), or lock on string literals which can cause deadlocks.
+* [OpenRewrite.Recipes.CodeQuality.Performance.AvoidNullReferenceException](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/performance/avoidnullreferenceexception.md)
+  * **Avoid NullReferenceException**
+  * Flag patterns that may throw NullReferenceException, such as using 'as' cast result without null check.
+* [OpenRewrite.Recipes.CodeQuality.Performance.BitOperationOnEnumWithoutFlags](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/performance/bitoperationonenumwithoutflags.md)
+  * **Bitwise operation on enum without Flags attribute**
+  * Flag bitwise operations on enums that lack the Flags attribute.
+* [OpenRewrite.Recipes.CodeQuality.Performance.ConvertHasFlagToBitwiseOperation](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/performance/converthasflagtobitwiseoperation.md)
+  * **Convert HasFlag to bitwise operation**
+  * Replace flags.HasFlag(value) with (flags &amp; value) != 0.
+* [OpenRewrite.Recipes.CodeQuality.Performance.DoNotPassNonReadOnlyStructByReadOnlyRef](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/performance/donotpassnonreadonlystructbyreadonlyref.md)
+  * **Do not pass non-read-only struct by read-only reference**
+  * Remove 'in' modifier from parameters of non-readonly struct type to avoid defensive copies.
+* [OpenRewrite.Recipes.CodeQuality.Performance.FindAsyncVoid](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/performance/findasyncvoid.md)
+  * **Do not use async void**
+  * Async void methods cannot be awaited and exceptions cannot be caught. Use `async Task` instead, except for event handlers.
+* [OpenRewrite.Recipes.CodeQuality.Performance.FindAvoidClosureByUsingFactoryArg](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/performance/findavoidclosurebyusingfactoryarg.md)
+  * **Find closure in GetOrAdd that could use factory argument**
+  * Detect `ConcurrentDictionary.GetOrAdd` calls with lambdas that capture variables. Use the overload with a factory argument parameter to avoid allocation.
+* [OpenRewrite.Recipes.CodeQuality.Performance.FindAvoidClosureInConcurrentDictionary](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/performance/findavoidclosureinconcurrentdictionary.md)
+  * **Avoid closure when using ConcurrentDictionary**
+  * ConcurrentDictionary methods like `GetOrAdd` may evaluate the factory even when the key exists. Use the overload with a factory argument to avoid closure allocation.
+* [OpenRewrite.Recipes.CodeQuality.Performance.FindAvoidClosureInMethod](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/performance/findavoidclosureinmethod.md)
+  * **Find closure in GetOrAdd/AddOrUpdate factory**
+  * Detect closures in lambdas passed to `GetOrAdd` or `AddOrUpdate`. Use the factory overload that accepts a state argument to avoid allocations.
+* [OpenRewrite.Recipes.CodeQuality.Performance.FindBlockingCallsInAsync](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/performance/findblockingcallsinasync.md)
+  * **Find blocking calls in async methods**
+  * Detect `.Wait()`, `.Result`, and `.GetAwaiter().GetResult()` calls in async methods. Blocking calls in async methods can cause deadlocks.
+* [OpenRewrite.Recipes.CodeQuality.Performance.FindDoNotUseBlockingCall](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/performance/finddonotuseblockingcall.md)
+  * **Do not use blocking calls on tasks**
+  * Avoid `.Wait()`, `.Result`, and `.GetAwaiter().GetResult()` on tasks. These can cause deadlocks. Use `await` instead.
+* [OpenRewrite.Recipes.CodeQuality.Performance.FindDoNotUseToStringIfObject](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/performance/finddonotusetostringifobject.md)
+  * **Do not use ToString on GetType result**
+  * Using `.GetType().ToString()` returns the full type name. Consider using `.GetType().Name` or `.GetType().FullName` instead for clarity.
+* [OpenRewrite.Recipes.CodeQuality.Performance.FindEqualityComparerDefaultOfString](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/performance/findequalitycomparerdefaultofstring.md)
+  * **Find EqualityComparer&lt;string&gt;.Default usage**
+  * Detect `EqualityComparer&lt;string&gt;.Default` which uses ordinal comparison. Consider using an explicit `StringComparer` instead.
+* [OpenRewrite.Recipes.CodeQuality.Performance.FindGetTypeOnSystemType](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/performance/findgettypeonsystemtype.md)
+  * **Find GetType() called on System.Type**
+  * Detect `typeof(T).GetType()` which returns `System.RuntimeType` instead of the expected `System.Type`. Use `typeof(T)` directly.
+* [OpenRewrite.Recipes.CodeQuality.Performance.FindImplicitCultureSensitiveMethods](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/performance/findimplicitculturesensitivemethods.md)
+  * **Find implicit culture-sensitive string methods**
+  * Detect calls to `ToLower()` and `ToUpper()` without culture parameters. These methods use the current thread culture, which may cause unexpected behavior.
+* [OpenRewrite.Recipes.CodeQuality.Performance.FindImplicitCultureSensitiveToString](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/performance/findimplicitculturesensitivetostring.md)
+  * **Find implicit culture-sensitive ToString calls**
+  * Detect `.ToString()` calls without format arguments. On numeric and DateTime types, these use the current thread culture.
+* [OpenRewrite.Recipes.CodeQuality.Performance.FindLinqOnDirectMethods](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/performance/findlinqondirectmethods.md)
+  * **Find LINQ methods replaceable with direct methods**
+  * Detect LINQ methods like `.Count()` that could be replaced with direct collection properties. Direct access avoids enumeration overhead.
+* [OpenRewrite.Recipes.CodeQuality.Performance.FindMakeMethodStatic](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/performance/findmakemethodstatic.md)
+  * **Find methods that could be static**
+  * Detect private methods that don't appear to use instance members and could be marked `static` for clarity and performance.
+* [OpenRewrite.Recipes.CodeQuality.Performance.FindMissingCancellationToken](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/performance/findmissingcancellationtoken.md)
+  * **Find methods not forwarding CancellationToken**
+  * Detect calls to async methods that may have CancellationToken overloads but are called without one. Uses name-based heuristics.
+* [OpenRewrite.Recipes.CodeQuality.Performance.FindMissingStructLayout](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/performance/findmissingstructlayout.md)
+  * **Find structs without StructLayout attribute**
+  * Detect struct declarations without `[StructLayout]` attribute. Adding `[StructLayout(LayoutKind.Auto)]` allows the CLR to optimize field layout for better memory usage.
+* [OpenRewrite.Recipes.CodeQuality.Performance.FindMissingTimeoutForRegex](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/performance/findmissingtimeoutforregex.md)
+  * **Add timeout to Regex**
+  * Regex without a timeout can be vulnerable to ReDoS attacks. Specify a `TimeSpan` timeout or use `RegexOptions.NonBacktracking`.
+* [OpenRewrite.Recipes.CodeQuality.Performance.FindMissingWithCancellation](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/performance/findmissingwithcancellation.md)
+  * **Find missing WithCancellation on async enumerables**
+  * Detect async enumerable iteration without `.WithCancellation()`. Async enumerables should forward CancellationToken via WithCancellation.
+* [OpenRewrite.Recipes.CodeQuality.Performance.FindNaNComparison](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/performance/findnancomparison.md)
+  * **Do not use NaN in comparisons**
+  * Comparing with `NaN` using `==` always returns false. Use `double.IsNaN(x)` instead.
+* [OpenRewrite.Recipes.CodeQuality.Performance.FindOptimizeEnumerableCountVsAny](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/performance/findoptimizeenumerablecountvsany.md)
+  * **Find LINQ Count() on materialized collection**
+  * Detect LINQ `Count()` or `Any()` on types that have a `Count` or `Length` property. Use the property directly for O(1) performance.
+* [OpenRewrite.Recipes.CodeQuality.Performance.FindOptimizeGuidCreation](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/performance/findoptimizeguidcreation.md)
+  * **Find Guid.Parse with constant string**
+  * Detect `Guid.Parse(&quot;...&quot;)` with constant strings. Consider using `new Guid(&quot;...&quot;)` or a static readonly field for better performance.
+* [OpenRewrite.Recipes.CodeQuality.Performance.FindOptimizeStartsWith](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/performance/findoptimizestartswith.md)
+  * **Use char overload for single-character string methods**
+  * Convert string methods with single-character string literals to use char overloads for better performance.
+* [OpenRewrite.Recipes.CodeQuality.Performance.FindSequenceEqualForSpan](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/performance/findsequenceequalforspan.md)
+  * **Find Span&lt;char&gt; equality that should use SequenceEqual**
+  * Detect `==` and `!=` operators on `Span&lt;char&gt;` or `ReadOnlySpan&lt;char&gt;` which compare references. Use `SequenceEqual` for content comparison.
+* [OpenRewrite.Recipes.CodeQuality.Performance.FindSimplifyStringCreate](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/performance/findsimplifystringcreate.md)
+  * **Find simplifiable string.Create calls**
+  * Detect `string.Create(CultureInfo.InvariantCulture, ...)` calls that could be simplified to string interpolation when all parameters are culture-invariant.
+* [OpenRewrite.Recipes.CodeQuality.Performance.FindStreamReadResultNotUsed](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/performance/findstreamreadresultnotused.md)
+  * **Find unused Stream.Read return value**
+  * Detect calls to `Stream.Read` or `Stream.ReadAsync` where the return value is discarded. The return value indicates how many bytes were actually read.
+* [OpenRewrite.Recipes.CodeQuality.Performance.FindStringCreateInsteadOfFormattable](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/performance/findstringcreateinsteadofformattable.md)
+  * **Find FormattableString that could use string.Create**
+  * Detect `FormattableString` usage where `string.Create` with an `IFormatProvider` could be used for better performance.
+* [OpenRewrite.Recipes.CodeQuality.Performance.FindStringFormatShouldBeConstant](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/performance/findstringformatshouldbeconstant.md)
+  * **String.Format format string should be constant**
+  * The format string passed to `string.Format` should be a compile-time constant to enable analysis and avoid runtime format errors.
+* [OpenRewrite.Recipes.CodeQuality.Performance.FindStringGetHashCode](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/performance/findstringgethashcode.md)
+  * **Find string.GetHashCode() without StringComparer**
+  * Detect calls to `string.GetHashCode()` without a `StringComparer`. The default `GetHashCode()` may produce different results across platforms.
+* [OpenRewrite.Recipes.CodeQuality.Performance.FindStructWithDefaultEqualsAsKey](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/performance/findstructwithdefaultequalsaskey.md)
+  * **Find Dictionary/HashSet with struct key type**
+  * Detect `Dictionary` or `HashSet` usage with struct types as keys. Structs without overridden `Equals`/`GetHashCode` use slow reflection-based comparison.
+* [OpenRewrite.Recipes.CodeQuality.Performance.FindUseAttributeIsDefined](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/performance/finduseattributeisdefined.md)
+  * **Find GetCustomAttributes that could use Attribute.IsDefined**
+  * Detect `GetCustomAttributes().Any()` or similar patterns where `Attribute.IsDefined` would be more efficient.
+* [OpenRewrite.Recipes.CodeQuality.Performance.FindUseContainsKeyInsteadOfTryGetValue](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/performance/findusecontainskeyinsteadoftrygetvalue.md)
+  * **Use ContainsKey instead of TryGetValue with discard**
+  * When only checking if a key exists, use `ContainsKey` instead of `TryGetValue` with a discarded out parameter.
+* [OpenRewrite.Recipes.CodeQuality.Performance.FindUseExplicitCaptureRegexOption](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/performance/finduseexplicitcaptureregexoption.md)
+  * **Use RegexOptions.ExplicitCapture**
+  * Use `RegexOptions.ExplicitCapture` to avoid capturing unnamed groups, which improves performance.
+* [OpenRewrite.Recipes.CodeQuality.Performance.FindUseIndexerInsteadOfLinq](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/performance/finduseindexerinsteadoflinq.md)
+  * **Find LINQ methods replaceable with indexer**
+  * Detect LINQ methods like `.First()` and `.Last()` that could be replaced with direct indexer access for better performance.
+* [OpenRewrite.Recipes.CodeQuality.Performance.FindUseRegexSourceGenerator](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/performance/finduseregexsourcegenerator.md)
+  * **Find Regex that could use source generator**
+  * Detect `new Regex(...)` calls that could benefit from the `[GeneratedRegex]` source generator attribute for better performance (.NET 7+).
+* [OpenRewrite.Recipes.CodeQuality.Performance.FindUseTimeProviderOverload](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/performance/findusetimeprovideroverload.md)
+  * **Find calls that could use TimeProvider**
+  * Detect `DateTime.UtcNow`, `DateTimeOffset.UtcNow`, and `Task.Delay` calls that could use a `TimeProvider` parameter for better testability (.NET 8+).
+* [OpenRewrite.Recipes.CodeQuality.Performance.FindUseValuesContainsInsteadOfValues](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/performance/findusevaluescontainsinsteadofvalues.md)
+  * **Find Values.Contains() instead of ContainsValue()**
+  * Detect `.Values.Contains(value)` on dictionaries. Use `.ContainsValue(value)` instead.
+* [OpenRewrite.Recipes.CodeQuality.Performance.MakeParameterRefReadOnly](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/performance/makeparameterrefreadonly.md)
+  * **Make parameter ref read-only**
+  * Use in parameter modifier for large struct parameters.
+* [OpenRewrite.Recipes.CodeQuality.Performance.OptimizeMethodCall](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/performance/optimizemethodcall.md)
+  * **Optimize method call**
+  * Replace inefficient method calls with more optimal equivalents.
+* [OpenRewrite.Recipes.CodeQuality.Performance.OptimizeStringBuilderAppend](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/performance/optimizestringbuilderappend.md)
+  * **Optimize StringBuilder.Append usage**
+  * Optimize StringBuilder method calls: use char overloads for single-character strings, remove redundant ToString() calls, replace string.Format with AppendFormat, and split string concatenation into chained Append calls.
+* [OpenRewrite.Recipes.CodeQuality.Performance.PerformanceCodeQuality](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/performance/performancecodequality.md)
+  * **Performance code quality**
+  * Performance optimization recipes for C# code.
+* [OpenRewrite.Recipes.CodeQuality.Performance.ReplaceEnumToStringWithNameof](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/performance/replaceenumtostringwithnameof.md)
+  * **Replace Enum.ToString() with nameof**
+  * Replace `MyEnum.Value.ToString()` with `nameof(MyEnum.Value)`. The `nameof` operator is evaluated at compile time, avoiding runtime reflection.
+* [OpenRewrite.Recipes.CodeQuality.Performance.ReturnCompletedTask](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/performance/returncompletedtask.md)
+  * **Return completed task instead of null**
+  * Replace return null in Task-returning methods with return Task.CompletedTask.
+* [OpenRewrite.Recipes.CodeQuality.Performance.ThrowingNotImplementedException](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/performance/throwingnotimplementedexception.md)
+  * **Throwing of new NotImplementedException**
+  * Find code that throws new NotImplementedException, which may indicate unfinished implementation.
+* [OpenRewrite.Recipes.CodeQuality.Performance.UnnecessaryExplicitEnumerator](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/performance/unnecessaryexplicitenumerator.md)
+  * **Remove unnecessary explicit enumerator**
+  * Use foreach instead of explicit enumerator pattern.
+* [OpenRewrite.Recipes.CodeQuality.Performance.UseArrayEmpty](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/performance/usearrayempty.md)
+  * **Use Array.Empty&lt;T&gt;() instead of new T[0]**
+  * Use Array.Empty&lt;T&gt;() instead of allocating empty arrays.
+* [OpenRewrite.Recipes.CodeQuality.Performance.UseContainsKey](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/performance/usecontainskey.md)
+  * **Use ContainsKey instead of Keys.Contains**
+  * Replace `.Keys.Contains(key)` with `.ContainsKey(key)` on dictionaries for O(1) performance.
+* [OpenRewrite.Recipes.CodeQuality.Performance.UseCountProperty](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/performance/usecountproperty.md)
+  * **Use Count/Length property instead of Count()**
+  * Replace collection.Count() with collection.Count when available.
+* [OpenRewrite.Recipes.CodeQuality.Performance.UseRegexIsMatch](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/performance/useregexismatch.md)
+  * **Use Regex.IsMatch**
+  * Replace Regex.Match(s, p).Success with Regex.IsMatch(s, p).
+* [OpenRewrite.Recipes.CodeQuality.Performance.UseStringBuilderAppendLine](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/performance/usestringbuilderappendline.md)
+  * **Use StringBuilder.AppendLine**
+  * Replace `sb.Append(&quot;\n&quot;)` with `sb.AppendLine()`.
+* [OpenRewrite.Recipes.CodeQuality.Performance.UseStringComparison](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/performance/usestringcomparison.md)
+  * **Use StringComparison**
+  * Replace case-insensitive string comparisons using `ToLower()`/`ToUpper()` with overloads that accept `StringComparison.OrdinalIgnoreCase`.
+* [OpenRewrite.Recipes.CodeQuality.Performance.UseStringConcatInsteadOfJoin](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/performance/usestringconcatinsteadofjoin.md)
+  * **Use string.Concat instead of string.Join**
+  * Replace `string.Join(&quot;&quot;, args)` with `string.Concat(args)`.
+* [OpenRewrite.Recipes.CodeQuality.Redundancy.FileContainsNoCode](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/redundancy/filecontainsnocode.md)
+  * **File contains no code**
+  * Find files that contain no code, only using directives, comments, or whitespace.
+* [OpenRewrite.Recipes.CodeQuality.Redundancy.FindUnusedInternalType](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/redundancy/findunusedinternaltype.md)
+  * **Find internal types that may be unused**
+  * Detect `internal` (non-public) classes that may be unused. Review these types and remove them if they are no longer needed.
+* [OpenRewrite.Recipes.CodeQuality.Redundancy.RedundancyCodeQuality](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/redundancy/redundancycodequality.md)
+  * **Redundancy code quality**
+  * Remove redundant code from C# sources.
+* [OpenRewrite.Recipes.CodeQuality.Redundancy.RemoveArgumentListFromAttribute](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/redundancy/removeargumentlistfromattribute.md)
+  * **Remove argument list from attribute**
+  * Remove empty argument list from attribute.
+* [OpenRewrite.Recipes.CodeQuality.Redundancy.RemoveBracesFromRecordDeclaration](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/redundancy/removebracesfromrecorddeclaration.md)
+  * **Remove braces from record declaration**
+  * Remove unnecessary braces from record declarations with no body.
+* [OpenRewrite.Recipes.CodeQuality.Redundancy.RemoveEmptyCatchClause](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/redundancy/removeemptycatchclause.md)
+  * **Remove empty catch clause**
+  * Remove empty catch clauses that silently swallow exceptions without any logging or handling.
+* [OpenRewrite.Recipes.CodeQuality.Redundancy.RemoveEmptyDestructor](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/redundancy/removeemptydestructor.md)
+  * **Remove empty destructor**
+  * Remove destructors (finalizers) with empty bodies.
+* [OpenRewrite.Recipes.CodeQuality.Redundancy.RemoveEmptyFinallyClause](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/redundancy/removeemptyfinallyclause.md)
+  * **Remove empty finally clause**
+  * Remove `finally \{ \}` clauses that contain no statements. An empty finally block serves no purpose.
+* [OpenRewrite.Recipes.CodeQuality.Redundancy.RemoveEmptyForBody](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/redundancy/removeemptyforbody.md)
+  * **Flag empty for loop body**
+  * Flag `for` loops with empty bodies as potential dead code.
+* [OpenRewrite.Recipes.CodeQuality.Redundancy.RemoveEmptyForEachBody](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/redundancy/removeemptyforeachbody.md)
+  * **Remove empty foreach body**
+  * Remove `foreach` loops with empty bodies, which iterate without effect.
+* [OpenRewrite.Recipes.CodeQuality.Redundancy.RemoveEmptySyntax](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/redundancy/removeemptysyntax.md)
+  * **Remove empty syntax**
+  * Remove empty namespace, class, struct, interface, and enum declarations.
+* [OpenRewrite.Recipes.CodeQuality.Redundancy.RemoveEmptyWhileBody](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/redundancy/removeemptywhilebody.md)
+  * **Remove empty while body**
+  * Remove `while (cond) \{ \}` loops with empty bodies as they serve no purpose.
+* [OpenRewrite.Recipes.CodeQuality.Redundancy.RemoveEnumDefaultUnderlyingType](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/redundancy/removeenumdefaultunderlyingtype.md)
+  * **Remove enum default underlying type**
+  * Remove : int from enum declaration since int is the default.
+* [OpenRewrite.Recipes.CodeQuality.Redundancy.RemoveExplicitClassFromRecord](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/redundancy/removeexplicitclassfromrecord.md)
+  * **Remove explicit 'class' from record**
+  * Remove the redundant `class` keyword from `record class` declarations. Records are reference types by default.
+* [OpenRewrite.Recipes.CodeQuality.Redundancy.RemovePartialModifierFromSinglePart](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/redundancy/removepartialmodifierfromsinglepart.md)
+  * **Remove partial modifier from single-part type**
+  * Remove `partial` modifier from types that have only one part.
+* [OpenRewrite.Recipes.CodeQuality.Redundancy.RemoveRedundantAsOperator](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/redundancy/removeredundantasoperator.md)
+  * **Remove redundant as operator**
+  * Remove redundant 'as' operator when the expression already has the target type.
+* [OpenRewrite.Recipes.CodeQuality.Redundancy.RemoveRedundantAssignment](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/redundancy/removeredundantassignment.md)
+  * **Remove redundant assignment**
+  * Remove assignments where the value is immediately returned.
+* [OpenRewrite.Recipes.CodeQuality.Redundancy.RemoveRedundantAsyncAwait](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/redundancy/removeredundantasyncawait.md)
+  * **Remove redundant async/await**
+  * Remove redundant async/await when a Task can be returned directly.
+* [OpenRewrite.Recipes.CodeQuality.Redundancy.RemoveRedundantAutoPropertyInit](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/redundancy/removeredundantautopropertyinit.md)
+  * **Remove redundant constructor**
+  * Remove empty parameterless constructors that duplicate the implicit default.
+* [OpenRewrite.Recipes.CodeQuality.Redundancy.RemoveRedundantAutoPropertyInitialization](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/redundancy/removeredundantautopropertyinitialization.md)
+  * **Remove redundant auto-property initialization**
+  * Remove auto-property initializers that assign the default value.
+* [OpenRewrite.Recipes.CodeQuality.Redundancy.RemoveRedundantBaseConstructorCall](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/redundancy/removeredundantbaseconstructorcall.md)
+  * **Remove redundant base constructor call**
+  * Remove `: base()` parameterless base constructor call since it's implicit.
+* [OpenRewrite.Recipes.CodeQuality.Redundancy.RemoveRedundantBaseInterface](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/redundancy/removeredundantbaseinterface.md)
+  * **Remove redundant base interface**
+  * Remove interface that is already inherited by another implemented interface.
+* [OpenRewrite.Recipes.CodeQuality.Redundancy.RemoveRedundantCast](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/redundancy/removeredundantcast.md)
+  * **Remove redundant cast**
+  * Remove unnecessary casts when the expression already has the target type.
+* [OpenRewrite.Recipes.CodeQuality.Redundancy.RemoveRedundantCatchBlock](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/redundancy/removeredundantcatchblock.md)
+  * **Remove redundant catch block**
+  * Remove try-catch blocks where every catch clause only rethrows the exception.
+* [OpenRewrite.Recipes.CodeQuality.Redundancy.RemoveRedundantComma](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/redundancy/removeredundantcomma.md)
+  * **Remove redundant comma**
+  * Remove redundant trailing comma in enum declarations.
+* [OpenRewrite.Recipes.CodeQuality.Redundancy.RemoveRedundantDefaultFieldInitialization](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/redundancy/removeredundantdefaultfieldinitialization.md)
+  * **Remove redundant default field initialization**
+  * Remove field initializations that assign the default value (e.g., `int x = 0`, `bool b = false`, `string s = null`, `object o = default`).
+* [OpenRewrite.Recipes.CodeQuality.Redundancy.RemoveRedundantDefaultSwitchSection](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/redundancy/removeredundantdefaultswitchsection.md)
+  * **Remove redundant default switch section**
+  * Remove default switch section that only contains break.
+* [OpenRewrite.Recipes.CodeQuality.Redundancy.RemoveRedundantDelegateCreation](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/redundancy/removeredundantdelegatecreation.md)
+  * **Remove redundant delegate creation**
+  * Remove unnecessary `new EventHandler(M)` when `M` can be used directly.
+* [OpenRewrite.Recipes.CodeQuality.Redundancy.RemoveRedundantDisposeOrClose](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/redundancy/removeredundantdisposeorclose.md)
+  * **Remove redundant Dispose/Close call**
+  * Remove Dispose/Close calls on objects already in a using block.
+* [OpenRewrite.Recipes.CodeQuality.Redundancy.RemoveRedundantOverridingMember](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/redundancy/removeredundantoverridingmember.md)
+  * **Remove redundant overriding member**
+  * Remove overriding member that only calls the base implementation.
+* [OpenRewrite.Recipes.CodeQuality.Redundancy.RemoveRedundantParentheses](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/redundancy/removeredundantparentheses.md)
+  * **Remove redundant parentheses**
+  * Remove unnecessary parentheses around expressions in return statements and assignments.
+* [OpenRewrite.Recipes.CodeQuality.Redundancy.RemoveRedundantRegion](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/redundancy/removeredundantregion.md)
+  * **Remove redundant region**
+  * Remove #region/#endregion directives.
+* [OpenRewrite.Recipes.CodeQuality.Redundancy.RemoveRedundantSealedModifier](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/redundancy/removeredundantsealedmodifier.md)
+  * **Remove redundant sealed modifier**
+  * Remove `sealed` modifier on members of sealed classes, since it's redundant.
+* [OpenRewrite.Recipes.CodeQuality.Redundancy.RemoveRedundantSealedModifierFromOverride](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/redundancy/removeredundantsealedmodifierfromoverride.md)
+  * **Remove redundant 'sealed' modifier from override**
+  * Remove redundant 'sealed' modifier from an overriding member in a sealed class.
+* [OpenRewrite.Recipes.CodeQuality.Redundancy.RemoveRedundantStatement](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/redundancy/removeredundantstatement.md)
+  * **Remove redundant statement**
+  * Remove redundant `return;` at end of void method or `continue;` at end of loop body.
+* [OpenRewrite.Recipes.CodeQuality.Redundancy.RemoveRedundantStringToCharArrayCall](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/redundancy/removeredundantstringtochararraycall.md)
+  * **Remove redundant ToCharArray() call**
+  * Remove `ToCharArray()` calls in foreach loops where iterating over the string directly produces the same result.
+* [OpenRewrite.Recipes.CodeQuality.Redundancy.RemoveRedundantToStringCall](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/redundancy/removeredundanttostringcall.md)
+  * **Remove redundant ToString() call**
+  * Remove `ToString()` calls on expressions that are already strings.
+* [OpenRewrite.Recipes.CodeQuality.Redundancy.RemoveUnnecessaryCaseLabel](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/redundancy/removeunnecessarycaselabel.md)
+  * **Remove unnecessary case label**
+  * Remove case labels from switch section that has default label.
+* [OpenRewrite.Recipes.CodeQuality.Redundancy.RemoveUnnecessaryElse](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/redundancy/removeunnecessaryelse.md)
+  * **Remove unnecessary else clause**
+  * Remove `else` clause when the `if` body always terminates with `return`, `throw`, `break`, `continue`, or `goto`.
+* [OpenRewrite.Recipes.CodeQuality.Redundancy.RemoveUnnecessarySemicolon](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/redundancy/removeunnecessarysemicolon.md)
+  * **Remove unnecessary semicolon at end of declaration**
+  * Remove unnecessary semicolon at the end of a declaration.
+* [OpenRewrite.Recipes.CodeQuality.Redundancy.RemoveUnusedDocCommentElement](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/redundancy/removeunuseddoccommentelement.md)
+  * **Unused element in documentation comment**
+  * Remove unused param/typeparam elements from XML documentation.
+* [OpenRewrite.Recipes.CodeQuality.Redundancy.RemoveUnusedMemberDeclaration](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/redundancy/removeunusedmemberdeclaration.md)
+  * **Remove unused member declaration**
+  * Remove member declarations that are never referenced.
+* [OpenRewrite.Recipes.CodeQuality.Redundancy.RemoveUnusedThisParameter](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/redundancy/removeunusedthisparameter.md)
+  * **Unused 'this' parameter**
+  * Remove unused 'this' parameter from extension methods.
+* [OpenRewrite.Recipes.CodeQuality.Redundancy.ResourceCanBeDisposedAsynchronously](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/redundancy/resourcecanbedisposedasynchronously.md)
+  * **Resource can be disposed asynchronously**
+  * Use `await using` instead of `using` when the resource implements IAsyncDisposable.
+* [OpenRewrite.Recipes.CodeQuality.Redundancy.UnnecessaryEnumFlag](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/redundancy/unnecessaryenumflag.md)
+  * **Unnecessary enum flag**
+  * Remove unnecessary enum flag value that is a combination of other flags.
+* [OpenRewrite.Recipes.CodeQuality.Redundancy.UnnecessaryInterpolatedString](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/redundancy/unnecessaryinterpolatedstring.md)
+  * **Remove unnecessary interpolated string**
+  * Replace interpolated strings with no interpolations with regular strings.
+* [OpenRewrite.Recipes.CodeQuality.Redundancy.UnnecessaryInterpolation](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/redundancy/unnecessaryinterpolation.md)
+  * **Unnecessary interpolation**
+  * Remove unnecessary string interpolation, for example simplifying `$&quot;\{x\}&quot;` to `x.ToString()`.
+* [OpenRewrite.Recipes.CodeQuality.Redundancy.UnnecessaryNullCheck](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/redundancy/unnecessarynullcheck.md)
+  * **Remove unnecessary null check**
+  * Remove null check that is unnecessary because the value is known to be non-null.
+* [OpenRewrite.Recipes.CodeQuality.Redundancy.UnnecessaryNullForgivingOperator](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/redundancy/unnecessarynullforgivingoperator.md)
+  * **Remove unnecessary null-forgiving operator**
+  * Remove ! operator where expression is already non-nullable.
+* [OpenRewrite.Recipes.CodeQuality.Redundancy.UnnecessaryRawStringLiteral](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/redundancy/unnecessaryrawstringliteral.md)
+  * **Remove unnecessary raw string literal**
+  * Convert raw string literal to regular string when not needed.
+* [OpenRewrite.Recipes.CodeQuality.Redundancy.UnnecessaryUnsafeContext](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/redundancy/unnecessaryunsafecontext.md)
+  * **Remove unnecessary unsafe context**
+  * Remove unsafe blocks that do not contain unsafe code.
+* [OpenRewrite.Recipes.CodeQuality.Redundancy.UnnecessaryVerbatimStringLiteral](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/redundancy/unnecessaryverbatimstringliteral.md)
+  * **Remove unnecessary verbatim string literal**
+  * Remove @ prefix from string literals that do not contain escape sequences.
+* [OpenRewrite.Recipes.CodeQuality.Redundancy.UseRethrow](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/redundancy/userethrow.md)
+  * **Use rethrow instead of throw ex**
+  * Replace `throw ex;` with `throw;` inside catch clauses when `ex` is the caught exception variable. A bare `throw` preserves the original stack trace.
+* [OpenRewrite.Recipes.CodeQuality.Simplification.CombineWhereMethodChain](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/simplification/combinewheremethodchain.md)
+  * **Combine 'Enumerable.Where' method chain**
+  * Combine consecutive Enumerable.Where method calls into a single call with a combined predicate.
+* [OpenRewrite.Recipes.CodeQuality.Simplification.ConvertAnonymousMethodToLambda](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/simplification/convertanonymousmethodtolambda.md)
+  * **Convert anonymous method to lambda**
+  * Convert anonymous method delegate syntax to lambda expression.
+* [OpenRewrite.Recipes.CodeQuality.Simplification.ConvertIfToAssignment](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/simplification/convertiftoassignment.md)
+  * **Convert 'if' to assignment**
+  * Convert 'if' statement that assigns boolean literals to a simple assignment with the condition expression.
+* [OpenRewrite.Recipes.CodeQuality.Simplification.ConvertInterpolatedStringToConcatenation](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/simplification/convertinterpolatedstringtoconcatenation.md)
+  * **Convert interpolated string to concatenation**
+  * Detect string interpolations that could be simplified to concatenation.
+* [OpenRewrite.Recipes.CodeQuality.Simplification.ExpressionAlwaysTrueOrFalse](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/simplification/expressionalwaystrueorfalse.md)
+  * **Expression is always true or false**
+  * Simplify `x == x` to `true` and `x != x` to `false`.
+* [OpenRewrite.Recipes.CodeQuality.Simplification.InlineLazyInitialization](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/simplification/inlinelazyinitialization.md)
+  * **Inline lazy initialization**
+  * Use null-coalescing assignment (??=) for lazy initialization.
+* [OpenRewrite.Recipes.CodeQuality.Simplification.InlineLocalVariable](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/simplification/inlinelocalvariable.md)
+  * **Inline local variable**
+  * Inline local variable that is assigned once and used once immediately.
+* [OpenRewrite.Recipes.CodeQuality.Simplification.JoinStringExpressions](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/simplification/joinstringexpressions.md)
+  * **Join string expressions**
+  * Join consecutive string literal concatenations into a single literal.
+* [OpenRewrite.Recipes.CodeQuality.Simplification.MergeElseWithNestedIf](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/simplification/mergeelsewithnestedif.md)
+  * **Merge else with nested if**
+  * Merge `else \{ if (...) \{ \} \}` into `else if (...) \{ \}` when the else block contains only a single if statement.
+* [OpenRewrite.Recipes.CodeQuality.Simplification.MergeIfWithParentIf](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/simplification/mergeifwithparentif.md)
+  * **Merge if with parent if**
+  * Merge `if (a) \{ if (b) \{ ... \} \}` into `if (a &amp;&amp; b) \{ ... \}` when the outer if body contains only a single nested if without else.
+* [OpenRewrite.Recipes.CodeQuality.Simplification.MergeSwitchSections](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/simplification/mergeswitchsections.md)
+  * **Merge switch sections with equivalent content**
+  * Merge switch case labels that have identical bodies.
+* [OpenRewrite.Recipes.CodeQuality.Simplification.RemoveRedundantBooleanLiteral](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/simplification/removeredundantbooleanliteral.md)
+  * **Remove redundant boolean literal**
+  * Remove redundant `== true` comparison from boolean expressions.
+* [OpenRewrite.Recipes.CodeQuality.Simplification.RemoveUnnecessaryBraces](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/simplification/removeunnecessarybraces.md)
+  * **Remove unnecessary braces**
+  * Remove braces from single-statement blocks where they are optional.
+* [OpenRewrite.Recipes.CodeQuality.Simplification.SimplificationCodeQuality](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/simplification/simplificationcodequality.md)
+  * **Simplification code quality**
+  * Simplify expressions and patterns in C# code.
+* [OpenRewrite.Recipes.CodeQuality.Simplification.SimplifyArgumentNullCheck](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/simplification/simplifyargumentnullcheck.md)
+  * **Simplify argument null check**
+  * Use ArgumentNullException.ThrowIfNull(arg) instead of manual null check.
+* [OpenRewrite.Recipes.CodeQuality.Simplification.SimplifyBooleanComparison](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/simplification/simplifybooleancomparison.md)
+  * **Simplify boolean comparison**
+  * Simplify `true == x` to `x`, `false == x` to `!x`, `true != x` to `!x`, and `false != x` to `x`.
+* [OpenRewrite.Recipes.CodeQuality.Simplification.SimplifyCoalesceExpression](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/simplification/simplifycoalesceexpression.md)
+  * **Simplify coalesce expression**
+  * Simplify x ?? x to x.
+* [OpenRewrite.Recipes.CodeQuality.Simplification.SimplifyCodeBranching](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/simplification/simplifycodebranching.md)
+  * **Simplify code branching**
+  * Simplify code branching patterns such as empty if-else, while(true) with break, and trailing return/continue in if-else.
+* [OpenRewrite.Recipes.CodeQuality.Simplification.SimplifyConditionalExpression](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/simplification/simplifyconditionalexpression.md)
+  * **Simplify conditional expression**
+  * Simplify `cond ? true : false` to `cond` and `cond ? false : true` to `!cond`.
+* [OpenRewrite.Recipes.CodeQuality.Simplification.SimplifyDoWhileToWhile](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/simplification/simplifydowhiletowhile.md)
+  * **Simplify do-while(true) to while(true)**
+  * Convert `do \{ ... \} while (true)` to `while (true) \{ ... \}`.
+* [OpenRewrite.Recipes.CodeQuality.Simplification.SimplifyLazyInitialization](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/simplification/simplifylazyinitialization.md)
+  * **Simplify lazy initialization**
+  * Simplify lazy initialization using ??= operator.
+* [OpenRewrite.Recipes.CodeQuality.Simplification.SimplifyLogicalNegation](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/simplification/simplifylogicalnegation.md)
+  * **Simplify logical negation**
+  * Simplify negated comparison expressions. For example, `!(x == y)` becomes `x != y`.
+* [OpenRewrite.Recipes.CodeQuality.Simplification.SimplifyNegatedIsNull](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/simplification/simplifynegatedisnull.md)
+  * **Simplify negated is null pattern**
+  * Simplify `!(x is null)` to `x is not null` and `!(x is not null)` to `x is null`.
+* [OpenRewrite.Recipes.CodeQuality.Simplification.SimplifyNestedUsingStatement](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/simplification/simplifynestedusingstatement.md)
+  * **Simplify nested using statement**
+  * Merge nested `using` statements into a single `using` declaration.
+* [OpenRewrite.Recipes.CodeQuality.Simplification.SimplifyNullableHasValue](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/simplification/simplifynullablehasvalue.md)
+  * **Simplify Nullable&lt;T&gt;.HasValue**
+  * Replace `x.HasValue` with `x != null` and `!x.HasValue` with `x == null`.
+* [OpenRewrite.Recipes.CodeQuality.Simplification.SimplifyNullableToShorthand](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/simplification/simplifynullabletoshorthand.md)
+  * **Simplify Nullable&lt;T&gt; to T?**
+  * Use T? shorthand instead of Nullable&lt;T&gt;.
+* [OpenRewrite.Recipes.CodeQuality.Simplification.SimplifyNumericComparison](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/simplification/simplifynumericcomparison.md)
+  * **Simplify numeric comparison**
+  * Simplify `x - y &gt; 0` to `x &gt; y`, `x - y &lt; 0` to `x &lt; y`, `x - y &gt;= 0` to `x &gt;= y`, and `x - y &lt;= 0` to `x &lt;= y`.
+* [OpenRewrite.Recipes.CodeQuality.Simplification.SimplifyRedundantWhereWhere](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/simplification/simplifyredundantwherewhere.md)
+  * **Merge consecutive Where calls**
+  * Detect consecutive `.Where(p).Where(q)` calls that could be merged.
+* [OpenRewrite.Recipes.CodeQuality.Simplification.UnconstrainedTypeParamNullCheck](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/simplification/unconstrainedtypeparamnullcheck.md)
+  * **Unconstrained type parameter checked for null**
+  * Find null checks on unconstrained type parameters, which may not be reference types.
+* [OpenRewrite.Recipes.CodeQuality.Simplification.UnnecessaryOperator](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/simplification/unnecessaryoperator.md)
+  * **Operator is unnecessary**
+  * Remove unnecessary operators such as unary plus.
+* [OpenRewrite.Recipes.CodeQuality.Simplification.UseAnonymousFunctionOrMethodGroup](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/simplification/useanonymousfunctionormethodgroup.md)
+  * **Use anonymous function or method group**
+  * Convert a lambda expression to a method group where appropriate.
+* [OpenRewrite.Recipes.CodeQuality.Simplification.UseCoalesceExpression](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/simplification/usecoalesceexpression.md)
+  * **Use coalesce expression**
+  * Replace `x != null ? x : y` and `x == null ? y : x` with `x ?? y`.
+* [OpenRewrite.Recipes.CodeQuality.Simplification.UseCoalesceExpressionInsteadOfIf](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/simplification/usecoalesceexpressioninsteadofif.md)
+  * **Use coalesce expression instead of 'if'**
+  * Replace `if (x == null) x = y;` with `x ??= y`.
+* [OpenRewrite.Recipes.CodeQuality.Simplification.UseCompoundAssignment](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/simplification/usecompoundassignment.md)
+  * **Use compound assignment**
+  * Replace `x = x op y` with `x op= y` for arithmetic, bitwise, shift, and null-coalescing operators.
+* [OpenRewrite.Recipes.CodeQuality.Simplification.UseConditionalAccess](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/simplification/useconditionalaccess.md)
+  * **Use conditional access**
+  * Transform null-check patterns to use conditional access (?.).
+* [OpenRewrite.Recipes.CodeQuality.Simplification.UseConditionalAccessInsteadOfIf](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/simplification/useconditionalaccessinsteadofif.md)
+  * **Use conditional access instead of conditional expression**
+  * Transform ternary null-check expressions to use conditional access (?.) with null-coalescing (??) where needed.
+* [OpenRewrite.Recipes.CodeQuality.Simplification.UseConditionalExpressionForDeclaration](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/simplification/useconditionalexpressionfordeclaration.md)
+  * **Use conditional expression in declaration**
+  * Convert `int x; if (cond) x = a; else x = b;` to `int x = cond ? a : b;`.
+* [OpenRewrite.Recipes.CodeQuality.Simplification.UseConditionalExpressionForReturn](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/simplification/useconditionalexpressionforreturn.md)
+  * **Use conditional return expression**
+  * Convert `if (c) return a; return b;` to `return c ? a : b;`.
+* [OpenRewrite.Recipes.CodeQuality.Simplification.UseConditionalExpressionForThrow](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/simplification/useconditionalexpressionforthrow.md)
+  * **Use conditional throw expression**
+  * Detect `if (x == null) throw ...` patterns that could use `x ?? throw ...`.
+* [OpenRewrite.Recipes.CodeQuality.Simplification.UseDateTimeOffsetUnixEpoch](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/simplification/usedatetimeoffsetunixepoch.md)
+  * **Use DateTimeOffset.UnixEpoch**
+  * Replace `new DateTimeOffset(1970, 1, 1, 0, 0, 0, TimeSpan.Zero)` with `DateTimeOffset.UnixEpoch`. Available since .NET 8, `DateTimeOffset.UnixEpoch` is more readable.
+* [OpenRewrite.Recipes.CodeQuality.Simplification.UseDateTimeUnixEpoch](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/simplification/usedatetimeunixepoch.md)
+  * **Use DateTime.UnixEpoch**
+  * Replace `new DateTime(1970, 1, 1)` with `DateTime.UnixEpoch`. Available since .NET 8, `DateTime.UnixEpoch` is more readable and avoids magic numbers.
+* [OpenRewrite.Recipes.CodeQuality.Simplification.UseDefaultLiteral](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/simplification/usedefaultliteral.md)
+  * **Use default literal**
+  * Simplify default(T) expressions to default. Note: in rare cases where the type cannot be inferred (e.g., overload resolution), manual review may be needed.
+* [OpenRewrite.Recipes.CodeQuality.Simplification.UseExceptionFilter](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/simplification/useexceptionfilter.md)
+  * **Use exception filter**
+  * Detect catch blocks with if/throw pattern that could use a when clause.
+* [OpenRewrite.Recipes.CodeQuality.Simplification.UseExpressionBodiedLambda](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/simplification/useexpressionbodiedlambda.md)
+  * **Use expression-bodied lambda**
+  * Convert block-body lambdas with a single statement to expression-body lambdas.
+* [OpenRewrite.Recipes.CodeQuality.Simplification.UseForInsteadOfWhile](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/simplification/useforinsteadofwhile.md)
+  * **Use for statement instead of while**
+  * Convert while loops with counter to for loops.
+* [OpenRewrite.Recipes.CodeQuality.Simplification.UseGuidEmpty](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/simplification/useguidempty.md)
+  * **Use Guid.Empty**
+  * Replace `new Guid()` with `Guid.Empty`. The static `Guid.Empty` field avoids unnecessary allocations and clearly expresses intent.
+* [OpenRewrite.Recipes.CodeQuality.Simplification.UseIsOperatorInsteadOfAs](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/simplification/useisoperatorinsteadofas.md)
+  * **Use 'is' operator instead of 'as' operator**
+  * Replace 'as' operator followed by null check with 'is' operator.
+* [OpenRewrite.Recipes.CodeQuality.Simplification.UseIsPatternInsteadOfSequenceEqual](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/simplification/useispatterninsteadofsequenceequal.md)
+  * **Use 'is' pattern instead of SequenceEqual**
+  * Replace `span.SequenceEqual(&quot;str&quot;)` with `span is &quot;str&quot;`. Pattern matching with string constants is more concise for span comparisons.
+* [OpenRewrite.Recipes.CodeQuality.Simplification.UseNotPattern](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/simplification/usenotpattern.md)
+  * **Use 'not' pattern instead of negation**
+  * Detect `!(x is Type)` patterns that can use `x is not Type`.
+* [OpenRewrite.Recipes.CodeQuality.Simplification.UsePatternMatchingForEquality](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/simplification/usepatternmatchingforequality.md)
+  * **Use pattern matching for equality comparison**
+  * Replace `x == constant` with `x is constant` for improved readability using C# pattern matching.
+* [OpenRewrite.Recipes.CodeQuality.Simplification.UsePatternMatchingForInequality](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/simplification/usepatternmatchingforinequality.md)
+  * **Use pattern matching for inequality comparison**
+  * Replace `x != constant` with `x is not constant` for improved readability using C# pattern matching.
+* [OpenRewrite.Recipes.CodeQuality.Simplification.UsePatternMatchingInsteadOfAs](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/simplification/usepatternmatchinginsteadofas.md)
+  * **Use pattern matching instead of as**
+  * Use pattern matching instead of as. Note: Needs type resolution.
+* [OpenRewrite.Recipes.CodeQuality.Simplification.UsePatternMatchingInsteadOfHasValue](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/simplification/usepatternmatchinginsteadofhasvalue.md)
+  * **Use pattern matching instead of HasValue**
+  * Replace `nullable.HasValue` with `nullable is not null`. Pattern matching is more idiomatic in modern C#. Note: this recipe uses name-based matching and may match non-Nullable types with a `HasValue` property.
+* [OpenRewrite.Recipes.CodeQuality.Simplification.UsePatternMatchingInsteadOfIs](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/simplification/usepatternmatchinginsteadofis.md)
+  * **Use pattern matching instead of is**
+  * Use pattern matching instead of is. Note: Needs type resolution.
+* [OpenRewrite.Recipes.CodeQuality.Simplification.UsePatternMatchingNullCheck](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/simplification/usepatternmatchingnullcheck.md)
+  * **Use pattern matching for null check**
+  * Replace `x == null` with `x is null` and `x != null` with `x is not null`.
+* [OpenRewrite.Recipes.CodeQuality.Simplification.UsePostfixIncrement](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/simplification/usepostfixincrement.md)
+  * **Use postfix increment/decrement**
+  * Replace `x = x + 1` with `x++` and `x = x - 1` with `x--`.
+* [OpenRewrite.Recipes.CodeQuality.Simplification.UseRangeOperator](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/simplification/userangeoperator.md)
+  * **Use range operator**
+  * Detect Substring calls that could use C# 8 range syntax.
+* [OpenRewrite.Recipes.CodeQuality.Simplification.UseShortCircuitOperator](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/simplification/useshortcircuitoperator.md)
+  * **Use short-circuit operator**
+  * Replace bitwise `&amp;` with `&amp;&amp;` and `|` with `||` in boolean contexts.
+* [OpenRewrite.Recipes.CodeQuality.Simplification.UseStringEndsWith](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/simplification/usestringendswith.md)
+  * **Use string.EndsWith**
+  * Detect substring comparison patterns that could use EndsWith.
+* [OpenRewrite.Recipes.CodeQuality.Simplification.UseStringEquals](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/simplification/usestringequals.md)
+  * **Use string.Equals instead of == for string comparison**
+  * Replace `==` string comparisons with `string.Equals(a, b, StringComparison.Ordinal)` for explicit comparison semantics.
+* [OpenRewrite.Recipes.CodeQuality.Simplification.UseStringInterpolation](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/simplification/usestringinterpolation.md)
+  * **Use string interpolation instead of string.Format**
+  * Replace simple `string.Format(&quot;\{0\}&quot;, x)` calls with `$&quot;\{x\}&quot;`.
+* [OpenRewrite.Recipes.CodeQuality.Simplification.UseStringInterpolationInsteadOfConcat](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/simplification/usestringinterpolationinsteadofconcat.md)
+  * **Use string interpolation instead of concatenation**
+  * Replace string.Concat with string interpolation.
+* [OpenRewrite.Recipes.CodeQuality.Simplification.UseStringStartsWith](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/simplification/usestringstartswith.md)
+  * **Use string.StartsWith instead of IndexOf comparison**
+  * Replace `s.IndexOf(x) == 0` with `s.StartsWith(x)`.
+* [OpenRewrite.Recipes.CodeQuality.Simplification.UseSwitchExpression](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/simplification/useswitchexpression.md)
+  * **Use switch expression**
+  * Convert simple switch statements to switch expressions (C# 8+).
+* [OpenRewrite.Recipes.CodeQuality.Simplification.UseThrowExpression](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/simplification/usethrowexpression.md)
+  * **Use throw expression**
+  * Convert null-check-then-throw patterns to throw expressions.
+* [OpenRewrite.Recipes.CodeQuality.Simplification.UseTimeSpanZero](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/simplification/usetimespanzero.md)
+  * **Use TimeSpan.Zero**
+  * Replace `new TimeSpan(0)` and `TimeSpan.FromX(0)` with `TimeSpan.Zero`. The static `TimeSpan.Zero` field is more readable and avoids unnecessary object creation.
+* [OpenRewrite.Recipes.CodeQuality.Simplification.UseXorForBooleanInequality](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/simplification/usexorforbooleaninequality.md)
+  * **Use ^ operator for boolean inequality**
+  * Replace a != b with a ^ b when both operands are boolean.
+* [OpenRewrite.Recipes.CodeQuality.Style.AbstractTypeShouldNotHavePublicConstructors](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/abstracttypeshouldnothavepublicconstructors.md)
+  * **Abstract type should not have public constructors**
+  * Change public constructors of abstract types to protected.
+* [OpenRewrite.Recipes.CodeQuality.Style.AddParenthesesForClarity](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/addparenthesesforclarity.md)
+  * **Add parentheses for clarity**
+  * Add parentheses to expressions where operator precedence might be unclear to improve readability.
+* [OpenRewrite.Recipes.CodeQuality.Style.AddParenthesesToConditionalExpression](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/addparenthesestoconditionalexpression.md)
+  * **Add parentheses to conditional expression condition**
+  * Add or remove parentheses from the condition in a conditional operator.
+* [OpenRewrite.Recipes.CodeQuality.Style.AddRemoveTrailingComma](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/addremovetrailingcomma.md)
+  * **Add trailing comma to last enum member**
+  * Add trailing comma to the last member of enum declarations for cleaner diffs when adding new members.
+* [OpenRewrite.Recipes.CodeQuality.Style.AddStaticToMembersOfStaticClass](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/addstatictomembersofstaticclass.md)
+  * **Add static modifier to all members of static class**
+  * Ensure all members of a static class are also declared static.
+* [OpenRewrite.Recipes.CodeQuality.Style.AddTrailingComma](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/addtrailingcomma.md)
+  * **Add trailing comma**
+  * Add trailing commas to multi-line initializers and enum declarations for cleaner diffs.
+* [OpenRewrite.Recipes.CodeQuality.Style.AvoidChainOfAssignments](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/avoidchainofassignments.md)
+  * **Avoid chain of assignments**
+  * Flag chained assignment expressions like a = b = c = value.
+* [OpenRewrite.Recipes.CodeQuality.Style.AvoidNestingTernary](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/avoidnestingternary.md)
+  * **Avoid nested ternary operator**
+  * Replace nested ternary expressions with if/else chains for clarity.
+* [OpenRewrite.Recipes.CodeQuality.Style.CallExtensionMethodAsInstance](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/callextensionmethodasinstance.md)
+  * **Call extension method as instance method**
+  * Use instance method syntax instead of static extension method call.
+* [OpenRewrite.Recipes.CodeQuality.Style.CompositeEnumContainsUndefinedFlag](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/compositeenumcontainsundefinedflag.md)
+  * **Composite enum value contains undefined flag**
+  * Find composite enum values that contain a flag which is not defined in the enum type.
+* [OpenRewrite.Recipes.CodeQuality.Style.ConstantValuesOnRightSide](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/constantvaluesonrightside.md)
+  * **Place constant values on right side of comparisons**
+  * Move constant values (literals, null) from the left side of comparisons to the right side for consistency and readability.
+* [OpenRewrite.Recipes.CodeQuality.Style.ConvertCommentToDocComment](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/convertcommenttodoccomment.md)
+  * **Convert comment to documentation comment**
+  * Convert single-line or multi-line comments above declarations to XML documentation comments.
+* [OpenRewrite.Recipes.CodeQuality.Style.DeclareEachAttributeSeparately](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/declareeachattributeseparately.md)
+  * **Declare each attribute separately**
+  * Declare each attribute in a separate attribute list.
+* [OpenRewrite.Recipes.CodeQuality.Style.DeclareEachTypeInSeparateFile](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/declareeachtypeinseparatefile.md)
+  * **Declare each type in separate file**
+  * Declare each type in a separate file.
+* [OpenRewrite.Recipes.CodeQuality.Style.DeclareEachTypeSeparately](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/declareeachtypeseparately.md)
+  * **Declare each type in separate file**
+  * Flag files containing multiple top-level type declarations.
+* [OpenRewrite.Recipes.CodeQuality.Style.DeclareEnumMemberWithZeroValue](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/declareenummemberwithzerovalue.md)
+  * **Declare enum member with zero value**
+  * Ensure [Flags] enums have a member explicitly assigned the value 0.
+* [OpenRewrite.Recipes.CodeQuality.Style.DeclareEnumValueAsCombination](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/declareenumvalueascombination.md)
+  * **Declare enum value as combination of names**
+  * Declare Flags enum values as combinations of named values.
+* [OpenRewrite.Recipes.CodeQuality.Style.DeclareUsingDirectiveOnTopLevel](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/declareusingdirectiveontoplevel.md)
+  * **Declare using directive on top level**
+  * Move using directives outside of namespace declarations to the top level of the file.
+* [OpenRewrite.Recipes.CodeQuality.Style.DefaultLabelShouldBeLast](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/defaultlabelshouldbelast.md)
+  * **Default label should be last**
+  * Move default label to the last position in switch statement.
+* [OpenRewrite.Recipes.CodeQuality.Style.DuplicateEnumValue](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/duplicateenumvalue.md)
+  * **Flag duplicate enum value**
+  * Flag enum members that have the same underlying value.
+* [OpenRewrite.Recipes.CodeQuality.Style.DuplicateWordInComment](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/duplicatewordincomment.md)
+  * **Duplicate word in a comment**
+  * Find and fix duplicate consecutive words in comments.
+* [OpenRewrite.Recipes.CodeQuality.Style.EnumShouldDeclareExplicitValues](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/enumshoulddeclareexplicitvalues.md)
+  * **Enum should declare explicit values**
+  * Add explicit values to enum members that do not have them.
+* [OpenRewrite.Recipes.CodeQuality.Style.FindArgumentExceptionParameterName](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/findargumentexceptionparametername.md)
+  * **ArgumentException should specify argument name**
+  * When throwing `ArgumentException` or derived types, specify the parameter name using `nameof()`.
+* [OpenRewrite.Recipes.CodeQuality.Style.FindAsyncMethodReturnsNull](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/findasyncmethodreturnsnull.md)
+  * **Find async void method**
+  * Detect `async void` methods. Use `async Task` instead so callers can await and exceptions propagate correctly.
+* [OpenRewrite.Recipes.CodeQuality.Style.FindAsyncVoidDelegate](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/findasyncvoiddelegate.md)
+  * **Find async void delegate**
+  * Detect async lambdas used as delegates where the return type is void. Use `Func&lt;Task&gt;` instead of `Action` for async delegates.
+* [OpenRewrite.Recipes.CodeQuality.Style.FindAvoidAnonymousDelegateForUnsubscribe](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/findavoidanonymousdelegateforunsubscribe.md)
+  * **Do not use anonymous delegates to unsubscribe from events**
+  * Unsubscribing from events using anonymous delegates or lambdas has no effect because each lambda creates a new delegate instance.
+* [OpenRewrite.Recipes.CodeQuality.Style.FindAwaitTaskBeforeDisposing](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/findawaittaskbeforedisposing.md)
+  * **Find unawaited task return in using block**
+  * Detect `return` of a Task inside a `using` block without `await`. The resource may be disposed before the task completes.
+* [OpenRewrite.Recipes.CodeQuality.Style.FindBothConditionSidesIdentical](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/findbothconditionsidesidentical.md)
+  * **Find binary expression with identical sides**
+  * Detect binary expressions where both sides are identical, e.g. `x == x` or `a &amp;&amp; a`. This is likely a copy-paste bug.
+* [OpenRewrite.Recipes.CodeQuality.Style.FindClassWithEqualsButNoIEquatable](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/findclasswithequalsbutnoiequatable.md)
+  * **Find class with Equals(T) but no IEquatable&lt;T&gt;**
+  * Detect classes that define `Equals(T)` but do not implement `IEquatable&lt;T&gt;`. Implementing the interface ensures consistency and enables value-based equality.
+* [OpenRewrite.Recipes.CodeQuality.Style.FindCompareToWithoutIComparable](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/findcomparetowithouticomparable.md)
+  * **Find CompareTo without IComparable**
+  * Detect classes that provide a `CompareTo` method but do not implement `IComparable&lt;T&gt;`.
+* [OpenRewrite.Recipes.CodeQuality.Style.FindDangerousThreadingMethods](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/finddangerousthreadingmethods.md)
+  * **Do not use dangerous threading methods**
+  * Avoid `Thread.Abort()`, `Thread.Suspend()`, and `Thread.Resume()`. These methods are unreliable and can corrupt state.
+* [OpenRewrite.Recipes.CodeQuality.Style.FindDefaultParameterValueNeedsOptional](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/finddefaultparametervalueneedsoptional.md)
+  * **Find [DefaultParameterValue] without [Optional]**
+  * Detect parameters with `[DefaultParameterValue]` that are missing `[Optional]`. Both attributes are needed for COM interop default parameter behavior.
+* [OpenRewrite.Recipes.CodeQuality.Style.FindDoNotCallVirtualMethodInConstructor](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/finddonotcallvirtualmethodinconstructor.md)
+  * **Find virtual method call in constructor**
+  * Detect calls to virtual or abstract methods within constructors. Derived classes may not be fully initialized when these methods execute.
+* [OpenRewrite.Recipes.CodeQuality.Style.FindDoNotCompareWithNaN](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/finddonotcomparewithnan.md)
+  * **Find comparison with NaN**
+  * Detect comparisons with `NaN` using `==` or `!=`. Use `double.IsNaN()` or `float.IsNaN()` instead, as `x == NaN` is always false.
+* [OpenRewrite.Recipes.CodeQuality.Style.FindDoNotCreateTypeWithBCLName](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/finddonotcreatetypewithbclname.md)
+  * **Find type with BCL name**
+  * Detect class declarations that use names from well-known BCL types like `Task`, `Action`, `String`, which can cause confusion.
+* [OpenRewrite.Recipes.CodeQuality.Style.FindDoNotDeclareStaticMembersOnGenericTypes](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/finddonotdeclarestaticmembersongenerictypes.md)
+  * **Find static members on generic types**
+  * Detect static members declared on generic types. Static members on generic types require specifying type arguments at the call site, reducing discoverability.
+* [OpenRewrite.Recipes.CodeQuality.Style.FindDoNotOverwriteParameterValue](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/finddonotoverwriteparametervalue.md)
+  * **Find overwritten parameter values**
+  * Detect assignments to method parameters, which can mask the original argument and lead to confusion.
+* [OpenRewrite.Recipes.CodeQuality.Style.FindDoNotPassNullForCancellationToken](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/finddonotpassnullforcancellationtoken.md)
+  * **Find null passed for CancellationToken**
+  * Detect `null` or `default` passed for `CancellationToken` parameters. Use `CancellationToken.None` instead.
+* [OpenRewrite.Recipes.CodeQuality.Style.FindDoNotRaiseApplicationException](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/finddonotraiseapplicationexception.md)
+  * **Do not raise ApplicationException**
+  * Avoid throwing `ApplicationException`. Use a more specific exception type.
+* [OpenRewrite.Recipes.CodeQuality.Style.FindDoNotRaiseNotImplementedException](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/finddonotraisenotimplementedexception.md)
+  * **Do not throw NotImplementedException**
+  * Throwing `NotImplementedException` indicates incomplete implementation. Implement the functionality or throw a more specific exception.
+* [OpenRewrite.Recipes.CodeQuality.Style.FindDoNotRaiseReservedExceptionType](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/finddonotraisereservedexceptiontype.md)
+  * **Do not raise reserved exception types**
+  * Avoid throwing `Exception`, `SystemException`, or `ApplicationException`. Use more specific exception types.
+* [OpenRewrite.Recipes.CodeQuality.Style.FindDoNotThrowFromFinalizer](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/finddonotthrowfromfinalizer.md)
+  * **Find throw statements in finalizer**
+  * Detect `throw` statements inside finalizer/destructor methods. Throwing from a finalizer can terminate the process.
+* [OpenRewrite.Recipes.CodeQuality.Style.FindDoNotThrowFromFinallyBlock](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/finddonotthrowfromfinallyblock.md)
+  * **Do not throw from finally block**
+  * Throwing from a `finally` block can mask the original exception and make debugging difficult.
+* [OpenRewrite.Recipes.CodeQuality.Style.FindDoNotUseCertificateValidationCallback](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/finddonotusecertificatevalidationcallback.md)
+  * **Do not write custom certificate validation**
+  * Custom certificate validation callbacks can introduce security vulnerabilities by accidentally accepting invalid certificates.
+* [OpenRewrite.Recipes.CodeQuality.Style.FindDoNotUseEqualityComparerDefaultOfString](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/finddonotuseequalitycomparerdefaultofstring.md)
+  * **Find EqualityComparer&lt;string&gt;.Default**
+  * Detect `EqualityComparer&lt;string&gt;.Default` which may use different comparison semantics across platforms. Use an explicit `StringComparer`.
+* [OpenRewrite.Recipes.CodeQuality.Style.FindDoNotUseGetHashCodeForString](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/finddonotusegethashcodeforstring.md)
+  * **Find GetType() on Type instance**
+  * Detect `.GetType()` called on an object that is already a `System.Type`. Use `typeof()` directly.
+* [OpenRewrite.Recipes.CodeQuality.Style.FindDoNotUseObjectToString](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/finddonotuseobjecttostring.md)
+  * **Find ToString on object-typed parameter**
+  * Detect `.ToString()` calls on `object`-typed parameters. The default `object.ToString()` returns the type name, which is rarely the intended behavior.
+* [OpenRewrite.Recipes.CodeQuality.Style.FindDoNotUseSleep](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/finddonotusesleep.md)
+  * **Find Thread.Sleep usage**
+  * Detect `Thread.Sleep()` which blocks the thread. Use `await Task.Delay()` in async contexts instead.
+* [OpenRewrite.Recipes.CodeQuality.Style.FindDoNotUseStringGetHashCode](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/finddonotusestringgethashcode.md)
+  * **Find string.GetHashCode() usage**
+  * Detect `string.GetHashCode()` which is not stable across runs. Use `StringComparer.GetHashCode()` or `string.GetHashCode(StringComparison)` instead.
+* [OpenRewrite.Recipes.CodeQuality.Style.FindEmbedCaughtExceptionAsInner](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/findembedcaughtexceptionasinner.md)
+  * **Embed caught exception as inner exception**
+  * When rethrowing a different exception in a catch block, pass the original exception as the inner exception to preserve the stack trace.
+* [OpenRewrite.Recipes.CodeQuality.Style.FindEnumDefaultValueZero](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/findenumdefaultvaluezero.md)
+  * **Find explicit zero initialization in enum**
+  * Detect enum members explicitly initialized to `0`. The default value of an enum is already `0`.
+* [OpenRewrite.Recipes.CodeQuality.Style.FindEqualsWithoutNotNullWhen](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/findequalswithoutnotnullwhen.md)
+  * **Find Equals without [NotNullWhen(true)]**
+  * Detect `Equals(object?)` overrides that are missing `[NotNullWhen(true)]` on the parameter, which helps nullable analysis.
+* [OpenRewrite.Recipes.CodeQuality.Style.FindEventArgsSenderNotNull](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/findeventargssendernotnull.md)
+  * **Find event raised with null EventArgs**
+  * Detect event invocations that pass `null` for EventArgs. Use `EventArgs.Empty` instead.
+* [OpenRewrite.Recipes.CodeQuality.Style.FindFlowCancellationTokenInAwaitForEach](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/findflowcancellationtokeninawaitforeach.md)
+  * **Find await foreach without CancellationToken**
+  * Detect `await foreach` loops that don't pass a `CancellationToken` via `WithCancellation()` when one is available in the enclosing method.
+* [OpenRewrite.Recipes.CodeQuality.Style.FindIComparableWithoutComparisonOperators](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/findicomparablewithoutcomparisonoperators.md)
+  * **Find IComparable without comparison operators**
+  * Detect classes that implement `IComparable&lt;T&gt;` but do not override comparison operators (`&lt;`, `&gt;`, `&lt;=`, `&gt;=`).
+* [OpenRewrite.Recipes.CodeQuality.Style.FindIComparableWithoutIEquatable](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/findicomparablewithoutiequatable.md)
+  * **Find IComparable&lt;T&gt; without IEquatable&lt;T&gt;**
+  * Detect classes that implement `IComparable&lt;T&gt;` but not `IEquatable&lt;T&gt;`. Both interfaces should be implemented together for consistent comparison semantics.
+* [OpenRewrite.Recipes.CodeQuality.Style.FindIEquatableWithoutEquals](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/findiequatablewithoutequals.md)
+  * **Find IEquatable&lt;T&gt; without Equals(object) override**
+  * Detect classes that implement `IEquatable&lt;T&gt;` but do not override `Equals(object)`, which can lead to inconsistent equality behavior.
+* [OpenRewrite.Recipes.CodeQuality.Style.FindILoggerTypeMismatch](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/findiloggertypemismatch.md)
+  * **Find ILogger&lt;T&gt; type parameter mismatch**
+  * Detect `ILogger&lt;T&gt;` fields or parameters where `T` doesn't match the containing type name.
+* [OpenRewrite.Recipes.CodeQuality.Style.FindIfElseBranchesIdentical](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/findifelsebranchesidentical.md)
+  * **Find if/else with identical branches**
+  * Detect `if/else` statements where both branches contain identical code. This is likely a copy-paste bug.
+* [OpenRewrite.Recipes.CodeQuality.Style.FindImplementNonGenericInterface](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/findimplementnongenericinterface.md)
+  * **Find missing non-generic interface implementation**
+  * Detect types implementing `IComparable&lt;T&gt;` without `IComparable`, or `IEquatable&lt;T&gt;` without proper Equals override.
+* [OpenRewrite.Recipes.CodeQuality.Style.FindImplicitCultureSensitiveToStringDirect](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/findimplicitculturesensitivetostringdirect.md)
+  * **Find implicit culture-sensitive ToString in concatenation**
+  * Detect string concatenation with numeric types that implicitly call culture-sensitive `ToString()`. Use an explicit format or `CultureInfo.InvariantCulture`.
+* [OpenRewrite.Recipes.CodeQuality.Style.FindImplicitDateTimeOffsetConversion](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/findimplicitdatetimeoffsetconversion.md)
+  * **Find implicit DateTime to DateTimeOffset conversion**
+  * Detect implicit conversion from `DateTime` to `DateTimeOffset` which uses the local time zone and can produce unexpected results.
+* [OpenRewrite.Recipes.CodeQuality.Style.FindInterpolatedStringWithoutParameters](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/findinterpolatedstringwithoutparameters.md)
+  * **Find interpolated string without parameters**
+  * Detect interpolated strings (`$&quot;...&quot;`) that contain no interpolation expressions. Use a regular string literal instead.
+* [OpenRewrite.Recipes.CodeQuality.Style.FindInvalidAttributeArgumentType](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/findinvalidattributeargumenttype.md)
+  * **Find potentially invalid attribute argument type**
+  * Detect attribute arguments that use types not valid in attribute constructors (only primitives, string, Type, enums, and arrays of these are allowed).
+* [OpenRewrite.Recipes.CodeQuality.Style.FindMethodReturningIAsyncEnumerable](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/findmethodreturningiasyncenumerable.md)
+  * **Find IAsyncEnumerable method without Async suffix**
+  * Detect methods returning `IAsyncEnumerable&lt;T&gt;` that don't end with `Async`.
+* [OpenRewrite.Recipes.CodeQuality.Style.FindMethodTooLong](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/findmethodtoolong.md)
+  * **Find method that is too long**
+  * Detect methods with more than 60 statements. Long methods are harder to understand and maintain.
+* [OpenRewrite.Recipes.CodeQuality.Style.FindMissingCancellationTokenOverload](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/findmissingcancellationtokenoverload.md)
+  * **Find async call missing CancellationToken**
+  * Detect async method calls that don't pass a `CancellationToken` when the enclosing method has one available as a parameter.
+* [OpenRewrite.Recipes.CodeQuality.Style.FindMissingNamedParameter](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/findmissingnamedparameter.md)
+  * **Find boolean literal arguments without parameter name**
+  * Detect method calls passing `true` or `false` literals as arguments. Using named parameters improves readability.
+* [OpenRewrite.Recipes.CodeQuality.Style.FindMissingParamsInOverride](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/findmissingparamsinoverride.md)
+  * **Find override method missing params keyword**
+  * Detect override methods that may be missing the `params` keyword on array parameters that the base method declares as `params`.
+* [OpenRewrite.Recipes.CodeQuality.Style.FindMissingStringComparison](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/findmissingstringcomparison.md)
+  * **Find string method missing StringComparison**
+  * Detect string methods like `Equals`, `Contains`, `StartsWith`, `EndsWith` called without an explicit `StringComparison` parameter.
+* [OpenRewrite.Recipes.CodeQuality.Style.FindMissingStringEqualityComparer](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/findmissingstringequalitycomparer.md)
+  * **Find missing string equality comparer**
+  * Detect `Dictionary&lt;string, T&gt;` and `HashSet&lt;string&gt;` created without an explicit `StringComparer`. Without a comparer, the default ordinal comparison is used.
+* [OpenRewrite.Recipes.CodeQuality.Style.FindMultiLineXmlComment](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/findmultilinexmlcomment.md)
+  * **Find multi-line XML doc comments**
+  * Detect `/** */` style XML documentation comments that could use the `///` single-line syntax for consistency.
+* [OpenRewrite.Recipes.CodeQuality.Style.FindNonConstantStaticFieldsVisible](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/findnonconstantstaticfieldsvisible.md)
+  * **Non-constant static fields should not be visible**
+  * Public static fields that are not `const` or `readonly` can be modified by any code, breaking encapsulation. Make them `readonly` or use a property.
+* [OpenRewrite.Recipes.CodeQuality.Style.FindNonDeterministicEndOfLine](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/findnondeterministicendofline.md)
+  * **Find non-deterministic end-of-line in strings**
+  * Detect string literals containing `\n` that may behave differently across platforms. Consider using `Environment.NewLine` instead.
+* [OpenRewrite.Recipes.CodeQuality.Style.FindNonFlagsEnumWithFlagsAttribute](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/findnonflagsenumwithflagsattribute.md)
+  * **Find non-flags enum with [Flags]**
+  * Detect enums marked with `[Flags]` whose values are not powers of two, indicating they are not truly flags enums.
+* [OpenRewrite.Recipes.CodeQuality.Style.FindNotNullIfNotNullAttribute](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/findnotnullifnotnullattribute.md)
+  * **Find missing NotNullIfNotNull attribute**
+  * Detect methods with nullable return types depending on nullable parameters that lack `[NotNullIfNotNull]` attribute.
+* [OpenRewrite.Recipes.CodeQuality.Style.FindObserveAsyncResult](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/findobserveasyncresult.md)
+  * **Find unobserved async call result**
+  * Detect calls to async methods where the returned Task is not awaited, assigned, or otherwise observed. Unobserved tasks may silently swallow exceptions.
+* [OpenRewrite.Recipes.CodeQuality.Style.FindObsoleteWithoutMessage](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/findobsoletewithoutmessage.md)
+  * **Obsolete attribute should include explanation**
+  * The `[Obsolete]` attribute should include a message explaining why the member is obsolete and what to use instead.
+* [OpenRewrite.Recipes.CodeQuality.Style.FindOverrideChangesParameterDefaults](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/findoverridechangesparameterdefaults.md)
+  * **Find overrides that change parameter defaults**
+  * Detect `override` methods with default parameter values. Overrides should not change defaults from the base method as this causes confusing behavior depending on the reference type.
+* [OpenRewrite.Recipes.CodeQuality.Style.FindPreferCollectionAbstraction](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/findprefercollectionabstraction.md)
+  * **Find concrete collection in public API**
+  * Detect public method parameters or return types that use concrete collection types like `List&lt;T&gt;` instead of `IList&lt;T&gt;` or `IEnumerable&lt;T&gt;`.
+* [OpenRewrite.Recipes.CodeQuality.Style.FindPrimaryConstructorReadonly](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/findprimaryconstructorreadonly.md)
+  * **Find reassigned primary constructor parameter**
+  * Detect primary constructor parameters that are reassigned in the class body. Primary constructor parameters should be treated as readonly.
+* [OpenRewrite.Recipes.CodeQuality.Style.FindRawStringImplicitEndOfLine](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/findrawstringimplicitendofline.md)
+  * **Find raw string with implicit end of line**
+  * Detect raw string literals (`&quot;&quot;&quot;...&quot;&quot;&quot;`) that contain implicit end-of-line characters which may behave differently across platforms.
+* [OpenRewrite.Recipes.CodeQuality.Style.FindReadOnlyStructMembers](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/findreadonlystructmembers.md)
+  * **Find struct member that could be readonly**
+  * Detect struct methods and properties that don't modify state and could be marked `readonly` to prevent defensive copies.
+* [OpenRewrite.Recipes.CodeQuality.Style.FindRedundantArgumentValue](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/findredundantargumentvalue.md)
+  * **Find redundant default argument values**
+  * Detect named arguments that explicitly pass a default value. Removing them simplifies the call.
+* [OpenRewrite.Recipes.CodeQuality.Style.FindSenderNullForStaticEvents](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/findsendernullforstaticevents.md)
+  * **Find static event with non-null sender**
+  * Detect static event invocations that pass `this` as the sender. Static events should use `null` as the sender.
+* [OpenRewrite.Recipes.CodeQuality.Style.FindSingleLineXmlComment](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/findsinglelinexmlcomment.md)
+  * **Find multi-line XML doc comment style**
+  * Detect `/** ... */` style XML doc comments. Use `///` single-line style instead for consistency.
+* [OpenRewrite.Recipes.CodeQuality.Style.FindSpanEqualityOperator](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/findspanequalityoperator.md)
+  * **Find equality operator on Span&lt;T&gt;**
+  * Detect `==` or `!=` operators on `Span&lt;T&gt;` or `ReadOnlySpan&lt;T&gt;`. Use `SequenceEqual` instead.
+* [OpenRewrite.Recipes.CodeQuality.Style.FindStreamReadIgnored](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/findstreamreadignored.md)
+  * **Find Stream.Read() return value ignored**
+  * Detect `Stream.Read()` calls where the return value (bytes read) is not used. This can lead to incomplete reads.
+* [OpenRewrite.Recipes.CodeQuality.Style.FindStringFormatConstant](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/findstringformatconstant.md)
+  * **Find non-constant string.Format format string**
+  * Detect non-constant format strings passed to `string.Format`. Use a constant to prevent format string injection.
+* [OpenRewrite.Recipes.CodeQuality.Style.FindTaskInUsing](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/findtaskinusing.md)
+  * **Find unawaited task in using statement**
+  * Detect `using` statements where a Task is not awaited, which can cause premature disposal before the task completes.
+* [OpenRewrite.Recipes.CodeQuality.Style.FindThreadStaticOnInstanceField](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/findthreadstaticoninstancefield.md)
+  * **Do not use ThreadStatic on instance fields**
+  * `[ThreadStatic]` only works on static fields. Using it on instance fields has no effect.
+* [OpenRewrite.Recipes.CodeQuality.Style.FindThrowIfNullWithNonNullable](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/findthrowifnullwithnonnullable.md)
+  * **Find ThrowIfNull with value type argument**
+  * Detect `ArgumentNullException.ThrowIfNull` called with value type parameters that can never be null.
+* [OpenRewrite.Recipes.CodeQuality.Style.FindTypeNameMatchesNamespace](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/findtypenamematchesnamespace.md)
+  * **Find type name matching namespace**
+  * Detect type names that match their containing namespace, which can cause ambiguous references.
+* [OpenRewrite.Recipes.CodeQuality.Style.FindTypeShouldNotExtendApplicationException](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/findtypeshouldnotextendapplicationexception.md)
+  * **Types should not extend ApplicationException**
+  * Do not create custom exceptions that inherit from `ApplicationException`. Inherit from `Exception` or a more specific exception type.
+* [OpenRewrite.Recipes.CodeQuality.Style.FindUseCallerArgumentExpression](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/findusecallerargumentexpression.md)
+  * **Find redundant nameof with CallerArgumentExpression**
+  * Detect `nameof(param)` passed to parameters marked with `[CallerArgumentExpression]`. The attribute fills the value automatically.
+* [OpenRewrite.Recipes.CodeQuality.Style.FindUseDateTimeOffsetInsteadOfDateTime](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/findusedatetimeoffsetinsteadofdatetime.md)
+  * **Find DateTime.Now/UtcNow usage**
+  * Detect `DateTime.Now` and `DateTime.UtcNow` usage. Use `DateTimeOffset` instead for unambiguous time representation across time zones.
+* [OpenRewrite.Recipes.CodeQuality.Style.FindUseDebuggerDisplayAttribute](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/findusedebuggerdisplayattribute.md)
+  * **Find ToString override without DebuggerDisplay**
+  * Detect classes that override `ToString()` but lack `[DebuggerDisplay]` attribute for debugger integration.
+* [OpenRewrite.Recipes.CodeQuality.Style.FindUseDefaultParameterValue](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/findusedefaultparametervalue.md)
+  * **Find [DefaultValue] on parameter**
+  * Detect `[DefaultValue]` on method parameters. Use `[DefaultParameterValue]` instead, as `[DefaultValue]` is for component model metadata only.
+* [OpenRewrite.Recipes.CodeQuality.Style.FindUseElementAccessInsteadOfLinq](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/finduseelementaccessinsteadoflinq.md)
+  * **Find ElementAt() that could use indexer**
+  * Detect LINQ `.ElementAt(index)` calls that could be replaced with direct indexer access `[index]`.
+* [OpenRewrite.Recipes.CodeQuality.Style.FindUseEqualsMethodInsteadOfOperator](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/finduseequalsmethodinsteadofoperator.md)
+  * **Find == comparison that should use Equals()**
+  * Detect `==` comparisons on reference types that override `Equals`. Using `==` may compare references instead of values.
+* [OpenRewrite.Recipes.CodeQuality.Style.FindUseExplicitEnumValue](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/finduseexplicitenumvalue.md)
+  * **Find integer 0 used instead of named enum value**
+  * Detect usage of integer literal `0` where a named enum member should be used for clarity.
+* [OpenRewrite.Recipes.CodeQuality.Style.FindUseFormatProviderInToString](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/finduseformatproviderintostring.md)
+  * **Find Parse/ToString without IFormatProvider**
+  * Detect calls to culture-sensitive methods like `int.Parse`, `double.Parse` without an explicit `IFormatProvider` or `CultureInfo`.
+* [OpenRewrite.Recipes.CodeQuality.Style.FindUseIFormatProvider](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/finduseiformatprovider.md)
+  * **Find Parse/TryParse without IFormatProvider**
+  * Detect `int.Parse(str)` and similar calls without an `IFormatProvider` parameter. Use `CultureInfo.InvariantCulture` for culture-independent parsing.
+* [OpenRewrite.Recipes.CodeQuality.Style.FindUseLangwordInXmlComment](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/finduselangwordinxmlcomment.md)
+  * **Find missing langword in XML comment**
+  * Detect XML doc comments that reference `null`, `true`, `false` as plain text instead of using `&lt;see langword=&quot;...&quot;/&gt;`.
+* [OpenRewrite.Recipes.CodeQuality.Style.FindUseLazyInitializerEnsureInitialize](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/finduselazyinitializerensureinitialize.md)
+  * **Find Interlocked.CompareExchange lazy init pattern**
+  * Detect `Interlocked.CompareExchange(ref field, new T(), null)` pattern. Use `LazyInitializer.EnsureInitialized` for cleaner lazy initialization.
+* [OpenRewrite.Recipes.CodeQuality.Style.FindUseListPatternMatching](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/finduselistpatternmatching.md)
+  * **Find collection emptiness check**
+  * Detect `.Length == 0` or `.Count == 0` checks that could use list patterns like `is []` in C# 11+.
+* [OpenRewrite.Recipes.CodeQuality.Style.FindUseNamedParameter](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/findusenamedparameter.md)
+  * **Find boolean literal argument without name**
+  * Detect boolean literal arguments (`true`/`false`) passed without named parameters. Named arguments improve readability.
+* [OpenRewrite.Recipes.CodeQuality.Style.FindUseOperatingSystemMethods](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/finduseoperatingsystemmethods.md)
+  * **Use OperatingSystem methods instead of RuntimeInformation**
+  * Use `OperatingSystem.IsWindows()` and similar methods instead of `RuntimeInformation.IsOSPlatform()`. The OperatingSystem methods are more concise and can be optimized by the JIT.
+* [OpenRewrite.Recipes.CodeQuality.Style.FindUseProcessStartWithStartInfo](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/finduseprocessstartwithstartinfo.md)
+  * **Find Process.Start with string argument**
+  * Detect `Process.Start(&quot;filename&quot;)` which should use the `ProcessStartInfo` overload for explicit control over `UseShellExecute` and other settings.
+* [OpenRewrite.Recipes.CodeQuality.Style.FindUseRecordClassExplicitly](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/finduserecordclassexplicitly.md)
+  * **Find implicit record class declaration**
+  * Detect `record` declarations that should use `record class` explicitly to clarify that they are reference types.
+* [OpenRewrite.Recipes.CodeQuality.Style.FindUseRegexOptions](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/finduseregexoptions.md)
+  * **Find Regex without ExplicitCapture option**
+  * Detect `new Regex()` or `Regex.IsMatch()` without `RegexOptions.ExplicitCapture`. Using this option avoids unnecessary unnamed captures.
+* [OpenRewrite.Recipes.CodeQuality.Style.FindUseShellExecuteFalseWhenRedirecting](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/finduseshellexecutefalsewhenredirecting.md)
+  * **Find redirect without UseShellExecute=false**
+  * Detect `ProcessStartInfo` that sets `RedirectStandard*` without explicitly setting `UseShellExecute = false`.
+* [OpenRewrite.Recipes.CodeQuality.Style.FindUseShellExecuteNotSet](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/finduseshellexecutenotset.md)
+  * **Find ProcessStartInfo without UseShellExecute**
+  * Detect `new ProcessStartInfo()` without explicitly setting `UseShellExecute`. The default changed between .NET Framework (true) and .NET Core (false).
+* [OpenRewrite.Recipes.CodeQuality.Style.FindUseStringComparer](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/findusestringcomparer.md)
+  * **Find Dictionary/HashSet without StringComparer**
+  * Detect `Dictionary&lt;string, T&gt;` or `HashSet&lt;string&gt;` created without an explicit `StringComparer`. Use `StringComparer.Ordinal` or `StringComparer.OrdinalIgnoreCase`.
+* [OpenRewrite.Recipes.CodeQuality.Style.FindUseStringCreateInsteadOfConcat](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/findusestringcreateinsteadofconcat.md)
+  * **Find FormattableString usage**
+  * Detect `FormattableString` usage. Consider using `String.Create` on .NET 6+ for better performance.
+* [OpenRewrite.Recipes.CodeQuality.Style.FindUseStringEqualsInsteadOfIsPattern](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/findusestringequalsinsteadofispattern.md)
+  * **Find 'is' pattern with string literal**
+  * Detect `x is &quot;literal&quot;` patterns that should use `string.Equals` with explicit `StringComparison` for culture-aware or case-insensitive comparisons.
+* [OpenRewrite.Recipes.CodeQuality.Style.FindUseSystemThreadingLock](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/findusesystemthreadinglock.md)
+  * **Use System.Threading.Lock instead of object for locking**
+  * In .NET 9+, use `System.Threading.Lock` instead of `object` for lock objects. The dedicated Lock type provides better performance.
+* [OpenRewrite.Recipes.CodeQuality.Style.FindUseTaskUnwrap](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/findusetaskunwrap.md)
+  * **Find double await pattern**
+  * Detect `await await` pattern which can be replaced with `.Unwrap()` for clarity.
+* [OpenRewrite.Recipes.CodeQuality.Style.FindUseTimeProviderInsteadOfCustom](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/findusetimeproviderinsteadofcustom.md)
+  * **Find custom time abstraction**
+  * Detect interfaces or abstract classes that appear to be custom time providers. Use `System.TimeProvider` (available in .NET 8+) instead.
+* [OpenRewrite.Recipes.CodeQuality.Style.FindValidateArgumentsBeforeYield](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/findvalidateargumentsbeforeyield.md)
+  * **Find argument validation in iterator method**
+  * Detect iterator methods that validate arguments after `yield return`. Argument validation in iterators is deferred until enumeration begins.
+* [OpenRewrite.Recipes.CodeQuality.Style.ImplementExceptionConstructors](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/implementexceptionconstructors.md)
+  * **Implement exception constructors**
+  * Ensure custom exception classes implement standard constructors.
+* [OpenRewrite.Recipes.CodeQuality.Style.ImplementNonGenericCounterpart](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/implementnongenericcounterpart.md)
+  * **Implement non-generic counterpart**
+  * Implement non-generic interface when implementing generic counterpart.
+* [OpenRewrite.Recipes.CodeQuality.Style.InvalidArgumentNullCheck](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/invalidargumentnullcheck.md)
+  * **Fix invalid argument null check**
+  * Fix invalid argument null check patterns.
+* [OpenRewrite.Recipes.CodeQuality.Style.MakeClassSealed](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/makeclasssealed.md)
+  * **Make class sealed**
+  * A class that has only private constructors should be marked as sealed.
+* [OpenRewrite.Recipes.CodeQuality.Style.MakeClassStatic](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/makeclassstatic.md)
+  * **Make class static**
+  * Make classes that contain only static members static.
+* [OpenRewrite.Recipes.CodeQuality.Style.MakeFieldReadOnly](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/makefieldreadonly.md)
+  * **Make field read-only**
+  * Make field read-only when it is only assigned in the constructor or initializer.
+* [OpenRewrite.Recipes.CodeQuality.Style.MakeMethodExtensionMethod](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/makemethodextensionmethod.md)
+  * **Make method an extension method**
+  * Convert a static method to an extension method where appropriate.
+* [OpenRewrite.Recipes.CodeQuality.Style.MarkLocalVariableAsConst](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/marklocalvariableasconst.md)
+  * **Mark local variable as const**
+  * Mark local variable as const when its value never changes.
+* [OpenRewrite.Recipes.CodeQuality.Style.MarkTypeWithDebuggerDisplay](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/marktypewithdebuggerdisplay.md)
+  * **Mark type with DebuggerDisplay attribute**
+  * Add DebuggerDisplay attribute to publicly visible types to improve debugging experience.
+* [OpenRewrite.Recipes.CodeQuality.Style.MergePreprocessorDirectives](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/mergepreprocessordirectives.md)
+  * **Merge preprocessor directives**
+  * Merge consecutive preprocessor directives that can be combined into a single directive.
+* [OpenRewrite.Recipes.CodeQuality.Style.NormalizeEnumFlagValue](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/normalizeenumflagvalue.md)
+  * **Normalize format of enum flag value**
+  * Normalize the format of Flags enum values.
+* [OpenRewrite.Recipes.CodeQuality.Style.OrderModifiers](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/ordermodifiers.md)
+  * **Order modifiers**
+  * Reorder modifiers to the canonical C# order: access, new, abstract/virtual/override/sealed, static, readonly, extern, unsafe, volatile, async, partial, const.
+* [OpenRewrite.Recipes.CodeQuality.Style.OrderNamedArguments](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/ordernamedarguments.md)
+  * **Order named arguments by parameters**
+  * Reorder named arguments to match parameter order.
+* [OpenRewrite.Recipes.CodeQuality.Style.OrderTypeParameterConstraints](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/ordertypeparameterconstraints.md)
+  * **Order type parameter constraints**
+  * Order type parameter constraints consistently.
+* [OpenRewrite.Recipes.CodeQuality.Style.OverridingMemberShouldNotChangeParams](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/overridingmembershouldnotchangeparams.md)
+  * **Overriding member should not change 'params' modifier**
+  * An overriding member should not add or remove the 'params' modifier compared to its base declaration.
+* [OpenRewrite.Recipes.CodeQuality.Style.ParameterNameDiffersFromBase](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/parameternamediffersfrombase.md)
+  * **Parameter name differs from base**
+  * Rename parameter to match base class or interface definition.
+* [OpenRewrite.Recipes.CodeQuality.Style.ParenthesizeNotPattern](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/parenthesizenotpattern.md)
+  * **Parenthesize not pattern for clarity**
+  * Add parentheses to `not A or B` → `(not A) or B` to clarify that `not` binds tighter than `or`.
+* [OpenRewrite.Recipes.CodeQuality.Style.PreferNullCheckOverTypeCheck](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/prefernullcheckovertypecheck.md)
+  * **Prefer null check over type check**
+  * Replace `x is object` with `x is not null` for clarity.
+* [OpenRewrite.Recipes.CodeQuality.Style.SimplifyBooleanLogic](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/simplifybooleanlogic.md)
+  * **Simplify boolean logic with constants**
+  * Simplify `x || true` to `true`, `x &amp;&amp; false` to `false`, `x || false` to `x`, and `x &amp;&amp; true` to `x`.
+* [OpenRewrite.Recipes.CodeQuality.Style.SortEnumMembers](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/sortenummembers.md)
+  * **Sort enum members**
+  * Sort enum members by their resolved constant value.
+* [OpenRewrite.Recipes.CodeQuality.Style.SplitVariableDeclaration](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/splitvariabledeclaration.md)
+  * **Split variable declaration**
+  * Split multi-variable declarations into separate declarations.
+* [OpenRewrite.Recipes.CodeQuality.Style.StaticMemberInGenericType](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/staticmemberingenerictype.md)
+  * **Static member in generic type should use a type parameter**
+  * Find static members in generic types that do not use any of the type's type parameters.
+* [OpenRewrite.Recipes.CodeQuality.Style.StyleCodeQuality](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/stylecodequality.md)
+  * **Style code quality**
+  * Code style modernization recipes for C#.
+* [OpenRewrite.Recipes.CodeQuality.Style.UnusedParameter](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/unusedparameter.md)
+  * **Remove unused parameter**
+  * Rename unused lambda parameters to discard (_).
+* [OpenRewrite.Recipes.CodeQuality.Style.UnusedTypeParameter](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/unusedtypeparameter.md)
+  * **Remove unused type parameter**
+  * Flag type parameters that are not used.
+* [OpenRewrite.Recipes.CodeQuality.Style.UseAsyncAwait](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/useasyncawait.md)
+  * **Use async/await when necessary**
+  * Add async/await to methods that return Task but don't use await.
+* [OpenRewrite.Recipes.CodeQuality.Style.UseAttributeUsageAttribute](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/useattributeusageattribute.md)
+  * **Use AttributeUsageAttribute**
+  * Add AttributeUsage to custom attribute classes.
+* [OpenRewrite.Recipes.CodeQuality.Style.UseAutoProperty](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/useautoproperty.md)
+  * **Use auto property**
+  * Use auto property instead of property with backing field.
+* [OpenRewrite.Recipes.CodeQuality.Style.UseBlockBodyOrExpressionBody](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/useblockbodyorexpressionbody.md)
+  * **Use block body or expression body**
+  * Convert between block body and expression body for members.
+* [OpenRewrite.Recipes.CodeQuality.Style.UseCoalesceExpressionFromNullCheck](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/usecoalesceexpressionfromnullcheck.md)
+  * **Use coalesce expression**
+  * Convert null-check conditional to null-coalescing expression.
+* [OpenRewrite.Recipes.CodeQuality.Style.UseCollectionExpression](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/usecollectionexpression.md)
+  * **Use collection expression**
+  * Replace array/list creation with collection expressions (C# 12).
+* [OpenRewrite.Recipes.CodeQuality.Style.UseConstantInsteadOfField](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/useconstantinsteadoffield.md)
+  * **Use constant instead of field**
+  * Convert `static readonly` fields with literal initializers to `const`.
+* [OpenRewrite.Recipes.CodeQuality.Style.UseElementAccess](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/useelementaccess.md)
+  * **Use element access**
+  * Use indexer instead of First()/Last()/ElementAt() when the collection supports indexer access.
+* [OpenRewrite.Recipes.CodeQuality.Style.UseEnumFieldExplicitly](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/useenumfieldexplicitly.md)
+  * **Use enum field explicitly**
+  * Use named enum field instead of cast integer value.
+* [OpenRewrite.Recipes.CodeQuality.Style.UseEventArgsEmpty](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/useeventargsempty.md)
+  * **Use EventArgs.Empty**
+  * Replace `new EventArgs()` with `EventArgs.Empty`. The static `EventArgs.Empty` field avoids unnecessary allocations.
+* [OpenRewrite.Recipes.CodeQuality.Style.UseEventArgsEmptyForNull](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/useeventargsemptyfornull.md)
+  * **Use EventArgs.Empty instead of null**
+  * Replace `null` with `EventArgs.Empty` when raising events. Passing `null` for EventArgs can cause NullReferenceException in event handlers.
+* [OpenRewrite.Recipes.CodeQuality.Style.UseEventHandlerT](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/useeventhandlert.md)
+  * **Use EventHandler&lt;T&gt;**
+  * Use generic EventHandler&lt;T&gt; instead of custom delegate types.
+* [OpenRewrite.Recipes.CodeQuality.Style.UseExplicitTypeInsteadOfVar](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/useexplicittypeinsteadofvar.md)
+  * **Use explicit type instead of var**
+  * Use explicit type instead of `var` when the type is not evident.
+* [OpenRewrite.Recipes.CodeQuality.Style.UseExplicitlyTypedArray](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/useexplicitlytypedarray.md)
+  * **Use explicitly typed array**
+  * Use explicitly or implicitly typed array.
+* [OpenRewrite.Recipes.CodeQuality.Style.UseFileScopedNamespace](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/usefilescopednamespace.md)
+  * **Use file-scoped namespace**
+  * Detect block-scoped namespace declarations that could use file-scoped syntax (C# 10).
+* [OpenRewrite.Recipes.CodeQuality.Style.UseMethodChaining](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/usemethodchaining.md)
+  * **Use method chaining**
+  * Chain consecutive method calls on the same receiver into a fluent chain.
+* [OpenRewrite.Recipes.CodeQuality.Style.UseMethodGroupConversion](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/usemethodgroupconversion.md)
+  * **Use method group conversion**
+  * Replace `x =&gt; Foo(x)` with `Foo` where method group conversion applies.
+* [OpenRewrite.Recipes.CodeQuality.Style.UsePredefinedType](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/usepredefinedtype.md)
+  * **Use predefined type**
+  * Use predefined type keyword (e.g., int instead of Int32).
+* [OpenRewrite.Recipes.CodeQuality.Style.UsePrimaryConstructor](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/useprimaryconstructor.md)
+  * **Use primary constructor**
+  * Convert classes with a single constructor into primary constructor syntax (C# 12).
+* [OpenRewrite.Recipes.CodeQuality.Style.UseReadOnlyAutoProperty](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/usereadonlyautoproperty.md)
+  * **Use read-only auto property**
+  * Use read-only auto property when the setter is never used.
+* [OpenRewrite.Recipes.CodeQuality.Style.UseStringContains](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/usestringcontains.md)
+  * **Use string.Contains instead of IndexOf comparison**
+  * Replace `s.IndexOf(x) &gt;= 0` with `s.Contains(x)` and `s.IndexOf(x) == -1` with `!s.Contains(x)`.
+* [OpenRewrite.Recipes.CodeQuality.Style.UseStringIsNullOrEmpty](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/usestringisnullorempty.md)
+  * **Use string.IsNullOrEmpty method**
+  * Replace `s == null || s == &quot;&quot;` and `s == null || s.Length == 0` with `string.IsNullOrEmpty(s)`.
+* [OpenRewrite.Recipes.CodeQuality.Style.UseStringLengthComparison](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/usestringlengthcomparison.md)
+  * **Use string.Length instead of comparison with empty string**
+  * Replace `s == &quot;&quot;` with `s.Length == 0` and `s != &quot;&quot;` with `s.Length != 0`.
+* [OpenRewrite.Recipes.CodeQuality.Style.UseThisForEventSender](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/usethisforeventsender.md)
+  * **Use 'this' for event sender**
+  * Replace `null` with `this` as the sender argument when raising instance events. The sender should be the object raising the event.
+* [OpenRewrite.Recipes.CodeQuality.Style.UseUsingDeclaration](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/useusingdeclaration.md)
+  * **Use using declaration**
+  * Convert using statement to using declaration.
+* [OpenRewrite.Recipes.CodeQuality.Style.UseVarInForEach](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/usevarinforeach.md)
+  * **Use var instead of explicit type in foreach**
+  * Replace explicit type in foreach with var when type is evident.
+* [OpenRewrite.Recipes.CodeQuality.Style.UseVarOrExplicitType](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/usevarorexplicittype.md)
+  * **Use 'var' or explicit type**
+  * Enforce consistent use of 'var' or explicit type in local variable declarations.
+* [OpenRewrite.Recipes.CodeQuality.Style.ValidateArgumentsCorrectly](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/validateargumentscorrectly.md)
+  * **Validate arguments correctly**
+  * Ensure argument validation in iterator methods runs immediately by flagging iterator methods that contain argument validation.
+* [OpenRewrite.Recipes.CodeQuality.Style.ValueTypeIsNeverEqualToNull](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/valuetypeisneverequaltonull.md)
+  * **Value type is never equal to null**
+  * Replace null with default in comparisons of value types.
+* [OpenRewrite.Xml.Recipes.ChangeXmlAttribute](/user-documentation/recipes/recipe-catalog/csharp/xml/recipes/changexmlattribute.md)
+  * **Change XML attribute value**
+  * Changes the value of attributes matching AttrName to NewValue.
+* [OpenRewrite.Xml.Recipes.ChangeXmlCharData](/user-documentation/recipes/recipe-catalog/csharp/xml/recipes/changexmlchardata.md)
+  * **Change XML CharData text**
+  * Replaces occurrences of OldText with NewText in XML CharData nodes.
+
+### recipes-migrate-dotnet
+
+_License: Moderne Proprietary License_
+
+_145 recipes_
+
+* [OpenRewrite.Recipes.AddNuGetPackageReference](/user-documentation/recipes/recipe-catalog/csharp/recipes/addnugetpackagereference.md)
+  * **Add NuGet package reference**
+  * Adds a `&lt;PackageReference&gt;` to .csproj files if not already present.
+* [OpenRewrite.Recipes.AspNet.UpgradeAspNetFrameworkToCore](/user-documentation/recipes/recipe-catalog/csharp/recipes/aspnet/upgradeaspnetframeworktocore.md)
+  * **Migrate ASP.NET Framework to ASP.NET Core**
+  * Migrate ASP.NET Framework (System.Web.Mvc, System.Web.Http) types to their ASP.NET Core equivalents. Based on the .NET Upgrade Assistant's UA0002 and UA0010 diagnostics. See https://learn.microsoft.com/en-us/aspnet/core/migration/proper-to-2x.
+* [OpenRewrite.Recipes.AspNetCore2.FindBuildWebHost](/user-documentation/recipes/recipe-catalog/csharp/recipes/aspnetcore2/findbuildwebhost.md)
+  * **Find BuildWebHost method**
+  * Flags `BuildWebHost` method declarations that should be renamed to `CreateWebHostBuilder` and refactored for ASP.NET Core 2.1.
+* [OpenRewrite.Recipes.AspNetCore2.FindIAuthenticationManager](/user-documentation/recipes/recipe-catalog/csharp/recipes/aspnetcore2/findiauthenticationmanager.md)
+  * **Find IAuthenticationManager usage**
+  * Flags references to `IAuthenticationManager` which was removed in ASP.NET Core 2.0. Use `HttpContext` extension methods from `Microsoft.AspNetCore.Authentication` instead.
+* [OpenRewrite.Recipes.AspNetCore2.FindLoggerFactoryAddProvider](/user-documentation/recipes/recipe-catalog/csharp/recipes/aspnetcore2/findloggerfactoryaddprovider.md)
+  * **Find ILoggerFactory.Add*() calls**
+  * Flags `ILoggerFactory.AddConsole()`, `AddDebug()`, and similar extension methods. In ASP.NET Core 2.2+, logging should be configured via `ConfigureLogging` in the host builder.
+* [OpenRewrite.Recipes.AspNetCore2.FindSetCompatibilityVersion](/user-documentation/recipes/recipe-catalog/csharp/recipes/aspnetcore2/findsetcompatibilityversion.md)
+  * **Find SetCompatibilityVersion() calls**
+  * Flags `SetCompatibilityVersion` calls. This method is a no-op in ASP.NET Core 3.0+ and should be removed during migration.
+* [OpenRewrite.Recipes.AspNetCore2.FindUseKestrelWithConfig](/user-documentation/recipes/recipe-catalog/csharp/recipes/aspnetcore2/findusekestrelwithconfig.md)
+  * **Find UseKestrel() with configuration**
+  * Flags `UseKestrel` calls with configuration lambdas that should be replaced with `ConfigureKestrel` to avoid conflicts with the IIS in-process hosting model.
+* [OpenRewrite.Recipes.AspNetCore2.UpgradeToAspNetCore20](/user-documentation/recipes/recipe-catalog/csharp/recipes/aspnetcore2/upgradetoaspnetcore20.md)
+  * **Migrate to ASP.NET Core 2.0**
+  * Migrate ASP.NET Core 1.x projects to ASP.NET Core 2.0, applying authentication and Identity changes. See https://learn.microsoft.com/en-us/aspnet/core/migration/1x-to-2x/identity-2x.
+* [OpenRewrite.Recipes.AspNetCore2.UpgradeToAspNetCore21](/user-documentation/recipes/recipe-catalog/csharp/recipes/aspnetcore2/upgradetoaspnetcore21.md)
+  * **Migrate to ASP.NET Core 2.1**
+  * Migrate ASP.NET Core 2.0 projects to ASP.NET Core 2.1, including host builder changes and obsolete API replacements. See https://learn.microsoft.com/en-us/aspnet/core/migration/20-to-21.
+* [OpenRewrite.Recipes.AspNetCore2.UpgradeToAspNetCore22](/user-documentation/recipes/recipe-catalog/csharp/recipes/aspnetcore2/upgradetoaspnetcore22.md)
+  * **Migrate to ASP.NET Core 2.2**
+  * Migrate ASP.NET Core 2.1 projects to ASP.NET Core 2.2, including Kestrel configuration and logging changes. See https://learn.microsoft.com/en-us/aspnet/core/migration/21-to-22.
+* [OpenRewrite.Recipes.AspNetCore2.UseGetExternalAuthenticationSchemesAsync](/user-documentation/recipes/recipe-catalog/csharp/recipes/aspnetcore2/usegetexternalauthenticationschemesasync.md)
+  * **Use GetExternalAuthenticationSchemesAsync()**
+  * Replace `GetExternalAuthenticationSchemes()` with `GetExternalAuthenticationSchemesAsync()`. The synchronous method was removed in ASP.NET Core 2.0.
+* [OpenRewrite.Recipes.AspNetCore2.UseHttpContextAuthExtensions](/user-documentation/recipes/recipe-catalog/csharp/recipes/aspnetcore2/usehttpcontextauthextensions.md)
+  * **Use HttpContext authentication extensions**
+  * Replace `HttpContext.Authentication.Method(...)` calls with `HttpContext.Method(...)` extension methods. The `IAuthenticationManager` interface was removed in ASP.NET Core 2.0.
+* [OpenRewrite.Recipes.AspNetCore2.UseUseAuthentication](/user-documentation/recipes/recipe-catalog/csharp/recipes/aspnetcore2/useuseauthentication.md)
+  * **Replace UseIdentity() with UseAuthentication()**
+  * Replace `app.UseIdentity()` with `app.UseAuthentication()`. The `UseIdentity` method was removed in ASP.NET Core 2.0 in favor of `UseAuthentication`.
+* [OpenRewrite.Recipes.AspNetCore3.FindAddMvc](/user-documentation/recipes/recipe-catalog/csharp/recipes/aspnetcore3/findaddmvc.md)
+  * **Find AddMvc() calls**
+  * Flags `AddMvc()` calls that should be replaced with more specific service registrations (`AddControllers`, `AddControllersWithViews`, or `AddRazorPages`) in ASP.NET Core 3.0.
+* [OpenRewrite.Recipes.AspNetCore3.FindIApplicationLifetime](/user-documentation/recipes/recipe-catalog/csharp/recipes/aspnetcore3/findiapplicationlifetime.md)
+  * **Find IApplicationLifetime usage**
+  * Flags usages of `IApplicationLifetime` which should be replaced with `IHostApplicationLifetime` in ASP.NET Core 3.0.
+* [OpenRewrite.Recipes.AspNetCore3.FindIHostingEnvironment](/user-documentation/recipes/recipe-catalog/csharp/recipes/aspnetcore3/findihostingenvironment.md)
+  * **Find IHostingEnvironment usage**
+  * Flags usages of `IHostingEnvironment` which should be replaced with `IWebHostEnvironment` in ASP.NET Core 3.0.
+* [OpenRewrite.Recipes.AspNetCore3.FindNewLoggerFactory](/user-documentation/recipes/recipe-catalog/csharp/recipes/aspnetcore3/findnewloggerfactory.md)
+  * **Find new LoggerFactory() calls**
+  * Flags `new LoggerFactory()` calls that should be replaced with `LoggerFactory.Create(builder =&gt; ...)` in .NET Core 3.0+.
+* [OpenRewrite.Recipes.AspNetCore3.FindNewtonsoftJsonUsage](/user-documentation/recipes/recipe-catalog/csharp/recipes/aspnetcore3/findnewtonsoftjsonusage.md)
+  * **Find Newtonsoft.Json usage in ASP.NET Core**
+  * Flags `JsonConvert` and other `Newtonsoft.Json` usage. ASP.NET Core 3.0 uses `System.Text.Json` by default.
+* [OpenRewrite.Recipes.AspNetCore3.FindUseMvcOrUseSignalR](/user-documentation/recipes/recipe-catalog/csharp/recipes/aspnetcore3/findusemvcorusesignalr.md)
+  * **Find UseMvc()/UseSignalR() calls**
+  * Flags `UseMvc()` and `UseSignalR()` calls that should be replaced with endpoint routing (`UseRouting()` + `UseEndpoints()`) in ASP.NET Core 3.0.
+* [OpenRewrite.Recipes.AspNetCore3.FindWebHostBuilder](/user-documentation/recipes/recipe-catalog/csharp/recipes/aspnetcore3/findwebhostbuilder.md)
+  * **Find WebHostBuilder usage**
+  * Flags `WebHostBuilder` and `WebHost.CreateDefaultBuilder` usage that should migrate to the Generic Host pattern in ASP.NET Core 3.0+.
+* [OpenRewrite.Recipes.AspNetCore3.UpgradeToAspNetCore30](/user-documentation/recipes/recipe-catalog/csharp/recipes/aspnetcore3/upgradetoaspnetcore30.md)
+  * **Migrate to ASP.NET Core 3.0**
+  * Migrate ASP.NET Core 2.2 projects to ASP.NET Core 3.0, including endpoint routing, Generic Host, and System.Text.Json changes. See https://learn.microsoft.com/en-us/aspnet/core/migration/22-to-30.
+* [OpenRewrite.Recipes.ChangeDotNetTargetFramework](/user-documentation/recipes/recipe-catalog/csharp/recipes/changedotnettargetframework.md)
+  * **Change .NET target framework**
+  * Changes the `&lt;TargetFramework&gt;` or `&lt;TargetFrameworks&gt;` value in .csproj files. For multi-TFM projects, replaces the matching framework within the semicolon-delimited list.
+* [OpenRewrite.Recipes.Net10.FindActionContextAccessorObsolete](/user-documentation/recipes/recipe-catalog/csharp/recipes/net10/findactioncontextaccessorobsolete.md)
+  * **Find obsolete `IActionContextAccessor`/`ActionContextAccessor` (ASPDEPR006)**
+  * Finds usages of `IActionContextAccessor` and `ActionContextAccessor` which are obsolete in .NET 10. Use `IHttpContextAccessor` and `HttpContext.GetEndpoint()` instead.
+* [OpenRewrite.Recipes.Net10.FindActivitySampling](/user-documentation/recipes/recipe-catalog/csharp/recipes/net10/findactivitysampling.md)
+  * **Find `ActivitySamplingResult.PropagationData` behavior change**
+  * Finds usages of `ActivitySamplingResult.PropagationData` which has changed behavior in .NET 10. Activities with a recorded parent and PropagationData sampling no longer set `Activity.Recorded = true`.
+* [OpenRewrite.Recipes.Net10.FindBackgroundServiceExecuteAsync](/user-documentation/recipes/recipe-catalog/csharp/recipes/net10/findbackgroundserviceexecuteasync.md)
+  * **Find `BackgroundService.ExecuteAsync` behavior change**
+  * Finds methods that override `ExecuteAsync` from `BackgroundService`. In .NET 10, the entire method runs on a background thread; synchronous code before the first `await` no longer blocks host startup.
+* [OpenRewrite.Recipes.Net10.FindBufferedStreamWriteByte](/user-documentation/recipes/recipe-catalog/csharp/recipes/net10/findbufferedstreamwritebyte.md)
+  * **Find `BufferedStream.WriteByte` implicit flush behavior change**
+  * Finds calls to `BufferedStream.WriteByte()` which no longer performs an implicit flush when the internal buffer is full in .NET 10. Call `Flush()` explicitly if needed.
+* [OpenRewrite.Recipes.Net10.FindClipboardGetData](/user-documentation/recipes/recipe-catalog/csharp/recipes/net10/findclipboardgetdata.md)
+  * **Find obsolete `Clipboard.GetData` calls (WFDEV005)**
+  * Finds calls to `Clipboard.GetData(string)`. In .NET 10, this method is obsolete (WFDEV005). Use `Clipboard.TryGetData` methods instead.
+* [OpenRewrite.Recipes.Net10.FindDistributedContextPropagator](/user-documentation/recipes/recipe-catalog/csharp/recipes/net10/finddistributedcontextpropagator.md)
+  * **Find `DistributedContextPropagator` default propagator change**
+  * Finds usages of `DistributedContextPropagator.Current` and `DistributedContextPropagator.CreateDefaultPropagator()` which now default to W3C format in .NET 10. The 'baggage' header is used instead of 'Correlation-Context'.
+* [OpenRewrite.Recipes.Net10.FindDllImportSearchPath](/user-documentation/recipes/recipe-catalog/csharp/recipes/net10/finddllimportsearchpath.md)
+  * **Find `DllImportSearchPath.AssemblyDirectory` behavior change**
+  * Finds usages of `DllImportSearchPath.AssemblyDirectory` which has changed behavior in .NET 10. Specifying only `AssemblyDirectory` no longer falls back to OS default search paths.
+* [OpenRewrite.Recipes.Net10.FindDriveInfoDriveFormat](/user-documentation/recipes/recipe-catalog/csharp/recipes/net10/finddriveinfodriveformat.md)
+  * **Find `DriveInfo.DriveFormat` behavior change**
+  * Finds usages of `DriveInfo.DriveFormat` which returns Linux kernel filesystem type strings instead of mapped names in .NET 10. Verify that comparisons match the new format.
+* [OpenRewrite.Recipes.Net10.FindFormOnClosingObsolete](/user-documentation/recipes/recipe-catalog/csharp/recipes/net10/findformonclosingobsolete.md)
+  * **Find obsolete `Form.OnClosing`/`OnClosed` usage (WFDEV004)**
+  * Finds usage of `Form.OnClosing`, `Form.OnClosed`, and the `Closing`/`Closed` events. In .NET 10, these are obsolete (WFDEV004). Use `OnFormClosing`/`OnFormClosed` and `FormClosing`/`FormClosed` instead.
+* [OpenRewrite.Recipes.Net10.FindGnuTarPaxTarEntry](/user-documentation/recipes/recipe-catalog/csharp/recipes/net10/findgnutarpaxtarentry.md)
+  * **Find `GnuTarEntry`/`PaxTarEntry` default timestamp change**
+  * Finds `new GnuTarEntry(...)` and `new PaxTarEntry(...)` constructor calls. In .NET 10, these no longer set atime and ctime by default. Set `AccessTime`/`ChangeTime` explicitly if needed.
+* [OpenRewrite.Recipes.Net10.FindIpNetworkObsolete](/user-documentation/recipes/recipe-catalog/csharp/recipes/net10/findipnetworkobsolete.md)
+  * **Find obsolete `IPNetwork`/`KnownNetworks` (ASPDEPR005)**
+  * Finds usages of `Microsoft.AspNetCore.HttpOverrides.IPNetwork` and `ForwardedHeadersOptions.KnownNetworks` which are obsolete in .NET 10. Use `System.Net.IPNetwork` and `KnownIPNetworks` instead.
+* [OpenRewrite.Recipes.Net10.FindKeyedServiceAnyKey](/user-documentation/recipes/recipe-catalog/csharp/recipes/net10/findkeyedserviceanykey.md)
+  * **Find `KeyedService.AnyKey` behavior change**
+  * Finds usages of `KeyedService.AnyKey` which has changed behavior in .NET 10. `GetKeyedService(AnyKey)` now throws `InvalidOperationException` and `GetKeyedServices(AnyKey)` no longer returns AnyKey registrations.
+* [OpenRewrite.Recipes.Net10.FindMakeGenericSignatureType](/user-documentation/recipes/recipe-catalog/csharp/recipes/net10/findmakegenericsignaturetype.md)
+  * **Find `Type.MakeGenericSignatureType` validation change**
+  * Finds calls to `Type.MakeGenericSignatureType()` which now validates that the first argument is a generic type definition in .NET 10.
+* [OpenRewrite.Recipes.Net10.FindQueryableMaxByMinByObsolete](/user-documentation/recipes/recipe-catalog/csharp/recipes/net10/findqueryablemaxbyminbyobsolete.md)
+  * **Find obsolete `Queryable.MaxBy`/`MinBy` with `IComparer&lt;TSource&gt;` (SYSLIB0061)**
+  * Finds `Queryable.MaxBy` and `Queryable.MinBy` overloads taking `IComparer&lt;TSource&gt;` which are obsolete in .NET 10. Use the overloads taking `IComparer&lt;TKey&gt;` instead.
+* [OpenRewrite.Recipes.Net10.FindRazorRuntimeCompilationObsolete](/user-documentation/recipes/recipe-catalog/csharp/recipes/net10/findrazorruntimecompilationobsolete.md)
+  * **Find obsolete `AddRazorRuntimeCompilation` calls (ASPDEPR003)**
+  * Finds calls to `AddRazorRuntimeCompilation` which is obsolete in .NET 10. Use Hot Reload instead for development scenarios.
+* [OpenRewrite.Recipes.Net10.FindRfc2898DeriveBytesObsolete](/user-documentation/recipes/recipe-catalog/csharp/recipes/net10/findrfc2898derivebytesobsolete.md)
+  * **Find obsolete `Rfc2898DeriveBytes` constructors (SYSLIB0060)**
+  * Finds `new Rfc2898DeriveBytes(...)` constructor calls which are obsolete in .NET 10. Use the static `Rfc2898DeriveBytes.Pbkdf2()` method instead.
+* [OpenRewrite.Recipes.Net10.FindSslAuthEnumTypes](/user-documentation/recipes/recipe-catalog/csharp/recipes/net10/findsslauthenumtypes.md)
+  * **Find obsolete SSL authentication enum types**
+  * Finds usage of `ExchangeAlgorithmType`, `CipherAlgorithmType`, and `HashAlgorithmType` from `System.Security.Authentication`. These enum types are obsolete in .NET 10 (SYSLIB0058). Use `SslStream.NegotiatedCipherSuite` instead.
+* [OpenRewrite.Recipes.Net10.FindSslStreamObsoleteProperties](/user-documentation/recipes/recipe-catalog/csharp/recipes/net10/findsslstreamobsoleteproperties.md)
+  * **Find obsolete `SslStream` cipher properties (SYSLIB0058)**
+  * Finds usages of `SslStream.KeyExchangeAlgorithm`, `KeyExchangeStrength`, `CipherAlgorithm`, `CipherStrength`, `HashAlgorithm`, and `HashStrength` which are obsolete in .NET 10. Use `SslStream.NegotiatedCipherSuite` instead.
+* [OpenRewrite.Recipes.Net10.FindSystemDrawingExceptionChange](/user-documentation/recipes/recipe-catalog/csharp/recipes/net10/findsystemdrawingexceptionchange.md)
+  * **Find `catch (OutOfMemoryException)` that may need `ExternalException`**
+  * In .NET 10, System.Drawing GDI+ errors now throw `ExternalException` instead of `OutOfMemoryException`. This recipe finds catch blocks that catch `OutOfMemoryException` which may need to also catch `ExternalException`.
+* [OpenRewrite.Recipes.Net10.FindSystemEventsThreadShutdownObsolete](/user-documentation/recipes/recipe-catalog/csharp/recipes/net10/findsystemeventsthreadshutdownobsolete.md)
+  * **Find obsolete `SystemEvents.EventsThreadShutdown` (SYSLIB0059)**
+  * Finds usages of `SystemEvents.EventsThreadShutdown` which is obsolete in .NET 10. Use `AppDomain.ProcessExit` instead.
+* [OpenRewrite.Recipes.Net10.FindWebHostBuilderObsolete](/user-documentation/recipes/recipe-catalog/csharp/recipes/net10/findwebhostbuilderobsolete.md)
+  * **Find obsolete `WebHostBuilder`/`IWebHost`/`WebHost` usage (ASPDEPR004/ASPDEPR008)**
+  * Finds usages of `WebHostBuilder`, `IWebHost`, and `WebHost` which are obsolete in .NET 10. Migrate to `HostBuilder` or `WebApplicationBuilder` instead.
+* [OpenRewrite.Recipes.Net10.FindWinFormsObsoleteApis](/user-documentation/recipes/recipe-catalog/csharp/recipes/net10/findwinformsobsoleteapis.md)
+  * **Find obsolete Windows Forms APIs (WFDEV004/005/006)**
+  * Finds usages of Windows Forms APIs that are obsolete in .NET 10, including `Form.OnClosing/OnClosed` (WFDEV004), `Clipboard.GetData` (WFDEV005), and legacy controls like `ContextMenu`, `DataGrid`, `MainMenu` (WFDEV006).
+* [OpenRewrite.Recipes.Net10.FindWithOpenApiDeprecated](/user-documentation/recipes/recipe-catalog/csharp/recipes/net10/findwithopenapideprecated.md)
+  * **Find deprecated `WithOpenApi` calls (ASPDEPR002)**
+  * Finds calls to `.WithOpenApi()` which is deprecated in .NET 10. Remove the call or use `AddOpenApiOperationTransformer` instead.
+* [OpenRewrite.Recipes.Net10.FindX500DistinguishedNameValidation](/user-documentation/recipes/recipe-catalog/csharp/recipes/net10/findx500distinguishednamevalidation.md)
+  * **Find `X500DistinguishedName` string constructor stricter validation**
+  * Finds `new X500DistinguishedName(string, ...)` constructor calls which have stricter validation in .NET 10. Non-Windows environments may reject previously accepted values.
+* [OpenRewrite.Recipes.Net10.FindXsltSettingsEnableScriptObsolete](/user-documentation/recipes/recipe-catalog/csharp/recipes/net10/findxsltsettingsenablescriptobsolete.md)
+  * **Find obsolete `XsltSettings.EnableScript` (SYSLIB0062)**
+  * Finds usages of `XsltSettings.EnableScript` which is obsolete in .NET 10.
+* [OpenRewrite.Recipes.Net10.FormOnClosingRename](/user-documentation/recipes/recipe-catalog/csharp/recipes/net10/formonclosingrename.md)
+  * **Rename `Form.OnClosing/OnClosed` to `OnFormClosing/OnFormClosed` (WFDEV004)**
+  * Renames `Form.OnClosing` to `OnFormClosing` and `Form.OnClosed` to `OnFormClosed` for .NET 10 compatibility. Parameter type changes (`CancelEventArgs` → `FormClosingEventArgs`, `EventArgs` → `FormClosedEventArgs`) must be updated manually.
+* [OpenRewrite.Recipes.Net10.InsertAdjacentElementOrientParameterRename](/user-documentation/recipes/recipe-catalog/csharp/recipes/net10/insertadjacentelementorientparameterrename.md)
+  * **Rename `orient` parameter to `orientation` in `HtmlElement.InsertAdjacentElement`**
+  * The `orient` parameter of `HtmlElement.InsertAdjacentElement` was renamed to `orientation` in .NET 10. This recipe updates named arguments in method calls to use the new parameter name.
+* [OpenRewrite.Recipes.Net10.KnownNetworksRename](/user-documentation/recipes/recipe-catalog/csharp/recipes/net10/knownnetworksrename.md)
+  * **Rename `KnownNetworks` to `KnownIPNetworks` (ASPDEPR005)**
+  * Renames `ForwardedHeadersOptions.KnownNetworks` to `KnownIPNetworks` for .NET 10 compatibility.
+* [OpenRewrite.Recipes.Net10.MlDsaSlhDsaSecretKeyToPrivateKey](/user-documentation/recipes/recipe-catalog/csharp/recipes/net10/mldsaslhdsasecretkeytoprivatekey.md)
+  * **Rename MLDsa/SlhDsa `SecretKey` members to `PrivateKey`**
+  * Renames `SecretKey` to `PrivateKey` in MLDsa and SlhDsa post-quantum cryptography APIs to align with .NET 10 naming conventions.
+* [OpenRewrite.Recipes.Net10.RazorRuntimeCompilationObsolete](/user-documentation/recipes/recipe-catalog/csharp/recipes/net10/razorruntimecompilationobsolete.md)
+  * **Remove obsolete `AddRazorRuntimeCompilation` calls (ASPDEPR003)**
+  * Removes `AddRazorRuntimeCompilation()` calls which are obsolete in .NET 10. Use Hot Reload instead for development scenarios.
+* [OpenRewrite.Recipes.Net10.UpgradeToDotNet10](/user-documentation/recipes/recipe-catalog/csharp/recipes/net10/upgradetodotnet10.md)
+  * **Migrate to .NET 10**
+  * Migrate C# projects to .NET 10, applying necessary API changes. Includes all .NET 9 (and earlier) migration steps. See https://learn.microsoft.com/en-us/dotnet/core/compatibility/10.0.
+* [OpenRewrite.Recipes.Net10.WithOpenApiDeprecated](/user-documentation/recipes/recipe-catalog/csharp/recipes/net10/withopenapideprecated.md)
+  * **Remove deprecated `WithOpenApi` calls (ASPDEPR002)**
+  * Removes `.WithOpenApi()` calls which are deprecated in .NET 10. The call is removed from fluent method chains.
+* [OpenRewrite.Recipes.Net3_0.FindCompactOnMemoryPressure](/user-documentation/recipes/recipe-catalog/csharp/recipes/net3_0/findcompactonmemorypressure.md)
+  * **Find `CompactOnMemoryPressure` usage (removed in ASP.NET Core 3.0)**
+  * Finds usages of `CompactOnMemoryPressure` which was removed from `MemoryCacheOptions` in ASP.NET Core 3.0.
+* [OpenRewrite.Recipes.Net3_0.FindConnectionAdapter](/user-documentation/recipes/recipe-catalog/csharp/recipes/net3_0/findconnectionadapter.md)
+  * **Find `IConnectionAdapter` usage (removed in ASP.NET Core 3.0)**
+  * Finds usages of `IConnectionAdapter` which was removed from Kestrel in ASP.NET Core 3.0. Use Connection Middleware instead.
+* [OpenRewrite.Recipes.Net3_0.FindHttpContextAuthentication](/user-documentation/recipes/recipe-catalog/csharp/recipes/net3_0/findhttpcontextauthentication.md)
+  * **Find `HttpContext.Authentication` usage (removed in ASP.NET Core 3.0)**
+  * Finds usages of `HttpContext.Authentication` which was removed in ASP.NET Core 3.0. Use dependency injection to get `IAuthenticationService` instead.
+* [OpenRewrite.Recipes.Net3_0.FindNewtonsoftJson](/user-documentation/recipes/recipe-catalog/csharp/recipes/net3_0/findnewtonsoftjson.md)
+  * **Find Newtonsoft.Json usage**
+  * Finds usages of Newtonsoft.Json types (`JObject`, `JArray`, `JToken`, `JsonConvert`) that should be migrated to `System.Text.Json` or explicitly preserved via `Microsoft.AspNetCore.Mvc.NewtonsoftJson` in ASP.NET Core 3.0+.
+* [OpenRewrite.Recipes.Net3_0.FindObsoleteLocalizationApis](/user-documentation/recipes/recipe-catalog/csharp/recipes/net3_0/findobsoletelocalizationapis.md)
+  * **Find obsolete localization APIs (ASP.NET Core 3.0)**
+  * Finds usages of `ResourceManagerWithCultureStringLocalizer` and `WithCulture()` which are obsolete in ASP.NET Core 3.0.
+* [OpenRewrite.Recipes.Net3_0.FindSpaServices](/user-documentation/recipes/recipe-catalog/csharp/recipes/net3_0/findspaservices.md)
+  * **Find SpaServices/NodeServices usage (obsolete in ASP.NET Core 3.0)**
+  * Finds usages of `SpaServices` and `NodeServices` which are obsolete in ASP.NET Core 3.0.
+* [OpenRewrite.Recipes.Net3_0.FindSynchronousIO](/user-documentation/recipes/recipe-catalog/csharp/recipes/net3_0/findsynchronousio.md)
+  * **Find synchronous IO usage (disabled in ASP.NET Core 3.0)**
+  * Finds references to `AllowSynchronousIO` which indicates synchronous IO usage that is disabled by default in ASP.NET Core 3.0.
+* [OpenRewrite.Recipes.Net3_0.FindUseMvc](/user-documentation/recipes/recipe-catalog/csharp/recipes/net3_0/findusemvc.md)
+  * **Find `UseMvc`/`AddMvc` usage (replaced in ASP.NET Core 3.0)**
+  * Finds usages of `app.UseMvc()`, `app.UseMvcWithDefaultRoute()`, and `services.AddMvc()` which should be migrated to endpoint routing and more specific service registration in ASP.NET Core 3.0.
+* [OpenRewrite.Recipes.Net3_0.FindWebApiCompatShim](/user-documentation/recipes/recipe-catalog/csharp/recipes/net3_0/findwebapicompatshim.md)
+  * **Find Web API compatibility shim usage (removed in ASP.NET Core 3.0)**
+  * Finds usages of `ApiController`, `HttpResponseMessage`, and other types from `Microsoft.AspNetCore.Mvc.WebApiCompatShim` which was removed in ASP.NET Core 3.0.
+* [OpenRewrite.Recipes.Net3_0.FindWebHostBuilder](/user-documentation/recipes/recipe-catalog/csharp/recipes/net3_0/findwebhostbuilder.md)
+  * **Find `WebHostBuilder`/`WebHost.CreateDefaultBuilder` usage (replaced in ASP.NET Core 3.0)**
+  * Finds usages of `WebHost.CreateDefaultBuilder()` and `new WebHostBuilder()` which should be migrated to `Host.CreateDefaultBuilder()` with `ConfigureWebHostDefaults()` in ASP.NET Core 3.0.
+* [OpenRewrite.Recipes.Net3_0.UpgradeToDotNet3_0](/user-documentation/recipes/recipe-catalog/csharp/recipes/net3_0/upgradetodotnet3_0.md)
+  * **Migrate to .NET Core 3.0**
+  * Migrate C# projects from .NET Core 2.x to .NET Core 3.0, applying necessary API changes for removed and replaced types. See https://learn.microsoft.com/en-us/dotnet/core/compatibility/3.0.
+* [OpenRewrite.Recipes.Net3_0.UseApiControllerBase](/user-documentation/recipes/recipe-catalog/csharp/recipes/net3_0/useapicontrollerbase.md)
+  * **Migrate ApiController to ControllerBase**
+  * Replace `ApiController` base class (from the removed WebApiCompatShim) with `ControllerBase` and add the `[ApiController]` attribute. The shim was removed in ASP.NET Core 3.0.
+* [OpenRewrite.Recipes.Net3_1.FindSameSiteNone](/user-documentation/recipes/recipe-catalog/csharp/recipes/net3_1/findsamesitenone.md)
+  * **Find `SameSiteMode.None` usage (behavior changed in .NET Core 3.1)**
+  * Finds usages of `SameSiteMode.None` which changed behavior in .NET Core 3.1 due to Chrome 80 SameSite cookie changes. Apps using remote authentication may need browser sniffing.
+* [OpenRewrite.Recipes.Net3_1.UpgradeToDotNet3_1](/user-documentation/recipes/recipe-catalog/csharp/recipes/net3_1/upgradetodotnet3_1.md)
+  * **Migrate to .NET Core 3.1**
+  * Migrate C# projects from .NET Core 3.0 to .NET Core 3.1. Includes all .NET Core 3.0 migration steps. See https://learn.microsoft.com/en-us/dotnet/core/compatibility/3.1.
+* [OpenRewrite.Recipes.Net5.FindCodeAccessSecurity](/user-documentation/recipes/recipe-catalog/csharp/recipes/net5/findcodeaccesssecurity.md)
+  * **Find Code Access Security usage (obsolete in .NET 5)**
+  * Finds usages of Code Access Security types (`SecurityPermission`, `PermissionSet`, etc.) which are obsolete in .NET 5+.
+* [OpenRewrite.Recipes.Net5.FindPrincipalPermissionAttribute](/user-documentation/recipes/recipe-catalog/csharp/recipes/net5/findprincipalpermissionattribute.md)
+  * **Find `PrincipalPermissionAttribute` usage (SYSLIB0003)**
+  * Finds usages of `PrincipalPermissionAttribute` which is obsolete in .NET 5+ (SYSLIB0003) and throws `NotSupportedException` at runtime.
+* [OpenRewrite.Recipes.Net5.FindUtf7Encoding](/user-documentation/recipes/recipe-catalog/csharp/recipes/net5/findutf7encoding.md)
+  * **Find `Encoding.UTF7` usage (SYSLIB0001)**
+  * Finds usages of `Encoding.UTF7` and `UTF7Encoding` which are obsolete in .NET 5+ (SYSLIB0001). UTF-7 is insecure.
+* [OpenRewrite.Recipes.Net5.FindWinHttpHandler](/user-documentation/recipes/recipe-catalog/csharp/recipes/net5/findwinhttphandler.md)
+  * **Find `WinHttpHandler` usage (removed in .NET 5)**
+  * Finds usages of `WinHttpHandler` which was removed from the .NET 5 runtime. Install the `System.Net.Http.WinHttpHandler` NuGet package explicitly.
+* [OpenRewrite.Recipes.Net5.FindWinRTInterop](/user-documentation/recipes/recipe-catalog/csharp/recipes/net5/findwinrtinterop.md)
+  * **Find WinRT interop usage (removed in .NET 5)**
+  * Finds usages of WinRT interop types (`WindowsRuntimeType`, `WindowsRuntimeMarshal`, etc.) which were removed in .NET 5.
+* [OpenRewrite.Recipes.Net5.UpgradeToDotNet5](/user-documentation/recipes/recipe-catalog/csharp/recipes/net5/upgradetodotnet5.md)
+  * **Migrate to .NET 5**
+  * Migrate C# projects from .NET Core 3.1 to .NET 5.0. Includes all .NET Core 3.0 and 3.1 migration steps. See https://learn.microsoft.com/en-us/dotnet/core/compatibility/5.0.
+* [OpenRewrite.Recipes.Net6.FindAssemblyCodeBase](/user-documentation/recipes/recipe-catalog/csharp/recipes/net6/findassemblycodebase.md)
+  * **Find `Assembly.CodeBase`/`EscapedCodeBase` usage (SYSLIB0012)**
+  * Finds usages of `Assembly.CodeBase` and `Assembly.EscapedCodeBase` which are obsolete (SYSLIB0012). Use `Assembly.Location` instead.
+* [OpenRewrite.Recipes.Net6.FindIgnoreNullValues](/user-documentation/recipes/recipe-catalog/csharp/recipes/net6/findignorenullvalues.md)
+  * **Find `JsonSerializerOptions.IgnoreNullValues` usage (SYSLIB0020)**
+  * Finds usages of `JsonSerializerOptions.IgnoreNullValues` which is obsolete in .NET 6 (SYSLIB0020). Use `DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull` instead.
+* [OpenRewrite.Recipes.Net6.FindThreadAbort](/user-documentation/recipes/recipe-catalog/csharp/recipes/net6/findthreadabort.md)
+  * **Find `Thread.Abort` usage (SYSLIB0006)**
+  * Finds calls to `Thread.Abort()` which throws `PlatformNotSupportedException` in .NET 6+ (SYSLIB0006). Use `CancellationToken` for cooperative cancellation instead.
+* [OpenRewrite.Recipes.Net6.FindWebRequest](/user-documentation/recipes/recipe-catalog/csharp/recipes/net6/findwebrequest.md)
+  * **Find `WebRequest`/`HttpWebRequest`/`WebClient` usage (SYSLIB0014)**
+  * Finds usages of `WebRequest`, `HttpWebRequest`, and `WebClient` which are obsolete in .NET 6 (SYSLIB0014). Use `HttpClient` instead.
+* [OpenRewrite.Recipes.Net6.FindX509PrivateKey](/user-documentation/recipes/recipe-catalog/csharp/recipes/net6/findx509privatekey.md)
+  * **Find `X509Certificate2.PrivateKey` usage (SYSLIB0028)**
+  * Finds usages of `X509Certificate2.PrivateKey` which is obsolete (SYSLIB0028). Use `GetRSAPrivateKey()`, `GetECDsaPrivateKey()`, or the appropriate algorithm-specific method instead.
+* [OpenRewrite.Recipes.Net6.UpgradeToDotNet6](/user-documentation/recipes/recipe-catalog/csharp/recipes/net6/upgradetodotnet6.md)
+  * **Migrate to .NET 6**
+  * Migrate C# projects to .NET 6, applying necessary API changes for obsoleted cryptographic types and other breaking changes. Includes all .NET Core 3.0, 3.1, and .NET 5 migration steps. See https://learn.microsoft.com/en-us/dotnet/core/compatibility/6.0.
+* [OpenRewrite.Recipes.Net6.UseEnvironmentCurrentManagedThreadId](/user-documentation/recipes/recipe-catalog/csharp/recipes/net6/useenvironmentcurrentmanagedthreadid.md)
+  * **Use Environment.CurrentManagedThreadId**
+  * Replace `Thread.CurrentThread.ManagedThreadId` with `Environment.CurrentManagedThreadId` (CA1840). Available since .NET 6.
+* [OpenRewrite.Recipes.Net6.UseEnvironmentProcessId](/user-documentation/recipes/recipe-catalog/csharp/recipes/net6/useenvironmentprocessid.md)
+  * **Use Environment.ProcessId**
+  * Replace `Process.GetCurrentProcess().Id` with `Environment.ProcessId` (CA1837). Available since .NET 6.
+* [OpenRewrite.Recipes.Net6.UseEnvironmentProcessPath](/user-documentation/recipes/recipe-catalog/csharp/recipes/net6/useenvironmentprocesspath.md)
+  * **Use Environment.ProcessPath**
+  * Replace `Process.GetCurrentProcess().MainModule.FileName` with `Environment.ProcessPath` (CA1839). Available since .NET 6.
+* [OpenRewrite.Recipes.Net6.UseLinqDistinctBy](/user-documentation/recipes/recipe-catalog/csharp/recipes/net6/uselinqdistinctby.md)
+  * **Use LINQ DistinctBy()**
+  * Replace `collection.GroupBy(selector).Select(g =&gt; g.First())` with `collection.DistinctBy(selector)`. Available since .NET 6.
+* [OpenRewrite.Recipes.Net6.UseLinqMaxMinBy](/user-documentation/recipes/recipe-catalog/csharp/recipes/net6/uselinqmaxminby.md)
+  * **Use LINQ MaxBy() and MinBy()**
+  * Replace `collection.OrderByDescending(selector).First()` with `collection.MaxBy(selector)` and `collection.OrderBy(selector).First()` with `collection.MinBy(selector)`. Also handles `.Last()` variants (OrderBy().Last() → MaxBy, OrderByDescending().Last() → MinBy). Note: MinBy/MaxBy return default for empty reference-type sequences instead of throwing. Available since .NET 6.
+* [OpenRewrite.Recipes.Net6.UseRandomShared](/user-documentation/recipes/recipe-catalog/csharp/recipes/net6/userandomshared.md)
+  * **Use Random.Shared**
+  * Replace `new Random().Method(...)` with `Random.Shared.Method(...)`. Available since .NET 6.
+* [OpenRewrite.Recipes.Net6.UseStringContainsChar](/user-documentation/recipes/recipe-catalog/csharp/recipes/net6/usestringcontainschar.md)
+  * **Use string.Contains(char) overload**
+  * Finds calls to `string.Contains(&quot;x&quot;)` with a single-character string literal that could use the `string.Contains('x')` overload for better performance.
+* [OpenRewrite.Recipes.Net6.UseStringStartsEndsWithChar](/user-documentation/recipes/recipe-catalog/csharp/recipes/net6/usestringstartsendswithchar.md)
+  * **Use string.StartsWith(char)/EndsWith(char) overload**
+  * Finds calls to `string.StartsWith(&quot;x&quot;)` and `string.EndsWith(&quot;x&quot;)` with a single-character string literal that could use the char overload for better performance.
+* [OpenRewrite.Recipes.Net6.UseThrowIfNull](/user-documentation/recipes/recipe-catalog/csharp/recipes/net6/usethrowifnull.md)
+  * **Use ArgumentNullException.ThrowIfNull()**
+  * Replace `if (x == null) throw new ArgumentNullException(nameof(x))` guard clauses with `ArgumentNullException.ThrowIfNull(x)` (CA1510). Handles `== null`, `is null`, reversed `null ==`, string literal param names, and braced then-blocks. Available since .NET 6.
+* [OpenRewrite.Recipes.Net7.FindObsoleteSslProtocols](/user-documentation/recipes/recipe-catalog/csharp/recipes/net7/findobsoletesslprotocols.md)
+  * **Find obsolete `SslProtocols.Tls`/`Tls11` usage (SYSLIB0039)**
+  * Finds usages of `SslProtocols.Tls` and `SslProtocols.Tls11` which are obsolete in .NET 7 (SYSLIB0039). Use `SslProtocols.Tls12`, `SslProtocols.Tls13`, or `SslProtocols.None` instead.
+* [OpenRewrite.Recipes.Net7.FindRfc2898InsecureCtors](/user-documentation/recipes/recipe-catalog/csharp/recipes/net7/findrfc2898insecurectors.md)
+  * **Find insecure `Rfc2898DeriveBytes` constructors (SYSLIB0041)**
+  * Finds `Rfc2898DeriveBytes` constructor calls that use default SHA1 or low iteration counts, which are obsolete in .NET 7 (SYSLIB0041). Specify `HashAlgorithmName` and at least 600,000 iterations.
+* [OpenRewrite.Recipes.Net7.UpgradeToDotNet7](/user-documentation/recipes/recipe-catalog/csharp/recipes/net7/upgradetodotnet7.md)
+  * **Migrate to .NET 7**
+  * Migrate C# projects to .NET 7, applying necessary API changes. See https://learn.microsoft.com/en-us/dotnet/core/compatibility/7.0.
+* [OpenRewrite.Recipes.Net7.UseLinqOrder](/user-documentation/recipes/recipe-catalog/csharp/recipes/net7/uselinqorder.md)
+  * **Use LINQ Order() and OrderDescending()**
+  * Replace `collection.OrderBy(x =&gt; x)` with `collection.Order()` and `collection.OrderByDescending(x =&gt; x)` with `collection.OrderDescending()`. Available since .NET 7.
+* [OpenRewrite.Recipes.Net7.UseThrowIfNegative](/user-documentation/recipes/recipe-catalog/csharp/recipes/net7/usethrowifnegative.md)
+  * **Use ArgumentOutOfRangeException.ThrowIfNegative()**
+  * Replace `if (value &lt; 0) throw new ArgumentOutOfRangeException(nameof(value))` guard clauses with `ArgumentOutOfRangeException.ThrowIfNegative(value)`. Also handles reversed `0 &gt; value`. Available since .NET 7.
+* [OpenRewrite.Recipes.Net7.UseThrowIfNegativeOrZero](/user-documentation/recipes/recipe-catalog/csharp/recipes/net7/usethrowifnegativeorzero.md)
+  * **Use ArgumentOutOfRangeException.ThrowIfNegativeOrZero()**
+  * Replace `if (value &lt;= 0) throw new ArgumentOutOfRangeException(nameof(value))` guard clauses with `ArgumentOutOfRangeException.ThrowIfNegativeOrZero(value)`. Also handles reversed `0 &gt;= value`. Available since .NET 7.
+* [OpenRewrite.Recipes.Net7.UseThrowIfNullOrEmpty](/user-documentation/recipes/recipe-catalog/csharp/recipes/net7/usethrowifnullorempty.md)
+  * **Use ArgumentException.ThrowIfNullOrEmpty()**
+  * Replace `if (string.IsNullOrEmpty(s)) throw new ArgumentException(&quot;...&quot;, nameof(s))` guard clauses with `ArgumentException.ThrowIfNullOrEmpty(s)`. Available since .NET 7.
+* [OpenRewrite.Recipes.Net8.FindAddContext](/user-documentation/recipes/recipe-catalog/csharp/recipes/net8/findaddcontext.md)
+  * **Find `JsonSerializerOptions.AddContext` usage (SYSLIB0049)**
+  * Finds calls to `JsonSerializerOptions.AddContext&lt;T&gt;()` which is obsolete in .NET 8 (SYSLIB0049). Use `TypeInfoResolverChain` or `TypeInfoResolver` instead.
+* [OpenRewrite.Recipes.Net8.FindAesGcmOldConstructor](/user-documentation/recipes/recipe-catalog/csharp/recipes/net8/findaesgcmoldconstructor.md)
+  * **Find `AesGcm` constructor without tag size (SYSLIB0053)**
+  * Finds `new AesGcm(key)` constructor calls without an explicit tag size parameter. In .NET 8, the single-argument constructor is obsolete (SYSLIB0053). Use `new AesGcm(key, tagSizeInBytes)` instead.
+* [OpenRewrite.Recipes.Net8.FindFormatterBasedSerialization](/user-documentation/recipes/recipe-catalog/csharp/recipes/net8/findformatterbasedserialization.md)
+  * **Find formatter-based serialization types (SYSLIB0050/0051)**
+  * Finds usage of formatter-based serialization types (`FormatterConverter`, `IFormatter`, `ObjectIDGenerator`, `ObjectManager`, `SurrogateSelector`, `SerializationInfo`, `StreamingContext`). These are obsolete in .NET 8 (SYSLIB0050/0051).
+* [OpenRewrite.Recipes.Net8.FindFrozenCollection](/user-documentation/recipes/recipe-catalog/csharp/recipes/net8/findfrozencollection.md)
+  * **Find ToImmutable*() that could use Frozen collections**
+  * Finds usages of `ToImmutableDictionary()` and `ToImmutableHashSet()`. In .NET 8+, `ToFrozenDictionary()` and `ToFrozenSet()` provide better read performance.
+* [OpenRewrite.Recipes.Net8.FindRegexCompileToAssembly](/user-documentation/recipes/recipe-catalog/csharp/recipes/net8/findregexcompiletoassembly.md)
+  * **Find `Regex.CompileToAssembly` usage (SYSLIB0052)**
+  * Finds usage of `Regex.CompileToAssembly()` and `RegexCompilationInfo`. These are obsolete in .NET 8 (SYSLIB0052). Use the Regex source generator instead.
+* [OpenRewrite.Recipes.Net8.FindSerializationConstructors](/user-documentation/recipes/recipe-catalog/csharp/recipes/net8/findserializationconstructors.md)
+  * **Find legacy serialization constructors (SYSLIB0051)**
+  * Finds legacy serialization constructors `.ctor(SerializationInfo, StreamingContext)` which are obsolete in .NET 8 (SYSLIB0051). The `ISerializable` pattern is no longer recommended.
+* [OpenRewrite.Recipes.Net8.FindTimeAbstraction](/user-documentation/recipes/recipe-catalog/csharp/recipes/net8/findtimeabstraction.md)
+  * **Find DateTime.Now/UtcNow usage (TimeProvider in .NET 8)**
+  * Finds usages of `DateTime.Now`, `DateTime.UtcNow`, `DateTimeOffset.Now`, and `DateTimeOffset.UtcNow`. In .NET 8+, `TimeProvider` is the recommended abstraction for time.
+* [OpenRewrite.Recipes.Net8.UpgradeToDotNet8](/user-documentation/recipes/recipe-catalog/csharp/recipes/net8/upgradetodotnet8.md)
+  * **Migrate to .NET 8**
+  * Migrate C# projects to .NET 8, applying necessary API changes. Includes all .NET 7 migration steps. See https://learn.microsoft.com/en-us/dotnet/core/compatibility/8.0.
+* [OpenRewrite.Recipes.Net8.UseThrowIfGreaterThan](/user-documentation/recipes/recipe-catalog/csharp/recipes/net8/usethrowifgreaterthan.md)
+  * **Use ArgumentOutOfRangeException.ThrowIfGreaterThan()**
+  * Replace `if (value &gt; other) throw new ArgumentOutOfRangeException(nameof(value))` guard clauses with `ArgumentOutOfRangeException.ThrowIfGreaterThan(value, other)`. Also handles reversed `other &lt; value` and `&gt;=`/`ThrowIfGreaterThanOrEqual`. Available since .NET 8.
+* [OpenRewrite.Recipes.Net8.UseThrowIfLessThan](/user-documentation/recipes/recipe-catalog/csharp/recipes/net8/usethrowiflessthan.md)
+  * **Use ArgumentOutOfRangeException.ThrowIfLessThan()**
+  * Replace `if (value &lt; other) throw new ArgumentOutOfRangeException(nameof(value))` guard clauses with `ArgumentOutOfRangeException.ThrowIfLessThan(value, other)`. Also handles reversed `other &gt; value` and `&lt;=`/`ThrowIfLessThanOrEqual`. Available since .NET 8.
+* [OpenRewrite.Recipes.Net8.UseThrowIfNullOrWhiteSpace](/user-documentation/recipes/recipe-catalog/csharp/recipes/net8/usethrowifnullorwhitespace.md)
+  * **Use ArgumentException.ThrowIfNullOrWhiteSpace()**
+  * Replace `if (string.IsNullOrWhiteSpace(s)) throw new ArgumentException(&quot;...&quot;, nameof(s))` guard clauses with `ArgumentException.ThrowIfNullOrWhiteSpace(s)`. Available since .NET 8.
+* [OpenRewrite.Recipes.Net8.UseThrowIfZero](/user-documentation/recipes/recipe-catalog/csharp/recipes/net8/usethrowifzero.md)
+  * **Use ArgumentOutOfRangeException.ThrowIfZero()**
+  * Replace `if (value == 0) throw new ArgumentOutOfRangeException(nameof(value))` guard clauses with `ArgumentOutOfRangeException.ThrowIfZero(value)`. Also handles reversed `0 == value`. Available since .NET 8.
+* [OpenRewrite.Recipes.Net8.UseTimeProvider](/user-documentation/recipes/recipe-catalog/csharp/recipes/net8/usetimeprovider.md)
+  * **Use TimeProvider instead of DateTime/DateTimeOffset static properties**
+  * Replace `DateTime.UtcNow`, `DateTime.Now`, `DateTimeOffset.UtcNow`, and `DateTimeOffset.Now` with `TimeProvider.System.GetUtcNow()`/`GetLocalNow()` equivalents. TimeProvider enables testability and consistent time sources. Available since .NET 8.
+* [OpenRewrite.Recipes.Net9.FindAuthenticationManager](/user-documentation/recipes/recipe-catalog/csharp/recipes/net9/findauthenticationmanager.md)
+  * **Find `AuthenticationManager` usage (SYSLIB0009)**
+  * Finds usages of `AuthenticationManager` which is not supported in .NET 9 (SYSLIB0009). Methods will no-op or throw `PlatformNotSupportedException`.
+* [OpenRewrite.Recipes.Net9.FindBinaryFormatter](/user-documentation/recipes/recipe-catalog/csharp/recipes/net9/findbinaryformatter.md)
+  * **Find `BinaryFormatter` usage (removed in .NET 9)**
+  * Finds usages of `BinaryFormatter` which always throws `NotSupportedException` in .NET 9. Migrate to a different serializer such as `System.Text.Json`, `XmlSerializer`, or `DataContractSerializer`.
+* [OpenRewrite.Recipes.Net9.FindBinaryReaderReadString](/user-documentation/recipes/recipe-catalog/csharp/recipes/net9/findbinaryreaderreadstring.md)
+  * **Find `BinaryReader.ReadString` behavior change**
+  * Finds calls to `BinaryReader.ReadString()` which now returns the Unicode replacement character (\uFFFD) for malformed UTF-8 byte sequences in .NET 9, instead of the previous behavior. Verify your code handles the replacement character correctly.
+* [OpenRewrite.Recipes.Net9.FindDistributedCache](/user-documentation/recipes/recipe-catalog/csharp/recipes/net9/finddistributedcache.md)
+  * **Find IDistributedCache usage (HybridCache in .NET 9)**
+  * Finds usages of `IDistributedCache`. In .NET 9, `HybridCache` is the recommended replacement with L1/L2 caching, stampede protection, and tag-based invalidation.
+* [OpenRewrite.Recipes.Net9.FindEnumConverter](/user-documentation/recipes/recipe-catalog/csharp/recipes/net9/findenumconverter.md)
+  * **Find `EnumConverter` constructor validation change**
+  * Finds `new EnumConverter()` constructor calls. In .NET 9, `EnumConverter` validates that the registered type is actually an enum and throws `ArgumentException` if not.
+* [OpenRewrite.Recipes.Net9.FindExecuteUpdateSync](/user-documentation/recipes/recipe-catalog/csharp/recipes/net9/findexecuteupdatesync.md)
+  * **Find synchronous ExecuteUpdate/ExecuteDelete (EF Core 9)**
+  * Finds usages of synchronous `ExecuteUpdate()` and `ExecuteDelete()` which were removed in EF Core 9. Use `ExecuteUpdateAsync`/`ExecuteDeleteAsync` instead.
+* [OpenRewrite.Recipes.Net9.FindHttpClientHandlerCast](/user-documentation/recipes/recipe-catalog/csharp/recipes/net9/findhttpclienthandlercast.md)
+  * **Find `HttpClientHandler` usage (HttpClientFactory default change)**
+  * Finds usages of `HttpClientHandler` which may break when `HttpClientFactory` switches its default handler to `SocketsHttpHandler` in .NET 9.
+* [OpenRewrite.Recipes.Net9.FindHttpListenerRequestUserAgent](/user-documentation/recipes/recipe-catalog/csharp/recipes/net9/findhttplistenerrequestuseragent.md)
+  * **Find `HttpListenerRequest.UserAgent` nullable change**
+  * Finds accesses to `HttpListenerRequest.UserAgent` which changed from `string` to `string?` in .NET 9. Code that assumes `UserAgent` is non-null may throw `NullReferenceException`.
+* [OpenRewrite.Recipes.Net9.FindImplicitAuthenticationDefault](/user-documentation/recipes/recipe-catalog/csharp/recipes/net9/findimplicitauthenticationdefault.md)
+  * **Find implicit authentication default scheme (ASP.NET Core 9)**
+  * Finds calls to `AddAuthentication()` with no arguments. In .NET 9, a single registered authentication scheme is no longer automatically used as the default.
+* [OpenRewrite.Recipes.Net9.FindInMemoryDirectoryInfo](/user-documentation/recipes/recipe-catalog/csharp/recipes/net9/findinmemorydirectoryinfo.md)
+  * **Find `InMemoryDirectoryInfo` rootDir prepend change**
+  * Finds `new InMemoryDirectoryInfo()` constructor calls. In .NET 9, `rootDir` is prepended to file paths that don't start with the `rootDir`, which may change file matching behavior.
+* [OpenRewrite.Recipes.Net9.FindIncrementingPollingCounter](/user-documentation/recipes/recipe-catalog/csharp/recipes/net9/findincrementingpollingcounter.md)
+  * **Find `IncrementingPollingCounter` async callback change**
+  * Finds `new IncrementingPollingCounter()` constructor calls. In .NET 9, the initial callback invocation is asynchronous instead of synchronous, which may change timing behavior.
+* [OpenRewrite.Recipes.Net9.FindJsonDocumentNullable](/user-documentation/recipes/recipe-catalog/csharp/recipes/net9/findjsondocumentnullable.md)
+  * **Find `JsonSerializer.Deserialize` nullable `JsonDocument` change**
+  * Finds `JsonSerializer.Deserialize()` calls. In .NET 9, nullable `JsonDocument` properties now deserialize to a `JsonDocument` with `RootElement.ValueKind == JsonValueKind.Null` instead of being `null`.
+* [OpenRewrite.Recipes.Net9.FindJsonStringEnumConverter](/user-documentation/recipes/recipe-catalog/csharp/recipes/net9/findjsonstringenumconverter.md)
+  * **Find non-generic JsonStringEnumConverter**
+  * Finds usages of the non-generic `JsonStringEnumConverter`. In .NET 9, the generic `JsonStringEnumConverter&lt;TEnum&gt;` is preferred for AOT compatibility.
+* [OpenRewrite.Recipes.Net9.FindRuntimeHelpersGetSubArray](/user-documentation/recipes/recipe-catalog/csharp/recipes/net9/findruntimehelpersgetsubarray.md)
+  * **Find `RuntimeHelpers.GetSubArray` return type change**
+  * Finds calls to `RuntimeHelpers.GetSubArray()` which may return a different array type in .NET 9. Code that depends on the runtime type of the returned array may break.
+* [OpenRewrite.Recipes.Net9.FindSafeEvpPKeyHandleDuplicate](/user-documentation/recipes/recipe-catalog/csharp/recipes/net9/findsafeevppkeyhandleduplicate.md)
+  * **Find `SafeEvpPKeyHandle.DuplicateHandle` up-ref change**
+  * Finds calls to `SafeEvpPKeyHandle.DuplicateHandle()`. In .NET 9, this method now increments the reference count instead of creating a deep copy, which may affect handle lifetime.
+* [OpenRewrite.Recipes.Net9.FindServicePointManager](/user-documentation/recipes/recipe-catalog/csharp/recipes/net9/findservicepointmanager.md)
+  * **Find `ServicePointManager` usage (SYSLIB0014)**
+  * Finds usages of `ServicePointManager` which is fully obsolete in .NET 9 (SYSLIB0014). Settings on `ServicePointManager` don't affect `SslStream` or `HttpClient`.
+* [OpenRewrite.Recipes.Net9.FindSwashbuckle](/user-documentation/recipes/recipe-catalog/csharp/recipes/net9/findswashbuckle.md)
+  * **Find Swashbuckle usage (ASP.NET Core 9 built-in OpenAPI)**
+  * Finds usages of Swashbuckle APIs (`AddSwaggerGen`, `UseSwagger`, `UseSwaggerUI`). .NET 9 includes built-in OpenAPI support. Consider migrating to `AddOpenApi()`/`MapOpenApi()`.
+* [OpenRewrite.Recipes.Net9.FindX509CertificateConstructors](/user-documentation/recipes/recipe-catalog/csharp/recipes/net9/findx509certificateconstructors.md)
+  * **Find obsolete `X509Certificate2`/`X509Certificate` constructors (SYSLIB0057)**
+  * Finds usages of `X509Certificate2` and `X509Certificate` constructors that accept binary content or file paths, which are obsolete in .NET 9 (SYSLIB0057). Use `X509CertificateLoader` methods instead.
+* [OpenRewrite.Recipes.Net9.FindZipArchiveCompressionLevel](/user-documentation/recipes/recipe-catalog/csharp/recipes/net9/findziparchivecompressionlevel.md)
+  * **Find `ZipArchive.CreateEntry` with `CompressionLevel` (bit flag change)**
+  * Finds `ZipArchive.CreateEntry()` and `ZipFileExtensions.CreateEntryFromFile()` calls with a `CompressionLevel` parameter. In .NET 9, the `CompressionLevel` value now sets general-purpose bit flags in the ZIP central directory header, which may affect interoperability.
+* [OpenRewrite.Recipes.Net9.FindZipArchiveEntryEncoding](/user-documentation/recipes/recipe-catalog/csharp/recipes/net9/findziparchiveentryencoding.md)
+  * **Find `ZipArchiveEntry` name/comment UTF-8 encoding change**
+  * Finds access to `ZipArchiveEntry.Name`, `FullName`, or `Comment` properties. In .NET 9, these now respect the UTF-8 flag in ZIP entries, which may change decoded values.
+* [OpenRewrite.Recipes.Net9.MigrateSwashbuckleToOpenApi](/user-documentation/recipes/recipe-catalog/csharp/recipes/net9/migrateswashbuckletoopenapi.md)
+  * **Migrate Swashbuckle to built-in OpenAPI**
+  * Migrate from Swashbuckle to the built-in OpenAPI support in ASP.NET Core 9. Replaces `AddSwaggerGen()` with `AddOpenApi()`, `UseSwaggerUI()` with `MapOpenApi()`, removes `UseSwagger()`, removes Swashbuckle packages, and adds `Microsoft.AspNetCore.OpenApi`.
+* [OpenRewrite.Recipes.Net9.RemoveConfigureAwaitFalse](/user-documentation/recipes/recipe-catalog/csharp/recipes/net9/removeconfigureawaitfalse.md)
+  * **Remove ConfigureAwait(false)**
+  * Remove `.ConfigureAwait(false)` calls that are unnecessary in ASP.NET Core and modern .NET applications (no SynchronizationContext). Do not apply to library code targeting .NET Framework.
+* [OpenRewrite.Recipes.Net9.UpgradeToDotNet9](/user-documentation/recipes/recipe-catalog/csharp/recipes/net9/upgradetodotnet9.md)
+  * **Migrate to .NET 9**
+  * Migrate C# projects to .NET 9, applying necessary API changes. Includes all .NET 7 and .NET 8 migration steps. See https://learn.microsoft.com/en-us/dotnet/core/compatibility/9.0.
+* [OpenRewrite.Recipes.Net9.UseEscapeSequenceE](/user-documentation/recipes/recipe-catalog/csharp/recipes/net9/useescapesequencee.md)
+  * **Use \e escape sequence**
+  * Replace `\u001b` and `\x1b` escape sequences with `\e`. C# 13 introduced `\e` as a dedicated escape sequence for the escape character (U+001B).
+* [OpenRewrite.Recipes.Net9.UseFrozenCollections](/user-documentation/recipes/recipe-catalog/csharp/recipes/net9/usefrozencollections.md)
+  * **Use Frozen collections instead of Immutable**
+  * Replace `ToImmutableDictionary()` with `ToFrozenDictionary()` and `ToImmutableHashSet()` with `ToFrozenSet()`. Frozen collections (.NET 8+) provide better read performance for collections populated once and read many times.
+* [OpenRewrite.Recipes.Net9.UseGuidCreateVersion7](/user-documentation/recipes/recipe-catalog/csharp/recipes/net9/useguidcreateversion7.md)
+  * **Use Guid.CreateVersion7()**
+  * Replace `Guid.NewGuid()` with `Guid.CreateVersion7()`. Version 7 GUIDs are time-ordered and better for database primary keys, indexing, and sorting. Available since .NET 9.
+* [OpenRewrite.Recipes.Net9.UseLinqAggregateBy](/user-documentation/recipes/recipe-catalog/csharp/recipes/net9/uselinqaggregateby.md)
+  * **Use LINQ AggregateBy()**
+  * Replace `collection.GroupBy(keySelector).ToDictionary(g =&gt; g.Key, g =&gt; g.Aggregate(seed, func))` with `collection.AggregateBy(keySelector, seed, func).ToDictionary()`. Available since .NET 9.
+* [OpenRewrite.Recipes.Net9.UseLinqCountBy](/user-documentation/recipes/recipe-catalog/csharp/recipes/net9/uselinqcountby.md)
+  * **Use LINQ CountBy()**
+  * Replace `collection.GroupBy(selector).Select(g =&gt; g.Count())` with `collection.CountBy(selector)`. Available since .NET 9.
+* [OpenRewrite.Recipes.Net9.UseLinqIndex](/user-documentation/recipes/recipe-catalog/csharp/recipes/net9/uselinqindex.md)
+  * **Use LINQ Index()**
+  * Replace `collection.Select((item, index) =&gt; (index, item))` with `collection.Index()`. Available since .NET 9.
+* [OpenRewrite.Recipes.Net9.UseLockObject](/user-documentation/recipes/recipe-catalog/csharp/recipes/net9/uselockobject.md)
+  * **Use System.Threading.Lock for lock fields**
+  * Replace `object` fields initialized with `new object()` with `System.Threading.Lock` initialized with `new()`. The Lock type provides better performance with the lock statement. Available since .NET 9.
+* [OpenRewrite.Recipes.Net9.UseMapStaticAssets](/user-documentation/recipes/recipe-catalog/csharp/recipes/net9/usemapstaticassets.md)
+  * **Use MapStaticAssets()**
+  * Replace `UseStaticFiles()` with `MapStaticAssets()` for ASP.NET Core 9. Only applies when the receiver supports `IEndpointRouteBuilder` (WebApplication / minimal hosting). Skips Startup.cs patterns using `IApplicationBuilder` where `MapStaticAssets` is not available.
+* [OpenRewrite.Recipes.Net9.UseTaskCompletedTask](/user-documentation/recipes/recipe-catalog/csharp/recipes/net9/usetaskcompletedtask.md)
+  * **Use Task.CompletedTask**
+  * Replace `Task.FromResult(0)`, `Task.FromResult(true)`, and `Task.FromResult(false)` with `Task.CompletedTask` when the return type is `Task` (not `Task&lt;T&gt;`).
+* [OpenRewrite.Recipes.Net9.UseVolatileReadWrite](/user-documentation/recipes/recipe-catalog/csharp/recipes/net9/usevolatilereadwrite.md)
+  * **Use Volatile.Read/Write (SYSLIB0054)**
+  * Replace `Thread.VolatileRead` and `Thread.VolatileWrite` with `Volatile.Read` and `Volatile.Write`. The Thread methods are obsolete in .NET 9 (SYSLIB0054).
+* [OpenRewrite.Recipes.Net9.UseX509CertificateLoader](/user-documentation/recipes/recipe-catalog/csharp/recipes/net9/usex509certificateloader.md)
+  * **Use X509CertificateLoader (SYSLIB0057)**
+  * Replace `new X509Certificate2(path, password)` with `X509CertificateLoader.LoadPkcs12FromFile(path, password)`. The two-argument X509Certificate2 constructor is obsolete in .NET 9 (SYSLIB0057).
+* [OpenRewrite.Recipes.RemoveNuGetPackageReference](/user-documentation/recipes/recipe-catalog/csharp/recipes/removenugetpackagereference.md)
+  * **Remove NuGet package reference**
+  * Removes a `&lt;PackageReference&gt;` from .csproj files.
+* [OpenRewrite.Recipes.UpgradeNuGetPackageVersion](/user-documentation/recipes/recipe-catalog/csharp/recipes/upgradenugetpackageversion.md)
+  * **Upgrade NuGet package version**
+  * Upgrades the version of a NuGet `&lt;PackageReference&gt;` or `&lt;PackageVersion&gt;` in .csproj and Directory.Packages.props files.
+
+### recipes-tunit
+
+_License: Moderne Proprietary License_
+
+_19 recipes_
+
+* [OpenRewrite.Recipes.TUnit.Migration.FromXUnit.AsyncLifetimeToBeforeAfterTest](/user-documentation/recipes/recipe-catalog/csharp/recipes/tunit/migration/fromxunit/asynclifetimetobeforeaftertest.md)
+  * **Find `IAsyncLifetime` needing TUnit migration**
+  * Find classes implementing `IAsyncLifetime` that should use `[Before(Test)]` and `[After(Test)]` for TUnit.
+* [OpenRewrite.Recipes.TUnit.Migration.FromXUnit.ChangeXUnitUsings](/user-documentation/recipes/recipe-catalog/csharp/recipes/tunit/migration/fromxunit/changexunitusings.md)
+  * **Change xUnit using directives to TUnit**
+  * Replace `using Xunit;` with `using TUnit.Core;` and `using TUnit.Assertions;`, and remove `using Xunit.Abstractions;` and `using Xunit.Sdk;`.
+* [OpenRewrite.Recipes.TUnit.Migration.FromXUnit.ClassFixtureToClassDataSource](/user-documentation/recipes/recipe-catalog/csharp/recipes/tunit/migration/fromxunit/classfixturetoclassdatasource.md)
+  * **Find `IClassFixture&lt;T&gt;` needing TUnit migration**
+  * Find classes implementing `IClassFixture&lt;T&gt;` that should use `[ClassDataSource&lt;T&gt;]` for TUnit.
+* [OpenRewrite.Recipes.TUnit.Migration.FromXUnit.CollectionToNotInParallel](/user-documentation/recipes/recipe-catalog/csharp/recipes/tunit/migration/fromxunit/collectiontonotinparallel.md)
+  * **Replace `[Collection]` with `[NotInParallel]`**
+  * Replace the xUnit `[Collection(&quot;name&quot;)]` attribute with the TUnit `[NotInParallel(&quot;name&quot;)]` attribute.
+* [OpenRewrite.Recipes.TUnit.Migration.FromXUnit.ConstructorToBeforeTest](/user-documentation/recipes/recipe-catalog/csharp/recipes/tunit/migration/fromxunit/constructortobeforetest.md)
+  * **Find test constructors needing `[Before(Test)]`**
+  * Find constructors in test classes that should be converted to `[Before(Test)]` methods for TUnit.
+* [OpenRewrite.Recipes.TUnit.Migration.FromXUnit.DisposableToAfterTest](/user-documentation/recipes/recipe-catalog/csharp/recipes/tunit/migration/fromxunit/disposabletoaftertest.md)
+  * **Replace `IDisposable` with `[After(Test)]`**
+  * Remove `IDisposable` from the base type list and add `[After(Test)]` to the `Dispose()` method.
+* [OpenRewrite.Recipes.TUnit.Migration.FromXUnit.FactSkipToSkipAttribute](/user-documentation/recipes/recipe-catalog/csharp/recipes/tunit/migration/fromxunit/factskiptoskipattribute.md)
+  * **Extract `Skip` into `[Skip]` attribute**
+  * Extract the `Skip` argument from `[Fact(Skip = &quot;...&quot;)]` or `[Theory(Skip = &quot;...&quot;)]` into a separate TUnit `[Skip(&quot;...&quot;)]` attribute.
+* [OpenRewrite.Recipes.TUnit.Migration.FromXUnit.FactTimeoutToTimeoutAttribute](/user-documentation/recipes/recipe-catalog/csharp/recipes/tunit/migration/fromxunit/facttimeouttotimeoutattribute.md)
+  * **Extract `Timeout` into `[Timeout]` attribute**
+  * Extract the `Timeout` argument from `[Fact(Timeout = ...)]` or `[Theory(Timeout = ...)]` into a separate TUnit `[Timeout(...)]` attribute.
+* [OpenRewrite.Recipes.TUnit.Migration.FromXUnit.FactToTest](/user-documentation/recipes/recipe-catalog/csharp/recipes/tunit/migration/fromxunit/facttotest.md)
+  * **Replace `[Fact]` with `[Test]`**
+  * Replace the xUnit `[Fact]` attribute with the TUnit `[Test]` attribute.
+* [OpenRewrite.Recipes.TUnit.Migration.FromXUnit.InlineDataToArguments](/user-documentation/recipes/recipe-catalog/csharp/recipes/tunit/migration/fromxunit/inlinedatatoarguments.md)
+  * **Replace `[InlineData]` with `[Arguments]`**
+  * Replace the xUnit `[InlineData]` attribute with the TUnit `[Arguments]` attribute.
+* [OpenRewrite.Recipes.TUnit.Migration.FromXUnit.MemberDataToMethodDataSource](/user-documentation/recipes/recipe-catalog/csharp/recipes/tunit/migration/fromxunit/memberdatatomethoddatasource.md)
+  * **Replace `[MemberData]` with `[MethodDataSource]`**
+  * Replace the xUnit `[MemberData]` attribute with the TUnit `[MethodDataSource]` attribute. Fields and properties referenced by MemberData are converted to methods.
+* [OpenRewrite.Recipes.TUnit.Migration.FromXUnit.MigrateFromXUnit](/user-documentation/recipes/recipe-catalog/csharp/recipes/tunit/migration/fromxunit/migratefromxunit.md)
+  * **Migrate from xUnit to TUnit**
+  * Migrate xUnit test attributes, assertions, and lifecycle patterns to their TUnit equivalents.
+* [OpenRewrite.Recipes.TUnit.Migration.FromXUnit.MigrateFromXUnitAttributes](/user-documentation/recipes/recipe-catalog/csharp/recipes/tunit/migration/fromxunit/migratefromxunitattributes.md)
+  * **Migrate xUnit attributes to TUnit**
+  * Replace xUnit test attributes ([Fact], [Theory], [InlineData], etc.) with their TUnit equivalents.
+* [OpenRewrite.Recipes.TUnit.Migration.FromXUnit.MigrateXUnitAssertions](/user-documentation/recipes/recipe-catalog/csharp/recipes/tunit/migration/fromxunit/migratexunitassertions.md)
+  * **Migrate xUnit assertions to TUnit**
+  * Replace xUnit `Assert.*` calls with TUnit's fluent `await Assert.That(...).Is*()` assertions. Note: test methods may need to be changed to `async Task` separately.
+* [OpenRewrite.Recipes.TUnit.Migration.FromXUnit.MigrateXUnitDependencies](/user-documentation/recipes/recipe-catalog/csharp/recipes/tunit/migration/fromxunit/migratexunitdependencies.md)
+  * **Migrate xUnit NuGet dependencies to TUnit**
+  * Remove xUnit NuGet package references, add TUnit, and upgrade the target framework to at least .NET 9.
+* [OpenRewrite.Recipes.TUnit.Migration.FromXUnit.TestOutputHelperToTestContext](/user-documentation/recipes/recipe-catalog/csharp/recipes/tunit/migration/fromxunit/testoutputhelpertotestcontext.md)
+  * **Find `ITestOutputHelper` needing TUnit migration**
+  * Find usages of xUnit's `ITestOutputHelper` that should be replaced with TUnit's `TestContext`.
+* [OpenRewrite.Recipes.TUnit.Migration.FromXUnit.TheoryToTest](/user-documentation/recipes/recipe-catalog/csharp/recipes/tunit/migration/fromxunit/theorytotest.md)
+  * **Replace `[Theory]` with `[Test]`**
+  * Replace the xUnit `[Theory]` attribute with the TUnit `[Test]` attribute.
+* [OpenRewrite.Recipes.TUnit.Migration.FromXUnit.TraitCategoryToCategory](/user-documentation/recipes/recipe-catalog/csharp/recipes/tunit/migration/fromxunit/traitcategorytocategory.md)
+  * **Replace `[Trait(&quot;Category&quot;, ...)]` with `[Category]`**
+  * Replace xUnit `[Trait(&quot;Category&quot;, &quot;X&quot;)]` with TUnit's dedicated `[Category(&quot;X&quot;)]` attribute.
+* [OpenRewrite.Recipes.TUnit.Migration.FromXUnit.TraitToProperty](/user-documentation/recipes/recipe-catalog/csharp/recipes/tunit/migration/fromxunit/traittoproperty.md)
+  * **Replace `[Trait]` with `[Property]`**
+  * Replace the xUnit `[Trait]` attribute with the TUnit `[Property]` attribute.
+
 ### rewrite-ai
 
-_License: Unknown_
+_License: Moderne Proprietary License_
 
 _3 recipes_
 
@@ -661,7 +2383,7 @@ _2 recipes_
 
 _License: Moderne Proprietary License_
 
-_150 recipes_
+_153 recipes_
 
 * [io.moderne.java.jsf.MigrateToJsf_2_3](/user-documentation/recipes/recipe-catalog/java/jsf/migratetojsf_2_3.md)
   * **Migrate to JSF 2.3**
@@ -732,6 +2454,9 @@ _150 recipes_
 * [io.moderne.java.spring.boot3.MigrateJmxEndpointDiscovererConstructor](/user-documentation/recipes/recipe-catalog/java/spring/boot3/migratejmxendpointdiscovererconstructor.md)
   * **Migrate `JmxEndpointDiscoverer` deprecated constructor**
   * The 4-parameter constructor of `JmxEndpointDiscoverer` has been deprecated in Spring Boot 3.4. This recipe transforms it to use the new 5-parameter constructor with an additional Collection parameter.
+* [io.moderne.java.spring.boot3.MigrateRestTemplateToRestClient](/user-documentation/recipes/recipe-catalog/java/spring/boot3/migrateresttemplatetorestclient.md)
+  * **Migrate `RestTemplate` to `RestClient`**
+  * Migrates Spring's `RestTemplate` to the modern `RestClient` API introduced in Spring Framework 6.1. `RestClient` provides a fluent, synchronous API that is the recommended approach for new development. This recipe converts constructor calls, type declarations, and common method invocations (`getForObject`, `getForEntity`, `postForObject`, `postForEntity`, `patchForObject`, `put`, `delete`, `headForHeaders`, `postForLocation`, `optionsForAllow`, `exchange`) to their `RestClient` equivalents.
 * [io.moderne.java.spring.boot3.MigrateWebEndpointDiscovererConstructor](/user-documentation/recipes/recipe-catalog/java/spring/boot3/migratewebendpointdiscovererconstructor.md)
   * **Migrate WebEndpointDiscoverer 6-parameter constructor to 8-parameter**
   * The 6-parameter constructor of `WebEndpointDiscoverer` has been deprecated in Spring Boot 3.3. This recipe adds two new parameters (`AdditionalPathsMapper` and `OperationFilter&lt;WebOperation&gt;`) to the constructor and updates the Bean method signature to inject them as `ObjectProvider` types.
@@ -813,6 +2538,9 @@ _150 recipes_
 * [io.moderne.java.spring.boot4.AddJackson2ForJerseyJson](/user-documentation/recipes/recipe-catalog/java/spring/boot4/addjackson2forjerseyjson.md)
   * **Add Jackson2 for Jersey using JSON**
   * Check whether a module uses Jersey on combination with JSON and adds the needed `spring-boot-jackson` dependency and conditionally `spring-boot-jackson2` dependency.
+* [io.moderne.java.spring.boot4.AddLenientMockitoSettings](/user-documentation/recipes/recipe-catalog/java/spring/boot4/addlenientmockitosettings.md)
+  * **Add `@MockitoSettings(strictness = Strictness.LENIENT)` for `@MockitoBean` tests**
+  * When migrating from `@MockBean` to `@MockitoBean`, the implicit LENIENT Mockito strictness from Spring Boot's `MockitoPostProcessor` is lost. If `@ExtendWith(MockitoExtension.class)` is present, Mockito enforces STRICT_STUBS by default, causing `UnnecessaryStubbingException` for tests with unused stubs. This recipe adds `@MockitoSettings(strictness = Strictness.LENIENT)` to preserve the original behavior.
 * [io.moderne.java.spring.boot4.AddLiquibaseStarters](/user-documentation/recipes/recipe-catalog/java/spring/boot4/addliquibasestarters.md)
   * **Add Liquibase starters**
   * Adds spring-boot-starter-liquibase and spring-boot-starter-liquibase-test dependencies when Liquibase usage is detected in the module.
@@ -960,6 +2688,9 @@ _150 recipes_
 * [io.moderne.java.spring.framework.JaxRsToSpringWeb](/user-documentation/recipes/recipe-catalog/java/spring/framework/jaxrstospringweb.md)
   * **Convert JAX-RS annotations to Spring Web**
   * Converts JAX-RS annotations such as `@Path`, `@GET`, `@POST`, etc., to their Spring Web equivalents like `@RestController`, `@RequestMapping`, `@GetMapping`, etc.
+* [io.moderne.java.spring.framework.MigrateConverterSetObjectMapper](/user-documentation/recipes/recipe-catalog/java/spring/framework/migrateconvertersetobjectmapper.md)
+  * **Replace `setObjectMapper` with constructor injection**
+  * Folds `setObjectMapper` calls on `MappingJackson2HttpMessageConverter` into the constructor. If the converter is instantiated in the same block with no other invocations, the setter call is replaced with constructor injection. Otherwise, a TODO comment is added.
 * [io.moderne.java.spring.framework.MigrateDefaultResponseErrorHandler](/user-documentation/recipes/recipe-catalog/java/spring/framework/migratedefaultresponseerrorhandler.md)
   * **Migrate `DefaultResponseErrorHandler.handleError` method signature**
   * Migrates overridden `handleError(ClientHttpResponse response)` methods to the new signature `handleError(URI url, HttpMethod method, ClientHttpResponse response)` in classes extending `DefaultResponseErrorHandler`. The old single-argument method was removed in Spring Framework 7.0.
@@ -1171,7 +2902,7 @@ _1 recipe_
 
 _License: Moderne Source Available License_
 
-_6 recipes_
+_7 recipes_
 
 * [org.openrewrite.cobol.cleanup.RemoveWithDebuggingMode](/user-documentation/recipes/recipe-catalog/cobol/cleanup/removewithdebuggingmode.md)
   * **Remove with debugging mode**
@@ -1191,6 +2922,9 @@ _6 recipes_
 * [org.openrewrite.cobol.search.FindWord](/user-documentation/recipes/recipe-catalog/cobol/search/findword.md)
   * **Find matching words in the source code**
   * Search for COBOL words based on a search term.
+* [org.openrewrite.jcl.search.FindWord](/user-documentation/recipes/recipe-catalog/jcl/search/findword.md)
+  * **Find matching words in JCL source code**
+  * Search for JCL words based on a search term.
 
 ### rewrite-core
 
@@ -2335,7 +4069,7 @@ _87 recipes_
 
 _License: Apache License Version 2.0_
 
-_7 recipes_
+_8 recipes_
 
 * [org.openrewrite.properties.AddProperty](/user-documentation/recipes/recipe-catalog/properties/addproperty.md)
   * **Add a new property**
@@ -2349,6 +4083,9 @@ _7 recipes_
 * [org.openrewrite.properties.ChangePropertyValue](/user-documentation/recipes/recipe-catalog/properties/changepropertyvalue.md)
   * **Change property value**
   * Change a property value leaving the key intact.
+* [org.openrewrite.properties.CopyValue](/user-documentation/recipes/recipe-catalog/properties/copyvalue.md)
+  * **Copy property value**
+  * Copies a property value from one key to another. The existing key/value pair remains unaffected by this change. If the destination key already exists, its value will be replaced. By default, creates the destination key if it does not exist.
 * [org.openrewrite.properties.CreatePropertiesFile](/user-documentation/recipes/recipe-catalog/properties/createpropertiesfile.md)
   * **Create Properties file**
   * Create a new Properties file.
@@ -5239,7 +6976,7 @@ _18 recipes_
 
 _License: Moderne Proprietary License_
 
-_77 recipes_
+_84 recipes_
 
 * [org.openrewrite.csharp.dependencies.DependencyInsight](/user-documentation/recipes/recipe-catalog/csharp/dependencies/dependencyinsight.md)
   * **Dependency insight for C#**
@@ -5258,7 +6995,7 @@ _77 recipes_
   * Locates and reports on all licenses in use.
 * [org.openrewrite.java.dependencies.DependencyVulnerabilityCheck](/user-documentation/recipes/recipe-catalog/java/dependencies/dependencyvulnerabilitycheck.md)
   * **Find and fix vulnerable dependencies**
-  * This software composition analysis (SCA) tool detects and upgrades dependencies with publicly disclosed vulnerabilities. This recipe both generates a report of vulnerable dependencies and upgrades to newer versions with fixes. This recipe by default only upgrades to the latest **patch** version.  If a minor or major upgrade is required to reach the fixed version, this can be controlled using the `maximumUpgradeDelta` option. Vulnerability information comes from the [GitHub Security Advisory Database](https://docs.github.com/en/code-security/security-advisories/global-security-advisories/about-the-github-advisory-database), which aggregates vulnerability data from several public databases, including the [National Vulnerability Database](https://nvd.nist.gov/) maintained by the United States government. Upgrades dependencies versioned according to [Semantic Versioning](https://semver.org/).   ## Customizing Vulnerability Data  This recipe can be customized by extending `DependencyVulnerabilityCheckBase` and overriding the vulnerability data sources:   - **`baselineVulnerabilities(ExecutionContext ctx)`**: Provides the default set of known vulnerabilities. The base implementation loads vulnerability data from the GitHub Security Advisory Database CSV file using `ResourceUtils.parseResourceAsCsv()`. Override this method to replace the entire vulnerability dataset with your own curated list.   - **`supplementalVulnerabilities(ExecutionContext ctx)`**: Allows adding custom vulnerability data beyond the baseline. The base implementation returns an empty list. Override this method to add organization-specific vulnerabilities, internal security advisories, or vulnerabilities from additional sources while retaining the baseline GitHub Advisory Database.  Both methods return `List&lt;Vulnerability&gt;` objects. Vulnerability data can be loaded from CSV files using `ResourceUtils.parseResourceAsCsv(path, Vulnerability.class, consumer)` or constructed programmatically. To customize, extend `DependencyVulnerabilityCheckBase` and override one or both methods depending on your needs. For example, override `supplementalVulnerabilities()` to add custom CVEs while keeping the standard vulnerability database, or override `baselineVulnerabilities()` to use an entirely different vulnerability data source. Last updated: 2026-03-19T1924.
+  * This software composition analysis (SCA) tool detects and upgrades dependencies with publicly disclosed vulnerabilities. This recipe both generates a report of vulnerable dependencies and upgrades to newer versions with fixes. This recipe by default only upgrades to the latest **patch** version.  If a minor or major upgrade is required to reach the fixed version, this can be controlled using the `maximumUpgradeDelta` option. Vulnerability information comes from the [GitHub Security Advisory Database](https://docs.github.com/en/code-security/security-advisories/global-security-advisories/about-the-github-advisory-database), which aggregates vulnerability data from several public databases, including the [National Vulnerability Database](https://nvd.nist.gov/) maintained by the United States government. Upgrades dependencies versioned according to [Semantic Versioning](https://semver.org/).   ## Customizing Vulnerability Data  This recipe can be customized by extending `DependencyVulnerabilityCheckBase` and overriding the vulnerability data sources:   - **`baselineVulnerabilities(ExecutionContext ctx)`**: Provides the default set of known vulnerabilities. The base implementation loads vulnerability data from the GitHub Security Advisory Database CSV file using `ResourceUtils.parseResourceAsCsv()`. Override this method to replace the entire vulnerability dataset with your own curated list.   - **`supplementalVulnerabilities(ExecutionContext ctx)`**: Allows adding custom vulnerability data beyond the baseline. The base implementation returns an empty list. Override this method to add organization-specific vulnerabilities, internal security advisories, or vulnerabilities from additional sources while retaining the baseline GitHub Advisory Database.  Both methods return `List&lt;Vulnerability&gt;` objects. Vulnerability data can be loaded from CSV files using `ResourceUtils.parseResourceAsCsv(path, Vulnerability.class, consumer)` or constructed programmatically. To customize, extend `DependencyVulnerabilityCheckBase` and override one or both methods depending on your needs. For example, override `supplementalVulnerabilities()` to add custom CVEs while keeping the standard vulnerability database, or override `baselineVulnerabilities()` to use an entirely different vulnerability data source. Last updated: 2026-03-23T1116.
 * [org.openrewrite.java.dependencies.RemoveUnusedDependencies](/user-documentation/recipes/recipe-catalog/java/dependencies/removeunuseddependencies.md)
   * **Remove unused dependencies**
   * Scans through source code collecting references to types and methods, removing any dependencies that are not used from Maven or Gradle build files. This is best effort and not guaranteed to work well in all cases; false positives are still possible.  This recipe takes reflective access into account: - When reflective access to a class is made unambiguously via a string literal, such as: `Class.forName(&quot;java.util.List&quot;)` that is counted correctly. - When reflective access to a class is made ambiguously via anything other than a string literal no dependencies will be removed.  This recipe takes transitive dependencies into account: - When a direct dependency is not used but a transitive dependency it brings in _is_ in use the direct dependency is not removed.
@@ -5289,6 +7026,9 @@ _77 recipes_
 * [org.openrewrite.java.security.Owasp2025A03](/user-documentation/recipes/recipe-catalog/java/security/owasp2025a03.md)
   * **Remediate OWASP A03:2025 Software supply chain failures**
   * OWASP [A03:2025](https://owasp.org/Top10/2025/A03_2025-Software_Supply_Chain_Failures/) describes failures related to the software supply chain, including vulnerable and outdated components. Expanded from A06:2021 Vulnerable and Outdated Components.
+* [org.openrewrite.java.security.Owasp2025A04](/user-documentation/recipes/recipe-catalog/java/security/owasp2025a04.md)
+  * **Remediate OWASP A04:2025 Cryptographic failures**
+  * OWASP [A04:2025](https://owasp.org/Top10/2025/A04_2025-Cryptographic_Failures/) describes failures related to cryptography (or lack thereof), which often lead to exposure of sensitive data. Previously A02:2021.
 * [org.openrewrite.java.security.OwaspA01](/user-documentation/recipes/recipe-catalog/java/security/owaspa01.md)
   * **Remediate OWASP A01:2021 Broken access control**
   * OWASP [A01:2021](https://owasp.org/Top10/A01_2021-Broken_Access_Control/) describes failures related to broken access control.
@@ -5343,18 +7083,36 @@ _77 recipes_
 * [org.openrewrite.java.security.marshalling.SecureSnakeYamlConstructor](/user-documentation/recipes/recipe-catalog/java/security/marshalling/securesnakeyamlconstructor.md)
   * **Secure the use of SnakeYAML's constructor**
   * See the [paper](https://github.com/mbechler/marshalsec) on this subject.
+* [org.openrewrite.java.security.search.FindHardcodedIv](/user-documentation/recipes/recipe-catalog/java/security/search/findhardcodediv.md)
+  * **Find hardcoded initialization vectors**
+  * Finds `IvParameterSpec` constructed with hardcoded byte arrays or string literals. A static IV makes CBC and other modes deterministic, enabling chosen-plaintext attacks. IVs should be generated randomly using `SecureRandom` for each encryption operation.
+* [org.openrewrite.java.security.search.FindInadequateKeySize](/user-documentation/recipes/recipe-catalog/java/security/search/findinadequatekeysize.md)
+  * **Find inadequate cryptographic key sizes**
+  * Finds cryptographic key generation with inadequate key sizes. RSA keys should be at least 2048 bits, DSA keys at least 2048 bits, EC keys at least 256 bits, and symmetric keys (AES) at least 128 bits. NIST recommends RSA-2048+ and AES-128+ as minimum for all new applications.
 * [org.openrewrite.java.security.search.FindJacksonDefaultTypeMapping](/user-documentation/recipes/recipe-catalog/java/security/search/findjacksondefaulttypemapping.md)
   * **Find Jackson default type mapping enablement**
   * `ObjectMapper#enableTypeMapping(..)` can lead to vulnerable deserialization.
 * [org.openrewrite.java.security.search.FindPermissiveCorsConfiguration](/user-documentation/recipes/recipe-catalog/java/security/search/findpermissivecorsconfiguration.md)
   * **Find permissive CORS configuration**
   * Finds overly permissive CORS configurations that allow all origins, which can expose the application to cross-domain attacks.
+* [org.openrewrite.java.security.search.FindPredictableSalt](/user-documentation/recipes/recipe-catalog/java/security/search/findpredictablesalt.md)
+  * **Find predictable cryptographic salts**
+  * Finds `PBEParameterSpec` and `PBEKeySpec` constructed with hardcoded salt byte arrays. A predictable salt undermines the purpose of salting, making rainbow table and precomputation attacks feasible. Salts should be generated randomly using `SecureRandom`.
+* [org.openrewrite.java.security.search.FindRsaWithoutOaep](/user-documentation/recipes/recipe-catalog/java/security/search/findrsawithoutoaep.md)
+  * **Find RSA encryption without OAEP padding**
+  * Finds uses of RSA encryption with PKCS#1 v1.5 padding or no padding specification. RSA without OAEP padding is vulnerable to padding oracle attacks. Use `RSA/ECB/OAEPWithSHA-256AndMGF1Padding` or equivalent OAEP mode instead.
 * [org.openrewrite.java.security.search.FindSensitiveApiEndpoints](/user-documentation/recipes/recipe-catalog/java/security/search/findsensitiveapiendpoints.md)
   * **Find sensitive API endpoints**
   * Find data models exposed by REST APIs that contain sensitive information like PII and secrets.
 * [org.openrewrite.java.security.search.FindVulnerableJacksonJsonTypeInfo](/user-documentation/recipes/recipe-catalog/java/security/search/findvulnerablejacksonjsontypeinfo.md)
   * **Find vulnerable uses of Jackson `@JsonTypeInfo`**
   * Identify where attackers can deserialize gadgets into a target field.
+* [org.openrewrite.java.security.search.FindWeakCryptoAlgorithm](/user-documentation/recipes/recipe-catalog/java/security/search/findweakcryptoalgorithm.md)
+  * **Find weak cryptographic algorithms**
+  * Finds uses of broken or risky cryptographic algorithms such as MD5, SHA-1, DES, DESede (3DES), RC2, RC4, and Blowfish in calls to `Cipher.getInstance()`, `MessageDigest.getInstance()`, `Mac.getInstance()`, `KeyGenerator.getInstance()`, and `SecretKeyFactory.getInstance()`.
+* [org.openrewrite.java.security.search.FindWeakPasswordHashing](/user-documentation/recipes/recipe-catalog/java/security/search/findweakpasswordhashing.md)
+  * **Find weak password hashing**
+  * Finds uses of `MessageDigest.getInstance()` with algorithms unsuitable for password hashing (MD5, SHA-1, SHA-256, SHA-384, SHA-512). Passwords should be hashed with a purpose-built password hashing function such as bcrypt, scrypt, Argon2, or PBKDF2 that includes a salt and a tunable work factor.
 * [org.openrewrite.java.security.secrets.FindArtifactorySecrets](/user-documentation/recipes/recipe-catalog/java/security/secrets/findartifactorysecrets.md)
   * **Find Artifactory secrets**
   * Locates Artifactory secrets stored in plain text in code.
@@ -6167,7 +7925,7 @@ _7 recipes_
 
 _License: Apache License Version 2.0_
 
-_36 recipes_
+_37 recipes_
 
 * [org.openrewrite.java.micronaut.AddAnnotationProcessorPath](/user-documentation/recipes/recipe-catalog/java/micronaut/addannotationprocessorpath.md)
   * **Add Maven annotation processor path**
@@ -6223,6 +7981,9 @@ _36 recipes_
 * [org.openrewrite.java.micronaut.RemoveUnnecessaryDependencies](/user-documentation/recipes/recipe-catalog/java/micronaut/removeunnecessarydependencies.md)
   * **Remove unnecessary dependencies**
   * This recipe will remove dependencies that are no longer explicitly needed.
+* [org.openrewrite.java.micronaut.RemoveUnusedInConfigFiles](/user-documentation/recipes/recipe-catalog/java/micronaut/removeunusedinconfigfiles.md)
+  * **Remove unused YAML keys in config files**
+  * Remove empty YAML keys left behind after relocating security config keys.
 * [org.openrewrite.java.micronaut.RemoveWithJansiLogbackConfiguration](/user-documentation/recipes/recipe-catalog/java/micronaut/removewithjansilogbackconfiguration.md)
   * **Remove withJansi Logback configuration**
   * This recipe will remove the withJansi configuration tag from logback.xml.
@@ -6282,7 +8043,7 @@ _36 recipes_
 
 _License: Moderne Source Available License_
 
-_440 recipes_
+_443 recipes_
 
 * [com.google.guava.InlineGuavaMethods](/user-documentation/recipes/recipe-catalog/com/google/guava/inlineguavamethods.md)
   * **Inline `guava` methods annotated with `@InlineMe`**
@@ -6413,6 +8174,9 @@ _440 recipes_
 * [org.openrewrite.java.migrate.Java8toJava11](/user-documentation/recipes/recipe-catalog/java/migrate/java8tojava11.md)
   * **Migrate to Java 11**
   * This recipe will apply changes commonly needed when upgrading to Java 11. Specifically, for those applications that are built on Java 8, this recipe will update and add dependencies on J2EE libraries that are no longer directly bundled with the JDK. This recipe will also replace deprecated API with equivalents when there is a clear migration strategy. Build files will also be updated to use Java 11 as the target/source and plugins will be also be upgraded to versions that are compatible with Java 11.
+* [org.openrewrite.java.migrate.JavaBestPractices](/user-documentation/recipes/recipe-catalog/java/migrate/javabestpractices.md)
+  * **Java best practices**
+  * Applies opinionated best practices for Java projects targeting Java 25. This recipe includes the full Java 25 upgrade chain plus additional improvements to code style, API usage, and third-party dependency reduction that go beyond what the version migration recipes apply.
 * [org.openrewrite.java.migrate.JpaCacheProperties](/user-documentation/recipes/recipe-catalog/java/migrate/jpacacheproperties.md)
   * **Disable the persistence unit second-level cache**
   * Sets an explicit value for the shared cache mode.
@@ -7298,6 +9062,9 @@ _440 recipes_
 * [org.openrewrite.java.migrate.lang.JavaLangAPIs](/user-documentation/recipes/recipe-catalog/java/migrate/lang/javalangapis.md)
   * **Use modernized `java.lang` APIs**
   * Certain Java lang APIs have become deprecated and their usages changed, necessitating usage changes.
+* [org.openrewrite.java.migrate.lang.JavadocToMarkdownDocComment](/user-documentation/recipes/recipe-catalog/java/migrate/lang/javadoctomarkdowndoccomment.md)
+  * **Convert Javadoc to Markdown documentation comments**
+  * Convert traditional Javadoc comments (`/** ... */`) to Markdown documentation comments (`///`) as supported by JEP 467 in Java 23+. Transforms HTML constructs like `&lt;pre&gt;`, `&lt;code&gt;`, `&lt;em&gt;`, `&lt;p&gt;`, and lists to their Markdown equivalents, and converts inline tags like `\{@code\}` and `\{@link\}` to Markdown syntax.
 * [org.openrewrite.java.migrate.lang.MigrateCharacterIsJavaLetterOrDigitToIsJavaIdentifierPart](/user-documentation/recipes/recipe-catalog/java/migrate/lang/migratecharacterisjavaletterordigittoisjavaidentifierpart.md)
   * **Use `Character#isJavaIdentifierPart(char)`**
   * Use `Character#isJavaIdentifierPart(char)` instead of the deprecated `Character#isJavaLetterOrDigit(char)` in Java 1.1 or higher.
@@ -7382,6 +9149,9 @@ _440 recipes_
 * [org.openrewrite.java.migrate.lang.UseVar](/user-documentation/recipes/recipe-catalog/java/migrate/lang/usevar.md)
   * **Use local variable type inference**
   * Apply local variable type inference (`var`) for primitives and objects. These recipes can cause unused imports, be advised to run `org.openrewrite.java.RemoveUnusedImports afterwards.
+* [org.openrewrite.java.migrate.lang.var.UseVarForConstructors](/user-documentation/recipes/recipe-catalog/java/migrate/lang/var/usevarforconstructors.md)
+  * **Use `var` for constructor call assignments**
+  * Replace explicit type declarations with `var` when the variable is initialized with a constructor call of exactly the same type. Does not transform when declared type differs from constructor type (e.g., interface vs implementation).
 * [org.openrewrite.java.migrate.lang.var.UseVarForGenericMethodInvocations](/user-documentation/recipes/recipe-catalog/java/migrate/lang/var/usevarforgenericmethodinvocations.md)
   * **Apply `var` to generic method invocations**
   * Apply `var` to variables initialized by invocations of generic methods. This recipe ignores generic factory methods without parameters, because open rewrite cannot handle them correctly ATM.
@@ -7392,8 +9162,8 @@ _440 recipes_
   * **Use `var` for reference-typed variables**
   * Try to apply local variable type inference `var` to variables containing Objects where possible. This recipe will not touch variable declarations with generics or initializers containing ternary operators.
 * [org.openrewrite.java.migrate.lang.var.UseVarForPrimitive](/user-documentation/recipes/recipe-catalog/java/migrate/lang/var/usevarforprimitive.md)
-  * **Use `var` for primitive-typed variables**
-  * Try to apply local variable type inference `var` to primitive variables where possible. This recipe will not touch variable declarations with initializers containing ternary operators.
+  * **Use `var` for primitive and String variables**
+  * Try to apply local variable type inference `var` to primitive and String literal variables where possible. This recipe will not touch variable declarations with initializers containing ternary operators.
 * [org.openrewrite.java.migrate.lang.var.UseVarForTypeCast](/user-documentation/recipes/recipe-catalog/java/migrate/lang/var/usevarfortypecast.md)
   * **Use `var` for variables initialized with type casts**
   * Apply local variable type inference `var` to variables that are initialized by a cast expression where the cast type matches the declared variable type. This removes the redundant type duplication. For example, `String s = (String) obj;` becomes `var s = (String) obj;`.
@@ -7706,8 +9476,11 @@ _30 recipes_
 
 _License: Moderne Proprietary License_
 
-_101 recipes_
+_104 recipes_
 
+* [org.openrewrite.python.migrate.DependencyInsight](/user-documentation/recipes/recipe-catalog/python/migrate/dependencyinsight.md)
+  * **Python dependency insight**
+  * Find Python dependencies, including transitive dependencies, matching a package name pattern. Results include the resolved version, scope, and whether the dependency is direct or transitive.
 * [org.openrewrite.python.migrate.FindAifcModule](/user-documentation/recipes/recipe-catalog/python/migrate/findaifcmodule.md)
   * **Find deprecated `aifc` module usage**
   * The `aifc` module was deprecated in Python 3.11 and removed in Python 3.13. Use third-party audio libraries instead.
@@ -7753,6 +9526,9 @@ _101 recipes_
 * [org.openrewrite.python.migrate.FindMailcapModule](/user-documentation/recipes/recipe-catalog/python/migrate/findmailcapmodule.md)
   * **Find deprecated `mailcap` module usage**
   * The `mailcap` module was deprecated in Python 3.11 and removed in Python 3.13. Use `mimetypes` module for MIME type handling.
+* [org.openrewrite.python.migrate.FindMethods](/user-documentation/recipes/recipe-catalog/python/migrate/findmethods.md)
+  * **Find Python function and method usages**
+  * Find function and method calls by pattern. Covers standalone functions, class methods, static methods, and constructor calls.
 * [org.openrewrite.python.migrate.FindMsilibModule](/user-documentation/recipes/recipe-catalog/python/migrate/findmsilibmodule.md)
   * **Find deprecated `msilib` module usage**
   * The `msilib` module was deprecated in Python 3.11 and removed in Python 3.13. Use platform-specific tools for MSI creation.
@@ -7807,6 +9583,9 @@ _101 recipes_
 * [org.openrewrite.python.migrate.FindTempfileMktemp](/user-documentation/recipes/recipe-catalog/python/migrate/findtempfilemktemp.md)
   * **Find deprecated `tempfile.mktemp()` usage**
   * Find usage of `tempfile.mktemp()` which is deprecated due to security concerns (race condition). Use `mkstemp()` or `NamedTemporaryFile()` instead.
+* [org.openrewrite.python.migrate.FindTypes](/user-documentation/recipes/recipe-catalog/python/migrate/findtypes.md)
+  * **Find Python types**
+  * Find type references by name. Identifies classes matching a type pattern. In Python, all type definitions use the `class` keyword, covering regular classes, abstract base classes, protocols, enums, dataclasses, named tuples, typed dicts, and more.
 * [org.openrewrite.python.migrate.FindUrllibParseSplitFunctions](/user-documentation/recipes/recipe-catalog/python/migrate/findurllibparsesplitfunctions.md)
   * **Find deprecated urllib.parse split functions**
   * Find usage of deprecated urllib.parse split functions (splithost, splitport, etc.) removed in Python 3.14. Use urlparse() instead.
@@ -8184,7 +9963,7 @@ _47 recipes_
 
 ### rewrite-okhttp
 
-_License: Unknown_
+_License: Moderne Source Available License_
 
 _10 recipes_
 
@@ -8461,7 +10240,7 @@ _25 recipes_
 
 _License: Moderne Source Available License_
 
-_38 recipes_
+_40 recipes_
 
 * [org.openrewrite.java.jspecify.MigrateFromOpenRewriteAnnotations](/user-documentation/recipes/recipe-catalog/java/jspecify/migratefromopenrewriteannotations.md)
   * **Migrate from OpenRewrite annotations to JSpecify**
@@ -8514,6 +10293,9 @@ _38 recipes_
 * [org.openrewrite.java.recipes.RemoveImportBeforeAddImport](/user-documentation/recipes/recipe-catalog/java/recipes/removeimportbeforeaddimport.md)
   * **Reorder `maybeRemoveImport` before `maybeAddImport`**
   * Reorders `maybeAddImport` and `maybeRemoveImport` calls so that imports are removed before new imports are added. This ordering prevents potential conflicts when the import being added and the import being removed resolve to the same simple class name.
+* [org.openrewrite.java.recipes.RemoveNlsRewriteAnnotations](/user-documentation/recipes/recipe-catalog/java/recipes/removenlsrewriteannotations.md)
+  * **Remove `@NlsRewrite` annotations from `Recipe` classes**
+  * Remove `@NlsRewrite.DisplayName` and `@NlsRewrite.Description` annotations, but only from classes that extend `Recipe`.
 * [org.openrewrite.java.recipes.RemoveToBeRemoved](/user-documentation/recipes/recipe-catalog/java/recipes/removetoberemoved.md)
   * **Remove elements annotated with `@ToBeRemoved` past their date**
   * Removes class, method and variable declarations annotated with `org.openrewrite.internal.ToBeRemoved` whose `after` date has passed. This does not remove invocations or references to such methods or variables. Those must be handled separately, e.g. with `org.openrewrite.java.InlineMethodCalls`.
@@ -8571,6 +10353,9 @@ _38 recipes_
 * [org.openrewrite.java.recipes.UseTreeRandomId](/user-documentation/recipes/recipe-catalog/java/recipes/usetreerandomid.md)
   * **Use `Tree.randomId()` in LST constructors**
   * Replaces occurrences of `UUID.randomUUID()` with `Tree.randomId()` when passed as an argument to a constructor call for LST elements.
+* [org.openrewrite.java.recipes.UseVisitWithParentCursor](/user-documentation/recipes/recipe-catalog/java/recipes/usevisitwithparentcursor.md)
+  * **Use `visit` with parent cursor when calling from another visitor**
+  * When calling another visitor from within a visitor, use the generic `visit(tree, ctx, getCursor().getParentTreeCursor())` method instead of a specific `visit*` method like `visitMethodInvocation`. The specific visit methods bypass the visitor lifecycle, including cursor setup, pre/post visit hooks, and observer notifications.
 * [org.openrewrite.recipes.rewrite.InlineMethods](/user-documentation/recipes/recipe-catalog/recipes/rewrite/inlinemethods.md)
   * **Inline methods annotated with `@InlineMe`**
   * Automatically generated recipes to inline method calls based on `@InlineMe` annotations discovered in the type table.
@@ -8580,9 +10365,9 @@ _38 recipes_
 
 ### rewrite-spring
 
-_License: Unknown_
+_License: Moderne Source Available License_
 
-_309 recipes_
+_314 recipes_
 
 * [org.openrewrite.gradle.spring.AddSpringDependencyManagementPlugin](/user-documentation/recipes/recipe-catalog/gradle/spring/addspringdependencymanagementplugin.md)
   * **Add `io.spring.dependency-management` plugin, if in use**
@@ -8716,6 +10501,9 @@ _309 recipes_
 * [org.openrewrite.java.spring.boot2.ConditionalOnBeanAnyNestedCondition](/user-documentation/recipes/recipe-catalog/java/spring/boot2/conditionalonbeananynestedcondition.md)
   * **Migrate multi-condition `@ConditionalOnBean` annotations**
   * Migrate multi-condition `@ConditionalOnBean` annotations to `AnyNestedCondition`.
+* [org.openrewrite.java.spring.boot2.ConditionalOnBeanAnyNestedConditionBoot1](/user-documentation/recipes/recipe-catalog/java/spring/boot2/conditionalonbeananynestedconditionboot1.md)
+  * **Migrate multi-condition `@ConditionalOnBean` annotations from Boot 1.x**
+  * Migrate multi-condition `@ConditionalOnBean` annotations to use `AnyNestedCondition` when upgrading from Spring Boot 1.x to 2.x. In Boot 1.x, listing multiple beans in `@ConditionalOnBean` meant OR (any match); in Boot 2.x+ it means AND (all must match). This recipe preserves the original OR semantics by wrapping conditions in an `AnyNestedCondition` class.
 * [org.openrewrite.java.spring.boot2.DatabaseComponentAndBeanInitializationOrdering](/user-documentation/recipes/recipe-catalog/java/spring/boot2/databasecomponentandbeaninitializationordering.md)
   * **Adds `@DependsOnDatabaseInitialization` to Spring Beans and Components depending on `javax.sql.DataSource`**
   * Beans of certain well-known types, such as `JdbcTemplate`, will be ordered so that they are initialized after the database has been initialized. If you have a bean that works with the `DataSource` directly, annotate its class or `@Bean` method with `@DependsOnDatabaseInitialization` to ensure that it too is initialized after the database has been initialized. See the [release notes](https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-2.5-Release-Notes#initialization-ordering) for more.
@@ -9088,6 +10876,9 @@ _309 recipes_
 * [org.openrewrite.java.spring.boot4.SpringBootProperties_4_0](/user-documentation/recipes/recipe-catalog/java/spring/boot4/springbootproperties_4_0.md)
   * **Migrate Spring Boot properties to 4.0**
   * Migrate properties found in `application.properties` and `application.yml`.
+* [org.openrewrite.java.spring.boot4.UnwrapMockAndSpyBeanContainers](/user-documentation/recipes/recipe-catalog/java/spring/boot4/unwrapmockandspybeancontainers.md)
+  * **Unwrap `@MockBeans` and `@SpyBeans` container annotations**
+  * Replaces class-level `@MockBeans` and `@SpyBeans` container annotations with a single class-level `@MockBean` or `@SpyBean` annotation with a merged `types` attribute for compatibility with `@MockitoBean`.
 * [org.openrewrite.java.spring.boot4.UpgradeSpringBoot_4_0](/user-documentation/recipes/recipe-catalog/java/spring/boot4/upgradespringboot_4_0-community-edition.md)
   * **Migrate to Spring Boot 4.0 (Community Edition)**
   * Migrate applications to the latest Spring Boot 4.0 release. This recipe will modify an application's build files, make changes to deprecated/preferred APIs.
@@ -9142,6 +10933,9 @@ _309 recipes_
 * [org.openrewrite.java.spring.cloud2025.UpgradeSpringCloud_2025](/user-documentation/recipes/recipe-catalog/java/spring/cloud2025/upgradespringcloud_2025.md)
   * **Migrate to Spring Cloud 2025**
   * Migrate applications to the latest Spring Cloud 2025 (Northfields) release.
+* [org.openrewrite.java.spring.cloud2025.UpgradeSpringCloud_2025_1](/user-documentation/recipes/recipe-catalog/java/spring/cloud2025/upgradespringcloud_2025_1.md)
+  * **Migrate to Spring Cloud 2025.1**
+  * Migrate applications to the latest Spring Cloud 2025.1 release, compatible with Spring Boot 4.0.
 * [org.openrewrite.java.spring.data.JdbcTemplateQueryForLongMigration](/user-documentation/recipes/recipe-catalog/java/spring/data/jdbctemplatequeryforlongmigration.md)
   * **Convert `JdbcTemplate.queryForLong(..)` to `queryForObject(..)`**
   * Replaces calls to `JdbcTemplate.queryForLong(..)` with `queryForObject(String, Class, Object...)`.
@@ -9328,6 +11122,12 @@ _309 recipes_
 * [org.openrewrite.java.spring.kafka.UpgradeSpringKafka_4_0](/user-documentation/recipes/recipe-catalog/java/spring/kafka/upgradespringkafka_4_0.md)
   * **Migrate to Spring Kafka 4.0**
   * Migrate applications to the latest Spring Kafka 4.0 release.
+* [org.openrewrite.java.spring.mvc.JaxrsToSpringMvcMediaType](/user-documentation/recipes/recipe-catalog/java/spring/mvc/jaxrstospringmvcmediatype.md)
+  * **Migrate JAX-RS MediaType to Spring MVC MediaType**
+  * Replaces all JAX-RS MediaType with Spring MVC MediaType.
+* [org.openrewrite.java.spring.mvc.JaxrsToSpringMvcResponseEntity](/user-documentation/recipes/recipe-catalog/java/spring/mvc/jaxrstospringmvcresponseentity.md)
+  * **Migrate JAX-RS Response to Spring MVC ResponseEntity**
+  * Replaces all JAX-RS Response with Spring MVC ResponseEntity.
 * [org.openrewrite.java.spring.opentelemetry.MigrateBraveToOpenTelemetry](/user-documentation/recipes/recipe-catalog/java/spring/opentelemetry/migratebravetoopentelemetry.md)
   * **Migrate Brave API to OpenTelemetry API**
   * Migrate Java code using Brave (Zipkin) tracing API to OpenTelemetry API. This recipe handles the migration of Brave Tracer, Span, and related classes to OpenTelemetry equivalents.
@@ -9758,7 +11558,7 @@ _11 recipes_
 
 _License: Moderne Source Available License_
 
-_174 recipes_
+_176 recipes_
 
 * [org.openrewrite.recipe.rewrite-static-analysis.InlineDeprecatedMethods](/user-documentation/recipes/recipe-catalog/recipe/rewrite-static-analysis/inlinedeprecatedmethods.md)
   * **Inline deprecated delegating methods**
@@ -9868,6 +11668,9 @@ _174 recipes_
 * [org.openrewrite.staticanalysis.ExplicitLambdaArgumentTypes](/user-documentation/recipes/recipe-catalog/staticanalysis/explicitlambdaargumenttypes.md)
   * **Use explicit types on lambda arguments**
   * Adds explicit types on lambda arguments, which are otherwise optional. This can make the code clearer and easier to read. This does not add explicit types on arguments when the lambda has one or two parameters and does not have a block body, as things are considered more readable in those cases. For example, `stream.map((a, b) -&gt; a.length);` will not have explicit types added.
+* [org.openrewrite.staticanalysis.ExplicitThis](/user-documentation/recipes/recipe-catalog/staticanalysis/explicitthis.md)
+  * **Use explicit `this.field` and `this.method()`**
+  * Add explicit 'this.' prefix to field and method access.
 * [org.openrewrite.staticanalysis.ExternalizableHasNoArgsConstructor](/user-documentation/recipes/recipe-catalog/staticanalysis/externalizablehasnoargsconstructor.md)
   * **`Externalizable` classes have no-arguments constructor**
   * `Externalizable` classes handle both serialization and deserialization and must have a no-args constructor for the deserialization process.
@@ -9916,6 +11719,9 @@ _174 recipes_
 * [org.openrewrite.staticanalysis.InstanceOfPatternMatch](/user-documentation/recipes/recipe-catalog/staticanalysis/instanceofpatternmatch.md)
   * **Changes code to use Java 17's `instanceof` pattern matching**
   * Adds pattern variables to `instanceof` expressions wherever the same (side effect free) expression is referenced in a corresponding type cast expression within the flow scope of the `instanceof`. Currently, this recipe supports `if` statements and ternary operator expressions.
+* [org.openrewrite.staticanalysis.InterruptedExceptionHandling](/user-documentation/recipes/recipe-catalog/staticanalysis/interruptedexceptionhandling.md)
+  * **Restore interrupted state in catch blocks**
+  * When `InterruptedException` is caught, `Thread.currentThread().interrupt()` should be called to restore the thread's interrupted state. Failing to do so can suppress the interruption signal and prevent proper thread cancellation.
 * [org.openrewrite.staticanalysis.IsEmptyCallOnCollections](/user-documentation/recipes/recipe-catalog/staticanalysis/isemptycalloncollections.md)
   * **Use `Collection#isEmpty()` instead of comparing `size()`**
   * Also check for _not_ `isEmpty()` when testing for not equal to zero size.
@@ -10766,7 +12572,7 @@ _133 recipes_
 
 _License: Moderne Source Available License_
 
-_233 recipes_
+_236 recipes_
 
 * [org.openrewrite.java.testing.archunit.ArchUnit0to1Migration](/user-documentation/recipes/recipe-catalog/java/testing/archunit/archunit0to1migration.md)
   * **ArchUnit 0.x upgrade**
@@ -11332,12 +13138,18 @@ _233 recipes_
 * [org.openrewrite.java.testing.mockito.AddMockitoExtensionIfAnnotationsUsed](/user-documentation/recipes/recipe-catalog/java/testing/mockito/addmockitoextensionifannotationsused.md)
   * **Adds Mockito extensions to Mockito tests**
   * Adds `@ExtendWith(MockitoExtension.class)` to JUnit 5 tests or `@RunWith(MockitoJUnitRunner.class)` to JUnit 4 tests using Mockito annotations like `@Mock` or `@Captor`.
+* [org.openrewrite.java.testing.mockito.AddMockitoJupiterDependency](/user-documentation/recipes/recipe-catalog/java/testing/mockito/addmockitojupiterdependency.md)
+  * **Add mockito-junit-jupiter dependency**
+  * Adds `org.mockito:mockito-junit-jupiter` dependency if `@ExtendWith(MockitoExtension.class)` will be added to any test class, i.e. when Mockito annotations are used in JUnit 5 tests without the extension already present.
 * [org.openrewrite.java.testing.mockito.AnyStringToNullable](/user-documentation/recipes/recipe-catalog/java/testing/mockito/anystringtonullable.md)
   * **Replace Mockito 1.x `anyString()` with `nullable(String.class)`**
   * Since Mockito 2.10 `anyString()` no longer matches null values. Use `nullable(Class)` instead.
 * [org.openrewrite.java.testing.mockito.AnyToNullable](/user-documentation/recipes/recipe-catalog/java/testing/mockito/anytonullable.md)
   * **Replace Mockito 1.x `anyString()`/`any()` with `nullable(Class)`**
   * Since Mockito 2.10 `anyString()` and `any()` no longer matches null values. Use `nullable(Class)` instead.
+* [org.openrewrite.java.testing.mockito.ArgumentMatcherToLambda](/user-documentation/recipes/recipe-catalog/java/testing/mockito/argumentmatchertolambda.md)
+  * **Convert `ArgumentMatcher&lt;T&gt;` anonymous class to lambda**
+  * Converts anonymous `ArgumentMatcher&lt;T&gt;` implementations with `matches(Object)` to lambda expressions with the correct parameter type. In Mockito 1.x, `ArgumentMatcher&lt;T&gt;` extended Hamcrest's `BaseMatcher` and `matches` always took `Object`. In Mockito 2+, `ArgumentMatcher&lt;T&gt;` is a functional interface where `matches` takes `T`.
 * [org.openrewrite.java.testing.mockito.CleanupMockitoImports](/user-documentation/recipes/recipe-catalog/java/testing/mockito/cleanupmockitoimports.md)
   * **Cleanup Mockito imports**
   * Removes unused `org.mockito` import symbols, unless its possible they are associated with method invocations having null or unknown type information.
@@ -11377,6 +13189,9 @@ _233 recipes_
 * [org.openrewrite.java.testing.mockito.MockitoWhenOnStaticToMockStatic](/user-documentation/recipes/recipe-catalog/java/testing/mockito/mockitowhenonstatictomockstatic.md)
   * **Replace `Mockito.when` on static (non mock) with try-with-resource with MockedStatic**
   * Replace `Mockito.when` on static (non mock) with try-with-resource with MockedStatic as Mockito4 no longer allows this. For JUnit 4/5 &amp; TestNG: When `@Before*` is used, a `close` call is added to the corresponding `@After*` method. This change moves away from implicit bytecode manipulation for static method stubbing, making mocking behavior more explicit and scoped to avoid unintended side effects.
+* [org.openrewrite.java.testing.mockito.PowerMockRunnerDelegateToRunWith](/user-documentation/recipes/recipe-catalog/java/testing/mockito/powermockrunnerdelegatetorunwith.md)
+  * **Replace `@PowerMockRunnerDelegate` with `@RunWith`**
+  * Replaces `@PowerMockRunnerDelegate(X.class)` by promoting the delegate runner to `@RunWith(X.class)` and removing the PowerMock-specific annotation.
 * [org.openrewrite.java.testing.mockito.PowerMockitoMockStaticToMockito](/user-documentation/recipes/recipe-catalog/java/testing/mockito/powermockitomockstatictomockito.md)
   * **Replace `PowerMock.mockStatic()` with `Mockito.mockStatic()`**
   * Replaces `PowerMockito.mockStatic()` by `Mockito.mockStatic()`. Removes the `@PrepareForTest` annotation.

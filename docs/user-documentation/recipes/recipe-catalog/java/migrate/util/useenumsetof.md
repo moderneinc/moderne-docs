@@ -31,6 +31,13 @@ This recipe is available under the [Moderne Source Available License](https://do
 | --- | --- | --- | --- |
 | `Boolean` | convertEmptySet | *Optional*. When true, converts `Set.of()` with no arguments to `EnumSet.noneOf()`. Default true. | `true` |
 
+
+## Used by
+
+This recipe is used as part of the following composite recipes:
+
+* [Java best practices](/user-documentation/recipes/recipe-catalog/java/migrate/javabestpractices.md)
+
 ## Example
 
 ###### Parameters

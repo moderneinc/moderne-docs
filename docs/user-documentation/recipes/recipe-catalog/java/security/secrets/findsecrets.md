@@ -25,6 +25,13 @@ This recipe is only available to users of [Moderne](https://docs.moderne.io/).
 This recipe is available under the [Moderne Proprietary License](https://docs.moderne.io/licensing/overview).
 
 
+## Used by
+
+This recipe is used as part of the following composite recipes:
+
+* [Remediate OWASP A04:2025 Cryptographic failures](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/security/owasp2025a04)
+
+
 ## Usage
 
 <RunRecipe

@@ -15,6 +15,7 @@ description: Spring Framework OpenRewrite recipes.
 _Recipes that include further recipes, often including the individual recipes below._
 
 * [Add Spring Framework modular dependencies](./modularspringframeworkdependencies.md)
+* [Convert JAX-RS annotations to Spring Web](./jaxrstospringweb.md)
 * [Migrate Bean XML properties deprecated in Spring Framework 3.0](./migratedeprecatedbeanxmlproperties.md)
 * [Migrate `DefaultResponseErrorHandler.handleError` method signature](./migratedefaultresponseerrorhandler.md)
 * [Migrate breaking changes in `ResponseStatusException`](./migrateresponsestatusexception.md)
@@ -39,7 +40,6 @@ _Recipes that include further recipes, often including the individual recipes be
 * [Add `setUseSuffixPatternMatch(true)` for pre-Spring Framework 5.3 projects](./addsetusesuffixpatternmatchifprespring53.md)
 * [Add `setUseSuffixPatternMatch(true)` in Spring MVC configuration](./addsetusesuffixpatternmatch.md)
 * [Convert `InstantiationAwareBeanPostProcessorAdapter` to `SmartInstantiationAwareBeanPostProcessor`](./migrateinstantiationawarebeanpostprocessoradapter.md)
-* [Convert JAX-RS annotations to Spring Web](./jaxrstospringweb.md)
 * [Find deprecated `PathMatcher` usage](./finddeprecatedpathmatcherusage.md)
 * [Flag deprecated suffix pattern matching usage for manual review](./flagsuffixpatternmatchusage.md)
 * [Is likely a Spring Framework project](./islikelyspringframework.md)
@@ -65,6 +65,7 @@ _Recipes that include further recipes, often including the individual recipes be
 * [Remove empty path match configuration methods](./removeemptypathmatchconfiguration.md)
 * [Remove `public` from `@Bean` methods](./beanmethodsnotpublic.md)
 * [Replace `WebMvcConfigurerAdapter` with `WebMvcConfigurer`](./migratewebmvcconfigureradapter.md)
+* [Replace `setObjectMapper` with constructor injection](./migrateconvertersetobjectmapper.md)
 * [Replaces deprecated `ClientHttpResponse#getRawStatusCode()`](./migrateclienthttpresponsegetrawstatuscodemethod.md)
 * [Use `Environment#acceptsProfiles(Profiles)`](./environmentacceptsprofiles.md)
 * [Use `ObjectUtils#isEmpty(Object)`](./useobjectutilsisempty.md)

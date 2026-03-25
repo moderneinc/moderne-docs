@@ -32,6 +32,7 @@ This recipe is used as part of the following composite recipes:
 
 * [Code cleanup](/user-documentation/recipes/recipe-catalog/staticanalysis/codecleanup.md)
 * [Common static analysis issues](/user-documentation/recipes/recipe-catalog/staticanalysis/commonstaticanalysis.md)
+* [Java best practices](/user-documentation/recipes/recipe-catalog/java/migrate/javabestpractices.md)
 
 ## Example
 

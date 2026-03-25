@@ -24,13 +24,6 @@ This recipe is only available to users of [Moderne](https://docs.moderne.io/).
 
 This recipe is available under the [Moderne Proprietary License](https://docs.moderne.io/licensing/overview).
 
-
-## Used by
-
-This recipe is used as part of the following composite recipes:
-
-* [Migrate to Spring Boot 4.0 (Moderne Edition)](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/spring/boot4/upgradespringboot_4_0-moderne-edition)
-
 ## Examples
 ##### Example 1
 `UpgradeSpringCloud20251Test#upgradeSpringCloudBom`
