@@ -63,6 +63,27 @@ Use this for a quick start or when AI comprehension isn't needed.
   <figcaption>_Artifact and server configuration files._</figcaption>
 </figure>
 
+## Visualizations
+
+In addition to generating context files, Prethink recipes produce a suite of code quality visualizations. You can find these in the **Visualizations** tab after a recipe run completes. For general information on how to view visualizations, see the [visualizations guide](./visualizations.md).
+
+<figure>
+  ![Code quality executive dashboard showing code health by repository and top refactoring targets](./assets/prethink-executive-dashboard.png)
+  <figcaption>_Code quality executive dashboard combining health scores, smell severity, and top refactoring targets._</figcaption>
+</figure>
+
+<figure>
+  ![Network graph showing clusters of packages involved in dependency cycles](./assets/prethink-dependency-cycles.png)
+  <figcaption>_Package dependency cycle graph highlighting packages involved in cycles._</figcaption>
+</figure>
+
+<figure>
+  ![Radar chart showing the top 8 riskiest methods across five quality dimensions](./assets/prethink-method-risk-radar.png)
+  <figcaption>_Method risk radar profiling the riskiest methods across complexity, nesting, and other dimensions._</figcaption>
+</figure>
+
+For the full list of Prethink visualizations, see the [visualization examples](./visualizations.md#prethink-code-quality-visualizations).
+
 ## Committing the results
 
 Once you're satisfied with the generated context, [commit the changes to your repositories](running-your-first-recipe.md#step-7-commit-your-changes).
