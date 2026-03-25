@@ -6,7 +6,7 @@ description: A comprehensive list of all recipes organized by module.
 
 _This doc contains all recipes grouped by their module._
 
-Total recipes: 5727
+Total recipes: 5733
 
 
 ## io.moderne.recipe
@@ -1232,7 +1232,7 @@ _403 recipes_
 
 _License: Moderne Proprietary License_
 
-_145 recipes_
+_148 recipes_
 
 * [OpenRewrite.Recipes.AddNuGetPackageReference](/user-documentation/recipes/recipe-catalog/csharp/recipes/addnugetpackagereference.md)
   * **Add NuGet package reference**
@@ -1300,6 +1300,15 @@ _145 recipes_
 * [OpenRewrite.Recipes.ChangeDotNetTargetFramework](/user-documentation/recipes/recipe-catalog/csharp/recipes/changedotnettargetframework.md)
   * **Change .NET target framework**
   * Changes the `&lt;TargetFramework&gt;` or `&lt;TargetFrameworks&gt;` value in .csproj files. For multi-TFM projects, replaces the matching framework within the semicolon-delimited list.
+* [OpenRewrite.Recipes.ChangeMethodName](/user-documentation/recipes/recipe-catalog/csharp/recipes/changemethodname.md)
+  * **Change method name**
+  * Rename a method.
+* [OpenRewrite.Recipes.ChangeType](/user-documentation/recipes/recipe-catalog/csharp/recipes/changetype.md)
+  * **Change type**
+  * Change a type reference to another type.
+* [OpenRewrite.Recipes.DeleteMethodArgument](/user-documentation/recipes/recipe-catalog/csharp/recipes/deletemethodargument.md)
+  * **Delete method argument**
+  * Delete an argument from method invocations.
 * [OpenRewrite.Recipes.Net10.FindActionContextAccessorObsolete](/user-documentation/recipes/recipe-catalog/csharp/recipes/net10/findactioncontextaccessorobsolete.md)
   * **Find obsolete `IActionContextAccessor`/`ActionContextAccessor` (ASPDEPR006)**
   * Finds usages of `IActionContextAccessor` and `ActionContextAccessor` which are obsolete in .NET 10. Use `IHttpContextAccessor` and `HttpContext.GetEndpoint()` instead.
@@ -1674,11 +1683,17 @@ _145 recipes_
 
 _License: Moderne Proprietary License_
 
-_19 recipes_
+_22 recipes_
 
+* [OpenRewrite.Recipes.TUnit.Migration.FromXUnit.AddNuGetPackageReference](/user-documentation/recipes/recipe-catalog/csharp/recipes/tunit/migration/fromxunit/addnugetpackagereference.md)
+  * **Add NuGet package reference**
+  * Adds a `&lt;PackageReference&gt;` element to .csproj files if not already present.
 * [OpenRewrite.Recipes.TUnit.Migration.FromXUnit.AsyncLifetimeToBeforeAfterTest](/user-documentation/recipes/recipe-catalog/csharp/recipes/tunit/migration/fromxunit/asynclifetimetobeforeaftertest.md)
   * **Find `IAsyncLifetime` needing TUnit migration**
   * Find classes implementing `IAsyncLifetime` that should use `[Before(Test)]` and `[After(Test)]` for TUnit.
+* [OpenRewrite.Recipes.TUnit.Migration.FromXUnit.ChangeDotNetTargetFramework](/user-documentation/recipes/recipe-catalog/csharp/recipes/tunit/migration/fromxunit/changedotnettargetframework.md)
+  * **Change .NET target framework**
+  * Changes the `&lt;TargetFramework&gt;` element in .csproj files.
 * [OpenRewrite.Recipes.TUnit.Migration.FromXUnit.ChangeXUnitUsings](/user-documentation/recipes/recipe-catalog/csharp/recipes/tunit/migration/fromxunit/changexunitusings.md)
   * **Change xUnit using directives to TUnit**
   * Replace `using Xunit;` with `using TUnit.Core;` and `using TUnit.Assertions;`, and remove `using Xunit.Abstractions;` and `using Xunit.Sdk;`.
@@ -1721,6 +1736,9 @@ _19 recipes_
 * [OpenRewrite.Recipes.TUnit.Migration.FromXUnit.MigrateXUnitDependencies](/user-documentation/recipes/recipe-catalog/csharp/recipes/tunit/migration/fromxunit/migratexunitdependencies.md)
   * **Migrate xUnit NuGet dependencies to TUnit**
   * Remove xUnit NuGet package references, add TUnit, and upgrade the target framework to at least .NET 9.
+* [OpenRewrite.Recipes.TUnit.Migration.FromXUnit.RemoveNuGetPackageReference](/user-documentation/recipes/recipe-catalog/csharp/recipes/tunit/migration/fromxunit/removenugetpackagereference.md)
+  * **Remove NuGet package reference**
+  * Removes a `&lt;PackageReference&gt;` element from .csproj files.
 * [OpenRewrite.Recipes.TUnit.Migration.FromXUnit.TestOutputHelperToTestContext](/user-documentation/recipes/recipe-catalog/csharp/recipes/tunit/migration/fromxunit/testoutputhelpertotestcontext.md)
   * **Find `ITestOutputHelper` needing TUnit migration**
   * Find usages of xUnit's `ITestOutputHelper` that should be replaced with TUnit's `TestContext`.

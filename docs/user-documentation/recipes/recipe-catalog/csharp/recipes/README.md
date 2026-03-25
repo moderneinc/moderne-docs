@@ -24,6 +24,9 @@ description: Recipes OpenRewrite recipes.
 
 * [Add NuGet package reference](./addnugetpackagereference.md)
 * [Change .NET target framework](./changedotnettargetframework.md)
+* [Change method name](./changemethodname.md)
+* [Change type](./changetype.md)
+* [Delete method argument](./deletemethodargument.md)
 * [Remove NuGet package reference](./removenugetpackagereference.md)
 * [Upgrade NuGet package version](./upgradenugetpackageversion.md)
 

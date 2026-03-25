@@ -14,6 +14,8 @@ _Recipes that include further recipes, often including the individual recipes be
 
 ## Recipes
 
+* [Add NuGet package reference](./addnugetpackagereference.md)
+* [Change .NET target framework](./changedotnettargetframework.md)
 * [Change xUnit using directives to TUnit](./changexunitusings.md)
 * [Extract `Skip` into `[Skip]` attribute](./factskiptoskipattribute.md)
 * [Extract `Timeout` into `[Timeout]` attribute](./facttimeouttotimeoutattribute.md)
@@ -22,6 +24,7 @@ _Recipes that include further recipes, often including the individual recipes be
 * [Find `ITestOutputHelper` needing TUnit migration](./testoutputhelpertotestcontext.md)
 * [Find test constructors needing `[Before(Test)]`](./constructortobeforetest.md)
 * [Migrate xUnit assertions to TUnit](./migratexunitassertions.md)
+* [Remove NuGet package reference](./removenugetpackagereference.md)
 * [Replace `IDisposable` with `[After(Test)]`](./disposabletoaftertest.md)
 * [Replace `[Collection]` with `[NotInParallel]`](./collectiontonotinparallel.md)
 * [Replace `[Fact]` with `[Test]`](./facttotest.md)
