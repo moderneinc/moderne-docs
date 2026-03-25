@@ -66,7 +66,7 @@ There are several installation paths, each with different tradeoffs. The right c
 | Standalone wrapper    | Check `modw` + properties file into your repo                                                           | Internet on first run (downloads distribution) | CI pipelines, per-project version pinning   |
 | Standalone JAR        | Download [`moderne-cli.jar`](https://repo1.maven.org/maven2/io/moderne/moderne-cli/) from Maven Central | Java 25+ already installed                     | Custom environments, advanced users         |
 
-The first four paths all provide a bundled JRE — no separate Java installation is required. The standalone JAR is platform-neutral and requires you to supply your own Java 25+ installation.
+The first four paths all provide a bundled JRE — no separate Java installation is required. The standalone JAR is platform-neutral and requires you to supply your own Java 25+ installation (any distribution except GraalVM — see [AOT cache](#startup-performance-and-the-aot-cache)).
 
 ### Quick install (recommended)
 
@@ -212,6 +212,10 @@ The AOT cache is built automatically during installation, so you won't experienc
 
 The cache is stored at `~/.moderne/cli/dist/aot/` and is rebuilt automatically when the CLI is upgraded.
 
+:::warning
+GraalVM distributions are **not compatible** with the AOT cache. If you are supplying your own Java 25+ runtime (for example, on an Intel Mac or when using the standalone JAR), use a non-GraalVM distribution such as [Eclipse Adoptium](https://adoptium.net/). The CLI will skip GraalVM installations during JDK discovery.
+:::
+
 ## What's changing and why
 
 In 3.x, the CLI was a platform-specific GraalVM native binary. You downloaded a single executable for your OS and ran it directly with no JDK required. Internally, the native binary was only the command-line frontend; it spawned a separate JVM subprocess (`modjava`) to do the actual work (recipe execution, LST parsing), because GraalVM native images couldn't dynamically load recipe JARs.
@@ -244,7 +248,7 @@ After an upgrade, the first run rebuilds the startup cache, which takes a few ex
 
 ### Intel Mac: no compatible JRE
 
-The macOS platform distribution includes a bundled JRE for Apple Silicon only. If you are running on an Intel Mac, the bundled JRE will be incompatible. Install Java 25+ separately (for example, from [Eclipse Adoptium](https://adoptium.net/)) and ensure it is available via one of the locations described in [JDK resolution order](#jdk-resolution-order).
+The macOS platform distribution includes a bundled JRE for Apple Silicon only. If you are running on an Intel Mac, the bundled JRE will be incompatible. Install a non-GraalVM Java 25+ distribution separately (for example, from [Eclipse Adoptium](https://adoptium.net/)) and ensure it is available via one of the locations described in [JDK resolution order](#jdk-resolution-order). GraalVM distributions are incompatible with the AOT cache.
 
 ### Debugging
 
