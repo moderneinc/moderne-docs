@@ -1,4 +1,8 @@
 # Platform changelog
+### UI v12.34.1 (2026/03/26)
+
+- Bug fixes and other improvements.
+
 ### UI v12.34.0 (2026/03/26)
 
 - add loading state to create new recipe button in marketplace
