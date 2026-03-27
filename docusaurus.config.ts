@@ -14,7 +14,7 @@ const config: Config = {
   organizationName: 'moderneinc',
   projectName: 'moderne-docs',
 
-  onBrokenLinks: 'warn',
+  onBrokenLinks: process.env.CI_STRICT_LINKS ? 'throw' : 'warn',
 
   i18n: {
     defaultLocale: 'en',
@@ -128,8 +128,8 @@ const config: Config = {
   markdown: {
     mermaid: true,
     hooks: {
-      onBrokenMarkdownLinks: 'warn',
-      onBrokenMarkdownImages: 'warn',
+      onBrokenMarkdownLinks: process.env.CI_STRICT_LINKS ? 'throw' : 'warn',
+      onBrokenMarkdownImages: process.env.CI_STRICT_LINKS ? 'throw' : 'warn',
     }
   },
 
