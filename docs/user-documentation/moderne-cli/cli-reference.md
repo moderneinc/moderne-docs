@@ -51,10 +51,18 @@ description: Auto-generated documentation for all Moderne CLI commands.
 * [**mod config build gradle arguments delete**](#mod-config-build-gradle-arguments-delete)
 * [**mod config build gradle arguments edit**](#mod-config-build-gradle-arguments-edit)
 * [**mod config build gradle arguments show**](#mod-config-build-gradle-arguments-show)
+* [**mod config build gradle installation**](#mod-config-build-gradle-installation)
+* [**mod config build gradle installation edit**](#mod-config-build-gradle-installation-edit)
+* [**mod config build gradle installation delete**](#mod-config-build-gradle-installation-delete)
+* [**mod config build gradle installation list**](#mod-config-build-gradle-installation-list)
 * [**mod config build gradle timeout**](#mod-config-build-gradle-timeout)
 * [**mod config build gradle timeout delete**](#mod-config-build-gradle-timeout-delete)
 * [**mod config build gradle timeout edit**](#mod-config-build-gradle-timeout-edit)
 * [**mod config build gradle timeout show**](#mod-config-build-gradle-timeout-show)
+* [**mod config build gradle version**](#mod-config-build-gradle-version)
+* [**mod config build gradle version edit**](#mod-config-build-gradle-version-edit)
+* [**mod config build gradle version delete**](#mod-config-build-gradle-version-delete)
+* [**mod config build gradle version show**](#mod-config-build-gradle-version-show)
 * [**mod config build javascript**](#mod-config-build-javascript)
 * [**mod config build javascript nodeoptions**](#mod-config-build-javascript-nodeoptions)
 * [**mod config build javascript nodeoptions delete**](#mod-config-build-javascript-nodeoptions-delete)
@@ -1263,7 +1271,9 @@ mod config build gradle arguments edit --refresh-dependencies
 ### Subcommands
 
 * `arguments`: Configure Gradle build arguments.
+* `installation`: Configures locations of Gradle installations that can be used by build tools.
 * `timeout`: Configure the build timeout.
+* `version`: Configures the Gradle version to use.
 
 ## mod config build gradle arguments
 
@@ -1344,6 +1354,78 @@ mod config build gradle arguments show
 | `--save` |  Apply the operation to the file **.moderne/moderne.yml** which can be committed to source control as opposed to the git-ignored variant.<br/>Can only be used with `--local`.<br/>Has no effect on the global configuration. |
 
 
+## mod config build gradle installation
+
+Configures locations of Gradle installations that can be used by build tools.
+
+
+Must be configured before you can run the build command if Gradle is installed in non-standard locations.
+
+### Usage
+
+```
+mod config build gradle installation [subcommands]
+```
+
+
+### Subcommands
+
+* `edit`: Configures locations of Gradle installations that can be used by build tools.
+* `delete`: Removes the configured Gradle installations. The CLI will revert to using only detectable Gradle installations.
+* `list`: Displays the detected and configured Gradle installations in the order in which they will be selected, constrained by versions detected from a particular repository.
+
+## mod config build gradle installation edit
+
+Configures locations of Gradle installations that can be used by build tools.
+
+
+Must be configured before you can run the build command if Gradle is installed in non-standard locations.
+
+### Usage
+
+```
+mod config build gradle installation edit [parameters]
+```
+
+### Parameters
+
+| Name | Description |
+| ---- | ----------- |
+| `gradleHomes` |  The paths on disk where Gradle installations (GRADLE_HOME directories) can be found. |
+
+
+
+## mod config build gradle installation delete
+
+Removes the configured Gradle installations. The CLI will revert to using only detectable Gradle installations.
+
+
+### Usage
+
+```
+mod config build gradle installation delete
+```
+
+
+
+## mod config build gradle installation list
+
+Displays the detected and configured Gradle installations in the order in which they will be selected, constrained by versions detected from a particular repository.
+
+
+### Usage
+
+```
+mod config build gradle installation list
+```
+
+### Options
+
+| Name | Description |
+| ---- | ----------- |
+| `--named` |  Filter the list of Gradle installations to . |
+
+
 ## mod config build gradle timeout
 
 Configure the build timeout.
@@ -1419,6 +1501,91 @@ Displays the configured build timeout.
 
 ```
 mod config build gradle timeout show
+```
+
+### Options
+
+| Name | Description |
+| ---- | ----------- |
+| `--local` |  Apply this command recursively to all repositories found within the specified directory path, modifying each repository's git-ignored file **.moderne/moderne-uncommitted.yml**<br/>Has no impact on the global configuration. |
+| `--save` |  Apply the operation to the file **.moderne/moderne.yml** which can be committed to source control as opposed to the git-ignored variant.<br/>Can only be used with `--local`.<br/>Has no effect on the global configuration. |
+
+
+## mod config build gradle version
+
+Configures the Gradle version to use.
+
+
+Configure a version like "4.5", "8", or "8.1.1" depending on the degree of control needed.
+
+### Usage
+
+```
+mod config build gradle version [subcommands]
+```
+
+
+### Subcommands
+
+* `edit`: Configures the Gradle version to use.
+* `delete`: Reverts to auto-detection of a Gradle version to use when building a repository.
+* `show`: Displays the configured Gradle version.
+
+## mod config build gradle version edit
+
+Configures the Gradle version to use.
+
+
+Configure a version like "4.5", "8", or "8.1.1" depending on the degree of control needed.
+
+### Usage
+
+```
+mod config build gradle version edit [parameters]
+```
+
+### Parameters
+
+| Name | Description |
+| ---- | ----------- |
+| `selectedGradle` |  The named Gradle version to use. If set to "auto", the CLI will revert to detecting the correct Gradle to use from signals available in the repository. |
+
+### Options
+
+| Name | Description |
+| ---- | ----------- |
+| `--local` |  Apply this command recursively to all repositories found within the specified directory path, modifying each repository's git-ignored file **.moderne/moderne-uncommitted.yml**<br/>Has no impact on the global configuration. |
+| `--save` |  Apply the operation to the file **.moderne/moderne.yml** which can be committed to source control as opposed to the git-ignored variant.<br/>Can only be used with `--local`.<br/>Has no effect on the global configuration. |
+
+
+## mod config build gradle version delete
+
+Reverts to auto-detection of a Gradle version to use when building a repository.
+
+
+### Usage
+
+```
+mod config build gradle version delete
+```
+
+### Options
+
+| Name | Description |
+| ---- | ----------- |
+| `--local` |  Apply this command recursively to all repositories found within the specified directory path, modifying each repository's git-ignored file **.moderne/moderne-uncommitted.yml**<br/>Has no impact on the global configuration. |
+| `--save` |  Apply the operation to the file **.moderne/moderne.yml** which can be committed to source control as opposed to the git-ignored variant.<br/>Can only be used with `--local`.<br/>Has no effect on the global configuration. |
+
+
+## mod config build gradle version show
+
+Displays the configured Gradle version.
+
+
+### Usage
+
+```
+mod config build gradle version show
 ```
 
 ### Options
