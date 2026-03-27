@@ -24,6 +24,12 @@ jobs:
         with:
           node-version: 20
 
+      - name: Read proprietary repo list
+        id: repo-list
+        run: |
+          repos=$(tr '\n' ',' < .github/data/proprietary-repos.txt | sed 's/,$//')
+          echo "repos=$repos" >> $GITHUB_OUTPUT
+
       - name: Generate GitHub App token
         uses: actions/create-github-app-token@v1
         id: app-token
@@ -31,42 +37,7 @@ jobs:
           app-id: ${{ secrets.PROPRIETARY_RELEASE_NOTES_APP_ID }}
           private-key: ${{ secrets.PROPRIETARY_RELEASE_NOTES_PRIVATE_KEY }}
           owner: moderneinc
-          repositories: |
-            rewrite-ai
-            rewrite-ai-search
-            rewrite-android
-            rewrite-angular
-            rewrite-azul
-            rewrite-circleci
-            rewrite-cobol
-            rewrite-codemods
-            rewrite-codemods-ng
-            rewrite-compiled-analysis
-            rewrite-comprehension
-            rewrite-concourse
-            rewrite-cryptography
-            rewrite-devcenter
-            rewrite-dotnet
-            rewrite-elastic
-            rewrite-hibernate
-            rewrite-jasperreports
-            rewrite-java-application-server
-            rewrite-java-security
-            rewrite-kafka
-            rewrite-kubernetes
-            rewrite-migrate-kotlin
-            rewrite-migrate-python
-            rewrite-nodejs
-            rewrite-prethink
-            rewrite-program-analysis
-            rewrite-react
-            rewrite-reactive-streams
-            rewrite-spring
-            rewrite-sql
-            rewrite-struts
-            rewrite-tapestry
-            rewrite-terraform
-            rewrite-vulncheck
+          repositories: ${{ steps.repo-list.outputs.repos }}
 
       - name: Install dependencies
         run: yarn add @octokit/rest --ignore-workspace-root-check
