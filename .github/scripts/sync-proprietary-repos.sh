@@ -3,7 +3,7 @@ set -euo pipefail
 
 ORG="${GITHUB_ORG:-moderneinc}"
 PREFIX="rewrite-"
-WORKFLOW_FILE=".github/workflows/update-proprietary-release-notes.yml"
+DATA_FILE=".github/data/proprietary-repos.txt"
 
 # Repos to exclude (space-separated, add names here if needed)
 EXCLUDE_REPOS=""
@@ -28,12 +28,8 @@ if [ -n "$EXCLUDE_REPOS" ]; then
   done
 fi
 
-# Extract current list from workflow file
-current=$(sed -n '/repositories: |/,/^[[:space:]]*$/p' "$WORKFLOW_FILE" \
-  | tail -n +2 \
-  | sed '/^[[:space:]]*$/d' \
-  | sed 's/^[[:space:]]*//' \
-  | sort)
+# Extract current list from data file
+current=$(sort "$DATA_FILE")
 
 # Diff
 added=$(comm -23 <(echo "$discovered") <(echo "$current"))
@@ -51,29 +47,6 @@ if [ -n "$removed" ]; then
   echo "Removing: $removed"
 fi
 
-# Build the indented repo block (12 spaces to match existing format)
-repo_block=$(echo "$discovered" | sed 's/^/            /')
-
-# Write the new repo block to a temp file for awk to read
-repo_file=$(mktemp)
-echo "$repo_block" > "$repo_file"
-
-# Replace the repositories block in the workflow file
-# Strategy: skip lines inside the repo block, insert new block at the boundary
-awk -v repo_file="$repo_file" '
-  /repositories: \|/ {
-    print
-    in_repos = 1
-    next
-  }
-  in_repos && (/^[[:space:]]*$/ || /^[[:space:]]+- /) {
-    while ((getline line < repo_file) > 0) print line
-    close(repo_file)
-    in_repos = 0
-  }
-  !in_repos { print }
-' "$WORKFLOW_FILE" > "${WORKFLOW_FILE}.tmp"
-
-rm -f "$repo_file"
-mv "${WORKFLOW_FILE}.tmp" "$WORKFLOW_FILE"
-echo "Updated workflow file."
+# Write the discovered repos to the data file
+echo "$discovered" > "$DATA_FILE"
+echo "Updated $DATA_FILE."
