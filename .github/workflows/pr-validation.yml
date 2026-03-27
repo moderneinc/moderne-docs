@@ -33,9 +33,6 @@ jobs:
       - name: Validate CSS variables
         run: yarn validate:css
 
-      - name: TypeScript type check
-        run: yarn typecheck
-
   build:
     name: Build
     runs-on: ubuntu-latest

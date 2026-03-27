@@ -14,7 +14,8 @@ const config: Config = {
   organizationName: 'moderneinc',
   projectName: 'moderne-docs',
 
-  onBrokenLinks: process.env.CI_STRICT_LINKS ? 'throw' : 'warn',
+  // Only throw on broken links when the full site (including recipe catalog) is built.
+  onBrokenLinks: (process.env.CI_STRICT_LINKS && !process.env.SKIP_RECIPE_CATALOG) ? 'throw' : 'warn',
 
   i18n: {
     defaultLocale: 'en',
