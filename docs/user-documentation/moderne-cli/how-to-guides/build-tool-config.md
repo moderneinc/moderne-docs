@@ -1,15 +1,19 @@
 ---
-sidebar_label: Gradle configuration
-description: How to configure the Gradle installation in the Moderne CLI.
+sidebar_label: Build tool configuration
+description: How to configure build tools such as Gradle, Maven, and Bazel in the Moderne CLI.
 ---
 
-# Gradle configuration in the Moderne CLI
+# Build tool configuration in the Moderne CLI
 
-By default, the Moderne CLI uses the Gradle wrapper (`gradlew`) included in each repository when building LSTs. However, some repositories may not include a wrapper, or you may need to use a specific version of Gradle for certain projects.
+The Moderne CLI can be configured to use specific build tool versions and arguments when building LSTs. This page covers how to manage those settings for each supported build tool.
 
-In these situations, you can configure which Gradle installations the CLI knows about and which version it should select for repositories without a wrapper.
+## Gradle
 
-## Gradle installation discovery
+### Version selection
+
+By default, the CLI uses the Gradle wrapper (`gradlew`) included in each repository. However, some repositories may not include a wrapper, or you may need to use a specific version of Gradle for certain projects.
+
+#### Installation discovery
 
 The CLI automatically discovers Gradle installations from these locations (with the first one representing the one given the highest priority):
 
@@ -44,7 +48,7 @@ mod config build gradle installation list
 
 </details>
 
-## Adding additional Gradle installation locations
+#### Adding additional installation locations
 
 If you have Gradle installations in locations the CLI does not automatically discover, you can register them:
 
@@ -66,7 +70,7 @@ mod config build gradle installation delete
 
 This only removes user-configured paths. Automatically discovered installations (from `$PATH`, SDKMAN, Homebrew, etc.) remain available.
 
-## Selecting a Gradle version
+#### Selecting a version
 
 When a repository does not include a Gradle wrapper, you can tell the CLI which Gradle version to use. The version must match one of the installations known to the CLI.
 
@@ -97,7 +101,7 @@ To see the currently configured version:
 mod config build gradle version show
 ```
 
-## Specifying Gradle version in CSV
+#### Specifying Gradle version in CSV
 
 When cloning using `mod git sync csv`, you can add a `gradleVersion` column to the CSV to specify the Gradle version per repository.
 
@@ -118,6 +122,16 @@ mod config build gradle version show --local <REPO>
 :::tip
 If a repository has a Gradle wrapper, the wrapper always takes precedence regardless of the configured Gradle version. The `gradleVersion` setting only applies to repositories without a wrapper.
 :::
+
+### Build arguments
+
+You can pass additional arguments to Gradle when building LSTs. See [layered configuration](./layer-config-cli.md) for details on how `gradleArgs` works with global, local, and CSV-based configuration.
+
+## Maven
+
+### Build arguments
+
+You can pass additional arguments to Maven when building LSTs. See [layered configuration](./layer-config-cli.md) for details on how `mavenArgs` works with global, local, and CSV-based configuration.
 
 ## Additional reading
 
