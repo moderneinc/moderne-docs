@@ -82,7 +82,7 @@ To set a Gradle version globally:
 mod config build gradle version edit 8.1.1
 ```
 
-The version can be as specific or general as needed. For example, `8`, `8.1`, or `8.1.1` are all valid.
+The version must exactly match one of the installed versions. Use `mod config build gradle installation list` to see which versions are available.
 
 To apply a version only to a specific group of repositories, use the `--local` flag:
 
