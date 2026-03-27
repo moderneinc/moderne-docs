@@ -74,7 +74,7 @@ type DocSearchProps = Omit<
 
 // extend DocSearchProps for v4 features
 // TODO Docusaurus v4: cleanup after we drop support for DocSearch v3
-interface DocSearchV4Props extends DocSearchProps {
+interface DocSearchV4Props extends Omit<DocSearchProps, 'askAi'> {
   indexName: string;
   askAi?: ThemeConfigAlgolia['askAi'];
   translations?: DocSearchTranslations;
@@ -206,7 +206,7 @@ function useSearchParameters({
   contextualSearch,
   activeTab,
   ...props
-}: DocSearchProps & {activeTab: SearchTab}): DocSearchProps['searchParameters'] {
+}: DocSearchV4Props & {activeTab: SearchTab}): DocSearchProps['searchParameters'] {
   const contextualSearchFacetFilters = useAlgoliaContextualFacetFilters();
 
   const configFacetFilters: FacetFilters =
@@ -299,7 +299,7 @@ function useTabsMountPoint(
   return mountPoint;
 }
 
-function DocSearch({externalUrlRegex, ...props}: DocSearchV4Props) {
+function DocSearch({externalUrlRegex, askAi, ...props}: DocSearchV4Props) {
   const navigator = useNavigator({externalUrlRegex});
   const transformItems = useTransformItems(props);
   const transformSearchClient = useTransformSearchClient();
@@ -326,7 +326,7 @@ function DocSearch({externalUrlRegex, ...props}: DocSearchV4Props) {
   const tabsMountPoint = useTabsMountPoint(isOpen, activeTab);
 
   const {isAskAiActive, currentPlaceholder, onAskAiToggle, extraAskAiProps} =
-    useAlgoliaAskAi(props);
+    useAlgoliaAskAi({...props, askAi});
 
   const prepareSearchContainer = useCallback(() => {
     if (!searchContainer.current) {
