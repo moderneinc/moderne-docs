@@ -6,7 +6,7 @@ description: A comprehensive list of all recipes organized by module.
 
 _This doc contains all recipes grouped by their module._
 
-Total recipes: 5733
+Total recipes: 5748
 
 
 ## io.moderne.recipe
@@ -18,7 +18,7 @@ _License: Moderne Proprietary License_
 
 _403 recipes_
 
-* [OpenRewrite.Recipes.CodeQuality.CodeQuality](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/codequality.md)
+* [OpenRewrite.Recipes.CodeQuality.CodeQuality](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/codequality-recipe.md)
   * **Code quality**
   * All C# code quality recipes, organized by category.
 * [OpenRewrite.Recipes.CodeQuality.Formatting.AddNewLineAfterOpeningBrace](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/formatting/addnewlineafteropeningbrace.md)
@@ -2188,7 +2188,7 @@ _32 recipes_
 
 _License: Moderne Proprietary License_
 
-_46 recipes_
+_59 recipes_
 
 * [io.moderne.prethink.ComprehendCode](/user-documentation/recipes/recipe-catalog/prethink/comprehendcode.md)
   * **Comprehend code with AI**
@@ -2205,12 +2205,6 @@ _46 recipes_
 * [io.moderne.prethink.ExtractErrorPatterns](/user-documentation/recipes/recipe-catalog/prethink/extracterrorpatterns.md)
   * **Extract error handling patterns**
   * Analyze the codebase to extract error handling patterns including exception types, handling strategies, and logging frameworks used.
-* [io.moderne.prethink.FindTestCoverage](/user-documentation/recipes/recipe-catalog/prethink/findtestcoverage.md)
-  * **Find test coverage mapping**
-  * Map test methods to their corresponding implementation methods. Uses JavaType.Method matching to determine coverage relationships. Optionally generates AI summaries of what each test is verifying when LLM provider is configured.
-* [io.moderne.prethink.FindTestGaps](/user-documentation/recipes/recipe-catalog/prethink/findtestgaps.md)
-  * **Find test coverage gaps**
-  * Identify public non-trivial methods that lack test coverage. Reports gaps with cyclomatic complexity and risk scores to help prioritize where to add tests.
 * [io.moderne.prethink.UpdatePrethinkContextNoAiStarter](/user-documentation/recipes/recipe-catalog/prethink/updateprethinkcontextnoaistarter.md)
   * **Update Prethink context (no AI)**
   * Generate Moderne Prethink context files with architectural discovery, test coverage mapping, dependency inventory, and FINOS CALM architecture diagrams. This recipe does not require an LLM provider - use UpdatePrethinkContextStarter if you want AI-generated code comprehension and test summaries.
@@ -2328,6 +2322,51 @@ _46 recipes_
 * [io.moderne.prethink.quality.FindPackageMetrics](/user-documentation/recipes/recipe-catalog/prethink/quality/findpackagemetrics.md)
   * **Find package quality metrics**
   * Compute per-package architectural quality metrics including afferent/efferent coupling, instability, abstractness, distance from the main sequence, and dependency cycle detection using Tarjan's strongly connected components algorithm.
+* [io.moderne.prethink.testing.coverage.FindTestCoverage](/user-documentation/recipes/recipe-catalog/prethink/testing/coverage/findtestcoverage.md)
+  * **Find test coverage mapping**
+  * Map test methods to their corresponding implementation methods. Uses JavaType.Method matching to determine coverage relationships. Optionally generates AI summaries of what each test is verifying when LLM provider is configured.
+* [io.moderne.prethink.testing.coverage.FindTestGaps](/user-documentation/recipes/recipe-catalog/prethink/testing/coverage/findtestgaps.md)
+  * **Find test coverage gaps**
+  * Identify public non-trivial methods that lack test coverage. Reports gaps with cyclomatic complexity and risk scores to help prioritize where to add tests.
+* [io.moderne.prethink.testing.quality.FindFlakyTestPatterns](/user-documentation/recipes/recipe-catalog/prethink/testing/quality/findflakytestpatterns.md)
+  * **Find flaky test patterns**
+  * Detect patterns that commonly cause flaky tests in Java and Python code, including static waits (Thread.sleep, TimeUnit.sleep) and shared mutable state (static non-final fields in test classes).
+* [io.moderne.prethink.testing.quality.FindFragileTestData](/user-documentation/recipes/recipe-catalog/prethink/testing/quality/findfragiletestdata.md)
+  * **Find fragile test data**
+  * Detect hardcoded dates, timing-dependent assertions, and hardcoded ports/paths in test code that may cause flaky or environment-dependent test failures.
+* [io.moderne.prethink.testing.quality.FindGhostTests](/user-documentation/recipes/recipe-catalog/prethink/testing/quality/findghosttests.md)
+  * **Find ghost tests**
+  * Detect methods that look like tests but will not be executed by the test runner, and tests skipped without a documented reason.
+* [io.moderne.prethink.testing.quality.FindNodeFlakyTestPatterns](/user-documentation/recipes/recipe-catalog/prethink/testing/quality/findnodeflakytestpatterns.md)
+  * **Find Node.js flaky test patterns**
+  * Detect patterns that commonly cause flaky tests in JavaScript and TypeScript code, including static waits (setTimeout, setInterval), prototype mutation, and shared mutable state (module-scope let/var declarations).
+* [io.moderne.prethink.testing.quality.FindNodeFragileTestData](/user-documentation/recipes/recipe-catalog/prethink/testing/quality/findnodefragiletestdata.md)
+  * **Find Node.js fragile test data**
+  * Detect hardcoded dates, timing-dependent assertions, and hardcoded ports in JavaScript and TypeScript test files.
+* [io.moderne.prethink.testing.quality.FindNodeGhostTests](/user-documentation/recipes/recipe-catalog/prethink/testing/quality/findnodeghosttests.md)
+  * **Find Node.js ghost tests**
+  * Detect skipped tests in JavaScript and TypeScript test files. Flags xtest(), xit(), test.skip(), it.skip(), and describe.skip() calls that lack a documented reason in their description.
+* [io.moderne.prethink.testing.quality.FindNodeSilentTestFailures](/user-documentation/recipes/recipe-catalog/prethink/testing/quality/findnodesilenttestfailures.md)
+  * **Find Node.js silent test failures**
+  * Detect silent test failures in JavaScript and TypeScript test files including empty .catch() handlers and test functions missing expect() calls.
+* [io.moderne.prethink.testing.quality.FindNodeTestCodeSmells](/user-documentation/recipes/recipe-catalog/prethink/testing/quality/findnodetestcodesmells.md)
+  * **Find Node.js test code smells**
+  * Detect code smells in JavaScript and TypeScript test files including empty catch blocks and magic numbers.
+* [io.moderne.prethink.testing.quality.FindNodeUnmockedExternalCalls](/user-documentation/recipes/recipe-catalog/prethink/testing/quality/findnodeunmockedexternalcalls.md)
+  * **Find unmocked external calls in Node.js tests**
+  * Detect direct HTTP, database, and network calls in JavaScript/TypeScript test files that are not mocked. Integration and e2e test files are excluded.
+* [io.moderne.prethink.testing.quality.FindOverlyBroadMocks](/user-documentation/recipes/recipe-catalog/prethink/testing/quality/findoverlybroadmocks.md)
+  * **Find overly broad mocks**
+  * Detect Mockito stubbing or verification calls that use 3 or more any() matchers, which can hide incorrect arguments and reduce test effectiveness.
+* [io.moderne.prethink.testing.quality.FindSilentTestFailures](/user-documentation/recipes/recipe-catalog/prethink/testing/quality/findsilenttestfailures.md)
+  * **Find silent test failures**
+  * Detect silent test failures including Java assert keyword usage, swallowed exceptions in try/catch blocks, and test methods missing assertions.
+* [io.moderne.prethink.testing.quality.FindTestCodeSmells](/user-documentation/recipes/recipe-catalog/prethink/testing/quality/findtestcodesmells.md)
+  * **Find test code smells**
+  * Detect code smells in test files including empty catch blocks, deprecated test APIs, magic numbers, and poorly named test methods.
+* [io.moderne.prethink.testing.quality.FindUnmockedExternalCalls](/user-documentation/recipes/recipe-catalog/prethink/testing/quality/findunmockedexternalcalls.md)
+  * **Find unmocked external calls in tests**
+  * Detect direct HTTP, database, and network calls in unit tests that are not mocked. These cause flaky and slow tests. Integration tests (annotated with @SpringBootTest, @Testcontainers, etc.) are excluded.
 
 ### rewrite-program-analysis
 
@@ -3039,7 +3078,7 @@ _28 recipes_
 
 _License: Moderne Source Available License_
 
-_4 recipes_
+_5 recipes_
 
 * [org.openrewrite.csharp.AddNuGetPackageReference](/user-documentation/recipes/recipe-catalog/csharp/addnugetpackagereference.md)
   * **Add NuGet package reference**
@@ -3047,6 +3086,9 @@ _4 recipes_
 * [org.openrewrite.csharp.ChangeDotNetTargetFramework](/user-documentation/recipes/recipe-catalog/csharp/changedotnettargetframework.md)
   * **Change .NET target framework**
   * Changes the `&lt;TargetFramework&gt;` or `&lt;TargetFrameworks&gt;` value in .csproj files. For multi-TFM projects, replaces the matching framework within the semicolon-delimited list.
+* [org.openrewrite.csharp.FindNuGetPackageReference](/user-documentation/recipes/recipe-catalog/csharp/findnugetpackagereference.md)
+  * **Find NuGet package reference**
+  * Searches for .csproj files that reference a specific NuGet package. Intended for use as a precondition to scope other recipes.
 * [org.openrewrite.csharp.RemoveNuGetPackageReference](/user-documentation/recipes/recipe-catalog/csharp/removenugetpackagereference.md)
   * **Remove NuGet package reference**
   * Removes a `&lt;PackageReference&gt;` element from .csproj files.
@@ -10385,7 +10427,7 @@ _40 recipes_
 
 _License: Moderne Source Available License_
 
-_314 recipes_
+_315 recipes_
 
 * [org.openrewrite.gradle.spring.AddSpringDependencyManagementPlugin](/user-documentation/recipes/recipe-catalog/gradle/spring/addspringdependencymanagementplugin.md)
   * **Add `io.spring.dependency-management` plugin, if in use**
@@ -10927,6 +10969,9 @@ _314 recipes_
 * [org.openrewrite.java.spring.cloud2024.UpgradeSpringCloud_2024](/user-documentation/recipes/recipe-catalog/java/spring/cloud2024/upgradespringcloud_2024.md)
   * **Migrate to Spring Cloud 2024**
   * Migrate applications to the latest Spring Cloud 2024 (Moorgate) release.
+* [org.openrewrite.java.spring.cloud2025.AddSpringCloudDependenciesBom](/user-documentation/recipes/recipe-catalog/java/spring/cloud2025/addspringclouddependenciesbom.md)
+  * **Add Spring Cloud dependencies BOM**
+  * Adds the Spring Cloud dependencies BOM as a managed import, but only when the project already uses a Spring Cloud dependency. Prevents accidentally introducing the BOM into unrelated projects.
 * [org.openrewrite.java.spring.cloud2025.DependencyUpgrades](/user-documentation/recipes/recipe-catalog/java/spring/cloud2025/dependencyupgrades.md)
   * **Upgrade dependencies to Spring Cloud 2025**
   * Upgrade dependencies to Spring Cloud 2025 from prior 2024.x version.

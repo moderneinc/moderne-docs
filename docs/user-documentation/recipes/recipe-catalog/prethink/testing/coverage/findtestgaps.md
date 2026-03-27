@@ -1,88 +1,76 @@
 ---
-sidebar_label: "Update Jakarta EE Platform Dependencies to 11.0.x"
+sidebar_label: "Find test coverage gaps"
 ---
-
-
-<head>
-  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/migrate/jakarta/updatejakartaplatform11" />
-</head>
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import RunRecipe from '@site/src/components/RunRecipe';
 
-# Update Jakarta EE Platform Dependencies to 11.0.x
+# Find test coverage gaps
 
-**org.openrewrite.java.migrate.jakarta.UpdateJakartaPlatform11**
+**io.moderne.prethink.testing.coverage.FindTestGaps**
 
-_Update Jakarta EE Platform Dependencies to 11.0.x._
+_Identify public non-trivial methods that lack test coverage. Reports gaps with cyclomatic complexity and risk scores to help prioritize where to add tests._
 
 ## Recipe source
 
-[GitHub: jakarta-ee-11.yml](https://github.com/openrewrite/rewrite-migrate-java/blob/main/src/main/resources/META-INF/rewrite/jakarta-ee-11.yml),
-[Issue Tracker](https://github.com/openrewrite/rewrite-migrate-java/issues),
-[Maven Central](https://central.sonatype.com/artifact/org.openrewrite.recipe/rewrite-migrate-java/)
-
-:::info
-This recipe is composed of more than one recipe. If you want to customize the set of recipes this is composed of, you can find and copy the GitHub source for the recipe from the link above.
-:::
-
-This recipe is available under the [Moderne Source Available License](https://docs.moderne.io/licensing/moderne-source-available-license).
+This recipe is only available to users of [Moderne](https://docs.moderne.io/).
 
 
-## Definition
+This recipe is available under the [Moderne Proprietary License](https://docs.moderne.io/licensing/overview).
 
-<Tabs groupId="recipeType">
-<TabItem value="recipe-list" label="Recipe List" >
-* [Upgrade Gradle or Maven dependency versions](../../../java/dependencies/upgradedependencyversion)
-  * groupId: `jakarta.platform`
-  * artifactId: `*`
-  * newVersion: `11.0.x`
-* [Upgrade Gradle or Maven dependency versions](../../../java/dependencies/upgradedependencyversion)
-  * groupId: `jakarta.servlet.jsp`
-  * artifactId: `jakarta.servlet.jsp-api`
-  * newVersion: `4.0.x`
-
-</TabItem>
-
-<TabItem value="yaml-recipe-list" label="Yaml Recipe List">
-
-```yaml
----
-type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.java.migrate.jakarta.UpdateJakartaPlatform11
-displayName: Update Jakarta EE Platform Dependencies to 11.0.x
-description: |
-  Update Jakarta EE Platform Dependencies to 11.0.x.
-recipeList:
-  - org.openrewrite.java.dependencies.UpgradeDependencyVersion:
-      groupId: jakarta.platform
-      artifactId: "*"
-      newVersion: 11.0.x
-  - org.openrewrite.java.dependencies.UpgradeDependencyVersion:
-      groupId: jakarta.servlet.jsp
-      artifactId: jakarta.servlet.jsp-api
-      newVersion: 4.0.x
-
-```
-</TabItem>
-</Tabs>
 
 ## Used by
 
 This recipe is used as part of the following composite recipes:
 
-* [Migrate to Jakarta EE 11](/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/jakartaee11.md)
+* [Update Prethink context (no AI)](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/prethink/updateprethinkcontextnoaistarter)
+* [Update Prethink context (with AI)](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/prethink/updateprethinkcontextstarter)
+
+## Example
+
+
+###### Unchanged
+```java
+package com.example;
+
+import org.junit.jupiter.api.Test;
+
+public class ServiceTest {
+    @Test
+    void placeholder() {
+    }
+}
+```
+
+###### Unchanged
+```java
+package com.example;
+
+public class Service {
+    public String process(String input) {
+        if (input == null) {
+            return "empty";
+        }
+        return input.toUpperCase();
+    }
+}
+```
+
+###### Unchanged
+```mavenProject
+test-project
+```
 
 
 ## Usage
 
 <RunRecipe
-  recipeName="org.openrewrite.java.migrate.jakarta.UpdateJakartaPlatform11"
-  displayName="Update Jakarta EE Platform Dependencies to 11.0.x"
-  groupId="org.openrewrite.recipe"
-  artifactId="rewrite-migrate-java"
-  versionKey="VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_MIGRATE_JAVA"
+  recipeName="io.moderne.prethink.testing.coverage.FindTestGaps"
+  displayName="Find test coverage gaps"
+  groupId="io.moderne.recipe"
+  artifactId="rewrite-prethink"
+  versionKey="VERSION_IO_MODERNE_RECIPE_REWRITE_PRETHINK"
   showGradle={false}
   showMaven={false}
   hasDataTables
@@ -92,7 +80,7 @@ This recipe is used as part of the following composite recipes:
 
 import RecipeCallout from '@site/src/components/ModerneLink';
 
-<RecipeCallout link="https://app.moderne.io/recipes/org.openrewrite.java.migrate.jakarta.UpdateJakartaPlatform11" />
+<RecipeCallout link="https://app.moderne.io/recipes/io.moderne.prethink.testing.coverage.FindTestGaps" />
 
 The community edition of the Moderne platform enables you to easily run recipes across thousands of open-source repositories.
 
@@ -100,6 +88,26 @@ Please [contact Moderne](https://moderne.io/product) for more information about 
 ## Data Tables
 
 <Tabs groupId="data-tables">
+<TabItem value="io.moderne.prethink.table.TestGaps" label="TestGaps">
+
+### Test gaps
+**io.moderne.prethink.table.TestGaps**
+
+_Public non-trivial methods that have no test coverage, ranked by risk score._
+
+| Column Name | Description |
+| ----------- | ----------- |
+| Source path | The path to the source file containing the untested method. |
+| Class name | The fully qualified name of the class. |
+| Method name | The simple name of the untested method. |
+| Method signature | The full method signature. |
+| Cyclomatic complexity | The cyclomatic complexity of the untested method. |
+| Risk score | Risk score combining complexity and architectural centrality (call count). Higher = more critical gap. |
+| Gap reason | Why this gap matters, e.g., 'complexity 15, called by 8 methods, no test coverage'. |
+| Suggested test class | Suggested fully qualified name for the test class. |
+
+</TabItem>
+
 <TabItem value="org.openrewrite.table.SourcesFileResults" label="SourcesFileResults">
 
 ### Source files that had results

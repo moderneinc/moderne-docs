@@ -18,6 +18,6 @@ description: Codequality OpenRewrite recipes.
 
 _Recipes that include further recipes, often including the individual recipes below._
 
-* [Code quality](./codequality.md)
+* [Code quality](./codequality-recipe.md)
 
 

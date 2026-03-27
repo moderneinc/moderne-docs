@@ -1989,7 +1989,7 @@ _1 recipe_
 
 ## cloud
 
-_26 recipes_
+_27 recipes_
 
 * [io.moderne.java.spring.cloud2020.SpringCloudProperties_2020](/user-documentation/recipes/recipe-catalog/java/spring/cloud2020/springcloudproperties_2020.md)
   * **Migrate Spring Cloud properties to 2020**
@@ -2036,6 +2036,9 @@ _26 recipes_
 * [org.openrewrite.java.spring.cloud2024.UpgradeSpringCloud_2024](/user-documentation/recipes/recipe-catalog/java/spring/cloud2024/upgradespringcloud_2024.md)
   * **Migrate to Spring Cloud 2024**
   * Migrate applications to the latest Spring Cloud 2024 (Moorgate) release.
+* [org.openrewrite.java.spring.cloud2025.AddSpringCloudDependenciesBom](/user-documentation/recipes/recipe-catalog/java/spring/cloud2025/addspringclouddependenciesbom.md)
+  * **Add Spring Cloud dependencies BOM**
+  * Adds the Spring Cloud dependencies BOM as a managed import, but only when the project already uses a Spring Cloud dependency. Prevents accidentally introducing the BOM into unrelated projects.
 * [org.openrewrite.java.spring.cloud2025.DependencyUpgrades](/user-documentation/recipes/recipe-catalog/java/spring/cloud2025/dependencyupgrades.md)
   * **Upgrade dependencies to Spring Cloud 2025**
   * Upgrade dependencies to Spring Cloud 2025 from prior 2024.x version.
@@ -2090,7 +2093,7 @@ _1 recipe_
 
 _403 recipes_
 
-* [OpenRewrite.Recipes.CodeQuality.CodeQuality](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/codequality.md)
+* [OpenRewrite.Recipes.CodeQuality.CodeQuality](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/codequality-recipe.md)
   * **Code quality**
   * All C# code quality recipes, organized by category.
   * Tags: code-quality
@@ -4257,7 +4260,7 @@ _480 recipes_
 * [OpenRewrite.Recipes.AspNetCore3.UpgradeToAspNetCore30](/user-documentation/recipes/recipe-catalog/csharp/recipes/aspnetcore3/upgradetoaspnetcore30.md)
   * **Migrate to ASP.NET Core 3.0**
   * Migrate ASP.NET Core 2.2 projects to ASP.NET Core 3.0, including endpoint routing, Generic Host, and System.Text.Json changes. See https://learn.microsoft.com/en-us/aspnet/core/migration/22-to-30.
-* [OpenRewrite.Recipes.CodeQuality.CodeQuality](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/codequality.md)
+* [OpenRewrite.Recipes.CodeQuality.CodeQuality](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/codequality-recipe.md)
   * **Code quality**
   * All C# code quality recipes, organized by category.
 * [OpenRewrite.Recipes.CodeQuality.Formatting.AddNewLineAfterOpeningBrace](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/formatting/addnewlineafteropeningbrace.md)
@@ -14817,7 +14820,7 @@ _1 recipe_
 
 ## spring
 
-_199 recipes_
+_200 recipes_
 
 * [io.moderne.java.spring.boot.ReplaceSpringFrameworkDepsWithBootStarters](/user-documentation/recipes/recipe-catalog/java/spring/boot/replacespringframeworkdepswithbootstarters.md)
   * **Replace Spring Framework dependencies with Spring Boot starters**
@@ -15146,6 +15149,9 @@ _199 recipes_
 * [org.openrewrite.java.spring.cloud2024.UpgradeSpringCloud_2024](/user-documentation/recipes/recipe-catalog/java/spring/cloud2024/upgradespringcloud_2024.md)
   * **Migrate to Spring Cloud 2024**
   * Migrate applications to the latest Spring Cloud 2024 (Moorgate) release.
+* [org.openrewrite.java.spring.cloud2025.AddSpringCloudDependenciesBom](/user-documentation/recipes/recipe-catalog/java/spring/cloud2025/addspringclouddependenciesbom.md)
+  * **Add Spring Cloud dependencies BOM**
+  * Adds the Spring Cloud dependencies BOM as a managed import, but only when the project already uses a Spring Cloud dependency. Prevents accidentally introducing the BOM into unrelated projects.
 * [org.openrewrite.java.spring.cloud2025.DependencyUpgrades](/user-documentation/recipes/recipe-catalog/java/spring/cloud2025/dependencyupgrades.md)
   * **Upgrade dependencies to Spring Cloud 2025**
   * Upgrade dependencies to Spring Cloud 2025 from prior 2024.x version.

@@ -1,88 +1,41 @@
 ---
-sidebar_label: "Update Jakarta EE Platform Dependencies to 11.0.x"
+sidebar_label: "Find Node.js ghost tests"
 ---
-
-
-<head>
-  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/migrate/jakarta/updatejakartaplatform11" />
-</head>
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import RunRecipe from '@site/src/components/RunRecipe';
 
-# Update Jakarta EE Platform Dependencies to 11.0.x
+# Find Node.js ghost tests
 
-**org.openrewrite.java.migrate.jakarta.UpdateJakartaPlatform11**
+**io.moderne.prethink.testing.quality.FindNodeGhostTests**
 
-_Update Jakarta EE Platform Dependencies to 11.0.x._
+_Detect skipped tests in JavaScript and TypeScript test files. Flags xtest(), xit(), test.skip(), it.skip(), and describe.skip() calls that lack a documented reason in their description._
 
 ## Recipe source
 
-[GitHub: jakarta-ee-11.yml](https://github.com/openrewrite/rewrite-migrate-java/blob/main/src/main/resources/META-INF/rewrite/jakarta-ee-11.yml),
-[Issue Tracker](https://github.com/openrewrite/rewrite-migrate-java/issues),
-[Maven Central](https://central.sonatype.com/artifact/org.openrewrite.recipe/rewrite-migrate-java/)
-
-:::info
-This recipe is composed of more than one recipe. If you want to customize the set of recipes this is composed of, you can find and copy the GitHub source for the recipe from the link above.
-:::
-
-This recipe is available under the [Moderne Source Available License](https://docs.moderne.io/licensing/moderne-source-available-license).
+This recipe is only available to users of [Moderne](https://docs.moderne.io/).
 
 
-## Definition
+This recipe is available under the [Moderne Proprietary License](https://docs.moderne.io/licensing/overview).
 
-<Tabs groupId="recipeType">
-<TabItem value="recipe-list" label="Recipe List" >
-* [Upgrade Gradle or Maven dependency versions](../../../java/dependencies/upgradedependencyversion)
-  * groupId: `jakarta.platform`
-  * artifactId: `*`
-  * newVersion: `11.0.x`
-* [Upgrade Gradle or Maven dependency versions](../../../java/dependencies/upgradedependencyversion)
-  * groupId: `jakarta.servlet.jsp`
-  * artifactId: `jakarta.servlet.jsp-api`
-  * newVersion: `4.0.x`
-
-</TabItem>
-
-<TabItem value="yaml-recipe-list" label="Yaml Recipe List">
-
-```yaml
----
-type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.java.migrate.jakarta.UpdateJakartaPlatform11
-displayName: Update Jakarta EE Platform Dependencies to 11.0.x
-description: |
-  Update Jakarta EE Platform Dependencies to 11.0.x.
-recipeList:
-  - org.openrewrite.java.dependencies.UpgradeDependencyVersion:
-      groupId: jakarta.platform
-      artifactId: "*"
-      newVersion: 11.0.x
-  - org.openrewrite.java.dependencies.UpgradeDependencyVersion:
-      groupId: jakarta.servlet.jsp
-      artifactId: jakarta.servlet.jsp-api
-      newVersion: 4.0.x
-
-```
-</TabItem>
-</Tabs>
 
 ## Used by
 
 This recipe is used as part of the following composite recipes:
 
-* [Migrate to Jakarta EE 11](/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/jakartaee11.md)
+* [Update Prethink context (no AI)](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/prethink/updateprethinkcontextnoaistarter)
+* [Update Prethink context (with AI)](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/prethink/updateprethinkcontextstarter)
 
 
 ## Usage
 
 <RunRecipe
-  recipeName="org.openrewrite.java.migrate.jakarta.UpdateJakartaPlatform11"
-  displayName="Update Jakarta EE Platform Dependencies to 11.0.x"
-  groupId="org.openrewrite.recipe"
-  artifactId="rewrite-migrate-java"
-  versionKey="VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_MIGRATE_JAVA"
+  recipeName="io.moderne.prethink.testing.quality.FindNodeGhostTests"
+  displayName="Find Node.js ghost tests"
+  groupId="io.moderne.recipe"
+  artifactId="rewrite-prethink"
+  versionKey="VERSION_IO_MODERNE_RECIPE_REWRITE_PRETHINK"
   showGradle={false}
   showMaven={false}
   hasDataTables
@@ -92,7 +45,7 @@ This recipe is used as part of the following composite recipes:
 
 import RecipeCallout from '@site/src/components/ModerneLink';
 
-<RecipeCallout link="https://app.moderne.io/recipes/org.openrewrite.java.migrate.jakarta.UpdateJakartaPlatform11" />
+<RecipeCallout link="https://app.moderne.io/recipes/io.moderne.prethink.testing.quality.FindNodeGhostTests" />
 
 The community edition of the Moderne platform enables you to easily run recipes across thousands of open-source repositories.
 
@@ -100,6 +53,25 @@ Please [contact Moderne](https://moderne.io/product) for more information about 
 ## Data Tables
 
 <Tabs groupId="data-tables">
+<TabItem value="io.moderne.prethink.table.TestQualityIssues" label="TestQualityIssues">
+
+### Test quality issues
+**io.moderne.prethink.table.TestQualityIssues**
+
+_Issues found in test code that may cause flakiness, silent failures, or maintenance burden. Each row includes a rich evidence message with what was found, why it matters, and how to fix it._
+
+| Column Name | Description |
+| ----------- | ----------- |
+| Source path | Path to the test source file. |
+| Class name | Fully qualified class name of the test class. |
+| Method name | Test method name, if the issue is method-level. Null for class-level issues. |
+| Issue type | Category of the issue: static wait, shared mutable state, unmocked http, unmocked db, unmocked network, java assert in test, swallowed exception, missing assertion, hardcoded date, timing assertion, hardcoded port/path, missing annotation, skipped without reason, broad matcher, ignored error, deprecated test api, magic number, poor test name, prototype mutation, empty catch. |
+| Severity | Issue severity: high, medium, or low. |
+| Language | Source language: java, javascript, or python. |
+| Evidence | What was found, why it matters, and how to fix it. |
+
+</TabItem>
+
 <TabItem value="org.openrewrite.table.SourcesFileResults" label="SourcesFileResults">
 
 ### Source files that had results

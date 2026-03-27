@@ -35,6 +35,7 @@ This recipe is available under the [Moderne Source Available License](https://do
 <Tabs groupId="recipeType">
 <TabItem value="recipe-list" label="Recipe List" >
 * [Migrate to Spring Framework 5.3 (Community Edition)](../../../java/spring/framework/upgradespringframework_5_3-community-edition)
+* [Migrate to Jakarta EE 10](../../../java/migrate/jakarta/jakartaee10)
 * [Upgrade Gradle or Maven dependency versions](../../../java/dependencies/upgradedependencyversion)
   * groupId: `org.springframework`
   * artifactId: `*`
@@ -59,6 +60,7 @@ description: |
   Migrate applications to the latest Spring Framework 6.0 release.
 recipeList:
   - org.openrewrite.java.spring.framework.UpgradeSpringFramework_5_3
+  - org.openrewrite.java.migrate.jakarta.JakartaEE10
   - org.openrewrite.java.dependencies.UpgradeDependencyVersion:
       groupId: org.springframework
       artifactId: "*"
@@ -173,6 +175,25 @@ _Statistics used in analyzing the performance of recipes._
 | Max scanning time (ns) | The max time scanning any one source file. |
 | Cumulative edit time (ns) | The total time spent across the editing phase of this recipe. |
 | Max edit time (ns) | The max time editing any one source file. |
+
+</TabItem>
+
+<TabItem value="org.openrewrite.maven.table.MavenMetadataFailures" label="MavenMetadataFailures">
+
+### Maven metadata failures
+**org.openrewrite.maven.table.MavenMetadataFailures**
+
+_Attempts to resolve maven metadata that failed._
+
+| Column Name | Description |
+| ----------- | ----------- |
+| Group id | The groupId of the artifact for which the metadata download failed. |
+| Artifact id | The artifactId of the artifact for which the metadata download failed. |
+| Version | The version of the artifact for which the metadata download failed. |
+| Maven repository | The URL of the Maven repository that the metadata download failed on. |
+| Snapshots | Does the repository support snapshots. |
+| Releases | Does the repository support releases. |
+| Failure | The reason the metadata download failed. |
 
 </TabItem>
 

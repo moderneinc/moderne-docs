@@ -1,16 +1,16 @@
 ---
-sidebar_label: "Find test coverage mapping"
+sidebar_label: "Find fragile test data"
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import RunRecipe from '@site/src/components/RunRecipe';
 
-# Find test coverage mapping
+# Find fragile test data
 
-**io.moderne.prethink.FindTestCoverage**
+**io.moderne.prethink.testing.quality.FindFragileTestData**
 
-_Map test methods to their corresponding implementation methods. Uses JavaType.Method matching to determine coverage relationships. Optionally generates AI summaries of what each test is verifying when LLM provider is configured._
+_Detect hardcoded dates, timing-dependent assertions, and hardcoded ports/paths in test code that may cause flaky or environment-dependent test failures._
 
 ## Recipe source
 
@@ -18,16 +18,6 @@ This recipe is only available to users of [Moderne](https://docs.moderne.io/).
 
 
 This recipe is available under the [Moderne Proprietary License](https://docs.moderne.io/licensing/overview).
-
-## Options
-
-| Type | Name | Description | Example |
-| --- | --- | --- | --- |
-| `String` | provider | *Optional*. LLM provider for generating test summaries: openai, gemini, or poolside. | `poolside` |
-| `String` | apiKey | *Optional*. API key for the LLM provider. | `sk-...` |
-| `String` | model | *Optional*. Model name to use for generating test summaries. | `malibu` |
-| `String` | baseUrl | *Optional*. Custom base URL for the LLM provider. | `https://divers.poolsi.de/openai/v1/` |
-| `Integer` | requestsPerMinute | *Optional*. Rate limit for LLM requests. | `60` |
 
 
 ## Used by
@@ -37,55 +27,12 @@ This recipe is used as part of the following composite recipes:
 * [Update Prethink context (no AI)](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/prethink/updateprethinkcontextnoaistarter)
 * [Update Prethink context (with AI)](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/prethink/updateprethinkcontextstarter)
 
-## Example
-
-###### Parameters
-| Parameter | Value |
-| --- | --- |
-|provider|`null`|
-|apiKey|`null`|
-|model|`null`|
-|baseUrl|`null`|
-|requestsPerMinute|`null`|
-
-
-###### Unchanged
-```java
-package com.example;
-
-import org.junit.jupiter.api.Test;
-
-public class FooTest {
-    @Test
-    void testDoSomething() {
-        Foo foo = new Foo();
-        foo.doSomething();
-    }
-}
-```
-
-###### Unchanged
-```java
-package com.example;
-
-public class Foo {
-    public String doSomething() {
-        return "hello";
-    }
-}
-```
-
-###### Unchanged
-```mavenProject
-test-project
-```
-
 
 ## Usage
 
 <RunRecipe
-  recipeName="io.moderne.prethink.FindTestCoverage"
-  displayName="Find test coverage mapping"
+  recipeName="io.moderne.prethink.testing.quality.FindFragileTestData"
+  displayName="Find fragile test data"
   groupId="io.moderne.recipe"
   artifactId="rewrite-prethink"
   versionKey="VERSION_IO_MODERNE_RECIPE_REWRITE_PRETHINK"
@@ -98,7 +45,7 @@ test-project
 
 import RecipeCallout from '@site/src/components/ModerneLink';
 
-<RecipeCallout link="https://app.moderne.io/recipes/io.moderne.prethink.FindTestCoverage" />
+<RecipeCallout link="https://app.moderne.io/recipes/io.moderne.prethink.testing.quality.FindFragileTestData" />
 
 The community edition of the Moderne platform enables you to easily run recipes across thousands of open-source repositories.
 
@@ -106,26 +53,22 @@ Please [contact Moderne](https://moderne.io/product) for more information about 
 ## Data Tables
 
 <Tabs groupId="data-tables">
-<TabItem value="io.moderne.prethink.table.TestMapping" label="TestMapping">
+<TabItem value="io.moderne.prethink.table.TestQualityIssues" label="TestQualityIssues">
 
-### Test mapping
-**io.moderne.prethink.table.TestMapping**
+### Test quality issues
+**io.moderne.prethink.table.TestQualityIssues**
 
-_Maps test methods to implementation methods with optional AI-generated summaries and inference metrics._
+_Issues found in test code that may cause flakiness, silent failures, or maintenance burden. Each row includes a rich evidence message with what was found, why it matters, and how to fix it._
 
 | Column Name | Description |
 | ----------- | ----------- |
-| Test source path | The path to the source file containing the test. |
-| Test class | The fully qualified name of the test class. |
-| Test method | The signature of the test method. |
-| Implementation source path | The path to the source file containing the implementation. |
-| Implementation class | The fully qualified name of the implementation class. |
-| Implementation method | The signature of the implementation method being tested. |
-| Test summary | AI-generated summary of what the test is verifying. |
-| Test checksum | SHA-256 checksum of the test method source code for cache validation. |
-| Inference time (ms) | Time taken for the LLM to generate the summary, in milliseconds. |
-| Input tokens | Number of tokens in the input prompt sent to the LLM. |
-| Output tokens | Number of tokens in the response generated by the LLM. |
+| Source path | Path to the test source file. |
+| Class name | Fully qualified class name of the test class. |
+| Method name | Test method name, if the issue is method-level. Null for class-level issues. |
+| Issue type | Category of the issue: static wait, shared mutable state, unmocked http, unmocked db, unmocked network, java assert in test, swallowed exception, missing assertion, hardcoded date, timing assertion, hardcoded port/path, missing annotation, skipped without reason, broad matcher, ignored error, deprecated test api, magic number, poor test name, prototype mutation, empty catch. |
+| Severity | Issue severity: high, medium, or low. |
+| Language | Source language: java, javascript, or python. |
+| Evidence | What was found, why it matters, and how to fix it. |
 
 </TabItem>
 

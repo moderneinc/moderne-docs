@@ -124,7 +124,7 @@ This recipe is used as part of the following composite recipes:
 
 * [Migrate to Dropwizard 5.0.x from 4.x](/user-documentation/recipes/recipe-catalog/java/dropwizard/migratetodropwizard5.md)
 * [Migrate to Jakarta EE 11](/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/jakartaee11.md)
-* [Migrate to Spring Boot 3.0](/user-documentation/recipes/recipe-catalog/java/spring/boot3/upgradespringboot_3_0.md)
+* [Migrate to Spring Framework 6.0](/user-documentation/recipes/recipe-catalog/java/spring/framework/upgradespringframework_6_0.md)
 * [Migrate to Struts 7.0](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/struts/migrate7/migratestruts7)
 
 ## Examples

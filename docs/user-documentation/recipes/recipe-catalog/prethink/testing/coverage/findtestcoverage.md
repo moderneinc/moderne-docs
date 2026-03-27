@@ -1,88 +1,94 @@
 ---
-sidebar_label: "Update Jakarta EE Platform Dependencies to 11.0.x"
+sidebar_label: "Find test coverage mapping"
 ---
-
-
-<head>
-  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/migrate/jakarta/updatejakartaplatform11" />
-</head>
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import RunRecipe from '@site/src/components/RunRecipe';
 
-# Update Jakarta EE Platform Dependencies to 11.0.x
+# Find test coverage mapping
 
-**org.openrewrite.java.migrate.jakarta.UpdateJakartaPlatform11**
+**io.moderne.prethink.testing.coverage.FindTestCoverage**
 
-_Update Jakarta EE Platform Dependencies to 11.0.x._
+_Map test methods to their corresponding implementation methods. Uses JavaType.Method matching to determine coverage relationships. Optionally generates AI summaries of what each test is verifying when LLM provider is configured._
 
 ## Recipe source
 
-[GitHub: jakarta-ee-11.yml](https://github.com/openrewrite/rewrite-migrate-java/blob/main/src/main/resources/META-INF/rewrite/jakarta-ee-11.yml),
-[Issue Tracker](https://github.com/openrewrite/rewrite-migrate-java/issues),
-[Maven Central](https://central.sonatype.com/artifact/org.openrewrite.recipe/rewrite-migrate-java/)
-
-:::info
-This recipe is composed of more than one recipe. If you want to customize the set of recipes this is composed of, you can find and copy the GitHub source for the recipe from the link above.
-:::
-
-This recipe is available under the [Moderne Source Available License](https://docs.moderne.io/licensing/moderne-source-available-license).
+This recipe is only available to users of [Moderne](https://docs.moderne.io/).
 
 
-## Definition
+This recipe is available under the [Moderne Proprietary License](https://docs.moderne.io/licensing/overview).
 
-<Tabs groupId="recipeType">
-<TabItem value="recipe-list" label="Recipe List" >
-* [Upgrade Gradle or Maven dependency versions](../../../java/dependencies/upgradedependencyversion)
-  * groupId: `jakarta.platform`
-  * artifactId: `*`
-  * newVersion: `11.0.x`
-* [Upgrade Gradle or Maven dependency versions](../../../java/dependencies/upgradedependencyversion)
-  * groupId: `jakarta.servlet.jsp`
-  * artifactId: `jakarta.servlet.jsp-api`
-  * newVersion: `4.0.x`
+## Options
 
-</TabItem>
+| Type | Name | Description | Example |
+| --- | --- | --- | --- |
+| `String` | provider | *Optional*. LLM provider for generating test summaries: openai, gemini, or poolside. | `poolside` |
+| `String` | apiKey | *Optional*. API key for the LLM provider. | `sk-...` |
+| `String` | model | *Optional*. Model name to use for generating test summaries. | `malibu` |
+| `String` | baseUrl | *Optional*. Custom base URL for the LLM provider. | `https://divers.poolsi.de/openai/v1/` |
+| `Integer` | requestsPerMinute | *Optional*. Rate limit for LLM requests. | `60` |
 
-<TabItem value="yaml-recipe-list" label="Yaml Recipe List">
-
-```yaml
----
-type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.java.migrate.jakarta.UpdateJakartaPlatform11
-displayName: Update Jakarta EE Platform Dependencies to 11.0.x
-description: |
-  Update Jakarta EE Platform Dependencies to 11.0.x.
-recipeList:
-  - org.openrewrite.java.dependencies.UpgradeDependencyVersion:
-      groupId: jakarta.platform
-      artifactId: "*"
-      newVersion: 11.0.x
-  - org.openrewrite.java.dependencies.UpgradeDependencyVersion:
-      groupId: jakarta.servlet.jsp
-      artifactId: jakarta.servlet.jsp-api
-      newVersion: 4.0.x
-
-```
-</TabItem>
-</Tabs>
 
 ## Used by
 
 This recipe is used as part of the following composite recipes:
 
-* [Migrate to Jakarta EE 11](/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/jakartaee11.md)
+* [Update Prethink context (no AI)](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/prethink/updateprethinkcontextnoaistarter)
+* [Update Prethink context (with AI)](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/prethink/updateprethinkcontextstarter)
+
+## Example
+
+###### Parameters
+| Parameter | Value |
+| --- | --- |
+|provider|`null`|
+|apiKey|`null`|
+|model|`null`|
+|baseUrl|`null`|
+|requestsPerMinute|`null`|
+
+
+###### Unchanged
+```java
+package com.example;
+
+import org.junit.jupiter.api.Test;
+
+public class FooTest {
+    @Test
+    void testDoSomething() {
+        Foo foo = new Foo();
+        foo.doSomething();
+    }
+}
+```
+
+###### Unchanged
+```java
+package com.example;
+
+public class Foo {
+    public String doSomething() {
+        return "hello";
+    }
+}
+```
+
+###### Unchanged
+```mavenProject
+test-project
+```
 
 
 ## Usage
 
 <RunRecipe
-  recipeName="org.openrewrite.java.migrate.jakarta.UpdateJakartaPlatform11"
-  displayName="Update Jakarta EE Platform Dependencies to 11.0.x"
-  groupId="org.openrewrite.recipe"
-  artifactId="rewrite-migrate-java"
-  versionKey="VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_MIGRATE_JAVA"
+  recipeName="io.moderne.prethink.testing.coverage.FindTestCoverage"
+  displayName="Find test coverage mapping"
+  groupId="io.moderne.recipe"
+  artifactId="rewrite-prethink"
+  versionKey="VERSION_IO_MODERNE_RECIPE_REWRITE_PRETHINK"
   showGradle={false}
   showMaven={false}
   hasDataTables
@@ -92,7 +98,7 @@ This recipe is used as part of the following composite recipes:
 
 import RecipeCallout from '@site/src/components/ModerneLink';
 
-<RecipeCallout link="https://app.moderne.io/recipes/org.openrewrite.java.migrate.jakarta.UpdateJakartaPlatform11" />
+<RecipeCallout link="https://app.moderne.io/recipes/io.moderne.prethink.testing.coverage.FindTestCoverage" />
 
 The community edition of the Moderne platform enables you to easily run recipes across thousands of open-source repositories.
 
@@ -100,6 +106,29 @@ Please [contact Moderne](https://moderne.io/product) for more information about 
 ## Data Tables
 
 <Tabs groupId="data-tables">
+<TabItem value="io.moderne.prethink.table.TestMapping" label="TestMapping">
+
+### Test mapping
+**io.moderne.prethink.table.TestMapping**
+
+_Maps test methods to implementation methods with optional AI-generated summaries and inference metrics._
+
+| Column Name | Description |
+| ----------- | ----------- |
+| Test source path | The path to the source file containing the test. |
+| Test class | The fully qualified name of the test class. |
+| Test method | The signature of the test method. |
+| Implementation source path | The path to the source file containing the implementation. |
+| Implementation class | The fully qualified name of the implementation class. |
+| Implementation method | The signature of the implementation method being tested. |
+| Test summary | AI-generated summary of what the test is verifying. |
+| Test checksum | SHA-256 checksum of the test method source code for cache validation. |
+| Inference time (ms) | Time taken for the LLM to generate the summary, in milliseconds. |
+| Input tokens | Number of tokens in the input prompt sent to the LLM. |
+| Output tokens | Number of tokens in the response generated by the LLM. |
+
+</TabItem>
+
 <TabItem value="org.openrewrite.table.SourcesFileResults" label="SourcesFileResults">
 
 ### Source files that had results

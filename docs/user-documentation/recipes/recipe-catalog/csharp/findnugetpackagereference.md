@@ -1,88 +1,62 @@
 ---
-sidebar_label: "Update Jakarta EE Platform Dependencies to 11.0.x"
+sidebar_label: "Find NuGet package reference"
 ---
 
 
 <head>
-  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/migrate/jakarta/updatejakartaplatform11" />
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/csharp/findnugetpackagereference" />
 </head>
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import RunRecipe from '@site/src/components/RunRecipe';
 
-# Update Jakarta EE Platform Dependencies to 11.0.x
+# Find NuGet package reference
 
-**org.openrewrite.java.migrate.jakarta.UpdateJakartaPlatform11**
+**org.openrewrite.csharp.FindNuGetPackageReference**
 
-_Update Jakarta EE Platform Dependencies to 11.0.x._
+_Searches for .csproj files that reference a specific NuGet package. Intended for use as a precondition to scope other recipes._
 
 ## Recipe source
 
-[GitHub: jakarta-ee-11.yml](https://github.com/openrewrite/rewrite-migrate-java/blob/main/src/main/resources/META-INF/rewrite/jakarta-ee-11.yml),
-[Issue Tracker](https://github.com/openrewrite/rewrite-migrate-java/issues),
-[Maven Central](https://central.sonatype.com/artifact/org.openrewrite.recipe/rewrite-migrate-java/)
-
-:::info
-This recipe is composed of more than one recipe. If you want to customize the set of recipes this is composed of, you can find and copy the GitHub source for the recipe from the link above.
-:::
+[GitHub: FindNuGetPackageReference.java](https://github.com/openrewrite/rewrite/blob/main/rewrite-csharp/src/main/java/org/openrewrite/csharp/FindNuGetPackageReference.java),
+[Issue Tracker](https://github.com/openrewrite/rewrite/issues),
+[Maven Central](https://central.sonatype.com/artifact/org.openrewrite/rewrite-csharp/)
 
 This recipe is available under the [Moderne Source Available License](https://docs.moderne.io/licensing/moderne-source-available-license).
 
+## Options
 
-## Definition
-
-<Tabs groupId="recipeType">
-<TabItem value="recipe-list" label="Recipe List" >
-* [Upgrade Gradle or Maven dependency versions](../../../java/dependencies/upgradedependencyversion)
-  * groupId: `jakarta.platform`
-  * artifactId: `*`
-  * newVersion: `11.0.x`
-* [Upgrade Gradle or Maven dependency versions](../../../java/dependencies/upgradedependencyversion)
-  * groupId: `jakarta.servlet.jsp`
-  * artifactId: `jakarta.servlet.jsp-api`
-  * newVersion: `4.0.x`
-
-</TabItem>
-
-<TabItem value="yaml-recipe-list" label="Yaml Recipe List">
-
-```yaml
----
-type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.java.migrate.jakarta.UpdateJakartaPlatform11
-displayName: Update Jakarta EE Platform Dependencies to 11.0.x
-description: |
-  Update Jakarta EE Platform Dependencies to 11.0.x.
-recipeList:
-  - org.openrewrite.java.dependencies.UpgradeDependencyVersion:
-      groupId: jakarta.platform
-      artifactId: "*"
-      newVersion: 11.0.x
-  - org.openrewrite.java.dependencies.UpgradeDependencyVersion:
-      groupId: jakarta.servlet.jsp
-      artifactId: jakarta.servlet.jsp-api
-      newVersion: 4.0.x
-
-```
-</TabItem>
-</Tabs>
-
-## Used by
-
-This recipe is used as part of the following composite recipes:
-
-* [Migrate to Jakarta EE 11](/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/jakartaee11.md)
+| Type | Name | Description | Example |
+| --- | --- | --- | --- |
+| `String` | packageName | The NuGet package name to search for. Supports glob patterns (e.g., `Swashbuckle.*`). | `Swashbuckle.AspNetCore` |
 
 
 ## Usage
 
+This recipe has required configuration parameters and can only be run by users of Moderne.
+To run this recipe, you will need to provide the Moderne CLI run command with the required options.
+Or, if you'd like to create a declarative recipe, please see the below example of a `rewrite.yml` file:
+
+```yaml title="rewrite.yml"
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: com.yourorg.FindNuGetPackageReferenceExample
+displayName: Find NuGet package reference example
+recipeList:
+  - org.openrewrite.csharp.FindNuGetPackageReference:
+      packageName: Swashbuckle.AspNetCore
+```
+
 <RunRecipe
-  recipeName="org.openrewrite.java.migrate.jakarta.UpdateJakartaPlatform11"
-  displayName="Update Jakarta EE Platform Dependencies to 11.0.x"
-  groupId="org.openrewrite.recipe"
-  artifactId="rewrite-migrate-java"
-  versionKey="VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_MIGRATE_JAVA"
+  recipeName="org.openrewrite.csharp.FindNuGetPackageReference"
+  displayName="Find NuGet package reference"
+  groupId="org.openrewrite"
+  artifactId="rewrite-csharp"
+  versionKey="VERSION_ORG_OPENREWRITE_REWRITE_CSHARP"
+  isCoreLibrary
+  requiresConfiguration
+  cliOptions={' --recipe-option "packageName=Swashbuckle.AspNetCore"'}
   showGradle={false}
   showMaven={false}
   hasDataTables
@@ -92,7 +66,7 @@ This recipe is used as part of the following composite recipes:
 
 import RecipeCallout from '@site/src/components/ModerneLink';
 
-<RecipeCallout link="https://app.moderne.io/recipes/org.openrewrite.java.migrate.jakarta.UpdateJakartaPlatform11" />
+<RecipeCallout link="https://app.moderne.io/recipes/org.openrewrite.csharp.FindNuGetPackageReference" />
 
 The community edition of the Moderne platform enables you to easily run recipes across thousands of open-source repositories.
 
