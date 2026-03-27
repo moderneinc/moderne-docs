@@ -1,11 +1,13 @@
 ---
 sidebar_label: Build tool configuration
-description: How to configure build tools such as Gradle, Maven, and Bazel in the Moderne CLI.
+description: How to configure build tools (e.g., Gradle, Maven, Node) in the Moderne CLI.
 ---
 
 # Build tool configuration in the Moderne CLI
 
-The Moderne CLI can be configured to use specific build tool versions and arguments when building LSTs. This page covers how to manage those settings for each supported build tool.
+The Moderne CLI automatically detects which build tools a repository uses and invokes them to produce LSTs. For details on how the CLI discovers build tools, the order in which they run, and how to override that order, see [configuring build steps](./build-steps.md).
+
+This page covers how to configure the build tools themselves — selecting specific versions, registering installation locations, and passing additional arguments.
 
 ## Gradle
 
@@ -133,6 +135,26 @@ You can pass additional arguments to Gradle when building LSTs. See [layered con
 
 You can pass additional arguments to Maven when building LSTs. See [layered configuration](./layer-config-cli.md) for details on how `mavenArgs` works with global, local, and CSV-based configuration.
 
+## Node
+
+### Version selection
+
+By default, the CLI uses the Node.js installation found on `$PATH`. You can override this per repository by specifying a `nodeVersion` column in your `repos.csv`:
+
+```csv
+"cloneUrl","branch","origin","path","nodeVersion"
+"https://github.com/example/frontend-app","main","github.com","example/frontend-app","18"
+"https://github.com/example/legacy-frontend","main","github.com","example/legacy-frontend","16.20.2"
+```
+
+During `mod git sync csv`, this value is written to each repository's `.moderne` directory.
+
+### Options
+
+You can set Node.js options via the `nodeOptions` column in your `repos.csv`. These are passed through the `NODE_OPTIONS` environment variable when building LSTs and running recipes. See the [repos.csv reference](../references/repos-csv.md) for details.
+
 ## Additional reading
 
-For more information about each of the commands listed here, please see our [CLI reference docs](../cli-reference.md).
+* [Configuring build steps](./build-steps.md) — control which build tools run and in what order.
+* [Layered configuration](./layer-config-cli.md) — manage build arguments globally, locally, or via CSV.
+* [CLI reference docs](../cli-reference.md) — full command reference.
