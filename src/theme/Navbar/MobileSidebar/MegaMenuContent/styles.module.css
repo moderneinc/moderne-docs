@@ -23,7 +23,7 @@
   padding: var(--neo-spacing_2) var(--neo-spacing_2);
   text-decoration: none;
   color: var(--ifm-font-color-base);
-  font-size: var(--neo-font-size-base);
+  font-size: var(--neo-font-size-default);
   font-weight: var(--neo-font-weight-medium);
   border-radius: var(--neo-border-radius-x-s);
   transition: background-color 0.15s ease;

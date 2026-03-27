@@ -14,7 +14,8 @@ const config: Config = {
   organizationName: 'moderneinc',
   projectName: 'moderne-docs',
 
-  onBrokenLinks: 'warn',
+  // Only throw on broken links when the full site (including recipe catalog) is built.
+  onBrokenLinks: (process.env.CI_STRICT_LINKS && !process.env.SKIP_RECIPE_CATALOG) ? 'throw' : 'warn',
 
   i18n: {
     defaultLocale: 'en',
@@ -128,8 +129,10 @@ const config: Config = {
   markdown: {
     mermaid: true,
     hooks: {
-      onBrokenMarkdownLinks: 'warn',
-      onBrokenMarkdownImages: 'warn',
+      // Only throw on broken markdown links when the full site (including recipe catalog) is built.
+      // When SKIP_RECIPE_CATALOG is set, recipe list pages will have expected broken links.
+      onBrokenMarkdownLinks: (process.env.CI_STRICT_LINKS && !process.env.SKIP_RECIPE_CATALOG) ? 'throw' : 'warn',
+      onBrokenMarkdownImages: process.env.CI_STRICT_LINKS ? 'throw' : 'warn',
     }
   },
 

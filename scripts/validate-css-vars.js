@@ -92,9 +92,14 @@ async function validateCSSVariables() {
     const usages = extractVarUsage(content);
     totalVarUsages += usages.length;
 
+    // Collect variables defined locally in this file (custom properties set via `--name:`)
+    const locallyDefined = new Set(
+      (content.match(/^\s*(--[\w-]+)\s*:/gm) || []).map(m => m.match(/(--[\w-]+)/)[1])
+    );
+
     usages.forEach(({ variable, fullMatch }) => {
       const isFrameworkVar = variable.startsWith('--ifm-') || variable.startsWith('--docusaurus-');
-      const isDefined = definedVars.has(variable) || isFrameworkVar;
+      const isDefined = definedVars.has(variable) || isFrameworkVar || locallyDefined.has(variable);
 
       if (!isDefined) {
         undefinedVars.push({ file, variable, fullMatch });
