@@ -80,7 +80,7 @@ mod config build gradle installation delete
 
 This only removes user-configured paths. Automatically discovered installations (from `$PATH`, SDKMAN, Homebrew, etc.) remain available.
 
-### Selecting a version for repositories without a wrapper
+### Selecting a version
 
 When a repository does not include a Gradle wrapper, you can tell the CLI which Gradle version to use. The version must match one of the installations known to the CLI.
 
@@ -111,7 +111,7 @@ To see the currently configured version:
 mod config build gradle version show
 ```
 
-### Specifying Gradle version in CSV
+### Specifying a Gradle version in the CSV
 
 When cloning using `mod git sync csv`, you can add a `gradleVersion` column to the CSV to specify the Gradle version per repository.
 
