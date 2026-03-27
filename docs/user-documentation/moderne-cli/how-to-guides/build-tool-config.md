@@ -5,17 +5,23 @@ description: How to configure build tools (e.g., Gradle, Maven, Node) in the Mod
 
 # Build tool configuration in the Moderne CLI
 
-The Moderne CLI automatically detects which build tools a repository uses and invokes them to produce LSTs. For details on how the CLI discovers build tools, the order in which they run, and how to override that order, see [configuring build steps](./build-steps.md).
+When you're building LSTs across many repositories, the CLI does its best to detect the right build tools automatically - using Gradle wrappers, Maven installations on your `$PATH`, and so on and so forth.
 
-This page covers how to configure the build tools themselves — selecting specific versions, registering installation locations, and passing additional arguments.
+That being said, you may have projects that don't fit these defaults. For instance, some repositories may lack a Gradle wrapper whereas others may need a specific Node.js version and others may require extra build arguments to compile correctly.
+
+The Moderne CLI lets you configure all of this globally, per repository, or via your `repos.csv` file.
+
+In this guide, we'll walk through the configuration options for each supported build tool.
+
+:::info
+If you are curious how the CLI discovers build tools, the order in which they are run, and how to override that order, please check out our [build steps configuration guide](./build-steps.md)
+:::
 
 ## Gradle
 
-### Version selection
+By default, the CLI uses the Gradle wrapper (`gradlew`) included in each repository. If a repository doesn't include a wrapper, the CLI falls back to Gradle installations it discovers on your machine.
 
-By default, the CLI uses the Gradle wrapper (`gradlew`) included in each repository. However, some repositories may not include a wrapper, or you may need to use a specific version of Gradle for certain projects.
-
-#### Installation discovery
+### Discovering installations
 
 The CLI automatically discovers Gradle installations from these locations (with the first one representing the one given the highest priority):
 
@@ -50,7 +56,7 @@ mod config build gradle installation list
 
 </details>
 
-#### Adding additional installation locations
+### Adding installation locations
 
 If you have Gradle installations in locations the CLI does not automatically discover, you can register them:
 
@@ -58,7 +64,9 @@ If you have Gradle installations in locations the CLI does not automatically dis
 mod config build gradle installation edit /path/to/gradle-home
 ```
 
-Each path should point to a Gradle home directory (i.e., a directory containing `bin/gradle`). You can specify multiple paths:
+Each path should point to a Gradle home directory (i.e., a directory containing `bin/gradle`).
+
+You can also register multiple installations at once:
 
 ```bash
 mod config build gradle installation edit /opt/gradle-4.5 /opt/gradle-8.1.1
@@ -72,7 +80,7 @@ mod config build gradle installation delete
 
 This only removes user-configured paths. Automatically discovered installations (from `$PATH`, SDKMAN, Homebrew, etc.) remain available.
 
-#### Selecting a version
+### Selecting a version for repositories without a wrapper
 
 When a repository does not include a Gradle wrapper, you can tell the CLI which Gradle version to use. The version must match one of the installations known to the CLI.
 
@@ -103,7 +111,7 @@ To see the currently configured version:
 mod config build gradle version show
 ```
 
-#### Specifying Gradle version in CSV
+### Specifying Gradle version in CSV
 
 When cloning using `mod git sync csv`, you can add a `gradleVersion` column to the CSV to specify the Gradle version per repository.
 
@@ -125,21 +133,25 @@ mod config build gradle version show --local <REPO>
 If a repository has a Gradle wrapper, the wrapper always takes precedence regardless of the configured Gradle version. The `gradleVersion` setting only applies to repositories without a wrapper.
 :::
 
-### Build arguments
+### Passing build arguments
 
-You can pass additional arguments to Gradle when building LSTs. See [layered configuration](./layer-config-cli.md) for details on how `gradleArgs` works with global, local, and CSV-based configuration.
+You can pass additional arguments to Gradle when building LSTs. For details on how `gradleArgs` works with global, local, and CSV-based configuration, please check out our [layered configuration guide](./layer-config-cli.md).
 
 ## Maven
 
-### Build arguments
+The CLI uses the Maven installation found on your `$PATH`. There is no version selection or installation discovery for Maven.
 
-You can pass additional arguments to Maven when building LSTs. See [layered configuration](./layer-config-cli.md) for details on how `mavenArgs` works with global, local, and CSV-based configuration.
+### Passing build arguments
+
+You can pass additional arguments to Maven when building LSTs. For details on how `mavenArgs` works with global, local, and CSV-based configuration, please check out our [layered configuration guide](./layer-config-cli.md).
 
 ## Node
 
-### Version selection
+By default, the CLI uses the Node.js installation found on your `$PATH`.
 
-By default, the CLI uses the Node.js installation found on `$PATH`. You can override this per repository by specifying a `nodeVersion` column in your `repos.csv`:
+### Selecting a version
+
+You can override the Node.js version per repository by specifying a `nodeVersion` column in your `repos.csv`:
 
 ```csv
 "cloneUrl","branch","origin","path","nodeVersion"
@@ -149,9 +161,9 @@ By default, the CLI uses the Node.js installation found on `$PATH`. You can over
 
 During `mod git sync csv`, this value is written to each repository's `.moderne` directory.
 
-### Options
+### Setting Node.js options
 
-You can set Node.js options via the `nodeOptions` column in your `repos.csv`. These are passed through the `NODE_OPTIONS` environment variable when building LSTs and running recipes. See the [repos.csv reference](../references/repos-csv.md) for details.
+You can set Node.js options via the `nodeOptions` column in your `repos.csv`. These are passed through the `NODE_OPTIONS` environment variable when building LSTs and running recipes. For more details, please check out our [repos.csv reference](../references/repos-csv.md).
 
 ## Additional reading
 
