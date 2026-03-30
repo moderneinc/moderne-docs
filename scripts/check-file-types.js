@@ -14,6 +14,10 @@ const ALLOWED_FILENAMES = new Set([
   '.editorconfig', '.prettierignore', '.eslintignore',
 ]);
 
+const ALLOWED_DIRECTORIES = new Set([
+  '.github',
+]);
+
 const baseRef = process.env.BASE_REF;
 if (!baseRef) {
   console.error('BASE_REF environment variable is required.');
@@ -39,6 +43,10 @@ if (files.length === 0) {
 
 const violations = [];
 for (const file of files) {
+  // Allow any file type in explicitly allowed directories
+  const parts = file.split('/');
+  if (parts.some(part => ALLOWED_DIRECTORIES.has(part))) continue;
+
   const ext = path.extname(file).toLowerCase();
   const basename = path.basename(file);
 
