@@ -339,6 +339,7 @@ const cli = {
         'user-documentation/moderne-cli/how-to-guides/ssh-key',
         'user-documentation/moderne-cli/how-to-guides/layer-config-cli',
         'user-documentation/moderne-cli/how-to-guides/jdk-selection-and-config',
+        'user-documentation/moderne-cli/how-to-guides/build-tool-config',
         'user-documentation/moderne-cli/how-to-guides/execute-user-supplied-commands',
         'user-documentation/moderne-cli/how-to-guides/on-prem-scm-config',
         'user-documentation/moderne-cli/how-to-guides/build-steps',
