@@ -1,76 +1,88 @@
 ---
-sidebar_label: "Find test coverage gaps"
+sidebar_label: "Add Spring Cloud dependencies BOM"
 ---
+
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/spring/cloud2025/addspringclouddependenciesbom" />
+</head>
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import RunRecipe from '@site/src/components/RunRecipe';
 
-# Find test coverage gaps
+# Add Spring Cloud dependencies BOM
 
-**io.moderne.prethink.FindTestGaps**
+**org.openrewrite.java.spring.cloud2025.AddSpringCloudDependenciesBom**
 
-_Identify public non-trivial methods that lack test coverage. Reports gaps with cyclomatic complexity and risk scores to help prioritize where to add tests._
+_Adds the Spring Cloud dependencies BOM as a managed import, but only when the project already uses a Spring Cloud dependency. Prevents accidentally introducing the BOM into unrelated projects._
+
+### Tags
+
+* [spring](/user-documentation/recipes/lists/recipes-by-tag#spring)
+* [cloud](/user-documentation/recipes/lists/recipes-by-tag#cloud)
 
 ## Recipe source
 
-This recipe is only available to users of [Moderne](https://docs.moderne.io/).
+[GitHub: spring-cloud-2025.yml](https://github.com/openrewrite/rewrite-spring/blob/main/src/main/resources/META-INF/rewrite/spring-cloud-2025.yml),
+[Issue Tracker](https://github.com/openrewrite/rewrite-spring/issues),
+[Maven Central](https://central.sonatype.com/artifact/org.openrewrite.recipe/rewrite-spring/)
+
+This recipe is available under the [Moderne Source Available License](https://docs.moderne.io/licensing/moderne-source-available-license).
 
 
-This recipe is available under the [Moderne Proprietary License](https://docs.moderne.io/licensing/overview).
+## Definition
 
+<Tabs groupId="recipeType">
+<TabItem value="recipe-list" label="Recipe List" >
+* [Add managed Maven dependency](../../../maven/addmanageddependency)
+  * groupId: `org.springframework.cloud`
+  * artifactId: `spring-cloud-dependencies`
+  * version: `2025.1.x`
+  * scope: `import`
+  * type: `pom`
+
+</TabItem>
+
+<TabItem value="yaml-recipe-list" label="Yaml Recipe List">
+
+```yaml
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.java.spring.cloud2025.AddSpringCloudDependenciesBom
+displayName: Add Spring Cloud dependencies BOM
+description: |
+  Adds the Spring Cloud dependencies BOM as a managed import, but only when the project already uses a Spring Cloud dependency. Prevents accidentally introducing the BOM into unrelated projects.
+tags:
+  - spring
+  - cloud
+recipeList:
+  - org.openrewrite.maven.AddManagedDependency:
+      groupId: org.springframework.cloud
+      artifactId: spring-cloud-dependencies
+      version: 2025.1.x
+      scope: import
+      type: pom
+
+```
+</TabItem>
+</Tabs>
 
 ## Used by
 
 This recipe is used as part of the following composite recipes:
 
-* [Update Prethink context (no AI)](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/prethink/updateprethinkcontextnoaistarter)
-* [Update Prethink context (with AI)](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/prethink/updateprethinkcontextstarter)
-
-## Example
-
-
-###### Unchanged
-```java
-package com.example;
-
-import org.junit.jupiter.api.Test;
-
-public class ServiceTest {
-    @Test
-    void placeholder() {
-    }
-}
-```
-
-###### Unchanged
-```java
-package com.example;
-
-public class Service {
-    public String process(String input) {
-        if (input == null) {
-            return "empty";
-        }
-        return input.toUpperCase();
-    }
-}
-```
-
-###### Unchanged
-```mavenProject
-test-project
-```
+* [Migrate to Spring Cloud 2025.1](/user-documentation/recipes/recipe-catalog/java/spring/cloud2025/upgradespringcloud_2025_1.md)
 
 
 ## Usage
 
 <RunRecipe
-  recipeName="io.moderne.prethink.FindTestGaps"
-  displayName="Find test coverage gaps"
-  groupId="io.moderne.recipe"
-  artifactId="rewrite-prethink"
-  versionKey="VERSION_IO_MODERNE_RECIPE_REWRITE_PRETHINK"
+  recipeName="org.openrewrite.java.spring.cloud2025.AddSpringCloudDependenciesBom"
+  displayName="Add Spring Cloud dependencies BOM"
+  groupId="org.openrewrite.recipe"
+  artifactId="rewrite-spring"
+  versionKey="VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_SPRING"
   showGradle={false}
   showMaven={false}
   hasDataTables
@@ -80,7 +92,7 @@ test-project
 
 import RecipeCallout from '@site/src/components/ModerneLink';
 
-<RecipeCallout link="https://app.moderne.io/recipes/io.moderne.prethink.FindTestGaps" />
+<RecipeCallout link="https://app.moderne.io/recipes/org.openrewrite.java.spring.cloud2025.AddSpringCloudDependenciesBom" />
 
 The community edition of the Moderne platform enables you to easily run recipes across thousands of open-source repositories.
 
@@ -88,26 +100,6 @@ Please [contact Moderne](https://moderne.io/product) for more information about 
 ## Data Tables
 
 <Tabs groupId="data-tables">
-<TabItem value="io.moderne.prethink.table.TestGaps" label="TestGaps">
-
-### Test gaps
-**io.moderne.prethink.table.TestGaps**
-
-_Public non-trivial methods that have no test coverage, ranked by risk score._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| Source path | The path to the source file containing the untested method. |
-| Class name | The fully qualified name of the class. |
-| Method name | The simple name of the untested method. |
-| Method signature | The full method signature. |
-| Cyclomatic complexity | The cyclomatic complexity of the untested method. |
-| Risk score | Risk score combining complexity and architectural centrality (call count). Higher = more critical gap. |
-| Gap reason | Why this gap matters, e.g., 'complexity 15, called by 8 methods, no test coverage'. |
-| Suggested test class | Suggested fully qualified name for the test class. |
-
-</TabItem>
-
 <TabItem value="org.openrewrite.table.SourcesFileResults" label="SourcesFileResults">
 
 ### Source files that had results
@@ -174,6 +166,25 @@ _Statistics used in analyzing the performance of recipes._
 | Max scanning time (ns) | The max time scanning any one source file. |
 | Cumulative edit time (ns) | The total time spent across the editing phase of this recipe. |
 | Max edit time (ns) | The max time editing any one source file. |
+
+</TabItem>
+
+<TabItem value="org.openrewrite.maven.table.MavenMetadataFailures" label="MavenMetadataFailures">
+
+### Maven metadata failures
+**org.openrewrite.maven.table.MavenMetadataFailures**
+
+_Attempts to resolve maven metadata that failed._
+
+| Column Name | Description |
+| ----------- | ----------- |
+| Group id | The groupId of the artifact for which the metadata download failed. |
+| Artifact id | The artifactId of the artifact for which the metadata download failed. |
+| Version | The version of the artifact for which the metadata download failed. |
+| Maven repository | The URL of the Maven repository that the metadata download failed on. |
+| Snapshots | Does the repository support snapshots. |
+| Releases | Does the repository support releases. |
+| Failure | The reason the metadata download failed. |
 
 </TabItem>
 

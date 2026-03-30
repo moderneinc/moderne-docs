@@ -80,6 +80,20 @@ Please [contact Moderne](https://moderne.io/product) for more information about 
 ## Data Tables
 
 <Tabs groupId="data-tables">
+<TabItem value="org.openrewrite.python.migrate.table.FutureImports" label="FutureImports">
+
+### Future imports
+**org.openrewrite.python.migrate.table.FutureImports**
+
+_Shows which `__future__` features are imported in each source file._
+
+| Column Name | Description |
+| ----------- | ----------- |
+| Source file | The source file that contains the `__future__` import. |
+| Import name | The feature imported from `__future__` (e.g. `print_function`, `annotations`). |
+
+</TabItem>
+
 <TabItem value="org.openrewrite.table.SourcesFileResults" label="SourcesFileResults">
 
 ### Source files that had results

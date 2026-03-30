@@ -45,12 +45,6 @@ _This doc contains all [scanning recipes](https://docs.openrewrite.org/concepts-
 * [io.moderne.prethink.ComprehendCodeTokenCounter](/user-documentation/recipes/recipe-catalog/prethink/comprehendcodetokencounter.md)
   * **Estimate comprehension token usage**
   * Estimate the input token counts that would be sent to an LLM for method comprehension, without actually calling a model. Uses OpenAI's tokenizer locally. Outputs to the MethodDescriptions table with blank descriptions.
-* [io.moderne.prethink.FindTestCoverage](/user-documentation/recipes/recipe-catalog/prethink/findtestcoverage.md)
-  * **Find test coverage mapping**
-  * Map test methods to their corresponding implementation methods. Uses JavaType.Method matching to determine coverage relationships. Optionally generates AI summaries of what each test is verifying when LLM provider is configured.
-* [io.moderne.prethink.FindTestGaps](/user-documentation/recipes/recipe-catalog/prethink/findtestgaps.md)
-  * **Find test coverage gaps**
-  * Identify public non-trivial methods that lack test coverage. Reports gaps with cyclomatic complexity and risk scores to help prioritize where to add tests.
 * [io.moderne.prethink.calm.FindCalmRelationships](/user-documentation/recipes/recipe-catalog/prethink/calm/findcalmrelationships.md)
   * **Find CALM relationships**
   * Discover method call relationships within the repository for building interaction diagrams. Captures all method-to-method calls between in-repo classes. Entity IDs are resolved by GenerateCalmArchitecture when building CALM relationships.
@@ -66,6 +60,12 @@ _This doc contains all [scanning recipes](https://docs.openrewrite.org/concepts-
 * [io.moderne.prethink.quality.FindPackageMetrics](/user-documentation/recipes/recipe-catalog/prethink/quality/findpackagemetrics.md)
   * **Find package quality metrics**
   * Compute per-package architectural quality metrics including afferent/efferent coupling, instability, abstractness, distance from the main sequence, and dependency cycle detection using Tarjan's strongly connected components algorithm.
+* [io.moderne.prethink.testing.coverage.FindTestCoverage](/user-documentation/recipes/recipe-catalog/prethink/testing/coverage/findtestcoverage.md)
+  * **Find test coverage mapping**
+  * Map test methods to their corresponding implementation methods. Uses JavaType.Method matching to determine coverage relationships. Optionally generates AI summaries of what each test is verifying when LLM provider is configured.
+* [io.moderne.prethink.testing.coverage.FindTestGaps](/user-documentation/recipes/recipe-catalog/prethink/testing/coverage/findtestgaps.md)
+  * **Find test coverage gaps**
+  * Identify public non-trivial methods that lack test coverage. Reports gaps with cyclomatic complexity and risk scores to help prioritize where to add tests.
 
 ### rewrite-program-analysis
 

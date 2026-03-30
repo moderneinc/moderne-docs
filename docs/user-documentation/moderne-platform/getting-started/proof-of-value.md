@@ -91,7 +91,7 @@ The recipes below progress from simple to complex. Links go to the [public Moder
     mod config license edit <insert provided key here>
     ```
 
-5. **Install the recipes** – Copy and run the [Moderne CLI command under CLI installation](https://docs.openrewrite.org/reference/latest-versions-of-every-openrewrite-module#cli-installation).
+5. **Install the recipes** – Copy and run the [Moderne CLI command under CLI installation](../../recipes/lists/latest-versions-of-every-openrewrite-module.md#cli-installation).
 
 6. **Try your first recipe** – Try a simple recipe to test that you can execute successfully against the LSTs you built in step 3. We recommend the "Find empty classes" recipe, which will search through your repos to find empty classes that do not implement an interface or extend a class. To run this recipe, run the following command:
 

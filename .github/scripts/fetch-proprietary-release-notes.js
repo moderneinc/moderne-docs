@@ -9,29 +9,18 @@ const __dirname = path.dirname(__filename);
 const GITHUB_TOKEN = process.env.GITHUB_TOKEN;
 const GITHUB_ORG = process.env.GITHUB_ORG || 'moderneinc';
 
-// List of proprietary recipe repositories
-const RECIPE_REPOS = [
-  'rewrite-ai-search',
-  'rewrite-android',
-  'rewrite-azul',
-  'rewrite-circleci',
-  'rewrite-codemods-ng',
-  'rewrite-compiled-analysis',
-  'rewrite-comprehension',
-  'rewrite-concourse',
-  'rewrite-dotnet',
-  'rewrite-elastic',
-  'rewrite-hibernate',
-  'rewrite-java-security',
-  'rewrite-kafka',
-  'rewrite-kubernetes',
-  'rewrite-nodejs',
-  'rewrite-program-analysis',
-  'rewrite-reactive-streams',
-  'rewrite-spring',
-  'rewrite-sql',
-  'rewrite-terraform',
-];
+// Read the repository list from the workflow YAML (single source of truth)
+function getRecipeRepos() {
+  const workflowPath = path.join(__dirname, '../workflows/update-proprietary-release-notes.yml');
+  const workflowContent = fs.readFileSync(workflowPath, 'utf8');
+  const match = workflowContent.match(/repositories: \|\n([\s\S]*?)(?:\n\s*\n|\n\s+-)/);
+  if (!match) {
+    throw new Error('Could not parse repositories from workflow YAML');
+  }
+  return match[1].split('\n').map(r => r.trim()).filter(Boolean);
+}
+
+const RECIPE_REPOS = getRecipeRepos();
 
 const octokit = new Octokit({
   auth: GITHUB_TOKEN,

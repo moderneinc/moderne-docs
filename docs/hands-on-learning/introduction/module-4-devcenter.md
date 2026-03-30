@@ -244,7 +244,7 @@ The CLI will output a path to an HTML file. Open it in your browser to view the 
    ▛▀▀█▀▛▀▀▀▀▜
    ▌▟▀  ▛▀▀▀▀▜
    ▀▀▀▀▀▀▀▀▀▀▀
-Moderne CLI 4.0.8
+Moderne CLI 4.0.9
 
 ⏺ Reading organization
 

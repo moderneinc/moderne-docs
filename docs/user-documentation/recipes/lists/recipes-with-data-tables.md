@@ -371,24 +371,6 @@ _This doc contains all of the recipes with **unique** data tables that have been
   * **org.openrewrite.prethink.table.ErrorHandlingPatterns**: *Error and exception handling patterns detected in the codebase.*
 
 
-#### [io.moderne.prethink.FindTestCoverage](/user-documentation/recipes/recipe-catalog/prethink/findtestcoverage.md)
-  * **Find test coverage mapping**
-  * Map test methods to their corresponding implementation methods. Uses JavaType.Method matching to determine coverage relationships. Optionally generates AI summaries of what each test is verifying when LLM provider is configured.
-
-##### Data tables:
-
-  * **io.moderne.prethink.table.TestMapping**: *Maps test methods to implementation methods with optional AI-generated summaries and inference metrics.*
-
-
-#### [io.moderne.prethink.FindTestGaps](/user-documentation/recipes/recipe-catalog/prethink/findtestgaps.md)
-  * **Find test coverage gaps**
-  * Identify public non-trivial methods that lack test coverage. Reports gaps with cyclomatic complexity and risk scores to help prioritize where to add tests.
-
-##### Data tables:
-
-  * **io.moderne.prethink.table.TestGaps**: *Public non-trivial methods that have no test coverage, ranked by risk score.*
-
-
 #### [io.moderne.prethink.calm.FindCalmRelationships](/user-documentation/recipes/recipe-catalog/prethink/calm/findcalmrelationships.md)
   * **Find CALM relationships**
   * Discover method call relationships within the repository for building interaction diagrams. Captures all method-to-method calls between in-repo classes. Entity IDs are resolved by GenerateCalmArchitecture when building CALM relationships.
@@ -711,6 +693,141 @@ _This doc contains all of the recipes with **unique** data tables that have been
 ##### Data tables:
 
   * **io.moderne.prethink.table.PackageQualityMetrics**: *Per-package architectural metrics including afferent/efferent coupling, instability, abstractness, distance from main sequence, and dependency cycle membership.*
+
+
+#### [io.moderne.prethink.testing.coverage.FindTestCoverage](/user-documentation/recipes/recipe-catalog/prethink/testing/coverage/findtestcoverage.md)
+  * **Find test coverage mapping**
+  * Map test methods to their corresponding implementation methods. Uses JavaType.Method matching to determine coverage relationships. Optionally generates AI summaries of what each test is verifying when LLM provider is configured.
+
+##### Data tables:
+
+  * **io.moderne.prethink.table.TestMapping**: *Maps test methods to implementation methods with optional AI-generated summaries and inference metrics.*
+
+
+#### [io.moderne.prethink.testing.coverage.FindTestGaps](/user-documentation/recipes/recipe-catalog/prethink/testing/coverage/findtestgaps.md)
+  * **Find test coverage gaps**
+  * Identify public non-trivial methods that lack test coverage. Reports gaps with cyclomatic complexity and risk scores to help prioritize where to add tests.
+
+##### Data tables:
+
+  * **io.moderne.prethink.table.TestGaps**: *Public non-trivial methods that have no test coverage, ranked by risk score.*
+
+
+#### [io.moderne.prethink.testing.quality.FindFlakyTestPatterns](/user-documentation/recipes/recipe-catalog/prethink/testing/quality/findflakytestpatterns.md)
+  * **Find flaky test patterns**
+  * Detect patterns that commonly cause flaky tests in Java and Python code, including static waits (Thread.sleep, TimeUnit.sleep) and shared mutable state (static non-final fields in test classes).
+
+##### Data tables:
+
+  * **io.moderne.prethink.table.TestQualityIssues**: *Issues found in test code that may cause flakiness, silent failures, or maintenance burden. Each row includes a rich evidence message with what was found, why it matters, and how to fix it.*
+
+
+#### [io.moderne.prethink.testing.quality.FindFragileTestData](/user-documentation/recipes/recipe-catalog/prethink/testing/quality/findfragiletestdata.md)
+  * **Find fragile test data**
+  * Detect hardcoded dates, timing-dependent assertions, and hardcoded ports/paths in test code that may cause flaky or environment-dependent test failures.
+
+##### Data tables:
+
+  * **io.moderne.prethink.table.TestQualityIssues**: *Issues found in test code that may cause flakiness, silent failures, or maintenance burden. Each row includes a rich evidence message with what was found, why it matters, and how to fix it.*
+
+
+#### [io.moderne.prethink.testing.quality.FindGhostTests](/user-documentation/recipes/recipe-catalog/prethink/testing/quality/findghosttests.md)
+  * **Find ghost tests**
+  * Detect methods that look like tests but will not be executed by the test runner, and tests skipped without a documented reason.
+
+##### Data tables:
+
+  * **io.moderne.prethink.table.TestQualityIssues**: *Issues found in test code that may cause flakiness, silent failures, or maintenance burden. Each row includes a rich evidence message with what was found, why it matters, and how to fix it.*
+
+
+#### [io.moderne.prethink.testing.quality.FindNodeFlakyTestPatterns](/user-documentation/recipes/recipe-catalog/prethink/testing/quality/findnodeflakytestpatterns.md)
+  * **Find Node.js flaky test patterns**
+  * Detect patterns that commonly cause flaky tests in JavaScript and TypeScript code, including static waits (setTimeout, setInterval), prototype mutation, and shared mutable state (module-scope let/var declarations).
+
+##### Data tables:
+
+  * **io.moderne.prethink.table.TestQualityIssues**: *Issues found in test code that may cause flakiness, silent failures, or maintenance burden. Each row includes a rich evidence message with what was found, why it matters, and how to fix it.*
+
+
+#### [io.moderne.prethink.testing.quality.FindNodeFragileTestData](/user-documentation/recipes/recipe-catalog/prethink/testing/quality/findnodefragiletestdata.md)
+  * **Find Node.js fragile test data**
+  * Detect hardcoded dates, timing-dependent assertions, and hardcoded ports in JavaScript and TypeScript test files.
+
+##### Data tables:
+
+  * **io.moderne.prethink.table.TestQualityIssues**: *Issues found in test code that may cause flakiness, silent failures, or maintenance burden. Each row includes a rich evidence message with what was found, why it matters, and how to fix it.*
+
+
+#### [io.moderne.prethink.testing.quality.FindNodeGhostTests](/user-documentation/recipes/recipe-catalog/prethink/testing/quality/findnodeghosttests.md)
+  * **Find Node.js ghost tests**
+  * Detect skipped tests in JavaScript and TypeScript test files. Flags xtest(), xit(), test.skip(), it.skip(), and describe.skip() calls that lack a documented reason in their description.
+
+##### Data tables:
+
+  * **io.moderne.prethink.table.TestQualityIssues**: *Issues found in test code that may cause flakiness, silent failures, or maintenance burden. Each row includes a rich evidence message with what was found, why it matters, and how to fix it.*
+
+
+#### [io.moderne.prethink.testing.quality.FindNodeSilentTestFailures](/user-documentation/recipes/recipe-catalog/prethink/testing/quality/findnodesilenttestfailures.md)
+  * **Find Node.js silent test failures**
+  * Detect silent test failures in JavaScript and TypeScript test files including empty .catch() handlers and test functions missing expect() calls.
+
+##### Data tables:
+
+  * **io.moderne.prethink.table.TestQualityIssues**: *Issues found in test code that may cause flakiness, silent failures, or maintenance burden. Each row includes a rich evidence message with what was found, why it matters, and how to fix it.*
+
+
+#### [io.moderne.prethink.testing.quality.FindNodeTestCodeSmells](/user-documentation/recipes/recipe-catalog/prethink/testing/quality/findnodetestcodesmells.md)
+  * **Find Node.js test code smells**
+  * Detect code smells in JavaScript and TypeScript test files including empty catch blocks and magic numbers.
+
+##### Data tables:
+
+  * **io.moderne.prethink.table.TestQualityIssues**: *Issues found in test code that may cause flakiness, silent failures, or maintenance burden. Each row includes a rich evidence message with what was found, why it matters, and how to fix it.*
+
+
+#### [io.moderne.prethink.testing.quality.FindNodeUnmockedExternalCalls](/user-documentation/recipes/recipe-catalog/prethink/testing/quality/findnodeunmockedexternalcalls.md)
+  * **Find unmocked external calls in Node.js tests**
+  * Detect direct HTTP, database, and network calls in JavaScript/TypeScript test files that are not mocked. Integration and e2e test files are excluded.
+
+##### Data tables:
+
+  * **io.moderne.prethink.table.TestQualityIssues**: *Issues found in test code that may cause flakiness, silent failures, or maintenance burden. Each row includes a rich evidence message with what was found, why it matters, and how to fix it.*
+
+
+#### [io.moderne.prethink.testing.quality.FindOverlyBroadMocks](/user-documentation/recipes/recipe-catalog/prethink/testing/quality/findoverlybroadmocks.md)
+  * **Find overly broad mocks**
+  * Detect Mockito stubbing or verification calls that use 3 or more any() matchers, which can hide incorrect arguments and reduce test effectiveness.
+
+##### Data tables:
+
+  * **io.moderne.prethink.table.TestQualityIssues**: *Issues found in test code that may cause flakiness, silent failures, or maintenance burden. Each row includes a rich evidence message with what was found, why it matters, and how to fix it.*
+
+
+#### [io.moderne.prethink.testing.quality.FindSilentTestFailures](/user-documentation/recipes/recipe-catalog/prethink/testing/quality/findsilenttestfailures.md)
+  * **Find silent test failures**
+  * Detect silent test failures including Java assert keyword usage, swallowed exceptions in try/catch blocks, and test methods missing assertions.
+
+##### Data tables:
+
+  * **io.moderne.prethink.table.TestQualityIssues**: *Issues found in test code that may cause flakiness, silent failures, or maintenance burden. Each row includes a rich evidence message with what was found, why it matters, and how to fix it.*
+
+
+#### [io.moderne.prethink.testing.quality.FindTestCodeSmells](/user-documentation/recipes/recipe-catalog/prethink/testing/quality/findtestcodesmells.md)
+  * **Find test code smells**
+  * Detect code smells in test files including empty catch blocks, deprecated test APIs, magic numbers, and poorly named test methods.
+
+##### Data tables:
+
+  * **io.moderne.prethink.table.TestQualityIssues**: *Issues found in test code that may cause flakiness, silent failures, or maintenance burden. Each row includes a rich evidence message with what was found, why it matters, and how to fix it.*
+
+
+#### [io.moderne.prethink.testing.quality.FindUnmockedExternalCalls](/user-documentation/recipes/recipe-catalog/prethink/testing/quality/findunmockedexternalcalls.md)
+  * **Find unmocked external calls in tests**
+  * Detect direct HTTP, database, and network calls in unit tests that are not mocked. These cause flaky and slow tests. Integration tests (annotated with @SpringBootTest, @Testcontainers, etc.) are excluded.
+
+##### Data tables:
+
+  * **io.moderne.prethink.table.TestQualityIssues**: *Issues found in test code that may cause flakiness, silent failures, or maintenance burden. Each row includes a rich evidence message with what was found, why it matters, and how to fix it.*
 
 
 
@@ -5706,6 +5823,15 @@ _This doc contains all of the recipes with **unique** data tables that have been
   * **org.openrewrite.python.table.PythonDependenciesInUse**: *Direct and transitive dependencies in use in Python projects.*
 
 
+#### [org.openrewrite.python.migrate.FindFutureImports](/user-documentation/recipes/recipe-catalog/python/migrate/findfutureimports.md)
+  * **Find `__future__` imports**
+  * Find `__future__` imports and add a search marker.
+
+##### Data tables:
+
+  * **org.openrewrite.python.migrate.table.FutureImports**: *Shows which `__future__` features are imported in each source file.*
+
+
 #### [org.openrewrite.python.migrate.FindMethods](/user-documentation/recipes/recipe-catalog/python/migrate/findmethods.md)
   * **Find Python function and method usages**
   * Find function and method calls by pattern. Covers standalone functions, class methods, static methods, and constructor calls.
@@ -5713,6 +5839,15 @@ _This doc contains all of the recipes with **unique** data tables that have been
 ##### Data tables:
 
   * **org.openrewrite.java.table.MethodCalls**: *The text of matching method invocations.*
+
+
+#### [org.openrewrite.python.migrate.FindTypes](/user-documentation/recipes/recipe-catalog/python/migrate/findtypes.md)
+  * **Find Python types**
+  * Find type references by name. Identifies classes matching a type pattern. In Python, all type definitions use the `class` keyword, covering regular classes, abstract base classes, protocols, enums, dataclasses, named tuples, typed dicts, and more.
+
+##### Data tables:
+
+  * **org.openrewrite.java.table.TypeUses**: *The source code of matching type uses.*
 
 
 
@@ -6066,6 +6201,51 @@ _This doc contains all of the recipes with **unique** data tables that have been
 #### [org.openrewrite.java.spring.boot4.UpgradeSpringBoot_4_0](/user-documentation/recipes/recipe-catalog/java/spring/boot4/upgradespringboot_4_0-community-edition.md)
   * **Migrate to Spring Boot 4.0 (Community Edition)**
   * Migrate applications to the latest Spring Boot 4.0 release. This recipe will modify an application's build files, make changes to deprecated/preferred APIs.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.java.spring.cloud2025.AddSpringCloudDependenciesBom](/user-documentation/recipes/recipe-catalog/java/spring/cloud2025/addspringclouddependenciesbom.md)
+  * **Add Spring Cloud dependencies BOM**
+  * Adds the Spring Cloud dependencies BOM as a managed import, but only when the project already uses a Spring Cloud dependency. Prevents accidentally introducing the BOM into unrelated projects.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.java.spring.cloud2025.UpgradeSpringCloud_2025_1](/user-documentation/recipes/recipe-catalog/java/spring/cloud2025/upgradespringcloud_2025_1.md)
+  * **Migrate to Spring Cloud 2025.1**
+  * Migrate applications to the latest Spring Cloud 2025.1 release, compatible with Spring Boot 4.0.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.java.spring.framework.UpgradeSpringFramework_6_0](/user-documentation/recipes/recipe-catalog/java/spring/framework/upgradespringframework_6_0.md)
+  * **Migrate to Spring Framework 6.0**
+  * Migrate applications to the latest Spring Framework 6.0 release.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.java.spring.framework.UpgradeSpringFramework_6_1](/user-documentation/recipes/recipe-catalog/java/spring/framework/upgradespringframework_6_1.md)
+  * **Migrate to Spring Framework 6.1**
+  * Migrate applications to the latest Spring Framework 6.1 release.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.java.spring.framework.UpgradeSpringFramework_6_2](/user-documentation/recipes/recipe-catalog/java/spring/framework/upgradespringframework_6_2.md)
+  * **Migrate to Spring Framework 6.2**
+  * Migrate applications to the latest Spring Framework 6.2 release.
 
 ##### Data tables:
 
@@ -6454,6 +6634,15 @@ _This doc contains all of the recipes with **unique** data tables that have been
 #### [com.oracle.weblogic.rewrite.jakarta.UpgradeMavenPluginConfigurationArtifacts](/user-documentation/recipes/recipe-catalog/com/oracle/weblogic/rewrite/jakarta/upgrademavenpluginconfigurationartifacts.md)
   * **Change artifacts for a Maven plugin configuration**
   * Change artifacts for a Maven plugin configuration artifacts.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [com.oracle.weblogic.rewrite.spring.framework.UpgradeToSpringFramework_6_2](/user-documentation/recipes/recipe-catalog/com/oracle/weblogic/rewrite/spring/framework/upgradetospringframework_6_2.md)
+  * **Migrate to Spring Framework 6.2 for WebLogic 15.1.1**
+  * Migrate applications to the Spring Framework 6.2 release and compatibility with WebLogic 15.1.1.
 
 ##### Data tables:
 

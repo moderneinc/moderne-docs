@@ -5,6 +5,13 @@
  * used throughout the documentation site.
  */
 
+declare module '@theme/AnnouncementBar' {
+  import type {FunctionComponent} from 'react';
+  const AnnouncementBar: FunctionComponent;
+  export default AnnouncementBar;
+  export const AnnouncementBarInline: FunctionComponent;
+}
+
 /**
  * Available gem icon colors for DocCards
  */

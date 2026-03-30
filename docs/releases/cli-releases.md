@@ -7,7 +7,7 @@ description: The current version of the Moderne CLI and links to useful CLI docu
 
 | Component   | Current version |
 | ----------- | --------------- |
-| CLI version | 4.0.8           |
+| CLI version | 4.0.9           |
 
 For CLI command documentation, see the [CLI reference](../user-documentation/moderne-cli/cli-reference.md).
 
@@ -16,6 +16,27 @@ The Moderne CLI previously followed a two-track release model with separate "sta
 :::
 
 ## Changelog
+
+### CLI / DX v4.0.9 (2026-03-27)
+
+#### What's Changed
+* Fix duplicate CSV headers when collecting data tables from multiple repos
+* Fix unrendered bold markup in login success message
+* Reduce CLI fat JAR size from 587 MB to ~324 MB
+* Fix Chocolatey install on PowerShell 5.1
+* Log JDK selection reasoning to Gradle build log
+* Only record version updates when something meaningful has changed
+* Use directory-watcher for native file system events in MCP server
+* Bump picomatch from 2.3.1 to 2.3.2 in /devcenter-workbench
+* Bump yaml from 1.10.2 to 1.10.3 in /devcenter-workbench
+* Allow to build using multiple non-wrapper Gradle versions
+* Expand tabs to spaces in diff rendering to fix indentation
+* Add pip/uv SSL environment variables to external tool config
+* MCP: pass LST version through LstWriter instead of mutating global config
+* Show orange warning circle on tray icon when any build step fails
+* Connect MCP server to stdio immediately, defer init to background
+* Detect copy-dependencies in effective POM to avoid MDEP-187
+* Fix duplicate CSV headers when merging data tables from multiple repos
 
 ### CLI / DX v4.0.8 (2026-03-24)
 

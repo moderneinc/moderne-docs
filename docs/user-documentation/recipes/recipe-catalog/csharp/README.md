@@ -16,6 +16,7 @@ _Recipes for C# codebases._
 
 * [Add NuGet package reference](./addnugetpackagereference.md)
 * [Change .NET target framework](./changedotnettargetframework.md)
+* [Find NuGet package reference](./findnugetpackagereference.md)
 * [Remove NuGet package reference](./removenugetpackagereference.md)
 * [Upgrade NuGet package version](./upgradenugetpackageversion.md)
 
