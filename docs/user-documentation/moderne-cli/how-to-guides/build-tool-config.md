@@ -98,11 +98,10 @@ To apply a version only to a specific group of repositories, use the `--local` f
 mod config build gradle version edit 4.5 --local ./working-set
 ```
 
-To revert to auto-detection:
+To revert to auto-detection, delete the configured version:
 
 ```bash
 mod config build gradle version delete
-mod config build gradle version edit auto
 ```
 
 To see the currently configured version:
