@@ -23,18 +23,17 @@ The skills are bundled with the CLI and stay current when you update.
 
 The CLI auto-detects installed coding agents and installs skills to each one:
 
-| Agent              | Detection                             | Install location                                             |
-|--------------------|---------------------------------------|--------------------------------------------------------------|
-| Claude Code        | `~/.claude/` (or `CLAUDE_CONFIG_DIR`) | `~/.claude/marketplaces/moderne/moderne/commands/<skill>.md` |
-| Windsurf           | `~/.codeium/`                         | `~/.codeium/windsurf/skills/<skill>/SKILL.md`                |
-| Sourcegraph Amp    | `~/.config/agents/`                   | `~/.config/agents/skills/<skill>/SKILL.md`                   |
-| OpenAI Codex       | `~/.agents/`                          | `~/.agents/skills/<skill>/SKILL.md`                          |
-| GitHub Copilot CLI | `~/.copilot/`                         | MCP server only (`~/.copilot/mcp-config.json`)               |
-| Cursor             | `.cursor/` in current directory       | `.cursor/rules/moderne-<skill>.mdc`                          |
-| GitHub Copilot     | `.github/` in current directory       | `.github/instructions/moderne-<skill>.instructions.md`       |
+| Agent           | Detection                                        | Install location                                                 |
+|-----------------|--------------------------------------------------|------------------------------------------------------------------|
+| Claude Code     | `~/.claude/` (or `CLAUDE_CONFIG_DIR`)            | `~/.claude/marketplaces/moderne/moderne/skills/<skill>/SKILL.md` |
+| Windsurf        | `~/.codeium/`                                    | `~/.codeium/windsurf/skills/<skill>/SKILL.md`                    |
+| Sourcegraph Amp | `~/.config/agents/`                              | `~/.config/agents/skills/<skill>/SKILL.md`                       |
+| OpenAI Codex    | `~/.agents/`                                     | `~/.agents/skills/<skill>/SKILL.md`                              |
+| Cursor          | `~/.cursor/`                                     | `.cursor/rules/moderne-<skill>.mdc`                              |
+| GitHub Copilot  | `.github/` in current directory or `~/.copilot/` | `.github/instructions/moderne-<skill>.instructions.md`           |
 
 :::note
-Cursor and GitHub Copilot skills are per-project. Unlike the other agents which install skills globally, these require running the install command from each project root where you want the skills available.
+Cursor and GitHub Copilot skills are installed per-project (into `.cursor/rules/` and `.github/instructions/` respectively). Unlike the other agents which install skills globally, these require running the install command from each project root where you want the skills available.
 :::
 
 In addition to installing skills, the command also registers a Moderne MCP server for each agent, providing tools for semantic code search, navigation, and refactoring.
@@ -51,6 +50,34 @@ To remove all installed agent tools:
 
 ```bash
 mod config agent-tools uninstall
+```
+
+### Per-agent installation
+
+You can install agent tools for a single coding agent instead of all detected agents:
+
+```bash
+mod config agent-tools claude install
+mod config agent-tools cursor install
+mod config agent-tools copilot install
+```
+
+Each per-agent command installs both skills and the MCP server for that agent only. If the agent is not detected on your system, the command displays a message and exits without making changes.
+
+The available per-agent subcommands are: `claude`, `windsurf`, `cursor`, `copilot`, `amp`, and `codex`.
+
+### Skills-only installation
+
+To install only skills (without the MCP server) for all detected agents:
+
+```bash
+mod config agent-tools skills install
+```
+
+To remove only skills:
+
+```bash
+mod config agent-tools skills uninstall
 ```
 
 ## Invoking skills
