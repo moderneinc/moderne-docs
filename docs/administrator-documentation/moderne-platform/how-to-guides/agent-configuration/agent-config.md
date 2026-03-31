@@ -792,14 +792,36 @@ To use the dashboard:
 
 For high availability and increased throughput, you can run multiple Moderne agent instances concurrently.
 
-**Key requirements for multi-instance deployment:**
+### Sizing guidance
+
+The number of agents you need depends on the number of repositories, the performance of your artifact repositories, and how heavily users run recipes.
+
+As a starting point, consider **one agent per 20,000 repositories**. For example, a deployment with 40,000 repositories and daily LST refreshes would typically use 2–3 agents. A deployment with 100,000 repositories might use 5–6.
+
+These are rough guidelines — monitor agent resource usage and adjust based on your workload.
+
+### Traffic routing
+
+When multiple agents are running, the platform distributes work based on each agent's configuration:
+
+* If two agents are configured with different artifact repositories, each agent handles requests for its own repository.
+* If two agents share the same configuration, requests are distributed across them in a round-robin fashion.
+* The more services an agent is configured with (SCMs, artifact repositories), the more traffic it handles.
+
+This means you can split agents by responsibility — for example, dedicating some agents to artifact repository traffic and others to SCM operations. See [routing requests to agents](../../references/routing-requests-to-agents.md) for a detailed explanation.
+
+:::note
+Building and publishing LSTs is handled by separate containers ([mass ingest](../mass-ingest.md)), not by agents. Agents pull published LSTs into the platform and handle other operations like resolving dependencies and performing SCM operations such as creating branches and commits.
+:::
+
+### Requirements for multi-instance deployment
 
 * Each agent instance must have a unique `MODERNE_AGENT_NICKNAME`
 * Each instance requires its own port mapping (e.g., 8080, 8081, 8082)
 * All instances should use the same `MODERNE_AGENT_CRYPTO_SYMMETRICKEY`
 * All instances should connect to the same `MODERNE_AGENT_APIGATEWAYRSOCKETURI`
 
-**Example multi-instance deployment:**
+### Example multi-instance deployment
 
 <Tabs groupId="agent-type">
 <TabItem value="oci-container" label="OCI Container">
