@@ -23,6 +23,27 @@ description: Auto-generated documentation for all Moderne CLI commands.
 * [**mod config agent-tools**](#mod-config-agent-tools)
 * [**mod config agent-tools install**](#mod-config-agent-tools-install)
 * [**mod config agent-tools uninstall**](#mod-config-agent-tools-uninstall)
+* [**mod config agent-tools skills**](#mod-config-agent-tools-skills)
+* [**mod config agent-tools skills install**](#mod-config-agent-tools-skills-install)
+* [**mod config agent-tools skills uninstall**](#mod-config-agent-tools-skills-uninstall)
+* [**mod config agent-tools claude**](#mod-config-agent-tools-claude)
+* [**mod config agent-tools claude install**](#mod-config-agent-tools-claude-install)
+* [**mod config agent-tools claude uninstall**](#mod-config-agent-tools-claude-uninstall)
+* [**mod config agent-tools windsurf**](#mod-config-agent-tools-windsurf)
+* [**mod config agent-tools windsurf install**](#mod-config-agent-tools-windsurf-install)
+* [**mod config agent-tools windsurf uninstall**](#mod-config-agent-tools-windsurf-uninstall)
+* [**mod config agent-tools cursor**](#mod-config-agent-tools-cursor)
+* [**mod config agent-tools cursor install**](#mod-config-agent-tools-cursor-install)
+* [**mod config agent-tools cursor uninstall**](#mod-config-agent-tools-cursor-uninstall)
+* [**mod config agent-tools copilot**](#mod-config-agent-tools-copilot)
+* [**mod config agent-tools copilot install**](#mod-config-agent-tools-copilot-install)
+* [**mod config agent-tools copilot uninstall**](#mod-config-agent-tools-copilot-uninstall)
+* [**mod config agent-tools amp**](#mod-config-agent-tools-amp)
+* [**mod config agent-tools amp install**](#mod-config-agent-tools-amp-install)
+* [**mod config agent-tools amp uninstall**](#mod-config-agent-tools-amp-uninstall)
+* [**mod config agent-tools codex**](#mod-config-agent-tools-codex)
+* [**mod config agent-tools codex install**](#mod-config-agent-tools-codex-install)
+* [**mod config agent-tools codex uninstall**](#mod-config-agent-tools-codex-uninstall)
 * [**mod config build**](#mod-config-build)
 * [**mod config build bazel**](#mod-config-build-bazel)
 * [**mod config build bazel arguments**](#mod-config-build-bazel-arguments)
@@ -721,6 +742,13 @@ mod config agent-tools install
 
 * `install`: Creates or updates Moderne agent tools for coding agents.
 * `uninstall`: Removes Moderne agent tools from coding agents.
+* `skills`: Manage Moderne skills for coding agents.
+* `claude`: Manage Moderne agent tools for Claude Code.
+* `windsurf`: Manage Moderne agent tools for Windsurf.
+* `cursor`: Manage Moderne agent tools for Cursor.
+* `copilot`: Manage Moderne agent tools for GitHub Copilot.
+* `amp`: Manage Moderne agent tools for Sourcegraph Amp.
+* `codex`: Manage Moderne agent tools for OpenAI Codex.
 
 ## mod config agent-tools install
 
@@ -760,6 +788,437 @@ mod config agent-tools uninstall
 
 ```
 mod config agent-tools uninstall
+```
+
+
+
+## mod config agent-tools skills
+
+Manage Moderne skills for coding agents.
+
+
+Install or remove Moderne skills (run-recipe, create-recipe, create-organization, analyze-impact) for all detected coding agents.
+
+### Usage
+
+```
+mod config agent-tools skills [subcommands]
+```
+
+### Examples
+
+```
+mod config agent-tools skills install
+```
+
+
+### Subcommands
+
+* `install`: Install Moderne skills to all detected coding agents.
+* `uninstall`: Remove Moderne skills from all detected coding agents.
+
+## mod config agent-tools skills install
+
+Install Moderne skills to all detected coding agents.
+
+
+### Usage
+
+```
+mod config agent-tools skills install
+```
+
+### Examples
+
+```
+mod config agent-tools skills install
+```
+
+
+
+## mod config agent-tools skills uninstall
+
+Remove Moderne skills from all detected coding agents.
+
+
+### Usage
+
+```
+mod config agent-tools skills uninstall
+```
+
+### Examples
+
+```
+mod config agent-tools skills uninstall
+```
+
+
+
+## mod config agent-tools claude
+
+Manage Moderne agent tools for Claude Code.
+
+
+### Usage
+
+```
+mod config agent-tools claude [subcommands]
+```
+
+### Examples
+
+```
+mod config agent-tools claude install
+```
+
+
+### Subcommands
+
+* `install`: Install Moderne agent tools for Claude Code.
+* `uninstall`: Remove Moderne agent tools from Claude Code.
+
+## mod config agent-tools claude install
+
+Install Moderne agent tools for Claude Code.
+
+
+### Usage
+
+```
+mod config agent-tools claude install
+```
+
+### Examples
+
+```
+mod config agent-tools claude install
+```
+
+
+
+## mod config agent-tools claude uninstall
+
+Remove Moderne agent tools from Claude Code.
+
+
+### Usage
+
+```
+mod config agent-tools claude uninstall
+```
+
+### Examples
+
+```
+mod config agent-tools claude uninstall
+```
+
+
+
+## mod config agent-tools windsurf
+
+Manage Moderne agent tools for Windsurf.
+
+
+### Usage
+
+```
+mod config agent-tools windsurf [subcommands]
+```
+
+### Examples
+
+```
+mod config agent-tools windsurf install
+```
+
+
+### Subcommands
+
+* `install`: Install Moderne agent tools for Windsurf.
+* `uninstall`: Remove Moderne agent tools from Windsurf.
+
+## mod config agent-tools windsurf install
+
+Install Moderne agent tools for Windsurf.
+
+
+### Usage
+
+```
+mod config agent-tools windsurf install
+```
+
+### Examples
+
+```
+mod config agent-tools windsurf install
+```
+
+
+
+## mod config agent-tools windsurf uninstall
+
+Remove Moderne agent tools from Windsurf.
+
+
+### Usage
+
+```
+mod config agent-tools windsurf uninstall
+```
+
+### Examples
+
+```
+mod config agent-tools windsurf uninstall
+```
+
+
+
+## mod config agent-tools cursor
+
+Manage Moderne agent tools for Cursor.
+
+
+### Usage
+
+```
+mod config agent-tools cursor [subcommands]
+```
+
+### Examples
+
+```
+mod config agent-tools cursor install
+```
+
+
+### Subcommands
+
+* `install`: Install Moderne agent tools for Cursor.
+* `uninstall`: Remove Moderne agent tools from Cursor.
+
+## mod config agent-tools cursor install
+
+Install Moderne agent tools for Cursor.
+
+
+### Usage
+
+```
+mod config agent-tools cursor install
+```
+
+### Examples
+
+```
+mod config agent-tools cursor install
+```
+
+
+
+## mod config agent-tools cursor uninstall
+
+Remove Moderne agent tools from Cursor.
+
+
+### Usage
+
+```
+mod config agent-tools cursor uninstall
+```
+
+### Examples
+
+```
+mod config agent-tools cursor uninstall
+```
+
+
+
+## mod config agent-tools copilot
+
+Manage Moderne agent tools for GitHub Copilot.
+
+
+Installs skills via .github/instructions/ and registers the MCP server in both .vscode/mcp.json and ~/.copilot/mcp-config.json.
+
+### Usage
+
+```
+mod config agent-tools copilot [subcommands]
+```
+
+### Examples
+
+```
+mod config agent-tools copilot install
+```
+
+
+### Subcommands
+
+* `install`: Install Moderne agent tools for GitHub Copilot.
+* `uninstall`: Remove Moderne agent tools from GitHub Copilot.
+
+## mod config agent-tools copilot install
+
+Install Moderne agent tools for GitHub Copilot.
+
+
+### Usage
+
+```
+mod config agent-tools copilot install
+```
+
+### Examples
+
+```
+mod config agent-tools copilot install
+```
+
+
+
+## mod config agent-tools copilot uninstall
+
+Remove Moderne agent tools from GitHub Copilot.
+
+
+### Usage
+
+```
+mod config agent-tools copilot uninstall
+```
+
+### Examples
+
+```
+mod config agent-tools copilot uninstall
+```
+
+
+
+## mod config agent-tools amp
+
+Manage Moderne agent tools for Sourcegraph Amp.
+
+
+### Usage
+
+```
+mod config agent-tools amp [subcommands]
+```
+
+### Examples
+
+```
+mod config agent-tools amp install
+```
+
+
+### Subcommands
+
+* `install`: Install Moderne agent tools for Sourcegraph Amp.
+* `uninstall`: Remove Moderne agent tools from Sourcegraph Amp.
+
+## mod config agent-tools amp install
+
+Install Moderne agent tools for Sourcegraph Amp.
+
+
+### Usage
+
+```
+mod config agent-tools amp install
+```
+
+### Examples
+
+```
+mod config agent-tools amp install
+```
+
+
+
+## mod config agent-tools amp uninstall
+
+Remove Moderne agent tools from Sourcegraph Amp.
+
+
+### Usage
+
+```
+mod config agent-tools amp uninstall
+```
+
+### Examples
+
+```
+mod config agent-tools amp uninstall
+```
+
+
+
+## mod config agent-tools codex
+
+Manage Moderne agent tools for OpenAI Codex.
+
+
+### Usage
+
+```
+mod config agent-tools codex [subcommands]
+```
+
+### Examples
+
+```
+mod config agent-tools codex install
+```
+
+
+### Subcommands
+
+* `install`: Install Moderne agent tools for OpenAI Codex.
+* `uninstall`: Remove Moderne agent tools from OpenAI Codex.
+
+## mod config agent-tools codex install
+
+Install Moderne agent tools for OpenAI Codex.
+
+
+### Usage
+
+```
+mod config agent-tools codex install
+```
+
+### Examples
+
+```
+mod config agent-tools codex install
+```
+
+
+
+## mod config agent-tools codex uninstall
+
+Remove Moderne agent tools from OpenAI Codex.
+
+
+### Usage
+
+```
+mod config agent-tools codex uninstall
+```
+
+### Examples
+
+```
+mod config agent-tools codex uninstall
 ```
 
 
