@@ -176,20 +176,34 @@ Everything lives under `~/.moderne/cli/` (or `$MODERNE_CLI_HOME`):
     └── ...                               # recipes, metrics, and other CLI config
 ```
 
-## Determining your installation method
+## Running the CLI without the wrapper
 
-To check whether you're using the wrapper:
+Some teams download the CLI JAR directly from Artifactory or another artifact repository and run it with `java -jar`. While this works, **we recommend using the wrapper for everything except [mass ingest](../../../administrator-documentation/moderne-platform/how-to-guides/mass-ingest.md)**. The wrapper manages an ahead-of-time (AOT) compilation cache that significantly improves CLI startup performance — running the JAR directly does not benefit from this optimization.
+
+Mass ingest is the exception because it typically runs in CI pipelines where the AOT cache cannot be reused between runs, and the overhead of the wrapper setup doesn't provide a benefit.
+
+### Migrating to the wrapper
+
+If you're currently running the JAR directly, you don't need to change everything at once:
+
+1. **Start with developer machines** — have developers install via `curl https://app.moderne.io/cli | bash` while CI continues using the JAR directly
+2. **Point the wrapper at your internal mirror** — set `distributionUrl` in `moderne-wrapper.properties` to your Artifactory URL so the wrapper downloads from there instead of Maven Central
+3. **Adopt the project wrapper for CI** — commit `modw` to your repository and have CI run `./modw` instead of `java -jar`. This ensures CI and developers use the same version
+
+Your existing tooling for environment setup (e.g., scripts that configure Java versions, populate `.moderne/moderne.yml`, or set repository-specific environment variables) can continue to work alongside the wrapper.
+
+## Checking your configuration
+
+To see which CLI version you're running:
 
 ```bash
-which mod
+mod --version
 ```
 
-If the output points to `~/.moderne/cli/bin/mod`, you're using the wrapper. If it points to a Homebrew or Chocolatey path, you installed via a package manager — but these also install the wrapper underneath.
-
-You can also check the wrapper properties directly:
+To check whether auto-updates are enabled, inspect the wrapper properties:
 
 ```bash
 cat ~/.moderne/cli/dist/moderne-wrapper.properties
 ```
 
-This shows your current version configuration. If the file contains `version=RELEASE`, auto-updates are enabled.
+If this file contains `version=RELEASE`, auto-updates are enabled. A specific version like `version=4.1.0` means you're pinned. If this file doesn't exist, you're likely running the CLI JAR directly without the wrapper.
