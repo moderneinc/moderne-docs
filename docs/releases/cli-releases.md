@@ -7,7 +7,7 @@ description: The current version of the Moderne CLI and links to useful CLI docu
 
 | Component   | Current version |
 | ----------- | --------------- |
-| CLI version | 4.0.9           |
+| CLI version | 4.0.10           |
 
 For CLI command documentation, see the [CLI reference](../user-documentation/moderne-cli/cli-reference.md).
 
@@ -16,6 +16,15 @@ The Moderne CLI previously followed a two-track release model with separate "sta
 :::
 
 ## Changelog
+
+### CLI / DX v4.0.10 (2026-03-30)
+
+#### What's Changed
+* Add per-agent subcommands to mod config agent-tools
+* Unify V3 store across build steps
+* Fix Cursor MCP server not registering outside Cursor projects
+* Fix NullPointerException in mod run when path is a file
+* Add ScanningRecipe section to create-recipe skill
 
 ### CLI / DX v4.0.9 (2026-03-27)
 

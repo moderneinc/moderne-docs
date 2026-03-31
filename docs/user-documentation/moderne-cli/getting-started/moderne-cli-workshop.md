@@ -58,7 +58,7 @@ mod git sync moderne . --organization "Default" --with-sources
 <summary>You should see output similar to the following.</summary>
 
 ```bash
-Moderne CLI 4.0.9
+Moderne CLI 4.0.10
 
 ● Retrieving organization from Moderne
 
@@ -167,7 +167,7 @@ mod build .
 <summary>You should see output similar to the following.</summary>
 
 ```bash
-Moderne CLI 4.0.9
+Moderne CLI 4.0.10
 
 ● Reading organization
 
@@ -241,7 +241,7 @@ mod run . --recipe org.openrewrite.java.dependencies.DependencyVulnerabilityChec
 <summary>You should see output similar to the following.</summary>
 
 ```bash
-Moderne CLI 4.0.9
+Moderne CLI 4.0.10
 
 Found 1 organization containing 11 repositories (1s)
 
@@ -352,7 +352,7 @@ mod study . --last-recipe-run --data-table VulnerabilityReport
 <summary>You should see output similar to the following.</summary>
 
 ```bash
-Moderne CLI 4.0.9
+Moderne CLI 4.0.10
 
 ⏺ Reading organization
 
@@ -419,7 +419,7 @@ mod run . --recipe CommonStaticAnalysis
 <summary>You should see output similar to the following.</summary>
 
 ```bash
-Moderne CLI 4.0.9
+Moderne CLI 4.0.10
 
 ● Reading organization
 
@@ -498,7 +498,7 @@ mod git checkout . -b workshop-changes --last-recipe-run
 <summary>You should see output similar to the following.</summary>
 
 ```bash
-Moderne CLI 4.0.9
+Moderne CLI 4.0.10
 
 ● Reading organization
 
