@@ -815,7 +815,7 @@ As a starting point, consider **one agent per 20,000 repositories**. For example
 **Signs you need more agents:**
 
 * LST sync jobs take significantly longer than expected
-* Recipe runs queue behind artifact downloads
+* LST artifacts are unavailable or stale because agents cannot keep up with syncing
 * Agent health checks show degraded performance in the Grafana dashboard
 
 These are rough guidelines — monitor agent resource usage and adjust based on your workload.
@@ -836,11 +836,11 @@ Building and publishing LSTs is handled by separate containers ([mass ingest](..
 
 ### Deployment environment
 
-**Virtual machines (recommended):** Static VMs provide the most predictable performance for agents. Agents maintain persistent RSocket connections to the Moderne API Gateway, and VM deployments avoid connection disruption from pod rescheduling. For most deployments, 4–6 static VMs are sufficient.
+**Virtual machines (recommended):** Static VMs provide the most predictable performance for agents. Agents maintain persistent RSocket connections to the Moderne API Gateway, and VM deployments avoid connection disruption from pod rescheduling.
 
 **Kubernetes:** Agents can run on Kubernetes, but consider the following:
 
-* Use `Recreate` deployment strategy rather than `RollingUpdate` to avoid duplicate agent registrations during deployments
+* Use `Recreate` deployment strategy rather than `RollingUpdate` to avoid duplicate agent registrations during deployments. This causes brief downtime during deploys, but the platform handles agent unavailability gracefully.
 * Set resource requests equal to limits (guaranteed QoS class) to prevent CPU throttling during artifact transfers
 * Configure liveness and readiness probes using the agent's actuator endpoints (`/actuator/health/liveness` and `/actuator/health/readiness`)
 * Avoid horizontal pod autoscaling — agents maintain long-lived RSocket connections, and scaling events disrupt them
