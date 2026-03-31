@@ -99,17 +99,36 @@ To remove the MCP server configuration along with skills:
 mod config agent-tools uninstall
 ```
 
+### Per-agent installation
+
+If you only want to install agent tools for a specific coding agent, use the per-agent subcommands:
+
+```bash
+mod config agent-tools claude install
+mod config agent-tools cursor install
+mod config agent-tools copilot install
+```
+
+Each per-agent command installs both skills and the MCP server for that agent only. If the agent is not detected on your system, the command displays a message and exits without making changes.
+
+The available per-agent subcommands are: `claude`, `windsurf`, `cursor`, `copilot`, `amp`, and `codex`.
+
+To install only skills (without the MCP server) for all detected agents:
+
+```bash
+mod config agent-tools skills install
+```
+
 ### Supported agents
 
-| Agent              | MCP support | Skills support | MCP configuration                     |
-|--------------------|-------------|----------------|---------------------------------------|
-| Claude Code        | Yes         | Yes            | Registered via `claude mcp add`       |
-| Windsurf           | Yes         | Yes            | `~/.codeium/windsurf/mcp_config.json` |
-| Cursor             | Yes         | Yes            | `~/.cursor/mcp.json`                  |
-| GitHub Copilot     | Yes         | Yes            | `.vscode/mcp.json`                    |
-| GitHub Copilot CLI | Yes         | No             | `~/.copilot/mcp-config.json`          |
-| Sourcegraph Amp    | Yes         | Yes            | Registered via `amp mcp add`          |
-| OpenAI Codex       | Yes         | Yes            | Registered via `codex mcp add`        |
+| Agent           | MCP support | Skills support | MCP configuration                                   |
+|-----------------|-------------|----------------|-----------------------------------------------------|
+| Claude Code     | Yes         | Yes            | Registered via `claude mcp add`                     |
+| Windsurf        | Yes         | Yes            | `~/.codeium/windsurf/mcp_config.json`               |
+| Cursor          | Yes         | Yes            | `~/.cursor/mcp.json`                                |
+| GitHub Copilot  | Yes         | Yes            | `.vscode/mcp.json` and `~/.copilot/mcp-config.json` |
+| Sourcegraph Amp | Yes         | Yes            | Registered via `amp mcp add`                        |
+| OpenAI Codex    | Yes         | Yes            | Registered via `codex mcp add`                      |
 
 ## Tool browser
 
