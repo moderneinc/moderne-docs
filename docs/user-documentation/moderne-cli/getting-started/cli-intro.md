@@ -54,6 +54,8 @@ Alternatively, you can install via a package manager:
 * **Homebrew** (macOS/Linux): `brew install moderneinc/moderne/mod`
 * **Chocolatey** (Windows): `choco install mod --prerelease`
 
+Each of these methods installs a lightweight wrapper script called `modw`. The `mod` command is a symlink to this wrapper. On first run, the wrapper automatically downloads the correct platform distribution (JAR + JRE) for your system. For details on how the wrapper manages versions and updates, see [CLI wrapper and version management](../how-to-guides/cli-wrapper.md).
+
 After installation, verify by running `mod` in your terminal:
 
 <details>
@@ -209,6 +211,8 @@ Alternatively, you can install via a package manager:
 
 * **Homebrew** (macOS/Linux): `brew install moderneinc/moderne/mod`
 * **Chocolatey** (Windows): `choco install mod --prerelease`
+
+Each of these methods installs a lightweight wrapper script called `modw`. The `mod` command is a symlink to this wrapper. On first run, the wrapper automatically downloads the correct platform distribution (JAR + JRE) for your system. For details on how the wrapper manages versions and updates, see [CLI wrapper and version management](../how-to-guides/cli-wrapper.md).
 
 After installation, verify by running `mod` in your terminal:
 
