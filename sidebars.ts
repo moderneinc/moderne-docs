@@ -619,7 +619,8 @@ const handsOnLearning = {
         'hands-on-learning/spring-boot-migration/module-2-wave-planning',
         'hands-on-learning/spring-boot-migration/module-3-establish-baseline',
         'hands-on-learning/spring-boot-migration/module-4-smoke-test',
-        'hands-on-learning/spring-boot-migration/module-5-wave-migration',
+        'hands-on-learning/spring-boot-migration/module-5-build-querydsl-recipe',
+        'hands-on-learning/spring-boot-migration/module-6-wave-migration',
       ],
     },
     {
