@@ -5,13 +5,13 @@ description: How the Moderne CLI wrapper works, how to control auto-updates, and
 
 # CLI wrapper and version management
 
-The recommended way to install the Moderne CLI is through a lightweight wrapper script called `modw`. This wrapper manages downloading, updating, and launching the actual CLI distribution. If you used the curl/PowerShell installer, Homebrew, or Chocolatey, you're already using it. If you need to control which CLI version your team uses, understand what network calls the CLI makes, or troubleshoot startup issues, this guide explains how the wrapper works and how to configure it.
+When you install the Moderne CLI (via the curl/PowerShell installer, Homebrew, or Chocolatey) — what actually gets installed is a lightweight wrapper script called `modw`. The `mod` command you use is a symlink to this wrapper. Each time you run a `mod` command, the wrapper handles downloading the correct CLI distribution for your platform, locating a compatible Java runtime, and optimizing startup performance before launching the CLI itself.
+
+Most users never need to think about this. But if you need to control which CLI version your team uses, pin a version for CI reproducibility, understand what network calls the CLI makes, or troubleshoot startup issues, this guide will explain how the wrapper works and how to configure it.
 
 ## What is `modw`?
 
-The standard installation methods (the curl/PowerShell installer, Homebrew, and Chocolatey) place the `modw` wrapper script in `~/.moderne/cli/bin/` and add it to your `PATH`. The `mod` command is a symlink to `modw`.
-
-When you run any `mod` command, the wrapper handles four things before launching the CLI:
+The standard installation methods place `modw` in `~/.moderne/cli/bin/` and add it to your `PATH`. When you run any `mod` command, the wrapper handles four things before launching the CLI:
 
 1. **Ensures a distribution is installed** — downloads the platform-specific CLI distribution (JAR + bundled JRE) if needed
 2. **Finds a JDK** — locates a compatible Java runtime
@@ -20,25 +20,11 @@ When you run any `mod` command, the wrapper handles four things before launching
 
 On first run after installation or an update, you may notice a brief delay while the wrapper downloads the distribution and builds the AOT cache. Subsequent runs reuse the cached artifacts and start quickly.
 
-## Auto-update behavior
+## Controlling auto-updates
 
-By default, the wrapper is configured with `version=RELEASE` in its properties file. This means **every invocation checks Maven Central** for the latest release version and downloads it if a newer version is available.
+By default, the wrapper is configured with `version=RELEASE` in its properties file. This means **every invocation checks Maven Central** for the latest release version and downloads it if a newer version is available. For individual developers, this makes the most sense as you'd want to stay current automatically.
 
-This is convenient for individual developers but can be problematic for:
-
-* **Enterprise environments** with network restrictions or change-control policies
-* **CI/CD pipelines** where reproducibility matters
-* **Air-gapped networks** where Maven Central is not reachable
-
-To check what version you're currently running:
-
-```bash
-mod --version
-```
-
-## Pinning a CLI version
-
-To disable auto-updates and pin to a specific version, run:
+That being said, for CI/CD pipelines where reproducibility matters, enterprise environments with network restrictions or change-control policies, or air-gapped networks where Maven Central is not reachable, you'll want to pin to a specific version instead:
 
 ```bash
 mod wrapper --global --version <version>
@@ -66,19 +52,21 @@ This sets the version to `LATEST`, which resolves against Maven Central Snapshot
 
 ## Project wrapper
 
-You can check a wrapper into a project repository — similar to the Gradle wrapper — so that every developer and CI job uses a consistent CLI version:
+Similar to the Gradle wrapper, you can commit a wrapper into your project repository so that every developer and CI job uses a consistent CLI version.
+
+To generate the wrapper files, run:
 
 ```bash
 mod wrapper
 ```
 
-This creates three files you should commit to your repository:
+This creates three files in your project:
 
 * `modw` — Unix wrapper script
 * `modw.cmd` — Windows wrapper script
 * `moderne/wrapper/moderne-wrapper.properties` — version configuration
 
-Anyone with access to the repository can then run `./modw <command>` without installing the CLI globally. On first run, the project wrapper downloads the pinned CLI version automatically.
+Commit these files to your repository. Anyone who clones it can then run `./modw <command>` without installing the CLI globally — on first run, the project wrapper downloads the pinned CLI version automatically.
 
 To update the pinned version for the project:
 
@@ -99,9 +87,9 @@ A project-local properties file takes precedence. This allows teams to pin a spe
 
 The wrapper makes outbound network calls to two services:
 
-| What | Source | When |
-|------|--------|------|
-| CLI distribution (JAR + JRE) | Maven Central | On first run or version change |
+| What                                 | Source                                    | When                                                |
+|--------------------------------------|-------------------------------------------|-----------------------------------------------------|
+| CLI distribution (JAR + JRE)         | Maven Central                             | On first run or version change                      |
 | JDK (if no compatible Java is found) | [Eclipse Adoptium](https://adoptium.net/) | Only when no bundled JRE or system JDK is available |
 
 You can control both of these with properties (see below).
@@ -110,12 +98,12 @@ You can control both of these with properties (see below).
 
 The `moderne-wrapper.properties` file supports these properties:
 
-| Property | Description | Default |
-|----------|-------------|---------|
-| `version` | CLI version to use. `RELEASE` resolves the latest release from Maven Central. `LATEST` resolves the latest snapshot. Or pin a specific version like `4.x.x`. | `RELEASE` |
-| `distributionUrl` | URL template for the distribution archive. Use `${version}` and `${platform}` as placeholders. | Maven Central |
-| `distributionSha256Sum` | Expected SHA-256 of the downloaded archive. Verified if set. | _(none)_ |
-| `jdkUrl` | URL to a JDK archive for auto-download. Set to `skip` to disable JDK auto-download entirely. | Adoptium API |
+| Property                | Description                                                                                                                                                  | Default       |
+|-------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------|
+| `version`               | CLI version to use. `RELEASE` resolves the latest release from Maven Central. `LATEST` resolves the latest snapshot. Or pin a specific version like `4.x.x`. | `RELEASE`     |
+| `distributionUrl`       | URL template for the distribution archive. Use `${version}` and `${platform}` as placeholders.                                                               | Maven Central |
+| `distributionSha256Sum` | Expected SHA-256 of the downloaded archive. Verified if set.                                                                                                 | _(none)_      |
+| `jdkUrl`                | URL to a JDK archive for auto-download. Set to `skip` to disable JDK auto-download entirely.                                                                 | Adoptium API  |
 
 ### Air-gapped or restricted environments
 
@@ -123,12 +111,16 @@ If your network cannot reach Maven Central, you can host the CLI distribution on
 
 ```properties
 version=4.x.x
-distributionUrl=https://internal-mirror.example.com/moderne-cli/${version}/moderne-cli-${version}-${platform}.tar.gz
+distributionUrl=https://internal-mirror.example.com/moderne-cli-${platform}/${version}/moderne-cli-${platform}-${version}.sh
 distributionSha256Sum=abc123...
 jdkUrl=skip
 ```
 
 Setting `jdkUrl=skip` disables the JDK auto-download, which is useful when you know a compatible JDK is already available on the system.
+
+:::note
+The example above uses the `.sh` extension, which applies to Linux and macOS distributions. Windows distributions use `.zip` instead.
+:::
 
 ## How the wrapper finds Java
 
@@ -143,14 +135,22 @@ The CLI requires Java 25+. The wrapper looks for a compatible runtime in this or
 
 Most users never need to think about this — the platform distribution includes a bundled JRE (step 5), so no separate Java installation is required.
 
+:::warning
+The macOS distribution bundles a JRE for **Apple Silicon only**. Intel Mac users will need to install a Java 25+ runtime separately (e.g., from [Eclipse Adoptium](https://adoptium.net/)) and ensure it is available via one of the locations above.
+:::
+
+:::info
+GraalVM distributions are **not compatible** with the CLI's AOT cache. The wrapper will skip GraalVM installations during JDK discovery. If you are supplying your own Java 25+ runtime, use a non-GraalVM distribution such as [Eclipse Adoptium](https://adoptium.net/).
+:::
+
 ## Environment variables
 
-| Variable | Description |
-|----------|-------------|
-| `MODERNE_JAVA_HOME` | Override the JDK used to run the CLI |
-| `MODERNE_JAR` | Override the CLI JAR location (skips distribution download) |
-| `MODERNE_OPTS` | Additional JVM options passed to the CLI (e.g., `-Xmx4g`) |
-| `MODERNE_CLI_HOME` | Base CLI directory (default: `~/.moderne/cli`) |
+| Variable            | Description                                                 |
+|---------------------|-------------------------------------------------------------|
+| `MODERNE_JAVA_HOME` | Override the JDK used to run the CLI                        |
+| `MODERNE_JAR`       | Override the CLI JAR location (skips distribution download) |
+| `MODERNE_OPTS`      | Additional JVM options passed to the CLI (e.g., `-Xmx4g`)   |
+| `MODERNE_CLI_HOME`  | Base CLI directory (default: `~/.moderne/cli`)              |
 
 ## Directory layout
 
@@ -191,12 +191,6 @@ If you're currently running the JAR directly, you don't need to change everythin
 Your existing tooling for environment setup (e.g., scripts that configure Java versions, populate `.moderne/moderne.yml`, or set repository-specific environment variables) can continue to work alongside the wrapper.
 
 ## Checking your configuration
-
-To see which CLI version you're running:
-
-```bash
-mod --version
-```
 
 To check whether auto-updates are enabled, inspect the wrapper properties:
 
