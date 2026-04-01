@@ -39,25 +39,45 @@ Next, find QueryDSL dependency declarations in POM files:
 mod search $WORKSPACE "com.mysema.querydsl" file:pom.xml --output=plain
 ```
 
-Finally, find QueryDSL API usage in Java source code. The runtime package is `com.mysema.query` (not `com.mysema.querydsl`):
+Finally, find QueryDSL API usage in Java source code. Searching for `JPAQuery` is more targeted than a broad package search and shows both imports and method call chains:
 
 ```bash
-mod search $WORKSPACE "com.mysema.query" lang:java --output=plain
+mod search $WORKSPACE "JPAQuery" lang:java --output=plain
 ```
 
-The `file:` and `lang:` filters keep results focused — Maven coordinates appear only in POM files, and API usage only in Java sources. You should find that 4 repos use QueryDSL with the old `com.mysema` coordinates.
+The `file:` and `lang:` filters keep results focused — Maven coordinates appear only in POM files, and API usage only in Java sources. You should find that 4 repos use QueryDSL with the old `com.mysema` coordinates. Notice that the Java results show the full usage pattern: `import com.mysema.query.jpa.impl.JPAQuery`, `new JPAQuery(entityManager)`, and chained calls like `.from(...).list(...)`. These method calls will also need to change in QueryDSL 5.
 
 #### Step 3: Summarize the change specification
 
-Based on the search results, you can now describe exactly what the migration from QueryDSL 3.x to QueryDSL 5.x requires:
+Based on the search results and the [QueryDSL 4.x migration guide](https://github.com/querydsl/querydsl/releases/tag/QUERYDSL_4_0_0), you can now describe exactly what the migration from QueryDSL 3.x to QueryDSL 5.x requires:
+
+From the `mod search` results:
 
 * **Dependency coordinates**: `com.mysema.querydsl` → `com.querydsl` (group ID change)
 * **Maven plugin**: `com.mysema.maven:apt-maven-plugin` → `com.querydsl:querydsl-apt` with the annotation processor configuration
 * **Annotation processor**: `com.mysema.query.apt.jpa.JPAAnnotationProcessor` → `com.querydsl.apt.jpa.JPAAnnotationProcessor`
-* **Package renames**: `com.mysema.query` → `com.querydsl` in Java imports (e.g., `com.mysema.query.jpa.impl.JPAQuery`)
-* **Jakarta EE alignment**: QueryDSL 5 uses `jakarta.*` APIs, matching Spring Boot 4
+* **Type rename**: `com.mysema.query.jpa.impl.JPAQuery` → `com.querydsl.jpa.impl.JPAQueryFactory`
+* **Method renames**: `query.from(...)` → `queryFactory.selectFrom(...)` and `query.list(...)` → `query.fetch()` (visible in the method chain output)
+
+From the migration guide and Spring Boot 4 context:
+
+* **Jakarta classifier**: QueryDSL 5 JPA/APT artifacts need the `jakarta` classifier for Spring Boot 4 compatibility
+* **Package renames**: `com.mysema.query` → `com.querydsl` across all Java source files
 
 This is the change specification you will hand to the AI agent in the next exercise.
+
+:::tip Alternative: let the agent build the change specification
+Instead of running the searches manually, you can point Claude at the workspace directory and let it discover the problem end-to-end:
+
+```bash
+cd $WORKSPACE
+claude
+```
+
+> The Spring Boot 4 upgrade broke the build in Wave 1 due to QueryDSL. Use `mod search` to find all QueryDSL usage across this workspace (dependencies, plugins, Java imports, method calls). Then read the QueryDSL 4.x migration guide at https://github.com/querydsl/querydsl/releases/tag/QUERYDSL_4_0_0 and produce a numbered change specification I can use to author an upgrade recipe.
+
+The agent will run the same searches you did above, cross-reference them with the migration guide, and produce a structured change specification. This is closer to how you would work in practice — the manual steps above are shown so you understand what the agent is doing under the hood.
+:::
 
 ### Takeaways
 
@@ -93,15 +113,21 @@ Invoke the `create-recipe` skill and feed it the change specification from Exerc
 
 > `/moderne:create-recipe`
 >
-> I need a recipe to upgrade QueryDSL from 3.x (com.mysema.querydsl) to 5.x (com.querydsl) for use with Spring Boot 4 / Jakarta EE. The specific changes are:
+> I need a recipe to upgrade QueryDSL from 3.x (com.mysema.querydsl) to 5.x (com.querydsl) for use with Spring Boot 4 / Jakarta EE. Reference: https://github.com/querydsl/querydsl/releases/tag/QUERYDSL_4_0_0
 >
-> 1. Change dependency group ID from `com.mysema.querydsl` to `com.querydsl` for all QueryDSL artifacts
+> The specific changes are:
+>
+> 1. Change dependency group ID from `com.mysema.querydsl` to `com.querydsl` for all QueryDSL artifacts (querydsl-jpa, querydsl-apt)
 > 2. Update dependency versions to QueryDSL 5.x
-> 3. Change the Maven plugin from `com.mysema.maven:apt-maven-plugin` to the QueryDSL annotation processor configuration
-> 4. Change the annotation processor from `com.mysema.query.apt.jpa.JPAAnnotationProcessor` to `com.querydsl.apt.jpa.JPAAnnotationProcessor`
-> 5. Rename packages from `com.mysema.query` to `com.querydsl` in Java source files (e.g., `com.mysema.query.jpa.impl.JPAQuery`)
+> 3. Add the `jakarta` classifier to `querydsl-jpa` and `querydsl-apt` dependencies (required for Spring Boot 4)
+> 4. Change the Maven plugin from `com.mysema.maven:apt-maven-plugin` to the QueryDSL annotation processor configuration
+> 5. Change the annotation processor from `com.mysema.query.apt.jpa.JPAAnnotationProcessor` to `com.querydsl.apt.jpa.JPAAnnotationProcessor`
+> 6. Rename type `com.mysema.query.jpa.impl.JPAQuery` to `com.querydsl.jpa.impl.JPAQueryFactory`
+> 7. Rename method `from(..)` to `selectFrom(..)` on `com.mysema.query.jpa.JPAQueryBase`
+> 8. Change method `list(..)` to `fetch()` (no arguments) on `com.mysema.query.jpa.impl.AbstractJPAQuery`
+> 9. Rename packages from `com.mysema.query` to `com.querydsl` in Java source files
 >
-> Build it as a declarative YAML recipe using existing OpenRewrite primitives like `ChangeDependency`, `ChangePackage`, and `ChangeManagedDependencyGroupId` wherever possible.
+> Build it as a declarative YAML recipe using existing OpenRewrite primitives like `ChangeDependencyGroupIdAndArtifactId`, `ChangeDependencyClassifier`, `ChangeType`, `ChangeMethodName`, and `ChangeTagValue` wherever possible. Steps 7 and 8 may need imperative recipes if declarative primitives cannot express them.
 
 </details>
 
@@ -109,12 +135,14 @@ Invoke the `create-recipe` skill and feed it the change specification from Exerc
 
 The agent should scaffold a project, write tests, and implement the recipe. As it works, review these key points:
 
-* Does it use `ChangeDependency` for the coordinate migration?
-* Does it use `ChangePackage` for namespace changes?
-* Are Maven plugin changes handled?
+* Does it use `ChangeDependencyGroupIdAndArtifactId` for the coordinate migration?
+* Does it add the `jakarta` classifier with `ChangeDependencyClassifier`?
+* Does it use `ChangeType` for `JPAQuery` → `JPAQueryFactory`?
+* Does it use `ChangeMethodName` for `from` → `selectFrom`?
+* Are Maven plugin and annotation processor changes handled?
 * Are the tests realistic (before/after patterns with actual QueryDSL usage)?
 
-The QueryDSL migration is almost entirely declarative (dependency changes, plugin changes, package renames), so there should be no need for imperative Java recipes. If the agent suggests imperative code for something that could be handled declaratively, push back.
+Most of the migration is declarative. The `.list(..)` → `.fetch()` change may need an imperative recipe because it also drops the method arguments. If the agent suggests imperative code for something that could be handled declaratively, push back.
 
 #### Step 4: Build and install
 
