@@ -39,13 +39,13 @@ Next, find QueryDSL dependency declarations in POM files:
 mod search $WORKSPACE "com.mysema.querydsl" file:pom.xml --output=plain
 ```
 
-Finally, find QueryDSL imports in Java source code:
+Finally, find QueryDSL API usage in Java source code. The runtime package is `com.mysema.query` (not `com.mysema.querydsl`):
 
 ```bash
-mod search $WORKSPACE "import com.mysema.querydsl" lang:java --output=plain
+mod search $WORKSPACE "com.mysema.query" lang:java --output=plain
 ```
 
-The `file:` and `lang:` filters keep results focused — Maven coordinates appear only in POM files, and import statements only in Java sources. You should find that 4 repos use QueryDSL with the old `com.mysema` coordinates.
+The `file:` and `lang:` filters keep results focused — Maven coordinates appear only in POM files, and API usage only in Java sources. You should find that 4 repos use QueryDSL with the old `com.mysema` coordinates.
 
 #### Step 3: Summarize the change specification
 
@@ -53,7 +53,8 @@ Based on the search results, you can now describe exactly what the migration fro
 
 * **Dependency coordinates**: `com.mysema.querydsl` → `com.querydsl` (group ID change)
 * **Maven plugin**: `com.mysema.maven:apt-maven-plugin` → `com.querydsl:querydsl-apt` with the annotation processor configuration
-* **Package renames**: `com.mysema.querydsl` → `com.querydsl` in Java imports
+* **Annotation processor**: `com.mysema.query.apt.jpa.JPAAnnotationProcessor` → `com.querydsl.apt.jpa.JPAAnnotationProcessor`
+* **Package renames**: `com.mysema.query` → `com.querydsl` in Java imports (e.g., `com.mysema.query.jpa.impl.JPAQuery`)
 * **Jakarta EE alignment**: QueryDSL 5 uses `jakarta.*` APIs, matching Spring Boot 4
 
 This is the change specification you will hand to the AI agent in the next exercise.
@@ -97,7 +98,8 @@ Invoke the `create-recipe` skill and feed it the change specification from Exerc
 > 1. Change dependency group ID from `com.mysema.querydsl` to `com.querydsl` for all QueryDSL artifacts
 > 2. Update dependency versions to QueryDSL 5.x
 > 3. Change the Maven plugin from `com.mysema.maven:apt-maven-plugin` to the QueryDSL annotation processor configuration
-> 4. Rename packages from `com.mysema.querydsl` to `com.querydsl` in Java source files
+> 4. Change the annotation processor from `com.mysema.query.apt.jpa.JPAAnnotationProcessor` to `com.querydsl.apt.jpa.JPAAnnotationProcessor`
+> 5. Rename packages from `com.mysema.query` to `com.querydsl` in Java source files (e.g., `com.mysema.query.jpa.impl.JPAQuery`)
 >
 > Build it as a declarative YAML recipe using existing OpenRewrite primitives like `ChangeDependency`, `ChangePackage`, and `ChangeManagedDependencyGroupId` wherever possible.
 
