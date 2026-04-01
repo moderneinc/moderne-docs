@@ -41,10 +41,10 @@ mod --version
 To disable auto-updates and pin to a specific version, run:
 
 ```bash
-mod wrapper --global --version 4.1.0
+mod wrapper --global --version <version>
 ```
 
-This writes `version=4.1.0` to your global `moderne-wrapper.properties` file. The wrapper will use exactly that version and stop checking Maven Central for updates.
+This writes the specified version to your global `moderne-wrapper.properties` file. The wrapper will use exactly that version and stop checking Maven Central for updates.
 
 To re-enable auto-updates later:
 
@@ -83,7 +83,7 @@ Anyone with access to the repository can then run `./modw <command>` without ins
 To update the pinned version for the project:
 
 ```bash
-mod wrapper --version 4.2.0
+mod wrapper --version <version>
 ```
 
 ### How version resolution works
@@ -112,7 +112,7 @@ The `moderne-wrapper.properties` file supports these properties:
 
 | Property | Description | Default |
 |----------|-------------|---------|
-| `version` | CLI version to use. `RELEASE` resolves the latest release from Maven Central. `LATEST` resolves the latest snapshot. Or pin a specific version like `4.1.0`. | `RELEASE` |
+| `version` | CLI version to use. `RELEASE` resolves the latest release from Maven Central. `LATEST` resolves the latest snapshot. Or pin a specific version like `4.x.x`. | `RELEASE` |
 | `distributionUrl` | URL template for the distribution archive. Use `${version}` and `${platform}` as placeholders. | Maven Central |
 | `distributionSha256Sum` | Expected SHA-256 of the downloaded archive. Verified if set. | _(none)_ |
 | `jdkUrl` | URL to a JDK archive for auto-download. Set to `skip` to disable JDK auto-download entirely. | Adoptium API |
@@ -122,7 +122,7 @@ The `moderne-wrapper.properties` file supports these properties:
 If your network cannot reach Maven Central, you can host the CLI distribution on an internal mirror and point the wrapper to it:
 
 ```properties
-version=4.1.0
+version=4.x.x
 distributionUrl=https://internal-mirror.example.com/moderne-cli/${version}/moderne-cli-${version}-${platform}.tar.gz
 distributionSha256Sum=abc123...
 jdkUrl=skip
@@ -204,4 +204,4 @@ To check whether auto-updates are enabled, inspect the wrapper properties:
 cat ~/.moderne/cli/dist/moderne-wrapper.properties
 ```
 
-If this file contains `version=RELEASE`, auto-updates are enabled. A specific version like `version=4.1.0` means you're pinned. If this file doesn't exist, you're likely running the CLI JAR directly without the wrapper.
+If this file contains `version=RELEASE`, auto-updates are enabled. A specific version like `version=4.x.x` means you're pinned. If this file doesn't exist, you're likely running the CLI JAR directly without the wrapper.
