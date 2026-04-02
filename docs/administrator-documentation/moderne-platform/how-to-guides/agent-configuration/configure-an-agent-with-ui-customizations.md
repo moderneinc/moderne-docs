@@ -1,6 +1,6 @@
 ---
 sidebar_label: UI customizations
-description: How to configure the Moderne agent to provide custom UI elements and help links.
+description: How to configure the Moderne Connector to provide custom UI elements and help links.
 ---
 
 import Tabs from '@theme/Tabs';
@@ -9,11 +9,11 @@ import VersionBanner from '@site/src/components/VersionBanner';
 
 <VersionBanner version="v2" linkPath="/administrator-documentation/moderne-platform-v1/how-to-guides/agent-configuration/configure-an-agent-with-ui-customizations" />
 
-# Configure an agent with UI customizations
+# Configure a Connector with UI customizations
 
 The Moderne Platform provides default UI elements and help links throughout the interface. However, organizations may want to customize these elements to provide organization-specific help resources or branding.
 
-This guide will show you how to configure the Moderne agent to customize UI elements with your own help links and labels.
+This guide will show you how to configure the Moderne Connector to customize UI elements with your own help links and labels.
 
 ## Why customize UI elements?
 
@@ -23,9 +23,9 @@ Organizations may want to customize UI elements for several reasons:
 * **Custom support channels**: You may want to direct users to organization-specific help desks or chat systems
 * **Accessibility**: The default support methods may not be accessible within your organization
 
-## Agent configuration
+## Connector configuration
 
-The following table contains the variables/arguments needed to configure custom UI elements for your Moderne agent. Please note that these variables/arguments must be combined with ones found in other steps in the [Configuring the Moderne agent guide](./agent-config.md).
+The following table contains the variables/arguments needed to configure custom UI elements for your Moderne Connector. Please note that these variables/arguments must be combined with ones found in other steps in the [Configuring the Moderne Connector guide](./agent-config.md).
 
 <Tabs groupId="agent-type">
 <TabItem value="oci-container" label="OCI Container">

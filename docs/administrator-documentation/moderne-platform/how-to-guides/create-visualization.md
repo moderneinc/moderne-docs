@@ -24,7 +24,7 @@ A visualization is composed of four things:
 
 You should create these pieces inside of a repository that you will then publish as a PyPI package to an internal PyPI repository.
 
-Once you've done that, please [configure your agent with access to said repository](../how-to-guides/agent-configuration/configure-an-agent-with-pypi-access-visualizations.md).
+Once you've done that, please [configure your Connector with access to said repository](../how-to-guides/agent-configuration/configure-an-agent-with-pypi-access-visualizations.md).
 
 For examples of visualizations the Moderne team has created, please check out our public [moderne-visualizations-misc repository](https://github.com/moderneinc/moderne-visualizations-misc).
 

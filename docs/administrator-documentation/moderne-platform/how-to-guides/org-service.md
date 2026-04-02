@@ -27,9 +27,9 @@ You have two main options for building this service. You can:
 
 We generally recommend forking the template and modifying it as, in most cases, that will be faster and easier than building it yourself. Regardless of which one you choose, however, some developer time will be required on your end.
 
-## Agent variables
+## Connector variables
 
-Once you've created an organizations service, you'll need to update your Agent run command to provide it with additional variables. Please note that these variables/arguments must be combined with ones found in other steps in the [Configuring the Moderne Agent guide](./agent-configuration/agent-config.md).
+Once you've created an organizations service, you'll need to update your Connector run command to provide it with additional variables. Please note that these variables/arguments must be combined with ones found in other steps in the [Configuring the Moderne Connector guide](./agent-configuration/agent-config.md).
 
 <Tabs groupId="agent-type">
 <TabItem value="oci-container" label="OCI Container">

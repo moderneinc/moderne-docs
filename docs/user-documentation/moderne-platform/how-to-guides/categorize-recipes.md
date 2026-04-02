@@ -162,7 +162,7 @@ Whether you have built your own recipe artifact or a wrapper artifact for re-cat
 
 You should publish the recipe JAR to the artifact repository associated with your Moderne instance (e.g., Artifactory, Nexus, or a Maven-compatible repository). The [rewrite-recipe-starter](https://github.com/moderneinc/rewrite-recipe-starter) comes with a preconfigured publishing configuration that you can use as a starting point.
 
-You will also need to ensure that your Moderne agent has access to this repository. An administrator should have [configured this when onboarding the agent](../../../administrator-documentation/moderne-platform/how-to-guides/agent-configuration/configuring-artifactory-with-recipes.md).
+You will also need to ensure that your Moderne Connector has access to this repository. An administrator should have [configured this when onboarding the Connector](../../../administrator-documentation/moderne-platform/how-to-guides/agent-configuration/configuring-artifactory-with-recipes.md).
 
 ### Making recipes available in the Marketplace
 

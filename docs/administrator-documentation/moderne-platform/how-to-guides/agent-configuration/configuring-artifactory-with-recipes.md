@@ -1,6 +1,6 @@
 ---
 sidebar_label: Artifactory recipe configuration
-description: How to configure the Moderne agent to retrieve recipe artifacts from Artifactory.
+description: How to configure the Moderne Connector to retrieve recipe artifacts from Artifactory.
 ---
 
 import Tabs from '@theme/Tabs';
@@ -9,17 +9,17 @@ import VersionBanner from '@site/src/components/VersionBanner';
 
 <VersionBanner version="v2" linkPath="/administrator-documentation/moderne-platform-v1/how-to-guides/agent-configuration/configuring-artifactory-with-recipes" />
 
-# Configure an agent with Artifactory access: recipes
+# Configure a Connector with Artifactory access: recipes
 
-In order for Moderne to retrieve your recipe artifacts from Artifactory, you will need to create a Maven formatted repository inside of Artifactory and point the agent to said repository. This guide will walk you through how to configure the agent to get recipe artifacts from your repository.
+In order for Moderne to retrieve your recipe artifacts from Artifactory, you will need to create a Maven formatted repository inside of Artifactory and point the Connector to said repository. This guide will walk you through how to configure the Connector to get recipe artifacts from your repository.
 
 ## Publishing recipe artifacts
 
-Recipe artifacts will automatically be picked up by Moderne so long as you set the recipe source flag to true in the below [configuration step](#configuring-the-moderne-agent). These artifacts will be immediately available for [deployment to Moderne](../importing-external-recipes.md) upon being published.
+Recipe artifacts will automatically be picked up by Moderne so long as you set the recipe source flag to true in the below [configuration step](#configuring-the-moderne-connector). These artifacts will be immediately available for [deployment to Moderne](../importing-external-recipes.md) upon being published.
 
-## Configuring the Moderne agent
+## Configuring the Moderne Connector
 
-The following table contains all of the variables/arguments you need to add to your Moderne agent run command in order for it to get recipe artifacts from your Maven formatted repository inside of Artifactory. Please note that these variables/arguments must be combined with ones found in other steps in the [Configuring the Moderne agent guide](./agent-config.md).
+The following table contains all of the variables/arguments you need to add to your Moderne Connector run command in order for it to get recipe artifacts from your Maven formatted repository inside of Artifactory. Please note that these variables/arguments must be combined with ones found in other steps in the [Configuring the Moderne Connector guide](./agent-config.md).
 
 You can configure multiple Maven formatted repositories by including multiple entries, each with a different `{index}`.
 
@@ -37,10 +37,10 @@ You can configure multiple Maven formatted repositories by including multiple en
 | `MODERNE_AGENT_MAVEN_{index}_RELEASES`        | `false`  | `true`             | Specifies whether or not this repository should be searched for releases.                                                                                             |
 | `MODERNE_AGENT_MAVEN_{index}_SNAPSHOTS`       | `false`  | `true`             | Specifies whether or not this repository should be searched for snapshots.                                                                                            |
 | `MODERNE_AGENT_MAVEN_{index}_RECIPESOURCE`    | `false`  | `true`             | Specifies whether or not this repository should be searched for recipe jars.                                                                                          |
-| `MODERNE_AGENT_MAVEN_{index}_SKIPSSL`         | `false`  | `false`            | Whether or not to skip SSL/TLS verification for calls from the agent to this Maven repository. This must be set to `true` if you use a self-signed SSL/TLS certificate. |
+| `MODERNE_AGENT_MAVEN_{index}_SKIPSSL`         | `false`  | `false`            | Whether or not to skip SSL/TLS verification for calls from the Connector to this Maven repository. This must be set to `true` if you use a self-signed SSL/TLS certificate. |
 
 :::warning
-If you want to configure a [Moderne DevCenter](../creating-a-devcenter-recipe.md), you will need to ensure that you have exactly one Maven repository configured with `RECIPESOURCE` set to `true`. (It is fine to have this same Maven repository configured in multiple agents.)
+If you want to configure a [Moderne DevCenter](../creating-a-devcenter-recipe.md), you will need to ensure that you have exactly one Maven repository configured with `RECIPESOURCE` set to `true`. (It is fine to have this same Maven repository configured in multiple Connectors.)
 :::
 
 **Example:**
@@ -69,10 +69,10 @@ docker run \
 | `--moderne.agent.maven[{index}].releases`        | `false`  | `true`             | Specifies whether or not this repository should be searched for releases.                                                                                             |
 | `--moderne.agent.maven[{index}].snapshots`       | `false`  | `true`             | Specifies whether or not this repository should be searched for snapshots.                                                                                            |
 | `--moderne.agent.maven[{index}].recipeSource`    | `false`  | `true`             | Specifies whether or not this repository should be searched for recipe jars.                                                                                          |
-| `--moderne.agent.maven[{index}].skipSsl`         | `false`  | `false`            | Whether or not to skip SSL/TLS verification for calls from the agent to this Maven repository. This must be set to `true` if you use a self-signed SSL/TLS certificate. |
+| `--moderne.agent.maven[{index}].skipSsl`         | `false`  | `false`            | Whether or not to skip SSL/TLS verification for calls from the Connector to this Maven repository. This must be set to `true` if you use a self-signed SSL/TLS certificate. |
 
 :::warning
-If you want to configure a [Moderne DevCenter](../creating-a-devcenter-recipe.md), you will need to ensure that you have exactly one Maven repository configured with `recipeSource` set to `true`. (It is fine to have this same Maven repository configured in multiple agents.)
+If you want to configure a [Moderne DevCenter](../creating-a-devcenter-recipe.md), you will need to ensure that you have exactly one Maven repository configured with `recipeSource` set to `true`. (It is fine to have this same Maven repository configured in multiple Connectors.)
 
 If you do have multiple recipe sources, we recommend you set up a virtual repository that wraps them all.
 

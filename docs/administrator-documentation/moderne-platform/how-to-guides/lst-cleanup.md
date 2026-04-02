@@ -66,7 +66,7 @@ curl -X POST https://api.app.moderne.io/graphql \
 </TabItem>
 </Tabs>
 
-Running this `reindex` query will cause the agent to reach out to your artifact repository and ask for all available LSTs. It will then download the metadata for each of these. After all of the metadata has been downloaded, the old LSTs will effectively be removed from the platform. Moderne will then begin downloading the latest LSTs for each repository. As this runs, you will see repositories begin appearing in the platform again.
+Running this `reindex` query will cause the Connector to reach out to your artifact repository and ask for all available LSTs. It will then download the metadata for each of these. After all of the metadata has been downloaded, the old LSTs will effectively be removed from the platform. Moderne will then begin downloading the latest LSTs for each repository. As this runs, you will see repositories begin appearing in the platform again.
 
 While you can still run recipes on the LSTs that are coming in, all of the LSTs won't be available for a significant amount of time (up to 24 hours depending on the number of repositories you have). Because of that, you should strongly consider only running this query during off-hours or on a weekend when there won't be much traffic.
 
@@ -285,7 +285,7 @@ To run this cleanup automatically, add it to a cron job:
 ```
 
 :::note
-This script requires `s3:ListBucket`, `s3:DeleteObject`, and `s3:HeadBucket` permissions on your S3 bucket. The `s3:DeleteObject` and `s3:HeadBucket` permissions are in addition to the [permissions required by the Moderne agent](./agent-configuration/configure-an-agent-with-s3-access.md#prerequisites).
+This script requires `s3:ListBucket`, `s3:DeleteObject`, and `s3:HeadBucket` permissions on your S3 bucket. The `s3:DeleteObject` and `s3:HeadBucket` permissions are in addition to the [permissions required by the Moderne Connector](./agent-configuration/configure-an-agent-with-s3-access.md#prerequisites).
 :::
 
 :::tip

@@ -1,6 +1,6 @@
 ---
 sidebar_label: CLI download instructions override
-description: How to configure the Moderne agent to provide custom CLI download instructions.
+description: How to configure the Moderne Connector to provide custom CLI download instructions.
 ---
 
 import Tabs from '@theme/Tabs';
@@ -9,11 +9,11 @@ import VersionBanner from '@site/src/components/VersionBanner';
 
 <VersionBanner version="v2" linkPath="/administrator-documentation/moderne-platform-v1/how-to-guides/agent-configuration/configure-an-agent-with-cli-download-instructions-override" />
 
-# Configure an agent with CLI download instructions
+# Configure a Connector with CLI download instructions
 
 The Moderne Platform provides a default CLI tools menu to help users download and install the Moderne CLI. However, some organizations may want to customize these instructions to point to internal documentation, mirror sites, or provide organization-specific installation steps.
 
-This guide will show you how to configure the Moderne agent to override the default CLI download instructions with your own custom documentation.
+This guide will show you how to configure the Moderne Connector to override the default CLI download instructions with your own custom documentation.
 
 ## Why customize CLI download instructions?
 
@@ -24,9 +24,9 @@ Organizations may want to customize CLI download instructions for several reason
 * **Platform-specific guidance**: You may want to provide tailored instructions for your supported platforms
 * **Access control**: You may need to direct users to request access or follow approval processes
 
-## Agent configuration
+## Connector configuration
 
-The following table contains the variables/arguments needed to configure custom CLI download instructions for your Moderne agent. Please note that these variables/arguments must be combined with ones found in other steps in the [Configuring the Moderne agent guide](./agent-config.md).
+The following table contains the variables/arguments needed to configure custom CLI download instructions for your Moderne Connector. Please note that these variables/arguments must be combined with ones found in other steps in the [Configuring the Moderne Connector guide](./agent-config.md).
 
 <Tabs groupId="agent-type">
 <TabItem value="oci-container" label="OCI Container">

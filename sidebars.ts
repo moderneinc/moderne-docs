@@ -104,7 +104,7 @@ const platform = {
     link: {
       type: 'generated-index' as const,
       title: 'Moderne Platform',
-      description: 'Moderne Platform administrator documentation. Includes information on configuring and setting up the Moderne Agent among other things.',
+      description: 'Moderne Platform administrator documentation. Includes information on configuring and setting up the Moderne Connector among other things.',
       slug: '/administrator-documentation/moderne-platform',
       keywords: ['guides'],
     },
@@ -137,11 +137,11 @@ const platform = {
           'administrator-documentation/moderne-platform/how-to-guides/mass-ingest',
           {
             type: 'category' as const,
-            label: 'Moderne Agent',
+            label: 'Moderne Connector',
             link: {
               type: 'generated-index' as const,
-              title: 'Moderne Agent',
-              description: 'Moderne Agent configuration documentation.',
+              title: 'Moderne Connector',
+              description: 'Moderne Connector configuration documentation.',
               slug: '/administrator-documentation/moderne-platform/agent-configuration',
               keywords: ['guides'],
             },

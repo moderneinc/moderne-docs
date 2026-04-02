@@ -1,6 +1,6 @@
 ---
 sidebar_label: GitLab configuration
-description: How to configure the Moderne agent to communicate with GitLab.
+description: How to configure the Moderne Connector to communicate with GitLab.
 ---
 
 import Tabs from '@theme/Tabs';
@@ -9,14 +9,14 @@ import VersionBanner from '@site/src/components/VersionBanner';
 
 <VersionBanner version="v2" linkPath="/administrator-documentation/moderne-platform-v1/how-to-guides/agent-configuration/configure-an-agent-with-gitlab" />
 
-# Configure an agent with GitLab
+# Configure a Connector with GitLab
 
-In order to view recipe results and commit changes from a recipe back to GitLab, you'll need to create a GitLab OAuth app and configure the Moderne agent with the appropriate variables.
+In order to view recipe results and commit changes from a recipe back to GitLab, you'll need to create a GitLab OAuth app and configure the Moderne Connector with the appropriate variables.
 
 To assist with that, this guide will:
 
 * [Walk you through how to create a GitLab OAuth application](#step-1-create-an-oauth-application)
-* [Provide you with a list of necessary variables the agent needs to communicate with your GitLab instance](#step-2-configure-the-moderne-agent)
+* [Provide you with a list of necessary variables the Connector needs to communicate with your GitLab instance](#step-2-configure-the-moderne-connector)
 
 ## Prerequisites
 
@@ -92,15 +92,15 @@ You may create the OAuth application at the **group level** rather than the inst
 :::
 
 4. Click the Save application button
-5.  Copy the `Application ID` and `Secret` from this page; they will be used as arguments for the Moderne Agent:
+5.  Copy the `Application ID` and `Secret` from this page; they will be used as arguments for the Moderne Connector:
 
     ![GitLab OAuth application details showing Application ID, Secret, and configured scopes](./assets/gl-secrets.png)
 
-## Agent configuration
+## Connector configuration
 
-### Step 2: Configure the Moderne Agent
+### Step 2: Configure the Moderne Connector
 
-The following table contains all of the variables/arguments you need to add to your Moderne agent run command in order for it to work with your GitLab instance. Please note that these variables/arguments must be combined with ones found in other steps in the [Configuring the Moderne agent guide](./agent-config.md).
+The following table contains all of the variables/arguments you need to add to your Moderne Connector run command in order for it to work with your GitLab instance. Please note that these variables/arguments must be combined with ones found in other steps in the [Configuring the Moderne Connector guide](./agent-config.md).
 
 You can configure multiple GitLab OAuth apps by including multiple entries, each with a different `{index}`.
 
@@ -117,7 +117,7 @@ You can configure multiple GitLab OAuth apps by including multiple entries, each
 | `MODERNE_AGENT_GITLAB_{index}_SKIPSSL`            | `false`                                      | `false` | Specifies whether or not to skip SSL validation for HTTP connections to this GitLab instance. This must be set to `true` if you use a self-signed SSL/TLS certificate. |
 | `MODERNE_AGENT_GITLAB_{index}_SSH_PRIVATEKEY`     | `false`                                      |         | The SSH private key used to establish a SSH connection with GitLab.                                                                                                    |
 | `MODERNE_AGENT_GITLAB_{index}_SSH_PASSPHRASE`     | `true` (If the SSH private key is specified) |         | The passphrase used to encrypt the SSH private key.                                                                                                                    |
-| `MODERNE_AGENT_GITLAB_{index}_SSH_SSHFILENAME`    | `true` (If the SSH private key is specified) |         | The file name of the private key, which the agent will store locally.                                                                                                  |
+| `MODERNE_AGENT_GITLAB_{index}_SSH_SSHFILENAME`    | `true` (If the SSH private key is specified) |         | The file name of the private key, which the Connector will store locally.                                                                                                  |
 | `MODERNE_AGENT_GITLAB_{index}_SSH_USER`           | `true` (If the SSH private key is specified) |         | The username used for SSH communication with GitLab.                                                                                                                   |
 | `MODERNE_AGENT_GITLAB_{index}_SSH_PORT`           | `false`                                      | `22`    | The port used to communicate via SSH with GitLab.                                                                                                                      |
 
@@ -145,7 +145,7 @@ docker run \
 | `--moderne.agent.gitlab[{index}].skipSsl`            | `false`                                      | `false` | Specifies whether or not to skip SSL validation for HTTP connections to this GitLab instance. This must be set to `true` if you use a self-signed SSL/TLS certificate. |
 | `--moderne.agent.gitlab[{index}].ssh.privateKey`     | `false`                                      |         | The SSH private key used to establish a SSH connection with GitLab.                                                                                                    |
 | `--moderne.agent.gitlab[{index}].ssh.passphrase`     | `true` (If the SSH private key is specified) |         | The passphrase used to encrypt the SSH private key.                                                                                                                    |
-| `--moderne.agent.gitlab[{index}].ssh.sshFileName`    | `true` (If the SSH private key is specified) |         | The file name of the private key, which the agent will store locally.                                                                                                  |
+| `--moderne.agent.gitlab[{index}].ssh.sshFileName`    | `true` (If the SSH private key is specified) |         | The file name of the private key, which the Connector will store locally.                                                                                                  |
 | `--moderne.agent.gitlab[{index}].ssh.user`           | `true` (If the SSH private key is specified) |         | The username used for SSH communication with GitLab.                                                                                                                   |
 | `--moderne.agent.gitlab[{index}].ssh.port`           | `false`                                      | `22`    | The port used to communicate via SSH with GitLab.                                                                                                                      |
 

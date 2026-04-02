@@ -1,6 +1,6 @@
 ---
 sidebar_label: Moddy configuration
-description: How to configure the Moderne agent with support for Moddy, Moderne's multi-repo AI agent.
+description: How to configure the Moderne Connector with support for Moddy, Moderne's multi-repo AI agent.
 ---
 
 import Tabs from '@theme/Tabs';
@@ -9,9 +9,9 @@ import VersionBanner from '@site/src/components/VersionBanner';
 
 <VersionBanner version="v2" linkPath="/administrator-documentation/moderne-platform-v1/how-to-guides/agent-configuration/configure-an-agent-with-llm-for-moddy" />
 
-# Configure an agent with Moddy support
+# Configure a Connector with Moddy support
 
-This guide will walk you through how to configure the Moderne agent to enable support for [Moddy](https://www.moderne.ai/blog/introducing-moderne-multi-repo-ai-agent-for-transforming-code-at-scale), Moderne's multi-repo AI agent. Moddy employs a bring-your-own model (BYOM) approach, which allows you to connect any large language model (LLM) that has been approved for use within your company.
+This guide will walk you through how to configure the Moderne Connector to enable support for [Moddy](https://www.moderne.ai/blog/introducing-moderne-multi-repo-ai-agent-for-transforming-code-at-scale), Moderne's multi-repo AI agent. Moddy employs a bring-your-own model (BYOM) approach, which allows you to connect any large language model (LLM) that has been approved for use within your company.
 
 ## Prerequisites
 
@@ -19,7 +19,7 @@ This guide will walk you through how to configure the Moderne agent to enable su
 
 ## Supported LLM providers
 
-The Moderne agent currently supports the following LLM providers:
+The Moderne Connector currently supports the following LLM providers:
 
 | Provider      | Model Used            | API Endpoint                                       |
 |---------------|-----------------------|----------------------------------------------------|
@@ -30,9 +30,9 @@ The Moderne agent currently supports the following LLM providers:
 
 If you need a model or LLM provider that isn't listed here, please contact Moderne support.
 
-## Configuring the Moderne agent
+## Configuring the Moderne Connector
 
-The following table contains all of the variables/arguments you need to add to your Moderne agent run command in order to enable Moddy. Please note that these variables/arguments must be combined with ones found in other steps in the [Configuring the Moderne agent guide](./agent-config.md).
+The following table contains all of the variables/arguments you need to add to your Moderne Connector run command in order to enable Moddy. Please note that these variables/arguments must be combined with ones found in other steps in the [Configuring the Moderne Connector guide](./agent-config.md).
 
 <Tabs groupId="agent-type">
 <TabItem value="oci-container" label="OCI Container">
@@ -267,7 +267,7 @@ java -jar moderne-agent-{version}.jar \
 
 ## Complete example with multiple configurations
 
-Here's a complete example showing an agent configured with GitHub, Artifactory, and Moddy support:
+Here's a complete example showing a Connector configured with GitHub, Artifactory, and Moddy support:
 
 <Tabs groupId="agent-type">
 <TabItem value="oci-container" label="OCI Container">
@@ -330,7 +330,7 @@ java -jar moderne-agent-{version}.jar \
 
 ## Verifying the configuration
 
-After starting the agent with the new configuration, "Moddy" will be displayed in the navigation bar in the Moderne SaaS UI:
+After starting the Connector with the new configuration, "Moddy" will be displayed in the navigation bar in the Moderne SaaS UI:
 
 <figure>
   ![moddy-nav-bar.png](assets/moddy-nav-bar.png)

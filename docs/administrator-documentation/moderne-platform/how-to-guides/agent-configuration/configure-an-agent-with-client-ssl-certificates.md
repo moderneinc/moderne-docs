@@ -1,6 +1,6 @@
 ---
 sidebar_label: Client SSL certificate configuration
-description: How to configure the Moderne agent with client SSL certificates.
+description: How to configure the Moderne Connector with client SSL certificates.
 ---
 
 import Tabs from '@theme/Tabs';
@@ -9,12 +9,12 @@ import VersionBanner from '@site/src/components/VersionBanner';
 
 <VersionBanner version="v2" linkPath="/administrator-documentation/moderne-platform-v1/how-to-guides/agent-configuration/configure-an-agent-with-client-ssl-certificates" />
 
-# Configure an agent with client SSL certificates
+# Configure a Connector with client SSL certificates
 
-If you are configuring the Moderne agent to connect to a service that requires a self-signed certificate to perform an HTTPS request (e.g., Maven or Artifactory) you will need to:
+If you are configuring the Moderne Connector to connect to a service that requires a self-signed certificate to perform an HTTPS request (e.g., Maven or Artifactory) you will need to:
 
-* Supply a KeyStore for the agent to use in the `PKCS12` format at the following location: `${JAVA_HOME}/lib/security/client_keystore.p12`
-* Configure the agent to `skipSSL` for this service (See the [Artifactory](./configuring-artifactory-with-recipes.md) or [Maven](./configure-an-agent-with-maven-repository-access.md) agent documentation)
+* Supply a KeyStore for the Connector to use in the `PKCS12` format at the following location: `${JAVA_HOME}/lib/security/client_keystore.p12`
+* Configure the Connector to `skipSSL` for this service (See the [Artifactory](./configuring-artifactory-with-recipes.md) or [Maven](./configure-an-agent-with-maven-repository-access.md) Connector documentation)
 
 Below are a few examples of creating the KeyStore in some common scenarios:
 
@@ -60,7 +60,7 @@ RUN openssl pkcs12 -export \
 <Tabs groupId="agent-type">
 <TabItem value="oci-container" label="OCI Container">
 
-If you are running the agent in an OCI container, you will need to create a new Dockerfile based on the Moderne agent and supply the image with the KeyStore.
+If you are running the Connector in an OCI container, you will need to create a new Dockerfile based on the Moderne Connector and supply the image with the KeyStore.
 
 **Example:**
 

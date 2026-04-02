@@ -55,7 +55,7 @@ If you are a multi-tenant customer, you must ensure that your artifact's `groupI
 
 The artifact information will appear in the table if Moderne successfully locates the requested artifact.
 
-**Note:** If you have an [on-premise agent](./agent-configuration/agent-config.md) connected to an Artifactory instance that has been configured to serve recipes, we will look up recipes in your Artifactory repositories in addition to [Nexus](https://oss.sonatype.org/) and [Maven Central](https://search.maven.org/).
+**Note:** If you have an [on-premise Connector](./agent-configuration/agent-config.md) connected to an Artifactory instance that has been configured to serve recipes, we will look up recipes in your Artifactory repositories in addition to [Nexus](https://oss.sonatype.org/) and [Maven Central](https://search.maven.org/).
 
 ### Step 3: View recipes in the catalog
 

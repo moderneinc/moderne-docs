@@ -619,7 +619,7 @@ For detailed information about creating and formatting a `repos.csv` file, inclu
 
 **Alternative configuration:**
 
-If you need more advanced organizational configuration options, you can also [configure an organizational hierarchy](./configure-organizations-hierarchy.md) using other methods and [let the Connector know about it](./configure-organizations-hierarchy.md#agent-configuration).
+If you need more advanced organizational configuration options, you can also [configure an organizational hierarchy](./configure-organizations-hierarchy.md) using other methods and [let the Connector know about it](./configure-organizations-hierarchy.md#connector-configuration).
 
 ### Step 9: (Optionally) Create an Organizations service
 
@@ -628,7 +628,7 @@ You should create an Organizations service if you want to:
 * Limit access to the organizations you've [previously defined](./configure-organizations-hierarchy.md) so that some users only have access to some repositories OR
 * Customize commit messages by repository (e.g., adding a JIRA ticket to your commit messages based on the repository)
 
-To do so, please follow the instructions in our [creating an Organizations service guide](../org-service.md) and then [let the Connector know about it](../org-service.md#agent-variables).
+To do so, please follow the instructions in our [creating an Organizations service guide](../org-service.md) and then [let the Connector know about it](../org-service.md#connector-variables).
 
 ### Step 10: (Optionally) Configure a DevCenter
 

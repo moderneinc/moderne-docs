@@ -19,7 +19,7 @@ To help you understand how the Moderne Platform works and how it interacts with 
 
 Moderne’s SaaS allows permitted users to run [recipes](https://docs.openrewrite.org/concepts-and-explanations/recipes) on code in the repositories you've added to the platform. These recipes can yield pull requests (PRs) or commits that transform the code.
 
-Once the artifact is published (typically through [mass ingestion](../how-to-guides/mass-ingest.md)), the Moderne agent will send the changes to Moderne so that the internal state can be updated. After that happens, new recipes can be run against the new artifacts and the process will repeat.
+Once the artifact is published (typically through [mass ingestion](../how-to-guides/mass-ingest.md)), the Moderne Connector will send the changes to Moderne so that the internal state can be updated. After that happens, new recipes can be run against the new artifacts and the process will repeat.
 
 ![Moderne + SDL](./assets/moderne-sdl.png)
 
@@ -36,28 +36,28 @@ Below is a high-level architecture diagram that shows the flow of data between M
 
 ### Mass ingest with mod CLI
 
-In order for Moderne to know the current state of your code, artifacts will need to be generated that contain a serialized representation of your code's [LSTs](./lossless-semantic-trees.md). These artifacts must be put inside an artifact repository that the [Moderne agent](#moderne-agent) has access to.
+In order for Moderne to know the current state of your code, artifacts will need to be generated that contain a serialized representation of your code's [LSTs](./lossless-semantic-trees.md). These artifacts must be put inside an artifact repository that the [Moderne Connector](#moderne-connector) has access to.
 
 To do this, you'll want to use set up mass ingestion with the Moderne CLI. For instructions on how to do that, please read our [Mass ingestion doc](../how-to-guides/mass-ingest.md).
 
-### Moderne agent
+### Moderne Connector
 
-At a high level, you can think of the Moderne agent as a bridge between your environment and Moderne. All data that Moderne needs to function will pass over this bridge and flow into the [Moderne API Gateway](#moderne-api-gateway). As this data is sent to Moderne, it's encrypted – with the key being kept in your environment. Whenever Moderne needs to access any data, it will request this key and the data will be decrypted for a short time before it's thrown away. If you decide you no longer want Moderne to have access to anything, you can raise the bridge (shut off the agent) and all of your data that Moderne has will no longer be decryptable.
+At a high level, you can think of the Moderne Connector as a bridge between your environment and Moderne. All data that Moderne needs to function will pass over this bridge and flow into the [Moderne API Gateway](#moderne-api-gateway). As this data is sent to Moderne, it’s encrypted – with the key being kept in your environment. Whenever Moderne needs to access any data, it will request this key and the data will be decrypted for a short time before it’s thrown away. If you decide you no longer want Moderne to have access to anything, you can raise the bridge (shut off the Connector) and all of your data that Moderne has will no longer be decryptable.
 
-There are a variety of tools and services that you can configure the agent to be connected to based on the needs of your team.
+There are a variety of tools and services that you can configure the Connector to be connected to based on the needs of your team.
 
-At a minimum, the agent will need to connect to:
+At a minimum, the Connector will need to connect to:
 
 * One or more of your artifact repositories so that changes to the Moderne LST artifacts kept in them can be sent to Moderne
-  * This is configured via the [Artifactory Query Language](https://www.jfrog.com/confluence/display/JFROG/Artifactory+Query+Language) or via Maven configuration. Only artifacts that match what you've configured will be sent to Moderne.
+  * This is configured via the [Artifactory Query Language](https://www.jfrog.com/confluence/display/JFROG/Artifactory+Query+Language) or via Maven configuration. Only artifacts that match what you’ve configured will be sent to Moderne.
 * Your SCM(s) so that PRs or commits can be created by approved users in Moderne
 
-Your team may also wish to configure the agent to:
+Your team may also wish to configure the Connector to:
 
 * Look in your artifact repositories for custom recipe JARs your team creates so that those recipes can be run in the Moderne SaaS
 
 :::info
-You can find all of the documentation for configuring agents in your environment [here](../how-to-guides/agent-configuration/agent-config.md).
+You can find all of the documentation for configuring Connectors in your environment [here](../how-to-guides/agent-configuration/agent-config.md).
 :::
 
 **Setup requirements**
@@ -65,36 +65,36 @@ You can find all of the documentation for configuring agents in your environment
 You must:
 
 * Deploy a Moderne-provided OCI image adjacent to Artifactory
-* Ensure the agent is able to make an outbound HTTPS request to `https://api.TENANT.moderne.io`
-* Ensure the agent is configured with an Artifactory user that is authorized to make `find` AQL requests against repositories containing LST artifacts
-* Ensure the agent is configured with an Artifactory user capable of making `GET` requests to obtain the above LST artifacts
+* Ensure the Connector is able to make an outbound HTTPS request to `https://api.TENANT.moderne.io`
+* Ensure the Connector is configured with an Artifactory user that is authorized to make `find` AQL requests against repositories containing LST artifacts
+* Ensure the Connector is configured with an Artifactory user capable of making `GET` requests to obtain the above LST artifacts
 * Ensure that the deployed image is configured with an encryption key (stored in Hashicorp Vault or some other key management service)
-* Ensure the agent can connect to your SCM(s) to authorize users to see code in the Moderne SaaS and to allow commits on their behalf
+* Ensure the Connector can connect to your SCM(s) to authorize users to see code in the Moderne SaaS and to allow commits on their behalf
 
 :::tip
-Multiple agents can be configured for high availability or to connect to only some of these services.
+Multiple Connectors can be configured for high availability or to connect to only some of these services.
 :::
 
-#### Agent security
+#### Connector security
 
-Agents initiate connections to the [Moderne API gateway](#moderne-api-gateway) via the [RSocket](https://rsocket.io/) protocol. **Moderne will never initiate an API call to the agent**. Because of that, only egress from your environment needs to be open.
+Connectors initiate connections to the [Moderne API gateway](#moderne-api-gateway) via the [RSocket](https://rsocket.io/) protocol. **Moderne will never initiate an API call to the Connector**. Because of that, only egress from your environment needs to be open.
 
-When you set up an agent, Moderne will share a token with you that you must configure in the Moderne agents you create. Moderne will reject any connection attempts from unauthorized agent instances. In this way, Moderne requires a minimum level of client (agent) verification as an extra security precaution.
+When you set up a Connector, Moderne will share a token with you that you must configure in the Moderne Connectors you create. Moderne will reject any connection attempts from unauthorized Connector instances. In this way, Moderne requires a minimum level of client (Connector) verification as an extra security precaution.
 
-The connection to Moderne is established over [layer 7](https://www.cloudflare.com/learning/ddos/what-is-layer-7/), so you may choose to route traffic from the agent through your own layer 7 gateway. This might be chosen to satisfy a desire for [Moderne’s API gateway](#moderne-api-gateway) to perform client verification of an inbound agent connection using a mechanism like X.509 in addition to token-based verification.
+The connection to Moderne is established over [layer 7](https://www.cloudflare.com/learning/ddos/what-is-layer-7/), so you may choose to route traffic from the Connector through your own layer 7 gateway. This might be chosen to satisfy a desire for [Moderne’s API gateway](#moderne-api-gateway) to perform client verification of an inbound Connector connection using a mechanism like X.509 in addition to token-based verification.
 
 These measures act in concert with techniques to limit IP addressability of the Moderne API gateway to enhance the overall security posture.
 
 ### Moderne API gateway
 
-The Moderne API gateway serves as the entry point to Moderne. It talks with the [Moderne agent](#moderne-agent) to get data from your services to Moderne. It is the only component with a public IP address that can communicate with other Moderne services. The [Moderne UI](#moderne-user-interface) and [Keycloak](#keycloak) also have public IP addresses, but they can't communicate with other Moderne services.
+The Moderne API gateway serves as the entry point to Moderne. It talks with the [Moderne Connector](#moderne-connector) to get data from your services to Moderne. It is the only component with a public IP address that can communicate with other Moderne services. The [Moderne UI](#moderne-user-interface) and [Keycloak](#keycloak) also have public IP addresses, but they can't communicate with other Moderne services.
 
 The API gateway is responsible for:
 
 * Handling API requests from your developers or your tools
 * Handling API requests from the Moderne UI
-* Handling encrypted LST artifacts from the Moderne agent(s)
-* Handling encrypted custom recipe artifacts from the Moderne agent(s)
+* Handling encrypted LST artifacts from the Moderne Connector(s)
+* Handling encrypted custom recipe artifacts from the Moderne Connector(s)
 * Rate limiting as needed to guard Moderne services against overuse by a particular user
 
 Authorized users in your company can access audit logs for this gateway via an API.
@@ -107,7 +107,7 @@ The Moderne API gateway is configured with a Moderne-managed SSL certificate.
 
 You must:
 
-* Ensure that `https://api.TENANT.moderne.io` is on the accept list for outbound HTTPS traffic from the Moderne agent
+* Ensure that `https://api.TENANT.moderne.io` is on the accept list for outbound HTTPS traffic from the Moderne Connector
 * Ensure that `https://api.TENANT.moderne.io` is on the accept list for outbound HTTPS traffic from the developer's machines
 
 ### Moderne user interface
@@ -180,7 +180,7 @@ Moderne workers are responsible for running recipes and keeping their results. T
 
 Worker instances are scaled horizontally in direct response to more code being ingested into the platform.
 
-Workers decrypt LST and recipe artifacts by making a request to the [Moderne Agent](#moderne-agent) via the API Gateway for a customer-provided symmetric key. Workers discard this key at the end of every request.
+Workers decrypt LST and recipe artifacts by making a request to the [Moderne Connector](#moderne-connector) via the API Gateway for a customer-provided symmetric key. Workers discard this key at the end of every request.
 
 Workers fetch a user’s SCM OAuth token via the [API gateway](#moderne-api-gateway) in order to make authorization decisions about which repositories said user is allowed to read from. This ensures Moderne’s read access is aligned with a user's SCM access in real-time for every recipe run request.
 
@@ -197,7 +197,7 @@ The two primary responsibilities are:
 * Creating commits, branches, forks, PRs, etc. in your SCM
 * Coordinating authorization with your SCM to see what users are authorized to do or view
 
-Please note that the requests to your SCM will appear to come from the [Moderne agent](#moderne-agent). The Moderne source code management service will talk through the [API gateway](#moderne-api-gateway) to the agent whenever it needs to interact with your SCM.
+Please note that the requests to your SCM will appear to come from the [Moderne Connector](#moderne-connector). The Moderne source code management service will talk through the [API gateway](#moderne-api-gateway) to the Connector whenever it needs to interact with your SCM.
 
 Authentication and authorization decisions are made in real-time to ensure that they are always up-to-date.
 
