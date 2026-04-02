@@ -3,6 +3,10 @@ sidebar_label: Importing external recipes
 description: How to import external recipes.
 ---
 
+import VersionBanner from '@site/src/components/VersionBanner';
+
+<VersionBanner version="v2" linkPath="/administrator-documentation/moderne-platform-v1/how-to-guides/importing-external-recipes" />
+
 # Importing external recipes
 
 External recipes can be imported into Moderne for use by your organization.

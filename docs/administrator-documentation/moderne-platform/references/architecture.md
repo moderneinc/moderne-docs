@@ -3,6 +3,10 @@ sidebar_label: Moderne architecture
 description: A detailed technical document about the Moderne Platform and how it fits into your environment.
 ---
 
+import VersionBanner from '@site/src/components/VersionBanner';
+
+<VersionBanner version="v2" linkPath="/administrator-documentation/moderne-platform-v1/references/architecture" />
+
 # Moderne architecture
 
 To help you understand how the Moderne Platform works and how it interacts with your environment and services, this document will:

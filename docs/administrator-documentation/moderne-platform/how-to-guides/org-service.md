@@ -5,6 +5,9 @@ description: How to create and configure an Organizations service.
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import VersionBanner from '@site/src/components/VersionBanner';
+
+<VersionBanner version="v2" linkPath="/administrator-documentation/moderne-platform-v1/how-to-guides/org-service" />
 
 # Creating an Organizations service
 

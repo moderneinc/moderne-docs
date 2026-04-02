@@ -5,6 +5,9 @@ description: How to upload and deploy company-specific recipes in a private way.
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import VersionBanner from '@site/src/components/VersionBanner';
+
+<VersionBanner version="v2" linkPath="/administrator-documentation/moderne-platform-v1/how-to-guides/agent-configuration/multi-tenant-private-recipes" />
 
 # Multi-tenant private recipes
 

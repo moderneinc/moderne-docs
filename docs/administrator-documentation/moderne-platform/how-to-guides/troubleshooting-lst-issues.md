@@ -3,6 +3,10 @@ sidebar_label: Troubleshooting LST issues
 description: How to troubleshoot common issues with LSTs in the platform.
 ---
 
+import VersionBanner from '@site/src/components/VersionBanner';
+
+<VersionBanner version="v2" linkPath="/administrator-documentation/moderne-platform-v1/how-to-guides/troubleshooting-lst-issues" />
+
 # Troubleshooting LST issues
 
 This guide will help you diagnose and resolve common issues with Lossless Semantic Trees (LSTs) in the Moderne platform.

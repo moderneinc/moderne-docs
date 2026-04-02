@@ -5,6 +5,9 @@ description: How to configure the Moderne agent to have strict recipe sources.
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import VersionBanner from '@site/src/components/VersionBanner';
+
+<VersionBanner version="v2" linkPath="/administrator-documentation/moderne-platform-v1/how-to-guides/agent-configuration/configure-an-agent-with-strict-recipe-sources" />
 
 # Configure an agent with strict recipe sources
 

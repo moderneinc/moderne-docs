@@ -5,6 +5,9 @@ description: How to create your own recipe categories in the Moderne Platform.
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import VersionBanner from '@site/src/components/VersionBanner';
+
+<VersionBanner version="v2" linkPath="/user-documentation/moderne-platform-v1/how-to-guides/categorize-recipes" />
 
 # How to manage recipe categories
 

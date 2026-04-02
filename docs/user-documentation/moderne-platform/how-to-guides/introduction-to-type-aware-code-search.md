@@ -4,6 +4,9 @@ description: An introduction into type-aware code searching in Moderne.
 ---
 
 import ReactPlayer from '@site/src/components/VideoPlayer';
+import VersionBanner from '@site/src/components/VersionBanner';
+
+<VersionBanner version="v2" linkPath="/user-documentation/moderne-platform-v1/how-to-guides/introduction-to-type-aware-code-search" />
 
 # Introduction to type-aware code search
 

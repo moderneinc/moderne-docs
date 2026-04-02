@@ -3,6 +3,10 @@ sidebar_label: Creating custom recipes
 description: How to create custom recipes with the Moderne recipe builder.
 ---
 
+import VersionBanner from '@site/src/components/VersionBanner';
+
+<VersionBanner version="v2" linkPath="/user-documentation/moderne-platform-v1/how-to-guides/new-recipe-builder" />
+
 # Create custom recipes with the recipe builder
 
 Have you found a recipe in Moderne where you only want to run certain parts of it? Or have you found a few recipes that you want to combine into one larger recipe? Or maybe you want to run a bunch of recipes in a specific order?

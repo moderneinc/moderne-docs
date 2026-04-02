@@ -5,6 +5,9 @@ description: Working with commits and PRs in Moderne.
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import VersionBanner from '@site/src/components/VersionBanner';
+
+<VersionBanner version="v2" linkPath="/user-documentation/moderne-platform-v1/how-to-guides/track-commits" />
 
 # Working with commits and PRs in Moderne
 

@@ -3,6 +3,10 @@ sidebar_label: Proof of value prerequisites
 description: What your team needs to prepare before starting the Moderne SaaS proof of value process.
 ---
 
+import VersionBanner from '@site/src/components/VersionBanner';
+
+<VersionBanner version="v2" linkPath="/user-documentation/moderne-platform-v1/getting-started/proof-of-value-prerequisites" />
+
 # Proof of value (POV) prerequisites
 
 Before starting the Moderne SaaS proof of value process, your team will need to:
@@ -15,15 +19,15 @@ This page covers everything you need to do so nothing is missed on day one.
 
 ## Checklist
 
-| # | Requirement                                                                                 | Details                                                                                            |
-|---|---------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------|
-| 1 | VM for [mass ingest](#mass-ingest) (2 CPU, 16 GB RAM, 32 GB disk)                           | Builds your repositories and publishes LST artifacts                                               |
-| 2 | VM for the [Moderne agent](#moderne-agent) (2 CPU, 8 GB RAM, 10 GB storage)                 | Connects your environment to the Moderne SaaS tenant                                               |
-| 3 | [SCM service account](#source-control-access) with read access to all in-scope repositories | Used by mass ingest to clone and build repositories                                                |
-| 4 | [SCM OAuth application](#source-control-access) (GitHub App, GitLab OAuth, etc.)            | Allows users to view code and commit changes through Moderne                                       |
-| 5 | [Dedicated LST artifact repository](#artifact-repository) with read/write access            | New Maven 2 repo (Artifactory/Nexus) or dedicated S3 bucket                                        |
-| 6 | [Repository list](#preparing-your-repository-list) (repos.csv)                              | Generated with our [repository fetcher scripts](https://github.com/moderneinc/repository-fetchers) |
-| 7 | [Network egress](#network-requirements) from the agent to `https://api.TENANT.moderne.io`   | Outbound HTTPS required; mass ingest may also need outbound access to cloud SCMs                   |
+| # | Requirement                                                                                   | Details                                                                                            |
+|---|-----------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------|
+| 1 | VM for [mass ingest](#mass-ingest) (2 CPU, 16 GB RAM, 32 GB disk)                             | Builds your repositories and publishes LST artifacts                                               |
+| 2 | VM for the [Moderne Connector](#moderne-connector) (2 CPU, 8 GB RAM, 10 GB storage)           | Connects your environment to the Moderne SaaS tenant                                               |
+| 3 | [SCM service account](#source-control-access) with read access to all in-scope repositories   | Used by mass ingest to clone and build repositories                                                |
+| 4 | [SCM OAuth application](#source-control-access) (GitHub App, GitLab OAuth, etc.)              | Allows users to view code and commit changes through Moderne                                       |
+| 5 | [Dedicated LST artifact repository](#artifact-repository) with read/write access              | New Maven 2 repo (Artifactory/Nexus) or dedicated S3 bucket                                        |
+| 6 | [Repository list](#preparing-your-repository-list) (repos.csv)                                | Generated with our [repository fetcher scripts](https://github.com/moderneinc/repository-fetchers) |
+| 7 | [Network egress](#network-requirements) from the Connector to `https://api.TENANT.moderne.io` | Outbound HTTPS required; mass ingest may also need outbound access to cloud SCMs                   |
 
 ## Environments
 
@@ -45,9 +49,9 @@ These resources are sufficient for up to ~1,000 repositories. For larger organiz
 If you have a standard base image that includes your existing certificates or other configuration, we can build on top of that. If you don't, we'll build from standard open-source base images and configure it with any certificates, credentials, and build tool settings during the first few days of the engagement.
 :::
 
-### Moderne agent
+### Moderne Connector
 
-The Moderne agent is responsible for communicating between your environment and your Moderne SaaS tenant. It runs as an OCI container (Docker/Podman) or a Spring Boot executable JAR.
+The Moderne Connector is responsible for communicating between your environment and your Moderne SaaS tenant. It runs as an OCI container (Docker/Podman) or a Spring Boot executable JAR.
 
 | Resource | Minimum                     |
 |----------|-----------------------------|
@@ -55,7 +59,7 @@ The Moderne agent is responsible for communicating between your environment and 
 | Memory   | 8 GB                        |
 | Storage  | 10 GB (persistent or local) |
 
-The [agent configuration guide](../../../administrator-documentation/moderne-platform/how-to-guides/agent-configuration/agent-config.md) covers detailed configuration options and deployment instructions.
+The [Connector configuration guide](../../../administrator-documentation/moderne-platform/how-to-guides/agent-configuration/agent-config.md) covers detailed configuration options and deployment instructions.
 
 ## Source control access
 
@@ -63,7 +67,7 @@ Both environments need access to your source control management system (SCM), bu
 
 * **Mass ingest** needs a service account with **read access** to all in-scope repositories. This is used to clone repositories and build LSTs. Credentials are mounted at runtime and never baked into images. The [mass ingest source control credentials documentation](https://github.com/moderneinc/mass-ingest-example#source-control-credentials) has setup details.
 
-* **The Moderne agent** needs an **OAuth application** configured in your SCM. This enables users to authenticate through the Moderne platform to view code and commit changes back to your repositories. You will need to set up an OAuth app with a callback URL of `https://TENANT.moderne.io`.
+* **The Moderne Connector** needs an **OAuth application** configured in your SCM. This enables users to authenticate through the Moderne Platform to view code and commit changes back to your repositories. You will need to set up an OAuth app with a callback URL of `https://TENANT.moderne.io`.
 
 SCM-specific configuration guides:
 
@@ -81,21 +85,21 @@ The easiest way to generate this file is with our [repository fetcher scripts](h
 
 ## Artifact repository
 
-You need a dedicated location for storing and retrieving LST artifacts. Mass ingest needs **write access** to publish LST artifacts, and the Moderne agent needs **read access** to index and retrieve them. Choose one of the following options:
+You need a dedicated location for storing and retrieving LST artifacts. Mass ingest needs **write access** to publish LST artifacts, and the Moderne Connector needs **read access** to index and retrieve them. Choose one of the following options:
 
 ### Option 1: Maven-formatted repository (Artifactory or Nexus)
 
 Create a **new Maven 2 type repository** dedicated to LST artifacts. We strongly recommend keeping LSTs in their own repository rather than mixing them into an existing one — this makes indexing, cleanup, and troubleshooting much easier.
 
-* For **Artifactory**, the agent uses [Artifactory Query Language (AQL)](../../../administrator-documentation/moderne-platform/how-to-guides/agent-configuration/configure-an-agent-with-artifactory-access.md) for near real-time artifact discovery.
-* For **Nexus 3** or other Maven repositories, you must [enable Maven Indexer publishing](../../../administrator-documentation/moderne-platform/how-to-guides/agent-configuration/configure-an-agent-with-maven-repository-access.md#configure-the-maven-indexer) on the LST repository so the agent can discover new artifacts. The repository must also have its **layout policy set to Permissive** — mass ingest uploads build logs alongside LSTs using paths that do not follow Maven coordinate structure, and Nexus will reject these with HTTP 400 if the layout policy is Strict. The [Maven repository configuration guide](../../../administrator-documentation/moderne-platform/how-to-guides/agent-configuration/configure-an-agent-with-maven-repository-access.md) has full setup instructions.
+* For **Artifactory**, the Connector uses [Artifactory Query Language (AQL)](../../../administrator-documentation/moderne-platform/how-to-guides/agent-configuration/configure-an-agent-with-artifactory-access.md) for near real-time artifact discovery.
+* For **Nexus 3** or other Maven repositories, you must [enable Maven Indexer publishing](../../../administrator-documentation/moderne-platform/how-to-guides/agent-configuration/configure-an-agent-with-maven-repository-access.md#configure-the-maven-indexer) on the LST repository so the Connector can discover new artifacts. The repository must also have its **layout policy set to Permissive** — mass ingest uploads build logs alongside LSTs using paths that do not follow Maven coordinate structure, and Nexus will reject these with HTTP 400 if the layout policy is Strict. The [Maven repository configuration guide](../../../administrator-documentation/moderne-platform/how-to-guides/agent-configuration/configure-an-agent-with-maven-repository-access.md) has full setup instructions.
 
 ### Option 2: Amazon S3 (or S3-compatible storage)
 
-Create a **dedicated S3 bucket** for LST artifacts. The bucket must only contain LST artifacts — other objects in the bucket will slow down indexing as the agent scans all objects on every sync. The [S3 configuration guide](../../../administrator-documentation/moderne-platform/how-to-guides/agent-configuration/configure-an-agent-with-s3-access.md) covers authentication options (IAM role, AWS profile, or access keys) and setup instructions.
+Create a **dedicated S3 bucket** for LST artifacts. The bucket must only contain LST artifacts — other objects in the bucket will slow down indexing as the Connector scans all objects on every sync. The [S3 configuration guide](../../../administrator-documentation/moderne-platform/how-to-guides/agent-configuration/configure-an-agent-with-s3-access.md) covers authentication options (IAM role, AWS profile, or access keys) and setup instructions.
 
 :::info
-The agent also needs read access to any artifact repositories that contain **dependencies** for the projects you will be running recipes against.
+The Connector also needs read access to any artifact repositories that contain **dependencies** for the projects you will be running recipes against.
 :::
 
 ## Network requirements
@@ -104,25 +108,25 @@ The agent also needs read access to any artifact repositories that contain **dep
 |--------------------|------------------------------------|----------------------------|----------|
 | Mass ingest        | Your SCM (e.g., GitHub Enterprise) | Internal or outbound HTTPS | Yes      |
 | Mass ingest        | Your artifact repository           | Internal only              | Yes      |
-| Agent              | `https://api.TENANT.moderne.io`    | Outbound HTTPS             | Yes      |
-| Agent              | Your SCM                           | Internal or outbound HTTPS | Yes      |
-| Agent              | Your artifact repository           | Internal                   | Yes      |
+| Connector          | `https://api.TENANT.moderne.io`    | Outbound HTTPS             | Yes      |
+| Connector          | Your SCM                           | Internal or outbound HTTPS | Yes      |
+| Connector          | Your artifact repository           | Internal                   | Yes      |
 | Developer machines | `https://TENANT.moderne.io`        | Outbound HTTPS             | Yes      |
 | Developer machines | `https://login.TENANT.moderne.io`  | Outbound HTTPS             | Yes      |
 | Developer machines | `https://api.TENANT.moderne.io`    | Outbound HTTPS             | Yes      |
 
 **Mass ingest** requires egress access to all SCMs that live outside your network (if any), but otherwise requires no ingress or egress access.
 
-**The Moderne agent** requires outbound HTTPS to your Moderne tenant's API at `https://api.TENANT.moderne.io`. If your repositories are hosted on a cloud SCM, the agent also requires outbound HTTPS to that service. Moderne never initiates inbound connections to the agent — the agent establishes the connection using the [RSocket](https://rsocket.io/) protocol over HTTPS.
+**The Moderne Connector** requires outbound HTTPS to your Moderne tenant's API at `https://api.TENANT.moderne.io`. If your repositories are hosted on a cloud SCM, the Connector also requires outbound HTTPS to that service. Moderne never initiates inbound connections to the Connector — the Connector establishes the connection using the [RSocket](https://rsocket.io/) protocol over HTTPS.
 
-If your environment requires an HTTP proxy for outbound traffic, the agent supports [proxy configuration](../../../administrator-documentation/moderne-platform/how-to-guides/agent-configuration/configure-an-agent-to-connect-to-moderne-via-an-http-proxy.md).
+If your environment requires an HTTP proxy for outbound traffic, the Connector supports [proxy configuration](../../../administrator-documentation/moderne-platform/how-to-guides/agent-configuration/configure-an-agent-to-connect-to-moderne-via-an-http-proxy.md).
 
 ## What Moderne provides
 
 During the POV process, Moderne will provide:
 
 * A **dedicated SaaS tenant** provisioned in your chosen cloud provider and region (takes approximately 1 hour)
-* An **agent token** for authenticating the agent with the Moderne platform
+* A **Connector token** for authenticating the Connector with the Moderne platform
 * Guidance on generating the **symmetric encryption key** (AES-256) used to encrypt data in transit
 * **Technical support** throughout the setup and evaluation process
 

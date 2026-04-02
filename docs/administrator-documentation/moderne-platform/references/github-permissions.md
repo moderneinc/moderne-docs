@@ -3,6 +3,10 @@ sidebar_label: GitHub permissions
 description: A look into the GitHub OAuth permissions needed for Moderne to work correctly.
 ---
 
+import VersionBanner from '@site/src/components/VersionBanner';
+
+<VersionBanner version="v2" linkPath="/administrator-documentation/moderne-platform-v1/references/github-permissions" />
+
 # GitHub permissions
 
 Moderne uses a GitHub OAuth application (GitHub OAuth Apps or GitHub Apps) to perform various actions on your behalf. Below is an explanation of each type, their permissions, and how they're used by Moderne.

@@ -5,6 +5,9 @@ description: How to configure the Moderne agent to retrieve LST artifacts from A
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import VersionBanner from '@site/src/components/VersionBanner';
+
+<VersionBanner version="v2" linkPath="/administrator-documentation/moderne-platform-v1/how-to-guides/agent-configuration/configure-an-agent-with-artifactory-access" />
 
 # Configure an agent with Artifactory access: LSTs
 

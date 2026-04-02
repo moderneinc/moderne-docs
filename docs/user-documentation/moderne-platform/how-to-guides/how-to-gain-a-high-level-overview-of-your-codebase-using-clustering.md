@@ -3,6 +3,10 @@ sidebar_label: Using AI to understand your codebase
 description: How to gain a high-level overview of your codebase using AI clustering.
 ---
 
+import VersionBanner from '@site/src/components/VersionBanner';
+
+<VersionBanner version="v2" linkPath="/user-documentation/moderne-platform-v1/how-to-guides/how-to-gain-a-high-level-overview-of-your-codebase-using-clustering" />
+
 # How to gain a high-level overview of your codebase using AI clustering
 
 :::warning

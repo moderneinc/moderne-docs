@@ -3,6 +3,10 @@ sidebar_label: Creating a DevCenter recipe
 description: How to create a DevCenter recipe.
 ---
 
+import VersionBanner from '@site/src/components/VersionBanner';
+
+<VersionBanner version="v2" linkPath="/administrator-documentation/moderne-platform-v1/how-to-guides/creating-a-devcenter-recipe" />
+
 # Creating a DevCenter recipe
 
 Moderne DevCenters can be defined and configured via a standard OpenRewrite recipe. This approach delivers significantly better performance and greater flexibility in the generation process compared to the old way of defining a DevCenter (JSON).

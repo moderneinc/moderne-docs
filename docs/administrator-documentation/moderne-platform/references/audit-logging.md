@@ -3,6 +3,10 @@ sidebar_label: Audit logging
 description: Describes how the Moderne Platform records and manages audit logs.
 ---
 
+import VersionBanner from '@site/src/components/VersionBanner';
+
+<VersionBanner version="v2" linkPath="/administrator-documentation/moderne-platform-v1/references/audit-logging" />
+
 # Audit logging
 
 The Moderne Platform records a structured audit log of every user-initiated and system-initiated action. All audit events are persisted to a dedicated PostgreSQL database with a retention period of one year. Events are categorized by a CRUD action type (Create, Read, Update, Delete), tagged with the acting user's identity (or identified as a system-initiated action when performed automatically by the platform), timestamped in UTC, and marked with an outcome of Success or Failed.

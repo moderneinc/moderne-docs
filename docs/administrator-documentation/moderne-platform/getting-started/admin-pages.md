@@ -3,6 +3,10 @@ sidebar_label: Admin pages explained
 description: Provides detailed information about all of the admin pages.
 ---
 
+import VersionBanner from '@site/src/components/VersionBanner';
+
+<VersionBanner version="v2" linkPath="/administrator-documentation/moderne-platform-v1/getting-started/admin-pages" />
+
 # Admin pages explained
 
 As an administrator (admin) in the Moderne Platform, you have access to a variety of admin pages that let you manage and control various aspects of the platform. To help ensure you can perform your administrative tasks efficiently and effectively, let's walk through each of these pages.

@@ -5,6 +5,9 @@ description: How to configure the Moderne agent to provide custom CLI download i
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import VersionBanner from '@site/src/components/VersionBanner';
+
+<VersionBanner version="v2" linkPath="/administrator-documentation/moderne-platform-v1/how-to-guides/agent-configuration/configure-an-agent-with-cli-download-instructions-override" />
 
 # Configure an agent with CLI download instructions
 

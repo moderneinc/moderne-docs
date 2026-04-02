@@ -3,6 +3,10 @@ sidebar_label: Sensitive data flow
 description: Describes how sensitive data flows through Moderne's services.
 ---
 
+import VersionBanner from '@site/src/components/VersionBanner';
+
+<VersionBanner version="v2" linkPath="/administrator-documentation/moderne-platform-v1/references/flow" />
+
 # Sensitive data flow
 
 To give you a better understanding of how sensitive artifacts flow through Moderne services and the services they connect to, this document will:

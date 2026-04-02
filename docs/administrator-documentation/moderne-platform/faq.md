@@ -3,6 +3,10 @@ sidebar_label: FAQ
 description: Frequently asked questions related to administrating the Moderne Platform.
 ---
 
+import VersionBanner from '@site/src/components/VersionBanner';
+
+<VersionBanner version="v2" linkPath="/administrator-documentation/moderne-platform-v1/faq" />
+
 # Frequently asked questions (FAQ)
 
 ## Why do artifact scanners detect vulnerabilities in recipe artifacts/JARs?

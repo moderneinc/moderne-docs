@@ -3,6 +3,10 @@ sidebar_label: Standard Edition vs. Enterprise Edition
 description: Discussing the various editions available in the Moderne Platform.
 ---
 
+import VersionBanner from '@site/src/components/VersionBanner';
+
+<VersionBanner version="v2" linkPath="/administrator-documentation/moderne-platform-v1/references/standard-vs-enterprise-edition" />
+
 # Standard Edition vs. Enterprise Edition
 
 The Moderne Platform offers two editions based on your needs: Standard and Enterprise. Both editions provide full, unlimited access to all of the platform's automated, distributed code remediation and migration features. They both also include advanced code impact analysis, code intelligence dashboards, and AI integrations.

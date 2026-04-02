@@ -5,6 +5,9 @@ description: How to configure the Moderne agent to communicate with Bitbucket Cl
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import VersionBanner from '@site/src/components/VersionBanner';
+
+<VersionBanner version="v2" linkPath="/administrator-documentation/moderne-platform-v1/how-to-guides/agent-configuration/configure-bitbucket-cloud-to-agent" />
 
 # Configure an agent with Bitbucket Cloud access
 

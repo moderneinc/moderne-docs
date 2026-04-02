@@ -1,8 +1,12 @@
 ---
+sidebar_label: Using the activity view
 description: Describes what the activity view is, where to find it, and what each part does.
 ---
 
 import ReactPlayer from '@site/src/components/VideoPlayer';
+import VersionBanner from '@site/src/components/VersionBanner';
+
+<VersionBanner version="v2" linkPath="/user-documentation/moderne-platform-v1/getting-started/activity-view" />
 
 # Using the activity view
 

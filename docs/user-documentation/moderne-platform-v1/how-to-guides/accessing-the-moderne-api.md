@@ -1,0 +1,41 @@
+---
+sidebar_label: Accessing the Moderne API
+description: How to access the Moderne API and where to find documentation for it.
+noIndex: true
+---
+
+import VersionBanner from '@site/src/components/VersionBanner';
+
+<VersionBanner version="v1" linkPath="/user-documentation/moderne-platform/how-to-guides/accessing-the-moderne-api" />
+
+# Accessing the Moderne API
+
+Moderne offers a GraphQL API for customers to interact with through the usage of a personal access token. In this doc, we'll walk through everything you need to know to access and use this API.
+
+## Prerequisites
+
+In order to access the GraphQL API, you will need to [create a Moderne personal access token](./create-api-access-tokens.md).
+
+## GraphQL API Explorer
+
+To assist with the development of tools that access the Moderne APIs, Moderne offers an API explorer where you can manually create and run queries.
+
+To access this explorer, you can either go to [https://app.moderne.io/graphql](https://app.moderne.io/graphql) or click on the `?` in the top right corner and select `API explorer` under the `Tools` section:
+
+:::warning
+Please note that when you make actual API requests, you'll want to make them against `https://api.app.moderne.io/` instead of `https://app.moderne.io/graphql`.
+:::
+
+<figure>
+  ![Help menu dropdown with API explorer option highlighted under Tools](./assets/graphql-link.png)
+</figure>
+
+:::info
+A temporary access token is created when you log in to the platform. This lasts for 1 hour and is autopopulated into the `Authorization` header (located in the `Request Headers` tab in the bottom left) when you navigate to the GraphQL explorer.
+:::
+
+## View the documentation
+
+After you've navigated to the API explorer, you should see a book icon in the top-left corner. If you click on it, a docs section will expand. From there, you can click on `Query` or `Mutation` to navigate through their respective docs.
+
+![GraphQL API Explorer docs panel with Query and Mutation root types highlighted](./assets/graphql-documentation.png)
