@@ -59,10 +59,7 @@ Personal access tokens share the same permissions as your user. What this means 
 
 ### Expiration
 
-You can choose how long a personal access token should last when you create it. The default expiration depends on how you create the token:
-
-* **Platform UI** (Settings > Access Tokens): 30 days by default.
-* **Moderne CLI** (`mod config moderne login`): 365 days by default. Use `--expiration` to set a different duration (e.g., `--expiration P90D` for 90 days).
+You can choose how long a personal access token should last when you create it. When using the Moderne CLI (`mod config moderne login`), the default expiration is 365 days. Use `--expiration` to set a different duration (e.g., `--expiration P90D` for 90 days).
 
 Your organization may enforce a maximum token lifetime via the agent's `personalAccessTokens.maxExpiryDays` setting. If you request a token that exceeds this limit, the request will be rejected. When using the CLI, pass `--expiration` with a duration that falls within the allowed maximum.
 
