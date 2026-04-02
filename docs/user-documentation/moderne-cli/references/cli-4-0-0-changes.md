@@ -204,6 +204,24 @@ The wrapper will replace `${version}` and `${platform}` automatically. Platform 
 
 Setting `jdkUrl=skip` tells the wrapper not to download a JDK on its own. In this case, you will need Java 25+ available via `MODERNE_JAVA_HOME` or your `PATH`.
 
+### Authenticated mirrors
+
+If your internal mirror requires authentication, the wrapper supports basic auth and bearer token credentials via environment variables or properties. This is especially important for first-time installs where no properties file exists yet.
+
+**Environment variables** (highest precedence):
+
+* `MODERNE_WRAPPER_DISTRIBUTION_USERNAME` / `MODERNE_WRAPPER_DISTRIBUTION_PASSWORD` — basic auth
+* `MODERNE_WRAPPER_DISTRIBUTION_TOKEN` — bearer token (takes precedence over user/pass)
+* `MODERNE_WRAPPER_DISTRIBUTION_URL` — override distribution URL without a properties file
+* `MODERNE_WRAPPER_VERSION` — override version without a properties file
+
+**Properties** in `moderne-wrapper.properties`:
+
+* `distributionUsername` / `distributionPassword` — basic auth
+* `distributionToken` — bearer token
+
+See the [CLI wrapper guide](../how-to-guides/cli-wrapper.md#authenticated-artifact-repositories) for full details and examples.
+
 ## Startup performance and the AOT cache
 
 Java 25 introduces [Project Leyden](https://openjdk.org/projects/leyden/), which gives the CLI near-native startup performance by caching class loading and compilation work ahead of time.
