@@ -102,6 +102,9 @@ The `moderne-wrapper.properties` file supports these properties:
 |-------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------|
 | `version`               | CLI version to use. `RELEASE` resolves the latest release from Maven Central. `LATEST` resolves the latest snapshot. Or pin a specific version like `4.x.x`. | `RELEASE`     |
 | `distributionUrl`       | URL template for the distribution archive. Use `${version}` and `${platform}` as placeholders.                                                               | Maven Central |
+| `distributionUsername`  | Username for basic authentication when downloading the distribution.                                                                                         | _(none)_      |
+| `distributionPassword`  | Password for basic authentication when downloading the distribution.                                                                                         | _(none)_      |
+| `distributionToken`     | Bearer token for authentication when downloading the distribution. Takes precedence over username/password if both are set.                                   | _(none)_      |
 | `distributionSha256Sum` | Expected SHA-256 of the downloaded archive. Verified if set.                                                                                                 | _(none)_      |
 | `jdkUrl`                | URL to a JDK archive for auto-download. Set to `skip` to disable JDK auto-download entirely.                                                                 | Adoptium API  |
 
@@ -120,6 +123,63 @@ Setting `jdkUrl=skip` disables the JDK auto-download, which is useful when you k
 
 :::note
 The example above uses the `.sh` extension, which applies to Linux and macOS distributions. Windows distributions use `.zip` instead.
+:::
+
+### Authenticated artifact repositories
+
+If your internal mirror requires authentication (e.g., a private Artifactory or Nexus instance), you can configure credentials via properties or environment variables.
+
+**Using properties** (for developer workstations):
+
+```properties
+version=4.x.x
+distributionUrl=https://artifactory.corp.example.com/moderne-cli-${platform}/${version}/moderne-cli-${platform}-${version}.sh
+distributionUsername=your-username
+distributionPassword=your-password
+jdkUrl=skip
+```
+
+Or with a bearer token:
+
+```properties
+distributionToken=your-token
+```
+
+You can set these properties via `mod wrapper`:
+
+```bash
+mod wrapper --global \
+  --distribution-url "https://artifactory.corp.example.com/moderne-cli-\${platform}/\${version}/moderne-cli-\${platform}-\${version}.sh" \
+  --distribution-username your-username \
+  --distribution-password
+```
+
+Omitting the value after `--distribution-password` will prompt you interactively, keeping the password out of your shell history.
+
+**Using environment variables** (for CI/CD and first-time installs):
+
+Environment variables take precedence over properties file values. This is especially important for first-time installs where no properties file exists yet.
+
+| Variable                                  | Description                           |
+|-------------------------------------------|---------------------------------------|
+| `MODERNE_WRAPPER_DISTRIBUTION_USERNAME`   | Basic auth username                   |
+| `MODERNE_WRAPPER_DISTRIBUTION_PASSWORD`   | Basic auth password                   |
+| `MODERNE_WRAPPER_DISTRIBUTION_TOKEN`      | Bearer token (overrides user/pass)    |
+| `MODERNE_WRAPPER_DISTRIBUTION_URL`        | Override distribution URL             |
+| `MODERNE_WRAPPER_VERSION`                 | Override CLI version                  |
+
+Example first-time install with authentication:
+
+```bash
+export MODERNE_WRAPPER_DISTRIBUTION_URL="https://artifactory.corp.example.com/moderne-cli-\${platform}/\${version}/moderne-cli-\${platform}-\${version}.sh"
+export MODERNE_WRAPPER_DISTRIBUTION_USERNAME="deploy-user"
+export MODERNE_WRAPPER_DISTRIBUTION_PASSWORD="secret"
+export MODERNE_WRAPPER_VERSION="RELEASE"
+curl -fsSL https://app.moderne.io/cli | bash
+```
+
+:::note
+When both a bearer token and username/password are configured, the bearer token takes precedence. Environment variables always take precedence over properties file values.
 :::
 
 ## How the wrapper finds Java
@@ -145,12 +205,17 @@ GraalVM distributions are **not compatible** with the CLI's AOT cache. The wrapp
 
 ## Environment variables
 
-| Variable            | Description                                                 |
-|---------------------|-------------------------------------------------------------|
-| `MODERNE_JAVA_HOME` | Override the JDK used to run the CLI                        |
-| `MODERNE_JAR`       | Override the CLI JAR location (skips distribution download) |
-| `MODERNE_OPTS`      | Additional JVM options passed to the CLI (e.g., `-Xmx4g`)   |
-| `MODERNE_CLI_HOME`  | Base CLI directory (default: `~/.moderne/cli`)              |
+| Variable                                | Description                                                        |
+|-----------------------------------------|--------------------------------------------------------------------|
+| `MODERNE_JAVA_HOME`                     | Override the JDK used to run the CLI                               |
+| `MODERNE_JAR`                           | Override the CLI JAR location (skips distribution download)        |
+| `MODERNE_OPTS`                          | Additional JVM options passed to the CLI (e.g., `-Xmx4g`)         |
+| `MODERNE_CLI_HOME`                      | Base CLI directory (default: `~/.moderne/cli`)                     |
+| `MODERNE_WRAPPER_DISTRIBUTION_USERNAME` | Basic auth username for distribution downloads                     |
+| `MODERNE_WRAPPER_DISTRIBUTION_PASSWORD` | Basic auth password for distribution downloads                     |
+| `MODERNE_WRAPPER_DISTRIBUTION_TOKEN`    | Bearer token for distribution downloads (overrides user/pass)      |
+| `MODERNE_WRAPPER_DISTRIBUTION_URL`      | Override `distributionUrl` without a properties file               |
+| `MODERNE_WRAPPER_VERSION`               | Override `version` without a properties file                       |
 
 ## Directory layout
 
