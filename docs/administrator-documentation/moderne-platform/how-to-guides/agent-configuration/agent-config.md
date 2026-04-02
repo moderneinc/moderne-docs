@@ -851,6 +851,7 @@ Building and publishing LSTs is handled by separate containers ([mass ingest](..
 * Each instance requires its own port mapping (e.g., 8080, 8081, 8082)
 * All instances should use the same `MODERNE_AGENT_CRYPTO_SYMMETRICKEY`
 * All instances should connect to the same `MODERNE_AGENT_APIGATEWAYRSOCKETURI`
+* If multiple agents configure the same tool (e.g., the same GitHub URL), those configurations must be identical — same OAuth client ID/secret, same credentials. Because requests are shuffled across matching agents, a multi-step flow like OAuth authentication can span multiple agents. If the credentials differ between agents, the flow will fail.
 
 ### Example multi-instance deployment
 
