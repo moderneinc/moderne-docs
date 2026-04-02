@@ -17,7 +17,7 @@ To help you understand how the Moderne Platform works and how it interacts with 
 
 ## How Moderne fits into the software development lifecycle
 
-Moderne’s SaaS allows permitted users to run [recipes](https://docs.openrewrite.org/concepts-and-explanations/recipes) on code in the repositories you've added to the platform. These recipes can yield pull requests (PRs) or commits that transform the code.
+Moderne's SaaS allows permitted users to run [recipes](https://docs.openrewrite.org/concepts-and-explanations/recipes) on code in the repositories you've added to the platform. These recipes can yield pull requests (PRs) or commits that transform the code.
 
 Once the artifact is published (typically through [mass ingestion](../how-to-guides/mass-ingest.md)), the Moderne Connector will send the changes to Moderne so that the internal state can be updated. After that happens, new recipes can be run against the new artifacts and the process will repeat.
 
@@ -27,10 +27,43 @@ Once the artifact is published (typically through [mass ingestion](../how-to-gui
 
 Below is a high-level architecture diagram that shows the flow of data between Moderne and a typical customer environment. Arrows indicate communication between components. The details of each component can be found in the following sections.
 
-<figure>
-  ![image](./assets/moderne-architecture.png)
-  <figcaption>_Moderne architecture_ ([editable version](./assets/moderne-architecture.excalidraw))</figcaption>
-</figure>
+```mermaid
+graph TB
+    subgraph Clients
+        UI[Web UI]
+        CLI[Moderne CLI]
+        API[API Consumers]
+    end
+
+    subgraph Moderne["Moderne Platform"]
+        GW[API Gateway]
+
+        subgraph Services["Moderne Services"]
+            ORG[Organization Management]
+            RECIPE[Recipe Marketplace + Worker]
+            CHANGESET[Changeset Services]
+            AUTH[Authorization]
+            MODDY[Moddy - AI Assistant]
+            AUDIT[Audit Service]
+            CHANGELOG[Changelog Services]
+            TRIGREP[Moderne Trigrep]
+        end
+
+        KC[Keycloak]
+    end
+
+    subgraph Customer["Customer Environment"]
+        CONN[Moderne Connector]
+        SCM[SCM Providers]
+        ARTS[Artifact Repositories]
+    end
+
+    UI & CLI & API --> GW
+    GW --> Services
+    CONN -->|RSocket - outbound only| GW
+    CONN --> SCM & ARTS
+    GW -->|tunneled via Connector| SCM
+```
 
 ## Key components
 
@@ -38,26 +71,27 @@ Below is a high-level architecture diagram that shows the flow of data between M
 
 In order for Moderne to know the current state of your code, artifacts will need to be generated that contain a serialized representation of your code's [LSTs](./lossless-semantic-trees.md). These artifacts must be put inside an artifact repository that the [Moderne Connector](#moderne-connector) has access to.
 
-To do this, you'll want to use set up mass ingestion with the Moderne CLI. For instructions on how to do that, please read our [Mass ingestion doc](../how-to-guides/mass-ingest.md).
+To do this, you'll want to set up mass ingestion with the Moderne CLI. For instructions on how to do that, please read our [mass ingestion guide](../how-to-guides/mass-ingest.md).
 
 ### Moderne Connector
 
-At a high level, you can think of the Moderne Connector as a bridge between your environment and Moderne. All data that Moderne needs to function will pass over this bridge and flow into the [Moderne API Gateway](#moderne-api-gateway). As this data is sent to Moderne, it’s encrypted – with the key being kept in your environment. Whenever Moderne needs to access any data, it will request this key and the data will be decrypted for a short time before it’s thrown away. If you decide you no longer want Moderne to have access to anything, you can raise the bridge (shut off the Connector) and all of your data that Moderne has will no longer be decryptable.
+The Moderne Connector is an on-premises agent deployed within your network that bridges your environment with the Moderne Platform. All data that Moderne needs to function will pass over this bridge and flow into the [Moderne API gateway](#moderne-api-gateway). As this data is sent to Moderne, it's encrypted — with the key being kept in your environment. Whenever Moderne needs to access any data, it will request this key and the data will be decrypted for a short time before it's thrown away. If you decide you no longer want Moderne to have access to anything, you can shut off the Connector and all of your data that Moderne has will no longer be decryptable.
 
 There are a variety of tools and services that you can configure the Connector to be connected to based on the needs of your team.
 
 At a minimum, the Connector will need to connect to:
 
 * One or more of your artifact repositories so that changes to the Moderne LST artifacts kept in them can be sent to Moderne
-  * This is configured via the [Artifactory Query Language](https://www.jfrog.com/confluence/display/JFROG/Artifactory+Query+Language) or via Maven configuration. Only artifacts that match what you’ve configured will be sent to Moderne.
+  * This is configured via the [Artifactory Query Language](https://www.jfrog.com/confluence/display/JFROG/Artifactory+Query+Language) or via Maven configuration. Only artifacts that match what you've configured will be sent to Moderne.
 * Your SCM(s) so that PRs or commits can be created by approved users in Moderne
 
 Your team may also wish to configure the Connector to:
 
 * Look in your artifact repositories for custom recipe JARs your team creates so that those recipes can be run in the Moderne SaaS
+* Proxy requests to LLM providers for AI-powered features like [Moddy](#moddy)
 
 :::info
-You can find all of the documentation for configuring Connectors in your environment [here](../how-to-guides/agent-configuration/agent-config.md).
+For more details, see the [Connector configuration documentation](../how-to-guides/agent-configuration/agent-config.md).
 :::
 
 **Setup requirements**
@@ -79,15 +113,17 @@ Multiple Connectors can be configured for high availability or to connect to onl
 
 Connectors initiate connections to the [Moderne API gateway](#moderne-api-gateway) via the [RSocket](https://rsocket.io/) protocol. **Moderne will never initiate an API call to the Connector**. Because of that, only egress from your environment needs to be open.
 
-When you set up a Connector, Moderne will share a token with you that you must configure in the Moderne Connectors you create. Moderne will reject any connection attempts from unauthorized Connector instances. In this way, Moderne requires a minimum level of client (Connector) verification as an extra security precaution.
+When you set up a Connector, Moderne will share a token with you that you must configure in the Moderne Connectors you create. Moderne will reject any connection attempts from unauthorized Connector instances. In this way, Moderne requires a minimum level of client verification as an extra security precaution.
 
-The connection to Moderne is established over [layer 7](https://www.cloudflare.com/learning/ddos/what-is-layer-7/), so you may choose to route traffic from the Connector through your own layer 7 gateway. This might be chosen to satisfy a desire for [Moderne’s API gateway](#moderne-api-gateway) to perform client verification of an inbound Connector connection using a mechanism like X.509 in addition to token-based verification.
+The connection to Moderne is established over [layer 7](https://www.cloudflare.com/learning/ddos/what-is-layer-7/), so you may choose to route traffic from the Connector through your own layer 7 gateway. This might be chosen to satisfy a desire for [Moderne's API gateway](#moderne-api-gateway) to perform client verification of an inbound Connector connection using a mechanism like X.509 in addition to token-based verification.
 
 These measures act in concert with techniques to limit IP addressability of the Moderne API gateway to enhance the overall security posture.
 
 ### Moderne API gateway
 
-The Moderne API gateway serves as the entry point to Moderne. It talks with the [Moderne Connector](#moderne-connector) to get data from your services to Moderne. It is the only component with a public IP address that can communicate with other Moderne services. The [Moderne UI](#moderne-user-interface) and [Keycloak](#keycloak) also have public IP addresses, but they can't communicate with other Moderne services.
+The Moderne API gateway serves as the single entry point to the Moderne Platform. It communicates with the [Moderne Connector](#moderne-connector) to get data from your services to Moderne. It is the only component with a public IP address that can communicate with other Moderne services. The [Moderne UI](#moderne-user-interface) and [Keycloak](#keycloak) also have public IP addresses, but they can't communicate with other Moderne services.
+
+The API gateway uses [Apollo Router](https://www.apollographql.com/docs/router/) to compose the GraphQL schemas of Moderne's microservices into a single unified API. All GraphQL requests pass through Apollo Router on their way to the individual service that supports a piece of the schema. This federated approach allows Moderne to deploy and scale services independently while presenting a single, consistent API surface.
 
 The API gateway is responsible for:
 
@@ -95,9 +131,11 @@ The API gateway is responsible for:
 * Handling API requests from the Moderne UI
 * Handling encrypted LST artifacts from the Moderne Connector(s)
 * Handling encrypted custom recipe artifacts from the Moderne Connector(s)
+* Routing GraphQL requests to the appropriate Moderne microservices
+* Bridging HTTP and SSH tunnels to the Connector for SCM operations
 * Rate limiting as needed to guard Moderne services against overuse by a particular user
 
-Authorized users in your company can access audit logs for this gateway via an API.
+Authorized users in your company can access [audit logs](./audit-logging.md) for this gateway via an API.
 
 :::info
 The Moderne API gateway is configured with a Moderne-managed SSL certificate.
@@ -115,10 +153,13 @@ You must:
 The Moderne UI provides a browser-based interface for:
 
 * Executing search and transformation recipes across your codebase
-* Issuing mass commits/PRs based on recipe runs
+* Reviewing and committing code changes produced by recipe runs
+* Searching code across all repositories with [Moderne Trigrep](#moderne-trigrep)
+* Monitoring upgrade, migration, and security progress via the [DevCenter](#devcenter)
+* Conversing with [Moddy](#moddy), the AI assistant, to discover and run recipes
 * Building new recipes based on other recipes
-* Viewing audit logs
-* Generating access tokens for interacting with the Moderne API
+* Viewing [audit logs](./audit-logging.md)
+* Generating [access tokens](../../../user-documentation/moderne-platform/how-to-guides/create-api-access-tokens.md) for interacting with the Moderne API
 
 The Moderne UI is implemented with client-side Javascript. The Moderne UI is one of three components with a public IP address (the other two being the [Moderne API gateway](#moderne-api-gateway) and [Keycloak](#keycloak)).
 
@@ -142,86 +183,101 @@ You must:
 As configuring identity providers between services can be quite complex, the setup for Keycloak is usually done over a Zoom meeting with Moderne and your company.
 :::
 
-### Moderne artifact storage
+### Organization management
 
-The Moderne artifact storage service is responsible for receiving pre-encrypted LST artifacts and recipe JARs and storing them in a private object store depending on the cloud provider you use ([Azure Blob Storage](https://learn.microsoft.com/en-us/azure/storage/blobs/) or [AWS S3](https://aws.amazon.com/pm/serv-s3/)).
+The organization management services maintain the hierarchy of repositories that your team has onboarded into Moderne. Organizations provide a logical grouping of repositories that scopes visibility, permissions, and recipe execution targets.
 
-The artifact storage service will also write high-level information about where to find these artifacts and when they were last updated to our relationship database (RDS) so that the [Moderne workers](#moderne-worker) know where to go to obtain the artifacts they need.
-
-**Setup requirements**
-
-* None
-
-### GraphQL federation
-
-The GraphQL federation is an internal Moderne microservice that composes the GraphQL schemas of individual Moderne microservices into one GraphQL schema. All GraphQL requests pass through the federation service on their way to the individual microservice that supports a piece of the GraphQL schema.
-
-GraphQL federation uses [Netflix Eureka](https://github.com/Netflix/eureka) to locate microservice instances to communicate with and to load-balance requests to those instances.
+The indexer works with the [Connector](#moderne-connector) to scan your configured artifact sources for updates and pull LST artifacts and recipe JARs into Moderne's internal data store. These artifacts are encrypted in transit and at rest. A reader serves organization and repository data to the rest of the platform. When you run a recipe, you select an organization to run it against — this determines which repositories are included.
 
 **Setup requirements**
 
 * None
 
-### Moderne recipe execution
+### Recipe marketplace and worker
 
-You can think of the Moderne recipe execution service as a manager that helps assign work, direct people on where to go, and provide high-level information. It knows all of the recipes that can be run and it chooses which [workers](#moderne-worker) are responsible for which repositories.
+The recipe marketplace manages the catalog of available recipes, including discovery, search, and installation. Recipes can come from the public OpenRewrite marketplace, from custom recipe JARs your team publishes to your artifact repositories, or from inline YAML definitions.
 
-When a new recipe command comes in (such as run `X` recipe on `Y` repositories with `Z` options), the recipe execution service takes that command and stores all of the details in a database table that acts as a queue. Whenever a [worker](#moderne-worker) is free, it will query the database table and look for commands that haven't been started (for the repositories the worker is responsible for).
+When you run a recipe, the recipe worker picks up the request, executes the recipe against the [LSTs](./lossless-semantic-trees.md) for the target repositories, and produces a changeset of results. Workers decrypt LST and recipe artifacts by requesting a customer-provided symmetric key via the [API gateway](#moderne-api-gateway) from the [Connector](#moderne-connector). Workers discard this key at the end of every request.
 
-The recipe execution service is also responsible for providing the results of a recipe run by either calling the database to see what high-level information it has or by calling the worker directly to get the full results (diffs and data tables).
-
-**Setup requirements**
-
-* None
-
-### Moderne worker
-
-Moderne workers are responsible for running recipes and keeping their results. They interact with the [Moderne recipe execution service](#moderne-recipe-execution) to coordinate which repositories they should run recipes for before querying the database for a recipe to run. When a worker is stopped, all of the data and results from the recipes it has run are destroyed. If you need that data, you'll need to re-run the recipe again.
-
-Worker instances are scaled horizontally in direct response to more code being ingested into the platform.
-
-Workers decrypt LST and recipe artifacts by making a request to the [Moderne Connector](#moderne-connector) via the API Gateway for a customer-provided symmetric key. Workers discard this key at the end of every request.
-
-Workers fetch a user’s SCM OAuth token via the [API gateway](#moderne-api-gateway) in order to make authorization decisions about which repositories said user is allowed to read from. This ensures Moderne’s read access is aligned with a user's SCM access in real-time for every recipe run request.
+Workers also fetch a user's SCM OAuth token via the [API gateway](#moderne-api-gateway) in order to make authorization decisions about which repositories said user is allowed to read from. This ensures Moderne's read access is aligned with a user's SCM access in real-time for every recipe run request.
 
 **Setup requirements**
 
 * None
 
-### Moderne source code management
+### Changeset services
 
-The Moderne source code management service is responsible for handling all communication with your SCM(s).
+The changeset services handle everything that happens after a recipe produces results:
 
-The two primary responsibilities are:
-
-* Creating commits, branches, forks, PRs, etc. in your SCM
-* Coordinating authorization with your SCM to see what users are authorized to do or view
-
-Please note that the requests to your SCM will appear to come from the [Moderne Connector](#moderne-connector). The Moderne source code management service will talk through the [API gateway](#moderne-api-gateway) to the Connector whenever it needs to interact with your SCM.
-
-Authentication and authorization decisions are made in real-time to ensure that they are always up-to-date.
+* **Changeset reader** — reads and presents recipe run results, file-level diffs, and data tables for review in the UI
+* **Changeset committer** — commits approved changes back to your SCM, creating branches, PRs, or direct commits depending on your configuration. The committer supports all [major SCM providers](./supported-scms.md) with full PR workflows including forking, draft PRs, auto-merge, and reviewer assignment. Requests to your SCM are routed through the [API gateway](#moderne-api-gateway) and [Connector](#moderne-connector).
+* **Changeset visualizer** — generates visualizations from recipe run data tables
 
 **Setup requirements**
 
 * None
 
-### Moderne audit log
+### Authorization service
 
-The Moderne audit log retrieves audit logs from our relational database for presentation to privileged users via the [API gateway](#moderne-api-gateway).
+The authorization service manages user identity, authentication tokens, and SCM OAuth integration. It handles:
+
+* Creating and managing personal access tokens (PATs) for API access from IDEs and custom tooling
+* Coordinating OAuth flows with your SCM providers so that users can authorize Moderne to act on their behalf
+* Checking permissions for platform operations
+
+Please see our [token documentation](../../../user-documentation/moderne-platform/how-to-guides/create-api-access-tokens.md) for more information on how to create, work with, and revoke tokens. For details on the authentication model, see the [authentication reference](./authentication.md).
+
+**Setup requirements**
+
+* None
+
+### Moddy
+
+Moddy is Moderne's AI-powered assistant that helps you discover and execute recipes through conversational interaction. Moddy can search the recipe catalog, suggest transformations for your goals, and run recipes on your behalf.
+
+If your organization uses an LLM provider, the [Connector](#moderne-connector) can proxy requests to your LLM endpoint so that Moddy operates within your infrastructure's security boundaries.
+
+For more details, see the [Moddy documentation](../../../user-documentation/moddy/moddy-platform.md) and the [AI architecture reference](./ai-architecture.md).
+
+**Setup requirements**
+
+* None (LLM provider access is optional and configured via the Connector)
+
+### Audit service
+
+The audit service tracks platform events for compliance and operational visibility. Individual Moderne microservices contribute to the audit log when they perform any interaction on behalf of users.
 
 Audit logs can be retrieved via a paginated GraphQL API or via a REST call that responds in the CEF format.
 
-Individual Moderne microservices are responsible for contributing to the audit log database when they perform any interaction on behalf of users.
+For more details, see the [audit logging reference](./audit-logging.md).
 
 **Setup requirements**
 
 * None
 
-### Moderne tokens
+### Changelog
 
-The Moderne tokens service generates and retrieves access tokens tied to a particular user. Access tokens can be used to access the service via IDEs and custom tooling. Users can manage their access tokens via the [Moderne UI](#moderne-user-interface). Tokens are only visible once at creation time and are hidden from that point forward, even from the user that created them.
+The changelog service ingests commit and pull request activity from your SCM providers to provide an organizational activity feed. It collects changes via webhooks (for near-real-time updates) and periodic polling (for completeness), then presents a unified view of recent code changes across your repositories.
 
-Please see our [token documentation](../../../user-documentation/moderne-platform/how-to-guides/create-api-access-tokens.md) for more information on how to create, work with, and revoke tokens.
+**Setup requirements**
+
+* None (webhook configuration is optional but recommended for lower latency)
+
+### DevCenter
+
+The DevCenter is an organizational dashboard that aggregates recipe run results into actionable metrics. It tracks upgrade, migration, and security progress across all repositories in your organization, helping you understand where your codebase stands and what work remains.
+
+For more details, see the [DevCenter guide](../../../user-documentation/moderne-platform/getting-started/dev-center.md).
+
+**Setup requirements**
+
+* None
+
+### Moderne Trigrep
+
+Moderne Trigrep provides code search across all repositories in your organization. You can search for code patterns, function calls, imports, and other structural elements across your entire codebase without needing to clone repositories locally.
+
+For more details, see the [Moderne Trigrep documentation](../../../user-documentation/recipes/moderne-trigrep.md).
 
 **Setup requirements**
 
