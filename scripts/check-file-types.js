@@ -5,7 +5,7 @@ const path = require('path');
 const ALLOWED_EXTENSIONS = new Set([
   '.md', '.mdx', '.tsx', '.ts', '.js', '.mjs', '.css', '.json',
   '.png', '.gif', '.jpg', '.jpeg', '.svg', '.ico',
-  '.yaml', '.yml', '.toml', '.lock', '.txt',
+  '.yaml', '.yml', '.toml', '.lock', '.txt', '.excalidraw',
 ]);
 
 const ALLOWED_FILENAMES = new Set([
