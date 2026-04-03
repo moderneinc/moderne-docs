@@ -15,7 +15,8 @@ Throughout the workshop, you will see screenshot placeholders and collapsible **
 * How to find which Java and Spring Boot versions you're using
 * How to plan upgrade waves using dependency data
 * How to set a stable baseline before major upgrades
-* How to handle third-party blockers like QueryDSL
+* How to diagnose third-party blockers like QueryDSL with `mod search`
+* How to build custom recipes with AI assistance
 
 ## Prerequisites
 
@@ -36,4 +37,5 @@ You will also need:
 * [Module 2: Wave planning](./module-2-wave-planning.md) - Build LSTs, analyze dependencies, and organize upgrade waves
 * [Module 3: Establish a baseline](./module-3-establish-baseline.md) - Normalize Maven, Java, and Spring Boot versions across the portfolio
 * [Module 4: Raise baseline and smoke test](./module-4-smoke-test.md) - Raise the baseline and validate readiness
-* [Module 5: Finish migration in waves](./module-5-wave-migration.md) - Use a custom recipe to complete the migration in waves
+* [Module 5: Build the QueryDSL recipe](./module-5-build-querydsl-recipe.md) - Diagnose the blocker and build a custom recipe with AI
+* [Module 6: Finish migration in waves](./module-6-wave-migration.md) - Compose a freight-train recipe and complete the migration in waves
