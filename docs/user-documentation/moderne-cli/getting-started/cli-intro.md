@@ -46,6 +46,10 @@ curl https://app.moderne.io/cli | bash
 irm https://app.moderne.io/cli/windows | iex
 ```
 
+:::warning
+You must use PowerShell for Windows installation. Git Bash, MSYS2, and Cygwin are not supported — the `curl ... | bash` command from the Linux / macOS tab will not work correctly in these environments.
+:::
+
 </TabItem>
 </Tabs>
 
@@ -203,6 +207,10 @@ curl https://<TENANT>.moderne.io/cli | bash
 ```powershell
 irm https://<TENANT>.moderne.io/cli/windows | iex
 ```
+
+:::warning
+You must use PowerShell for Windows installation. Git Bash, MSYS2, and Cygwin are not supported — the `curl ... | bash` command from the Linux / macOS tab will not work correctly in these environments.
+:::
 
 </TabItem>
 </Tabs>
