@@ -1,16 +1,19 @@
 ---
 sidebar_label: Artifactory LST configuration
-description: How to configure the Moderne agent to retrieve LST artifacts from Artifactory.
+description: How to configure the Moderne Connector to retrieve LST artifacts from Artifactory.
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import VersionBanner from '@site/src/components/VersionBanner';
 
-# Configure an agent with Artifactory access: LSTs
+<VersionBanner version="v2" linkPath="/administrator-documentation/moderne-platform-v1/how-to-guides/agent-configuration/configure-an-agent-with-artifactory-access" />
+
+# Configure a Connector with Artifactory access: LSTs
 
 Artifactory serves as a source of LST artifacts for Moderne. This integration uses [Artifactory Query Language](https://www.jfrog.com/confluence/display/JFROG/Artifactory+Query+Language) (AQL) to identify LST artifacts that have not yet been encrypted and transmitted to Moderne in near real-time.
 
-This guide will walk you through how to configure the Moderne agent to connect to your Artifactory instance to retrieve LST artifacts.
+This guide will walk you through how to configure the Moderne Connector to connect to your Artifactory instance to retrieve LST artifacts.
 
 :::info
 If you're wanting to configure Artifactory to support recipe artifacts, please see [this guide](./configuring-artifactory-with-recipes.md) instead.
@@ -22,9 +25,9 @@ If you're wanting to configure Artifactory to support recipe artifacts, please s
   * A username and password combination, or
   * A bearer token (access token)
 
-## Configuring the Moderne agent
+## Configuring the Moderne Connector
 
-The following table contains all of the variables/arguments you need to add to your Moderne agent run command in order for it to get LST artifacts from your Artifactory instance. Please note that these variables/arguments must be combined with ones found in other steps in the [Configuring the Moderne agent guide](./agent-config.md).
+The following table contains all of the variables/arguments you need to add to your Moderne Connector run command in order for it to get LST artifacts from your Artifactory instance. Please note that these variables/arguments must be combined with ones found in other steps in the [Configuring the Moderne Connector guide](./agent-config.md).
 
 You can configure multiple Artifactory servers by including multiple entries, each with a different `{index}`. Within a given Artifactory server configuration, you can configure multiple LST query filters by including multiple entries, each with a different `{index}`.
 
@@ -40,8 +43,8 @@ You can configure multiple Artifactory servers by including multiple entries, ea
 | `MODERNE_AGENT_ARTIFACTORY_{index}_PASSWORD`                | `false`                                        |         | The password used to connect to your Artifactory instance. <br/><br/>**Note:** Only one of basic auth (username+password) or bearer token can be used.                                                                        |
 | `MODERNE_AGENT_ARTIFACTORY_{index}_BEARERTOKEN`             | `false`                                        |         | The bearer token (access token) used to connect to your Artifactory instance. <br/><br/>**Note:** Only one of basic auth (username+password) or bearer token can be used. If `bearerToken` is specified, username and password must not be provided. |
 | `MODERNE_AGENT_ARTIFACTORY_{index}_ASTQUERYFILTERS_{index}` | `true`                                         |         | The AQL query fragment used to select LST artifacts to send to Moderne. If multiple are specified, they are combined together with an `AND`.                                                                                  |
-| `MODERNE_AGENT_ARTIFACTORY_{index}_SKIPSSL`                 | `false`                                        | `false` | Specifies whether or not to skip SSL verification for HTTP connections from the agent to this Artifactory instance. This must be set to `true` if you use a self-signed SSL/TLS certificate. |
-| `MODERNE_AGENT_ARTIFACTORY_{index}_SKIPVALIDATECONNECTIVITY`| `false`                                        | `false` | By default, on agent startup, we will validate that we can connect to this Artifactory instance, and fail to start up the agent if we cannot. Set this to `true` to skip this validation. |
+| `MODERNE_AGENT_ARTIFACTORY_{index}_SKIPSSL`                 | `false`                                        | `false` | Specifies whether or not to skip SSL verification for HTTP connections from the Connector to this Artifactory instance. This must be set to `true` if you use a self-signed SSL/TLS certificate. |
+| `MODERNE_AGENT_ARTIFACTORY_{index}_SKIPVALIDATECONNECTIVITY`| `false`                                        | `false` | By default, on Connector startup, we will validate that we can connect to this Artifactory instance, and fail to start up the Connector if we cannot. Set this to `true` to skip this validation. |
 | `MODERNE_AGENT_ARTIFACTORY_{index}_PROXY_HOST`              | `false`                                        |         | The hostname of a proxy server to use for connections to this Artifactory instance. |
 | `MODERNE_AGENT_ARTIFACTORY_{index}_PROXY_PORT`              | `false`                                        |         | The port of the proxy server to use for connections to this Artifactory instance. |
 | `MODERNE_AGENT_ARTIFACTORY_{index}_CONNECTTIMEOUT`          | `false`                                        | `30s`   | Timeout for the connection to be established (and the first data received). Specified as a duration (e.g., `30s`, `1m`). |
@@ -72,8 +75,8 @@ docker run \
 | `--moderne.agent.artifactory[{index}].password`                 | `false`                                        |         | The password used to connect to your Artifactory instance. <br/><br/>**Note:** Only one of basic auth (username+password) or bearer token can be used.                                                                        |
 | `--moderne.agent.artifactory[{index}].bearerToken`              | `false`                                        |         | The bearer token (access token) used to connect to your Artifactory instance. <br/><br/>**Note:** Only one of basic auth (username+password) or bearer token can be used. If `bearerToken` is specified, username and password must not be provided. |
 | `--moderne.agent.artifactory[{index}].astQueryFilters[{index}]` | `true`                                         |         | The AQL query fragment used to select LST artifacts to send to Moderne. If multiple are specified, they are combined together with an `AND`.                                                                                  |
-| `--moderne.agent.artifactory[{index}].skipSsl`                  | `false`                                        | `false` | Specifies whether or not to skip SSL verification for HTTP connections from the agent to this Artifactory instance. This must be set to `true` if you use a self-signed SSL/TLS certificate. |
-| `--moderne.agent.artifactory[{index}].skipValidateConnectivity` | `false`                                        | `false` | By default, on agent startup, we will validate that we can connect to this Artifactory instance, and fail to start up the agent if we cannot. Set this to `true` to skip this validation. |
+| `--moderne.agent.artifactory[{index}].skipSsl`                  | `false`                                        | `false` | Specifies whether or not to skip SSL verification for HTTP connections from the Connector to this Artifactory instance. This must be set to `true` if you use a self-signed SSL/TLS certificate. |
+| `--moderne.agent.artifactory[{index}].skipValidateConnectivity` | `false`                                        | `false` | By default, on Connector startup, we will validate that we can connect to this Artifactory instance, and fail to start up the Connector if we cannot. Set this to `true` to skip this validation. |
 | `--moderne.agent.artifactory[{index}].proxy.host`               | `false`                                        |         | The hostname of a proxy server to use for connections to this Artifactory instance. |
 | `--moderne.agent.artifactory[{index}].proxy.port`               | `false`                                        |         | The port of the proxy server to use for connections to this Artifactory instance. |
 | `--moderne.agent.artifactory[{index}].connectTimeout`           | `false`                                        | `30s`   | Timeout for the connection to be established (and the first data received). Specified as a duration (e.g., `30s`, `1m`). |

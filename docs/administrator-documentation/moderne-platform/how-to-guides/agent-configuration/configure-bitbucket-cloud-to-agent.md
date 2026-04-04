@@ -1,19 +1,22 @@
 ---
 sidebar_label: Bitbucket Cloud configuration
-description: How to configure the Moderne agent to communicate with Bitbucket Cloud.
+description: How to configure the Moderne Connector to communicate with Bitbucket Cloud.
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import VersionBanner from '@site/src/components/VersionBanner';
 
-# Configure an agent with Bitbucket Cloud access
+<VersionBanner version="v2" linkPath="/administrator-documentation/moderne-platform-v1/how-to-guides/agent-configuration/configure-bitbucket-cloud-to-agent" />
 
-In order to view recipe results and commit changes from a recipe back to Bitbucket, you'll need to create an application link in Bitbucket and configure the Moderne agent with the appropriate variables.
+# Configure a Connector with Bitbucket Cloud access
+
+In order to view recipe results and commit changes from a recipe back to Bitbucket, you'll need to create an application link in Bitbucket and configure the Moderne Connector with the appropriate variables.
 
 To assist with that, this guide will:
 
-* [Walk you through how to configure your Bitbucket Cloud instance to support the agent](#step-1-create-a-bitbucket-oauth-consumer)
-* [Provide you with a list of necessary variables the agent needs to communicate with your Bitbucket instance](#step-2-configure-the-moderne-agent)
+* [Walk you through how to configure your Bitbucket Cloud instance to support the Connector](#step-1-create-a-bitbucket-oauth-consumer)
+* [Provide you with a list of necessary variables the Connector needs to communicate with your Bitbucket instance](#step-2-configure-the-moderne-connector)
 
 ## Prerequisites
 
@@ -108,13 +111,13 @@ Once your consumer has been created, you should see a `key` and a `secret`:
   <figcaption></figcaption>
 </figure>
 
-Please save those for use in [Step 2](#step-2-configure-the-moderne-agent).
+Please save those for use in [Step 2](#step-2-configure-the-moderne-connector).
 
-## Agent configuration
+## Connector configuration
 
-### Step 2: Configure the Moderne agent
+### Step 2: Configure the Moderne Connector
 
-The following table contains all of the variables/arguments you need to add to your Moderne agent run command in order for it to work with your Bitbucket instance. Please note that these variables/arguments must be combined with ones found in other steps in the [Configuring the Moderne agent guide](./agent-config.md).
+The following table contains all of the variables/arguments you need to add to your Moderne Connector run command in order for it to work with your Bitbucket instance. Please note that these variables/arguments must be combined with ones found in other steps in the [Configuring the Moderne Connector guide](./agent-config.md).
 
 <Tabs>
 <TabItem value="oci-container" label="OCI Container">

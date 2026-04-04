@@ -3,6 +3,10 @@ sidebar_label: Enhancing code quality
 description: How to find and fix static analysis and stylistic issues in your code.
 ---
 
+import VersionBanner from '@site/src/components/VersionBanner';
+
+<VersionBanner version="v2" linkPath="/user-documentation/moderne-platform-v1/getting-started/code-quality" />
+
 # Enhancing code quality through static analysis remediations
 
 Every programming language has a vast number of conventions and rules that make up "ideal" code. While some of these conventions are stylistic, others can help prevent significant bugs like a `NullPointerException`. Unfortunately, even for the most experienced developers, it's extremely difficult to keep track of these rules and follow them diligently in code. And, even if they do, trying to ensure that other developers follow those same conventions can be like parents trying to tell their kids to clean up their rooms.

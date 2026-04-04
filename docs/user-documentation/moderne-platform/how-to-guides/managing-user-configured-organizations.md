@@ -3,6 +3,10 @@ sidebar_label: Managing user-configured organizations
 description: How to create custom organizations to run recipes against so you get more relevant results.
 ---
 
+import VersionBanner from '@site/src/components/VersionBanner';
+
+<VersionBanner version="v2" linkPath="/user-documentation/moderne-platform-v1/how-to-guides/managing-user-configured-organizations" />
+
 # Managing user-configured organizations
 
 When running recipes in Moderne, it's a good idea to filter them to run on a selection of repositories you care about so that you get relevant results more quickly. In filtering these recipes, many people have found that they wanted to create multiple user-configured organizations of repositories that they can easily switch between. Both of these issues can be solved by using user-configured organizations.

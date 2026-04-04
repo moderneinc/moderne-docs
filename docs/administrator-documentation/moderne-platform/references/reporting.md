@@ -3,6 +3,10 @@ sidebar_label: Reporting
 description: Instructions for downloading reports.
 ---
 
+import VersionBanner from '@site/src/components/VersionBanner';
+
+<VersionBanner version="v2" linkPath="/administrator-documentation/moderne-platform-v1/references/reporting" />
+
 # Reporting
 
 ## Overview

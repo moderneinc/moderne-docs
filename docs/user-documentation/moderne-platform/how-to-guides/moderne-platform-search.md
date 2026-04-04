@@ -3,6 +3,10 @@ sidebar_label: Moderne Recipe catalog search
 description: A comprehensive guide on how to effectively find recipes in the Moderne Platform.
 ---
 
+import VersionBanner from '@site/src/components/VersionBanner';
+
+<VersionBanner version="v2" linkPath="/user-documentation/moderne-platform-v1/how-to-guides/moderne-platform-search" />
+
 # Moderne Recipe catalog search
 
 The Moderne Platform provides a powerful unified search experience that combines natural language with precise field-based searching. This allows you to quickly find or discover recipes that are important to you.

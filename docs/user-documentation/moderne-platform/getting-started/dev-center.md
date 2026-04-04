@@ -4,6 +4,9 @@ description: Explains where to find a DevCenter and what all of the components o
 ---
 
 import ReactPlayer from '@site/src/components/VideoPlayer';
+import VersionBanner from '@site/src/components/VersionBanner';
+
+<VersionBanner version="v2" linkPath="/user-documentation/moderne-platform-v1/getting-started/dev-center" />
 
 # Getting started with the Moderne DevCenter
 

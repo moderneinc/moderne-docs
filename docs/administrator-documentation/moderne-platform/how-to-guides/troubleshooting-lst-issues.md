@@ -3,6 +3,10 @@ sidebar_label: Troubleshooting LST issues
 description: How to troubleshoot common issues with LSTs in the platform.
 ---
 
+import VersionBanner from '@site/src/components/VersionBanner';
+
+<VersionBanner version="v2" linkPath="/administrator-documentation/moderne-platform-v1/how-to-guides/troubleshooting-lst-issues" />
+
 # Troubleshooting LST issues
 
 This guide will help you diagnose and resolve common issues with Lossless Semantic Trees (LSTs) in the Moderne platform.
@@ -39,7 +43,7 @@ If your company **does not** provide an organizational hierarchy to Moderne, the
 
 #### To fix:
 
-Check your VCS URL in your Agent configuration. For example, if this is a GitHub repo, check that `MODERNE_AGENT_GITHUB_0_URL` is `https://github.com` (or the base URL of your on-prem GitHub instance).
+Check your VCS URL in your Connector configuration. For example, if this is a GitHub repo, check that `MODERNE_AGENT_GITHUB_0_URL` is `https://github.com` (or the base URL of your on-prem GitHub instance).
 
 If your VCS is Bitbucket Server or Bitbucket Data Center, and you use a non-standard SSH port or a different URL, make sure that you have an alternate URL defined via `MODERNE_AGENT_BITBUCKET_0_ALTERNATEURLS_0`.
 
@@ -53,7 +57,7 @@ Use the [Lost and Found GraphQL query](#using-the-lost-and-found-query) to check
 
 * **If found**: Your repository exists but has issues that prevent it from being usable. This could be due to:
   - Missing from organizational hierarchy (doesn't match the `origin`, `path`, or `branch` defined in your organizational hierarchy)
-  - SCM configuration mismatch (orphaned repository with no connected agent)
+  - SCM configuration mismatch (orphaned repository with no connected Connector)
   - [See the fix below](#to-fix-1).
 * **If not found**: Proceed to [check for an `origin` mismatch](#check-for-an-origin-mismatch) (the next section). 
 
@@ -83,7 +87,7 @@ Update your `repos.csv` file to ensure the `origin`, `path`, and `branch` values
 
 #### To fix:
 
-Check your VCS URL in your Agent configuration. For example, if this is a GitHub repo, check that `MODERNE_AGENT_GITHUB_0_URL` is `https://github.com` (or the base URL of your on-prem GitHub instance).
+Check your VCS URL in your Connector configuration. For example, if this is a GitHub repo, check that `MODERNE_AGENT_GITHUB_0_URL` is `https://github.com` (or the base URL of your on-prem GitHub instance).
 
 If your VCS is Bitbucket Server or Bitbucket Data Center, and you use a non-standard SSH port or a different URL, make sure that you have an alternate URL defined via `MODERNE_AGENT_BITBUCKET_0_ALTERNATEURLS_0`.
 

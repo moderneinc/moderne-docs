@@ -1,16 +1,18 @@
 ---
+sidebar_label: "Quickstart: Using the Moderne Platform"
 description: A brief introduction to the Moderne platform and what it can do for you.
 ---
 
 import ReactPlayer from '@site/src/components/VideoPlayer';
+import VersionBanner from '@site/src/components/VersionBanner';
+
+<VersionBanner version="v2" linkPath="/user-documentation/moderne-platform-v1/getting-started/running-your-first-recipe" />
 
 # Quickstart: Using the Moderne Platform
 
-To help you understand the power of Moderne, let's walk through applying one of our core recipes ([common static analysis](https://docs.openrewrite.org/recipes/staticanalysis/commonstaticanalysis)) to some open-source projects that we have imported into Moderne. This recipe will fix a significant amount of static analysis issues while also ensuring that your code continues to function as expected. 
+To help you understand the power of Moderne, let's walk through applying one of our core recipes ([common static analysis](../../../user-documentation/recipes/recipe-catalog/staticanalysis/commonstaticanalysis.md)) to some open-source projects that we have imported into Moderne. This recipe will fix a significant amount of static analysis issues while also ensuring that your code continues to function as expected. 
 
 By the end of this quickstart guide, you'll understand how to run recipes against any repository in Moderne.
-
-<ReactPlayer className="reactPlayer" url='https://vimeo.com/1120235061' controls={true} />
 
 ## Step 1: Sign in to the Moderne Platform
 

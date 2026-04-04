@@ -3,6 +3,10 @@ sidebar_label: Tracking migrations
 description: How to track migration status with Moderne using data tables and visualizations.
 ---
 
+import VersionBanner from '@site/src/components/VersionBanner';
+
+<VersionBanner version="v2" linkPath="/user-documentation/moderne-platform-v1/how-to-guides/track-migrations" />
+
 # How to track migration status with Moderne
 
 Dependencies are constantly getting updated with new versions. It can be difficult to ensure one repository is up-to-date – let alone hundreds or thousands of them. While some recipes can help with migrations, it's unrealistic to expect that all repositories will be updated at the same time. In those instances, it's nice to track which versions each repository is using and how they differ from one another.

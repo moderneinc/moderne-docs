@@ -5,6 +5,9 @@ description: How to use the Moderne API to execute recipes and commit those resu
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import VersionBanner from '@site/src/components/VersionBanner';
+
+<VersionBanner version="v2" linkPath="/user-documentation/moderne-platform-v1/how-to-guides/recipe-execution-and-commits-with-graphql" />
 
 # Recipe execution and commits with the Moderne API
 

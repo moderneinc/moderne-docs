@@ -1,13 +1,16 @@
 ---
 sidebar_label: HTTP tool configuration
-description: How to configure the Moderne agent with generic HTTP tools so they can be used in recipes.
+description: How to configure the Moderne Connector with generic HTTP tools so they can be used in recipes.
 ---
 
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import VersionBanner from '@site/src/components/VersionBanner';
 
-# Configure an agent with generic HTTP tools for use in recipes
+<VersionBanner version="v2" linkPath="/administrator-documentation/moderne-platform-v1/how-to-guides/agent-configuration/configure-an-agent-with-generic-http-tools-for-use-in-recipes" />
+
+# Configure a Connector with generic HTTP tools for use in recipes
 
 You have internal services within your enterprise that you may want to use within your recipes. Some possible examples follow:
 
@@ -18,13 +21,13 @@ You have internal services within your enterprise that you may want to use withi
 Setting up a generic HTTP tool will allow you to use `org.openrewrite.ipc.http.HttpSender` from your internal recipes to call tools inside your environment. [Example usage of HttpSender](https://github.com/openrewrite/rewrite-generative-ai/blob/357d5f39f22cf47f4d5df417c1ddb6c883dd5c24/src/main/java/org/openrewrite/ai/model/GenerativeCodeEditor.java#L48-L57). It also enables the use of `org.openrewrite.nodejs.NpmExecutor` in NodeJS recipes allowing the platform to proxy HTTP requests made during npm installs to the registry within your environment. [Example usage of NpmExecutor](https://gist.github.com/mike-solomon/4b105f388395ecfe2b005b02680215c8).
 
 <figure>
-  ![Diagram showing Moderne Worker sending HTTP tool requests through the API Gateway to the Agent, which forwards them to an internal HTTP tool](./assets/http-tool.png)
+  ![Diagram showing Moderne Worker sending HTTP tool requests through the API Gateway to the Connector, which forwards them to an internal HTTP tool](./assets/http-tool.png)
   <figcaption></figcaption>
 </figure>
 
-## Agent configuration
+## Connector configuration
 
-The following table contains all the variables/arguments you need to add to your Moderne agent run command to work with your HTTP tool. Please note that these variables/arguments must be combined with ones found in other steps in the [Configuring the Moderne agent guide](./agent-config.md).
+The following table contains all the variables/arguments you need to add to your Moderne Connector run command to work with your HTTP tool. Please note that these variables/arguments must be combined with ones found in other steps in the [Configuring the Moderne Connector guide](./agent-config.md).
 
 You can configure multiple generic HTTP tools by including multiple entries, each with a different `{index}`.
 
@@ -40,7 +43,7 @@ You can configure multiple generic HTTP tools by including multiple entries, eac
 | `MODERNE_AGENT_HTTPTOOL_{index}_PASSWORD`                 | `false`  |         | Password used to authenticate to HTTP tool. <br/><br/>**Note:** Only one of basic auth (username+password) and bearer token can be used. If username and password are specified, `bearerToken` must not be provided.    |
 | `MODERNE_AGENT_HTTPTOOL_{index}_BEARERTOKEN`              | `false`  |         | Bearer token used to authenticate to HTTP tool. <br/><br/>**Note:** Only one of basic auth (username+password) and bearer token can be used. If `bearerToken` is specified, username and password must not be provided. |
 | `MODERNE_AGENT_HTTPTOOL_{index}_SKIPSSL`                  | `false`  | `false` | Specifies whether or not to skip SSL validation for HTTP connections to this HTTP tool. This must be set to `true` if you use a self-signed SSL/TLS certificate.                                                        |
-| `MODERNE_AGENT_HTTPTOOL_{index}_SKIPVALIDATECONNECTIVITY` | `false`  | `false` | By default, on agent startup, we will validate that we can connect to this HTTP tool, and fail to start up the agent if we cannot. Set this to `true` to skip this validation. |
+| `MODERNE_AGENT_HTTPTOOL_{index}_SKIPVALIDATECONNECTIVITY` | `false`  | `false` | By default, on Connector startup, we will validate that we can connect to this HTTP tool, and fail to start up the Connector if we cannot. Set this to `true` to skip this validation. |
 | `MODERNE_AGENT_HTTPTOOL_{index}_PROXY_HOST`               | `false`  |         | The hostname of a proxy server to use for connections to this HTTP tool. |
 | `MODERNE_AGENT_HTTPTOOL_{index}_PROXY_PORT`               | `false`  |         | The port of the proxy server to use for connections to this HTTP tool. |
 | `MODERNE_AGENT_HTTPTOOL_{index}_CONNECTTIMEOUT`           | `false`  | `30s`   | Timeout for the connection to be established (and the first data received). Specified as a duration (e.g., `30s`, `1m`). |
@@ -69,7 +72,7 @@ docker run \
 | `--moderne.agent.httpTool[{index}].password`                 | `false`  |         | Password used to authenticate to HTTP tool. <br/><br/>**Note:** Only one of basic auth (username+password) and bearer token can be used. If username and password are specified, `bearerToken` must not be provided.    |
 | `--moderne.agent.httpTool[{index}].bearerToken`              | `false`  |         | Bearer token used to authenticate to HTTP tool. <br/><br/>**Note:** Only one of basic auth (username+password) and bearer token can be used. If `bearerToken` is specified, username and password must not be provided. |
 | `--moderne.agent.httpTool[{index}].skipSsl`                  | `false`  | `false` | Specifies whether or not to skip SSL validation for HTTP connections to this HTTP tool. This must be set to `true` if you use a self-signed SSL/TLS certificate.                                                        |
-| `--moderne.agent.httpTool[{index}].skipValidateConnectivity` | `false`  | `false` | By default, on agent startup, we will validate that we can connect to this HTTP tool, and fail to start up the agent if we cannot. Set this to `true` to skip this validation. |
+| `--moderne.agent.httpTool[{index}].skipValidateConnectivity` | `false`  | `false` | By default, on Connector startup, we will validate that we can connect to this HTTP tool, and fail to start up the Connector if we cannot. Set this to `true` to skip this validation. |
 | `--moderne.agent.httpTool[{index}].proxy.host`               | `false`  |         | The hostname of a proxy server to use for connections to this HTTP tool. |
 | `--moderne.agent.httpTool[{index}].proxy.port`               | `false`  |         | The port of the proxy server to use for connections to this HTTP tool. |
 | `--moderne.agent.httpTool[{index}].connectTimeout`           | `false`  | `30s`   | Timeout for the connection to be established (and the first data received). Specified as a duration (e.g., `30s`, `1m`). |

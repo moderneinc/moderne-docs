@@ -3,6 +3,10 @@ sidebar_label: User roles
 description: Outlines what permissions different types of users have in the Moderne Platform.
 ---
 
+import VersionBanner from '@site/src/components/VersionBanner';
+
+<VersionBanner version="v2" linkPath="/administrator-documentation/moderne-platform-v1/references/user-roles" />
+
 # User roles
 
 | Action                                            |       Everyone                    |    Administrators     |
