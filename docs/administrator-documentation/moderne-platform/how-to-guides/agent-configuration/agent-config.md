@@ -792,14 +792,61 @@ To use the dashboard:
 
 For high availability and increased throughput, you can run multiple Moderne agent instances concurrently.
 
-**Key requirements for multi-instance deployment:**
+### Sizing guidance
+
+The number of agents you need depends on the number of repositories, the performance of your artifact repositories, and how heavily users run recipes.
+
+As a starting point, consider **one agent per 20,000 repositories**. For example, a deployment with 40,000 repositories and daily LST refreshes would typically use 2–3 agents. A deployment with 100,000 repositories might use 5–6.
+
+**Per-agent resource recommendations:**
+
+* CPU: 2–4 cores
+* Memory: 4–8 GB heap
+* Disk: minimal — agents stream artifacts rather than storing them
+* Network: low-latency connectivity to your artifact repositories and SCM
+
+**Signs you need more agents:**
+
+* LST sync jobs take significantly longer than expected
+* LST artifacts are unavailable or stale because agents cannot keep up with syncing
+* Agent health checks show degraded performance in the Grafana dashboard
+
+These are rough guidelines — monitor agent resource usage and adjust based on your workload.
+
+### Traffic routing
+
+When multiple agents are running, the platform distributes work based on each agent's configuration:
+
+* If two agents are configured with different artifact repositories, each agent handles requests for its own repository.
+* If two agents share the same configuration, requests are distributed across them in a round-robin fashion.
+* The more services an agent is configured with (SCMs, artifact repositories), the more traffic it handles.
+
+This means you can split agents by responsibility — for example, dedicating some agents to artifact repository traffic and others to SCM operations. See [routing requests to agents](../../references/routing-requests-to-agents.md) for a detailed explanation.
+
+:::note
+Building and publishing LSTs is handled by separate containers ([mass ingest](../mass-ingest.md)), not by agents. Recipe execution also does not involve agents — recipes run on Moderne workers in the SaaS environment. Agents pull published LSTs into the platform and handle operations like resolving dependencies and performing SCM operations such as creating branches and commits.
+:::
+
+### Deployment environment
+
+**Virtual machines (recommended):** Static VMs provide the most predictable performance for agents. Agents maintain persistent RSocket connections to the Moderne API Gateway, and VM deployments avoid connection disruption from pod rescheduling.
+
+**Kubernetes:** Agents can run on Kubernetes, but consider the following:
+
+* Use `Recreate` deployment strategy rather than `RollingUpdate` to avoid duplicate agent registrations during deployments. This causes brief downtime during deploys, but the platform handles agent unavailability gracefully.
+* Set resource requests equal to limits (guaranteed QoS class) to prevent CPU throttling during artifact transfers
+* Configure liveness and readiness probes using the agent's actuator endpoints (`/actuator/health/liveness` and `/actuator/health/readiness`)
+* Avoid horizontal pod autoscaling — agents maintain long-lived RSocket connections, and scaling events disrupt them
+
+### Requirements for multi-instance deployment
 
 * Each agent instance must have a unique `MODERNE_AGENT_NICKNAME`
 * Each instance requires its own port mapping (e.g., 8080, 8081, 8082)
 * All instances should use the same `MODERNE_AGENT_CRYPTO_SYMMETRICKEY`
 * All instances should connect to the same `MODERNE_AGENT_APIGATEWAYRSOCKETURI`
+* If multiple agents configure the same tool (e.g., the same GitHub URL), those configurations must be identical — same OAuth client ID/secret, same credentials. Because requests are shuffled across matching agents, a multi-step flow like OAuth authentication can span multiple agents. If the credentials differ between agents, the flow will fail.
 
-**Example multi-instance deployment:**
+### Example multi-instance deployment
 
 <Tabs groupId="agent-type">
 <TabItem value="oci-container" label="OCI Container">
@@ -857,7 +904,7 @@ Multiple agent instances will automatically distribute the workload and provide 
 
 * **Invalid API endpoint:** Verify the `MODERNE_AGENT_APIGATEWAYRSOCKETURI` matches the URI provided by Moderne
 * **Invalid authentication token:** Confirm the `MODERNE_AGENT_TOKEN` is correct and has not expired
-* **Network connectivity:** Ensure the agent can reach the Moderne API endpoint (check firewalls, proxies, and outbound HTTPS access)
+* **Network connectivity:** Ensure the agent can reach the Moderne API endpoint (check firewalls, proxies, and outbound HTTPS access). If the agent connects through an HTTP proxy or reverse proxy, see [HTTP proxy configuration](./configure-an-agent-to-connect-to-moderne-via-an-http-proxy.md).
 * **SSL/TLS issues:** If using custom certificates, verify they are properly configured in the Java truststore
 
 ### DNS resolution failures in Podman containers
