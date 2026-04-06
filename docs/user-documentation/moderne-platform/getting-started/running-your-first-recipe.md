@@ -53,16 +53,12 @@ It's also possible to [create your own organization](../how-to-guides/managing-u
 
 ## Step 4: Select the recipe to run
 
-There are over 5000 recipes available in the Moderne Platform. While you are welcome to try out any of them, let's start by running the common static analysis recipe. To do so, click on the search bar in the marketplace and type `common static`. Then click on the first recipe that appears:
+There are over 7000 recipes available in the Moderne Platform. While you are welcome to try out any of them, let's start by running the common static analysis recipe. To do so, click on the search bar in the marketplace and type `common static`. Then click on the first recipe that appears:
 
 <figure style={{maxWidth: '800px', margin: '0 auto'}}>
   ![Animated demo of searching for the common static analysis recipe](./assets/RecipeSearch.gif)
   <figcaption>_Finding the common static analysis recipe._</figcaption>
 </figure>
-
-:::tip
-If you want to get more information about the recipe before running it, click on the `See details` link. That will take you to a page that lists out all of the recipes that will be run as part of the common static analysis recipe.
-:::
 
 ## Step 5: Run the recipe
 
@@ -103,7 +99,7 @@ Depending on what organization you ran the recipe against, you may not have acce
 
 In the results view, select the repositories you want to commit, and then click on the _Commit selected results_ button:
 
-<figure style={{maxWidth: '700px', margin: '0 auto'}}>
+<figure style={{maxWidth: '500px', margin: '0 auto'}}>
   ![Recipe results list with repositories selected and Commit selected results button](./assets/commit-selected-results.png)
   <figcaption>_Selecting what repositories we want to commit the changes to._</figcaption>
 </figure>

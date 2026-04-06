@@ -27,7 +27,7 @@ Moderne's [common static analysis recipe](https://app.moderne.io/recipes/org.ope
 To get to this recipe:
 
 * Ensure that you are at the [recipe marketplace](https://app.moderne.io/marketplace).
-* Type in `common static` into the search bar and select the first recipe. Then press `See details` to be taken to the [CommonStaticAnalysis recipe page](https://app.moderne.io/recipes/org.openrewrite.staticanalysis.CommonStaticAnalysis):
+* Type in `common static` into the search bar and select the first recipe. You'll be taken to the [CommonStaticAnalysis recipe page](https://app.moderne.io/recipes/org.openrewrite.staticanalysis.CommonStaticAnalysis):
 
 <figure>
   ![Searching for "common static" in the marketplace and selecting the CommonStaticAnalysis recipe](./assets/RecipeSearch.gif)

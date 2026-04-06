@@ -22,9 +22,15 @@ From the left-hand navigation bar, click on `Activity`:
 
 <figure>
   ![Left navigation bar with the Activity link highlighted](./assets/activity-link.png)
+  <figcaption></figcaption>
 </figure>
 
 That will take you to the [activity view](https://app.moderne.io/recent-activity) for the **organization you have selected**.
+
+<figure>
+  ![Activity view](./assets/activity-view.png)
+  <figcaption></figcaption>
+</figure>
 
 :::info
 If your organizations are hierarchical (meaning that one organization contains 1 or more sub-organizations), you will see all of the repositories in both the selected organization and its sub-organizations.
@@ -32,23 +38,23 @@ If your organizations are hierarchical (meaning that one organization contains 1
 
 ## Parts of the activity view
 
-### Highlight recipes, commits, or visualizations
-
-In the top-left hand corner of the activity view, there are three circles you can click on. The first circle represents recipes, the second circle represents commits, and the last represents visualizations. You can click on the circles to highlight the rows that match your selection:
-
-![Clicking filter circles to highlight recipe runs, commits, and visualizations in the activity view](./assets/highlight-activity.gif)
-
 ### Navigate to the recipe, commit, or visualization
 
 If you want to get more information about a recipe, commit, or a visualization, you can click on the activity name. That will redirect you to the specific recipe run, commit, or visualization, so you can see the results for yourself:
 
-![Clicking an activity name to navigate to the recipe run details page](./assets/activity-name-link.gif)
+<figure>
+  ![Clicking an activity name to navigate to the recipe run details page](./assets/activity-name-link.gif)
+  <figcaption></figcaption>
+</figure>
 
 ### Recipe information
 
-If you want to see what recipe was run, get a link to said recipe, or see what options the recipe was run with, you can mouse over the information icon. A modal will pop up with more details and a link will be provided for you to navigate to the recipe:
+If you want to see what recipe was run, get a link to said recipe, or see what options the recipe was run with, you can click on the information icon. A modal will pop up with more details about the recipe along with a link to the recipe itself:
 
-![Hovering over the info icon to reveal recipe details and a link to the recipe](./assets/activity-info.gif)
+<figure>
+  ![Hovering over the info icon to reveal recipe details and a link to the recipe](./assets/activity-info.gif)
+  <figcaption></figcaption>
+</figure>
 
 ### More detailed time tracking
 
