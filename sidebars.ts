@@ -43,6 +43,7 @@ const platform = {
           'user-documentation/moderne-platform/getting-started/data-tables',
           'user-documentation/moderne-platform/getting-started/visualizations',
           'user-documentation/moderne-platform/getting-started/dev-center',
+          'user-documentation/moderne-platform/getting-started/changelog',
           'user-documentation/moderne-platform/getting-started/prethink',
           'user-documentation/moderne-platform/getting-started/activity-view',
           'user-documentation/moderne-platform/getting-started/code-mods',
