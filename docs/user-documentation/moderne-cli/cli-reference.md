@@ -144,6 +144,11 @@ description: Auto-generated documentation for all Moderne CLI commands.
 * [**mod config features lst**](#mod-config-features-lst)
 * [**mod config features no-maven-central**](#mod-config-features-no-maven-central)
 * [**mod config features search**](#mod-config-features-search)
+* [**mod config go**](#mod-config-go)
+* [**mod config go installation**](#mod-config-go-installation)
+* [**mod config go installation edit**](#mod-config-go-installation-edit)
+* [**mod config go installation delete**](#mod-config-go-installation-delete)
+* [**mod config go installation list**](#mod-config-go-installation-list)
 * [**mod config http**](#mod-config-http)
 * [**mod config http proxy**](#mod-config-http-proxy)
 * [**mod config http proxy delete**](#mod-config-http-proxy-delete)
@@ -254,6 +259,9 @@ description: Auto-generated documentation for all Moderne CLI commands.
 * [**mod config recipes export csv**](#mod-config-recipes-export-csv)
 * [**mod config recipes import**](#mod-config-recipes-import)
 * [**mod config recipes import csv**](#mod-config-recipes-import-csv)
+* [**mod config recipes go**](#mod-config-recipes-go)
+* [**mod config recipes go install**](#mod-config-recipes-go-install)
+* [**mod config recipes go delete**](#mod-config-recipes-go-delete)
 * [**mod config recipes jar**](#mod-config-recipes-jar)
 * [**mod config recipes jar install**](#mod-config-recipes-jar-install)
 * [**mod config recipes jar delete**](#mod-config-recipes-jar-delete)
@@ -706,6 +714,7 @@ mod config moderne edit --api <tenant-api-gateway> --token <token>
 * `dotnet`: Configures DotNet options used for building LSTs and running recipes.
 * `environment`: The build environment that the CLI is running in.
 * `features`: Configures experimental features.
+* `go`: Configures Go options used for building LSTs and running recipes.
 * `http`: Configures HTTP options that will be used throughout the CLI.
 * `java`: Configures Java options used for building LSTs and running recipes.
 * `license`: Configure a license key.
@@ -3242,6 +3251,96 @@ mod config features search
 | `--enabled` |  |
 
 
+## mod config go
+
+Configures Go options used for building LSTs and running recipes.
+
+
+Must be configured before you can run the commands that involve non-standard Go configurations.
+
+### Usage
+
+```
+mod config go [subcommands]
+```
+
+
+### Subcommands
+
+* `installation`: Configures locations of Go that can be used by build tools.
+
+## mod config go installation
+
+Configures locations of Go that can be used by build tools.
+
+
+Must be configured before you can run the build command if Go is installed in non-standard locations.
+
+### Usage
+
+```
+mod config go installation [subcommands]
+```
+
+
+### Subcommands
+
+* `edit`: Configures locations of Go that can be used by build tools.
+* `delete`: Removes the configured Go installations. The CLI will revert to using only detectable Go installations.
+* `list`: Displays the detected and configured Go installations in the order in which they will be selected.
+
+## mod config go installation edit
+
+Configures locations of Go that can be used by build tools.
+
+
+Must be configured before you can run the build command if Go is installed in non-standard locations.
+
+### Usage
+
+```
+mod config go installation edit [parameters]
+```
+
+### Parameters
+
+| Name | Description |
+| ---- | ----------- |
+| `goInstallations` |  The paths on disk where Go installations can be found. |
+
+
+
+## mod config go installation delete
+
+Removes the configured Go installations. The CLI will revert to using only detectable Go installations.
+
+
+### Usage
+
+```
+mod config go installation delete
+```
+
+
+
+## mod config go installation list
+
+Displays the detected and configured Go installations in the order in which they will be selected.
+
+
+### Usage
+
+```
+mod config go installation list
+```
+
+### Options
+
+| Name | Description |
+| ---- | ----------- |
+| `--named` |  Filter the list of Go installations. |
+
+
 ## mod config http
 
 Configures HTTP options that will be used throughout the CLI.
@@ -5104,6 +5203,7 @@ mod config recipes moderne sync
 * `artifacts`: Configures artifact repositories to resolve recipes from.
 * `export`: Export the recipe catalog for study by different tools.
 * `import`: Import recipes into the marketplace from different formats.
+* `go`: Adds or updates a Go module that contains recipes that should be added to the recipe marketplace in the CLI.
 * `jar`: Adds or updates an artifact that contains recipes that should be added to the recipe marketplace in the CLI.
 * `npm`: Adds or updates an npm package that contain recipes that should be added to the recipe marketplace in the CLI.
 * `nuget`: Adds or updates a NuGet package that contains recipes that should be added to the recipe marketplace in the CLI.
@@ -5590,6 +5690,79 @@ mod config recipes import csv [parameters]
 | Name | Description |
 | ---- | ----------- |
 | `input` |  The path to the CSV file to import. |
+
+
+
+## mod config recipes go
+
+Adds or updates a Go module that contains recipes that should be added to the recipe marketplace in the CLI.
+
+
+Allows installing and deleting recipes from Go modules.
+
+### Usage
+
+```
+mod config recipes go [subcommands]
+```
+
+
+### Subcommands
+
+* `install`: Adds or updates a Go module that contains recipes that should be added to the recipe marketplace in the CLI.
+* `delete`: Removes a Go module supplying recipes from the marketplace.
+
+## mod config recipes go install
+
+Adds or updates a Go module that contains recipes that should be added to the recipe marketplace in the CLI.
+
+
+The recipes defined by this Go module will then be available to run.
+
+### Usage
+
+```
+mod config recipes go install [parameters]
+```
+
+### Examples
+
+```
+mod config recipes go install github.com/openrewrite/rewrite-go-recipes@v1.0.0
+```
+
+### Parameters
+
+| Name | Description |
+| ---- | ----------- |
+| `MODULE[@VERSION]` |  The Go module path with an optional version in the format module@version, where @version is optional. |
+
+
+
+## mod config recipes go delete
+
+Removes a Go module supplying recipes from the marketplace.
+
+
+The recipes defined by this Go module will then no longer be available to run.
+
+### Usage
+
+```
+mod config recipes go delete [parameters]
+```
+
+### Examples
+
+```
+mod config recipes go delete github.com/openrewrite/rewrite-go-recipes
+```
+
+### Parameters
+
+| Name | Description | Example |
+| ---- | ----------- | ---------- |
+| `modulePath` |  A Go module path. | `github.com/openrewrite/rewrite-go-recipes` |
 
 
 
@@ -7738,7 +7911,10 @@ mod wrapper
 | ---- | ----------- |
 | `--auto-update` |  Set version to RELEASE (track latest stable release from Maven Central). |
 | `--auto-update-snapshot` |  Set version to LATEST (track latest snapshot from Maven Central Snapshots). |
+| `--distribution-password` |  Password for authenticated distribution downloads (stored in plaintext in moderne/wrapper/moderne-wrapper.properties, or ~/.moderne/cli/dist/moderne-wrapper.properties with --global). |
+| `--distribution-token` |  Bearer token for authenticated distribution downloads (stored in plaintext in moderne/wrapper/moderne-wrapper.properties, or ~/.moderne/cli/dist/moderne-wrapper.properties with --global). |
 | `--distribution-url` |  Custom URL template for downloading the CLI distribution. Supports null and null placeholders. |
+| `--distribution-username` |  Username for authenticated distribution downloads (stored in moderne/wrapper/moderne-wrapper.properties, or ~/.moderne/cli/dist/moderne-wrapper.properties with --global). |
 | `--global` |  Configure the global CLI installation instead of creating a project-local wrapper. |
 | `--version` |  CLI version to pin in the wrapper properties. Defaults to the currently-running CLI version. |
 
