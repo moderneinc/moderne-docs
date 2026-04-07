@@ -19,11 +19,6 @@ To help you get started with user-configured organizations, in this guide you wi
 
 ## How to create a user-configured organization
 
-<figure style={{maxWidth: '800px'}}>
-  ![Animated demo of creating a new user-configured organization](./assets/CreateUserOrg.gif)
-  <figcaption>_A gif showing the whole process described below._</figcaption>
-</figure>
-
 1. In the top nav bar, you will see an organization selector:
 
 <figure style={{maxWidth: '800px'}}>
@@ -72,7 +67,7 @@ To help you get started with user-configured organizations, in this guide you wi
   <figcaption></figcaption>
 </figure>
 
-3. To modify a user-configured organization, click on the triple dots next to the organization you want to modify and then select `Update organization`:
+3. To modify a user-configured organization, mouse over the org and select the pencil icon:
 
 <figure>
   ![Context menu with Update, Copy, Delete, and Export organization options](./assets/update-org.png)
@@ -81,11 +76,11 @@ To help you get started with user-configured organizations, in this guide you wi
 
 4. You will be redirected to a page that allows you to select repositories.
 
-5. To remove a user-configured organization, select `Delete user organization` instead of `Update organization`.
+5. To remove a user-configured organization, click on the trash can icon.
 
 ## How to export user-configured organization JSON
 
-Follow the same instructions as above, but instead of selecting "delete", select "export".
+Follow the same instructions as above, but click on the download button.
 
 ## Additional information
 

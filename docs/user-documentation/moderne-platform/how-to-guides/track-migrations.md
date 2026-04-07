@@ -25,7 +25,7 @@ All dependencies can be defined with a combination of their group ID, artifact I
 
 For the group pattern and artifact pattern, you can use the regex `*` to match anything. For instance, if you wanted to search for all `com.fasterxml.jackson` modules (e.g., `com.fasterxml.jackson.dataformat`), you could enter `com.fasterxml.jackson.*` into the group pattern. If you wanted to search for all artifacts in said group, you could enter `*` as the artifact pattern. Here's what this looks like:
 
-<figure>
+<figure style={{maxWidth: '600px', margin: '0 auto'}}>
   ![Dependency insight recipe form with group pattern, artifact pattern, and version fields](./assets/dep-insight-recipe.png)
 </figure>
 
@@ -73,7 +73,7 @@ In the above example, you can see that `jackson-annotations` is all over the pla
 
 If we want to dig deeper into which repositories are using which dependencies and perhaps make our own graphs or add it to a different system, we can download the data table that contains all of the information about the dependencies across all of the repositories.
 
-To do so, click on `Data tables` at the top of the recipe page as you did earlier. Then download the `direct and transitive dependencies in use` data table by clicking on the `csv` or `xls` download button:
+To do so, click on `Data tables` at the top of the recipe page as you did earlier. Then download the `direct and transitive dependencies in use` data table by clicking on the download button:
 
 <figure>
   ![Data tables tab showing Dependencies in use table with CSV, XLS, and JSON download options](./assets/dep-in-use-dt.png)

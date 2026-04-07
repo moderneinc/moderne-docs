@@ -13,11 +13,6 @@ import VersionBanner from '@site/src/components/VersionBanner';
 Recipes and visualizations that use AI may produce incorrect or incomplete results. Please ensure that you thoroughly review any results for clarity and accuracy before sharing or using.
 :::
 
-<figure>
-  ![Animated demo of AI-powered method clustering visualization](./assets/clustering_methods.gif)
-  <figcaption></figcaption>
-</figure>
-
 ## Why is this useful?
 
 A visualization that clusters all the method declarations in a codebase is particularly useful for understanding the overall structure and organization of the code. By grouping related methods or classes together, it allows developers to quickly grasp how different parts of the codebase are connected. This, in turn, makes it easier to navigate and comprehend, especially in large projects.

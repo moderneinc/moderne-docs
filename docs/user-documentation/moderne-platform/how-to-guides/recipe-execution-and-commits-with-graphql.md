@@ -36,7 +36,7 @@ This guide assumes that you:
 
 2. Navigate to the recipe you wish to run and fill out the recipe options.
 
-3. In the top right corner of the page, click on `API examples` and select `Run a recipe`. This will provide you with the query that will be run when executing a recipe run. Additionally, the appropriate variables will be added to this query based on your organization selection from step 1.
+3. At the bottom of the recipe, you will find an `API examples` button. Click on it and then select `Run a recipe`. This will provide you with the query that will be run when executing a recipe run. Additionally, the appropriate variables will be added to this query based on your organization selection from step 1.
 
 <figure>
   ![API examples dropdown with Run a recipe option highlighted](./assets/api-link.png)

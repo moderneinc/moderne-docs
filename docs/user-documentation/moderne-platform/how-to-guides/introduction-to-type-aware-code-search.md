@@ -28,7 +28,11 @@ If you searched for `createFile` in GitHub, you might end up with a ton of irrel
 
 *   Navigate to the [find method usages recipe](https://app.moderne.io/recipes/org.openrewrite.java.search.FindMethods):
 
-    ![Find method usages recipe page with empty method pattern field](./assets/find-method-usage-empty.png)
+<figure>
+  ![Find method usages recipe page with empty method pattern field](./assets/find-method-usage-empty.png)
+  <figcaption></figcaption>
+</figure>
+    
 * (Optionally) [Filter down to a specific group of repositories](./managing-user-configured-organizations.md).
 * Click on the wand icon next to the method pattern textbox to open the method pattern wizard.
 * Enter the fully qualified class name of `java.nio.file.Files` in the fully qualified receiver type field.
@@ -50,10 +54,17 @@ For extensive documentation on each of these components and more examples of dif
 
 * Your window should look like:
 
+<figure>
     ![Find method usages recipe with completed method pattern for Files createFile](./assets/find-method-usage-full.png)
+  <figcaption></figcaption>
+</figure>
+
 * Press **Dry Run** to begin the search. You will be redirected to a page that looks like:
 
+<figure>
     ![Dry run results showing matched Files.createFile usage with highlighted code diff](./assets/find-method-usage-results.png)
+  <figcaption></figcaption>
+</figure>
 
 :::info
 As the code in the SaaS is constantly changing, your results will more than likely be different.
