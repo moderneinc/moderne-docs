@@ -21,6 +21,7 @@ jobs:
         uses: actions/create-github-app-token@v1
         id: app-token
         with:
+          # Only added to explicit repositories: https://github.com/organizations/moderneinc/settings/installations/88151565
           app-id: ${{ secrets.PROPRIETARY_RELEASE_NOTES_APP_ID }}
           private-key: ${{ secrets.PROPRIETARY_RELEASE_NOTES_PRIVATE_KEY }}
           owner: moderneinc
