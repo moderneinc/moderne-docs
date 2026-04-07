@@ -33,14 +33,13 @@ Depending on the action, requests to these agents are routed differently. Modern
 When the Moderne platform needs to communicate with your infrastructure (for example, to download an LST or make a git commit), it selects an agent using the following logic:
 
 1. **Filter by capability** — only agents that have a matching tool configured are considered. For example, a git commit to `github.mycompany.com` only routes to agents that have a GitHub configuration pointing to that host.
-2. **Shuffle and try** — among matching agents, the platform shuffles the list and tries them in order. The first agent to respond successfully handles the request.
+2. **Round-robin** — among matching agents, requests are distributed in round-robin fashion. If an agent fails to respond, the platform tries the next one.
 3. **Caching** — the list of available agents is refreshed every 10 seconds. If an agent goes down, it is removed from rotation within that window.
 
 This means:
 
-* There is no explicit load balancing — work distributes naturally across agents through shuffling, but is not evenly weighted.
 * All agents with the same tools configured are interchangeable — you do not need to designate primary and secondary agents.
-* An agent going offline is handled gracefully — requests fail over to the next agent in the shuffled list.
+* An agent going offline is handled gracefully — requests fail over to the next agent in the rotation.
 
 ## What routes through agents
 

@@ -841,9 +841,9 @@ Building and publishing LSTs is handled by separate containers ([mass ingest](..
 **Kubernetes:** Agents can run on Kubernetes, but consider the following:
 
 * Use `Recreate` deployment strategy rather than `RollingUpdate` to avoid duplicate agent registrations during deployments. This causes brief downtime during deploys, but the platform handles agent unavailability gracefully.
-* Set resource requests equal to limits (guaranteed QoS class) to prevent CPU throttling during artifact transfers
-* Configure liveness and readiness probes using the agent's actuator endpoints (`/actuator/health/liveness` and `/actuator/health/readiness`)
-* Avoid horizontal pod autoscaling — agents maintain long-lived RSocket connections, and scaling events disrupt them
+* Set resource requests equal to limits (guaranteed QoS class) to prevent CPU throttling during artifact transfers.
+* Configure liveness and readiness probes using the agent's actuator endpoints (`/actuator/health/liveness` and `/actuator/health/readiness`).
+* Avoid horizontal pod autoscaling — agents maintain long-lived RSocket connections, and scaling events disrupt them.
 
 ### Requirements for multi-instance deployment
 
