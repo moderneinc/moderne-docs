@@ -45,8 +45,7 @@ The Moderne CLI previously followed a two-track release model with separate "sta
 * Set version=RELEASE in wrapper properties after install
 * Ensure files are closed when no longer needed to prevent file resource leaks
 * Gradle: prevent parsing subprojects as separate if the top project fails
-* Change `mod mcp` server name to `ai.moderne/cli`
-* Use `io.moderne/cli` to underwrite deterministic implementation
+* Change `mod mcp` server name to `io.moderne/cli`
 
 ### CLI / DX v4.0.10 (2026-03-30)
 
