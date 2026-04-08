@@ -38,7 +38,7 @@ In order to view recipe results, download data tables produced by a recipe, or c
 
 ## Repository insights
 
-The repository insights page provides details about a repository such as what languages it is composed of, where the artifacts live, what version of Java it uses, how it was built, etc.
+The repository insights page provides details about a repository such as where the artifacts live, what version of Java it uses, how it was built, etc.
 
 You can find repository insights by clicking on the repositories link in the navigation bar:
 

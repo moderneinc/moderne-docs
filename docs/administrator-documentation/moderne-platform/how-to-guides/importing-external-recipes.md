@@ -40,7 +40,7 @@ From your Moderne tenant, click on _Deploy_ in the left-hand menu:
   <figcaption></figcaption>
 </figure>
 
-2. Provide the `Group ID`, `Artifact ID`, and `Version` for the published artifact:
+2. Provide the `Group ID`, `Artifact ID`, and `Version` for the published artifact. You can also configure what organization to deploy it to and what ecosystem your artifacts live in.
 
 :::info
 If you are a multi-tenant customer, you must ensure that your artifact's `groupId` starts with `com.mycompany` (the `tenantDomain` inverted). You also must ensure that your account has an `@mycompany.com` email address.

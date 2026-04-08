@@ -22,7 +22,7 @@ All of the admin pages can be found by clicking on the gear icon in the top-righ
 
 ## Connectors page
 
-You can think of the Connectors page as a sort of landing area that shows all of the technologies you've configured your Connectors to have access to. You can click on each tile to get taken to a details page that has more information about a particular connection. This can be particularly useful for debugging whether or not a service is connected to the Connector.
+You can think of the Connectors page as a sort of landing area that shows all of the technologies you've configured your Connectors to have access to. You can click on each tool to get taken to a details page that has more information about a particular connection. This can be particularly useful for debugging whether or not a service is connected to the Connector.
 
 You can see whether or not a Connector is connected to a particular service by scrolling to the bottom of the details page and looking at the `Connected` column:
 
@@ -44,36 +44,14 @@ If you configure the same connection in multiple Connectors, you will only see i
 
 ## Audit log page
 
-The audit log page lists all actions taken by users on the platform.
-
-In the top-left hand corner of the page, there is a filter dropdown that lets you select common, important, filters such as all logins in the last week or all commits in the last month:
+The audit log page lists all actions taken by users on the platform. You can select a date range and a format type before pressing the download button:
 
 <figure>
-  ![Audit logs common filters dropdown showing options like Logins, Recipe runs, Commits, and Access tokens by time range](./assets/audit-common.png)
-  <figcaption>_Audit page common filters_</figcaption>
+  ![Audit logs page](./assets/audit-logs.png)
+  <figcaption>_Audit logs page_</figcaption>
 </figure>
 
-For information about how to add/remove columns or how to add custom filters on individual columns, please see the [filtering section](#filtering) at the bottom of this doc.
-
 For a detailed overview of what is logged, how entries are structured, retention policies, and confidential data exclusions, see the [audit logging reference](../references/audit-logging.md).
-
-For information about how to download or export audit logs in CEF or CSV format, see the [reporting documentation](../references/reporting.md#audit-logs).
-
-## Workers page
-
-Workers are configured by Moderne and are servers that run recipes. As Moderne controls these, this page will likely not be of use to you or your team. It's mainly there for debugging issues that may arise and for confirming that there are indeed workers available to run recipes.
-
-## Quarantine page
-
-As an admin, you can quarantine repositories in the Moderne Platform. This prevents recipes from being run on said repositories.
-
-Consider the case where you have some old repositories that aren't building. Instead of having error messages appear when you run recipes or having the DevCenter provide warnings about repositories not building, you can quarantine these repositories until they're fixed or removed.
-
-For information about how to add/remove columns or how to add custom filters on individual columns, please see the [filtering section](#filtering) at the bottom of this doc.
-
-## Reports page
-
-The reports page is exactly as it sounds; it contains a list of detailed reports that you can download. These reports contain more information than you would obtain in the audit log. 
 
 ## Access tokens page
 
@@ -83,27 +61,16 @@ The search box lets you enter partial searches such as `@moderne.io` to find all
 
 To remove access tokens for a user, click on the trash can icon under `Actions` and then press `Delete` in the modal that appears.
 
-## Filtering
-
-All Moderne pages that have tables offer the same filtering abilities.
-
-You can filter individual columns by mousing over the column name, clicking on the three vertical dots that appear, and then clicking on `Filter`:
-
 <figure>
-  ![Column menu with Pin to left, Pin to right, Filter, Hide column, and Manage columns options](./assets/col-filter.png)
-  <figcaption>_Column filtering_</figcaption>
+  ![Access tokens page](./assets/access-tokens.png)
+  <figcaption>_Access tokens page_</figcaption>
 </figure>
 
-You can then select the column you're interested in, choose the operator you want to apply to that column, and enter the value you want to search for. To combine filters together, press the `Add filter`.
+## Users page
+
+The users page lets you see who has access to your tenant along with their username, role, and the last time they were active.
 
 <figure>
-  ![Filter row with Column, Operator, and Value fields plus Add filter and Remove all buttons](./assets/specific-filter.png)
-  <figcaption>_Filter modal_</figcaption>
-</figure>
-
-If you want to add or remove columns from the table, you can mouse over any column, click on the three vertical dots that appear, and then select `Manage columns`. You'll then see a modal that you can add or remove columns: 
-
-<figure>
-  ![Manage columns panel with toggles for User, Target, Action type, Action, Description, Time, and Outcome](./assets/audit-log-columns.png)
-  <figcaption>_Audit log columns_</figcaption>
+  ![Users page](./assets/users-page.png)
+  <figcaption>_Users page_</figcaption>
 </figure>
