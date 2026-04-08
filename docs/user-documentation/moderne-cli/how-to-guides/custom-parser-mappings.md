@@ -69,7 +69,11 @@ See the [layered configuration guide](./layer-config-cli.md) for details on glob
 ## Glob pattern syntax
 
 :::warning[Breaking change in CLI 4.0.6+]
-In earlier CLI versions, only the file extension was extracted from glob patterns. Directory-scoped patterns like `**/conf/**/*.cfg` matched **all** `.cfg` files regardless of directory. Patterns are now matched as full globs, so that same pattern will only match `.cfg` files inside a `conf/` directory. If you had directory-scoped patterns configured, verify that the narrower matching still covers the files you need. To restore the previous behavior, simplify the pattern to `**/*.cfg`.
+In earlier CLI versions, only the file extension was extracted from glob patterns. Directory-scoped patterns like `**/conf/**/*.cfg` matched **all** `.cfg` files regardless of directory. 
+
+Patterns are now matched as full globs, so that same pattern will only match `.cfg` files inside a `conf/` directory. If you had directory-scoped patterns configured, verify that the narrower matching still covers the files you need. 
+
+To restore the previous behavior, simplify the pattern to `**/*.cfg`.
 :::
 
 Patterns use standard glob syntax. All patterns **must start with `**/`** to match files at any depth in the repository.
