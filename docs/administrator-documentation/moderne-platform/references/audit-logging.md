@@ -13,8 +13,6 @@ The Moderne Platform records a structured audit log of every user-initiated and 
 
 Tenant administrators (users in your organization that have been granted the `admin` role) can query audit logs through the Moderne UI, a paginated GraphQL API, or export them in CEF (Common Event Format) or CSV for ingestion into a SIEM or other log aggregation system. Access to the audit log is itself audited.
 
-Please refer to the [reporting reference](./reporting.md) documentation for instructions on how to export audit logs.
-
 ## Centralized audit framework
 
 All Moderne microservices share a common audit logging library that provides a uniform, structured approach to logging every user action. Each audit log entry contains the following fields:
@@ -58,8 +56,6 @@ Audit logs can be exported in the following formats:
 * **CEF (Common Event Format)**: Compliant with ArcSight CEF v0 standard, suitable for SIEM ingestion.
 * **CSV**: Tabular export with all audit log fields.
 * **GraphQL API**: Paginated query interface for programmatic access with filtering and sorting.
-
-For details on each export format, see the [reporting reference](./reporting.md) documentation.
 
 ## Time synchronization
 
