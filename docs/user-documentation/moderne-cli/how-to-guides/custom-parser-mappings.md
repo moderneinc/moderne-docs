@@ -88,7 +88,7 @@ mod config build parsers add xml "**/*.mst"
 
 ### Matching extensionless files
 
-Files without extensions can be matched by their exact filename:
+You can match files without extensions by their exact filename:
 
 ```bash
 mod config build parsers add json "**/config"
