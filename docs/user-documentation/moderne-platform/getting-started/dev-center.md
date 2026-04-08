@@ -66,3 +66,14 @@ You can press `fix` to run a particular security recipe. If one of these recipes
   ![Security section listing OWASP vulnerabilities with a radar chart and occurrence counts](./assets/security-card.png)
   <figcaption>_Example security card_</figcaption>
 </figure>
+
+### Timeline view
+
+You can switch between historical and point-in-time views by clicking on the timeline view button at the top of the page.
+
+Historical mode is good for analyzing trends - while point-in-time mode is good for viewing the current state of your organization.
+
+<figure>
+  ![Timeline view](./assets/timeline-view.png)
+  <figcaption>_Example of the timeline view_</figcaption>
+</figure>
