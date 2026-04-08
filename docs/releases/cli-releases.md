@@ -7,7 +7,7 @@ description: The current version of the Moderne CLI and links to useful CLI docu
 
 | Component   | Current version |
 | ----------- | --------------- |
-| CLI version | 4.0.11           |
+| CLI version | 4.1.1           |
 
 For CLI command documentation, see the [CLI reference](../user-documentation/moderne-cli/cli-reference.md).
 
@@ -16,6 +16,11 @@ The Moderne CLI previously followed a two-track release model with separate "sta
 :::
 
 ## Changelog
+
+### CLI / DX v4.1.1 (2026-04-08)
+
+#### What's Changed
+* Simplify DotNetBuildStep to use unified parseSolution API
 
 ### CLI / DX v4.0.11 (2026-04-07)
 

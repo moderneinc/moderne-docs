@@ -106,6 +106,15 @@ description: Auto-generated documentation for all Moderne CLI commands.
 * [**mod config build parsers add**](#mod-config-build-parsers-add)
 * [**mod config build parsers delete**](#mod-config-build-parsers-delete)
 * [**mod config build parsers show**](#mod-config-build-parsers-show)
+* [**mod config build style**](#mod-config-build-style)
+* [**mod config build style checkstyle**](#mod-config-build-style-checkstyle)
+* [**mod config build style checkstyle delete**](#mod-config-build-style-checkstyle-delete)
+* [**mod config build style checkstyle edit**](#mod-config-build-style-checkstyle-edit)
+* [**mod config build style checkstyle show**](#mod-config-build-style-checkstyle-show)
+* [**mod config build style openrewrite**](#mod-config-build-style-openrewrite)
+* [**mod config build style openrewrite delete**](#mod-config-build-style-openrewrite-delete)
+* [**mod config build style openrewrite edit**](#mod-config-build-style-openrewrite-edit)
+* [**mod config build style openrewrite show**](#mod-config-build-style-openrewrite-show)
 * [**mod config clone**](#mod-config-clone)
 * ~~[**mod config clone protocol**](#mod-config-clone-protocol-deprecated)~~ (deprecated)
 * ~~[**mod config clone protocol delete**](#mod-config-clone-protocol-delete-deprecated)~~ (deprecated)
@@ -280,6 +289,7 @@ description: Auto-generated documentation for all Moderne CLI commands.
 * [**mod config recipes delete**](#mod-config-recipes-delete)
 * [**mod config recipes list**](#mod-config-recipes-list)
 * [**mod config recipes search**](#mod-config-recipes-search)
+* [**mod config recipes upgrade**](#mod-config-recipes-upgrade)
 * [**mod config recipes yaml**](#mod-config-recipes-yaml)
 * [**mod config recipes yaml install**](#mod-config-recipes-yaml-install)
 * [**mod config recipes yaml delete**](#mod-config-recipes-yaml-delete)
@@ -1255,6 +1265,7 @@ mod config build [subcommands]
 * `javascript`: Configures JavaScript/TypeScript as it is used to produce LSTs.
 * `maven`: Configures Maven as it is used for LST production, resolving recipe dependencies, and when running recipes.
 * `parsers`: Configure custom file-extension-to-parser mappings.
+* `style`: Configures style settings used for LST production.
 
 ## mod config build bazel
 
@@ -2548,6 +2559,233 @@ Displays configured parser mappings.
 
 ```
 mod config build parsers show
+```
+
+### Options
+
+| Name | Description |
+| ---- | ----------- |
+| `--local` |  Apply this command recursively to all repositories found within the specified directory path, modifying each repository's git-ignored file **.moderne/moderne-uncommitted.yml**<br/>Has no impact on the global configuration. |
+| `--save` |  Apply the operation to the file **.moderne/moderne.yml** which can be committed to source control as opposed to the git-ignored variant.<br/>Can only be used with `--local`.<br/>Has no effect on the global configuration. |
+
+
+## mod config build style
+
+Configures style settings used for LST production.
+
+
+Allows you to specify style configuration files (e.g., Checkstyle) that should be included in LSTs so that recipe results respect the configured code style.
+
+### Usage
+
+```
+mod config build style [subcommands]
+```
+
+### Examples
+
+```
+mod config build style checkstyle edit <path-to-checkstyle.xml>
+```
+
+
+### Subcommands
+
+* `checkstyle`: Configure Checkstyle style.
+* `openrewrite`: Configure OpenRewrite style.
+
+## mod config build style checkstyle
+
+Configure Checkstyle style.
+
+
+Allows you to specify the location of a Checkstyle configuration XML file that should be included in LSTs. When set, the Checkstyle rules will be parsed into OpenRewrite styles and attached to LSTs so that recipe results respect the configured code style.
+
+### Usage
+
+```
+mod config build style checkstyle [subcommands]
+```
+
+### Examples
+
+```
+mod config build style checkstyle edit <path-to-checkstyle.xml>
+```
+
+
+### Subcommands
+
+* `delete`: Removes the configured Checkstyle configuration.
+* `edit`: Configure Checkstyle style.
+* `show`: Displays the configured Checkstyle configuration.
+
+## mod config build style checkstyle delete
+
+Removes the configured Checkstyle configuration.
+
+
+
+
+### Usage
+
+```
+mod config build style checkstyle delete
+```
+
+### Options
+
+| Name | Description |
+| ---- | ----------- |
+| `--local` |  Apply this command recursively to all repositories found within the specified directory path, modifying each repository's git-ignored file **.moderne/moderne-uncommitted.yml**<br/>Has no impact on the global configuration. |
+| `--save` |  Apply the operation to the file **.moderne/moderne.yml** which can be committed to source control as opposed to the git-ignored variant.<br/>Can only be used with `--local`.<br/>Has no effect on the global configuration. |
+
+
+## mod config build style checkstyle edit
+
+Configure Checkstyle style.
+
+
+Allows you to specify the location of a Checkstyle configuration XML file that should be included in LSTs so that recipe results respect the configured code style.
+
+### Usage
+
+```
+mod config build style checkstyle edit [parameters]
+```
+
+### Examples
+
+```
+mod config build style checkstyle edit <path-to-checkstyle.xml>
+```
+
+### Parameters
+
+| Name | Description |
+| ---- | ----------- |
+| `checkstyleXml` |  The location of a Checkstyle configuration XML file to use. |
+
+### Options
+
+| Name | Description |
+| ---- | ----------- |
+| `--local` |  Apply this command recursively to all repositories found within the specified directory path, modifying each repository's git-ignored file **.moderne/moderne-uncommitted.yml**<br/>Has no impact on the global configuration. |
+| `--save` |  Apply the operation to the file **.moderne/moderne.yml** which can be committed to source control as opposed to the git-ignored variant.<br/>Can only be used with `--local`.<br/>Has no effect on the global configuration. |
+
+
+## mod config build style checkstyle show
+
+Displays the configured Checkstyle configuration.
+
+
+
+
+### Usage
+
+```
+mod config build style checkstyle show
+```
+
+### Options
+
+| Name | Description |
+| ---- | ----------- |
+| `--local` |  Apply this command recursively to all repositories found within the specified directory path, modifying each repository's git-ignored file **.moderne/moderne-uncommitted.yml**<br/>Has no impact on the global configuration. |
+| `--save` |  Apply the operation to the file **.moderne/moderne.yml** which can be committed to source control as opposed to the git-ignored variant.<br/>Can only be used with `--local`.<br/>Has no effect on the global configuration. |
+
+
+## mod config build style openrewrite
+
+Configure OpenRewrite style.
+
+
+Allows you to specify the location of an OpenRewrite style YAML file that should be included in LSTs. The YAML file may contain zero or more named styles These styles take precedence over any other styles.https://docs.openrewrite.org/concepts-and-explanations/styles
+
+### Usage
+
+```
+mod config build style openrewrite [subcommands]
+```
+
+### Examples
+
+```
+mod config build style openrewrite edit <path-to-rewrite.yml>
+```
+
+
+### Subcommands
+
+* `delete`: Removes the configured OpenRewrite style.
+* `edit`: Configure OpenRewrite style.
+* `show`: Displays the configured OpenRewrite style.
+
+## mod config build style openrewrite delete
+
+Removes the configured OpenRewrite style.
+
+
+
+
+### Usage
+
+```
+mod config build style openrewrite delete
+```
+
+### Options
+
+| Name | Description |
+| ---- | ----------- |
+| `--local` |  Apply this command recursively to all repositories found within the specified directory path, modifying each repository's git-ignored file **.moderne/moderne-uncommitted.yml**<br/>Has no impact on the global configuration. |
+| `--save` |  Apply the operation to the file **.moderne/moderne.yml** which can be committed to source control as opposed to the git-ignored variant.<br/>Can only be used with `--local`.<br/>Has no effect on the global configuration. |
+
+
+## mod config build style openrewrite edit
+
+Configure OpenRewrite style.
+
+
+Allows you to specify the location of an OpenRewrite style YAML file that should be included in LSTs so that recipe results respect the configured code style.
+
+### Usage
+
+```
+mod config build style openrewrite edit [parameters]
+```
+
+### Examples
+
+```
+mod config build style openrewrite edit <path-to-rewrite.yml>
+```
+
+### Parameters
+
+| Name | Description |
+| ---- | ----------- |
+| `rewriteYaml` |  The location of an OpenRewrite style YAML file to use. |
+
+### Options
+
+| Name | Description |
+| ---- | ----------- |
+| `--local` |  Apply this command recursively to all repositories found within the specified directory path, modifying each repository's git-ignored file **.moderne/moderne-uncommitted.yml**<br/>Has no impact on the global configuration. |
+| `--save` |  Apply the operation to the file **.moderne/moderne.yml** which can be committed to source control as opposed to the git-ignored variant.<br/>Can only be used with `--local`.<br/>Has no effect on the global configuration. |
+
+
+## mod config build style openrewrite show
+
+Displays the configured OpenRewrite style.
+
+
+
+
+### Usage
+
+```
+mod config build style openrewrite show
 ```
 
 ### Options
@@ -5212,6 +5450,7 @@ mod config recipes moderne sync
 * `delete`: Clear the whole recipe marketplace.
 * `list`: List the artifacts that are contributing recipes to the marketplace.
 * `search`: Finds recipes based on free form text search.
+* `upgrade`: Upgrades all installed recipe artifacts to the latest available version.
 * `yaml`: Adds or updates a YAML file that contains recipes that should be added to the recipe marketplace in the CLI.
 
 ## mod config recipes active
@@ -6198,6 +6437,27 @@ mod config recipes search owasp
 | Name | Description |
 | ---- | ----------- |
 | `--limit` |  The maximum total number of results that will be returned. |
+
+
+## mod config recipes upgrade
+
+Upgrades all installed recipe artifacts to the latest available version.
+
+
+For each installed recipe artifact with a dynamic requested version, re-resolves the latest version from the configured artifact source and reinstalls it.
+
+### Usage
+
+```
+mod config recipes upgrade
+```
+
+### Examples
+
+```
+mod config recipes upgrade
+```
+
 
 
 ## mod config recipes yaml
