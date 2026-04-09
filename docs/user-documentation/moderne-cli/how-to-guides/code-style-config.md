@@ -13,17 +13,17 @@ In this guide, you will learn how to explicitly configure Checkstyle and OpenRew
 
 ## How styles are applied during builds
 
-When you run `mod build`, the CLI processes styles in the following order:
+During a single `mod build`, styles from all configured sources are merged. When two sources define the same formatting rule, the one with higher precedence wins:
 
-1. **Auto-detected styles** inferred by analyzing patterns in the existing source code
+1. **Auto-detected styles** inferred by analyzing patterns in the existing source code (lowest precedence)
 2. **Configured Checkstyle styles** from `mod config build style checkstyle`
-3. **Configured OpenRewrite styles** from `mod config build style openrewrite`
+3. **Configured OpenRewrite styles** from `mod config build style openrewrite` (highest precedence)
 
-Styles that appear later in this order take precedence. This means your explicitly configured styles will override any auto-detected ones, and OpenRewrite styles will override Checkstyle styles when both define the same formatting rules.
+This means your explicitly configured styles will override any auto-detected ones, and OpenRewrite styles will override Checkstyle styles when both define the same formatting rules.
 
 ## Configuring OpenRewrite styles
 
-For the most fine-grained control over code formatting, you can provide an OpenRewrite style YAML file. OpenRewrite styles can express formatting preferences that go beyond what Checkstyle covers, such as import ordering, brace placement, and whitespace rules. These styles have the highest precedence.
+For the most fine-grained control over code formatting, you can provide an [OpenRewrite style YAML file](https://docs.openrewrite.org/concepts-and-explanations/styles). OpenRewrite styles can express formatting preferences that go beyond what Checkstyle covers, such as import ordering, brace placement, and whitespace rules. These styles have the highest precedence.
 
 ### Setting the OpenRewrite style file
 
@@ -33,7 +33,7 @@ mod config build style openrewrite edit /path/to/rewrite.yml
 
 The path can be absolute, relative, use tilde expansion (`~/rewrite.yml`), or reference an environment variable (`${REWRITE_STYLE}`). When using an environment variable, the variable is resolved at build time.
 
-The YAML file should follow the [OpenRewrite style format](https://docs.openrewrite.org/concepts-and-explanations/styles). Here is an example:
+The YAML file should follow the OpenRewrite style format. Here is an example:
 
 ```yaml
 type: specs.openrewrite.org/v1beta/style
@@ -48,17 +48,19 @@ styleConfigs:
       continuationIndent: 8
 ```
 
-### Viewing the current configuration
+### Viewing OpenRewrite configuration
 
 ```bash
 mod config build style openrewrite show
 ```
 
-### Removing the configuration
+### Removing OpenRewrite configuration
 
 ```bash
 mod config build style openrewrite delete
 ```
+
+Once removed, the previously configured OpenRewrite styles no longer apply. If no Checkstyle configuration is set either, the CLI falls back to auto-detecting styles.
 
 ## Configuring Checkstyle
 
@@ -72,19 +74,19 @@ mod config build style checkstyle edit /path/to/checkstyle.xml
 
 The path can be absolute, relative, use tilde expansion (`~/checkstyle.xml`), or reference an environment variable (`${CHECKSTYLE_CONFIG}`). When using an environment variable, the variable is resolved at build time.
 
-### Viewing the current configuration
+### Viewing Checkstyle configuration
 
 ```bash
 mod config build style checkstyle show
 ```
 
-### Removing the configuration
+### Removing Checkstyle configuration
 
 ```bash
 mod config build style checkstyle delete
 ```
 
-Once removed, the CLI falls back to auto-detecting styles from the existing source code.
+Once removed, the previously configured Checkstyle rules no longer apply. If no OpenRewrite styles are configured either, the CLI falls back to auto-detecting styles.
 
 ## Additional reading
 
