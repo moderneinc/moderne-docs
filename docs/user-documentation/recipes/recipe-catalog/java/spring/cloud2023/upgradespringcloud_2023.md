@@ -35,6 +35,12 @@ This recipe is available under the [Moderne Source Available License](https://do
 
 <Tabs groupId="recipeType">
 <TabItem value="recipe-list" label="Recipe List" >
+**Preconditions**
+
+* [Singleton](../../../core/singleton)
+
+**Recipes**
+
 * [Upgrade dependencies to Spring Cloud 2023](../../../java/spring/cloud2023/dependencyupgrades)
 
 </TabItem>
@@ -51,6 +57,8 @@ description: |
 tags:
   - spring
   - cloud
+preconditions:
+  - org.openrewrite.Singleton
 recipeList:
   - org.openrewrite.java.spring.cloud2023.DependencyUpgrades
 

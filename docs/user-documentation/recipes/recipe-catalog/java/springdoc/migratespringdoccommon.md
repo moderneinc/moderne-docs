@@ -39,6 +39,12 @@ This recipe is available under the [Moderne Source Available License](https://do
 
 <Tabs groupId="recipeType">
 <TabItem value="recipe-list" label="Recipe List" >
+**Preconditions**
+
+* [Singleton](../../core/singleton)
+
+**Recipes**
+
 * [Change type](../../java/changetype)
   * oldFullyQualifiedTypeName: `org.springdoc.core.customizers.OpenApiCustomiser`
   * newFullyQualifiedTypeName: `org.springdoc.core.customizers.OpenApiCustomizer`
@@ -63,6 +69,8 @@ description: |
 tags:
   - openapi
   - springdoc
+preconditions:
+  - org.openrewrite.Singleton
 recipeList:
   - org.openrewrite.java.ChangeType:
       oldFullyQualifiedTypeName: org.springdoc.core.customizers.OpenApiCustomiser

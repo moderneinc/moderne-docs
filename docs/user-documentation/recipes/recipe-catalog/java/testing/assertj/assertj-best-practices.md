@@ -39,6 +39,12 @@ This recipe is available under the [Moderne Source Available License](https://do
 
 <Tabs groupId="recipeType">
 <TabItem value="recipe-list" label="Recipe List" >
+**Preconditions**
+
+* [Singleton](../../../core/singleton)
+
+**Recipes**
+
 * [Change type](../../../java/changetype)
   * oldFullyQualifiedTypeName: `org.assertj.core.annotations.Beta`
   * newFullyQualifiedTypeName: `org.assertj.core.annotation.Beta`
@@ -104,6 +110,8 @@ description: |
 tags:
   - testing
   - assertj
+preconditions:
+  - org.openrewrite.Singleton
 recipeList:
   - org.openrewrite.java.ChangeType:
       oldFullyQualifiedTypeName: org.assertj.core.annotations.Beta

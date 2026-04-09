@@ -39,6 +39,14 @@ This recipe is available under the [Moderne Source Available License](https://do
 
 <Tabs groupId="recipeType">
 <TabItem value="recipe-list" label="Recipe List" >
+**Preconditions**
+
+* [Find files](../../../core/findsourcefiles)
+  * filePattern: `**/ejb-jar.xml`
+* [Singleton](../../../core/singleton)
+
+**Recipes**
+
 * [Change XML attribute](../../../xml/changetagattribute)
   * elementName: `ejb-jar`
   * attributeName: `version`
@@ -70,6 +78,10 @@ description: |
 tags:
   - ejb
   - jakarta
+preconditions:
+  - org.openrewrite.FindSourceFiles:
+      filePattern: **/ejb-jar.xml
+  - org.openrewrite.Singleton
 recipeList:
   - org.openrewrite.xml.ChangeTagAttribute:
       elementName: ejb-jar

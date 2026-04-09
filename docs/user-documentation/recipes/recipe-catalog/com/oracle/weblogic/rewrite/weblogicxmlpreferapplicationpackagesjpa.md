@@ -40,6 +40,13 @@ This recipe is available under the [Apache License Version 2.0](https://www.apac
 
 <Tabs groupId="recipeType">
 <TabItem value="recipe-list" label="Recipe List" >
+**Preconditions**
+
+* [Find files](../../../../core/findsourcefiles)
+  * filePattern: `**/weblogic.xml`
+
+**Recipes**
+
 * [Add or update child tag](../../../../xml/addorupdatechildtag)
   * parentXPath: `/weblogic-web-app`
   * newChildTag: `<container-descriptor></container-descriptor>`
@@ -68,6 +75,9 @@ tags:
   - web-app
   - schemas
   - weblogic
+preconditions:
+  - org.openrewrite.FindSourceFiles:
+      filePattern: **/weblogic.xml
 recipeList:
   - org.openrewrite.xml.AddOrUpdateChildTag:
       parentXPath: /weblogic-web-app

@@ -30,6 +30,12 @@ This recipe is available under the [Moderne Source Available License](https://do
 
 <Tabs groupId="recipeType">
 <TabItem value="recipe-list" label="Recipe List" >
+**Preconditions**
+
+* [Singleton](../../../core/singleton)
+
+**Recipes**
+
 * [Change type](../../../java/changetype)
   * oldFullyQualifiedTypeName: `java.util.logging.LoggingMXBean`
   * newFullyQualifiedTypeName: `java.lang.management.PlatformLoggingMXBean`
@@ -45,6 +51,8 @@ name: org.openrewrite.java.migrate.logging.MigrateInterfaceLoggingMXBeanToPlatfo
 displayName: Use `java.lang.management.PlatformLoggingMXBean`
 description: |
   Use `java.lang.management.PlatformLoggingMXBean` instead of the deprecated `java.util.logging.LoggingMXBean` in Java 9 or higher.
+preconditions:
+  - org.openrewrite.Singleton
 recipeList:
   - org.openrewrite.java.ChangeType:
       oldFullyQualifiedTypeName: java.util.logging.LoggingMXBean

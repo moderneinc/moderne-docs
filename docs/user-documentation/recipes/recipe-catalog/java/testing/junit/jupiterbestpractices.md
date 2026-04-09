@@ -39,6 +39,12 @@ This recipe is available under the [Moderne Source Available License](https://do
 
 <Tabs groupId="recipeType">
 <TabItem value="recipe-list" label="Recipe List" >
+**Preconditions**
+
+* [Singleton](../../../core/singleton)
+
+**Recipes**
+
 * [Migrate Hamcrest assertions to JUnit Jupiter](../../../java/testing/hamcrest/migratehamcresttojunit5)
 * [Statically import JUnit Jupiter assertions](../../../java/testing/junit5/staticimports)
 * [Remove JUnit 5 static Assertions imports in Kotlin when wildcard import is present](../../../java/testing/junit5/cleanupkotlinjunit5assertionimports)
@@ -74,6 +80,8 @@ description: |
 tags:
   - junit
   - testing
+preconditions:
+  - org.openrewrite.Singleton
 recipeList:
   - org.openrewrite.java.testing.hamcrest.MigrateHamcrestToJUnit5
   - org.openrewrite.java.testing.junit5.StaticImports

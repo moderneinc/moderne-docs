@@ -30,6 +30,12 @@ This recipe is available under the [Moderne Source Available License](https://do
 
 <Tabs groupId="recipeType">
 <TabItem value="recipe-list" label="Recipe List" >
+**Preconditions**
+
+* [Singleton](../../../core/singleton)
+
+**Recipes**
+
 * [Change type](../../../java/changetype)
   * oldFullyQualifiedTypeName: `org.springframework.boot.test.autoconfigure.web.reactive.WebTestClientBuilderCustomizer`
   * newFullyQualifiedTypeName: `org.springframework.boot.test.web.reactive.server.WebTestClientBuilderCustomizer`
@@ -45,6 +51,8 @@ name: org.openrewrite.java.spring.boot2.MigrateWebTestClientBuilderCustomizerPac
 displayName: Use `WebTestClientBuilderCustomizer`
 description: |
   `org.springframework.boot.test.autoconfigure.web.reactive.WebTestClientBuilderCustomizer` was deprecated in 2.2.
+preconditions:
+  - org.openrewrite.Singleton
 recipeList:
   - org.openrewrite.java.ChangeType:
       oldFullyQualifiedTypeName: org.springframework.boot.test.autoconfigure.web.reactive.WebTestClientBuilderCustomizer

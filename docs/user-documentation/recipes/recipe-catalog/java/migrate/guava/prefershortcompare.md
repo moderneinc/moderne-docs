@@ -34,6 +34,12 @@ This recipe is available under the [Moderne Source Available License](https://do
 
 <Tabs groupId="recipeType">
 <TabItem value="recipe-list" label="Recipe List" >
+**Preconditions**
+
+* [Singleton](../../../core/singleton)
+
+**Recipes**
+
 * [Change method target to static](../../../java/changemethodtargettostatic)
   * methodPattern: `com.google.common.primitives.Shorts compare(short, short)`
   * fullyQualifiedTargetTypeName: `java.lang.Short`
@@ -51,6 +57,8 @@ description: |
   Prefer `java.lang.Short#compare` instead of using `com.google.common.primitives.Shorts#compare`.
 tags:
   - guava
+preconditions:
+  - org.openrewrite.Singleton
 recipeList:
   - org.openrewrite.java.ChangeMethodTargetToStatic:
       methodPattern: com.google.common.primitives.Shorts compare(short, short)

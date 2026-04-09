@@ -40,6 +40,14 @@ This recipe is available under the [Moderne Source Available License](https://do
 
 <Tabs groupId="recipeType">
 <TabItem value="recipe-list" label="Recipe List" >
+**Preconditions**
+
+* [Find files](../../../core/findsourcefiles)
+  * filePattern: `**/validation.xml`
+* [Singleton](../../../core/singleton)
+
+**Recipes**
+
 * [Change XML attribute](../../../xml/changetagattribute)
   * elementName: `validation-config`
   * attributeName: `version`
@@ -72,6 +80,10 @@ tags:
   - ejb
   - jakarta
   - bean validation
+preconditions:
+  - org.openrewrite.FindSourceFiles:
+      filePattern: **/validation.xml
+  - org.openrewrite.Singleton
 recipeList:
   - org.openrewrite.xml.ChangeTagAttribute:
       elementName: validation-config

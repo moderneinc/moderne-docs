@@ -39,6 +39,12 @@ This recipe is available under the [Moderne Source Available License](https://do
 
 <Tabs groupId="recipeType">
 <TabItem value="recipe-list" label="Recipe List" >
+**Preconditions**
+
+* [Singleton](../../../core/singleton)
+
+**Recipes**
+
 * [Change method target to static](../../../java/changemethodtargettostatic)
   * methodPattern: `org.assertj.core.api.Fail fail(..)`
   * fullyQualifiedTargetTypeName: `org.assertj.core.api.Assertions`
@@ -59,6 +65,8 @@ description: |
 tags:
   - testing
   - assertj
+preconditions:
+  - org.openrewrite.Singleton
 recipeList:
   - org.openrewrite.java.ChangeMethodTargetToStatic:
       methodPattern: org.assertj.core.api.Fail fail(..)

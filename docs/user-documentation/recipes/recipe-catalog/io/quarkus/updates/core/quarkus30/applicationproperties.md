@@ -34,6 +34,13 @@ This recipe is available under the [Apache License Version 2.0](https://www.apac
 
 <Tabs groupId="recipeType">
 <TabItem value="recipe-list" label="Recipe List" >
+**Preconditions**
+
+* [Find files](../../../../../core/findsourcefiles)
+  * filePattern: `**/application*.properties`
+
+**Recipes**
+
 * [Change property key](../../../../../properties/changepropertykey)
   * oldPropertyKey: `quarkus.kubernetes.expose`
   * newPropertyKey: `quarkus.kubernetes.ingress.expose`
@@ -67,6 +74,9 @@ name: io.quarkus.updates.core.quarkus30.ApplicationProperties
 displayName: io.quarkus.updates.core.quarkus30.ApplicationProperties
 description: |
   
+preconditions:
+  - org.openrewrite.FindSourceFiles:
+      filePattern: **/application*.properties
 recipeList:
   - org.openrewrite.properties.ChangePropertyKey:
       oldPropertyKey: quarkus.kubernetes.expose

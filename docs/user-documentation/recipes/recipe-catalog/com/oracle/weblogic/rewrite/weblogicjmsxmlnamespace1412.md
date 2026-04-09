@@ -40,6 +40,13 @@ This recipe is available under the [Apache License Version 2.0](https://www.apac
 
 <Tabs groupId="recipeType">
 <TabItem value="recipe-list" label="Recipe List" >
+**Preconditions**
+
+* [Find files](../../../../core/findsourcefiles)
+  * filePattern: `**/*-jms.xml`
+
+**Recipes**
+
 * [Change XML attribute](../../../../xml/changetagattribute)
   * elementName: `weblogic-jms`
   * attributeName: `xmlns`
@@ -68,6 +75,9 @@ tags:
   - jms
   - schemas
   - weblogic
+preconditions:
+  - org.openrewrite.FindSourceFiles:
+      filePattern: **/*-jms.xml
 recipeList:
   - org.openrewrite.xml.ChangeTagAttribute:
       elementName: weblogic-jms

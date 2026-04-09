@@ -34,6 +34,12 @@ This recipe is available under the [Moderne Source Available License](https://do
 
 <Tabs groupId="recipeType">
 <TabItem value="recipe-list" label="Recipe List" >
+**Preconditions**
+
+* [Singleton](../../../core/singleton)
+
+**Recipes**
+
 * [Migrate from `oracle-xe` to `oracle-free`](../../../java/testing/testcontainers/migratetooraclefree)
 * [Migrate to testcontainers-java 2.x](../../../java/testing/testcontainers/testcontainers2migration)
 
@@ -48,6 +54,8 @@ name: org.openrewrite.java.testing.testcontainers.TestContainersBestPractices
 displayName: Testcontainers best practices
 description: |
   Apply best practices to Testcontainers usage.
+preconditions:
+  - org.openrewrite.Singleton
 recipeList:
   - org.openrewrite.java.testing.testcontainers.MigrateToOracleFree
   - org.openrewrite.java.testing.testcontainers.Testcontainers2Migration

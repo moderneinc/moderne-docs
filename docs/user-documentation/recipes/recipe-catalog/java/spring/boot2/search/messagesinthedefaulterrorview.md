@@ -39,6 +39,12 @@ This recipe is available under the [Moderne Source Available License](https://do
 
 <Tabs groupId="recipeType">
 <TabItem value="recipe-list" label="Recipe List" >
+**Preconditions**
+
+* [Singleton](../../../../core/singleton)
+
+**Recipes**
+
 * [Find Maven dependency](../../../../maven/search/finddependency)
   * groupId: `org.springframework`
   * artifactId: `spring-webmvc`
@@ -60,6 +66,8 @@ description: |
 tags:
   - spring
   - boot
+preconditions:
+  - org.openrewrite.Singleton
 recipeList:
   - org.openrewrite.maven.search.FindDependency:
       groupId: org.springframework

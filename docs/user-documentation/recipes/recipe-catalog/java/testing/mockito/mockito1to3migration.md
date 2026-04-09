@@ -39,6 +39,12 @@ This recipe is available under the [Moderne Source Available License](https://do
 
 <Tabs groupId="recipeType">
 <TabItem value="recipe-list" label="Recipe List" >
+**Preconditions**
+
+* [Singleton](../../../core/singleton)
+
+**Recipes**
+
 * [Change type](../../../java/changetype)
   * oldFullyQualifiedTypeName: `org.mockito.MockitoAnnotations.Mock`
   * newFullyQualifiedTypeName: `org.mockito.Mock`
@@ -152,6 +158,8 @@ description: |
 tags:
   - testing
   - mockito
+preconditions:
+  - org.openrewrite.Singleton
 recipeList:
   - org.openrewrite.java.ChangeType:
       oldFullyQualifiedTypeName: org.mockito.MockitoAnnotations.Mock

@@ -35,6 +35,12 @@ This recipe is available under the [Moderne Source Available License](https://do
 
 <Tabs groupId="recipeType">
 <TabItem value="recipe-list" label="Recipe List" >
+**Preconditions**
+
+* [Singleton](../../../core/singleton)
+
+**Recipes**
+
 * [Migrate Spring WS Axiom to SAAJ](../../../java/spring/ws/migrateaxiomtosaaj)
 
 </TabItem>
@@ -51,6 +57,8 @@ description: |
 tags:
   - spring
   - spring-ws
+preconditions:
+  - org.openrewrite.Singleton
 recipeList:
   - org.openrewrite.java.spring.ws.MigrateAxiomToSaaj
 

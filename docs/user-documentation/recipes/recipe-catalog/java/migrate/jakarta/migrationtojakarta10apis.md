@@ -38,6 +38,12 @@ This recipe is available under the [Moderne Source Available License](https://do
 
 <Tabs groupId="recipeType">
 <TabItem value="recipe-list" label="Recipe List" >
+**Preconditions**
+
+* [Singleton](../../../core/singleton)
+
+**Recipes**
+
 * [Update Jakarta EE XML Web Services Dependencies for EE 10](../../../java/migrate/jakarta/updatejakartaxmlwsee10)
 * [Upgrade Gradle or Maven dependency versions](../../../java/dependencies/upgradedependencyversion)
   * groupId: `jakarta.activation`
@@ -141,6 +147,8 @@ description: |
   Jakarta EE 10 updates some apis compared to Jakarta EE 9.
 tags:
   - jakarta
+preconditions:
+  - org.openrewrite.Singleton
 recipeList:
   - org.openrewrite.java.migrate.jakarta.UpdateJakartaXmlWsEE10
   - org.openrewrite.java.dependencies.UpgradeDependencyVersion:

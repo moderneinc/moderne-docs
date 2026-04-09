@@ -39,6 +39,12 @@ This recipe is available under the [Moderne Source Available License](https://do
 
 <Tabs groupId="recipeType">
 <TabItem value="recipe-list" label="Recipe List" >
+**Preconditions**
+
+* [Singleton](../../../core/singleton)
+
+**Recipes**
+
 * [Mockito 3.x migration from 1.x](../../../java/testing/mockito/mockito1to3migration)
 * [Replace `Mockito.when` on static (non mock) with try-with-resource with MockedStatic](../../../java/testing/mockito/mockitowhenonstatictomockstatic)
 * [Upgrade Gradle or Maven dependency versions](../../../java/dependencies/upgradedependencyversion)
@@ -65,6 +71,8 @@ description: |
 tags:
   - testing
   - mockito
+preconditions:
+  - org.openrewrite.Singleton
 recipeList:
   - org.openrewrite.java.testing.mockito.Mockito1to3Migration
   - org.openrewrite.java.testing.mockito.MockitoWhenOnStaticToMockStatic

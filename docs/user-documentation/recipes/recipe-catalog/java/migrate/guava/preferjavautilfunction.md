@@ -35,6 +35,12 @@ This recipe is available under the [Moderne Source Available License](https://do
 
 <Tabs groupId="recipeType">
 <TabItem value="recipe-list" label="Recipe List" >
+**Preconditions**
+
+* [Singleton](../../../core/singleton)
+
+**Recipes**
+
 * [Change type](../../../java/changetype)
   * oldFullyQualifiedTypeName: `com.google.common.base.Function`
   * newFullyQualifiedTypeName: `java.util.function.Function`
@@ -53,6 +59,8 @@ description: |
 tags:
   - RSPEC-S4738
   - guava
+preconditions:
+  - org.openrewrite.Singleton
 recipeList:
   - org.openrewrite.java.ChangeType:
       oldFullyQualifiedTypeName: com.google.common.base.Function

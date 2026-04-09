@@ -34,6 +34,14 @@ This recipe is available under the [Moderne Source Available License](https://do
 
 <Tabs groupId="recipeType">
 <TabItem value="recipe-list" label="Recipe List" >
+**Preconditions**
+
+* [Find files compiled at a specific Java version](../../../java/search/hasjavaversion)
+  * version: `[25,)`
+* [Singleton](../../../core/singleton)
+
+**Recipes**
+
 * [Change method name](../../../java/changemethodname)
   * methodPattern: `java.util.zip.Deflater end()`
   * newMethodName: `close`
@@ -52,6 +60,10 @@ name: org.openrewrite.java.migrate.util.MigrateInflaterDeflaterToClose
 displayName: Replace `Inflater` and `Deflater` `end()` calls with `close()`
 description: |
   Replace `end()` method calls with `close()` method calls for `Inflater` and `Deflater` classes in Java 25+, as they now implement AutoCloseable.
+preconditions:
+  - org.openrewrite.java.search.HasJavaVersion:
+      version: [25,)
+  - org.openrewrite.Singleton
 recipeList:
   - org.openrewrite.java.ChangeMethodName:
       methodPattern: java.util.zip.Deflater end()

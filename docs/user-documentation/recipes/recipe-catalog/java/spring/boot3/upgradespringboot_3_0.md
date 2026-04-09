@@ -39,6 +39,12 @@ This recipe is available under the [Moderne Source Available License](https://do
 
 <Tabs groupId="recipeType">
 <TabItem value="recipe-list" label="Recipe List" >
+**Preconditions**
+
+* [Singleton](../../../core/singleton)
+
+**Recipes**
+
 * [Migrate to Spring Boot 2.7](../../../java/spring/boot2/upgradespringboot_2_7)
 * [Enable Spring Batch Annotation](../../../java/spring/boot3/removeenablebatchprocessing)
 * [Migrate to Java 17](../../../java/migrate/upgradetojava17)
@@ -115,6 +121,8 @@ description: |
 tags:
   - spring
   - boot
+preconditions:
+  - org.openrewrite.Singleton
 recipeList:
   - org.openrewrite.java.spring.boot2.UpgradeSpringBoot_2_7
   - org.openrewrite.java.spring.boot3.RemoveEnableBatchProcessing

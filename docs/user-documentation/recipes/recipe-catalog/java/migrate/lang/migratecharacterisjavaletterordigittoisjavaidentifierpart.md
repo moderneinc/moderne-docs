@@ -30,6 +30,12 @@ This recipe is available under the [Moderne Source Available License](https://do
 
 <Tabs groupId="recipeType">
 <TabItem value="recipe-list" label="Recipe List" >
+**Preconditions**
+
+* [Singleton](../../../core/singleton)
+
+**Recipes**
+
 * [Change method name](../../../java/changemethodname)
   * methodPattern: `java.lang.Character isJavaLetterOrDigit(char)`
   * newMethodName: `isJavaIdentifierPart`
@@ -45,6 +51,8 @@ name: org.openrewrite.java.migrate.lang.MigrateCharacterIsJavaLetterOrDigitToIsJ
 displayName: Use `Character#isJavaIdentifierPart(char)`
 description: |
   Use `Character#isJavaIdentifierPart(char)` instead of the deprecated `Character#isJavaLetterOrDigit(char)` in Java 1.1 or higher.
+preconditions:
+  - org.openrewrite.Singleton
 recipeList:
   - org.openrewrite.java.ChangeMethodName:
       methodPattern: java.lang.Character isJavaLetterOrDigit(char)

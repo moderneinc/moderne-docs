@@ -34,6 +34,12 @@ This recipe is available under the [Moderne Source Available License](https://do
 
 <Tabs groupId="recipeType">
 <TabItem value="recipe-list" label="Recipe List" >
+**Preconditions**
+
+* [Singleton](../../core/singleton)
+
+**Recipes**
+
 * [Replace `String` literal](../../java/replacestringliteralvalue)
   * oldLiteralValue: `com.sun.net.ssl.internal.ssl.Provider`
   * newLiteralValue: `SunJSSE`
@@ -51,6 +57,8 @@ description: |
   The `com.sun.net.ssl.internal.ssl.Provider` provider name was removed.
 tags:
   - java17
+preconditions:
+  - org.openrewrite.Singleton
 recipeList:
   - org.openrewrite.java.ReplaceStringLiteralValue:
       oldLiteralValue: com.sun.net.ssl.internal.ssl.Provider
