@@ -27,27 +27,10 @@ This changelog is automatically generated from GitHub releases and only contains
 
 ## April 8, 2026
 
-#### rewrite-ai - 0.3.0
-
-* Update Prethink context
-
-#### rewrite-ai-search - 0.33.0
-
-* Update Prethink context
-
-#### rewrite-android - 0.16.0
-
-* Update Prethink context
-
 #### rewrite-angular - 1.1.0
 
 * Bump @openrewrite/rewrite from 8.78.2 to 8.78.3 in /recipes-angular[bot]
 * Bump ts-jest from 29.4.6 to 29.4.9 in /recipes-angular[bot]
-* Update Prethink context
-
-#### rewrite-circleci - 3.10.0
-
-* Update Prethink context
 
 #### rewrite-cobol - 2.17.1
 
@@ -56,10 +39,6 @@ This changelog is automatically generated from GitHub releases and only contains
 #### rewrite-codemods - v0.25.1
 
 * Upgrade lodash to 4.18.0+ (CVE-2026-4800)
-
-#### rewrite-codemods - 0.25.0
-
-* Update Prethink context
 
 #### rewrite-codemods-ng - v0.20.1
 
@@ -72,45 +51,19 @@ This changelog is automatically generated from GitHub releases and only contains
 * chore(deps): bump picomatch and @angular/cli in /src/main/resources/codemods[bot]
 * chore(deps): bump minimatch from 10.1.1 to 10.2.4 in /src/main/resources/codemods[bot]
 
-#### rewrite-codemods-ng - 0.20.0
-
-* Update Prethink context
-
-#### rewrite-compiled-analysis - 0.13.0
-
-* Update Prethink context
-
-#### rewrite-concourse - 3.10.0
-
-* Update Prethink context
-
-#### rewrite-cryptography - 0.13.0
-
-* Update Prethink context
-
 #### rewrite-devcenter - 1.21.0
 
 * OpenRewrite recipe best practices
 
-#### rewrite-dotnet - 0.15.0
-
-* Update Prethink context
-
 #### rewrite-elastic - 0.6.0
 
 * Fix compilation errors from uncast TreeVisitor.visit() returns
-* Update Prethink context
 
 #### rewrite-hibernate - 0.21.0
 
 * Fix compilation error and test OOM on main
 * Add recipe to migrate Hibernate Criteria API to JPA Criteria API
-* Update Prethink context
 * Add SQLQuery to NativeQuery migration and JPQL trunc() to cast() recipe
-
-#### rewrite-jasperreports - 0.5.0
-
-* Update Prethink context
 
 #### rewrite-java-application-server - 0.5.0
 
@@ -125,17 +78,11 @@ This changelog is automatically generated from GitHub releases and only contains
 * Add OWASP A05:2025 Injection recipe
 * Use loose version assertions for tomcat-embed-core tests
 * Update test for new jackson-core advisory GHSA-2m67-wjpj-xhg9
-* Update Prethink context
 * FFVD: Add requirements.txt support for Python vulnerability checking
-
-#### rewrite-kafka - 0.5.0
-
-* Update Prethink context
 
 #### rewrite-kubernetes - 3.16.0
 
 * Fix limitContainerCapabilities test for MergeYaml indentation change
-* Update Prethink context
 * Fix JsonPathMatcher.matches() incompatibility with rewrite 8.79.0
 
 #### rewrite-migrate-kotlin - 0.1.4
@@ -145,10 +92,6 @@ This changelog is automatically generated from GitHub releases and only contains
 #### rewrite-migrate-python - 0.5.0
 
 * Fix NPE on `validate()` of `FindMethods`
-
-#### rewrite-nodejs - 0.42.0
-
-* Update Prethink context
 
 #### rewrite-prethink - 0.5.6
 
@@ -170,10 +113,6 @@ This changelog is automatically generated from GitHub releases and only contains
 
 * Updated repository to use OpenRewrite version v8.79.0
 
-#### rewrite-reactive-streams - 0.19.0
-
-* Update Prethink context
-
 #### rewrite-spring - 0.30.0
 
 * Preserve comments when folding setters into builder
@@ -187,7 +126,6 @@ This changelog is automatically generated from GitHub releases and only contains
 #### rewrite-sql - 2.11.0
 
 * Add INSERT INTO statement detection to FindSql
-* Update Prethink context
 
 #### rewrite-struts - 0.25.5
 
@@ -825,7 +763,6 @@ This changelog is automatically generated from GitHub releases and only contains
 #### rewrite-spring - v0.26.1
 
 * Remove upgrade duplications from Upgrade Boot 3.5 proprietary vs OSS
-* Update Prethink context
 
 ## February 25, 2026
 
@@ -848,10 +785,6 @@ This changelog is automatically generated from GitHub releases and only contains
 #### rewrite-circleci - 3.9.7
 
 * Updated repository to use OpenRewrite version v8.74.1
-
-#### rewrite-cobol - 2.15.0
-
-* Update Prethink context
 
 #### rewrite-codemods - 0.24.3
 
@@ -949,17 +882,12 @@ This changelog is automatically generated from GitHub releases and only contains
 * Fixing generation of `test-mapping.csv` and `test-coverage.md` for the no-AI update prethink context starter
 * Fixing the `recipes.csv`
 
-#### rewrite-prethink - 0.3.2
-
-* Update Prethink context
-
 #### rewrite-program-analysis - 0.10.0
 
 * Add missing InlineDeprecatedMethods to recipes.csv
 * Rebuild recipe catalog
 * Remove trailing whitespace
 * Handle exception paths in dead store analysis for try/catch blocks
-* Update Prethink context
 
 #### rewrite-react - 0.2.1
 
@@ -994,10 +922,6 @@ This changelog is automatically generated from GitHub releases and only contains
 
 * Updated repository to use OpenRewrite version v8.74.1
 
-#### rewrite-terraform - 3.13.0
-
-* Update Prethink context
-
 #### rewrite-vulncheck - 0.6.0
 
 * Upgrade Logback classic
@@ -1005,7 +929,6 @@ This changelog is automatically generated from GitHub releases and only contains
 * Update dependency version for moderne-recipe-bom
 * Add null epss scores to make it compile
 * Update SDKMan Java version
-* Update Prethink context
 
 ## February 24, 2026
 
