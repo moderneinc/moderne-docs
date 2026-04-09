@@ -22,6 +22,21 @@ The Moderne CLI previously followed a two-track release model with separate "sta
 #### What's Changed
 * Simplify DotNetBuildStep to use unified parseSolution API
 
+### CLI / DX v4.1.0 (2026-04-08)
+
+#### What's Changed
+* Add `mod config recipes upgrade` command, to upgrade only already installed recipe modules
+* Enable checkstyle configuration to be explicitly specified and attached to the LST during the build
+* Add recipe discovery guidance to the run-recipe skill
+* Show total result count in recipe search
+* Fix repos-lock.csv branch corruption on detached HEAD
+* Reintroduce CLI layout changes to reduce bundle size
+* Clean up attributes in modmaven plugin.xml file
+* Use project-specific Node version for run too
+* Recognize requirements.txt as a Python project indicator
+* Fix modw classpath for nested-JAR layout
+* Fix `query_datatable` always failing with DuckDB `access_mode` error
+
 ### CLI / DX v4.0.11 (2026-04-07)
 
 #### What's Changed
