@@ -24,5 +24,6 @@ description: Testing OpenRewrite recipes.
 * [Mockito](/user-documentation/recipes/recipe-catalog/java/testing/mockito)
 * [TestNG](/user-documentation/recipes/recipe-catalog/java/testing/testng)
 * [Testcontainers](/user-documentation/recipes/recipe-catalog/java/testing/testcontainers)
+* [Wiremock](/user-documentation/recipes/recipe-catalog/java/testing/wiremock)
 
 

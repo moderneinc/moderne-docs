@@ -27,6 +27,35 @@ This recipe is used as part of the following composite recipes:
 * [Update Prethink context (no AI)](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/prethink/updateprethinkcontextnoaistarter)
 * [Update Prethink context (with AI)](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/prethink/updateprethinkcontextstarter)
 
+## Example
+
+
+###### Unchanged
+```java
+package com.example;
+
+import org.mockito.Mockito;
+import static org.mockito.Mockito.*;
+import static org.mockito.ArgumentMatchers.*;
+
+class MyServiceTest {
+    interface MyService {
+        String call(String a, String b, String c);
+    }
+
+    @org.junit.jupiter.api.Test
+    void testWithBroadMatchers() {
+        MyService mock = Mockito.mock(MyService.class);
+        when(mock.call(any(), any(), any())).thenReturn("result");
+    }
+}
+```
+
+###### Unchanged
+```mavenProject
+test-project
+```
+
 
 ## Usage
 

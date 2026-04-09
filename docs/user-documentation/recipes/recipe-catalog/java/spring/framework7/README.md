@@ -22,6 +22,7 @@ _Recipes that include further recipes, often including the individual recipes be
 * [Find Spring OkHttp3 integration usage](./findokhttp3integrationusage.md)
 * [Find Spring Theme support usage](./findthemesupportusage.md)
 * [Find removed Spring servlet view classes](./findservletviewsupportusage.md)
+* [Migrate `Jackson2ObjectMapperBuilder` to mapper builder pattern](./migratejackson2objectmapperbuilder.md)
 * [Migrate `ListenableFuture` to `CompletableFuture`](./migratelistenablefuture.md)
 * [Migrate `ResponseEntity#getStatusCodeValue()` to `getStatusCode().value()`](./migrateresponseentitygetstatuscodevaluemethod.md)
 * [Preserve DynamicDestinationResolver behavior for JmsTemplate](./migratejmsdestinationresolver.md)
@@ -29,5 +30,6 @@ _Recipes that include further recipes, often including the individual recipes be
 * [Rename `RequestContext.jstPresent` to `JSTL_PRESENT`](./renamerequestcontextjstlpresent.md)
 * [Replace JUnit 4 Spring test base classes with JUnit Jupiter annotations](./replacejunit4springtestbaseclasses.md)
 * [Simplify reflection hint registrations for Spring Framework 7.0](./simplifyreflectionhintregistration.md)
+* [Wrap `GenericMessage` map argument in `MessageHeaders`](./wrapgenericmessagemapinmessageheaders.md)
 
 

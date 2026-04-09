@@ -27,6 +27,29 @@ This recipe is used as part of the following composite recipes:
 * [Update Prethink context (no AI)](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/prethink/updateprethinkcontextnoaistarter)
 * [Update Prethink context (with AI)](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/prethink/updateprethinkcontextstarter)
 
+## Example
+
+
+###### Unchanged
+```java
+package com.example;
+
+import java.time.LocalDate;
+import org.junit.jupiter.api.Test;
+
+public class DateTest {
+    @Test
+    void testWithHardcodedDate() {
+        LocalDate date = LocalDate.of(2023, 1, 15);
+    }
+}
+```
+
+###### Unchanged
+```mavenProject
+test-project
+```
+
 
 ## Usage
 

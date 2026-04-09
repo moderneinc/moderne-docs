@@ -10,7 +10,7 @@ import RunRecipe from '@site/src/components/RunRecipe';
 
 **io.moderne.java.spring.framework7.MigrateDeprecatedAPIs**
 
-_Migrates deprecated APIs that were removed in Spring Framework 7.0. This includes ListenableFuture to CompletableFuture migration._
+_Migrates deprecated APIs that were removed in Spring Framework 7.0. This includes ListenableFuture to CompletableFuture migration, ContentCachingRequestWrapper constructor changes, and NestedServletException to ServletException type migration._
 
 ### Tags
 
@@ -30,6 +30,205 @@ This recipe is available under the [Moderne Proprietary License](https://docs.mo
 This recipe is used as part of the following composite recipes:
 
 * [Migrate to Spring Framework 7.0](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/spring/framework7/upgradespringframework_7_0)
+
+## Examples
+##### Example 1
+`MigrateContentCachingRequestWrapperConstructorTest#addCacheLimitArgument`
+
+
+<Tabs groupId="beforeAfter">
+<TabItem value="java" label="java">
+
+
+###### Before
+```java
+import jakarta.servlet.http.HttpServletRequest;
+import org.springframework.web.util.ContentCachingRequestWrapper;
+
+class MyFilter {
+    void doFilter(HttpServletRequest request) {
+        ContentCachingRequestWrapper wrappedRequest = new ContentCachingRequestWrapper(request);
+    }
+}
+```
+
+###### After
+```java
+import jakarta.servlet.http.HttpServletRequest;
+import org.springframework.web.util.ContentCachingRequestWrapper;
+
+class MyFilter {
+    void doFilter(HttpServletRequest request) {
+        ContentCachingRequestWrapper wrappedRequest = new ContentCachingRequestWrapper(request, 0);
+    }
+}
+```
+
+</TabItem>
+<TabItem value="diff" label="Diff" >
+
+```diff
+@@ -6,1 +6,1 @@
+class MyFilter {
+    void doFilter(HttpServletRequest request) {
+-       ContentCachingRequestWrapper wrappedRequest = new ContentCachingRequestWrapper(request);
++       ContentCachingRequestWrapper wrappedRequest = new ContentCachingRequestWrapper(request, 0);
+    }
+```
+</TabItem>
+</Tabs>
+
+---
+
+##### Example 2
+`MigrateNestedServletExceptionTest#replaceNestedServletExceptionWithServletException`
+
+
+<Tabs groupId="beforeAfter">
+<TabItem value="java" label="java">
+
+
+###### Before
+```java
+import org.springframework.web.util.NestedServletException;
+
+class MyFilter {
+    void doFilter() throws NestedServletException {
+        throw new NestedServletException("error");
+    }
+}
+```
+
+###### After
+```java
+import jakarta.servlet.ServletException;
+
+class MyFilter {
+    void doFilter() throws ServletException {
+        throw new ServletException("error");
+    }
+}
+```
+
+</TabItem>
+<TabItem value="diff" label="Diff" >
+
+```diff
+@@ -1,1 +1,1 @@
+-import org.springframework.web.util.NestedServletException;
++import jakarta.servlet.ServletException;
+
+@@ -4,2 +4,2 @@
+
+class MyFilter {
+-   void doFilter() throws NestedServletException {
+-       throw new NestedServletException("error");
++   void doFilter() throws ServletException {
++       throw new ServletException("error");
+    }
+```
+</TabItem>
+</Tabs>
+
+---
+
+##### Example 3
+`MigrateContentCachingRequestWrapperConstructorTest#addCacheLimitArgument`
+
+
+<Tabs groupId="beforeAfter">
+<TabItem value="java" label="java">
+
+
+###### Before
+```java
+import jakarta.servlet.http.HttpServletRequest;
+import org.springframework.web.util.ContentCachingRequestWrapper;
+
+class MyFilter {
+    void doFilter(HttpServletRequest request) {
+        ContentCachingRequestWrapper wrappedRequest = new ContentCachingRequestWrapper(request);
+    }
+}
+```
+
+###### After
+```java
+import jakarta.servlet.http.HttpServletRequest;
+import org.springframework.web.util.ContentCachingRequestWrapper;
+
+class MyFilter {
+    void doFilter(HttpServletRequest request) {
+        ContentCachingRequestWrapper wrappedRequest = new ContentCachingRequestWrapper(request, 0);
+    }
+}
+```
+
+</TabItem>
+<TabItem value="diff" label="Diff" >
+
+```diff
+@@ -6,1 +6,1 @@
+class MyFilter {
+    void doFilter(HttpServletRequest request) {
+-       ContentCachingRequestWrapper wrappedRequest = new ContentCachingRequestWrapper(request);
++       ContentCachingRequestWrapper wrappedRequest = new ContentCachingRequestWrapper(request, 0);
+    }
+```
+</TabItem>
+</Tabs>
+
+---
+
+##### Example 4
+`MigrateNestedServletExceptionTest#replaceNestedServletExceptionWithServletException`
+
+
+<Tabs groupId="beforeAfter">
+<TabItem value="java" label="java">
+
+
+###### Before
+```java
+import org.springframework.web.util.NestedServletException;
+
+class MyFilter {
+    void doFilter() throws NestedServletException {
+        throw new NestedServletException("error");
+    }
+}
+```
+
+###### After
+```java
+import jakarta.servlet.ServletException;
+
+class MyFilter {
+    void doFilter() throws ServletException {
+        throw new ServletException("error");
+    }
+}
+```
+
+</TabItem>
+<TabItem value="diff" label="Diff" >
+
+```diff
+@@ -1,1 +1,1 @@
+-import org.springframework.web.util.NestedServletException;
++import jakarta.servlet.ServletException;
+
+@@ -4,2 +4,2 @@
+
+class MyFilter {
+-   void doFilter() throws NestedServletException {
+-       throw new NestedServletException("error");
++   void doFilter() throws ServletException {
++       throw new ServletException("error");
+    }
+```
+</TabItem>
+</Tabs>
 
 
 ## Usage

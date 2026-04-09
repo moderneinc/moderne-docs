@@ -46,6 +46,7 @@ This recipe is used as part of the following composite recipes:
 * [io.quarkus.updates.core.quarkus323.HibernateORMSchemaManagementProperties](/user-documentation/recipes/recipe-catalog/io/quarkus/updates/core/quarkus323/hibernateormschemamanagementproperties.md)
 * [io.quarkus.updates.core.quarkus324.LogConsoleAsyncEnable](/user-documentation/recipes/recipe-catalog/io/quarkus/updates/core/quarkus324/logconsoleasyncenable.md)
 * [io.quarkus.updates.core.quarkus326.EnableEnabledConfigChanges](/user-documentation/recipes/recipe-catalog/io/quarkus/updates/core/quarkus326/enableenabledconfigchanges.md)
+* [io.quarkus.updates.core.quarkus330.RenameEnableMetrics](/user-documentation/recipes/recipe-catalog/io/quarkus/updates/core/quarkus330/renameenablemetrics.md)
 * [io.quarkus.updates.core.quarkus39.UpdateConfigRoots](/user-documentation/recipes/recipe-catalog/io/quarkus/updates/core/quarkus39/updateconfigroots.md)
 * [io.quarkus.updates.minio.minio38.UpdateProperties](/user-documentation/recipes/recipe-catalog/io/quarkus/updates/minio/minio38/updateproperties.md)
 

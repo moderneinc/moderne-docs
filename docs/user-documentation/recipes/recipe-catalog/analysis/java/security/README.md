@@ -14,12 +14,18 @@ _Recipes that include further recipes, often including the individual recipes be
 
 ## Recipes
 
+* [Find JNDI injection vulnerabilities](./findjndiinjection.md)
 * [Find LDAP injection vulnerabilities](./findldapinjection.md)
 * [Find SQL injection vulnerabilities](./findsqlinjection.md)
 * [Find XSS vulnerabilities](./findxssvulnerability.md)
 * [Find XXE vulnerabilities](./findxxevulnerability.md)
 * [Find command injection vulnerabilities](./findcommandinjection.md)
+* [Find improper validation of array index](./findarrayindexinjection.md)
+* [Find log injection vulnerabilities](./findloginjection.md)
 * [Find path traversal vulnerabilities](./findpathtraversal.md)
+* [Find process control vulnerabilities](./findprocesscontrolinjection.md)
 * [Find unencrypted PII storage](./findunencryptedpiistorage.md)
+* [Find unsafe reflection vulnerabilities](./findunsafereflectioninjection.md)
+* [Sanitize log injection vulnerabilities](./sanitizeloginjection.md)
 
 

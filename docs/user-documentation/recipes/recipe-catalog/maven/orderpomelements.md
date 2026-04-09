@@ -36,7 +36,6 @@ This recipe is used as part of the following composite recipes:
 
 * [Apache Maven best practices](/user-documentation/recipes/recipe-catalog/maven/bestpractices.md)
 * [Apache Maven best practices](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/devcenter/apachemavenbestpractices)
-* [Clean up various issues with the code](/user-documentation/recipes/recipe-catalog/java/dropwizard/codecleanup.md)
 
 ## Example
 

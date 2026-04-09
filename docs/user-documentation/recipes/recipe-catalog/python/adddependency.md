@@ -10,7 +10,7 @@ import RunRecipe from '@site/src/components/RunRecipe';
 
 **org.openrewrite.python.AddDependency**
 
-_Add a dependency to the `[project].dependencies` array in `pyproject.toml`. When `uv` is available, the `uv.lock` file is regenerated._
+_Add a dependency to a Python project. Supports `pyproject.toml` (with scope/group targeting), `requirements.txt`, and `Pipfile`. When `uv` is available, the `uv.lock` file is regenerated._
 
 ## Recipe source
 
@@ -25,7 +25,7 @@ This recipe is available under the [Moderne Proprietary License](https://docs.mo
 | --- | --- | --- | --- |
 | `String` | packageName | The PyPI package name to add. | `requests` |
 | `String` | version | *Optional*. The PEP 508 version constraint (e.g., `>=2.28.0`). | `>=2.28.0` |
-| `String` | scope | *Optional*. The dependency scope to add to. Defaults to `project.dependencies`. Valid options: `project.dependencies`, `project.optional-dependencies`, `dependency-groups`, `tool.uv.constraint-dependencies`, `tool.uv.override-dependencies` | `project.dependencies` |
+| `String` | scope | *Optional*. The dependency scope to add to. For pyproject.toml this targets a specific TOML section. For requirements files, `null` matches all files, empty string matches only `requirements.txt`, and a value like `dev` matches `requirements-dev.txt`. Defaults to `project.dependencies`. | `project.dependencies` |
 | `String` | groupName | *Optional*. The group name, required when scope is `project.optional-dependencies` or `dependency-groups`. | `dev` |
 
 

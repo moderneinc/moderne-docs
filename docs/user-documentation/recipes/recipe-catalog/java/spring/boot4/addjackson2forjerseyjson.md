@@ -97,10 +97,6 @@ test
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-jackson2</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-jersey</artifactId>
         </dependency>
     </dependencies>
@@ -113,14 +109,10 @@ test
 ```diff
 --- pom.xml
 +++ pom.xml
-@@ -15,0 +15,8 @@
+@@ -15,0 +15,4 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
 +           <artifactId>spring-boot-jackson</artifactId>
-+       </dependency>
-+       <dependency>
-+           <groupId>org.springframework.boot</groupId>
-+           <artifactId>spring-boot-jackson2</artifactId>
 +       </dependency>
 +       <dependency>
 +           <groupId>org.springframework.boot</groupId>
@@ -196,10 +188,6 @@ test
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-jackson2</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-jersey</artifactId>
         </dependency>
     </dependencies>
@@ -212,14 +200,10 @@ test
 ```diff
 --- pom.xml
 +++ pom.xml
-@@ -15,0 +15,8 @@
+@@ -15,0 +15,4 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
 +           <artifactId>spring-boot-jackson</artifactId>
-+       </dependency>
-+       <dependency>
-+           <groupId>org.springframework.boot</groupId>
-+           <artifactId>spring-boot-jackson2</artifactId>
 +       </dependency>
 +       <dependency>
 +           <groupId>org.springframework.boot</groupId>

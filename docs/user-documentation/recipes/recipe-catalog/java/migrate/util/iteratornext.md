@@ -31,6 +31,7 @@ This recipe is available under the [Moderne Source Available License](https://do
 This recipe is used as part of the following composite recipes:
 
 * [Adopt `SequencedCollection`](/user-documentation/recipes/recipe-catalog/java/migrate/util/sequencedcollection.md)
+* [Use modernized `java.util` APIs](/user-documentation/recipes/recipe-catalog/java/migrate/util/javautilapis.md)
 
 ## Example
 

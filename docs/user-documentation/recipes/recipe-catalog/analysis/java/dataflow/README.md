@@ -9,5 +9,6 @@ _Recipes that track data flow through programs to identify dead stores, unused v
 ## Recipes
 
 * [Find dead stores](./finddeadstores.md)
+* [Find unclosed resources (S2095)](./findunclosedresources.md)
 
 

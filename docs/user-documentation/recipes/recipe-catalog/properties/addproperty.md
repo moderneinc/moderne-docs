@@ -34,16 +34,8 @@ This recipe is available under the [Apache License Version 2.0](https://www.apac
 | `String` | comment | *Optional*. A comment that will be added to the new property. | `This is a comment` |
 | `String` | delimiter | *Optional*. Property entries support different delimiters (`=`, `:`, or whitespace). The default value is `=` unless provided the delimiter of the new property entry. | `:` |
 | `Boolean` | orderedInsertion | *Optional*. Whether to attempt adding the property in an order following alphabetic sorting. The default value is `true`. | `false` |
-
-
-## Used by
-
-This recipe is used as part of the following composite recipes:
-
-* [Add Core Example Properties](/user-documentation/recipes/recipe-catalog/java/dropwizard/addcoreexampleproperties.md)
-* [Add Hibernate Configuration](/user-documentation/recipes/recipe-catalog/java/dropwizard/addhibernateconfiguration.md)
-* [Add Jersey Configuration](/user-documentation/recipes/recipe-catalog/java/dropwizard/addjerseyconfiguration.md)
-* [Add Spring Boot Actuator Configuration](/user-documentation/recipes/recipe-catalog/java/dropwizard/addactuatorconfiguration.md)
+| `InsertMode` | insertMode | *Optional*. Choose an insertion point relative to an existing property. Default is `Last`. Takes precedence over `orderedInsertion`. If the referenced property does not exist, falls back to default behavior. Valid options: `Before`, `After`, `Last` |  |
+| `String` | insertProperty | *Optional*. The key of an existing property to use as the reference point for the insert mode. Required when `insertMode` is `Before` or `After`. | `server.port` |
 
 ## Example
 
@@ -55,6 +47,8 @@ This recipe is used as part of the following composite recipes:
 |comment|`null`|
 |delimiter|`null`|
 |orderedInsertion|`null`|
+|insertMode|`null`|
+|insertProperty|`null`|
 
 
 <Tabs groupId="beforeAfter">
@@ -103,6 +97,7 @@ recipeList:
       comment: This is a comment
       delimiter: :
       orderedInsertion: false
+      insertProperty: server.port
 ```
 
 <RunRecipe
@@ -113,7 +108,7 @@ recipeList:
   versionKey="VERSION_ORG_OPENREWRITE_REWRITE_PROPERTIES"
   isCoreLibrary
   requiresConfiguration
-  cliOptions={' --recipe-option "property=management.metrics.enable.process.files" --recipe-option "value=newPropValue" --recipe-option "comment=This is a comment" --recipe-option "delimiter=:" --recipe-option "orderedInsertion=false"'}
+  cliOptions={' --recipe-option "property=management.metrics.enable.process.files" --recipe-option "value=newPropValue" --recipe-option "comment=This is a comment" --recipe-option "delimiter=:" --recipe-option "orderedInsertion=false" --recipe-option "insertProperty=server.port"'}
   showGradle={false}
   showMaven={false}
   hasDataTables
