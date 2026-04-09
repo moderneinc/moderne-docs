@@ -13,6 +13,7 @@ rewrite-concourse
 rewrite-cryptography
 rewrite-devcenter
 rewrite-dotnet
+rewrite-dropwizard
 rewrite-elastic
 rewrite-hibernate
 rewrite-jasperreports
@@ -29,6 +30,7 @@ rewrite-react
 rewrite-reactive-streams
 rewrite-spring
 rewrite-sql
+rewrite-static-analysis
 rewrite-struts
 rewrite-tapestry
 rewrite-terraform
