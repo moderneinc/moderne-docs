@@ -60,6 +60,10 @@ This recipe is available under the [Moderne Source Available License](https://do
   * groupId: `net.bytebuddy`
   * artifactId: `byte-buddy*`
   * newVersion: `1.17.x`
+* [Upgrade Gradle or Maven dependency versions](../../java/dependencies/upgradedependencyversion)
+  * groupId: `org.mockito`
+  * artifactId: `mockito-*`
+  * newVersion: `5.17.x`
 
 </TabItem>
 
@@ -97,6 +101,10 @@ recipeList:
       groupId: net.bytebuddy
       artifactId: byte-buddy*
       newVersion: 1.17.x
+  - org.openrewrite.java.dependencies.UpgradeDependencyVersion:
+      groupId: org.mockito
+      artifactId: mockito-*
+      newVersion: 5.17.x
 
 ```
 </TabItem>

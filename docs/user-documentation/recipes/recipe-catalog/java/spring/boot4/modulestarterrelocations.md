@@ -33,6 +33,50 @@ This recipe is used as part of the following composite recipes:
 
 ## Examples
 ##### Example 1
+`ModuleStarterRelocationsJacksonTest#renameJackson2ObjectMapperBuilderCustomizer`
+
+
+<Tabs groupId="beforeAfter">
+<TabItem value="java" label="java">
+
+
+###### Before
+```java
+import org.springframework.boot.autoconfigure.jackson.Jackson2ObjectMapperBuilderCustomizer;
+
+class MyConfig implements Jackson2ObjectMapperBuilderCustomizer {
+}
+```
+
+###### After
+```java
+import org.springframework.boot.autoconfigure.jackson.JsonMapperBuilderCustomizer;
+
+class MyConfig implements JsonMapperBuilderCustomizer {
+}
+```
+
+</TabItem>
+<TabItem value="diff" label="Diff" >
+
+```diff
+@@ -1,1 +1,1 @@
+-import org.springframework.boot.autoconfigure.jackson.Jackson2ObjectMapperBuilderCustomizer;
++import org.springframework.boot.autoconfigure.jackson.JsonMapperBuilderCustomizer;
+
+@@ -3,1 +3,1 @@
+import org.springframework.boot.autoconfigure.jackson.Jackson2ObjectMapperBuilderCustomizer;
+
+-class MyConfig implements Jackson2ObjectMapperBuilderCustomizer {
++class MyConfig implements JsonMapperBuilderCustomizer {
+}
+```
+</TabItem>
+</Tabs>
+
+---
+
+##### Example 2
 `ModuleStarterRelocationsTest#renameAutoConfigureWebClientToAutoConfigureRestClient`
 
 
@@ -76,7 +120,51 @@ class MyTest {}
 
 ---
 
-##### Example 2
+##### Example 3
+`ModuleStarterRelocationsJacksonTest#renameJackson2ObjectMapperBuilderCustomizer`
+
+
+<Tabs groupId="beforeAfter">
+<TabItem value="java" label="java">
+
+
+###### Before
+```java
+import org.springframework.boot.autoconfigure.jackson.Jackson2ObjectMapperBuilderCustomizer;
+
+class MyConfig implements Jackson2ObjectMapperBuilderCustomizer {
+}
+```
+
+###### After
+```java
+import org.springframework.boot.autoconfigure.jackson.JsonMapperBuilderCustomizer;
+
+class MyConfig implements JsonMapperBuilderCustomizer {
+}
+```
+
+</TabItem>
+<TabItem value="diff" label="Diff" >
+
+```diff
+@@ -1,1 +1,1 @@
+-import org.springframework.boot.autoconfigure.jackson.Jackson2ObjectMapperBuilderCustomizer;
++import org.springframework.boot.autoconfigure.jackson.JsonMapperBuilderCustomizer;
+
+@@ -3,1 +3,1 @@
+import org.springframework.boot.autoconfigure.jackson.Jackson2ObjectMapperBuilderCustomizer;
+
+-class MyConfig implements Jackson2ObjectMapperBuilderCustomizer {
++class MyConfig implements JsonMapperBuilderCustomizer {
+}
+```
+</TabItem>
+</Tabs>
+
+---
+
+##### Example 4
 `ModuleStarterRelocationsTest#renameAutoConfigureWebClientToAutoConfigureRestClient`
 
 

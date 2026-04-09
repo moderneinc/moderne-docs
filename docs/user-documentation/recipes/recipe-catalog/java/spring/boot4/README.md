@@ -16,6 +16,7 @@ _Recipes that include further recipes, often including the individual recipes be
 * [Add `spring-boot-starter-validation` dependency](./addvalidationstarterdependency.md)
 * [Adopt Jackson 3](./adoptjackson3.md)
 * [Migrate MockMvc to AssertJ assertions](./migratemockmvctoassertj.md)
+* [Migrate `PropertyMapper` API for Spring Boot 4.0](./migratepropertymapper.md)
 * [Migrate Spring Boot properties to 4.0](./springbootproperties_4_0.md)
 * [Migrate Spring Retry to Spring Resilience](./migratespringretry.md)
 * [Migrate Spring Session Hazelcast to Hazelcast Spring Session](./migratehazelcastspringsession.md)

@@ -42,6 +42,7 @@ This recipe is available under the [Apache License Version 2.0](https://www.apac
 This recipe is used as part of the following composite recipes:
 
 * [Add explicit JAXB API dependencies](/user-documentation/recipes/recipe-catalog/java/migrate/javax/addjaxbapidependencies.md)
+* [Migrate Dropwizard to Spring Boot 3](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/dropwizard/boot/migratedropwizardtospringboot3)
 * [Migrate Jackson from javax to jakarta namespace](/user-documentation/recipes/recipe-catalog/io/quarkus/updates/core/quarkus30/jacksonjavaxtojakarta.md)
 * [Migrate Jackson from javax to jakarta namespace](/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/jacksonjavaxtojakarta.md)
 

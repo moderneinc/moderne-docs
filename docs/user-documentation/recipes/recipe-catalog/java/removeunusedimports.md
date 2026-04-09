@@ -34,8 +34,8 @@ This recipe is available under the [Apache License Version 2.0](https://www.apac
 
 This recipe is used as part of the following composite recipes:
 
-* [Clean up various issues with the code](/user-documentation/recipes/recipe-catalog/java/dropwizard/codecleanup.md)
 * [Java best practices](/user-documentation/recipes/recipe-catalog/java/migrate/javabestpractices.md)
+* [Migrate Dropwizard to Spring Boot 3](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/dropwizard/boot/migratedropwizardtospringboot3)
 * [OpenRewrite recipe best practices](/user-documentation/recipes/recipe-catalog/recipes/rewrite/openrewriterecipebestpractices.md)
 * [Upgrade to the latest Timefold Solver](/user-documentation/recipes/recipe-catalog/ai/timefold/solver/migration/tolatest.md)
 

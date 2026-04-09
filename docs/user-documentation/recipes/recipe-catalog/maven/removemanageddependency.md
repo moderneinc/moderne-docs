@@ -44,7 +44,6 @@ This recipe is used as part of the following composite recipes:
 * [Add explicit JAX-WS dependencies](/user-documentation/recipes/recipe-catalog/java/migrate/javax/addjaxwsdependencies.md)
 * [Add explicit JAXB API dependencies and remove runtimes](/user-documentation/recipes/recipe-catalog/java/migrate/javax/addjaxbdependencieswithoutruntime.md)
 * [Add explicit JAXB API dependencies](/user-documentation/recipes/recipe-catalog/java/migrate/javax/addjaxbapidependencies.md)
-* [Create Spring Boot Application Entry Point](/user-documentation/recipes/recipe-catalog/java/dropwizard/coresetup.md)
 * [Migrate Hibernate dependencies to 6.0.x](/user-documentation/recipes/recipe-catalog/hibernate/migratetohibernatedependencies60.md)
 * [Migrate Spring Cloud Sleuth 3.1 to Micrometer Tracing 1.0](/user-documentation/recipes/recipe-catalog/java/spring/cloud2022/migratecloudsleuthtomicrometertracing.md)
 * [Replace PowerMock with raw Mockito](/user-documentation/recipes/recipe-catalog/java/testing/mockito/replacepowermockito.md)

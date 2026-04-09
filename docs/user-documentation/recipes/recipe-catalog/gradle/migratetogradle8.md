@@ -46,6 +46,7 @@ This recipe is available under the [Apache License Version 2.0](https://www.apac
   * previewFeatureName: `VERSION_ORDERING_V2`
 * [Remove an enabled Gradle preview feature](../gradle/removeenablefeaturepreview)
   * previewFeatureName: `VERSION_CATALOGS`
+* [Use `=` assignment syntax for well-known Gradle properties](../gradle/useassignmentforpropertysyntax)
 
 </TabItem>
 
@@ -71,6 +72,7 @@ recipeList:
       previewFeatureName: VERSION_ORDERING_V2
   - org.openrewrite.gradle.RemoveEnableFeaturePreview:
       previewFeatureName: VERSION_CATALOGS
+  - org.openrewrite.gradle.UseAssignmentForPropertySyntax
 
 ```
 </TabItem>

@@ -38,7 +38,6 @@ This recipe is available under the [Apache License Version 2.0](https://www.apac
 
 This recipe is used as part of the following composite recipes:
 
-* [Combined dependency management to remove and exclude](/user-documentation/recipes/recipe-catalog/java/dropwizard/config/removeandexcludedependency.md)
 * [Exclude JUnit 4, unless Testcontainers is used](/user-documentation/recipes/recipe-catalog/java/testing/junit5/excludejunit4unlessusingtestcontainers.md)
 * [JUnit Jupiter migration from JUnit 4.x](/user-documentation/recipes/recipe-catalog/java/testing/junit5/junit4to5migration.md)
 * [Lombok Best Practices](/user-documentation/recipes/recipe-catalog/java/migrate/lombok/lombokbestpractices.md)
