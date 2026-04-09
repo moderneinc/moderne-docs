@@ -7,7 +7,7 @@ description: The current version of the Moderne CLI and links to useful CLI docu
 
 | Component   | Current version |
 | ----------- | --------------- |
-| CLI version | 4.1.1           |
+| CLI version | 4.1.2           |
 
 For CLI command documentation, see the [CLI reference](../user-documentation/moderne-cli/cli-reference.md).
 
@@ -16,6 +16,16 @@ The Moderne CLI previously followed a two-track release model with separate "sta
 :::
 
 ## Changelog
+
+### CLI / DX v4.1.2 (2026-04-09)
+
+#### What's Changed
+* Remove jansi native access warnings from wrapper scripts
+* Fix MCP server startup deadlock
+* Fix `modw.cmd` stdout capture bug resulting in `ClassNotFoundException`
+* Fix trace.json TOCTOU race by making to Json write atomically
+* Fix intermingled path error when building from a repository subdirectory
+* Fix NPE in mod run when Node.js is not installed
 
 ### CLI / DX v4.1.1 (2026-04-08)
 
