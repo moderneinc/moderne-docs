@@ -1,37 +1,13 @@
 ---
-sidebar_label: "Module 5: Finish migration in waves"
-description: Install a custom recipe and complete the Spring Boot 4 upgrade in waves.
+sidebar_label: "Module 6: Finish migration in waves"
+description: Build a composite recipe and complete the Spring Boot 4 upgrade in waves.
 ---
 
-# Module 5: Finishing your migration in waves
+# Module 6: Finishing your migration in waves
 
-In this module, you will install a custom recipe to handle the QueryDSL issues, build a composite upgrade recipe, and upgrade each wave of repositories to Spring Boot 4. QueryDSL is a common migration blocker because older versions tend to emit code that is tied to `javax.*` APIs and older Spring Boot baselines.
+In this module, you will build a composite upgrade recipe that includes the QueryDSL recipe you built in Module 5, then upgrade each wave of repositories to Spring Boot 4. The composite recipe bundles internal dependency bumps, the Spring Boot 4 upgrade, and the QueryDSL fix into a single, repeatable run.
 
-## Exercise 5-1: Install the QueryDSL recipe locally
-
-### Goals for this exercise
-
-* Build and install a custom recipe that upgrades QueryDSL
-
-### Steps
-
-You will need a custom recipe to rename packages, update dependencies, and adjust APIs to match the newer QueryDSL versions used with Spring Boot 3+. Authoring custom recipes is outside the scope of this workshop, so a custom recipe has been provided for you.
-
-:::tip
-Check out the [Fundamentals of Recipe Authorship](../fundamentals/workshop-overview.md) if you are interested in learning about writing custom recipes.
-:::
-
-To build and install the custom recipe, run the following commands:
-
-```bash
-cd $PROJECTS
-git clone https://github.com/modernetraining/rewrite-querydsl.git
-cd rewrite-querydsl
-mvn clean install
-mod config recipes jar install org.openrewrite.recipe:rewrite-querydsl:0.1.0-SNAPSHOT
-```
-
-## Exercise 5-2: Create the composite upgrade recipe
+## Exercise 6-1: Create the composite upgrade recipe
 
 ### Goals for this exercise
 
@@ -41,10 +17,10 @@ mod config recipes jar install org.openrewrite.recipe:rewrite-querydsl:0.1.0-SNA
 
 You could try to just run the custom QueryDSL recipe, but there is a chicken-and-egg issue: Spring Boot 4 expects `jakarta.*` APIs, but QueryDSL 3 generates `javax.*`-based code that will not compile. The solution is to upgrade QueryDSL and Spring Boot in a single, repeatable recipe. You can do that using a composite YAML recipe similar to the way you built one in Module 1.
 
-Additionally, since you will be upgrading in waves to ensure that custom library dependencies are handled in the proper sequence, you also need to make sure to update the dependency versions in each wave to use the newly released version from the previous wave. So you'll need to include this step in the composite recipe as well.
+Additionally, since you will be upgrading in waves to ensure that custom library dependencies are handled in the proper sequence, you also need to make sure to update the dependency versions in each wave to use the newly released version from the previous wave. So you will need to include this step in the composite recipe as well.
 
 :::note
-This is an example of a migration recipe _freight train_. You'll often build a custom recipe that runs the out-of-the-box recipes and then applies some additional ones that are needed in your particular environment. In this workshop, the composite recipe upgrades internal dependencies, applies the Spring Boot 4 recipe, and then runs the QueryDSL upgrade.
+This is an example of a migration recipe _freight train_. You will often build a custom recipe that runs the out-of-the-box recipes and then applies some additional ones that are needed in your particular environment. In this workshop, the composite recipe upgrades internal dependencies, applies the Spring Boot 4 recipe, and then runs the QueryDSL upgrade.
 :::
 
 1. Create a local YAML recipe file. This composite recipe is named `org.openrewrite.recipe.querydsl.CustomUpgradeSpringBoot_4_0` and combines [`org.openrewrite.java.dependencies.UpgradeDependencyVersion`](https://docs.openrewrite.org/recipes/java/dependencies/upgradedependencyversion), [`io.moderne.java.spring.boot4.UpgradeSpringBoot_4_0`](https://docs.openrewrite.org/recipes/java/spring/boot4/upgradespringboot_4_0), and `org.openrewrite.recipe.querydsl.UpgradeToQueryDsl5`. If you prefer, you can copy and paste the YAML directly into a new file named `CustomUpgradeSpringBoot_4_0.yml` instead of using the command.
@@ -78,7 +54,7 @@ You can't use recipe builder in this case since you are referring to a custom re
 mod config recipes yaml install CustomUpgradeSpringBoot_4_0.yml
 ```
 
-## Exercise 5-3: Upgrade wave 0
+## Exercise 6-2: Upgrade wave 0
 
 ### Goals for this exercise
 
@@ -87,9 +63,9 @@ mod config recipes yaml install CustomUpgradeSpringBoot_4_0.yml
 
 ### Steps
 
-Now that the custom upgrade recipe is ready, it's time to upgrade each wave! 
+Now that the custom upgrade recipe is ready, it's time to upgrade each wave!
 
-1. Start by upgrading Wave 0 using `org.openrewrite.recipe.querydsl.CustomUpgradeSpringBoot_4_0` with the following commands. 
+1. Start by upgrading Wave 0 using `org.openrewrite.recipe.querydsl.CustomUpgradeSpringBoot_4_0` with the following commands.
 
 ```bash
 mod run $WORKSPACE/Wave0 --recipe org.openrewrite.recipe.querydsl.CustomUpgradeSpringBoot_4_0
@@ -108,7 +84,7 @@ $WORKSHOP/release.sh 0
 
 This isn't surprising since you saw Wave 0 successfully build earlier. It was Wave 1 that failed last time, so the real test will be upgrading Wave 1.
 
-## Exercise 5-4: Upgrade wave 1
+## Exercise 6-3: Upgrade wave 1
 
 ### Goals for this exercise
 
@@ -131,7 +107,7 @@ $WORKSHOP/build.sh 1
 $WORKSHOP/release.sh 1
 ```
 
-## Exercise 5-5: Refresh DevCenter and continue waves
+## Exercise 6-4: Refresh DevCenter and continue waves
 
 ### Goals for this exercise
 
@@ -140,9 +116,9 @@ $WORKSHOP/release.sh 1
 
 ### Steps
 
-At the end of Module 1, you used an organizational DevCenter to see the status of the migration across repositories. Now that you've successfully upgraded a handful of repositories, you can generate a new DevCenter dashboard locally to compare and track your progress.
+At the end of Module 1, you used an organizational DevCenter to see the status of the migration across repositories. Now that you have successfully upgraded a handful of repositories, you can generate a new DevCenter dashboard locally to compare and track your progress.
 
-1. First, you'll need to rebuild your LSTs since the code has been changed since the last LSTs were built:
+1. First, you will need to rebuild your LSTs since the code has been changed since the last LSTs were built:
 
 ```bash
 mod build $WORKSPACE
@@ -278,11 +254,11 @@ MOD SUCCEEDED in 4s
 
 4. You should notice:
 
-  * Java 17 is applied across the org
-  * Wave 0 and Wave 1 now show Spring Boot 4.0
-  * Remaining waves are still pending
+    * Java 17 is applied across the org
+    * Wave 0 and Wave 1 now show Spring Boot 4.0
+    * Remaining waves are still pending
 
-5. You can now continue upgrading waves until every repository is on Spring Boot 4. Use the commands as in exercise 5-4, each time targeting the next wave:
+5. You can now continue upgrading waves until every repository is on Spring Boot 4. Use the commands as in Exercise 6-3, each time targeting the next wave:
 
 ```bash
 mod run $WORKSPACE/Wave2 --recipe org.openrewrite.recipe.querydsl.CustomUpgradeSpringBoot_4_0
@@ -295,12 +271,13 @@ $WORKSHOP/release.sh 2
 
 ## Takeaways
 
-* Composite “freight train” recipes bundle prerequisite upgrades with the main migration step
+* Composite "freight train" recipes bundle prerequisite upgrades with the main migration step
 * Wave-by-wave upgrades keep dependency releases aligned and reduce downstream breakage
 * DevCenter refreshes provide a quick progress check after each wave
 
 ## Learn more
 
 * [Fundamentals of recipe development workshop](../fundamentals/workshop-overview.md)
+* [AI recipes workshop](../ai-recipes/workshop-overview.md)
 * [Writing and installing recipes](../../user-documentation/moderne-platform/how-to-guides/writing-and-installing-recipes.md)
 * [DevCenter overview](../../user-documentation/moderne-platform/getting-started/dev-center.md)
