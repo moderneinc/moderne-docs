@@ -10,6 +10,266 @@ This page contains release notes for [Moderne proprietary OpenRewrite recipes](h
 This changelog is automatically generated from GitHub releases and only contains information from the past year.
 :::
 
+## April 9, 2026
+
+#### rewrite-java-security - 3.28.1
+
+* Add overrideTransitive option to Python dep check
+* Added options
+
+#### rewrite-nodejs - 0.43.0
+
+* Add ability to provide extra supplementalVulnerabilities
+
+#### rewrite-spring - 0.30.1
+
+* Bumped rewrite-jackson to `1.21.1`
+
+## April 8, 2026
+
+#### rewrite-ai - 0.3.0
+
+* Update Prethink context
+
+#### rewrite-ai-search - 0.33.0
+
+* Update Prethink context
+
+#### rewrite-android - 0.16.0
+
+* Update Prethink context
+
+#### rewrite-angular - 1.1.0
+
+* Bump @openrewrite/rewrite from 8.78.2 to 8.78.3 in /recipes-angular[bot]
+* Bump ts-jest from 29.4.6 to 29.4.9 in /recipes-angular[bot]
+* Update Prethink context
+
+#### rewrite-circleci - 3.10.0
+
+* Update Prethink context
+
+#### rewrite-cobol - 2.17.1
+
+* Updated repository to use OpenRewrite version v8.79.0
+
+#### rewrite-codemods - v0.25.1
+
+* Upgrade lodash to 4.18.0+ (CVE-2026-4800)
+
+#### rewrite-codemods - 0.25.0
+
+* Update Prethink context
+
+#### rewrite-codemods-ng - v0.20.1
+
+* chore(deps): bump hono from 4.11.4 to 4.12.12 in /src/main/resources/codemods[bot]
+* chore(deps): bump @hono/node-server from 1.19.9 to 1.19.13 in /src/main/resources/codemods[bot]
+* chore(deps): bump tar from 7.5.2 to 7.5.11 in /src/main/resources/codemods[bot]
+* chore(deps): bump path-to-regexp from 8.3.0 to 8.4.0 in /src/main/resources/codemods[bot]
+* chore(deps): bump qs from 6.14.1 to 6.14.2 in /src/main/resources/codemods[bot]
+* chore(deps): bump @isaacs/brace-expansion from 5.0.0 to 5.0.1 in /src/main/resources/codemods[bot]
+* chore(deps): bump picomatch and @angular/cli in /src/main/resources/codemods[bot]
+* chore(deps): bump minimatch from 10.1.1 to 10.2.4 in /src/main/resources/codemods[bot]
+
+#### rewrite-codemods-ng - 0.20.0
+
+* Update Prethink context
+
+#### rewrite-compiled-analysis - 0.13.0
+
+* Update Prethink context
+
+#### rewrite-concourse - 3.10.0
+
+* Update Prethink context
+
+#### rewrite-cryptography - 0.13.0
+
+* Update Prethink context
+
+#### rewrite-devcenter - 1.21.0
+
+* OpenRewrite recipe best practices
+
+#### rewrite-dotnet - 0.15.0
+
+* Update Prethink context
+
+#### rewrite-elastic - 0.6.0
+
+* Fix compilation errors from uncast TreeVisitor.visit() returns
+* Update Prethink context
+
+#### rewrite-hibernate - 0.21.0
+
+* Fix compilation error and test OOM on main
+* Add recipe to migrate Hibernate Criteria API to JPA Criteria API
+* Update Prethink context
+* Add SQLQuery to NativeQuery migration and JPQL trunc() to cast() recipe
+
+#### rewrite-jasperreports - 0.5.0
+
+* Update Prethink context
+
+#### rewrite-java-application-server - 0.5.0
+
+* Add 30-minute timeout to CI build job
+* Add timeouts to integration tests to prevent CI hangs
+* Fix CI: add Jetty type tables for generated source file parsing
+* Fix Jetty Gradle integration test CI timeout by reusing connection
+
+#### rewrite-java-security - 3.28.0
+
+* Remove uv availability check from tests
+* Add OWASP A05:2025 Injection recipe
+* Use loose version assertions for tomcat-embed-core tests
+* Update test for new jackson-core advisory GHSA-2m67-wjpj-xhg9
+* Update Prethink context
+* FFVD: Add requirements.txt support for Python vulnerability checking
+
+#### rewrite-kafka - 0.5.0
+
+* Update Prethink context
+
+#### rewrite-kubernetes - 3.16.0
+
+* Fix limitContainerCapabilities test for MergeYaml indentation change
+* Update Prethink context
+* Fix JsonPathMatcher.matches() incompatibility with rewrite 8.79.0
+
+#### rewrite-migrate-kotlin - 0.1.4
+
+* Updated repository to use OpenRewrite version v8.79.0
+
+#### rewrite-migrate-python - 0.5.0
+
+* Fix NPE on `validate()` of `FindMethods`
+
+#### rewrite-nodejs - 0.42.0
+
+* Update Prethink context
+
+#### rewrite-prethink - 0.5.6
+
+* Updated repository to use OpenRewrite version v8.79.0
+
+#### rewrite-program-analysis - 0.12.0
+
+* Create FindUnclosedResources recipe for SonarQube S2095
+* Add FindLogInjection recipe for S5145 — Log Injection
+* Add rspec-S2095 tag to FindUnclosedResources recipe
+* Add FindArrayIndexInjection taint-tracking recipe for CWE-129
+* Expand taint sources for FindArrayIndexInjection
+* Add FindJndiInjection taint-tracking recipe for CWE-99
+* Add FindUnsafeReflectionInjection taint-tracking recipe for CWE-470
+* Add FindProcessControlInjection taint-tracking recipe for CWE-114
+* Improve TrackDataLineage recipe description
+
+#### rewrite-react - 0.2.5
+
+* Updated repository to use OpenRewrite version v8.79.0
+
+#### rewrite-reactive-streams - 0.19.0
+
+* Update Prethink context
+
+#### rewrite-spring - 0.30.0
+
+* Preserve comments when folding setters into builder
+* OpenRewrite recipe best practices
+* Fix failing Gradle upgrade cycle assertions
+* Fix IllegalArgumentException in JaxRsToSpringWeb for explicit value attributes
+* Add acceptTransitive to Boot 4 and Security 7 migration recipes
+* Fix NPE and IOOBE in `FieldToConstructorInjection.addConstructors()`
+* Sync Gradle ext properties with Spring Boot BOM during upgrades
+
+#### rewrite-sql - 2.11.0
+
+* Add INSERT INTO statement detection to FindSql
+* Update Prethink context
+
+#### rewrite-struts - 0.25.5
+
+* Updated repository to use OpenRewrite version v8.79.0
+
+#### rewrite-tapestry - 0.2.5
+
+* Updated repository to use OpenRewrite version v8.79.0
+
+#### rewrite-terraform - 3.13.5
+
+* Updated repository to use OpenRewrite version v8.79.0
+
+#### rewrite-vulncheck - 0.6.5
+
+* Updated repository to use OpenRewrite version v8.79.0
+
+## April 7, 2026
+
+#### rewrite-prethink - v0.5.5
+
+* Fix failing to read rows with cells larger than 4096 characters.
+
+## April 6, 2026
+
+#### rewrite-prethink - 0.5.4
+
+* Add JobRunr `@Recurring` detection to FindScheduledTasks
+* Fix GenerateCalmMermaidDiagram leaving placeholder when no architectural data
+* Add Quarkus, MicroProfile, and Jakarta detection to CALM recipes
+
+## April 4, 2026
+
+#### rewrite-devcenter - 1.20.0
+
+* Add DevCenter cards for Python and Node.js version tracking
+* Add DevCenter cards for Kotlin, Groovy, and Scala version tracking
+* Add DevCenter card for C# (.NET) version tracking
+* Fix race condition in UpgradesAndMigrations.insertRow
+* Set group on UpgradesAndMigrations DataTable
+* Fix DevCenterTest to query UpgradesAndMigrations by group
+
+## April 2, 2026
+
+#### rewrite-angular - 1.0.5
+
+* Bump brace-expansion in /recipes-angular[bot]
+* Bump handlebars from 4.7.8 to 4.7.9 in /recipes-angular[bot]
+* Bump yaml from 2.8.2 to 2.8.3 in /recipes-angular[bot]
+* Bump picomatch from 2.3.1 to 2.3.2 in /recipes-angular[bot]
+* Add workflow to auto-merge Dependabot patch updates
+* OpenRewrite 8.77.2
+* Use `packagePattern` in @angular version changes
+* OpenRewrite 8.78.2
+
+#### rewrite-spring - 0.29.1
+
+* Fix AddSpringBootApplication sometimes producing untyped Application classes
+* Migrate ContentCachingRequestWrapper single-arg constructor for Spring 7.0
+* Fix MockMvc POST with contentType(MediaType) migration
+* Add Spring Cloud AWS version upgrade to Spring Boot 4.0 recipe
+* Remove duplicate `actuate.health` type relocations
+* Migrate requiresChannel() to redirectToHttps() for Spring Security 7
+* Add Spring Boot 4 Jackson type relocations
+* Wrap GenericMessage Map argument in MessageHeaders for Spring Framework 7.0
+* Make PropertyMapper migration idempotent across recipe runs
+* Improve setObjectMapper folding and TODO comments
+* Migrate Jackson2ObjectMapperBuilder to native Jackson mapper builders
+
+## March 31, 2026
+
+#### rewrite-prethink - 0.5.3
+
+* Remove uv availability checks from Python tests
+* Fix GenerateCalmMermaidDiagram not overwriting ExportContext architecture.md
+
+## March 28, 2026
+
+#### rewrite-java-security - v3.27.1
+
+* Use MavenSettings from LST when constructing MavenPomDownloaders
+
 ## March 27, 2026
 
 #### rewrite-migrate-python - 0.4.1
@@ -17,6 +277,10 @@ This changelog is automatically generated from GitHub releases and only contains
 * Add data table assertions to FindTypes tests
 * Add data table assertions to FindMethodsTest
 * Add a data table for FindFutureImports
+
+#### rewrite-prethink - 0.5.2
+
+* Fix GenerateCalmMermaidDiagram producing empty architecture.md
 
 #### rewrite-prethink - 0.5.1
 
@@ -3189,37 +3453,7 @@ Initial release.
 
 ## April 9, 2025
 
-#### rewrite-ai-search - 0.25.3
-
-* Updated repository to use OpenRewrite version v8.50.0
-
-#### rewrite-android - 0.7.6
-
-* Updated repository to use OpenRewrite version v8.50.0
-
-#### rewrite-circleci - 3.3.3
-
-* Updated repository to use OpenRewrite version v8.50.0
-
-#### rewrite-codemods - 0.12.0
-
-* refactor: UpdateMSAL
-
-#### rewrite-codemods-ng - 0.8.0
-
-* Needs to make `ExecutionContext` mutable in test case
-* Fix for windows
-* Skip non-Angular projects instead of throwing an exception
-
 #### rewrite-comprehension - 0.5.2
-
-* Updated repository to use OpenRewrite version v8.50.0
-
-#### rewrite-concourse - 3.2.3
-
-* Updated repository to use OpenRewrite version v8.50.0
-
-#### rewrite-dotnet - 0.8.3
 
 * Updated repository to use OpenRewrite version v8.50.0
 
@@ -3229,112 +3463,8 @@ Initial release.
 * Revert "Adapt to DependencyVersionSelector new arg"
 * Fixing code suggestions
 
-#### rewrite-kubernetes - 3.2.4
-
-* Updated repository to use OpenRewrite version v8.50.0
-
-#### rewrite-reactive-streams - 0.11.2
-
-* Updated repository to use OpenRewrite version v8.50.0
-
 #### rewrite-spring - 0.4.0
 
 * Recipe for replacing deprecated Kafka 'ContainerProperties#setTransactionManager' method
 * Include the OSS recipe for Spring Framework 6.2
-
-#### rewrite-sql - 2.1.5
-
-* Updated repository to use OpenRewrite version v8.50.0
-
-#### rewrite-struts - 0.13.0
-
-* Update MSAL
-
-#### rewrite-terraform - 3.1.5
-
-* Updated repository to use OpenRewrite version v8.50.0
-
-## March 30, 2025
-
-#### rewrite-codemods - v0.11.1
-
-* Set correct path for transforms in node_modules
-
-## March 28, 2025
-
-#### rewrite-java-security - 3.5.0
-
-* FindHardcodedPrivateIPAddresses recipe
-* Adding \b to regexp for FindHardcodedPrivateIPAddresses
-
-## March 27, 2025
-
-#### rewrite-ai-search - 0.25.2
-
-* Updated repository to use OpenRewrite version v8.49.0
-
-#### rewrite-android - 0.7.5
-
-* Updated repository to use OpenRewrite version v8.49.0
-
-#### rewrite-circleci - 3.3.2
-
-* Updated repository to use OpenRewrite version v8.49.0
-
-#### rewrite-codemods-ng - 0.7.5
-
-* Updated repository to use OpenRewrite version v8.49.0
-
-#### rewrite-compiled-analysis - 0.3.0
-
-* Ignore missing types in Javadoc
-
-#### rewrite-comprehension - 0.5.1
-
-* Updated repository to use OpenRewrite version v8.49.0
-
-#### rewrite-concourse - 3.2.2
-
-* Updated repository to use OpenRewrite version v8.49.0
-
-#### rewrite-dotnet - 0.8.2
-
-* Updated repository to use OpenRewrite version v8.49.0
-
-#### rewrite-hibernate - 0.2.2
-
-* Updated repository to use OpenRewrite version v8.49.0
-
-#### rewrite-java-security - 3.4.0
-
-* Honoring the last_affected field in security advisories
-* Faster, stronger "Find and fix vulnerable dependencies"
-* refactor: Remove out-of-date OWASP suppressions
-* mavenTransitiveUpgradeDirectLowestDepth doesn't expect exact version
-* refactor: OpenRewrite Recipe best practices
-* chore(ci): bump webfactory/ssh-agent from 0.9.0 to 0.9.1
-
-#### rewrite-kubernetes - 3.2.3
-
-* Updated repository to use OpenRewrite version v8.49.0
-
-#### rewrite-nodejs - 0.20.0
-
-* Honoring the last_affected field in security advisories
-
-#### rewrite-reactive-streams - 0.11.1
-
-* Updated repository to use OpenRewrite version v8.49.0
-
-#### rewrite-sql - 2.1.4
-
-* Updated repository to use OpenRewrite version v8.49.0
-
-#### rewrite-struts - 0.12.1
-
-* Updated repository to use OpenRewrite version v8.49.0
-
-#### rewrite-terraform - 3.1.4
-
-* Updated repository to use OpenRewrite version v8.49.0
 
