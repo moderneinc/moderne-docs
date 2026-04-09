@@ -29,22 +29,22 @@ You saw from the analysis earlier that these projects all use a variety of Sprin
 </figure>
 
 3. Add the following recipes in order:
-   - **`Apache Maven best practices`** ([`org.openrewrite.maven.BestPractices`](https://docs.openrewrite.org/recipes/maven/bestpractices))
-   - **`Migrate to Java 8`** ([`org.openrewrite.java.migrate.UpgradeToJava8`](https://docs.openrewrite.org/recipes/java/migrate/upgradetojava8))
-   - **`Migrate to Spring Boot 2.7`** ([`org.openrewrite.java.spring.boot2.UpgradeSpringBoot_2_7`](https://docs.openrewrite.org/recipes/java/spring/boot2/upgradespringboot_2_7))
-   - **`Change Maven dependency`** ([`org.openrewrite.maven.ChangeDependencyGroupIdAndArtifactId`](https://docs.openrewrite.org/recipes/maven/changedependencygroupidandartifactid))
+   * **`Apache Maven best practices`** ([`org.openrewrite.maven.BestPractices`](https://docs.openrewrite.org/recipes/maven/bestpractices))
+   * **`Migrate to Java 8`** ([`org.openrewrite.java.migrate.UpgradeToJava8`](https://docs.openrewrite.org/recipes/java/migrate/upgradetojava8))
+   * **`Migrate to Spring Boot 2.7`** ([`org.openrewrite.java.spring.boot2.UpgradeSpringBoot_2_7`](https://docs.openrewrite.org/recipes/java/spring/boot2/upgradespringboot_2_7))
+   * **`Change Maven dependency`** ([`org.openrewrite.maven.ChangeDependencyGroupIdAndArtifactId`](https://docs.openrewrite.org/recipes/maven/changedependencygroupidandartifactid))
 4. Configure the dependency change:
-   - **Old groupId:** `org.springframework.cloud`
-   - **Old artifactId:** `spring-cloud-starter-zipkin`
-   - **New groupId:** `org.springframework.cloud`
-   - **New artifactId:** `spring-cloud-sleuth-zipkin`
+   * **Old groupId:** `org.springframework.cloud`
+   * **Old artifactId:** `spring-cloud-starter-zipkin`
+   * **New groupId:** `org.springframework.cloud`
+   * **New artifactId:** `spring-cloud-sleuth-zipkin`
 
 <figure>
   ![Baseline recipe list with Maven best practices, Java 8, Spring Boot 2.7, and dependency change](./assets/migration-baseline-recipe.png)
   <figcaption>_Your custom migration baseline recipe_</figcaption>
 </figure>
 
-5. Open the recipe dropdown (top left) and choose `Download YAML`.
+5. Open the recipe dropdown (top left) and choose **Download YAML**.
 
 <figure>
   ![Recipe dropdown menu with Download YAML option highlighted](./assets/download-yaml.png)
@@ -63,17 +63,16 @@ You saw from the analysis earlier that these projects all use a variety of Sprin
 
 #### Step 1: Save and install the recipe
 
-Copy the recipe to your `$WORKSHOP` directory and install it locally:
+Copy the downloaded YAML file to your `$WORKSHOP` directory and install it locally. The filename may vary depending on your browser — look for the most recently downloaded `.yml` file in your Downloads folder:
 
 ```bash
-# If your download location is different, replace with whatever path you used for the YAML file
 cp ~/Downloads/Spring\ Boot\ Migration\ Workshop\ Baseline.yml $WORKSHOP/WorkshopBaseline.yml
 mod config recipes yaml install $WORKSHOP/WorkshopBaseline.yml
 ```
 
 #### Step 2: Build LSTs, then run the recipe and apply changes
 
-1. Since you synced repositories from the wave-specific CSV file instead of the platform, the LSTs aren't available for download, so you'll need to build them before running recipes:
+1. When you re-synced from the wave-aware CSV in Exercise 2-3, the workspace was restructured into wave directories. The LSTs from the original platform sync are no longer in the expected locations, so you need to rebuild them:
 
 ```bash
 mod build $WORKSPACE
@@ -92,7 +91,7 @@ mod git apply $WORKSPACE --last-recipe-run
 
 #### Step 3: Build and release
 
-This repository includes some helper scripts to run commands like building, testing, and releasing. Use the `build.sh` script to build and run tests for all the projects, and the `release.sh` script to release your code for downstream dependencies to consume. To publish a release, the script automatically installs the current non-SNAPSHOT version of each repository into your local Maven cache. It will then bump the project's version to the next available minor SNAPSHOT version, ready for you to make more changes. Both scripts build or release all repositories, but they each accept an argument representing a target wave number. So `build.sh 1` will only build the repositories in Wave 1.
+The `moderne-migration-practice` repository you cloned in Module 2 includes helper scripts in `$WORKSHOP`. Use `build.sh` to build and run tests for all the projects, and `release.sh` to release your code for downstream dependencies to consume. The release script installs the current non-SNAPSHOT version of each repository into your local Maven cache (`~/.m2`), then bumps the project's version to the next minor SNAPSHOT. In a real organization, this step would be handled by your CI/CD pipeline publishing to an artifact repository; for this workshop, a local Maven install simulates that. Both scripts accept an optional wave number argument — for example, `build.sh 1` only builds Wave 1 repositories.
 
 You will be using both of these commands going forward after you make changes to the code to simulate the software development lifecycle of building and releasing new versions of these repositories that would usually be handled by your existing process outside of OpenRewrite and Moderne.
 

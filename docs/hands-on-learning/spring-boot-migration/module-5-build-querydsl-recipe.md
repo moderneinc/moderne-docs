@@ -25,7 +25,7 @@ You already saw signs of this in Module 1, Exercise 1-3, where you located code 
 
 #### Step 2: Search for QueryDSL usage
 
-Use `mod search` to find all QueryDSL-related code across the workspace. Trigrep supports file path filters and language filters, so you can target your searches precisely.
+Use `mod search` to find all QueryDSL-related code across the workspace. It supports file path filters (`file:`) and language filters (`lang:`), so you can target your searches precisely.
 
 First, find the Maven plugin declaration in POM files:
 
@@ -97,7 +97,7 @@ The agent will run the same searches you did above, cross-reference them with th
 
 #### Step 1: Set up the recipe project
 
-Create a directory for the recipe project and launch your agent:
+Create a directory for the recipe project and launch your AI coding agent. This exercise uses [Claude Code](https://docs.anthropic.com/en/docs/claude-code) with the Moderne extension, but you can use any AI coding agent or build the recipe manually. If you don't have an agent available, skip to the fallback option in Step 4.
 
 ```bash
 mkdir -p $PROJECTS/rewrite-querydsl && cd $PROJECTS/rewrite-querydsl
@@ -146,11 +146,11 @@ Most of the migration is declarative. The `.list(..)` → `.fetch()` change may 
 
 #### Step 4: Build and install
 
-Once the agent has produced the recipe, build and install it locally:
+Once the agent has produced the recipe, build and install it locally. Use the group, artifact, and version from the generated project's build file (`build.gradle` or `pom.xml`):
 
 ```bash
 ./gradlew build  # or mvn clean install, depending on the scaffold
-mod config recipes jar install <group>:<artifact>:<version>
+mod config recipes jar install <group>:<artifact>:<version>  # e.g., org.openrewrite.recipe:rewrite-querydsl:0.1.0-SNAPSHOT
 ```
 
 :::tip
@@ -189,10 +189,10 @@ This exercise followed an abbreviated version of the plan-build-test workflow fr
 
 #### Step 1: Run the recipe
 
-Run your recipe against the workspace to see what it changes:
+Run your recipe against the workspace to see what it changes. If you used the pre-built fallback, the recipe name is `org.openrewrite.recipe.querydsl.UpgradeToQueryDsl5`:
 
 ```bash
-mod run $WORKSPACE --recipe <your-recipe-name>
+mod run $WORKSPACE --recipe org.openrewrite.recipe.querydsl.UpgradeToQueryDsl5
 ```
 
 Review the diffs using ctrl-click (Windows) or cmd-click (Mac) on the patch links to confirm the changes look correct.

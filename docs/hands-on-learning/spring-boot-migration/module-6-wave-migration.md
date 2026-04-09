@@ -15,7 +15,7 @@ In this module, you will build a composite upgrade recipe that includes the Quer
 
 ### Steps
 
-You could try to just run the custom QueryDSL recipe, but there is a chicken-and-egg issue: Spring Boot 4 expects `jakarta.*` APIs, but QueryDSL 3 generates `javax.*`-based code that will not compile. The solution is to upgrade QueryDSL and Spring Boot in a single, repeatable recipe. You can do that using a composite YAML recipe similar to the way you built one in Module 1.
+You could try to just run the custom QueryDSL recipe, but there is a chicken-and-egg issue: Spring Boot 4 expects `jakarta.*` APIs, but QueryDSL 3 generates `javax.*`-based code that will not compile. Applying QueryDSL 5 alone would leave Spring Boot 2.7 (which expects `javax.*`); applying Spring Boot 4 alone would leave QueryDSL 3 (which generates `javax.*`). Neither order works in isolation. The solution is to upgrade QueryDSL and Spring Boot in a single, repeatable recipe. You can do that using a composite YAML recipe similar to the way you built one in Module 1.
 
 Additionally, since you will be upgrading in waves to ensure that custom library dependencies are handled in the proper sequence, you also need to make sure to update the dependency versions in each wave to use the newly released version from the previous wave. So you will need to include this step in the composite recipe as well.
 
@@ -23,10 +23,10 @@ Additionally, since you will be upgrading in waves to ensure that custom library
 This is an example of a migration recipe _freight train_. You will often build a custom recipe that runs the out-of-the-box recipes and then applies some additional ones that are needed in your particular environment. In this workshop, the composite recipe upgrades internal dependencies, applies the Spring Boot 4 recipe, and then runs the QueryDSL upgrade.
 :::
 
-1. Create a local YAML recipe file. This composite recipe is named `org.openrewrite.recipe.querydsl.CustomUpgradeSpringBoot_4_0` and combines [`org.openrewrite.java.dependencies.UpgradeDependencyVersion`](https://docs.openrewrite.org/recipes/java/dependencies/upgradedependencyversion), [`io.moderne.java.spring.boot4.UpgradeSpringBoot_4_0`](https://docs.openrewrite.org/recipes/java/spring/boot4/upgradespringboot_4_0), and `org.openrewrite.recipe.querydsl.UpgradeToQueryDsl5`. If you prefer, you can copy and paste the YAML directly into a new file named `CustomUpgradeSpringBoot_4_0.yml` instead of using the command.
+1. Create a local YAML recipe file in your `$WORKSHOP` directory. This composite recipe is named `org.openrewrite.recipe.querydsl.CustomUpgradeSpringBoot_4_0` and combines [`org.openrewrite.java.dependencies.UpgradeDependencyVersion`](https://docs.openrewrite.org/recipes/java/dependencies/upgradedependencyversion), [`io.moderne.java.spring.boot4.UpgradeSpringBoot_4_0`](https://docs.openrewrite.org/recipes/java/spring/boot4/upgradespringboot_4_0), and `org.openrewrite.recipe.querydsl.UpgradeToQueryDsl5`. If you prefer, you can copy and paste the YAML directly into a new file instead of using the command.
 
 ```bash
-cat <<'EOF' > CustomUpgradeSpringBoot_4_0.yml
+cat <<'EOF' > $WORKSHOP/CustomUpgradeSpringBoot_4_0.yml
 ---
 type: specs.openrewrite.org/v1beta/recipe
 name: org.openrewrite.recipe.querydsl.CustomUpgradeSpringBoot_4_0
@@ -51,7 +51,7 @@ You can't use recipe builder in this case since you are referring to a custom re
 2. Install `org.openrewrite.recipe.querydsl.CustomUpgradeSpringBoot_4_0` locally with the CLI:
 
 ```bash
-mod config recipes yaml install CustomUpgradeSpringBoot_4_0.yml
+mod config recipes yaml install $WORKSHOP/CustomUpgradeSpringBoot_4_0.yml
 ```
 
 ## Exercise 6-2: Upgrade wave 0
@@ -76,9 +76,12 @@ mod git apply $WORKSPACE/Wave0 --last-recipe-run
 Notice you are referencing the `Wave0` directory for each of the `mod` commands. This is taking advantage of the organizational directory structure to target only the wave you want to apply changes to so you can do each wave individually.
 :::
 
-2. Now that the changes have been applied, verify the build and release for the wave:
+2. Now that the changes have been applied, build to verify, commit, and release:
 
 ```bash
+$WORKSHOP/build.sh 0
+mod git add $WORKSPACE/Wave0 --last-recipe-run
+mod git commit $WORKSPACE/Wave0 -m "Upgrade to Spring Boot 4" --last-recipe-run
 $WORKSHOP/release.sh 0
 ```
 
@@ -100,10 +103,12 @@ mod run $WORKSPACE/Wave1 --recipe org.openrewrite.recipe.querydsl.CustomUpgradeS
 mod git apply $WORKSPACE/Wave1 --last-recipe-run
 ```
 
-2. This time, build Wave 1 to make sure there are no errors, then release it:
+2. This time, build Wave 1 to make sure there are no errors, commit, and release:
 
 ```bash
 $WORKSHOP/build.sh 1
+mod git add $WORKSPACE/Wave1 --last-recipe-run
+mod git commit $WORKSPACE/Wave1 -m "Upgrade to Spring Boot 4" --last-recipe-run
 $WORKSHOP/release.sh 1
 ```
 
@@ -258,16 +263,35 @@ MOD SUCCEEDED in 4s
     * Wave 0 and Wave 1 now show Spring Boot 4.0
     * Remaining waves are still pending
 
-5. You can now continue upgrading waves until every repository is on Spring Boot 4. Use the commands as in Exercise 6-3, each time targeting the next wave:
+5. Continue upgrading the remaining waves. Repeat the same pattern for each wave:
 
 ```bash
 mod run $WORKSPACE/Wave2 --recipe org.openrewrite.recipe.querydsl.CustomUpgradeSpringBoot_4_0
 mod git apply $WORKSPACE/Wave2 --last-recipe-run
 $WORKSHOP/build.sh 2
+mod git add $WORKSPACE/Wave2 --last-recipe-run
+mod git commit $WORKSPACE/Wave2 -m "Upgrade to Spring Boot 4" --last-recipe-run
 $WORKSHOP/release.sh 2
-
-# ...and so on
 ```
+
+```bash
+mod run $WORKSPACE/Wave3 --recipe org.openrewrite.recipe.querydsl.CustomUpgradeSpringBoot_4_0
+mod git apply $WORKSPACE/Wave3 --last-recipe-run
+$WORKSHOP/build.sh 3
+mod git add $WORKSPACE/Wave3 --last-recipe-run
+mod git commit $WORKSPACE/Wave3 -m "Upgrade to Spring Boot 4" --last-recipe-run
+$WORKSHOP/release.sh 3
+```
+
+6. After all waves are complete, rebuild LSTs and refresh DevCenter one final time to confirm the migration is done:
+
+```bash
+mod build $WORKSPACE
+mod run $WORKSPACE --recipe io.moderne.devcenter.DevCenterStarter
+mod devcenter $WORKSPACE --last-recipe-run
+```
+
+The final dashboard should show all 11 repositories on Spring Boot 4.0 and Java 17.
 
 ## Takeaways
 

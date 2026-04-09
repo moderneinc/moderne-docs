@@ -8,7 +8,7 @@ import TabItem from '@theme/TabItem';
 
 # Module 2: Wave planning with the Moderne CLI
 
-In this module, you'll move from SaaS-only assessment to CLI-driven analysis so you can map dependencies and pick a safe upgrade order. You will group repositories into “waves” based on those dependencies and upgrade them in order.
+In this module, you'll move from SaaS-only assessment to CLI-driven analysis so you can map dependencies and pick a safe upgrade order. The CLI lets you run recipes against local clones, apply changes directly to your working tree, and integrate with your existing build and release tooling — capabilities you will need for the build-test-release cycle in later modules. You will group repositories into “waves” based on their dependencies and upgrade them in order.
 
 For this workshop, each repository is treated as independently released. That constraint mirrors how large organizations manage shared libraries and it forces you to think about sequencing instead of upgrading everything at once. Dependencies matter because downstream repos can only move once their upstream libraries are upgraded and released. 
 
@@ -57,7 +57,6 @@ cd $WORKSPACE
 ```bash
 mod git sync moderne $WORKSPACE --organization "Moderne - Training" --with-sources
 ```
-
 
 <details>
 <summary>Reference output</summary>
@@ -280,6 +279,10 @@ mod study $WORKSPACE --last-recipe-run --data-table org.openrewrite.maven.table.
 
 #### Step 3: Generate the wave map
 
+:::note
+If you don't have a Python environment or would prefer to skip this step, you can jump ahead to Exercise 2-3 and use the pre-built wave list provided there.
+:::
+
 1. To run the Jupyter notebook, you will need Python and a small virtual environment setup. It is recommended to use `uv`, a [fast Python package manager and virtual environment tool](https://github.com/astral-sh/uv). If you do not have it installed, follow the install steps in the [uv documentation](https://docs.astral.sh/uv/#installation).
 
 Run these commands once to create the virtual environment and install the notebook dependencies:
@@ -291,18 +294,18 @@ source .venv/bin/activate
 uv sync
 ```
 
-2. You can run the notebook using the command line tool `papermill` CLI tool, or use a Jupyter notebook UI. Choose one of these two options:
+2. You can run the notebook using the `papermill` CLI tool or a Jupyter notebook UI. Choose one of these two options:
 
 <Tabs groupId="wave-map">
 <TabItem value="cli" label="CLI (papermill)" default>
 
-This is the easiest option if you want to run the notebook end-to-end from the CLI. _Make sure you replace `<recipe_run_id>` with the ID you retrieved in the previous step._
+This is the easiest option if you want to run the notebook end-to-end from the CLI. _Make sure you replace `RECIPE_RUN_ID` with the ID you retrieved in the previous step (e.g., `20260114165424-VXLMR`)._
 
 ```bash
 papermill $PROJECTS/Release-Train-Metro-Plan/src/main/python/ArchitecturalAnalysis.ipynb \
   $PROJECTS/Release-Train-Metro-Plan/src/main/python/ArchitecturalAnalysis_out.ipynb \
   -p workspace $WORKSPACE \
-  -p recipe_run <recipe_run_id> \
+  -p recipe_run RECIPE_RUN_ID \
   --progress-bar \
   --inject-paths
 ```
@@ -320,14 +323,10 @@ Open the notebook in Jupyter (or a Jupyter editor like VS Code), then update the
 </TabItem>
 </Tabs>
 
-:::note
-If neither option works for you or you don't have a Python environment, don't worry. You can skip the rest of this exercise and still continue with the workshop using the wave list shown in the next exercise.
-:::
-
 3. Open the generated output HTML file to view the wave diagram and note the repository order:
 
 ```bash
-open $PROJECTS/Release-Train-Metro-Plan/src/main/static/metro-plan.html
+open $PROJECTS/Release-Train-Metro-Plan/src/main/static/metro-plan.html  # macOS; use xdg-open on Linux
 ```
 
 4. Now that you have a wave plan, you need a way to target a specific wave with recipe runs and releases. Instead of syncing with the organization in the platform as you did before, you will now use the `repos.csv` method to group repositories by wave. There are a few ways you could do that:
