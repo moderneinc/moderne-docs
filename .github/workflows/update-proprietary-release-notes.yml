@@ -24,12 +24,6 @@ jobs:
         with:
           node-version: 20
 
-      - name: Read proprietary repo list
-        id: repo-list
-        run: |
-          repos=$(tr '\n' ',' < .github/data/proprietary-repos.txt | sed 's/,$//')
-          echo "repos=$repos" >> $GITHUB_OUTPUT
-
       - name: Generate GitHub App token
         uses: actions/create-github-app-token@v1
         id: app-token
@@ -37,7 +31,6 @@ jobs:
           app-id: ${{ secrets.PROPRIETARY_RELEASE_NOTES_APP_ID }}
           private-key: ${{ secrets.PROPRIETARY_RELEASE_NOTES_PRIVATE_KEY }}
           owner: moderneinc
-          repositories: ${{ steps.repo-list.outputs.repos }}
 
       - name: Install dependencies
         run: yarn add @octokit/rest --ignore-workspace-root-check
