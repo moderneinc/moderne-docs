@@ -38,6 +38,7 @@ This recipe is available under the [Apache License Version 2.0](https://www.apac
 
 This recipe is used as part of the following composite recipes:
 
+* [Migrate Dropwizard to Spring Boot 3](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/dropwizard/boot/migratedropwizardtospringboot3)
 * [Set visibility of `premain` and `agentmain` methods to `public`](/user-documentation/recipes/recipe-catalog/io/quarkus/updates/core/quarkus37/jre17agentmainpremainpublic.md)
 * [Set visibility of `premain` and `agentmain` methods to `public`](/user-documentation/recipes/recipe-catalog/java/migrate/jre17agentmainpremainpublic.md)
 

@@ -39,6 +39,7 @@ This recipe is used as part of the following composite recipes:
 
 * [JUnit 6 migration from JUnit 5.x](/user-documentation/recipes/recipe-catalog/java/testing/junit6/junit5to6migration.md)
 * [Migrate @ConfigurationProperties to Quarkus @ConfigMapping](/user-documentation/recipes/recipe-catalog/quarkus/spring/migrateconfigurationproperties.md)
+* [Migrate Dropwizard to Spring Boot 3](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/dropwizard/boot/migratedropwizardtospringboot3)
 * [Migrate JavaEE Code to Quarkus 2](/user-documentation/recipes/recipe-catalog/quarkus/migrate/javaee/javaeetoquarkus2codemigration.md)
 * [Migrate from `@ApiImplicitParams`  to `@Parameters`](/user-documentation/recipes/recipe-catalog/openapi/swagger/migrateapiimplicitparamstoparameters.md)
 * [Migrate from `@ApiModelProperty` to `@Schema`](/user-documentation/recipes/recipe-catalog/openapi/swagger/migrateapimodelpropertytoschema.md)
@@ -47,7 +48,6 @@ This recipe is used as part of the following composite recipes:
 * [Migrate to Spring Kafka 4.0](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/spring/boot4/upgradespringkafka_4_0)
 * [Remove debug mode from Spring Security](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/security/spring/removeenablewebsecuritydebug)
 * [Replace `@MockBean` and `@SpyBean`](/user-documentation/recipes/recipe-catalog/java/spring/boot4/replacemockbeanandspybean.md)
-* [Replace `@Timed` (Dropwizard) with `@Timed` (Micrometer)](/user-documentation/recipes/recipe-catalog/java/dropwizard/annotation/micrometer/codahaletimedtomicrometertimed.md)
 * [Substitute removed Faces Managed Beans](/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/facesmanagedbeansremoved.md)
 
 ## Examples

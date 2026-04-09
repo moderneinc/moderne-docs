@@ -45,6 +45,7 @@ This recipe is available under the [Moderne Source Available License](https://do
 * [Migrate `setReadTimeout(java.lang.int)` to SocketConfig `setSoTimeout(..)`](../../../java/spring/framework/httpcomponentsclienthttprequestfactoryreadtimeout)
 * [Migrate `ResponseEntityExceptionHandler` from HttpStatus to HttpStatusCode](../../../java/spring/framework/migrateresponseentityexceptionhandlerhttpstatustohttpstatuscode)
 * [Migrate breaking changes in `ResponseStatusException`](../../../java/spring/framework/migrateresponsestatusexception)
+* [Migrate to Spring Data 3.0](../../../java/spring/data/upgradespringdata_3_0)
 * [Convert `JdbcTemplate.queryForLong(..)` to `queryForObject(..)`](../../../java/spring/data/jdbctemplatequeryforlongmigration)
 
 </TabItem>
@@ -70,6 +71,7 @@ recipeList:
   - org.openrewrite.java.spring.framework.HttpComponentsClientHttpRequestFactoryReadTimeout
   - org.openrewrite.java.spring.framework.MigrateResponseEntityExceptionHandlerHttpStatusToHttpStatusCode
   - org.openrewrite.java.spring.framework.MigrateResponseStatusException
+  - org.openrewrite.java.spring.data.UpgradeSpringData_3_0
   - org.openrewrite.java.spring.data.JdbcTemplateQueryForLongMigration
 
 ```

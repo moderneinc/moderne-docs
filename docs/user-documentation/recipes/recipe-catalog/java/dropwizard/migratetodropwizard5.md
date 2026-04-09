@@ -2,95 +2,30 @@
 sidebar_label: "Migrate to Dropwizard 5.0.x from 4.x"
 ---
 
-
-<head>
-  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/dropwizard/migratetodropwizard5" />
-</head>
-
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import RunRecipe from '@site/src/components/RunRecipe';
 
 # Migrate to Dropwizard 5.0.x from 4.x
 
-**org.openrewrite.java.dropwizard.MigrateToDropwizard5**
+**io.moderne.java.dropwizard.MigrateToDropwizard5**
 
-_Apply changes required to upgrade a Dropwizard 4.x application to 5.0.x. This includes upgrading dependencies, removing deprecated configuration options, and migrating Jetty handler implementations. Includes required migrations to Java 17, Jakarta EE 10, JUnit 5.14, Jackson 2.x, and Hibernate 6.6. See [the upgrade guide](https://www.dropwizard.io/en/stable/manual/upgrade-notes/upgrade-notes-5_0_x.html)._
+_Apply changes required to upgrade a Dropwizard 4.x application to 5.0.x. This includes upgrading dependencies, removing deprecated configuration options, and migrating Jetty handler implementations. Includes required migrations to Java 17, Jakarta EE 10, JUnit 5, Jackson 2.x, and Hibernate 6.6. See [the upgrade guide](https://www.dropwizard.io/en/stable/manual/upgrade-notes/upgrade-notes-5_0_x.html)._
 
 ## Recipe source
 
-[GitHub: dropwizard-5.yml](https://github.com/openrewrite/rewrite-dropwizard/blob/main/src/main/resources/META-INF/rewrite/dropwizard-5.yml),
-[Issue Tracker](https://github.com/openrewrite/rewrite-dropwizard/issues),
-[Maven Central](https://central.sonatype.com/artifact/org.openrewrite.recipe/rewrite-dropwizard/)
-
-:::info
-This recipe is composed of more than one recipe. If you want to customize the set of recipes this is composed of, you can find and copy the GitHub source for the recipe from the link above.
-:::
-
-This recipe is available under the [Apache License Version 2.0](https://www.apache.org/licenses/LICENSE-2.0).
+This recipe is only available to users of [Moderne](https://docs.moderne.io/).
 
 
-## Definition
+This recipe is available under the [Moderne Proprietary License](https://docs.moderne.io/licensing/overview).
 
-<Tabs groupId="recipeType">
-<TabItem value="recipe-list" label="Recipe List" >
-* [Upgrade Gradle or Maven dependency versions](../../java/dependencies/upgradedependencyversion)
-  * groupId: `io.dropwizard`
-  * artifactId: `*`
-  * newVersion: `5.0.x`
-* [Upgrade Gradle or Maven dependency versions](../../java/dependencies/upgradedependencyversion)
-  * groupId: `io.dropwizard.modules`
-  * artifactId: `*`
-  * newVersion: `5.0.x`
-* [Migrate to Java 17](../../java/migrate/upgradetojava17)
-* [Migrate to Jakarta EE 10](../../java/migrate/jakarta/jakartaee10)
-* [Upgrade to JUnit 5.14](../../java/testing/junit5/upgradetojunit514)
-* [Upgrade Gradle or Maven dependency versions](../../java/dependencies/upgradedependencyversion)
-  * groupId: `com.fasterxml.jackson*`
-  * artifactId: `*`
-  * newVersion: `2.x`
-  * overrideManagedVersion: `false`
-* [Migrate to Hibernate 6.6.x (Community Edition)](../../hibernate/migratetohibernate66-community-edition)
-* [Delete key](../../yaml/deletekey)
-  * keyPath: `$.server.maxQueuedRequests`
-* [Migrate Jetty `AbstractHandler` to Jetty 12 `Handler.Abstract`](../../java/dropwizard/jetty/migratejettyhandlersignature)
 
-</TabItem>
+## Used by
 
-<TabItem value="yaml-recipe-list" label="Yaml Recipe List">
+This recipe is used as part of the following composite recipes:
 
-```yaml
----
-type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.java.dropwizard.MigrateToDropwizard5
-displayName: Migrate to Dropwizard 5.0.x from 4.x
-description: |
-  Apply changes required to upgrade a Dropwizard 4.x application to 5.0.x. This includes upgrading dependencies, removing deprecated configuration options, and migrating Jetty handler implementations. Includes required migrations to Java 17, Jakarta EE 10, JUnit 5.14, Jackson 2.x, and Hibernate 6.6. See [the upgrade guide](https://www.dropwizard.io/en/stable/manual/upgrade-notes/upgrade-notes-5_0_x.html).
-recipeList:
-  - org.openrewrite.java.dependencies.UpgradeDependencyVersion:
-      groupId: io.dropwizard
-      artifactId: "*"
-      newVersion: 5.0.x
-  - org.openrewrite.java.dependencies.UpgradeDependencyVersion:
-      groupId: io.dropwizard.modules
-      artifactId: "*"
-      newVersion: 5.0.x
-  - org.openrewrite.java.migrate.UpgradeToJava17
-  - org.openrewrite.java.migrate.jakarta.JakartaEE10
-  - org.openrewrite.java.testing.junit5.UpgradeToJUnit514
-  - org.openrewrite.java.dependencies.UpgradeDependencyVersion:
-      groupId: com.fasterxml.jackson*
-      artifactId: "*"
-      newVersion: 2.x
-      overrideManagedVersion: false
-  - org.openrewrite.hibernate.MigrateToHibernate66
-  - org.openrewrite.yaml.DeleteKey:
-      keyPath: $.server.maxQueuedRequests
-  - org.openrewrite.java.dropwizard.jetty.MigrateJettyHandlerSignature
+* [Migrate Dropwizard to Spring Boot 3](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/dropwizard/boot/migratedropwizardtospringboot3)
 
-```
-</TabItem>
-</Tabs>
 ## Examples
 ##### Example 1
 `MigrateToDropwizard5Test#upgradesDropwizardBom`
@@ -160,11 +95,11 @@ recipeList:
 ## Usage
 
 <RunRecipe
-  recipeName="org.openrewrite.java.dropwizard.MigrateToDropwizard5"
+  recipeName="io.moderne.java.dropwizard.MigrateToDropwizard5"
   displayName="Migrate to Dropwizard 5.0.x from 4.x"
-  groupId="org.openrewrite.recipe"
+  groupId="io.moderne.recipe"
   artifactId="rewrite-dropwizard"
-  versionKey="VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_DROPWIZARD"
+  versionKey="VERSION_IO_MODERNE_RECIPE_REWRITE_DROPWIZARD"
   showGradle={false}
   showMaven={false}
   hasDataTables
@@ -174,7 +109,7 @@ recipeList:
 
 import RecipeCallout from '@site/src/components/ModerneLink';
 
-<RecipeCallout link="https://app.moderne.io/recipes/org.openrewrite.java.dropwizard.MigrateToDropwizard5" />
+<RecipeCallout link="https://app.moderne.io/recipes/io.moderne.java.dropwizard.MigrateToDropwizard5" />
 
 The community edition of the Moderne platform enables you to easily run recipes across thousands of open-source repositories.
 

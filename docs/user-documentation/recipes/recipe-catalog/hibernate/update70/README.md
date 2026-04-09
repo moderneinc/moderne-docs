@@ -15,6 +15,7 @@ _Recipes that include further recipes, often including the individual recipes be
 * [Migrate @JdbcType to @JdbcTypeCode](./migratejdbctypetojdbctypecode.md)
 * [Migrate `Configurable.configure()` to use `GeneratorCreationContext`](./migrateconfigurabletogeneratorcreationcontext.md)
 * [Migrate Hibernate `Integrator#integrate` method](./migrateintegratormethod.md)
+* [Migrate JPQL `trunc()` to `cast(... as date)`](./migratejpqltrunctodatecast.md)
 * [Migrate LockOptions to direct parameters](./migratelockoptionstodirectparameters.md)
 * [Migrate `MetamodelImplementor` to Hibernate 7.0](./migratemetamodelimplementor.md)
 * [Migrate NaturalIdLoadAccess method calls](./migratenaturalidloadaccess.md)

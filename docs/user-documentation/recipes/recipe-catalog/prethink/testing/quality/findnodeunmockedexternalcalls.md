@@ -27,6 +27,16 @@ This recipe is used as part of the following composite recipes:
 * [Update Prethink context (no AI)](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/prethink/updateprethinkcontextnoaistarter)
 * [Update Prethink context (with AI)](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/prethink/updateprethinkcontextstarter)
 
+## Example
+
+
+###### Unchanged
+```javascript title="src/api.test.js"
+function testApiCall() {
+    const response = fetch('http://example.com/api');
+}
+```
+
 
 ## Usage
 

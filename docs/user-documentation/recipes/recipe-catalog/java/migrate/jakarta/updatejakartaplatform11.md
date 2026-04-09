@@ -39,6 +39,10 @@ This recipe is available under the [Moderne Source Available License](https://do
   * artifactId: `*`
   * newVersion: `11.0.x`
 * [Upgrade Gradle or Maven dependency versions](../../../java/dependencies/upgradedependencyversion)
+  * groupId: `jakarta.annotation`
+  * artifactId: `jakarta.annotation-api`
+  * newVersion: `3.0.x`
+* [Upgrade Gradle or Maven dependency versions](../../../java/dependencies/upgradedependencyversion)
   * groupId: `jakarta.servlet.jsp`
   * artifactId: `jakarta.servlet.jsp-api`
   * newVersion: `4.0.x`
@@ -59,6 +63,10 @@ recipeList:
       groupId: jakarta.platform
       artifactId: "*"
       newVersion: 11.0.x
+  - org.openrewrite.java.dependencies.UpgradeDependencyVersion:
+      groupId: jakarta.annotation
+      artifactId: jakarta.annotation-api
+      newVersion: 3.0.x
   - org.openrewrite.java.dependencies.UpgradeDependencyVersion:
       groupId: jakarta.servlet.jsp
       artifactId: jakarta.servlet.jsp-api

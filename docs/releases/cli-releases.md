@@ -7,7 +7,7 @@ description: The current version of the Moderne CLI and links to useful CLI docu
 
 | Component   | Current version |
 | ----------- | --------------- |
-| CLI version | 4.0.10           |
+| CLI version | 4.1.1           |
 
 For CLI command documentation, see the [CLI reference](../user-documentation/moderne-cli/cli-reference.md).
 
@@ -16,6 +16,56 @@ The Moderne CLI previously followed a two-track release model with separate "sta
 :::
 
 ## Changelog
+
+### CLI / DX v4.1.1 (2026-04-08)
+
+#### What's Changed
+* Simplify DotNetBuildStep to use unified parseSolution API
+
+### CLI / DX v4.1.0 (2026-04-08)
+
+#### What's Changed
+* Add `mod config recipes upgrade` command, to upgrade only already installed recipe modules
+* Enable checkstyle configuration to be explicitly specified and attached to the LST during the build
+* Add recipe discovery guidance to the run-recipe skill
+* Show total result count in recipe search
+* Fix repos-lock.csv branch corruption on detached HEAD
+* Reintroduce CLI layout changes to reduce bundle size
+* Clean up attributes in modmaven plugin.xml file
+* Use project-specific Node version for run too
+* Recognize requirements.txt as a Python project indicator
+* Fix modw classpath for nested-JAR layout
+* Fix `query_datatable` always failing with DuckDB `access_mode` error
+
+### CLI / DX v4.0.11 (2026-04-07)
+
+#### What's Changed
+* Defer CSharp RPC startup until a C# recipe is actually needed
+* Downgrade kotlin-compiler-embeddable from 2.3.0 to 2.2.0
+* Add Scala language support with SBT build step
+* Warn when zero repositories are found
+* Enforce Java 9 minimum when maven.compiler.release is set as a property
+* Fix binary patch OID mismatch for Quark source files
+* Fix single-task progress bar not showing progress
+* Fix looking up Git tree information for CLI custom build steps
+* Report per-file parsing progress in Gradle, Maven, and SBT build steps
+* Fix outdated and inaccurate README files
+* Test for OmniParser skipping tracked gitignored files
+* Fix incorrect token expiry docs and improve login error message
+* Only write Scala audit detections for projects with Scala sources
+* Add Go language support with GoBuildStep
+* Add authentication support for wrapper distribution downloads
+* Ensure data tables can be read during recipe runs.
+* Test fix: workaround for open `.git` files
+* Fix npm recipe install log message
+* Fix repository discovery when running `mod list` against a subdirectory of a git repository.
+* Fix devcenter rendering all repositories as N/A regardless of the actual data
+* Enable recipes to append to Gzip data tables mid-run.
+* Use PathUtils.matchesGlob for custom parser mappings
+* Set version=RELEASE in wrapper properties after install
+* Ensure files are closed when no longer needed to prevent file resource leaks
+* Gradle: prevent parsing subprojects as separate if the top project fails
+* Change `mod mcp` server name to `io.moderne/cli`
 
 ### CLI / DX v4.0.10 (2026-03-30)
 

@@ -46,6 +46,10 @@ curl https://app.moderne.io/cli | bash
 irm https://app.moderne.io/cli/windows | iex
 ```
 
+:::warning
+You must use PowerShell for Windows installation. Git Bash, MSYS2, and Cygwin are not supported — the `curl ... | bash` command from the Linux / macOS tab will not work correctly in these environments.
+:::
+
 </TabItem>
 </Tabs>
 
@@ -53,6 +57,8 @@ Alternatively, you can install via a package manager:
 
 * **Homebrew** (macOS/Linux): `brew install moderneinc/moderne/mod`
 * **Chocolatey** (Windows): `choco install mod --prerelease`
+
+Each of these methods installs a lightweight wrapper script called `modw`. The `mod` command is a symlink to this wrapper. On first run, the wrapper automatically downloads the correct platform distribution (JAR + JRE) for your system. For details on how the wrapper manages versions and updates, see [CLI wrapper and version management](../how-to-guides/cli-wrapper.md).
 
 After installation, verify by running `mod` in your terminal:
 
@@ -63,7 +69,7 @@ After installation, verify by running `mod` in your terminal:
 ```bash
 ➜ mod
 
-Moderne CLI 4.0.10
+Moderne CLI 4.1.1
 
 Usage:
 
@@ -202,6 +208,10 @@ curl https://<TENANT>.moderne.io/cli | bash
 irm https://<TENANT>.moderne.io/cli/windows | iex
 ```
 
+:::warning
+You must use PowerShell for Windows installation. Git Bash, MSYS2, and Cygwin are not supported — the `curl ... | bash` command from the Linux / macOS tab will not work correctly in these environments.
+:::
+
 </TabItem>
 </Tabs>
 
@@ -209,6 +219,8 @@ Alternatively, you can install via a package manager:
 
 * **Homebrew** (macOS/Linux): `brew install moderneinc/moderne/mod`
 * **Chocolatey** (Windows): `choco install mod --prerelease`
+
+Each of these methods installs a lightweight wrapper script called `modw`. The `mod` command is a symlink to this wrapper. On first run, the wrapper automatically downloads the correct platform distribution (JAR + JRE) for your system. For details on how the wrapper manages versions and updates, see [CLI wrapper and version management](../how-to-guides/cli-wrapper.md).
 
 After installation, verify by running `mod` in your terminal:
 
@@ -219,7 +231,7 @@ After installation, verify by running `mod` in your terminal:
 ```bash
 ➜ mod
 
-Moderne CLI 4.0.10
+Moderne CLI 4.1.1
 
 Usage:
 
@@ -412,7 +424,7 @@ mod config moderne organizations show
 <summary>You should see something like this:</summary>
 
 ```bash
-Moderne CLI 4.0.10
+Moderne CLI 4.1.1
 
 ⏺ Retrieving the configured organizations
 
@@ -484,7 +496,7 @@ mod config moderne organizations show
 <summary>You should see something that looks similar to this (it will have your organizations instead):</summary>
 
 ```bash
-Moderne CLI 4.0.10
+Moderne CLI 4.1.1
 
 ⏺ Retrieving the configured organizations
 

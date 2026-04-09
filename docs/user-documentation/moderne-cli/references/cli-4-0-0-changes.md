@@ -88,13 +88,13 @@ Download the distribution for your platform from Maven Central (see [distributio
 
 ```bash
 # Linux (self-extracting installer)
-bash moderne-cli-linux-4.0.10.sh
+bash moderne-cli-linux-4.1.1.sh
 
 # macOS (self-extracting installer)
-bash moderne-cli-osx-4.0.10.sh
+bash moderne-cli-osx-4.1.1.sh
 
 # Windows (PowerShell)
-Expand-Archive moderne-cli-windows-4.0.10.zip -DestinationPath . ; .\install.cmd
+Expand-Archive moderne-cli-windows-4.1.1.zip -DestinationPath . ; .\install.cmd
 ```
 
 After installation, the CLI binary lives in `~/.moderne/cli/bin/` (on your `PATH`), and everything the CLI needs to run (JAR, JRE, startup cache) lives in `~/.moderne/cli/dist/`.
@@ -195,14 +195,32 @@ Host the distribution files on an internal server and point `distributionUrl` in
 
 ```properties
 version=4.0.0
-distributionUrl=https://nexus.corp.example.com/repository/releases/moderne-cli/${version}/moderne-cli-${platform}.sh
+distributionUrl=https://nexus.corp.example.com/repository/releases/moderne-cli-${platform}/${version}/moderne-cli-${platform}-${version}.sh
 distributionSha256Sum=abc123...
 jdkUrl=skip
 ```
 
-The wrapper will replace `${version}` and `${platform}` automatically. Platform values are `linux`, `macos`, or `windows`.
+The wrapper will replace `${version}` and `${platform}` automatically. Platform values are `linux`, `osx`, or `windows`.
 
 Setting `jdkUrl=skip` tells the wrapper not to download a JDK on its own. In this case, you will need Java 25+ available via `MODERNE_JAVA_HOME` or your `PATH`.
+
+### Authenticated mirrors
+
+If your internal mirror requires authentication, the wrapper supports basic auth and bearer token credentials via environment variables or properties. This is especially important for first-time installs where no properties file exists yet.
+
+**Environment variables** (highest precedence):
+
+* `MODERNE_WRAPPER_DISTRIBUTION_USERNAME` / `MODERNE_WRAPPER_DISTRIBUTION_PASSWORD` — basic auth
+* `MODERNE_WRAPPER_DISTRIBUTION_TOKEN` — bearer token (takes precedence over user/pass)
+* `MODERNE_WRAPPER_DISTRIBUTION_URL` — override distribution URL without a properties file
+* `MODERNE_WRAPPER_VERSION` — override version without a properties file
+
+**Properties** in `moderne-wrapper.properties`:
+
+* `distributionUsername` / `distributionPassword` — basic auth
+* `distributionToken` — bearer token
+
+See the [CLI wrapper guide](../how-to-guides/cli-wrapper.md#authenticated-artifact-repositories) for full details and examples.
 
 ## Startup performance and the AOT cache
 

@@ -10,7 +10,7 @@ import RunRecipe from '@site/src/components/RunRecipe';
 
 **org.openrewrite.python.UpgradeDependencyVersion**
 
-_Upgrade the version constraint for a dependency in `[project].dependencies` in `pyproject.toml`. When `uv` is available, the `uv.lock` file is regenerated._
+_Upgrade the version constraint for a dependency. Supports `pyproject.toml` (with scope/group targeting), `requirements.txt`, and `Pipfile`. When `uv` is available, the `uv.lock` file is regenerated._
 
 ## Recipe source
 
@@ -25,7 +25,7 @@ This recipe is available under the [Moderne Proprietary License](https://docs.mo
 | --- | --- | --- | --- |
 | `String` | packageName | The PyPI package name to update. | `requests` |
 | `String` | newVersion | The new PEP 508 version constraint (e.g., `>=2.31.0`). | `>=2.31.0` |
-| `String` | scope | *Optional*. The dependency scope to update in. Defaults to `project.dependencies`. Valid options: `project.dependencies`, `project.optional-dependencies`, `dependency-groups`, `tool.uv.constraint-dependencies`, `tool.uv.override-dependencies` | `project.dependencies` |
+| `String` | scope | *Optional*. The dependency scope to update in. All scopes are searched by default. | `project.dependencies` |
 | `String` | groupName | *Optional*. The group name, required when scope is `project.optional-dependencies` or `dependency-groups`. | `dev` |
 
 

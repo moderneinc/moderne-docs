@@ -10,7 +10,7 @@ import RunRecipe from '@site/src/components/RunRecipe';
 
 **io.moderne.prethink.calm.FindExternalServiceCalls**
 
-_Identify outbound HTTP calls to external services. Detects RestTemplate, WebClient, Feign clients, Apache HttpClient, OkHttp, and JAX-RS clients._
+_Identify outbound HTTP calls to external services. Detects RestTemplate, WebClient, Feign clients, MicroProfile REST Client, Apache HttpClient, OkHttp, and JAX-RS clients._
 
 ## Recipe source
 

@@ -10,7 +10,7 @@ import RunRecipe from '@site/src/components/RunRecipe';
 
 **org.openrewrite.python.UpgradeTransitiveDependencyVersion**
 
-_Pin a transitive dependency version using the appropriate strategy for the detected package manager: uv uses `[tool.uv].constraint-dependencies`, PDM uses `[tool.pdm.overrides]`, and other managers add a direct dependency._
+_Pin a transitive dependency version using the strategy appropriate for the file type and package manager. For `pyproject.toml`: uv uses `[tool.uv].constraint-dependencies`, PDM uses `[tool.pdm.overrides]`, and other managers add a direct dependency. For `requirements.txt` and `Pipfile`: appends the dependency._
 
 ## Recipe source
 

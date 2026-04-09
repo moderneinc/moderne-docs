@@ -10,7 +10,7 @@ import RunRecipe from '@site/src/components/RunRecipe';
 
 **io.moderne.prethink.calm.FindDatabaseConnections**
 
-_Identify database connections and data access patterns in the application. Detects JPA entities, Spring Data repositories, JDBC templates, and MyBatis mappers._
+_Identify database connections and data access patterns in the application. Detects JPA entities, Spring Data repositories, JDBC templates, MyBatis mappers, and Quarkus Panache._
 
 ## Recipe source
 
@@ -26,6 +26,23 @@ This recipe is used as part of the following composite recipes:
 
 * [Update Prethink context (no AI)](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/prethink/updateprethinkcontextnoaistarter)
 * [Update Prethink context (with AI)](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/prethink/updateprethinkcontextstarter)
+
+## Example
+
+
+###### Unchanged
+```java
+package com.example;
+
+import io.quarkus.hibernate.orm.panache.PanacheEntity;
+import jakarta.persistence.Entity;
+
+@Entity
+public class Product extends PanacheEntity {
+    public String name;
+    public double price;
+}
+```
 
 
 ## Usage

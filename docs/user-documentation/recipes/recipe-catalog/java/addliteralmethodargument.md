@@ -39,6 +39,7 @@ This recipe is available under the [Apache License Version 2.0](https://www.apac
 
 This recipe is used as part of the following composite recipes:
 
+* [Migrate deprecated APIs removed in Spring Framework 7.0](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/spring/framework7/migratedeprecatedapis)
 * [Migrate removed Spring `Assert` methods](/user-documentation/recipes/recipe-catalog/java/spring/framework/migratespringassert.md)
 
 ## Example

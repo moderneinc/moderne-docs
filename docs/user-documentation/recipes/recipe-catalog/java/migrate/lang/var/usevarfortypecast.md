@@ -32,6 +32,7 @@ This recipe is used as part of the following composite recipes:
 
 * [Java best practices](/user-documentation/recipes/recipe-catalog/java/migrate/javabestpractices.md)
 * [Recipe testing best practices](/user-documentation/recipes/recipe-catalog/java/recipes/recipetestingbestpractices.md)
+* [Use local variable type inference](/user-documentation/recipes/recipe-catalog/java/migrate/lang/usevar.md)
 
 ## Example
 

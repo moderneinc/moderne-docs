@@ -24,6 +24,7 @@ This recipe is available under the [Moderne Proprietary License](https://docs.mo
 
 This recipe is used as part of the following composite recipes:
 
+* [Find resource injection vectors](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/security/search/findresourceinjection)
 * [Find security vulnerabilities using taint analysis](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/analysis/java/security/findsecurityvulnerabilities)
 
 ## Example

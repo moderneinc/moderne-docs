@@ -30,7 +30,6 @@ This recipe is available under the [Apache License Version 2.0](https://www.apac
 
 This recipe is used as part of the following composite recipes:
 
-* [Clean up various issues with the code](/user-documentation/recipes/recipe-catalog/java/dropwizard/codecleanup.md)
 * [Code cleanup](/user-documentation/recipes/recipe-catalog/staticanalysis/codecleanup.md)
 * [Migrate SLF4J to Log4j 2.x API](/user-documentation/recipes/recipe-catalog/java/logging/log4j/slf4jtolog4j.md)
 * [Migrate classes from Jackson Codehaus (legacy) to Jackson FasterXML](/user-documentation/recipes/recipe-catalog/java/jackson/codehausclassestofasterxml.md)

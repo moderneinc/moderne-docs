@@ -35,6 +35,7 @@ This recipe is available under the [Moderne Source Available License](https://do
   * artifactId: `spring-boot-starter-flyway`
   * version: `4.0.x`
   * onlyIfUsing: `*..*`
+  * acceptTransitive: `true`
 
 </TabItem>
 
@@ -53,6 +54,7 @@ recipeList:
       artifactId: spring-boot-starter-flyway
       version: 4.0.x
       onlyIfUsing: *..*
+      acceptTransitive: true
 
 ```
 </TabItem>

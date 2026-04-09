@@ -27,6 +27,28 @@ This recipe is used as part of the following composite recipes:
 * [Update Prethink context (no AI)](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/prethink/updateprethinkcontextnoaistarter)
 * [Update Prethink context (with AI)](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/prethink/updateprethinkcontextstarter)
 
+## Example
+
+
+###### Unchanged
+```java
+package com.example;
+
+import org.junit.jupiter.api.Test;
+
+public class SlowTest {
+    @Test
+    void testLogin() throws InterruptedException {
+        Thread.sleep(5000);
+    }
+}
+```
+
+###### Unchanged
+```mavenProject
+test-project
+```
+
 
 ## Usage
 

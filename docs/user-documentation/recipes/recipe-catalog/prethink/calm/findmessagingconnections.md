@@ -10,7 +10,7 @@ import RunRecipe from '@site/src/components/RunRecipe';
 
 **io.moderne.prethink.calm.FindMessagingConnections**
 
-_Identify message queue producers and consumers. Detects Kafka, RabbitMQ, JMS, Spring Cloud Stream, and AWS SQS messaging._
+_Identify message queue producers and consumers. Detects Kafka, RabbitMQ, JMS, Spring Cloud Stream, AWS SQS, and SmallRye Reactive Messaging._
 
 ## Recipe source
 

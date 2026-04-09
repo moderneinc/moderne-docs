@@ -17,5 +17,6 @@ _Recipes that include further recipes, often including the individual recipes be
 
 * [Migrate `MvcRequestMatcher` to `PathPatternRequestMatcher`](./migratemvcrequestmatcher.md)
 * [Migrate OAuth2 token response client from `RestOperations` to `RestClient`](./migrateoauth2restoperationstorestclient.md)
+* [Migrate `requiresChannel()` to `redirectToHttps()`](./migraterequireschanneltoredirecttohttps.md)
 
 

@@ -20,6 +20,7 @@ description: Core OpenRewrite recipes.
 * [Quarkus324](/user-documentation/recipes/recipe-catalog/io/quarkus/updates/core/quarkus324)
 * [Quarkus326](/user-documentation/recipes/recipe-catalog/io/quarkus/updates/core/quarkus326)
 * [Quarkus33](/user-documentation/recipes/recipe-catalog/io/quarkus/updates/core/quarkus33)
+* [Quarkus330](/user-documentation/recipes/recipe-catalog/io/quarkus/updates/core/quarkus330)
 * [Quarkus331](/user-documentation/recipes/recipe-catalog/io/quarkus/updates/core/quarkus331)
 * [Quarkus35](/user-documentation/recipes/recipe-catalog/io/quarkus/updates/core/quarkus35)
 * [Quarkus36](/user-documentation/recipes/recipe-catalog/io/quarkus/updates/core/quarkus36)

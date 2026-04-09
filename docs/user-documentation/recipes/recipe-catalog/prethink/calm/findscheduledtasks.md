@@ -10,7 +10,7 @@ import RunRecipe from '@site/src/components/RunRecipe';
 
 **io.moderne.prethink.calm.FindScheduledTasks**
 
-_Identify scheduled tasks and background jobs in the application. Supports Spring @Scheduled, Quartz Job, and Jakarta/Javax EJB Timer annotations._
+_Identify scheduled tasks and background jobs in the application. Supports Spring @Scheduled, Quarkus @Scheduled, Quartz Job, Jakarta/Javax EJB Timer, and JobRunr @Recurring annotations._
 
 ## Recipe source
 

@@ -25,6 +25,7 @@ This recipe is available under the [Moderne Proprietary License](https://docs.mo
 This recipe is used as part of the following composite recipes:
 
 * [Find security vulnerabilities using taint analysis](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/analysis/java/security/findsecurityvulnerabilities)
+* [Remediate OWASP A05:2025 Injection](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/security/owasp2025a05)
 
 ## Example
 

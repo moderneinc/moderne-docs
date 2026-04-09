@@ -330,7 +330,7 @@ const cli = {
         keywords: ['guides'],
       },
       items: [
-        'user-documentation/moderne-cli/how-to-guides/cli-upgrade',
+        'user-documentation/moderne-cli/how-to-guides/cli-wrapper',
         'user-documentation/moderne-cli/how-to-guides/cli-dev-center',
         'user-documentation/moderne-cli/how-to-guides/cli-prethink',
         'user-documentation/moderne-cli/how-to-guides/javascript',
