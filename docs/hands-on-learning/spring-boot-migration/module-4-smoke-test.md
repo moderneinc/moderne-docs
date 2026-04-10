@@ -17,9 +17,9 @@ In this module, you will raise the Java baseline to 17 and run a controlled Spri
 
 ### Steps
 
-1. Back in the [Moderne Platform](https://app.moderne.io), relogin if needed, then click `Activity` in the left navigation.
+1. Back in the [Moderne Platform](https://app.moderne.io), relogin if needed, then click **Activity** in the left navigation. The Activity page shows a history of all recipe runs, including their status and results.
 2. Open the failed run of your custom `Try Spring Boot 4 Upgrade` recipe from Module 1 that included [`io.moderne.java.spring.boot4.UpgradeSpringBoot_4_0`](https://docs.openrewrite.org/recipes/java/spring/boot4/upgradespringboot_4_0) and [`io.moderne.compiled.verification.VerifyCompilation`](https://docs.openrewrite.org/recipes/compiled/verification/verifycompilation).
-3. Click the `Visualizations` tab and run the `Composite recipe results` visualization.
+3. Click the **Visualizations** tab and run the **Composite recipe results** visualization.
 
 <figure>
   ![Visualizations tab showing Composite recipe results Sankey diagram options](./assets/run-composite-recipe-results-visualization.png)
@@ -52,12 +52,13 @@ Spring Boot 2.7 doesn't support Java 25. If you try `UpgradeToJava25` ([`org.ope
 
 #### Step 2: Build and commit
 
-Now that the changes have been applied, confirm the build still works, then commit the code and rebuild your LSTs:
+Now that the changes have been applied, confirm the build still works, then commit the code, release, and rebuild your LSTs. The release step is important because downstream repos in later waves need to resolve the Java 17 versions of their upstream dependencies:
 
 ```bash
 $WORKSHOP/build.sh
 mod git add $WORKSPACE --last-recipe-run
 mod git commit $WORKSPACE -m "Upgrade to Java 17" --last-recipe-run
+$WORKSHOP/release.sh
 mod build $WORKSPACE
 ```
 
@@ -273,7 +274,7 @@ Done (1m 14s)
 Built 11 repositories.
 
 ⏺ What to do next
-    > Run mod run /Users/somebody/workspaces/migration-practice-workspace --recipe=<RecipeName&rt;
+    > Run mod run /Users/somebody/workspaces/migration-practice-workspace --recipe=<RecipeName>
     > Analyze build results with mod trace builds analyze /Users/somebody/workspaces/migration-practice-workspace --last-build
     > Run mod log builds add /Users/somebody/workspaces/migration-practice-workspace logs.zip --last-build to aggregate build logs
 
@@ -304,6 +305,7 @@ First, run the recipe and apply the changes:
 mod run $WORKSPACE --recipe io.moderne.java.spring.boot4.UpgradeSpringBoot_4_0
 mod git apply $WORKSPACE --last-recipe-run
 ```
+
 :::note
 Don't worry if you see warnings about "errors while running the recipe." You'll still be able to move on to the remaining steps.
 :::
@@ -333,7 +335,7 @@ $WORKSHOP/build.sh
 mod build $WORKSPACE
 ```
 
-This restores all uncommitted changes from the smoke test and returns to the Java 17 baseline.
+`MODERNE_BUILD_TOOL_DIR` is a special token that the `mod exec` command expands to the build tool directory (`.`) in each repository. This restores all uncommitted changes from the smoke test and returns to the Java 17 baseline.
 
 ## Takeaways
 

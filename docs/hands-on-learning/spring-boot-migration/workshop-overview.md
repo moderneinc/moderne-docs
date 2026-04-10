@@ -22,14 +22,17 @@ Throughout the workshop, you will see screenshot placeholders and collapsible **
 
 To get the most out of this workshop, you should:
 
-* Have basic Java knowledge
-* Know how to work with Maven
+* Have intermediate Java knowledge, including Maven dependency management
+* Be familiar with Spring Boot fundamentals
 * Be comfortable running CLI commands and managing git changes
 
 You will also need:
 
-* [Moderne CLI](../../user-documentation/moderne-cli/getting-started/cli-intro.md) (version 3.55.3 or higher recommended)
+* A [Moderne Platform](https://app.moderne.io) account with access to the **Moderne - Training** organization (your workshop facilitator will provide access)
+* [Moderne CLI](../../user-documentation/moderne-cli/getting-started/cli-intro.md) (version 4.x recommended), authenticated against the Moderne Platform (`mod config moderne edit`)
 * A JDK installed locally (Java 17 or higher recommended)
+* Git installed locally
+* Python 3 and [uv](https://docs.astral.sh/uv/) (optional, for the wave planning notebook in Module 2)
 
 ## Workshop modules
 
