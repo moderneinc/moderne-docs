@@ -3377,33 +3377,3 @@ Initial release.
 
 * fix: update install command with proper --ignore-scripts
 
-## April 10, 2025
-
-#### rewrite-codemods-ng - 0.8.1
-
-* Updated repository to use OpenRewrite version v8.50.2
-
-#### rewrite-comprehension - 0.5.3
-
-* Updated repository to use OpenRewrite version v8.50.2
-
-#### rewrite-hibernate - 0.3.1
-
-* Updated repository to use OpenRewrite version v8.50.2
-
-#### rewrite-java-security - 3.6.1
-
-* Updated repository to use OpenRewrite version v8.50.2
-
-#### rewrite-reactive-streams - 0.11.3
-
-* Updated repository to use OpenRewrite version v8.50.2
-
-#### rewrite-spring - 0.4.1
-
-* Updated repository to use OpenRewrite version v8.50.2
-
-#### rewrite-struts - 0.13.1
-
-* Updated repository to use OpenRewrite version v8.50.2
-
