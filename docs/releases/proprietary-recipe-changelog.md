@@ -10,6 +10,12 @@ This page contains release notes for [Moderne proprietary OpenRewrite recipes](h
 This changelog is automatically generated from GitHub releases and only contains information from the past year.
 :::
 
+## April 11, 2026
+
+#### rewrite-devcenter - 1.22.0
+
+* Expose UpgradesAndMigrations.GROUP as a public constant
+
 ## April 9, 2026
 
 #### rewrite-java-security - 3.28.1
