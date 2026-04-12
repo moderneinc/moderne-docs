@@ -1,50 +1,53 @@
 ---
-sidebar_label: Configuring the Moderne agent
-description: Detailed instructions for configuring the Moderne agent.
+sidebar_label: Configuring the Moderne Connector
+description: Detailed instructions for configuring the Moderne Connector.
 slug: /administrator-documentation/moderne-platform/how-to-guides/agent-configuration/agent-configuration
 ---
      
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import VersionBanner from '@site/src/components/VersionBanner';
 
-# Configuring the Moderne agent
+<VersionBanner version="v2" linkPath="/administrator-documentation/moderne-platform-v1/how-to-guides/agent-configuration/agent-configuration" />
 
-In order to securely communicate with the Moderne SaaS, you will need to set up an on-premise agent in your environment. To assist you with that process and provide you with information about the agent, this guide will:
+# Configuring the Moderne Connector
 
-* [Give you some high-level information about the agent](#high-level-agent-information)
-* [Provide step-by-step instructions for configuring the agent](#agent-setup-instructions)
-* [Teach you how to update the agent later on](#updating-your-agent)
+In order to securely communicate with the Moderne SaaS, you will need to set up an on-premise Connector in your environment. To assist you with that process and provide you with information about the Connector, this guide will:
+
+* [Give you some high-level information about the Connector](#high-level-connector-information)
+* [Provide step-by-step instructions for configuring the Connector](#connector-setup-instructions)
+* [Teach you how to update the Connector later on](#updating-your-connector)
 
 :::tip
-Looking for a complete, working example? Check out the [moderne-agent-example repository](https://github.com/moderneinc/moderne-agent-example) which contains all the configuration files and setup code in one place for deploying the Moderne agent.
+Looking for a complete, working example? Check out the [Moderne Connector example repository](https://github.com/moderneinc/moderne-agent-example) which contains all the configuration files and setup code in one place for deploying the Moderne Connector.
 :::
 
-## High-level agent information
+## High-level Connector information
 
-### What does the agent do?
+### What does the Connector do?
 
-The Moderne on-premise agent:
+The Moderne Connector:
 
 * Encrypts and ships [LST](../../references/lossless-semantic-trees.md) and recipe artifacts from your artifact repository (e.g., Artifactory) to the Moderne SaaS
 * Provides the symmetric key that Moderne needs to decrypt your artifacts
 * Forwards requests from the Moderne SaaS to your SCM(s) (e.g., GitHub)
 * Forwards requests from the Moderne SaaS to the organization service (if configured)
 
-## Agent setup instructions
+## Connector setup instructions
 
 ### Step 1: Generate your symmetric key
 
-The Moderne agent requires customers to create a hex-encoded 256-bit AES encryption key. This key will be used to encrypt LST and recipe artifacts before they are sent to your SaaS tenant. To generate a key, please run the following `openssl` command:
+The Moderne Connector requires customers to create a hex-encoded 256-bit AES encryption key. This key will be used to encrypt LST and recipe artifacts before they are sent to your SaaS tenant. To generate a key, please run the following `openssl` command:
 
 ```bash
 openssl enc -aes-256-cbc -k secret -P
 ```
 
-This will return a `salt`, `key`, and `iv`. Please copy the `key` and save it for use in [step 3](#step-3-configure-the-agent-with-the-core-variablesarguments) as the `symmetricKey`.
+This will return a `salt`, `key`, and `iv`. Please copy the `key` and save it for use in [step 3](#step-3-configure-the-connector-with-the-core-variablesarguments) as the `symmetricKey`.
 
-### Step 2: Determine how you will run the agent
+### Step 2: Determine how you will run the Connector
 
-Moderne offers two ways of running the agent:
+Moderne offers two ways of running the Connector:
 
 1. An [OCI image](https://github.com/opencontainers/image-spec) that can be run using any OCI runtime (e.g., Docker, Podman)
 2. A Spring Boot executable JAR that can be run with Java
@@ -53,13 +56,13 @@ Moderne offers two ways of running the agent:
 Regardless of which one you pick, you'll want a minimum system spec of 2 CPU cores, 8 GB of memory, and at least 10 GB of persistent or local storage.
 :::
 
-If you deploy to Kubernetes or any other containerized environment like AWS ECS, you'll want to use the OCI image to run the agent.
+If you deploy to Kubernetes or any other containerized environment like AWS ECS, you'll want to use the OCI image to run the Connector.
 
-If you deploy to a [PaaS](https://en.wikipedia.org/wiki/Platform_as_a_service) environment such as Cloud Foundry, you'll want to use the JAR to run the agent.
+If you deploy to a [PaaS](https://en.wikipedia.org/wiki/Platform_as_a_service) environment such as Cloud Foundry, you'll want to use the JAR to run the Connector.
 
-The table below provides the core command for running the agent. However, in order for the agent to function correctly, additional variables will need to be added based on your environment (such as what SCM(s) your company uses, what artifact repositories you have configured). We'll walk through each of those in the following steps.
+The table below provides the core command for running the Connector. However, in order for the Connector to function correctly, additional variables will need to be added based on your environment (such as what SCM(s) your company uses, what artifact repositories you have configured). We'll walk through each of those in the following steps.
 
-<Tabs groupId="agent-type">
+<Tabs groupId="connector-type">
 <TabItem value="oci-container" label="OCI Container">
 
 **How to build the Docker image**
@@ -178,9 +181,9 @@ MODERNE_AGENT_MAVEN_0_PASSWORD=${MAVEN_PASSWORD}
 <TabItem value="executable-jar" label="Executable JAR">
 
 **Download the JAR:**
-The download URL can be found on the [**Agent releases page**](../../../../releases/agent-releases.md#maven-download)**.**
+The download URL can be found on the [**Connector releases page**](../../../../releases/agent-releases.md#maven-download)**.**
 
-**How to run the agent:**
+**How to run the Connector:**
 
 Use `java` to run a jar in combination with arguments that you'll add in the subsequent steps. The final command will look similar to:
 
@@ -201,11 +204,11 @@ java -jar moderne-agent-{version}.jar \
 </TabItem>
 </Tabs>
 
-### Step 3: Configure the agent with the core variables/arguments
+### Step 3: Configure the Connector with the core variables/arguments
 
-All agents must be configured with the variables listed as required below:
+All Connectors must be configured with the variables listed as required below:
 
-<Tabs groupId="agent-type">
+<Tabs groupId="connector-type">
 <TabItem value="oci-container" label="OCI Container">
 
 **Environment variables:**
@@ -214,8 +217,8 @@ All agents must be configured with the variables listed as required below:
 |----------------------------------------------|----------|------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------|
 | `MODERNE_AGENT_APIGATEWAYRSOCKETURI`         | `true`   |                        | The URI used to connect to the Moderne API, provided by Moderne.                                                                                   |
 | `MODERNE_AGENT_CRYPTO_SYMMETRICKEY`          | `true`   |                        | A 256-bit AES encryption key, hex encoded. Used to encrypt your artifacts.                                                                         |
-| `MODERNE_AGENT_NICKNAME`                     | `true`   |                        | A name used to identify your agent in the SaaS agent dashboard UI.                                                                                 |
-| `MODERNE_AGENT_TOKEN`                        | `true`   |                        | The Moderne SaaS agent connection token, provided by Moderne.                                                                                      |
+| `MODERNE_AGENT_NICKNAME`                     | `true`   |                        | A name used to identify your Connector in the SaaS dashboard UI.                                                                                   |
+| `MODERNE_AGENT_TOKEN`                        | `true`   |                        | The Moderne SaaS Connector connection token, provided by Moderne.                                                                                  |
 | `MODERNE_AGENT_DOWNLOADPARALLELISM`          | `false`  | 2 threads              | How many threads are used to download LSTs.                                                                                                        |
 | `MODERNE_AGENT_ARTIFACTINDEXINTERVALSECONDS` | `false`  | 120 seconds            | How frequently LSTs will be indexed.                                                                                                               |
 | `MODERNE_AGENT_DEFAULTCOMMITOPTIONS_{index}` | `false`  | All options available. | Use to restrict which commit options are available in Moderne. Acceptable values: `Direct`, `Branch`, `Fork`, `PullRequest`, `ForkAndPullRequest`. |
@@ -249,7 +252,7 @@ moderne-agent:latest
 |-------------------------------------------------|----------|------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------|
 | `--moderne.agent.apiGatewayRsocketUri`          | `true`   |                        | The URI used to connect to the Moderne API, provided by Moderne.                                                                                   |
 | `--moderne.agent.crypto.symmetricKey`           | `true`   |                        | A 256-bit AES encryption key, hex encoded. Used to encrypt your artifacts.                                                                         |
-| `--moderne.agent.nickname`                      | `true`   |                        | A name used to identify your agent in the SaaS agent dashboard UI.                                                                                 |
+| `--moderne.agent.nickname`                      | `true`   |                        | A name used to identify your Connector in the SaaS dashboard UI.                                                                                   |
 | `--moderne.agent.token`                         | `true`   |                        | The Moderne SaaS agent connection token, provided by Moderne.                                                                                      |
 | `--moderne.agent.downloadParallelism`           | `false`  | 2 threads              | How many threads are used to download LSTs.                                                                                                        |
 | `--moderne.agent.artifactIndexIntervalSeconds`  | `false`  | 120 seconds            | How frequently LSTs will be indexed.                                                                                                               |
@@ -273,11 +276,11 @@ java -jar moderne-agent-{version}.jar \
 </TabItem>
 </Tabs>
 
-### Step 4: Configure the agent to work with your SCM(s)
+### Step 4: Configure the Connector to work with your SCM(s)
 
-Connecting the agent to your SCM enables Moderne to display recipe results in the UI and commit changes from recipes back to your SCM (in the form of PRs, forks, commits, etc).
+Connecting the Connector to your SCM enables Moderne to display recipe results in the UI and commit changes from recipes back to your SCM (in the form of PRs, forks, commits, etc).
 
-For every SCM that you want to connect to Moderne, please follow the instructions in the following guides. These guides will explain how to configure an SCM to talk to the Moderne agent and they will provide you with a list of variables to add to the agent run command. You can configure one agent with multiple SCMs.
+For every SCM that you want to connect to Moderne, please follow the instructions in the following guides. These guides will explain how to configure an SCM to talk to the Moderne Connector and they will provide you with a list of variables to add to the Connector run command. You can configure one Connector with multiple SCMs.
 
 **SCM configuration:**
 
@@ -287,9 +290,9 @@ For every SCM that you want to connect to Moderne, please follow the instruction
 * [GitHub configuration](./configure-an-agent-with-github.md)
 * [GitLab configuration](./configure-an-agent-with-gitlab.md)
 
-Below is an example of what an agent run command might look like at the end of this step.
+Below is an example of what a Connector run command might look like at the end of this step.
 
-<Tabs groupId="agent-type">
+<Tabs groupId="connector-type">
 <TabItem value="oci-container" label="OCI Container">
 
 ```bash
@@ -339,14 +342,14 @@ java -jar moderne-agent-{version}.jar \
 </TabItem>
 </Tabs>
 
-### Step 5: Configure the agent to connect to your artifact repositories
+### Step 5: Configure the Connector to connect to your artifact repositories
 
-The Moderne agent needs to connect to your artifact repositories for two reasons:
+The Moderne Connector needs to connect to your artifact repositories for two reasons:
 
 1. To obtain your [LST](../../references/lossless-semantic-trees.md) artifacts so that recipes can be run on your code.
 2. To obtain your recipe artifacts (if any exist). These recipe artifacts contain custom recipes, defined by your team, that perform transformations against your LST artifacts.
 
-Your company might have many artifact repositories, potentially in different products, that you wish to connect the Moderne agent to. Each of these artifact repositories could contain LST artifacts, recipe artifacts, or a combination of both. The setup instructions differ based on what product you use to store your artifact repositories and what artifacts you wish to send to Moderne.
+Your company might have many artifact repositories, potentially in different products, that you wish to connect the Moderne Connector to. Each of these artifact repositories could contain LST artifacts, recipe artifacts, or a combination of both. The setup instructions differ based on what product you use to store your artifact repositories and what artifacts you wish to send to Moderne.
 
 Moderne offers several options for connecting to your artifact storage:
 
@@ -355,7 +358,7 @@ Moderne offers several options for connecting to your artifact storage:
 * **[Amazon S3](./configure-an-agent-with-s3-access.md)**: Store and retrieve LST artifacts directly from S3 or S3-compatible storage (e.g., MinIO).
 
 :::info
-For Maven and Artifactory configurations, the Moderne agent connects to _Maven formatted_ artifact repositories. There are a variety of open-source and commercial products that exist that can serve artifacts in this format (such as [Artifactory](https://jfrog.com/artifactory/) and [Sonatype Nexus](https://www.sonatype.com/products/nexus-repository)).
+For Maven and Artifactory configurations, the Moderne Connector connects to _Maven formatted_ artifact repositories. There are a variety of open-source and commercial products that exist that can serve artifacts in this format (such as [Artifactory](https://jfrog.com/artifactory/) and [Sonatype Nexus](https://www.sonatype.com/products/nexus-repository)).
 :::
 
 **Choosing your artifact source:**
@@ -375,9 +378,9 @@ The below table shows the key differences between the Maven and Artifactory conf
 
 Please ensure you've followed either the [Maven](./configure-an-agent-with-maven-repository-access.md) or [Artifactory](./configure-an-agent-with-artifactory-access.md) instructions before continuing.
 
-Below is an example of what an agent run command might look like at the end of this step.
+Below is an example of what a Connector run command might look like at the end of this step.
 
-<Tabs groupId="agent-type">
+<Tabs groupId="connector-type">
 <TabItem value="oci-container" label="OCI Container">
 
 ```bash
@@ -413,7 +416,7 @@ docker run \
 -e MODERNE_AGENT_MAVEN_0_PASSWORD \
 # ... Additional variables to come
 -p 8080:8080
-mmoderne-agent:latest
+moderne-agent:latest
 ```
 </TabItem>
 
@@ -449,11 +452,11 @@ java -jar moderne-agent-{version}.jar \
 
 ### Step 6: (Optionally) Use strict recipe sources.
 
-Some organizations want recipe artifacts to only come from locations configured in the Moderne agent. If you want to configure that, please follow the [strict recipe sources instructions](./configure-an-agent-with-strict-recipe-sources.md).
+Some organizations want recipe artifacts to only come from locations configured in the Moderne Connector. If you want to configure that, please follow the [strict recipe sources instructions](./configure-an-agent-with-strict-recipe-sources.md).
 
-Below is an example of what an agent run command might look like at the end of this step if you configured the agent to use only configured recipe sources.
+Below is an example of what a Connector run command might look like at the end of this step if you configured the Connector to use only configured recipe sources.
 
-<Tabs groupId="agent-type">
+<Tabs groupId="connector-type">
 <TabItem value="oci-container" label="OCI Container">
 
 ```bash
@@ -534,7 +537,7 @@ If you would like to have an organizational hierarchy available inside of the Mo
 
 #### Using a repos.csv file
 
-A `repos.csv` file defines your repositories and their organizational structure. The agent can load this file to create organizations in the Moderne Platform.
+A `repos.csv` file defines your repositories and their organizational structure. The Connector can load this file to create organizations in the Moderne Platform.
 
 **Required columns:**
 
@@ -560,12 +563,12 @@ https://github.com/Netflix/ribbon,master,github.com,Netflix/ribbon,Director A,AL
 
 **Loading the repos.csv file:**
 
-You can provide the file to the agent in two ways:
+You can provide the file to the Connector in two ways:
 
 1. **Remote URL:** Set the environment variable to point to a hosted CSV file
 2. **Local file:** Mount the file into the container and configure the path
 
-<Tabs groupId="agent-type">
+<Tabs groupId="connector-type">
 <TabItem value="oci-container" label="OCI Container">
 
 **Option 1: Remote URL**
@@ -616,7 +619,7 @@ For detailed information about creating and formatting a `repos.csv` file, inclu
 
 **Alternative configuration:**
 
-If you need more advanced organizational configuration options, you can also [configure an organizational hierarchy](./configure-organizations-hierarchy.md) using other methods and [let the agent know about it](./configure-organizations-hierarchy.md#agent-configuration).
+If you need more advanced organizational configuration options, you can also [configure an organizational hierarchy](./configure-organizations-hierarchy.md) using other methods and [let the Connector know about it](./configure-organizations-hierarchy.md#connector-configuration).
 
 ### Step 9: (Optionally) Create an Organizations service
 
@@ -625,7 +628,7 @@ You should create an Organizations service if you want to:
 * Limit access to the organizations you've [previously defined](./configure-organizations-hierarchy.md) so that some users only have access to some repositories OR
 * Customize commit messages by repository (e.g., adding a JIRA ticket to your commit messages based on the repository)
 
-To do so, please follow the instructions in our [creating an Organizations service guide](../org-service.md) and then [let the agent know about it](../org-service.md#agent-variables).
+To do so, please follow the instructions in our [creating an Organizations service guide](../org-service.md) and then [let the Connector know about it](../org-service.md#connector-variables).
 
 ### Step 10: (Optionally) Configure a DevCenter
 
@@ -635,13 +638,13 @@ The DevCenter is the mission-control dashboard of the Moderne Platform. If you w
 
 If you have configured any services that require client SSL certificates (such as Maven or Artifactory), you will need to provide a KeyStore with these certificates. Please follow [these instructions](./configure-an-agent-with-client-ssl-certificates.md) to configure the KeyStore.
 
-### Step 12: Run the agent
+### Step 12: Run the Connector
 
-At this point, you should have configured everything needed to run the Moderne agent. If you run into issues running the command, please don't hesitate to reach out.
+At this point, you should have configured everything needed to run the Moderne Connector. If you run into issues running the command, please don't hesitate to reach out.
 
-Below is a table that has instructions for how to run the agent in combination with some examples of the variables/arguments provided in the previous steps:
+Below is a table that has instructions for how to run the Connector in combination with some examples of the variables/arguments provided in the previous steps:
 
-<Tabs groupId="agent-type">
+<Tabs groupId="connector-type">
 <TabItem value="oci-container" label="OCI Container">
 
 **How to build the Docker image**
@@ -729,9 +732,9 @@ java -jar moderne-agent-{version}.jar \
 
 ## Health endpoints
 
-Once the agent is running, you can verify its health and readiness using the following endpoints:
+Once the Connector is running, you can verify its health and readiness using the following endpoints:
 
-* `/actuator/health` - Returns the overall health status of the agent
+* `/actuator/health` - Returns the overall health status of the Connector
 * `/actuator/health/liveness` - Kubernetes liveness probe endpoint
 * `/actuator/health/readiness` - Kubernetes readiness probe endpoint
 
@@ -756,7 +759,7 @@ These endpoints are particularly useful for:
 
 ## Monitoring
 
-The Moderne agent exposes Prometheus-compatible metrics that can be used for monitoring and observability.
+The Moderne Connector exposes Prometheus-compatible metrics that can be used for monitoring and observability.
 
 ### Prometheus metrics endpoint
 
@@ -774,9 +777,9 @@ scrape_configs:
 
 ### Grafana dashboard
 
-A pre-built Grafana dashboard is available in the [moderne-agent-example repository](https://github.com/moderneinc/moderne-agent-example/tree/main/grafana). The dashboard provides visualizations for:
+A pre-built Grafana dashboard is available in the [Moderne Connector example repository](https://github.com/moderneinc/moderne-agent-example/tree/main/grafana). The dashboard provides visualizations for:
 
-* Agent connectivity status
+* Connector connectivity status
 * LST indexing performance
 * Artifact download metrics
 * Resource utilization
@@ -786,26 +789,26 @@ To use the dashboard:
 
 1. Import `moderne-agent-dashboard-v1.json` into your Grafana instance
 2. Select your Prometheus datasource when prompted
-3. The dashboard will automatically populate with metrics from your agent(s)
+3. The dashboard will automatically populate with metrics from your Connector(s)
 
 ## Scaling considerations
 
-For high availability and increased throughput, you can run multiple Moderne agent instances concurrently.
+For high availability and increased throughput, you can run multiple Moderne Connector instances concurrently.
 
 **Key requirements for multi-instance deployment:**
 
-* Each agent instance must have a unique `MODERNE_AGENT_NICKNAME`
+* Each Connector instance must have a unique `MODERNE_AGENT_NICKNAME`
 * Each instance requires its own port mapping (e.g., 8080, 8081, 8082)
 * All instances should use the same `MODERNE_AGENT_CRYPTO_SYMMETRICKEY`
 * All instances should connect to the same `MODERNE_AGENT_APIGATEWAYRSOCKETURI`
 
 **Example multi-instance deployment:**
 
-<Tabs groupId="agent-type">
+<Tabs groupId="connector-type">
 <TabItem value="oci-container" label="OCI Container">
 
 ```bash
-# First agent instance
+# First Connector instance
 docker run -d \
   --name moderne-agent-1 \
   -p 8080:8080 \
@@ -814,7 +817,7 @@ docker run -d \
   # ... other environment variables
   moderne-agent:latest
 
-# Second agent instance
+# Second Connector instance
 docker run -d \
   --name moderne-agent-2 \
   -p 8081:8080 \
@@ -829,13 +832,13 @@ docker run -d \
 <TabItem value="executable-jar" label="Executable JAR">
 
 ```bash
-# First agent instance
+# First Connector instance
 java -jar moderne-agent-{version}.jar \
   --moderne.agent.nickname=prod-agent-1 \
   --server.port=8080 \
   # ... other arguments
 
-# Second agent instance
+# Second Connector instance
 java -jar moderne-agent-{version}.jar \
   --moderne.agent.nickname=prod-agent-2 \
   --server.port=8081 \
@@ -845,38 +848,38 @@ java -jar moderne-agent-{version}.jar \
 </TabItem>
 </Tabs>
 
-Multiple agent instances will automatically distribute the workload and provide redundancy in case of individual agent failures.
+Multiple Connector instances will automatically distribute the workload and provide redundancy in case of individual Connector failures.
 
 ## Troubleshooting
 
 ### Connection failures
 
-**Symptoms:** Agent fails to connect to Moderne API or shows connection errors in logs.
+**Symptoms:** Connector fails to connect to Moderne API or shows connection errors in logs.
 
 **Common causes and solutions:**
 
 * **Invalid API endpoint:** Verify the `MODERNE_AGENT_APIGATEWAYRSOCKETURI` matches the URI provided by Moderne
 * **Invalid authentication token:** Confirm the `MODERNE_AGENT_TOKEN` is correct and has not expired
-* **Network connectivity:** Ensure the agent can reach the Moderne API endpoint (check firewalls, proxies, and outbound HTTPS access)
+* **Network connectivity:** Ensure the Connector can reach the Moderne API endpoint (check firewalls, proxies, and outbound HTTPS access)
 * **SSL/TLS issues:** If using custom certificates, verify they are properly configured in the Java truststore
 
 ### DNS resolution failures in Podman containers
 
-**Symptoms:** Agent fails to start with errors like:
+**Symptoms:** Connector fails to start with errors like:
 
 ```
 WebClientRequestException: Failed to resolve 'hostname' [A(1)] and search domain query for configured domains failed as well: [dns.podman]
 ```
 
-**Cause:** The agent uses Netty's async DNS resolver, which directly queries DNS servers via UDP. In Podman's bridged networking mode, this can bypass Podman's DNS forwarding mechanism.
+**Cause:** The Connector uses Netty's async DNS resolver, which directly queries DNS servers via UDP. In Podman's bridged networking mode, this can bypass Podman's DNS forwarding mechanism.
 
-**Solution:** Use host networking mode when running the agent container:
+**Solution:** Use host networking mode when running the Connector container:
 
 ```bash
 podman run --network host ...
 ```
 
-This allows the agent to use the host's network stack directly, including its DNS resolution.
+This allows the Connector to use the host's network stack directly, including its DNS resolution.
 
 ### Missing repositories
 
@@ -899,27 +902,27 @@ This allows the agent to use the host's network stack directly, including its DN
 * **AQL filters (Artifactory):** Check that `MODERNE_AGENT_ARTIFACTORY_0_ASTQUERYFILTERS_*` correctly matches your LST artifacts
 * **Maven indexing:** If using Maven repository configuration, ensure the Maven index is being published and updated regularly
 * **Artifact publication:** Confirm LST artifacts are actually being published to the configured repository
-* **Network access:** Verify the agent can reach the artifact repository from its network location
+* **Network access:** Verify the Connector can reach the artifact repository from its network location
 
-### Checking agent logs
+### Checking Connector logs
 
-Most issues can be diagnosed by examining the agent logs. Look for:
+Most issues can be diagnosed by examining the Connector logs. Look for:
 
 * Connection errors or authentication failures
 * Repository discovery issues
 * Artifact indexing errors
 * Network timeouts or connectivity problems
 
-## Updating your agent
+## Updating your Connector
 
-If you want to update the Moderne agent over time, please follow the instructions in the table below:
+If you want to update the Moderne Connector over time, please follow the instructions in the table below:
 
-<Tabs groupId="agent-type">
+<Tabs groupId="connector-type">
 <TabItem value="oci-container" label="OCI Container">
 
-If you're running the commands provided in this guide, you should see that the last line of every agent run command is `moderne-agent:latest`.
+If you're running the commands provided in this guide, you should see that the last line of every Connector run command is `moderne-agent:latest`.
 
-If that's true, then you can rebuild the agent image and it should pick up the latest version. If you've decided to pin the version to something else instead of `latest`, please see our [releases page](../../../../releases/agent-releases.md) for the versions.
+If that's true, then you can rebuild the Connector image and it should pick up the latest version. If you've decided to pin the version to something else instead of `latest`, please see our [releases page](../../../../releases/agent-releases.md) for the versions.
 </TabItem>
 
 <TabItem value="executable-jar" label="Executable JAR">

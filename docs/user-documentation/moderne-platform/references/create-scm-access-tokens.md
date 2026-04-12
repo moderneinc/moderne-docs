@@ -3,6 +3,10 @@ sidebar_label: SCM access tokens
 description: Where to create SCM access tokens so you can perform commits with the Moderne API.
 ---
 
+import VersionBanner from '@site/src/components/VersionBanner';
+
+<VersionBanner version="v2" linkPath="/user-documentation/moderne-platform-v1/references/create-scm-access-tokens" />
+
 # Creating SCM access tokens
 
 In order to perform [commits](../how-to-guides/recipe-execution-and-commits-with-graphql.md#creating-a-pull-request) using the [Moderne GraphQL API](https://api.app.moderne.io/), you will need to create an SCM Access Token.

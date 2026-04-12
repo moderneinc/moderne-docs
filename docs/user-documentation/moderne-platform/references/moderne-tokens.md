@@ -3,6 +3,10 @@ sidebar_label: Moderne tokens
 description: Describes the different types of Moderne tokens – including how to create them and where they're used.
 ---
 
+import VersionBanner from '@site/src/components/VersionBanner';
+
+<VersionBanner version="v2" linkPath="/user-documentation/moderne-platform-v1/references/moderne-tokens" />
+
 # Moderne tokens
 
 There are three types of tokens used throughout the Moderne Platform:

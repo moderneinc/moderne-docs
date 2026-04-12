@@ -6,6 +6,9 @@ description: Describes what a typical proof of value process looks like.
 import ReactPlayer from '@site/src/components/VideoPlayer';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import VersionBanner from '@site/src/components/VersionBanner';
+
+<VersionBanner version="v2" linkPath="/user-documentation/moderne-platform-v1/getting-started/proof-of-value" />
 
 # Proof of value (POV) process
 
@@ -42,7 +45,7 @@ During the proof of value process, we will teach you how to use building block r
 
 2. **Mass Ingest** - Your team [sets up an ingestion pipeline](../../../administrator-documentation/moderne-platform/how-to-guides/mass-ingest.md) to build and publish LST artifacts for your repositories. You should start with 100 or more diverse repositories for best results. This step does not require you to make any changes to the repositories themselves (such as installing build plugins).
 
-3. **Agent setup** - Your team sets up the Moderne agent following our [on-premise agent configuration doc](../../../administrator-documentation/moderne-platform/how-to-guides/agent-configuration/agent-config.md). The agent runs as a Docker image or JAR and connects to your source code manager (SCM) and artifact repository using read-only service accounts (takes less than 1 hour with accounts ready).
+3. **Connector setup** - Your team sets up the Moderne Connector following our [Connector configuration doc](../../../administrator-documentation/moderne-platform/how-to-guides/agent-configuration/agent-config.md). The Connector runs as a Docker image or JAR and connects to your source code manager (SCM) and artifact repository using read-only service accounts (takes less than 1 hour with accounts ready).
 
 4. **Run recipes** - With everything set up, you can now run recipes against your code. We strongly recommend starting with simple code quality improvement recipes before progressing to complex migrations. You can find our recommended recipes to run and examples of what they do in the next section of this doc.
 

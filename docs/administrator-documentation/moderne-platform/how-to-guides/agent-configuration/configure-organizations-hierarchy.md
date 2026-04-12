@@ -5,6 +5,9 @@ description: How to configure your organizational hierarchy.
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import VersionBanner from '@site/src/components/VersionBanner';
+
+<VersionBanner version="v2" linkPath="/administrator-documentation/moderne-platform-v1/how-to-guides/agent-configuration/configure-organizations-hierarchy" />
 
 # Configure an organizational hierarchy
 
@@ -38,14 +41,14 @@ recommend establishing an organization hierarchy to improve structure and scalab
 
 ## How is an organizational hierarchy defined?
 
-Organizational structure is configured via a `repos.csv` file, accessible to the Agent via the file system or network.
+Organizational structure is configured via a `repos.csv` file, accessible to the Connector via the file system or network.
 
 Please see our [creating a repos.csv guide](../../../../user-documentation/moderne-cli/references/repos-csv.md) for details into how to create and format this file.
 
-## Agent configuration
+## Connector configuration
 
-The `repos.csv` source location is provided to the Agent by setting a variable in the Agent run command. Its value may be a
-local path or an unauthenticated HTTP(S) URI. You can also configure how often the Agent looks for changes to this
+The `repos.csv` source location is provided to the Connector by setting a variable in the Connector run command. Its value may be a
+local path or an unauthenticated HTTP(S) URI. You can also configure how often the Connector looks for changes to this
 file (by default it's every 10 minutes).
 
 <Tabs groupId="agent-type">
@@ -56,7 +59,7 @@ file (by default it's every 10 minutes).
 | Environment variable                               | Required | Default | Description                                                                                                                                                                           |
 |----------------------------------------------------|----------|---------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `MODERNE_AGENT_ORGANIZATION_REPOSCSV`              | `false`  |         | The path to the `repos.csv` file that defines your organizational structure. This could also be an unauthenticated HTTP/S URL in the form of `https://<internal-endpoint>/repos.csv`. |
-| `MODERNE_AGENT_ORGANIZATION_UPDATEINTERVALSECONDS` | `false`  | 600     | The number of seconds that the agent should wait before it checks for an update to your `repos.csv` file.                                                                             |
+| `MODERNE_AGENT_ORGANIZATION_UPDATEINTERVALSECONDS` | `false`  | 600     | The number of seconds that the Connector should wait before it checks for an update to your `repos.csv` file.                                                                             |
 
 **Example:**
 
@@ -76,7 +79,7 @@ docker run \
 | Argument name                                        | Required | Default | Description                                                                                                                                                                           |
 |------------------------------------------------------|----------|---------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `--moderne.agent.organization.reposCsv`              | `false`  |         | The path to the `repos.csv` file that defines your organizational structure. This could also be an unauthenticated HTTP/S URL in the form of `https://<internal-endpoint>/repos.csv`. |
-| `--moderne.agent.organization.updateIntervalSeconds` | `false`  | 600     | The number of seconds that the agent should wait before it checks for an update to your `repos.csv` file.                                                                             |
+| `--moderne.agent.organization.updateIntervalSeconds` | `false`  | 600     | The number of seconds that the Connector should wait before it checks for an update to your `repos.csv` file.                                                                             |
 
 **Example:**
 
@@ -92,7 +95,7 @@ java -jar moderne-agent-{version}.jar \
 
 ## Confirming it works
 
-After starting up the Moderne Agent again, you can now make the following GraphQL query using the embedded GraphiQL IDE found at `https://api.<your-tenant>/graphql`:
+After starting up the Moderne Connector again, you can now make the following GraphQL query using the embedded GraphiQL IDE found at `https://api.<your-tenant>/graphql`:
 
 ```graphql
 query orgs {

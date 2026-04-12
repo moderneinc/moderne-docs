@@ -1,14 +1,17 @@
 ---
 sidebar_label: Bitbucket Data center configuration
-description: How to configure the Moderne agent to communicate with Bitbucket Data Center.
+description: How to configure the Moderne Connector to communicate with Bitbucket Data Center.
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import VersionBanner from '@site/src/components/VersionBanner';
 
-# Configure an agent with Bitbucket Data Center access
+<VersionBanner version="v2" linkPath="/administrator-documentation/moderne-platform-v1/how-to-guides/agent-configuration/configure-bitbucket-to-agent" />
 
-In order to view recipe results and commit changes from a recipe back to Bitbucket, you'll need to create an application link in Bitbucket and configure the Moderne agent with the appropriate variables.
+# Configure a Connector with Bitbucket Data Center access
+
+In order to view recipe results and commit changes from a recipe back to Bitbucket, you'll need to create an application link in Bitbucket and configure the Moderne Connector with the appropriate variables.
 
 This guide will walk you through everything you need to know to get started with this.
 
@@ -99,7 +102,7 @@ The OAuth token is scoped to the individual user who authorizes it — Moderne c
 
 #### Generate a public and private key for Bitbucket
 
-This key will be used by the Moderne agent to talk to Bitbucket.
+This key will be used by the Moderne Connector to talk to Bitbucket.
 
 ```bash
 openssl genrsa -out bitbucket_privatekey.pem 1024
@@ -144,9 +147,9 @@ openssl x509 -pubkey -noout -in bitbucket_publickey.cer  > bitbucket_publickey.p
 10. Click _Continue_ to complete the Application Link creation
 </details>
 
-## Step 2: Configure the Moderne agent
+## Step 2: Configure the Moderne Connector
 
-In order for the Moderne agent to work with your Bitbucket instance, you'll need to provide it with the information you generated in [Step 1](#step-1-create-an-oauth-connection).
+In order for the Moderne Connector to work with your Bitbucket instance, you'll need to provide it with the information you generated in [Step 1](#step-1-create-an-oauth-connection).
 
 :::info
 You can configure multiple Bitbucket instances by including multiple entries, each with a different `{index}`.
@@ -157,7 +160,7 @@ To enable OAuth2 support, set `MODERNE_AGENT_BITBUCKET_{index}_OAUTH_KEY` to you
 <details>
 <summary>OAuth1.0a (deprecated)</summary>
 
-#### Configure the Bitbucket private key for the Moderne agent
+#### Configure the Bitbucket private key for the Moderne Connector
 
 For OAuth1.0a, you'll need to convert the private key you generated in _Step 1 (OAuth1.0a section)_ to a single-line string.
 
@@ -177,9 +180,9 @@ If you're not using a shell, please follow these instructions instead:
 4. Copy the contents as a single-line string and use it for `MODERNE_AGENT_BITBUCKET_{index}_PRIVATEKEY`
 </details>
 
-### Moderne Agent Bitbucket properties
+### Moderne Connector Bitbucket properties
 
-The following table contains all of the variables/arguments you need to add to your Moderne agent run command in order for it to work with your Bitbucket instance. Please note that these variables/arguments must be combined with ones found in other steps in the [Configuring the Moderne agent guide](./agent-config.md).
+The following table contains all of the variables/arguments you need to add to your Moderne Connector run command in order for it to work with your Bitbucket instance. Please note that these variables/arguments must be combined with ones found in other steps in the [Configuring the Moderne Connector guide](./agent-config.md).
 
 <Tabs>
 <TabItem value="oci-container" label="OCI Container">
@@ -196,7 +199,7 @@ The following table contains all of the variables/arguments you need to add to y
 | `MODERNE_AGENT_BITBUCKET_{index}_SKIPSSL`               | `false`                                      | `false` | Specifies whether or not to skip SSL validation for HTTP connections to this Bitbucket instance. This must be set to `true` if you use a self-signed SSL/TLS certificate. |
 | `MODERNE_AGENT_BITBUCKET_{index}_SSH_PRIVATEKEY`        | `false`                                      |         | The SSH private key used to establish a SSH connection with Bitbucket.                                                                                                    |
 | `MODERNE_AGENT_BITBUCKET_{index}_SSH_PASSPHRASE`        | `true` (If the SSH private key is specified) |         | The passphrase used to encrypt the SSH private key. This is required if the private key is specified and encrypted.                                                       |
-| `MODERNE_AGENT_BITBUCKET_{index}_SSH_SSHFILENAME`       | `true` (If the SSH private key is specified) |         | The file name of the private key, which the agent will store locally.                                                                                                     |
+| `MODERNE_AGENT_BITBUCKET_{index}_SSH_SSHFILENAME`       | `true` (If the SSH private key is specified) |         | The file name of the private key, which the Connector will store locally.                                                                                                     |
 | `MODERNE_AGENT_BITBUCKET_{index}_SSH_USER`              | `true` (If the SSH private key is specified) |         | The username used for SSH communication with Bitbucket.                                                                                                                   |
 | `MODERNE_AGENT_BITBUCKET_{index}_SSH_PORT`              | `true` (If the SSH private key is specified) | `7999`  | The port used to communicate via SSH with Bitbucket.                                                                                                                      |
 
@@ -225,8 +228,8 @@ docker run \
 | `--moderne.agent.bitbucket[{index}].alternateUrls[{index}]` | `false`                                      |         | The list of alternative fully-qualified URL of the running Bitbucket instance. For example: `https://bitbucket.myorg.com`.                                                |
 | `--moderne.agent.bitbucket[{index}].skipSsl`                | `false`                                      | `false` | Specifies whether or not to skip SSL validation for HTTP connections to this Bitbucket instance. This must be set to `true` if you use a self-signed SSL/TLS certificate. |
 | `--moderne.agent.bitbucket[{index}].ssh.privateKey`         | `false`                                      |         | The SSH private key used to establish a SSH connection with Bitbucket.                                                                                                    |
-| `--moderne.agent.bitbucket[{index}].ssh.passphrase`         | `true` (If the SSH private key is specified) |         | The file name of the private key, which the agent will store locally.                                                                                                     |
-| `--moderne.agent.bitbucket[{index}].ssh.sshFileName`        | `true` (If the SSH private key is specified) |         | The file name of the private key, which the agent will store locally.                                                                                                     |
+| `--moderne.agent.bitbucket[{index}].ssh.passphrase`         | `true` (If the SSH private key is specified) |         | The file name of the private key, which the Connector will store locally.                                                                                                     |
+| `--moderne.agent.bitbucket[{index}].ssh.sshFileName`        | `true` (If the SSH private key is specified) |         | The file name of the private key, which the Connector will store locally.                                                                                                     |
 | `--moderne.agent.bitbucket[{index}].ssh.user`               | `true` (If the SSH private key is specified) |         | The username used for SSH communication with Bitbucket.                                                                                                                   |
 | `--moderne.agent.bitbucket[{index}].ssh.port`               | `true` (If the SSH private key is specified) | `7999`  | The port used to communicate via SSH with Bitbucket.                                                                                                                      |
 

@@ -3,16 +3,15 @@ sidebar_label: Using AI to understand your codebase
 description: How to gain a high-level overview of your codebase using AI clustering.
 ---
 
+import VersionBanner from '@site/src/components/VersionBanner';
+
+<VersionBanner version="v2" linkPath="/user-documentation/moderne-platform-v1/how-to-guides/how-to-gain-a-high-level-overview-of-your-codebase-using-clustering" />
+
 # How to gain a high-level overview of your codebase using AI clustering
 
 :::warning
 Recipes and visualizations that use AI may produce incorrect or incomplete results. Please ensure that you thoroughly review any results for clarity and accuracy before sharing or using.
 :::
-
-<figure>
-  ![Animated demo of AI-powered method clustering visualization](./assets/clustering_methods.gif)
-  <figcaption></figcaption>
-</figure>
 
 ## Why is this useful?
 

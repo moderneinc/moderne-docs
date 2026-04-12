@@ -3,6 +3,10 @@ sidebar_label: Troubleshooting LST issues
 description: How to troubleshoot common issues with LSTs in the platform.
 ---
 
+import VersionBanner from '@site/src/components/VersionBanner';
+
+<VersionBanner version="v2" linkPath="/administrator-documentation/moderne-platform-v1/how-to-guides/troubleshooting-lst-issues" />
+
 # Troubleshooting LST issues
 
 This guide will help you diagnose and resolve common issues with Lossless Semantic Trees (LSTs) in the Moderne platform.
@@ -18,42 +22,11 @@ When an LST is missing from your organization, the issue is typically caused by:
 
 ### Troubleshooting steps
 
-#### Step 1: Determine your organization setup
-
-Does your company provide an [organizational hierarchy to Moderne](./agent-configuration/configure-organizations-hierarchy.md)? If so, jump to [Step 2b](#step-2b-organizational-hierarchy-provided). If not, proceed to [Step 2a](#step-2a-no-organizational-hierarchy-provided).
-
-#### Step 2a: No organizational hierarchy provided
-
-If your company **does not** provide an organizational hierarchy to Moderne, then your issue is an `origin` mismatch.
-
-#### To diagnose:
-
-1. Navigate to the repositories list located at `https://TENANT.moderne.io/organizations` (replace `TENANT` in the URL with your company's Moderne tenant)
-2. Search for the repository whose LST is missing
-3. You should see a warning icon in the `origin` column. If you mouse over it, you will see a warning about a "Missing SCM info for &lt;some VCS&gt;". Remember that VCS for the next step.
-
-<figure>
-  ![Repository list showing warning icons for missing SCM configuration](./assets/missing-scm-configuration.png)
-  <figcaption>_An example of what a repo with a missing SCM configuration looks like_</figcaption>
-</figure>
-
-#### To fix:
-
-Check your VCS URL in your Agent configuration. For example, if this is a GitHub repo, check that `MODERNE_AGENT_GITHUB_0_URL` is `https://github.com` (or the base URL of your on-prem GitHub instance).
-
-If your VCS is Bitbucket Server or Bitbucket Data Center, and you use a non-standard SSH port or a different URL, make sure that you have an alternate URL defined via `MODERNE_AGENT_BITBUCKET_0_ALTERNATEURLS_0`.
-
-#### Step 2b: Organizational hierarchy provided
-
-If your company **does** provide an organizational hierarchy, the issue could be either an `origin` mismatch or a `path`/`branch` mismatch.
-
-#### To diagnose:
-
 Use the [Lost and Found GraphQL query](#using-the-lost-and-found-query) to check if your repository is listed.
 
 * **If found**: Your repository exists but has issues that prevent it from being usable. This could be due to:
   - Missing from organizational hierarchy (doesn't match the `origin`, `path`, or `branch` defined in your organizational hierarchy)
-  - SCM configuration mismatch (orphaned repository with no connected agent)
+  - SCM configuration mismatch (orphaned repository with no connected Connector)
   - [See the fix below](#to-fix-1).
 * **If not found**: Proceed to [check for an `origin` mismatch](#check-for-an-origin-mismatch) (the next section). 
 
@@ -66,11 +39,11 @@ Update your `repos.csv` file to ensure the `origin`, `path`, and `branch` values
 #### To diagnose:
 
 1. Navigate to `https://TENANT.moderne.io/organizations` (replace `TENANT` in the URL with your company's Moderne tenant)
-2. Click **Organization** in the left nav and select the organization you expect this repository to appear in:
+2. Click on the organization selector at the top of your screen and select the organization you expect this repository to appear in:
 
 <figure>
-  ![Repositories page showing organization selection in left sidebar navigation](./assets/select-organization.gif)
-  <figcaption>_An example of selecting the OpenRewrite organization._</figcaption>
+  ![Selecting an organization](./assets/select-org.png)
+  <figcaption>_Selecting an organization_</figcaption>
 </figure>
 
 3. Search for the repository in question
@@ -83,7 +56,7 @@ Update your `repos.csv` file to ensure the `origin`, `path`, and `branch` values
 
 #### To fix:
 
-Check your VCS URL in your Agent configuration. For example, if this is a GitHub repo, check that `MODERNE_AGENT_GITHUB_0_URL` is `https://github.com` (or the base URL of your on-prem GitHub instance).
+Check your VCS URL in your Connector configuration. For example, if this is a GitHub repo, check that `MODERNE_AGENT_GITHUB_0_URL` is `https://github.com` (or the base URL of your on-prem GitHub instance).
 
 If your VCS is Bitbucket Server or Bitbucket Data Center, and you use a non-standard SSH port or a different URL, make sure that you have an alternate URL defined via `MODERNE_AGENT_BITBUCKET_0_ALTERNATEURLS_0`.
 

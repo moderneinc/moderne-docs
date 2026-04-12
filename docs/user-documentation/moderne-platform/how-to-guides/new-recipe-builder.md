@@ -3,6 +3,10 @@ sidebar_label: Creating custom recipes
 description: How to create custom recipes with the Moderne recipe builder.
 ---
 
+import VersionBanner from '@site/src/components/VersionBanner';
+
+<VersionBanner version="v2" linkPath="/user-documentation/moderne-platform-v1/how-to-guides/new-recipe-builder" />
+
 # Create custom recipes with the recipe builder
 
 Have you found a recipe in Moderne where you only want to run certain parts of it? Or have you found a few recipes that you want to combine into one larger recipe? Or maybe you want to run a bunch of recipes in a specific order?
@@ -20,7 +24,7 @@ To create a custom recipe you will need to:
   <figcaption>_Builder link_</figcaption>
 </figure>
 
-2. Create a recipe by either clicking on the `New recipe...` link in the welcome modal or by clicking on the `Recipe` button in the top-left corner and then pressing `New`:
+2. Create a recipe by either clicking on the `New recipe...` link in the welcome modal or by clicking on the recipe name in the top-left corner of the builder and then pressing `New`:
 
 <figure>
   ![Welcome modal with New recipe and Import recipe from YAML buttons](./assets/recipe-welcome-modal.png)
@@ -34,14 +38,14 @@ To create a custom recipe you will need to:
 
 3. Regardless of which path you picked, you'll be met with a new modal for defining some basic details of your recipe:
 
-<figure>
+<figure style={{maxWidth: '500px', margin: '0 auto'}}>
   ![New recipe modal with Name, ID, and Description fields](./assets/new-recipe-modal.png)
   <figcaption>_New recipe modal_</figcaption>
 </figure>
 
 4. Enter a name, ID, and description for the recipe and then press `Save`. It's important to give the recipe an appropriate name and description if you ever intend to share it with others.
 
-5. In the center of your window, you'll find the 3D recipe viewer. In it, there is a highlighted sphere with the name of your recipe. You can think of this as the root node of your recipe. From there, you can attach other recipes or preconditions to it. To do this, either click on the three horizontal lines next to the recipe title and then click `add precondition to this recipe node` or `add recipe to this recipe node` –– or mouse over the name of your recipe in the recipe list on the right side of the screen and click the plus button in a circle:
+5. In the center of your window, you'll find the 3D recipe viewer. In it, there is a highlighted sphere with the name of your recipe. You can think of this as the root node of your recipe. From there, you can attach other recipes or preconditions to it. To do this, either click on the three horizontal lines next to the recipe title and then click `Add recipe to this recipe node` –– or mouse over the name of your recipe in the recipe list on the right side of the screen and click the triple vertical docs and select `Add recipe to node`:
 
 <figure>
   ![Animated demo of adding recipes from the 3D viewer context menu](./assets/3D-recipe-details.gif)
@@ -55,7 +59,7 @@ To create a custom recipe you will need to:
 
 6. In the modal that popped up, you can search for recipes to add. If the "Add as a precondition" box is checked, that recipe will be added as a [precondition](./preconditions.md). Otherwise, the recipe will be added to the list of recipes to run.
 
-<figure>
+<figure style={{maxWidth: '700px', margin: '0 auto'}}>
   ![Add recipe modal with search field, recipe list, and precondition checkbox](./assets/add-recipe-modal.png)
   <figcaption>_Add recipe modal_</figcaption>
 </figure>
@@ -179,60 +183,4 @@ When creating or editing recipes, you may find that the 3D recipe viewer is not 
 <figure>
   ![3D viewer toolbar with Move to side bar button highlighted](./assets/move-to-sidebar.png)
   <figcaption>_Move to sidebar button_</figcaption>
-</figure>
-
-## How to use the recipe list viewer
-
-### How to add a recipe or a precondition to a node
-
-Hover your mouse over the node you want to add a recipe or precondition to. A few buttons will appear. Click on the one with a plus sign inside of a circle:
-
-<figure>
-  ![Recipe list with add recipe to this node button highlighted](./assets/add-recipe-button.png)
-  <figcaption>_Add recipe button_</figcaption>
-</figure>
-
-### How to edit recipe options
-
-If a recipe has options, you can edit them by either:
-
-* Hovering over the recipe in the panel and clicking on the edit button that appears:
-
-<figure>
-  ![Recipe list with edit recipe options button highlighted](./assets/edit-recipe-button.png)
-  <figcaption>_Edit recipe button_</figcaption>
-</figure>
-
-* Or by pressing the edit button in the options section area shown when a particular recipe is selected:
-
-<figure>
-  ![Options section with edit recipe options pencil icon highlighted](./assets/option-list-edit.png)
-  <figcaption>_Option section edit_</figcaption>
-</figure>
-
-### How to remove a recipe/precondition
-
-Hover your mouse over a recipe or a precondition you want to remove and then hit the trash can button. Note that if the recipe or precondition you're removing has children, those will be removed, too.   
-
-<figure>
-  ![Recipe list with remove recipe trash can button highlighted](./assets/remove-recipe-button.png)
-  <figcaption>_Remove recipe button_</figcaption>
-</figure>
-
-### How to jump to details about a recipe
-
-If you want to learn more about a particular recipe, you can do so by hovering over the recipe you are interested in and clicking on the go to recipe details button:
-
-<figure>
-  ![Recipe list with go to recipe details arrow button highlighted](./assets/go-to-recipe-button.png)
-  <figcaption>_Go to recipe details button_</figcaption>
-</figure>
-
-### How to duplicate a recipe
-
-In some instances, you may want to duplicate an existing recipe and then modify it. To do so, click on the duplicate recipe button. If the recipe you're duplicating has options, the modal for modifying those options will immediately pop up.
-
-<figure>
-  ![Recipe list with duplicate this recipe button highlighted](./assets/duplicate-recipe.png)
-  <figcaption>_Duplicate recipe button_</figcaption>
 </figure>

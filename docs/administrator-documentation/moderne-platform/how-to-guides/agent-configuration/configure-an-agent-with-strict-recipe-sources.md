@@ -1,14 +1,17 @@
 ---
 sidebar_label: Strict recipe source configuration
-description: How to configure the Moderne agent to have strict recipe sources.
+description: How to configure the Moderne Connector to have strict recipe sources.
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import VersionBanner from '@site/src/components/VersionBanner';
 
-# Configure an agent with strict recipe sources
+<VersionBanner version="v2" linkPath="/administrator-documentation/moderne-platform-v1/how-to-guides/agent-configuration/configure-an-agent-with-strict-recipe-sources" />
 
-The Moderne SaaS is configured to use the following Maven repositories to load recipe artifacts from in the event the agent has not been configured with any recipe sources or if a recipe artifact cannot be sourced from what is configured. (Requires agent version `0.118.0` or greater)
+# Configure a Connector with strict recipe sources
+
+The Moderne SaaS is configured to use the following Maven repositories to load recipe artifacts from in the event the Connector has not been configured with any recipe sources or if a recipe artifact cannot be sourced from what is configured. (Requires Connector version `0.118.0` or greater)
 
 ```xml
 <repository>
@@ -50,7 +53,7 @@ The Moderne SaaS is configured to use the following Maven repositories to load r
 </repository>
 ```
 
-This fallback behavior can be disabled using recipe configuration. If any agent is configured with this setting then recipes will only be sourced by what the agent defines.
+This fallback behavior can be disabled using recipe configuration. If any Connector is configured with this setting then recipes will only be sourced by what the Connector defines.
 
 <Tabs groupId="agent-type">
 <TabItem value="oci-container" label="OCI Container">
@@ -59,7 +62,7 @@ This fallback behavior can be disabled using recipe configuration. If any agent 
 
 | Variable Name                                   | Required                                  | Default | Description                                                                                       |
 |-------------------------------------------------|-------------------------------------------|---------|---------------------------------------------------------------------------------------------------|
-| `MODERNE_AGENT_RECIPE_USEONLYCONFIGURED`        | `true`                                    |         | Only use the recipe sources configured in the agent.                                              |
+| `MODERNE_AGENT_RECIPE_USEONLYCONFIGURED`        | `true`                                    |         | Only use the recipe sources configured in the Connector.                                              |
 | `MODERNE_AGENT_RECIPE_POMCACHE_TYPE`            | `false`                                   |         | Used to specify what type of cache the POM should use. Acceptable values: `IN_MEMORY` or `REDIS`. |
 | `MODERNE_AGENT_RECIPE_POMCACHE_ENTRYTTLMINUTES` | `false`                                   |   60    | How long entries should live in the POM cache.                                                    |
 | `MODERNE_AGENT_RECIPE_POMCACHE_REDIS_HOST`      | `true` (If the POM cache type is `REDIS`) |         | The URL of the Redis instance.                                                                    |
@@ -85,7 +88,7 @@ docker run \
 
 | Argument Name                                     | Required                                  | Default | Description                                                                                       |
 |---------------------------------------------------|-------------------------------------------|---------|---------------------------------------------------------------------------------------------------|
-| `--moderne.agent.recipe.useOnlyConfigured`        | `true`                                    |         | Only use the recipe sources configured in the agent.                                              |
+| `--moderne.agent.recipe.useOnlyConfigured`        | `true`                                    |         | Only use the recipe sources configured in the Connector.                                              |
 | `--moderne.agent.recipe.pomCache.type`            | `false`                                   |         | Used to specify what type of cache the POM should use. Acceptable values: `IN_MEMORY` or `REDIS`. |
 | `--moderne.agent.recipe.pomCache.entryTtlMinutes` | `false`                                   |   60    | How long entries should live in the POM cache.                                                    |
 | `--moderne.agent.recipe.pomCache.redis.host`      | `true` (If the POM cache type is `REDIS`) |         | The URL of the Redis instance.                                                                    |

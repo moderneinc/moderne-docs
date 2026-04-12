@@ -3,6 +3,10 @@ sidebar_label: FAQ
 description: Frequently asked questions related to administrating the Moderne Platform.
 ---
 
+import VersionBanner from '@site/src/components/VersionBanner';
+
+<VersionBanner version="v2" linkPath="/administrator-documentation/moderne-platform-v1/faq" />
+
 # Frequently asked questions (FAQ)
 
 ## Why do artifact scanners detect vulnerabilities in recipe artifacts/JARs?
@@ -39,11 +43,11 @@ Mass ingest compiles every repository. To perform that compilation, all project 
 
 ### 2. Recipe loading
 
-Your custom recipe JARs are stored in your Artifactory. In order to load them into the Moderne Platform, the agent must have access to pull them from your Artifactory instance.
+Your custom recipe JARs are stored in your Artifactory. In order to load them into the Moderne Platform, the Connector must have access to pull them from your Artifactory instance.
 
 If your organization wants to reduce dependency on external repositories like Maven Central, all recipe JARs (including OpenRewrite recipes) and their dependencies can be served from your Artifactory.
 
-**How to limit Artifactory usage**: Enable the in-memory POM cache on the agent. The Moderne Platform also maintains a POM cache on the service that manages recipes.
+**How to limit Artifactory usage**: Enable the in-memory POM cache on the Connector. The Moderne Platform also maintains a POM cache on the service that manages recipes.
 
 ### 3. Recipe execution
 
@@ -51,7 +55,7 @@ When running Maven or Gradle upgrade recipes, Moderne uses the POM or Gradle fil
 
 For example, if a recipe fixes a vulnerability in Spring Web `4.2.6` that's resolved in version `4.2.9`, but your Artifactory doesn't have `4.2.9`, Moderne won't perform the upgrade. Following the "do no harm" principle of OpenRewrite recipes, upgrades are skipped when the target version isn't available in your repositories.
 
-**How to limit Artifactory usage**: Enable the in-memory POM cache on the agent.
+**How to limit Artifactory usage**: Enable the in-memory POM cache on the Connector.
 
 ## Why are Artifactory requests slow?
 

@@ -1,16 +1,18 @@
 ---
+sidebar_label: "Quickstart: Using the Moderne Platform"
 description: A brief introduction to the Moderne platform and what it can do for you.
 ---
 
 import ReactPlayer from '@site/src/components/VideoPlayer';
+import VersionBanner from '@site/src/components/VersionBanner';
+
+<VersionBanner version="v2" linkPath="/user-documentation/moderne-platform-v1/getting-started/running-your-first-recipe" />
 
 # Quickstart: Using the Moderne Platform
 
-To help you understand the power of Moderne, let's walk through applying one of our core recipes ([common static analysis](https://docs.openrewrite.org/recipes/staticanalysis/commonstaticanalysis)) to some open-source projects that we have imported into Moderne. This recipe will fix a significant amount of static analysis issues while also ensuring that your code continues to function as expected. 
+To help you understand the power of Moderne, let's walk through applying one of our core recipes ([common static analysis](../../../user-documentation/recipes/recipe-catalog/staticanalysis/commonstaticanalysis.md)) to some open-source projects that we have imported into Moderne. This recipe will fix a significant amount of static analysis issues while also ensuring that your code continues to function as expected. 
 
 By the end of this quickstart guide, you'll understand how to run recipes against any repository in Moderne.
-
-<ReactPlayer className="reactPlayer" url='https://vimeo.com/1120235061' controls={true} />
 
 ## Step 1: Sign in to the Moderne Platform
 
@@ -51,16 +53,12 @@ It's also possible to [create your own organization](../how-to-guides/managing-u
 
 ## Step 4: Select the recipe to run
 
-There are over 5000 recipes available in the Moderne Platform. While you are welcome to try out any of them, let's start by running the common static analysis recipe. To do so, click on the search bar in the marketplace and type `common static`. Then click on the first recipe that appears:
+There are over 7000 recipes available in the Moderne Platform. While you are welcome to try out any of them, let's start by running the common static analysis recipe. To do so, click on the search bar in the marketplace and type `common static`. Then click on the first recipe that appears:
 
 <figure style={{maxWidth: '800px', margin: '0 auto'}}>
   ![Animated demo of searching for the common static analysis recipe](./assets/RecipeSearch.gif)
   <figcaption>_Finding the common static analysis recipe._</figcaption>
 </figure>
-
-:::tip
-If you want to get more information about the recipe before running it, click on the `See details` link. That will take you to a page that lists out all of the recipes that will be run as part of the common static analysis recipe.
-:::
 
 ## Step 5: Run the recipe
 
@@ -101,7 +99,7 @@ Depending on what organization you ran the recipe against, you may not have acce
 
 In the results view, select the repositories you want to commit, and then click on the _Commit selected results_ button:
 
-<figure style={{maxWidth: '700px', margin: '0 auto'}}>
+<figure style={{maxWidth: '500px', margin: '0 auto'}}>
   ![Recipe results list with repositories selected and Commit selected results button](./assets/commit-selected-results.png)
   <figcaption>_Selecting what repositories we want to commit the changes to._</figcaption>
 </figure>

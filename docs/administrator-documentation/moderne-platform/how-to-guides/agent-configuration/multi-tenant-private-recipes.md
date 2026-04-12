@@ -5,6 +5,9 @@ description: How to upload and deploy company-specific recipes in a private way.
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import VersionBanner from '@site/src/components/VersionBanner';
+
+<VersionBanner version="v2" linkPath="/administrator-documentation/moderne-platform-v1/how-to-guides/agent-configuration/multi-tenant-private-recipes" />
 
 # Multi-tenant private recipes
 
@@ -30,12 +33,12 @@ Once that's true, you will need to grab the email domain (`foo.io`) and:
 <Tabs groupId="agent-type">
 <TabItem value="oci-container" label="OCI Container">
 
-Set the `MODERNE_AGENT_TENANTDOMAIN` property in your agent configuration to the domain name from above.
+Set the `MODERNE_AGENT_TENANTDOMAIN` property in your Connector configuration to the domain name from above.
 </TabItem>
 
 <TabItem value="executable-jar" label="Executable JAR">
 
-Set the `moderne.agent.tenantDomain` property in your agent configuration to the domain name from above.
+Set the `moderne.agent.tenantDomain` property in your Connector configuration to the domain name from above.
 </TabItem>
 </Tabs>
 
