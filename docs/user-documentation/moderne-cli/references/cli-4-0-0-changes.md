@@ -88,13 +88,13 @@ Download the distribution for your platform from Maven Central (see [distributio
 
 ```bash
 # Linux (self-extracting installer)
-bash moderne-cli-linux-4.1.2.sh
+bash moderne-cli-linux-4.1.3.sh
 
 # macOS (self-extracting installer)
-bash moderne-cli-osx-4.1.2.sh
+bash moderne-cli-osx-4.1.3.sh
 
 # Windows (PowerShell)
-Expand-Archive moderne-cli-windows-4.1.2.zip -DestinationPath . ; .\install.cmd
+Expand-Archive moderne-cli-windows-4.1.3.zip -DestinationPath . ; .\install.cmd
 ```
 
 After installation, the CLI binary lives in `~/.moderne/cli/bin/` (on your `PATH`), and everything the CLI needs to run (JAR, JRE, startup cache) lives in `~/.moderne/cli/dist/`.

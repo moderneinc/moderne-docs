@@ -220,6 +220,11 @@ description: Auto-generated documentation for all Moderne CLI commands.
 * [**mod config lsts cache-dir edit**](#mod-config-lsts-cache-dir-edit)
 * [**mod config lsts cache-dir show**](#mod-config-lsts-cache-dir-show)
 * [**mod config lsts cache-dir delete**](#mod-config-lsts-cache-dir-delete)
+* [**mod config metrics**](#mod-config-metrics)
+* [**mod config metrics atlas**](#mod-config-metrics-atlas)
+* [**mod config metrics atlas edit**](#mod-config-metrics-atlas-edit)
+* [**mod config metrics atlas show**](#mod-config-metrics-atlas-show)
+* [**mod config metrics atlas delete**](#mod-config-metrics-atlas-delete)
 * [**mod config moderne**](#mod-config-moderne)
 * [**mod config moderne delete**](#mod-config-moderne-delete)
 * [**mod config moderne edit**](#mod-config-moderne-edit)
@@ -730,6 +735,7 @@ mod config moderne edit --api <tenant-api-gateway> --token <token>
 * `license`: Configure a license key.
 * `llm`: Configures LLM provider credentials for the factory agent.
 * `lsts`: Configures LSTs production and publishing. 
+* `metrics`: Configures metrics publishing.
 * `moderne`: Configures the connection to Moderne. Must be configured before you can install and run recipes.
 * `node`: Configures Node options used for building LSTs and running recipes.
 * `python`: Configures Python options used for building LSTs and running recipes.
@@ -4892,6 +4898,99 @@ mod config lsts cache-dir delete
 
 
 
+## mod config metrics
+
+Configures metrics publishing.
+
+
+Configure where and how the CLI publishes metrics.
+
+### Usage
+
+```
+mod config metrics [subcommands]
+```
+
+
+### Subcommands
+
+* `atlas`: Configures Netflix Atlas metrics publishing.
+
+## mod config metrics atlas
+
+Configures Netflix Atlas metrics publishing.
+
+
+When configured, the CLI pushes metrics to an Atlas endpoint at a configurable interval. Common tags are added to every metric.
+
+### Usage
+
+```
+mod config metrics atlas [subcommands]
+```
+
+
+### Subcommands
+
+* `edit`: Configures the Atlas metrics publishing endpoint.
+* `show`: Displays the configured Atlas metrics publishing settings.
+* `delete`: Removes Atlas metrics publishing configuration.
+
+## mod config metrics atlas edit
+
+Configures the Atlas metrics publishing endpoint.
+
+
+Sets the Atlas publish URL, push interval, and optional common tags.
+
+### Usage
+
+```
+mod config metrics atlas edit [parameters]
+```
+
+### Parameters
+
+| Name | Description |
+| ---- | ----------- |
+| `url` |  The Atlas publish endpoint URL (e.g., https://localhost:7101/api/publish/v2). |
+
+### Options
+
+| Name | Description |
+| ---- | ----------- |
+| `--interval` |  How often to push metrics, as an ISO-8601 duration (default: PT1M). |
+| `--tag` |  Common tag as key=value. Repeatable (e.g., --tag stack=main --tag serverGroup=sg-1). |
+
+
+## mod config metrics atlas show
+
+Displays the configured Atlas metrics publishing settings.
+
+
+### Usage
+
+```
+mod config metrics atlas show
+```
+
+
+
+## mod config metrics atlas delete
+
+Removes Atlas metrics publishing configuration.
+
+
+The CLI will no longer push metrics to Atlas.
+
+### Usage
+
+```
+mod config metrics atlas delete
+```
+
+
+
 ## mod config moderne
 
 Configures the connection to Moderne. Must be configured before you can install and run recipes.
@@ -7990,6 +8089,7 @@ mod study /path/to/project --last-recipe-run --data-table <DATA-TABLE-NAME>
 | ---- | ----------- |
 | `--csv` |  Output in CSV format |
 | `--data-table` |  The name of the data table to study. |
+| `--group` |  When multiple data tables share a fully-qualified name, disambiguate by group. A null/absent value matches ungrouped tables. |
 | `--json` |  Output the data table in JSON format with the specified fields. If no value is provided, all columns from the data table will be kept. |
 | `--last-recipe-run` |  Select the ID of the last recipe run. The last recipe run is determined from the whole repository group, not on an individual repository basis. |
 | `-o`, `--output-file` |  The location to output the data table. |

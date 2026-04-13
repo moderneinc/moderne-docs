@@ -7,7 +7,7 @@ description: The current version of the Moderne CLI and links to useful CLI docu
 
 | Component   | Current version |
 | ----------- | --------------- |
-| CLI version | 4.1.2           |
+| CLI version | 4.1.3           |
 
 For CLI command documentation, see the [CLI reference](../user-documentation/moderne-cli/cli-reference.md).
 
@@ -16,6 +16,19 @@ The Moderne CLI previously followed a two-track release model with separate "sta
 :::
 
 ## Changelog
+
+### CLI / DX v4.1.3 (2026-04-11)
+
+#### What's Changed
+* Fix wrapper startup time regression (~3s -> 0.5s on warm runs)
+* Add Atlas metrics publishing support
+* Register build_status tool before background init to fix empty tool list
+* Fix tray icon not launching from MCP server
+* Add trace.csv support to mod publish command
+* Fix `modw.cmd` using wrong CLI version when `System.IO.Compression` isn't pre-loaded
+* Shutdown RPC servers on completion of recipe upgrade and install commands
+* Fix configured styles not applied during builds
+* Fix mod devcenter aggregation for grouped data tables
 
 ### CLI / DX v4.1.2 (2026-04-09)
 

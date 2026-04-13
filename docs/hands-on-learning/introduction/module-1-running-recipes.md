@@ -103,7 +103,7 @@ mod --help
    ▛▀▀█▀▛▀▀▀▀▜
    ▌▟▀  ▛▀▀▀▀▜
    ▀▀▀▀▀▀▀▀▀▀▀
-Moderne CLI 4.1.2
+Moderne CLI 4.1.3
 
 Usage:
 
@@ -168,7 +168,7 @@ mod config moderne edit https://app.moderne.io
    ▛▀▀█▀▛▀▀▀▀▜
    ▌▟▀  ▛▀▀▀▀▜
    ▀▀▀▀▀▀▀▀▀▀▀
-Moderne CLI 4.1.2
+Moderne CLI 4.1.3
 
 ⏺ Configuring tenant https://app.moderne.io
 
@@ -196,7 +196,7 @@ mod config moderne login
    ▛▀▀█▀▛▀▀▀▀▜
    ▌▟▀  ▛▀▀▀▀▜
    ▀▀▀▀▀▀▀▀▀▀▀
-Moderne CLI 4.1.2
+Moderne CLI 4.1.3
 
 Opening a browser to complete authentication...
 
@@ -234,7 +234,7 @@ mod config recipes jar install \
    ▛▀▀█▀▛▀▀▀▀▜
    ▌▟▀  ▛▀▀▀▀▜
    ▀▀▀▀▀▀▀▀▀▀▀
-Moderne CLI 4.1.2
+Moderne CLI 4.1.3
 
 ⏺ Installing recipes from JAR artifacts
 
@@ -309,7 +309,7 @@ You'll also need the source if there are no pre-existing LSTs to download. In th
    ▛▀▀█▀▛▀▀▀▀▜
    ▌▟▀  ▛▀▀▀▀▜
    ▀▀▀▀▀▀▀▀▀▀▀
-Moderne CLI 4.1.2
+Moderne CLI 4.1.3
 
 ⏺ Retrieving organization from Moderne
 
@@ -426,7 +426,7 @@ mod list .
    ▛▀▀█▀▛▀▀▀▀▜
    ▌▟▀  ▛▀▀▀▀▜
    ▀▀▀▀▀▀▀▀▀▀▀
-Moderne CLI 4.1.2
+Moderne CLI 4.1.3
 
 ⏺ Reading organization
 
@@ -474,7 +474,7 @@ If you don't know the exact name of the recipe you want to run, you can use `mod
    ▛▀▀█▀▛▀▀▀▀▜
    ▌▟▀  ▛▀▀▀▀▜
    ▀▀▀▀▀▀▀▀▀▀▀
-Moderne CLI 4.1.2
+Moderne CLI 4.1.3
 
 ⏺ Reading organization
 
@@ -568,7 +568,7 @@ mod git checkout . -b refactor/common-static-analysis --last-recipe-run
    ▛▀▀█▀▛▀▀▀▀▜
    ▌▟▀  ▛▀▀▀▀▜
    ▀▀▀▀▀▀▀▀▀▀▀
-Moderne CLI 4.1.2
+Moderne CLI 4.1.3
 
 ⏺ Reading organization
 
@@ -630,7 +630,7 @@ mod git apply . --last-recipe-run
    ▛▀▀█▀▛▀▀▀▀▜
    ▌▟▀  ▛▀▀▀▀▜
    ▀▀▀▀▀▀▀▀▀▀▀
-Moderne CLI 4.1.2
+Moderne CLI 4.1.3
 
 ⏺ Reading organization
 
@@ -697,7 +697,7 @@ mod git commit . -m "Test common static analysis changes" --last-recipe-run
    ▛▀▀█▀▛▀▀▀▀▜
    ▌▟▀  ▛▀▀▀▀▜
    ▀▀▀▀▀▀▀▀▀▀▀
-Moderne CLI 4.1.2
+Moderne CLI 4.1.3
 
 ⏺ Reading organization
 
@@ -748,7 +748,7 @@ MOD SUCCEEDED in 6s
    ▛▀▀█▀▛▀▀▀▀▜
    ▌▟▀  ▛▀▀▀▀▜
    ▀▀▀▀▀▀▀▀▀▀▀
-Moderne CLI 4.1.2
+Moderne CLI 4.1.3
 
 ⏺ Reading organization
 
