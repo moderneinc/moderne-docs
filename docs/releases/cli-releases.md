@@ -7,7 +7,7 @@ description: The current version of the Moderne CLI and links to useful CLI docu
 
 | Component   | Current version |
 | ----------- | --------------- |
-| CLI version | 4.1.3           |
+| CLI version | 4.1.4           |
 
 For CLI command documentation, see the [CLI reference](../user-documentation/moderne-cli/cli-reference.md).
 
@@ -16,6 +16,14 @@ The Moderne CLI previously followed a two-track release model with separate "sta
 :::
 
 ## Changelog
+
+### CLI / DX v4.1.4 (2026-04-14)
+
+#### What's Changed
+* Fix .moderne/context files not ending up in the LST
+* Declare rewrite-go dependency as `latest.release`
+* Internal test and development flow fixes
+* ModerneLauncher to delete stale files when extracting the libraries
 
 ### CLI / DX v4.1.3 (2026-04-11)
 
