@@ -56,17 +56,16 @@ file (by default it's every 10 minutes).
 
 **Environment variables:**
 
-| Environment variable                               | Required | Default | Description                                                                                                                                                                           |
-|----------------------------------------------------|----------|---------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `MODERNE_AGENT_ORGANIZATION_REPOSCSV`              | `false`  |         | The path to the `repos.csv` file that defines your organizational structure. This could also be an unauthenticated HTTP/S URL in the form of `https://<internal-endpoint>/repos.csv`. |
-| `MODERNE_AGENT_ORGANIZATION_UPDATEINTERVALSECONDS` | `false`  | 600     | The number of seconds that the Connector should wait before it checks for an update to your `repos.csv` file.                                                                             |
+| Environment variable                              | Required | Default | Description                                                                                                                                                                           |
+|---------------------------------------------------|----------|---------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `MODERNE_ORGANIZATION_INDEXER_SOURCES_0_REPOSCSV` | `false`  |         | The path to the `repos.csv` file that defines your organizational structure. This could also be an unauthenticated HTTP/S URL in the form of `https://<internal-endpoint>/repos.csv`. |
 
 **Example:**
 
 ```bash
 docker run \
 # ... Existing variables
--e MODERNE_AGENT_ORGANIZATION_REPOSCSV=/Users/MY_USER/Documents/repos.csv \
+-e MODERNE_ORGANIZATION_INDEXER_SOURCES_0_REPOSCSV=/Users/MY_USER/Documents/repos.csv \
 # ... Additional variables
 ```
 
@@ -76,17 +75,16 @@ docker run \
 
 **Arguments:**
 
-| Argument name                                        | Required | Default | Description                                                                                                                                                                           |
-|------------------------------------------------------|----------|---------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `--moderne.agent.organization.reposCsv`              | `false`  |         | The path to the `repos.csv` file that defines your organizational structure. This could also be an unauthenticated HTTP/S URL in the form of `https://<internal-endpoint>/repos.csv`. |
-| `--moderne.agent.organization.updateIntervalSeconds` | `false`  | 600     | The number of seconds that the Connector should wait before it checks for an update to your `repos.csv` file.                                                                             |
+| Argument name                                         | Required | Default | Description                                                                                                                                                                           |
+|-------------------------------------------------------|----------|---------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `--moderne.organization.indexer.sources[0].repos-csv` | `false`  |         | The path to the `repos.csv` file that defines your organizational structure. This could also be an unauthenticated HTTP/S URL in the form of `https://<internal-endpoint>/repos.csv`. |
 
 **Example:**
 
 ```bash
-java -jar moderne-agent-{version}.jar \
+java -jar connector-{version}.jar \
 # ... Existing arguments
---moderne.agent.organization.reposCsv=/Users/MY_USER/Documents/repos.csv \
+--moderne.organization.indexer.sources[0].repos-csv=/Users/MY_USER/Documents/repos.csv \
 # ... Additional arguments
 ```
 

@@ -36,30 +36,30 @@ You can configure multiple Artifactory servers by including multiple entries, ea
 
 **Environment variables:**
 
-| Variable Name                                               | Required                                       | Default | Description                                                                                                                                  |
-|-------------------------------------------------------------|------------------------------------------------|---------|----------------------------------------------------------------------------------------------------------------------------------------------|
-| `MODERNE_AGENT_ARTIFACTORY_{index}_URL`                     | `true`                                         |         | The URL of your Artifactory instance.                                                                                                                                                                                         |
-| `MODERNE_AGENT_ARTIFACTORY_{index}_USERNAME`                | `false`                                        |         | The username used to connect to your Artifactory instance. This user must have permission to run AQL queries. <br/><br/>**Note:** Only one of basic auth (username+password) or bearer token can be used.                     |
-| `MODERNE_AGENT_ARTIFACTORY_{index}_PASSWORD`                | `false`                                        |         | The password used to connect to your Artifactory instance. <br/><br/>**Note:** Only one of basic auth (username+password) or bearer token can be used.                                                                        |
-| `MODERNE_AGENT_ARTIFACTORY_{index}_BEARERTOKEN`             | `false`                                        |         | The bearer token (access token) used to connect to your Artifactory instance. <br/><br/>**Note:** Only one of basic auth (username+password) or bearer token can be used. If `bearerToken` is specified, username and password must not be provided. |
-| `MODERNE_AGENT_ARTIFACTORY_{index}_ASTQUERYFILTERS_{index}` | `true`                                         |         | The AQL query fragment used to select LST artifacts to send to Moderne. If multiple are specified, they are combined together with an `AND`.                                                                                  |
-| `MODERNE_AGENT_ARTIFACTORY_{index}_SKIPSSL`                 | `false`                                        | `false` | Specifies whether or not to skip SSL verification for HTTP connections from the Connector to this Artifactory instance. This must be set to `true` if you use a self-signed SSL/TLS certificate. |
-| `MODERNE_AGENT_ARTIFACTORY_{index}_SKIPVALIDATECONNECTIVITY`| `false`                                        | `false` | By default, on Connector startup, we will validate that we can connect to this Artifactory instance, and fail to start up the Connector if we cannot. Set this to `true` to skip this validation. |
-| `MODERNE_AGENT_ARTIFACTORY_{index}_PROXY_HOST`              | `false`                                        |         | The hostname of a proxy server to use for connections to this Artifactory instance. |
-| `MODERNE_AGENT_ARTIFACTORY_{index}_PROXY_PORT`              | `false`                                        |         | The port of the proxy server to use for connections to this Artifactory instance. |
-| `MODERNE_AGENT_ARTIFACTORY_{index}_CONNECTTIMEOUT`          | `false`                                        | `30s`   | Timeout for the connection to be established (and the first data received). Specified as a duration (e.g., `30s`, `1m`). |
-| `MODERNE_AGENT_ARTIFACTORY_{index}_READTIMEOUT`             | `false`                                        | `60s`   | Timeout for reading the response body from the Artifactory instance. Specified as a duration (e.g., `60s`, `5m`). |
+| Variable Name                                                                    | Required | Default | Description                                                                                                                                                                                                                                          |
+|----------------------------------------------------------------------------------|----------|---------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `MODERNE_ORGANIZATION_INDEXER_POLL_ARTIFACTORY_{index}_URI`                      | `true`   |         | The URL of your Artifactory instance.                                                                                                                                                                                                                |
+| `MODERNE_ORGANIZATION_INDEXER_POLL_ARTIFACTORY_{index}_USERNAME`                 | `false`  |         | The username used to connect to your Artifactory instance. This user must have permission to run AQL queries. <br/><br/>**Note:** Only one of basic auth (username+password) or bearer token can be used.                                            |
+| `MODERNE_ORGANIZATION_INDEXER_POLL_ARTIFACTORY_{index}_PASSWORD`                 | `false`  |         | The password used to connect to your Artifactory instance. <br/><br/>**Note:** Only one of basic auth (username+password) or bearer token can be used.                                                                                               |
+| `MODERNE_ORGANIZATION_INDEXER_POLL_ARTIFACTORY_{index}_BEARERTOKEN`              | `false`  |         | The bearer token (access token) used to connect to your Artifactory instance. <br/><br/>**Note:** Only one of basic auth (username+password) or bearer token can be used. If `bearerToken` is specified, username and password must not be provided. |
+| `MODERNE_ORGANIZATION_INDEXER_POLL_ARTIFACTORY_{index}_LSTQUERYFILTERS_{index}`  | `true`   |         | The AQL query fragment used to select LST artifacts to send to Moderne. If multiple are specified, they are combined together with an `AND`.                                                                                                         |
+| `MODERNE_ORGANIZATION_INDEXER_POLL_ARTIFACTORY_{index}_SKIPSSL`                  | `false`  | `false` | Specifies whether or not to skip SSL verification for HTTP connections from the Connector to this Artifactory instance. This must be set to `true` if you use a self-signed SSL/TLS certificate.                                                     |
+| `MODERNE_ORGANIZATION_INDEXER_POLL_ARTIFACTORY_{index}_SKIPVALIDATECONNECTIVITY` | `false`  | `false` | By default, on Connector startup, we will validate that we can connect to this Artifactory instance, and fail to start up the Connector if we cannot. Set this to `true` to skip this validation.                                                    |
+| `MODERNE_ORGANIZATION_INDEXER_POLL_ARTIFACTORY_{index}_PROXY_HOST`               | `false`  |         | The hostname of a proxy server to use for connections to this Artifactory instance.                                                                                                                                                                  |
+| `MODERNE_ORGANIZATION_INDEXER_POLL_ARTIFACTORY_{index}_PROXY_PORT`               | `false`  |         | The port of the proxy server to use for connections to this Artifactory instance.                                                                                                                                                                    |
+| `MODERNE_ORGANIZATION_INDEXER_POLL_ARTIFACTORY_{index}_CONNECTTIMEOUT`           | `false`  | `30s`   | Timeout for the connection to be established (and the first data received). Specified as a duration (e.g., `30s`, `1m`).                                                                                                                             |
+| `MODERNE_ORGANIZATION_INDEXER_POLL_ARTIFACTORY_{index}_READTIMEOUT`              | `false`  | `60s`   | Timeout for reading the response body from the Artifactory instance. Specified as a duration (e.g., `60s`, `5m`).                                                                                                                                    |
 
 **Example:**
 
 ```bash
 docker run \
 # ... Existing variables
--e MODERNE_AGENT_ARTIFACTORY_0_URL=https://myartifactory.example.com/artifactory/ \
--e MODERNE_AGENT_ARTIFACTORY_0_USERNAME=admin \
--e MODERNE_AGENT_ARTIFACTORY_0_PASSWORD=password \
--e MODERNE_AGENT_ARTIFACTORY_0_ASTQUERYFILTERS_0='"name":{"$match":"*-ast.jar"}' \
--e MODERNE_AGENT_ARTIFACTORY_0_ASTQUERYFILTERS_1='"repo":{"$eq":"example-maven"}' \
+-e MODERNE_ORGANIZATION_INDEXER_POLL_ARTIFACTORY_0_URI=https://myartifactory.example.com/artifactory/ \
+-e MODERNE_ORGANIZATION_INDEXER_POLL_ARTIFACTORY_0_USERNAME=admin \
+-e MODERNE_ORGANIZATION_INDEXER_POLL_ARTIFACTORY_0_PASSWORD=password \
+-e MODERNE_ORGANIZATION_INDEXER_POLL_ARTIFACTORY_0_LSTQUERYFILTERS_0='"name":{"$match":"*-ast.jar"}' \
+-e MODERNE_ORGANIZATION_INDEXER_POLL_ARTIFACTORY_0_LSTQUERYFILTERS_1='"repo":{"$eq":"example-maven"}' \
 # ... Additional variables
 ```
 </TabItem>
@@ -68,30 +68,30 @@ docker run \
 
 **Arguments:**
 
-| Argument Name                                                   | Required                                       | Default | Description                                                                                                                                  |
-|-----------------------------------------------------------------|------------------------------------------------|---------|----------------------------------------------------------------------------------------------------------------------------------------------|
-| `--moderne.agent.artifactory[{index}].url`                      | `true`                                         |         | The URL of your Artifactory instance.                                                                                                                                                                                         |
-| `--moderne.agent.artifactory[{index}].username`                 | `false`                                        |         | The username used to connect to your Artifactory instance. This user must have permission to run AQL queries. <br/><br/>**Note:** Only one of basic auth (username+password) or bearer token can be used.                     |
-| `--moderne.agent.artifactory[{index}].password`                 | `false`                                        |         | The password used to connect to your Artifactory instance. <br/><br/>**Note:** Only one of basic auth (username+password) or bearer token can be used.                                                                        |
-| `--moderne.agent.artifactory[{index}].bearerToken`              | `false`                                        |         | The bearer token (access token) used to connect to your Artifactory instance. <br/><br/>**Note:** Only one of basic auth (username+password) or bearer token can be used. If `bearerToken` is specified, username and password must not be provided. |
-| `--moderne.agent.artifactory[{index}].astQueryFilters[{index}]` | `true`                                         |         | The AQL query fragment used to select LST artifacts to send to Moderne. If multiple are specified, they are combined together with an `AND`.                                                                                  |
-| `--moderne.agent.artifactory[{index}].skipSsl`                  | `false`                                        | `false` | Specifies whether or not to skip SSL verification for HTTP connections from the Connector to this Artifactory instance. This must be set to `true` if you use a self-signed SSL/TLS certificate. |
-| `--moderne.agent.artifactory[{index}].skipValidateConnectivity` | `false`                                        | `false` | By default, on Connector startup, we will validate that we can connect to this Artifactory instance, and fail to start up the Connector if we cannot. Set this to `true` to skip this validation. |
-| `--moderne.agent.artifactory[{index}].proxy.host`               | `false`                                        |         | The hostname of a proxy server to use for connections to this Artifactory instance. |
-| `--moderne.agent.artifactory[{index}].proxy.port`               | `false`                                        |         | The port of the proxy server to use for connections to this Artifactory instance. |
-| `--moderne.agent.artifactory[{index}].connectTimeout`           | `false`                                        | `30s`   | Timeout for the connection to be established (and the first data received). Specified as a duration (e.g., `30s`, `1m`). |
-| `--moderne.agent.artifactory[{index}].readTimeout`              | `false`                                        | `60s`   | Timeout for reading the response body from the Artifactory instance. Specified as a duration (e.g., `60s`, `5m`). |
+| Argument Name                                                                       | Required | Default | Description                                                                                                                                                                                                                                          |
+|-------------------------------------------------------------------------------------|----------|---------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `--moderne.organization.indexer.poll.artifactory[{index}].uri`                      | `true`   |         | The URL of your Artifactory instance.                                                                                                                                                                                                                |
+| `--moderne.organization.indexer.poll.artifactory[{index}].username`                 | `false`  |         | The username used to connect to your Artifactory instance. This user must have permission to run AQL queries. <br/><br/>**Note:** Only one of basic auth (username+password) or bearer token can be used.                                            |
+| `--moderne.organization.indexer.poll.artifactory[{index}].password`                 | `false`  |         | The password used to connect to your Artifactory instance. <br/><br/>**Note:** Only one of basic auth (username+password) or bearer token can be used.                                                                                               |
+| `--moderne.organization.indexer.poll.artifactory[{index}].bearerToken`              | `false`  |         | The bearer token (access token) used to connect to your Artifactory instance. <br/><br/>**Note:** Only one of basic auth (username+password) or bearer token can be used. If `bearerToken` is specified, username and password must not be provided. |
+| `--moderne.organization.indexer.poll.artifactory[{index}].lstQueryFilters[{index}]` | `true`   |         | The AQL query fragment used to select LST artifacts to send to Moderne. If multiple are specified, they are combined together with an `AND`.                                                                                                         |
+| `--moderne.organization.indexer.poll.artifactory[{index}].skipSsl`                  | `false`  | `false` | Specifies whether or not to skip SSL verification for HTTP connections from the Connector to this Artifactory instance. This must be set to `true` if you use a self-signed SSL/TLS certificate.                                                     |
+| `--moderne.organization.indexer.poll.artifactory[{index}].skipValidateConnectivity` | `false`  | `false` | By default, on Connector startup, we will validate that we can connect to this Artifactory instance, and fail to start up the Connector if we cannot. Set this to `true` to skip this validation.                                                    |
+| `--moderne.organization.indexer.poll.artifactory[{index}].proxy.host`               | `false`  |         | The hostname of a proxy server to use for connections to this Artifactory instance.                                                                                                                                                                  |
+| `--moderne.organization.indexer.poll.artifactory[{index}].proxy.port`               | `false`  |         | The port of the proxy server to use for connections to this Artifactory instance.                                                                                                                                                                    |
+| `--moderne.organization.indexer.poll.artifactory[{index}].connectTimeout`           | `false`  | `30s`   | Timeout for the connection to be established (and the first data received). Specified as a duration (e.g., `30s`, `1m`).                                                                                                                             |
+| `--moderne.organization.indexer.poll.artifactory[{index}].readTimeout`              | `false`  | `60s`   | Timeout for reading the response body from the Artifactory instance. Specified as a duration (e.g., `60s`, `5m`).                                                                                                                                    |
 
 **Example:**
 
 ```bash
-java -jar moderne-agent-{version}.jar \
+java -jar connector-{version}.jar \
 # ... Existing arguments
---moderne.agent.artifactory[0].url=https://myartifactory.example.com/artifactory/ \
---moderne.agent.artifactory[0].username=admin \
---moderne.agent.artifactory[0].password=password \
---moderne.agent.artifactory[0].astQueryFilters[0]='{"name":{"$match":"*-ast.jar"}}' \
---moderne.agent.artifactory[0].astQueryFilters[1]='{"repo":{"$eq":"example-maven"}}' \
+--moderne.organization.indexer.poll.artifactory[0].uri=https://myartifactory.example.com/artifactory/ \
+--moderne.organization.indexer.poll.artifactory[0].username=admin \
+--moderne.organization.indexer.poll.artifactory[0].password=password \
+--moderne.organization.indexer.poll.artifactory[0].lstQueryFilters[0]='{"name":{"$match":"*-ast.jar"}}' \
+--moderne.organization.indexer.poll.artifactory[0].lstQueryFilters[1]='{"repo":{"$eq":"example-maven"}}' \
 # ... Additional arguments
 ```
 </TabItem>

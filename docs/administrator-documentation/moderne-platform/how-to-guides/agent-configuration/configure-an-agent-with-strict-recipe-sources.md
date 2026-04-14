@@ -60,24 +60,22 @@ This fallback behavior can be disabled using recipe configuration. If any Connec
 
 **Environment variables:**
 
-| Variable Name                                   | Required                                  | Default | Description                                                                                       |
-|-------------------------------------------------|-------------------------------------------|---------|---------------------------------------------------------------------------------------------------|
-| `MODERNE_AGENT_RECIPE_USEONLYCONFIGURED`        | `true`                                    |         | Only use the recipe sources configured in the Connector.                                              |
-| `MODERNE_AGENT_RECIPE_POMCACHE_TYPE`            | `false`                                   |         | Used to specify what type of cache the POM should use. Acceptable values: `IN_MEMORY` or `REDIS`. |
-| `MODERNE_AGENT_RECIPE_POMCACHE_ENTRYTTLMINUTES` | `false`                                   |   60    | How long entries should live in the POM cache.                                                    |
-| `MODERNE_AGENT_RECIPE_POMCACHE_REDIS_HOST`      | `true` (If the POM cache type is `REDIS`) |         | The URL of the Redis instance.                                                                    |
-| `MODERNE_AGENT_RECIPE_POMCACHE_REDIS_PORT`      | `true` (If the POM cache type is `REDIS`) |  6379   | The port number of the Redis instance.                                                            |
-| `MODERNE_AGENT_RECIPE_POMCACHE_REDIS_USERNAME`  | `false`                                   |         | The username needed to authenticate to the Redis instance.                                        |
-| `MODERNE_AGENT_RECIPE_POMCACHE_REDIS_PASSWORD`  | `false`                                   |         | The password needed to authenticate with the Redis instance.                                      |
-| `MODERNE_AGENT_RECIPE_POMCACHE_REDIS_SSL`       | `false`                                   | `false` | If set to `true`, then SSL will be enabled for the connection to the Redis instance.              |
-| `MODERNE_AGENT_RECIPE_POMCACHE_REDIS_DATABASE`  | `false`                                   |    0    | The Redis DB index.                                                                               |
+| Variable Name                                       | Required                                  | Default | Description                                                                                       |
+|-----------------------------------------------------|-------------------------------------------|---------|---------------------------------------------------------------------------------------------------|
+| `MODERNE_CONNECTOR_RECIPE_POMCACHE_TYPE`            | `false`                                   |         | Used to specify what type of cache the POM should use. Acceptable values: `IN_MEMORY` or `REDIS`. |
+| `MODERNE_CONNECTOR_RECIPE_POMCACHE_ENTRYTTLMINUTES` | `false`                                   | 60      | How long entries should live in the POM cache.                                                    |
+| `MODERNE_CONNECTOR_RECIPE_POMCACHE_REDIS_HOST`      | `true` (If the POM cache type is `REDIS`) |         | The URL of the Redis instance.                                                                    |
+| `MODERNE_CONNECTOR_RECIPE_POMCACHE_REDIS_PORT`      | `true` (If the POM cache type is `REDIS`) | 6379    | The port number of the Redis instance.                                                            |
+| `MODERNE_CONNECTOR_RECIPE_POMCACHE_REDIS_USERNAME`  | `false`                                   |         | The username needed to authenticate to the Redis instance.                                        |
+| `MODERNE_CONNECTOR_RECIPE_POMCACHE_REDIS_PASSWORD`  | `false`                                   |         | The password needed to authenticate with the Redis instance.                                      |
+| `MODERNE_CONNECTOR_RECIPE_POMCACHE_REDIS_SSL`       | `false`                                   | `false` | If set to `true`, then SSL will be enabled for the connection to the Redis instance.              |
+| `MODERNE_CONNECTOR_RECIPE_POMCACHE_REDIS_DATABASE`  | `false`                                   | 0       | The Redis DB index.                                                                               |
 
 **Example:**
 
 ```bash
 docker run \
 # ... Existing variables
--e MODERNE_AGENT_RECIPE_USEONLYCONFIGURED=true \
 # ... Additional variables
 ```
 </TabItem>
@@ -86,24 +84,22 @@ docker run \
 
 **Arguments:**
 
-| Argument Name                                     | Required                                  | Default | Description                                                                                       |
-|---------------------------------------------------|-------------------------------------------|---------|---------------------------------------------------------------------------------------------------|
-| `--moderne.agent.recipe.useOnlyConfigured`        | `true`                                    |         | Only use the recipe sources configured in the Connector.                                              |
-| `--moderne.agent.recipe.pomCache.type`            | `false`                                   |         | Used to specify what type of cache the POM should use. Acceptable values: `IN_MEMORY` or `REDIS`. |
-| `--moderne.agent.recipe.pomCache.entryTtlMinutes` | `false`                                   |   60    | How long entries should live in the POM cache.                                                    |
-| `--moderne.agent.recipe.pomCache.redis.host`      | `true` (If the POM cache type is `REDIS`) |         | The URL of the Redis instance.                                                                    |
-| `--moderne.agent.recipe.pomCache.redis.port`      | `true` (If the POM cache type is `REDIS`) |  6379   | The port number of the Redis instance.                                                            |
-| `--moderne.agent.recipe.pomCache.redis.username`  | `false`                                   |         | The username needed to authenticate to the Redis instance.                                        |
-| `--moderne.agent.recipe.pomCache.redis.password`  | `false`                                   |         | The password needed to authenticate with the Redis instance.                                      |
-| `--moderne.agent.recipe.pomCache.redis.ssl`       | `false`                                   | `false` | If set to `true`, then SSL will be enabled for the connection to the Redis instance.              |
-| `--moderne.agent.recipe.pomCache.redis.database`  | `false`                                   |    0    | The Redis DB index.                                                                               |
+| Argument Name                                         | Required                                  | Default | Description                                                                                       |
+|-------------------------------------------------------|-------------------------------------------|---------|---------------------------------------------------------------------------------------------------|
+| `--moderne.connector.recipe.pomCache.type`            | `false`                                   |         | Used to specify what type of cache the POM should use. Acceptable values: `IN_MEMORY` or `REDIS`. |
+| `--moderne.connector.recipe.pomCache.entryTtlMinutes` | `false`                                   | 60      | How long entries should live in the POM cache.                                                    |
+| `--moderne.connector.recipe.pomCache.redis.host`      | `true` (If the POM cache type is `REDIS`) |         | The URL of the Redis instance.                                                                    |
+| `--moderne.connector.recipe.pomCache.redis.port`      | `true` (If the POM cache type is `REDIS`) | 6379    | The port number of the Redis instance.                                                            |
+| `--moderne.connector.recipe.pomCache.redis.username`  | `false`                                   |         | The username needed to authenticate to the Redis instance.                                        |
+| `--moderne.connector.recipe.pomCache.redis.password`  | `false`                                   |         | The password needed to authenticate with the Redis instance.                                      |
+| `--moderne.connector.recipe.pomCache.redis.ssl`       | `false`                                   | `false` | If set to `true`, then SSL will be enabled for the connection to the Redis instance.              |
+| `--moderne.connector.recipe.pomCache.redis.database`  | `false`                                   | 0       | The Redis DB index.                                                                               |
 
 **Example:**
 
 ```bash
-java -jar moderne-agent-{version}.jar \
+java -jar connector-{version}.jar \
 # ... Existing arguments
---moderne.agent.recipe.useOnlyConfigured=true \
 # ... Additional arguments
 ```
 </TabItem>

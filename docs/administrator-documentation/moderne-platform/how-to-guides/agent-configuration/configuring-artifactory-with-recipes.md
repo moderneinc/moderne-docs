@@ -28,16 +28,16 @@ You can configure multiple Maven formatted repositories by including multiple en
 
 **Environment variables:**
 
-| Variable Name                                 | Required | Default            | Description                                                                                                                                                           |
-|-----------------------------------------------|----------|--------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `MODERNE_AGENT_MAVEN_{index}_URL`             | `true`   |                    | The URL of your Maven repository.                                                                                                                                     |
-| `MODERNE_AGENT_MAVEN_{index}_ASTSOURCE`       | `true`   | `true`             | Specifies whether or not this repository should be searched for LST artifacts. **You should set this to false** (Note: LSTs used to be called ASTs).                                                    |
-| `MODERNE_AGENT_MAVEN_{index}_USERNAME`        | `false`  | `null`             | The username used to resolve artifacts.                                                                                                                               |
-| `MODERNE_AGENT_MAVEN_{index}_PASSWORD`        | `false`  | `null`             | The password used to resolve artifacts.                                                                                                                               |
-| `MODERNE_AGENT_MAVEN_{index}_RELEASES`        | `false`  | `true`             | Specifies whether or not this repository should be searched for releases.                                                                                             |
-| `MODERNE_AGENT_MAVEN_{index}_SNAPSHOTS`       | `false`  | `true`             | Specifies whether or not this repository should be searched for snapshots.                                                                                            |
-| `MODERNE_AGENT_MAVEN_{index}_RECIPESOURCE`    | `false`  | `true`             | Specifies whether or not this repository should be searched for recipe jars.                                                                                          |
-| `MODERNE_AGENT_MAVEN_{index}_SKIPSSL`         | `false`  | `false`            | Whether or not to skip SSL/TLS verification for calls from the Connector to this Maven repository. This must be set to `true` if you use a self-signed SSL/TLS certificate. |
+| Variable Name                                                  | Required | Default | Description                                                                                                                                                                 |
+|----------------------------------------------------------------|----------|---------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `MODERNE_ORGANIZATION_INDEXER_POLL_MAVEN_{index}_URI`          | `true`   |         | The URL of your Maven repository.                                                                                                                                           |
+| `MODERNE_ORGANIZATION_INDEXER_POLL_MAVEN_{index}_ASTSOURCE`    | `true`   | `true`  | Specifies whether or not this repository should be searched for LST artifacts. **You should set this to false** (Note: LSTs used to be called ASTs).                        |
+| `MODERNE_ORGANIZATION_INDEXER_POLL_MAVEN_{index}_USERNAME`     | `false`  | `null`  | The username used to resolve artifacts.                                                                                                                                     |
+| `MODERNE_ORGANIZATION_INDEXER_POLL_MAVEN_{index}_PASSWORD`     | `false`  | `null`  | The password used to resolve artifacts.                                                                                                                                     |
+| `MODERNE_ORGANIZATION_INDEXER_POLL_MAVEN_{index}_RELEASES`     | `false`  | `true`  | Specifies whether or not this repository should be searched for releases.                                                                                                   |
+| `MODERNE_ORGANIZATION_INDEXER_POLL_MAVEN_{index}_SNAPSHOTS`    | `false`  | `true`  | Specifies whether or not this repository should be searched for snapshots.                                                                                                  |
+| `MODERNE_ORGANIZATION_INDEXER_POLL_MAVEN_{index}_RECIPESOURCE` | `false`  | `true`  | Specifies whether or not this repository should be searched for recipe jars.                                                                                                |
+| `MODERNE_ORGANIZATION_INDEXER_POLL_MAVEN_{index}_SKIPSSL`      | `false`  | `false` | Whether or not to skip SSL/TLS verification for calls from the Connector to this Maven repository. This must be set to `true` if you use a self-signed SSL/TLS certificate. |
 
 :::warning
 If you want to configure a [Moderne DevCenter](../creating-a-devcenter-recipe.md), you will need to ensure that you have exactly one Maven repository configured with `RECIPESOURCE` set to `true`. (It is fine to have this same Maven repository configured in multiple Connectors.)
@@ -48,10 +48,10 @@ If you want to configure a [Moderne DevCenter](../creating-a-devcenter-recipe.md
 ```bash
 docker run \
 # ... Existing variables
--e MODERNE_AGENT_MAVEN_0_URL=https://myartifactory.example.com/artifactory/libs-releases-local \
--e MODERNE_AGENT_MAVEN_0_ASTSOURCE=false \
--e MODERNE_AGENT_MAVEN_0_USERNAME=admin \
--e MODERNE_AGENT_MAVEN_0_PASSWORD=password \
+-e MODERNE_ORGANIZATION_INDEXER_POLL_MAVEN_0_URI=https://myartifactory.example.com/artifactory/libs-releases-local \
+-e MODERNE_ORGANIZATION_INDEXER_POLL_MAVEN_0_ASTSOURCE=false \
+-e MODERNE_ORGANIZATION_INDEXER_POLL_MAVEN_0_USERNAME=admin \
+-e MODERNE_ORGANIZATION_INDEXER_POLL_MAVEN_0_PASSWORD=password \
 # ... Additional variables
 ```
 </TabItem>
@@ -60,16 +60,16 @@ docker run \
 
 **Arguments:**
 
-| Argument Name                                    | Required | Default            | Description                                                                                                                                                           |
-|--------------------------------------------------|----------|--------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `--moderne.agent.maven[{index}].url`             | `true`   |                    | The URL of your Maven repository.                                                                                                                                     |
-| `--moderne.agent.maven[{index}].astSource`       | `true`   | `true`             | Specifies whether or not this repository should be searched for LST artifacts. **You should set this to false** (Note: LSTs used to be called ASTs).                                                    |
-| `--moderne.agent.maven[{index}].username`        | `false`  | `null`             | The username used to resolve artifacts.                                                                                                                               |
-| `--moderne.agent.maven[{index}].password`        | `false`  | `null`             | The password used to resolve artifacts.                                                                                                                               |
-| `--moderne.agent.maven[{index}].releases`        | `false`  | `true`             | Specifies whether or not this repository should be searched for releases.                                                                                             |
-| `--moderne.agent.maven[{index}].snapshots`       | `false`  | `true`             | Specifies whether or not this repository should be searched for snapshots.                                                                                            |
-| `--moderne.agent.maven[{index}].recipeSource`    | `false`  | `true`             | Specifies whether or not this repository should be searched for recipe jars.                                                                                          |
-| `--moderne.agent.maven[{index}].skipSsl`         | `false`  | `false`            | Whether or not to skip SSL/TLS verification for calls from the Connector to this Maven repository. This must be set to `true` if you use a self-signed SSL/TLS certificate. |
+| Argument Name                                                     | Required | Default | Description                                                                                                                                                                 |
+|-------------------------------------------------------------------|----------|---------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `--moderne.organization.indexer.poll.maven[{index}].uri`          | `true`   |         | The URL of your Maven repository.                                                                                                                                           |
+| `--moderne.organization.indexer.poll.maven[{index}].astSource`    | `true`   | `true`  | Specifies whether or not this repository should be searched for LST artifacts. **You should set this to false** (Note: LSTs used to be called ASTs).                        |
+| `--moderne.organization.indexer.poll.maven[{index}].username`     | `false`  | `null`  | The username used to resolve artifacts.                                                                                                                                     |
+| `--moderne.organization.indexer.poll.maven[{index}].password`     | `false`  | `null`  | The password used to resolve artifacts.                                                                                                                                     |
+| `--moderne.organization.indexer.poll.maven[{index}].releases`     | `false`  | `true`  | Specifies whether or not this repository should be searched for releases.                                                                                                   |
+| `--moderne.organization.indexer.poll.maven[{index}].snapshots`    | `false`  | `true`  | Specifies whether or not this repository should be searched for snapshots.                                                                                                  |
+| `--moderne.organization.indexer.poll.maven[{index}].recipeSource` | `false`  | `true`  | Specifies whether or not this repository should be searched for recipe jars.                                                                                                |
+| `--moderne.organization.indexer.poll.maven[{index}].skipSsl`      | `false`  | `false` | Whether or not to skip SSL/TLS verification for calls from the Connector to this Maven repository. This must be set to `true` if you use a self-signed SSL/TLS certificate. |
 
 :::warning
 If you want to configure a [Moderne DevCenter](../creating-a-devcenter-recipe.md), you will need to ensure that you have exactly one Maven repository configured with `recipeSource` set to `true`. (It is fine to have this same Maven repository configured in multiple Connectors.)
@@ -87,12 +87,12 @@ You will also need to ensure that the virtual repository points to the following
 **Example:**
 
 ```bash
-java -jar moderne-agent-{version}.jar \
+java -jar connector-{version}.jar \
 # ... Existing arguments
---moderne.agent.maven[0].url=https://myartifactory.example.com/artifactory/libs-releases-local \
---moderne.agent.maven[0].astSource=false \
---moderne.agent.maven[0].username=admin \
---moderne.agent.maven[0].password=password \
+--moderne.organization.indexer.poll.maven[0].uri=https://myartifactory.example.com/artifactory/libs-releases-local \
+--moderne.organization.indexer.poll.maven[0].astSource=false \
+--moderne.organization.indexer.poll.maven[0].username=admin \
+--moderne.organization.indexer.poll.maven[0].password=password \
 # ... Additional arguments
 ```
 </TabItem>

@@ -85,7 +85,7 @@ RUN openssl pkcs12 -export \
 Nothing else needs to happen for the executable JAR flow other than ensuring the KeyStore has been added to the following location: `${JAVA_HOME}/lib/security/client_keystore.p12`
 
 ```
-java -jar moderne-agent-{version}.jar \
+java -jar connector-{version}.jar \
 # ... Existing arguments
 ```
 </TabItem>

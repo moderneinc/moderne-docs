@@ -68,13 +68,13 @@ The table below provides the core command for running the Connector. However, in
 **How to build the Docker image**
 
 ```bash
-docker build -t moderne-agent:latest .
+docker build -t moderne-connector:latest .
 ```
 
 **How to run the Docker image with an environment file**
 
 ```bash
-docker run --env-file=moderne-agent.env moderne-agent:latest
+docker run --env-file=moderne-connector.env moderne-connector:latest
 ```
 
 **How to run the image with command line arguments**
@@ -82,18 +82,18 @@ docker run --env-file=moderne-agent.env moderne-agent:latest
 ```bash
 # Please note that if you create environment variables for secrets, you still need to let Docker
 # know that these variables exist by including it via: `-e ENV_VAR_NAME`.
-export MODERNE_AGENT_CRYPTO_SYMMETRICKEY=...
-export MODERNE_AGENT_TOKEN=...
+export MODERNE_CONNECTOR_CRYPTO_SYMMETRICKEY=...
+export MODERNE_CONNECTOR_TOKEN=...
 
 docker run \
 # Example environment variables. These will be explained in step 3.
--e MODERNE_AGENT_APIGATEWAYRSOCKETURI=https://api.tenant.moderne.io/rsocket \
--e MODERNE_AGENT_CRYPTO_SYMMETRICKEY \
--e MODERNE_AGENT_NICKNAME=prod-1 \
--e MODERNE_AGENT_TOKEN \
+-e MODERNE_CONNECTOR_APIGATEWAYRSOCKETURI=https://api.tenant.moderne.io/rsocket \
+-e MODERNE_CONNECTOR_CRYPTO_SYMMETRICKEY \
+-e MODERNE_CONNECTOR_NICKNAME=prod-1 \
+-e MODERNE_CONNECTOR_TOKEN \
 # ... Additional environment variables
 -p 8080:8080
-moderne-agent:latest
+moderne-connector:latest
 ```
 
 **Example Dockerfile**
@@ -103,12 +103,12 @@ You are responsible for creating this Dockerfile and your own base image. It is 
 :::
 
 ```docker
-FROM eclipse-temurin:17-jdk
+FROM eclipse-temurin:25-jdk
 RUN apt-get update && apt-get install -y libxml2-utils
 
-# Set the environment variable MODERNE_AGENT_VERSION
-ARG MODERNE_AGENT_VERSION
-ENV MODERNE_AGENT_VERSION=${MODERNE_AGENT_VERSION}
+# Set the environment variable MODERNE_CONNECTOR_VERSION
+ARG MODERNE_CONNECTOR_VERSION
+ENV MODERNE_CONNECTOR_VERSION=${MODERNE_CONNECTOR_VERSION}
 
 WORKDIR /app
 USER root
@@ -120,19 +120,19 @@ USER root
 RUN groupadd -r app && useradd --no-log-init -r -m -g app app && chown -R app:app /app
 USER app
 
-# Download the specified version of moderne-agent JAR file if MODERNE_AGENT_VERSION is provided,
+# Download the specified version of connector JAR file if MODERNE_CONNECTOR_VERSION is provided,
 # otherwise download the latest version
-RUN  if [ -n "${MODERNE_AGENT_VERSION}" ]; then \
-          echo "Downloading version: ${MODERNE_AGENT_VERSION}"; \
-          curl -s --insecure --request GET --url "https://repo1.maven.org/maven2/io/moderne/moderne-agent/${MODERNE_AGENT_VERSION}/moderne-agent-${MODERNE_AGENT_VERSION}.jar" --output agent.jar; \
+RUN  if [ -n "${MODERNE_CONNECTOR_VERSION}" ]; then \
+          echo "Downloading version: ${MODERNE_CONNECTOR_VERSION}"; \
+          curl -s --insecure --request GET --url "https://repo1.maven.org/maven2/io/moderne/connector/${MODERNE_CONNECTOR_VERSION}/connector-${MODERNE_CONNECTOR_VERSION}.jar" --output connector.jar; \
      else \
-          LATEST_VERSION=$(curl -s --insecure --request GET --url "https://repo1.maven.org/maven2/io/moderne/moderne-agent/maven-metadata.xml" | xmllint --xpath 'string(/metadata/versioning/latest)' -); \
+          LATEST_VERSION=$(curl -s --insecure --request GET --url "https://repo1.maven.org/maven2/io/moderne/connector/maven-metadata.xml" | xmllint --xpath 'string(/metadata/versioning/latest)' -); \
           if [ -z "${LATEST_VERSION}" ]; then \
                echo "Failed to retrieve the latest version"; \
                exit 1; \
           fi; \
           echo "Downloading latest version: ${LATEST_VERSION}"; \
-          curl -s --insecure --request GET --url "https://repo1.maven.org/maven2/io/moderne/moderne-agent/${LATEST_VERSION}/moderne-agent-${LATEST_VERSION}.jar" --output agent.jar; \
+          curl -s --insecure --request GET --url "https://repo1.maven.org/maven2/io/moderne/connector/${LATEST_VERSION}/connector-${LATEST_VERSION}.jar" --output connector.jar; \
      fi
 
 ENTRYPOINT ["java"]
@@ -141,40 +141,40 @@ CMD ["-XX:-OmitStackTraceInFastThrow", \
      "-XX:MaxDirectMemorySize=2G", \
      "-XX:+HeapDumpOnOutOfMemoryError", \
      "-XX:+UseStringDeduplication", \
-     "-jar", "/app/agent.jar"]
+     "-jar", "/app/connector.jar"]
 ```
 
 **Example environment variables file**
 
 ```bash
-# Set the environment variables for the MODERNE_AGENT
-MODERNE_AGENT_APIGATEWAYRSOCKETURI=https://api.tenant.moderne.io/rsocket
-MODERNE_AGENT_CRYPTO_SYMMETRICKEY=${SYMMETRIC_KEY}
-MODERNE_AGENT_TOKEN=${MODERNE_AGENT_TOKEN}
-MODERNE_AGENT_NICKNAME=prod-1
+# Set the environment variables for the Moderne Connector
+MODERNE_CONNECTOR_APIGATEWAYRSOCKETURI=https://api.tenant.moderne.io/rsocket
+MODERNE_CONNECTOR_CRYPTO_SYMMETRICKEY=${SYMMETRIC_KEY}
+MODERNE_CONNECTOR_TOKEN=${MODERNE_CONNECTOR_TOKEN}
+MODERNE_CONNECTOR_NICKNAME=prod-1
 
 # Set the environment variables for your SCM (E.g. Github, Bitbucket, Gitlab)
-MODERNE_AGENT_GITHUB_0_OAUTH_CLIENTID=${GITHUB_CLIENT_ID}
-MODERNE_AGENT_GITHUB_0_OAUTH_CLIENTSECRET=${GITHUB_CLIENT_SECRET}
-MODERNE_AGENT_GITHUB_0_URL=https://myorg.github.com
-MODERNE_AGENT_GITHUB_0_ALLOWABLE_ORGANIZATIONS_0=moderne
-MODERNE_AGENT_GITHUB_0_ALLOWABLE_ORGANIZATIONS_1=openrewrite
-MODERNE_AGENT_GITHUB_0_OAUTH_INCLUDEPRIVATEREPOS=true
+MODERNE_SCM_GITHUB_0_OAUTH_CLIENTID=${GITHUB_CLIENT_ID}
+MODERNE_SCM_GITHUB_0_OAUTH_CLIENTSECRET=${GITHUB_CLIENT_SECRET}
+MODERNE_SCM_GITHUB_0_URI=https://myorg.github.com
+MODERNE_SCM_GITHUB_0_ALLOWABLE_ORGANIZATIONS_0=moderne
+MODERNE_SCM_GITHUB_0_ALLOWABLE_ORGANIZATIONS_1=openrewrite
+MODERNE_SCM_GITHUB_0_OAUTH_INCLUDEPRIVATEREPOS=true
 
 # Set the environment variables for your artifactory
 # Remove this part if you can not use the artifactory repository configuration (see step 5)
-MODERNE_AGENT_ARTIFACTORY_0_URL=https://myartifactory.example.com/artifactory/
-MODERNE_AGENT_ARTIFACTORY_0_USERNAME=${ARTIFACTORY_USERNAME}
-MODERNE_AGENT_ARTIFACTORY_0_PASSWORD=${ARTIFACTORY_PASSWORD}
-MODERNE_AGENT_ARTIFACTORY_0_ASTQUERYFILTERS_0='"name":{"$match":"*-ast.jar"}'
-MODERNE_AGENT_ARTIFACTORY_0_ASTQUERYFILTERS_1='"repo":{"$eq":"example-maven"}'
+MODERNE_ORGANIZATION_INDEXER_POLL_ARTIFACTORY_0_URI=https://myartifactory.example.com/artifactory/
+MODERNE_ORGANIZATION_INDEXER_POLL_ARTIFACTORY_0_USERNAME=${ARTIFACTORY_USERNAME}
+MODERNE_ORGANIZATION_INDEXER_POLL_ARTIFACTORY_0_PASSWORD=${ARTIFACTORY_PASSWORD}
+MODERNE_ORGANIZATION_INDEXER_POLL_ARTIFACTORY_0_LSTQUERYFILTERS_0='"name":{"$match":"*-ast.jar"}'
+MODERNE_ORGANIZATION_INDEXER_POLL_ARTIFACTORY_0_LSTQUERYFILTERS_1='"repo":{"$eq":"example-maven"}'
 
 # Set the environment variables for your artifactory recipe access or your maven repository access
-# Remove the `MODERNE_AGENT_MAVEN_0_ASTSOURCE line if you do not use the artifactory repository configuration
-MODERNE_AGENT_MAVEN_0_URL=https://myartifactory.example.com/artifactory/libs-releases-local
-MODERNE_AGENT_MAVEN_0_ASTSOURCE=false
-MODERNE_AGENT_MAVEN_0_USERNAME=${MAVEN_USERNAME}
-MODERNE_AGENT_MAVEN_0_PASSWORD=${MAVEN_PASSWORD}
+# Remove the `MODERNE_ORGANIZATION_INDEXER_POLL_MAVEN_0_ASTSOURCE` line if you do not use the artifactory repository configuration
+MODERNE_ORGANIZATION_INDEXER_POLL_MAVEN_0_URI=https://myartifactory.example.com/artifactory/libs-releases-local
+MODERNE_ORGANIZATION_INDEXER_POLL_MAVEN_0_ASTSOURCE=false
+MODERNE_ORGANIZATION_INDEXER_POLL_MAVEN_0_USERNAME=${MAVEN_USERNAME}
+MODERNE_ORGANIZATION_INDEXER_POLL_MAVEN_0_PASSWORD=${MAVEN_PASSWORD}
 ```
 </TabItem>
 
@@ -189,18 +189,18 @@ Use `java` to run a jar in combination with arguments that you'll add in the sub
 
 ```bash
 # Exporting environment variables with the exact same structure as the parameter in the Java command makes it so you no longer need to include them in the below Java command. For instance, the first export below is equivalent to including this parameter in the Java command:
-# --moderne.agent.crypto.symmetricKey=...
-export MODERNE_AGENT_CRYPTO_SYMMETRICKEY=...
-export MODERNE_AGENT_TOKEN=...
+# --moderne.connector.crypto.symmetricKey=...
+export MODERNE_CONNECTOR_CRYPTO_SYMMETRICKEY=...
+export MODERNE_CONNECTOR_TOKEN=...
 
-java -jar moderne-agent-{version}.jar \
+java -jar connector-{version}.jar \
 # Example arguments. These will be explained in step 3.
---moderne.agent.apiGatewayRsocketUri=https://api.tenant.moderne.io/rsocket \
---moderne.agent.nickname=prod-1 \
+--moderne.connector.apiGatewayRsocketUri=https://api.tenant.moderne.io/rsocket \
+--moderne.connector.nickname=prod-1 \
 # ... Additional arguments
 ```
 
-* **Note:** System properties can be used in place of arguments. For example, you can use `-Dmoderne.agent.token={token_value}` as an argument instead of `--moderne.agent.token={token_value}`.
+* **Note:** System properties can be used in place of arguments. For example, you can use `-Dmoderne.connector.token={token_value}` as an argument instead of `--moderne.connector.token={token_value}`.
 </TabItem>
 </Tabs>
 
@@ -213,34 +213,32 @@ All Connectors must be configured with the variables listed as required below:
 
 **Environment variables:**
 
-| Variable Name                                | Required | Default                | Description                                                                                                                                        |
-|----------------------------------------------|----------|------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------|
-| `MODERNE_AGENT_APIGATEWAYRSOCKETURI`         | `true`   |                        | The URI used to connect to the Moderne API, provided by Moderne.                                                                                   |
-| `MODERNE_AGENT_CRYPTO_SYMMETRICKEY`          | `true`   |                        | A 256-bit AES encryption key, hex encoded. Used to encrypt your artifacts.                                                                         |
-| `MODERNE_AGENT_NICKNAME`                     | `true`   |                        | A name used to identify your Connector in the SaaS dashboard UI.                                                                                   |
-| `MODERNE_AGENT_TOKEN`                        | `true`   |                        | The Moderne SaaS Connector connection token, provided by Moderne.                                                                                  |
-| `MODERNE_AGENT_DOWNLOADPARALLELISM`          | `false`  | 2 threads              | How many threads are used to download LSTs.                                                                                                        |
-| `MODERNE_AGENT_ARTIFACTINDEXINTERVALSECONDS` | `false`  | 120 seconds            | How frequently LSTs will be indexed.                                                                                                               |
-| `MODERNE_AGENT_DEFAULTCOMMITOPTIONS_{index}` | `false`  | All options available. | Use to restrict which commit options are available in Moderne. Acceptable values: `Direct`, `Branch`, `Fork`, `PullRequest`, `ForkAndPullRequest`. |
+| Variable Name                              | Required | Default                | Description                                                                                                                                        |
+|--------------------------------------------|----------|------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------|
+| `MODERNE_CONNECTOR_APIGATEWAYRSOCKETURI`   | `true`   |                        | The URI used to connect to the Moderne API, provided by Moderne.                                                                                   |
+| `MODERNE_CONNECTOR_CRYPTO_SYMMETRICKEY`    | `true`   |                        | A 256-bit AES encryption key, hex encoded. Used to encrypt your artifacts.                                                                         |
+| `MODERNE_CONNECTOR_NICKNAME`               | `true`   |                        | A name used to identify your Connector in the SaaS dashboard UI.                                                                                   |
+| `MODERNE_CONNECTOR_TOKEN`                  | `true`   |                        | The Moderne SaaS Connector connection token, provided by Moderne.                                                                                  |
+| `MODERNE_SCM_DEFAULTCOMMITOPTIONS_{index}` | `false`  | All options available. | Use to restrict which commit options are available in Moderne. Acceptable values: `Direct`, `Branch`, `Fork`, `PullRequest`, `ForkAndPullRequest`. |
 
 **Example:**
 
 ```bash
 # Please note that if you create environment variables for secrets, you still need to let Docker
 # know that these variables exist by including it via: `-e ENV_VAR_NAME`.
-export MODERNE_AGENT_CRYPTO_SYMMETRICKEY=...
-export MODERNE_AGENT_TOKEN=...
+export MODERNE_CONNECTOR_CRYPTO_SYMMETRICKEY=...
+export MODERNE_CONNECTOR_TOKEN=...
 
 docker run \
--e MODERNE_AGENT_APIGATEWAYRSOCKETURI=https://api.tenant.moderne.io/rsocket \
--e MODERNE_AGENT_CRYPTO_SYMMETRICKEY \
--e MODERNE_AGENT_NICKNAME=prod-1 \
--e MODERNE_AGENT_TOKEN \
--e MODERNE_AGENT_DEFAULTCOMMITOPTIONS_0=PullRequest \
--e MODERNE_AGENT_DEFAULTCOMMITOPTIONS_1=ForkAndPullRequest \
+-e MODERNE_CONNECTOR_APIGATEWAYRSOCKETURI=https://api.tenant.moderne.io/rsocket \
+-e MODERNE_CONNECTOR_CRYPTO_SYMMETRICKEY \
+-e MODERNE_CONNECTOR_NICKNAME=prod-1 \
+-e MODERNE_CONNECTOR_TOKEN \
+-e MODERNE_SCM_DEFAULTCOMMITOPTIONS_0=PullRequest \
+-e MODERNE_SCM_DEFAULTCOMMITOPTIONS_1=ForkAndPullRequest \
 # ... Additional variables
 -p 8080:8080
-moderne-agent:latest
+moderne-connector:latest
 ```
 </TabItem>
 
@@ -248,29 +246,27 @@ moderne-agent:latest
 
 **Arguments:**
 
-| Argument Name                                   | Required | Default                | Description                                                                                                                                        |
-|-------------------------------------------------|----------|------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------|
-| `--moderne.agent.apiGatewayRsocketUri`          | `true`   |                        | The URI used to connect to the Moderne API, provided by Moderne.                                                                                   |
-| `--moderne.agent.crypto.symmetricKey`           | `true`   |                        | A 256-bit AES encryption key, hex encoded. Used to encrypt your artifacts.                                                                         |
-| `--moderne.agent.nickname`                      | `true`   |                        | A name used to identify your Connector in the SaaS dashboard UI.                                                                                   |
-| `--moderne.agent.token`                         | `true`   |                        | The Moderne SaaS agent connection token, provided by Moderne.                                                                                      |
-| `--moderne.agent.downloadParallelism`           | `false`  | 2 threads              | How many threads are used to download LSTs.                                                                                                        |
-| `--moderne.agent.artifactIndexIntervalSeconds`  | `false`  | 120 seconds            | How frequently LSTs will be indexed.                                                                                                               |
-| `--moderne.agent.defaultCommitOptions[{index}]` | `false`  | All options available. | Use to restrict which commit options are available in Moderne. Acceptable values: `Direct`, `Branch`, `Fork`, `PullRequest`, `ForkAndPullRequest`. |
+| Argument Name                                 | Required | Default                | Description                                                                                                                                        |
+|-----------------------------------------------|----------|------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------|
+| `--moderne.connector.apiGatewayRsocketUri`    | `true`   |                        | The URI used to connect to the Moderne API, provided by Moderne.                                                                                   |
+| `--moderne.connector.crypto.symmetricKey`     | `true`   |                        | A 256-bit AES encryption key, hex encoded. Used to encrypt your artifacts.                                                                         |
+| `--moderne.connector.nickname`                | `true`   |                        | A name used to identify your Connector in the SaaS dashboard UI.                                                                                   |
+| `--moderne.connector.token`                   | `true`   |                        | The Moderne SaaS Connector connection token, provided by Moderne.                                                                                  |
+| `--moderne.scm.defaultCommitOptions[{index}]` | `false`  | All options available. | Use to restrict which commit options are available in Moderne. Acceptable values: `Direct`, `Branch`, `Fork`, `PullRequest`, `ForkAndPullRequest`. |
 
 **Example:**
 
 ```bash
 # Exporting environment variables with the exact same structure as the parameter in the Java command makes it so you no longer need to include them in the below Java command. For instance, the first export below is equivalent to including this parameter in the Java command:
-# --moderne.agent.crypto.symmetricKey=...
-export MODERNE_AGENT_CRYPTO_SYMMETRICKEY=...
-export MODERNE_AGENT_TOKEN=...
+# --moderne.connector.crypto.symmetricKey=...
+export MODERNE_CONNECTOR_CRYPTO_SYMMETRICKEY=...
+export MODERNE_CONNECTOR_TOKEN=...
 
-java -jar moderne-agent-{version}.jar \
---moderne.agent.apiGatewayRsocketUri=https://api.tenant.moderne.io/rsocket \
---moderne.agent.nickname=prod-1 \
---moderne.agent.defaultCommitOptions[0]=PullRequest \
---moderne.agent.defaultCommitOptions[1]=ForkAndPullRequest \
+java -jar connector-{version}.jar \
+--moderne.connector.apiGatewayRsocketUri=https://api.tenant.moderne.io/rsocket \
+--moderne.connector.nickname=prod-1 \
+--moderne.scm.defaultCommitOptions[0]=PullRequest \
+--moderne.scm.defaultCommitOptions[1]=ForkAndPullRequest \
 # ... Additional arguments
 ```
 </TabItem>
@@ -298,25 +294,25 @@ Below is an example of what a Connector run command might look like at the end o
 ```bash
 # Please note that if you create environment variables for secrets, you still need to let Docker
 # know that these variables exist by including it via: `-e ENV_VAR_NAME`.
-export MODERNE_AGENT_CRYPTO_SYMMETRICKEY=...
-export MODERNE_AGENT_TOKEN=...
-export MODERNE_AGENT_GITHUB_0_OAUTH_CLIENTID=...
-export MODERNE_AGENT_GITHUB_0_OAUTH_CLIENTSECRET=...
+export MODERNE_CONNECTOR_CRYPTO_SYMMETRICKEY=...
+export MODERNE_CONNECTOR_TOKEN=...
+export MODERNE_SCM_GITHUB_0_OAUTH_CLIENTID=...
+export MODERNE_SCM_GITHUB_0_OAUTH_CLIENTSECRET=...
 
 docker run \
--e MODERNE_AGENT_APIGATEWAYRSOCKETURI=https://api.tenant.moderne.io/rsocket \
--e MODERNE_AGENT_CRYPTO_SYMMETRICKEY \
--e MODERNE_AGENT_NICKNAME=prod-1 \
--e MODERNE_AGENT_TOKEN \
--e MODERNE_AGENT_GITHUB_0_OAUTH_CLIENTID \
--e MODERNE_AGENT_GITHUB_0_OAUTH_CLIENTSECRET \
--e MODERNE_AGENT_GITHUB_0_URL=https://myorg.github.com \
--e MODERNE_AGENT_GITHUB_0_ALLOWABLE_ORGANIZATIONS_0=moderne \
--e MODERNE_AGENT_GITHUB_0_ALLOWABLE_ORGANIZATIONS_1=openrewrite \
--e MODERNE_AGENT_GITHUB_0_OAUTH_INCLUDEPRIVATEREPOS=true \
+-e MODERNE_CONNECTOR_APIGATEWAYRSOCKETURI=https://api.tenant.moderne.io/rsocket \
+-e MODERNE_CONNECTOR_CRYPTO_SYMMETRICKEY \
+-e MODERNE_CONNECTOR_NICKNAME=prod-1 \
+-e MODERNE_CONNECTOR_TOKEN \
+-e MODERNE_SCM_GITHUB_0_OAUTH_CLIENTID \
+-e MODERNE_SCM_GITHUB_0_OAUTH_CLIENTSECRET \
+-e MODERNE_SCM_GITHUB_0_URI=https://myorg.github.com \
+-e MODERNE_SCM_GITHUB_0_ALLOWABLE_ORGANIZATIONS_0=moderne \
+-e MODERNE_SCM_GITHUB_0_ALLOWABLE_ORGANIZATIONS_1=openrewrite \
+-e MODERNE_SCM_GITHUB_0_OAUTH_INCLUDEPRIVATEREPOS=true \
 # ... Additional variables to come
 -p 8080:8080
-moderne-agent:latest
+moderne-connector:latest
 ```
 </TabItem>
 
@@ -324,19 +320,19 @@ moderne-agent:latest
 
 ```bash
 # Exporting environment variables with the exact same structure as the parameter in the Java command makes it so you no longer need to include them in the below Java command. For instance, the first export below is equivalent to including this parameter in the Java command:
-# --moderne.agent.crypto.symmetricKey=...
-export MODERNE_AGENT_CRYPTO_SYMMETRICKEY=...
-export MODERNE_AGENT_TOKEN=...
-export MODERNE_AGENT_GITHUB_0_OAUTH_CLIENTID=...
-export MODERNE_AGENT_GITHUB_0_OAUTH_CLIENTSECRET=...
+# --moderne.connector.crypto.symmetricKey=...
+export MODERNE_CONNECTOR_CRYPTO_SYMMETRICKEY=...
+export MODERNE_CONNECTOR_TOKEN=...
+export MODERNE_SCM_GITHUB_0_OAUTH_CLIENTID=...
+export MODERNE_SCM_GITHUB_0_OAUTH_CLIENTSECRET=...
 
-java -jar moderne-agent-{version}.jar \
---moderne.agent.apiGatewayRsocketUri=https://api.tenant.moderne.io/rsocket \
---moderne.agent.nickname=prod-1 \
---moderne.agent.github[0].url=https://myorg.github.com \
---moderne.agent.github[0].allowableOrganizations[0]=moderne \
---moderne.agent.github[0].allowableOrganizations[1]=openrewrite \
---moderne.agent.github[0].oauth.includePrivateRepos=true \
+java -jar connector-{version}.jar \
+--moderne.connector.apiGatewayRsocketUri=https://api.tenant.moderne.io/rsocket \
+--moderne.connector.nickname=prod-1 \
+--moderne.scm.github[0].uri=https://myorg.github.com \
+--moderne.scm.github[0].allowableOrganizations[0]=moderne \
+--moderne.scm.github[0].allowableOrganizations[1]=openrewrite \
+--moderne.scm.github[0].oauth.includePrivateRepos=true \
 # ... Additional arguments to come
 ```
 </TabItem>
@@ -386,37 +382,37 @@ Below is an example of what a Connector run command might look like at the end o
 ```bash
 # Please note that if you create environment variables for secrets, you still need to let Docker
 # know that these variables exist by including it via: `-e ENV_VAR_NAME`.
-export MODERNE_AGENT_CRYPTO_SYMMETRICKEY=...
-export MODERNE_AGENT_TOKEN=...
-export MODERNE_AGENT_GITHUB_0_OAUTH_CLIENTID=...
-export MODERNE_AGENT_GITHUB_0_OAUTH_CLIENTSECRET=...
-export MODERNE_AGENT_ARTIFACTORY_0_USERNAME=...
-export MODERNE_AGENT_ARTIFACTORY_0_PASSWORD=...
-export MODERNE_AGENT_MAVEN_0_USERNAME=...
-export MODERNE_AGENT_MAVEN_0_PASSWORD=...
+export MODERNE_CONNECTOR_CRYPTO_SYMMETRICKEY=...
+export MODERNE_CONNECTOR_TOKEN=...
+export MODERNE_SCM_GITHUB_0_OAUTH_CLIENTID=...
+export MODERNE_SCM_GITHUB_0_OAUTH_CLIENTSECRET=...
+export MODERNE_ORGANIZATION_INDEXER_POLL_ARTIFACTORY_0_USERNAME=...
+export MODERNE_ORGANIZATION_INDEXER_POLL_ARTIFACTORY_0_PASSWORD=...
+export MODERNE_ORGANIZATION_INDEXER_POLL_MAVEN_0_USERNAME=...
+export MODERNE_ORGANIZATION_INDEXER_POLL_MAVEN_0_PASSWORD=...
 
 docker run \
--e MODERNE_AGENT_APIGATEWAYRSOCKETURI=https://api.tenant.moderne.io/rsocket \
--e MODERNE_AGENT_CRYPTO_SYMMETRICKEY \
--e MODERNE_AGENT_NICKNAME=prod-1 \
--e MODERNE_AGENT_TOKEN \
--e MODERNE_AGENT_GITHUB_0_OAUTH_CLIENTID \
--e MODERNE_AGENT_GITHUB_0_OAUTH_CLIENTSECRET \
--e MODERNE_AGENT_GITHUB_0_URL=https://myorg.github.com \
--e MODERNE_AGENT_GITHUB_0_ALLOWABLE_ORGANIZATIONS_0=moderne \
--e MODERNE_AGENT_GITHUB_0_ALLOWABLE_ORGANIZATIONS_1=openrewrite \
--e MODERNE_AGENT_GITHUB_0_OAUTH_INCLUDEPRIVATEREPOS=true \
--e MODERNE_AGENT_ARTIFACTORY_0_URL=https://myartifactory.example.com/artifactory/ \
--e MODERNE_AGENT_ARTIFACTORY_0_USERNAME \
--e MODERNE_AGENT_ARTIFACTORY_0_PASSWORD \
--e MODERNE_AGENT_ARTIFACTORY_0_ASTQUERYFILTERS_0='"name":{"$match":"*-ast.jar"}' \
--e MODERNE_AGENT_ARTIFACTORY_0_ASTQUERYFILTERS_1='"repo":{"$eq":"example-maven"}' \
--e MODERNE_AGENT_MAVEN_0_URL=https://myartifactory.example.com/artifactory/libs-releases-local \
--e MODERNE_AGENT_MAVEN_0_USERNAME \
--e MODERNE_AGENT_MAVEN_0_PASSWORD \
+-e MODERNE_CONNECTOR_APIGATEWAYRSOCKETURI=https://api.tenant.moderne.io/rsocket \
+-e MODERNE_CONNECTOR_CRYPTO_SYMMETRICKEY \
+-e MODERNE_CONNECTOR_NICKNAME=prod-1 \
+-e MODERNE_CONNECTOR_TOKEN \
+-e MODERNE_SCM_GITHUB_0_OAUTH_CLIENTID \
+-e MODERNE_SCM_GITHUB_0_OAUTH_CLIENTSECRET \
+-e MODERNE_SCM_GITHUB_0_URI=https://myorg.github.com \
+-e MODERNE_SCM_GITHUB_0_ALLOWABLE_ORGANIZATIONS_0=moderne \
+-e MODERNE_SCM_GITHUB_0_ALLOWABLE_ORGANIZATIONS_1=openrewrite \
+-e MODERNE_SCM_GITHUB_0_OAUTH_INCLUDEPRIVATEREPOS=true \
+-e MODERNE_ORGANIZATION_INDEXER_POLL_ARTIFACTORY_0_URI=https://myartifactory.example.com/artifactory/ \
+-e MODERNE_ORGANIZATION_INDEXER_POLL_ARTIFACTORY_0_USERNAME \
+-e MODERNE_ORGANIZATION_INDEXER_POLL_ARTIFACTORY_0_PASSWORD \
+-e MODERNE_ORGANIZATION_INDEXER_POLL_ARTIFACTORY_0_LSTQUERYFILTERS_0='"name":{"$match":"*-ast.jar"}' \
+-e MODERNE_ORGANIZATION_INDEXER_POLL_ARTIFACTORY_0_LSTQUERYFILTERS_1='"repo":{"$eq":"example-maven"}' \
+-e MODERNE_ORGANIZATION_INDEXER_POLL_MAVEN_0_URI=https://myartifactory.example.com/artifactory/libs-releases-local \
+-e MODERNE_ORGANIZATION_INDEXER_POLL_MAVEN_0_USERNAME \
+-e MODERNE_ORGANIZATION_INDEXER_POLL_MAVEN_0_PASSWORD \
 # ... Additional variables to come
 -p 8080:8080
-moderne-agent:latest
+moderne-connector:latest
 ```
 </TabItem>
 
@@ -424,27 +420,27 @@ moderne-agent:latest
 
 ```bash
 # Exporting environment variables with the exact same structure as the parameter in the Java command makes it so you no longer need to include them in the below Java command. For instance, the first export below is equivalent to including this parameter in the Java command:
-# --moderne.agent.crypto.symmetricKey=...
-export MODERNE_AGENT_CRYPTO_SYMMETRICKEY=...
-export MODERNE_AGENT_TOKEN=...
-export MODERNE_AGENT_GITHUB_0_OAUTH_CLIENTID=...
-export MODERNE_AGENT_GITHUB_0_OAUTH_CLIENTSECRET=...
-export MODERNE_AGENT_ARTIFACTORY_0_USERNAME=...
-export MODERNE_AGENT_ARTIFACTORY_0_PASSWORD=...
-export MODERNE_AGENT_MAVEN_0_USERNAME=...
-export MODERNE_AGENT_MAVEN_0_PASSWORD=...
+# --moderne.connector.crypto.symmetricKey=...
+export MODERNE_CONNECTOR_CRYPTO_SYMMETRICKEY=...
+export MODERNE_CONNECTOR_TOKEN=...
+export MODERNE_SCM_GITHUB_0_OAUTH_CLIENTID=...
+export MODERNE_SCM_GITHUB_0_OAUTH_CLIENTSECRET=...
+export MODERNE_ORGANIZATION_INDEXER_POLL_ARTIFACTORY_0_USERNAME=...
+export MODERNE_ORGANIZATION_INDEXER_POLL_ARTIFACTORY_0_PASSWORD=...
+export MODERNE_ORGANIZATION_INDEXER_POLL_MAVEN_0_USERNAME=...
+export MODERNE_ORGANIZATION_INDEXER_POLL_MAVEN_0_PASSWORD=...
 
-java -jar moderne-agent-{version}.jar \
---moderne.agent.apiGatewayRsocketUri=https://api.tenant.moderne.io/rsocket \
---moderne.agent.nickname=prod-1 \
---moderne.agent.github[0].url=https://myorg.github.com \
---moderne.agent.github[0].allowableOrganizations[0]=moderne \
---moderne.agent.github[0].allowableOrganizations[1]=openrewrite \
---moderne.agent.github[0].oauth.includePrivateRepos=true \
---moderne.agent.artifactory[0].url=https://myartifactory.example.com/artifactory/ \
---moderne.agent.artifactory[0].astQueryFilters[0]='{"name":{"$match":"*-ast.jar"}}' \
---moderne.agent.artifactory[0].astQueryFilters[1]='{"repo":{"$eq":"example-maven"}}' \
---moderne.agent.maven[0].url=https://myartifactory.example.com/artifactory/libs-releases-local \
+java -jar connector-{version}.jar \
+--moderne.connector.apiGatewayRsocketUri=https://api.tenant.moderne.io/rsocket \
+--moderne.connector.nickname=prod-1 \
+--moderne.scm.github[0].uri=https://myorg.github.com \
+--moderne.scm.github[0].allowableOrganizations[0]=moderne \
+--moderne.scm.github[0].allowableOrganizations[1]=openrewrite \
+--moderne.scm.github[0].oauth.includePrivateRepos=true \
+--moderne.organization.indexer.poll.artifactory[0].uri=https://myartifactory.example.com/artifactory/ \
+--moderne.organization.indexer.poll.artifactory[0].lstQueryFilters[0]='{"name":{"$match":"*-ast.jar"}}' \
+--moderne.organization.indexer.poll.artifactory[0].lstQueryFilters[1]='{"repo":{"$eq":"example-maven"}}' \
+--moderne.organization.indexer.poll.maven[0].uri=https://myartifactory.example.com/artifactory/libs-releases-local \
 # ... Additional arguments to come
 ```
 </TabItem>
@@ -462,37 +458,36 @@ Below is an example of what a Connector run command might look like at the end o
 ```bash
 # Please note that if you create environment variables for secrets, you still need to let Docker
 # know that these variables exist by including it via: `-e ENV_VAR_NAME`.
-export MODERNE_AGENT_CRYPTO_SYMMETRICKEY=...
-export MODERNE_AGENT_TOKEN=...
-export MODERNE_AGENT_GITHUB_0_OAUTH_CLIENTID=...
-export MODERNE_AGENT_GITHUB_0_OAUTH_CLIENTSECRET=...
-export MODERNE_AGENT_ARTIFACTORY_0_USERNAME=...
-export MODERNE_AGENT_ARTIFACTORY_0_PASSWORD=...
-export MODERNE_AGENT_MAVEN_0_USERNAME=...
-export MODERNE_AGENT_MAVEN_0_PASSWORD=...
+export MODERNE_CONNECTOR_CRYPTO_SYMMETRICKEY=...
+export MODERNE_CONNECTOR_TOKEN=...
+export MODERNE_SCM_GITHUB_0_OAUTH_CLIENTID=...
+export MODERNE_SCM_GITHUB_0_OAUTH_CLIENTSECRET=...
+export MODERNE_ORGANIZATION_INDEXER_POLL_ARTIFACTORY_0_USERNAME=...
+export MODERNE_ORGANIZATION_INDEXER_POLL_ARTIFACTORY_0_PASSWORD=...
+export MODERNE_ORGANIZATION_INDEXER_POLL_MAVEN_0_USERNAME=...
+export MODERNE_ORGANIZATION_INDEXER_POLL_MAVEN_0_PASSWORD=...
 
 docker run \
--e MODERNE_AGENT_APIGATEWAYRSOCKETURI=https://api.tenant.moderne.io/rsocket \
--e MODERNE_AGENT_CRYPTO_SYMMETRICKEY \
--e MODERNE_AGENT_NICKNAME=prod-1 \
--e MODERNE_AGENT_TOKEN \
--e MODERNE_AGENT_GITHUB_0_OAUTH_CLIENTID \
--e MODERNE_AGENT_GITHUB_0_OAUTH_CLIENTSECRET \
--e MODERNE_AGENT_GITHUB_0_URL=https://myorg.github.com \
--e MODERNE_AGENT_GITHUB_0_ALLOWABLE_ORGANIZATIONS_0=moderne \
--e MODERNE_AGENT_GITHUB_0_ALLOWABLE_ORGANIZATIONS_1=openrewrite \
--e MODERNE_AGENT_GITHUB_0_OAUTH_INCLUDEPRIVATEREPOS=true \
--e MODERNE_AGENT_ARTIFACTORY_0_URL=https://myartifactory.example.com/artifactory/ \
--e MODERNE_AGENT_ARTIFACTORY_0_USERNAME \
--e MODERNE_AGENT_ARTIFACTORY_0_PASSWORD \
--e MODERNE_AGENT_ARTIFACTORY_0_ASTQUERYFILTERS_0='"name":{"$match":"*-ast.jar"}' \
--e MODERNE_AGENT_ARTIFACTORY_0_ASTQUERYFILTERS_1='"repo":{"$eq":"example-maven"}' \
--e MODERNE_AGENT_MAVEN_0_URL=https://myartifactory.example.com/artifactory/libs-releases-local \
--e MODERNE_AGENT_MAVEN_0_USERNAME \
--e MODERNE_AGENT_MAVEN_0_PASSWORD \
--e MODERNE_AGENT_RECIPE_USEONLYCONFIGURED=true \
+-e MODERNE_CONNECTOR_APIGATEWAYRSOCKETURI=https://api.tenant.moderne.io/rsocket \
+-e MODERNE_CONNECTOR_CRYPTO_SYMMETRICKEY \
+-e MODERNE_CONNECTOR_NICKNAME=prod-1 \
+-e MODERNE_CONNECTOR_TOKEN \
+-e MODERNE_SCM_GITHUB_0_OAUTH_CLIENTID \
+-e MODERNE_SCM_GITHUB_0_OAUTH_CLIENTSECRET \
+-e MODERNE_SCM_GITHUB_0_URI=https://myorg.github.com \
+-e MODERNE_SCM_GITHUB_0_ALLOWABLE_ORGANIZATIONS_0=moderne \
+-e MODERNE_SCM_GITHUB_0_ALLOWABLE_ORGANIZATIONS_1=openrewrite \
+-e MODERNE_SCM_GITHUB_0_OAUTH_INCLUDEPRIVATEREPOS=true \
+-e MODERNE_ORGANIZATION_INDEXER_POLL_ARTIFACTORY_0_URI=https://myartifactory.example.com/artifactory/ \
+-e MODERNE_ORGANIZATION_INDEXER_POLL_ARTIFACTORY_0_USERNAME \
+-e MODERNE_ORGANIZATION_INDEXER_POLL_ARTIFACTORY_0_PASSWORD \
+-e MODERNE_ORGANIZATION_INDEXER_POLL_ARTIFACTORY_0_LSTQUERYFILTERS_0='"name":{"$match":"*-ast.jar"}' \
+-e MODERNE_ORGANIZATION_INDEXER_POLL_ARTIFACTORY_0_LSTQUERYFILTERS_1='"repo":{"$eq":"example-maven"}' \
+-e MODERNE_ORGANIZATION_INDEXER_POLL_MAVEN_0_URI=https://myartifactory.example.com/artifactory/libs-releases-local \
+-e MODERNE_ORGANIZATION_INDEXER_POLL_MAVEN_0_USERNAME \
+-e MODERNE_ORGANIZATION_INDEXER_POLL_MAVEN_0_PASSWORD \
 -p 8080:8080
-moderne-agent:latest
+moderne-connector:latest
 ```
 </TabItem>
 
@@ -500,29 +495,28 @@ moderne-agent:latest
 
 ```bash
 # Exporting environment variables with the exact same structure as the parameter in the Java command makes it so you no longer need to include them in the below Java command. For instance, the first export below is equivalent to including this parameter in the Java command:
-# --moderne.agent.crypto.symmetricKey=...
-export MODERNE_AGENT_CRYPTO_SYMMETRICKEY=...
-export MODERNE_AGENT_TOKEN=...
-export MODERNE_AGENT_GITHUB_0_OAUTH_CLIENTID=...
-export MODERNE_AGENT_GITHUB_0_OAUTH_CLIENTSECRET=...
-export MODERNE_AGENT_ARTIFACTORY_0_USERNAME=...
-export MODERNE_AGENT_ARTIFACTORY_0_PASSWORD=...
-export MODERNE_AGENT_MAVEN_0_USERNAME=...
-export MODERNE_AGENT_MAVEN_0_PASSWORD=...
+# --moderne.connector.crypto.symmetricKey=...
+export MODERNE_CONNECTOR_CRYPTO_SYMMETRICKEY=...
+export MODERNE_CONNECTOR_TOKEN=...
+export MODERNE_SCM_GITHUB_0_OAUTH_CLIENTID=...
+export MODERNE_SCM_GITHUB_0_OAUTH_CLIENTSECRET=...
+export MODERNE_ORGANIZATION_INDEXER_POLL_ARTIFACTORY_0_USERNAME=...
+export MODERNE_ORGANIZATION_INDEXER_POLL_ARTIFACTORY_0_PASSWORD=...
+export MODERNE_ORGANIZATION_INDEXER_POLL_MAVEN_0_USERNAME=...
+export MODERNE_ORGANIZATION_INDEXER_POLL_MAVEN_0_PASSWORD=...
 
-java -jar moderne-agent-{version}.jar \
---moderne.agent.apiGatewayRsocketUri=https://api.tenant.moderne.io/rsocket \
---moderne.agent.nickname=prod-1 \
---moderne.agent.token=yourToken \
---moderne.agent.github[0].url=https://myorg.github.com \
---moderne.agent.github[0].allowableOrganizations[0]=moderne \
---moderne.agent.github[0].allowableOrganizations[1]=openrewrite \
---moderne.agent.github[0].oauth.includePrivateRepos=true \
---moderne.agent.artifactory[0].url=https://myartifactory.example.com/artifactory/ \
---moderne.agent.artifactory[0].astQueryFilters[0]='{"name":{"$match":"*-ast.jar"}}' \
---moderne.agent.artifactory[0].astQueryFilters[1]='{"repo":{"$eq":"example-maven"}}' \
---moderne.agent.maven[0].url=https://myartifactory.example.com/artifactory/libs-releases-local \
---moderne.agent.recipe.useOnlyConfigured=true
+java -jar connector-{version}.jar \
+--moderne.connector.apiGatewayRsocketUri=https://api.tenant.moderne.io/rsocket \
+--moderne.connector.nickname=prod-1 \
+--moderne.connector.token=yourToken \
+--moderne.scm.github[0].uri=https://myorg.github.com \
+--moderne.scm.github[0].allowableOrganizations[0]=moderne \
+--moderne.scm.github[0].allowableOrganizations[1]=openrewrite \
+--moderne.scm.github[0].oauth.includePrivateRepos=true \
+--moderne.organization.indexer.poll.artifactory[0].uri=https://myartifactory.example.com/artifactory/ \
+--moderne.organization.indexer.poll.artifactory[0].lstQueryFilters[0]='{"name":{"$match":"*-ast.jar"}}' \
+--moderne.organization.indexer.poll.artifactory[0].lstQueryFilters[1]='{"repo":{"$eq":"example-maven"}}' \
+--moderne.organization.indexer.poll.maven[0].uri=https://myartifactory.example.com/artifactory/libs-releases-local \
 ```
 </TabItem>
 </Tabs>
@@ -575,9 +569,9 @@ You can provide the file to the Connector in two ways:
 
 ```bash
 docker run \
-  -e MODERNE_AGENT_ORGANIZATION_REPOSCSV=https://example.com/repos.csv \
+  -e MODERNE_ORGANIZATION_INDEXER_SOURCES_0_REPOSCSV=https://example.com/repos.csv \
   # ... other environment variables
-  moderne-agent:latest
+  moderne-connector:latest
 ```
 
 **Option 2: Local file mount**
@@ -585,9 +579,9 @@ docker run \
 ```bash
 docker run \
   -v /path/to/repos.csv:/app/repos.csv \
-  -e MODERNE_AGENT_ORGANIZATION_REPOSCSV=/app/repos.csv \
+  -e MODERNE_ORGANIZATION_INDEXER_SOURCES_0_REPOSCSV=/app/repos.csv \
   # ... other environment variables
-  moderne-agent:latest
+  moderne-connector:latest
 ```
 
 </TabItem>
@@ -597,16 +591,16 @@ docker run \
 **Option 1: Remote URL**
 
 ```bash
-java -jar moderne-agent-{version}.jar \
-  --moderne.agent.organization.reposCsv=https://example.com/repos.csv \
+java -jar connector-{version}.jar \
+  --moderne.organization.indexer.sources[0].repos-csv=https://example.com/repos.csv \
   # ... other arguments
 ```
 
 **Option 2: Local file path**
 
 ```bash
-java -jar moderne-agent-{version}.jar \
-  --moderne.agent.organization.reposCsv=/path/to/repos.csv \
+java -jar connector-{version}.jar \
+  --moderne.organization.indexer.sources[0].repos-csv=/path/to/repos.csv \
   # ... other arguments
 ```
 
@@ -650,13 +644,13 @@ Below is a table that has instructions for how to run the Connector in combinati
 **How to build the Docker image**
 
 ```bash
-docker build -t moderne-agent:latest .
+docker build -t moderne-connector:latest .
 ```
 
 **How to run the Docker image with an environment file**
 
 ```bash
-docker run --env-file=moderne-agent.env moderne-agent:latest
+docker run --env-file=moderne-connector.env moderne-connector:latest
 ```
 
 **Run the `docker run` command in combination with all of the environment variables you've added in the previous steps:**
@@ -664,36 +658,36 @@ docker run --env-file=moderne-agent.env moderne-agent:latest
 ```bash
 # Please note that if you create environment variables for secrets, you still need to let Docker
 # know that these variables exist by including it via: `-e ENV_VAR_NAME`.
-export MODERNE_AGENT_CRYPTO_SYMMETRICKEY=...
-export MODERNE_AGENT_TOKEN=...
-export MODERNE_AGENT_GITHUB_0_OAUTH_CLIENTID=...
-export MODERNE_AGENT_GITHUB_0_OAUTH_CLIENTSECRET=...
-export MODERNE_AGENT_ARTIFACTORY_0_USERNAME=...
-export MODERNE_AGENT_ARTIFACTORY_0_PASSWORD=...
-export MODERNE_AGENT_MAVEN_0_USERNAME=...
-export MODERNE_AGENT_MAVEN_0_PASSWORD=...
+export MODERNE_CONNECTOR_CRYPTO_SYMMETRICKEY=...
+export MODERNE_CONNECTOR_TOKEN=...
+export MODERNE_SCM_GITHUB_0_OAUTH_CLIENTID=...
+export MODERNE_SCM_GITHUB_0_OAUTH_CLIENTSECRET=...
+export MODERNE_ORGANIZATION_INDEXER_POLL_ARTIFACTORY_0_USERNAME=...
+export MODERNE_ORGANIZATION_INDEXER_POLL_ARTIFACTORY_0_PASSWORD=...
+export MODERNE_ORGANIZATION_INDEXER_POLL_MAVEN_0_USERNAME=...
+export MODERNE_ORGANIZATION_INDEXER_POLL_MAVEN_0_PASSWORD=...
 
 docker run \
--e MODERNE_AGENT_APIGATEWAYRSOCKETURI=https://api.tenant.moderne.io/rsocket \
--e MODERNE_AGENT_CRYPTO_SYMMETRICKEY \
--e MODERNE_AGENT_NICKNAME=prod-1 \
--e MODERNE_AGENT_TOKEN \
--e MODERNE_AGENT_GITHUB_0_OAUTH_CLIENTID \
--e MODERNE_AGENT_GITHUB_0_OAUTH_CLIENTSECRET \
--e MODERNE_AGENT_GITHUB_0_URL=https://myorg.github.com \
--e MODERNE_AGENT_GITHUB_0_ALLOWABLE_ORGANIZATIONS_0=moderne \
--e MODERNE_AGENT_GITHUB_0_ALLOWABLE_ORGANIZATIONS_1=openrewrite \
--e MODERNE_AGENT_GITHUB_0_OAUTH_INCLUDEPRIVATEREPOS=true \
--e MODERNE_AGENT_ARTIFACTORY_0_URL=https://myartifactory.example.com/artifactory/ \
--e MODERNE_AGENT_ARTIFACTORY_0_USERNAME \
--e MODERNE_AGENT_ARTIFACTORY_0_PASSWORD \
--e MODERNE_AGENT_ARTIFACTORY_0_ASTQUERYFILTERS_0='"name":{"$match":"*-ast.jar"}' \
--e MODERNE_AGENT_ARTIFACTORY_0_ASTQUERYFILTERS_1='"repo":{"$eq":"example-maven"}' \
--e MODERNE_AGENT_MAVEN_0_URL=https://myartifactory.example.com/artifactory/libs-releases-local \
--e MODERNE_AGENT_MAVEN_0_USERNAME \
--e MODERNE_AGENT_MAVEN_0_PASSWORD \
+-e MODERNE_CONNECTOR_APIGATEWAYRSOCKETURI=https://api.tenant.moderne.io/rsocket \
+-e MODERNE_CONNECTOR_CRYPTO_SYMMETRICKEY \
+-e MODERNE_CONNECTOR_NICKNAME=prod-1 \
+-e MODERNE_CONNECTOR_TOKEN \
+-e MODERNE_SCM_GITHUB_0_OAUTH_CLIENTID \
+-e MODERNE_SCM_GITHUB_0_OAUTH_CLIENTSECRET \
+-e MODERNE_SCM_GITHUB_0_URI=https://myorg.github.com \
+-e MODERNE_SCM_GITHUB_0_ALLOWABLE_ORGANIZATIONS_0=moderne \
+-e MODERNE_SCM_GITHUB_0_ALLOWABLE_ORGANIZATIONS_1=openrewrite \
+-e MODERNE_SCM_GITHUB_0_OAUTH_INCLUDEPRIVATEREPOS=true \
+-e MODERNE_ORGANIZATION_INDEXER_POLL_ARTIFACTORY_0_URI=https://myartifactory.example.com/artifactory/ \
+-e MODERNE_ORGANIZATION_INDEXER_POLL_ARTIFACTORY_0_USERNAME \
+-e MODERNE_ORGANIZATION_INDEXER_POLL_ARTIFACTORY_0_PASSWORD \
+-e MODERNE_ORGANIZATION_INDEXER_POLL_ARTIFACTORY_0_LSTQUERYFILTERS_0='"name":{"$match":"*-ast.jar"}' \
+-e MODERNE_ORGANIZATION_INDEXER_POLL_ARTIFACTORY_0_LSTQUERYFILTERS_1='"repo":{"$eq":"example-maven"}' \
+-e MODERNE_ORGANIZATION_INDEXER_POLL_MAVEN_0_URI=https://myartifactory.example.com/artifactory/libs-releases-local \
+-e MODERNE_ORGANIZATION_INDEXER_POLL_MAVEN_0_USERNAME \
+-e MODERNE_ORGANIZATION_INDEXER_POLL_MAVEN_0_PASSWORD \
 -p 8080:8080
-moderne-agent:latest
+moderne-connector:latest
 ```
 </TabItem>
 
@@ -703,30 +697,30 @@ Use `java` to run a jar in combination with arguments that you've added in the p
 
 ```bash
 # Exporting environment variables with the exact same structure as the parameter in the Java command makes it so you no longer need to include them in the below Java command. For instance, the first export below is equivalent to including this parameter in the Java command:
-# --moderne.agent.crypto.symmetricKey=...
-export MODERNE_AGENT_CRYPTO_SYMMETRICKEY=...
-export MODERNE_AGENT_TOKEN=...
-export MODERNE_AGENT_GITHUB_0_OAUTH_CLIENTID=...
-export MODERNE_AGENT_GITHUB_0_OAUTH_CLIENTSECRET=...
-export MODERNE_AGENT_ARTIFACTORY_0_USERNAME=...
-export MODERNE_AGENT_ARTIFACTORY_0_PASSWORD=...
-export MODERNE_AGENT_MAVEN_0_USERNAME=...
-export MODERNE_AGENT_MAVEN_0_PASSWORD=...
+# --moderne.connector.crypto.symmetricKey=...
+export MODERNE_CONNECTOR_CRYPTO_SYMMETRICKEY=...
+export MODERNE_CONNECTOR_TOKEN=...
+export MODERNE_SCM_GITHUB_0_OAUTH_CLIENTID=...
+export MODERNE_SCM_GITHUB_0_OAUTH_CLIENTSECRET=...
+export MODERNE_ORGANIZATION_INDEXER_POLL_ARTIFACTORY_0_USERNAME=...
+export MODERNE_ORGANIZATION_INDEXER_POLL_ARTIFACTORY_0_PASSWORD=...
+export MODERNE_ORGANIZATION_INDEXER_POLL_MAVEN_0_USERNAME=...
+export MODERNE_ORGANIZATION_INDEXER_POLL_MAVEN_0_PASSWORD=...
 
-java -jar moderne-agent-{version}.jar \
---moderne.agent.apiGatewayRsocketUri=https://api.tenant.moderne.io/rsocket \
---moderne.agent.nickname=prod-1 \
---moderne.agent.github[0].url=https://myorg.github.com \
---moderne.agent.github[0].allowableOrganizations[0]=moderne \
---moderne.agent.github[0].allowableOrganizations[1]=openrewrite \
---moderne.agent.github[0].oauth.includePrivateRepos=true \
---moderne.agent.artifactory[0].url=https://myartifactory.example.com/artifactory/ \
---moderne.agent.artifactory[0].astQueryFilters[0]='{"name":{"$match":"*-ast.jar"}}' \
---moderne.agent.artifactory[0].astQueryFilters[1]='{"repo":{"$eq":"example-maven"}}' \
---moderne.agent.maven[0].url=https://myartifactory.example.com/artifactory/libs-releases-local \
+java -jar connector-{version}.jar \
+--moderne.connector.apiGatewayRsocketUri=https://api.tenant.moderne.io/rsocket \
+--moderne.connector.nickname=prod-1 \
+--moderne.scm.github[0].uri=https://myorg.github.com \
+--moderne.scm.github[0].allowableOrganizations[0]=moderne \
+--moderne.scm.github[0].allowableOrganizations[1]=openrewrite \
+--moderne.scm.github[0].oauth.includePrivateRepos=true \
+--moderne.organization.indexer.poll.artifactory[0].uri=https://myartifactory.example.com/artifactory/ \
+--moderne.organization.indexer.poll.artifactory[0].lstQueryFilters[0]='{"name":{"$match":"*-ast.jar"}}' \
+--moderne.organization.indexer.poll.artifactory[0].lstQueryFilters[1]='{"repo":{"$eq":"example-maven"}}' \
+--moderne.organization.indexer.poll.maven[0].uri=https://myartifactory.example.com/artifactory/libs-releases-local \
 ```
 
-* Note: System properties can be used in place of arguments. For example, you can use `-Dmoderne.agent.token={token_value}` as an argument instead of `--moderne.agent.token={token_value}`.
+* Note: System properties can be used in place of arguments. For example, you can use `-Dmoderne.connector.token={token_value}` as an argument instead of `--moderne.connector.token={token_value}`.
 </TabItem>
 </Tabs>
 
@@ -797,10 +791,10 @@ For high availability and increased throughput, you can run multiple Moderne Con
 
 **Key requirements for multi-instance deployment:**
 
-* Each Connector instance must have a unique `MODERNE_AGENT_NICKNAME`
+* Each Connector instance must have a unique `MODERNE_CONNECTOR_NICKNAME`
 * Each instance requires its own port mapping (e.g., 8080, 8081, 8082)
-* All instances should use the same `MODERNE_AGENT_CRYPTO_SYMMETRICKEY`
-* All instances should connect to the same `MODERNE_AGENT_APIGATEWAYRSOCKETURI`
+* All instances should use the same `MODERNE_CONNECTOR_CRYPTO_SYMMETRICKEY`
+* All instances should connect to the same `MODERNE_CONNECTOR_APIGATEWAYRSOCKETURI`
 
 **Example multi-instance deployment:**
 
@@ -812,19 +806,19 @@ For high availability and increased throughput, you can run multiple Moderne Con
 docker run -d \
   --name moderne-agent-1 \
   -p 8080:8080 \
-  -e MODERNE_AGENT_NICKNAME=prod-agent-1 \
-  -e MODERNE_AGENT_APIGATEWAYRSOCKETURI=https://api.tenant.moderne.io/rsocket \
+  -e MODERNE_CONNECTOR_NICKNAME=prod-agent-1 \
+  -e MODERNE_CONNECTOR_APIGATEWAYRSOCKETURI=https://api.tenant.moderne.io/rsocket \
   # ... other environment variables
-  moderne-agent:latest
+  moderne-connector:latest
 
 # Second Connector instance
 docker run -d \
   --name moderne-agent-2 \
   -p 8081:8080 \
-  -e MODERNE_AGENT_NICKNAME=prod-agent-2 \
-  -e MODERNE_AGENT_APIGATEWAYRSOCKETURI=https://api.tenant.moderne.io/rsocket \
+  -e MODERNE_CONNECTOR_NICKNAME=prod-agent-2 \
+  -e MODERNE_CONNECTOR_APIGATEWAYRSOCKETURI=https://api.tenant.moderne.io/rsocket \
   # ... other environment variables
-  moderne-agent:latest
+  moderne-connector:latest
 ```
 
 </TabItem>
@@ -833,14 +827,14 @@ docker run -d \
 
 ```bash
 # First Connector instance
-java -jar moderne-agent-{version}.jar \
-  --moderne.agent.nickname=prod-agent-1 \
+java -jar connector-{version}.jar \
+  --moderne.connector.nickname=prod-agent-1 \
   --server.port=8080 \
   # ... other arguments
 
 # Second Connector instance
-java -jar moderne-agent-{version}.jar \
-  --moderne.agent.nickname=prod-agent-2 \
+java -jar connector-{version}.jar \
+  --moderne.connector.nickname=prod-agent-2 \
   --server.port=8081 \
   # ... other arguments
 ```
@@ -858,8 +852,8 @@ Multiple Connector instances will automatically distribute the workload and prov
 
 **Common causes and solutions:**
 
-* **Invalid API endpoint:** Verify the `MODERNE_AGENT_APIGATEWAYRSOCKETURI` matches the URI provided by Moderne
-* **Invalid authentication token:** Confirm the `MODERNE_AGENT_TOKEN` is correct and has not expired
+* **Invalid API endpoint:** Verify the `MODERNE_CONNECTOR_APIGATEWAYRSOCKETURI` matches the URI provided by Moderne
+* **Invalid authentication token:** Confirm the `MODERNE_CONNECTOR_TOKEN` is correct and has not expired
 * **Network connectivity:** Ensure the Connector can reach the Moderne API endpoint (check firewalls, proxies, and outbound HTTPS access)
 * **SSL/TLS issues:** If using custom certificates, verify they are properly configured in the Java truststore
 
@@ -887,10 +881,10 @@ This allows the Connector to use the host's network stack directly, including it
 
 **Common causes and solutions:**
 
-* **SCM OAuth configuration:** Verify OAuth credentials (`MODERNE_AGENT_GITHUB_0_OAUTH_CLIENTID`, `MODERNE_AGENT_GITHUB_0_OAUTH_CLIENTSECRET`, etc.) are correct
-* **Organization allowlists:** Check that `MODERNE_AGENT_GITHUB_0_ALLOWABLE_ORGANIZATIONS_*` includes all necessary organizations
+* **SCM OAuth configuration:** Verify OAuth credentials (`MODERNE_SCM_GITHUB_0_OAUTH_CLIENTID`, `MODERNE_SCM_GITHUB_0_OAUTH_CLIENTSECRET`, etc.) are correct
+* **Organization allowlists:** Check that `MODERNE_SCM_GITHUB_0_ALLOWABLE_ORGANIZATIONS_*` includes all necessary organizations
 * **OAuth app permissions:** Ensure the OAuth application has been granted access to the repositories (may require organization admin approval)
-* **Private repository access:** Verify `MODERNE_AGENT_GITHUB_0_OAUTH_INCLUDEPRIVATEREPOS=true` is set if accessing private repositories
+* **Private repository access:** Verify `MODERNE_SCM_GITHUB_0_OAUTH_INCLUDEPRIVATEREPOS=true` is set if accessing private repositories
 
 ### Absent LSTs
 
@@ -899,7 +893,7 @@ This allows the Connector to use the host's network stack directly, including it
 **Common causes and solutions:**
 
 * **Artifact repository configuration:** Verify Maven or Artifactory repository settings (URLs, credentials)
-* **AQL filters (Artifactory):** Check that `MODERNE_AGENT_ARTIFACTORY_0_ASTQUERYFILTERS_*` correctly matches your LST artifacts
+* **AQL filters (Artifactory):** Check that `MODERNE_ORGANIZATION_INDEXER_POLL_ARTIFACTORY_0_LSTQUERYFILTERS_*` correctly matches your LST artifacts
 * **Maven indexing:** If using Maven repository configuration, ensure the Maven index is being published and updated regularly
 * **Artifact publication:** Confirm LST artifacts are actually being published to the configured repository
 * **Network access:** Verify the Connector can reach the artifact repository from its network location
@@ -920,13 +914,13 @@ If you want to update the Moderne Connector over time, please follow the instruc
 <Tabs groupId="connector-type">
 <TabItem value="oci-container" label="OCI Container">
 
-If you're running the commands provided in this guide, you should see that the last line of every Connector run command is `moderne-agent:latest`.
+If you're running the commands provided in this guide, you should see that the last line of every Connector run command is `moderne-connector:latest`.
 
 If that's true, then you can rebuild the Connector image and it should pick up the latest version. If you've decided to pin the version to something else instead of `latest`, please see our [releases page](../../../../releases/agent-releases.md) for the versions.
 </TabItem>
 
 <TabItem value="executable-jar" label="Executable JAR">
 
-To update your version of the Executable JAR, change the `{version}` in `java -jar moderne-agent-{version}.jar` to be the latest one on [the releases page](../../../../releases/agent-releases.md).
+To update your version of the Executable JAR, change the `{version}` in `java -jar connector-{version}.jar` to be the latest one on [the releases page](../../../../releases/agent-releases.md).
 </TabItem>
 </Tabs>
