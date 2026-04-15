@@ -70,19 +70,9 @@ cp ~/Downloads/Spring\ Boot\ Migration\ Workshop\ Baseline.yml $WORKSHOP/Worksho
 mod config recipes yaml install $WORKSHOP/WorkshopBaseline.yml
 ```
 
-#### Step 2: Build LSTs, then run the recipe and apply changes
+#### Step 2: Run the recipe and apply changes
 
-1. When you re-synced from the wave-aware CSV in Exercise 2-3, the workspace was restructured into wave directories. The LSTs from the original platform sync are no longer in the expected locations, so you need to rebuild them:
-
-```bash
-mod build $WORKSPACE
-```
-
-:::note
-This command may take a couple of minutes to run as it builds LSTs for each repository.
-:::
-
-2. In this step, you'll run the `com.example.ecom.recipe.SpringBootMigrationWorkshopBaseline` recipe that you just created in the platform and downloaded. When you run a recipe from the CLI, Moderne writes any changes to a patch file and leaves your working tree untouched until you're ready to explicitly apply it. So after you run the recipe, you use `mod git apply` to write the changes into the repos so you can review, test, and commit them:
+Run the `com.example.ecom.recipe.SpringBootMigrationWorkshopBaseline` recipe that you just created in the platform and downloaded. When you run a recipe from the CLI, Moderne writes any changes to a patch file and leaves your working tree untouched until you're ready to explicitly apply it. So after you run the recipe, you use `mod git apply` to write the changes into the repos so you can review, test, and commit them:
 
 ```bash
 mod run $WORKSPACE --recipe com.example.ecom.recipe.SpringBootMigrationWorkshopBaseline
@@ -506,6 +496,5 @@ MOD SUCCEEDED in 1m 18s
 ## Takeaways
 
 * Establishing a shared baseline reduces variance so later upgrades focus on fewer, clearer changes.
-* Build → run recipe → apply → review → commit becomes the repeatable flow for every wave.
-* LSTs are required for reliable recipe runs, so each new workspace needs a build step first.
+* Run recipe → apply → review → commit becomes the repeatable flow for every wave.
 * Build and release steps keep downstream repositories in sync as you move through the waves.
