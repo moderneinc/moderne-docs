@@ -394,7 +394,23 @@ const agentTools = {
     'user-documentation/agent-tools/prethink',
     'user-documentation/agent-tools/trigrep',
     'user-documentation/agent-tools/skills',
-    'user-documentation/agent-tools/mcp',
+    {
+      type: 'category' as const,
+      label: 'Moderne MCP',
+      link: {
+        type: 'generated-index' as const,
+        title: 'Moderne MCP',
+        description: 'Give AI coding agents tools for semantic code search, navigation, and refactoring with the Moderne MCP server.',
+        slug: '/user-documentation/agent-tools/mcp',
+        keywords: ['mcp', 'model context protocol', 'security', 'architecture'],
+      },
+      items: [
+        'user-documentation/agent-tools/mcp/overview',
+        'user-documentation/agent-tools/mcp/getting-started',
+        'user-documentation/agent-tools/mcp/tool-browser',
+        'user-documentation/agent-tools/mcp/security',
+      ],
+    },
   ],
 };
 
