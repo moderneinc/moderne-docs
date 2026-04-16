@@ -692,7 +692,7 @@ The agent configuration includes a table of available context types with descrip
 
 ## Incremental Prethink via MCP
 
-When using the [Moderne MCP server](./mcp.md), AI coding agents can use the `run_recipe` tool to run Prethink recipes and incrementally regenerate context as they edit code. Rather than treating Prethink as a one-time setup step, agents can re-run Prethink after making changes to get updated quality metrics, test gap analysis, and code smell detection reflecting their modifications.
+When using the [Moderne MCP server](./mcp/overview.md), AI coding agents can use the `run_recipe` tool to run Prethink recipes and incrementally regenerate context as they edit code. Rather than treating Prethink as a one-time setup step, agents can re-run Prethink after making changes to get updated quality metrics, test gap analysis, and code smell detection reflecting their modifications.
 
 This creates a feedback loop: the agent writes code, regenerates Prethink context, reads the updated quality metrics, and refactors based on what it finds. For example, if an agent introduces a God Class while implementing a feature, the next Prethink run surfaces it immediately so the agent can split the class before moving on.
 

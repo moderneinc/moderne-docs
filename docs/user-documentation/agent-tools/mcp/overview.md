@@ -1,11 +1,11 @@
 ---
-sidebar_label: Moderne MCP
-description: Give AI coding agents tools for semantic code search, navigation, and refactoring with the Moderne MCP server.
+sidebar_label: Overview
+description: Learn what the Moderne MCP server provides to AI coding agents and what tools are available.
 ---
 
 # Moderne MCP server
 
-The Moderne CLI includes a [Model Context Protocol (MCP)](https://modelcontextprotocol.io/) server that gives AI coding agents tools for semantic code search, navigation, and refactoring. While [skills](./skills.md) teach agents *how* to work with recipes, the MCP server gives agents direct access to these tools, backed by OpenRewrite's [Lossless Semantic Tree (LST)](../../administrator-documentation/moderne-platform/references/lossless-semantic-trees.md) and [Moderne Trigrep](./trigrep.md).
+The Moderne CLI includes a [Model Context Protocol (MCP)](https://modelcontextprotocol.io/) server that gives AI coding agents tools for semantic code search, navigation, and refactoring. While [skills](../skills.md) teach agents *how* to work with recipes, the MCP server gives agents direct access to these tools, backed by OpenRewrite's [Lossless Semantic Tree (LST)](../../../administrator-documentation/moderne-platform/references/lossless-semantic-trees.md) and [Moderne Trigrep](../trigrep.md).
 
 ## Why use the Moderne MCP server
 
@@ -27,8 +27,8 @@ The MCP server **must be started from within a git repository**. If the working 
 
 When the MCP server starts, it builds two things in the background:
 
-1. **[Moderne Trigrep](./trigrep.md)**: a pre-computed trigram index that enables sub-second text search across the entire repository. This powers the `trigrep_search` and `trigrep_structural_search` tools.
-2. **[LSTs (Lossless Semantic Trees)](../../administrator-documentation/moderne-platform/references/lossless-semantic-trees.md)**: a type-attributed tree representation of your source code that enables semantic tools like `find_types`, `find_methods`, `change_type`, and recipe execution.
+1. **[Moderne Trigrep](../trigrep.md)**: a pre-computed trigram index that enables sub-second text search across the entire repository. This powers the `trigrep_search` and `trigrep_structural_search` tools.
+2. **[LSTs (Lossless Semantic Trees)](../../../administrator-documentation/moderne-platform/references/lossless-semantic-trees.md)**: a type-attributed tree representation of your source code that enables semantic tools like `find_types`, `find_methods`, `change_type`, and recipe execution.
 
 Tools become available progressively as each build completes. You can check their progress with the `build_status` and `lst_status` tools.
 
@@ -38,8 +38,8 @@ The MCP server exposes the following tools:
 
 ### Indexed search
 
-| Tool                | Description                                                                                                                                                                                                                                                                                      |
-|---------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Tool                        | Description                                                                                                                                                                                                                                                                                      |
+|-----------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `trigrep_search`            | Searches the codebase using a pre-built trigram index. Faster than grep/ripgrep because it uses indexed search, returning results in milliseconds regardless of repo size. Supports plain text, regex, and filters (`lang:`, `file:`).                                                           |
 | `trigrep_structural_search` | Searches using [Comby](https://comby.dev/) structural matching over the trigram index. Use this when you need to find code patterns that span multiple tokens or lines, such as method signatures, call patterns, or control flow. Uses `:[hole]` placeholders that respect balanced delimiters. |
 
@@ -83,84 +83,6 @@ The MCP server exposes the following tools:
   <figcaption>_The tool browser showing all available MCP tools_</figcaption>
 </figure>
 
-## Installation
-
-The following command installs both skills and the MCP server configuration for all detected coding agents:
-
-```bash
-mod config agent-tools install
-```
-
-This registers the MCP server with each detected agent so it starts automatically when the agent opens your project. The CLI handles the configuration details for each agent. For example, it runs `claude mcp add` for Claude Code and writes to `~/.cursor/mcp.json` for Cursor.
-
-To remove the MCP server configuration along with skills:
-
-```bash
-mod config agent-tools uninstall
-```
-
-### Per-agent installation
-
-If you only want to install agent tools for a specific coding agent, use the per-agent subcommands:
-
-```bash
-mod config agent-tools claude install
-mod config agent-tools cursor install
-mod config agent-tools copilot install
-```
-
-Each per-agent command installs both skills and the MCP server for that agent only. If the agent is not detected on your system, the command displays a message and exits without making changes.
-
-The available per-agent subcommands are: `claude`, `windsurf`, `cursor`, `copilot`, `amp`, and `codex`.
-
-To install only skills (without the MCP server) for all detected agents:
-
-```bash
-mod config agent-tools skills install
-```
-
-### Supported agents
-
-| Agent           | MCP support | Skills support | MCP configuration                                   |
-|-----------------|-------------|----------------|-----------------------------------------------------|
-| Claude Code     | Yes         | Yes            | Registered via `claude mcp add`                     |
-| Windsurf        | Yes         | Yes            | `~/.codeium/windsurf/mcp_config.json`               |
-| Cursor          | Yes         | Yes            | `~/.cursor/mcp.json`                                |
-| GitHub Copilot  | Yes         | Yes            | `.vscode/mcp.json` and `~/.copilot/mcp-config.json` |
-| Sourcegraph Amp | Yes         | Yes            | Registered via `amp mcp add`                        |
-| OpenAI Codex    | Yes         | Yes            | Registered via `codex mcp add`                      |
-
-## Tool browser
-
-The Moderne CLI includes an optional tool browser, a browser-based dashboard for monitoring LST builds and exploring available tools. To enable it:
-
-```bash
-mod config features agent-tools tray --enabled
-```
-
-Once enabled, the MCP server launches a system tray icon when an agent starts. Click it to see the status of your projects, then click **Tool Browser...** to open the dashboard.
-
-<figure>
-  ![The Moderne system tray icon showing project build status](./assets/mcp-tray-icon.png)
-  <figcaption>_The system tray icon showing project status_</figcaption>
-</figure>
-
-The dashboard shows:
-
-* **Project cards** with build status, file counts, and tool call metrics
-* **Build logs** with parse timing details
-* **Tool execution** for testing tools directly from the browser
-
-<figure>
-  ![The Moderne Agent Tools dashboard showing project cards with build status, file counts, and tool call metrics](./assets/mcp-dashboard.png)
-  <figcaption>_The tool browser dashboard with project status cards_</figcaption>
-</figure>
-
-<figure>
-  ![The Moderne Agent Tools dashboard showing build logs and parse time scatter chart](./assets/mcp-dashboard-detail.png)
-  <figcaption>_Build logs and parse timing details for a selected project_</figcaption>
-</figure>
-
 ## Skills vs MCP
 
 Skills and the MCP server are complementary:
@@ -176,5 +98,8 @@ For the best experience, install both. Skills teach agents the recipe developmen
 
 ## Next steps
 
-* [Install skills for AI coding agents](./skills.md)
-* [Learn about Moderne Prethink](./prethink.md) for giving agents pre-resolved codebase context
+* [Install the MCP server](./getting-started.md) for your AI coding agent
+* [Set up the tool browser](./tool-browser.md) to monitor builds and test tools
+* [Review the security architecture](./security.md) for compliance and IT review
+* [Install skills for AI coding agents](../skills.md)
+* [Learn about Moderne Prethink](../prethink.md) for giving agents pre-resolved codebase context
