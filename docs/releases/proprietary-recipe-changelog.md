@@ -3377,9 +3377,3 @@ Republishing to update dependencies
 
 Initial release.
 
-## April 15, 2025
-
-#### rewrite-codemods-ng - 0.8.2
-
-* fix: update install command with proper --ignore-scripts
-
