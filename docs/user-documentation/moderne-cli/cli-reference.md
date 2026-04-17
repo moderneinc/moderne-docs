@@ -780,7 +780,7 @@ mod config agent-tools install
 Creates or updates Moderne agent tools for coding agents.
 
 
-Installs agent tools to all detected coding agents (Claude Code, Windsurf, Cursor, GitHub Copilot, GitHub Copilot CLI, Sourcegraph Amp, OpenAI Codex).
+Installs skills (run-recipe, create-recipe, create-organization, analyze-impact) and registers the Moderne MCP server for all detected coding agents (Claude Code, Windsurf, Cursor, GitHub Copilot, GitHub Copilot CLI, Sourcegraph Amp, OpenAI Codex). Safe to run multiple times — existing installations are updated in place.
 
 ### Usage
 
@@ -801,7 +801,7 @@ mod config agent-tools install
 Removes Moderne agent tools from coding agents.
 
 
-Uninstalls agent tools from all detected coding agents (Claude Code, Windsurf, Cursor, GitHub Copilot, GitHub Copilot CLI, Sourcegraph Amp, OpenAI Codex).
+Removes skills and unregisters the Moderne MCP server from all detected coding agents (Claude Code, Windsurf, Cursor, GitHub Copilot, GitHub Copilot CLI, Sourcegraph Amp, OpenAI Codex).
 
 ### Usage
 
@@ -822,7 +822,7 @@ mod config agent-tools uninstall
 Manage Moderne skills for coding agents.
 
 
-Install or remove Moderne skills (run-recipe, create-recipe, create-organization, analyze-impact) for all detected coding agents.
+Install or remove only the Moderne skills (run-recipe, create-recipe, create-organization, analyze-impact) for all detected coding agents, without modifying MCP server registrations. Use 'mod config agent-tools install' to install both skills and the MCP server together.
 
 ### Usage
 
@@ -847,6 +847,8 @@ mod config agent-tools skills install
 Install Moderne skills to all detected coding agents.
 
 
+Installs only the skills (run-recipe, create-recipe, create-organization, analyze-impact) to all detected coding agents without registering the MCP server. Use 'mod config agent-tools install' to install both skills and the MCP server together.
+
 ### Usage
 
 ```
@@ -866,6 +868,8 @@ mod config agent-tools skills install
 Remove Moderne skills from all detected coding agents.
 
 
+Removes only the skills from all detected coding agents without unregistering the MCP server.
+
 ### Usage
 
 ```
@@ -884,6 +888,8 @@ mod config agent-tools skills uninstall
 
 Manage Moderne agent tools for Claude Code.
 
+
+Installs skills as a Claude Code plugin under ~/.claude/marketplaces/moderne/ and registers the MCP server via the 'claude' CLI.
 
 ### Usage
 
@@ -908,6 +914,8 @@ mod config agent-tools claude install
 Install Moderne agent tools for Claude Code.
 
 
+Installs skills (run-recipe, create-recipe, create-organization, analyze-impact) as a Claude Code plugin and registers the Moderne MCP server via the 'claude' CLI. Safe to run multiple times.
+
 ### Usage
 
 ```
@@ -927,6 +935,8 @@ mod config agent-tools claude install
 Remove Moderne agent tools from Claude Code.
 
 
+Removes skills and unregisters the Moderne MCP server from Claude Code.
+
 ### Usage
 
 ```
@@ -945,6 +955,8 @@ mod config agent-tools claude uninstall
 
 Manage Moderne agent tools for Windsurf.
 
+
+Installs skills under ~/.codeium/windsurf/skills/ and registers the MCP server in ~/.codeium/windsurf/mcp_config.json.
 
 ### Usage
 
@@ -969,6 +981,8 @@ mod config agent-tools windsurf install
 Install Moderne agent tools for Windsurf.
 
 
+Installs skills (run-recipe, create-recipe, create-organization, analyze-impact) under ~/.codeium/windsurf/skills/ and registers the Moderne MCP server in ~/.codeium/windsurf/mcp_config.json. Safe to run multiple times.
+
 ### Usage
 
 ```
@@ -988,6 +1002,8 @@ mod config agent-tools windsurf install
 Remove Moderne agent tools from Windsurf.
 
 
+Removes skills and unregisters the Moderne MCP server from Windsurf.
+
 ### Usage
 
 ```
@@ -1006,6 +1022,8 @@ mod config agent-tools windsurf uninstall
 
 Manage Moderne agent tools for Cursor.
 
+
+Installs skills as .mdc rule files in .cursor/rules/ and registers the MCP server in ~/.cursor/mcp.json.
 
 ### Usage
 
@@ -1030,6 +1048,8 @@ mod config agent-tools cursor install
 Install Moderne agent tools for Cursor.
 
 
+Installs skills (run-recipe, create-recipe, create-organization, analyze-impact) as .mdc rule files in .cursor/rules/ and registers the Moderne MCP server in ~/.cursor/mcp.json. Safe to run multiple times.
+
 ### Usage
 
 ```
@@ -1048,6 +1068,8 @@ mod config agent-tools cursor install
 
 Remove Moderne agent tools from Cursor.
 
+
+Removes skills and unregisters the Moderne MCP server from Cursor.
 
 ### Usage
 
@@ -1093,6 +1115,8 @@ mod config agent-tools copilot install
 Install Moderne agent tools for GitHub Copilot.
 
 
+Installs skills (run-recipe, create-recipe, create-organization, analyze-impact) as instruction files in .github/instructions/ and registers the Moderne MCP server in both .vscode/mcp.json and ~/.copilot/mcp-config.json. Safe to run multiple times.
+
 ### Usage
 
 ```
@@ -1112,6 +1136,8 @@ mod config agent-tools copilot install
 Remove Moderne agent tools from GitHub Copilot.
 
 
+Removes skills and unregisters the Moderne MCP server from GitHub Copilot.
+
 ### Usage
 
 ```
@@ -1130,6 +1156,8 @@ mod config agent-tools copilot uninstall
 
 Manage Moderne agent tools for Sourcegraph Amp.
 
+
+Installs skills under ~/.config/agents/skills/ and registers the MCP server via the 'amp' CLI.
 
 ### Usage
 
@@ -1154,6 +1182,8 @@ mod config agent-tools amp install
 Install Moderne agent tools for Sourcegraph Amp.
 
 
+Installs skills (run-recipe, create-recipe, create-organization, analyze-impact) under ~/.config/agents/skills/ and registers the Moderne MCP server via the 'amp' CLI. Safe to run multiple times.
+
 ### Usage
 
 ```
@@ -1173,6 +1203,8 @@ mod config agent-tools amp install
 Remove Moderne agent tools from Sourcegraph Amp.
 
 
+Removes skills and unregisters the Moderne MCP server from Sourcegraph Amp.
+
 ### Usage
 
 ```
@@ -1191,6 +1223,8 @@ mod config agent-tools amp uninstall
 
 Manage Moderne agent tools for OpenAI Codex.
 
+
+Installs skills under ~/.agents/skills/ and registers the MCP server via the 'codex' CLI.
 
 ### Usage
 
@@ -1215,6 +1249,8 @@ mod config agent-tools codex install
 Install Moderne agent tools for OpenAI Codex.
 
 
+Installs skills (run-recipe, create-recipe, create-organization, analyze-impact) under ~/.agents/skills/ and registers the Moderne MCP server via the 'codex' CLI. Safe to run multiple times.
+
 ### Usage
 
 ```
@@ -1233,6 +1269,8 @@ mod config agent-tools codex install
 
 Remove Moderne agent tools from OpenAI Codex.
 
+
+Removes skills and unregisters the Moderne MCP server from OpenAI Codex.
 
 ### Usage
 

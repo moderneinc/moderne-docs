@@ -7,7 +7,7 @@ description: The current version of the Moderne CLI and links to useful CLI docu
 
 | Component   | Current version |
 | ----------- | --------------- |
-| CLI version | 4.1.4           |
+| CLI version | 4.1.5           |
 
 For CLI command documentation, see the [CLI reference](../user-documentation/moderne-cli/cli-reference.md).
 
@@ -16,6 +16,20 @@ The Moderne CLI previously followed a two-track release model with separate "sta
 :::
 
 ## Changelog
+
+### CLI / DX v4.1.5 (2026-04-17)
+
+#### What's Changed
+* When building a JavaScript project perform `npm install` as a fallback if lock file is not in sync
+* Fix metrics reporting for subset of Gradle builds
+* Fix intermingled file paths during mod build with included builds
+* Buildstep metrics to be reported per step
+* Set `ThreadContextClassLoader` on new threads created
+* Add detailed descriptions to agent-tools command docs
+* Fix repos with empty org columns invisible after sync
+* Auto-select datatable on exact --data-table match
+* Check branch existence before checkout during sync
+* Gate MCP side-channel HTTP server behind agentToolsTray flag
 
 ### CLI / DX v4.1.4 (2026-04-14)
 
