@@ -170,3 +170,35 @@ build:
       inclusion: |-
         **/*
 ```
+
+### Continuing the build when a step fails
+
+By default, if a build step throws an exception, the CLI stops the build pipeline for that partition, records the error, and skips any remaining steps. This is the safest behavior because subsequent steps may depend on the output of previous ones, and a partial build can hide upstream problems.
+
+In some situations, you may prefer the pipeline to keep going so that later steps still get a chance to parse the files they handle. For example, if a Gradle project fails to configure due to a missing property, you may still want the `resource` step to parse the repository's YAML, JSON, and properties files so that recipes targeting those file types can run.
+
+To enable this behavior, set `continueOnError: true` on the step. When the step fails, the failure is logged and the CLI continues with the next step in the pipeline. Any files that the failed step would have claimed are left unclaimed and become available to subsequent steps (such as a trailing `resource` step).
+
+`continueOnError` is a per-step option only — there is no global setting that applies it to every step at once. If you want this behavior on multiple steps, you will need to set `continueOnError: true` on each one individually.
+
+:::warning
+The value must be a YAML boolean (`true` or `false`), not a string. Quoting the value (for example, `continueOnError: "true"`) is silently treated as `false`, and no error is reported. Always write the value unquoted.
+:::
+
+```yaml
+specs: specs.moderne.ai/v1/cli
+build:
+  steps:
+    - type: gradle
+      continueOnError: true
+    - type: maven
+    - type: resource
+      inclusion: |-
+        **/*
+```
+
+In this example, a Gradle failure no longer halts the build. The `maven` step still runs, and the trailing `resource` step picks up any files that were not parsed by the earlier steps.
+
+:::info
+`continueOnError` only affects whether the pipeline continues after a failure. It does not retry the failed step or recover the LSTs that the step would have produced. The repository will still be missing type-attributed LSTs for any source set the failed step was responsible for.
+:::
