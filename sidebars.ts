@@ -76,7 +76,6 @@ const platform = {
           'user-documentation/moderne-platform/how-to-guides/how-to-find-method-invocations-based-on-a-pattern',
           'user-documentation/moderne-platform/how-to-guides/how-to-gain-a-high-level-overview-of-your-codebase-using-clustering',
           'user-documentation/moderne-platform/how-to-guides/writing-and-installing-recipes',
-          'user-documentation/moderne-platform/how-to-guides/categorize-recipes',
         ],
       },
       {
@@ -175,6 +174,7 @@ const platform = {
           'administrator-documentation/moderne-platform/how-to-guides/org-service',
           'administrator-documentation/moderne-platform/how-to-guides/create-visualization',
           'administrator-documentation/moderne-platform/how-to-guides/importing-external-recipes',
+          'administrator-documentation/moderne-platform/how-to-guides/categorize-recipes',
           'administrator-documentation/moderne-platform/how-to-guides/lst-cleanup',
           'administrator-documentation/moderne-platform/how-to-guides/troubleshooting-lst-issues',
           'administrator-documentation/moderne-platform/how-to-guides/analyzing-build-failures',
