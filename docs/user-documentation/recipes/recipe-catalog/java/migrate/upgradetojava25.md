@@ -45,7 +45,7 @@ This recipe is available under the [Moderne Source Available License](https://do
 **Recipes**
 
 * [Migrate to Java 21](../../java/migrate/upgradetojava21)
-* [Upgrade build to Java 24 for Kotlin &lt;2.3](../../java/migrate/upgradebuildtojava24)
+* [Upgrade build to Java 24 for Kotlin pre-2.3](../../java/migrate/upgradebuildtojava24)
 * [Upgrade build to Java 25 (default)](../../java/migrate/upgradebuildtojava25)
 * [Upgrade plugins to Java 25 compatible versions](../../java/migrate/upgradepluginsforjava25)
 * [Migrate `System.out.print` to Java 25 IO utility class](../../java/migrate/io/replacesystemoutwithioprint)

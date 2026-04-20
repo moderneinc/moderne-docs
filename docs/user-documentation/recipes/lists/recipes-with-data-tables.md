@@ -1101,6 +1101,66 @@ _This doc contains all of the recipes with **unique** data tables that have been
 
 
 
+### rewrite-release-metromap
+
+#### [io.moderne.recipe.releasemetro.FindGradleParentRelationships](/user-documentation/recipes/recipe-catalog/recipe/releasemetro/findgradleparentrelationships.md)
+  * **Find Gradle project hierarchy relationships**
+  * Find Gradle parent-child project relationships in multi-project builds to understand project hierarchies.
+
+##### Data tables:
+
+  * **io.moderne.recipe.releasemetro.table.ParentRelationships**: *Relationships between child projects and their parent POMs or Gradle parent projects.*
+
+
+#### [io.moderne.recipe.releasemetro.FindGradleProjectIDs](/user-documentation/recipes/recipe-catalog/recipe/releasemetro/findgradleprojectids.md)
+  * **Find Gradle project IDs**
+  * Find Gradle project IDs in build.gradle files to determine the project ID.
+
+##### Data tables:
+
+  * **io.moderne.recipe.releasemetro.table.ProjectCoordinates**: *Maven Modules or Gradle (sub-)project groupId and artifactId.*
+
+
+#### [io.moderne.recipe.releasemetro.FindMavenParentRelationships](/user-documentation/recipes/recipe-catalog/recipe/releasemetro/findmavenparentrelationships.md)
+  * **Find Maven parent relationships**
+  * Find Maven parent POM relationships to understand project hierarchies in multi-module builds.
+
+##### Data tables:
+
+  * **io.moderne.recipe.releasemetro.table.ParentRelationships**: *Relationships between child projects and their parent POMs or Gradle parent projects.*
+
+
+#### [io.moderne.recipe.releasemetro.FindMavenProjectIDs](/user-documentation/recipes/recipe-catalog/recipe/releasemetro/findmavenprojectids.md)
+  * **Find maven project IDs**
+  * Find Maven group Id and artifactId in pom.xml files to determine the project ID.
+
+##### Data tables:
+
+  * **io.moderne.recipe.releasemetro.table.ProjectCoordinates**: *Maven Modules or Gradle (sub-)project groupId and artifactId.*
+
+
+#### [io.moderne.recipe.releasemetro.FindPotentiallyUnusedDependencies](/user-documentation/recipes/recipe-catalog/recipe/releasemetro/findpotentiallyunuseddependencies.md)
+  * **Find potentially unused dependencies**
+  * Collects import information to help identify potentially unused dependencies.
+
+##### Data tables:
+
+  * **io.moderne.recipe.releasemetro.table.UnusedDependencies**: *Dependencies that are declared in build files but may not be used based on import analysis.*
+
+
+#### [io.moderne.recipe.releasemetro.ReleaseMetroPlan](/user-documentation/recipes/recipe-catalog/recipe/releasemetro/releasemetroplan.md)
+  * **Analyse Organization's Release Train Metro Plan**
+  * Gathers the basic information to create and understand the organizations release train metro plan.
+
+##### Data tables:
+
+  * **io.moderne.recipe.releasemetro.table.ProjectCoordinates**: *Maven Modules or Gradle (sub-)project groupId and artifactId.*
+  * **io.moderne.recipe.releasemetro.table.ParentRelationships**: *Relationships between child projects and their parent POMs or Gradle parent projects.*
+  * **io.moderne.recipe.releasemetro.table.UnusedDependencies**: *Dependencies that are declared in build files but may not be used based on import analysis.*
+  * **org.openrewrite.maven.table.DependenciesInUse**: *Direct and transitive dependencies in use.*
+
+
+
 ### rewrite-spring
 
 #### [io.moderne.java.spring.boot3.SpringBoot3BestPractices](/user-documentation/recipes/recipe-catalog/java/spring/boot3/springboot3bestpractices.md)
@@ -1297,6 +1357,15 @@ _This doc contains all of the recipes with **unique** data tables that have been
   * **org.openrewrite.table.SourcesFiles**: *Source files that matched some criteria.*
 
 
+#### [org.openrewrite.FindStyles](/user-documentation/recipes/recipe-catalog/core/findstyles.md)
+  * **Find styles**
+  * Find and report the styles attached to each source file. Styles are output as valid OpenRewrite style YAML that can be used directly in rewrite.yml configuration.
+
+##### Data tables:
+
+  * **org.openrewrite.table.StylesInUse**: *Styles detected on each source file.*
+
+
 #### [org.openrewrite.ListRuntimeClasspath](/user-documentation/recipes/recipe-catalog/core/listruntimeclasspath.md)
   * **List runtime classpath**
   * A diagnostic utility which emits the runtime classpath to a data table.
@@ -1432,7 +1501,7 @@ _This doc contains all of the recipes with **unique** data tables that have been
 
 #### [org.openrewrite.gradle.GradleBestPractices](/user-documentation/recipes/recipe-catalog/gradle/gradlebestpractices.md)
   * **Apply Gradle best practices**
-  * Apply a set of [Gradle best practices](https://docs.gradle.org/current/userguide/best_practices_general.html) to the build files, for more efficient and ideomatic builds.
+  * Apply a set of [Gradle best practices](https://docs.gradle.org/current/userguide/best_practices_general.html) to the build files, for more efficient and idiomatic builds.
 
 ##### Data tables:
 
