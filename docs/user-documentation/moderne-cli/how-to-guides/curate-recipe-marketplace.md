@@ -3,7 +3,7 @@ sidebar_label: Curating the recipe marketplace
 description: Learn how to expose a smaller, curated subset of recipes to your developers using the CLI.
 ---
 
-# How to curate the recipe marketplace
+# Curating the recipe marketplace
 
 The full OpenRewrite and Moderne catalog is deliberately broad. `mod config recipes search` and `mod config recipes export` surface every top-level recipe, building block, and alternative version the catalog offers, which is exactly what you want when you are exploring what is possible, composing your own recipes, or building expertise with the ecosystem.
 

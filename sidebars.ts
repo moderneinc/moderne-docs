@@ -333,6 +333,7 @@ const cli = {
         'user-documentation/moderne-cli/how-to-guides/cli-wrapper',
         'user-documentation/moderne-cli/how-to-guides/cli-dev-center',
         'user-documentation/moderne-cli/how-to-guides/cli-prethink',
+        'user-documentation/moderne-cli/how-to-guides/curate-recipe-marketplace',
         'user-documentation/moderne-cli/how-to-guides/javascript',
         'user-documentation/moderne-cli/how-to-guides/python',
         'user-documentation/moderne-cli/how-to-guides/parallelism',
