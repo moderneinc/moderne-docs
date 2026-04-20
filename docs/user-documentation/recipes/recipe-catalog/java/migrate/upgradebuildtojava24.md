@@ -1,5 +1,5 @@
 ---
-sidebar_label: "Upgrade build to Java 24 for Kotlin &lt;2.3"
+sidebar_label: "Upgrade build to Java 24 for Kotlin pre-2.3"
 ---
 
 
@@ -11,7 +11,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import RunRecipe from '@site/src/components/RunRecipe';
 
-# Upgrade build to Java 24 for Kotlin &lt;2.3
+# Upgrade build to Java 24 for Kotlin pre-2.3
 
 **org.openrewrite.java.migrate.UpgradeBuildToJava24**
 
@@ -50,7 +50,7 @@ This recipe is available under the [Moderne Source Available License](https://do
 ---
 type: specs.openrewrite.org/v1beta/recipe
 name: org.openrewrite.java.migrate.UpgradeBuildToJava24
-displayName: Upgrade build to Java 24 for Kotlin &lt;2.3
+displayName: Upgrade build to Java 24 for Kotlin pre-2.3
 description: |
   Kotlin versions before 2.3 only support up to Java 24.
 preconditions:
@@ -77,7 +77,7 @@ This recipe is used as part of the following composite recipes:
 
 <RunRecipe
   recipeName="org.openrewrite.java.migrate.UpgradeBuildToJava24"
-  displayName="Upgrade build to Java 24 for Kotlin &lt;2.3"
+  displayName="Upgrade build to Java 24 for Kotlin pre-2.3"
   groupId="org.openrewrite.recipe"
   artifactId="rewrite-migrate-java"
   versionKey="VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_MIGRATE_JAVA"

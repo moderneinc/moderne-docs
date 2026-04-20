@@ -19,48 +19,12 @@ _`StringUtils#isEmpty(Object)` was deprecated in 5.3._
 
 ## Recipe source
 
-[GitHub: spring-framework-53.yml](https://github.com/openrewrite/rewrite-spring/blob/main/src/main/resources/META-INF/rewrite/spring-framework-53.yml),
+[GitHub: UseObjectUtilsIsEmpty.java](https://github.com/openrewrite/rewrite-spring/blob/main/src/main/java/org/openrewrite/java/spring/framework/UseObjectUtilsIsEmpty.java),
 [Issue Tracker](https://github.com/openrewrite/rewrite-spring/issues),
 [Maven Central](https://central.sonatype.com/artifact/org.openrewrite.recipe/rewrite-spring/)
 
 This recipe is available under the [Moderne Source Available License](https://docs.moderne.io/licensing/moderne-source-available-license).
 
-
-## Definition
-
-<Tabs groupId="recipeType">
-<TabItem value="recipe-list" label="Recipe List" >
-**Preconditions**
-
-* [Singleton](../../../core/singleton)
-
-**Recipes**
-
-* [Change method target to static](../../../java/changemethodtargettostatic)
-  * methodPattern: `org.springframework.util.StringUtils isEmpty(Object)`
-  * fullyQualifiedTargetTypeName: `org.springframework.util.ObjectUtils`
-
-</TabItem>
-
-<TabItem value="yaml-recipe-list" label="Yaml Recipe List">
-
-```yaml
----
-type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.java.spring.framework.UseObjectUtilsIsEmpty
-displayName: Use `ObjectUtils#isEmpty(Object)`
-description: |
-  `StringUtils#isEmpty(Object)` was deprecated in 5.3.
-preconditions:
-  - org.openrewrite.Singleton
-recipeList:
-  - org.openrewrite.java.ChangeMethodTargetToStatic:
-      methodPattern: org.springframework.util.StringUtils isEmpty(Object)
-      fullyQualifiedTargetTypeName: org.springframework.util.ObjectUtils
-
-```
-</TabItem>
-</Tabs>
 
 ## Used by
 

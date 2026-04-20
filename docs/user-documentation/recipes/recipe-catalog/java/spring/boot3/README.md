@@ -80,6 +80,7 @@ _Recipes that include further recipes, often including the individual recipes be
 * [Remove Spring Boot 3.5 deprecated conditions](./removedeprecatedconditions.md)
 * [Remove `TestRestTemplate.HttpClientOption.ENABLE_REDIRECTS` option](./removetestresttemplateenableredirectsoptionrecipe.md)
 * [Remove Unnecessary `@ConstructorBinding`](./removeconstructorbindingannotation.md)
+* [Rename `logback.xml` to `logback-spring.xml`](./renamelogbacktologbackspring.md)
 * [Rename `server.max-http-header-size` to `server.max-http-request-header-size`](./migratemaxhttpheadersize.md)
 * [Replace ConditionOutcome.inverse() with constructor](./replaceconditionaloutcomeinverse.md)
 * [Replace `RestTemplateBuilder.requestFactory(Function)` with `requestFactoryBuilder`](./replaceresttemplatebuilderrequestfactorymethod.md)

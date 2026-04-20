@@ -39,6 +39,7 @@ _Recipes that include further recipes, often including the individual recipes be
 ## Recipes
 
 * [Add missing `@Configuration` annotation](./addconfigurationannotationifbeanspresent.md)
+* [Add `spring-boot-starter-validation` if needed](./addspringbootstartervalidation.md)
 * [Adds `@DependsOnDatabaseInitialization` to Spring Beans and Components depending on `javax.sql.DataSource`](./databasecomponentandbeaninitializationordering.md)
 * [Adjust configuration classes to use the `WebServerFactoryCustomizer` interface](./changeembeddedservletcontainercustomizer.md)
 * [Convert `HeadersConfigurer` chained calls into Lambda DSL](./headersconfigurerlambdadsl.md)

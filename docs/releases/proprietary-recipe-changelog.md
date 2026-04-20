@@ -10,6 +10,23 @@ This page contains release notes for [Moderne proprietary OpenRewrite recipes](h
 This changelog is automatically generated from GitHub releases and only contains information from the past year.
 :::
 
+## April 20, 2026
+
+#### rewrite-angular - 1.1.1
+
+* Don't upgrade angular-build separately
+
+## April 16, 2026
+
+#### rewrite-hibernate - 0.21.1
+
+* Add `@Query` to `@NativeQuery` migration and enum parameter search
+
+#### rewrite-spring - 0.30.2
+
+* Skip Kotlin sources in NullableSpringWebParameters
+* Bumps OSS `rewrite-spring` to 6.29.2 and `rewrite-hibernate` to 0.21.1
+
 ## April 11, 2026
 
 #### rewrite-devcenter - 1.22.0
@@ -3370,10 +3387,4 @@ Republishing to update dependencies
 #### rewrite-terraform - 3.2.0
 
 * refactor: Extract documentation examples from tests
-
-## April 18, 2025
-
-#### rewrite-devcenter - 0.1.0
-
-Initial release.
 

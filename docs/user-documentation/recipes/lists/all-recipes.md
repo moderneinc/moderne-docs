@@ -6,7 +6,7 @@ description: A comprehensive list of all recipes organized by module.
 
 _This doc contains all recipes grouped by their module._
 
-Total recipes: 5897
+Total recipes: 5995
 
 
 ## io.moderne.recipe
@@ -2317,7 +2317,7 @@ _11 recipes_
 
 _License: Moderne Proprietary License_
 
-_35 recipes_
+_37 recipes_
 
 * [io.moderne.hibernate.MigrateToHibernate40](/user-documentation/recipes/recipe-catalog/hibernate/migratetohibernate40.md)
   * **Migrate to Hibernate 4.0.x**
@@ -2367,6 +2367,9 @@ _35 recipes_
 * [io.moderne.hibernate.update70.CompositeUserTypeSessionFactoryImplementor](/user-documentation/recipes/recipe-catalog/hibernate/update70/compositeusertypesessionfactoryimplementor.md)
   * **Remove leaking of SessionFactoryImplementor from `org.hibernate.usertype.CompositeUserType` invocations and implementations**
   * Remove leaking of SessionFactoryImplementor from `org.hibernate.usertype.CompositeUserType` invocations and implementations.
+* [io.moderne.hibernate.update70.FindNativeQueryRawEnumParameters](/user-documentation/recipes/recipe-catalog/hibernate/update70/findnativequeryrawenumparameters.md)
+  * **Find native queries with enum parameters requiring SpEL conversion**
+  * When using `@NativeQuery` or `@Query(nativeQuery = true)`, enum parameters are not automatically converted by JPA. This recipe finds native queries with raw enum bind parameters that need SpEL expressions like `:#\{#status.name()\}` or `:#\{#status.ordinal()\}` depending on how the enum is persisted.
 * [io.moderne.hibernate.update70.MigrateConfigurableToGeneratorCreationContext](/user-documentation/recipes/recipe-catalog/hibernate/update70/migrateconfigurabletogeneratorcreationcontext.md)
   * **Migrate `Configurable.configure()` to use `GeneratorCreationContext`**
   * In Hibernate 7.0, `Configurable.configure()` now takes a `GeneratorCreationContext` parameter instead of `ServiceRegistry`. This recipe migrates method signatures and call sites.
@@ -2391,6 +2394,9 @@ _35 recipes_
 * [io.moderne.hibernate.update70.MigrateNaturalIdMultiLoadAccess](/user-documentation/recipes/recipe-catalog/hibernate/update70/migratenaturalidmultiloadaccess.md)
   * **Migrate NaturalIdMultiLoadAccess method calls**
   * Migrates NaturalIdMultiLoadAccess#compoundValue(Object...) to Map.of(...) variants for Hibernate 7.0.
+* [io.moderne.hibernate.update70.MigrateQueryToNativeQuery](/user-documentation/recipes/recipe-catalog/hibernate/update70/migratequerytonativequery.md)
+  * **Migrate @Query to @NativeQuery for unsupported JPQL**
+  * Converts Spring Data `@Query` annotations to `@NativeQuery` when the JPQL query contains patterns unsupported by Hibernate 7's stricter JPQL parser, such as multi-argument `trunc(date, 'format')`.
 * [io.moderne.hibernate.update70.MigrateSessionInterface](/user-documentation/recipes/recipe-catalog/hibernate/update70/migratesessioninterface.md)
   * **Migrate Session interface method calls**
   * Migrates code using deprecated Session interface methods to their Hibernate 7.0 replacements.
@@ -2862,6 +2868,31 @@ _2 recipes_
 * [org.openrewrite.react.search.FindReactComponent](/user-documentation/recipes/recipe-catalog/react/search/findreactcomponent.md)
   * **Find React component**
   * Locates usages of React components across the codebase including JSX elements and other references. If `componentName` is `null`, finds all React components.
+
+### rewrite-release-metromap
+
+_License: Moderne Proprietary License_
+
+_6 recipes_
+
+* [io.moderne.recipe.releasemetro.FindGradleParentRelationships](/user-documentation/recipes/recipe-catalog/recipe/releasemetro/findgradleparentrelationships.md)
+  * **Find Gradle project hierarchy relationships**
+  * Find Gradle parent-child project relationships in multi-project builds to understand project hierarchies.
+* [io.moderne.recipe.releasemetro.FindGradleProjectIDs](/user-documentation/recipes/recipe-catalog/recipe/releasemetro/findgradleprojectids.md)
+  * **Find Gradle project IDs**
+  * Find Gradle project IDs in build.gradle files to determine the project ID.
+* [io.moderne.recipe.releasemetro.FindMavenParentRelationships](/user-documentation/recipes/recipe-catalog/recipe/releasemetro/findmavenparentrelationships.md)
+  * **Find Maven parent relationships**
+  * Find Maven parent POM relationships to understand project hierarchies in multi-module builds.
+* [io.moderne.recipe.releasemetro.FindMavenProjectIDs](/user-documentation/recipes/recipe-catalog/recipe/releasemetro/findmavenprojectids.md)
+  * **Find maven project IDs**
+  * Find Maven group Id and artifactId in pom.xml files to determine the project ID.
+* [io.moderne.recipe.releasemetro.FindPotentiallyUnusedDependencies](/user-documentation/recipes/recipe-catalog/recipe/releasemetro/findpotentiallyunuseddependencies.md)
+  * **Find potentially unused dependencies**
+  * Collects import information to help identify potentially unused dependencies.
+* [io.moderne.recipe.releasemetro.ReleaseMetroPlan](/user-documentation/recipes/recipe-catalog/recipe/releasemetro/releasemetroplan.md)
+  * **Analyse Organization's Release Train Metro Plan**
+  * Gathers the basic information to create and understand the organizations release train metro plan.
 
 ### rewrite-spring
 
@@ -3426,7 +3457,7 @@ _7 recipes_
 
 _License: Apache License Version 2.0_
 
-_28 recipes_
+_29 recipes_
 
 * [org.openrewrite.AddToGitignore](/user-documentation/recipes/recipe-catalog/core/addtogitignore.md)
   * **Add entries to `.gitignore`**
@@ -3458,6 +3489,9 @@ _28 recipes_
 * [org.openrewrite.FindSourceFiles](/user-documentation/recipes/recipe-catalog/core/findsourcefiles.md)
   * **Find files**
   * Find files by source path. Paths are always interpreted as relative to the repository root.
+* [org.openrewrite.FindStyles](/user-documentation/recipes/recipe-catalog/core/findstyles.md)
+  * **Find styles**
+  * Find and report the styles attached to each source file. Styles are output as valid OpenRewrite style YAML that can be used directly in rewrite.yml configuration.
 * [org.openrewrite.IsInRepository](/user-documentation/recipes/recipe-catalog/core/isinrepository.md)
   * **Is in repository**
   * A search recipe which marks files that are in a repository with one of the supplied names. Intended for use as a precondition for other recipes being run over many different repositories.
@@ -3533,7 +3567,7 @@ _18 recipes_
   * Adds a `USER` instruction to run the container as a non-root user (CIS Docker Benchmark 4.1). By default, adds to the final stage only and skips if a `USER` instruction already exists.
 * [org.openrewrite.docker.ChangeFrom](/user-documentation/recipes/recipe-catalog/docker/changefrom.md)
   * **Change Docker FROM**
-  * Change the base image in a Dockerfile FROM instruction.
+  * Change the base image in a Dockerfile FROM instruction. Each `*` in an `old*` glob is a positional capture; `$N` in the paired `new*` substitutes capture N. `$0` substitutes the full original value; `\$` is a literal dollar.
 * [org.openrewrite.docker.CombineRunInstructions](/user-documentation/recipes/recipe-catalog/docker/combineruninstructions.md)
   * **Combine consecutive `RUN` instructions**
   * Combines consecutive `RUN` instructions into a single instruction to reduce image layers. Only shell form `RUN` instructions without flags are combined.
@@ -3639,7 +3673,7 @@ _68 recipes_
   * Most builds consist of more than one project and some of those projects are usually independent of one another. Yet Gradle will only run one task at a time by default, regardless of the project structure. By using the `--parallel` switch, you can force Gradle to execute tasks in parallel as long as those tasks are in different projects. See the [Gradle performance documentation](https://docs.gradle.org/current/userguide/performance.html#parallel_execution) for more information.
 * [org.openrewrite.gradle.GradleBestPractices](/user-documentation/recipes/recipe-catalog/gradle/gradlebestpractices.md)
   * **Apply Gradle best practices**
-  * Apply a set of [Gradle best practices](https://docs.gradle.org/current/userguide/best_practices_general.html) to the build files, for more efficient and ideomatic builds.
+  * Apply a set of [Gradle best practices](https://docs.gradle.org/current/userguide/best_practices_general.html) to the build files, for more efficient and idiomatic builds.
 * [org.openrewrite.gradle.MigrateDependenciesToVersionCatalog](/user-documentation/recipes/recipe-catalog/gradle/migratedependenciestoversioncatalog.md)
   * **Migrate Gradle project dependencies to version catalog**
   * Migrates Gradle project dependencies to use the [version catalog](https://docs.gradle.org/current/userguide/platforms.html) feature. Supports migrating dependency declarations of various forms:  * `String` notation: `&quot;group:artifact:version&quot;`  * `Map` notation: `group: 'group', name: 'artifact', version: 'version'`  * Property references: `&quot;group:artifact:$version&quot;` or `&quot;group:artifact:$\{version\}&quot;`  The recipe will:  * Create a `gradle/libs.versions.toml` file with version declarations  * Replace dependency declarations with catalog references (e.g., `libs.springCore`)  * Migrate version properties from `gradle.properties` to the version catalog  * Preserve project dependencies unchanged  **Note:** If a version catalog already exists, the recipe will not modify it.
@@ -8723,11 +8757,11 @@ _449 recipes_
   * **Upgrade build to Java 21**
   * Updates build files to use Java 21 as the target/source.
 * [org.openrewrite.java.migrate.UpgradeBuildToJava24](/user-documentation/recipes/recipe-catalog/java/migrate/upgradebuildtojava24.md)
-  * **Upgrade build to Java 24 for Kotlin &lt;2.3**
+  * **Upgrade build to Java 24 for Kotlin pre-2.3**
   * Kotlin versions before 2.3 only support up to Java 24.
 * [org.openrewrite.java.migrate.UpgradeBuildToJava25](/user-documentation/recipes/recipe-catalog/java/migrate/upgradebuildtojava25.md)
   * **Upgrade build to Java 25 (default)**
-  * Upgrades build files to Java 25 for projects without Kotlin &lt;2.3.
+  * Upgrades build files to Java 25 for projects without Kotlin pre-2.3.
 * [org.openrewrite.java.migrate.UpgradeDockerImageVersion](/user-documentation/recipes/recipe-catalog/java/migrate/upgradedockerimageversion.md)
   * **Upgrade Docker image Java version**
   * Upgrade Docker image tags to use the specified Java version. Updates common Java Docker images including eclipse-temurin, amazoncorretto, azul/zulu-openjdk, and others. Also migrates deprecated images (openjdk, adoptopenjdk) to eclipse-temurin.
@@ -10843,7 +10877,7 @@ _41 recipes_
 
 _License: Moderne Source Available License_
 
-_314 recipes_
+_316 recipes_
 
 * [org.openrewrite.gradle.spring.AddSpringDependencyManagementPlugin](/user-documentation/recipes/recipe-catalog/gradle/spring/addspringdependencymanagementplugin.md)
   * **Add `io.spring.dependency-management` plugin, if in use**
@@ -10971,6 +11005,9 @@ _314 recipes_
 * [org.openrewrite.java.spring.boot2.AddConfigurationAnnotationIfBeansPresent](/user-documentation/recipes/recipe-catalog/java/spring/boot2/addconfigurationannotationifbeanspresent.md)
   * **Add missing `@Configuration` annotation**
   * Class having `@Bean` annotation over any methods but missing `@Configuration` annotation over the declaring class would have `@Configuration` annotation added.
+* [org.openrewrite.java.spring.boot2.AddSpringBootStarterValidation](/user-documentation/recipes/recipe-catalog/java/spring/boot2/addspringbootstartervalidation.md)
+  * **Add `spring-boot-starter-validation` if needed**
+  * Add `spring-boot-starter-validation` when validation constraints are used, unless the project already declares an explicit validation API dependency.
 * [org.openrewrite.java.spring.boot2.ChangeEmbeddedServletContainerCustomizer](/user-documentation/recipes/recipe-catalog/java/spring/boot2/changeembeddedservletcontainercustomizer.md)
   * **Adjust configuration classes to use the `WebServerFactoryCustomizer` interface**
   * Find any classes implementing `EmbeddedServletContainerCustomizer` and change the interface to `WebServerFactoryCustomizer&lt;ConfigurableServletWebServerFactory&gt;`.
@@ -11241,6 +11278,9 @@ _314 recipes_
 * [org.openrewrite.java.spring.boot3.RemoveSolrAutoConfigurationExclude](/user-documentation/recipes/recipe-catalog/java/spring/boot3/removesolrautoconfigurationexclude.md)
   * **Remove `SolrAutoConfiguration`**
   * `SolrAutoConfiguration` was removed in Spring Boot 3; remove references to it from exclusions on annotations.
+* [org.openrewrite.java.spring.boot3.RenameLogbackToLogbackSpring](/user-documentation/recipes/recipe-catalog/java/spring/boot3/renamelogbacktologbackspring.md)
+  * **Rename `logback.xml` to `logback-spring.xml`**
+  * Spring Boot only processes Spring-specific logback extensions (`&lt;springProfile&gt;`, `&lt;springProperty&gt;`) when the configuration file is named `logback-spring.xml`. A plain `logback.xml` is loaded too early by logback itself, before Spring's `Environment` is ready, so these extensions are silently ignored. This recipe renames `logback.xml` to `logback-spring.xml` when Spring extensions are detected.
 * [org.openrewrite.java.spring.boot3.ReplaceRestTemplateBuilderMethods](/user-documentation/recipes/recipe-catalog/java/spring/boot3/replaceresttemplatebuildermethods.md)
   * **Replace deprecated setters in `RestTemplateBuilder`**
   * Replaces `setConnectTimeout`, `setReadTimeout`, and `setSslBundle` method invocations with `connectTimeout`, `readTimeout`, and `sslBundle` respectively.
@@ -12564,6 +12604,274 @@ _176 recipes_
 * [org.openrewrite.staticanalysis.maven.MavenJavadocNonAsciiRecipe](/user-documentation/recipes/recipe-catalog/staticanalysis/maven/mavenjavadocnonasciirecipe.md)
   * **Remove non-ASCII characters from Javadoc**
   * Maven's javadoc-plugin configuration does not support non-ASCII characters. What makes it tricky is the error is very ambiguous and doesn't help in any way. This recipe removes those non-ASCII characters.
+
+### rewrite-static-analysis-python
+
+_License: Moderne Proprietary License_
+
+_87 recipes_
+
+* [org.openrewrite.python.cleanup.AssignIfExp](/user-documentation/recipes/recipe-catalog/python/cleanup/assignifexp.md)
+  * **Use inline conditional for simple ``if``/``else`` assignment**
+  * When an ``if``/``else`` pair each assign a single value to the same variable, rewrite as a ternary expression.
+* [org.openrewrite.python.cleanup.AugAssign](/user-documentation/recipes/recipe-catalog/python/cleanup/augassign.md)
+  * **Shorten assignment to compound operator form**
+  * Convert ``target = target op value`` into ``target op= value`` for arithmetic operators (+, -, *, /, %).
+* [org.openrewrite.python.cleanup.BinOpIdentity](/user-documentation/recipes/recipe-catalog/python/cleanup/binopidentity.md)
+  * **Collapse self-cancelling `^` / `-` with duplicate operands to `0`**
+  * When both operands of `^` or `-` are the same expression, reduce to `0` (the self-cancelling identity).
+* [org.openrewrite.python.cleanup.BooleanIfExpIdentity](/user-documentation/recipes/recipe-catalog/python/cleanup/booleanifexpidentity.md)
+  * **Collapse boolean ternary to bare condition**
+  * Replace ``True if expr else False`` with ``expr`` and ``False if expr else True`` with ``not expr``, removing the redundant ternary wrapper.
+* [org.openrewrite.python.cleanup.BreakOrContinueOutsideLoop](/user-documentation/recipes/recipe-catalog/python/cleanup/breakorcontinueoutsideloop.md)
+  * **Remove `break`/`continue` outside loop**
+  * Remove `break` and `continue` statements that are not inside any for or while loop.
+* [org.openrewrite.python.cleanup.ChainCompares](/user-documentation/recipes/recipe-catalog/python/cleanup/chaincompares.md)
+  * **Use chained comparison syntax**
+  * Merge two relational tests that share a middle operand into a single chained comparison, e.g. ``0 &lt; idx and idx &lt; size`` becomes ``0 &lt; idx &lt; size``.
+* [org.openrewrite.python.cleanup.ClassMethodFirstArgName](/user-documentation/recipes/recipe-catalog/python/cleanup/classmethodfirstargname.md)
+  * **Standardize `@classmethod` first parameter to `cls`**
+  * Ensure that `@classmethod` methods use `cls` as their first parameter, as required by PEP 8, and update all body references.
+* [org.openrewrite.python.cleanup.CollectionBuiltinToComprehension](/user-documentation/recipes/recipe-catalog/python/cleanup/collectionbuiltintocomprehension.md)
+  * **Use comprehension syntax instead of `list()`/`set()` around generators**
+  * Wrapping a generator in `list()` or `set()` is less idiomatic than the equivalent bracket/brace comprehension syntax.
+* [org.openrewrite.python.cleanup.CollectionIntoSet](/user-documentation/recipes/recipe-catalog/python/cleanup/collectionintoset.md)
+  * **Prefer set literals in `in` membership tests**
+  * When a list or tuple of literals appears on the right side of an `in` test, convert it to a set literal for constant-time lookup.
+* [org.openrewrite.python.cleanup.CollectionToBool](/user-documentation/recipes/recipe-catalog/python/cleanup/collectiontobool.md)
+  * **Substitute constant collection condition with boolean**
+  * When a list, tuple, dict, or set literal is used as an ``if`` or ``while`` condition, replace it with ``True`` (non-empty) or ``False`` (empty) to state the intent directly.
+* [org.openrewrite.python.cleanup.ComprehensionToGenerator](/user-documentation/recipes/recipe-catalog/python/cleanup/comprehensiontogenerator.md)
+  * **Use generator expression instead of list comprehension in iterable-accepting calls**
+  * Functions that consume iterables lazily (e.g. `any`, `sum`, `sorted`) do not need a list comprehension -- a generator expression suffices.
+* [org.openrewrite.python.cleanup.ConvertAnyToIn](/user-documentation/recipes/recipe-catalog/python/cleanup/convertanytoin.md)
+  * **Rewrite `any(v == literal ...)` as `literal in collection`**
+  * An `any()` generator that tests equality against a literal value is equivalent to the `in` membership operator, which is clearer.
+* [org.openrewrite.python.cleanup.DataframeAppendToConcat](/user-documentation/recipes/recipe-catalog/python/cleanup/dataframeappendtoconcat.md)
+  * **Migrate deprecated `.append()` to `pd.concat()`**
+  * `DataFrame.append()` no longer exists in pandas 2.0+. This recipe rewrites `.append(x)` calls to `pd.concat([df, x])`.
+* [org.openrewrite.python.cleanup.DeMorgan](/user-documentation/recipes/recipe-catalog/python/cleanup/demorgan.md)
+  * **Flatten negated logic via De Morgan's identities**
+  * Use De Morgan's identities to remove double negation and to distribute ``not`` into compound conditions, e.g. ``not not finished`` becomes ``finished`` and ``not (m and n)`` becomes ``not m or not n``.
+* [org.openrewrite.python.cleanup.DefaultMutableArg](/user-documentation/recipes/recipe-catalog/python/cleanup/defaultmutablearg.md)
+  * **Guard mutable default arguments with `None` sentinel**
+  * Change mutable default values (`[]`, `\{\}`, `set()`) to `None` and prepend an `if arg is None: arg = &lt;original&gt;` guard so each call gets its own fresh instance.
+* [org.openrewrite.python.cleanup.DictLiteral](/user-documentation/recipes/recipe-catalog/python/cleanup/dictliteral.md)
+  * **Use `\{\}` literal instead of `dict()` constructor**
+  * Convert no-argument `dict()` calls to the `\{\}` literal, which is more concise and avoids a function call.
+* [org.openrewrite.python.cleanup.DoNotUseBareExcept](/user-documentation/recipes/recipe-catalog/python/cleanup/donotusebareexcept.md)
+  * **Narrow bare `except:` to `except Exception:`**
+  * An unqualified `except:` intercepts every exception, including `SystemExit` and `KeyboardInterrupt`. Specifying `Exception` restricts the handler to ordinary runtime errors.
+* [org.openrewrite.python.cleanup.EqualityIdentity](/user-documentation/recipes/recipe-catalog/python/cleanup/equalityidentity.md)
+  * **Fold same-literal `==`/`!=` comparisons to boolean constants**
+  * When both sides of `==` or `!=` are the same literal, replace the expression with `True` or `False` respectively.
+* [org.openrewrite.python.cleanup.FlipComparison](/user-documentation/recipes/recipe-catalog/python/cleanup/flipcomparison.md)
+  * **Reorder comparisons to put literals on the right**
+  * Swap operands when a constant appears on the left of a comparison, e.g. ``42 == count`` becomes ``count == 42``, mirroring the relational operator as needed.
+* [org.openrewrite.python.cleanup.IdentityComprehension](/user-documentation/recipes/recipe-catalog/python/cleanup/identitycomprehension.md)
+  * **Simplify identity comprehension to `list()`/`set()` call**
+  * A comprehension that simply passes through each element unchanged is equivalent to calling `list()` or `set()` on the iterable.
+* [org.openrewrite.python.cleanup.InstanceMethodFirstArgName](/user-documentation/recipes/recipe-catalog/python/cleanup/instancemethodfirstargname.md)
+  * **Standardize instance method first parameter to `self`**
+  * Ensure instance methods use `self` as their first parameter per PEP 8 and rename all body references. Methods decorated with `@staticmethod` or `@classmethod` are not affected.
+* [org.openrewrite.python.cleanup.InvertAnyAll](/user-documentation/recipes/recipe-catalog/python/cleanup/invertanyall.md)
+  * **Swap `not all()`/`not any()` by negating the comparison**
+  * Apply De Morgan's law to replace `not all(cond ...)` with `any(negated_cond ...)` or `not any(cond ...)` with `all(negated_cond ...)`.
+* [org.openrewrite.python.cleanup.InvertAnyAllBody](/user-documentation/recipes/recipe-catalog/python/cleanup/invertanyallbody.md)
+  * **Apply De Morgan's law to `any(not ...)`/`all(not ...)`**
+  * When the generator body just negates the loop variable, De Morgan's law lets us eliminate the generator entirely: `any(not v for v in seq)` becomes `not all(seq)`, and the reverse.
+* [org.openrewrite.python.cleanup.ListLiteral](/user-documentation/recipes/recipe-catalog/python/cleanup/listliteral.md)
+  * **Use `[]` literal instead of `list()` constructor**
+  * Convert no-argument `list()` calls to the `[]` literal, which is more concise and avoids a function call.
+* [org.openrewrite.python.cleanup.MergeComparisons](/user-documentation/recipes/recipe-catalog/python/cleanup/mergecomparisons.md)
+  * **Consolidate repeated `==` with `or` into `in`**
+  * Fold ``var == a or var == b`` into ``var in [a, b]``, reducing duplication and improving readability.
+* [org.openrewrite.python.cleanup.MergeElseIfIntoElif](/user-documentation/recipes/recipe-catalog/python/cleanup/mergeelseifintoelif.md)
+  * **Convert ``else: if`` to ``elif``**
+  * When an ``else`` clause contains nothing but an ``if``, rewrite it as ``elif`` to eliminate extra nesting.
+* [org.openrewrite.python.cleanup.MergeIsinstance](/user-documentation/recipes/recipe-catalog/python/cleanup/mergeisinstance.md)
+  * **Merge `isinstance()` calls**
+  * Merge `isinstance(x, A) or isinstance(x, B)` into `isinstance(x, (A, B))` for cleaner type checking.
+* [org.openrewrite.python.cleanup.MergeNestedIfs](/user-documentation/recipes/recipe-catalog/python/cleanup/mergenestedifs.md)
+  * **Collapse nested ``if`` into a single ``and`` condition**
+  * When two ``if`` statements are nested with no ``else`` on either, join their conditions with ``and`` and flatten the body.
+* [org.openrewrite.python.cleanup.NoneCompare](/user-documentation/recipes/recipe-catalog/python/cleanup/nonecompare.md)
+  * **Compare to `None` with identity operators (`is` / `is not`)**
+  * Switch `== None` to `is None` and `!= None` to `is not None`, following PEP 8 singleton comparison guidance.
+* [org.openrewrite.python.cleanup.OrIfExpIdentity](/user-documentation/recipes/recipe-catalog/python/cleanup/orifexpidentity.md)
+  * **Replace self-referencing ternary with `or`**
+  * When a ternary's condition and true-branch name the same variable, rewrite ``val if val else fallback`` as ``val or fallback`` to avoid repeating the name.
+* [org.openrewrite.python.cleanup.PandasAvoidInplace](/user-documentation/recipes/recipe-catalog/python/cleanup/pandasavoidinplace.md)
+  * **Eliminate `inplace=True` in favor of reassignment**
+  * Convert pandas operations that use `inplace=True` into reassignment form, e.g. `df.drop_duplicates(inplace=True)` becomes `df = df.drop_duplicates()`.
+* [org.openrewrite.python.cleanup.PythonBestPractices](/user-documentation/recipes/recipe-catalog/python/cleanup/pythonbestpractices.md)
+  * **Python cleanup suite**
+  * Run every Python cleanup recipe in one pass -- literal simplification, boolean and comparison tidying, dead code removal, naming fixes, pandas modernization, and more.
+* [org.openrewrite.python.cleanup.RaiseFromPreviousError](/user-documentation/recipes/recipe-catalog/python/cleanup/raisefrompreviouserror.md)
+  * **Chain exceptions with `raise ... from` in except blocks**
+  * Raise statements inside except blocks should use `from` to chain the new exception to the caught one, preserving the full traceback.
+* [org.openrewrite.python.cleanup.RemoveAssertTrue](/user-documentation/recipes/recipe-catalog/python/cleanup/removeasserttrue.md)
+  * **Delete no-op `assert True` statements**
+  * Delete bare `assert True` statements, which are always satisfied and have no effect. Assertions that carry a message string are preserved.
+* [org.openrewrite.python.cleanup.RemoveDictKeys](/user-documentation/recipes/recipe-catalog/python/cleanup/removedictkeys.md)
+  * **Drop redundant `.keys()` on dict iteration**
+  * Dictionaries iterate over their keys by default, making explicit `.keys()` calls unnecessary in for-loops and `in` expressions.
+* [org.openrewrite.python.cleanup.RemoveDuplicateDictKey](/user-documentation/recipes/recipe-catalog/python/cleanup/removeduplicatedictkey.md)
+  * **Deduplicate repeated keys in dict literals**
+  * When a dict literal contains the same key more than once, only the final value survives at runtime. This removes the shadowed entries.
+* [org.openrewrite.python.cleanup.RemoveDuplicateSetKey](/user-documentation/recipes/recipe-catalog/python/cleanup/removeduplicatesetkey.md)
+  * **Deduplicate repeated elements in set literals**
+  * Set literals with repeated values have redundant entries that are discarded at runtime. This removes the duplicates, keeping the last one.
+* [org.openrewrite.python.cleanup.RemoveEmptyNestedBlock](/user-documentation/recipes/recipe-catalog/python/cleanup/removeemptynestedblock.md)
+  * **Delete `if` blocks whose body is only `pass`**
+  * Delete `if` statements that contain nothing but `pass` and have no `else` branch. `for`/`while` loops are left alone because iterating may have side effects.
+* [org.openrewrite.python.cleanup.RemoveNoneFromDefaultGet](/user-documentation/recipes/recipe-catalog/python/cleanup/removenonefromdefaultget.md)
+  * **Remove redundant `None` default from `dict.get()`**
+  * Remove redundant `None` default argument from `dict.get()` calls since `None` is already the default return value.
+* [org.openrewrite.python.cleanup.RemovePassBody](/user-documentation/recipes/recipe-catalog/python/cleanup/removepassbody.md)
+  * **Drop ``pass``-only ``if`` body by inverting the guard**
+  * When an ``if`` body contains only ``pass`` and is followed by an ``else``, flip the condition and use the else body directly.
+* [org.openrewrite.python.cleanup.RemovePassElif](/user-documentation/recipes/recipe-catalog/python/cleanup/removepasselif.md)
+  * **Drop ``pass``-only ``elif`` by negating its condition**
+  * When an ``elif`` body is only ``pass`` and an ``else`` follows, invert the ``elif`` condition and absorb the else body.
+* [org.openrewrite.python.cleanup.RemoveRedundantBoolean](/user-documentation/recipes/recipe-catalog/python/cleanup/removeredundantboolean.md)
+  * **Eliminate boolean literal from `and`/`or`**
+  * Strip ``True`` or ``False`` from ``and``/``or`` expressions where the literal has no effect on the result, e.g. ``True and val`` reduces to ``val`` and ``False and val`` reduces to ``False``.
+* [org.openrewrite.python.cleanup.RemoveRedundantCondition](/user-documentation/recipes/recipe-catalog/python/cleanup/removeredundantcondition.md)
+  * **Remove redundant ternary condition**
+  * When both branches of a ternary expression are identical, simplify `y if z else y` to `y`.
+* [org.openrewrite.python.cleanup.RemoveRedundantConstructorInDictUnion](/user-documentation/recipes/recipe-catalog/python/cleanup/removeredundantconstructorindictunion.md)
+  * **Unwrap unnecessary `dict()` from union operands**
+  * The `|` operator already produces a fresh dict, so wrapping an operand in `dict()` is redundant and can be removed.
+* [org.openrewrite.python.cleanup.RemoveRedundantContinue](/user-documentation/recipes/recipe-catalog/python/cleanup/removeredundantcontinue.md)
+  * **Strip trailing ``continue`` from loop body**
+  * Strip ``continue`` when it is the final statement in a loop body, since the loop naturally advances to the next iteration.
+* [org.openrewrite.python.cleanup.RemoveRedundantFstring](/user-documentation/recipes/recipe-catalog/python/cleanup/removeredundantfstring.md)
+  * **Drop ``f`` prefix from strings without placeholders**
+  * When an f-string has no ``\{...\}`` expressions, strip the ``f`` prefix and convert it to an ordinary string literal.
+* [org.openrewrite.python.cleanup.RemoveRedundantIf](/user-documentation/recipes/recipe-catalog/python/cleanup/removeredundantif.md)
+  * **Simplify negated ``elif`` to ``else``**
+  * When an ``elif`` condition is the exact negation of the preceding ``if``, replace it with ``else`` since the test is redundant.
+* [org.openrewrite.python.cleanup.RemoveRedundantPass](/user-documentation/recipes/recipe-catalog/python/cleanup/removeredundantpass.md)
+  * **Delete unnecessary ``pass`` in non-empty blocks**
+  * Delete ``pass`` when the enclosing block already contains other statements; ``pass`` is only useful as a placeholder in empty blocks.
+* [org.openrewrite.python.cleanup.RemoveRedundantPathExists](/user-documentation/recipes/recipe-catalog/python/cleanup/removeredundantpathexists.md)
+  * **Drop ``exists()`` check before ``is_dir()``/``is_file()``**
+  * Drop ``path.exists()`` when it is ``and``-ed with ``is_dir()`` or ``is_file()``, which inherently return ``False`` for missing paths.
+* [org.openrewrite.python.cleanup.RemoveRedundantSliceIndex](/user-documentation/recipes/recipe-catalog/python/cleanup/removeredundantsliceindex.md)
+  * **Drop default-value slice boundaries**
+  * Omit slice start/stop when they equal ``0`` and ``len(seq)`` respectively, e.g. ``data[0:len(data)]`` becomes ``data[:]``.
+* [org.openrewrite.python.cleanup.RemoveStrFromFstring](/user-documentation/recipes/recipe-catalog/python/cleanup/removestrfromfstring.md)
+  * **Strip ``str()`` from f-string placeholders**
+  * F-string placeholders convert values to strings automatically, so wrapping expressions in ``str()`` inside ``\{...\}`` is redundant.
+* [org.openrewrite.python.cleanup.RemoveStrFromPrint](/user-documentation/recipes/recipe-catalog/python/cleanup/removestrfromprint.md)
+  * **Unwrap ``str()`` from ``print()`` arguments**
+  * ``print()`` automatically converts its arguments to strings, so an explicit ``str()`` wrapper is unnecessary and can be removed.
+* [org.openrewrite.python.cleanup.RemoveUnitStepFromRange](/user-documentation/recipes/recipe-catalog/python/cleanup/removeunitstepfromrange.md)
+  * **Drop unnecessary step `1` argument from `range()`**
+  * Shorten `range(a, b, 1)` to `range(a, b)` because `range` already defaults to a step of one.
+* [org.openrewrite.python.cleanup.RemoveUnnecessaryElse](/user-documentation/recipes/recipe-catalog/python/cleanup/removeunnecessaryelse.md)
+  * **Drop ``else`` after early-exit ``if`` branch**
+  * When the ``if`` body always exits via return, raise, continue, or break, remove the ``else`` and dedent its contents.
+* [org.openrewrite.python.cleanup.RemoveUnreachableCode](/user-documentation/recipes/recipe-catalog/python/cleanup/removeunreachablecode.md)
+  * **Strip dead code after terminal statements**
+  * Delete statements that follow a `return`, `raise`, `continue`, or `break` in the same block, since they can never execute.
+* [org.openrewrite.python.cleanup.RemoveZeroFromRange](/user-documentation/recipes/recipe-catalog/python/cleanup/removezerofromrange.md)
+  * **Drop unnecessary `0` start argument from `range()`**
+  * Shorten `range(0, n)` to `range(n)` because `range` already defaults to starting at zero.
+* [org.openrewrite.python.cleanup.ReplaceApplyWithMethodCall](/user-documentation/recipes/recipe-catalog/python/cleanup/replaceapplywithmethodcall.md)
+  * **Convert `apply('name')` to a direct method invocation**
+  * When `apply()` receives a string literal like `'sum'` or `'mean'`, rewrite the call as a direct method invocation on the object.
+* [org.openrewrite.python.cleanup.ReturnOrYieldOutsideFunction](/user-documentation/recipes/recipe-catalog/python/cleanup/returnoryieldoutsidefunction.md)
+  * **Remove `return`/`yield` outside function**
+  * Remove `return` and `yield` statements that are not inside any function or method definition.
+* [org.openrewrite.python.cleanup.SimplifyBooleanComparison](/user-documentation/recipes/recipe-catalog/python/cleanup/simplifybooleancomparison.md)
+  * **Remove explicit True/False comparisons**
+  * Drop unnecessary ``== True``, ``!= False``, and similar tests against boolean literals, leaving just the expression or ``not expr``.
+* [org.openrewrite.python.cleanup.SimplifyConstantSum](/user-documentation/recipes/recipe-catalog/python/cleanup/simplifyconstantsum.md)
+  * **Simplify `sum(1 for x in items if cond)` to `sum(bool(cond) for x in items)`**
+  * Replace `sum(1 for x in items if cond)` with `sum(bool(cond) for x in items)` by moving the filter condition into a `bool()` wrapper.
+* [org.openrewrite.python.cleanup.SimplifyDictionaryUpdate](/user-documentation/recipes/recipe-catalog/python/cleanup/simplifydictionaryupdate.md)
+  * **Convert one-item `dict.update()` to bracket assignment**
+  * When `.update()` receives a dictionary literal containing exactly one key, rewrite it as a direct key assignment for clarity and efficiency.
+* [org.openrewrite.python.cleanup.SimplifyDivision](/user-documentation/recipes/recipe-catalog/python/cleanup/simplifydivision.md)
+  * **Convert `int(a / b)` to floor division**
+  * Replace ``int(a / b)`` with Python's floor-division operator ``a // b`` for a more concise expression.
+* [org.openrewrite.python.cleanup.SimplifyEmptyCollectionComparison](/user-documentation/recipes/recipe-catalog/python/cleanup/simplifyemptycollectioncomparison.md)
+  * **Use truthiness instead of empty-container equality**
+  * Convert ``== &quot;&quot;``/``== []``/``== \{\}``/``== ()`` into ``not var`` and the corresponding ``!=`` forms into ``var``, relying on Python's truthiness semantics for empty collections.
+* [org.openrewrite.python.cleanup.SimplifyFstringFormatting](/user-documentation/recipes/recipe-catalog/python/cleanup/simplifyfstringformatting.md)
+  * **Fold constants and flatten nested f-strings**
+  * Inline constant values directly into f-string text and unwrap nested f-strings into their enclosing string.
+* [org.openrewrite.python.cleanup.SimplifyGenerator](/user-documentation/recipes/recipe-catalog/python/cleanup/simplifygenerator.md)
+  * **Pass iterable directly to `any()`/`all()` instead of identity generator**
+  * An identity generator that yields every element unchanged is redundant inside `any()` or `all()` -- pass the collection directly.
+* [org.openrewrite.python.cleanup.SimplifyLenComparison](/user-documentation/recipes/recipe-catalog/python/cleanup/simplifylencomparison.md)
+  * **Replace `len()` emptiness check with truthiness**
+  * Rewrite ``len(seq) &gt; 0`` / ``len(seq) != 0`` to ``seq`` and ``len(seq) == 0`` to ``not seq``, leveraging Python's built-in truthiness for collections.
+* [org.openrewrite.python.cleanup.SimplifyNegativeIndex](/user-documentation/recipes/recipe-catalog/python/cleanup/simplifynegativeindex.md)
+  * **Use negative index instead of `len()` offset**
+  * Rewrite ``seq[len(seq) - k]`` as ``seq[-k]``, using Python's native negative-indexing support.
+* [org.openrewrite.python.cleanup.SimplifySingleExceptionTuple](/user-documentation/recipes/recipe-catalog/python/cleanup/simplifysingleexceptiontuple.md)
+  * **Unwrap one-element exception tuple in `except`**
+  * A tuple containing only one exception type is needlessly verbose. This unwraps it to the plain `except ExcType:` form.
+* [org.openrewrite.python.cleanup.SimplifyStrLenComparison](/user-documentation/recipes/recipe-catalog/python/cleanup/simplifystrlencomparison.md)
+  * **Compare string to `&quot;&quot;` instead of checking `len()`**
+  * Replace ``len(text) == 0`` with ``text == &quot;&quot;`` and ``len(text) &gt; 0`` / ``len(text) != 0`` with ``text != &quot;&quot;``, comparing the string directly rather than measuring its length.
+* [org.openrewrite.python.cleanup.SimplifySubstringSearch](/user-documentation/recipes/recipe-catalog/python/cleanup/simplifysubstringsearch.md)
+  * **Replace `.find()` check with `in` / `not in`**
+  * Rewrite ``.find()`` return-value checks as membership tests: ``text.find(sub) == -1`` becomes ``sub not in text`` and ``text.find(sub) != -1`` becomes ``sub in text``.
+* [org.openrewrite.python.cleanup.SquareIdentity](/user-documentation/recipes/recipe-catalog/python/cleanup/squareidentity.md)
+  * **Rewrite self-multiplication as `** 2`**
+  * When an expression is multiplied by itself, rewrite it using the exponentiation operator (`** 2`) for clarity.
+* [org.openrewrite.python.cleanup.StrPrefixSuffix](/user-documentation/recipes/recipe-catalog/python/cleanup/strprefixsuffix.md)
+  * **Prefer ``startswith``/``endswith`` over slice comparison**
+  * Rewrite ``s[:N] == &quot;lit&quot;`` as ``s.startswith(&quot;lit&quot;)`` and ``s[-N:] == &quot;lit&quot;`` as ``s.endswith(&quot;lit&quot;)`` when the slice length equals the literal length.
+* [org.openrewrite.python.cleanup.SwapIfElseBranches](/user-documentation/recipes/recipe-catalog/python/cleanup/swapifelsebranches.md)
+  * **Flip empty ``if``-body by negating the condition**
+  * When the ``if`` branch is just ``pass`` and an ``else`` exists, invert the test and promote the else body to the if body.
+* [org.openrewrite.python.cleanup.SwapIfExpression](/user-documentation/recipes/recipe-catalog/python/cleanup/swapifexpression.md)
+  * **Swap ternary branches to drop negated condition**
+  * Flip the branches of a conditional expression whose test uses ``not``, eliminating the negation for clearer intent.
+* [org.openrewrite.python.cleanup.SwapVariable](/user-documentation/recipes/recipe-catalog/python/cleanup/swapvariable.md)
+  * **Simplify temp-variable swap to tuple unpacking**
+  * Detect the three-line swap idiom (`tmp = x; x = y; y = tmp`) and condense it into `x, y = y, x` using tuple unpacking.
+* [org.openrewrite.python.cleanup.TernaryToIfExpression](/user-documentation/recipes/recipe-catalog/python/cleanup/ternarytoifexpression.md)
+  * **Convert `and`/`or` ternary trick to conditional expression**
+  * Rewrite the legacy `cond and val or fallback` idiom as `val if cond else fallback` to avoid silent bugs when `val` is falsy.
+* [org.openrewrite.python.cleanup.TupleLiteral](/user-documentation/recipes/recipe-catalog/python/cleanup/tupleliteral.md)
+  * **Use `()` literal instead of `tuple()` constructor**
+  * Convert no-argument `tuple()` calls to the `()` literal, which is more concise and avoids a function call.
+* [org.openrewrite.python.cleanup.UnwrapIterableConstruction](/user-documentation/recipes/recipe-catalog/python/cleanup/unwrapiterableconstruction.md)
+  * **Flatten redundant collection constructor wrapping a literal**
+  * When `tuple()`, `list()`, or `set()` wraps a single list or tuple literal, remove the constructor and use the target literal form directly.
+* [org.openrewrite.python.cleanup.UseContextlibSuppress](/user-documentation/recipes/recipe-catalog/python/cleanup/usecontextlibsuppress.md)
+  * **Replace `try/except: pass` with `contextlib.suppress()`**
+  * When an except handler only contains `pass`, the intent is to suppress the error. `contextlib.suppress()` states this explicitly and eliminates the try/except boilerplate.
+* [org.openrewrite.python.cleanup.UseDatetimeNowNotToday](/user-documentation/recipes/recipe-catalog/python/cleanup/usedatetimenownottoday.md)
+  * **Use `datetime.now()` instead of `datetime.today()`**
+  * Replace `datetime.today()` with `datetime.now()`. Both are equivalent, but `now()` is more explicit and supports timezone arguments.
+* [org.openrewrite.python.cleanup.UseDictionaryUnion](/user-documentation/recipes/recipe-catalog/python/cleanup/usedictionaryunion.md)
+  * **Use dict union operator instead of double-star unpacking**
+  * Dict literals made up entirely of `**` unpacking can be rewritten with the `|` union operator available since Python 3.9.
+* [org.openrewrite.python.cleanup.UseFileIterator](/user-documentation/recipes/recipe-catalog/python/cleanup/usefileiterator.md)
+  * **Iterate over file objects directly, not via `readlines()`**
+  * File objects are iterable and yield lines on demand, so calling `.readlines()` to build an intermediate list is unnecessary.
+* [org.openrewrite.python.cleanup.UseGetitemForReMatchGroups](/user-documentation/recipes/recipe-catalog/python/cleanup/usegetitemforrematchgroups.md)
+  * **Use bracket access for ``re.Match`` groups**
+  * Replace ``match.group(n)`` with ``match[n]`` to use the shorter subscript syntax available since Python 3.6.
+* [org.openrewrite.python.cleanup.UseIsna](/user-documentation/recipes/recipe-catalog/python/cleanup/useisna.md)
+  * **Use `.isna()` instead of `== np.nan` comparisons**
+  * Rewrite `== np.nan` and `== numpy.nan` equality tests as `.isna()` calls, since direct NaN comparison always evaluates to False.
+* [org.openrewrite.python.cleanup.UseStringRemoveAffix](/user-documentation/recipes/recipe-catalog/python/cleanup/usestringremoveaffix.md)
+  * **Replace string slicing with `removeprefix`/`removesuffix`**
+  * Replace `if text.startswith(s): text = text[N:]` with `text = text.removeprefix(s)` and the equivalent `endswith` pattern with `removesuffix` (Python 3.9+).
+* [org.openrewrite.python.cleanup.UselessElseOnLoop](/user-documentation/recipes/recipe-catalog/python/cleanup/uselesselseonloop.md)
+  * **Flatten `for/else` when the loop has no `break`**
+  * A `for/else` where the loop body never breaks is misleading -- the `else` runs every time. This moves the else body after the loop.
+* [org.openrewrite.python.cleanup.YieldFrom](/user-documentation/recipes/recipe-catalog/python/cleanup/yieldfrom.md)
+  * **Collapse for-yield loop into `yield from`**
+  * A for-loop that does nothing but yield the loop variable can be expressed as `yield from`, which is shorter and delegates directly.
 
 ### rewrite-struts
 

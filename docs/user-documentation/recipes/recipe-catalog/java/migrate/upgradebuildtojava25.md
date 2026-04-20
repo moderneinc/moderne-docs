@@ -15,10 +15,7 @@ import RunRecipe from '@site/src/components/RunRecipe';
 
 **org.openrewrite.java.migrate.UpgradeBuildToJava25**
 
-```
-Upgrades build files to Java 25 for projects without Kotlin <2.3.
-```
-
+_Upgrades build files to Java 25 for projects without Kotlin pre-2.3._
 
 ## Recipe source
 
@@ -56,7 +53,7 @@ type: specs.openrewrite.org/v1beta/recipe
 name: org.openrewrite.java.migrate.UpgradeBuildToJava25
 displayName: Upgrade build to Java 25 (default)
 description: |
-  Upgrades build files to Java 25 for projects without Kotlin &lt;2.3.
+  Upgrades build files to Java 25 for projects without Kotlin pre-2.3.
 preconditions:
   - org.openrewrite.java.dependencies.search.ModuleHasDependency:
       groupIdPattern: org.jetbrains.kotlin

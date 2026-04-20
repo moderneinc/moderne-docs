@@ -117,7 +117,7 @@ _Recipes that include further recipes, often including the individual recipes be
 * [Upgrade build to Java 11](./upgradebuildtojava11.md)
 * [Upgrade build to Java 17](./upgradebuildtojava17.md)
 * [Upgrade build to Java 21](./upgradebuildtojava21.md)
-* [Upgrade build to Java 24 for Kotlin &lt;2.3](./upgradebuildtojava24.md)
+* [Upgrade build to Java 24 for Kotlin pre-2.3](./upgradebuildtojava24.md)
 * [Upgrade build to Java 25 (default)](./upgradebuildtojava25.md)
 * [Use `SunJSSE` instead of `com.sun.net.ssl.internal.ssl.Provider`](./removedlegacysunjsseprovidername.md)
 * [Use `ZipException` instead of `ZipError`](./migrateziperrortozipexception.md)

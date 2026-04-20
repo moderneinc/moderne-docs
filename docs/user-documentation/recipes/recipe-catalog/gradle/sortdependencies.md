@@ -26,6 +26,13 @@ _Sort dependencies in `build.gradle` and `build.gradle.kts` files. Dependencies 
 This recipe is available under the [Apache License Version 2.0](https://www.apache.org/licenses/LICENSE-2.0).
 
 
+## Used by
+
+This recipe is used as part of the following composite recipes:
+
+* [Apply Gradle best practices](/user-documentation/recipes/recipe-catalog/gradle/gradlebestpractices.md)
+
+
 ## Usage
 
 <RunRecipe
