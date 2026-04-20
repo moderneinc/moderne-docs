@@ -1,4 +1,8 @@
 # Platform changelog
+### UI v12.35.0 (2026/04/20)
+
+- gate v2 preview link by v2Preview capability
+
 ### UI v12.34.2 (2026/04/16)
 
 - Bug fixes and other improvements.
