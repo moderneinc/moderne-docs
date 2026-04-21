@@ -47,7 +47,6 @@ This recipe is available under the [Apache License Version 2.0](https://www.apac
 This recipe is used as part of the following composite recipes:
 
 * [Add Spring Cloud dependencies BOM](/user-documentation/recipes/recipe-catalog/java/spring/cloud2025/addspringclouddependenciesbom.md)
-* [Create Spring Boot Application Entry Point](/user-documentation/recipes/recipe-catalog/java/dropwizard/coresetup.md)
 * [Migrate JavaEE Maven Dependencies to Quarkus 2](/user-documentation/recipes/recipe-catalog/quarkus/migrate/javaee/addquarkus2mavenplugins.md)
 * [Migrate Spring Boot to Quarkus](/user-documentation/recipes/recipe-catalog/quarkus/spring/springboottoquarkus.md)
 

@@ -34,6 +34,12 @@ This recipe is available under the [Moderne Source Available License](https://do
 
 <Tabs groupId="recipeType">
 <TabItem value="recipe-list" label="Recipe List" >
+**Preconditions**
+
+* [Singleton](../../core/singleton)
+
+**Recipes**
+
 * [Change method target to static](../../java/changemethodtargettostatic)
   * methodPattern: `java.lang.reflect.Modifier *(..)`
   * fullyQualifiedTargetTypeName: `java.lang.reflect.Modifier`
@@ -52,6 +58,8 @@ name: org.openrewrite.java.migrate.RemovedModifierAndConstantBootstrapsConstruct
 displayName: Change `java.lang.reflect.Modifier` and ` java.lang.invoke.ConstantBootstraps` method calls to static
 description: |
   The `java.lang.reflect.Modifier()` and `java.lang.invoke.ConstantBootstraps()` constructors have been removed in Java SE 15 because both classes only contain static methods. This recipe converts the usage of all methods in the two classes to be  static. See https://docs.oracle.com/en/java/javase/15/migrate/index.html#GUID-233853B8-0782-429E-BEF7-7532EE610E63 for more information on these changes.
+preconditions:
+  - org.openrewrite.Singleton
 recipeList:
   - org.openrewrite.java.ChangeMethodTargetToStatic:
       methodPattern: java.lang.reflect.Modifier *(..)
@@ -85,16 +93,14 @@ import java.lang.invoke.ConstantBootstraps;
 import java.lang.reflect.Modifier;
 
 class RemovedModifierAndConstantBootstrapsConstructorsApp {
-     public void testModifier() throws Exception {
-         Modifier modifier = new Modifier();
+     public void testModifier(Modifier modifier) throws Exception {
          modifier.classModifiers();
          modifier.fieldModifiers();
          modifier.isFinal(1);
          modifier.isStatic(1);
          Modifier.isPublic(0);
      }
-     public void testConstantBootstraps() throws Exception {
-         ConstantBootstraps constantBootstraps = new ConstantBootstraps();
+     public void testConstantBootstraps(ConstantBootstraps constantBootstraps) throws Exception {
          constantBootstraps.enumConstant(null,null,null);
          constantBootstraps.primitiveClass(null,null,null);
          ConstantBootstraps.nullConstant(null, null, null);
@@ -108,16 +114,14 @@ import java.lang.invoke.ConstantBootstraps;
 import java.lang.reflect.Modifier;
 
 class RemovedModifierAndConstantBootstrapsConstructorsApp {
-     public void testModifier() throws Exception {
-         Modifier modifier = new Modifier();
+     public void testModifier(Modifier modifier) throws Exception {
          Modifier.classModifiers();
          Modifier.fieldModifiers();
          Modifier.isFinal(1);
          Modifier.isStatic(1);
          Modifier.isPublic(0);
      }
-     public void testConstantBootstraps() throws Exception {
-         ConstantBootstraps constantBootstraps = new ConstantBootstraps();
+     public void testConstantBootstraps(ConstantBootstraps constantBootstraps) throws Exception {
          ConstantBootstraps.enumConstant(null,null,null);
          ConstantBootstraps.primitiveClass(null,null,null);
          ConstantBootstraps.nullConstant(null, null, null);
@@ -129,9 +133,9 @@ class RemovedModifierAndConstantBootstrapsConstructorsApp {
 <TabItem value="diff" label="Diff" >
 
 ```diff
-@@ -7,4 +7,4 @@
-     public void testModifier() throws Exception {
-         Modifier modifier = new Modifier();
+@@ -6,4 +6,4 @@
+class RemovedModifierAndConstantBootstrapsConstructorsApp {
+     public void testModifier(Modifier modifier) throws Exception {
 -        modifier.classModifiers();
 -        modifier.fieldModifiers();
 -        modifier.isFinal(1);
@@ -141,9 +145,9 @@ class RemovedModifierAndConstantBootstrapsConstructorsApp {
 +        Modifier.isFinal(1);
 +        Modifier.isStatic(1);
          Modifier.isPublic(0);
-@@ -15,2 +15,2 @@
-     public void testConstantBootstraps() throws Exception {
-         ConstantBootstraps constantBootstraps = new ConstantBootstraps();
+@@ -13,2 +13,2 @@
+     }
+     public void testConstantBootstraps(ConstantBootstraps constantBootstraps) throws Exception {
 -        constantBootstraps.enumConstant(null,null,null);
 -        constantBootstraps.primitiveClass(null,null,null);
 +        ConstantBootstraps.enumConstant(null,null,null);
@@ -169,16 +173,14 @@ import java.lang.invoke.ConstantBootstraps;
 import java.lang.reflect.Modifier;
 
 class RemovedModifierAndConstantBootstrapsConstructorsApp {
-     public void testModifier() throws Exception {
-         Modifier modifier = new Modifier();
+     public void testModifier(Modifier modifier) throws Exception {
          modifier.classModifiers();
          modifier.fieldModifiers();
          modifier.isFinal(1);
          modifier.isStatic(1);
          Modifier.isPublic(0);
      }
-     public void testConstantBootstraps() throws Exception {
-         ConstantBootstraps constantBootstraps = new ConstantBootstraps();
+     public void testConstantBootstraps(ConstantBootstraps constantBootstraps) throws Exception {
          constantBootstraps.enumConstant(null,null,null);
          constantBootstraps.primitiveClass(null,null,null);
          ConstantBootstraps.nullConstant(null, null, null);
@@ -192,16 +194,14 @@ import java.lang.invoke.ConstantBootstraps;
 import java.lang.reflect.Modifier;
 
 class RemovedModifierAndConstantBootstrapsConstructorsApp {
-     public void testModifier() throws Exception {
-         Modifier modifier = new Modifier();
+     public void testModifier(Modifier modifier) throws Exception {
          Modifier.classModifiers();
          Modifier.fieldModifiers();
          Modifier.isFinal(1);
          Modifier.isStatic(1);
          Modifier.isPublic(0);
      }
-     public void testConstantBootstraps() throws Exception {
-         ConstantBootstraps constantBootstraps = new ConstantBootstraps();
+     public void testConstantBootstraps(ConstantBootstraps constantBootstraps) throws Exception {
          ConstantBootstraps.enumConstant(null,null,null);
          ConstantBootstraps.primitiveClass(null,null,null);
          ConstantBootstraps.nullConstant(null, null, null);
@@ -213,9 +213,9 @@ class RemovedModifierAndConstantBootstrapsConstructorsApp {
 <TabItem value="diff" label="Diff" >
 
 ```diff
-@@ -7,4 +7,4 @@
-     public void testModifier() throws Exception {
-         Modifier modifier = new Modifier();
+@@ -6,4 +6,4 @@
+class RemovedModifierAndConstantBootstrapsConstructorsApp {
+     public void testModifier(Modifier modifier) throws Exception {
 -        modifier.classModifiers();
 -        modifier.fieldModifiers();
 -        modifier.isFinal(1);
@@ -225,9 +225,9 @@ class RemovedModifierAndConstantBootstrapsConstructorsApp {
 +        Modifier.isFinal(1);
 +        Modifier.isStatic(1);
          Modifier.isPublic(0);
-@@ -15,2 +15,2 @@
-     public void testConstantBootstraps() throws Exception {
-         ConstantBootstraps constantBootstraps = new ConstantBootstraps();
+@@ -13,2 +13,2 @@
+     }
+     public void testConstantBootstraps(ConstantBootstraps constantBootstraps) throws Exception {
 -        constantBootstraps.enumConstant(null,null,null);
 -        constantBootstraps.primitiveClass(null,null,null);
 +        ConstantBootstraps.enumConstant(null,null,null);

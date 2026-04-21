@@ -38,6 +38,12 @@ This recipe is available under the [Moderne Source Available License](https://do
 
 <Tabs groupId="recipeType">
 <TabItem value="recipe-list" label="Recipe List" >
+**Preconditions**
+
+* [Singleton](../../core/singleton)
+
+**Recipes**
+
 * [Upgrade `actions/setup-java` `java-version`](../../github/setupjavaupgradejavaversion)
   * minimumJavaMajorVersion: `25`
 * [Update Gradle wrapper](../../gradle/updategradlewrapper)
@@ -60,6 +66,10 @@ This recipe is available under the [Moderne Source Available License](https://do
   * groupId: `net.bytebuddy`
   * artifactId: `byte-buddy*`
   * newVersion: `1.17.x`
+* [Upgrade Gradle or Maven dependency versions](../../java/dependencies/upgradedependencyversion)
+  * groupId: `org.mockito`
+  * artifactId: `mockito-*`
+  * newVersion: `5.17.x`
 
 </TabItem>
 
@@ -74,6 +84,8 @@ description: |
   Updates plugins and dependencies to versions compatible with Java 25.
 tags:
   - java25
+preconditions:
+  - org.openrewrite.Singleton
 recipeList:
   - org.openrewrite.github.SetupJavaUpgradeJavaVersion:
       minimumJavaMajorVersion: 25
@@ -97,6 +109,10 @@ recipeList:
       groupId: net.bytebuddy
       artifactId: byte-buddy*
       newVersion: 1.17.x
+  - org.openrewrite.java.dependencies.UpgradeDependencyVersion:
+      groupId: org.mockito
+      artifactId: mockito-*
+      newVersion: 5.17.x
 
 ```
 </TabItem>

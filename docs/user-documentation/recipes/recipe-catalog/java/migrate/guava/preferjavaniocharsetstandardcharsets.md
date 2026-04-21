@@ -34,6 +34,12 @@ This recipe is available under the [Moderne Source Available License](https://do
 
 <Tabs groupId="recipeType">
 <TabItem value="recipe-list" label="Recipe List" >
+**Preconditions**
+
+* [Singleton](../../../core/singleton)
+
+**Recipes**
+
 * [Change type](../../../java/changetype)
   * oldFullyQualifiedTypeName: `com.google.common.base.Charsets`
   * newFullyQualifiedTypeName: `java.nio.charset.StandardCharsets`
@@ -51,6 +57,8 @@ description: |
   Prefer `java.nio.charset.StandardCharsets` instead of using `com.google.common.base.Charsets`.
 tags:
   - guava
+preconditions:
+  - org.openrewrite.Singleton
 recipeList:
   - org.openrewrite.java.ChangeType:
       oldFullyQualifiedTypeName: com.google.common.base.Charsets

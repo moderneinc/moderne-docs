@@ -42,6 +42,12 @@ This recipe is available under the [Moderne Source Available License](https://do
 
 <Tabs groupId="recipeType">
 <TabItem value="recipe-list" label="Recipe List" >
+**Preconditions**
+
+* [Singleton](../../../core/singleton)
+
+**Recipes**
+
 * [Migrate from Spring Cloud Sleuth to OpenTelemetry](../../../java/spring/opentelemetry/migratesleuthtoopentelemetry)
 * [Migrate Brave API to OpenTelemetry API](../../../java/spring/opentelemetry/migratebravetoopentelemetry)
 * [Migrate from Zipkin to OpenTelemetry OTLP](../../../java/spring/opentelemetry/migratefromzipkintoopentelemetry)
@@ -71,6 +77,8 @@ tags:
   - opentelemetry
   - boot
   - observability
+preconditions:
+  - org.openrewrite.Singleton
 recipeList:
   - org.openrewrite.java.spring.opentelemetry.MigrateSleuthToOpenTelemetry
   - org.openrewrite.java.spring.opentelemetry.MigrateBraveToOpenTelemetry

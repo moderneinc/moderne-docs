@@ -29,22 +29,22 @@ You saw from the analysis earlier that these projects all use a variety of Sprin
 </figure>
 
 3. Add the following recipes in order:
-   - **`Apache Maven best practices`** ([`org.openrewrite.maven.BestPractices`](https://docs.openrewrite.org/recipes/maven/bestpractices))
-   - **`Migrate to Java 8`** ([`org.openrewrite.java.migrate.UpgradeToJava8`](https://docs.openrewrite.org/recipes/java/migrate/upgradetojava8))
-   - **`Migrate to Spring Boot 2.7`** ([`org.openrewrite.java.spring.boot2.UpgradeSpringBoot_2_7`](https://docs.openrewrite.org/recipes/java/spring/boot2/upgradespringboot_2_7))
-   - **`Change Maven dependency`** ([`org.openrewrite.maven.ChangeDependencyGroupIdAndArtifactId`](https://docs.openrewrite.org/recipes/maven/changedependencygroupidandartifactid))
+   * **`Apache Maven best practices`** ([`org.openrewrite.maven.BestPractices`](https://docs.openrewrite.org/recipes/maven/bestpractices))
+   * **`Migrate to Java 8`** ([`org.openrewrite.java.migrate.UpgradeToJava8`](https://docs.openrewrite.org/recipes/java/migrate/upgradetojava8))
+   * **`Migrate to Spring Boot 2.7`** ([`org.openrewrite.java.spring.boot2.UpgradeSpringBoot_2_7`](https://docs.openrewrite.org/recipes/java/spring/boot2/upgradespringboot_2_7))
+   * **`Change Maven dependency`** ([`org.openrewrite.maven.ChangeDependencyGroupIdAndArtifactId`](https://docs.openrewrite.org/recipes/maven/changedependencygroupidandartifactid))
 4. Configure the dependency change:
-   - **Old groupId:** `org.springframework.cloud`
-   - **Old artifactId:** `spring-cloud-starter-zipkin`
-   - **New groupId:** `org.springframework.cloud`
-   - **New artifactId:** `spring-cloud-sleuth-zipkin`
+   * **Old groupId:** `org.springframework.cloud`
+   * **Old artifactId:** `spring-cloud-starter-zipkin`
+   * **New groupId:** `org.springframework.cloud`
+   * **New artifactId:** `spring-cloud-sleuth-zipkin`
 
 <figure>
   ![Baseline recipe list with Maven best practices, Java 8, Spring Boot 2.7, and dependency change](./assets/migration-baseline-recipe.png)
   <figcaption>_Your custom migration baseline recipe_</figcaption>
 </figure>
 
-5. Open the recipe dropdown (top left) and choose `Download YAML`.
+5. Open the recipe dropdown (top left) and choose **Download YAML**.
 
 <figure>
   ![Recipe dropdown menu with Download YAML option highlighted](./assets/download-yaml.png)
@@ -63,27 +63,16 @@ You saw from the analysis earlier that these projects all use a variety of Sprin
 
 #### Step 1: Save and install the recipe
 
-Copy the recipe to your `$WORKSHOP` directory and install it locally:
+Copy the downloaded YAML file to your `$WORKSHOP` directory and install it locally. The filename may vary depending on your browser — look for the most recently downloaded `.yml` file in your Downloads folder:
 
 ```bash
-# If your download location is different, replace with whatever path you used for the YAML file
 cp ~/Downloads/Spring\ Boot\ Migration\ Workshop\ Baseline.yml $WORKSHOP/WorkshopBaseline.yml
 mod config recipes yaml install $WORKSHOP/WorkshopBaseline.yml
 ```
 
-#### Step 2: Build LSTs, then run the recipe and apply changes
+#### Step 2: Run the recipe and apply changes
 
-1. Since you synced repositories from the wave-specific CSV file instead of the platform, the LSTs aren't available for download, so you'll need to build them before running recipes:
-
-```bash
-mod build $WORKSPACE
-```
-
-:::note
-This command may take a couple of minutes to run as it builds LSTs for each repository.
-:::
-
-2. In this step, you'll run the `com.example.ecom.recipe.SpringBootMigrationWorkshopBaseline` recipe that you just created in the platform and downloaded. When you run a recipe from the CLI, Moderne writes any changes to a patch file and leaves your working tree untouched until you're ready to explicitly apply it. So after you run the recipe, you use `mod git apply` to write the changes into the repos so you can review, test, and commit them:
+Run the `com.example.ecom.recipe.SpringBootMigrationWorkshopBaseline` recipe that you just created in the platform and downloaded. When you run a recipe from the CLI, Moderne writes any changes to a patch file and leaves your working tree untouched until you're ready to explicitly apply it. So after you run the recipe, you use `mod git apply` to write the changes into the repos so you can review, test, and commit them:
 
 ```bash
 mod run $WORKSPACE --recipe com.example.ecom.recipe.SpringBootMigrationWorkshopBaseline
@@ -92,7 +81,7 @@ mod git apply $WORKSPACE --last-recipe-run
 
 #### Step 3: Build and release
 
-This repository includes some helper scripts to run commands like building, testing, and releasing. Use the `build.sh` script to build and run tests for all the projects, and the `release.sh` script to release your code for downstream dependencies to consume. To publish a release, the script automatically installs the current non-SNAPSHOT version of each repository into your local Maven cache. It will then bump the project's version to the next available minor SNAPSHOT version, ready for you to make more changes. Both scripts build or release all repositories, but they each accept an argument representing a target wave number. So `build.sh 1` will only build the repositories in Wave 1.
+The `moderne-migration-practice` repository you cloned in Module 2 includes helper scripts in `$WORKSHOP`. Use `build.sh` to build and run tests for all the projects, and `release.sh` to release your code for downstream dependencies to consume. The release script installs the current non-SNAPSHOT version of each repository into your local Maven cache (`~/.m2`), then bumps the project's version to the next minor SNAPSHOT. In a real organization, this step would be handled by your CI/CD pipeline publishing to an artifact repository; for this workshop, a local Maven install simulates that. Both scripts accept an optional wave number argument — for example, `build.sh 1` only builds Wave 1 repositories.
 
 You will be using both of these commands going forward after you make changes to the code to simulate the software development lifecycle of building and releasing new versions of these repositories that would usually be handled by your existing process outside of OpenRewrite and Moderne.
 
@@ -112,7 +101,7 @@ mod git status $WORKSPACE
    ▛▀▀█▀▛▀▀▀▀▜
    ▌▟▀  ▛▀▀▀▀▜
    ▀▀▀▀▀▀▀▀▀▀▀
-Moderne CLI 4.0.10
+Moderne CLI 4.1.6
 
 ⏺ Reading organization
 
@@ -185,7 +174,7 @@ Build complete!
    ▛▀▀█▀▛▀▀▀▀▜
    ▌▟▀  ▛▀▀▀▀▜
    ▀▀▀▀▀▀▀▀▀▀▀
-Moderne CLI 4.0.10
+Moderne CLI 4.1.6
 
 ⏺ Reading organization
 
@@ -233,7 +222,7 @@ MOD SUCCEEDED in 1s
    ▛▀▀█▀▛▀▀▀▀▜
    ▌▟▀  ▛▀▀▀▀▜
    ▀▀▀▀▀▀▀▀▀▀▀
-Moderne CLI 4.0.10
+Moderne CLI 4.1.6
 
 ⏺ Reading organization
 
@@ -405,7 +394,7 @@ Mass Release Complete!
    ▛▀▀█▀▛▀▀▀▀▜
    ▌▟▀  ▛▀▀▀▀▜
    ▀▀▀▀▀▀▀▀▀▀▀
-Moderne CLI 4.0.10
+Moderne CLI 4.1.6
 
 ⏺ Reading organization
 
@@ -507,6 +496,5 @@ MOD SUCCEEDED in 1m 18s
 ## Takeaways
 
 * Establishing a shared baseline reduces variance so later upgrades focus on fewer, clearer changes.
-* Build → run recipe → apply → review → commit becomes the repeatable flow for every wave.
-* LSTs are required for reliable recipe runs, so each new workspace needs a build step first.
+* Run recipe → apply → review → commit becomes the repeatable flow for every wave.
 * Build and release steps keep downstream repositories in sync as you move through the waves.

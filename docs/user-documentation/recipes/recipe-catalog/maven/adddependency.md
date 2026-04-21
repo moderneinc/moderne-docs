@@ -47,13 +47,7 @@ This recipe is available under the [Apache License Version 2.0](https://www.apac
 
 This recipe is used as part of the following composite recipes:
 
-* [Add Spring Boot Actuator](/user-documentation/recipes/recipe-catalog/java/dropwizard/migratehealthchecksandmetrics.md)
 * [Add `lombok-mapstruct-binding` dependency for Maven when both MapStruct and Lombok are used](/user-documentation/recipes/recipe-catalog/java/migrate/addlombokmapstructbindingmavendependencyonly.md)
-* [Create Spring Boot Application Entry Point](/user-documentation/recipes/recipe-catalog/java/dropwizard/coresetup.md)
-* [Migrate Health Checks to Spring Boot](/user-documentation/recipes/recipe-catalog/java/dropwizard/migratesecurity.md)
-* [Migrate Health Checks to Spring Boot](/user-documentation/recipes/recipe-catalog/java/dropwizard/migratetests.md)
-* [Migrate Hibernate](/user-documentation/recipes/recipe-catalog/java/dropwizard/migratehibernate.md)
-* [Migrate Resource Classes](/user-documentation/recipes/recipe-catalog/java/dropwizard/migrateresourcestospringjersey.md)
 * [The package scan classes has moved from camel-base-engine to camel-support - maven](/user-documentation/recipes/recipe-catalog/org/apache/camel/upgrade/camel412/scanclassesmovedmaven.md)
 * [io.quarkus.updates.core.quarkus310.FlywayDb2](/user-documentation/recipes/recipe-catalog/io/quarkus/updates/core/quarkus310/flywaydb2.md)
 * [io.quarkus.updates.core.quarkus310.FlywayDerby](/user-documentation/recipes/recipe-catalog/io/quarkus/updates/core/quarkus310/flywayderby.md)

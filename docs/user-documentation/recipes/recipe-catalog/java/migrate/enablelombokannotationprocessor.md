@@ -34,6 +34,14 @@ This recipe is available under the [Moderne Source Available License](https://do
 
 <Tabs groupId="recipeType">
 <TabItem value="recipe-list" label="Recipe List" >
+**Preconditions**
+
+* [Module has dependency](../../java/dependencies/search/modulehasdependency)
+  * groupIdPattern: `org.projectlombok`
+  * artifactIdPattern: `lombok`
+
+**Recipes**
+
 * [Add an annotation processor to `maven-compiler-plugin`](../../maven/addannotationprocessor)
   * groupId: `org.projectlombok`
   * artifactId: `lombok`
@@ -56,6 +64,10 @@ name: org.openrewrite.java.migrate.EnableLombokAnnotationProcessor
 displayName: Enable Lombok annotation processor
 description: |
   With Java 23 the encapsulation of JDK internals made it necessary to configure annotation processors like Lombok explicitly. The change is valid for older versions as well.
+preconditions:
+  - org.openrewrite.java.dependencies.search.ModuleHasDependency:
+      groupIdPattern: org.projectlombok
+      artifactIdPattern: lombok
 recipeList:
   - org.openrewrite.maven.AddAnnotationProcessor:
       groupId: org.projectlombok
@@ -76,6 +88,7 @@ recipeList:
 
 This recipe is used as part of the following composite recipes:
 
+* [Lombok Best Practices](/user-documentation/recipes/recipe-catalog/java/migrate/lombok/lombokbestpractices.md)
 * [Migrate to Java 17](/user-documentation/recipes/recipe-catalog/java/migrate/upgradetojava17.md)
 
 

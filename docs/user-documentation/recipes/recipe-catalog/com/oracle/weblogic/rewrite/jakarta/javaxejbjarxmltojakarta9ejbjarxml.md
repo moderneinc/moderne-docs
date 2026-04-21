@@ -39,6 +39,13 @@ This recipe is available under the [Apache License Version 2.0](https://www.apac
 
 <Tabs groupId="recipeType">
 <TabItem value="recipe-list" label="Recipe List" >
+**Preconditions**
+
+* [Find files](../../../../../core/findsourcefiles)
+  * filePattern: `**/ejb-jar.xml`
+
+**Recipes**
+
 * [Change XML attribute](../../../../../xml/changetagattribute)
   * elementName: `ejb-jar`
   * attributeName: `version`
@@ -74,6 +81,9 @@ description: |
 tags:
   - ejb
   - jakarta
+preconditions:
+  - org.openrewrite.FindSourceFiles:
+      filePattern: **/ejb-jar.xml
 recipeList:
   - org.openrewrite.xml.ChangeTagAttribute:
       elementName: ejb-jar

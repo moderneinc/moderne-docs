@@ -19,7 +19,7 @@ _Migrate applications to the latest Spring Data 2.3 release._
 
 ## Recipe source
 
-[GitHub: spring-data-23.yml](https://github.com/openrewrite/rewrite-spring/blob/main/src/main/resources/META-INF/rewrite/spring-data-23.yml),
+[GitHub: spring-data-2.yml](https://github.com/openrewrite/rewrite-spring/blob/main/src/main/resources/META-INF/rewrite/spring-data-2.yml),
 [Issue Tracker](https://github.com/openrewrite/rewrite-spring/issues),
 [Maven Central](https://central.sonatype.com/artifact/org.openrewrite.recipe/rewrite-spring/)
 
@@ -34,6 +34,12 @@ This recipe is available under the [Moderne Source Available License](https://do
 
 <Tabs groupId="recipeType">
 <TabItem value="recipe-list" label="Recipe List" >
+**Preconditions**
+
+* [Singleton](../../../core/singleton)
+
+**Recipes**
+
 * [Use `JpaSort.of(..)`](../../../java/spring/data/migratejpasort)
 * [Use `QuerydslPredicateExecutor&lt;T&gt;`](../../../java/spring/data/migratequerydsljparepository)
 * [Add Gradle or Maven dependency](../../../java/dependencies/adddependency)
@@ -66,6 +72,8 @@ name: org.openrewrite.java.spring.data.UpgradeSpringData_2_3
 displayName: Migrate to Spring Data 2.3
 description: |
   Migrate applications to the latest Spring Data 2.3 release.
+preconditions:
+  - org.openrewrite.Singleton
 recipeList:
   - org.openrewrite.java.spring.data.MigrateJpaSort
   - org.openrewrite.java.spring.data.MigrateQuerydslJpaRepository
@@ -97,6 +105,7 @@ recipeList:
 This recipe is used as part of the following composite recipes:
 
 * [Migrate to Spring Boot 2.3](/user-documentation/recipes/recipe-catalog/java/spring/boot2/upgradespringboot_2_3.md)
+* [Migrate to Spring Data JPA 2.5](/user-documentation/recipes/recipe-catalog/java/spring/data/upgradespringdata_2_5.md)
 
 ## Examples
 ##### Example 1

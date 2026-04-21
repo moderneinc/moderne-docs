@@ -34,6 +34,12 @@ This recipe is available under the [Moderne Source Available License](https://do
 
 <Tabs groupId="recipeType">
 <TabItem value="recipe-list" label="Recipe List" >
+**Preconditions**
+
+* [Singleton](../core/singleton)
+
+**Recipes**
+
 * [Default comes last](../staticanalysis/defaultcomeslast)
 * [Remove empty blocks](../staticanalysis/emptyblock)
 * [End files with a single newline](../java/format/emptynewlineatendoffile)
@@ -69,6 +75,8 @@ name: org.openrewrite.staticanalysis.CodeCleanup
 displayName: Code cleanup
 description: |
   Automatically cleanup code, e.g. remove unnecessary parentheses, simplify expressions.
+preconditions:
+  - org.openrewrite.Singleton
 recipeList:
   - org.openrewrite.staticanalysis.DefaultComesLast
   - org.openrewrite.staticanalysis.EmptyBlock

@@ -40,6 +40,12 @@ This recipe is available under the [Moderne Source Available License](https://do
 
 <Tabs groupId="recipeType">
 <TabItem value="recipe-list" label="Recipe List" >
+**Preconditions**
+
+* [Singleton](../../../core/singleton)
+
+**Recipes**
+
 * [Change Gradle or Maven dependency](../../../java/dependencies/changedependency)
   * oldGroupId: `javax.annotation`
   * oldArtifactId: `javax.annotation-api`
@@ -88,6 +94,8 @@ tags:
   - annotation
   - javax
   - jakarta
+preconditions:
+  - org.openrewrite.Singleton
 recipeList:
   - org.openrewrite.java.dependencies.ChangeDependency:
       oldGroupId: javax.annotation
@@ -132,6 +140,133 @@ This recipe is used as part of the following composite recipes:
 
 * [Migrate to Jakarta EE 9](/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/javaxmigrationtojakarta.md)
 * [Update jakarta annotations dependency](/user-documentation/recipes/recipe-catalog/java/micronaut/updatejakartaannotations.md)
+
+## Examples
+##### Example 1
+`JavaxAnnotationMigrationToJakartaAnnotationTest#migratesExplicitDependency`
+
+
+<Tabs groupId="beforeAfter">
+<TabItem value="java" label="java">
+
+
+###### Before
+```java
+import javax.annotation.Nonnull;
+
+class A {
+    @Nonnull
+    String name;
+}
+```
+
+###### After
+```java
+import jakarta.annotation.Nonnull;
+
+class A {
+    @Nonnull
+    String name;
+}
+```
+
+</TabItem>
+<TabItem value="diff" label="Diff" >
+
+```diff
+@@ -1,1 +1,1 @@
+-import javax.annotation.Nonnull;
++import jakarta.annotation.Nonnull;
+
+```
+</TabItem>
+</Tabs>
+
+###### Unchanged
+```mavenProject
+my-project
+```
+
+###### Unchanged
+```xml title="pom.xml"
+<project>
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.example</groupId>
+    <artifactId>demo</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <dependencies>
+        <dependency>
+            <groupId>javax.annotation</groupId>
+            <artifactId>javax.annotation-api</artifactId>
+            <version>1.3.2</version>
+        </dependency>
+    </dependencies>
+</project>
+```
+
+---
+
+##### Example 2
+`JavaxAnnotationMigrationToJakartaAnnotationTest#migratesExplicitDependency`
+
+
+<Tabs groupId="beforeAfter">
+<TabItem value="java" label="java">
+
+
+###### Before
+```java
+import javax.annotation.Nonnull;
+
+class A {
+    @Nonnull
+    String name;
+}
+```
+
+###### After
+```java
+import jakarta.annotation.Nonnull;
+
+class A {
+    @Nonnull
+    String name;
+}
+```
+
+</TabItem>
+<TabItem value="diff" label="Diff" >
+
+```diff
+@@ -1,1 +1,1 @@
+-import javax.annotation.Nonnull;
++import jakarta.annotation.Nonnull;
+
+```
+</TabItem>
+</Tabs>
+
+###### Unchanged
+```mavenProject
+my-project
+```
+
+###### Unchanged
+```xml title="pom.xml"
+<project>
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.example</groupId>
+    <artifactId>demo</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <dependencies>
+        <dependency>
+            <groupId>javax.annotation</groupId>
+            <artifactId>javax.annotation-api</artifactId>
+            <version>1.3.2</version>
+        </dependency>
+    </dependencies>
+</project>
+```
 
 
 ## Usage

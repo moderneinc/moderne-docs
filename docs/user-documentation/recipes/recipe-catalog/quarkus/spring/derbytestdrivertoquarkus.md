@@ -42,6 +42,15 @@ This recipe is available under the [Moderne Source Available License](https://do
 
 <Tabs groupId="recipeType">
 <TabItem value="recipe-list" label="Recipe List" >
+**Preconditions**
+
+* [Dependency insight for Gradle and Maven](../../java/dependencies/dependencyinsight)
+  * groupIdPattern: `org.apache.derby`
+  * artifactIdPattern: `derby|derbyclient`
+  * scope: `test`
+
+**Recipes**
+
 * [Remove a Gradle or Maven dependency](../../java/dependencies/removedependency)
   * groupId: `org.apache.derby`
   * artifactId: `derby`
@@ -73,6 +82,11 @@ tags:
   - test
   - quarkus
   - derby
+preconditions:
+  - org.openrewrite.java.dependencies.DependencyInsight:
+      groupIdPattern: org.apache.derby
+      artifactIdPattern: derby|derbyclient
+      scope: test
 recipeList:
   - org.openrewrite.java.dependencies.RemoveDependency:
       groupId: org.apache.derby

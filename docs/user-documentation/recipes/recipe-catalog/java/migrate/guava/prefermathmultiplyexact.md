@@ -38,6 +38,12 @@ This recipe is available under the [Moderne Source Available License](https://do
 
 <Tabs groupId="recipeType">
 <TabItem value="recipe-list" label="Recipe List" >
+**Preconditions**
+
+* [Singleton](../../../core/singleton)
+
+**Recipes**
+
 * [Change method name](../../../java/changemethodname)
   * methodPattern: `com.google.common.math.IntMath checkedMultiply(..)`
   * newMethodName: `multiplyExact`
@@ -58,6 +64,8 @@ description: |
   Prefer `java.lang.Math#multiplyExact` instead of using `com.google.common.primitives.IntMath#checkedMultiply` or `com.google.common.primitives.IntMath#multiplyExact`.
 tags:
   - guava
+preconditions:
+  - org.openrewrite.Singleton
 recipeList:
   - org.openrewrite.java.ChangeMethodName:
       methodPattern: com.google.common.math.IntMath checkedMultiply(..)

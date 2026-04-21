@@ -38,6 +38,12 @@ This recipe is available under the [Moderne Source Available License](https://do
 
 <Tabs groupId="recipeType">
 <TabItem value="recipe-list" label="Recipe List" >
+**Preconditions**
+
+* [Singleton](../../core/singleton)
+
+**Recipes**
+
 * [Migrate to Java 11](../../java/migrate/java8tojava11)
 * [Upgrade build to Java 17](../../java/migrate/upgradebuildtojava17)
 * [Changes code to use Java 17's `instanceof` pattern matching](../../staticanalysis/instanceofpatternmatch)
@@ -98,6 +104,8 @@ description: |
   This recipe will apply changes commonly needed when migrating to Java 17. Specifically, for those applications that are built on Java 8, this recipe will update and add dependencies on J2EE libraries that are no longer directly bundled with the JDK. This recipe will also replace deprecated API with equivalents when there is a clear migration strategy. Build files will also be updated to use Java 17 as the target/source and plugins will be also be upgraded to versions that are compatible with Java 17.
 tags:
   - java17
+preconditions:
+  - org.openrewrite.Singleton
 recipeList:
   - org.openrewrite.java.migrate.Java8toJava11
   - org.openrewrite.java.migrate.UpgradeBuildToJava17
@@ -154,7 +162,7 @@ recipeList:
 
 This recipe is used as part of the following composite recipes:
 
-* [Migrate to Dropwizard 5.0.x from 4.x](/user-documentation/recipes/recipe-catalog/java/dropwizard/migratetodropwizard5.md)
+* [Migrate to Dropwizard 5.0.x from 4.x](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/dropwizard/migratetodropwizard5)
 * [Migrate to Java 21](/user-documentation/recipes/recipe-catalog/java/migrate/upgradetojava21.md)
 * [Migrate to Spring Boot 3.0](/user-documentation/recipes/recipe-catalog/java/spring/boot3/upgradespringboot_3_0.md)
 * [Migrate to Struts 7.0](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/struts/migrate7/migratestruts7)

@@ -27,6 +27,20 @@ This recipe is used as part of the following composite recipes:
 * [Update Prethink context (no AI)](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/prethink/updateprethinkcontextnoaistarter)
 * [Update Prethink context (with AI)](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/prethink/updateprethinkcontextstarter)
 
+## Example
+
+
+###### Unchanged
+```javascript title="src/login.test.js"
+describe('login', () => {
+  it('should wait for element', () => {
+    setTimeout(() => {
+      expect(true).toBe(true);
+    }, 1000);
+  });
+});
+```
+
 
 ## Usage
 

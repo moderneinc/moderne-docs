@@ -38,6 +38,12 @@ This recipe is available under the [Moderne Source Available License](https://do
 
 <Tabs groupId="recipeType">
 <TabItem value="recipe-list" label="Recipe List" >
+**Preconditions**
+
+* [Singleton](../../../core/singleton)
+
+**Recipes**
+
 * [Include an assertion in tests](../../../java/testing/cleanup/testsshouldincludeassertions)
 * [Remove `test` prefix from JUnit 5 tests](../../../java/testing/cleanup/removetestprefix)
 
@@ -54,6 +60,8 @@ description: |
   Applies best practices to tests.
 tags:
   - testing
+preconditions:
+  - org.openrewrite.Singleton
 recipeList:
   - org.openrewrite.java.testing.cleanup.TestsShouldIncludeAssertions
   - org.openrewrite.java.testing.cleanup.RemoveTestPrefix

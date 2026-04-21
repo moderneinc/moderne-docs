@@ -36,6 +36,14 @@ This recipe is available under the [Moderne Source Available License](https://do
 
 <Tabs groupId="recipeType">
 <TabItem value="recipe-list" label="Recipe List" >
+**Preconditions**
+
+* [Dependency insight for Gradle and Maven](../../../java/dependencies/dependencyinsight)
+  * groupIdPattern: `com.fasterxml.jackson.module`
+  * artifactIdPattern: `jackson-module-jaxb-annotations`
+
+**Recipes**
+
 * [Add Gradle or Maven dependency](../../../java/dependencies/adddependency)
   * groupId: `javax.xml.bind`
   * artifactId: `jaxb-api`
@@ -58,6 +66,10 @@ tags:
   - jaxb
   - javax
   - jakarta
+preconditions:
+  - org.openrewrite.java.dependencies.DependencyInsight:
+      groupIdPattern: com.fasterxml.jackson.module
+      artifactIdPattern: jackson-module-jaxb-annotations
 recipeList:
   - org.openrewrite.java.dependencies.AddDependency:
       groupId: javax.xml.bind

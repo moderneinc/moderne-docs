@@ -34,6 +34,12 @@ This recipe is available under the [Moderne Source Available License](https://do
 
 <Tabs groupId="recipeType">
 <TabItem value="recipe-list" label="Recipe List" >
+**Preconditions**
+
+* [Singleton](../../../core/singleton)
+
+**Recipes**
+
 * [Change Gradle or Maven dependency](../../../java/dependencies/changedependency)
   * oldGroupId: `commons-fileupload`
   * oldArtifactId: `commons-fileupload`
@@ -68,6 +74,8 @@ name: org.openrewrite.java.migrate.jakarta.FileuploadToFileUpload2
 displayName: Migrate deprecated `org.apache.commons.fileload` packages to `org.apache.commons.fileload.core`
 description: |
   Migrate deprecated `org.apache.commons.fileload` packages to `org.apache.commons.fileload.core`.
+preconditions:
+  - org.openrewrite.Singleton
 recipeList:
   - org.openrewrite.java.dependencies.ChangeDependency:
       oldGroupId: commons-fileupload

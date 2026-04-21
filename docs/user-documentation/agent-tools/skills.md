@@ -201,5 +201,5 @@ This ensures the agent tools stay current as CLI capabilities evolve.
 
 ## Next steps
 
-* [Set up the Moderne MCP server](./mcp.md) to give agents tools for semantic code search, navigation, and refactoring
+* [Set up the Moderne MCP server](./mcp/overview.md) to give agents tools for semantic code search, navigation, and refactoring
 * [Learn about Moderne Prethink](./prethink.md) for giving agents pre-resolved codebase context

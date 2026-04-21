@@ -40,6 +40,14 @@ This recipe is available under the [Moderne Source Available License](https://do
 
 <Tabs groupId="recipeType">
 <TabItem value="recipe-list" label="Recipe List" >
+**Preconditions**
+
+* [Find files](../../../core/findsourcefiles)
+  * filePattern: `**/beans.xml`
+* [Singleton](../../../core/singleton)
+
+**Recipes**
+
 * [Change XML attribute](../../../xml/changetagattribute)
   * elementName: `beans`
   * attributeName: `version`
@@ -68,6 +76,10 @@ tags:
   - beans
   - cdi
   - jakarta
+preconditions:
+  - org.openrewrite.FindSourceFiles:
+      filePattern: **/beans.xml
+  - org.openrewrite.Singleton
 recipeList:
   - org.openrewrite.xml.ChangeTagAttribute:
       elementName: beans

@@ -40,6 +40,13 @@ This recipe is available under the [Apache License Version 2.0](https://www.apac
 
 <Tabs groupId="recipeType">
 <TabItem value="recipe-list" label="Recipe List" >
+**Preconditions**
+
+* [Find files](../../../../../core/findsourcefiles)
+  * filePattern: `**/ra.xml`
+
+**Recipes**
+
 * [Change XML attribute](../../../../../xml/changetagattribute)
   * elementName: `connector`
   * attributeName: `version`
@@ -76,6 +83,9 @@ tags:
   - connectors
   - jakarta
   - ra
+preconditions:
+  - org.openrewrite.FindSourceFiles:
+      filePattern: **/ra.xml
 recipeList:
   - org.openrewrite.xml.ChangeTagAttribute:
       elementName: connector

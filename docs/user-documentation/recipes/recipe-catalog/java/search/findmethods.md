@@ -37,9 +37,15 @@ This recipe is available under the [Apache License Version 2.0](https://www.apac
 
 This recipe is used as part of the following composite recipes:
 
+* [Find Expression Language injection vectors](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/security/search/findexpressionlanguageinjection)
+* [Find HTTP response splitting vectors](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/security/search/findhttpresponsesplitting)
 * [Find Jackson default type mapping enablement](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/security/search/findjacksondefaulttypemapping)
 * [Find Virtual Thread opportunities](/user-documentation/recipes/recipe-catalog/java/migrate/lang/findvirtualthreadopportunities.md)
+* [Find XPath injection vectors](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/security/search/findxpathinjection)
 * [Find non-virtual `ExecutorService` creation](/user-documentation/recipes/recipe-catalog/java/migrate/lang/findnonvirtualexecutors.md)
+* [Find process control vectors](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/security/search/findprocesscontrol)
+* [Find script engine code injection vectors](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/security/search/findscriptengineinjection)
+* [Find unsafe reflection vectors](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/security/search/findunsafereflection)
 * [Finds uses of `Encryptors.queryableText()`](/user-documentation/recipes/recipe-catalog/java/spring/security5/search/findencryptorsqueryabletextuses.md)
 
 ## Example

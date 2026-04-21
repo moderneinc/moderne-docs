@@ -40,6 +40,12 @@ This recipe is available under the [Moderne Source Available License](https://do
 
 <Tabs groupId="recipeType">
 <TabItem value="recipe-list" label="Recipe List" >
+**Preconditions**
+
+* [Singleton](../../../core/singleton)
+
+**Recipes**
+
 * [Change Gradle or Maven dependency](../../../java/dependencies/changedependency)
   * oldGroupId: `javax.activation`
   * oldArtifactId: `javax.activation-api`
@@ -54,6 +60,12 @@ This recipe is available under the [Moderne Source Available License](https://do
   * groupId: `jakarta.activation`
   * artifactId: `jakarta.activation-api`
   * newVersion: `2.0.x`
+* [Add Gradle or Maven dependency](../../../java/dependencies/adddependency)
+  * groupId: `jakarta.activation`
+  * artifactId: `jakarta.activation-api`
+  * version: `2.0.x`
+  * onlyIfUsing: `javax.activation..*`
+  * acceptTransitive: `true`
 * [Rename package name](../../../java/changepackage)
   * oldPackageName: `javax.activation`
   * newPackageName: `jakarta.activation`
@@ -74,6 +86,8 @@ tags:
   - javax
   - activation
   - jakarta
+preconditions:
+  - org.openrewrite.Singleton
 recipeList:
   - org.openrewrite.java.dependencies.ChangeDependency:
       oldGroupId: javax.activation
@@ -89,6 +103,12 @@ recipeList:
       groupId: jakarta.activation
       artifactId: jakarta.activation-api
       newVersion: 2.0.x
+  - org.openrewrite.java.dependencies.AddDependency:
+      groupId: jakarta.activation
+      artifactId: jakarta.activation-api
+      version: 2.0.x
+      onlyIfUsing: javax.activation..*
+      acceptTransitive: true
   - org.openrewrite.java.ChangePackage:
       oldPackageName: javax.activation
       newPackageName: jakarta.activation

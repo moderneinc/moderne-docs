@@ -40,6 +40,12 @@ This recipe is available under the [Moderne Source Available License](https://do
 
 <Tabs groupId="recipeType">
 <TabItem value="recipe-list" label="Recipe List" >
+**Preconditions**
+
+* [Singleton](../../../core/singleton)
+
+**Recipes**
+
 * [Change Gradle or Maven dependency](../../../java/dependencies/changedependency)
   * oldGroupId: `javax.xml.bind`
   * oldArtifactId: `jaxb-api`
@@ -61,6 +67,12 @@ This recipe is available under the [Moderne Source Available License](https://do
   * groupId: `org.glassfish.jaxb`
   * artifactId: `jaxb-runtime`
   * newVersion: `3.0.x`
+* [Add Gradle or Maven dependency](../../../java/dependencies/adddependency)
+  * groupId: `jakarta.xml.bind`
+  * artifactId: `jakarta.xml.bind-api`
+  * version: `3.0.x`
+  * onlyIfUsing: `javax.xml.bind..*`
+  * acceptTransitive: `true`
 * [Rename package name](../../../java/changepackage)
   * oldPackageName: `javax.xml.bind`
   * newPackageName: `jakarta.xml.bind`
@@ -90,6 +102,8 @@ tags:
   - jaxb
   - javax
   - jakarta
+preconditions:
+  - org.openrewrite.Singleton
 recipeList:
   - org.openrewrite.java.dependencies.ChangeDependency:
       oldGroupId: javax.xml.bind
@@ -112,6 +126,12 @@ recipeList:
       groupId: org.glassfish.jaxb
       artifactId: jaxb-runtime
       newVersion: 3.0.x
+  - org.openrewrite.java.dependencies.AddDependency:
+      groupId: jakarta.xml.bind
+      artifactId: jakarta.xml.bind-api
+      version: 3.0.x
+      onlyIfUsing: javax.xml.bind..*
+      acceptTransitive: true
   - org.openrewrite.java.ChangePackage:
       oldPackageName: javax.xml.bind
       newPackageName: jakarta.xml.bind

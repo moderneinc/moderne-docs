@@ -34,6 +34,12 @@ This recipe is available under the [Moderne Source Available License](https://do
 
 <Tabs groupId="recipeType">
 <TabItem value="recipe-list" label="Recipe List" >
+**Preconditions**
+
+* [Singleton](../core/singleton)
+
+**Recipes**
+
 * [Migrate to Hibernate 6.5.x](../hibernate/migratetohibernate65)
 * [Upgrade Gradle or Maven dependency versions](../java/dependencies/upgradedependencyversion)
   * groupId: `org.hibernate.orm`
@@ -51,6 +57,8 @@ name: org.openrewrite.hibernate.MigrateToHibernate66
 displayName: Migrate to Hibernate 6.6.x (Community Edition)
 description: |
   This recipe will apply changes commonly needed when migrating to Hibernate 6.6.x.
+preconditions:
+  - org.openrewrite.Singleton
 recipeList:
   - org.openrewrite.hibernate.MigrateToHibernate65
   - org.openrewrite.java.dependencies.UpgradeDependencyVersion:
@@ -66,7 +74,7 @@ recipeList:
 
 This recipe is used as part of the following composite recipes:
 
-* [Migrate to Dropwizard 5.0.x from 4.x](/user-documentation/recipes/recipe-catalog/java/dropwizard/migratetodropwizard5.md)
+* [Migrate to Dropwizard 5.0.x from 4.x](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/dropwizard/migratetodropwizard5)
 * [Migrate to Hibernate 6.6.x (Moderne Edition)](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/hibernate/migratetohibernate66-moderne-edition)
 * [Migrate to Hibernate 7.0.x (Community Edition)](/user-documentation/recipes/recipe-catalog/hibernate/migratetohibernate70-community-edition.md)
 * [Upgrade Hibernate to 6.6](/user-documentation/recipes/recipe-catalog/com/oracle/weblogic/rewrite/hibernate/upgradehibernateto66.md)

@@ -39,6 +39,12 @@ This recipe is available under the [Moderne Source Available License](https://do
 
 <Tabs groupId="recipeType">
 <TabItem value="recipe-list" label="Recipe List" >
+**Preconditions**
+
+* [Singleton](../../../core/singleton)
+
+**Recipes**
+
 * [Migrate to Spring Boot 2.2](../../../java/spring/boot2/upgradespringboot_2_2)
 * [Migrate to Spring Data 2.3](../../../java/spring/data/upgradespringdata_2_3)
 * [Upgrade Gradle or Maven dependency versions](../../../java/dependencies/upgradedependencyversion)
@@ -65,12 +71,7 @@ This recipe is available under the [Moderne Source Available License](https://do
 * [Update Gradle wrapper](../../../gradle/updategradlewrapper)
   * version: `^6.3`
   * addIfMissing: `false`
-* [Add Gradle or Maven dependency](../../../java/dependencies/adddependency)
-  * groupId: `org.springframework.boot`
-  * artifactId: `spring-boot-starter-validation`
-  * version: `2.3.x`
-  * onlyIfUsing: `javax.validation.constraints.*`
-  * acceptTransitive: `true`
+* [Add `spring-boot-starter-validation` if needed](../../../java/spring/boot2/addspringbootstartervalidation)
 * [Upgrade Gradle or Maven dependency versions](../../../java/dependencies/upgradedependencyversion)
   * groupId: `org.springdoc`
   * artifactId: `*`
@@ -95,6 +96,8 @@ description: |
 tags:
   - spring
   - boot
+preconditions:
+  - org.openrewrite.Singleton
 recipeList:
   - org.openrewrite.java.spring.boot2.UpgradeSpringBoot_2_2
   - org.openrewrite.java.spring.data.UpgradeSpringData_2_3
@@ -122,12 +125,7 @@ recipeList:
   - org.openrewrite.gradle.UpdateGradleWrapper:
       version: ^6.3
       addIfMissing: false
-  - org.openrewrite.java.dependencies.AddDependency:
-      groupId: org.springframework.boot
-      artifactId: spring-boot-starter-validation
-      version: 2.3.x
-      onlyIfUsing: javax.validation.constraints.*
-      acceptTransitive: true
+  - org.openrewrite.java.spring.boot2.AddSpringBootStarterValidation
   - org.openrewrite.java.dependencies.UpgradeDependencyVersion:
       groupId: org.springdoc
       artifactId: "*"

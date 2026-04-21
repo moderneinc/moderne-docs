@@ -34,6 +34,12 @@ This recipe is available under the [Moderne Source Available License](https://do
 
 <Tabs groupId="recipeType">
 <TabItem value="recipe-list" label="Recipe List" >
+**Preconditions**
+
+* [Singleton](../../../core/singleton)
+
+**Recipes**
+
 * [Change Gradle or Maven dependency](../../../java/dependencies/changedependency)
   * oldGroupId: `javax.websocket`
   * oldArtifactId: `javax.websocket-api`
@@ -64,6 +70,12 @@ This recipe is available under the [Moderne Source Available License](https://do
   * groupId: `jakarta.websocket`
   * artifactId: `jakarta.websocket-all`
   * newVersion: `2.0.x`
+* [Add Gradle or Maven dependency](../../../java/dependencies/adddependency)
+  * groupId: `jakarta.websocket`
+  * artifactId: `jakarta.websocket-api`
+  * version: `2.0.x`
+  * onlyIfUsing: `javax.websocket..*`
+  * acceptTransitive: `true`
 * [Rename package name](../../../java/changepackage)
   * oldPackageName: `javax.websocket`
   * newPackageName: `jakarta.websocket`
@@ -80,6 +92,8 @@ name: org.openrewrite.java.migrate.jakarta.JavaxWebsocketToJakartaWebsocket
 displayName: Migrate deprecated `javax.websocket` packages to `jakarta.websocket`
 description: |
   Java EE has been rebranded to Jakarta EE, necessitating a package relocation.
+preconditions:
+  - org.openrewrite.Singleton
 recipeList:
   - org.openrewrite.java.dependencies.ChangeDependency:
       oldGroupId: javax.websocket
@@ -111,6 +125,12 @@ recipeList:
       groupId: jakarta.websocket
       artifactId: jakarta.websocket-all
       newVersion: 2.0.x
+  - org.openrewrite.java.dependencies.AddDependency:
+      groupId: jakarta.websocket
+      artifactId: jakarta.websocket-api
+      version: 2.0.x
+      onlyIfUsing: javax.websocket..*
+      acceptTransitive: true
   - org.openrewrite.java.ChangePackage:
       oldPackageName: javax.websocket
       newPackageName: jakarta.websocket

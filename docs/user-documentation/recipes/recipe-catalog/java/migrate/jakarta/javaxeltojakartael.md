@@ -34,6 +34,12 @@ This recipe is available under the [Moderne Source Available License](https://do
 
 <Tabs groupId="recipeType">
 <TabItem value="recipe-list" label="Recipe List" >
+**Preconditions**
+
+* [Singleton](../../../core/singleton)
+
+**Recipes**
+
 * [Change Gradle or Maven dependency](../../../java/dependencies/changedependency)
   * oldGroupId: `javax.el`
   * oldArtifactId: `javax.el-api`
@@ -44,6 +50,12 @@ This recipe is available under the [Moderne Source Available License](https://do
   * groupId: `jakarta.el`
   * artifactId: `jakarta.el-api`
   * newVersion: `4.0.x`
+* [Add Gradle or Maven dependency](../../../java/dependencies/adddependency)
+  * groupId: `jakarta.el`
+  * artifactId: `jakarta.el-api`
+  * version: `4.0.x`
+  * onlyIfUsing: `javax.el..*`
+  * acceptTransitive: `true`
 * [Rename package name](../../../java/changepackage)
   * oldPackageName: `javax.el`
   * newPackageName: `jakarta.el`
@@ -60,6 +72,8 @@ name: org.openrewrite.java.migrate.jakarta.JavaxElToJakartaEl
 displayName: Migrate deprecated `javax.el` packages to `jakarta.el`
 description: |
   Java EE has been rebranded to Jakarta EE, necessitating a package relocation.
+preconditions:
+  - org.openrewrite.Singleton
 recipeList:
   - org.openrewrite.java.dependencies.ChangeDependency:
       oldGroupId: javax.el
@@ -71,6 +85,12 @@ recipeList:
       groupId: jakarta.el
       artifactId: jakarta.el-api
       newVersion: 4.0.x
+  - org.openrewrite.java.dependencies.AddDependency:
+      groupId: jakarta.el
+      artifactId: jakarta.el-api
+      version: 4.0.x
+      onlyIfUsing: javax.el..*
+      acceptTransitive: true
   - org.openrewrite.java.ChangePackage:
       oldPackageName: javax.el
       newPackageName: jakarta.el

@@ -30,6 +30,12 @@ This recipe is available under the [Moderne Source Available License](https://do
 
 <Tabs groupId="recipeType">
 <TabItem value="recipe-list" label="Recipe List" >
+**Preconditions**
+
+* [Singleton](../../../core/singleton)
+
+**Recipes**
+
 * [Change method name](../../../java/changemethodname)
   * methodPattern: `java.lang.Runtime.Version major()`
   * newMethodName: `feature`
@@ -45,6 +51,8 @@ name: org.openrewrite.java.migrate.lang.MigrateRuntimeVersionMajorToFeature
 displayName: Use `Runtime.Version#feature()`
 description: |
   Use `Runtime.Version#feature()` instead of the deprecated `Runtime.Version#major()` in Java 10 or higher.
+preconditions:
+  - org.openrewrite.Singleton
 recipeList:
   - org.openrewrite.java.ChangeMethodName:
       methodPattern: java.lang.Runtime.Version major()

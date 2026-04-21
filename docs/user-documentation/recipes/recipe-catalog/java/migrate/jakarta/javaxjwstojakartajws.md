@@ -34,6 +34,12 @@ This recipe is available under the [Moderne Source Available License](https://do
 
 <Tabs groupId="recipeType">
 <TabItem value="recipe-list" label="Recipe List" >
+**Preconditions**
+
+* [Singleton](../../../core/singleton)
+
+**Recipes**
+
 * [Change Gradle or Maven dependency](../../../java/dependencies/changedependency)
   * oldGroupId: `javax.jws`
   * oldArtifactId: `javax.jws-api`
@@ -50,6 +56,12 @@ This recipe is available under the [Moderne Source Available License](https://do
   * groupId: `jakarta.jws`
   * artifactId: `jakarta.jws-api`
   * newVersion: `3.0.x`
+* [Add Gradle or Maven dependency](../../../java/dependencies/adddependency)
+  * groupId: `jakarta.jws`
+  * artifactId: `jakarta.jws-api`
+  * version: `3.0.x`
+  * onlyIfUsing: `javax.jws..*`
+  * acceptTransitive: `true`
 * [Rename package name](../../../java/changepackage)
   * oldPackageName: `javax.jws`
   * newPackageName: `jakarta.jws`
@@ -66,6 +78,8 @@ name: org.openrewrite.java.migrate.jakarta.JavaxJwsToJakartaJws
 displayName: Migrate deprecated `javax.jws` packages to `jakarta.jws`
 description: |
   Java EE has been rebranded to Jakarta EE, necessitating a package relocation.
+preconditions:
+  - org.openrewrite.Singleton
 recipeList:
   - org.openrewrite.java.dependencies.ChangeDependency:
       oldGroupId: javax.jws
@@ -83,6 +97,12 @@ recipeList:
       groupId: jakarta.jws
       artifactId: jakarta.jws-api
       newVersion: 3.0.x
+  - org.openrewrite.java.dependencies.AddDependency:
+      groupId: jakarta.jws
+      artifactId: jakarta.jws-api
+      version: 3.0.x
+      onlyIfUsing: javax.jws..*
+      acceptTransitive: true
   - org.openrewrite.java.ChangePackage:
       oldPackageName: javax.jws
       newPackageName: jakarta.jws

@@ -12,9 +12,12 @@ _Recipes that include further recipes, often including the individual recipes be
 
 ## Recipes
 
+* [Find native queries with enum parameters requiring SpEL conversion](./findnativequeryrawenumparameters.md)
 * [Migrate @JdbcType to @JdbcTypeCode](./migratejdbctypetojdbctypecode.md)
+* [Migrate @Query to @NativeQuery for unsupported JPQL](./migratequerytonativequery.md)
 * [Migrate `Configurable.configure()` to use `GeneratorCreationContext`](./migrateconfigurabletogeneratorcreationcontext.md)
 * [Migrate Hibernate `Integrator#integrate` method](./migrateintegratormethod.md)
+* [Migrate JPQL `trunc()` to `cast(... as date)`](./migratejpqltrunctodatecast.md)
 * [Migrate LockOptions to direct parameters](./migratelockoptionstodirectparameters.md)
 * [Migrate `MetamodelImplementor` to Hibernate 7.0](./migratemetamodelimplementor.md)
 * [Migrate NaturalIdLoadAccess method calls](./migratenaturalidloadaccess.md)

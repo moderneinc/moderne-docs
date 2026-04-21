@@ -34,6 +34,13 @@ This recipe is available under the [Moderne Source Available License](https://do
 
 <Tabs groupId="recipeType">
 <TabItem value="recipe-list" label="Recipe List" >
+**Preconditions**
+
+* [Find types](../../java/search/findtypes)
+  * fullyQualifiedTypeName: `springfox..*`
+
+**Recipes**
+
 * [Remove unused private fields](../../staticanalysis/removeunusedprivatefields)
 * [Remove unused private methods](../../staticanalysis/removeunusedprivatemethods)
 
@@ -48,6 +55,9 @@ name: org.openrewrite.java.springdoc.CleanupRemainingSpringfox
 displayName: Remove remaining Springfox dead code
 description: |
   Removes unused private methods left behind after SpringFoxToSpringDoc migration. When Docket beans are removed, private helper methods (e.g., `appInfo()`) become dead code but are not cleaned up, causing compilation errors.
+preconditions:
+  - org.openrewrite.java.search.FindTypes:
+      fullyQualifiedTypeName: springfox..*
 recipeList:
   - org.openrewrite.staticanalysis.RemoveUnusedPrivateFields
   - org.openrewrite.staticanalysis.RemoveUnusedPrivateMethods

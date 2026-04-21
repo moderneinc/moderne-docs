@@ -34,6 +34,12 @@ This recipe is available under the [Moderne Source Available License](https://do
 
 <Tabs groupId="recipeType">
 <TabItem value="recipe-list" label="Recipe List" >
+**Preconditions**
+
+* [Singleton](../../../core/singleton)
+
+**Recipes**
+
 * [Change Gradle or Maven dependency](../../../java/dependencies/changedependency)
   * oldGroupId: `javax.enterprise`
   * oldArtifactId: `cdi-api`
@@ -44,6 +50,12 @@ This recipe is available under the [Moderne Source Available License](https://do
   * groupId: `jakarta.enterprise`
   * artifactId: `jakarta.enterprise.cdi-api`
   * newVersion: `3.0.x`
+* [Add Gradle or Maven dependency](../../../java/dependencies/adddependency)
+  * groupId: `jakarta.enterprise`
+  * artifactId: `jakarta.enterprise.cdi-api`
+  * version: `3.0.x`
+  * onlyIfUsing: `javax.decorator..*`
+  * acceptTransitive: `true`
 * [Rename package name](../../../java/changepackage)
   * oldPackageName: `javax.decorator`
   * newPackageName: `jakarta.decorator`
@@ -60,6 +72,8 @@ name: org.openrewrite.java.migrate.jakarta.JavaxDecoratorToJakartaDecorator
 displayName: Migrate deprecated `javax.decorator` packages to `jakarta.decorator`
 description: |
   Java EE has been rebranded to Jakarta EE, necessitating a package relocation.
+preconditions:
+  - org.openrewrite.Singleton
 recipeList:
   - org.openrewrite.java.dependencies.ChangeDependency:
       oldGroupId: javax.enterprise
@@ -71,6 +85,12 @@ recipeList:
       groupId: jakarta.enterprise
       artifactId: jakarta.enterprise.cdi-api
       newVersion: 3.0.x
+  - org.openrewrite.java.dependencies.AddDependency:
+      groupId: jakarta.enterprise
+      artifactId: jakarta.enterprise.cdi-api
+      version: 3.0.x
+      onlyIfUsing: javax.decorator..*
+      acceptTransitive: true
   - org.openrewrite.java.ChangePackage:
       oldPackageName: javax.decorator
       newPackageName: jakarta.decorator

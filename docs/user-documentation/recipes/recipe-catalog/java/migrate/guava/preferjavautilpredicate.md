@@ -39,6 +39,12 @@ This recipe is available under the [Moderne Source Available License](https://do
 
 <Tabs groupId="recipeType">
 <TabItem value="recipe-list" label="Recipe List" >
+**Preconditions**
+
+* [Singleton](../../../core/singleton)
+
+**Recipes**
+
 * [Change method target to static](../../../java/changemethodtargettostatic)
   * methodPattern: `com.google.common.base.Predicates not(com.google.common.base.Predicate)`
   * fullyQualifiedTargetTypeName: `java.util.function.Predicate`
@@ -58,6 +64,8 @@ description: |
 tags:
   - RSPEC-S4738
   - guava
+preconditions:
+  - org.openrewrite.Singleton
 recipeList:
   - org.openrewrite.java.ChangeMethodTargetToStatic:
       methodPattern: com.google.common.base.Predicates not(com.google.common.base.Predicate)

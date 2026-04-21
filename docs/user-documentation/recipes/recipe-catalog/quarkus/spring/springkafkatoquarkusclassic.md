@@ -41,6 +41,14 @@ This recipe is available under the [Moderne Source Available License](https://do
 
 <Tabs groupId="recipeType">
 <TabItem value="recipe-list" label="Recipe List" >
+**Preconditions**
+
+* [Dependency insight for Gradle and Maven](../../java/dependencies/dependencyinsight)
+  * groupIdPattern: `org.springframework.kafka`
+  * artifactIdPattern: `spring-kafka`
+
+**Recipes**
+
 * [Remove a Gradle or Maven dependency](../../java/dependencies/removedependency)
   * groupId: `org.springframework.kafka`
   * artifactId: `spring-kafka`
@@ -65,6 +73,10 @@ tags:
   - classic
   - quarkus
   - kafka
+preconditions:
+  - org.openrewrite.java.dependencies.DependencyInsight:
+      groupIdPattern: org.springframework.kafka
+      artifactIdPattern: spring-kafka
 recipeList:
   - org.openrewrite.java.dependencies.RemoveDependency:
       groupId: org.springframework.kafka

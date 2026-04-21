@@ -39,6 +39,12 @@ This recipe is available under the [Moderne Source Available License](https://do
 
 <Tabs groupId="recipeType">
 <TabItem value="recipe-list" label="Recipe List" >
+**Preconditions**
+
+* [Singleton](../../../core/singleton)
+
+**Recipes**
+
 * [Migrate to Spring Boot 3.1](../../../java/spring/boot3/upgradespringboot_3_1)
 * [Upgrade Gradle or Maven dependency versions](../../../java/dependencies/upgradedependencyversion)
   * groupId: `org.springframework.boot`
@@ -99,6 +105,8 @@ This recipe is available under the [Moderne Source Available License](https://do
 * [Relocate Launcher Classes](../../../java/spring/boot3/relocatelauncherclasses)
 * [Upgrade MyBatis to Spring Boot 3.2](../../../java/spring/boot3/upgrademybatistospringboot_3_2)
 * [Upgrade to SpringDoc 2.5](../../../java/springdoc/upgradespringdoc_2_5)
+* [Remove Maven project property](../../../maven/removeproperty)
+  * propertyName: `jakarta-servlet.version`
 
 </TabItem>
 
@@ -114,6 +122,8 @@ description: |
 tags:
   - spring
   - boot
+preconditions:
+  - org.openrewrite.Singleton
 recipeList:
   - org.openrewrite.java.spring.boot3.UpgradeSpringBoot_3_1
   - org.openrewrite.java.dependencies.UpgradeDependencyVersion:
@@ -175,6 +185,8 @@ recipeList:
   - org.openrewrite.java.spring.boot3.RelocateLauncherClasses
   - org.openrewrite.java.spring.boot3.UpgradeMyBatisToSpringBoot_3_2
   - org.openrewrite.java.springdoc.UpgradeSpringDoc_2_5
+  - org.openrewrite.maven.RemoveProperty:
+      propertyName: jakarta-servlet.version
 
 ```
 </TabItem>

@@ -10,7 +10,7 @@ import RunRecipe from '@site/src/components/RunRecipe';
 
 **io.moderne.prethink.calm.FindSecurityConfiguration**
 
-_Identify security configurations including Spring Security, OAuth2, and CORS settings._
+_Identify security configurations including Spring Security, OAuth2, CORS, Jakarta Security (@RolesAllowed, @PermitAll, @DenyAll), and Quarkus Security settings._
 
 ## Recipe source
 

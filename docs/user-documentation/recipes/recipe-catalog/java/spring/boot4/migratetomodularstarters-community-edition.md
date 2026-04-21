@@ -34,26 +34,39 @@ This recipe is available under the [Moderne Source Available License](https://do
 
 <Tabs groupId="recipeType">
 <TabItem value="recipe-list" label="Recipe List" >
+**Preconditions**
+
+* [Singleton](../../../core/singleton)
+
+**Recipes**
+
 * [Add Gradle or Maven dependency](../../../java/dependencies/adddependency)
   * groupId: `org.springframework.boot`
   * artifactId: `spring-boot-starter-cache-test`
   * version: `4.0.x`
   * onlyIfUsing: `org.springframework.boot.test.autoconfigure.core.AutoConfigureCache`
+  * scope: `test`
+  * acceptTransitive: `true`
 * [Add Gradle or Maven dependency](../../../java/dependencies/adddependency)
   * groupId: `org.springframework.boot`
   * artifactId: `spring-boot-starter-data-cassandra-test`
   * version: `4.0.x`
   * onlyIfUsing: `org.springframework.boot.test.autoconfigure.data.cassandra.*`
+  * scope: `test`
+  * acceptTransitive: `true`
 * [Add Gradle or Maven dependency](../../../java/dependencies/adddependency)
   * groupId: `org.springframework.boot`
   * artifactId: `spring-boot-starter-data-jpa-test`
   * version: `4.0.x`
   * onlyIfUsing: `org.springframework.boot.test.autoconfigure.orm.jpa.*`
+  * scope: `test`
+  * acceptTransitive: `true`
 * [Add Gradle or Maven dependency](../../../java/dependencies/adddependency)
   * groupId: `org.springframework.boot`
   * artifactId: `spring-boot-starter-jdbc-test`
   * version: `4.0.x`
   * onlyIfUsing: `org.springframework.boot.test.autoconfigure.jdbc.*`
+  * scope: `test`
   * acceptTransitive: `true`
 * [Change Gradle or Maven dependency](../../../java/dependencies/changedependency)
   * oldGroupId: `org.liquibase`
@@ -85,26 +98,34 @@ This recipe is available under the [Moderne Source Available License](https://do
   * artifactId: `spring-boot-starter-webmvc-test`
   * version: `4.0.x`
   * onlyIfUsing: `org.springframework.boot.test.autoconfigure.web.servlet.*`
+  * scope: `test`
+  * acceptTransitive: `true`
 * [Add Gradle or Maven dependency](../../../java/dependencies/adddependency)
   * groupId: `org.springframework.boot`
   * artifactId: `spring-boot-starter-restclient`
   * version: `4.0.x`
   * onlyIfUsing: `org.springframework.web.client.*`
+  * acceptTransitive: `true`
 * [Add Gradle or Maven dependency](../../../java/dependencies/adddependency)
   * groupId: `org.springframework.boot`
   * artifactId: `spring-boot-starter-restclient`
   * version: `4.0.x`
   * onlyIfUsing: `org.springframework.boot.web.client.*`
+  * acceptTransitive: `true`
 * [Add Gradle or Maven dependency](../../../java/dependencies/adddependency)
   * groupId: `org.springframework.boot`
   * artifactId: `spring-boot-starter-restclient-test`
   * version: `4.0.x`
   * onlyIfUsing: `org.springframework.boot.test.autoconfigure.web.client.*`
+  * scope: `test`
+  * acceptTransitive: `true`
 * [Add Gradle or Maven dependency](../../../java/dependencies/adddependency)
   * groupId: `org.springframework.boot`
   * artifactId: `spring-boot-resttestclient`
   * version: `4.0.x`
   * onlyIfUsing: `org.springframework.boot.test.web.client.*`
+  * scope: `test`
+  * acceptTransitive: `true`
 * [Migrate packages to modular starters](../../../java/spring/boot4/migrateautoconfigurepackages)
 
 </TabItem>
@@ -118,27 +139,36 @@ name: org.openrewrite.java.spring.boot4.MigrateToModularStarters
 displayName: Migrate to Spring Boot 4.0 modular starters (Community Edition)
 description: |
   Adds the necessary Spring Boot 4.0 starter dependencies based on package usage. Spring Boot 4.0 has a modular design requiring explicit starters for each feature. This recipe detects feature usage via package imports and adds the appropriate starters. Note: Higher-level starters (like data-jpa) include lower-level ones (like jdbc) transitively, so only the highest-level detected starter is added for each technology.
+preconditions:
+  - org.openrewrite.Singleton
 recipeList:
   - org.openrewrite.java.dependencies.AddDependency:
       groupId: org.springframework.boot
       artifactId: spring-boot-starter-cache-test
       version: 4.0.x
       onlyIfUsing: org.springframework.boot.test.autoconfigure.core.AutoConfigureCache
+      scope: test
+      acceptTransitive: true
   - org.openrewrite.java.dependencies.AddDependency:
       groupId: org.springframework.boot
       artifactId: spring-boot-starter-data-cassandra-test
       version: 4.0.x
       onlyIfUsing: org.springframework.boot.test.autoconfigure.data.cassandra.*
+      scope: test
+      acceptTransitive: true
   - org.openrewrite.java.dependencies.AddDependency:
       groupId: org.springframework.boot
       artifactId: spring-boot-starter-data-jpa-test
       version: 4.0.x
       onlyIfUsing: org.springframework.boot.test.autoconfigure.orm.jpa.*
+      scope: test
+      acceptTransitive: true
   - org.openrewrite.java.dependencies.AddDependency:
       groupId: org.springframework.boot
       artifactId: spring-boot-starter-jdbc-test
       version: 4.0.x
       onlyIfUsing: org.springframework.boot.test.autoconfigure.jdbc.*
+      scope: test
       acceptTransitive: true
   - org.openrewrite.java.dependencies.ChangeDependency:
       oldGroupId: org.liquibase
@@ -170,26 +200,34 @@ recipeList:
       artifactId: spring-boot-starter-webmvc-test
       version: 4.0.x
       onlyIfUsing: org.springframework.boot.test.autoconfigure.web.servlet.*
+      scope: test
+      acceptTransitive: true
   - org.openrewrite.java.dependencies.AddDependency:
       groupId: org.springframework.boot
       artifactId: spring-boot-starter-restclient
       version: 4.0.x
       onlyIfUsing: org.springframework.web.client.*
+      acceptTransitive: true
   - org.openrewrite.java.dependencies.AddDependency:
       groupId: org.springframework.boot
       artifactId: spring-boot-starter-restclient
       version: 4.0.x
       onlyIfUsing: org.springframework.boot.web.client.*
+      acceptTransitive: true
   - org.openrewrite.java.dependencies.AddDependency:
       groupId: org.springframework.boot
       artifactId: spring-boot-starter-restclient-test
       version: 4.0.x
       onlyIfUsing: org.springframework.boot.test.autoconfigure.web.client.*
+      scope: test
+      acceptTransitive: true
   - org.openrewrite.java.dependencies.AddDependency:
       groupId: org.springframework.boot
       artifactId: spring-boot-resttestclient
       version: 4.0.x
       onlyIfUsing: org.springframework.boot.test.web.client.*
+      scope: test
+      acceptTransitive: true
   - org.openrewrite.java.spring.boot4.MigrateAutoconfigurePackages
 
 ```

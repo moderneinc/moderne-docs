@@ -34,12 +34,20 @@ This recipe is available under the [Moderne Source Available License](https://do
 
 <Tabs groupId="recipeType">
 <TabItem value="recipe-list" label="Recipe List" >
+**Preconditions**
+
+* [Singleton](../../core/singleton)
+
+**Recipes**
+
 * [Add Gradle or Maven dependency](../../java/dependencies/adddependency)
   * groupId: `org.jspecify`
   * artifactId: `jspecify`
   * version: `1.0.0`
   * onlyIfUsing: `org.springframework.lang.*ull*`
   * acceptTransitive: `true`
+* [Move annotation to array type](../../java/migrate/jspecify/moveannotationtoarraytype)
+  * annotationType: `org.springframework.lang.*ull*`
 * [Change type](../../java/changetype)
   * oldFullyQualifiedTypeName: `org.springframework.lang.Nullable`
   * newFullyQualifiedTypeName: `org.jspecify.annotations.Nullable`
@@ -62,6 +70,8 @@ name: org.openrewrite.java.jspecify.MigrateFromSpringFrameworkAnnotations
 displayName: Migrate from Spring Framework annotations to JSpecify
 description: |
   Migrate from Spring Framework annotations to JSpecify.
+preconditions:
+  - org.openrewrite.Singleton
 recipeList:
   - org.openrewrite.java.dependencies.AddDependency:
       groupId: org.jspecify
@@ -69,6 +79,8 @@ recipeList:
       version: 1.0.0
       onlyIfUsing: org.springframework.lang.*ull*
       acceptTransitive: true
+  - org.openrewrite.java.migrate.jspecify.MoveAnnotationToArrayType:
+      annotationType: org.springframework.lang.*ull*
   - org.openrewrite.java.ChangeType:
       oldFullyQualifiedTypeName: org.springframework.lang.Nullable
       newFullyQualifiedTypeName: org.jspecify.annotations.Nullable

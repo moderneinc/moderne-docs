@@ -35,6 +35,12 @@ This recipe is available under the [Moderne Source Available License](https://do
 
 <Tabs groupId="recipeType">
 <TabItem value="recipe-list" label="Recipe List" >
+**Preconditions**
+
+* [Singleton](../../../core/singleton)
+
+**Recipes**
+
 * [Change XML attribute](../../../xml/changetagattribute)
   * elementName: `websocket-message-broker`
   * attributeName: `use-authorization-manager`
@@ -54,6 +60,8 @@ description: |
 tags:
   - spring
   - security
+preconditions:
+  - org.openrewrite.Singleton
 recipeList:
   - org.openrewrite.xml.ChangeTagAttribute:
       elementName: websocket-message-broker

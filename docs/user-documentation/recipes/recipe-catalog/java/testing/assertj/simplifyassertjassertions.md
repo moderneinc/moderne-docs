@@ -39,6 +39,12 @@ This recipe is available under the [Moderne Source Available License](https://do
 
 <Tabs groupId="recipeType">
 <TabItem value="recipe-list" label="Recipe List" >
+**Preconditions**
+
+* [Singleton](../../../core/singleton)
+
+**Recipes**
+
 * [Simplify AssertJ assertions with literal arguments](../../../java/testing/assertj/simplifyassertjassertion)
   * assertToReplace: `isEqualTo`
   * literalArgument: `null`
@@ -94,6 +100,8 @@ description: |
 tags:
   - testing
   - assertj
+preconditions:
+  - org.openrewrite.Singleton
 recipeList:
   - org.openrewrite.java.testing.assertj.SimplifyAssertJAssertion:
       assertToReplace: isEqualTo

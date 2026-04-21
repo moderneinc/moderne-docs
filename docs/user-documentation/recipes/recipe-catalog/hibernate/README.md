@@ -8,6 +8,7 @@ description: Hibernate OpenRewrite recipes.
 
 * [Search](/user-documentation/recipes/recipe-catalog/hibernate/search)
 * [Update40](/user-documentation/recipes/recipe-catalog/hibernate/update40)
+* [Update60](/user-documentation/recipes/recipe-catalog/hibernate/update60)
 * [Update66](/user-documentation/recipes/recipe-catalog/hibernate/update66)
 * [Update70](/user-documentation/recipes/recipe-catalog/hibernate/update70)
 * [Validator](/user-documentation/recipes/recipe-catalog/hibernate/validator)

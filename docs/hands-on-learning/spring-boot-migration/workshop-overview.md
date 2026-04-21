@@ -15,25 +15,29 @@ Throughout the workshop, you will see screenshot placeholders and collapsible **
 * How to find which Java and Spring Boot versions you're using
 * How to plan upgrade waves using dependency data
 * How to set a stable baseline before major upgrades
-* How to handle third-party blockers like QueryDSL
+* How to diagnose third-party blockers like QueryDSL with `mod search`
+* How to build custom recipes with AI assistance
 
 ## Prerequisites
 
 To get the most out of this workshop, you should:
 
-* Have basic Java knowledge
-* Know how to work with Maven
+* Have intermediate Java knowledge, including Maven dependency management
+* Be familiar with Spring Boot fundamentals
 * Be comfortable running CLI commands and managing git changes
 
 You will also need:
 
-* [Moderne CLI](../../user-documentation/moderne-cli/getting-started/cli-intro.md) (version 3.55.3 or higher recommended)
+* A [Moderne Platform](https://app.moderne.io) account with access to the **Moderne - Training** organization (your workshop facilitator will provide access)
+* [Moderne CLI](../../user-documentation/moderne-cli/getting-started/cli-intro.md) (version 4.x recommended), authenticated against the Moderne Platform (`mod config moderne edit`)
 * A JDK installed locally (Java 17 or higher recommended)
+* Git installed locally
 
 ## Workshop modules
 
 * [Module 1: Migration assessment](./module-1-migration-assessment.md) - Run an initial migration and gather code insight data
-* [Module 2: Wave planning](./module-2-wave-planning.md) - Build LSTs, analyze dependencies, and organize upgrade waves
+* [Module 2: Wave planning](./module-2-wave-planning.md) - Analyze dependencies in the platform and organize upgrade waves
 * [Module 3: Establish a baseline](./module-3-establish-baseline.md) - Normalize Maven, Java, and Spring Boot versions across the portfolio
 * [Module 4: Raise baseline and smoke test](./module-4-smoke-test.md) - Raise the baseline and validate readiness
-* [Module 5: Finish migration in waves](./module-5-wave-migration.md) - Use a custom recipe to complete the migration in waves
+* [Module 5: Build the QueryDSL recipe](./module-5-build-querydsl-recipe.md) - Diagnose the blocker and build a custom recipe with AI
+* [Module 6: Finish migration in waves](./module-6-wave-migration.md) - Compose a freight-train recipe and complete the migration in waves

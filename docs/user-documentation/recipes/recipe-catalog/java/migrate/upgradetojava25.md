@@ -38,9 +38,15 @@ This recipe is available under the [Moderne Source Available License](https://do
 
 <Tabs groupId="recipeType">
 <TabItem value="recipe-list" label="Recipe List" >
+**Preconditions**
+
+* [Singleton](../../core/singleton)
+
+**Recipes**
+
 * [Migrate to Java 21](../../java/migrate/upgradetojava21)
-* [Upgrade Java version](../../java/migrate/upgradejavaversion)
-  * version: `25`
+* [Upgrade build to Java 24 for Kotlin pre-2.3](../../java/migrate/upgradebuildtojava24)
+* [Upgrade build to Java 25 (default)](../../java/migrate/upgradebuildtojava25)
 * [Upgrade plugins to Java 25 compatible versions](../../java/migrate/upgradepluginsforjava25)
 * [Migrate `System.out.print` to Java 25 IO utility class](../../java/migrate/io/replacesystemoutwithioprint)
 * [Migrate `public static void main(String[] args)` to instance `void main()`](../../java/migrate/lang/migratemainmethodtoinstancemain)
@@ -68,10 +74,12 @@ description: |
   This recipe will apply changes commonly needed when migrating to Java 25. This recipe will also replace deprecated API with equivalents when there is a clear migration strategy. Build files will also be updated to use Java 25 as the target/source and plugins will be also be upgraded to versions that are compatible with Java 25.
 tags:
   - java25
+preconditions:
+  - org.openrewrite.Singleton
 recipeList:
   - org.openrewrite.java.migrate.UpgradeToJava21
-  - org.openrewrite.java.migrate.UpgradeJavaVersion:
-      version: 25
+  - org.openrewrite.java.migrate.UpgradeBuildToJava24
+  - org.openrewrite.java.migrate.UpgradeBuildToJava25
   - org.openrewrite.java.migrate.UpgradePluginsForJava25
   - org.openrewrite.java.migrate.io.ReplaceSystemOutWithIOPrint
   - org.openrewrite.java.migrate.lang.MigrateMainMethodToInstanceMain
@@ -98,8 +106,82 @@ This recipe is used as part of the following composite recipes:
 
 ## Examples
 ##### Example 1
+`EnableLombokAnnotationProcessorTest#doesNotAddLombokWhenNotPresentViaUpgradeToJava25`
+
+
+###### Unchanged
+```mavenProject
+project
+```
+
+<Tabs groupId="beforeAfter">
+<TabItem value="pom.xml" label="pom.xml">
+
+
+###### Before
+```xml title="pom.xml"
+<project>
+    <groupId>com.mycompany.app</groupId>
+    <artifactId>my-app</artifactId>
+    <version>1</version>
+    <properties>
+        <maven.compiler.release>17</maven.compiler.release>
+    </properties>
+    <dependencies>
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+            <version>33.0.0-jre</version>
+        </dependency>
+    </dependencies>
+</project>
+```
+
+###### After
+```xml title="pom.xml"
+<project>
+    <groupId>com.mycompany.app</groupId>
+    <artifactId>my-app</artifactId>
+    <version>1</version>
+    <properties>
+        <maven.compiler.release>25</maven.compiler.release>
+    </properties>
+    <dependencies>
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+            <version>33.0.0-jre</version>
+        </dependency>
+    </dependencies>
+</project>
+```
+
+</TabItem>
+<TabItem value="diff" label="Diff" >
+
+```diff
+--- pom.xml
++++ pom.xml
+@@ -6,1 +6,1 @@
+    <version>1</version>
+    <properties>
+-       <maven.compiler.release>17</maven.compiler.release>
++       <maven.compiler.release>25</maven.compiler.release>
+    </properties>
+```
+</TabItem>
+</Tabs>
+
+---
+
+##### Example 2
 `UpgradeToJava25Test#updateCompilerVersion`
 
+
+###### Unchanged
+```mavenProject
+project
+```
 
 <Tabs groupId="beforeAfter">
 <TabItem value="pom.xml" label="pom.xml">
@@ -147,9 +229,83 @@ This recipe is used as part of the following composite recipes:
 
 ---
 
-##### Example 2
+##### Example 3
+`EnableLombokAnnotationProcessorTest#doesNotAddLombokWhenNotPresentViaUpgradeToJava25`
+
+
+###### Unchanged
+```mavenProject
+project
+```
+
+<Tabs groupId="beforeAfter">
+<TabItem value="pom.xml" label="pom.xml">
+
+
+###### Before
+```xml title="pom.xml"
+<project>
+    <groupId>com.mycompany.app</groupId>
+    <artifactId>my-app</artifactId>
+    <version>1</version>
+    <properties>
+        <maven.compiler.release>17</maven.compiler.release>
+    </properties>
+    <dependencies>
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+            <version>33.0.0-jre</version>
+        </dependency>
+    </dependencies>
+</project>
+```
+
+###### After
+```xml title="pom.xml"
+<project>
+    <groupId>com.mycompany.app</groupId>
+    <artifactId>my-app</artifactId>
+    <version>1</version>
+    <properties>
+        <maven.compiler.release>25</maven.compiler.release>
+    </properties>
+    <dependencies>
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+            <version>33.0.0-jre</version>
+        </dependency>
+    </dependencies>
+</project>
+```
+
+</TabItem>
+<TabItem value="diff" label="Diff" >
+
+```diff
+--- pom.xml
++++ pom.xml
+@@ -6,1 +6,1 @@
+    <version>1</version>
+    <properties>
+-       <maven.compiler.release>17</maven.compiler.release>
++       <maven.compiler.release>25</maven.compiler.release>
+    </properties>
+```
+</TabItem>
+</Tabs>
+
+---
+
+##### Example 4
 `UpgradeToJava25Test#updateCompilerVersion`
 
+
+###### Unchanged
+```mavenProject
+project
+```
 
 <Tabs groupId="beforeAfter">
 <TabItem value="pom.xml" label="pom.xml">

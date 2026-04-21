@@ -40,6 +40,12 @@ This recipe is available under the [Moderne Source Available License](https://do
 
 <Tabs groupId="recipeType">
 <TabItem value="recipe-list" label="Recipe List" >
+**Preconditions**
+
+* [Singleton](../../../core/singleton)
+
+**Recipes**
+
 * [Change Gradle or Maven dependency](../../../java/dependencies/changedependency)
   * oldGroupId: `javax.transaction`
   * oldArtifactId: `javax.transaction-api`
@@ -56,6 +62,12 @@ This recipe is available under the [Moderne Source Available License](https://do
   * groupId: `jakarta.transaction`
   * artifactId: `jakarta.transaction-api`
   * newVersion: `2.0.x`
+* [Add Gradle or Maven dependency](../../../java/dependencies/adddependency)
+  * groupId: `jakarta.transaction`
+  * artifactId: `jakarta.transaction-api`
+  * version: `2.0.x`
+  * onlyIfUsing: `javax.transaction..*`
+  * acceptTransitive: `true`
 * [Rename package name](../../../java/changepackage)
   * oldPackageName: `javax.transaction`
   * newPackageName: `jakarta.transaction`
@@ -76,6 +88,8 @@ tags:
   - javax
   - transaction
   - jakarta
+preconditions:
+  - org.openrewrite.Singleton
 recipeList:
   - org.openrewrite.java.dependencies.ChangeDependency:
       oldGroupId: javax.transaction
@@ -93,6 +107,12 @@ recipeList:
       groupId: jakarta.transaction
       artifactId: jakarta.transaction-api
       newVersion: 2.0.x
+  - org.openrewrite.java.dependencies.AddDependency:
+      groupId: jakarta.transaction
+      artifactId: jakarta.transaction-api
+      version: 2.0.x
+      onlyIfUsing: javax.transaction..*
+      acceptTransitive: true
   - org.openrewrite.java.ChangePackage:
       oldPackageName: javax.transaction
       newPackageName: jakarta.transaction

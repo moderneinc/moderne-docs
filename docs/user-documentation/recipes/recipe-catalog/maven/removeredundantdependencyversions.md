@@ -45,7 +45,6 @@ This recipe is used as part of the following composite recipes:
 * [Add explicit JAXB API dependencies](/user-documentation/recipes/recipe-catalog/java/migrate/javax/addjaxbapidependencies.md)
 * [Apache Maven best practices](/user-documentation/recipes/recipe-catalog/maven/bestpractices.md)
 * [Apache Maven best practices](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/devcenter/apachemavenbestpractices)
-* [Clean up various issues with the code](/user-documentation/recipes/recipe-catalog/java/dropwizard/codecleanup.md)
 * [Migrate Spring Cloud Sleuth 3.1 to Micrometer Tracing 1.0](/user-documentation/recipes/recipe-catalog/java/spring/cloud2022/migratecloudsleuthtomicrometertracing.md)
 * [Migrate database drivers to Quarkus JDBC extensions](/user-documentation/recipes/recipe-catalog/quarkus/spring/migratedatabasedrivers.md)
 * [Modernize a Jenkins plugin to the latest versions supported by Java 8](/user-documentation/recipes/recipe-catalog/jenkins/modernizepluginforjava8.md)

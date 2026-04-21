@@ -30,6 +30,12 @@ This recipe is available under the [Moderne Source Available License](https://do
 
 <Tabs groupId="recipeType">
 <TabItem value="recipe-list" label="Recipe List" >
+**Preconditions**
+
+* [Singleton](../../../core/singleton)
+
+**Recipes**
+
 * [Upgrade Gradle or Maven dependency versions](../../../java/dependencies/upgradedependencyversion)
   * groupId: `org.mybatis.spring.boot`
   * artifactId: `*`
@@ -47,6 +53,8 @@ name: org.openrewrite.java.spring.boot3.UpgradeMyBatisToSpringBoot_2_0
 displayName: Upgrade MyBatis to Spring Boot 2.0
 description: |
   Upgrade MyBatis Spring modules to a version corresponding to Spring Boot 2.0.
+preconditions:
+  - org.openrewrite.Singleton
 recipeList:
   - org.openrewrite.java.dependencies.UpgradeDependencyVersion:
       groupId: org.mybatis.spring.boot

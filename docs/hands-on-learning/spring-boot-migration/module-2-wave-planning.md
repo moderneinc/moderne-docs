@@ -1,22 +1,49 @@
 ---
 sidebar_label: "Module 2: Wave planning"
-description: Analyze dependencies and organize upgrade waves with the Moderne CLI.
+description: Analyze dependencies and organize upgrade waves with the Moderne Platform and CLI.
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
+# Module 2: Wave planning
 
-# Module 2: Wave planning with the Moderne CLI
+In this module, you'll use the Moderne Platform to analyze dependencies and determine a safe upgrade order, then set up the CLI workspace you need for the build-test-release cycle in later modules. You will run the Release-Train-Metro-Plan recipe on the platform to generate a wave map visualization, then organize your local workspace into wave directories based on the results.
 
-In this module, you'll move from SaaS-only assessment to CLI-driven analysis so you can map dependencies and pick a safe upgrade order. You will group repositories into “waves” based on those dependencies and upgrade them in order.
+For this workshop, each repository is treated as independently released. That constraint mirrors how large organizations manage shared libraries and it forces you to think about sequencing instead of upgrading everything at once. Dependencies matter because downstream repos can only move once their upstream libraries are upgraded and released.
 
-For this workshop, each repository is treated as independently released. That constraint mirrors how large organizations manage shared libraries and it forces you to think about sequencing instead of upgrading everything at once. Dependencies matter because downstream repos can only move once their upstream libraries are upgraded and released. 
+## Exercise 2-1: Generate a dependency-based wave plan
 
-## Exercise 2-1: Set up your workspace
+Use OpenRewrite's rich dependency data to determine a safe upgrade order. The goal is to identify repos with no internal dependencies ("Wave 0"), release them, then move downstream in order.
 
 ### Goals for this exercise
 
-* Create a workspace and sync repositories
+* Run a dependency analysis recipe on the Moderne Platform
+* Generate a wave map visualization
+
+### Steps
+
+#### Step 1: Run the dependency analysis on the platform
+
+1. Navigate to [app.moderne.io](https://app.moderne.io/) and sign in. Confirm that **Moderne - Training** is selected in the organization dropdown.
+2. Click **Marketplace** in the left navigation. Search for and select [`Release Metro Plan`](https://app.moderne.io/recipes/io.moderne.recipe.releasemetro.ReleaseMetroPlan) (`io.moderne.recipe.releasemetro.ReleaseMetroPlan`).
+3. Click **Dry Run** to run the recipe against the organization. This analyzes direct and transitive dependencies across all repositories.
+
+#### Step 2: View the wave map
+
+1. After the recipe run completes, click the **Visualizations** tab.
+2. Run the **Release Train Metro Map** visualization. This renders an interactive wave diagram showing which repositories can be upgraded independently ("Wave 0") and which depend on earlier waves.
+3. Note the repository groupings and upgrade order — you will use this structure in the next exercise to organize your local workspace.
+
+<figure>
+  ![Release Train Metro Map showing 11 modules organized into 4 waves based on dependency order](./assets/release_metro_plan.png)
+  <figcaption>_The Release Train Metro Map visualization showing the dependency-based wave plan._</figcaption>
+</figure>
+
+## Exercise 2-2: Set up your workspace
+
+Now that you have a wave plan, it's time to set up the CLI workspace you will use for the build-test-release cycle in later modules. You will sync the repositories into wave directories and install the recipe set needed for the rest of the workshop.
+
+### Goals for this exercise
+
+* Create a workspace organized by wave
 * Install the set of recipes required for this workshop
 
 ### Steps
@@ -35,9 +62,9 @@ export PROJECTS=~/projects
 You might want to keep two shells open: one in `$WORKSHOP` for scripts and one in `$WORKSPACE` for `mod` commands.
 :::
 
-#### Step 2: Sync repos
+#### Step 2: Clone the workshop repo and sync repositories
 
-1. First, clone the Moderne Migration Practice workshop which contains some helper scripts and metadata about the example projects.
+1. Clone the Moderne Migration Practice workshop which contains helper scripts, the wave-aware [repos.csv](../../user-documentation/moderne-cli/references/repos-csv.md) file organized by wave, and metadata about the example projects.
 
 ```bash
 mkdir -p $PROJECTS
@@ -45,112 +72,27 @@ cd $PROJECTS
 git clone https://github.com/modernetraining/moderne-migration-practice
 ```
 
-2. Now you'll create a workspace directory to house your code repositories:
+2. Create a workspace directory and sync the repositories using the wave-aware CSV file. This downloads the source code into wave directories.
 
 ```bash
 mkdir -p $WORKSPACE
 cd $WORKSPACE
+mod git sync csv $WORKSPACE $WORKSHOP/repos-waves.csv --with-sources
 ```
 
-3. There are two ways to pull repositories with the Moderne CLI: sync directly from a Moderne Platform organization or sync from a local `repos.csv` file. You'll start by pulling from the platform organization, which downloads both the source code and the LSTs (Lossless Semantic Trees). The LST is OpenRewrite's rich code model that recipes use to make accurate, safe changes. Use the following command to sync the repositories:
+3. Inspect the structure (using `cd` and `ls` or `tree -d . -L 3` if you have it). You should see wave directories (`Wave0`, `Wave1`, etc.) with repositories grouped by their dependency order from the wave plan.
 
-```bash
-mod git sync moderne $WORKSPACE --organization "Moderne - Training" --with-sources
-```
+:::note
+The `repos-waves.csv` file uses the `repos.csv` organization columns to group repositories by wave. This lets you run `mod` commands across the entire workspace or target a specific wave directory like `$WORKSPACE/Wave0`. For more information, [check out our repos.csv documentation](../../user-documentation/moderne-cli/references/repos-csv.md).
+:::
 
+You can now target a specific wave with recipe runs and releases. There are a few ways you could organize repos by wave:
 
-<details>
-<summary>Reference output</summary>
+* Run `mod` commands inside each repository manually (fine for a few repos, painful at scale)
+* Create separate `repos.csv` files per wave and sync each into its own workspace
+* Use the `repos.csv` organization columns to group repos by wave in a single workspace
 
-
-```text
-   ▛▀▀▚▖  ▗▄▟▜
-   ▌   ▜▄▟▀  ▐
-   ▛▀▀█▀▛▀▀▀▀▜
-   ▌▟▀  ▛▀▀▀▀▜
-   ▀▀▀▀▀▀▀▀▀▀▀
-Moderne CLI 4.0.10
-
-⏺ Retrieving organization from Moderne
-
-Found organization ALL/Moderne/Moderne - Training
-Organization written to disk at file:///Users/somebody/workspaces/migration-practice-workspace/.moderne/repos.csv
-
-⏺ Analyzing organization structure
-
-Done (1s)
-
-Selected organization ALL/Moderne/Moderne - Training
-
-⏺ Synchronizing organization directory structure
-
-Found 1 organization containing 11 repositories
-
-Adding organization Moderne - Training
-Adjusted 1 organization directory. (1s)
-
-⏺ Performing Git operations on repositories
-
-▶ modernetraining/example-ecom-common@main
-    ✓ Checked out 8c1d5d4 on branch main
-▶ modernetraining/example-ecom-notification-service@main
-    ✓ Checked out 0d3b871 on branch main
-▶ modernetraining/example-ecom-security@main
-    ✓ Checked out 1c0ff16 on branch main
-▶ modernetraining/example-ecom-customer-service@main
-    ✓ Checked out e36017c on branch main
-▶ modernetraining/example-ecom-kyc-service@main
-    ✓ Checked out 82a20e5 on branch main
-▶ modernetraining/example-ecom-fraud-detection-service@main
-    ✓ Checked out 82fccd5 on branch main
-▶ modernetraining/example-ecom-risk-score-service@main
-    ✓ Checked out e96348f on branch main
-▶ modernetraining/example-ecom-product-service@main
-    ✓ Checked out 2e37d7d on branch main
-▶ modernetraining/example-ecom-rest-client@main
-    ✓ Checked out 0d58140 on branch main
-▶ modernetraining/example-ecom-inventory-service@main
-    ✓ Checked out ceb0b19 on branch main
-▶ modernetraining/example-ecom-order-service@main
-    ✓ Checked out 9e75f2d on branch main
-Done (3s)
-
-⏺ Downloading LSTs for repositories
-
-▶ modernetraining/example-ecom-rest-client@main
-    ✓ Downloaded example-ecom-rest-client-20260119194611806-ast.jar
-▶ modernetraining/example-ecom-common@main
-    ✓ Downloaded example-ecom-common-20260119194356726-ast.jar
-▶ modernetraining/example-ecom-security@main
-    ✓ Downloaded example-ecom-security-20260119194637743-ast.jar
-▶ modernetraining/example-ecom-risk-score-service@main
-    ✓ Downloaded example-ecom-risk-score-service-20260119194625433-ast.jar
-▶ modernetraining/example-ecom-notification-service@main
-    ✓ Downloaded example-ecom-notification-service-20260119194526158-ast.jar
-▶ modernetraining/example-ecom-fraud-detection-service@main
-    ✓ Downloaded example-ecom-fraud-detection-service-20260119194438286-ast.jar
-▶ modernetraining/example-ecom-kyc-service@main
-    ✓ Downloaded example-ecom-kyc-service-20260119194510367-ast.jar
-▶ modernetraining/example-ecom-inventory-service@main
-    ✓ Downloaded example-ecom-inventory-service-20260119194457543-ast.jar
-▶ modernetraining/example-ecom-product-service@main
-    ✓ Downloaded example-ecom-product-service-20260119194559625-ast.jar
-▶ modernetraining/example-ecom-customer-service@main
-    ✓ Downloaded example-ecom-customer-service-20260119194422140-ast.jar
-▶ modernetraining/example-ecom-order-service@main
-    ✓ Downloaded example-ecom-order-service-20260119194543744-ast.jar
-Done (1s)
-
-Synced 11 repositories.
-
-⏺ What to do next
-    > Examine clone telemetry
-
-MOD SUCCEEDED in 5s
-```
-</details>
-
-4. Take a look at the contents of your `$WORKSPACE` folder now. (You can walk through and inspect the directories with `cd` and `ls`, or if you have `tree`, you can see the full structure with `tree -d $WORKSPACE -L 3`.) You should see that you have a directory for the GitHub org (or user) with the repositories inside.
+This workshop uses the third option so you can run both org-wide recipes and wave-specific recipes from the root folder.
 
 #### Step 3: Install the recipe set
 
@@ -172,199 +114,20 @@ mod config recipes jar install \
 Installing recipes locally can sometimes take a few minutes, so this list of recipe packages is limited to only the ones required for this workshop. You can find a [list of recipes by module in the OpenRewrite documentation](https://docs.openrewrite.org/reference/all-recipes).
 :::
 
-## Exercise 2-2: Generate a dependency-based wave plan
+#### Step 4: Build LSTs
 
-Now that your local environment is ready, it's time to use OpenRewrite's rich dependency data to determine a safe upgrade order. The goal is to identify repos with no internal dependencies ("Wave 0"), release them, then move downstream in order.
-
-### Goals for this exercise
-
-* Install the Release-Train-Metro-Plan recipes
-* Run a dependency analysis recipe
-* Export data tables for wave planning
-
-### Steps
-
-#### Step 1: Install the Release-Train-Metro-Plan recipes
-
-[Merlin’s Release-Train-Metro-Plan project](https://github.com/MBoegers/Release-Train-Metro-Plan) analyzes direct and transitive dependencies to generate a wave map (using a [Jupyter notebook](https://jupyter.org/)). You will use this method to produce a concrete upgrade plan you can follow.
-
-Use the following commands to clone the project (somewhere outside of `$WORKSPACE` such as `$PROJECTS`) and install the recipe artifact locally:
+Build the LSTs (Lossless Semantic Trees) for all repositories in the workspace. The LST is OpenRewrite's rich code model that recipes use to make accurate, safe changes — you need to build them before you can run any recipes locally.
 
 ```bash
-cd $PROJECTS
-git clone https://github.com/MBoegers/Release-Train-Metro-Plan.git
-mod config recipes jar install dev.mboegie.rewrite:release-train-metro-plan:RELEASE
+mod build $WORKSPACE
 ```
-
-#### Step 2: Extract data from dependency analysis
-
-1. Run the newly-installed recipe on the collection of repositories in your workspace:
-
-```bash
-mod run $WORKSPACE --recipe dev.mboegie.rewrite.releasemetro.ReleaseMetroPlan --parallel
-```
-
-2. Retrieve the recipe run ID from this run. You'll need it to generate the report in a following step.
-
-```bash
-mod run-history $WORKSPACE
-```
-
-<details>
-<summary>Reference output</summary>
-
-```text
-   ▛▀▀▚▖  ▗▄▟▜
-   ▌   ▜▄▟▀  ▐
-   ▛▀▀█▀▛▀▀▀▀▜
-   ▌▟▀  ▛▀▀▀▀▜
-   ▀▀▀▀▀▀▀▀▀▀▀
-Moderne CLI 4.0.10
-
-⏺ Reading organization
-
-Found 1 organization containing 11 repositories (1s)
-
-⏺ Retrieving recipe run history
-
-▶ modernetraining/example-ecom-common@main
-    ✓ Recipe runs processed.
-▶ modernetraining/example-ecom-customer-service@main
-    ✓ Recipe runs processed.
-▶ modernetraining/example-ecom-fraud-detection-service@main
-    ✓ Recipe runs processed.
-▶ modernetraining/example-ecom-inventory-service@main
-    ✓ Recipe runs processed.
-▶ modernetraining/example-ecom-kyc-service@main
-    ✓ Recipe runs processed.
-▶ modernetraining/example-ecom-notification-service@main
-    ✓ Recipe runs processed.
-▶ modernetraining/example-ecom-order-service@main
-    ✓ Recipe runs processed.
-▶ modernetraining/example-ecom-product-service@main
-    ✓ Recipe runs processed.
-▶ modernetraining/example-ecom-rest-client@main
-    ✓ Recipe runs processed.
-▶ modernetraining/example-ecom-risk-score-service@main
-    ✓ Recipe runs processed.
-▶ modernetraining/example-ecom-security@main
-    ✓ Recipe runs processed.
-Done (1s)
-
-[1] 20260114165424-VXLMR dev.mboegie.rewrite.releasemetro.ReleaseMetroPlan
-      Data tables produced:
-          dev.mboegie.rewrite.releasemetro.table.ParentRelationships
-          dev.mboegie.rewrite.releasemetro.table.ProjectCoordinates
-          org.openrewrite.table.RecipeRunStats
-          org.openrewrite.table.SearchResults
-          org.openrewrite.table.SourcesFileResults
-          dev.mboegie.rewrite.releasemetro.table.UnusedDependencies
-          org.openrewrite.maven.table.ExplainDependenciesInUse
-          org.openrewrite.maven.table.DependenciesInUse
-
-Found results for 1 recipe run.
-
-⏺ What to do next
-    > Run mod study /Users/somebody/workspaces/migration-practice-workspace --recipe-run <RUN-ID> --data-table <DATA-TABLE> to examine the data tables produced by the recipe run.
-```
-</details>
-
-3. You'll need to export all of the generated data tables in order to build the report using the following commands:
-
-```bash
-mod study $WORKSPACE --last-recipe-run --data-table ParentRelationships
-mod study $WORKSPACE --last-recipe-run --data-table ProjectCoordinates
-mod study $WORKSPACE --last-recipe-run --data-table UnusedDependencies
-mod study $WORKSPACE --last-recipe-run --data-table org.openrewrite.maven.table.DependenciesInUse
-```
-
-#### Step 3: Generate the wave map
-
-1. To run the Jupyter notebook, you will need Python and a small virtual environment setup. It is recommended to use `uv`, a [fast Python package manager and virtual environment tool](https://github.com/astral-sh/uv). If you do not have it installed, follow the install steps in the [uv documentation](https://docs.astral.sh/uv/#installation).
-
-Run these commands once to create the virtual environment and install the notebook dependencies:
-
-```bash
-cd $PROJECTS/Release-Train-Metro-Plan
-uv venv
-source .venv/bin/activate
-uv sync
-```
-
-2. You can run the notebook using the command line tool `papermill` CLI tool, or use a Jupyter notebook UI. Choose one of these two options:
-
-<Tabs groupId="wave-map">
-<TabItem value="cli" label="CLI (papermill)" default>
-
-This is the easiest option if you want to run the notebook end-to-end from the CLI. _Make sure you replace `<recipe_run_id>` with the ID you retrieved in the previous step._
-
-```bash
-papermill $PROJECTS/Release-Train-Metro-Plan/src/main/python/ArchitecturalAnalysis.ipynb \
-  $PROJECTS/Release-Train-Metro-Plan/src/main/python/ArchitecturalAnalysis_out.ipynb \
-  -p workspace $WORKSPACE \
-  -p recipe_run <recipe_run_id> \
-  --progress-bar \
-  --inject-paths
-```
-
-</TabItem>
-<TabItem value="notebook" label="Notebook UI">
-
-Open the notebook in Jupyter (or a Jupyter editor like VS Code), then update the `workspace` and `recipe_run` parameters accordingly based on your workspace path and the recipe run ID from the previous step. Then run the notebook end to end.
-
-<figure>
-  ![Release Train Metro Plan Jupyter notebook open in VS Code with parameter cells](./assets/jupyter-notebook-vscode.png)
-  <figcaption>_The Jupyter notebook open in VS Code. Use the `Run All` button to run the notebook after updating the parameters._</figcaption>
-</figure>
-
-</TabItem>
-</Tabs>
 
 :::note
-If neither option works for you or you don't have a Python environment, don't worry. You can skip the rest of this exercise and still continue with the workshop using the wave list shown in the next exercise.
+This command may take a couple of minutes to run as it builds LSTs for each repository.
 :::
-
-3. Open the generated output HTML file to view the wave diagram and note the repository order:
-
-```bash
-open $PROJECTS/Release-Train-Metro-Plan/src/main/static/metro-plan.html
-```
-
-4. Now that you have a wave plan, you need a way to target a specific wave with recipe runs and releases. Instead of syncing with the organization in the platform as you did before, you will now use the `repos.csv` method to group repositories by wave. There are a few ways you could do that:
-
-* Run `mod` commands inside each repository manually (fine for a few repos, painful at scale)
-* Create separate `repos.csv` files per wave and sync each into its own workspace
-* Use the `repos.csv` organization columns to group repos by wave in a single workspace
-
-You will use the third option in this workshop so you can run both org-wide recipes and wave-specific recipes in a single wave directory from the root folder.
-
-## Exercise 2-3: Organize your workspace by wave
-
-### Goals for this exercise
-
-* Restructure the workspace so waves are separate directories
-
-### Steps
-
-1. In the root of your `$WORKSHOP`, review the wave-aware CSV file (`repos-waves.csv`) and note the addition of the organization fields and the grouping of repositories based on the wave plan from the previous exercise.
-
-:::note
-There is a `repos.csv` file in the root of the workshop as well, which represents the flat structure that is reflected in the platform and in the local directory after syncing with the platform earlier in this module. The `repos-waves.csv` is the one that includes the addition of organization fields that group the repositories by wave, in order, as determined in the previous exercise. For more information, [check out our repos.csv documentation](../../user-documentation/moderne-cli/references/repos-csv.md).
-:::
-
-2. Sync the repos again, this time using the wave-aware CSV file:
-
-```bash
-mod git sync csv $WORKSPACE $WORKSHOP/repos-waves.csv --with-sources
-```
-
-3. If prompted to replace the existing organization, type `Y`.
-4. Inspect the new structure (using `cd` and `ls` or `tree -d . -L 3` if you have it).
-
-You can now run `mod` commands across the entire workspace or target a specific wave directory like `$WORKSPACE/Wave0`.
 
 ## Takeaways
 
 * Dependency data helps you define a safe upgrade order
-* The Release-Train-Metro-Plan workflow turns data tables into a wave map
+* The Release-Train-Metro-Plan recipe and visualization in the platform produce a wave map directly
 * Organizing repos by wave lets you run recipes and releases in controlled batches

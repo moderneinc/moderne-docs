@@ -34,6 +34,12 @@ This recipe is available under the [Moderne Source Available License](https://do
 
 <Tabs groupId="recipeType">
 <TabItem value="recipe-list" label="Recipe List" >
+**Preconditions**
+
+* [Singleton](../../core/singleton)
+
+**Recipes**
+
 * [Replace `String` literal](../../java/replacestringliteralvalue)
   * oldLiteralValue: `com.sun.net.ssl.internal.www.protocol`
   * newLiteralValue: `com.ibm.net.ssl.www2.protocol`
@@ -51,6 +57,8 @@ description: |
   Do not use the `com.sun.net.ssl.internal.www.protocol` package.
 tags:
   - java11
+preconditions:
+  - org.openrewrite.Singleton
 recipeList:
   - org.openrewrite.java.ReplaceStringLiteralValue:
       oldLiteralValue: com.sun.net.ssl.internal.www.protocol

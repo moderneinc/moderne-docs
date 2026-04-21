@@ -31,6 +31,7 @@ This recipe is available under the [Moderne Source Available License](https://do
 This recipe is used as part of the following composite recipes:
 
 * [Migrate to Java 21](/user-documentation/recipes/recipe-catalog/java/migrate/upgradetojava21.md)
+* [Use modernized `java.util` APIs](/user-documentation/recipes/recipe-catalog/java/migrate/util/javautilapis.md)
 
 ## Example
 

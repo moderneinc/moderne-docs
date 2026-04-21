@@ -7,7 +7,7 @@ description: The current version of the Moderne CLI and links to useful CLI docu
 
 | Component   | Current version |
 | ----------- | --------------- |
-| CLI version | 4.0.10           |
+| CLI version | 4.1.6           |
 
 For CLI command documentation, see the [CLI reference](../user-documentation/moderne-cli/cli-reference.md).
 
@@ -16,6 +16,114 @@ The Moderne CLI previously followed a two-track release model with separate "sta
 :::
 
 ## Changelog
+
+### CLI / DX v4.1.6 (2026-04-21)
+
+#### What's Changed
+* Fix unreadable diff output on light terminal backgrounds
+* Support custom artifact repository for CLI install and wrapper
+* Record each LST's publish timestamp in repos.csv and repos-lock.csv
+* Revert "Support custom artifact repository for CLI install and wrappe…
+* Handle removed active recipe gracefully instead of crashing
+* Skip exec partition when no build tool is detected
+* Correct max JDK for `--source 7` to 19
+* Include sibling Java output on Scala parser classpath
+* Allow selecting `MavenBuildStep2` via `moderne.yml` (`maven2` type)
+
+### CLI / DX v4.1.5 (2026-04-17)
+
+#### What's Changed
+* When building a JavaScript project perform `npm install` as a fallback if lock file is not in sync
+* Fix metrics reporting for subset of Gradle builds
+* Fix intermingled file paths during mod build with included builds
+* Buildstep metrics to be reported per step
+* Set `ThreadContextClassLoader` on new threads created
+* Add detailed descriptions to agent-tools command docs
+* Fix repos with empty org columns invisible after sync
+* Auto-select datatable on exact --data-table match
+* Check branch existence before checkout during sync
+* Gate MCP side-channel HTTP server behind agentToolsTray flag
+
+### CLI / DX v4.1.4 (2026-04-14)
+
+#### What's Changed
+* Fix .moderne/context files not ending up in the LST
+* Declare rewrite-go dependency as `latest.release`
+* Internal test and development flow fixes
+* ModerneLauncher to delete stale files when extracting the libraries
+
+### CLI / DX v4.1.3 (2026-04-11)
+
+#### What's Changed
+* Fix wrapper startup time regression (~3s -> 0.5s on warm runs)
+* Add Atlas metrics publishing support
+* Register build_status tool before background init to fix empty tool list
+* Fix tray icon not launching from MCP server
+* Add trace.csv support to mod publish command
+* Fix `modw.cmd` using wrong CLI version when `System.IO.Compression` isn't pre-loaded
+* Shutdown RPC servers on completion of recipe upgrade and install commands
+* Fix configured styles not applied during builds
+* Fix mod devcenter aggregation for grouped data tables
+
+### CLI / DX v4.1.2 (2026-04-09)
+
+#### What's Changed
+* Remove jansi native access warnings from wrapper scripts
+* Fix MCP server startup deadlock
+* Fix `modw.cmd` stdout capture bug resulting in `ClassNotFoundException`
+* Fix trace.json TOCTOU race by making to Json write atomically
+* Fix intermingled path error when building from a repository subdirectory
+* Fix NPE in mod run when Node.js is not installed
+
+### CLI / DX v4.1.1 (2026-04-08)
+
+#### What's Changed
+* Simplify DotNetBuildStep to use unified parseSolution API
+
+### CLI / DX v4.1.0 (2026-04-08)
+
+#### What's Changed
+* Add `mod config recipes upgrade` command, to upgrade only already installed recipe modules
+* Enable checkstyle configuration to be explicitly specified and attached to the LST during the build
+* Add recipe discovery guidance to the run-recipe skill
+* Show total result count in recipe search
+* Fix repos-lock.csv branch corruption on detached HEAD
+* Reintroduce CLI layout changes to reduce bundle size
+* Clean up attributes in modmaven plugin.xml file
+* Use project-specific Node version for run too
+* Recognize requirements.txt as a Python project indicator
+* Fix modw classpath for nested-JAR layout
+* Fix `query_datatable` always failing with DuckDB `access_mode` error
+
+### CLI / DX v4.0.11 (2026-04-07)
+
+#### What's Changed
+* Defer CSharp RPC startup until a C# recipe is actually needed
+* Downgrade kotlin-compiler-embeddable from 2.3.0 to 2.2.0
+* Add Scala language support with SBT build step
+* Warn when zero repositories are found
+* Enforce Java 9 minimum when maven.compiler.release is set as a property
+* Fix binary patch OID mismatch for Quark source files
+* Fix single-task progress bar not showing progress
+* Fix looking up Git tree information for CLI custom build steps
+* Report per-file parsing progress in Gradle, Maven, and SBT build steps
+* Fix outdated and inaccurate README files
+* Test for OmniParser skipping tracked gitignored files
+* Fix incorrect token expiry docs and improve login error message
+* Only write Scala audit detections for projects with Scala sources
+* Add Go language support with GoBuildStep
+* Add authentication support for wrapper distribution downloads
+* Ensure data tables can be read during recipe runs.
+* Test fix: workaround for open `.git` files
+* Fix npm recipe install log message
+* Fix repository discovery when running `mod list` against a subdirectory of a git repository.
+* Fix devcenter rendering all repositories as N/A regardless of the actual data
+* Enable recipes to append to Gzip data tables mid-run.
+* Use PathUtils.matchesGlob for custom parser mappings
+* Set version=RELEASE in wrapper properties after install
+* Ensure files are closed when no longer needed to prevent file resource leaks
+* Gradle: prevent parsing subprojects as separate if the top project fails
+* Change `mod mcp` server name to `io.moderne/cli`
 
 ### CLI / DX v4.0.10 (2026-03-30)
 

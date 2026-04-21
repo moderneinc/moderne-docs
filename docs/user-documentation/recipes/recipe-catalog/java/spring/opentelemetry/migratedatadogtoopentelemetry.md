@@ -42,6 +42,12 @@ This recipe is available under the [Moderne Source Available License](https://do
 
 <Tabs groupId="recipeType">
 <TabItem value="recipe-list" label="Recipe List" >
+**Preconditions**
+
+* [Singleton](../../../core/singleton)
+
+**Recipes**
+
 * [Remove a Gradle or Maven dependency](../../../java/dependencies/removedependency)
   * groupId: `com.datadoghq`
   * artifactId: `dd-trace-api`
@@ -105,6 +111,8 @@ tags:
   - migration
   - opentelemetry
   - boot
+preconditions:
+  - org.openrewrite.Singleton
 recipeList:
   - org.openrewrite.java.dependencies.RemoveDependency:
       groupId: com.datadoghq

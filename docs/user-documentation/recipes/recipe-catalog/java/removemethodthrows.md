@@ -38,6 +38,7 @@ This recipe is available under the [Apache License Version 2.0](https://www.apac
 
 This recipe is used as part of the following composite recipes:
 
+* [Migrate Dropwizard to Spring Boot 3](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/dropwizard/boot/migratedropwizardtospringboot3)
 * [Migrates from Jackson 2.x to Jackson 3.x](/user-documentation/recipes/recipe-catalog/java/jackson/upgradejackson_2_3.md)
 * [Remove throws exception in `SecurityConfigurer` methods `init` and `configure`](/user-documentation/recipes/recipe-catalog/java/spring/security7/securityconfigurerremovethrowsexception.md)
 

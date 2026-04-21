@@ -34,6 +34,12 @@ This recipe is available under the [Moderne Source Available License](https://do
 
 <Tabs groupId="recipeType">
 <TabItem value="recipe-list" label="Recipe List" >
+**Preconditions**
+
+* [Singleton](../../../core/singleton)
+
+**Recipes**
+
 * [Change Gradle or Maven dependency](../../../java/dependencies/changedependency)
   * oldGroupId: `com.sun.mail`
   * oldArtifactId: `javax.mail`
@@ -67,6 +73,7 @@ This recipe is available under the [Moderne Source Available License](https://do
   * artifactId: `jakarta.mail-api`
   * version: `2.0.x`
   * onlyIfUsing: `javax.mail.*`
+  * acceptTransitive: `true`
 * [Rename package name](../../../java/changepackage)
   * oldPackageName: `javax.mail`
   * newPackageName: `jakarta.mail`
@@ -83,6 +90,8 @@ name: org.openrewrite.java.migrate.jakarta.JavaxMailToJakartaMail
 displayName: Migrate deprecated `javax.mail` packages to `jakarta.mail`
 description: |
   Java EE has been rebranded to Jakarta EE, necessitating a package relocation.
+preconditions:
+  - org.openrewrite.Singleton
 recipeList:
   - org.openrewrite.java.dependencies.ChangeDependency:
       oldGroupId: com.sun.mail
@@ -117,6 +126,7 @@ recipeList:
       artifactId: jakarta.mail-api
       version: 2.0.x
       onlyIfUsing: javax.mail.*
+      acceptTransitive: true
   - org.openrewrite.java.ChangePackage:
       oldPackageName: javax.mail
       newPackageName: jakarta.mail

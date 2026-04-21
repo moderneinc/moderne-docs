@@ -34,21 +34,17 @@ This recipe is available under the [Moderne Source Available License](https://do
 
 <Tabs groupId="recipeType">
 <TabItem value="recipe-list" label="Recipe List" >
-* [Change Gradle or Maven dependency](../java/dependencies/changedependency)
-  * oldGroupId: `org.hibernate`
-  * oldArtifactId: `hibernate-agroal`
-  * newGroupId: `org.hibernate.orm`
-  * newVersion: `6.0.x`
+**Preconditions**
+
+* [Singleton](../core/singleton)
+
+**Recipes**
+
 * [Change Gradle or Maven dependency](../java/dependencies/changedependency)
   * oldGroupId: `org.hibernate`
   * oldArtifactId: `hibernate-agroal-jakarta`
   * newGroupId: `org.hibernate.orm`
   * newArtifactId: `hibernate-agroal`
-  * newVersion: `6.0.x`
-* [Change Gradle or Maven dependency](../java/dependencies/changedependency)
-  * oldGroupId: `org.hibernate`
-  * oldArtifactId: `hibernate-c3p0`
-  * newGroupId: `org.hibernate.orm`
   * newVersion: `6.0.x`
 * [Change Gradle or Maven dependency](../java/dependencies/changedependency)
   * oldGroupId: `org.hibernate`
@@ -58,19 +54,9 @@ This recipe is available under the [Moderne Source Available License](https://do
   * newVersion: `6.0.x`
 * [Change Gradle or Maven dependency](../java/dependencies/changedependency)
   * oldGroupId: `org.hibernate`
-  * oldArtifactId: `hibernate-community-dialects`
-  * newGroupId: `org.hibernate.orm`
-  * newVersion: `6.0.x`
-* [Change Gradle or Maven dependency](../java/dependencies/changedependency)
-  * oldGroupId: `org.hibernate`
   * oldArtifactId: `hibernate-community-dialects-jakarta`
   * newGroupId: `org.hibernate.orm`
   * newArtifactId: `hibernate-community-dialects`
-  * newVersion: `6.0.x`
-* [Change Gradle or Maven dependency](../java/dependencies/changedependency)
-  * oldGroupId: `org.hibernate`
-  * oldArtifactId: `hibernate-core`
-  * newGroupId: `org.hibernate.orm`
   * newVersion: `6.0.x`
 * [Change Gradle or Maven dependency](../java/dependencies/changedependency)
   * oldGroupId: `org.hibernate`
@@ -80,19 +66,9 @@ This recipe is available under the [Moderne Source Available License](https://do
   * newVersion: `6.0.x`
 * [Change Gradle or Maven dependency](../java/dependencies/changedependency)
   * oldGroupId: `org.hibernate`
-  * oldArtifactId: `hibernate-envers`
-  * newGroupId: `org.hibernate.orm`
-  * newVersion: `6.0.x`
-* [Change Gradle or Maven dependency](../java/dependencies/changedependency)
-  * oldGroupId: `org.hibernate`
   * oldArtifactId: `hibernate-envers-jakarta`
   * newGroupId: `org.hibernate.orm`
   * newArtifactId: `hibernate-envers`
-  * newVersion: `6.0.x`
-* [Change Gradle or Maven dependency](../java/dependencies/changedependency)
-  * oldGroupId: `org.hibernate`
-  * oldArtifactId: `hibernate-graalvm`
-  * newGroupId: `org.hibernate.orm`
   * newVersion: `6.0.x`
 * [Change Gradle or Maven dependency](../java/dependencies/changedependency)
   * oldGroupId: `org.hibernate`
@@ -102,19 +78,9 @@ This recipe is available under the [Moderne Source Available License](https://do
   * newVersion: `6.0.x`
 * [Change Gradle or Maven dependency](../java/dependencies/changedependency)
   * oldGroupId: `org.hibernate`
-  * oldArtifactId: `hibernate-hikaricp`
-  * newGroupId: `org.hibernate.orm`
-  * newVersion: `6.0.x`
-* [Change Gradle or Maven dependency](../java/dependencies/changedependency)
-  * oldGroupId: `org.hibernate`
   * oldArtifactId: `hibernate-hikaricp-jakarta`
   * newGroupId: `org.hibernate.orm`
   * newArtifactId: `hibernate-hikaricp`
-  * newVersion: `6.0.x`
-* [Change Gradle or Maven dependency](../java/dependencies/changedependency)
-  * oldGroupId: `org.hibernate`
-  * oldArtifactId: `hibernate-jcache`
-  * newGroupId: `org.hibernate.orm`
   * newVersion: `6.0.x`
 * [Change Gradle or Maven dependency](../java/dependencies/changedependency)
   * oldGroupId: `org.hibernate`
@@ -124,19 +90,9 @@ This recipe is available under the [Moderne Source Available License](https://do
   * newVersion: `6.0.x`
 * [Change Gradle or Maven dependency](../java/dependencies/changedependency)
   * oldGroupId: `org.hibernate`
-  * oldArtifactId: `hibernate-jpamodelgen`
-  * newGroupId: `org.hibernate.orm`
-  * newVersion: `6.0.x`
-* [Change Gradle or Maven dependency](../java/dependencies/changedependency)
-  * oldGroupId: `org.hibernate`
   * oldArtifactId: `hibernate-jpamodelgen-jakarta`
   * newGroupId: `org.hibernate.orm`
   * newArtifactId: `hibernate-jpamodelgen`
-  * newVersion: `6.0.x`
-* [Change Gradle or Maven dependency](../java/dependencies/changedependency)
-  * oldGroupId: `org.hibernate`
-  * oldArtifactId: `hibernate-micrometer`
-  * newGroupId: `org.hibernate.orm`
   * newVersion: `6.0.x`
 * [Change Gradle or Maven dependency](../java/dependencies/changedependency)
   * oldGroupId: `org.hibernate`
@@ -146,30 +102,15 @@ This recipe is available under the [Moderne Source Available License](https://do
   * newVersion: `6.0.x`
 * [Change Gradle or Maven dependency](../java/dependencies/changedependency)
   * oldGroupId: `org.hibernate`
-  * oldArtifactId: `hibernate-proxool`
-  * newGroupId: `org.hibernate.orm`
-  * newVersion: `6.0.x`
-* [Change Gradle or Maven dependency](../java/dependencies/changedependency)
-  * oldGroupId: `org.hibernate`
   * oldArtifactId: `hibernate-proxool-jakarta`
   * newGroupId: `org.hibernate.orm`
   * newArtifactId: `hibernate-proxool`
   * newVersion: `6.0.x`
 * [Change Gradle or Maven dependency](../java/dependencies/changedependency)
   * oldGroupId: `org.hibernate`
-  * oldArtifactId: `hibernate-spatial`
-  * newGroupId: `org.hibernate.orm`
-  * newVersion: `6.0.x`
-* [Change Gradle or Maven dependency](../java/dependencies/changedependency)
-  * oldGroupId: `org.hibernate`
   * oldArtifactId: `hibernate-spatial-jakarta`
   * newGroupId: `org.hibernate.orm`
   * newArtifactId: `hibernate-spatial`
-  * newVersion: `6.0.x`
-* [Change Gradle or Maven dependency](../java/dependencies/changedependency)
-  * oldGroupId: `org.hibernate`
-  * oldArtifactId: `hibernate-testing`
-  * newGroupId: `org.hibernate.orm`
   * newVersion: `6.0.x`
 * [Change Gradle or Maven dependency](../java/dependencies/changedependency)
   * oldGroupId: `org.hibernate`
@@ -183,6 +124,11 @@ This recipe is available under the [Moderne Source Available License](https://do
 * [Remove Maven managed dependency](../maven/removemanageddependency)
   * groupId: `org.hibernate`
   * artifactId: `hibernate-entitymanager`
+* [Change Gradle or Maven dependency](../java/dependencies/changedependency)
+  * oldGroupId: `org.hibernate`
+  * oldArtifactId: `hibernate-*`
+  * newGroupId: `org.hibernate.orm`
+  * newVersion: `6.0.x`
 * [Add Gradle or Maven dependency](../java/dependencies/adddependency)
   * groupId: `jakarta.xml.bind`
   * artifactId: `jakarta.xml.bind-api`
@@ -205,22 +151,14 @@ name: org.openrewrite.hibernate.MigrateToHibernateDependencies60
 displayName: Migrate Hibernate dependencies to 6.0.x
 description: |
   This recipe will migrate any existing dependencies on Hibernate 5.x to the latest 6.0.x release. This migration will include the adjustment to the new `org.hibernate.orm` group ID. It accounts for artifacts names that both do and do not include the `jakarta` suffix and it will change both dependencies and managed dependencies.
+preconditions:
+  - org.openrewrite.Singleton
 recipeList:
-  - org.openrewrite.java.dependencies.ChangeDependency:
-      oldGroupId: org.hibernate
-      oldArtifactId: hibernate-agroal
-      newGroupId: org.hibernate.orm
-      newVersion: 6.0.x
   - org.openrewrite.java.dependencies.ChangeDependency:
       oldGroupId: org.hibernate
       oldArtifactId: hibernate-agroal-jakarta
       newGroupId: org.hibernate.orm
       newArtifactId: hibernate-agroal
-      newVersion: 6.0.x
-  - org.openrewrite.java.dependencies.ChangeDependency:
-      oldGroupId: org.hibernate
-      oldArtifactId: hibernate-c3p0
-      newGroupId: org.hibernate.orm
       newVersion: 6.0.x
   - org.openrewrite.java.dependencies.ChangeDependency:
       oldGroupId: org.hibernate
@@ -230,19 +168,9 @@ recipeList:
       newVersion: 6.0.x
   - org.openrewrite.java.dependencies.ChangeDependency:
       oldGroupId: org.hibernate
-      oldArtifactId: hibernate-community-dialects
-      newGroupId: org.hibernate.orm
-      newVersion: 6.0.x
-  - org.openrewrite.java.dependencies.ChangeDependency:
-      oldGroupId: org.hibernate
       oldArtifactId: hibernate-community-dialects-jakarta
       newGroupId: org.hibernate.orm
       newArtifactId: hibernate-community-dialects
-      newVersion: 6.0.x
-  - org.openrewrite.java.dependencies.ChangeDependency:
-      oldGroupId: org.hibernate
-      oldArtifactId: hibernate-core
-      newGroupId: org.hibernate.orm
       newVersion: 6.0.x
   - org.openrewrite.java.dependencies.ChangeDependency:
       oldGroupId: org.hibernate
@@ -252,19 +180,9 @@ recipeList:
       newVersion: 6.0.x
   - org.openrewrite.java.dependencies.ChangeDependency:
       oldGroupId: org.hibernate
-      oldArtifactId: hibernate-envers
-      newGroupId: org.hibernate.orm
-      newVersion: 6.0.x
-  - org.openrewrite.java.dependencies.ChangeDependency:
-      oldGroupId: org.hibernate
       oldArtifactId: hibernate-envers-jakarta
       newGroupId: org.hibernate.orm
       newArtifactId: hibernate-envers
-      newVersion: 6.0.x
-  - org.openrewrite.java.dependencies.ChangeDependency:
-      oldGroupId: org.hibernate
-      oldArtifactId: hibernate-graalvm
-      newGroupId: org.hibernate.orm
       newVersion: 6.0.x
   - org.openrewrite.java.dependencies.ChangeDependency:
       oldGroupId: org.hibernate
@@ -274,19 +192,9 @@ recipeList:
       newVersion: 6.0.x
   - org.openrewrite.java.dependencies.ChangeDependency:
       oldGroupId: org.hibernate
-      oldArtifactId: hibernate-hikaricp
-      newGroupId: org.hibernate.orm
-      newVersion: 6.0.x
-  - org.openrewrite.java.dependencies.ChangeDependency:
-      oldGroupId: org.hibernate
       oldArtifactId: hibernate-hikaricp-jakarta
       newGroupId: org.hibernate.orm
       newArtifactId: hibernate-hikaricp
-      newVersion: 6.0.x
-  - org.openrewrite.java.dependencies.ChangeDependency:
-      oldGroupId: org.hibernate
-      oldArtifactId: hibernate-jcache
-      newGroupId: org.hibernate.orm
       newVersion: 6.0.x
   - org.openrewrite.java.dependencies.ChangeDependency:
       oldGroupId: org.hibernate
@@ -296,19 +204,9 @@ recipeList:
       newVersion: 6.0.x
   - org.openrewrite.java.dependencies.ChangeDependency:
       oldGroupId: org.hibernate
-      oldArtifactId: hibernate-jpamodelgen
-      newGroupId: org.hibernate.orm
-      newVersion: 6.0.x
-  - org.openrewrite.java.dependencies.ChangeDependency:
-      oldGroupId: org.hibernate
       oldArtifactId: hibernate-jpamodelgen-jakarta
       newGroupId: org.hibernate.orm
       newArtifactId: hibernate-jpamodelgen
-      newVersion: 6.0.x
-  - org.openrewrite.java.dependencies.ChangeDependency:
-      oldGroupId: org.hibernate
-      oldArtifactId: hibernate-micrometer
-      newGroupId: org.hibernate.orm
       newVersion: 6.0.x
   - org.openrewrite.java.dependencies.ChangeDependency:
       oldGroupId: org.hibernate
@@ -318,30 +216,15 @@ recipeList:
       newVersion: 6.0.x
   - org.openrewrite.java.dependencies.ChangeDependency:
       oldGroupId: org.hibernate
-      oldArtifactId: hibernate-proxool
-      newGroupId: org.hibernate.orm
-      newVersion: 6.0.x
-  - org.openrewrite.java.dependencies.ChangeDependency:
-      oldGroupId: org.hibernate
       oldArtifactId: hibernate-proxool-jakarta
       newGroupId: org.hibernate.orm
       newArtifactId: hibernate-proxool
       newVersion: 6.0.x
   - org.openrewrite.java.dependencies.ChangeDependency:
       oldGroupId: org.hibernate
-      oldArtifactId: hibernate-spatial
-      newGroupId: org.hibernate.orm
-      newVersion: 6.0.x
-  - org.openrewrite.java.dependencies.ChangeDependency:
-      oldGroupId: org.hibernate
       oldArtifactId: hibernate-spatial-jakarta
       newGroupId: org.hibernate.orm
       newArtifactId: hibernate-spatial
-      newVersion: 6.0.x
-  - org.openrewrite.java.dependencies.ChangeDependency:
-      oldGroupId: org.hibernate
-      oldArtifactId: hibernate-testing
-      newGroupId: org.hibernate.orm
       newVersion: 6.0.x
   - org.openrewrite.java.dependencies.ChangeDependency:
       oldGroupId: org.hibernate
@@ -355,6 +238,11 @@ recipeList:
   - org.openrewrite.maven.RemoveManagedDependency:
       groupId: org.hibernate
       artifactId: hibernate-entitymanager
+  - org.openrewrite.java.dependencies.ChangeDependency:
+      oldGroupId: org.hibernate
+      oldArtifactId: hibernate-*
+      newGroupId: org.hibernate.orm
+      newVersion: 6.0.x
   - org.openrewrite.java.dependencies.AddDependency:
       groupId: jakarta.xml.bind
       artifactId: jakarta.xml.bind-api

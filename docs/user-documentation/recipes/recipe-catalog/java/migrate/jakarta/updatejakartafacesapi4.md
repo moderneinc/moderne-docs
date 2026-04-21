@@ -23,6 +23,10 @@ _Update Jakarta EE Java Faces Dependencies to 4.0.x._
 [Issue Tracker](https://github.com/openrewrite/rewrite-migrate-java/issues),
 [Maven Central](https://central.sonatype.com/artifact/org.openrewrite.recipe/rewrite-migrate-java/)
 
+:::info
+This recipe is composed of more than one recipe. If you want to customize the set of recipes this is composed of, you can find and copy the GitHub source for the recipe from the link above.
+:::
+
 This recipe is available under the [Moderne Source Available License](https://docs.moderne.io/licensing/moderne-source-available-license).
 
 
@@ -30,9 +34,19 @@ This recipe is available under the [Moderne Source Available License](https://do
 
 <Tabs groupId="recipeType">
 <TabItem value="recipe-list" label="Recipe List" >
+**Preconditions**
+
+* [Singleton](../../../core/singleton)
+
+**Recipes**
+
 * [Upgrade Gradle or Maven dependency versions](../../../java/dependencies/upgradedependencyversion)
   * groupId: `jakarta.faces`
   * artifactId: `jakarta.faces-api`
+  * newVersion: `4.0.x`
+* [Upgrade Gradle or Maven dependency versions](../../../java/dependencies/upgradedependencyversion)
+  * groupId: `org.glassfish`
+  * artifactId: `jakarta.faces`
   * newVersion: `4.0.x`
 
 </TabItem>
@@ -46,10 +60,16 @@ name: org.openrewrite.java.migrate.jakarta.UpdateJakartaFacesApi4
 displayName: Update Jakarta EE Java Faces Dependencies to 4.0.x
 description: |
   Update Jakarta EE Java Faces Dependencies to 4.0.x.
+preconditions:
+  - org.openrewrite.Singleton
 recipeList:
   - org.openrewrite.java.dependencies.UpgradeDependencyVersion:
       groupId: jakarta.faces
       artifactId: jakarta.faces-api
+      newVersion: 4.0.x
+  - org.openrewrite.java.dependencies.UpgradeDependencyVersion:
+      groupId: org.glassfish
+      artifactId: jakarta.faces
       newVersion: 4.0.x
 
 ```

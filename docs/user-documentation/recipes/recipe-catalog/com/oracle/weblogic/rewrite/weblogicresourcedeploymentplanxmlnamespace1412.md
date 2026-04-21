@@ -40,6 +40,13 @@ This recipe is available under the [Apache License Version 2.0](https://www.apac
 
 <Tabs groupId="recipeType">
 <TabItem value="recipe-list" label="Recipe List" >
+**Preconditions**
+
+* [Find files](../../../../core/findsourcefiles)
+  * filePattern: `**/resource-deployment-plan.xml`
+
+**Recipes**
+
 * [Change XML attribute](../../../../xml/changetagattribute)
   * elementName: `weblogic-diagnostics`
   * attributeName: `xmlns`
@@ -68,6 +75,9 @@ tags:
   - resource-deployment-plan
   - schemas
   - weblogic
+preconditions:
+  - org.openrewrite.FindSourceFiles:
+      filePattern: **/resource-deployment-plan.xml
 recipeList:
   - org.openrewrite.xml.ChangeTagAttribute:
       elementName: weblogic-diagnostics

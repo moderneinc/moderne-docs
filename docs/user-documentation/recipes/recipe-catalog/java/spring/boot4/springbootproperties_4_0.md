@@ -39,6 +39,12 @@ This recipe is available under the [Moderne Source Available License](https://do
 
 <Tabs groupId="recipeType">
 <TabItem value="recipe-list" label="Recipe List" >
+**Preconditions**
+
+* [Singleton](../../../core/singleton)
+
+**Recipes**
+
 * [Change the value of a spring application property](../../../java/spring/changespringpropertyvalue)
   * propertyKey: `spring.jpa.hibernate.naming.implicit-strategy`
   * newValue: `org.springframework.boot.hibernate.SpringImplicitNamingStrategy`
@@ -517,6 +523,8 @@ description: |
 tags:
   - spring
   - boot
+preconditions:
+  - org.openrewrite.Singleton
 recipeList:
   - org.openrewrite.java.spring.ChangeSpringPropertyValue:
       propertyKey: spring.jpa.hibernate.naming.implicit-strategy

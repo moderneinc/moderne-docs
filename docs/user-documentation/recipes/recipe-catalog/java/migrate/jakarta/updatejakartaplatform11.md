@@ -34,10 +34,20 @@ This recipe is available under the [Moderne Source Available License](https://do
 
 <Tabs groupId="recipeType">
 <TabItem value="recipe-list" label="Recipe List" >
+**Preconditions**
+
+* [Singleton](../../../core/singleton)
+
+**Recipes**
+
 * [Upgrade Gradle or Maven dependency versions](../../../java/dependencies/upgradedependencyversion)
   * groupId: `jakarta.platform`
   * artifactId: `*`
   * newVersion: `11.0.x`
+* [Upgrade Gradle or Maven dependency versions](../../../java/dependencies/upgradedependencyversion)
+  * groupId: `jakarta.annotation`
+  * artifactId: `jakarta.annotation-api`
+  * newVersion: `3.0.x`
 * [Upgrade Gradle or Maven dependency versions](../../../java/dependencies/upgradedependencyversion)
   * groupId: `jakarta.servlet.jsp`
   * artifactId: `jakarta.servlet.jsp-api`
@@ -54,11 +64,17 @@ name: org.openrewrite.java.migrate.jakarta.UpdateJakartaPlatform11
 displayName: Update Jakarta EE Platform Dependencies to 11.0.x
 description: |
   Update Jakarta EE Platform Dependencies to 11.0.x.
+preconditions:
+  - org.openrewrite.Singleton
 recipeList:
   - org.openrewrite.java.dependencies.UpgradeDependencyVersion:
       groupId: jakarta.platform
       artifactId: "*"
       newVersion: 11.0.x
+  - org.openrewrite.java.dependencies.UpgradeDependencyVersion:
+      groupId: jakarta.annotation
+      artifactId: jakarta.annotation-api
+      newVersion: 3.0.x
   - org.openrewrite.java.dependencies.UpgradeDependencyVersion:
       groupId: jakarta.servlet.jsp
       artifactId: jakarta.servlet.jsp-api

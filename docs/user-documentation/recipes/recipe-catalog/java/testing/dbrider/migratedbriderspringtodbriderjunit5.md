@@ -40,6 +40,12 @@ This recipe is available under the [Moderne Source Available License](https://do
 
 <Tabs groupId="recipeType">
 <TabItem value="recipe-list" label="Recipe List" >
+**Preconditions**
+
+* [Singleton](../../../core/singleton)
+
+**Recipes**
+
 * [Migrate the `DBRiderTestExecutionListener` to the `@DBRider` annotation](../../../java/testing/dbrider/executionlistenertodbriderannotation)
 * [Change Gradle or Maven dependency](../../../java/dependencies/changedependency)
   * oldGroupId: `com.github.database-rider`
@@ -62,6 +68,8 @@ tags:
   - spring
   - testing
   - dbrider
+preconditions:
+  - org.openrewrite.Singleton
 recipeList:
   - org.openrewrite.java.testing.dbrider.ExecutionListenerToDbRiderAnnotation
   - org.openrewrite.java.dependencies.ChangeDependency:

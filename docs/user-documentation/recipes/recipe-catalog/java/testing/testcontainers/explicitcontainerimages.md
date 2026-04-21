@@ -34,6 +34,12 @@ This recipe is available under the [Moderne Source Available License](https://do
 
 <Tabs groupId="recipeType">
 <TabItem value="recipe-list" label="Recipe List" >
+**Preconditions**
+
+* [Singleton](../../../core/singleton)
+
+**Recipes**
+
 * [Add image argument to container constructor](../../../java/testing/testcontainers/explicitcontainerimage)
   * containerClass: `org.testcontainers.containers.CassandraContainer`
   * image: `cassandra:3.11.2`
@@ -125,6 +131,8 @@ name: org.openrewrite.java.testing.testcontainers.ExplicitContainerImages
 displayName: Explicit container images and versions
 description: |
   Replace implicit default container images and versions with explicit versions.
+preconditions:
+  - org.openrewrite.Singleton
 recipeList:
   - org.openrewrite.java.testing.testcontainers.ExplicitContainerImage:
       containerClass: org.testcontainers.containers.CassandraContainer

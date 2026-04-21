@@ -34,6 +34,12 @@ This recipe is available under the [Moderne Source Available License](https://do
 
 <Tabs groupId="recipeType">
 <TabItem value="recipe-list" label="Recipe List" >
+**Preconditions**
+
+* [Singleton](../../../core/singleton)
+
+**Recipes**
+
 * [Migrate to Spring Framework 5.3 (Community Edition)](../../../java/spring/framework/upgradespringframework_5_3-community-edition)
 * [Migrate to Jakarta EE 10](../../../java/migrate/jakarta/jakartaee10)
 * [Upgrade Gradle or Maven dependency versions](../../../java/dependencies/upgradedependencyversion)
@@ -45,6 +51,7 @@ This recipe is available under the [Moderne Source Available License](https://do
 * [Migrate `setReadTimeout(java.lang.int)` to SocketConfig `setSoTimeout(..)`](../../../java/spring/framework/httpcomponentsclienthttprequestfactoryreadtimeout)
 * [Migrate `ResponseEntityExceptionHandler` from HttpStatus to HttpStatusCode](../../../java/spring/framework/migrateresponseentityexceptionhandlerhttpstatustohttpstatuscode)
 * [Migrate breaking changes in `ResponseStatusException`](../../../java/spring/framework/migrateresponsestatusexception)
+* [Migrate to Spring Data 3.0](../../../java/spring/data/upgradespringdata_3_0)
 * [Convert `JdbcTemplate.queryForLong(..)` to `queryForObject(..)`](../../../java/spring/data/jdbctemplatequeryforlongmigration)
 
 </TabItem>
@@ -58,6 +65,8 @@ name: org.openrewrite.java.spring.framework.UpgradeSpringFramework_6_0
 displayName: Migrate to Spring Framework 6.0
 description: |
   Migrate applications to the latest Spring Framework 6.0 release.
+preconditions:
+  - org.openrewrite.Singleton
 recipeList:
   - org.openrewrite.java.spring.framework.UpgradeSpringFramework_5_3
   - org.openrewrite.java.migrate.jakarta.JakartaEE10
@@ -70,6 +79,7 @@ recipeList:
   - org.openrewrite.java.spring.framework.HttpComponentsClientHttpRequestFactoryReadTimeout
   - org.openrewrite.java.spring.framework.MigrateResponseEntityExceptionHandlerHttpStatusToHttpStatusCode
   - org.openrewrite.java.spring.framework.MigrateResponseStatusException
+  - org.openrewrite.java.spring.data.UpgradeSpringData_3_0
   - org.openrewrite.java.spring.data.JdbcTemplateQueryForLongMigration
 
 ```

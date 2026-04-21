@@ -34,6 +34,12 @@ This recipe is available under the [Moderne Source Available License](https://do
 
 <Tabs groupId="recipeType">
 <TabItem value="recipe-list" label="Recipe List" >
+**Preconditions**
+
+* [Singleton](../../../core/singleton)
+
+**Recipes**
+
 * [Change Gradle or Maven dependency](../../../java/dependencies/changedependency)
   * oldGroupId: `javax.json`
   * oldArtifactId: `javax.json-api`
@@ -44,6 +50,12 @@ This recipe is available under the [Moderne Source Available License](https://do
   * groupId: `jakarta.json`
   * artifactId: `jakarta.json-api`
   * newVersion: `2.0.x`
+* [Add Gradle or Maven dependency](../../../java/dependencies/adddependency)
+  * groupId: `jakarta.json`
+  * artifactId: `jakarta.json-api`
+  * version: `2.0.x`
+  * onlyIfUsing: `javax.json..*`
+  * acceptTransitive: `true`
 * [Rename package name](../../../java/changepackage)
   * oldPackageName: `javax.json`
   * newPackageName: `jakarta.json`
@@ -60,6 +72,8 @@ name: org.openrewrite.java.migrate.jakarta.JavaxJsonToJakartaJson
 displayName: Migrate deprecated `javax.json` packages to `jakarta.json`
 description: |
   Java EE has been rebranded to Jakarta EE, necessitating a package relocation.
+preconditions:
+  - org.openrewrite.Singleton
 recipeList:
   - org.openrewrite.java.dependencies.ChangeDependency:
       oldGroupId: javax.json
@@ -71,6 +85,12 @@ recipeList:
       groupId: jakarta.json
       artifactId: jakarta.json-api
       newVersion: 2.0.x
+  - org.openrewrite.java.dependencies.AddDependency:
+      groupId: jakarta.json
+      artifactId: jakarta.json-api
+      version: 2.0.x
+      onlyIfUsing: javax.json..*
+      acceptTransitive: true
   - org.openrewrite.java.ChangePackage:
       oldPackageName: javax.json
       newPackageName: jakarta.json

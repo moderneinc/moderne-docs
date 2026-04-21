@@ -34,6 +34,12 @@ This recipe is available under the [Moderne Source Available License](https://do
 
 <Tabs groupId="recipeType">
 <TabItem value="recipe-list" label="Recipe List" >
+**Preconditions**
+
+* [Singleton](../core/singleton)
+
+**Recipes**
+
 * [Migrate to Hibernate 6.6.x (Community Edition)](../hibernate/migratetohibernate66-community-edition)
 * [Upgrade Gradle or Maven dependency versions](../java/dependencies/upgradedependencyversion)
   * groupId: `org.hibernate.orm`
@@ -55,6 +61,8 @@ name: org.openrewrite.hibernate.MigrateToHibernate70
 displayName: Migrate to Hibernate 7.0.x (Community Edition)
 description: |
   This recipe will apply changes commonly needed when migrating to Hibernate 7.0.x.
+preconditions:
+  - org.openrewrite.Singleton
 recipeList:
   - org.openrewrite.hibernate.MigrateToHibernate66
   - org.openrewrite.java.dependencies.UpgradeDependencyVersion:

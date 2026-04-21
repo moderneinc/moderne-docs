@@ -34,12 +34,20 @@ This recipe is available under the [Moderne Source Available License](https://do
 
 <Tabs groupId="recipeType">
 <TabItem value="recipe-list" label="Recipe List" >
+**Preconditions**
+
+* [Singleton](../../core/singleton)
+
+**Recipes**
+
 * [Add Gradle or Maven dependency](../../java/dependencies/adddependency)
   * groupId: `org.jspecify`
   * artifactId: `jspecify`
   * version: `latest.release`
   * onlyIfUsing: `javax.annotation.*ull*`
   * acceptTransitive: `true`
+* [Move annotation to array type](../../java/migrate/jspecify/moveannotationtoarraytype)
+  * annotationType: `javax.annotation.*ull*`
 * [Change type](../../java/changetype)
   * oldFullyQualifiedTypeName: `javax.annotation.Nullable`
   * newFullyQualifiedTypeName: `org.jspecify.annotations.Nullable`
@@ -66,6 +74,8 @@ name: org.openrewrite.java.jspecify.MigrateFromJavaxAnnotationApi
 displayName: Migrate from javax annotation API to JSpecify
 description: |
   Migrate from javax annotation API to JSpecify.
+preconditions:
+  - org.openrewrite.Singleton
 recipeList:
   - org.openrewrite.java.dependencies.AddDependency:
       groupId: org.jspecify
@@ -73,6 +83,8 @@ recipeList:
       version: latest.release
       onlyIfUsing: javax.annotation.*ull*
       acceptTransitive: true
+  - org.openrewrite.java.migrate.jspecify.MoveAnnotationToArrayType:
+      annotationType: javax.annotation.*ull*
   - org.openrewrite.java.ChangeType:
       oldFullyQualifiedTypeName: javax.annotation.Nullable
       newFullyQualifiedTypeName: org.jspecify.annotations.Nullable

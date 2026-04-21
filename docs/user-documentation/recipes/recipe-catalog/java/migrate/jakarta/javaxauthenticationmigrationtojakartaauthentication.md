@@ -41,6 +41,12 @@ This recipe is available under the [Moderne Source Available License](https://do
 
 <Tabs groupId="recipeType">
 <TabItem value="recipe-list" label="Recipe List" >
+**Preconditions**
+
+* [Singleton](../../../core/singleton)
+
+**Recipes**
+
 * [Change Gradle or Maven dependency](../../../java/dependencies/changedependency)
   * oldGroupId: `javax.security.auth.message`
   * oldArtifactId: `javax.security.auth.message-api`
@@ -57,6 +63,12 @@ This recipe is available under the [Moderne Source Available License](https://do
   * groupId: `jakarta.authentication`
   * artifactId: `jakarta.authentication-api`
   * newVersion: `2.0.x`
+* [Add Gradle or Maven dependency](../../../java/dependencies/adddependency)
+  * groupId: `jakarta.authentication`
+  * artifactId: `jakarta.authentication-api`
+  * version: `2.0.x`
+  * onlyIfUsing: `javax.security.auth.message..*`
+  * acceptTransitive: `true`
 * [Rename package name](../../../java/changepackage)
   * oldPackageName: `javax.security.auth.message`
   * newPackageName: `jakarta.security.auth.message`
@@ -78,6 +90,8 @@ tags:
   - javax
   - jakarta
   - authentication
+preconditions:
+  - org.openrewrite.Singleton
 recipeList:
   - org.openrewrite.java.dependencies.ChangeDependency:
       oldGroupId: javax.security.auth.message
@@ -95,6 +109,12 @@ recipeList:
       groupId: jakarta.authentication
       artifactId: jakarta.authentication-api
       newVersion: 2.0.x
+  - org.openrewrite.java.dependencies.AddDependency:
+      groupId: jakarta.authentication
+      artifactId: jakarta.authentication-api
+      version: 2.0.x
+      onlyIfUsing: javax.security.auth.message..*
+      acceptTransitive: true
   - org.openrewrite.java.ChangePackage:
       oldPackageName: javax.security.auth.message
       newPackageName: jakarta.security.auth.message

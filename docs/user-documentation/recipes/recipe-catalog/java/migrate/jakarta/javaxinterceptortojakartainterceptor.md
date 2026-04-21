@@ -34,6 +34,12 @@ This recipe is available under the [Moderne Source Available License](https://do
 
 <Tabs groupId="recipeType">
 <TabItem value="recipe-list" label="Recipe List" >
+**Preconditions**
+
+* [Singleton](../../../core/singleton)
+
+**Recipes**
+
 * [Change Gradle or Maven dependency](../../../java/dependencies/changedependency)
   * oldGroupId: `javax.interceptor`
   * oldArtifactId: `javax.interceptor-api`
@@ -44,6 +50,12 @@ This recipe is available under the [Moderne Source Available License](https://do
   * groupId: `jakarta.interceptor`
   * artifactId: `jakarta.interceptor-api`
   * newVersion: `2.0.x`
+* [Add Gradle or Maven dependency](../../../java/dependencies/adddependency)
+  * groupId: `jakarta.interceptor`
+  * artifactId: `jakarta.interceptor-api`
+  * version: `2.0.x`
+  * onlyIfUsing: `javax.interceptor..*`
+  * acceptTransitive: `true`
 * [Rename package name](../../../java/changepackage)
   * oldPackageName: `javax.interceptor`
   * newPackageName: `jakarta.interceptor`
@@ -60,6 +72,8 @@ name: org.openrewrite.java.migrate.jakarta.JavaxInterceptorToJakartaInterceptor
 displayName: Migrate deprecated `javax.interceptor` packages to `jakarta.interceptor`
 description: |
   Java EE has been rebranded to Jakarta EE, necessitating a package relocation.
+preconditions:
+  - org.openrewrite.Singleton
 recipeList:
   - org.openrewrite.java.dependencies.ChangeDependency:
       oldGroupId: javax.interceptor
@@ -71,6 +85,12 @@ recipeList:
       groupId: jakarta.interceptor
       artifactId: jakarta.interceptor-api
       newVersion: 2.0.x
+  - org.openrewrite.java.dependencies.AddDependency:
+      groupId: jakarta.interceptor
+      artifactId: jakarta.interceptor-api
+      version: 2.0.x
+      onlyIfUsing: javax.interceptor..*
+      acceptTransitive: true
   - org.openrewrite.java.ChangePackage:
       oldPackageName: javax.interceptor
       newPackageName: jakarta.interceptor

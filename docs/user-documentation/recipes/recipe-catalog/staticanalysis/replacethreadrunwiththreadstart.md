@@ -34,6 +34,12 @@ This recipe is available under the [Moderne Source Available License](https://do
 
 <Tabs groupId="recipeType">
 <TabItem value="recipe-list" label="Recipe List" >
+**Preconditions**
+
+* [Singleton](../core/singleton)
+
+**Recipes**
+
 * [Change method name](../java/changemethodname)
   * methodPattern: `java.lang.Thread run()`
   * newMethodName: `start`
@@ -51,6 +57,8 @@ description: |
   `Thread.run()` should not be called directly.
 tags:
   - RSPEC-S1217
+preconditions:
+  - org.openrewrite.Singleton
 recipeList:
   - org.openrewrite.java.ChangeMethodName:
       methodPattern: java.lang.Thread run()

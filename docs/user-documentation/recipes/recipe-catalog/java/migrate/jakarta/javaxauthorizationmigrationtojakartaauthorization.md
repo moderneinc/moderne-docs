@@ -41,6 +41,12 @@ This recipe is available under the [Moderne Source Available License](https://do
 
 <Tabs groupId="recipeType">
 <TabItem value="recipe-list" label="Recipe List" >
+**Preconditions**
+
+* [Singleton](../../../core/singleton)
+
+**Recipes**
+
 * [Change Gradle or Maven dependency](../../../java/dependencies/changedependency)
   * oldGroupId: `javax.security.jacc`
   * oldArtifactId: `javax.security.jacc-api`
@@ -57,6 +63,12 @@ This recipe is available under the [Moderne Source Available License](https://do
   * groupId: `jakarta.authorization`
   * artifactId: `jakarta.authorization-api`
   * newVersion: `2.0.x`
+* [Add Gradle or Maven dependency](../../../java/dependencies/adddependency)
+  * groupId: `jakarta.authorization`
+  * artifactId: `jakarta.authorization-api`
+  * version: `2.0.x`
+  * onlyIfUsing: `javax.security.jacc..*`
+  * acceptTransitive: `true`
 * [Rename package name](../../../java/changepackage)
   * oldPackageName: `javax.security.jacc`
   * newPackageName: `jakarta.security.jacc`
@@ -78,6 +90,8 @@ tags:
   - security
   - javax
   - jakarta
+preconditions:
+  - org.openrewrite.Singleton
 recipeList:
   - org.openrewrite.java.dependencies.ChangeDependency:
       oldGroupId: javax.security.jacc
@@ -95,6 +109,12 @@ recipeList:
       groupId: jakarta.authorization
       artifactId: jakarta.authorization-api
       newVersion: 2.0.x
+  - org.openrewrite.java.dependencies.AddDependency:
+      groupId: jakarta.authorization
+      artifactId: jakarta.authorization-api
+      version: 2.0.x
+      onlyIfUsing: javax.security.jacc..*
+      acceptTransitive: true
   - org.openrewrite.java.ChangePackage:
       oldPackageName: javax.security.jacc
       newPackageName: jakarta.security.jacc

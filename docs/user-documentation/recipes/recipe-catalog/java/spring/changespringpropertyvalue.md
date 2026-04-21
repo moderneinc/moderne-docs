@@ -58,6 +58,11 @@ This recipe is used as part of the following composite recipes:
 |relaxedBinding|`null`|
 
 
+###### Unchanged
+```mavenProject
+project
+```
+
 <Tabs groupId="beforeAfter">
 <TabItem value="properties" label="properties">
 

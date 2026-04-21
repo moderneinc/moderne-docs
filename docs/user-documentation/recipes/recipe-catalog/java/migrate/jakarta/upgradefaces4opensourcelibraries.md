@@ -43,6 +43,12 @@ This recipe is available under the [Moderne Source Available License](https://do
 
 <Tabs groupId="recipeType">
 <TabItem value="recipe-list" label="Recipe List" >
+**Preconditions**
+
+* [Singleton](../../../core/singleton)
+
+**Recipes**
+
 * [Change Maven dependency classifier](../../../maven/changedependencyclassifier)
   * groupId: `org.primefaces`
   * artifactId: `primefaces`
@@ -92,6 +98,8 @@ tags:
   - jsf
   - omnifaces
   - jakarta
+preconditions:
+  - org.openrewrite.Singleton
 recipeList:
   - org.openrewrite.maven.ChangeDependencyClassifier:
       groupId: org.primefaces

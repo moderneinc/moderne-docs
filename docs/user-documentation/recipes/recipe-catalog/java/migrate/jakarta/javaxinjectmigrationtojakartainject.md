@@ -40,6 +40,12 @@ This recipe is available under the [Moderne Source Available License](https://do
 
 <Tabs groupId="recipeType">
 <TabItem value="recipe-list" label="Recipe List" >
+**Preconditions**
+
+* [Singleton](../../../core/singleton)
+
+**Recipes**
+
 * [Change Gradle or Maven dependency](../../../java/dependencies/changedependency)
   * oldGroupId: `javax.inject`
   * oldArtifactId: `javax.inject-api`
@@ -56,6 +62,12 @@ This recipe is available under the [Moderne Source Available License](https://do
   * groupId: `jakarta.inject`
   * artifactId: `jakarta.inject-api`
   * newVersion: `2.0.x`
+* [Add Gradle or Maven dependency](../../../java/dependencies/adddependency)
+  * groupId: `jakarta.inject`
+  * artifactId: `jakarta.inject-api`
+  * version: `2.0.x`
+  * onlyIfUsing: `javax.inject..*`
+  * acceptTransitive: `true`
 * [Rename package name](../../../java/changepackage)
   * oldPackageName: `javax.inject`
   * newPackageName: `jakarta.inject`
@@ -76,6 +88,8 @@ tags:
   - javax
   - inject
   - jakarta
+preconditions:
+  - org.openrewrite.Singleton
 recipeList:
   - org.openrewrite.java.dependencies.ChangeDependency:
       oldGroupId: javax.inject
@@ -93,6 +107,12 @@ recipeList:
       groupId: jakarta.inject
       artifactId: jakarta.inject-api
       newVersion: 2.0.x
+  - org.openrewrite.java.dependencies.AddDependency:
+      groupId: jakarta.inject
+      artifactId: jakarta.inject-api
+      version: 2.0.x
+      onlyIfUsing: javax.inject..*
+      acceptTransitive: true
   - org.openrewrite.java.ChangePackage:
       oldPackageName: javax.inject
       newPackageName: jakarta.inject

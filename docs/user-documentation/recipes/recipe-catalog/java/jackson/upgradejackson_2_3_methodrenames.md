@@ -41,9 +41,16 @@ This recipe is available under the [Apache License Version 2.0](https://www.apac
 * [Rename Jackson 2.x methods to 3.x equivalents for JsonGenerator](../../java/jackson/upgradejackson_2_3_jsongeneratormethodrenames)
 * [Rename Jackson 2.x methods to 3.x equivalents for JsonParser](../../java/jackson/upgradejackson_2_3_jsonparsermethodrenames)
 * [Rename Jackson 2.x methods to 3.x equivalents for JsonNode](../../java/jackson/upgradejackson_2_3_jsonnodemethodrenames)
+* [Rename Jackson 2.x methods to 3.x equivalents for ObjectNode](../../java/jackson/upgradejackson_2_3_objectnodemethodrenames)
 * [Change method name](../../java/changemethodname)
   * methodPattern: `com.fasterxml.jackson.databind.type.TypeFactory defaultInstance()`
   * newMethodName: `createDefaultInstance`
+* [Change method name](../../java/changemethodname)
+  * methodPattern: `com.fasterxml.jackson.databind.ObjectMapper getSerializationConfig()`
+  * newMethodName: `serializationConfig`
+* [Change method name](../../java/changemethodname)
+  * methodPattern: `com.fasterxml.jackson.databind.ObjectMapper getDeserializationConfig()`
+  * newMethodName: `deserializationConfig`
 
 </TabItem>
 
@@ -62,9 +69,16 @@ recipeList:
   - org.openrewrite.java.jackson.UpgradeJackson_2_3_JsonGeneratorMethodRenames
   - org.openrewrite.java.jackson.UpgradeJackson_2_3_JsonParserMethodRenames
   - org.openrewrite.java.jackson.UpgradeJackson_2_3_JsonNodeMethodRenames
+  - org.openrewrite.java.jackson.UpgradeJackson_2_3_ObjectNodeMethodRenames
   - org.openrewrite.java.ChangeMethodName:
       methodPattern: com.fasterxml.jackson.databind.type.TypeFactory defaultInstance()
       newMethodName: createDefaultInstance
+  - org.openrewrite.java.ChangeMethodName:
+      methodPattern: com.fasterxml.jackson.databind.ObjectMapper getSerializationConfig()
+      newMethodName: serializationConfig
+  - org.openrewrite.java.ChangeMethodName:
+      methodPattern: com.fasterxml.jackson.databind.ObjectMapper getDeserializationConfig()
+      newMethodName: deserializationConfig
 
 ```
 </TabItem>

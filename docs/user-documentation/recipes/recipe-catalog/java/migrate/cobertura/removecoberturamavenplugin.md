@@ -35,6 +35,12 @@ This recipe is available under the [Moderne Source Available License](https://do
 
 <Tabs groupId="recipeType">
 <TabItem value="recipe-list" label="Recipe List" >
+**Preconditions**
+
+* [Singleton](../../../core/singleton)
+
+**Recipes**
+
 * [Remove Maven plugin](../../../maven/removeplugin)
   * groupId: `org.codehaus.mojo`
   * artifactId: `cobertura-maven-plugin`
@@ -53,6 +59,8 @@ description: |
 tags:
   - cobertura
   - java11
+preconditions:
+  - org.openrewrite.Singleton
 recipeList:
   - org.openrewrite.maven.RemovePlugin:
       groupId: org.codehaus.mojo

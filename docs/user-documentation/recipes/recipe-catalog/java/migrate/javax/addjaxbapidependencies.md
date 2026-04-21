@@ -41,6 +41,12 @@ This recipe is available under the [Moderne Source Available License](https://do
 
 <Tabs groupId="recipeType">
 <TabItem value="recipe-list" label="Recipe List" >
+**Preconditions**
+
+* [Singleton](../../../core/singleton)
+
+**Recipes**
+
 * [Remove a Gradle or Maven dependency](../../../java/dependencies/removedependency)
   * groupId: `com.sun.xml.bind`
   * artifactId: `jaxb-core`
@@ -94,6 +100,8 @@ tags:
   - javax
   - java11
   - jakarta
+preconditions:
+  - org.openrewrite.Singleton
 recipeList:
   - org.openrewrite.java.dependencies.RemoveDependency:
       groupId: com.sun.xml.bind

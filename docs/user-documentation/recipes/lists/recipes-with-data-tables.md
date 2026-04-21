@@ -152,6 +152,15 @@ _This doc contains all of the recipes with **unique** data tables that have been
   * **io.moderne.devcenter.table.UpgradesAndMigrations**: *Progress towards organizational objectives on library or language migrations and upgrades.*
 
 
+#### [io.moderne.devcenter.CSharpVersionUpgrade](/user-documentation/recipes/recipe-catalog/devcenter/csharpversionupgrade.md)
+  * **Move to a later .NET version**
+  * Determine the current state of a repository relative to a desired .NET version upgrade.
+
+##### Data tables:
+
+  * **io.moderne.devcenter.table.UpgradesAndMigrations**: *Progress towards organizational objectives on library or language migrations and upgrades.*
+
+
 #### [io.moderne.devcenter.DependencyVulnerabilityCheck](/user-documentation/recipes/recipe-catalog/devcenter/dependencyvulnerabilitycheck.md)
   * **Vulnerabilities status**
   * Determine the current state of a repository relative to its vulnerabilities.
@@ -159,6 +168,42 @@ _This doc contains all of the recipes with **unique** data tables that have been
 ##### Data tables:
 
   * **io.moderne.devcenter.table.UpgradesAndMigrations**: *Progress towards organizational objectives on library or language migrations and upgrades.*
+
+
+#### [io.moderne.devcenter.DevCenterCSharpStarter](/user-documentation/recipes/recipe-catalog/devcenter/devcentercsharpstarter.md)
+  * **DevCenter for C#**
+  * A default DevCenter configuration for C# repositories. Track .NET version adoption across your organization.
+
+##### Data tables:
+
+  * **io.moderne.devcenter.table.UpgradesAndMigrations**: *Progress towards organizational objectives on library or language migrations and upgrades.*
+  * **io.moderne.devcenter.table.OrganizationStatistics**: *Per-repository statistics aggregated at the organization level.*
+  * **org.openrewrite.table.DistinctCommitters**: *The distinct set of committers per repository.*
+  * **org.openrewrite.table.CommitsByDay**: *The commit activity by day by committer.*
+
+
+#### [io.moderne.devcenter.DevCenterNodeStarter](/user-documentation/recipes/recipe-catalog/devcenter/devcenternodestarter.md)
+  * **DevCenter for Node.js**
+  * A default DevCenter configuration for Node.js repositories. Track Node.js version adoption across your organization.
+
+##### Data tables:
+
+  * **io.moderne.devcenter.table.UpgradesAndMigrations**: *Progress towards organizational objectives on library or language migrations and upgrades.*
+  * **io.moderne.devcenter.table.OrganizationStatistics**: *Per-repository statistics aggregated at the organization level.*
+  * **org.openrewrite.table.DistinctCommitters**: *The distinct set of committers per repository.*
+  * **org.openrewrite.table.CommitsByDay**: *The commit activity by day by committer.*
+
+
+#### [io.moderne.devcenter.DevCenterPythonStarter](/user-documentation/recipes/recipe-catalog/devcenter/devcenterpythonstarter.md)
+  * **DevCenter for Python**
+  * A default DevCenter configuration for Python repositories. Track Python version adoption across your organization.
+
+##### Data tables:
+
+  * **io.moderne.devcenter.table.UpgradesAndMigrations**: *Progress towards organizational objectives on library or language migrations and upgrades.*
+  * **io.moderne.devcenter.table.OrganizationStatistics**: *Per-repository statistics aggregated at the organization level.*
+  * **org.openrewrite.table.DistinctCommitters**: *The distinct set of committers per repository.*
+  * **org.openrewrite.table.CommitsByDay**: *The commit activity by day by committer.*
 
 
 #### [io.moderne.devcenter.DevCenterStarter](/user-documentation/recipes/recipe-catalog/devcenter/devcenterstarter.md)
@@ -184,6 +229,15 @@ _This doc contains all of the recipes with **unique** data tables that have been
   * **io.moderne.devcenter.table.OrganizationStatistics**: *Per-repository statistics aggregated at the organization level.*
 
 
+#### [io.moderne.devcenter.GroovyVersionUpgrade](/user-documentation/recipes/recipe-catalog/devcenter/groovyversionupgrade.md)
+  * **Move to a later Groovy version**
+  * Determine the current state of a repository relative to a desired Groovy version upgrade.
+
+##### Data tables:
+
+  * **io.moderne.devcenter.table.UpgradesAndMigrations**: *Progress towards organizational objectives on library or language migrations and upgrades.*
+
+
 #### [io.moderne.devcenter.JUnitJupiterUpgrade](/user-documentation/recipes/recipe-catalog/devcenter/junitjupiterupgrade.md)
   * **Move to JUnit 6**
   * Move to JUnit Jupiter.
@@ -202,6 +256,15 @@ _This doc contains all of the recipes with **unique** data tables that have been
   * **io.moderne.devcenter.table.UpgradesAndMigrations**: *Progress towards organizational objectives on library or language migrations and upgrades.*
 
 
+#### [io.moderne.devcenter.KotlinVersionUpgrade](/user-documentation/recipes/recipe-catalog/devcenter/kotlinversionupgrade.md)
+  * **Move to a later Kotlin version**
+  * Determine the current state of a repository relative to a desired Kotlin version upgrade.
+
+##### Data tables:
+
+  * **io.moderne.devcenter.table.UpgradesAndMigrations**: *Progress towards organizational objectives on library or language migrations and upgrades.*
+
+
 #### [io.moderne.devcenter.LibraryUpgrade](/user-documentation/recipes/recipe-catalog/devcenter/libraryupgrade.md)
   * **Library upgrade**
   * Determine the current state of a repository relative to a desired library upgrade.
@@ -211,9 +274,27 @@ _This doc contains all of the recipes with **unique** data tables that have been
   * **io.moderne.devcenter.table.UpgradesAndMigrations**: *Progress towards organizational objectives on library or language migrations and upgrades.*
 
 
+#### [io.moderne.devcenter.NodeVersionUpgrade](/user-documentation/recipes/recipe-catalog/devcenter/nodeversionupgrade.md)
+  * **Move to a later Node.js version**
+  * Determine the current state of a repository relative to a desired Node.js version upgrade.
+
+##### Data tables:
+
+  * **io.moderne.devcenter.table.UpgradesAndMigrations**: *Progress towards organizational objectives on library or language migrations and upgrades.*
+
+
 #### [io.moderne.devcenter.ParentPomUpgrade](/user-documentation/recipes/recipe-catalog/devcenter/parentpomupgrade.md)
   * **Parent POM upgrade**
   * Determine the current state of a repository relative to a desired parent POM upgrade.
+
+##### Data tables:
+
+  * **io.moderne.devcenter.table.UpgradesAndMigrations**: *Progress towards organizational objectives on library or language migrations and upgrades.*
+
+
+#### [io.moderne.devcenter.PythonVersionUpgrade](/user-documentation/recipes/recipe-catalog/devcenter/pythonversionupgrade.md)
+  * **Move to a later Python version**
+  * Determine the current state of a repository relative to a desired Python version upgrade.
 
 ##### Data tables:
 
@@ -238,6 +319,15 @@ _This doc contains all of the recipes with **unique** data tables that have been
 ##### Data tables:
 
   * **io.moderne.devcenter.table.SecurityIssues**: *Security issues in the repository.*
+
+
+#### [io.moderne.devcenter.ScalaVersionUpgrade](/user-documentation/recipes/recipe-catalog/devcenter/scalaversionupgrade.md)
+  * **Move to a later Scala version**
+  * Determine the current state of a repository relative to a desired Scala version upgrade.
+
+##### Data tables:
+
+  * **io.moderne.devcenter.table.UpgradesAndMigrations**: *Progress towards organizational objectives on library or language migrations and upgrades.*
 
 
 #### [io.moderne.devcenter.SecurityStarter](/user-documentation/recipes/recipe-catalog/devcenter/securitystarter.md)
@@ -266,6 +356,27 @@ _This doc contains all of the recipes with **unique** data tables that have been
 ##### Data tables:
 
   * **io.moderne.devcenter.table.UpgradesAndMigrations**: *Progress towards organizational objectives on library or language migrations and upgrades.*
+
+
+
+### rewrite-dropwizard
+
+#### [io.moderne.java.dropwizard.MigrateToDropwizard5](/user-documentation/recipes/recipe-catalog/java/dropwizard/migratetodropwizard5.md)
+  * **Migrate to Dropwizard 5.0.x from 4.x**
+  * Apply changes required to upgrade a Dropwizard 4.x application to 5.0.x. This includes upgrading dependencies, removing deprecated configuration options, and migrating Jetty handler implementations. Includes required migrations to Java 17, Jakarta EE 10, JUnit 5, Jackson 2.x, and Hibernate 6.6. See [the upgrade guide](https://www.dropwizard.io/en/stable/manual/upgrade-notes/upgrade-notes-5_0_x.html).
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [io.moderne.java.dropwizard.boot.MigrateDropwizardToSpringBoot3](/user-documentation/recipes/recipe-catalog/java/dropwizard/boot/migratedropwizardtospringboot3.md)
+  * **Migrate Dropwizard to Spring Boot 3**
+  * Migrate a Dropwizard application to Spring Boot 3. First applies the Dropwizard to Spring Boot 2.7 migration, then adds managed lifecycle and health check migrations on top.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
 
 
 
@@ -391,7 +502,7 @@ _This doc contains all of the recipes with **unique** data tables that have been
 
 #### [io.moderne.prethink.calm.FindDatabaseConnections](/user-documentation/recipes/recipe-catalog/prethink/calm/finddatabaseconnections.md)
   * **Find database connections**
-  * Identify database connections and data access patterns in the application. Detects JPA entities, Spring Data repositories, JDBC templates, and MyBatis mappers.
+  * Identify database connections and data access patterns in the application. Detects JPA entities, Spring Data repositories, JDBC templates, MyBatis mappers, and Quarkus Panache.
 
 ##### Data tables:
 
@@ -427,7 +538,7 @@ _This doc contains all of the recipes with **unique** data tables that have been
 
 #### [io.moderne.prethink.calm.FindExternalServiceCalls](/user-documentation/recipes/recipe-catalog/prethink/calm/findexternalservicecalls.md)
   * **Find external service calls**
-  * Identify outbound HTTP calls to external services. Detects RestTemplate, WebClient, Feign clients, Apache HttpClient, OkHttp, and JAX-RS clients.
+  * Identify outbound HTTP calls to external services. Detects RestTemplate, WebClient, Feign clients, MicroProfile REST Client, Apache HttpClient, OkHttp, and JAX-RS clients.
 
 ##### Data tables:
 
@@ -472,7 +583,7 @@ _This doc contains all of the recipes with **unique** data tables that have been
 
 #### [io.moderne.prethink.calm.FindMessagingConnections](/user-documentation/recipes/recipe-catalog/prethink/calm/findmessagingconnections.md)
   * **Find messaging connections**
-  * Identify message queue producers and consumers. Detects Kafka, RabbitMQ, JMS, Spring Cloud Stream, and AWS SQS messaging.
+  * Identify message queue producers and consumers. Detects Kafka, RabbitMQ, JMS, Spring Cloud Stream, AWS SQS, and SmallRye Reactive Messaging.
 
 ##### Data tables:
 
@@ -598,7 +709,7 @@ _This doc contains all of the recipes with **unique** data tables that have been
 
 #### [io.moderne.prethink.calm.FindScheduledTasks](/user-documentation/recipes/recipe-catalog/prethink/calm/findscheduledtasks.md)
   * **Find scheduled tasks**
-  * Identify scheduled tasks and background jobs in the application. Supports Spring @Scheduled, Quartz Job, and Jakarta/Javax EJB Timer annotations.
+  * Identify scheduled tasks and background jobs in the application. Supports Spring @Scheduled, Quarkus @Scheduled, Quartz Job, Jakarta/Javax EJB Timer, and JobRunr @Recurring annotations.
 
 ##### Data tables:
 
@@ -607,7 +718,7 @@ _This doc contains all of the recipes with **unique** data tables that have been
 
 #### [io.moderne.prethink.calm.FindSecurityConfiguration](/user-documentation/recipes/recipe-catalog/prethink/calm/findsecurityconfiguration.md)
   * **Find security configuration**
-  * Identify security configurations including Spring Security, OAuth2, and CORS settings.
+  * Identify security configurations including Spring Security, OAuth2, CORS, Jakarta Security (@RolesAllowed, @PermitAll, @DenyAll), and Quarkus Security settings.
 
 ##### Data tables:
 
@@ -844,7 +955,7 @@ _This doc contains all of the recipes with **unique** data tables that have been
 
 #### [org.openrewrite.analysis.java.datalineage.TrackDataLineage](/user-documentation/recipes/recipe-catalog/analysis/java/datalineage/trackdatalineage.md)
   * **Track data lineage**
-  * Tracks the flow of data from database sources (JDBC queries, JPA entities) to API sinks (REST endpoints, GraphQL mutations) to understand data dependencies and support compliance requirements.
+  * Tracks the flow of data from database sources to API sinks to understand data dependencies and support compliance requirements.  ## Prerequisites for detecting a data flow  All of the following conditions must be met for the recipe to report a flow:  1. The source code must contain at least one method call matching a recognized **source** (see below). 2. The source code must contain at least one method call matching a recognized **sink** (see below). 3. The tainted data must propagate from the source to the sink through variable assignments within the same method or via fields across methods in the same compilation unit. 4. No **flow breaker** (see below) may appear on the path between source and sink. 5. The relevant library types (e.g., `java.sql.ResultSet`, `javax.ws.rs.core.Response`) must be on the classpath so that OpenRewrite can resolve types. If types are unresolved, method matchers will not trigger and no flows will be detected.  ## Recognized sources (database reads)  | Category | Classes | | --- | --- | | JDBC | `java.sql.ResultSet` | | JPA (javax) | `javax.persistence.EntityManager`, `Query`, `TypedQuery` | | JPA (jakarta) | `jakarta.persistence.EntityManager`, `Query`, `TypedQuery` | | Hibernate | `org.hibernate.Session`, `org.hibernate.query.Query` | | Spring Data | `org.springframework.data.repository.CrudRepository` | | Spring JDBC | `org.springframework.jdbc.core.JdbcTemplate` | | MyBatis | `org.apache.ibatis.session.SqlSession`, `org.mybatis.spring.SqlSessionTemplate` | | MongoDB | `com.mongodb.client.MongoCollection`, `org.springframework.data.mongodb.core.MongoTemplate` | | Redis | `redis.clients.jedis.Jedis`, `org.springframework.data.redis.core.RedisTemplate`, `ValueOperations`, `HashOperations` | | Cassandra | `com.datastax.driver.core.Session`, `org.springframework.data.cassandra.core.CassandraTemplate` | | Elasticsearch | `org.elasticsearch.client.RestHighLevelClient`, `org.springframework.data.elasticsearch.core.ElasticsearchTemplate` | | Heuristic | Any class with `Repository`, `Dao`, or `Mapper` in its name calling methods starting with find, get, query, search, load, fetch, or select |  ## Recognized sinks (API responses)  | Category | Classes | | --- | --- | | JAX-RS (javax) | `javax.ws.rs.core.Response`, `Response.ResponseBuilder` | | JAX-RS (jakarta) | `jakarta.ws.rs.core.Response`, `Response.ResponseBuilder` | | Spring MVC | `org.springframework.http.ResponseEntity`, `ResponseEntity.BodyBuilder` | | Servlet (javax) | `javax.servlet.http.HttpServletResponse`, `javax.servlet.ServletOutputStream` | | Servlet (jakarta) | `jakarta.servlet.http.HttpServletResponse`, `jakarta.servlet.ServletOutputStream` | | Java I/O | `java.io.PrintWriter`, `java.io.Writer`, `java.io.OutputStream` | | Jackson | `com.fasterxml.jackson.databind.ObjectMapper`, `com.fasterxml.jackson.core.JsonGenerator` | | Gson | `com.google.gson.Gson`, `com.google.gson.JsonWriter` | | GraphQL | `graphql.schema.DataFetcher`, `graphql.schema.PropertyDataFetcher` | | Spring WebFlux | `ServerResponse`, `reactor.core.publisher.Mono`, `reactor.core.publisher.Flux` | | gRPC | `io.grpc.stub.StreamObserver` | | WebSocket | `javax.websocket.Session`, `RemoteEndpoint.Basic`, `jakarta.websocket.*`, `org.springframework.web.socket.WebSocketSession` |  ## Flow breakers  Flows are broken by methods matching common sanitization patterns (anonymize, redact, mask, encrypt, hash, sanitize, etc.) or authorization checks (isAuthorized, hasPermission, hasRole, etc.).
 
 ##### Data tables:
 
@@ -860,9 +971,27 @@ _This doc contains all of the recipes with **unique** data tables that have been
   * **org.openrewrite.analysis.java.taint.table.TaintFlowTable**: *Records taint flows from sources to sinks with their taint types.*
 
 
+#### [org.openrewrite.analysis.java.security.FindArrayIndexInjection](/user-documentation/recipes/recipe-catalog/analysis/java/security/findarrayindexinjection.md)
+  * **Find improper validation of array index**
+  * Detects when user-controlled input flows into array or collection index expressions without proper bounds validation, which could allow out-of-bounds access or denial of service (CWE-129).
+
+##### Data tables:
+
+  * **org.openrewrite.analysis.java.taint.table.TaintFlowTable**: *Records taint flows from sources to sinks with their taint types.*
+
+
 #### [org.openrewrite.analysis.java.security.FindCommandInjection](/user-documentation/recipes/recipe-catalog/analysis/java/security/findcommandinjection.md)
   * **Find command injection vulnerabilities**
   * Detects when user-controlled input flows into system command execution methods like Runtime.exec() or ProcessBuilder, which could allow attackers to execute arbitrary commands.
+
+##### Data tables:
+
+  * **org.openrewrite.analysis.java.taint.table.TaintFlowTable**: *Records taint flows from sources to sinks with their taint types.*
+
+
+#### [org.openrewrite.analysis.java.security.FindJndiInjection](/user-documentation/recipes/recipe-catalog/analysis/java/security/findjndiinjection.md)
+  * **Find JNDI injection vulnerabilities**
+  * Detects when user-controlled input flows into JNDI lookup operations without proper validation, which could allow an attacker to connect to malicious naming/directory services (CWE-99).
 
 ##### Data tables:
 
@@ -878,9 +1007,27 @@ _This doc contains all of the recipes with **unique** data tables that have been
   * **org.openrewrite.analysis.java.taint.table.TaintFlowTable**: *Records taint flows from sources to sinks with their taint types.*
 
 
+#### [org.openrewrite.analysis.java.security.FindLogInjection](/user-documentation/recipes/recipe-catalog/analysis/java/security/findloginjection.md)
+  * **Find log injection vulnerabilities**
+  * Detects when user-controlled input flows into logging methods without sanitization, which could allow attackers to forge log entries by injecting newline characters.
+
+##### Data tables:
+
+  * **org.openrewrite.analysis.java.taint.table.TaintFlowTable**: *Records taint flows from sources to sinks with their taint types.*
+
+
 #### [org.openrewrite.analysis.java.security.FindPathTraversal](/user-documentation/recipes/recipe-catalog/analysis/java/security/findpathtraversal.md)
   * **Find path traversal vulnerabilities**
   * Detects potential path traversal vulnerabilities where user input flows to file system operations without proper validation.
+
+##### Data tables:
+
+  * **org.openrewrite.analysis.java.taint.table.TaintFlowTable**: *Records taint flows from sources to sinks with their taint types.*
+
+
+#### [org.openrewrite.analysis.java.security.FindProcessControlInjection](/user-documentation/recipes/recipe-catalog/analysis/java/security/findprocesscontrolinjection.md)
+  * **Find process control vulnerabilities**
+  * Detects when user-controlled input flows into native library loading methods without proper validation, which could allow an attacker to load arbitrary native code (CWE-114).
 
 ##### Data tables:
 
@@ -899,6 +1046,15 @@ _This doc contains all of the recipes with **unique** data tables that have been
 #### [org.openrewrite.analysis.java.security.FindUnencryptedPiiStorage](/user-documentation/recipes/recipe-catalog/analysis/java/security/findunencryptedpiistorage.md)
   * **Find unencrypted PII storage**
   * Identifies when personally identifiable information (PII) is stored in databases, files, or other persistent storage without encryption.
+
+##### Data tables:
+
+  * **org.openrewrite.analysis.java.taint.table.TaintFlowTable**: *Records taint flows from sources to sinks with their taint types.*
+
+
+#### [org.openrewrite.analysis.java.security.FindUnsafeReflectionInjection](/user-documentation/recipes/recipe-catalog/analysis/java/security/findunsafereflectioninjection.md)
+  * **Find unsafe reflection vulnerabilities**
+  * Detects when user-controlled input flows into reflection-based class loading or instantiation without proper validation, which could allow an attacker to instantiate arbitrary classes (CWE-470).
 
 ##### Data tables:
 
@@ -942,6 +1098,66 @@ _This doc contains all of the recipes with **unique** data tables that have been
 ##### Data tables:
 
   * **org.openrewrite.react.table.ReactComponentUses**: *Information about React component usages including imports, JSX tags, and other references.*
+
+
+
+### rewrite-release-metromap
+
+#### [io.moderne.recipe.releasemetro.FindGradleParentRelationships](/user-documentation/recipes/recipe-catalog/recipe/releasemetro/findgradleparentrelationships.md)
+  * **Find Gradle project hierarchy relationships**
+  * Find Gradle parent-child project relationships in multi-project builds to understand project hierarchies.
+
+##### Data tables:
+
+  * **io.moderne.recipe.releasemetro.table.ParentRelationships**: *Relationships between child projects and their parent POMs or Gradle parent projects.*
+
+
+#### [io.moderne.recipe.releasemetro.FindGradleProjectIDs](/user-documentation/recipes/recipe-catalog/recipe/releasemetro/findgradleprojectids.md)
+  * **Find Gradle project IDs**
+  * Find Gradle project IDs in build.gradle files to determine the project ID.
+
+##### Data tables:
+
+  * **io.moderne.recipe.releasemetro.table.ProjectCoordinates**: *Maven Modules or Gradle (sub-)project groupId and artifactId.*
+
+
+#### [io.moderne.recipe.releasemetro.FindMavenParentRelationships](/user-documentation/recipes/recipe-catalog/recipe/releasemetro/findmavenparentrelationships.md)
+  * **Find Maven parent relationships**
+  * Find Maven parent POM relationships to understand project hierarchies in multi-module builds.
+
+##### Data tables:
+
+  * **io.moderne.recipe.releasemetro.table.ParentRelationships**: *Relationships between child projects and their parent POMs or Gradle parent projects.*
+
+
+#### [io.moderne.recipe.releasemetro.FindMavenProjectIDs](/user-documentation/recipes/recipe-catalog/recipe/releasemetro/findmavenprojectids.md)
+  * **Find maven project IDs**
+  * Find Maven group Id and artifactId in pom.xml files to determine the project ID.
+
+##### Data tables:
+
+  * **io.moderne.recipe.releasemetro.table.ProjectCoordinates**: *Maven Modules or Gradle (sub-)project groupId and artifactId.*
+
+
+#### [io.moderne.recipe.releasemetro.FindPotentiallyUnusedDependencies](/user-documentation/recipes/recipe-catalog/recipe/releasemetro/findpotentiallyunuseddependencies.md)
+  * **Find potentially unused dependencies**
+  * Collects import information to help identify potentially unused dependencies.
+
+##### Data tables:
+
+  * **io.moderne.recipe.releasemetro.table.UnusedDependencies**: *Dependencies that are declared in build files but may not be used based on import analysis.*
+
+
+#### [io.moderne.recipe.releasemetro.ReleaseMetroPlan](/user-documentation/recipes/recipe-catalog/recipe/releasemetro/releasemetroplan.md)
+  * **Analyse Organization's Release Train Metro Plan**
+  * Gathers the basic information to create and understand the organizations release train metro plan.
+
+##### Data tables:
+
+  * **io.moderne.recipe.releasemetro.table.ProjectCoordinates**: *Maven Modules or Gradle (sub-)project groupId and artifactId.*
+  * **io.moderne.recipe.releasemetro.table.ParentRelationships**: *Relationships between child projects and their parent POMs or Gradle parent projects.*
+  * **io.moderne.recipe.releasemetro.table.UnusedDependencies**: *Dependencies that are declared in build files but may not be used based on import analysis.*
+  * **org.openrewrite.maven.table.DependenciesInUse**: *Direct and transitive dependencies in use.*
 
 
 
@@ -1141,6 +1357,15 @@ _This doc contains all of the recipes with **unique** data tables that have been
   * **org.openrewrite.table.SourcesFiles**: *Source files that matched some criteria.*
 
 
+#### [org.openrewrite.FindStyles](/user-documentation/recipes/recipe-catalog/core/findstyles.md)
+  * **Find styles**
+  * Find and report the styles attached to each source file. Styles are output as valid OpenRewrite style YAML that can be used directly in rewrite.yml configuration.
+
+##### Data tables:
+
+  * **org.openrewrite.table.StylesInUse**: *Styles detected on each source file.*
+
+
 #### [org.openrewrite.ListRuntimeClasspath](/user-documentation/recipes/recipe-catalog/core/listruntimeclasspath.md)
   * **List runtime classpath**
   * A diagnostic utility which emits the runtime classpath to a data table.
@@ -1276,7 +1501,7 @@ _This doc contains all of the recipes with **unique** data tables that have been
 
 #### [org.openrewrite.gradle.GradleBestPractices](/user-documentation/recipes/recipe-catalog/gradle/gradlebestpractices.md)
   * **Apply Gradle best practices**
-  * Apply a set of [Gradle best practices](https://docs.gradle.org/current/userguide/best_practices_general.html) to the build files, for more efficient and ideomatic builds.
+  * Apply a set of [Gradle best practices](https://docs.gradle.org/current/userguide/best_practices_general.html) to the build files, for more efficient and idiomatic builds.
 
 ##### Data tables:
 
@@ -5033,81 +5258,6 @@ _This doc contains all of the recipes with **unique** data tables that have been
 
 
 
-### rewrite-dropwizard
-
-#### [org.openrewrite.java.dropwizard.CoreSetup](/user-documentation/recipes/recipe-catalog/java/dropwizard/coresetup.md)
-  * **Create Spring Boot Application Entry Point**
-  * Creates the main Spring Boot application class.
-
-##### Data tables:
-
-  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
-
-
-#### [org.openrewrite.java.dropwizard.MigrateDropwizardToSpringBoot](/user-documentation/recipes/recipe-catalog/java/dropwizard/migratedropwizardtospringboot.md)
-  * **Migrate Dropwizard to Spring Boot**
-  * Apply various changes to migrate Dropwizard applications to Spring Boot.
-
-##### Data tables:
-
-  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
-
-
-#### [org.openrewrite.java.dropwizard.MigrateHealthChecksAndMetrics](/user-documentation/recipes/recipe-catalog/java/dropwizard/migratehealthchecksandmetrics.md)
-  * **Add Spring Boot Actuator**
-  * Configures Spring Boot Actuator with basic health endpoints.
-
-##### Data tables:
-
-  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
-
-
-#### [org.openrewrite.java.dropwizard.MigrateHibernate](/user-documentation/recipes/recipe-catalog/java/dropwizard/migratehibernate.md)
-  * **Migrate Hibernate**
-  * Converts Dropwizard Resources to Spring Boot format.
-
-##### Data tables:
-
-  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
-
-
-#### [org.openrewrite.java.dropwizard.MigrateResourcesToSpringJersey](/user-documentation/recipes/recipe-catalog/java/dropwizard/migrateresourcestospringjersey.md)
-  * **Migrate Resource Classes**
-  * Converts Dropwizard Resources to Spring Boot format.
-
-##### Data tables:
-
-  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
-
-
-#### [org.openrewrite.java.dropwizard.MigrateSecurity](/user-documentation/recipes/recipe-catalog/java/dropwizard/migratesecurity.md)
-  * **Migrate Health Checks to Spring Boot**
-  * Converts Dropwizard health checks to Spring Boot format.
-
-##### Data tables:
-
-  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
-
-
-#### [org.openrewrite.java.dropwizard.MigrateTests](/user-documentation/recipes/recipe-catalog/java/dropwizard/migratetests.md)
-  * **Migrate Health Checks to Spring Boot**
-  * Converts Dropwizard tests to Spring Boot format.
-
-##### Data tables:
-
-  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
-
-
-#### [org.openrewrite.java.dropwizard.MigrateToDropwizard5](/user-documentation/recipes/recipe-catalog/java/dropwizard/migratetodropwizard5.md)
-  * **Migrate to Dropwizard 5.0.x from 4.x**
-  * Apply changes required to upgrade a Dropwizard 4.x application to 5.0.x. This includes upgrading dependencies, removing deprecated configuration options, and migrating Jetty handler implementations. Includes required migrations to Java 17, Jakarta EE 10, JUnit 5.14, Jackson 2.x, and Hibernate 6.6. See [the upgrade guide](https://www.dropwizard.io/en/stable/manual/upgrade-notes/upgrade-notes-5_0_x.html).
-
-##### Data tables:
-
-  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
-
-
-
 ### rewrite-github-actions
 
 #### [org.openrewrite.github.FindGitHubActionSecretReferences](/user-documentation/recipes/recipe-catalog/github/findgithubactionsecretreferences.md)
@@ -5237,7 +5387,7 @@ _This doc contains all of the recipes with **unique** data tables that have been
 
 #### [org.openrewrite.java.dependencies.DependencyVulnerabilityCheck](/user-documentation/recipes/recipe-catalog/java/dependencies/dependencyvulnerabilitycheck.md)
   * **Find and fix vulnerable dependencies**
-  * This software composition analysis (SCA) tool detects and upgrades dependencies with publicly disclosed vulnerabilities. This recipe both generates a report of vulnerable dependencies and upgrades to newer versions with fixes. This recipe by default only upgrades to the latest **patch** version.  If a minor or major upgrade is required to reach the fixed version, this can be controlled using the `maximumUpgradeDelta` option. Vulnerability information comes from the [GitHub Security Advisory Database](https://docs.github.com/en/code-security/security-advisories/global-security-advisories/about-the-github-advisory-database), which aggregates vulnerability data from several public databases, including the [National Vulnerability Database](https://nvd.nist.gov/) maintained by the United States government. Upgrades dependencies versioned according to [Semantic Versioning](https://semver.org/).   ## Customizing Vulnerability Data  This recipe can be customized by extending `DependencyVulnerabilityCheckBase` and overriding the vulnerability data sources:   - **`baselineVulnerabilities(ExecutionContext ctx)`**: Provides the default set of known vulnerabilities. The base implementation loads vulnerability data from the GitHub Security Advisory Database CSV file using `ResourceUtils.parseResourceAsCsv()`. Override this method to replace the entire vulnerability dataset with your own curated list.   - **`supplementalVulnerabilities(ExecutionContext ctx)`**: Allows adding custom vulnerability data beyond the baseline. The base implementation returns an empty list. Override this method to add organization-specific vulnerabilities, internal security advisories, or vulnerabilities from additional sources while retaining the baseline GitHub Advisory Database.  Both methods return `List&lt;Vulnerability&gt;` objects. Vulnerability data can be loaded from CSV files using `ResourceUtils.parseResourceAsCsv(path, Vulnerability.class, consumer)` or constructed programmatically. To customize, extend `DependencyVulnerabilityCheckBase` and override one or both methods depending on your needs. For example, override `supplementalVulnerabilities()` to add custom CVEs while keeping the standard vulnerability database, or override `baselineVulnerabilities()` to use an entirely different vulnerability data source. Last updated: 2026-03-23T1116.
+  * This software composition analysis (SCA) tool detects and upgrades dependencies with publicly disclosed vulnerabilities. This recipe both generates a report of vulnerable dependencies and upgrades to newer versions with fixes. This recipe by default only upgrades to the latest **patch** version.  If a minor or major upgrade is required to reach the fixed version, this can be controlled using the `maximumUpgradeDelta` option. Vulnerability information comes from the [GitHub Security Advisory Database](https://docs.github.com/en/code-security/security-advisories/global-security-advisories/about-the-github-advisory-database), which aggregates vulnerability data from several public databases, including the [National Vulnerability Database](https://nvd.nist.gov/) maintained by the United States government. Upgrades dependencies versioned according to [Semantic Versioning](https://semver.org/).   ## Customizing Vulnerability Data  This recipe can be customized by extending `DependencyVulnerabilityCheckBase` and overriding the vulnerability data sources:   - **`baselineVulnerabilities(ExecutionContext ctx)`**: Provides the default set of known vulnerabilities. The base implementation loads vulnerability data from the GitHub Security Advisory Database CSV file using `ResourceUtils.parseResourceAsCsv()`. Override this method to replace the entire vulnerability dataset with your own curated list.   - **`supplementalVulnerabilities(ExecutionContext ctx)`**: Allows adding custom vulnerability data beyond the baseline. The base implementation returns an empty list. Override this method to add organization-specific vulnerabilities, internal security advisories, or vulnerabilities from additional sources while retaining the baseline GitHub Advisory Database.  Both methods return `List&lt;Vulnerability&gt;` objects. Vulnerability data can be loaded from CSV files using `ResourceUtils.parseResourceAsCsv(path, Vulnerability.class, consumer)` or constructed programmatically. To customize, extend `DependencyVulnerabilityCheckBase` and override one or both methods depending on your needs. For example, override `supplementalVulnerabilities()` to add custom CVEs while keeping the standard vulnerability database, or override `baselineVulnerabilities()` to use an entirely different vulnerability data source. Last updated: 2026-04-06T1118.
 
 ##### Data tables:
 
@@ -5282,6 +5432,16 @@ _This doc contains all of the recipes with **unique** data tables that have been
 ##### Data tables:
 
   * **org.openrewrite.java.table.MethodCalls**: *The text of matching method invocations.*
+
+
+#### [org.openrewrite.java.security.Owasp2025A05](/user-documentation/recipes/recipe-catalog/java/security/owasp2025a05.md)
+  * **Remediate OWASP A05:2025 Injection**
+  * OWASP [A05:2025](https://owasp.org/Top10/2025/A05_2025-Injection/) describes failures related to user-supplied data being used to influence program state to operate outside of its intended bounds. Previously A03:2021.
+
+##### Data tables:
+
+  * **org.openrewrite.java.table.MethodCalls**: *The text of matching method invocations.*
+  * **org.openrewrite.analysis.java.taint.table.TaintFlowTable**: *Records taint flows from sources to sinks with their taint types.*
 
 
 #### [org.openrewrite.java.security.OwaspA01](/user-documentation/recipes/recipe-catalog/java/security/owaspa01.md)
@@ -5334,9 +5494,55 @@ _This doc contains all of the recipes with **unique** data tables that have been
   * **org.openrewrite.java.dependencies.table.DependencyOriginsReport**: *A report that maps dependencies to their originating root node represented as dependency graph. The information can be used to understand which direct dependencies are responsible for bringing in specific transitive dependencies.*
 
 
+#### [org.openrewrite.java.security.search.FindExpressionLanguageInjection](/user-documentation/recipes/recipe-catalog/java/security/search/findexpressionlanguageinjection.md)
+  * **Find Expression Language injection vectors**
+  * Finds calls to Expression Language (EL) evaluation methods which, when the expression is built from user input, can allow arbitrary code execution. Use parameterized expressions or input validation instead.
+
+##### Data tables:
+
+  * **org.openrewrite.java.table.MethodCalls**: *The text of matching method invocations.*
+
+
+#### [org.openrewrite.java.security.search.FindHttpResponseSplitting](/user-documentation/recipes/recipe-catalog/java/security/search/findhttpresponsesplitting.md)
+  * **Find HTTP response splitting vectors**
+  * Finds calls to `HttpServletResponse.addHeader()`, `setHeader()`, and `addCookie()` which, when header values are derived from user input without CRLF sanitization, can allow HTTP response splitting attacks. Full taint-based detection requires rewrite-program-analysis; this recipe identifies the sink call sites for manual review.
+
+##### Data tables:
+
+  * **org.openrewrite.java.table.MethodCalls**: *The text of matching method invocations.*
+
+
 #### [org.openrewrite.java.security.search.FindJacksonDefaultTypeMapping](/user-documentation/recipes/recipe-catalog/java/security/search/findjacksondefaulttypemapping.md)
   * **Find Jackson default type mapping enablement**
   * `ObjectMapper#enableTypeMapping(..)` can lead to vulnerable deserialization.
+
+##### Data tables:
+
+  * **org.openrewrite.java.table.MethodCalls**: *The text of matching method invocations.*
+
+
+#### [org.openrewrite.java.security.search.FindProcessControl](/user-documentation/recipes/recipe-catalog/java/security/search/findprocesscontrol.md)
+  * **Find process control vectors**
+  * Finds calls to `System.loadLibrary()`, `System.load()`, and `Runtime.load()` which, when the library path or name is derived from user input, can allow an attacker to load arbitrary native code. Ensure library names are not externally controlled.
+
+##### Data tables:
+
+  * **org.openrewrite.java.table.MethodCalls**: *The text of matching method invocations.*
+
+
+#### [org.openrewrite.java.security.search.FindResourceInjection](/user-documentation/recipes/recipe-catalog/java/security/search/findresourceinjection.md)
+  * **Find resource injection vectors**
+  * Detects resource injection vulnerabilities where user-controlled input flows to resource access operations — file paths, JNDI lookups, class loading, and native library loading. Uses taint analysis from rewrite-program-analysis for source-to-sink tracking with sanitizer support, plus structural detection as fallback.
+
+##### Data tables:
+
+  * **org.openrewrite.analysis.java.taint.table.TaintFlowTable**: *Records taint flows from sources to sinks with their taint types.*
+  * **org.openrewrite.java.table.MethodCalls**: *The text of matching method invocations.*
+
+
+#### [org.openrewrite.java.security.search.FindScriptEngineInjection](/user-documentation/recipes/recipe-catalog/java/security/search/findscriptengineinjection.md)
+  * **Find script engine code injection vectors**
+  * Finds calls to `ScriptEngine.eval()` which can execute arbitrary code if the script string is influenced by user input. Consider sandboxing or removing dynamic script evaluation.
 
 ##### Data tables:
 
@@ -5352,9 +5558,27 @@ _This doc contains all of the recipes with **unique** data tables that have been
   * **org.openrewrite.java.security.table.SensitiveApiEndpoints**: *The API endpoints that expose sensitive data.*
 
 
+#### [org.openrewrite.java.security.search.FindUnsafeReflection](/user-documentation/recipes/recipe-catalog/java/security/search/findunsafereflection.md)
+  * **Find unsafe reflection vectors**
+  * Finds calls to `Class.forName()` which, when the class name is derived from user input, can allow an attacker to instantiate arbitrary classes. Review these call sites to ensure the class name is not externally controlled.
+
+##### Data tables:
+
+  * **org.openrewrite.java.table.MethodCalls**: *The text of matching method invocations.*
+
+
+#### [org.openrewrite.java.security.search.FindXPathInjection](/user-documentation/recipes/recipe-catalog/java/security/search/findxpathinjection.md)
+  * **Find XPath injection vectors**
+  * Finds calls to `XPath.evaluate()` and `XPath.compile()` which, when the expression is built from user input, can allow XPath injection attacks. Use parameterized XPath expressions or input validation instead.
+
+##### Data tables:
+
+  * **org.openrewrite.java.table.MethodCalls**: *The text of matching method invocations.*
+
+
 #### [org.openrewrite.python.dependencies.DependencyVulnerabilityCheck](/user-documentation/recipes/recipe-catalog/python/dependencies/dependencyvulnerabilitycheck.md)
   * **Find and fix vulnerable PyPI dependencies**
-  * This software composition analysis (SCA) tool detects and upgrades dependencies with publicly disclosed vulnerabilities. This recipe both generates a report of vulnerable dependencies and upgrades to newer versions with fixes. This recipe by default only upgrades to the latest **patch** version. If a minor or major upgrade is required to reach the fixed version, this can be controlled using the `maximumUpgradeDelta` option. Vulnerability information comes from the [GitHub Security Advisory Database](https://docs.github.com/en/code-security/security-advisories/global-security-advisories/about-the-github-advisory-database), which aggregates vulnerability data from several public databases, including the [National Vulnerability Database](https://nvd.nist.gov/) maintained by the United States government. Dependencies following [Semantic Versioning](https://semver.org/) will see their _patch_ version updated where applicable.
+  * This software composition analysis (SCA) tool detects and upgrades dependencies with publicly disclosed vulnerabilities. This recipe both generates a report of vulnerable dependencies and upgrades to newer versions with fixes. This recipe by default only upgrades to the latest **patch** version. If a minor or major upgrade is required to reach the fixed version, this can be controlled using the `maximumUpgradeDelta` option. Vulnerability information comes from the [GitHub Security Advisory Database](https://docs.github.com/en/code-security/security-advisories/global-security-advisories/about-the-github-advisory-database), which aggregates vulnerability data from several public databases, including the [National Vulnerability Database](https://nvd.nist.gov/) maintained by the United States government. Dependencies following [Semantic Versioning](https://semver.org/) will see their _patch_ version updated where applicable.  ## Customizing Vulnerability Data  This recipe can be customized by extending `DependencyVulnerabilityCheckBase` and overriding the vulnerability data sources:   - **`baselineVulnerabilities(ExecutionContext ctx)`**: Provides the default set of known vulnerabilities. The base implementation loads vulnerability data from the GitHub Security Advisory Database CSV file using `ResourceUtils.parseResourceAsCsv()`. Override this method to replace the entire vulnerability dataset with your own curated list.   - **`supplementalVulnerabilities(ExecutionContext ctx)`**: Allows adding custom vulnerability data beyond the baseline. The base implementation returns an empty list. Override this method to add organization-specific vulnerabilities, internal security advisories, or vulnerabilities from additional sources while retaining the baseline GitHub Advisory Database.  Both methods return `List&lt;Vulnerability&gt;` objects. Vulnerability data can be loaded from CSV files using `ResourceUtils.parseResourceAsCsv(path, Vulnerability.class, consumer)` or constructed programmatically. To customize, extend `DependencyVulnerabilityCheckBase` and override one or both methods depending on your needs. For example, override `supplementalVulnerabilities()` to add custom CVEs while keeping the standard vulnerability database, or override `baselineVulnerabilities()` to use an entirely different vulnerability data source.
 
 ##### Data tables:
 
@@ -5745,6 +5969,15 @@ _This doc contains all of the recipes with **unique** data tables that have been
   * **org.openrewrite.java.table.MethodCalls**: *The text of matching method invocations.*
 
 
+#### [org.openrewrite.java.migrate.lombok.LombokBestPractices](/user-documentation/recipes/recipe-catalog/java/migrate/lombok/lombokbestpractices.md)
+  * **Lombok Best Practices**
+  * Applies all recipes that enforce best practices for using Lombok.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
 #### [org.openrewrite.java.migrate.search.AboutJavaVersion](/user-documentation/recipes/recipe-catalog/java/migrate/search/aboutjavaversion.md)
   * **Find which Java version is in use**
   * A diagnostic for studying the distribution of Java language version levels (both source and target compatibility across files and source sets).
@@ -5848,6 +6081,18 @@ _This doc contains all of the recipes with **unique** data tables that have been
 ##### Data tables:
 
   * **org.openrewrite.java.table.TypeUses**: *The source code of matching type uses.*
+
+
+
+### rewrite-netty
+
+#### [org.openrewrite.netty.UpgradeNetty_3_2_to_4_1](/user-documentation/recipes/recipe-catalog/netty/upgradenetty_3_2_to_4_1.md)
+  * **Migrates from Netty 3.2.x to Netty 4.1.x**
+  * Migrate applications to the latest Netty 4.1.x release.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
 
 
 
@@ -6033,6 +6278,24 @@ _This doc contains all of the recipes with **unique** data tables that have been
   * **org.openrewrite.table.RewriteRecipeSource**: *This table contains the source code of recipes along with their metadata for use in an experiment fine-tuning large language models to produce more recipes.*
 
 
+#### [org.openrewrite.java.recipes.GenerateDeprecatedMethodRecipes](/user-documentation/recipes/recipe-catalog/java/recipes/generatedeprecatedmethodrecipes.md)
+  * **Generate `InlineMethodCalls` recipes for deprecated delegating methods**
+  * Finds `@Deprecated` method declarations whose body is a single delegation call to another method in the same class, and generates a declarative YAML recipe file containing `InlineMethodCalls` entries for each.
+
+##### Data tables:
+
+  * **org.openrewrite.java.recipes.DeprecatedMethodDelegations**: *Deprecated methods that delegate to another method in the same class, suitable for inlining via `InlineMethodCalls`.*
+
+
+#### [org.openrewrite.java.recipes.RecipeTestingBestPractices](/user-documentation/recipes/recipe-catalog/java/recipes/recipetestingbestpractices.md)
+  * **Recipe testing best practices**
+  * Best practices for testing recipes.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
 #### [org.openrewrite.java.recipes.UpgradeTestsToJava21](/user-documentation/recipes/recipe-catalog/java/recipes/upgradeteststojava21.md)
   * **Migrate tests to Java 21**
   * Use Java 21 features in tests.
@@ -6048,6 +6311,7 @@ _This doc contains all of the recipes with **unique** data tables that have been
 
 ##### Data tables:
 
+  * **org.openrewrite.java.recipes.DeprecatedMethodDelegations**: *Deprecated methods that delegate to another method in the same class, suitable for inlining via `InlineMethodCalls`.*
   * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
 
 

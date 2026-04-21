@@ -77,7 +77,6 @@ const platform = {
           'user-documentation/moderne-platform/how-to-guides/how-to-find-method-invocations-based-on-a-pattern',
           'user-documentation/moderne-platform/how-to-guides/how-to-gain-a-high-level-overview-of-your-codebase-using-clustering',
           'user-documentation/moderne-platform/how-to-guides/writing-and-installing-recipes',
-          'user-documentation/moderne-platform/how-to-guides/categorize-recipes',
         ],
       },
       {
@@ -175,6 +174,7 @@ const platform = {
           'administrator-documentation/moderne-platform/how-to-guides/org-service',
           'administrator-documentation/moderne-platform/how-to-guides/create-visualization',
           'administrator-documentation/moderne-platform/how-to-guides/importing-external-recipes',
+          'administrator-documentation/moderne-platform/how-to-guides/categorize-recipes',
           'administrator-documentation/moderne-platform/how-to-guides/lst-cleanup',
           'administrator-documentation/moderne-platform/how-to-guides/troubleshooting-lst-issues',
           'administrator-documentation/moderne-platform/how-to-guides/analyzing-build-failures',
@@ -535,7 +535,6 @@ const cli = {
         keywords: ['guides'],
       },
       items: [
-        'user-documentation/moderne-cli/how-to-guides/cli-upgrade',
         'user-documentation/moderne-cli/how-to-guides/cli-wrapper',
         'user-documentation/moderne-cli/how-to-guides/cli-dev-center',
         'user-documentation/moderne-cli/how-to-guides/cli-prethink',
@@ -546,6 +545,7 @@ const cli = {
         'user-documentation/moderne-cli/how-to-guides/layer-config-cli',
         'user-documentation/moderne-cli/how-to-guides/jdk-selection-and-config',
         'user-documentation/moderne-cli/how-to-guides/build-tool-config',
+        'user-documentation/moderne-cli/how-to-guides/code-style-config',
         'user-documentation/moderne-cli/how-to-guides/execute-user-supplied-commands',
         'user-documentation/moderne-cli/how-to-guides/on-prem-scm-config',
         'user-documentation/moderne-cli/how-to-guides/build-steps',
@@ -599,7 +599,23 @@ const agentTools = {
     'user-documentation/agent-tools/prethink',
     'user-documentation/agent-tools/trigrep',
     'user-documentation/agent-tools/skills',
-    'user-documentation/agent-tools/mcp',
+    {
+      type: 'category' as const,
+      label: 'Moderne MCP',
+      link: {
+        type: 'generated-index' as const,
+        title: 'Moderne MCP',
+        description: 'Give AI coding agents tools for semantic code search, navigation, and refactoring with the Moderne MCP server.',
+        slug: '/user-documentation/agent-tools/mcp',
+        keywords: ['mcp', 'model context protocol', 'security', 'architecture'],
+      },
+      items: [
+        'user-documentation/agent-tools/mcp/overview',
+        'user-documentation/agent-tools/mcp/getting-started',
+        'user-documentation/agent-tools/mcp/tool-browser',
+        'user-documentation/agent-tools/mcp/security',
+      ],
+    },
   ],
 };
 
@@ -825,7 +841,8 @@ const handsOnLearning = {
         'hands-on-learning/spring-boot-migration/module-2-wave-planning',
         'hands-on-learning/spring-boot-migration/module-3-establish-baseline',
         'hands-on-learning/spring-boot-migration/module-4-smoke-test',
-        'hands-on-learning/spring-boot-migration/module-5-wave-migration',
+        'hands-on-learning/spring-boot-migration/module-5-build-querydsl-recipe',
+        'hands-on-learning/spring-boot-migration/module-6-wave-migration',
       ],
     },
     {

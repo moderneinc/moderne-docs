@@ -10,7 +10,7 @@ import RunRecipe from '@site/src/components/RunRecipe';
 
 **org.openrewrite.python.RemoveDependency**
 
-_Remove a dependency from the `[project].dependencies` array in `pyproject.toml`. When `uv` is available, the `uv.lock` file is regenerated._
+_Remove a dependency from a Python project. Supports `pyproject.toml` (with scope/group targeting), `requirements.txt`, and `Pipfile`. When `uv` is available, the `uv.lock` file is regenerated._
 
 ## Recipe source
 
@@ -24,7 +24,7 @@ This recipe is available under the [Moderne Proprietary License](https://docs.mo
 | Type | Name | Description | Example |
 | --- | --- | --- | --- |
 | `String` | packageName | The PyPI package name to remove. | `requests` |
-| `String` | scope | *Optional*. The dependency scope to remove from. Defaults to `project.dependencies`. Valid options: `project.dependencies`, `project.optional-dependencies`, `dependency-groups`, `tool.uv.constraint-dependencies`, `tool.uv.override-dependencies` | `project.dependencies` |
+| `String` | scope | *Optional*. The dependency scope to remove from. All scopes are searched by default. | `project.dependencies` |
 | `String` | groupName | *Optional*. The group name, required when scope is `project.optional-dependencies` or `dependency-groups`. | `dev` |
 
 

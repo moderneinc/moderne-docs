@@ -46,6 +46,10 @@ curl https://app.moderne.io/cli | bash
 irm https://app.moderne.io/cli/windows | iex
 ```
 
+:::warning
+You must use PowerShell for Windows installation. Git Bash, MSYS2, and Cygwin are not supported — the `curl ... | bash` command from the Linux / macOS tab will not work correctly in these environments.
+:::
+
 </TabItem>
 </Tabs>
 
@@ -65,7 +69,7 @@ After installation, verify by running `mod` in your terminal:
 ```bash
 ➜ mod
 
-Moderne CLI 4.0.10
+Moderne CLI 4.1.6
 
 Usage:
 
@@ -204,6 +208,10 @@ curl https://<TENANT>.moderne.io/cli | bash
 irm https://<TENANT>.moderne.io/cli/windows | iex
 ```
 
+:::warning
+You must use PowerShell for Windows installation. Git Bash, MSYS2, and Cygwin are not supported — the `curl ... | bash` command from the Linux / macOS tab will not work correctly in these environments.
+:::
+
 </TabItem>
 </Tabs>
 
@@ -223,7 +231,7 @@ After installation, verify by running `mod` in your terminal:
 ```bash
 ➜ mod
 
-Moderne CLI 4.0.10
+Moderne CLI 4.1.6
 
 Usage:
 
@@ -416,7 +424,7 @@ mod config moderne organizations show
 <summary>You should see something like this:</summary>
 
 ```bash
-Moderne CLI 4.0.10
+Moderne CLI 4.1.6
 
 ⏺ Retrieving the configured organizations
 
@@ -488,7 +496,7 @@ mod config moderne organizations show
 <summary>You should see something that looks similar to this (it will have your organizations instead):</summary>
 
 ```bash
-Moderne CLI 4.0.10
+Moderne CLI 4.1.6
 
 ⏺ Retrieving the configured organizations
 

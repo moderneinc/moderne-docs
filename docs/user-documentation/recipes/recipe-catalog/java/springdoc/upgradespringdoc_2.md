@@ -38,6 +38,12 @@ This recipe is available under the [Moderne Source Available License](https://do
 
 <Tabs groupId="recipeType">
 <TabItem value="recipe-list" label="Recipe List" >
+**Preconditions**
+
+* [Singleton](../../core/singleton)
+
+**Recipes**
+
 * [Migrate from Swagger to OpenAPI](../../openapi/swagger/swaggertoopenapi)
 * [Use Jakarta Swagger Artifacts](../../openapi/swagger/usejakartaswaggerartifacts)
 * [Change type](../../java/changetype)
@@ -123,6 +129,8 @@ description: |
   Upgrade to SpringDoc v2.1, as described in the [upgrade guide](https://springdoc.org/#migrating-from-springdoc-v1).
 tags:
   - springdoc
+preconditions:
+  - org.openrewrite.Singleton
 recipeList:
   - org.openrewrite.openapi.swagger.SwaggerToOpenAPI
   - org.openrewrite.openapi.swagger.UseJakartaSwaggerArtifacts

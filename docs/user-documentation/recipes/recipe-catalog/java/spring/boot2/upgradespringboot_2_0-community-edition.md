@@ -39,6 +39,12 @@ This recipe is available under the [Moderne Source Available License](https://do
 
 <Tabs groupId="recipeType">
 <TabItem value="recipe-list" label="Recipe List" >
+**Preconditions**
+
+* [Singleton](../../../core/singleton)
+
+**Recipes**
+
 * [Migrate multi-condition `@ConditionalOnBean` annotations from Boot 1.x](../../../java/spring/boot2/conditionalonbeananynestedconditionboot1)
 * [Upgrade Gradle or Maven dependency versions](../../../java/dependencies/upgradedependencyversion)
   * groupId: `org.springframework.boot`
@@ -113,6 +119,8 @@ description: |
 tags:
   - spring
   - boot
+preconditions:
+  - org.openrewrite.Singleton
 recipeList:
   - org.openrewrite.java.spring.boot2.ConditionalOnBeanAnyNestedConditionBoot1
   - org.openrewrite.java.dependencies.UpgradeDependencyVersion:

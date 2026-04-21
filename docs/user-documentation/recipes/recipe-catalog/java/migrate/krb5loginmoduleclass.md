@@ -34,6 +34,12 @@ This recipe is available under the [Moderne Source Available License](https://do
 
 <Tabs groupId="recipeType">
 <TabItem value="recipe-list" label="Recipe List" >
+**Preconditions**
+
+* [Singleton](../../core/singleton)
+
+**Recipes**
+
 * [Change type](../../java/changetype)
   * oldFullyQualifiedTypeName: `com.ibm.security.auth.module.Krb5LoginModule`
   * newFullyQualifiedTypeName: `com.sun.security.auth.module.Krb5LoginModule`
@@ -52,6 +58,8 @@ description: |
   Do not use the `com.ibm.security.auth.module.Krb5LoginModule` class.
 tags:
   - java11
+preconditions:
+  - org.openrewrite.Singleton
 recipeList:
   - org.openrewrite.java.ChangeType:
       oldFullyQualifiedTypeName: com.ibm.security.auth.module.Krb5LoginModule

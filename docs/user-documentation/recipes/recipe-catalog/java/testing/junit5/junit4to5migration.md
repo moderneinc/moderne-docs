@@ -39,6 +39,16 @@ This recipe is available under the [Moderne Source Available License](https://do
 
 <Tabs groupId="recipeType">
 <TabItem value="recipe-list" label="Recipe List" >
+**Preconditions**
+
+* [Singleton](../../../core/singleton)
+* [Module has dependency](../../../java/dependencies/search/modulehasdependency)
+  * groupIdPattern: `org.testng`
+  * artifactIdPattern: `testng*`
+  * invertMarking: `true`
+
+**Recipes**
+
 * [Migrate JUnit 4 environmentVariables rule to JUnit 5 system stubs extension](../../../java/testing/junit5/environmentvariables)
 * [Use wiremock extension](../../../java/testing/junit5/usewiremockextension)
 * [Use JUnit Jupiter `@Disabled`](../../../java/testing/junit5/ignoretodisabled)
@@ -130,6 +140,12 @@ description: |
 tags:
   - junit
   - testing
+preconditions:
+  - org.openrewrite.Singleton
+  - org.openrewrite.java.dependencies.search.ModuleHasDependency:
+      groupIdPattern: org.testng
+      artifactIdPattern: testng*
+      invertMarking: true
 recipeList:
   - org.openrewrite.java.testing.junit5.EnvironmentVariables
   - org.openrewrite.java.testing.junit5.UseWiremockExtension
@@ -217,7 +233,7 @@ recipeList:
 This recipe is used as part of the following composite recipes:
 
 * [JUnit 5 best practices](/user-documentation/recipes/recipe-catalog/java/testing/junit5/junit5bestpractices.md)
-* [Migrate Health Checks to Spring Boot](/user-documentation/recipes/recipe-catalog/java/dropwizard/migratetests.md)
+* [Migrate Dropwizard to Spring Boot 3](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/dropwizard/boot/migratedropwizardtospringboot3)
 * [Migrate Spring Boot 2.x projects to JUnit 5 from JUnit 4](/user-documentation/recipes/recipe-catalog/java/spring/boot2/springboot2junit4to5migration.md)
 
 ## Examples

@@ -34,6 +34,12 @@ This recipe is available under the [Moderne Source Available License](https://do
 
 <Tabs groupId="recipeType">
 <TabItem value="recipe-list" label="Recipe List" >
+**Preconditions**
+
+* [Singleton](../../../core/singleton)
+
+**Recipes**
+
 * [Change Gradle or Maven dependency](../../../java/dependencies/changedependency)
   * oldGroupId: `javax.security.enterprise`
   * oldArtifactId: `javax.security.enterprise-api`
@@ -44,6 +50,12 @@ This recipe is available under the [Moderne Source Available License](https://do
   * groupId: `jakarta.security.enterprise`
   * artifactId: `jakarta.security.enterprise-api`
   * newVersion: `2.0.x`
+* [Add Gradle or Maven dependency](../../../java/dependencies/adddependency)
+  * groupId: `jakarta.security.enterprise`
+  * artifactId: `jakarta.security.enterprise-api`
+  * version: `2.0.x`
+  * onlyIfUsing: `javax.security.enterprise..*`
+  * acceptTransitive: `true`
 * [Rename package name](../../../java/changepackage)
   * oldPackageName: `javax.security.enterprise`
   * newPackageName: `jakarta.security.enterprise`
@@ -60,6 +72,8 @@ name: org.openrewrite.java.migrate.jakarta.JavaxSecurityToJakartaSecurity
 displayName: Migrate deprecated `javax.security.enterprise` packages to `jakarta.security.enterprise`
 description: |
   Java EE has been rebranded to Jakarta EE, necessitating a package relocation.
+preconditions:
+  - org.openrewrite.Singleton
 recipeList:
   - org.openrewrite.java.dependencies.ChangeDependency:
       oldGroupId: javax.security.enterprise
@@ -71,6 +85,12 @@ recipeList:
       groupId: jakarta.security.enterprise
       artifactId: jakarta.security.enterprise-api
       newVersion: 2.0.x
+  - org.openrewrite.java.dependencies.AddDependency:
+      groupId: jakarta.security.enterprise
+      artifactId: jakarta.security.enterprise-api
+      version: 2.0.x
+      onlyIfUsing: javax.security.enterprise..*
+      acceptTransitive: true
   - org.openrewrite.java.ChangePackage:
       oldPackageName: javax.security.enterprise
       newPackageName: jakarta.security.enterprise

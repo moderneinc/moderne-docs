@@ -27,6 +27,15 @@ This recipe is used as part of the following composite recipes:
 * [Update Prethink context (no AI)](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/prethink/updateprethinkcontextnoaistarter)
 * [Update Prethink context (with AI)](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/prethink/updateprethinkcontextstarter)
 
+## Example
+
+
+###### Unchanged
+```javascript title="src/utils.test.js"
+const deadline = new Date("2023-06-15T00:00:00Z");
+expect(deadline.getFullYear()).toBe(2023);
+```
+
 
 ## Usage
 
