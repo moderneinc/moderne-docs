@@ -7,7 +7,7 @@ description: The current version of the Moderne CLI and links to useful CLI docu
 
 | Component   | Current version |
 | ----------- | --------------- |
-| CLI version | 4.1.5           |
+| CLI version | 4.1.6           |
 
 For CLI command documentation, see the [CLI reference](../user-documentation/moderne-cli/cli-reference.md).
 
@@ -16,6 +16,19 @@ The Moderne CLI previously followed a two-track release model with separate "sta
 :::
 
 ## Changelog
+
+### CLI / DX v4.1.6 (2026-04-21)
+
+#### What's Changed
+* Fix unreadable diff output on light terminal backgrounds
+* Support custom artifact repository for CLI install and wrapper
+* Record each LST's publish timestamp in repos.csv and repos-lock.csv
+* Revert "Support custom artifact repository for CLI install and wrappe…
+* Handle removed active recipe gracefully instead of crashing
+* Skip exec partition when no build tool is detected
+* Correct max JDK for `--source 7` to 19
+* Include sibling Java output on Scala parser classpath
+* Allow selecting `MavenBuildStep2` via `moderne.yml` (`maven2` type)
 
 ### CLI / DX v4.1.5 (2026-04-17)
 
