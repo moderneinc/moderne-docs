@@ -7,7 +7,7 @@ description: The current version of the Moderne CLI and links to useful CLI docu
 
 | Component   | Current version |
 | ----------- | --------------- |
-| CLI version | 4.1.6           |
+| CLI version | 4.1.7           |
 
 For CLI command documentation, see the [CLI reference](../user-documentation/moderne-cli/cli-reference.md).
 
@@ -16,6 +16,13 @@ The Moderne CLI previously followed a two-track release model with separate "sta
 :::
 
 ## Changelog
+
+### CLI / DX v4.1.7 (2026-04-22)
+
+#### What's Changed
+* Cache recipe bundle reader per bundle to avoid classloader duplication
+* Fix wrapper race in concurrent `mod` invocations
+* Deduplicate cross-sub-org repository clones via shared cache
 
 ### CLI / DX v4.1.6 (2026-04-21)
 
