@@ -10,6 +10,172 @@ This page contains release notes for [Moderne proprietary OpenRewrite recipes](h
 This changelog is automatically generated from GitHub releases and only contains information from the past year.
 :::
 
+## April 23, 2026
+
+#### rewrite-java-security - 3.29.2
+
+* Add OWASP A07:2025 Identification and Authentication Failures aggregator
+
+#### rewrite-spring - 0.31.1
+
+* Fix `spring-jms` classpath lookup in `AddDynamicDestinationResolverToJmsTemplate`
+* Replace @MockitoBean with @Bean methods in @Configuration classes
+
+## April 21, 2026
+
+#### rewrite-ai - 0.3.1
+
+* Updated repository to use OpenRewrite version v8.80.0
+
+#### rewrite-ai-search - 0.33.1
+
+* Updated repository to use OpenRewrite version v8.80.0
+
+#### rewrite-android - 0.16.1
+
+* Updated repository to use OpenRewrite version v8.80.0
+
+#### rewrite-angular - 1.1.2
+
+* Updated repository to use OpenRewrite version v8.80.0
+
+#### rewrite-circleci - 3.10.1
+
+* Updated repository to use OpenRewrite version v8.80.0
+
+#### rewrite-cobol - 2.17.2
+
+* Updated repository to use OpenRewrite version v8.80.0
+
+#### rewrite-codemods - 0.25.2
+
+* Updated repository to use OpenRewrite version v8.80.0
+
+#### rewrite-codemods-ng - 0.20.2
+
+* Updated repository to use OpenRewrite version v8.80.0
+
+#### rewrite-compiled-analysis - 0.13.1
+
+* Updated repository to use OpenRewrite version v8.80.0
+
+#### rewrite-concourse - 3.10.1
+
+* Updated repository to use OpenRewrite version v8.80.0
+
+#### rewrite-cryptography - 0.13.1
+
+* Updated repository to use OpenRewrite version v8.80.0
+
+#### rewrite-devcenter - 1.22.1
+
+* Updated repository to use OpenRewrite version v8.80.0
+
+#### rewrite-dotnet - 0.15.1
+
+* Updated repository to use OpenRewrite version v8.80.0
+
+#### rewrite-elastic - 0.6.2
+
+* Updated repository to use OpenRewrite version v8.80.0
+
+#### rewrite-elastic - 0.6.1
+
+* Updated repository to use OpenRewrite version v8.80.0
+
+#### rewrite-hibernate - 0.22.0
+
+* Migrate removed Hibernate 6 UUID `@Type` to `@JdbcTypeCode`
+
+#### rewrite-jasperreports - 0.5.1
+
+* Updated repository to use OpenRewrite version v8.80.0
+
+#### rewrite-java-application-server - 0.6.0
+
+* Add JBoss-to-Tomcat migration recipes
+
+#### rewrite-java-security - 3.29.1
+
+* Updated repository to use OpenRewrite version v8.80.0
+
+#### rewrite-java-security - 3.29.0
+
+* Fix requirementsTxtAddMarkers test expectation
+* Update expected tomcat-embed-core version in tests
+* OpenRewrite recipe best practices
+* Update springBootBomPreventsTransitiveFix expectations for 2026-04-20 advisories
+
+#### rewrite-kafka - 0.5.2
+
+* Updated repository to use OpenRewrite version v8.80.0
+
+#### rewrite-kafka - 0.5.1
+
+* Updated repository to use OpenRewrite version v8.80.0
+
+#### rewrite-kubernetes - 3.16.1
+
+* Updated repository to use OpenRewrite version v8.80.0
+
+#### rewrite-migrate-kotlin - 0.2.0
+
+* Normalize Kotlin built-in FQNs in ReplaceKotlinMethod patterns
+
+#### rewrite-migrate-python - 0.6.0
+
+* Add Python code quality infrastructure and 10 recipes
+* Convert search-only Python upgrade recipes to transforming recipes
+
+#### rewrite-nodejs - 0.43.1
+
+* Updated repository to use OpenRewrite version v8.80.0
+
+#### rewrite-prethink - 0.5.7
+
+* Updated repository to use OpenRewrite version v8.80.0
+
+#### rewrite-program-analysis - 0.12.2
+
+* Track taint in instance field initializers, not only static
+
+#### rewrite-program-analysis - 0.12.1
+
+* Updated repository to use OpenRewrite version v8.80.0
+
+#### rewrite-react - 0.2.6
+
+* Updated repository to use OpenRewrite version v8.80.0
+
+#### rewrite-reactive-streams - 0.19.1
+
+* Updated repository to use OpenRewrite version v8.80.0
+
+#### rewrite-spring - 0.31.0
+
+* Skip primitive-typed parameters in NullableSpringWebParameters
+* Add recipe to replace @Controller + @ResponseBody with @RestController
+
+#### rewrite-sql - 2.11.1
+
+* Updated repository to use OpenRewrite version v8.80.0
+
+#### rewrite-struts - 0.25.6
+
+* Updated repository to use OpenRewrite version v8.80.0
+
+#### rewrite-tapestry - 0.3.0
+
+* Fix expected Tapestry version 5.9.0 → 5.9.1
+
+#### rewrite-terraform - 3.13.6
+
+* Updated repository to use OpenRewrite version v8.80.0
+
+#### rewrite-vulncheck - 0.6.6
+
+* Updated repository to use OpenRewrite version v8.80.0
+
 ## April 20, 2026
 
 #### rewrite-angular - 1.1.1
