@@ -106,23 +106,21 @@ On a machine that has never installed the referenced recipe JARs, the first `mod
 
 On a cold cache, installing the recipe marketplace is very fast as it does not download any recipe artifacts. Running a recipe from the marketplace will download the necessary recipe artifact and any dependencies, and subsequent runs reuse the cached JARs and complete in seconds.
 
-### Keeping developers' recipes up-to-date automatically
+### Keeping developers' recipes up-to-date
 
-We recommend leaving the `requestedVersion` column set to `LATEST` (or blank, which behaves the same way) in your curated CSV. The CLI resolves `LATEST` at install time, so each time a developer re-imports your marketplace they pick up the most recent upstream release - including bug fixes and newly added sub-recipes - without you having to republish the CSV for every upstream version bump.
+There are two kinds of updates developers need to pick up over time, and each is handled by a different command.
 
-:::note
-`LATEST` is resolved the first time a recipe artifact is downloaded. Once the recipe artifact is cached locally, the CLI will continue using that version indefinitely. It does not poll for newer releases on subsequent recipe runs.
-
-To pick up newer upstream versions after the initial install, end users should periodically run:
+**Version updates to recipes they already have.** We recommend leaving the `requestedVersion` column set to `LATEST` (or blank, which behaves the same way) in your curated CSV. On a fresh install, the CLI resolves `LATEST` against the artifact source and caches the resolved JAR. Once the JAR is cached, the CLI will continue using that version indefinitely and does not poll for newer releases on subsequent recipe runs. To pull in newer upstream versions for already-installed recipes, developers periodically run:
 
 ```bash
 mod config recipes upgrade
 ```
 
-This upgrades all currently-installed recipes to their latest available versions.
-:::
+This re-resolves `LATEST` for each installed artifact and reinstalls it. Note that `upgrade` operates only on already-installed artifacts. It does not discover recipes that were added to the curated CSV after the last import.
 
-If you need to hold a recipe at a specific upstream version - for example, to keep a team on a validated release while a newer one is being evaluated - set `requestedVersion` to the exact version string instead. This trades automatic updates for strict reproducibility.
+**New or removed recipes in an updated curated CSV.** When you publish a new version of the CSV that adds or removes top-level recipes, developers pick up those catalog changes by re-importing the CSV. See [Updating a curated marketplace](#updating-a-curated-marketplace) below for the exact commands, which depend on whether your update adds recipes, removes them, or both.
+
+If you need to hold a recipe at a specific upstream version (for example, to keep a team on a validated release while a newer one is being evaluated), set `requestedVersion` to the exact version string instead of `LATEST`. This trades automatic updates for strict reproducibility.
 
 ## Curating multiple marketplaces for different audiences
 
@@ -212,7 +210,7 @@ mod config recipes delete
 mod config recipes import csv recipes-core-v2.csv
 ```
 
-Without `mod config recipes delete`, `import` has no way to know that a recipe was intentionally removed; it merges, leaving the retired recipe in place. Call this out in your release notes whenever you publish an update that retires a recipe.
+Without `mod config recipes delete`, `import` has no way to know that a recipe was intentionally removed - it merges, leaving the retired recipe in place. Call this out in your release notes whenever you publish an update that retires a recipe.
 
 ## Tips and caveats
 
