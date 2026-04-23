@@ -7,7 +7,7 @@ description: The current version of the Moderne CLI and links to useful CLI docu
 
 | Component   | Current version |
 | ----------- | --------------- |
-| CLI version | 4.1.8           |
+| CLI version | 4.1.9           |
 
 For CLI command documentation, see the [CLI reference](../user-documentation/moderne-cli/cli-reference.md).
 
@@ -16,6 +16,12 @@ The Moderne CLI previously followed a two-track release model with separate "sta
 :::
 
 ## Changelog
+
+### CLI / DX v4.1.9 (2026-04-23)
+
+#### What's Changed
+* Upgrade MCP SDK
+* Skip eager verification in `mod config <lang> installation edit`
 
 ### CLI / DX v4.1.8 (2026-04-22)
 
