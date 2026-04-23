@@ -101,7 +101,7 @@ mod git status $WORKSPACE
    ▛▀▀█▀▛▀▀▀▀▜
    ▌▟▀  ▛▀▀▀▀▜
    ▀▀▀▀▀▀▀▀▀▀▀
-Moderne CLI 4.1.7
+Moderne CLI 4.1.8
 
 ⏺ Reading organization
 
@@ -174,7 +174,7 @@ Build complete!
    ▛▀▀█▀▛▀▀▀▀▜
    ▌▟▀  ▛▀▀▀▀▜
    ▀▀▀▀▀▀▀▀▀▀▀
-Moderne CLI 4.1.7
+Moderne CLI 4.1.8
 
 ⏺ Reading organization
 
@@ -222,7 +222,7 @@ MOD SUCCEEDED in 1s
    ▛▀▀█▀▛▀▀▀▀▜
    ▌▟▀  ▛▀▀▀▀▜
    ▀▀▀▀▀▀▀▀▀▀▀
-Moderne CLI 4.1.7
+Moderne CLI 4.1.8
 
 ⏺ Reading organization
 
@@ -394,7 +394,7 @@ Mass Release Complete!
    ▛▀▀█▀▛▀▀▀▀▜
    ▌▟▀  ▛▀▀▀▀▜
    ▀▀▀▀▀▀▀▀▀▀▀
-Moderne CLI 4.1.7
+Moderne CLI 4.1.8
 
 ⏺ Reading organization
 

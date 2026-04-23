@@ -7,7 +7,7 @@ description: The current version of the Moderne CLI and links to useful CLI docu
 
 | Component   | Current version |
 | ----------- | --------------- |
-| CLI version | 4.1.7           |
+| CLI version | 4.1.8           |
 
 For CLI command documentation, see the [CLI reference](../user-documentation/moderne-cli/cli-reference.md).
 
@@ -16,6 +16,13 @@ The Moderne CLI previously followed a two-track release model with separate "sta
 :::
 
 ## Changelog
+
+### CLI / DX v4.1.8 (2026-04-22)
+
+#### What's Changed
+* Rename `mod config java jdk` to `installation` (with `jdk` alias)
+* Include sync and build details in mod publish trace.csv
+* Revert "Deduplicate cross-sub-org repository clones via shared cache (#3703)" (this was done to give us more space to test this feature before releasing)
 
 ### CLI / DX v4.1.7 (2026-04-22)
 

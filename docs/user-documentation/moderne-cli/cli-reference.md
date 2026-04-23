@@ -176,10 +176,14 @@ description: Auto-generated documentation for all Moderne CLI commands.
 * [**mod config http key-store edit file**](#mod-config-http-key-store-edit-file)
 * [**mod config http key-store show**](#mod-config-http-key-store-show)
 * [**mod config java**](#mod-config-java)
-* [**mod config java jdk**](#mod-config-java-jdk)
-* [**mod config java jdk edit**](#mod-config-java-jdk-edit)
-* [**mod config java jdk delete**](#mod-config-java-jdk-delete)
-* [**mod config java jdk list**](#mod-config-java-jdk-list)
+* [**mod config java installation**](#mod-config-java-installation)
+* [**mod config java installation edit**](#mod-config-java-installation-edit)
+* [**mod config java installation delete**](#mod-config-java-installation-delete)
+* [**mod config java installation list**](#mod-config-java-installation-list)
+* ~~[**mod config java jdk**](#mod-config-java-jdk-deprecated)~~ (deprecated)
+* ~~[**mod config java jdk edit**](#mod-config-java-jdk-edit-deprecated)~~ (deprecated)
+* ~~[**mod config java jdk delete**](#mod-config-java-jdk-delete-deprecated)~~ (deprecated)
+* ~~[**mod config java jdk list**](#mod-config-java-jdk-list-deprecated)~~ (deprecated)
 * [**mod config java options**](#mod-config-java-options)
 * [**mod config java options edit**](#mod-config-java-options-edit)
 * [**mod config java options delete**](#mod-config-java-options-delete)
@@ -3982,13 +3986,92 @@ mod config java [subcommands]
 
 ### Subcommands
 
-* `jdk`: Configures locations of JDKs that can be used by build tools.
+* `installation`: Configures locations of JDKs that can be used by build tools.
+* `jdk`: (DEPRECATED) Use `installation` instead. Configures locations of JDKs that can be used by build tools.
 * `options`: Configures JVM options for use building LSTs and running recipes.
 * `version`: Configures the JDK to use.
 
-## mod config java jdk
+## mod config java installation
 
 Configures locations of JDKs that can be used by build tools.
+
+
+Must be configured before you can run the build command if JDKs are in non-standard locations.
+
+### Usage
+
+```
+mod config java installation [subcommands]
+```
+
+
+### Subcommands
+
+* `edit`: Configures locations of JDKs that can be used by build tools.
+* `delete`: Removes the configured JDK installations. The CLI will revert to using only detectable JDKs.
+* `list`: Displays the detected and configured JDK installations in the order in which they will be selected, constrained by versions detected from a particular repository.
+
+## mod config java installation edit
+
+Configures locations of JDKs that can be used by build tools.
+
+
+Must be configured before you can run the build command if JDKs are in non-standard locations.
+
+### Usage
+
+```
+mod config java installation edit [parameters]
+```
+
+### Examples
+
+```
+mod config java installation edit /path/to/jdk1 /path/to/jdk2
+```
+
+### Parameters
+
+| Name | Description |
+| ---- | ----------- |
+| `javaHomes` |  The paths on disk where JDK installations can be found. |
+
+
+
+## mod config java installation delete
+
+Removes the configured JDK installations. The CLI will revert to using only detectable JDKs.
+
+
+### Usage
+
+```
+mod config java installation delete
+```
+
+
+
+## mod config java installation list
+
+Displays the detected and configured JDK installations in the order in which they will be selected, constrained by versions detected from a particular repository.
+
+
+### Usage
+
+```
+mod config java installation list
+```
+
+### Options
+
+| Name | Description |
+| ---- | ----------- |
+| `--named` |  Filter the list of JDKs to . |
+
+
+## mod config java jdk (deprecated)
+
+(DEPRECATED) Use `installation` instead. Configures locations of JDKs that can be used by build tools.
 
 
 Must be configured before you can run the build command if JDKs are in non-standard locations.
@@ -4006,7 +4089,7 @@ mod config java jdk [subcommands]
 * `delete`: Removes the configured JDK installations. The CLI will revert to using only detectable JDKs.
 * `list`: Displays the detected and configured JDK installations in the order in which they will be selected, constrained by versions detected from a particular repository.
 
-## mod config java jdk edit
+## mod config java jdk edit (deprecated)
 
 Configures locations of JDKs that can be used by build tools.
 
@@ -4022,7 +4105,7 @@ mod config java jdk edit [parameters]
 ### Examples
 
 ```
-mod config java jdk edit /path/to/jdk1 /path/to/jdk2
+mod config java installation edit /path/to/jdk1 /path/to/jdk2
 ```
 
 ### Parameters
@@ -4033,7 +4116,7 @@ mod config java jdk edit /path/to/jdk1 /path/to/jdk2
 
 
 
-## mod config java jdk delete
+## mod config java jdk delete (deprecated)
 
 Removes the configured JDK installations. The CLI will revert to using only detectable JDKs.
 
@@ -4046,7 +4129,7 @@ mod config java jdk delete
 
 
 
-## mod config java jdk list
+## mod config java jdk list (deprecated)
 
 Displays the detected and configured JDK installations in the order in which they will be selected, constrained by versions detected from a particular repository.
 
