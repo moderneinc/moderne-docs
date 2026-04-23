@@ -5,25 +5,23 @@ description: Learn how to expose a smaller, curated subset of recipes to your de
 
 # Curating the recipe marketplace
 
-The full OpenRewrite and Moderne catalog is deliberately broad. `mod config recipes search` and `mod config recipes export` surface every top-level recipe, building block, and alternative version the catalog offers, which is exactly what you want when you are exploring what is possible, composing your own recipes, or building expertise with the ecosystem.
-
-That same breadth can be a hurdle for developers who are new to recipes and only need to run a handful of sanctioned migrations for their team. Curation is the tool for that audience: it produces a focused marketplace that shows only the recipes your organization has endorsed, making it easy for those developers to find and run the right recipe for their job. The underlying composite recipes still pull in their sub-recipes transparently at run time - curation only affects what is directly invocable and what shows up in search results.
+Curating your recipe marketplace lets you expose a smaller, focused subset of recipes to your developers. It surfaces only the migrations your organization has endorsed, not the full OpenRewrite and Moderne catalog. This is especially useful for developers who are new to recipes and only need to run a handful of sanctioned migrations for their team.
 
 In this guide, we will walk you through building a curated `recipes-v5.csv` file for your organization, distributing it to your developers, running recipes against it, and updating it safely over time.
 
 ## When to curate
 
-Curation is most useful when you want to guide developers toward a specific set of sanctioned recipes. Consider it when:
+Curating your recipe marketplace is most useful when you want to guide developers toward a specific set of sanctioned recipes. Consider it when:
 
 * Your developers mainly need to run a small set of approved migrations (for example, "Migrate to Java 25" or "Upgrade to Spring Boot 4.0"), and seeing the full catalog gets in the way of finding them.
 * You want `mod config recipes search` to surface only the recipes your organization endorses.
 * You want to highlight specific internal recipes over more general ones.
 
-If your developers are recipe authors or power users who benefit from seeing the full catalog, the default behavior of `mod config recipes search` is the right fit - no curation needed. Curation also is not the right tool if you need to add your own recipe code or apply custom category hierarchies to existing recipes. See [managing recipe categories](../../moderne-platform/how-to-guides/categorize-recipes.md) for those patterns.
+If your developers are recipe authors or power users who benefit from seeing the full catalog, the default behavior of `mod config recipes search` is the right fit, and no curation is needed. Curating your marketplace is also not the right tool if you need to add your own recipe code or apply custom category hierarchies to existing recipes. See [managing recipe categories](../../moderne-platform/how-to-guides/categorize-recipes.md) for those patterns.
 
 ## Workflow overview
 
-Curation has two sides:
+Curating a marketplace has two sides:
 
 * **Curator:** produces a `recipes-v5.csv` file containing only the recipes your organization exposes, and publishes it somewhere your developers can access (an internal repository, a shared file location, or an artifact store).
 * **End user:** imports that file into their local CLI marketplace, replacing any previous curated marketplace.
@@ -36,7 +34,7 @@ The simplest starting point is an existing marketplace that already contains the
 
 ### Starting from your full marketplace
 
-If you already have the Moderne or OpenRewrite catalog installed locally, your current marketplace lives at `~/.moderne/cli/recipes-v5.csv`. This is a well-formed CSV following the [recipe marketplace format](../references/recipes-csv.md). You can query it directly with [DuckDB](https://duckdb.org/) or [SQLite](https://www.sqlite.org/index.html) - both can read CSV files natively.
+If you already have the Moderne or OpenRewrite catalog installed locally, your current marketplace lives at `~/.moderne/cli/recipes-v5.csv`. This is a well-formed CSV following the [recipe marketplace format](../references/recipes-csv.md). You can query it directly with [DuckDB](https://duckdb.org/) or [SQLite](https://www.sqlite.org/index.html), both of which can read CSV files natively.
 
 For example, to extract just the "Migrate to Java 25" row into a new file:
 
@@ -106,14 +104,14 @@ The first command clears any previously installed recipe marketplace. The second
 
 On a machine that has never installed the referenced recipe JARs, the first `mod run` will download them lazily. The CLI maintains its own Maven cache at `~/.moderne/cli/maven-cache/`, independent of the user's `~/.m2/repository/`.
 
-On a cold cache, installing the recipe marketplace is very fast as it does not download any recipe artifacts.  Running a recipe from the marketplace will download the necessary recipe artifact any any dependencies, and subsequent runs reuse the cached JARs and complete in seconds.
+On a cold cache, installing the recipe marketplace is very fast as it does not download any recipe artifacts. Running a recipe from the marketplace will download the necessary recipe artifact and any dependencies, and subsequent runs reuse the cached JARs and complete in seconds.
 
-### Keeping developers recipes up-to-date automatically
+### Keeping developers' recipes up-to-date automatically
 
 We recommend leaving the `requestedVersion` column set to `LATEST` (or blank, which behaves the same way) in your curated CSV. The CLI resolves `LATEST` at install time, so each time a developer re-imports your marketplace they pick up the most recent upstream release - including bug fixes and newly added sub-recipes - without you having to republish the CSV for every upstream version bump.
 
 :::note
-`LATEST` is resolved the first time a recipe artifact is downloaded. Once the recipe artifact is cached locally, the CLI will continue using that version indefinitely - it does not poll for newer releases on subsequent recipe runs.
+`LATEST` is resolved the first time a recipe artifact is downloaded. Once the recipe artifact is cached locally, the CLI will continue using that version indefinitely. It does not poll for newer releases on subsequent recipe runs.
 
 To pick up newer upstream versions after the initial install, end users should periodically run:
 
@@ -189,7 +187,7 @@ mod run . --recipe=org.openrewrite.java.migrate.UpgradeJavaVersion
 # → FAILURE: Unable to find recipe org.openrewrite.java.migrate.UpgradeJavaVersion
 ```
 
-Sub-recipes still run internally as children of a composite, but they are not exposed as top-level, runnable recipes. This is exactly the allowlist behavior curation is intended to provide.
+Sub-recipes still run internally as children of a composite, but they are not exposed as top-level, runnable recipes. This is exactly the allowlist behavior a curated marketplace is intended to provide.
 
 ## Updating a curated marketplace
 
@@ -214,15 +212,15 @@ mod config recipes delete
 mod config recipes import csv recipes-core-v2.csv
 ```
 
-Without `mod config recipes delete`, `import` has no way to know that a recipe was intentionally removed - it merges, leaving the retired recipe in place. Call this out in your release notes whenever you publish an update that retires a recipe.
+Without `mod config recipes delete`, `import` has no way to know that a recipe was intentionally removed; it merges, leaving the retired recipe in place. Call this out in your release notes whenever you publish an update that retires a recipe.
 
 ## Tips and caveats
 
 * **Keep `options` and `dataTables` intact.** When copying rows from an existing CSV, leave these columns unchanged. They are generated mechanically by the OpenRewrite build plugins, and hand-editing them reliably breaks recipes.
-* **Wrapper JAR distribution is a separate pattern.** The [managing recipe categories](../../moderne-platform/how-to-guides/categorize-recipes.md) guide describes wrapping a curated CSV inside a versioned JAR that developers install via `mod config recipes jar install`.
+* **Platform Marketplace distribution is a separate pattern.** If you publish recipes through the Moderne Platform Marketplace instead of CSV distribution via the CLI, see [managing recipe categories](../../moderne-platform/how-to-guides/categorize-recipes.md) for the wrapper JAR publishing workflow.
 
 ## Next steps
 
-* [`recipes.csv` reference](../references/recipes-csv.md) - full CSV format, column semantics, and validation rules.
-* [Managing recipe categories](../../moderne-platform/how-to-guides/categorize-recipes.md) - for re-organizing recipes under custom category hierarchies.
-* [CLI reference](../cli-reference.md#mod-config-recipes) - full command documentation for `mod config recipes`.
+* [`recipes.csv` reference](../references/recipes-csv.md): full CSV format, column semantics, and validation rules.
+* [Managing recipe categories](../../moderne-platform/how-to-guides/categorize-recipes.md): for re-organizing recipes under custom category hierarchies.
+* [CLI reference](../cli-reference.md#mod-config-recipes): full command documentation for `mod config recipes`.
