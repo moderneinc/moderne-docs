@@ -48,16 +48,60 @@ build:
 
 ## Step 2: (Optionally) Configure your Python installation
 
-The CLI will automatically detect Python installations in standard locations. However, if Python is installed in a non-standard location, you can configure it explicitly:
+By default, the CLI automatically detects Python installations in standard locations on your machine.
+
+### Discovering installations
+
+You can see all detected Python installations by running:
+
+```bash
+mod config python installation list
+```
+
+### Adding installation locations
+
+If Python is installed in a non-standard location (for example, inside a virtual environment or a user-managed install), you can register it:
 
 ```bash
 mod config python installation edit /path/to/python
 ```
 
-To verify which Python installations the CLI has detected:
+Each path should point to the Python executable you want the CLI to use.
+
+To remove manually configured installation paths:
 
 ```bash
-mod config python installation list
+mod config python installation delete
+```
+
+This only removes user-configured paths. Automatically discovered installations remain available.
+
+### Selecting a version
+
+To pin the Python version globally:
+
+```bash
+mod config python version edit 3.12
+```
+
+You can use a major version (`3`), minor (`3.12`), or exact patch (`3.12.1`) depending on how tight you need the match to be. The version must correspond to one of the installations known to the CLI.
+
+To apply a version only to a specific group of repositories, use the `--local` flag:
+
+```bash
+mod config python version edit 3.10 --local ./legacy-set
+```
+
+To revert to auto-detection:
+
+```bash
+mod config python version delete
+```
+
+To see the currently configured version:
+
+```bash
+mod config python version show
 ```
 
 ## Step 3: (Optionally) Clone a custom list of repositories
