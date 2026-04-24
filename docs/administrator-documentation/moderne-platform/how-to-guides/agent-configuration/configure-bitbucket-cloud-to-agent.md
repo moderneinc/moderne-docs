@@ -144,18 +144,18 @@ docker run \
 
 **Arguments:**
 
-| Argument Name                              | Required | Default | Description                                            |
-|--------------------------------------------|----------|---------|--------------------------------------------------------|
-| `--moderne.scm.bitbucketCloud.oauthKey`    | `true`   |         | The key specified in your Bitbucket OAuth consumer.    |
-| `--moderne.scm.bitbucketCloud.oauthSecret` | `true`   |         | The secret specified in your Bitbucket OAuth consumer. |
+| Argument Name                               | Required | Default | Description                                            |
+|---------------------------------------------|----------|---------|--------------------------------------------------------|
+| `--moderne.scm.bitbucketCloud.oauth.key`    | `true`   |         | The key specified in your Bitbucket OAuth consumer.    |
+| `--moderne.scm.bitbucketCloud.oauth.secret` | `true`   |         | The secret specified in your Bitbucket OAuth consumer. |
 
 **Example:**
 
 ```bash
 java -jar connector-{version}.jar \
 # ... Existing arguments
---moderne.scm.bitbucketCloud.oauthKey=yourOAuthKey \
---moderne.scm.bitbucketCloud.oauthSecret=yourSecretKey \
+--moderne.scm.bitbucketCloud.oauth.key=yourOAuthKey \
+--moderne.scm.bitbucketCloud.oauth.secret=yourSecretKey \
 # ... Additional arguments
 ```
 </TabItem>

@@ -14,7 +14,7 @@ import VersionBanner from '@site/src/components/VersionBanner';
 If you are configuring the Moderne Connector to connect to a service that requires a self-signed certificate to perform an HTTPS request (e.g., Maven or Artifactory) you will need to:
 
 * Supply a KeyStore for the Connector to use in the `PKCS12` format at the following location: `${JAVA_HOME}/lib/security/client_keystore.p12`
-* Configure the Connector to `skipSSL` for this service (See the [Artifactory](./configuring-artifactory-with-recipes.md) or [Maven](./configure-an-agent-with-maven-repository-access.md) Connector documentation)
+* Configure the Connector to `skipSSL` for this service (See the [recipe marketplace repositories](./configure-recipe-marketplace-repositories.md) or [Maven repository](./configure-an-agent-with-maven-repository-access.md) Connector documentation)
 
 Below are a few examples of creating the KeyStore in some common scenarios:
 

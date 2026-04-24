@@ -47,25 +47,33 @@ Please see our [creating a repos.csv guide](../../../../user-documentation/moder
 
 ## Connector configuration
 
-The `repos.csv` source location is provided to the Connector by setting a variable in the Connector run command. Its value may be a
-local path or an unauthenticated HTTP(S) URI. You can also configure how often the Connector looks for changes to this
-file (by default it's every 10 minutes).
+The `repos.csv` source location is provided to the Connector by setting a variable in the Connector run command. A source can either be a local file (`file` source) or an HTTP(S) URL (`http` source). You can also configure multiple sources of each type.
 
 <Tabs groupId="agent-type">
 <TabItem value="oci-container" label="OCI Container">
 
 **Environment variables:**
 
-| Environment variable                              | Required | Default | Description                                                                                                                                                                           |
-|---------------------------------------------------|----------|---------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `MODERNE_ORGANIZATION_INDEXER_SOURCES_0_REPOSCSV` | `false`  |         | The path to the `repos.csv` file that defines your organizational structure. This could also be an unauthenticated HTTP/S URL in the form of `https://<internal-endpoint>/repos.csv`. |
+| Environment variable                             | Required | Default | Description                                                                                                                       |
+|--------------------------------------------------|----------|---------|-----------------------------------------------------------------------------------------------------------------------------------|
+| `MODERNE_ORGANIZATION_SOURCES_FILE_{index}_PATH` | `false`  |         | The path to a local `repos.csv` file, relative to the Connector's permanent directory (`MODERNE_CONNECTOR_STORAGE_PERMANENTDIR`). |
+| `MODERNE_ORGANIZATION_SOURCES_HTTP_{index}_URI`  | `false`  |         | The URL of an HTTP(S) endpoint serving your `repos.csv` file (e.g., `https://<internal-endpoint>/repos.csv`).                     |
 
-**Example:**
+**Example using a local file:**
 
 ```bash
 docker run \
 # ... Existing variables
--e MODERNE_ORGANIZATION_INDEXER_SOURCES_0_REPOSCSV=/Users/MY_USER/Documents/repos.csv \
+-e MODERNE_ORGANIZATION_SOURCES_FILE_0_PATH=repos.csv \
+# ... Additional variables
+```
+
+**Example using an HTTP URL:**
+
+```bash
+docker run \
+# ... Existing variables
+-e MODERNE_ORGANIZATION_SOURCES_HTTP_0_URI=https://internal.example.com/repos.csv \
 # ... Additional variables
 ```
 
@@ -75,16 +83,26 @@ docker run \
 
 **Arguments:**
 
-| Argument name                                         | Required | Default | Description                                                                                                                                                                           |
-|-------------------------------------------------------|----------|---------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `--moderne.organization.indexer.sources[0].repos-csv` | `false`  |         | The path to the `repos.csv` file that defines your organizational structure. This could also be an unauthenticated HTTP/S URL in the form of `https://<internal-endpoint>/repos.csv`. |
+| Argument name                                       | Required | Default | Description                                                                                                                         |
+|-----------------------------------------------------|----------|---------|-------------------------------------------------------------------------------------------------------------------------------------|
+| `--moderne.organization.sources.file[{index}].path` | `false`  |         | The path to a local `repos.csv` file, relative to the Connector's permanent directory (`--moderne.connector.storage.permanentDir`). |
+| `--moderne.organization.sources.http[{index}].uri`  | `false`  |         | The URL of an HTTP(S) endpoint serving your `repos.csv` file (e.g., `https://<internal-endpoint>/repos.csv`).                       |
 
-**Example:**
+**Example using a local file:**
 
 ```bash
 java -jar connector-{version}.jar \
 # ... Existing arguments
---moderne.organization.indexer.sources[0].repos-csv=/Users/MY_USER/Documents/repos.csv \
+--moderne.organization.sources.file[0].path=repos.csv \
+# ... Additional arguments
+```
+
+**Example using an HTTP URL:**
+
+```bash
+java -jar connector-{version}.jar \
+# ... Existing arguments
+--moderne.organization.sources.http[0].uri=https://internal.example.com/repos.csv \
 # ... Additional arguments
 ```
 

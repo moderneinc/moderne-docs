@@ -163,18 +163,16 @@ MODERNE_SCM_GITHUB_0_OAUTH_INCLUDEPRIVATEREPOS=true
 
 # Set the environment variables for your artifactory
 # Remove this part if you can not use the artifactory repository configuration (see step 5)
-MODERNE_ORGANIZATION_INDEXER_POLL_ARTIFACTORY_0_URI=https://myartifactory.example.com/artifactory/
-MODERNE_ORGANIZATION_INDEXER_POLL_ARTIFACTORY_0_USERNAME=${ARTIFACTORY_USERNAME}
-MODERNE_ORGANIZATION_INDEXER_POLL_ARTIFACTORY_0_PASSWORD=${ARTIFACTORY_PASSWORD}
-MODERNE_ORGANIZATION_INDEXER_POLL_ARTIFACTORY_0_LSTQUERYFILTERS_0='"name":{"$match":"*-ast.jar"}'
-MODERNE_ORGANIZATION_INDEXER_POLL_ARTIFACTORY_0_LSTQUERYFILTERS_1='"repo":{"$eq":"example-maven"}'
+MODERNE_CONNECTOR_ORGANIZATION_POLL_ARTIFACTORY_0_URI=https://myartifactory.example.com/artifactory/
+MODERNE_CONNECTOR_ORGANIZATION_POLL_ARTIFACTORY_0_USERNAME=${ARTIFACTORY_USERNAME}
+MODERNE_CONNECTOR_ORGANIZATION_POLL_ARTIFACTORY_0_PASSWORD=${ARTIFACTORY_PASSWORD}
+MODERNE_CONNECTOR_ORGANIZATION_POLL_ARTIFACTORY_0_LSTQUERYFILTERS_0='"name":{"$match":"*-ast.jar"}'
+MODERNE_CONNECTOR_ORGANIZATION_POLL_ARTIFACTORY_0_LSTQUERYFILTERS_1='"repo":{"$eq":"example-maven"}'
 
 # Set the environment variables for your artifactory recipe access or your maven repository access
-# Remove the `MODERNE_ORGANIZATION_INDEXER_POLL_MAVEN_0_ASTSOURCE` line if you do not use the artifactory repository configuration
-MODERNE_ORGANIZATION_INDEXER_POLL_MAVEN_0_URI=https://myartifactory.example.com/artifactory/libs-releases-local
-MODERNE_ORGANIZATION_INDEXER_POLL_MAVEN_0_ASTSOURCE=false
-MODERNE_ORGANIZATION_INDEXER_POLL_MAVEN_0_USERNAME=${MAVEN_USERNAME}
-MODERNE_ORGANIZATION_INDEXER_POLL_MAVEN_0_PASSWORD=${MAVEN_PASSWORD}
+MODERNE_CONNECTOR_ORGANIZATION_POLL_MAVEN_0_URI=https://myartifactory.example.com/artifactory/libs-releases-local
+MODERNE_CONNECTOR_ORGANIZATION_POLL_MAVEN_0_USERNAME=${MAVEN_USERNAME}
+MODERNE_CONNECTOR_ORGANIZATION_POLL_MAVEN_0_PASSWORD=${MAVEN_PASSWORD}
 ```
 </TabItem>
 
@@ -340,37 +338,30 @@ java -jar connector-{version}.jar \
 
 ### Step 5: Configure the Connector to connect to your artifact repositories
 
-The Moderne Connector needs to connect to your artifact repositories for two reasons:
+Connecting the Connector to your artifact repositories enables Moderne to retrieve [LST](../../references/lossless-semantic-trees.md) artifacts so that recipes can be run on your code. Your company might have many artifact repositories, potentially in different products, that can serve LST artifacts. The setup instructions differ based on what product you use.
 
-1. To obtain your [LST](../../references/lossless-semantic-trees.md) artifacts so that recipes can be run on your code.
-2. To obtain your recipe artifacts (if any exist). These recipe artifacts contain custom recipes, defined by your team, that perform transformations against your LST artifacts.
-
-Your company might have many artifact repositories, potentially in different products, that you wish to connect the Moderne Connector to. Each of these artifact repositories could contain LST artifacts, recipe artifacts, or a combination of both. The setup instructions differ based on what product you use to store your artifact repositories and what artifacts you wish to send to Moderne.
-
-Moderne offers several options for connecting to your artifact storage:
+Moderne offers several options for connecting to your LST storage:
 
 * **[Artifactory](./configure-an-agent-with-artifactory-access.md)**: Uses AQL (Artifact Query Language) to be able to see your repos in the platform within two minutes after publishing. **(recommended for Artifactory users)**
-* **[Maven repository](./configure-an-agent-with-maven-repository-access.md)**: A generic connection that works with any Maven-formatted repository (Artifactory, Nexus, etc.). Serves both LST and recipe artifacts.
+* **[Maven repository](./configure-an-agent-with-maven-repository-access.md)**: A generic connection that works with any Maven-formatted repository (Artifactory, Nexus, etc.).
 * **[Amazon S3](./configure-an-agent-with-s3-access.md)**: Store and retrieve LST artifacts directly from S3 or S3-compatible storage (e.g., MinIO).
 
 :::info
 For Maven and Artifactory configurations, the Moderne Connector connects to _Maven formatted_ artifact repositories. There are a variety of open-source and commercial products that exist that can serve artifacts in this format (such as [Artifactory](https://jfrog.com/artifactory/) and [Sonatype Nexus](https://www.sonatype.com/products/nexus-repository)).
 :::
 
-**Choosing your artifact source:**
+**Choosing your LST source:**
 
-* If you use **Artifactory**, use the [Artifactory LST configuration](./configure-an-agent-with-artifactory-access.md). Then, if you plan on creating custom recipes, follow the [Artifactory recipe configuration](./configuring-artifactory-with-recipes.md) to serve recipe artifacts.
+* If you use **Artifactory**, use the [Artifactory LST configuration](./configure-an-agent-with-artifactory-access.md).
 * If you use **Amazon S3** or S3-compatible storage, use the [S3 configuration](./configure-an-agent-with-s3-access.md).
 * If you use a **different Maven repository** (Nexus, etc.) or cannot use AQL queries, use the [Maven repository configuration](./configure-an-agent-with-maven-repository-access.md).
 
 The below table shows the key differences between the Maven and Artifactory configurations:
 
-| **Maven repository configuration**                                                                                                                                                                                                                                                                                                                                                                                                                      | **Artifactory repository configuration**                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
-|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Is not tied to a particular vendor.                                                                                                                                                                                                                                                                                                                                                                                                                     | Can only be used with Artifactory.                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
-| Serves BOTH recipe artifacts and LST artifacts.                                                                                                                                                                                                                                                                                                                                                                                                         | Serves ONLY LST artifacts. Requires Maven configuration to serve recipe artifacts.                                                                                                                                                                                                                                                                                                                                                                                                          |
-| Recipe artifacts are immediately available for [deployment to Moderne](../importing-external-recipes.md) upon publishing to the Maven formatted repository.                                                                                                                                                                                                                                                                                             | Can not serve recipe artifacts without Maven configuration.                                                                                                                                                                                                                                                                                                                                                                                                                                 |
-| LST artifacts may be served if an index in the [Maven Indexer](https://maven.apache.org/maven-indexer/) format is regularly published to the repository. There will be a considerable delay between when an LST is published to the Maven repository and when it shows up in Moderne. This delay is approximately the delay between updates to the index – which is controlled by a batch process that your artifact repository executes on a schedule. | LST artifacts will show up in near-real time (within a minute or two) in the Moderne Platform when they are published to Artifactory. This is because Artifactory configuration uses [Artifactory Query Language](https://www.jfrog.com/confluence/display/JFROG/Artifactory+Query+Language) (AQL) to identify recently published artifacts. AQL queries Artifactory's internal relational database for information about artifacts rather than using an index produced in a batch process. |
+| **Maven repository configuration**                                                                                                                                                                                                                                                                                                          | **Artifactory repository configuration**                                                                                                                                                                                                                                                                 |
+|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Is not tied to a particular vendor. Works with any Maven-formatted repository (Artifactory, Nexus, etc.).                                                                                                                                                                                                                                   | Can only be used with Artifactory.                                                                                                                                                                                                                                                                       |
+| LSTs are discovered via an index in the [Maven Indexer](https://maven.apache.org/maven-indexer/) format that must be regularly published to the repository. There will be a delay between when an LST is published and when it shows up in Moderne — approximately the delay between index updates, which is controlled by a batch process. | LSTs show up in near-real time (within a minute or two) via [Artifactory Query Language](https://www.jfrog.com/confluence/display/JFROG/Artifactory+Query+Language) (AQL), which queries Artifactory's internal database for recently published artifacts rather than relying on a batch-produced index. |
 
 Please ensure you've followed either the [Maven](./configure-an-agent-with-maven-repository-access.md) or [Artifactory](./configure-an-agent-with-artifactory-access.md) instructions before continuing.
 
@@ -386,10 +377,10 @@ export MODERNE_CONNECTOR_CRYPTO_SYMMETRICKEY=...
 export MODERNE_CONNECTOR_TOKEN=...
 export MODERNE_SCM_GITHUB_0_OAUTH_CLIENTID=...
 export MODERNE_SCM_GITHUB_0_OAUTH_CLIENTSECRET=...
-export MODERNE_ORGANIZATION_INDEXER_POLL_ARTIFACTORY_0_USERNAME=...
-export MODERNE_ORGANIZATION_INDEXER_POLL_ARTIFACTORY_0_PASSWORD=...
-export MODERNE_ORGANIZATION_INDEXER_POLL_MAVEN_0_USERNAME=...
-export MODERNE_ORGANIZATION_INDEXER_POLL_MAVEN_0_PASSWORD=...
+export MODERNE_CONNECTOR_ORGANIZATION_POLL_ARTIFACTORY_0_USERNAME=...
+export MODERNE_CONNECTOR_ORGANIZATION_POLL_ARTIFACTORY_0_PASSWORD=...
+export MODERNE_CONNECTOR_ORGANIZATION_POLL_MAVEN_0_USERNAME=...
+export MODERNE_CONNECTOR_ORGANIZATION_POLL_MAVEN_0_PASSWORD=...
 
 docker run \
 -e MODERNE_CONNECTOR_APIGATEWAYRSOCKETURI=https://api.tenant.moderne.io/rsocket \
@@ -402,14 +393,14 @@ docker run \
 -e MODERNE_SCM_GITHUB_0_ALLOWABLE_ORGANIZATIONS_0=moderne \
 -e MODERNE_SCM_GITHUB_0_ALLOWABLE_ORGANIZATIONS_1=openrewrite \
 -e MODERNE_SCM_GITHUB_0_OAUTH_INCLUDEPRIVATEREPOS=true \
--e MODERNE_ORGANIZATION_INDEXER_POLL_ARTIFACTORY_0_URI=https://myartifactory.example.com/artifactory/ \
--e MODERNE_ORGANIZATION_INDEXER_POLL_ARTIFACTORY_0_USERNAME \
--e MODERNE_ORGANIZATION_INDEXER_POLL_ARTIFACTORY_0_PASSWORD \
--e MODERNE_ORGANIZATION_INDEXER_POLL_ARTIFACTORY_0_LSTQUERYFILTERS_0='"name":{"$match":"*-ast.jar"}' \
--e MODERNE_ORGANIZATION_INDEXER_POLL_ARTIFACTORY_0_LSTQUERYFILTERS_1='"repo":{"$eq":"example-maven"}' \
--e MODERNE_ORGANIZATION_INDEXER_POLL_MAVEN_0_URI=https://myartifactory.example.com/artifactory/libs-releases-local \
--e MODERNE_ORGANIZATION_INDEXER_POLL_MAVEN_0_USERNAME \
--e MODERNE_ORGANIZATION_INDEXER_POLL_MAVEN_0_PASSWORD \
+-e MODERNE_CONNECTOR_ORGANIZATION_POLL_ARTIFACTORY_0_URI=https://myartifactory.example.com/artifactory/ \
+-e MODERNE_CONNECTOR_ORGANIZATION_POLL_ARTIFACTORY_0_USERNAME \
+-e MODERNE_CONNECTOR_ORGANIZATION_POLL_ARTIFACTORY_0_PASSWORD \
+-e MODERNE_CONNECTOR_ORGANIZATION_POLL_ARTIFACTORY_0_LSTQUERYFILTERS_0='"name":{"$match":"*-ast.jar"}' \
+-e MODERNE_CONNECTOR_ORGANIZATION_POLL_ARTIFACTORY_0_LSTQUERYFILTERS_1='"repo":{"$eq":"example-maven"}' \
+-e MODERNE_CONNECTOR_ORGANIZATION_POLL_MAVEN_0_URI=https://myartifactory.example.com/artifactory/libs-releases-local \
+-e MODERNE_CONNECTOR_ORGANIZATION_POLL_MAVEN_0_USERNAME \
+-e MODERNE_CONNECTOR_ORGANIZATION_POLL_MAVEN_0_PASSWORD \
 # ... Additional variables to come
 -p 8080:8080
 moderne-connector:latest
@@ -425,10 +416,10 @@ export MODERNE_CONNECTOR_CRYPTO_SYMMETRICKEY=...
 export MODERNE_CONNECTOR_TOKEN=...
 export MODERNE_SCM_GITHUB_0_OAUTH_CLIENTID=...
 export MODERNE_SCM_GITHUB_0_OAUTH_CLIENTSECRET=...
-export MODERNE_ORGANIZATION_INDEXER_POLL_ARTIFACTORY_0_USERNAME=...
-export MODERNE_ORGANIZATION_INDEXER_POLL_ARTIFACTORY_0_PASSWORD=...
-export MODERNE_ORGANIZATION_INDEXER_POLL_MAVEN_0_USERNAME=...
-export MODERNE_ORGANIZATION_INDEXER_POLL_MAVEN_0_PASSWORD=...
+export MODERNE_CONNECTOR_ORGANIZATION_POLL_ARTIFACTORY_0_USERNAME=...
+export MODERNE_CONNECTOR_ORGANIZATION_POLL_ARTIFACTORY_0_PASSWORD=...
+export MODERNE_CONNECTOR_ORGANIZATION_POLL_MAVEN_0_USERNAME=...
+export MODERNE_CONNECTOR_ORGANIZATION_POLL_MAVEN_0_PASSWORD=...
 
 java -jar connector-{version}.jar \
 --moderne.connector.apiGatewayRsocketUri=https://api.tenant.moderne.io/rsocket \
@@ -437,16 +428,38 @@ java -jar connector-{version}.jar \
 --moderne.scm.github[0].allowableOrganizations[0]=moderne \
 --moderne.scm.github[0].allowableOrganizations[1]=openrewrite \
 --moderne.scm.github[0].oauth.includePrivateRepos=true \
---moderne.organization.indexer.poll.artifactory[0].uri=https://myartifactory.example.com/artifactory/ \
---moderne.organization.indexer.poll.artifactory[0].lstQueryFilters[0]='{"name":{"$match":"*-ast.jar"}}' \
---moderne.organization.indexer.poll.artifactory[0].lstQueryFilters[1]='{"repo":{"$eq":"example-maven"}}' \
---moderne.organization.indexer.poll.maven[0].uri=https://myartifactory.example.com/artifactory/libs-releases-local \
+--moderne.connector.organization.poll.artifactory[0].uri=https://myartifactory.example.com/artifactory/ \
+--moderne.connector.organization.poll.artifactory[0].lstQueryFilters[0]='{"name":{"$match":"*-ast.jar"}}' \
+--moderne.connector.organization.poll.artifactory[0].lstQueryFilters[1]='{"repo":{"$eq":"example-maven"}}' \
+--moderne.connector.organization.poll.maven[0].uri=https://myartifactory.example.com/artifactory/libs-releases-local \
 # ... Additional arguments to come
 ```
 </TabItem>
 </Tabs>
 
-### Step 6: (Optionally) Use strict recipe sources.
+### Step 6: Configure the Connector to connect to your recipe marketplace repositories
+
+Separate from the LST storage you just configured, the Connector also needs to know where to fetch recipe artifacts — the JARs and packages that define the recipes users can run in the Moderne Platform. This is typically a different repository from the one that stores your LSTs.
+
+Moderne supports the following recipe marketplace registry types:
+
+* **Maven** repositories (Artifactory, Nexus, etc.)
+* **NPM** registries
+* **NuGet** feeds
+* **PyPI** indexes
+
+:::info Defaults and override behavior
+If no Maven recipe marketplace repositories are configured, Moderne SaaS falls back to the following defaults:
+
+* `https://repo.maven.apache.org/maven2` (Maven Central — releases only)
+* `https://central.sonatype.com/repository/maven-snapshots/` (Sonatype — snapshots only)
+
+Once you configure one or more Maven repositories, only those are searched — the defaults above are not merged in, so you will need to list Maven Central and Sonatype snapshots explicitly to keep them. PyPI, NuGet, and NPM have no defaults.
+:::
+
+For the full list of variables/arguments, please see the [recipe marketplace repositories guide](./configure-recipe-marketplace-repositories.md).
+
+### Step 7: (Optionally) Use strict recipe sources.
 
 Some organizations want recipe artifacts to only come from locations configured in the Moderne Connector. If you want to configure that, please follow the [strict recipe sources instructions](./configure-an-agent-with-strict-recipe-sources.md).
 
@@ -462,10 +475,10 @@ export MODERNE_CONNECTOR_CRYPTO_SYMMETRICKEY=...
 export MODERNE_CONNECTOR_TOKEN=...
 export MODERNE_SCM_GITHUB_0_OAUTH_CLIENTID=...
 export MODERNE_SCM_GITHUB_0_OAUTH_CLIENTSECRET=...
-export MODERNE_ORGANIZATION_INDEXER_POLL_ARTIFACTORY_0_USERNAME=...
-export MODERNE_ORGANIZATION_INDEXER_POLL_ARTIFACTORY_0_PASSWORD=...
-export MODERNE_ORGANIZATION_INDEXER_POLL_MAVEN_0_USERNAME=...
-export MODERNE_ORGANIZATION_INDEXER_POLL_MAVEN_0_PASSWORD=...
+export MODERNE_CONNECTOR_ORGANIZATION_POLL_ARTIFACTORY_0_USERNAME=...
+export MODERNE_CONNECTOR_ORGANIZATION_POLL_ARTIFACTORY_0_PASSWORD=...
+export MODERNE_CONNECTOR_ORGANIZATION_POLL_MAVEN_0_USERNAME=...
+export MODERNE_CONNECTOR_ORGANIZATION_POLL_MAVEN_0_PASSWORD=...
 
 docker run \
 -e MODERNE_CONNECTOR_APIGATEWAYRSOCKETURI=https://api.tenant.moderne.io/rsocket \
@@ -478,14 +491,14 @@ docker run \
 -e MODERNE_SCM_GITHUB_0_ALLOWABLE_ORGANIZATIONS_0=moderne \
 -e MODERNE_SCM_GITHUB_0_ALLOWABLE_ORGANIZATIONS_1=openrewrite \
 -e MODERNE_SCM_GITHUB_0_OAUTH_INCLUDEPRIVATEREPOS=true \
--e MODERNE_ORGANIZATION_INDEXER_POLL_ARTIFACTORY_0_URI=https://myartifactory.example.com/artifactory/ \
--e MODERNE_ORGANIZATION_INDEXER_POLL_ARTIFACTORY_0_USERNAME \
--e MODERNE_ORGANIZATION_INDEXER_POLL_ARTIFACTORY_0_PASSWORD \
--e MODERNE_ORGANIZATION_INDEXER_POLL_ARTIFACTORY_0_LSTQUERYFILTERS_0='"name":{"$match":"*-ast.jar"}' \
--e MODERNE_ORGANIZATION_INDEXER_POLL_ARTIFACTORY_0_LSTQUERYFILTERS_1='"repo":{"$eq":"example-maven"}' \
--e MODERNE_ORGANIZATION_INDEXER_POLL_MAVEN_0_URI=https://myartifactory.example.com/artifactory/libs-releases-local \
--e MODERNE_ORGANIZATION_INDEXER_POLL_MAVEN_0_USERNAME \
--e MODERNE_ORGANIZATION_INDEXER_POLL_MAVEN_0_PASSWORD \
+-e MODERNE_CONNECTOR_ORGANIZATION_POLL_ARTIFACTORY_0_URI=https://myartifactory.example.com/artifactory/ \
+-e MODERNE_CONNECTOR_ORGANIZATION_POLL_ARTIFACTORY_0_USERNAME \
+-e MODERNE_CONNECTOR_ORGANIZATION_POLL_ARTIFACTORY_0_PASSWORD \
+-e MODERNE_CONNECTOR_ORGANIZATION_POLL_ARTIFACTORY_0_LSTQUERYFILTERS_0='"name":{"$match":"*-ast.jar"}' \
+-e MODERNE_CONNECTOR_ORGANIZATION_POLL_ARTIFACTORY_0_LSTQUERYFILTERS_1='"repo":{"$eq":"example-maven"}' \
+-e MODERNE_CONNECTOR_ORGANIZATION_POLL_MAVEN_0_URI=https://myartifactory.example.com/artifactory/libs-releases-local \
+-e MODERNE_CONNECTOR_ORGANIZATION_POLL_MAVEN_0_USERNAME \
+-e MODERNE_CONNECTOR_ORGANIZATION_POLL_MAVEN_0_PASSWORD \
 -p 8080:8080
 moderne-connector:latest
 ```
@@ -500,10 +513,10 @@ export MODERNE_CONNECTOR_CRYPTO_SYMMETRICKEY=...
 export MODERNE_CONNECTOR_TOKEN=...
 export MODERNE_SCM_GITHUB_0_OAUTH_CLIENTID=...
 export MODERNE_SCM_GITHUB_0_OAUTH_CLIENTSECRET=...
-export MODERNE_ORGANIZATION_INDEXER_POLL_ARTIFACTORY_0_USERNAME=...
-export MODERNE_ORGANIZATION_INDEXER_POLL_ARTIFACTORY_0_PASSWORD=...
-export MODERNE_ORGANIZATION_INDEXER_POLL_MAVEN_0_USERNAME=...
-export MODERNE_ORGANIZATION_INDEXER_POLL_MAVEN_0_PASSWORD=...
+export MODERNE_CONNECTOR_ORGANIZATION_POLL_ARTIFACTORY_0_USERNAME=...
+export MODERNE_CONNECTOR_ORGANIZATION_POLL_ARTIFACTORY_0_PASSWORD=...
+export MODERNE_CONNECTOR_ORGANIZATION_POLL_MAVEN_0_USERNAME=...
+export MODERNE_CONNECTOR_ORGANIZATION_POLL_MAVEN_0_PASSWORD=...
 
 java -jar connector-{version}.jar \
 --moderne.connector.apiGatewayRsocketUri=https://api.tenant.moderne.io/rsocket \
@@ -513,19 +526,19 @@ java -jar connector-{version}.jar \
 --moderne.scm.github[0].allowableOrganizations[0]=moderne \
 --moderne.scm.github[0].allowableOrganizations[1]=openrewrite \
 --moderne.scm.github[0].oauth.includePrivateRepos=true \
---moderne.organization.indexer.poll.artifactory[0].uri=https://myartifactory.example.com/artifactory/ \
---moderne.organization.indexer.poll.artifactory[0].lstQueryFilters[0]='{"name":{"$match":"*-ast.jar"}}' \
---moderne.organization.indexer.poll.artifactory[0].lstQueryFilters[1]='{"repo":{"$eq":"example-maven"}}' \
---moderne.organization.indexer.poll.maven[0].uri=https://myartifactory.example.com/artifactory/libs-releases-local \
+--moderne.connector.organization.poll.artifactory[0].uri=https://myartifactory.example.com/artifactory/ \
+--moderne.connector.organization.poll.artifactory[0].lstQueryFilters[0]='{"name":{"$match":"*-ast.jar"}}' \
+--moderne.connector.organization.poll.artifactory[0].lstQueryFilters[1]='{"repo":{"$eq":"example-maven"}}' \
+--moderne.connector.organization.poll.maven[0].uri=https://myartifactory.example.com/artifactory/libs-releases-local \
 ```
 </TabItem>
 </Tabs>
 
-### Step 7: (Optionally) Configure LLM support for Moddy
+### Step 8: (Optionally) Configure LLM support for Moddy
 
 If you want to enable Moddy (Moderne's AI agent) in your platform, you'll need to configure LLM support. Moddy allows users to interact with their codebase using natural language. Please follow the [Moddy configuration instructions](./configure-an-agent-with-llm-for-moddy.md) to set this up.
 
-### Step 8: (Optional but recommended) Configure organizational hierarchy
+### Step 9: (Optional but recommended) Configure organizational hierarchy
 
 If you would like to have an organizational hierarchy available inside of the Moderne Platform, you can provide this information using a `repos.csv` file.
 
@@ -569,17 +582,17 @@ You can provide the file to the Connector in two ways:
 
 ```bash
 docker run \
-  -e MODERNE_ORGANIZATION_INDEXER_SOURCES_0_REPOSCSV=https://example.com/repos.csv \
+  -e MODERNE_ORGANIZATION_SOURCES_HTTP_0_URI=https://example.com/repos.csv \
   # ... other environment variables
   moderne-connector:latest
 ```
 
-**Option 2: Local file mount**
+**Option 2: Local file (relative to the Connector's permanent directory)**
 
 ```bash
 docker run \
-  -v /path/to/repos.csv:/app/repos.csv \
-  -e MODERNE_ORGANIZATION_INDEXER_SOURCES_0_REPOSCSV=/app/repos.csv \
+  -v /path/to/repos.csv:/moderne/permanent/repos.csv \
+  -e MODERNE_ORGANIZATION_SOURCES_FILE_0_PATH=repos.csv \
   # ... other environment variables
   moderne-connector:latest
 ```
@@ -592,15 +605,15 @@ docker run \
 
 ```bash
 java -jar connector-{version}.jar \
-  --moderne.organization.indexer.sources[0].repos-csv=https://example.com/repos.csv \
+  --moderne.organization.sources.http[0].uri=https://example.com/repos.csv \
   # ... other arguments
 ```
 
-**Option 2: Local file path**
+**Option 2: Local file (relative to the Connector's permanent directory)**
 
 ```bash
 java -jar connector-{version}.jar \
-  --moderne.organization.indexer.sources[0].repos-csv=/path/to/repos.csv \
+  --moderne.organization.sources.file[0].path=repos.csv \
   # ... other arguments
 ```
 
@@ -615,7 +628,7 @@ For detailed information about creating and formatting a `repos.csv` file, inclu
 
 If you need more advanced organizational configuration options, you can also [configure an organizational hierarchy](./configure-organizations-hierarchy.md) using other methods and [let the Connector know about it](./configure-organizations-hierarchy.md#connector-configuration).
 
-### Step 9: (Optionally) Create an Organizations service
+### Step 10: (Optionally) Create an Organizations service
 
 You should create an Organizations service if you want to:
 
@@ -624,15 +637,15 @@ You should create an Organizations service if you want to:
 
 To do so, please follow the instructions in our [creating an Organizations service guide](../org-service.md) and then [let the Connector know about it](../org-service.md#connector-variables).
 
-### Step 10: (Optionally) Configure a DevCenter
+### Step 11: (Optionally) Configure a DevCenter
 
 The DevCenter is the mission-control dashboard of the Moderne Platform. If you wish to have DevCenters available inside of the Moderne Platform, you will need to [ensure you've defined an organizational hierarchy](./configure-organizations-hierarchy.md) and then [follow the instructions for configuring a DevCenter](../creating-a-devcenter-recipe.md).
 
-### Step 11: (Optionally) Provide SSL client keystore
+### Step 12: (Optionally) Provide SSL client keystore
 
 If you have configured any services that require client SSL certificates (such as Maven or Artifactory), you will need to provide a KeyStore with these certificates. Please follow [these instructions](./configure-an-agent-with-client-ssl-certificates.md) to configure the KeyStore.
 
-### Step 12: Run the Connector
+### Step 13: Run the Connector
 
 At this point, you should have configured everything needed to run the Moderne Connector. If you run into issues running the command, please don't hesitate to reach out.
 
@@ -662,10 +675,10 @@ export MODERNE_CONNECTOR_CRYPTO_SYMMETRICKEY=...
 export MODERNE_CONNECTOR_TOKEN=...
 export MODERNE_SCM_GITHUB_0_OAUTH_CLIENTID=...
 export MODERNE_SCM_GITHUB_0_OAUTH_CLIENTSECRET=...
-export MODERNE_ORGANIZATION_INDEXER_POLL_ARTIFACTORY_0_USERNAME=...
-export MODERNE_ORGANIZATION_INDEXER_POLL_ARTIFACTORY_0_PASSWORD=...
-export MODERNE_ORGANIZATION_INDEXER_POLL_MAVEN_0_USERNAME=...
-export MODERNE_ORGANIZATION_INDEXER_POLL_MAVEN_0_PASSWORD=...
+export MODERNE_CONNECTOR_ORGANIZATION_POLL_ARTIFACTORY_0_USERNAME=...
+export MODERNE_CONNECTOR_ORGANIZATION_POLL_ARTIFACTORY_0_PASSWORD=...
+export MODERNE_CONNECTOR_ORGANIZATION_POLL_MAVEN_0_USERNAME=...
+export MODERNE_CONNECTOR_ORGANIZATION_POLL_MAVEN_0_PASSWORD=...
 
 docker run \
 -e MODERNE_CONNECTOR_APIGATEWAYRSOCKETURI=https://api.tenant.moderne.io/rsocket \
@@ -678,14 +691,14 @@ docker run \
 -e MODERNE_SCM_GITHUB_0_ALLOWABLE_ORGANIZATIONS_0=moderne \
 -e MODERNE_SCM_GITHUB_0_ALLOWABLE_ORGANIZATIONS_1=openrewrite \
 -e MODERNE_SCM_GITHUB_0_OAUTH_INCLUDEPRIVATEREPOS=true \
--e MODERNE_ORGANIZATION_INDEXER_POLL_ARTIFACTORY_0_URI=https://myartifactory.example.com/artifactory/ \
--e MODERNE_ORGANIZATION_INDEXER_POLL_ARTIFACTORY_0_USERNAME \
--e MODERNE_ORGANIZATION_INDEXER_POLL_ARTIFACTORY_0_PASSWORD \
--e MODERNE_ORGANIZATION_INDEXER_POLL_ARTIFACTORY_0_LSTQUERYFILTERS_0='"name":{"$match":"*-ast.jar"}' \
--e MODERNE_ORGANIZATION_INDEXER_POLL_ARTIFACTORY_0_LSTQUERYFILTERS_1='"repo":{"$eq":"example-maven"}' \
--e MODERNE_ORGANIZATION_INDEXER_POLL_MAVEN_0_URI=https://myartifactory.example.com/artifactory/libs-releases-local \
--e MODERNE_ORGANIZATION_INDEXER_POLL_MAVEN_0_USERNAME \
--e MODERNE_ORGANIZATION_INDEXER_POLL_MAVEN_0_PASSWORD \
+-e MODERNE_CONNECTOR_ORGANIZATION_POLL_ARTIFACTORY_0_URI=https://myartifactory.example.com/artifactory/ \
+-e MODERNE_CONNECTOR_ORGANIZATION_POLL_ARTIFACTORY_0_USERNAME \
+-e MODERNE_CONNECTOR_ORGANIZATION_POLL_ARTIFACTORY_0_PASSWORD \
+-e MODERNE_CONNECTOR_ORGANIZATION_POLL_ARTIFACTORY_0_LSTQUERYFILTERS_0='"name":{"$match":"*-ast.jar"}' \
+-e MODERNE_CONNECTOR_ORGANIZATION_POLL_ARTIFACTORY_0_LSTQUERYFILTERS_1='"repo":{"$eq":"example-maven"}' \
+-e MODERNE_CONNECTOR_ORGANIZATION_POLL_MAVEN_0_URI=https://myartifactory.example.com/artifactory/libs-releases-local \
+-e MODERNE_CONNECTOR_ORGANIZATION_POLL_MAVEN_0_USERNAME \
+-e MODERNE_CONNECTOR_ORGANIZATION_POLL_MAVEN_0_PASSWORD \
 -p 8080:8080
 moderne-connector:latest
 ```
@@ -702,10 +715,10 @@ export MODERNE_CONNECTOR_CRYPTO_SYMMETRICKEY=...
 export MODERNE_CONNECTOR_TOKEN=...
 export MODERNE_SCM_GITHUB_0_OAUTH_CLIENTID=...
 export MODERNE_SCM_GITHUB_0_OAUTH_CLIENTSECRET=...
-export MODERNE_ORGANIZATION_INDEXER_POLL_ARTIFACTORY_0_USERNAME=...
-export MODERNE_ORGANIZATION_INDEXER_POLL_ARTIFACTORY_0_PASSWORD=...
-export MODERNE_ORGANIZATION_INDEXER_POLL_MAVEN_0_USERNAME=...
-export MODERNE_ORGANIZATION_INDEXER_POLL_MAVEN_0_PASSWORD=...
+export MODERNE_CONNECTOR_ORGANIZATION_POLL_ARTIFACTORY_0_USERNAME=...
+export MODERNE_CONNECTOR_ORGANIZATION_POLL_ARTIFACTORY_0_PASSWORD=...
+export MODERNE_CONNECTOR_ORGANIZATION_POLL_MAVEN_0_USERNAME=...
+export MODERNE_CONNECTOR_ORGANIZATION_POLL_MAVEN_0_PASSWORD=...
 
 java -jar connector-{version}.jar \
 --moderne.connector.apiGatewayRsocketUri=https://api.tenant.moderne.io/rsocket \
@@ -714,15 +727,24 @@ java -jar connector-{version}.jar \
 --moderne.scm.github[0].allowableOrganizations[0]=moderne \
 --moderne.scm.github[0].allowableOrganizations[1]=openrewrite \
 --moderne.scm.github[0].oauth.includePrivateRepos=true \
---moderne.organization.indexer.poll.artifactory[0].uri=https://myartifactory.example.com/artifactory/ \
---moderne.organization.indexer.poll.artifactory[0].lstQueryFilters[0]='{"name":{"$match":"*-ast.jar"}}' \
---moderne.organization.indexer.poll.artifactory[0].lstQueryFilters[1]='{"repo":{"$eq":"example-maven"}}' \
---moderne.organization.indexer.poll.maven[0].uri=https://myartifactory.example.com/artifactory/libs-releases-local \
+--moderne.connector.organization.poll.artifactory[0].uri=https://myartifactory.example.com/artifactory/ \
+--moderne.connector.organization.poll.artifactory[0].lstQueryFilters[0]='{"name":{"$match":"*-ast.jar"}}' \
+--moderne.connector.organization.poll.artifactory[0].lstQueryFilters[1]='{"repo":{"$eq":"example-maven"}}' \
+--moderne.connector.organization.poll.maven[0].uri=https://myartifactory.example.com/artifactory/libs-releases-local \
 ```
 
 * Note: System properties can be used in place of arguments. For example, you can use `-Dmoderne.connector.token={token_value}` as an argument instead of `--moderne.connector.token={token_value}`.
 </TabItem>
 </Tabs>
+
+## Tuning polling cadence and download concurrency
+
+The Connector exposes two organization-wide knobs that affect how quickly new LSTs appear in Moderne and how much concurrent work the Connector performs. Both are optional and have sensible defaults.
+
+* **`moderne.connector.organization.interval`** — how often the Connector re-fetches each source `repos.csv` and re-runs enrichment. Defaults to `10m`. Lower this if you want LSTs to show up faster; raise it to reduce load on your artifact repository.
+* **`moderne.connector.organization.downloadParallelism`** — the global cap on concurrent LST download, encrypt, and upload operations across all configured sources. Defaults to `max(4, availableProcessors())`. Raise it if your Connector host and upstream gateway have headroom; lower it to throttle network/CPU use.
+
+See the [All Connector variables reference](./agent-variables.md#organization-sync-variables) for the exact variable and argument names.
 
 ## Health endpoints
 
@@ -893,7 +915,7 @@ This allows the Connector to use the host's network stack directly, including it
 **Common causes and solutions:**
 
 * **Artifact repository configuration:** Verify Maven or Artifactory repository settings (URLs, credentials)
-* **AQL filters (Artifactory):** Check that `MODERNE_ORGANIZATION_INDEXER_POLL_ARTIFACTORY_0_LSTQUERYFILTERS_*` correctly matches your LST artifacts
+* **AQL filters (Artifactory):** Check that `MODERNE_CONNECTOR_ORGANIZATION_POLL_ARTIFACTORY_0_LSTQUERYFILTERS_*` correctly matches your LST artifacts
 * **Maven indexing:** If using Maven repository configuration, ensure the Maven index is being published and updated regularly
 * **Artifact publication:** Confirm LST artifacts are actually being published to the configured repository
 * **Network access:** Verify the Connector can reach the artifact repository from its network location

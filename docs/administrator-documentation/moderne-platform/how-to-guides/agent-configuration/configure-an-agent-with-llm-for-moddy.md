@@ -41,14 +41,14 @@ Variables are nested under the specific provider you are configuring. Replace `{
 
 **Environment variables:**
 
-| Variable Name                             | Required | Default | Description                                                                                                                                                                                  |
-|-------------------------------------------|----------|---------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `MODERNE_MODDY_{PROVIDER}_APIKEY`         | `true`   |         | The API key for the specified LLM provider. Replace `{PROVIDER}` with `OPENAI`, `ANTHROPIC`, `GEMINI`, or `MISTRAL`.                                                                         |
-| `MODERNE_MODDY_{PROVIDER}_URI`            | `false`  |         | Optional URI override for the LLM API endpoint. If not specified, the default endpoint for the provider is used (see table above). Useful for routing requests through a custom API gateway. |
-| `MODERNE_MODDY_{PROVIDER}_PROXY_HOST`     | `false`  |         | Proxy host if the LLM API needs to be accessed through a proxy.                                                                                                                              |
-| `MODERNE_MODDY_{PROVIDER}_PROXY_USERNAME` | `false`  |         | Username for proxy authentication.                                                                                                                                                           |
-| `MODERNE_MODDY_{PROVIDER}_PROXY_PASSWORD` | `false`  |         | Password for proxy authentication.                                                                                                                                                           |
-| `MODERNE_MODDY_ADMINONLY`                 | `false`  | `false` | If `true`, only admins will see Moddy in the UI and be able to chat with Moddy.                                                                                                              |
+| Variable Name                         | Required | Default | Description                                                                                                                                                                                  |
+|---------------------------------------|----------|---------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `MODERNE_MODDY_{PROVIDER}_APIKEY`     | `true`   |         | The API key for the specified LLM provider. Replace `{PROVIDER}` with `OPENAI`, `ANTHROPIC`, `GEMINI`, or `MISTRAL`.                                                                         |
+| `MODERNE_MODDY_{PROVIDER}_MODEL`      | `false`  |         | Optional model name override for the LLM provider.                                                                                                                                           |
+| `MODERNE_MODDY_{PROVIDER}_URI`        | `false`  |         | Optional URI override for the LLM API endpoint. If not specified, the default endpoint for the provider is used (see table above). Useful for routing requests through a custom API gateway. |
+| `MODERNE_MODDY_{PROVIDER}_PROXY_HOST` | `false`  |         | The hostname of a proxy server used to reach the LLM API. If specified, `PROXY_PORT` must also be set.                                                                                       |
+| `MODERNE_MODDY_{PROVIDER}_PROXY_PORT` | `false`  |         | The port of the proxy server used to reach the LLM API. If specified, `PROXY_HOST` must also be set.                                                                                         |
+| `MODERNE_MODDY_ADMINONLY`             | `false`  | `false` | If `true`, only admins will see Moddy in the UI and be able to chat with Moddy.                                                                                                              |
 
 **Example:**
 
@@ -68,14 +68,14 @@ moderne-connector:latest
 
 **Arguments:**
 
-| Argument Name                               | Required | Default | Description                                                                                                                                                                                  |
-|---------------------------------------------|----------|---------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `--moderne.moddy.{provider}.apiKey`         | `true`   |         | The API key for the specified LLM provider. Replace `{provider}` with `openai`, `anthropic`, `gemini`, or `mistral`.                                                                         |
-| `--moderne.moddy.{provider}.uri`            | `false`  |         | Optional URI override for the LLM API endpoint. If not specified, the default endpoint for the provider is used (see table above). Useful for routing requests through a custom API gateway. |
-| `--moderne.moddy.{provider}.proxy.host`     | `false`  |         | Proxy host if the LLM API needs to be accessed through a proxy.                                                                                                                              |
-| `--moderne.moddy.{provider}.proxy.username` | `false`  |         | Username for proxy authentication.                                                                                                                                                           |
-| `--moderne.moddy.{provider}.proxy.password` | `false`  |         | Password for proxy authentication.                                                                                                                                                           |
-| `--moderne.moddy.adminOnly`                 | `false`  | `false` | If `true`, only admins will see Moddy in the UI and be able to chat with Moddy.                                                                                                              |
+| Argument Name                           | Required | Default | Description                                                                                                                                                                                  |
+|-----------------------------------------|----------|---------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `--moderne.moddy.{provider}.apiKey`     | `true`   |         | The API key for the specified LLM provider. Replace `{provider}` with `openai`, `anthropic`, `gemini`, or `mistral`.                                                                         |
+| `--moderne.moddy.{provider}.model`      | `false`  |         | Optional model name override for the LLM provider.                                                                                                                                           |
+| `--moderne.moddy.{provider}.uri`        | `false`  |         | Optional URI override for the LLM API endpoint. If not specified, the default endpoint for the provider is used (see table above). Useful for routing requests through a custom API gateway. |
+| `--moderne.moddy.{provider}.proxy.host` | `false`  |         | The hostname of a proxy server used to reach the LLM API. If specified, `proxy.port` must also be set.                                                                                       |
+| `--moderne.moddy.{provider}.proxy.port` | `false`  |         | The port of the proxy server used to reach the LLM API. If specified, `proxy.host` must also be set.                                                                                         |
+| `--moderne.moddy.adminOnly`             | `false`  | `false` | If `true`, only admins will see Moddy in the UI and be able to chat with Moddy.                                                                                                              |
 
 **Example:**
 
@@ -215,21 +215,19 @@ java -jar connector-{version}.jar \
 
 ## Proxy configuration
 
-If your organization requires LLM API access through a proxy:
+If your organization requires LLM API access to go through a proxy, you can configure the proxy host and port per provider. Both must be specified together.
 
 <Tabs groupId="agent-type">
 <TabItem value="oci-container" label="OCI Container">
 
 ```bash
 export MODERNE_MODDY_ANTHROPIC_APIKEY=...
-export MODERNE_MODDY_ANTHROPIC_PROXY_PASSWORD=...
 
 docker run \
 # ... other required agent configuration ...
 -e MODERNE_MODDY_ANTHROPIC_APIKEY \
--e MODERNE_MODDY_ANTHROPIC_PROXY_HOST=http://proxy.company.com:8080 \
--e MODERNE_MODDY_ANTHROPIC_PROXY_USERNAME=proxyuser \
--e MODERNE_MODDY_ANTHROPIC_PROXY_PASSWORD \
+-e MODERNE_MODDY_ANTHROPIC_PROXY_HOST=proxy.company.com \
+-e MODERNE_MODDY_ANTHROPIC_PROXY_PORT=8080 \
 # ... rest of configuration ...
 moderne-connector:latest
 ```
@@ -239,14 +237,12 @@ moderne-connector:latest
 
 ```bash
 export MODERNE_MODDY_ANTHROPIC_APIKEY=...
-export MODERNE_MODDY_ANTHROPIC_PROXY_PASSWORD=...
 
 java -jar connector-{version}.jar \
 # ... other required agent configuration ...
 --moderne.moddy.anthropic.apiKey=$MODERNE_MODDY_ANTHROPIC_APIKEY \
---moderne.moddy.anthropic.proxy.host=http://proxy.company.com:8080 \
---moderne.moddy.anthropic.proxy.username=proxyuser \
---moderne.moddy.anthropic.proxy.password=$MODERNE_MODDY_ANTHROPIC_PROXY_PASSWORD \
+--moderne.moddy.anthropic.proxy.host=proxy.company.com \
+--moderne.moddy.anthropic.proxy.port=8080 \
 # ... rest of configuration ...
 ```
 
@@ -265,8 +261,8 @@ export MODERNE_CONNECTOR_CRYPTO_SYMMETRICKEY=...
 export MODERNE_CONNECTOR_TOKEN=...
 export MODERNE_SCM_GITHUB_0_OAUTH_CLIENTID=...
 export MODERNE_SCM_GITHUB_0_OAUTH_CLIENTSECRET=...
-export MODERNE_ORGANIZATION_INDEXER_POLL_ARTIFACTORY_0_USERNAME=...
-export MODERNE_ORGANIZATION_INDEXER_POLL_ARTIFACTORY_0_PASSWORD=...
+export MODERNE_CONNECTOR_ORGANIZATION_POLL_ARTIFACTORY_0_USERNAME=...
+export MODERNE_CONNECTOR_ORGANIZATION_POLL_ARTIFACTORY_0_PASSWORD=...
 export MODERNE_MODDY_ANTHROPIC_APIKEY=...
 
 docker run \
@@ -279,10 +275,10 @@ docker run \
 -e MODERNE_SCM_GITHUB_0_URI=https://myorg.github.com \
 -e MODERNE_SCM_GITHUB_0_ALLOWABLE_ORGANIZATIONS_0=moderne \
 -e MODERNE_SCM_GITHUB_0_OAUTH_INCLUDEPRIVATEREPOS=true \
--e MODERNE_ORGANIZATION_INDEXER_POLL_ARTIFACTORY_0_URI=https://myartifactory.example.com/artifactory/ \
--e MODERNE_ORGANIZATION_INDEXER_POLL_ARTIFACTORY_0_USERNAME \
--e MODERNE_ORGANIZATION_INDEXER_POLL_ARTIFACTORY_0_PASSWORD \
--e MODERNE_ORGANIZATION_INDEXER_POLL_ARTIFACTORY_0_LSTQUERYFILTERS_0='"name":{"$match":"*-ast.jar"}' \
+-e MODERNE_CONNECTOR_ORGANIZATION_POLL_ARTIFACTORY_0_URI=https://myartifactory.example.com/artifactory/ \
+-e MODERNE_CONNECTOR_ORGANIZATION_POLL_ARTIFACTORY_0_USERNAME \
+-e MODERNE_CONNECTOR_ORGANIZATION_POLL_ARTIFACTORY_0_PASSWORD \
+-e MODERNE_CONNECTOR_ORGANIZATION_POLL_ARTIFACTORY_0_LSTQUERYFILTERS_0='"name":{"$match":"*-ast.jar"}' \
 -e MODERNE_MODDY_ANTHROPIC_APIKEY \
 -p 8080:8080 \
 moderne-connector:latest
@@ -296,8 +292,8 @@ export MODERNE_CONNECTOR_CRYPTO_SYMMETRICKEY=...
 export MODERNE_CONNECTOR_TOKEN=...
 export MODERNE_SCM_GITHUB_0_OAUTH_CLIENTID=...
 export MODERNE_SCM_GITHUB_0_OAUTH_CLIENTSECRET=...
-export MODERNE_ORGANIZATION_INDEXER_POLL_ARTIFACTORY_0_USERNAME=...
-export MODERNE_ORGANIZATION_INDEXER_POLL_ARTIFACTORY_0_PASSWORD=...
+export MODERNE_CONNECTOR_ORGANIZATION_POLL_ARTIFACTORY_0_USERNAME=...
+export MODERNE_CONNECTOR_ORGANIZATION_POLL_ARTIFACTORY_0_PASSWORD=...
 export MODERNE_MODDY_ANTHROPIC_APIKEY=...
 
 java -jar connector-{version}.jar \
@@ -306,8 +302,8 @@ java -jar connector-{version}.jar \
 --moderne.scm.github[0].uri=https://myorg.github.com \
 --moderne.scm.github[0].allowableOrganizations[0]=moderne \
 --moderne.scm.github[0].oauth.includePrivateRepos=true \
---moderne.organization.indexer.poll.artifactory[0].uri=https://myartifactory.example.com/artifactory/ \
---moderne.organization.indexer.poll.artifactory[0].lstQueryFilters[0]='{"name":{"$match":"*-ast.jar"}}' \
+--moderne.connector.organization.poll.artifactory[0].uri=https://myartifactory.example.com/artifactory/ \
+--moderne.connector.organization.poll.artifactory[0].lstQueryFilters[0]='{"name":{"$match":"*-ast.jar"}}' \
 --moderne.moddy.anthropic.apiKey=$MODERNE_MODDY_ANTHROPIC_APIKEY
 ```
 

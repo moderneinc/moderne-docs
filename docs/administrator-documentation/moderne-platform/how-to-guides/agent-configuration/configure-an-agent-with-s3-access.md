@@ -64,23 +64,23 @@ You can configure multiple S3 buckets by including multiple entries, each with a
 
 **Environment variables:**
 
-| Variable Name                                                 | Required                                                 | Default | Description                                                                                                                                                          |
-|---------------------------------------------------------------|----------------------------------------------------------|---------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `MODERNE_ORGANIZATION_INDEXER_SOURCES_S3_{index}_URI`         | `true`                                                   |         | The S3 bucket URI. Must start with `s3://` (e.g., `s3://my-bucket-name`).                                                                                            |
-| `MODERNE_ORGANIZATION_INDEXER_SOURCES_S3_{index}_ENDPOINTURL` | `false`                                                  |         | Custom endpoint URL for S3-compatible services (e.g., `http://localhost:9000` for MinIO). Leave empty for standard AWS S3.                                           |
-| `MODERNE_ORGANIZATION_INDEXER_SOURCES_S3_{index}_REGION`      | `false`                                                  |         | The AWS region where the bucket is located (e.g., `us-east-1`). Can be excluded if the Connector is deployed on AWS infrastructure in the same region as the bucket. |
-| `MODERNE_ORGANIZATION_INDEXER_SOURCES_S3_{index}_ACCESSKEY`   | `false` (Required if not using profile or IAM role)      |         | The AWS access key ID for authentication.                                                                                                                            |
-| `MODERNE_ORGANIZATION_INDEXER_SOURCES_S3_{index}_SECRETKEY`   | `false` (Required if using access key)                   |         | The AWS secret access key for authentication.                                                                                                                        |
-| `MODERNE_ORGANIZATION_INDEXER_SOURCES_S3_{index}_PROFILE`     | `false` (Alternative to access key/secret key)           |         | The AWS profile name from your credentials file.                                                                                                                     |
-| `MODERNE_ORGANIZATION_INDEXER_SOURCES_S3_{index}_SKIPSSL`     | `true` (If using self-signed cert or non-HTTPS endpoint) | `false` | Specifies whether to skip SSL verification for connections to the S3 endpoint.                                                                                       |
+| Variable Name                                         | Required                                                 | Default | Description                                                                                                                                                          |
+|-------------------------------------------------------|----------------------------------------------------------|---------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `MODERNE_ORGANIZATION_SOURCES_S3_{index}_URI`         | `true`                                                   |         | The S3 bucket URI. Must start with `s3://` (e.g., `s3://my-bucket-name`).                                                                                            |
+| `MODERNE_ORGANIZATION_SOURCES_S3_{index}_ENDPOINTURL` | `false`                                                  |         | Custom endpoint URL for S3-compatible services (e.g., `http://localhost:9000` for MinIO). Leave empty for standard AWS S3.                                           |
+| `MODERNE_ORGANIZATION_SOURCES_S3_{index}_REGION`      | `false`                                                  |         | The AWS region where the bucket is located (e.g., `us-east-1`). Can be excluded if the Connector is deployed on AWS infrastructure in the same region as the bucket. |
+| `MODERNE_ORGANIZATION_SOURCES_S3_{index}_ACCESSKEY`   | `false` (Required if not using profile or IAM role)      |         | The AWS access key ID for authentication.                                                                                                                            |
+| `MODERNE_ORGANIZATION_SOURCES_S3_{index}_SECRETKEY`   | `false` (Required if using access key)                   |         | The AWS secret access key for authentication.                                                                                                                        |
+| `MODERNE_ORGANIZATION_SOURCES_S3_{index}_PROFILE`     | `false` (Alternative to access key/secret key)           |         | The AWS profile name from your credentials file.                                                                                                                     |
+| `MODERNE_ORGANIZATION_SOURCES_S3_{index}_SKIPSSL`     | `true` (If using self-signed cert or non-HTTPS endpoint) | `false` | Specifies whether to skip SSL verification for connections to the S3 endpoint.                                                                                       |
 
 **Example using IAM role authentication on AWS infrastructure:**
 
 ```bash
 docker run \
 # ... Existing variables
--e MODERNE_ORGANIZATION_INDEXER_SOURCES_S3_0_URI=s3://my-lst-bucket \
--e MODERNE_ORGANIZATION_INDEXER_SOURCES_S3_0_REGION=us-east-1 \
+-e MODERNE_ORGANIZATION_SOURCES_S3_0_URI=s3://my-lst-bucket \
+-e MODERNE_ORGANIZATION_SOURCES_S3_0_REGION=us-east-1 \
 # ... Additional variables
 ```
 
@@ -90,10 +90,10 @@ docker run \
 ```bash
 docker run \
 # ... Existing variables
--e MODERNE_ORGANIZATION_INDEXER_SOURCES_S3_0_URI=s3://my-lst-bucket \
--e MODERNE_ORGANIZATION_INDEXER_SOURCES_S3_0_REGION=us-east-1 \
--e MODERNE_ORGANIZATION_INDEXER_SOURCES_S3_0_ACCESSKEY=AKIAIOSFODNN7EXAMPLE \
--e MODERNE_ORGANIZATION_INDEXER_SOURCES_S3_0_SECRETKEY=wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY \
+-e MODERNE_ORGANIZATION_SOURCES_S3_0_URI=s3://my-lst-bucket \
+-e MODERNE_ORGANIZATION_SOURCES_S3_0_REGION=us-east-1 \
+-e MODERNE_ORGANIZATION_SOURCES_S3_0_ACCESSKEY=AKIAIOSFODNN7EXAMPLE \
+-e MODERNE_ORGANIZATION_SOURCES_S3_0_SECRETKEY=wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY \
 # ... Additional variables
 ```
 
@@ -102,9 +102,9 @@ docker run \
 ```bash
 docker run \
 # ... Existing variables
--e MODERNE_ORGANIZATION_INDEXER_SOURCES_S3_0_URI=s3://my-lst-bucket \
--e MODERNE_ORGANIZATION_INDEXER_SOURCES_S3_0_REGION=us-east-1 \
--e MODERNE_ORGANIZATION_INDEXER_SOURCES_S3_0_PROFILE=my-aws-profile \
+-e MODERNE_ORGANIZATION_SOURCES_S3_0_URI=s3://my-lst-bucket \
+-e MODERNE_ORGANIZATION_SOURCES_S3_0_REGION=us-east-1 \
+-e MODERNE_ORGANIZATION_SOURCES_S3_0_PROFILE=my-aws-profile \
 -v ~/.aws:/root/.aws:ro \
 # ... Additional variables
 ```
@@ -114,11 +114,11 @@ docker run \
 ```bash
 docker run \
 # ... Existing variables
--e MODERNE_ORGANIZATION_INDEXER_SOURCES_S3_0_URI=s3://moderne-lst \
--e MODERNE_ORGANIZATION_INDEXER_SOURCES_S3_0_ENDPOINTURL=http://minio.example.com:9000 \
--e MODERNE_ORGANIZATION_INDEXER_SOURCES_S3_0_ACCESSKEY=minioadmin \
--e MODERNE_ORGANIZATION_INDEXER_SOURCES_S3_0_SECRETKEY=minioadmin \
--e MODERNE_ORGANIZATION_INDEXER_SOURCES_S3_0_SKIPSSL=true \
+-e MODERNE_ORGANIZATION_SOURCES_S3_0_URI=s3://moderne-lst \
+-e MODERNE_ORGANIZATION_SOURCES_S3_0_ENDPOINTURL=http://minio.example.com:9000 \
+-e MODERNE_ORGANIZATION_SOURCES_S3_0_ACCESSKEY=minioadmin \
+-e MODERNE_ORGANIZATION_SOURCES_S3_0_SECRETKEY=minioadmin \
+-e MODERNE_ORGANIZATION_SOURCES_S3_0_SKIPSSL=true \
 # ... Additional variables
 ```
 
@@ -128,23 +128,23 @@ docker run \
 
 **Arguments:**
 
-| Argument Name                                                    | Required                                                 | Default | Description                                                                                                                                                          |
-|------------------------------------------------------------------|----------------------------------------------------------|---------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `--moderne.organization.indexer.sources.s3[{index}].uri`         | `true`                                                   |         | The S3 bucket URI. Must start with `s3://` (e.g., `s3://my-bucket-name`).                                                                                            |
-| `--moderne.organization.indexer.sources.s3[{index}].endpointUrl` | `false`                                                  |         | Custom endpoint URL for S3-compatible services (e.g., `http://localhost:9000` for MinIO). Leave empty for standard AWS S3.                                           |
-| `--moderne.organization.indexer.sources.s3[{index}].region`      | `false`                                                  |         | The AWS region where the bucket is located (e.g., `us-east-1`). Can be excluded if the Connector is deployed on AWS infrastructure in the same region as the bucket. |
-| `--moderne.organization.indexer.sources.s3[{index}].accessKey`   | `false` (Required if not using profile or IAM role)      |         | The AWS access key ID for authentication.                                                                                                                            |
-| `--moderne.organization.indexer.sources.s3[{index}].secretKey`   | `false` (Required if using access key)                   |         | The AWS secret access key for authentication.                                                                                                                        |
-| `--moderne.organization.indexer.sources.s3[{index}].profile`     | `false` (Alternative to access key/secret key)           |         | The AWS profile name from your credentials file.                                                                                                                     |
-| `--moderne.organization.indexer.sources.s3[{index}].skipSsl`     | `true` (If using self-signed cert or non-HTTPS endpoint) | `false` | Specifies whether to skip SSL verification for connections to the S3 endpoint.                                                                                       |
+| Argument Name                                            | Required                                                 | Default | Description                                                                                                                                                          |
+|----------------------------------------------------------|----------------------------------------------------------|---------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `--moderne.organization.sources.s3[{index}].uri`         | `true`                                                   |         | The S3 bucket URI. Must start with `s3://` (e.g., `s3://my-bucket-name`).                                                                                            |
+| `--moderne.organization.sources.s3[{index}].endpointUrl` | `false`                                                  |         | Custom endpoint URL for S3-compatible services (e.g., `http://localhost:9000` for MinIO). Leave empty for standard AWS S3.                                           |
+| `--moderne.organization.sources.s3[{index}].region`      | `false`                                                  |         | The AWS region where the bucket is located (e.g., `us-east-1`). Can be excluded if the Connector is deployed on AWS infrastructure in the same region as the bucket. |
+| `--moderne.organization.sources.s3[{index}].accessKey`   | `false` (Required if not using profile or IAM role)      |         | The AWS access key ID for authentication.                                                                                                                            |
+| `--moderne.organization.sources.s3[{index}].secretKey`   | `false` (Required if using access key)                   |         | The AWS secret access key for authentication.                                                                                                                        |
+| `--moderne.organization.sources.s3[{index}].profile`     | `false` (Alternative to access key/secret key)           |         | The AWS profile name from your credentials file.                                                                                                                     |
+| `--moderne.organization.sources.s3[{index}].skipSsl`     | `true` (If using self-signed cert or non-HTTPS endpoint) | `false` | Specifies whether to skip SSL verification for connections to the S3 endpoint.                                                                                       |
 
 **Example using IAM role authentication on AWS infrastructure:**
 
 ```bash
 java -jar connector-{version}.jar \
 # ... Existing arguments
---moderne.organization.indexer.sources.s3[0].uri=s3://my-lst-bucket \
---moderne.organization.indexer.sources.s3[0].region=us-east-1 \
+--moderne.organization.sources.s3[0].uri=s3://my-lst-bucket \
+--moderne.organization.sources.s3[0].region=us-east-1 \
 # ... Additional arguments
 ```
 
@@ -153,10 +153,10 @@ java -jar connector-{version}.jar \
 ```bash
 java -jar connector-{version}.jar \
 # ... Existing arguments
---moderne.organization.indexer.sources.s3[0].uri=s3://my-lst-bucket \
---moderne.organization.indexer.sources.s3[0].region=us-east-1 \
---moderne.organization.indexer.sources.s3[0].accessKey=AKIAIOSFODNN7EXAMPLE \
---moderne.organization.indexer.sources.s3[0].secretKey=wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY \
+--moderne.organization.sources.s3[0].uri=s3://my-lst-bucket \
+--moderne.organization.sources.s3[0].region=us-east-1 \
+--moderne.organization.sources.s3[0].accessKey=AKIAIOSFODNN7EXAMPLE \
+--moderne.organization.sources.s3[0].secretKey=wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY \
 # ... Additional arguments
 ```
 
@@ -165,9 +165,9 @@ java -jar connector-{version}.jar \
 ```bash
 java -jar connector-{version}.jar \
 # ... Existing arguments
---moderne.organization.indexer.sources.s3[0].uri=s3://my-lst-bucket \
---moderne.organization.indexer.sources.s3[0].region=us-east-1 \
---moderne.organization.indexer.sources.s3[0].profile=my-aws-profile \
+--moderne.organization.sources.s3[0].uri=s3://my-lst-bucket \
+--moderne.organization.sources.s3[0].region=us-east-1 \
+--moderne.organization.sources.s3[0].profile=my-aws-profile \
 # ... Additional arguments
 ```
 
@@ -176,11 +176,11 @@ java -jar connector-{version}.jar \
 ```bash
 java -jar connector-{version}.jar \
 # ... Existing arguments
---moderne.organization.indexer.sources.s3[0].uri=s3://moderne-lst \
---moderne.organization.indexer.sources.s3[0].endpointUrl=http://minio.example.com:9000 \
---moderne.organization.indexer.sources.s3[0].accessKey=minioadmin \
---moderne.organization.indexer.sources.s3[0].secretKey=minioadmin \
---moderne.organization.indexer.sources.s3[0].skipSsl=true \
+--moderne.organization.sources.s3[0].uri=s3://moderne-lst \
+--moderne.organization.sources.s3[0].endpointUrl=http://minio.example.com:9000 \
+--moderne.organization.sources.s3[0].accessKey=minioadmin \
+--moderne.organization.sources.s3[0].secretKey=minioadmin \
+--moderne.organization.sources.s3[0].skipSsl=true \
 # ... Additional arguments
 ```
 

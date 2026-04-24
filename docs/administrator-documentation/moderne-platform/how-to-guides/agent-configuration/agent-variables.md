@@ -82,16 +82,11 @@ java -jar connector-{version}.jar \
 
 **Environment variables:**
 
-| Variable Name                                        | Required                                         | Default | Description                                                                                                                                                                  |
-|------------------------------------------------------|--------------------------------------------------|---------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `MODERNE_SCM_AZUREDEVOPS_{index}_OAUTH_CLIENTID`     | `true`                                           |         | The client ID of the registered OAuth app.                                                                                                                                   |
-| `MODERNE_SCM_AZUREDEVOPS_{index}_OAUTH_CLIENTSECRET` | `true`                                           |         | The client secret of the registered OAuth app.                                                                                                                               |
-| `MODERNE_SCM_AZUREDEVOPS_{index}_OAUTH_TENANTID`     | `true`                                           |         | The Azure tenant ID of the registered OAuth app.                                                                                                                             |
-| `MODERNE_SCM_AZUREDEVOPS_{index}_SKIPSSL`            | `false`                                          | `false` | Specifies whether or not to skip SSL validation for HTTP connections to this Azure DevOps instance. This must be set to `true` if you use a self-signed SSL/TLS certificate. |
-| `MODERNE_SCM_AZUREDEVOPS_{index}_SSH_PRIVATEKEY`     | `false`                                          |         | The SSH private key used to establish a SSH connection with Azure DevOps.                                                                                                    |
-| `MODERNE_SCM_AZUREDEVOPS_{index}_SSH_PASSPHRASE`     | `true` (If the SSH key is specified + encrypted) |         | The passphrase used to encrypt the SSH private key                                                                                                                           |
-| `MODERNE_SCM_AZUREDEVOPS_{index}_SSH_SSHFILENAME`    | `true` (If the SSH key is specified)             |         | The file name of the private key, which the Connector will store locally.                                                                                                    |
-| `MODERNE_SCM_AZUREDEVOPS_{index}_SSH_USER`           | `true` (If the SSH key is specified)             |         | The username used for SSH communication with Azure DevOps.                                                                                                                   |
+| Variable Name                                        | Required | Default | Description                                      |
+|------------------------------------------------------|----------|---------|--------------------------------------------------|
+| `MODERNE_SCM_AZUREDEVOPS_{index}_OAUTH_CLIENTID`     | `true`   |         | The client ID of the registered OAuth app.       |
+| `MODERNE_SCM_AZUREDEVOPS_{index}_OAUTH_CLIENTSECRET` | `true`   |         | The client secret of the registered OAuth app.   |
+| `MODERNE_SCM_AZUREDEVOPS_{index}_OAUTH_TENANTID`     | `true`   |         | The Azure tenant ID of the registered OAuth app. |
 
 **Example:**
 
@@ -109,16 +104,11 @@ docker run \
 
 **Arguments:**
 
-| Argument Name                                           | Required                                         | Default | Description                                                                                                                                                                  |
-|---------------------------------------------------------|--------------------------------------------------|---------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `--moderne.scm.azureDevops[{index}].oauth.clientId`     | `true`                                           |         | The client ID of the registered OAuth app.                                                                                                                                   |
-| `--moderne.scm.azureDevops[{index}].oauth.clientSecret` | `true`                                           |         | The client secret of the registered OAuth app.                                                                                                                               |
-| `--moderne.scm.azureDevops[{index}].oauth.tenantId`     | `true`                                           |         | The Azure tenant ID of the registered OAuth app.                                                                                                                             |
-| `--moderne.scm.azureDevops[{index}].skipSsl`            | `false`                                          | `false` | Specifies whether or not to skip SSL validation for HTTP connections to this Azure DevOps instance. This must be set to `true` if you use a self-signed SSL/TLS certificate. |
-| `--moderne.scm.azureDevops[{index}].ssh.privateKey`     | `false`                                          |         | The SSH private key used to establish a SSH connection with Azure DevOps.                                                                                                    |
-| `--moderne.scm.azureDevops[{index}].ssh.passphrase`     | `true` (If the SSH key is specified + encrypted) |         | The passphrase used to encrypt the SSH private key                                                                                                                           |
-| `--moderne.scm.azureDevops[{index}].ssh.sshFileName`    | `true` (If the SSH key is specified)             |         | The file name of the private key, which the Connector will store locally.                                                                                                    |
-| `--moderne.scm.azureDevops[{index}].ssh.user`           | `true` (If the SSH key is specified)             |         | The username used for SSH communication with Azure DevOps.                                                                                                                   |
+| Argument Name                                           | Required | Default | Description                                      |
+|---------------------------------------------------------|----------|---------|--------------------------------------------------|
+| `--moderne.scm.azureDevops[{index}].oauth.clientId`     | `true`   |         | The client ID of the registered OAuth app.       |
+| `--moderne.scm.azureDevops[{index}].oauth.clientSecret` | `true`   |         | The client secret of the registered OAuth app.   |
+| `--moderne.scm.azureDevops[{index}].oauth.tenantId`     | `true`   |         | The Azure tenant ID of the registered OAuth app. |
 
 **Example:**
 
@@ -160,18 +150,18 @@ docker run \
 
 **Arguments:**
 
-| Argument Name                              | Required | Default | Description                                            |
-|--------------------------------------------|----------|---------|--------------------------------------------------------|
-| `--moderne.scm.bitbucketCloud.oauthKey`    | `true`   |         | The key specified in your Bitbucket OAuth consumer.    |
-| `--moderne.scm.bitbucketCloud.oauthSecret` | `true`   |         | The secret specified in your Bitbucket OAuth consumer. |
+| Argument Name                               | Required | Default | Description                                            |
+|---------------------------------------------|----------|---------|--------------------------------------------------------|
+| `--moderne.scm.bitbucketCloud.oauth.key`    | `true`   |         | The key specified in your Bitbucket OAuth consumer.    |
+| `--moderne.scm.bitbucketCloud.oauth.secret` | `true`   |         | The secret specified in your Bitbucket OAuth consumer. |
 
 **Example:**
 
 ```bash
 java -jar connector-{version}.jar \
 # ... Existing arguments
---moderne.scm.bitbucketCloud.oauthKey=yourOAuthKey \
---moderne.scm.bitbucketCloud.oauthSecret=yourSecretKey \
+--moderne.scm.bitbucketCloud.oauth.key=yourOAuthKey \
+--moderne.scm.bitbucketCloud.oauth.secret=yourSecretKey \
 # ... Additional arguments
 ```
 </TabItem>
@@ -392,16 +382,26 @@ java -jar connector-{version}.jar \
 
 **Environment variables:**
 
-| Environment Variable                              | Required | Default | Description                                                                                                                                                                        |
-|---------------------------------------------------|----------|---------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `MODERNE_ORGANIZATION_INDEXER_SOURCES_0_REPOSCSV` | `false`  |         | The path of your `repos.csv` file that provides organization information. This could also be an unauthenticated HTTP/S URL in the form of `https://<internal-endpoint>/repos.csv`. |
+| Environment Variable                             | Required | Default | Description                                                                                                                       |
+|--------------------------------------------------|----------|---------|-----------------------------------------------------------------------------------------------------------------------------------|
+| `MODERNE_ORGANIZATION_SOURCES_FILE_{index}_PATH` | `false`  |         | The path to a local `repos.csv` file, relative to the Connector's permanent directory (`MODERNE_CONNECTOR_STORAGE_PERMANENTDIR`). |
+| `MODERNE_ORGANIZATION_SOURCES_HTTP_{index}_URI`  | `false`  |         | The URL of an HTTP(S) endpoint serving your `repos.csv` file (e.g., `https://<internal-endpoint>/repos.csv`).                     |
 
-**Example:**
+**Example using a local file:**
 
 ```bash
 docker run \
 # ... Existing variables
--e MODERNE_ORGANIZATION_INDEXER_SOURCES_0_REPOSCSV=/Users/MY_USER/Documents/repos.csv \
+-e MODERNE_ORGANIZATION_SOURCES_FILE_0_PATH=repos.csv \
+# ... Additional variables
+```
+
+**Example using an HTTP URL:**
+
+```bash
+docker run \
+# ... Existing variables
+-e MODERNE_ORGANIZATION_SOURCES_HTTP_0_URI=https://internal.example.com/repos.csv \
 # ... Additional variables
 ```
 </TabItem>
@@ -410,16 +410,72 @@ docker run \
 
 **Arguments:**
 
-| Argument Name                                         | Required | Default | Description                                                                                                                                                                        |
-|-------------------------------------------------------|----------|---------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `--moderne.organization.indexer.sources[0].repos-csv` | `false`  |         | The path of your `repos.csv` file that provides organization information. This could also be an unauthenticated HTTP/S URL in the form of `https://<internal-endpoint>/repos.csv`. |
+| Argument Name                                       | Required | Default | Description                                                                                                                         |
+|-----------------------------------------------------|----------|---------|-------------------------------------------------------------------------------------------------------------------------------------|
+| `--moderne.organization.sources.file[{index}].path` | `false`  |         | The path to a local `repos.csv` file, relative to the Connector's permanent directory (`--moderne.connector.storage.permanentDir`). |
+| `--moderne.organization.sources.http[{index}].uri`  | `false`  |         | The URL of an HTTP(S) endpoint serving your `repos.csv` file (e.g., `https://<internal-endpoint>/repos.csv`).                       |
+
+**Example using a local file:**
+
+```bash
+java -jar connector-{version}.jar \
+# ... Existing arguments
+--moderne.organization.sources.file[0].path=repos.csv \
+# ... Additional arguments
+```
+
+**Example using an HTTP URL:**
+
+```bash
+java -jar connector-{version}.jar \
+# ... Existing arguments
+--moderne.organization.sources.http[0].uri=https://internal.example.com/repos.csv \
+# ... Additional arguments
+```
+</TabItem>
+</Tabs>
+
+## Organization sync variables
+
+These variables control how often the Connector re-fetches each `repos.csv` source and the global concurrency for LST download, encryption, and upload operations. Both are optional.
+
+<Tabs groupId="agent-type">
+<TabItem value="oci-container" label="OCI Container">
+
+**Environment variables:**
+
+| Environment Variable                                 | Required | Default                         | Description                                                                                                                                                             |
+|------------------------------------------------------|----------|---------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `MODERNE_CONNECTOR_ORGANIZATION_INTERVAL`            | `false`  | `10m`                           | How often the Connector re-fetches each source `repos.csv` and re-runs enrichment. Applies to both LOCK and POLLING modes. Specified as a duration (e.g., `10m`, `1h`). |
+| `MODERNE_CONNECTOR_ORGANIZATION_DOWNLOADPARALLELISM` | `false`  | `max(4, availableProcessors())` | Global cap on concurrent LST download, encrypt, and upload operations across all configured sources.                                                                    |
+
+**Example:**
+
+```bash
+docker run \
+# ... Existing variables
+-e MODERNE_CONNECTOR_ORGANIZATION_INTERVAL=5m \
+-e MODERNE_CONNECTOR_ORGANIZATION_DOWNLOADPARALLELISM=8 \
+# ... Additional variables
+```
+</TabItem>
+
+<TabItem value="executable-jar" label="Executable JAR">
+
+**Arguments:**
+
+| Argument Name                                          | Required | Default                         | Description                                                                                                                                                             |
+|--------------------------------------------------------|----------|---------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `--moderne.connector.organization.interval`            | `false`  | `10m`                           | How often the Connector re-fetches each source `repos.csv` and re-runs enrichment. Applies to both LOCK and POLLING modes. Specified as a duration (e.g., `10m`, `1h`). |
+| `--moderne.connector.organization.downloadParallelism` | `false`  | `max(4, availableProcessors())` | Global cap on concurrent LST download, encrypt, and upload operations across all configured sources.                                                                    |
 
 **Example:**
 
 ```bash
 java -jar connector-{version}.jar \
 # ... Existing arguments
---moderne.organization.indexer.sources[0].repos-csv=/Users/MY_USER/Documents/repos.csv \
+--moderne.connector.organization.interval=5m \
+--moderne.connector.organization.downloadParallelism=8 \
 # ... Additional arguments
 ```
 </TabItem>
@@ -434,28 +490,29 @@ You can configure multiple Maven repositories by including multiple entries, eac
 
 **Environment variables:**
 
-| Variable Name                                                     | Required | Default                         | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
-|-------------------------------------------------------------------|----------|---------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `MODERNE_ORGANIZATION_INDEXER_POLL_MAVEN_{index}_URI`             | `true`   |                                 | The URI of your Maven repository.                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
-| `MODERNE_ORGANIZATION_INDEXER_POLL_MAVEN_{index}_LOCALREPOSITORY` | `false`  | `~/.moderne-maven/maven{index}` | The path on disk where LST artifacts and Maven index files will be downloaded to. This is on the disk where the Connector is being run and **not** on the Maven instance. Only used when `ASTSOURCE` is `true`. If not specified, a unique path is automatically generated based on the configuration index. <br/><br/> LST artifacts are deleted from this location after they are transmitted to Moderne. Index files will remain behind to be used to detect diffs in the artifacts. |
-| `MODERNE_ORGANIZATION_INDEXER_POLL_MAVEN_{index}_USERNAME`        | `false`  | `null`                          | The username used to resolve artifacts.                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
-| `MODERNE_ORGANIZATION_INDEXER_POLL_MAVEN_{index}_PASSWORD`        | `false`  | `null`                          | The password used to resolve artifacts.                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
-| `MODERNE_ORGANIZATION_INDEXER_POLL_MAVEN_{index}_RELEASES`        | `false`  | `true`                          | Specifies whether or not this repository should be searched for releases.                                                                                                                                                                                                                                                                                                                                                                                                               |
-| `MODERNE_ORGANIZATION_INDEXER_POLL_MAVEN_{index}_SNAPSHOTS`       | `false`  | `true`                          | Specifies whether or not this repository should be searched for snapshots.                                                                                                                                                                                                                                                                                                                                                                                                              |
-| `MODERNE_ORGANIZATION_INDEXER_POLL_MAVEN_{index}_ASTSOURCE`       | `false`  | `true`                          | Specifies whether or not this repository should be searched for LST artifacts (Note: LSTs used to be called ASTs).                                                                                                                                                                                                                                                                                                                                                                      |
-| `MODERNE_ORGANIZATION_INDEXER_POLL_MAVEN_{index}_RECIPESOURCE`    | `false`  | `true`                          | Specifies whether or not this repository should be searched for recipe jars.                                                                                                                                                                                                                                                                                                                                                                                                            |
-| `MODERNE_ORGANIZATION_INDEXER_POLL_MAVEN_{index}_SKIPSSL`         | `false`  | `false`                         | Whether or not to skip SSL/TLS verification for calls from the Connector to this Maven repository. This must be set to `true` if you use a self-signed SSL/TLS certificate.                                                                                                                                                                                                                                                                                                             |
-| `MODERNE_ORGANIZATION_INDEXER_POLL_MAVEN_{index}_CONNECTTIMEOUT`  | `false`  | `30s`                           | Timeout for the connection to be established (and the first data received). Specified as a duration (e.g., `30s`, `1m`).                                                                                                                                                                                                                                                                                                                                                                |
-| `MODERNE_ORGANIZATION_INDEXER_POLL_MAVEN_{index}_READTIMEOUT`     | `false`  | `60s`                           | Timeout for reading the response body from the Maven repository. Specified as a duration (e.g., `60s`, `5m`).                                                                                                                                                                                                                                                                                                                                                                           |
+| Variable Name                                                       | Required | Default            | Description                                                                                                                                                                                                                                                                                                                                          |
+|---------------------------------------------------------------------|----------|--------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `MODERNE_CONNECTOR_ORGANIZATION_POLL_MAVEN_{index}_URI`             | `true`   |                    | The URI of your Maven repository.                                                                                                                                                                                                                                                                                                                    |
+| `MODERNE_CONNECTOR_ORGANIZATION_POLL_MAVEN_{index}_LOCALREPOSITORY` | `false`  | `~/.moderne-maven` | The path on disk where LST artifacts and Maven index files will be downloaded to. This is on the disk where the Connector is being run and **not** on the Maven instance. <br/><br/> LST artifacts are deleted from this location after they are transmitted to Moderne. Index files will remain behind to be used to detect diffs in the artifacts. |
+| `MODERNE_CONNECTOR_ORGANIZATION_POLL_MAVEN_{index}_USERNAME`        | `false`  | `null`             | The username used to resolve artifacts.                                                                                                                                                                                                                                                                                                              |
+| `MODERNE_CONNECTOR_ORGANIZATION_POLL_MAVEN_{index}_PASSWORD`        | `false`  | `null`             | The password used to resolve artifacts.                                                                                                                                                                                                                                                                                                              |
+| `MODERNE_CONNECTOR_ORGANIZATION_POLL_MAVEN_{index}_RELEASES`        | `false`  | `true`             | Specifies whether or not this repository should be searched for releases.                                                                                                                                                                                                                                                                            |
+| `MODERNE_CONNECTOR_ORGANIZATION_POLL_MAVEN_{index}_SNAPSHOTS`       | `false`  | `true`             | Specifies whether or not this repository should be searched for snapshots.                                                                                                                                                                                                                                                                           |
+| `MODERNE_CONNECTOR_ORGANIZATION_POLL_MAVEN_{index}_SKIPSSL`                 | `false`  | `false`            | Whether or not to skip SSL/TLS verification for calls from the Connector to this Maven repository. This must be set to `true` if you use a self-signed SSL/TLS certificate.                                                                                                                                                                          |
+| `MODERNE_CONNECTOR_ORGANIZATION_POLL_MAVEN_{index}_SKIPVALIDATECONNECTIVITY` | `false`  | `false`            | By default, on Connector startup, we will validate that we can connect to this Maven repository, and fail to start up the Connector if we cannot. Set this to `true` to skip this validation.                                                                                                                                                        |
+| `MODERNE_CONNECTOR_ORGANIZATION_POLL_MAVEN_{index}_PROXY_HOST`              | `false`  |                    | The hostname of a proxy server to use for connections to this Maven repository.                                                                                                                                                                                                                                                                      |
+| `MODERNE_CONNECTOR_ORGANIZATION_POLL_MAVEN_{index}_PROXY_PORT`              | `false`  |                    | The port of the proxy server to use for connections to this Maven repository.                                                                                                                                                                                                                                                                        |
+| `MODERNE_CONNECTOR_ORGANIZATION_POLL_MAVEN_{index}_CONNECTTIMEOUT`          | `false`  | `30s`              | Timeout for the connection to be established (and the first data received). Specified as a duration (e.g., `30s`, `1m`).                                                                                                                                                                                                                             |
+| `MODERNE_CONNECTOR_ORGANIZATION_POLL_MAVEN_{index}_READTIMEOUT`             | `false`  | `60s`              | Timeout for reading the response body from the Maven repository. Specified as a duration (e.g., `60s`, `5m`).                                                                                                                                                                                                                                        |
 
 **Example:**
 
 ```bash
 docker run \
 # ... Existing variables
--e MODERNE_ORGANIZATION_INDEXER_POLL_MAVEN_0_URI=https://myartifactory.example.com/artifactory/libs-releases-local \
--e MODERNE_ORGANIZATION_INDEXER_POLL_MAVEN_0_USERNAME=admin \
--e MODERNE_ORGANIZATION_INDEXER_POLL_MAVEN_0_PASSWORD=password \
+-e MODERNE_CONNECTOR_ORGANIZATION_POLL_MAVEN_0_URI=https://myartifactory.example.com/artifactory/libs-releases-local \
+-e MODERNE_CONNECTOR_ORGANIZATION_POLL_MAVEN_0_USERNAME=admin \
+-e MODERNE_CONNECTOR_ORGANIZATION_POLL_MAVEN_0_PASSWORD=password \
 # ... Additional variables
 ```
 </TabItem>
@@ -464,28 +521,29 @@ docker run \
 
 **Arguments:**
 
-| Argument Name                                                        | Required | Default                         | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
-|----------------------------------------------------------------------|----------|---------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `--moderne.organization.indexer.poll.maven[{index}].uri`             | `true`   |                                 | The URI of your Maven repository.                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
-| `--moderne.organization.indexer.poll.maven[{index}].localRepository` | `false`  | `~/.moderne-maven/maven{index}` | The path on disk where LST artifacts and Maven index files will be downloaded to. This is on the disk where the Connector is being run and **not** on the Maven instance. Only used when `astSource` is `true`. If not specified, a unique path is automatically generated based on the configuration index. <br/><br/> LST artifacts are deleted from this location after they are transmitted to Moderne. Index files will remain behind to be used to detect diffs in the artifacts. |
-| `--moderne.organization.indexer.poll.maven[{index}].username`        | `false`  | `null`                          | The username used to resolve artifacts.                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
-| `--moderne.organization.indexer.poll.maven[{index}].password`        | `false`  | `null`                          | The password used to resolve artifacts.                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
-| `--moderne.organization.indexer.poll.maven[{index}].releases`        | `false`  | `true`                          | Specifies whether or not this repository should be searched for releases.                                                                                                                                                                                                                                                                                                                                                                                                               |
-| `--moderne.organization.indexer.poll.maven[{index}].snapshots`       | `false`  | `true`                          | Specifies whether or not this repository should be searched for snapshots.                                                                                                                                                                                                                                                                                                                                                                                                              |
-| `--moderne.organization.indexer.poll.maven[{index}].astSource`       | `false`  | `true`                          | Specifies whether or not this repository should be searched for LST artifacts (Note: LSTs used to be called ASTs).                                                                                                                                                                                                                                                                                                                                                                      |
-| `--moderne.organization.indexer.poll.maven[{index}].recipeSource`    | `false`  | `true`                          | Specifies whether or not this repository should be searched for recipe jars.                                                                                                                                                                                                                                                                                                                                                                                                            |
-| `--moderne.organization.indexer.poll.maven[{index}].skipSsl`         | `false`  | `false`                         | Whether or not to skip SSL/TLS verification for calls from the Connector to this Maven repository. This must be set to `true` if you use a self-signed SSL/TLS certificate.                                                                                                                                                                                                                                                                                                             |
-| `--moderne.organization.indexer.poll.maven[{index}].connectTimeout`  | `false`  | `30s`                           | Timeout for the connection to be established (and the first data received). Specified as a duration (e.g., `30s`, `1m`).                                                                                                                                                                                                                                                                                                                                                                |
-| `--moderne.organization.indexer.poll.maven[{index}].readTimeout`     | `false`  | `60s`                           | Timeout for reading the response body from the Maven repository. Specified as a duration (e.g., `60s`, `5m`).                                                                                                                                                                                                                                                                                                                                                                           |
+| Argument Name                                                          | Required | Default            | Description                                                                                                                                                                                                                                                                                                                                          |
+|------------------------------------------------------------------------|----------|--------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `--moderne.connector.organization.poll.maven[{index}].uri`             | `true`   |                    | The URI of your Maven repository.                                                                                                                                                                                                                                                                                                                    |
+| `--moderne.connector.organization.poll.maven[{index}].localRepository` | `false`  | `~/.moderne-maven` | The path on disk where LST artifacts and Maven index files will be downloaded to. This is on the disk where the Connector is being run and **not** on the Maven instance. <br/><br/> LST artifacts are deleted from this location after they are transmitted to Moderne. Index files will remain behind to be used to detect diffs in the artifacts. |
+| `--moderne.connector.organization.poll.maven[{index}].username`        | `false`  | `null`             | The username used to resolve artifacts.                                                                                                                                                                                                                                                                                                              |
+| `--moderne.connector.organization.poll.maven[{index}].password`        | `false`  | `null`             | The password used to resolve artifacts.                                                                                                                                                                                                                                                                                                              |
+| `--moderne.connector.organization.poll.maven[{index}].releases`        | `false`  | `true`             | Specifies whether or not this repository should be searched for releases.                                                                                                                                                                                                                                                                            |
+| `--moderne.connector.organization.poll.maven[{index}].snapshots`       | `false`  | `true`             | Specifies whether or not this repository should be searched for snapshots.                                                                                                                                                                                                                                                                           |
+| `--moderne.connector.organization.poll.maven[{index}].skipSsl`                 | `false`  | `false`            | Whether or not to skip SSL/TLS verification for calls from the Connector to this Maven repository. This must be set to `true` if you use a self-signed SSL/TLS certificate.                                                                                                                                                                          |
+| `--moderne.connector.organization.poll.maven[{index}].skipValidateConnectivity` | `false`  | `false`            | By default, on Connector startup, we will validate that we can connect to this Maven repository, and fail to start up the Connector if we cannot. Set this to `true` to skip this validation.                                                                                                                                                        |
+| `--moderne.connector.organization.poll.maven[{index}].proxy.host`               | `false`  |                    | The hostname of a proxy server to use for connections to this Maven repository.                                                                                                                                                                                                                                                                      |
+| `--moderne.connector.organization.poll.maven[{index}].proxy.port`               | `false`  |                    | The port of the proxy server to use for connections to this Maven repository.                                                                                                                                                                                                                                                                        |
+| `--moderne.connector.organization.poll.maven[{index}].connectTimeout`          | `false`  | `30s`              | Timeout for the connection to be established (and the first data received). Specified as a duration (e.g., `30s`, `1m`).                                                                                                                                                                                                                             |
+| `--moderne.connector.organization.poll.maven[{index}].readTimeout`             | `false`  | `60s`              | Timeout for reading the response body from the Maven repository. Specified as a duration (e.g., `60s`, `5m`).                                                                                                                                                                                                                                        |
 
 **Example:**
 
 ```bash
 java -jar connector-{version}.jar \
 # ... Existing arguments
---moderne.organization.indexer.poll.maven[0].uri=https://myartifactory.example.com/artifactory/libs-releases-local \
---moderne.organization.indexer.poll.maven[0].username=admin \
---moderne.organization.indexer.poll.maven[0].password=password \
+--moderne.connector.organization.poll.maven[0].uri=https://myartifactory.example.com/artifactory/libs-releases-local \
+--moderne.connector.organization.poll.maven[0].username=admin \
+--moderne.connector.organization.poll.maven[0].password=password \
 # ... Additional arguments
 ```
 </TabItem>
@@ -500,26 +558,30 @@ You can configure multiple Artifactory servers by including multiple entries, ea
 
 **Environment variables:**
 
-| Variable Name                                                                   | Required | Default | Description                                                                                                                                                                                      |
-|---------------------------------------------------------------------------------|----------|---------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `MODERNE_ORGANIZATION_INDEXER_POLL_ARTIFACTORY_{index}_URI`                     | `true`   |         | The URI of your Artifactory instance.                                                                                                                                                            |
-| `MODERNE_ORGANIZATION_INDEXER_POLL_ARTIFACTORY_{index}_USERNAME`                | `true`   |         | The username used to connect to your Artifactory instance. This user must have permission to run AQL queries.                                                                                    |
-| `MODERNE_ORGANIZATION_INDEXER_POLL_ARTIFACTORY_{index}_PASSWORD`                | `true`   |         | The password used to connect to your Artifactory instance.                                                                                                                                       |
-| `MODERNE_ORGANIZATION_INDEXER_POLL_ARTIFACTORY_{index}_LSTQUERYFILTERS_{index}` | `true`   |         | The AQL query fragment used to select LST artifacts to send to Moderne. If multiple are specified, they are combined together with an `AND`.                                                     |
-| `MODERNE_ORGANIZATION_INDEXER_POLL_ARTIFACTORY_{index}_SKIPSSL`                 | `false`  | `false` | Specifies whether or not to skip SSL verification for HTTP connections from the Connector to this Artifactory instance. This must be set to `true` if you use a self-signed SSL/TLS certificate. |
-| `MODERNE_ORGANIZATION_INDEXER_POLL_ARTIFACTORY_{index}_CONNECTTIMEOUT`          | `false`  | `30s`   | Timeout for the connection to be established (and the first data received). Specified as a duration (e.g., `30s`, `1m`).                                                                         |
-| `MODERNE_ORGANIZATION_INDEXER_POLL_ARTIFACTORY_{index}_READTIMEOUT`             | `false`  | `60s`   | Timeout for reading the response body from the Artifactory instance. Specified as a duration (e.g., `60s`, `5m`).                                                                                |
+| Variable Name                                                                      | Required | Default | Description                                                                                                                                                                                                                                          |
+|------------------------------------------------------------------------------------|----------|---------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `MODERNE_CONNECTOR_ORGANIZATION_POLL_ARTIFACTORY_{index}_URI`                      | `true`   |         | The URL of your Artifactory instance.                                                                                                                                                                                                                |
+| `MODERNE_CONNECTOR_ORGANIZATION_POLL_ARTIFACTORY_{index}_USERNAME`                 | `false`  |         | The username used to connect to your Artifactory instance. This user must have permission to run AQL queries. <br/><br/>**Note:** Only one of basic auth (username+password) or bearer token can be used.                                            |
+| `MODERNE_CONNECTOR_ORGANIZATION_POLL_ARTIFACTORY_{index}_PASSWORD`                 | `false`  |         | The password used to connect to your Artifactory instance. <br/><br/>**Note:** Only one of basic auth (username+password) or bearer token can be used.                                                                                               |
+| `MODERNE_CONNECTOR_ORGANIZATION_POLL_ARTIFACTORY_{index}_BEARERTOKEN`              | `false`  |         | The bearer token (access token) used to connect to your Artifactory instance. <br/><br/>**Note:** Only one of basic auth (username+password) or bearer token can be used. If `bearerToken` is specified, username and password must not be provided. |
+| `MODERNE_CONNECTOR_ORGANIZATION_POLL_ARTIFACTORY_{index}_LSTQUERYFILTERS_{index}`  | `true`   |         | The AQL query fragment used to select LST artifacts to send to Moderne. If multiple are specified, they are combined together with an `AND`.                                                                                                         |
+| `MODERNE_CONNECTOR_ORGANIZATION_POLL_ARTIFACTORY_{index}_SKIPSSL`                  | `false`  | `false` | Specifies whether or not to skip SSL verification for HTTP connections from the Connector to this Artifactory instance. This must be set to `true` if you use a self-signed SSL/TLS certificate.                                                     |
+| `MODERNE_CONNECTOR_ORGANIZATION_POLL_ARTIFACTORY_{index}_SKIPVALIDATECONNECTIVITY` | `false`  | `false` | By default, on Connector startup, we will validate that we can connect to this Artifactory instance, and fail to start up the Connector if we cannot. Set this to `true` to skip this validation.                                                    |
+| `MODERNE_CONNECTOR_ORGANIZATION_POLL_ARTIFACTORY_{index}_PROXY_HOST`               | `false`  |         | The hostname of a proxy server to use for connections to this Artifactory instance.                                                                                                                                                                  |
+| `MODERNE_CONNECTOR_ORGANIZATION_POLL_ARTIFACTORY_{index}_PROXY_PORT`               | `false`  |         | The port of the proxy server to use for connections to this Artifactory instance.                                                                                                                                                                    |
+| `MODERNE_CONNECTOR_ORGANIZATION_POLL_ARTIFACTORY_{index}_CONNECTTIMEOUT`           | `false`  | `30s`   | Timeout for the connection to be established (and the first data received). Specified as a duration (e.g., `30s`, `1m`).                                                                                                                             |
+| `MODERNE_CONNECTOR_ORGANIZATION_POLL_ARTIFACTORY_{index}_READTIMEOUT`              | `false`  | `60s`   | Timeout for reading the response body from the Artifactory instance. Specified as a duration (e.g., `60s`, `5m`).                                                                                                                                    |
 
 **Example:**
 
 ```bash
 docker run \
 # ... Existing variables
--e MODERNE_ORGANIZATION_INDEXER_POLL_ARTIFACTORY_0_URI=https://myartifactory.example.com/artifactory/ \
--e MODERNE_ORGANIZATION_INDEXER_POLL_ARTIFACTORY_0_USERNAME=admin \
--e MODERNE_ORGANIZATION_INDEXER_POLL_ARTIFACTORY_0_PASSWORD=password \
--e MODERNE_ORGANIZATION_INDEXER_POLL_ARTIFACTORY_0_LSTQUERYFILTERS_0='"name":{"$match":"*-ast.jar"}' \
--e MODERNE_ORGANIZATION_INDEXER_POLL_ARTIFACTORY_0_LSTQUERYFILTERS_1='"repo":{"$eq":"example-maven"}' \
+-e MODERNE_CONNECTOR_ORGANIZATION_POLL_ARTIFACTORY_0_URI=https://myartifactory.example.com/artifactory/ \
+-e MODERNE_CONNECTOR_ORGANIZATION_POLL_ARTIFACTORY_0_USERNAME=admin \
+-e MODERNE_CONNECTOR_ORGANIZATION_POLL_ARTIFACTORY_0_PASSWORD=password \
+-e MODERNE_CONNECTOR_ORGANIZATION_POLL_ARTIFACTORY_0_LSTQUERYFILTERS_0='"name":{"$match":"*-ast.jar"}' \
+-e MODERNE_CONNECTOR_ORGANIZATION_POLL_ARTIFACTORY_0_LSTQUERYFILTERS_1='"repo":{"$eq":"example-maven"}' \
 # ... Additional variables
 ```
 </TabItem>
@@ -528,62 +590,63 @@ docker run \
 
 **Arguments:**
 
-| Argument Name                                                                       | Required | Default | Description                                                                                                                                                                                      |
-|-------------------------------------------------------------------------------------|----------|---------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `--moderne.organization.indexer.poll.artifactory[{index}].uri`                      | `true`   |         | The URI of your Artifactory instance.                                                                                                                                                            |
-| `--moderne.organization.indexer.poll.artifactory[{index}].username`                 | `true`   |         | The username used to connect to your Artifactory instance. This user must have permission to run AQL queries.                                                                                    |
-| `--moderne.organization.indexer.poll.artifactory[{index}].password`                 | `true`   |         | The password used to connect to your Artifactory instance.                                                                                                                                       |
-| `--moderne.organization.indexer.poll.artifactory[{index}].lstQueryFilters[{index}]` | `true`   |         | The AQL query fragment used to select LST artifacts to send to Moderne. If multiple are specified, they are combined together with an `AND`.                                                     |
-| `--moderne.organization.indexer.poll.artifactory[{index}].skipSsl`                  | `false`  | `false` | Specifies whether or not to skip SSL verification for HTTP connections from the Connector to this Artifactory instance. This must be set to `true` if you use a self-signed SSL/TLS certificate. |
-| `--moderne.organization.indexer.poll.artifactory[{index}].connectTimeout`           | `false`  | `30s`   | Timeout for the connection to be established (and the first data received). Specified as a duration (e.g., `30s`, `1m`).                                                                         |
-| `--moderne.organization.indexer.poll.artifactory[{index}].readTimeout`              | `false`  | `60s`   | Timeout for reading the response body from the Artifactory instance. Specified as a duration (e.g., `60s`, `5m`).                                                                                |
+| Argument Name                                                                         | Required | Default | Description                                                                                                                                                                                                                                          |
+|---------------------------------------------------------------------------------------|----------|---------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `--moderne.connector.organization.poll.artifactory[{index}].uri`                      | `true`   |         | The URL of your Artifactory instance.                                                                                                                                                                                                                |
+| `--moderne.connector.organization.poll.artifactory[{index}].username`                 | `false`  |         | The username used to connect to your Artifactory instance. This user must have permission to run AQL queries. <br/><br/>**Note:** Only one of basic auth (username+password) or bearer token can be used.                                            |
+| `--moderne.connector.organization.poll.artifactory[{index}].password`                 | `false`  |         | The password used to connect to your Artifactory instance. <br/><br/>**Note:** Only one of basic auth (username+password) or bearer token can be used.                                                                                               |
+| `--moderne.connector.organization.poll.artifactory[{index}].bearerToken`              | `false`  |         | The bearer token (access token) used to connect to your Artifactory instance. <br/><br/>**Note:** Only one of basic auth (username+password) or bearer token can be used. If `bearerToken` is specified, username and password must not be provided. |
+| `--moderne.connector.organization.poll.artifactory[{index}].lstQueryFilters[{index}]` | `true`   |         | The AQL query fragment used to select LST artifacts to send to Moderne. If multiple are specified, they are combined together with an `AND`.                                                                                                         |
+| `--moderne.connector.organization.poll.artifactory[{index}].skipSsl`                  | `false`  | `false` | Specifies whether or not to skip SSL verification for HTTP connections from the Connector to this Artifactory instance. This must be set to `true` if you use a self-signed SSL/TLS certificate.                                                     |
+| `--moderne.connector.organization.poll.artifactory[{index}].skipValidateConnectivity` | `false`  | `false` | By default, on Connector startup, we will validate that we can connect to this Artifactory instance, and fail to start up the Connector if we cannot. Set this to `true` to skip this validation.                                                    |
+| `--moderne.connector.organization.poll.artifactory[{index}].proxy.host`               | `false`  |         | The hostname of a proxy server to use for connections to this Artifactory instance.                                                                                                                                                                  |
+| `--moderne.connector.organization.poll.artifactory[{index}].proxy.port`               | `false`  |         | The port of the proxy server to use for connections to this Artifactory instance.                                                                                                                                                                    |
+| `--moderne.connector.organization.poll.artifactory[{index}].connectTimeout`           | `false`  | `30s`   | Timeout for the connection to be established (and the first data received). Specified as a duration (e.g., `30s`, `1m`).                                                                                                                             |
+| `--moderne.connector.organization.poll.artifactory[{index}].readTimeout`              | `false`  | `60s`   | Timeout for reading the response body from the Artifactory instance. Specified as a duration (e.g., `60s`, `5m`).                                                                                                                                    |
 
 **Example:**
 
 ```bash
 java -jar connector-{version}.jar \
 # ... Existing arguments
---moderne.organization.indexer.poll.artifactory[0].uri=https://myartifactory.example.com/artifactory/ \
---moderne.organization.indexer.poll.artifactory[0].username=admin \
---moderne.organization.indexer.poll.artifactory[0].password=password \
---moderne.organization.indexer.poll.artifactory[0].lstQueryFilters[0]='{"name":{"$match":"*-ast.jar"}}' \
---moderne.organization.indexer.poll.artifactory[0].lstQueryFilters[1]='{"repo":{"$eq":"example-maven"}}' \
+--moderne.connector.organization.poll.artifactory[0].uri=https://myartifactory.example.com/artifactory/ \
+--moderne.connector.organization.poll.artifactory[0].username=admin \
+--moderne.connector.organization.poll.artifactory[0].password=password \
+--moderne.connector.organization.poll.artifactory[0].lstQueryFilters[0]='{"name":{"$match":"*-ast.jar"}}' \
+--moderne.connector.organization.poll.artifactory[0].lstQueryFilters[1]='{"repo":{"$eq":"example-maven"}}' \
 # ... Additional arguments
 ```
 </TabItem>
 </Tabs>
 
-## Artifactory recipe variables
+## Recipe marketplace Maven variables
+
+Recipe marketplace repositories are configured under the `moderne.recipe.marketplace.repositories` namespace. You can configure multiple Maven repositories by including multiple entries, each with a different `{index}`.
 
 <Tabs groupId="agent-type">
 <TabItem value="oci-container" label="OCI Container">
 
 **Environment variables:**
 
-| Variable Name                                                  | Required | Default | Description                                                                                                                                                                 |
-|----------------------------------------------------------------|----------|---------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `MODERNE_ORGANIZATION_INDEXER_POLL_MAVEN_{index}_URI`          | `true`   |         | The URI of your Maven repository.                                                                                                                                           |
-| `MODERNE_ORGANIZATION_INDEXER_POLL_MAVEN_{index}_ASTSOURCE`    | `true`   | `true`  | Specifies whether or not this repository should be searched for LST artifacts. **You should set this to false** (Note: LSTs used to be called ASTs).                        |
-| `MODERNE_ORGANIZATION_INDEXER_POLL_MAVEN_{index}_USERNAME`     | `false`  | `null`  | The username used to resolve artifacts.                                                                                                                                     |
-| `MODERNE_ORGANIZATION_INDEXER_POLL_MAVEN_{index}_PASSWORD`     | `false`  | `null`  | The password used to resolve artifacts.                                                                                                                                     |
-| `MODERNE_ORGANIZATION_INDEXER_POLL_MAVEN_{index}_RELEASES`     | `false`  | `true`  | Specifies whether or not this repository should be searched for releases.                                                                                                   |
-| `MODERNE_ORGANIZATION_INDEXER_POLL_MAVEN_{index}_SNAPSHOTS`    | `false`  | `true`  | Specifies whether or not this repository should be searched for snapshots.                                                                                                  |
-| `MODERNE_ORGANIZATION_INDEXER_POLL_MAVEN_{index}_RECIPESOURCE` | `false`  | `true`  | Specifies whether or not this repository should be searched for recipe jars.                                                                                                |
-| `MODERNE_ORGANIZATION_INDEXER_POLL_MAVEN_{index}_SKIPSSL`      | `false`  | `false` | Whether or not to skip SSL/TLS verification for calls from the Connector to this Maven repository. This must be set to `true` if you use a self-signed SSL/TLS certificate. |
-
-:::warning
-If you want to configure a [Moderne DevCenter](../creating-a-devcenter-recipe.md), you will need to ensure that you have exactly one Maven repository configured with `RECIPESOURCE` set to `true`. (It is fine to have this same Maven repository configured in multiple Connectors.)
-:::
+| Variable Name                                                      | Required | Default | Description                                                                                                                                                                 |
+|--------------------------------------------------------------------|----------|---------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `MODERNE_RECIPE_MARKETPLACE_REPOSITORIES_MAVEN_{index}_URI`        | `true`   |         | The URL of your Maven repository.                                                                                                                                           |
+| `MODERNE_RECIPE_MARKETPLACE_REPOSITORIES_MAVEN_{index}_USERNAME`   | `false`  | `null`  | The username used to resolve artifacts.                                                                                                                                     |
+| `MODERNE_RECIPE_MARKETPLACE_REPOSITORIES_MAVEN_{index}_PASSWORD`   | `false`  | `null`  | The password used to resolve artifacts.                                                                                                                                     |
+| `MODERNE_RECIPE_MARKETPLACE_REPOSITORIES_MAVEN_{index}_PROXY_HOST` | `false`  | `null`  | The host of an HTTP proxy used to reach this repository.                                                                                                                    |
+| `MODERNE_RECIPE_MARKETPLACE_REPOSITORIES_MAVEN_{index}_PROXY_PORT` | `false`  | `null`  | The port of an HTTP proxy used to reach this repository.                                                                                                                    |
+| `MODERNE_RECIPE_MARKETPLACE_REPOSITORIES_MAVEN_{index}_SKIPSSL`    | `false`  | `false` | Whether or not to skip SSL/TLS verification for calls from the Connector to this Maven repository. This must be set to `true` if you use a self-signed SSL/TLS certificate. |
+| `MODERNE_RECIPE_MARKETPLACE_REPOSITORIES_MAVEN_{index}_RELEASES`   | `false`  | `true`  | Specifies whether or not this repository should be searched for releases.                                                                                                   |
+| `MODERNE_RECIPE_MARKETPLACE_REPOSITORIES_MAVEN_{index}_SNAPSHOTS`  | `false`  | `true`  | Specifies whether or not this repository should be searched for snapshots.                                                                                                  |
 
 **Example:**
 
 ```bash
 docker run \
 # ... Existing variables
--e MODERNE_ORGANIZATION_INDEXER_POLL_MAVEN_0_URI=https://myartifactory.example.com/artifactory/libs-releases-local \
--e MODERNE_ORGANIZATION_INDEXER_POLL_MAVEN_0_ASTSOURCE=false \
--e MODERNE_ORGANIZATION_INDEXER_POLL_MAVEN_0_USERNAME=admin \
--e MODERNE_ORGANIZATION_INDEXER_POLL_MAVEN_0_PASSWORD=password \
+-e MODERNE_RECIPE_MARKETPLACE_REPOSITORIES_MAVEN_0_URI=https://myartifactory.example.com/artifactory/libs-releases-local \
+-e MODERNE_RECIPE_MARKETPLACE_REPOSITORIES_MAVEN_0_USERNAME=admin \
+-e MODERNE_RECIPE_MARKETPLACE_REPOSITORIES_MAVEN_0_PASSWORD=password \
 # ... Additional variables
 ```
 </TabItem>
@@ -592,30 +655,193 @@ docker run \
 
 **Arguments:**
 
-| Argument Name                                                     | Required | Default | Description                                                                                                                                                                 |
-|-------------------------------------------------------------------|----------|---------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `--moderne.organization.indexer.poll.maven[{index}].uri`          | `true`   |         | The URI of your Maven repository.                                                                                                                                           |
-| `--moderne.organization.indexer.poll.maven[{index}].astSource`    | `true`   | `true`  | Specifies whether or not this repository should be searched for LST artifacts. **You should set this to false** (Note: LSTs used to be called ASTs).                        |
-| `--moderne.organization.indexer.poll.maven[{index}].username`     | `false`  | `null`  | The username used to resolve artifacts.                                                                                                                                     |
-| `--moderne.organization.indexer.poll.maven[{index}].password`     | `false`  | `null`  | The password used to resolve artifacts.                                                                                                                                     |
-| `--moderne.organization.indexer.poll.maven[{index}].releases`     | `false`  | `true`  | Specifies whether or not this repository should be searched for releases.                                                                                                   |
-| `--moderne.organization.indexer.poll.maven[{index}].snapshots`    | `false`  | `true`  | Specifies whether or not this repository should be searched for snapshots.                                                                                                  |
-| `--moderne.organization.indexer.poll.maven[{index}].recipeSource` | `false`  | `true`  | Specifies whether or not this repository should be searched for recipe jars.                                                                                                |
-| `--moderne.organization.indexer.poll.maven[{index}].skipSsl`      | `false`  | `false` | Whether or not to skip SSL/TLS verification for calls from the Connector to this Maven repository. This must be set to `true` if you use a self-signed SSL/TLS certificate. |
-
-:::warning
-If you want to configure a [Moderne DevCenter](../creating-a-devcenter-recipe.md), you will need to ensure that you have exactly one Maven repository configured with `recipeSource` set to `true`. (It is fine to have this same Maven repository configured in multiple Connectors.)
-:::
+| Argument Name                                                         | Required | Default | Description                                                                                                                                                                 |
+|-----------------------------------------------------------------------|----------|---------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `--moderne.recipe.marketplace.repositories.maven[{index}].uri`        | `true`   |         | The URL of your Maven repository.                                                                                                                                           |
+| `--moderne.recipe.marketplace.repositories.maven[{index}].username`   | `false`  | `null`  | The username used to resolve artifacts.                                                                                                                                     |
+| `--moderne.recipe.marketplace.repositories.maven[{index}].password`   | `false`  | `null`  | The password used to resolve artifacts.                                                                                                                                     |
+| `--moderne.recipe.marketplace.repositories.maven[{index}].proxy.host` | `false`  | `null`  | The host of an HTTP proxy used to reach this repository.                                                                                                                    |
+| `--moderne.recipe.marketplace.repositories.maven[{index}].proxy.port` | `false`  | `null`  | The port of an HTTP proxy used to reach this repository.                                                                                                                    |
+| `--moderne.recipe.marketplace.repositories.maven[{index}].skipSsl`    | `false`  | `false` | Whether or not to skip SSL/TLS verification for calls from the Connector to this Maven repository. This must be set to `true` if you use a self-signed SSL/TLS certificate. |
+| `--moderne.recipe.marketplace.repositories.maven[{index}].releases`   | `false`  | `true`  | Specifies whether or not this repository should be searched for releases.                                                                                                   |
+| `--moderne.recipe.marketplace.repositories.maven[{index}].snapshots`  | `false`  | `true`  | Specifies whether or not this repository should be searched for snapshots.                                                                                                  |
 
 **Example:**
 
 ```bash
 java -jar connector-{version}.jar \
 # ... Existing arguments
---moderne.organization.indexer.poll.maven[0].uri=https://myartifactory.example.com/artifactory/libs-releases-local \
---moderne.organization.indexer.poll.maven[0].astSource=false \
---moderne.organization.indexer.poll.maven[0].username=admin \
---moderne.organization.indexer.poll.maven[0].password=password \
+--moderne.recipe.marketplace.repositories.maven[0].uri=https://myartifactory.example.com/artifactory/libs-releases-local \
+--moderne.recipe.marketplace.repositories.maven[0].username=admin \
+--moderne.recipe.marketplace.repositories.maven[0].password=password \
+# ... Additional arguments
+```
+</TabItem>
+</Tabs>
+
+## Recipe marketplace NPM variables
+
+NPM repositories support either basic authentication (`username` + `password`) or bearer token authentication (`bearerToken`), but not both at the same time. You can configure multiple NPM registries by including multiple entries, each with a different `{index}`.
+
+<Tabs groupId="agent-type">
+<TabItem value="oci-container" label="OCI Container">
+
+**Environment variables:**
+
+| Variable Name                                                     | Required | Default | Description                                                                                                                                                             |
+|-------------------------------------------------------------------|----------|---------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `MODERNE_RECIPE_MARKETPLACE_REPOSITORIES_NPM_{index}_URI`         | `true`   |         | The URL of your NPM registry.                                                                                                                                           |
+| `MODERNE_RECIPE_MARKETPLACE_REPOSITORIES_NPM_{index}_USERNAME`    | `false`  | `null`  | The username used to resolve artifacts. Mutually exclusive with `BEARERTOKEN`.                                                                                          |
+| `MODERNE_RECIPE_MARKETPLACE_REPOSITORIES_NPM_{index}_PASSWORD`    | `false`  | `null`  | The password used to resolve artifacts. Mutually exclusive with `BEARERTOKEN`.                                                                                          |
+| `MODERNE_RECIPE_MARKETPLACE_REPOSITORIES_NPM_{index}_BEARERTOKEN` | `false`  | `null`  | A bearer token used to resolve artifacts. Mutually exclusive with `USERNAME`/`PASSWORD`.                                                                                |
+| `MODERNE_RECIPE_MARKETPLACE_REPOSITORIES_NPM_{index}_PROXY_HOST`  | `false`  | `null`  | The host of an HTTP proxy used to reach this registry.                                                                                                                  |
+| `MODERNE_RECIPE_MARKETPLACE_REPOSITORIES_NPM_{index}_PROXY_PORT`  | `false`  | `null`  | The port of an HTTP proxy used to reach this registry.                                                                                                                  |
+| `MODERNE_RECIPE_MARKETPLACE_REPOSITORIES_NPM_{index}_SKIPSSL`     | `false`  | `false` | Whether or not to skip SSL/TLS verification for calls from the Connector to this NPM registry. This must be set to `true` if you use a self-signed SSL/TLS certificate. |
+
+**Example:**
+
+```bash
+docker run \
+# ... Existing variables
+-e MODERNE_RECIPE_MARKETPLACE_REPOSITORIES_NPM_0_URI=https://myartifactory.example.com/artifactory/api/npm/npm-local \
+-e MODERNE_RECIPE_MARKETPLACE_REPOSITORIES_NPM_0_BEARERTOKEN=... \
+# ... Additional variables
+```
+</TabItem>
+
+<TabItem value="executable-jar" label="Executable JAR">
+
+**Arguments:**
+
+| Argument Name                                                        | Required | Default | Description                                                                                                                                                             |
+|----------------------------------------------------------------------|----------|---------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `--moderne.recipe.marketplace.repositories.npm[{index}].uri`         | `true`   |         | The URL of your NPM registry.                                                                                                                                           |
+| `--moderne.recipe.marketplace.repositories.npm[{index}].username`    | `false`  | `null`  | The username used to resolve artifacts. Mutually exclusive with `bearerToken`.                                                                                          |
+| `--moderne.recipe.marketplace.repositories.npm[{index}].password`    | `false`  | `null`  | The password used to resolve artifacts. Mutually exclusive with `bearerToken`.                                                                                          |
+| `--moderne.recipe.marketplace.repositories.npm[{index}].bearerToken` | `false`  | `null`  | A bearer token used to resolve artifacts. Mutually exclusive with `username`/`password`.                                                                                |
+| `--moderne.recipe.marketplace.repositories.npm[{index}].proxy.host`  | `false`  | `null`  | The host of an HTTP proxy used to reach this registry.                                                                                                                  |
+| `--moderne.recipe.marketplace.repositories.npm[{index}].proxy.port`  | `false`  | `null`  | The port of an HTTP proxy used to reach this registry.                                                                                                                  |
+| `--moderne.recipe.marketplace.repositories.npm[{index}].skipSsl`     | `false`  | `false` | Whether or not to skip SSL/TLS verification for calls from the Connector to this NPM registry. This must be set to `true` if you use a self-signed SSL/TLS certificate. |
+
+**Example:**
+
+```bash
+java -jar connector-{version}.jar \
+# ... Existing arguments
+--moderne.recipe.marketplace.repositories.npm[0].uri=https://myartifactory.example.com/artifactory/api/npm/npm-local \
+--moderne.recipe.marketplace.repositories.npm[0].bearerToken=... \
+# ... Additional arguments
+```
+</TabItem>
+</Tabs>
+
+## Recipe marketplace NuGet variables
+
+NuGet repositories support either basic authentication (`username` + `password`) or bearer token authentication (`bearerToken`), but not both at the same time. You can configure multiple NuGet feeds by including multiple entries, each with a different `{index}`.
+
+<Tabs groupId="agent-type">
+<TabItem value="oci-container" label="OCI Container">
+
+**Environment variables:**
+
+| Variable Name                                                       | Required | Default | Description                                                                                                                                                           |
+|---------------------------------------------------------------------|----------|---------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `MODERNE_RECIPE_MARKETPLACE_REPOSITORIES_NUGET_{index}_URI`         | `true`   |         | The URL of your NuGet feed.                                                                                                                                           |
+| `MODERNE_RECIPE_MARKETPLACE_REPOSITORIES_NUGET_{index}_USERNAME`    | `false`  | `null`  | The username used to resolve artifacts. Mutually exclusive with `BEARERTOKEN`.                                                                                        |
+| `MODERNE_RECIPE_MARKETPLACE_REPOSITORIES_NUGET_{index}_PASSWORD`    | `false`  | `null`  | The password used to resolve artifacts. Mutually exclusive with `BEARERTOKEN`.                                                                                        |
+| `MODERNE_RECIPE_MARKETPLACE_REPOSITORIES_NUGET_{index}_BEARERTOKEN` | `false`  | `null`  | A bearer token used to resolve artifacts. Mutually exclusive with `USERNAME`/`PASSWORD`.                                                                              |
+| `MODERNE_RECIPE_MARKETPLACE_REPOSITORIES_NUGET_{index}_PROXY_HOST`  | `false`  | `null`  | The host of an HTTP proxy used to reach this feed.                                                                                                                    |
+| `MODERNE_RECIPE_MARKETPLACE_REPOSITORIES_NUGET_{index}_PROXY_PORT`  | `false`  | `null`  | The port of an HTTP proxy used to reach this feed.                                                                                                                    |
+| `MODERNE_RECIPE_MARKETPLACE_REPOSITORIES_NUGET_{index}_SKIPSSL`     | `false`  | `false` | Whether or not to skip SSL/TLS verification for calls from the Connector to this NuGet feed. This must be set to `true` if you use a self-signed SSL/TLS certificate. |
+
+**Example:**
+
+```bash
+docker run \
+# ... Existing variables
+-e MODERNE_RECIPE_MARKETPLACE_REPOSITORIES_NUGET_0_URI=https://myartifactory.example.com/artifactory/api/nuget/nuget-local \
+-e MODERNE_RECIPE_MARKETPLACE_REPOSITORIES_NUGET_0_BEARERTOKEN=... \
+# ... Additional variables
+```
+</TabItem>
+
+<TabItem value="executable-jar" label="Executable JAR">
+
+**Arguments:**
+
+| Argument Name                                                          | Required | Default | Description                                                                                                                                                           |
+|------------------------------------------------------------------------|----------|---------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `--moderne.recipe.marketplace.repositories.nuget[{index}].uri`         | `true`   |         | The URL of your NuGet feed.                                                                                                                                           |
+| `--moderne.recipe.marketplace.repositories.nuget[{index}].username`    | `false`  | `null`  | The username used to resolve artifacts. Mutually exclusive with `bearerToken`.                                                                                        |
+| `--moderne.recipe.marketplace.repositories.nuget[{index}].password`    | `false`  | `null`  | The password used to resolve artifacts. Mutually exclusive with `bearerToken`.                                                                                        |
+| `--moderne.recipe.marketplace.repositories.nuget[{index}].bearerToken` | `false`  | `null`  | A bearer token used to resolve artifacts. Mutually exclusive with `username`/`password`.                                                                              |
+| `--moderne.recipe.marketplace.repositories.nuget[{index}].proxy.host`  | `false`  | `null`  | The host of an HTTP proxy used to reach this feed.                                                                                                                    |
+| `--moderne.recipe.marketplace.repositories.nuget[{index}].proxy.port`  | `false`  | `null`  | The port of an HTTP proxy used to reach this feed.                                                                                                                    |
+| `--moderne.recipe.marketplace.repositories.nuget[{index}].skipSsl`     | `false`  | `false` | Whether or not to skip SSL/TLS verification for calls from the Connector to this NuGet feed. This must be set to `true` if you use a self-signed SSL/TLS certificate. |
+
+**Example:**
+
+```bash
+java -jar connector-{version}.jar \
+# ... Existing arguments
+--moderne.recipe.marketplace.repositories.nuget[0].uri=https://myartifactory.example.com/artifactory/api/nuget/nuget-local \
+--moderne.recipe.marketplace.repositories.nuget[0].bearerToken=... \
+# ... Additional arguments
+```
+</TabItem>
+</Tabs>
+
+## Recipe marketplace PyPI variables
+
+You can configure multiple PyPI indexes by including multiple entries, each with a different `{index}`.
+
+<Tabs groupId="agent-type">
+<TabItem value="oci-container" label="OCI Container">
+
+**Environment variables:**
+
+| Variable Name                                                     | Required | Default | Description                                                                                                                                                           |
+|-------------------------------------------------------------------|----------|---------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `MODERNE_RECIPE_MARKETPLACE_REPOSITORIES_PYPI_{index}_URI`        | `true`   |         | The URL of your PyPI index.                                                                                                                                           |
+| `MODERNE_RECIPE_MARKETPLACE_REPOSITORIES_PYPI_{index}_USERNAME`   | `false`  | `null`  | The username used to resolve artifacts.                                                                                                                               |
+| `MODERNE_RECIPE_MARKETPLACE_REPOSITORIES_PYPI_{index}_PASSWORD`   | `false`  | `null`  | The password used to resolve artifacts.                                                                                                                               |
+| `MODERNE_RECIPE_MARKETPLACE_REPOSITORIES_PYPI_{index}_PROXY_HOST` | `false`  | `null`  | The host of an HTTP proxy used to reach this index.                                                                                                                   |
+| `MODERNE_RECIPE_MARKETPLACE_REPOSITORIES_PYPI_{index}_PROXY_PORT` | `false`  | `null`  | The port of an HTTP proxy used to reach this index.                                                                                                                   |
+| `MODERNE_RECIPE_MARKETPLACE_REPOSITORIES_PYPI_{index}_SKIPSSL`    | `false`  | `false` | Whether or not to skip SSL/TLS verification for calls from the Connector to this PyPI index. This must be set to `true` if you use a self-signed SSL/TLS certificate. |
+
+**Example:**
+
+```bash
+docker run \
+# ... Existing variables
+-e MODERNE_RECIPE_MARKETPLACE_REPOSITORIES_PYPI_0_URI=https://myartifactory.example.com/artifactory/api/pypi/pypi-local/simple \
+-e MODERNE_RECIPE_MARKETPLACE_REPOSITORIES_PYPI_0_USERNAME=admin \
+-e MODERNE_RECIPE_MARKETPLACE_REPOSITORIES_PYPI_0_PASSWORD=password \
+# ... Additional variables
+```
+</TabItem>
+
+<TabItem value="executable-jar" label="Executable JAR">
+
+**Arguments:**
+
+| Argument Name                                                        | Required | Default | Description                                                                                                                                                           |
+|----------------------------------------------------------------------|----------|---------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `--moderne.recipe.marketplace.repositories.pypi[{index}].uri`        | `true`   |         | The URL of your PyPI index.                                                                                                                                           |
+| `--moderne.recipe.marketplace.repositories.pypi[{index}].username`   | `false`  | `null`  | The username used to resolve artifacts.                                                                                                                               |
+| `--moderne.recipe.marketplace.repositories.pypi[{index}].password`   | `false`  | `null`  | The password used to resolve artifacts.                                                                                                                               |
+| `--moderne.recipe.marketplace.repositories.pypi[{index}].proxy.host` | `false`  | `null`  | The host of an HTTP proxy used to reach this index.                                                                                                                   |
+| `--moderne.recipe.marketplace.repositories.pypi[{index}].proxy.port` | `false`  | `null`  | The port of an HTTP proxy used to reach this index.                                                                                                                   |
+| `--moderne.recipe.marketplace.repositories.pypi[{index}].skipSsl`    | `false`  | `false` | Whether or not to skip SSL/TLS verification for calls from the Connector to this PyPI index. This must be set to `true` if you use a self-signed SSL/TLS certificate. |
+
+**Example:**
+
+```bash
+java -jar connector-{version}.jar \
+# ... Existing arguments
+--moderne.recipe.marketplace.repositories.pypi[0].uri=https://myartifactory.example.com/artifactory/api/pypi/pypi-local/simple \
+--moderne.recipe.marketplace.repositories.pypi[0].username=admin \
+--moderne.recipe.marketplace.repositories.pypi[0].password=password \
 # ... Additional arguments
 ```
 </TabItem>
@@ -630,25 +856,25 @@ You can configure multiple S3 buckets by including multiple entries, each with a
 
 **Environment variables:**
 
-| Variable Name                                                 | Required                                                 | Default | Description                                                                                                                |
-|---------------------------------------------------------------|----------------------------------------------------------|---------|----------------------------------------------------------------------------------------------------------------------------|
-| `MODERNE_ORGANIZATION_INDEXER_SOURCES_S3_{index}_URI`         | `true`                                                   |         | The S3 bucket URI. Must start with `s3://` (e.g., `s3://my-bucket-name`).                                                  |
-| `MODERNE_ORGANIZATION_INDEXER_SOURCES_S3_{index}_ENDPOINTURL` | `false`                                                  |         | Custom endpoint URL for S3-compatible services (e.g., `http://localhost:9000` for MinIO). Leave empty for standard AWS S3. |
-| `MODERNE_ORGANIZATION_INDEXER_SOURCES_S3_{index}_REGION`      | `false`                                                  |         | The AWS region where the bucket is located (e.g., `us-east-1`).                                                            |
-| `MODERNE_ORGANIZATION_INDEXER_SOURCES_S3_{index}_ACCESSKEY`   | `false` (Required if not using profile or IAM role)      |         | The AWS access key ID for authentication.                                                                                  |
-| `MODERNE_ORGANIZATION_INDEXER_SOURCES_S3_{index}_SECRETKEY`   | `false` (Required if using access key)                   |         | The AWS secret key for authentication.                                                                                     |
-| `MODERNE_ORGANIZATION_INDEXER_SOURCES_S3_{index}_PROFILE`     | `false` (Alternative to access key/secret key)           |         | The AWS profile name from your credentials file.                                                                           |
-| `MODERNE_ORGANIZATION_INDEXER_SOURCES_S3_{index}_SKIPSSL`     | `true` (If using self-signed cert or non-HTTPS endpoint) | `false` | Specifies whether to skip SSL verification for connections to the S3 endpoint.                                             |
+| Variable Name                                         | Required                                                 | Default | Description                                                                                                                |
+|-------------------------------------------------------|----------------------------------------------------------|---------|----------------------------------------------------------------------------------------------------------------------------|
+| `MODERNE_ORGANIZATION_SOURCES_S3_{index}_URI`         | `true`                                                   |         | The S3 bucket URI. Must start with `s3://` (e.g., `s3://my-bucket-name`).                                                  |
+| `MODERNE_ORGANIZATION_SOURCES_S3_{index}_ENDPOINTURL` | `false`                                                  |         | Custom endpoint URL for S3-compatible services (e.g., `http://localhost:9000` for MinIO). Leave empty for standard AWS S3. |
+| `MODERNE_ORGANIZATION_SOURCES_S3_{index}_REGION`      | `false`                                                  |         | The AWS region where the bucket is located (e.g., `us-east-1`).                                                            |
+| `MODERNE_ORGANIZATION_SOURCES_S3_{index}_ACCESSKEY`   | `false` (Required if not using profile or IAM role)      |         | The AWS access key ID for authentication.                                                                                  |
+| `MODERNE_ORGANIZATION_SOURCES_S3_{index}_SECRETKEY`   | `false` (Required if using access key)                   |         | The AWS secret key for authentication.                                                                                     |
+| `MODERNE_ORGANIZATION_SOURCES_S3_{index}_PROFILE`     | `false` (Alternative to access key/secret key)           |         | The AWS profile name from your credentials file.                                                                           |
+| `MODERNE_ORGANIZATION_SOURCES_S3_{index}_SKIPSSL`     | `true` (If using self-signed cert or non-HTTPS endpoint) | `false` | Specifies whether to skip SSL verification for connections to the S3 endpoint.                                             |
 
 **Example:**
 
 ```bash
 docker run \
 # ... Existing variables
--e MODERNE_ORGANIZATION_INDEXER_SOURCES_S3_0_URI=s3://my-lst-bucket \
--e MODERNE_ORGANIZATION_INDEXER_SOURCES_S3_0_REGION=us-east-1 \
--e MODERNE_ORGANIZATION_INDEXER_SOURCES_S3_0_ACCESSKEY=AKIAIOSFODNN7EXAMPLE \
--e MODERNE_ORGANIZATION_INDEXER_SOURCES_S3_0_SECRETKEY=wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY \
+-e MODERNE_ORGANIZATION_SOURCES_S3_0_URI=s3://my-lst-bucket \
+-e MODERNE_ORGANIZATION_SOURCES_S3_0_REGION=us-east-1 \
+-e MODERNE_ORGANIZATION_SOURCES_S3_0_ACCESSKEY=AKIAIOSFODNN7EXAMPLE \
+-e MODERNE_ORGANIZATION_SOURCES_S3_0_SECRETKEY=wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY \
 # ... Additional variables
 ```
 </TabItem>
@@ -657,25 +883,25 @@ docker run \
 
 **Arguments:**
 
-| Argument Name                                                    | Required                                                 | Default | Description                                                                                                                |
-|------------------------------------------------------------------|----------------------------------------------------------|---------|----------------------------------------------------------------------------------------------------------------------------|
-| `--moderne.organization.indexer.sources.s3[{index}].uri`         | `true`                                                   |         | The S3 bucket URI. Must start with `s3://` (e.g., `s3://my-bucket-name`).                                                  |
-| `--moderne.organization.indexer.sources.s3[{index}].endpointUrl` | `false`                                                  |         | Custom endpoint URL for S3-compatible services (e.g., `http://localhost:9000` for MinIO). Leave empty for standard AWS S3. |
-| `--moderne.organization.indexer.sources.s3[{index}].region`      | `false`                                                  |         | The AWS region where the bucket is located (e.g., `us-east-1`).                                                            |
-| `--moderne.organization.indexer.sources.s3[{index}].accessKey`   | `false` (Required if not using profile or IAM role)      |         | The AWS access key ID for authentication.                                                                                  |
-| `--moderne.organization.indexer.sources.s3[{index}].secretKey`   | `false` (Required if using access key)                   |         | The AWS secret key for authentication.                                                                                     |
-| `--moderne.organization.indexer.sources.s3[{index}].profile`     | `false` (Alternative to access key/secret key)           |         | The AWS profile name from your credentials file.                                                                           |
-| `--moderne.organization.indexer.sources.s3[{index}].skipSsl`     | `true` (If using self-signed cert or non-HTTPS endpoint) | `false` | Specifies whether to skip SSL verification for connections to the S3 endpoint.                                             |
+| Argument Name                                            | Required                                                 | Default | Description                                                                                                                |
+|----------------------------------------------------------|----------------------------------------------------------|---------|----------------------------------------------------------------------------------------------------------------------------|
+| `--moderne.organization.sources.s3[{index}].uri`         | `true`                                                   |         | The S3 bucket URI. Must start with `s3://` (e.g., `s3://my-bucket-name`).                                                  |
+| `--moderne.organization.sources.s3[{index}].endpointUrl` | `false`                                                  |         | Custom endpoint URL for S3-compatible services (e.g., `http://localhost:9000` for MinIO). Leave empty for standard AWS S3. |
+| `--moderne.organization.sources.s3[{index}].region`      | `false`                                                  |         | The AWS region where the bucket is located (e.g., `us-east-1`).                                                            |
+| `--moderne.organization.sources.s3[{index}].accessKey`   | `false` (Required if not using profile or IAM role)      |         | The AWS access key ID for authentication.                                                                                  |
+| `--moderne.organization.sources.s3[{index}].secretKey`   | `false` (Required if using access key)                   |         | The AWS secret key for authentication.                                                                                     |
+| `--moderne.organization.sources.s3[{index}].profile`     | `false` (Alternative to access key/secret key)           |         | The AWS profile name from your credentials file.                                                                           |
+| `--moderne.organization.sources.s3[{index}].skipSsl`     | `true` (If using self-signed cert or non-HTTPS endpoint) | `false` | Specifies whether to skip SSL verification for connections to the S3 endpoint.                                             |
 
 **Example:**
 
 ```bash
 java -jar connector-{version}.jar \
 # ... Existing arguments
---moderne.organization.indexer.sources.s3[0].uri=s3://my-lst-bucket \
---moderne.organization.indexer.sources.s3[0].region=us-east-1 \
---moderne.organization.indexer.sources.s3[0].accessKey=AKIAIOSFODNN7EXAMPLE \
---moderne.organization.indexer.sources.s3[0].secretKey=wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY \
+--moderne.organization.sources.s3[0].uri=s3://my-lst-bucket \
+--moderne.organization.sources.s3[0].region=us-east-1 \
+--moderne.organization.sources.s3[0].accessKey=AKIAIOSFODNN7EXAMPLE \
+--moderne.organization.sources.s3[0].secretKey=wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY \
 # ... Additional arguments
 ```
 </TabItem>
@@ -732,64 +958,6 @@ java -jar connector-{version}.jar \
 # ... Existing arguments
 --moderne.connector.recipe.pomCache.type=REDIS \
 --moderne.connector.recipe.pomCache.redis.host=localhost \
-# ... Additional arguments
-```
-</TabItem>
-</Tabs>
-
-## PyPI variables
-
-:::info
-You can configure multiple PyPI package indexes by including multiple entries, each with a different `{index}`.
-:::
-
-<Tabs groupId="agent-type">
-<TabItem value="oci-container" label="OCI Container">
-
-**Environment variables:**
-
-| Variable Name                                                         | Required | Default | Description                                                                                                                                                                   |
-|-----------------------------------------------------------------------|----------|---------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `MODERNE_RECIPE_MARKETPLACE_REPOSITORIES_PYPI_{index}_URI`            | `true`   |         | The URI of your PyPI package index.                                                                                                                                           |
-| `MODERNE_RECIPE_MARKETPLACE_REPOSITORIES_PYPI_{index}_USERNAME`       | `false`  | `null`  | The username used to access the index.                                                                                                                                        |
-| `MODERNE_RECIPE_MARKETPLACE_REPOSITORIES_PYPI_{index}_PASSWORD`       | `false`  | `null`  | The password used to access the index.                                                                                                                                        |
-| `MODERNE_RECIPE_MARKETPLACE_REPOSITORIES_PYPI_{index}_SKIPSSL`        | `false`  | `false` | Whether or not to skip SSL/TLS verification for calls from the Connector to this PyPI package index. This must be set to `true` if you use a self-signed SSL/TLS certificate. |
-| `MODERNE_RECIPE_MARKETPLACE_REPOSITORIES_PYPI_{index}_CONNECTTIMEOUT` | `false`  | `30s`   | Timeout for the connection to be established (and the first data received). Specified as a duration (e.g., `30s`, `1m`).                                                      |
-| `MODERNE_RECIPE_MARKETPLACE_REPOSITORIES_PYPI_{index}_READTIMEOUT`    | `false`  | `60s`   | Timeout for reading the response body from the PyPI package index. Specified as a duration (e.g., `60s`, `5m`).                                                               |
-
-**Example:**
-
-```bash
-docker run \
-# ... Existing variables
--e MODERNE_RECIPE_MARKETPLACE_REPOSITORIES_PYPI_0_URI=https://pypi.example.com/simple \
--e MODERNE_RECIPE_MARKETPLACE_REPOSITORIES_PYPI_0_USERNAME=admin \
--e MODERNE_RECIPE_MARKETPLACE_REPOSITORIES_PYPI_0_PASSWORD=password \
-# ... Additional variables
-```
-</TabItem>
-
-<TabItem value="executable-jar" label="Executable JAR">
-
-**Arguments:**
-
-| Argument Name                                                            | Required | Default | Description                                                                                                                                                                   |
-|--------------------------------------------------------------------------|----------|---------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `--moderne.recipe.marketplace.repositories.pypi[{index}].uri`            | `true`   |         | The URI of your PyPI package index.                                                                                                                                           |
-| `--moderne.recipe.marketplace.repositories.pypi[{index}].username`       | `false`  | `null`  | The username used to access the index.                                                                                                                                        |
-| `--moderne.recipe.marketplace.repositories.pypi[{index}].password`       | `false`  | `null`  | The password used to access the index.                                                                                                                                        |
-| `--moderne.recipe.marketplace.repositories.pypi[{index}].skipSsl`        | `false`  | `false` | Whether or not to skip SSL/TLS verification for calls from the Connector to this PyPI package index. This must be set to `true` if you use a self-signed SSL/TLS certificate. |
-| `--moderne.recipe.marketplace.repositories.pypi[{index}].connectTimeout` | `false`  | `30s`   | Timeout for the connection to be established (and the first data received). Specified as a duration (e.g., `30s`, `1m`).                                                      |
-| `--moderne.recipe.marketplace.repositories.pypi[{index}].readTimeout`    | `false`  | `60s`   | Timeout for reading the response body from the PyPI package index. Specified as a duration (e.g., `60s`, `5m`).                                                               |
-
-**Example:**
-
-```bash
-java -jar connector-{version}.jar \
-# ... Existing arguments
---moderne.recipe.marketplace.repositories.pypi[0].uri=https://pypi.example.com/simple \
---moderne.recipe.marketplace.repositories.pypi[0].username=admin \
---moderne.recipe.marketplace.repositories.pypi[0].password=password \
 # ... Additional arguments
 ```
 </TabItem>
@@ -930,6 +1098,8 @@ java -jar connector-{version}.jar \
 | `MODERNE_CONNECTOR_HTTPTOOL_{index}_BEARERTOKEN`              | `false`  |         | Bearer token used to authenticate to HTTP tool. <br/><br/>**Note:** Only one of basic auth (username+password) and bearer token can be used. If `bearerToken` is specified, username and password must not be provided. |
 | `MODERNE_CONNECTOR_HTTPTOOL_{index}_SKIPSSL`                  | `false`  | `false` | Specifies whether or not to skip SSL validation for HTTP connections to this HTTP tool. This must be set to `true` if you use a self-signed SSL/TLS certificate.                                                        |
 | `MODERNE_CONNECTOR_HTTPTOOL_{index}_SKIPVALIDATECONNECTIVITY` | `false`  | `false` | By default, on Connector startup, we will validate that we can connect to this HTTP tool, and fail to start up the Connector if we cannot. Set this to `true` to skip this validation.                                  |
+| `MODERNE_CONNECTOR_HTTPTOOL_{index}_PROXY_HOST`               | `false`  |         | The hostname of a proxy server to use for connections to this HTTP tool.                                                                                                                                                |
+| `MODERNE_CONNECTOR_HTTPTOOL_{index}_PROXY_PORT`               | `false`  |         | The port of the proxy server to use for connections to this HTTP tool.                                                                                                                                                  |
 | `MODERNE_CONNECTOR_HTTPTOOL_{index}_CONNECTTIMEOUT`           | `false`  | `30s`   | Timeout for the connection to be established (and the first data received). Specified as a duration (e.g., `30s`, `1m`).                                                                                                |
 | `MODERNE_CONNECTOR_HTTPTOOL_{index}_READTIMEOUT`              | `false`  | `60s`   | Timeout for reading the response body from the HTTP tool. Specified as a duration (e.g., `60s`, `5m`).                                                                                                                  |
 
@@ -957,6 +1127,8 @@ docker run \
 | `--moderne.connector.httpTool[{index}].bearerToken`              | `false`  |         | Bearer token used to authenticate to HTTP tool. <br/><br/>**Note:** Only one of basic auth (username+password) and bearer token can be used. If `bearerToken` is specified, username and password must not be provided. |
 | `--moderne.connector.httpTool[{index}].skipSsl`                  | `false`  | `false` | Specifies whether or not to skip SSL validation for HTTP connections to this HTTP tool. This must be set to `true` if you use a self-signed SSL/TLS certificate.                                                        |
 | `--moderne.connector.httpTool[{index}].skipValidateConnectivity` | `false`  | `false` | By default, on Connector startup, we will validate that we can connect to this HTTP tool, and fail to start up the Connector if we cannot. Set this to `true` to skip this validation.                                  |
+| `--moderne.connector.httpTool[{index}].proxy.host`               | `false`  |         | The hostname of a proxy server to use for connections to this HTTP tool.                                                                                                                                                |
+| `--moderne.connector.httpTool[{index}].proxy.port`               | `false`  |         | The port of the proxy server to use for connections to this HTTP tool.                                                                                                                                                  |
 | `--moderne.connector.httpTool[{index}].connectTimeout`           | `false`  | `30s`   | Timeout for the connection to be established (and the first data received). Specified as a duration (e.g., `30s`, `1m`).                                                                                                |
 | `--moderne.connector.httpTool[{index}].readTimeout`              | `false`  | `60s`   | Timeout for reading the response body from the HTTP tool. Specified as a duration (e.g., `60s`, `5m`).                                                                                                                  |
 
@@ -968,6 +1140,58 @@ java -jar connector-{version}.jar \
 --moderne.connector.httpTool[0].uri=https://launchdarkly.mycompany.com \
 --moderne.connector.httpTool[0].username=myUser \
 --moderne.connector.httpTool[0].password=${SECRET_NAME} \
+# ... Additional arguments
+```
+</TabItem>
+</Tabs>
+
+## Moddy LLM variables
+
+Variables for enabling [Moddy](./configure-an-agent-with-llm-for-moddy.md), Moderne's multi-repo AI agent. Variables are nested under the specific provider you are configuring. Replace `{PROVIDER}` with one of `OPENAI`, `ANTHROPIC`, `GEMINI`, or `MISTRAL` (for environment variables) or `{provider}` with one of `openai`, `anthropic`, `gemini`, or `mistral` (for JAR arguments).
+
+<Tabs groupId="agent-type">
+<TabItem value="oci-container" label="OCI Container">
+
+**Environment variables:**
+
+| Variable Name                         | Required | Default | Description                                                                                                                                                                |
+|---------------------------------------|----------|---------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `MODERNE_MODDY_{PROVIDER}_APIKEY`     | `true`   |         | The API key for the specified LLM provider. Replace `{PROVIDER}` with `OPENAI`, `ANTHROPIC`, `GEMINI`, or `MISTRAL`.                                                       |
+| `MODERNE_MODDY_{PROVIDER}_MODEL`      | `false`  |         | Optional model name override for the LLM provider.                                                                                                                         |
+| `MODERNE_MODDY_{PROVIDER}_URI`        | `false`  |         | Optional URI override for the LLM API endpoint. If not specified, the default endpoint for the provider is used. Useful for routing requests through a custom API gateway. |
+| `MODERNE_MODDY_{PROVIDER}_PROXY_HOST` | `false`  |         | The hostname of a proxy server used to reach the LLM API. If specified, `PROXY_PORT` must also be set.                                                                     |
+| `MODERNE_MODDY_{PROVIDER}_PROXY_PORT` | `false`  |         | The port of the proxy server used to reach the LLM API. If specified, `PROXY_HOST` must also be set.                                                                       |
+| `MODERNE_MODDY_ADMINONLY`             | `false`  | `false` | If `true`, only admins will see Moddy in the UI and be able to chat with Moddy.                                                                                            |
+
+**Example:**
+
+```bash
+docker run \
+# ... Existing variables
+-e MODERNE_MODDY_ANTHROPIC_APIKEY=${ANTHROPIC_API_KEY} \
+# ... Additional variables
+```
+</TabItem>
+
+<TabItem value="executable-jar" label="Executable JAR">
+
+**Arguments:**
+
+| Argument Name                           | Required | Default | Description                                                                                                                                                                |
+|-----------------------------------------|----------|---------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `--moderne.moddy.{provider}.apiKey`     | `true`   |         | The API key for the specified LLM provider. Replace `{provider}` with `openai`, `anthropic`, `gemini`, or `mistral`.                                                       |
+| `--moderne.moddy.{provider}.model`      | `false`  |         | Optional model name override for the LLM provider.                                                                                                                         |
+| `--moderne.moddy.{provider}.uri`        | `false`  |         | Optional URI override for the LLM API endpoint. If not specified, the default endpoint for the provider is used. Useful for routing requests through a custom API gateway. |
+| `--moderne.moddy.{provider}.proxy.host` | `false`  |         | The hostname of a proxy server used to reach the LLM API. If specified, `proxy.port` must also be set.                                                                     |
+| `--moderne.moddy.{provider}.proxy.port` | `false`  |         | The port of the proxy server used to reach the LLM API. If specified, `proxy.host` must also be set.                                                                       |
+| `--moderne.moddy.adminOnly`             | `false`  | `false` | If `true`, only admins will see Moddy in the UI and be able to chat with Moddy.                                                                                            |
+
+**Example:**
+
+```bash
+java -jar connector-{version}.jar \
+# ... Existing arguments
+--moderne.moddy.anthropic.apiKey=${ANTHROPIC_API_KEY} \
 # ... Additional arguments
 ```
 </TabItem>

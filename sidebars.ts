@@ -154,7 +154,7 @@ const platform = {
               'administrator-documentation/moderne-platform/how-to-guides/agent-configuration/configure-an-agent-with-gitlab',
               'administrator-documentation/moderne-platform/how-to-guides/agent-configuration/configure-an-agent-with-maven-repository-access',
               'administrator-documentation/moderne-platform/how-to-guides/agent-configuration/configure-an-agent-with-artifactory-access',
-              'administrator-documentation/moderne-platform/how-to-guides/agent-configuration/configuring-artifactory-with-recipes',
+              'administrator-documentation/moderne-platform/how-to-guides/agent-configuration/configure-recipe-marketplace-repositories',
               'administrator-documentation/moderne-platform/how-to-guides/agent-configuration/configure-an-agent-with-s3-access',
               'administrator-documentation/moderne-platform/how-to-guides/agent-configuration/configure-an-agent-with-pypi-access-visualizations',
               'administrator-documentation/moderne-platform/how-to-guides/agent-configuration/configure-an-agent-with-llm-for-moddy',

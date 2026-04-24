@@ -31,16 +31,20 @@ As a Moderne customer, you have access to the [Moderne recipe bom](https://centr
 
 ## Step 2: Create a recipe JAR
 
-After you're done writing your recipe(s), you will need to publish them to an artifact repository that is connected to your Moderne instance. An administrator from your organization should have configured this when they set up the Moderne Connector. For instructions on how to configure this connection, please see the [configuring a Connector with Maven repository access doc](../../../administrator-documentation/moderne-platform/how-to-guides/agent-configuration/configure-an-agent-with-maven-repository-access.md) or the [configuring a Connector with Artifactory access doc](../../../administrator-documentation/moderne-platform/how-to-guides/agent-configuration/configuring-artifactory-with-recipes.md).
+After you're done writing your recipe(s), you will need to publish them to an artifact repository that is connected to your Moderne instance. An administrator from your organization should have configured this when they set up the Moderne Connector. For instructions on how to configure this connection, please see the [recipe marketplace repositories doc](../../../administrator-documentation/moderne-platform/how-to-guides/agent-configuration/configure-recipe-marketplace-repositories.md).
 
 Once the connection has been set up, you will need to ensure your repository publishes the recipe artifacts to the artifact repository mentioned above. 
 
 The [rewrite-recipe-starter project](https://github.com/moderneinc/rewrite-recipe-starter/blob/main/build.gradle.kts) can serve as an example of how to publish an artifact. This repository is configured to publish to Moderne's open artifact repository (via the [publishing task](https://github.com/moderneinc/rewrite-recipe-starter/blob/main/build.gradle.kts#L77-L84) at the bottom of the `build.gradle.kts` file).
-All Moderne SaaS instances have access to the following artifact repositories: 
 
-* `https://repo1.maven.org/maven2`
-* `https://central.sonatype.com/repository/maven-snapshots`
-* `https://jitpack.io`
+If your organization has not configured any Maven recipe marketplace repositories, Moderne SaaS instances fall back to the following defaults:
+
+* `https://repo.maven.apache.org/maven2` (Maven Central — releases only)
+* `https://central.sonatype.com/repository/maven-snapshots/` (Sonatype — snapshots only)
+
+Once your administrator configures one or more Maven repositories, only those are searched — the defaults above are not merged in, so Maven Central and Sonatype snapshots must be listed explicitly to keep them. PyPI, NuGet, and NPM have no defaults.
+
+If you publish a release artifact, make sure it goes to a repository that Moderne searches for releases. If you publish a snapshot, make sure it goes to a repository that Moderne searches for snapshots. If you need to use a different artifact repository, an administrator from your organization will need to [configure it as a recipe marketplace repository](../../../administrator-documentation/moderne-platform/how-to-guides/agent-configuration/configure-recipe-marketplace-repositories.md).
 
 You may also find it useful to read over these other artifact publishing docs:
 
