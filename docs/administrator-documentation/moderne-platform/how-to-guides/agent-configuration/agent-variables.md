@@ -37,7 +37,7 @@ This document includes all of the variables you can configure the Moderne Connec
 
 ```bash
 docker run \
--e MODERNE_CONNECTOR_APIGATEWAYRSOCKETURI=https://api.tenant.moderne.io/rsocket \
+-e MODERNE_CONNECTOR_APIGATEWAYRSOCKETURI=https://api.tenant.moderne.io/connector \
 -e MODERNE_CONNECTOR_CRYPTO_SYMMETRICKEY=yourSymmetricKey \
 -e MODERNE_CONNECTOR_NICKNAME=prod-1 \
 -e MODERNE_CONNECTOR_TOKEN=yourToken \
@@ -64,7 +64,7 @@ docker run \
 
 ```bash
 java -jar connector-{version}.jar \
---moderne.connector.apiGatewayRsocketUri=https://api.tenant.moderne.io/rsocket \
+--moderne.connector.apiGatewayRsocketUri=https://api.tenant.moderne.io/connector \
 --moderne.connector.crypto.symmetricKey=yourSymmetricKey \
 --moderne.connector.nickname=prod-1 \
 --moderne.connector.token=yourToken \

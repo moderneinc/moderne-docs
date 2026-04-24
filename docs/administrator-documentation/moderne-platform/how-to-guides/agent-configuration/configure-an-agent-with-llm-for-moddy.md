@@ -266,7 +266,7 @@ export MODERNE_CONNECTOR_ORGANIZATION_POLL_ARTIFACTORY_0_PASSWORD=...
 export MODERNE_MODDY_ANTHROPIC_APIKEY=...
 
 docker run \
--e MODERNE_CONNECTOR_APIGATEWAYRSOCKETURI=https://api.tenant.moderne.io/rsocket \
+-e MODERNE_CONNECTOR_APIGATEWAYRSOCKETURI=https://api.tenant.moderne.io/connector \
 -e MODERNE_CONNECTOR_CRYPTO_SYMMETRICKEY \
 -e MODERNE_CONNECTOR_NICKNAME=prod-1 \
 -e MODERNE_CONNECTOR_TOKEN \
@@ -297,7 +297,7 @@ export MODERNE_CONNECTOR_ORGANIZATION_POLL_ARTIFACTORY_0_PASSWORD=...
 export MODERNE_MODDY_ANTHROPIC_APIKEY=...
 
 java -jar connector-{version}.jar \
---moderne.connector.apiGatewayRsocketUri=https://api.tenant.moderne.io/rsocket \
+--moderne.connector.apiGatewayRsocketUri=https://api.tenant.moderne.io/connector \
 --moderne.connector.nickname=prod-1 \
 --moderne.scm.github[0].uri=https://myorg.github.com \
 --moderne.scm.github[0].allowableOrganizations[0]=moderne \

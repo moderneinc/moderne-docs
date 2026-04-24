@@ -87,7 +87,7 @@ export MODERNE_CONNECTOR_TOKEN=...
 
 docker run \
 # Example environment variables. These will be explained in step 3.
--e MODERNE_CONNECTOR_APIGATEWAYRSOCKETURI=https://api.tenant.moderne.io/rsocket \
+-e MODERNE_CONNECTOR_APIGATEWAYRSOCKETURI=https://api.tenant.moderne.io/connector \
 -e MODERNE_CONNECTOR_CRYPTO_SYMMETRICKEY \
 -e MODERNE_CONNECTOR_NICKNAME=prod-1 \
 -e MODERNE_CONNECTOR_TOKEN \
@@ -148,7 +148,7 @@ CMD ["-XX:-OmitStackTraceInFastThrow", \
 
 ```bash
 # Set the environment variables for the Moderne Connector
-MODERNE_CONNECTOR_APIGATEWAYRSOCKETURI=https://api.tenant.moderne.io/rsocket
+MODERNE_CONNECTOR_APIGATEWAYRSOCKETURI=https://api.tenant.moderne.io/connector
 MODERNE_CONNECTOR_CRYPTO_SYMMETRICKEY=${SYMMETRIC_KEY}
 MODERNE_CONNECTOR_TOKEN=${MODERNE_CONNECTOR_TOKEN}
 MODERNE_CONNECTOR_NICKNAME=prod-1
@@ -193,7 +193,7 @@ export MODERNE_CONNECTOR_TOKEN=...
 
 java -jar connector-{version}.jar \
 # Example arguments. These will be explained in step 3.
---moderne.connector.apiGatewayRsocketUri=https://api.tenant.moderne.io/rsocket \
+--moderne.connector.apiGatewayRsocketUri=https://api.tenant.moderne.io/connector \
 --moderne.connector.nickname=prod-1 \
 # ... Additional arguments
 ```
@@ -228,7 +228,7 @@ export MODERNE_CONNECTOR_CRYPTO_SYMMETRICKEY=...
 export MODERNE_CONNECTOR_TOKEN=...
 
 docker run \
--e MODERNE_CONNECTOR_APIGATEWAYRSOCKETURI=https://api.tenant.moderne.io/rsocket \
+-e MODERNE_CONNECTOR_APIGATEWAYRSOCKETURI=https://api.tenant.moderne.io/connector \
 -e MODERNE_CONNECTOR_CRYPTO_SYMMETRICKEY \
 -e MODERNE_CONNECTOR_NICKNAME=prod-1 \
 -e MODERNE_CONNECTOR_TOKEN \
@@ -261,7 +261,7 @@ export MODERNE_CONNECTOR_CRYPTO_SYMMETRICKEY=...
 export MODERNE_CONNECTOR_TOKEN=...
 
 java -jar connector-{version}.jar \
---moderne.connector.apiGatewayRsocketUri=https://api.tenant.moderne.io/rsocket \
+--moderne.connector.apiGatewayRsocketUri=https://api.tenant.moderne.io/connector \
 --moderne.connector.nickname=prod-1 \
 --moderne.scm.defaultCommitOptions[0]=PullRequest \
 --moderne.scm.defaultCommitOptions[1]=ForkAndPullRequest \
@@ -298,7 +298,7 @@ export MODERNE_SCM_GITHUB_0_OAUTH_CLIENTID=...
 export MODERNE_SCM_GITHUB_0_OAUTH_CLIENTSECRET=...
 
 docker run \
--e MODERNE_CONNECTOR_APIGATEWAYRSOCKETURI=https://api.tenant.moderne.io/rsocket \
+-e MODERNE_CONNECTOR_APIGATEWAYRSOCKETURI=https://api.tenant.moderne.io/connector \
 -e MODERNE_CONNECTOR_CRYPTO_SYMMETRICKEY \
 -e MODERNE_CONNECTOR_NICKNAME=prod-1 \
 -e MODERNE_CONNECTOR_TOKEN \
@@ -325,7 +325,7 @@ export MODERNE_SCM_GITHUB_0_OAUTH_CLIENTID=...
 export MODERNE_SCM_GITHUB_0_OAUTH_CLIENTSECRET=...
 
 java -jar connector-{version}.jar \
---moderne.connector.apiGatewayRsocketUri=https://api.tenant.moderne.io/rsocket \
+--moderne.connector.apiGatewayRsocketUri=https://api.tenant.moderne.io/connector \
 --moderne.connector.nickname=prod-1 \
 --moderne.scm.github[0].uri=https://myorg.github.com \
 --moderne.scm.github[0].allowableOrganizations[0]=moderne \
@@ -383,7 +383,7 @@ export MODERNE_CONNECTOR_ORGANIZATION_POLL_MAVEN_0_USERNAME=...
 export MODERNE_CONNECTOR_ORGANIZATION_POLL_MAVEN_0_PASSWORD=...
 
 docker run \
--e MODERNE_CONNECTOR_APIGATEWAYRSOCKETURI=https://api.tenant.moderne.io/rsocket \
+-e MODERNE_CONNECTOR_APIGATEWAYRSOCKETURI=https://api.tenant.moderne.io/connector \
 -e MODERNE_CONNECTOR_CRYPTO_SYMMETRICKEY \
 -e MODERNE_CONNECTOR_NICKNAME=prod-1 \
 -e MODERNE_CONNECTOR_TOKEN \
@@ -422,7 +422,7 @@ export MODERNE_CONNECTOR_ORGANIZATION_POLL_MAVEN_0_USERNAME=...
 export MODERNE_CONNECTOR_ORGANIZATION_POLL_MAVEN_0_PASSWORD=...
 
 java -jar connector-{version}.jar \
---moderne.connector.apiGatewayRsocketUri=https://api.tenant.moderne.io/rsocket \
+--moderne.connector.apiGatewayRsocketUri=https://api.tenant.moderne.io/connector \
 --moderne.connector.nickname=prod-1 \
 --moderne.scm.github[0].uri=https://myorg.github.com \
 --moderne.scm.github[0].allowableOrganizations[0]=moderne \
@@ -481,7 +481,7 @@ export MODERNE_CONNECTOR_ORGANIZATION_POLL_MAVEN_0_USERNAME=...
 export MODERNE_CONNECTOR_ORGANIZATION_POLL_MAVEN_0_PASSWORD=...
 
 docker run \
--e MODERNE_CONNECTOR_APIGATEWAYRSOCKETURI=https://api.tenant.moderne.io/rsocket \
+-e MODERNE_CONNECTOR_APIGATEWAYRSOCKETURI=https://api.tenant.moderne.io/connector \
 -e MODERNE_CONNECTOR_CRYPTO_SYMMETRICKEY \
 -e MODERNE_CONNECTOR_NICKNAME=prod-1 \
 -e MODERNE_CONNECTOR_TOKEN \
@@ -519,7 +519,7 @@ export MODERNE_CONNECTOR_ORGANIZATION_POLL_MAVEN_0_USERNAME=...
 export MODERNE_CONNECTOR_ORGANIZATION_POLL_MAVEN_0_PASSWORD=...
 
 java -jar connector-{version}.jar \
---moderne.connector.apiGatewayRsocketUri=https://api.tenant.moderne.io/rsocket \
+--moderne.connector.apiGatewayRsocketUri=https://api.tenant.moderne.io/connector \
 --moderne.connector.nickname=prod-1 \
 --moderne.connector.token=yourToken \
 --moderne.scm.github[0].uri=https://myorg.github.com \
@@ -681,7 +681,7 @@ export MODERNE_CONNECTOR_ORGANIZATION_POLL_MAVEN_0_USERNAME=...
 export MODERNE_CONNECTOR_ORGANIZATION_POLL_MAVEN_0_PASSWORD=...
 
 docker run \
--e MODERNE_CONNECTOR_APIGATEWAYRSOCKETURI=https://api.tenant.moderne.io/rsocket \
+-e MODERNE_CONNECTOR_APIGATEWAYRSOCKETURI=https://api.tenant.moderne.io/connector \
 -e MODERNE_CONNECTOR_CRYPTO_SYMMETRICKEY \
 -e MODERNE_CONNECTOR_NICKNAME=prod-1 \
 -e MODERNE_CONNECTOR_TOKEN \
@@ -721,7 +721,7 @@ export MODERNE_CONNECTOR_ORGANIZATION_POLL_MAVEN_0_USERNAME=...
 export MODERNE_CONNECTOR_ORGANIZATION_POLL_MAVEN_0_PASSWORD=...
 
 java -jar connector-{version}.jar \
---moderne.connector.apiGatewayRsocketUri=https://api.tenant.moderne.io/rsocket \
+--moderne.connector.apiGatewayRsocketUri=https://api.tenant.moderne.io/connector \
 --moderne.connector.nickname=prod-1 \
 --moderne.scm.github[0].uri=https://myorg.github.com \
 --moderne.scm.github[0].allowableOrganizations[0]=moderne \
@@ -829,7 +829,7 @@ docker run -d \
   --name moderne-agent-1 \
   -p 8080:8080 \
   -e MODERNE_CONNECTOR_NICKNAME=prod-agent-1 \
-  -e MODERNE_CONNECTOR_APIGATEWAYRSOCKETURI=https://api.tenant.moderne.io/rsocket \
+  -e MODERNE_CONNECTOR_APIGATEWAYRSOCKETURI=https://api.tenant.moderne.io/connector \
   # ... other environment variables
   moderne-connector:latest
 
@@ -838,7 +838,7 @@ docker run -d \
   --name moderne-agent-2 \
   -p 8081:8080 \
   -e MODERNE_CONNECTOR_NICKNAME=prod-agent-2 \
-  -e MODERNE_CONNECTOR_APIGATEWAYRSOCKETURI=https://api.tenant.moderne.io/rsocket \
+  -e MODERNE_CONNECTOR_APIGATEWAYRSOCKETURI=https://api.tenant.moderne.io/connector \
   # ... other environment variables
   moderne-connector:latest
 ```
