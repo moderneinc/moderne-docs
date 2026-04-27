@@ -195,6 +195,7 @@ description: Auto-generated documentation for all Moderne CLI commands.
 * [**mod config license**](#mod-config-license)
 * [**mod config license delete**](#mod-config-license-delete)
 * [**mod config license edit**](#mod-config-license-edit)
+* [**mod config license generate**](#mod-config-license-generate)
 * [**mod config license show**](#mod-config-license-show)
 * [**mod config license moderne**](#mod-config-license-moderne)
 * [**mod config license moderne sync**](#mod-config-license-moderne-sync)
@@ -4341,6 +4342,7 @@ mod config license [subcommands]
 
 * `delete`: Removes the configured license key.
 * `edit`: Configure the active user.
+* `generate`: Generate a license key.
 * `show`: Displays information about the configured license key.
 * `moderne`: Synchronizes a Moderne license key with the CLI.
 
@@ -4376,6 +4378,34 @@ mod config license edit [parameters]
 | ---- | ----------- |
 | `license` |  The license key, provided by Moderne support. |
 
+
+
+## mod config license generate
+
+Generate a license key.
+
+
+Generates a signed license key for the given licensee and expiration date and prints it. The Ed25519 private key is read from the **--private-key** option, which is interactive: pass the flag with no value to read the Base64-encoded raw 32 bytes from stdin (masked when on a TTY). This keeps the key off argv and out of process listings.%nBy default the license is printed but NOT persisted to the active configuration — convenient when issuing a license for a prospect without overwriting your own. Pass **--save** to also persist (equivalent to running **mod config license edit** with the generated key).
+
+### Usage
+
+```
+mod config license generate [parameters]
+```
+
+### Parameters
+
+| Name | Description |
+| ---- | ----------- |
+| `licensee` |  The licensee name. |
+| `expirationDate` |  The expiration date in **yyyyMMdd** format, e.g. 20270101. |
+
+### Options
+
+| Name | Description |
+| ---- | ----------- |
+| `--private-key` |  Base64-encoded raw 32-byte Ed25519 private key. Pass the flag with no value to read from stdin (masked on a TTY). |
+| `--save` |  Persist the generated license as the active configuration. |
 
 
 ## mod config license show
