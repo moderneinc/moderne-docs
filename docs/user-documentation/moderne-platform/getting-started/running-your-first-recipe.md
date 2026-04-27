@@ -10,7 +10,7 @@ import VersionBanner from '@site/src/components/VersionBanner';
 
 # Quickstart: Using the Moderne Platform
 
-To help you understand the power of Moderne, let's walk through applying one of our core recipes ([common static analysis](../../../user-documentation/recipes/recipe-catalog/staticanalysis/commonstaticanalysis.md)) to some open-source projects that we have imported into Moderne. This recipe will fix a significant amount of static analysis issues while also ensuring that your code continues to function as expected. 
+To help you understand the power of Moderne, let's walk through applying one of our core recipes ([common static analysis](../../recipes/recipe-catalog/staticanalysis/commonstaticanalysis.md)) to some open-source projects that we have imported into Moderne. This recipe will fix a significant amount of static analysis issues while also ensuring that your code continues to function as expected.
 
 By the end of this quickstart guide, you'll understand how to run recipes against any repository in Moderne.
 

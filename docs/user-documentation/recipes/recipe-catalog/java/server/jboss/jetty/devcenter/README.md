@@ -6,6 +6,7 @@ description: Devcenter OpenRewrite recipes.
 
 ## Recipes
 
+* [JBoss to Jetty migration](./jbosstojettymigrationcard.md)
 * [JBoss to Jetty migration scanner](./jbosstojettymigrationcard$scanner.md)
 
 

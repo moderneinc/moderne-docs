@@ -10,7 +10,7 @@ import RunRecipe from '@site/src/components/RunRecipe';
 
 **io.moderne.java.spring.boot3.CommentOnMockAndSpyBeansInConfigSpring34**
 
-_As stated in [Spring Docs](https://docs.spring.io/spring-framework/reference/testing/annotations/integration-spring/annotation-mockitobean.html) `@MockitoSpyBean` and `@MockitoBean` will only work in tests, explicitly not in `@Configuration` annotated classes._
+_**Deprecated**: use `io.moderne.java.spring.boot3.ReplaceMockitoBeanWithBeanMethod` instead, which rewrites the field into a working `@Bean` method rather than adding a TODO comment. As stated in [Spring Docs](https://docs.spring.io/spring-framework/reference/testing/annotations/integration-spring/annotation-mockitobean.html) `@MockitoSpyBean` and `@MockitoBean` will only work in tests, explicitly not in `@Configuration` annotated classes._
 
 ## Recipe source
 
@@ -18,13 +18,6 @@ This recipe is only available to users of [Moderne](https://docs.moderne.io/).
 
 
 This recipe is available under the [Moderne Proprietary License](https://docs.moderne.io/licensing/overview).
-
-
-## Used by
-
-This recipe is used as part of the following composite recipes:
-
-* [Comment deprecated methods in Spring 3.4](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/spring/boot3/commentdeprecations)
 
 ## Example
 

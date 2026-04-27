@@ -69,7 +69,7 @@ After installation, verify by running `mod` in your terminal:
 ```bash
 ➜ mod
 
-Moderne CLI 4.1.6
+Moderne CLI 4.2.0
 
 Usage:
 
@@ -231,7 +231,7 @@ After installation, verify by running `mod` in your terminal:
 ```bash
 ➜ mod
 
-Moderne CLI 4.1.6
+Moderne CLI 4.2.0
 
 Usage:
 
@@ -424,7 +424,7 @@ mod config moderne organizations show
 <summary>You should see something like this:</summary>
 
 ```bash
-Moderne CLI 4.1.6
+Moderne CLI 4.2.0
 
 ⏺ Retrieving the configured organizations
 
@@ -496,7 +496,7 @@ mod config moderne organizations show
 <summary>You should see something that looks similar to this (it will have your organizations instead):</summary>
 
 ```bash
-Moderne CLI 4.1.6
+Moderne CLI 4.2.0
 
 ⏺ Retrieving the configured organizations
 
@@ -749,7 +749,7 @@ For more options, see the [CLI reference documentation](../cli-reference.md#mod-
 If you want to learn more about the Moderne CLI, we'd encourage you to check out the following docs:
 
 * [Layered configuration in the CLI](../how-to-guides/layer-config-cli.md)
-* [JDK selection and configuration](../how-to-guides/jdk-selection-and-config.md)
+* [Java configuration](../how-to-guides/java.md)
 * [Using the Moderne IntelliJ plugin with the CLI](../../moderne-ide-integration/how-to-guides/moderne-plugin-install.md)
 
 Or watch the following videos:

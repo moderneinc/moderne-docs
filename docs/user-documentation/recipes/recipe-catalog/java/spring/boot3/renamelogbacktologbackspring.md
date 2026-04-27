@@ -32,6 +32,47 @@ This recipe is used as part of the following composite recipes:
 
 * [Migrate to Spring Boot 3.0](/user-documentation/recipes/recipe-catalog/java/spring/boot3/upgradespringboot_3_0.md)
 
+## Example
+
+
+<Tabs groupId="beforeAfter">
+<TabItem value="xml" label="xml">
+
+
+###### Before
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+  <springProfile name="dev">
+    <logger name="com.example" level="DEBUG"/>
+  </springProfile>
+  <root level="INFO">
+    <appender-ref ref="STDOUT"/>
+  </root>
+</configuration>
+```
+
+###### After
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+  <springProfile name="dev">
+    <logger name="com.example" level="DEBUG"/>
+  </springProfile>
+  <root level="INFO">
+    <appender-ref ref="STDOUT"/>
+  </root>
+</configuration>
+```
+
+</TabItem>
+<TabItem value="diff" label="Diff" >
+
+```diff
+```
+</TabItem>
+</Tabs>
+
 
 ## Usage
 

@@ -7,7 +7,7 @@ description: The current version of the Moderne CLI and links to useful CLI docu
 
 | Component   | Current version |
 | ----------- | --------------- |
-| CLI version | 4.1.6           |
+| CLI version | 4.2.0           |
 
 For CLI command documentation, see the [CLI reference](../user-documentation/moderne-cli/cli-reference.md).
 
@@ -16,6 +16,31 @@ The Moderne CLI previously followed a two-track release model with separate "sta
 :::
 
 ## Changelog
+
+### CLI / DX v4.2.0 (2026-04-27)
+
+#### What's Changed CLI
+* Incorporates the latest versions of OpenRewrite ([v8.81.0](https://github.com/openrewrite/rewrite/releases/tag/v8.81.0)), the rewrite-gradle-plugin ([v7.32.0](https://github.com/openrewrite/rewrite-gradle-plugin/releases/tag/v7.32.0)), and the rewrite-maven-plugin ([v6.38.0](https://github.com/openrewrite/rewrite-maven-plugin/releases/tag/v6.38.0)) to improve code parsing accuracy and recipe execution reliability.
+
+### CLI / DX v4.1.9 (2026-04-23)
+
+#### What's Changed
+* Upgrade MCP SDK
+* Skip eager verification in `mod config <lang> installation edit`
+
+### CLI / DX v4.1.8 (2026-04-22)
+
+#### What's Changed
+* Rename `mod config java jdk` to `installation` (with `jdk` alias)
+* Include sync and build details in mod publish trace.csv
+* Revert "Deduplicate cross-sub-org repository clones via shared cache (#3703)" (this was done to give us more space to test this feature before releasing)
+
+### CLI / DX v4.1.7 (2026-04-22)
+
+#### What's Changed
+* Cache recipe bundle reader per bundle to avoid classloader duplication
+* Fix wrapper race in concurrent `mod` invocations
+* Deduplicate cross-sub-org repository clones via shared cache
 
 ### CLI / DX v4.1.6 (2026-04-21)
 

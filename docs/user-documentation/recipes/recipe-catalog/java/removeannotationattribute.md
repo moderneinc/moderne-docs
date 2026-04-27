@@ -38,7 +38,6 @@ This recipe is available under the [Apache License Version 2.0](https://www.apac
 This recipe is used as part of the following composite recipes:
 
 * [JUnit 6 migration from JUnit 5.x](/user-documentation/recipes/recipe-catalog/java/testing/junit6/junit5to6migration.md)
-* [Migrate @ConfigurationProperties to Quarkus @ConfigMapping](/user-documentation/recipes/recipe-catalog/quarkus/spring/migrateconfigurationproperties.md)
 * [Migrate Dropwizard to Spring Boot 3](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/dropwizard/boot/migratedropwizardtospringboot3)
 * [Migrate JavaEE Code to Quarkus 2](/user-documentation/recipes/recipe-catalog/quarkus/migrate/javaee/javaeetoquarkus2codemigration.md)
 * [Migrate from `@ApiImplicitParams`  to `@Parameters`](/user-documentation/recipes/recipe-catalog/openapi/swagger/migrateapiimplicitparamstoparameters.md)

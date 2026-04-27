@@ -176,10 +176,14 @@ description: Auto-generated documentation for all Moderne CLI commands.
 * [**mod config http key-store edit file**](#mod-config-http-key-store-edit-file)
 * [**mod config http key-store show**](#mod-config-http-key-store-show)
 * [**mod config java**](#mod-config-java)
-* [**mod config java jdk**](#mod-config-java-jdk)
-* [**mod config java jdk edit**](#mod-config-java-jdk-edit)
-* [**mod config java jdk delete**](#mod-config-java-jdk-delete)
-* [**mod config java jdk list**](#mod-config-java-jdk-list)
+* [**mod config java installation**](#mod-config-java-installation)
+* [**mod config java installation edit**](#mod-config-java-installation-edit)
+* [**mod config java installation delete**](#mod-config-java-installation-delete)
+* [**mod config java installation list**](#mod-config-java-installation-list)
+* ~~[**mod config java jdk**](#mod-config-java-jdk-deprecated)~~ (deprecated)
+* ~~[**mod config java jdk edit**](#mod-config-java-jdk-edit-deprecated)~~ (deprecated)
+* ~~[**mod config java jdk delete**](#mod-config-java-jdk-delete-deprecated)~~ (deprecated)
+* ~~[**mod config java jdk list**](#mod-config-java-jdk-list-deprecated)~~ (deprecated)
 * [**mod config java options**](#mod-config-java-options)
 * [**mod config java options edit**](#mod-config-java-options-edit)
 * [**mod config java options delete**](#mod-config-java-options-delete)
@@ -191,6 +195,7 @@ description: Auto-generated documentation for all Moderne CLI commands.
 * [**mod config license**](#mod-config-license)
 * [**mod config license delete**](#mod-config-license-delete)
 * [**mod config license edit**](#mod-config-license-edit)
+* [**mod config license generate**](#mod-config-license-generate)
 * [**mod config license show**](#mod-config-license-show)
 * [**mod config license moderne**](#mod-config-license-moderne)
 * [**mod config license moderne sync**](#mod-config-license-moderne-sync)
@@ -3982,13 +3987,92 @@ mod config java [subcommands]
 
 ### Subcommands
 
-* `jdk`: Configures locations of JDKs that can be used by build tools.
+* `installation`: Configures locations of JDKs that can be used by build tools.
+* `jdk`: (DEPRECATED) Use `installation` instead. Configures locations of JDKs that can be used by build tools.
 * `options`: Configures JVM options for use building LSTs and running recipes.
 * `version`: Configures the JDK to use.
 
-## mod config java jdk
+## mod config java installation
 
 Configures locations of JDKs that can be used by build tools.
+
+
+Must be configured before you can run the build command if JDKs are in non-standard locations.
+
+### Usage
+
+```
+mod config java installation [subcommands]
+```
+
+
+### Subcommands
+
+* `edit`: Configures locations of JDKs that can be used by build tools.
+* `delete`: Removes the configured JDK installations. The CLI will revert to using only detectable JDKs.
+* `list`: Displays the detected and configured JDK installations in the order in which they will be selected, constrained by versions detected from a particular repository.
+
+## mod config java installation edit
+
+Configures locations of JDKs that can be used by build tools.
+
+
+Must be configured before you can run the build command if JDKs are in non-standard locations.
+
+### Usage
+
+```
+mod config java installation edit [parameters]
+```
+
+### Examples
+
+```
+mod config java installation edit /path/to/jdk1 /path/to/jdk2
+```
+
+### Parameters
+
+| Name | Description |
+| ---- | ----------- |
+| `javaHomes` |  The paths on disk where JDK installations can be found. |
+
+
+
+## mod config java installation delete
+
+Removes the configured JDK installations. The CLI will revert to using only detectable JDKs.
+
+
+### Usage
+
+```
+mod config java installation delete
+```
+
+
+
+## mod config java installation list
+
+Displays the detected and configured JDK installations in the order in which they will be selected, constrained by versions detected from a particular repository.
+
+
+### Usage
+
+```
+mod config java installation list
+```
+
+### Options
+
+| Name | Description |
+| ---- | ----------- |
+| `--named` |  Filter the list of JDKs to . |
+
+
+## mod config java jdk (deprecated)
+
+(DEPRECATED) Use `installation` instead. Configures locations of JDKs that can be used by build tools.
 
 
 Must be configured before you can run the build command if JDKs are in non-standard locations.
@@ -4006,7 +4090,7 @@ mod config java jdk [subcommands]
 * `delete`: Removes the configured JDK installations. The CLI will revert to using only detectable JDKs.
 * `list`: Displays the detected and configured JDK installations in the order in which they will be selected, constrained by versions detected from a particular repository.
 
-## mod config java jdk edit
+## mod config java jdk edit (deprecated)
 
 Configures locations of JDKs that can be used by build tools.
 
@@ -4022,7 +4106,7 @@ mod config java jdk edit [parameters]
 ### Examples
 
 ```
-mod config java jdk edit /path/to/jdk1 /path/to/jdk2
+mod config java installation edit /path/to/jdk1 /path/to/jdk2
 ```
 
 ### Parameters
@@ -4033,7 +4117,7 @@ mod config java jdk edit /path/to/jdk1 /path/to/jdk2
 
 
 
-## mod config java jdk delete
+## mod config java jdk delete (deprecated)
 
 Removes the configured JDK installations. The CLI will revert to using only detectable JDKs.
 
@@ -4046,7 +4130,7 @@ mod config java jdk delete
 
 
 
-## mod config java jdk list
+## mod config java jdk list (deprecated)
 
 Displays the detected and configured JDK installations in the order in which they will be selected, constrained by versions detected from a particular repository.
 
@@ -4258,6 +4342,7 @@ mod config license [subcommands]
 
 * `delete`: Removes the configured license key.
 * `edit`: Configure the active user.
+* `generate`: Generate a license key.
 * `show`: Displays information about the configured license key.
 * `moderne`: Synchronizes a Moderne license key with the CLI.
 
@@ -4293,6 +4378,34 @@ mod config license edit [parameters]
 | ---- | ----------- |
 | `license` |  The license key, provided by Moderne support. |
 
+
+
+## mod config license generate
+
+Generate a license key.
+
+
+Generates a signed license key for the given licensee and expiration date and prints it. The Ed25519 private key is read from the **--private-key** option, which is interactive: pass the flag with no value to read the Base64-encoded raw 32 bytes from stdin (masked when on a TTY). This keeps the key off argv and out of process listings.%nBy default the license is printed but NOT persisted to the active configuration — convenient when issuing a license for a prospect without overwriting your own. Pass **--save** to also persist (equivalent to running **mod config license edit** with the generated key).
+
+### Usage
+
+```
+mod config license generate [parameters]
+```
+
+### Parameters
+
+| Name | Description |
+| ---- | ----------- |
+| `licensee` |  The licensee name. |
+| `expirationDate` |  The expiration date in **yyyyMMdd** format, e.g. 20270101. |
+
+### Options
+
+| Name | Description |
+| ---- | ----------- |
+| `--private-key` |  Base64-encoded raw 32-byte Ed25519 private key. Pass the flag with no value to read from stdin (masked on a TTY). |
+| `--save` |  Persist the generated license as the active configuration. |
 
 
 ## mod config license show

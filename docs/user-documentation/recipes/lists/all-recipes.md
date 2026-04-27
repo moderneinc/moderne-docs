@@ -6,7 +6,7 @@ description: A comprehensive list of all recipes organized by module.
 
 _This doc contains all recipes grouped by their module._
 
-Total recipes: 5995
+Total recipes: 6131
 
 
 ## io.moderne.recipe
@@ -16,8 +16,23 @@ Total recipes: 5995
 
 _License: Moderne Proprietary License_
 
-_403 recipes_
+_408 recipes_
 
+* [OpenRewrite.CSharp.Recipes.AddNuGetPackageReference](/user-documentation/recipes/recipe-catalog/csharp/csharp/recipes/addnugetpackagereference.md)
+  * **Add NuGet package reference**
+  * Adds a `&lt;PackageReference&gt;` element to .csproj files if not already present.
+* [OpenRewrite.CSharp.Recipes.ChangeDotNetTargetFramework](/user-documentation/recipes/recipe-catalog/csharp/csharp/recipes/changedotnettargetframework.md)
+  * **Change .NET target framework**
+  * Changes the `&lt;TargetFramework&gt;` or `&lt;TargetFrameworks&gt;` value in .csproj files. For multi-TFM projects, replaces the matching framework within the semicolon-delimited list.
+* [OpenRewrite.CSharp.Recipes.FindNuGetPackageReference](/user-documentation/recipes/recipe-catalog/csharp/csharp/recipes/findnugetpackagereference.md)
+  * **Find NuGet package reference**
+  * Searches for .csproj files that reference a specific NuGet package. Intended for use as a precondition to scope other recipes.
+* [OpenRewrite.CSharp.Recipes.RemoveNuGetPackageReference](/user-documentation/recipes/recipe-catalog/csharp/csharp/recipes/removenugetpackagereference.md)
+  * **Remove NuGet package reference**
+  * Removes a `&lt;PackageReference&gt;` element from .csproj files.
+* [OpenRewrite.CSharp.Recipes.UpgradeNuGetPackageVersion](/user-documentation/recipes/recipe-catalog/csharp/csharp/recipes/upgradenugetpackageversion.md)
+  * **Upgrade NuGet package version**
+  * Upgrades the version of a NuGet `&lt;PackageReference&gt;` or `&lt;PackageVersion&gt;` in .csproj and Directory.Packages.props files. Handles property references by updating the property value instead of the version attribute. Uses NuGet.Versioning for correct version semantics.
 * [OpenRewrite.Recipes.CodeQuality.CodeQuality](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/codequality-recipe.md)
   * **Code quality**
   * All C# code quality recipes, organized by category.
@@ -2085,11 +2100,47 @@ _105 recipes_
 
 _License: Moderne Proprietary License_
 
-_5 recipes_
+_17 recipes_
 
+* [io.moderne.cryptography.FindCryptoVulnerabilitiesPipeline](/user-documentation/recipes/recipe-catalog/cryptography/findcryptovulnerabilitiespipeline.md)
+  * **Find cryptographic vulnerability chains**
+  * Detects cryptographic vulnerabilities that span multiple operations, tracking flow from hardcoded algorithms through key material to encryption operations.
+* [io.moderne.cryptography.FindDirectSSLConfigurationEditing](/user-documentation/recipes/recipe-catalog/cryptography/finddirectsslconfigurationediting.md)
+  * **Find direct SSL configuration editing**
+  * Detects direct configuration of protocols or cipher suites on SSL objects like SSLSocket, SSLServerSocket, or SSLEngine. This pattern makes SSL/TLS configuration scattered throughout the codebase and prevents centralized security policy management, hindering crypto-agility.
+* [io.moderne.cryptography.FindHardcodedAlgorithmChoice](/user-documentation/recipes/recipe-catalog/cryptography/findhardcodedalgorithmchoice.md)
+  * **Find hardcoded algorithm choices**
+  * Detects hardcoded algorithm choices in cryptographic operations. Hardcoded algorithms prevent easy migration to stronger or quantum-resistant algorithms when needed. This is a critical crypto-agility issue that makes systems vulnerable to future attacks.
+* [io.moderne.cryptography.FindHardcodedAlgorithmParameters](/user-documentation/recipes/recipe-catalog/cryptography/findhardcodedalgorithmparameters.md)
+  * **Find hardcoded algorithm-specific parameters**
+  * Detects hardcoded algorithm-specific parameters like RSA public exponents or EC curve parameters. These hardcoded values prevent algorithm agility and may use weak or non-standard parameters that compromise security.
+* [io.moderne.cryptography.FindHardcodedCertificate](/user-documentation/recipes/recipe-catalog/cryptography/findhardcodedcertificate.md)
+  * **Find hardcoded certificates**
+  * Detects hardcoded certificates in the code, including certificates that are hardcoded as strings and used to generate X509Certificate instances via CertificateFactory. Hardcoded certificates can lead to security issues when they expire or need to be revoked.
+* [io.moderne.cryptography.FindHardcodedCiphersuiteChoice](/user-documentation/recipes/recipe-catalog/cryptography/findhardcodedciphersuitechoice.md)
+  * **Find hardcoded cipher suite choices**
+  * Detects hardcoded cipher suite choices used in SSL/TLS configurations. Hardcoded cipher suites prevent easy updates when cipher suites become weak or need to be changed for compliance reasons.
+* [io.moderne.cryptography.FindHardcodedKeyLength](/user-documentation/recipes/recipe-catalog/cryptography/findhardcodedkeylength.md)
+  * **Find hardcoded cryptographic key lengths**
+  * Detects hardcoded key lengths used in cryptographic operations like KeyGenerator.init(), KeyPairGenerator.initialize(), RSAKeyGenParameterSpec, and PBEKeySpec. Hardcoded key lengths reduce flexibility and may not meet changing security requirements.
+* [io.moderne.cryptography.FindHardcodedPrivateKey](/user-documentation/recipes/recipe-catalog/cryptography/findhardcodedprivatekey.md)
+  * **Find hardcoded private keys**
+  * Detects hardcoded private keys in the code, including PEM-encoded keys that flow into KeyFactory.generatePrivate() calls. Hardcoded private keys are a severe security vulnerability as they compromise the entire cryptographic system.
+* [io.moderne.cryptography.FindHardcodedProtocolChoice](/user-documentation/recipes/recipe-catalog/cryptography/findhardcodedprotocolchoice.md)
+  * **Find hardcoded SSL/TLS protocol choices**
+  * Detects hardcoded SSL/TLS protocol choices like 'TLSv1.2', 'SSLv3' used in SSLContext.getInstance() and setProtocols() calls. Hardcoded protocols prevent easy updates when protocols become obsolete or insecure.
+* [io.moderne.cryptography.FindHardcodedProviderName](/user-documentation/recipes/recipe-catalog/cryptography/findhardcodedprovidername.md)
+  * **Find hardcoded cryptographic provider names**
+  * Detects hardcoded cryptographic provider names (like 'BC', 'SunJCE') used in getInstance() calls. Hardcoding provider names reduces portability and can cause issues when the provider is not available on different systems.
+* [io.moderne.cryptography.FindProgrammaticProviderEditing](/user-documentation/recipes/recipe-catalog/cryptography/findprogrammaticproviderediting.md)
+  * **Find programmatic security provider editing**
+  * Detects programmatic modifications to the Java Security Provider list through Security.addProvider(), insertProviderAt(), or removeProvider() calls. Modifying providers at runtime makes the security configuration unpredictable and prevents crypto-agility by hardcoding provider dependencies.
 * [io.moderne.cryptography.FindRSAKeyGenParameters](/user-documentation/recipes/recipe-catalog/cryptography/findrsakeygenparameters.md)
   * **Find RSA key generation parameters**
   * Finds RSAKeyGenParameterSpec instantiations and extracts their parameter values into a data table.
+* [io.moderne.cryptography.FindSSLContextSetDefault](/user-documentation/recipes/recipe-catalog/cryptography/findsslcontextsetdefault.md)
+  * **Find SSLContext.setDefault() usage**
+  * Detects calls to SSLContext.setDefault() which sets the system-wide default SSL context. This is problematic because it affects all SSL/TLS connections in the JVM, potentially overriding security configurations set by other parts of the application or libraries. It also prevents crypto-agility as the configuration becomes global.
 * [io.moderne.cryptography.FindSSLSocketParameters](/user-documentation/recipes/recipe-catalog/cryptography/findsslsocketparameters.md)
   * **Find SSL socket configuration parameters**
   * Finds SSLSocket setter method invocations and extracts their parameter values into a data table.
@@ -2317,7 +2368,7 @@ _11 recipes_
 
 _License: Moderne Proprietary License_
 
-_37 recipes_
+_38 recipes_
 
 * [io.moderne.hibernate.MigrateToHibernate40](/user-documentation/recipes/recipe-catalog/hibernate/migratetohibernate40.md)
   * **Migrate to Hibernate 4.0.x**
@@ -2352,6 +2403,9 @@ _37 recipes_
 * [io.moderne.hibernate.update60.MigrateHibernateCriteriaToJpaCriteria](/user-documentation/recipes/recipe-catalog/hibernate/update60/migratehibernatecriteriatojpacriteria.md)
   * **Migrate Hibernate Criteria API to JPA Criteria API**
   * Migrates code using the legacy Hibernate Criteria API (org.hibernate.Criteria, org.hibernate.criterion.*) to the JPA Criteria API (jakarta.persistence.criteria.*). Handles common patterns including Restrictions (with and/or), Order, Projections, list(), and uniqueResult().
+* [io.moderne.hibernate.update60.MigrateRemovedUuidTypes](/user-documentation/recipes/recipe-catalog/hibernate/update60/migrateremoveduuidtypes.md)
+  * **Migrate removed Hibernate UUID `@Type` to `@JdbcTypeCode`**
+  * Hibernate 6.x removed `UUIDCharType`, `UUIDBinaryType` and `PostgresUUIDType`. Replace `@Type` annotations referencing these with `@JdbcTypeCode` and the corresponding `SqlTypes` constant.
 * [io.moderne.hibernate.update66.FixConflictingClassTypeAnnotations](/user-documentation/recipes/recipe-catalog/hibernate/update66/fixconflictingclasstypeannotations.md)
   * **Fix conflicting class type annotation Hibernate 6.6**
   * Since Hibernate 6.6 a mapped class can have *either* `@MappedSuperclass` or `@Embeddable`, or `@Entity`. This recipe removes `@Entity` from classes annotated with `@MappedSuperclass` or `@Embeddable`. For the moment die combination of `@MappedSuperclass` or `@Embeddable` is advised to migrate to [Single Table Inheritance](https://docs.jboss.org/hibernate/orm/6.6/userguide/html_single/Hibernate_User_Guide.html#entity-inheritance-single-table) but still accepted and therefore stays.
@@ -2460,8 +2514,14 @@ _6 recipes_
 
 _License: Moderne Proprietary License_
 
-_10 recipes_
+_17 recipes_
 
+* [io.moderne.java.server.jboss.ConfigureGradleApplicationPlugin](/user-documentation/recipes/recipe-catalog/java/server/jboss/configuregradleapplicationplugin.md)
+  * **Configure Gradle `application` plugin main class**
+  * Adds or updates `application \{ mainClass = '...' \}` in a Gradle build script. Supports both Groovy DSL (`build.gradle`) and Kotlin DSL (`build.gradle.kts`).
+* [io.moderne.java.server.jboss.ConfigureGradleFatJar](/user-documentation/recipes/recipe-catalog/java/server/jboss/configuregradlefatjar.md)
+  * **Configure Gradle `jar` task for fat JAR**
+  * Configures the Gradle `jar` task to produce a self-contained fat JAR with all runtime dependencies bundled. Supports both Groovy DSL (`build.gradle`) and Kotlin DSL (`build.gradle.kts`).
 * [io.moderne.java.server.jboss.ModuleHasJBossDescriptor](/user-documentation/recipes/recipe-catalog/java/server/jboss/modulehasjbossdescriptor.md)
   * **Module has JBoss descriptor**
   * Searches for modules containing JBoss descriptor files (`jboss-web.xml`, `jboss-deployment-structure.xml`). Places a `SearchResult` marker on all source files within a module with a JBoss descriptor. This recipe is intended to be used as a precondition for other recipes.
@@ -2471,12 +2531,6 @@ _10 recipes_
 * [io.moderne.java.server.jboss.PlanJBossMigration](/user-documentation/recipes/recipe-catalog/java/server/jboss/planjbossmigration.md)
   * **Plan JBoss migration**
   * Analyzes the repository to plan a JBoss migration, identifying JBoss descriptor files (jboss-web.xml, jboss-deployment-structure.xml) and recording them in a data table.
-* [io.moderne.java.server.jboss.jetty.ConfigureGradleApplicationPlugin](/user-documentation/recipes/recipe-catalog/java/server/jboss/jetty/configuregradleapplicationplugin.md)
-  * **Configure Gradle `application` plugin main class**
-  * Adds or updates `application \{ mainClass = '...' \}` in a Gradle build script. Supports both Groovy DSL (`build.gradle`) and Kotlin DSL (`build.gradle.kts`).
-* [io.moderne.java.server.jboss.jetty.ConfigureGradleFatJar](/user-documentation/recipes/recipe-catalog/java/server/jboss/jetty/configuregradlefatjar.md)
-  * **Configure Gradle `jar` task for fat JAR**
-  * Configures the Gradle `jar` task to produce a self-contained fat JAR with all runtime dependencies bundled. Supports both Groovy DSL (`build.gradle`) and Kotlin DSL (`build.gradle.kts`).
 * [io.moderne.java.server.jboss.jetty.CreateJettyEnvXml](/user-documentation/recipes/recipe-catalog/java/server/jboss/jetty/createjettyenvxml.md)
   * **Create Jetty environment XML**
   * Creates a `jetty-env.xml` file for projects containing JBoss descriptor files.
@@ -2489,9 +2543,30 @@ _10 recipes_
 * [io.moderne.java.server.jboss.jetty.MigrateJBossToJetty](/user-documentation/recipes/recipe-catalog/java/server/jboss/jetty/migratejbosstojetty.md)
   * **Migrate JBoss to Jetty**
   * Comprehensive migration from JBoss to Jetty.
+* [io.moderne.java.server.jboss.jetty.devcenter.JBossToJettyMigrationCard](/user-documentation/recipes/recipe-catalog/java/server/jboss/jetty/devcenter/jbosstojettymigrationcard.md)
+  * **JBoss to Jetty migration**
+  * Measures the progress of migrating applications from JBoss to Jetty. Analyzes the presence of JBoss descriptor files (jboss-web.xml, jboss-deployment-structure.xml) and Jetty jetty-env.xml configuration files to determine migration state.
 * [io.moderne.java.server.jboss.jetty.devcenter.JBossToJettyMigrationCard$Scanner](/user-documentation/recipes/recipe-catalog/java/server/jboss/jetty/devcenter/jbosstojettymigrationcard$scanner.md)
   * **JBoss to Jetty migration scanner**
   * Scans for JBoss and Jetty configuration files.
+* [io.moderne.java.server.jboss.tomcat.CreateTomcatContextXml](/user-documentation/recipes/recipe-catalog/java/server/jboss/tomcat/createtomcatcontextxml.md)
+  * **Create Tomcat context XML**
+  * Creates a `context.xml` file for projects containing JBoss descriptor files.
+* [io.moderne.java.server.jboss.tomcat.CreateTomcatFilesInPath](/user-documentation/recipes/recipe-catalog/java/server/jboss/tomcat/createtomcatfilesinpath.md)
+  * **Migrate JBoss to Tomcat**
+  * Comprehensive migration from JBoss to Tomcat.
+* [io.moderne.java.server.jboss.tomcat.CreateTomcatSourceFile](/user-documentation/recipes/recipe-catalog/java/server/jboss/tomcat/createtomcatsourcefile.md)
+  * **Create Tomcat server source file**
+  * Creates a `TomcatServer.java` source file for projects containing JBoss descriptor files.
+* [io.moderne.java.server.jboss.tomcat.MigrateJBossToTomcat](/user-documentation/recipes/recipe-catalog/java/server/jboss/tomcat/migratejbosstotomcat.md)
+  * **Migrate JBoss to Tomcat**
+  * Comprehensive migration from JBoss to embedded Tomcat.
+* [io.moderne.java.server.jboss.tomcat.devcenter.JBossToTomcatMigrationCard](/user-documentation/recipes/recipe-catalog/java/server/jboss/tomcat/devcenter/jbosstotomcatmigrationcard.md)
+  * **JBoss to Tomcat migration**
+  * Measures the progress of migrating applications from JBoss to Tomcat. Analyzes the presence of JBoss descriptor files (jboss-web.xml, jboss-deployment-structure.xml) and Tomcat context.xml configuration files to determine migration state.
+* [io.moderne.java.server.jboss.tomcat.devcenter.JBossToTomcatMigrationCard$Scanner](/user-documentation/recipes/recipe-catalog/java/server/jboss/tomcat/devcenter/jbosstotomcatmigrationcard$scanner.md)
+  * **JBoss to Tomcat migration scanner**
+  * Scans for JBoss and Tomcat configuration files.
 
 ### rewrite-kafka
 
@@ -2898,7 +2973,7 @@ _6 recipes_
 
 _License: Moderne Proprietary License_
 
-_157 recipes_
+_158 recipes_
 
 * [io.moderne.java.jsf.MigrateToJsf_2_3](/user-documentation/recipes/recipe-catalog/java/jsf/migratetojsf_2_3.md)
   * **Migrate to JSF 2.3**
@@ -2936,9 +3011,6 @@ _157 recipes_
 * [io.moderne.java.spring.boot.SpringToSpringBoot](/user-documentation/recipes/recipe-catalog/java/spring/boot/springtospringboot.md)
   * **Migrate Spring Framework to Spring Boot**
   * Migrate non Spring Boot applications to the latest compatible Spring Boot release. This recipe will modify an application's build files introducing Maven dependency management for Spring Boot, or adding the Gradle Spring Boot build plugin.
-* [io.moderne.java.spring.boot2.UpgradeSpringBoot_2_0](/user-documentation/recipes/recipe-catalog/java/spring/boot2/upgradespringboot_2_0-moderne-edition.md)
-  * **Migrate to Spring Boot 2.0 (Moderne Edition)**
-  * Migrate applications to the latest Spring Boot 2.0 release. This recipe will modify an application's build files, make changes to deprecated/preferred APIs, and migrate configuration settings that have changes between versions. This recipe will also chain additional framework migrations (Spring Framework, Spring Data, etc) that are required as part of the migration to Spring Boot 2.0.
 * [io.moderne.java.spring.boot3.AddValidToConfigurationPropertiesFields](/user-documentation/recipes/recipe-catalog/java/spring/boot3/addvalidtoconfigurationpropertiesfields.md)
   * **Add `@Valid` annotation to fields**
   * In Spring Boot 3.4, validation of `@ConfigurationProperties` classes annotated with `@Validated` now follows the Bean Validation specification, only cascading to nested properties if the corresponding field is annotated with `@Valid`. The recipe will add a `@Valid` annotation to each field which has a type that has a field which is annotated with a `jakarta.validation.constraints.*` annotation.
@@ -2947,7 +3019,7 @@ _157 recipes_
   * Spring Boot 3.4 deprecates methods that are not commonly used or need manual interaction.
 * [io.moderne.java.spring.boot3.CommentOnMockAndSpyBeansInConfigSpring34](/user-documentation/recipes/recipe-catalog/java/spring/boot3/commentonmockandspybeansinconfigspring34.md)
   * **Comment on `@MockitoSpyBean` and `@MockitoBean` in `@Configuration`**
-  * As stated in [Spring Docs](https://docs.spring.io/spring-framework/reference/testing/annotations/integration-spring/annotation-mockitobean.html) `@MockitoSpyBean` and `@MockitoBean` will only work in tests, explicitly not in `@Configuration` annotated classes.
+  * **Deprecated**: use `io.moderne.java.spring.boot3.ReplaceMockitoBeanWithBeanMethod` instead, which rewrites the field into a working `@Bean` method rather than adding a TODO comment. As stated in [Spring Docs](https://docs.spring.io/spring-framework/reference/testing/annotations/integration-spring/annotation-mockitobean.html) `@MockitoSpyBean` and `@MockitoBean` will only work in tests, explicitly not in `@Configuration` annotated classes.
 * [io.moderne.java.spring.boot3.ConditionalOnAvailableEndpointMigrationSpring34](/user-documentation/recipes/recipe-catalog/java/spring/boot3/conditionalonavailableendpointmigrationspring34.md)
   * **Migrate `ConditionalOnAvailableEndpoint` for Spring Boot 3.4**
   * Migrate `@ConditionalOnAvailableEndpoint(EndpointExposure.CLOUD_FOUNDRY)` to `@ConditionalOnAvailableEndpoint(EndpointExposure.WEB)` for Spring Boot 3.4.
@@ -2996,6 +3068,9 @@ _157 recipes_
 * [io.moderne.java.spring.boot3.ReplaceKafkaTransactionManagerSetter](/user-documentation/recipes/recipe-catalog/java/spring/boot3/replacekafkatransactionmanagersetter.md)
   * **Use `kafkaAwareTransactionManager` setter**
   * Replace deprecated `ContainerProperties#setTransactionManager(org.springframework.transaction.PlatformTransactionManager)` method with `ContainerProperties#setKafkaAwareTransactionManager(org.springframework.kafka.transaction.KafkaAwareTransactionManager)`. The method will be replaced only if its argument has the type `KafkaAwareTransactionManager`.
+* [io.moderne.java.spring.boot3.ReplaceMockitoBeanWithBeanMethod](/user-documentation/recipes/recipe-catalog/java/spring/boot3/replacemockitobeanwithbeanmethod.md)
+  * **Replace `@MockitoBean` and `@MockitoSpyBean` with `@Bean` methods in `@Configuration` classes**
+  * `@MockitoBean` and `@MockitoSpyBean` only work in test classes, not in `@Configuration` classes. This recipe converts annotated fields into `@Bean` methods using `Mockito.mock()` or `Mockito.spy()`.
 * [io.moderne.java.spring.boot3.ReplaceTaskExecutorNameByApplicationTaskExecutorName](/user-documentation/recipes/recipe-catalog/java/spring/boot3/replacetaskexecutornamebyapplicationtaskexecutorname.md)
   * **Use bean name `applicationTaskExecutor` instead of `taskExecutor`**
   * Spring Boot 3.5 removed the bean name `taskExecutor`. Where this bean name is used, the recipe replaces the bean name to `applicationTaskExecutor`. This also includes instances where the developer provided their own bean named `taskExecutor`. This also includes scenarios where JSR-250's `@Resource` annotation is used.
@@ -3245,6 +3320,9 @@ _157 recipes_
 * [io.moderne.java.spring.framework.RemoveSetPathMatcherCall](/user-documentation/recipes/recipe-catalog/java/spring/framework/removesetpathmatchercall.md)
   * **Remove deprecated `setPathMatcher()` calls**
   * In Spring Framework 7.0, `PathMatcher` and `AntPathMatcher` are deprecated in favor of `PathPatternParser`, which has been the default in Spring MVC since 6.0. This recipe removes calls to `setPathMatcher(new AntPathMatcher())` since they are now redundant. The default `PathPatternParser` provides better performance through pre-parsed patterns.
+* [io.moderne.java.spring.framework.ReplaceControllerWithRestController](/user-documentation/recipes/recipe-catalog/java/spring/framework/replacecontrollerwithrestcontroller.md)
+  * **Replace `@Controller` with `@RestController`**
+  * When a class is annotated with `@Controller` and either the class itself or all of its handler methods are annotated with `@ResponseBody`, the class can use `@RestController` instead. This removes the need for individual `@ResponseBody` annotations.
 * [io.moderne.java.spring.framework.UpgradeSpringFramework_3_0](/user-documentation/recipes/recipe-catalog/java/spring/framework/upgradespringframework_3_0.md)
   * **Migrate to Spring Framework 3.x**
   * Migrate applications to the latest Spring Framework 3 release, pulling in additional proprietary Moderne recipes.
@@ -4192,7 +4270,7 @@ _101 recipes_
 
 _License: Moderne Source Available License_
 
-_16 recipes_
+_17 recipes_
 
 * [org.openrewrite.javascript.change-import](/user-documentation/recipes/recipe-catalog/javascript/change-import.md)
   * **Change import**
@@ -4218,6 +4296,9 @@ _16 recipes_
 * [org.openrewrite.javascript.dependencies.find-dependency](/user-documentation/recipes/recipe-catalog/javascript/dependencies/find-dependency.md)
   * **Find Node.js dependency**
   * Finds dependencies in a project's `package.json`. Can find both direct dependencies and dependencies that transitively include the target package. This recipe is commonly used as a precondition for other recipes.
+* [org.openrewrite.javascript.dependencies.remove-dependency](/user-documentation/recipes/recipe-catalog/javascript/dependencies/remove-dependency.md)
+  * **Remove npm dependency**
+  * Removes a dependency from `package.json` and updates the lock file by running the package manager.
 * [org.openrewrite.javascript.dependencies.upgrade-dependency-version](/user-documentation/recipes/recipe-catalog/javascript/dependencies/upgrade-dependency-version.md)
   * **Upgrade npm dependency version**
   * Upgrades the version of a direct dependency in `package.json` and updates the lock file by running the package manager. Either `packageName` or `packagePattern` must be specified.
@@ -4511,7 +4592,7 @@ _88 recipes_
   * Upgrades the version of a transitive dependency in a Maven pom file. Leaves direct dependencies unmodified. Can be paired with the regular Upgrade Dependency Version recipe to upgrade a dependency everywhere, regardless of whether it is direct or transitive.
 * [org.openrewrite.maven.UseMavenCompilerPluginReleaseConfiguration](/user-documentation/recipes/recipe-catalog/maven/usemavencompilerpluginreleaseconfiguration.md)
   * **Use Maven compiler plugin release configuration**
-  * Replaces any explicit `source` or `target` configuration (if present) on the `maven-compiler-plugin` with `release`, and updates the `release` value if needed. Will not downgrade the Java version if the current version is higher.
+  * Replaces any explicit `source` or `target` configuration (if present) on the `maven-compiler-plugin` with `release`, and updates the `release` value if needed. When `testSource` or `testTarget` differ from the main version, introduces `testRelease`. Will not downgrade the Java version if the current version is higher. Also removes stale `maven.compiler.source`, `maven.compiler.target`, `maven.compiler.testSource`, and `maven.compiler.testTarget` properties that are no longer referenced.
 * [org.openrewrite.maven.UseParentInference](/user-documentation/recipes/recipe-catalog/maven/useparentinference.md)
   * **Use Maven 4 parent inference**
   * Maven 4.1.0 supports automatic parent version inference when using a relative path. This recipe simplifies parent declarations by using the shorthand `&lt;parent/&gt;` form when the parent is in the default location (`..`), removing the explicit `&lt;relativePath&gt;`, `&lt;groupId&gt;`, `&lt;artifactId&gt;`, and `&lt;version&gt;` elements. Maven automatically infers these values from the parent POM.
@@ -4991,8 +5072,11 @@ _16 recipes_
 
 _License: Moderne Source Available License_
 
-_110 recipes_
+_116 recipes_
 
+* [org.openrewrite.apache.commons.PreferJavaStandardLibrary](/user-documentation/recipes/recipe-catalog/apache/commons/preferjavastandardlibrary.md)
+  * **Prefer the Java standard library instead of Apache Commons**
+  * Prefer the Java standard library instead of Apache Commons. These recipes replace various Apache Commons utilities with their JDK equivalents, where available in Java 11+.
 * [org.openrewrite.apache.commons.codec.ApacheBase64ToJavaBase64](/user-documentation/recipes/recipe-catalog/apache/commons/codec/apachebase64tojavabase64.md)
   * **Prefer `java.util.Base64`**
   * Prefer the Java standard library's `java.util.Base64` over third-party usage of apache's `apache.commons.codec.binary.Base64`.
@@ -5005,9 +5089,24 @@ _110 recipes_
 * [org.openrewrite.apache.commons.io.ApacheCommonsFileUtilsRecipes$GetFileRecipe](/user-documentation/recipes/recipe-catalog/apache/commons/io/apachecommonsfileutilsrecipes$getfilerecipe.md)
   * **Replace `FileUtils.getFile(String...)` with JDK provided API**
   * Replace Apache Commons `FileUtils.getFile(String... name)` with JDK provided API.
+* [org.openrewrite.apache.commons.io.ApacheCommonsFileUtilsRecipes$ReadFileToStringWithCharsetRecipe](/user-documentation/recipes/recipe-catalog/apache/commons/io/apachecommonsfileutilsrecipes$readfiletostringwithcharsetrecipe.md)
+  * **Replace `FileUtils.readFileToString(File)` with `FileUtils.readFileToString(File, StandardCharsets.UTF_8)`**
+  * Replace deprecated `FileUtils.readFileToString(File)` with `FileUtils.readFileToString(File, StandardCharsets.UTF_8)`.
+* [org.openrewrite.apache.commons.io.ApacheCommonsFileUtilsRecipes$ReadLinesWithCharsetRecipe](/user-documentation/recipes/recipe-catalog/apache/commons/io/apachecommonsfileutilsrecipes$readlineswithcharsetrecipe.md)
+  * **Replace `FileUtils.readLines(File)` with `FileUtils.readLines(File, StandardCharsets.UTF_8)`**
+  * Replace deprecated `FileUtils.readLines(File)` with `FileUtils.readLines(File, StandardCharsets.UTF_8)`.
+* [org.openrewrite.apache.commons.io.ApacheCommonsFileUtilsRecipes$WriteAppendWithCharsetRecipe](/user-documentation/recipes/recipe-catalog/apache/commons/io/apachecommonsfileutilsrecipes$writeappendwithcharsetrecipe.md)
+  * **Replace `FileUtils.write(File, CharSequence, boolean)` with `FileUtils.write(File, CharSequence, StandardCharsets.UTF_8, boolean)`**
+  * Replace deprecated `FileUtils.write(File, CharSequence, boolean)` with `FileUtils.write(File, CharSequence, StandardCharsets.UTF_8, boolean)`.
+* [org.openrewrite.apache.commons.io.ApacheCommonsFileUtilsRecipes$WriteStringToFileAppendWithCharsetRecipe](/user-documentation/recipes/recipe-catalog/apache/commons/io/apachecommonsfileutilsrecipes$writestringtofileappendwithcharsetrecipe.md)
+  * **Replace `FileUtils.writeStringToFile(File, String, boolean)` with `FileUtils.writeStringToFile(File, String, StandardCharsets.UTF_8, boolean)`**
+  * Replace deprecated `FileUtils.writeStringToFile(File, String, boolean)` with `FileUtils.writeStringToFile(File, String, StandardCharsets.UTF_8, boolean)`.
 * [org.openrewrite.apache.commons.io.ApacheCommonsFileUtilsRecipes$WriteStringToFileRecipe](/user-documentation/recipes/recipe-catalog/apache/commons/io/apachecommonsfileutilsrecipes$writestringtofilerecipe.md)
   * **Replace `FileUtils.writeStringToFile(File, String)` with JDK provided API**
   * Replace Apache Commons `FileUtils.writeStringToFile(File file, String data)` with JDK provided API.
+* [org.openrewrite.apache.commons.io.ApacheCommonsFileUtilsRecipes$WriteWithCharsetRecipe](/user-documentation/recipes/recipe-catalog/apache/commons/io/apachecommonsfileutilsrecipes$writewithcharsetrecipe.md)
+  * **Replace `FileUtils.write(File, CharSequence)` with `FileUtils.write(File, CharSequence, StandardCharsets.UTF_8, false)`**
+  * Replace deprecated `FileUtils.write(File, CharSequence)` with `FileUtils.write(File, CharSequence, StandardCharsets.UTF_8, false)`.
 * [org.openrewrite.apache.commons.io.ApacheFileUtilsToJavaFiles](/user-documentation/recipes/recipe-catalog/apache/commons/io/apachefileutilstojavafiles.md)
   * **Prefer `java.nio.file.Files`**
   * Prefer the Java standard library's `java.nio.file.Files` over third-party usage of apache's `apache.commons.io.FileUtils`.
@@ -6929,7 +7028,7 @@ _27 recipes_
 
 _License: Moderne Source Available License_
 
-_52 recipes_
+_53 recipes_
 
 * [org.openrewrite.github.AddCronTrigger](/user-documentation/recipes/recipe-catalog/github/addcrontrigger.md)
   * **Add cron workflow trigger**
@@ -6964,6 +7063,9 @@ _52 recipes_
 * [org.openrewrite.github.FindMissingTimeout](/user-documentation/recipes/recipe-catalog/github/findmissingtimeout.md)
   * **Find jobs missing timeout**
   * Find GitHub Actions jobs missing a timeout.
+* [org.openrewrite.github.GitHubActionsBestPractices](/user-documentation/recipes/recipe-catalog/github/githubactionsbestpractices.md)
+  * **GitHub Actions best practices**
+  * Applies best practices to GitHub Actions workflows, including enabling dependency caching, using cached distributions, finding missing timeouts, removing unused inputs, and preferring block-style job dependencies.
 * [org.openrewrite.github.IsGitHubActionsWorkflow](/user-documentation/recipes/recipe-catalog/github/isgithubactionsworkflow.md)
   * **Is GitHub Actions Workflow**
   * Checks if the file is a GitHub Actions workflow file.
@@ -6973,9 +7075,9 @@ _52 recipes_
 * [org.openrewrite.github.MigrateTibdexGitHubAppTokenToActions](/user-documentation/recipes/recipe-catalog/github/migratetibdexgithubapptokentoactions.md)
   * **Migrate from tibdex/github-app-token to actions/create-github-app-token**
   * Migrates from tibdex/github-app-token@v2 to actions/create-github-app-token@v2 and updates parameter names from snake_case to kebab-case.
-* [org.openrewrite.github.PreferSecretsInheritWorkflow](/user-documentation/recipes/recipe-catalog/github/prefersecretsinheritworkflow.md)
-  * **Use `secrets: inherit` if possible**
-  * Pass all secrets to a reusable workflow using `secrets: inherit`. See [Simplify using secrets with reusable workflows](https://github.blog/changelog/2022-05-03-github-actions-simplify-using-secrets-with-reusable-workflows/) for details.
+* [org.openrewrite.github.PreferBlockStyleJobDependencies](/user-documentation/recipes/recipe-catalog/github/preferblockstylejobdependencies.md)
+  * **Prefer block style for job dependencies**
+  * Convert flow-style `needs` sequences (e.g. `needs: [dep1, dep2]`) to block-style in GitHub Actions workflow jobs when a job depends on more than one other job. Block style improves readability and produces cleaner diffs in source control.
 * [org.openrewrite.github.PreferTemurinDistributions](/user-documentation/recipes/recipe-catalog/github/prefertemurindistributions.md)
   * **Use `actions/setup-java` `temurin` distribution as they are cached in hosted runners**
   * [Host runners](https://docs.github.com/en/actions/using-github-hosted-runners/about-github-hosted-runners#supported-runners-and-hardware-resources/) include Temurin by default as part of the [hosted tool cache](https://github.com/actions/setup-java/blob/main/docs/advanced-usage.md#hosted-tool-cache). Using Temurin speeds up builds as there is no need to download and configure the Java SDK with every build.
@@ -7023,10 +7125,10 @@ _52 recipes_
   * Update the Slack GitHub Action to use version 2.0.
 * [org.openrewrite.github.gradle.RenameGradleBuildActionToSetupGradle](/user-documentation/recipes/recipe-catalog/github/gradle/renamegradlebuildactiontosetupgradle.md)
   * **Rename `gradle/gradle-build-action` to `gradle/actions/setup-gradle`**
-  * Rename the deprecated `gradle/gradle-build-action` to `gradle/actions/setup-gradle@v3`.
+  * Rename the deprecated `gradle/gradle-build-action` to `gradle/actions/setup-gradle@v6`.
 * [org.openrewrite.github.gradle.RenameWrapperValidationAction](/user-documentation/recipes/recipe-catalog/github/gradle/renamewrappervalidationaction.md)
   * **Rename `gradle/wrapper-validation-action` to `gradle/actions/wrapper-validation`**
-  * Rename the deprecated `gradle/wrapper-validation-action` to `gradle/actions/wrapper-validation@v3`.
+  * Rename the deprecated `gradle/wrapper-validation-action` to `gradle/actions/wrapper-validation@v5`.
 * [org.openrewrite.github.security.AnonymousJobs](/user-documentation/recipes/recipe-catalog/github/security/anonymousjobs.md)
   * **Find jobs without descriptive names**
   * Find jobs that lack descriptive names, making them harder to identify in workflow runs. Jobs without `name` properties default to their job ID, which may not be descriptive. Based on [zizmor's anonymous-definition audit](https://github.com/woodruffw/zizmor/blob/main/crates/zizmor/src/audit/anonymous_definition.rs).
@@ -7092,7 +7194,7 @@ _52 recipes_
 
 _License: Moderne Source Available License_
 
-_20 recipes_
+_22 recipes_
 
 * [org.openrewrite.gitlab.AddArtifactsExpireIn](/user-documentation/recipes/recipe-catalog/gitlab/addartifactsexpirein.md)
   * **Add artifacts expire_in**
@@ -7133,6 +7235,12 @@ _20 recipes_
 * [org.openrewrite.gitlab.ChangeTemplate](/user-documentation/recipes/recipe-catalog/gitlab/changetemplate.md)
   * **Change GitLab template**
   * Change a GitLab template in use.
+* [org.openrewrite.gitlab.MigrateTemplateToComponent](/user-documentation/recipes/recipe-catalog/gitlab/migratetemplatetocomponent.md)
+  * **Migrate GitLab template to component**
+  * Replace a GitLab `template:` include with a `component:` include, as recommended by GitLab's CI/CD Catalog migration guides.
+* [org.openrewrite.gitlab.MigrateTerraformTemplateToOpenTofuComponent](/user-documentation/recipes/recipe-catalog/gitlab/migrateterraformtemplatetoopentofucomponent.md)
+  * **Migrate GitLab Terraform template to OpenTofu component**
+  * Replace the deprecated `Terraform/Base.latest.gitlab-ci.yml` template include with the OpenTofu CI/CD component, per the GitLab catalog migration guide.
 * [org.openrewrite.gitlab.MigrateToRules](/user-documentation/recipes/recipe-catalog/gitlab/migratetorules.md)
   * **Migrate `only`/`except` to `rules`**
   * Replace the deprecated `only` and `except` keywords with equivalent `rules` in `.gitlab-ci.yml` job definitions. When both `only` and `except` are present, they are combined into a single `rules` block. Handles simple ref list forms; complex object forms with `refs`, `variables`, or `changes` sub-keys are left unchanged.
@@ -7159,7 +7267,7 @@ _20 recipes_
 
 _License: Moderne Source Available License_
 
-_23 recipes_
+_24 recipes_
 
 * [org.openrewrite.hibernate.AddScalarPreferStandardBasicTypes](/user-documentation/recipes/recipe-catalog/hibernate/addscalarpreferstandardbasictypes.md)
   * **AddScalarPreferStandardBasicTypesForHibernate5**
@@ -7170,6 +7278,9 @@ _23 recipes_
 * [org.openrewrite.hibernate.MigrateBooleanMappings](/user-documentation/recipes/recipe-catalog/hibernate/migratebooleanmappings.md)
   * **Replace boolean type mappings with converters**
   * Replaces type mapping of booleans with appropriate attribute converters.
+* [org.openrewrite.hibernate.MigrateDialect](/user-documentation/recipes/recipe-catalog/hibernate/migratedialect.md)
+  * **Migrate Hibernate dialect to the generic dialect**
+  * Migrate all Hibernate version-specific dialect classes to their generic equivalents. Version-specific dialects were deprecated in Hibernate 6.0 and removed in Hibernate 6.2.
 * [org.openrewrite.hibernate.MigrateResultCheckStyleToExpectation](/user-documentation/recipes/recipe-catalog/hibernate/migrateresultcheckstyletoexpectation.md)
   * **Migration of `ResultCheckStyle` to `Expectation`**
   * Will migrate the usage of `org.hibernate.annotations.ResultCheckStyle` to `org.hibernate.jdbc.Expectation` in `@SQLInsert`, `@SqlUpdate`, `@SqlDelete` and `@SqlDeleteAll` annotations.
@@ -7420,7 +7531,7 @@ _18 recipes_
 
 _License: Moderne Proprietary License_
 
-_94 recipes_
+_104 recipes_
 
 * [org.openrewrite.csharp.dependencies.DependencyInsight](/user-documentation/recipes/recipe-catalog/csharp/dependencies/dependencyinsight.md)
   * **Dependency insight for C#**
@@ -7439,7 +7550,7 @@ _94 recipes_
   * Locates and reports on all licenses in use.
 * [org.openrewrite.java.dependencies.DependencyVulnerabilityCheck](/user-documentation/recipes/recipe-catalog/java/dependencies/dependencyvulnerabilitycheck.md)
   * **Find and fix vulnerable dependencies**
-  * This software composition analysis (SCA) tool detects and upgrades dependencies with publicly disclosed vulnerabilities. This recipe both generates a report of vulnerable dependencies and upgrades to newer versions with fixes. This recipe by default only upgrades to the latest **patch** version.  If a minor or major upgrade is required to reach the fixed version, this can be controlled using the `maximumUpgradeDelta` option. Vulnerability information comes from the [GitHub Security Advisory Database](https://docs.github.com/en/code-security/security-advisories/global-security-advisories/about-the-github-advisory-database), which aggregates vulnerability data from several public databases, including the [National Vulnerability Database](https://nvd.nist.gov/) maintained by the United States government. Upgrades dependencies versioned according to [Semantic Versioning](https://semver.org/).   ## Customizing Vulnerability Data  This recipe can be customized by extending `DependencyVulnerabilityCheckBase` and overriding the vulnerability data sources:   - **`baselineVulnerabilities(ExecutionContext ctx)`**: Provides the default set of known vulnerabilities. The base implementation loads vulnerability data from the GitHub Security Advisory Database CSV file using `ResourceUtils.parseResourceAsCsv()`. Override this method to replace the entire vulnerability dataset with your own curated list.   - **`supplementalVulnerabilities(ExecutionContext ctx)`**: Allows adding custom vulnerability data beyond the baseline. The base implementation returns an empty list. Override this method to add organization-specific vulnerabilities, internal security advisories, or vulnerabilities from additional sources while retaining the baseline GitHub Advisory Database.  Both methods return `List&lt;Vulnerability&gt;` objects. Vulnerability data can be loaded from CSV files using `ResourceUtils.parseResourceAsCsv(path, Vulnerability.class, consumer)` or constructed programmatically. To customize, extend `DependencyVulnerabilityCheckBase` and override one or both methods depending on your needs. For example, override `supplementalVulnerabilities()` to add custom CVEs while keeping the standard vulnerability database, or override `baselineVulnerabilities()` to use an entirely different vulnerability data source. Last updated: 2026-04-06T1118.
+  * This software composition analysis (SCA) tool detects and upgrades dependencies with publicly disclosed vulnerabilities. This recipe both generates a report of vulnerable dependencies and upgrades to newer versions with fixes. This recipe by default only upgrades to the latest **patch** version.  If a minor or major upgrade is required to reach the fixed version, this can be controlled using the `maximumUpgradeDelta` option. Vulnerability information comes from the [GitHub Security Advisory Database](https://docs.github.com/en/code-security/security-advisories/global-security-advisories/about-the-github-advisory-database), which aggregates vulnerability data from several public databases, including the [National Vulnerability Database](https://nvd.nist.gov/) maintained by the United States government. Upgrades dependencies versioned according to [Semantic Versioning](https://semver.org/).   ## Customizing Vulnerability Data  This recipe can be customized by extending `DependencyVulnerabilityCheckBase` and overriding the vulnerability data sources:   - **`baselineVulnerabilities(ExecutionContext ctx)`**: Provides the default set of known vulnerabilities. The base implementation loads vulnerability data from the GitHub Security Advisory Database CSV file using `ResourceUtils.parseResourceAsCsv()`. Override this method to replace the entire vulnerability dataset with your own curated list.   - **`supplementalVulnerabilities(ExecutionContext ctx)`**: Allows adding custom vulnerability data beyond the baseline. The base implementation returns an empty list. Override this method to add organization-specific vulnerabilities, internal security advisories, or vulnerabilities from additional sources while retaining the baseline GitHub Advisory Database.  Both methods return `List&lt;Vulnerability&gt;` objects. Vulnerability data can be loaded from CSV files using `ResourceUtils.parseResourceAsCsv(path, Vulnerability.class, consumer)` or constructed programmatically. To customize, extend `DependencyVulnerabilityCheckBase` and override one or both methods depending on your needs. For example, override `supplementalVulnerabilities()` to add custom CVEs while keeping the standard vulnerability database, or override `baselineVulnerabilities()` to use an entirely different vulnerability data source. Last updated: 2026-04-27T1132.
 * [org.openrewrite.java.dependencies.RemoveUnusedDependencies](/user-documentation/recipes/recipe-catalog/java/dependencies/removeunuseddependencies.md)
   * **Remove unused dependencies**
   * Scans through source code collecting references to types and methods, removing any dependencies that are not used from Maven or Gradle build files. This is best effort and not guaranteed to work well in all cases; false positives are still possible.  This recipe takes reflective access into account: - When reflective access to a class is made unambiguously via a string literal, such as: `Class.forName(&quot;java.util.List&quot;)` that is counted correctly. - When reflective access to a class is made ambiguously via anything other than a string literal no dependencies will be removed.  This recipe takes transitive dependencies into account: - When a direct dependency is not used but a transitive dependency it brings in _is_ in use the direct dependency is not removed.
@@ -7476,6 +7587,9 @@ _94 recipes_
 * [org.openrewrite.java.security.Owasp2025A05](/user-documentation/recipes/recipe-catalog/java/security/owasp2025a05.md)
   * **Remediate OWASP A05:2025 Injection**
   * OWASP [A05:2025](https://owasp.org/Top10/2025/A05_2025-Injection/) describes failures related to user-supplied data being used to influence program state to operate outside of its intended bounds. Previously A03:2021.
+* [org.openrewrite.java.security.Owasp2025A07](/user-documentation/recipes/recipe-catalog/java/security/owasp2025a07.md)
+  * **Remediate OWASP A07:2025 Identification and authentication failures**
+  * OWASP [A07:2025](https://owasp.org/Top10/2025/A07_2025-Authentication_Failures/) describes failures related to identification and authentication, including weak credential management, missing brute force protections, session fixation, hardcoded credentials, insecure &quot;remember me&quot;, and missing multi-factor authentication. Same position as A07:2021 (no prior aggregator existed).
 * [org.openrewrite.java.security.OwaspA01](/user-documentation/recipes/recipe-catalog/java/security/owaspa01.md)
   * **Remediate OWASP A01:2021 Broken access control**
   * OWASP [A01:2021](https://owasp.org/Top10/A01_2021-Broken_Access_Control/) describes failures related to broken access control.
@@ -7536,6 +7650,9 @@ _94 recipes_
 * [org.openrewrite.java.security.search.FindExpressionLanguageInjection](/user-documentation/recipes/recipe-catalog/java/security/search/findexpressionlanguageinjection.md)
   * **Find Expression Language injection vectors**
   * Finds calls to Expression Language (EL) evaluation methods which, when the expression is built from user input, can allow arbitrary code execution. Use parameterized expressions or input validation instead.
+* [org.openrewrite.java.security.search.FindHardcodedAuthenticationCredentials](/user-documentation/recipes/recipe-catalog/java/security/search/findhardcodedauthenticationcredentials.md)
+  * **Find hardcoded authentication credentials**
+  * Finds hardcoded passwords flowing into Spring Security user builders: `InMemoryUserDetailsManagerConfigurer` (`inMemoryAuthentication().withUser(...).password(...)`) and the `User.UserBuilder.password(...)` API. Uses taint analysis so credentials assigned to a variable, field, or constant before being passed to `.password(...)` are also detected.
 * [org.openrewrite.java.security.search.FindHardcodedIv](/user-documentation/recipes/recipe-catalog/java/security/search/findhardcodediv.md)
   * **Find hardcoded initialization vectors**
   * Finds `IvParameterSpec` constructed with hardcoded byte arrays or string literals. A static IV makes CBC and other modes deterministic, enabling chosen-plaintext attacks. IVs should be generated randomly using `SecureRandom` for each encryption operation.
@@ -7545,9 +7662,18 @@ _94 recipes_
 * [org.openrewrite.java.security.search.FindInadequateKeySize](/user-documentation/recipes/recipe-catalog/java/security/search/findinadequatekeysize.md)
   * **Find inadequate cryptographic key sizes**
   * Finds cryptographic key generation with inadequate key sizes. RSA keys should be at least 2048 bits, DSA keys at least 2048 bits, EC keys at least 256 bits, and symmetric keys (AES) at least 128 bits. NIST recommends RSA-2048+ and AES-128+ as minimum for all new applications.
+* [org.openrewrite.java.security.search.FindInsecureRememberMeConfig](/user-documentation/recipes/recipe-catalog/java/security/search/findinsecureremembermeconfig.md)
+  * **Find insecure Spring Security RememberMe configuration**
+  * Finds Spring Security RememberMe configurations with insecure settings: `useSecureCookie(false)` (allows cookie transmission over HTTP), `alwaysRemember(true)` (bypasses user opt-in), or `tokenValiditySeconds(...)` set longer than 30 days (extends the window in which a stolen remember-me cookie can be replayed).
+* [org.openrewrite.java.security.search.FindInsecureSessionFixationConfig](/user-documentation/recipes/recipe-catalog/java/security/search/findinsecuresessionfixationconfig.md)
+  * **Find Spring Security configurations that disable session fixation protection**
+  * Finds Spring Security configurations that disable session fixation protection by calling `sessionFixation().none()`. Without session fixation protection, an attacker who obtains a victim's session identifier before authentication can reuse it to hijack the authenticated session. Spring Security defaults to `changeSessionId()`; applications should keep that default or use `migrateSession()`.
 * [org.openrewrite.java.security.search.FindJacksonDefaultTypeMapping](/user-documentation/recipes/recipe-catalog/java/security/search/findjacksondefaulttypemapping.md)
   * **Find Jackson default type mapping enablement**
   * `ObjectMapper#enableTypeMapping(..)` can lead to vulnerable deserialization.
+* [org.openrewrite.java.security.search.FindLongSessionTimeout](/user-documentation/recipes/recipe-catalog/java/security/search/findlongsessiontimeout.md)
+  * **Find long or disabled HTTP session timeout**
+  * Finds calls to `HttpSession.setMaxInactiveInterval(int)` whose integer-literal argument exceeds 30 minutes or is zero/negative (which disables session expiration). Long-lived or non-expiring sessions increase the window for session hijacking and replay (CWE-613).
 * [org.openrewrite.java.security.search.FindPermissiveCorsConfiguration](/user-documentation/recipes/recipe-catalog/java/security/search/findpermissivecorsconfiguration.md)
   * **Find permissive CORS configuration**
   * Finds overly permissive CORS configurations that allow all origins, which can expose the application to cross-domain attacks.
@@ -7575,15 +7701,30 @@ _94 recipes_
 * [org.openrewrite.java.security.search.FindUnsafeReflection](/user-documentation/recipes/recipe-catalog/java/security/search/findunsafereflection.md)
   * **Find unsafe reflection vectors**
   * Finds calls to `Class.forName()` which, when the class name is derived from user input, can allow an attacker to instantiate arbitrary classes. Review these call sites to ensure the class name is not externally controlled.
+* [org.openrewrite.java.security.search.FindUnsignedJwt](/user-documentation/recipes/recipe-catalog/java/security/search/findunsignedjwt.md)
+  * **Find unsigned JWT usage**
+  * Finds construction or parsing of Nimbus `PlainJWT` — an unsecured JWT that has no signature or MAC. Unsecured JWTs allow an attacker to forge tokens because their payloads are not integrity-protected. Use a signed (`SignedJWT`) or encrypted (`EncryptedJWT`) JWT instead.
+* [org.openrewrite.java.security.search.FindUserWithDefaultPasswordEncoder](/user-documentation/recipes/recipe-catalog/java/security/search/finduserwithdefaultpasswordencoder.md)
+  * **Find `User.withDefaultPasswordEncoder()` usage**
+  * Flags any call to `User.withDefaultPasswordEncoder()` from Spring Security. The factory is documented as for non-production demos only: it stores credentials in memory with a fixed encoder and is unsafe for real workloads.
 * [org.openrewrite.java.security.search.FindVulnerableJacksonJsonTypeInfo](/user-documentation/recipes/recipe-catalog/java/security/search/findvulnerablejacksonjsontypeinfo.md)
   * **Find vulnerable uses of Jackson `@JsonTypeInfo`**
   * Identify where attackers can deserialize gadgets into a target field.
 * [org.openrewrite.java.security.search.FindWeakCryptoAlgorithm](/user-documentation/recipes/recipe-catalog/java/security/search/findweakcryptoalgorithm.md)
   * **Find weak cryptographic algorithms**
   * Finds uses of broken or risky cryptographic algorithms such as MD5, SHA-1, DES, DESede (3DES), RC2, RC4, and Blowfish in calls to `Cipher.getInstance()`, `MessageDigest.getInstance()`, `Mac.getInstance()`, `KeyGenerator.getInstance()`, and `SecretKeyFactory.getInstance()`.
+* [org.openrewrite.java.security.search.FindWeakDigestInPasswordEncoder](/user-documentation/recipes/recipe-catalog/java/security/search/findweakdigestinpasswordencoder.md)
+  * **Find weak message digests used inside custom `PasswordEncoder` implementations**
+  * Finds calls to `MessageDigest.getInstance(&quot;...&quot;)` whose algorithm is unsuitable for password storage, scoped to classes implementing `org.springframework.security.crypto.password.PasswordEncoder`. Unsalted and non-iterated digests (MD2, MD4, MD5, SHA-1, SHA-224/256/384/512) are unsuitable for password hashing regardless of how they are wrapped. Delegate to `BCryptPasswordEncoder`, `Argon2PasswordEncoder`, `Pbkdf2PasswordEncoder`, or `SCryptPasswordEncoder` instead of implementing `PasswordEncoder` yourself.
+* [org.openrewrite.java.security.search.FindWeakPasswordEncoderStrength](/user-documentation/recipes/recipe-catalog/java/security/search/findweakpasswordencoderstrength.md)
+  * **Find weak password encoder strength**
+  * Finds Spring Security `BCryptPasswordEncoder` instantiations with a strength (work factor) below 10. The default and OWASP-recommended minimum is 10; lower values make stolen password hashes substantially cheaper to brute-force.
 * [org.openrewrite.java.security.search.FindWeakPasswordHashing](/user-documentation/recipes/recipe-catalog/java/security/search/findweakpasswordhashing.md)
   * **Find weak password hashing**
   * Finds uses of `MessageDigest.getInstance()` with algorithms unsuitable for password hashing (MD5, SHA-1, SHA-256, SHA-384, SHA-512). Passwords should be hashed with a purpose-built password hashing function such as bcrypt, scrypt, Argon2, or PBKDF2 that includes a salt and a tunable work factor.
+* [org.openrewrite.java.security.search.FindWeakSpringPasswordEncoder](/user-documentation/recipes/recipe-catalog/java/security/search/findweakspringpasswordencoder.md)
+  * **Find weak Spring Security password encoders**
+  * Finds uses of Spring Security password encoders that are unsuitable for production password storage: `NoOpPasswordEncoder` (plaintext), `StandardPasswordEncoder` (deprecated SHA-256), `MessageDigestPasswordEncoder` (raw message digest), `Md4PasswordEncoder` (MD4, broken), and `LdapShaPasswordEncoder` (deprecated). Use an adaptive function such as `BCryptPasswordEncoder`, `Argon2PasswordEncoder`, `Pbkdf2PasswordEncoder`, or `SCryptPasswordEncoder` instead.
 * [org.openrewrite.java.security.search.FindXPathInjection](/user-documentation/recipes/recipe-catalog/java/security/search/findxpathinjection.md)
   * **Find XPath injection vectors**
   * Finds calls to `XPath.evaluate()` and `XPath.compile()` which, when the expression is built from user input, can allow XPath injection attacks. Use parameterized XPath expressions or input validation instead.
@@ -7691,7 +7832,7 @@ _94 recipes_
   * Removes the debug attribute from @EnableWebSecurity annotations to prevent sensitive security information from being logged in production.
 * [org.openrewrite.python.dependencies.DependencyVulnerabilityCheck](/user-documentation/recipes/recipe-catalog/python/dependencies/dependencyvulnerabilitycheck.md)
   * **Find and fix vulnerable PyPI dependencies**
-  * This software composition analysis (SCA) tool detects and upgrades dependencies with publicly disclosed vulnerabilities. This recipe both generates a report of vulnerable dependencies and upgrades to newer versions with fixes. This recipe by default only upgrades to the latest **patch** version. If a minor or major upgrade is required to reach the fixed version, this can be controlled using the `maximumUpgradeDelta` option. Vulnerability information comes from the [GitHub Security Advisory Database](https://docs.github.com/en/code-security/security-advisories/global-security-advisories/about-the-github-advisory-database), which aggregates vulnerability data from several public databases, including the [National Vulnerability Database](https://nvd.nist.gov/) maintained by the United States government. Dependencies following [Semantic Versioning](https://semver.org/) will see their _patch_ version updated where applicable.  ## Customizing Vulnerability Data  This recipe can be customized by extending `DependencyVulnerabilityCheckBase` and overriding the vulnerability data sources:   - **`baselineVulnerabilities(ExecutionContext ctx)`**: Provides the default set of known vulnerabilities. The base implementation loads vulnerability data from the GitHub Security Advisory Database CSV file using `ResourceUtils.parseResourceAsCsv()`. Override this method to replace the entire vulnerability dataset with your own curated list.   - **`supplementalVulnerabilities(ExecutionContext ctx)`**: Allows adding custom vulnerability data beyond the baseline. The base implementation returns an empty list. Override this method to add organization-specific vulnerabilities, internal security advisories, or vulnerabilities from additional sources while retaining the baseline GitHub Advisory Database.  Both methods return `List&lt;Vulnerability&gt;` objects. Vulnerability data can be loaded from CSV files using `ResourceUtils.parseResourceAsCsv(path, Vulnerability.class, consumer)` or constructed programmatically. To customize, extend `DependencyVulnerabilityCheckBase` and override one or both methods depending on your needs. For example, override `supplementalVulnerabilities()` to add custom CVEs while keeping the standard vulnerability database, or override `baselineVulnerabilities()` to use an entirely different vulnerability data source.
+  * This software composition analysis (SCA) tool detects and upgrades dependencies with publicly disclosed vulnerabilities. This recipe both generates a report of vulnerable dependencies and upgrades to newer versions with fixes. This recipe by default only upgrades to the latest **patch** version. If a minor or major upgrade is required to reach the fixed version, this can be controlled using the `maximumUpgradeDelta` option. Vulnerability information comes from the [GitHub Security Advisory Database](https://docs.github.com/en/code-security/security-advisories/global-security-advisories/about-the-github-advisory-database), which aggregates vulnerability data from several public databases, including the [National Vulnerability Database](https://nvd.nist.gov/) maintained by the United States government. Dependencies following [Semantic Versioning](https://semver.org/) will see their _patch_ version updated where applicable.   ## Customizing Vulnerability Data  This recipe can be customized by extending `DependencyVulnerabilityCheckBase` and overriding the vulnerability data sources:   - **`baselineVulnerabilities(ExecutionContext ctx)`**: Provides the default set of known vulnerabilities. The base implementation loads vulnerability data from the GitHub Security Advisory Database CSV file using `ResourceUtils.parseResourceAsCsv()`. Override this method to replace the entire vulnerability dataset with your own curated list.   - **`supplementalVulnerabilities(ExecutionContext ctx)`**: Allows adding custom vulnerability data beyond the baseline. The base implementation returns an empty list. Override this method to add organization-specific vulnerabilities, internal security advisories, or vulnerabilities from additional sources while retaining the baseline GitHub Advisory Database.  Both methods return `List&lt;Vulnerability&gt;` objects. Vulnerability data can be loaded from CSV files using `ResourceUtils.parseResourceAsCsv(path, Vulnerability.class, consumer)` or constructed programmatically. To customize, extend `DependencyVulnerabilityCheckBase` and override one or both methods depending on your needs. For example, override `supplementalVulnerabilities()` to add custom CVEs while keeping the standard vulnerability database, or override `baselineVulnerabilities()` to use an entirely different vulnerability data source.
 * [org.openrewrite.recipe.rewrite-java-security.InlineDeprecatedMethods](/user-documentation/recipes/recipe-catalog/recipe/rewrite-java-security/inlinedeprecatedmethods.md)
   * **Inline deprecated delegating methods**
   * Automatically generated recipes to inline deprecated method calls that delegate to other methods in the same class.
@@ -8517,7 +8658,7 @@ _37 recipes_
 
 _License: Moderne Source Available License_
 
-_449 recipes_
+_458 recipes_
 
 * [com.google.guava.InlineGuavaMethods](/user-documentation/recipes/recipe-catalog/com/google/guava/inlineguavamethods.md)
   * **Inline `guava` methods annotated with `@InlineMe`**
@@ -8567,6 +8708,12 @@ _449 recipes_
 * [org.openrewrite.java.migrate.AddSuppressionForIllegalReflectionWarningsPlugin](/user-documentation/recipes/recipe-catalog/java/migrate/addsuppressionforillegalreflectionwarningsplugin.md)
   * **Add maven jar plugin to suppress illegal reflection warnings**
   * Adds a maven jar plugin that's configured to suppress Illegal Reflection Warnings.
+* [org.openrewrite.java.migrate.AddSurefireFailsafeArgLine](/user-documentation/recipes/recipe-catalog/java/migrate/addsurefirefailsafeargline.md)
+  * **Add `argLine` to surefire and failsafe plugins**
+  * Adds the specified arguments to the `argLine` configuration of the Maven Surefire and Failsafe plugins, merging with any existing argLine value without duplicating arguments.
+* [org.openrewrite.java.migrate.AddSurefireFailsafeArgLineForMockito](/user-documentation/recipes/recipe-catalog/java/migrate/addsurefirefailsafearglineformockito.md)
+  * **Add surefire `--add-opens` for Mockito/ByteBuddy**
+  * Adds `--add-opens` JVM arguments required by Mockito and ByteBuddy to the Maven Surefire and Failsafe plugin `argLine` configuration. Only applied when the project depends on Mockito.
 * [org.openrewrite.java.migrate.ArrayStoreExceptionToTypeNotPresentException](/user-documentation/recipes/recipe-catalog/java/migrate/arraystoreexceptiontotypenotpresentexception.md)
   * **Catch `TypeNotPresentException` thrown by `Class.getAnnotation()`**
   * Replace catch blocks for `ArrayStoreException` around `Class.getAnnotation()` with `TypeNotPresentException` to ensure compatibility with Java 11+.
@@ -8758,13 +8905,16 @@ _449 recipes_
   * Updates build files to use Java 21 as the target/source.
 * [org.openrewrite.java.migrate.UpgradeBuildToJava24](/user-documentation/recipes/recipe-catalog/java/migrate/upgradebuildtojava24.md)
   * **Upgrade build to Java 24 for Kotlin pre-2.3**
-  * Kotlin versions before 2.3 only support up to Java 24.
+  * Kotlin versions before 2.3 only support up to Java 24. Applies only to modules that actually compile Kotlin (i.e. contain `.kt` source files), so transitive `kotlin-stdlib` dependencies do not trigger the cap.
 * [org.openrewrite.java.migrate.UpgradeBuildToJava25](/user-documentation/recipes/recipe-catalog/java/migrate/upgradebuildtojava25.md)
-  * **Upgrade build to Java 25 (default)**
-  * Upgrades build files to Java 25 for projects without Kotlin pre-2.3.
+  * **Upgrade build to Java 25 (non-Kotlin)**
+  * Upgrades build files to Java 25 for modules without Kotlin source files. This covers pure Java projects, including those that only pick up `kotlin-stdlib` transitively through another dependency.
+* [org.openrewrite.java.migrate.UpgradeBuildToJava25ForKotlin](/user-documentation/recipes/recipe-catalog/java/migrate/upgradebuildtojava25forkotlin.md)
+  * **Upgrade build to Java 25 for Kotlin 2.3+**
+  * Upgrades build files to Java 25 for Kotlin modules already on Kotlin 2.3 or later.
 * [org.openrewrite.java.migrate.UpgradeDockerImageVersion](/user-documentation/recipes/recipe-catalog/java/migrate/upgradedockerimageversion.md)
   * **Upgrade Docker image Java version**
-  * Upgrade Docker image tags to use the specified Java version. Updates common Java Docker images including eclipse-temurin, amazoncorretto, azul/zulu-openjdk, and others. Also migrates deprecated images (openjdk, adoptopenjdk) to eclipse-temurin.
+  * Upgrade Docker image tags to use the specified Java version. Updates common Java Docker images including eclipse-temurin, amazoncorretto, azul/zulu-openjdk, and others. Also migrates deprecated images (openjdk, adoptopenjdk) to eclipse-temurin. Uses a single `ChangeFrom` glob capture per (image, oldVersion) to preserve any tag suffix.
 * [org.openrewrite.java.migrate.UpgradeJavaVersion](/user-documentation/recipes/recipe-catalog/java/migrate/upgradejavaversion.md)
   * **Upgrade Java version**
   * Upgrade build plugin configuration to use the specified Java version. This recipe changes `java.toolchain.languageVersion` in `build.gradle(.kts)` of gradle projects, or maven-compiler-plugin target version and related settings. Will not downgrade if the version is newer than the specified version.
@@ -8891,12 +9041,21 @@ _449 recipes_
 * [org.openrewrite.java.migrate.guava.NoGuavaFunctionsCompose](/user-documentation/recipes/recipe-catalog/java/migrate/guava/noguavafunctionscompose.md)
   * **Prefer `Function.compose(Function)`**
   * Prefer `Function.compose(Function)` over `Functions.compose(Function, Function)`.
+* [org.openrewrite.java.migrate.guava.NoGuavaImmutableListCopyOf](/user-documentation/recipes/recipe-catalog/java/migrate/guava/noguavaimmutablelistcopyof.md)
+  * **Prefer `List.copyOf(..)` in Java 10 or higher**
+  * Replaces `.common.collect.ImmutableList.copyOf(..)` if the returned type is immediately down-cast.
 * [org.openrewrite.java.migrate.guava.NoGuavaImmutableListOf](/user-documentation/recipes/recipe-catalog/java/migrate/guava/noguavaimmutablelistof.md)
   * **Prefer `List.of(..)` in Java 9 or higher**
   * Replaces `.common.collect.ImmutableList.of(..)` if the returned type is immediately down-cast.
+* [org.openrewrite.java.migrate.guava.NoGuavaImmutableMapCopyOf](/user-documentation/recipes/recipe-catalog/java/migrate/guava/noguavaimmutablemapcopyof.md)
+  * **Prefer `Map.copyOf(..)` in Java 10 or higher**
+  * Replaces `.common.collect.ImmutableMap.copyOf(..)` if the returned type is immediately down-cast.
 * [org.openrewrite.java.migrate.guava.NoGuavaImmutableMapOf](/user-documentation/recipes/recipe-catalog/java/migrate/guava/noguavaimmutablemapof.md)
   * **Prefer `Map.of(..)` in Java 9 or higher**
   * Replaces `.common.collect.ImmutableMap.of(..)` if the returned type is immediately down-cast.
+* [org.openrewrite.java.migrate.guava.NoGuavaImmutableSetCopyOf](/user-documentation/recipes/recipe-catalog/java/migrate/guava/noguavaimmutablesetcopyof.md)
+  * **Prefer `Set.copyOf(..)` in Java 10 or higher**
+  * Replaces `.common.collect.ImmutableSet.copyOf(..)` if the returned type is immediately down-cast.
 * [org.openrewrite.java.migrate.guava.NoGuavaImmutableSetOf](/user-documentation/recipes/recipe-catalog/java/migrate/guava/noguavaimmutablesetof.md)
   * **Prefer `Set.of(..)` in Java 9 or higher**
   * Replaces `.common.collect.ImmutableSet.of(..)` if the returned type is immediately down-cast.
@@ -9587,6 +9746,9 @@ _449 recipes_
 * [org.openrewrite.java.migrate.lang.RefineSwitchCases](/user-documentation/recipes/recipe-catalog/java/migrate/lang/refineswitchcases.md)
   * **Use switch cases refinement when possible**
   * Use guarded switch case labels and guards if all the statements in the switch block do if/else if/else on the guarded label.
+* [org.openrewrite.java.migrate.lang.RenameUnderscoreIdentifier](/user-documentation/recipes/recipe-catalog/java/migrate/lang/renameunderscoreidentifier.md)
+  * **Rename `_` identifier to `__`**
+  * Renames single-underscore identifiers to double-underscore in Java source files with source compatibility of Java 8 or below. In Java 9+, `_` is a reserved keyword and causes a compile error.
 * [org.openrewrite.java.migrate.lang.ReplaceUnusedVariablesWithUnderscore](/user-documentation/recipes/recipe-catalog/java/migrate/lang/replaceunusedvariableswithunderscore.md)
   * **Replace unused variables with underscore**
   * Replace unused variable declarations with underscore (_) for Java 22+. This includes unused variables in enhanced for loops, catch blocks, and lambda parameters where the variable is never referenced.
@@ -9776,6 +9938,9 @@ _449 recipes_
 * [org.openrewrite.java.migrate.search.FindLocaleDateTimeFormats](/user-documentation/recipes/recipe-catalog/java/migrate/search/findlocaledatetimeformats.md)
   * **Find locale-sensitive date/time formatting**
   * Finds usages of locale-based date/time formatting APIs that may be affected by JDK 20+ CLDR locale data changes, where the space before AM/PM was changed from a regular space to a narrow no-break space (NNBSP).
+* [org.openrewrite.java.migrate.search.ModuleHasKotlinSource](/user-documentation/recipes/recipe-catalog/java/migrate/search/modulehaskotlinsource.md)
+  * **Module has Kotlin source files**
+  * Marks all files in modules that contain at least one Kotlin source file (`.kt`). Intended as a precondition to scope recipes to projects that actually compile Kotlin, as opposed to projects that merely pick up `kotlin-stdlib` transitively.
 * [org.openrewrite.java.migrate.search.PlanJavaMigration](/user-documentation/recipes/recipe-catalog/java/migrate/search/planjavamigration.md)
   * **Plan a Java version migration**
   * Study the set of Java versions and associated tools in use across many repositories.
@@ -9860,6 +10025,9 @@ _449 recipes_
 * [org.openrewrite.java.migrate.util.UseMapOf](/user-documentation/recipes/recipe-catalog/java/migrate/util/usemapof.md)
   * **Prefer `Map.of(..)`**
   * Prefer `Map.of(..)` instead of using `java.util.Map#put(..)` in Java 10 or higher.
+* [org.openrewrite.java.migrate.util.UsePredicateNot](/user-documentation/recipes/recipe-catalog/java/migrate/util/usepredicatenot.md)
+  * **Prefer `Predicate.not(..)` over casting to `Predicate` and calling `negate()`**
+  * Replace `((Predicate&lt;T&gt;) lambdaOrMethodRef).negate()` with `Predicate.not(lambdaOrMethodRef)` as of Java 11.
 * [org.openrewrite.java.migrate.util.UseSetOf](/user-documentation/recipes/recipe-catalog/java/migrate/util/usesetof.md)
   * **Prefer `Set.of(..)`**
   * Prefer `Set.of(..)` instead of using `java.util.Set#add(..)` in anonymous HashSet initializers in Java 10 or higher. This recipe will not modify code where the Set is later mutated since `Set.of` returns an immutable set.
@@ -9968,8 +10136,35 @@ _30 recipes_
 
 _License: Moderne Proprietary License_
 
-_104 recipes_
+_113 recipes_
 
+* [org.openrewrite.python.codequality.AllBranchesIdentical](/user-documentation/recipes/recipe-catalog/python/codequality/allbranchesidentical.md)
+  * **Remove conditional with identical branches**
+  * Replace `if`/`elif`/`else` chains where every branch has the same body with just the body, since the condition has no effect on what code executes.
+* [org.openrewrite.python.codequality.BooleanChecksNotInverted](/user-documentation/recipes/recipe-catalog/python/codequality/booleanchecksnotinverted.md)
+  * **Boolean checks should not be inverted**
+  * Replace inverted boolean comparisons like `not (a == b)` with the equivalent direct operator (`a != b`), and remove double negations like `not (not x)`.
+* [org.openrewrite.python.codequality.CollapsibleIfStatements](/user-documentation/recipes/recipe-catalog/python/codequality/collapsibleifstatements.md)
+  * **Merge collapsible if statements**
+  * Combine nested `if` statements that have no `else` branch into a single `if` joined with `and`.
+* [org.openrewrite.python.codequality.MergeIdenticalBranches](/user-documentation/recipes/recipe-catalog/python/codequality/mergeidenticalbranches.md)
+  * **Merge consecutive branches with identical bodies**
+  * Combine consecutive `if`/`elif` branches that have the same body into a single branch with conditions joined by `or`.
+* [org.openrewrite.python.codequality.RemoveDuplicateConditions](/user-documentation/recipes/recipe-catalog/python/codequality/removeduplicateconditions.md)
+  * **Remove duplicate conditions in if/elif chains**
+  * Remove `elif` branches whose condition is identical to an earlier branch in the same `if`/`elif` chain, since the duplicate branch is dead code that can never execute.
+* [org.openrewrite.python.codequality.RemoveSelfAssignment](/user-documentation/recipes/recipe-catalog/python/codequality/removeselfassignment.md)
+  * **Remove self-assignments**
+  * Remove statements that assign a variable to itself (`x = x`, `self.x = self.x`), since they have no effect.
+* [org.openrewrite.python.codequality.RemoveUnconditionalValueOverwrite](/user-documentation/recipes/recipe-catalog/python/codequality/removeunconditionalvalueoverwrite.md)
+  * **Remove unconditional value overwrites**
+  * Remove consecutive assignments that write to the same dict key or object attribute, since the first value is immediately overwritten and never used.
+* [org.openrewrite.python.codequality.SimplifyBooleanLiteral](/user-documentation/recipes/recipe-catalog/python/codequality/simplifybooleanliteral.md)
+  * **Simplify boolean literal comparisons**
+  * Replace comparisons against boolean literals (`== True`, `!= False`, `is True`, etc.) with the simpler equivalent boolean expression.
+* [org.openrewrite.python.codequality.SimplifyRedundantLogicalExpression](/user-documentation/recipes/recipe-catalog/python/codequality/simplifyredundantlogicalexpression.md)
+  * **Simplify redundant logical expressions**
+  * Replace `x and x` with `x` and `x or x` with `x`. Identical operands in a logical expression are redundant and often indicate a copy-paste mistake.
 * [org.openrewrite.python.migrate.DependencyInsight](/user-documentation/recipes/recipe-catalog/python/migrate/dependencyinsight.md)
   * **Python dependency insight**
   * Find Python dependencies, including transitive dependencies, matching a package name pattern. Results include the resolved version, scope, and whether the dependency is direct or transitive.
@@ -10187,8 +10382,8 @@ _104 recipes_
   * **Replace `str.format()` with f-string**
   * Replace `&quot;...&quot;.format(...)` calls with f-strings (Python 3.6+). Only converts cases where the format string is a literal and the conversion is safe.
 * [org.openrewrite.python.migrate.ReplaceSysLastExcInfo](/user-documentation/recipes/recipe-catalog/python/migrate/replacesyslastexcinfo.md)
-  * **Replace `sys.last_value` with `sys.last_exc` and flag `sys.last_type` / `sys.last_traceback`**
-  * `sys.last_type`, `sys.last_value`, and `sys.last_traceback` were deprecated in Python 3.12. `sys.last_value` is auto-replaced with `sys.last_exc`; `sys.last_type` and `sys.last_traceback` are flagged for manual review.
+  * **Replace `sys.last_type` / `sys.last_value` / `sys.last_traceback` with `sys.last_exc`**
+  * `sys.last_type`, `sys.last_value`, and `sys.last_traceback` were deprecated in Python 3.12. Replace them with their `sys.last_exc`-based equivalents: `type(sys.last_exc)`, `sys.last_exc`, and `sys.last_exc.__traceback__` respectively.
 * [org.openrewrite.python.migrate.ReplaceTarfileFilemode](/user-documentation/recipes/recipe-catalog/python/migrate/replacetarfilefilemode.md)
   * **Replace `tarfile.filemode` with `stat.filemode`**
   * `tarfile.filemode` was removed in Python 3.8. Use `stat.filemode()` instead.
@@ -10312,7 +10507,7 @@ _10 recipes_
   * Replaces Netty 3 Channels.fireMessageReceived(channel, message) with Netty 4 ctx.fireChannelRead(message).
 * [org.openrewrite.java.netty.upgrade._3_2_to_4_1_.StringEncoderToStandardCharsets](/user-documentation/recipes/recipe-catalog/java/netty/upgrade/_3_2_to_4_1_/stringencodertostandardcharsets.md)
   * **Migrate StringEncoder(String) to StringEncoder(StandardCharsets)**
-  * Replaces new StringEncoder(charsetName) with new StringEncoder(StandardCharsets.&lt;constant&gt;) for all standard charsets (US-ASCII, ISO-8859-1, UTF-8, UTF-16BE, UTF-16LE, UTF-16).
+  * Replaces `new StringEncoder(charsetName)` with `new StringEncoder(StandardCharsets.&lt;constant&gt;)` for all standard charsets (US-ASCII, ISO-8859-1, UTF-8, UTF-16BE, UTF-16LE, UTF-16).
 * [org.openrewrite.netty.UpgradeNetty_3_2_to_4_1](/user-documentation/recipes/recipe-catalog/netty/upgradenetty_3_2_to_4_1.md)
   * **Migrates from Netty 3.2.x to Netty 4.1.x**
   * Migrate applications to the latest Netty 4.1.x release.
@@ -11179,8 +11374,8 @@ _316 recipes_
 * [org.openrewrite.java.spring.boot2.UpgradeSpockToGroovy3](/user-documentation/recipes/recipe-catalog/java/spring/boot2/upgradespocktogroovy3.md)
   * **Upgrade Spock to a Groovy 3 compatible variant**
   * Upgrade Spock dependencies to a Groovy 3 compatible 2.0 variant when Groovy 3 is on the classpath.
-* [org.openrewrite.java.spring.boot2.UpgradeSpringBoot_2_0](/user-documentation/recipes/recipe-catalog/java/spring/boot2/upgradespringboot_2_0-community-edition.md)
-  * **Migrate from Spring Boot 1.x to 2.0 (Community Edition)**
+* [org.openrewrite.java.spring.boot2.UpgradeSpringBoot_2_0](/user-documentation/recipes/recipe-catalog/java/spring/boot2/upgradespringboot_2_0.md)
+  * **Migrate from Spring Boot 1.x to 2.0**
   * Migrate Spring Boot 1.x applications to the latest Spring Boot 2.0 release. This recipe will modify an application's build files, make changes to deprecated/preferred APIs, and migrate configuration settings that have changes between versions. This recipe will also chain additional framework migrations (Spring Framework, Spring Data, etc) that are required as part of the migration to Spring Boot 2.0.
 * [org.openrewrite.java.spring.boot2.UpgradeSpringBoot_2_1](/user-documentation/recipes/recipe-catalog/java/spring/boot2/upgradespringboot_2_1.md)
   * **Migrate to Spring Boot 2.1**
@@ -11832,7 +12027,7 @@ _316 recipes_
 
 _License: Moderne Source Available License_
 
-_65 recipes_
+_67 recipes_
 
 * [org.openrewrite.quarkus.spring.AddQuarkusMavenPlugin](/user-documentation/recipes/recipe-catalog/quarkus/spring/addquarkusmavenplugin.md)
   * **Add Quarkus Maven plugin**
@@ -11840,6 +12035,9 @@ _65 recipes_
 * [org.openrewrite.quarkus.spring.AddSpringCompatibilityExtensions](/user-documentation/recipes/recipe-catalog/quarkus/spring/addspringcompatibilityextensions.md)
   * **Add Spring compatibility extensions for commonly used annotations**
   * Adds Quarkus Spring compatibility extensions when Spring annotations are detected in the codebase.
+* [org.openrewrite.quarkus.spring.ConfigurationPropertiesToConfigMapping](/user-documentation/recipes/recipe-catalog/quarkus/spring/configurationpropertiestoconfigmapping.md)
+  * **Convert @ConfigurationProperties class to @ConfigMapping interface**
+  * Converts Spring Boot @ConfigurationProperties classes to Quarkus @ConfigMapping interfaces. Changes the class to an interface, converts getter methods to interface method declarations, and removes fields, setters, and constructors.
 * [org.openrewrite.quarkus.spring.ConfigureNativeBuild](/user-documentation/recipes/recipe-catalog/quarkus/spring/configurenativebuild.md)
   * **Configure Quarkus Native Build Support**
   * Adds configuration and dependencies required for Quarkus native image compilation with GraalVM. Includes native profile configuration and reflection hints where needed.
@@ -11912,6 +12110,9 @@ _65 recipes_
 * [org.openrewrite.quarkus.spring.MigrateSpringValidation](/user-documentation/recipes/recipe-catalog/quarkus/spring/migratespringvalidation.md)
   * **Migrate Spring Validation to Quarkus**
   * Migrates Spring Boot validation to Quarkus Hibernate Validator. Adds the quarkus-hibernate-validator dependency and handles validation annotation imports.
+* [org.openrewrite.quarkus.spring.MongoRepositoryToPanacheMongoRepository](/user-documentation/recipes/recipe-catalog/quarkus/spring/mongorepositorytopanachemongorepository.md)
+  * **Convert MongoRepository to PanacheMongoRepository**
+  * Transforms Spring Data `MongoRepository&lt;T, ID&gt;` interfaces to Quarkus `PanacheMongoRepository&lt;T&gt;`, dropping the ID type parameter.
 * [org.openrewrite.quarkus.spring.RemoveSpringBootParent](/user-documentation/recipes/recipe-catalog/quarkus/spring/removespringbootparent.md)
   * **Remove Spring Boot 3.x parent POM**
   * Removes the Spring Boot 3.x starter parent POM from Maven projects.
@@ -12074,20 +12275,20 @@ _11 recipes_
 
 _License: Moderne Source Available License_
 
-_176 recipes_
+_181 recipes_
 
 * [org.openrewrite.recipe.rewrite-static-analysis.InlineDeprecatedMethods](/user-documentation/recipes/recipe-catalog/recipe/rewrite-static-analysis/inlinedeprecatedmethods.md)
   * **Inline deprecated delegating methods**
   * Automatically generated recipes to inline deprecated method calls that delegate to other methods in the same class.
 * [org.openrewrite.staticanalysis.AbstractClassPublicConstructor](/user-documentation/recipes/recipe-catalog/staticanalysis/abstractclasspublicconstructor.md)
   * **Constructors of an `abstract` class should not be declared `public`**
-  * Constructors of `abstract` classes can only be called in constructors of their subclasses. Therefore the visibility of `public` constructors are reduced to `protected`.
+  * Constructors of `abstract` classes can only be called in constructors of their subclasses. Therefore the visibility of `public` constructors are reduced to `protected`. Declaring them `public` is misleading since it implies they could be invoked directly, which is never possible.
 * [org.openrewrite.staticanalysis.AddSerialAnnotationToSerialVersionUID](/user-documentation/recipes/recipe-catalog/staticanalysis/addserialannotationtoserialversionuid.md)
   * **Add `@Serial` annotation to `serialVersionUID`**
   * Annotate any `serialVersionUID` fields with `@Serial` to indicate it's part of the serialization mechanism.
 * [org.openrewrite.staticanalysis.AddSerialVersionUidToSerializable](/user-documentation/recipes/recipe-catalog/staticanalysis/addserialversionuidtoserializable.md)
   * **Add `serialVersionUID` to a `Serializable` class when missing**
-  * A `serialVersionUID` field is strongly recommended in all `Serializable` classes. If this is not defined on a `Serializable` class, the compiler will generate this value. If a change is later made to the class, the generated value will change and attempts to deserialize the class will fail.
+  * A `serialVersionUID` field is strongly recommended in all `Serializable` classes. If this is not defined on a `Serializable` class, the compiler will generate this value. If a change is later made to the class, the generated value will change and attempts to deserialize the class will fail. Explicitly declaring this field gives you control over binary compatibility across versions.
 * [org.openrewrite.staticanalysis.AnnotateNullableMethods](/user-documentation/recipes/recipe-catalog/staticanalysis/annotatenullablemethods.md)
   * **Annotate methods which may return `null` with `@Nullable`**
   * Add `@Nullable` to non-private methods that may return `null`. By default `org.jspecify.annotations.Nullable` is used, but through the `nullableAnnotationClass` option a custom annotation can be provided. Both `@Target(TYPE_USE)` and declaration annotations (e.g. `javax.annotation.CheckForNull`) are supported. Methods that already carry a known nullable annotation (matched by simple name) are skipped to avoid duplication. This recipe scans for methods that do not already have a `@Nullable` annotation and checks their return statements for potential null values. It also identifies known methods from standard libraries that may return null, such as methods from `Map`, `Queue`, `Deque`, `NavigableSet`, and `Spliterator`. The return of streams, or lambdas are not taken into account.
@@ -12099,19 +12300,19 @@ _176 recipes_
   * Add `@NonNull` to parameters of public methods that are explicitly checked for `null` and throw an exception if null. By default `org.jspecify.annotations.NonNull` is used, but through the `nonNullAnnotationClass` option a custom annotation can be provided. When providing a custom `nonNullAnnotationClass` that annotation should be meta annotated with `@Target(TYPE_USE)`. This recipe scans for methods that do not already have parameters annotated with `@NonNull` annotation and checks for null validation patterns that throw exceptions, such as `if (param == null) throw new IllegalArgumentException()`.
 * [org.openrewrite.staticanalysis.AtomicPrimitiveEqualsUsesGet](/user-documentation/recipes/recipe-catalog/staticanalysis/atomicprimitiveequalsusesget.md)
   * **Atomic Boolean, Integer, and Long equality checks compare their values**
-  * `AtomicBoolean#equals(Object)`, `AtomicInteger#equals(Object)` and `AtomicLong#equals(Object)` are only equal to their instance. This recipe converts `a.equals(b)` to `a.get() == b.get()`.
+  * `AtomicBoolean#equals(Object)`, `AtomicInteger#equals(Object)` and `AtomicLong#equals(Object)` are only equal to their instance. This recipe converts `a.equals(b)` to `a.get() == b.get()`. These atomic classes do not override `equals` from `Object`, so calling it compares object identity rather than the wrapped value, which is almost never the intended behavior.
 * [org.openrewrite.staticanalysis.AvoidBoxedBooleanExpressions](/user-documentation/recipes/recipe-catalog/staticanalysis/avoidboxedbooleanexpressions.md)
   * **Avoid boxed boolean expressions**
-  * Under certain conditions the `java.lang.Boolean` type is used as an expression, and it may throw a `NullPointerException` if the value is null.
+  * Under certain conditions the `java.lang.Boolean` type is used as an expression, and it may throw a `NullPointerException` if the value is null. Using `Boolean.TRUE.equals(...)` guards against unboxing a `null` reference in control flow positions like `if` conditions and ternary operators.
 * [org.openrewrite.staticanalysis.BigDecimalDoubleConstructorRecipe](/user-documentation/recipes/recipe-catalog/staticanalysis/bigdecimaldoubleconstructorrecipe.md)
   * **`new BigDecimal(double)` should not be used**
-  * Use of `new BigDecimal(double)` constructor can lead to loss of precision. Use `BigDecimal.valueOf(double)` instead. For example writing `new BigDecimal(0.1)` does not create a `BigDecimal` which is exactly equal to `0.1`, but it is equal to `0.1000000000000000055511151231257827021181583404541015625`. This is because `0.1` cannot be represented exactly as a double (or, for that matter, as a binary fraction of any finite length).
+  * Use of `new BigDecimal(double)` constructor can lead to loss of precision. Use `BigDecimal.valueOf(double)` instead. For example writing `new BigDecimal(0.1)` does not create a `BigDecimal` which is exactly equal to `0.1`, but it is equal to `0.1000000000000000055511151231257827021181583404541015625`. This is because `0.1` cannot be represented exactly as a double (or, for that matter, as a binary fraction of any finite length). `BigDecimal.valueOf` avoids this by converting through a string representation, preserving the value you actually intended.
 * [org.openrewrite.staticanalysis.BigDecimalRoundingConstantsToEnums](/user-documentation/recipes/recipe-catalog/staticanalysis/bigdecimalroundingconstantstoenums.md)
   * **`BigDecimal` rounding constants to `RoundingMode` enums**
-  * Convert `BigDecimal` rounding constants to the equivalent `RoundingMode` enum.
+  * Convert `BigDecimal` rounding constants to the equivalent `RoundingMode` enum. The integer-based rounding constants on `BigDecimal` are deprecated and lack type safety; the `RoundingMode` enum makes the rounding behavior self-documenting and prevents invalid values.
 * [org.openrewrite.staticanalysis.BooleanChecksNotInverted](/user-documentation/recipes/recipe-catalog/staticanalysis/booleanchecksnotinverted.md)
   * **Boolean checks should not be inverted**
-  * Ensures that boolean checks are not unnecessarily inverted. Also fixes double negative boolean expressions.
+  * Ensures that boolean checks are not unnecessarily inverted. Also fixes double negative boolean expressions. Negating a comparison and then inverting it adds cognitive overhead; using the direct operator (e.g., `&gt;=` instead of `!(... &lt; ...)`) is clearer and easier to reason about.
 * [org.openrewrite.staticanalysis.BufferedWriterCreationRecipes](/user-documentation/recipes/recipe-catalog/staticanalysis/bufferedwritercreationrecipes.md)
   * **Modernize `BufferedWriter` creation &amp; prevent file descriptor leaks**
   * The code `new BufferedWriter(new FileWriter(f))` creates a `BufferedWriter` that does not close the underlying `FileWriter` when it is closed. This can lead to file descriptor leaks as per [CWE-755](https://cwe.mitre.org/data/definitions/755.html). Use `Files.newBufferedWriter` to create a `BufferedWriter` that closes the underlying file descriptor when it is closed.
@@ -12129,22 +12330,22 @@ _176 recipes_
   * Convert `new BufferedWriter(new FileWriter(s))` to `Files.newBufferedWriter(new java.io.File(s).toPath())`.
 * [org.openrewrite.staticanalysis.CaseInsensitiveComparisonsDoNotChangeCase](/user-documentation/recipes/recipe-catalog/staticanalysis/caseinsensitivecomparisonsdonotchangecase.md)
   * **CaseInsensitive comparisons do not alter case**
-  * Remove `String#toLowerCase()` or `String#toUpperCase()` from `String#equalsIgnoreCase(..)` comparisons.
+  * Remove `String#toLowerCase()` or `String#toUpperCase()` from `String#equalsIgnoreCase(..)` comparisons. Changing case before a case-insensitive comparison is redundant and allocates unnecessary intermediate `String` objects.
 * [org.openrewrite.staticanalysis.CatchClauseOnlyRethrows](/user-documentation/recipes/recipe-catalog/staticanalysis/catchclauseonlyrethrows.md)
   * **Catch clause should do more than just rethrow**
-  * A `catch` clause that only rethrows the caught exception is unnecessary. Letting the exception bubble up as normal achieves the same result with less code.
+  * A `catch` clause that only rethrows the caught exception is unnecessary. Letting the exception bubble up as normal achieves the same result with less code. Such catch blocks add visual noise and indentation without changing program behavior.
 * [org.openrewrite.staticanalysis.ChainStringBuilderAppendCalls](/user-documentation/recipes/recipe-catalog/staticanalysis/chainstringbuilderappendcalls.md)
   * **Chain `StringBuilder.append()` calls**
-  * String concatenation within calls to `StringBuilder.append()` causes unnecessary memory allocation. Except for concatenations of String literals, which are joined together at compile time. Replaces inefficient concatenations with chained calls to `StringBuilder.append()`.
+  * String concatenation within calls to `StringBuilder.append()` causes unnecessary memory allocation. Except for concatenations of String literals, which are joined together at compile time. Replaces inefficient concatenations with chained calls to `StringBuilder.append()`. Using `+` inside `append()` defeats the purpose of the `StringBuilder`, since the concatenation creates a temporary `String` before appending.
 * [org.openrewrite.staticanalysis.CodeCleanup](/user-documentation/recipes/recipe-catalog/staticanalysis/codecleanup.md)
   * **Code cleanup**
   * Automatically cleanup code, e.g. remove unnecessary parentheses, simplify expressions.
 * [org.openrewrite.staticanalysis.CollectionToArrayShouldHaveProperType](/user-documentation/recipes/recipe-catalog/staticanalysis/collectiontoarrayshouldhavepropertype.md)
   * **'Collection.toArray()' should be passed an array of the proper type**
-  * Using `Collection.toArray()` without parameters returns an `Object[]`, which requires casting. It is more efficient and clearer to use `Collection.toArray(new T[0])` instead.
+  * Using `Collection.toArray()` without parameters returns an `Object[]`, which requires casting. It is more efficient and clearer to use `Collection.toArray(new T[0])` instead. The parameterless form can cause a `ClassCastException` at runtime when the returned `Object[]` is cast to a more specific array type.
 * [org.openrewrite.staticanalysis.CombineSemanticallyEqualCatchBlocks](/user-documentation/recipes/recipe-catalog/staticanalysis/combinesemanticallyequalcatchblocks.md)
   * **Combine semantically equal catch blocks**
-  * Combine catches in a try that contain semantically equivalent blocks. No change will be made when a caught exception exists if combining catches may change application behavior or type attribution is missing.
+  * Combine catches in a try that contain semantically equivalent blocks. No change will be made when a caught exception exists if combining catches may change application behavior or type attribution is missing. Merging duplicate catch bodies into multi-catch blocks reduces repetition and makes the exception handling strategy easier to follow.
 * [org.openrewrite.staticanalysis.CommonDeclarationSiteTypeVariances](/user-documentation/recipes/recipe-catalog/staticanalysis/commondeclarationsitetypevariances.md)
   * **Properly use declaration-site type variance for well-known types**
   * When using a method parameter like `Function&lt;IN, OUT&gt;`, it should rather be `Function&lt;? super IN, ? extends OUT&gt;`. This recipe checks for method parameters of well-known types.
@@ -12153,34 +12354,34 @@ _176 recipes_
   * Resolve common static analysis issues (also known as SAST issues).
 * [org.openrewrite.staticanalysis.CompareEnumsWithEqualityOperator](/user-documentation/recipes/recipe-catalog/staticanalysis/compareenumswithequalityoperator.md)
   * **Enum values should be compared with &quot;==&quot;**
-  * Replaces `Enum equals(java.lang.Object)` with `Enum == java.lang.Object`. An `!Enum equals(java.lang.Object)` will change to `!=`.
+  * Replaces `Enum equals(java.lang.Object)` with `Enum == java.lang.Object`. An `!Enum equals(java.lang.Object)` will change to `!=`. Using `==` for enum comparison is null-safe, catches type mismatches at compile time, and is idiomatic since each enum constant is guaranteed to be a singleton.
 * [org.openrewrite.staticanalysis.ControlFlowIndentation](/user-documentation/recipes/recipe-catalog/staticanalysis/controlflowindentation.md)
   * **Control flow statement indentation**
-  * Program flow control statements like `if`, `while`, and `for` can omit curly braces when they apply to only a single statement. This recipe ensures that any statements which follow that statement are correctly indented to show they are not part of the flow control statement.
+  * Program flow control statements like `if`, `while`, and `for` can omit curly braces when they apply to only a single statement. This recipe ensures that any statements which follow that statement are correctly indented to show they are not part of the flow control statement. Misleading indentation can give the false impression that a line executes conditionally when it actually runs unconditionally, which is a common source of logic errors.
 * [org.openrewrite.staticanalysis.CovariantEquals](/user-documentation/recipes/recipe-catalog/staticanalysis/covariantequals.md)
   * **Covariant equals**
-  * Checks that classes and records which define a covariant `equals()` method also override method `equals(Object)`. Covariant `equals()` means a method that is similar to `equals(Object)`, but with a covariant parameter type (any subtype of `Object`).
+  * Checks that classes and records which define a covariant `equals()` method also override method `equals(Object)`. Covariant `equals()` means a method that is similar to `equals(Object)`, but with a covariant parameter type (any subtype of `Object`). Without a proper `equals(Object)` override, collections and other framework code that rely on the standard signature will silently use `Object.equals`, leading to incorrect behavior.
 * [org.openrewrite.staticanalysis.DeclarationSiteTypeVariance](/user-documentation/recipes/recipe-catalog/staticanalysis/declarationsitetypevariance.md)
   * **Properly use declaration-site type variance**
   * Currently, Java requires use-site type variance, so if someone has `Function&lt;IN, OUT&gt;` method parameter, it should rather be `Function&lt;? super IN, ? extends OUT&gt;`. Unfortunately, it is not easy to notice that `? super` and `? extends` is missing, so this recipe adds it where that would improve the situation.
 * [org.openrewrite.staticanalysis.DefaultComesLast](/user-documentation/recipes/recipe-catalog/staticanalysis/defaultcomeslast.md)
   * **Default comes last**
-  * Ensure the `default` case comes last after all the cases in a switch statement.
+  * Ensure the `default` case comes last after all the cases in a switch statement. Placing `default` at the end follows a widely expected convention, making it easy to find the fallback behavior at a glance.
 * [org.openrewrite.staticanalysis.EmptyBlock](/user-documentation/recipes/recipe-catalog/staticanalysis/emptyblock.md)
   * **Remove empty blocks**
-  * Remove empty blocks that effectively do nothing.
+  * Remove empty blocks that effectively do nothing. Empty blocks are ambiguous -- they may indicate incomplete implementation or accidentally deleted code -- and removing them makes the intent of the surrounding code explicit.
 * [org.openrewrite.staticanalysis.EqualsAvoidsNull](/user-documentation/recipes/recipe-catalog/staticanalysis/equalsavoidsnull.md)
   * **Equals avoids null**
-  * Checks that any combination of String literals is on the left side of an `equals()` comparison. Also checks for String literals assigned to some field (such as `someString.equals(anotherString = &quot;text&quot;))`. And removes redundant null checks in conjunction with equals comparisons.
+  * Checks that any combination of String literals is on the left side of an `equals()` comparison. Also checks for String literals assigned to some field (such as `someString.equals(anotherString = &quot;text&quot;))`. And removes redundant null checks in conjunction with equals comparisons. Placing the literal on the left side prevents `NullPointerException`s, since a literal can never be null and its `equals` method handles null arguments safely.
 * [org.openrewrite.staticanalysis.EqualsToContentEquals](/user-documentation/recipes/recipe-catalog/staticanalysis/equalstocontentequals.md)
   * **Use `String.contentEquals(CharSequence)` instead of `String.equals(CharSequence.toString())`**
   * Use `String.contentEquals(CharSequence)` instead of `String.equals(CharSequence.toString())`.
 * [org.openrewrite.staticanalysis.ExplicitCharsetOnStringGetBytes](/user-documentation/recipes/recipe-catalog/staticanalysis/explicitcharsetonstringgetbytes.md)
   * **Set charset encoding explicitly when calling `String#getBytes`**
-  * This makes the behavior of the code platform neutral. It will not override any existing explicit encodings, even if they don't match the default encoding option.
+  * This makes the behavior of the code platform neutral. It will not override any existing explicit encodings, even if they don't match the default encoding option. Relying on the platform default charset can produce different results across environments, leading to subtle data corruption bugs.
 * [org.openrewrite.staticanalysis.ExplicitInitialization](/user-documentation/recipes/recipe-catalog/staticanalysis/explicitinitialization.md)
   * **Explicit initialization**
-  * Checks if any class or object member is explicitly initialized to default for its type value:  - `null` for object references  - zero for numeric types and `char`  - and `false` for `boolean` Removes explicit initializations where they aren't necessary.
+  * Checks if any class or object member is explicitly initialized to default for its type value:  - `null` for object references  - zero for numeric types and `char`  - and `false` for `boolean` Removes explicit initializations where they aren't necessary. Since the JVM already guarantees these defaults, restating them adds visual noise and can obscure fields that are intentionally initialized to non-default values.
 * [org.openrewrite.staticanalysis.ExplicitLambdaArgumentTypes](/user-documentation/recipes/recipe-catalog/staticanalysis/explicitlambdaargumenttypes.md)
   * **Use explicit types on lambda arguments**
   * Adds explicit types on lambda arguments, which are otherwise optional. This can make the code clearer and easier to read. This does not add explicit types on arguments when the lambda has one or two parameters and does not have a block body, as things are considered more readable in those cases. For example, `stream.map((a, b) -&gt; a.length);` will not have explicit types added.
@@ -12189,13 +12390,13 @@ _176 recipes_
   * Add explicit 'this.' prefix to field and method access.
 * [org.openrewrite.staticanalysis.ExternalizableHasNoArgsConstructor](/user-documentation/recipes/recipe-catalog/staticanalysis/externalizablehasnoargsconstructor.md)
   * **`Externalizable` classes have no-arguments constructor**
-  * `Externalizable` classes handle both serialization and deserialization and must have a no-args constructor for the deserialization process.
+  * `Externalizable` classes handle both serialization and deserialization and must have a no-args constructor for the deserialization process. Without a public no-argument constructor, the JVM cannot instantiate the object during deserialization and will throw an `InvalidClassException` at runtime.
 * [org.openrewrite.staticanalysis.FallThrough](/user-documentation/recipes/recipe-catalog/staticanalysis/fallthrough.md)
   * **Fall through**
-  * Checks for fall-through in switch statements, adding `break` statements in locations where a case contains Java code but does not have a `break`, `return`, `throw`, or `continue` statement.
+  * Checks for fall-through in switch statements, adding `break` statements in locations where a case contains Java code but does not have a `break`, `return`, `throw`, or `continue` statement. Unintentional fall-through is a common source of bugs, as execution silently continues into the next case branch.
 * [org.openrewrite.staticanalysis.FinalClass](/user-documentation/recipes/recipe-catalog/staticanalysis/finalclass.md)
   * **Finalize classes with private constructors**
-  * Adds the `final` modifier to classes that expose no public or package-private constructors.
+  * Adds the `final` modifier to classes that expose no public or package-private constructors. If a class cannot be instantiated from the outside, marking it `final` communicates that it was not designed for inheritance and prevents accidental subclassing.
 * [org.openrewrite.staticanalysis.FinalizeLocalVariables](/user-documentation/recipes/recipe-catalog/staticanalysis/finalizelocalvariables.md)
   * **Finalize local variables**
   * Adds the `final` modifier keyword to local variables which are not reassigned.
@@ -12207,88 +12408,88 @@ _176 recipes_
   * Adds the `final` modifier keyword to private instance variables which are not reassigned.
 * [org.openrewrite.staticanalysis.FixStringFormatExpressions](/user-documentation/recipes/recipe-catalog/staticanalysis/fixstringformatexpressions.md)
   * **Fix `String#format` and `String#formatted` expressions**
-  * Fix `String#format` and `String#formatted` expressions by replacing `\n` newline characters with `%n` and removing any unused arguments. Note this recipe is scoped to only transform format expressions which do not specify the argument index.
+  * Fix `String#format` and `String#formatted` expressions by replacing `\n` newline characters with `%n` and removing any unused arguments. Note this recipe is scoped to only transform format expressions which do not specify the argument index. Using `%n` ensures the correct platform-specific line separator, and removing unused arguments eliminates dead code that may mask a mismatch between the format string and its parameters.
 * [org.openrewrite.staticanalysis.ForLoopControlVariablePostfixOperators](/user-documentation/recipes/recipe-catalog/staticanalysis/forloopcontrolvariablepostfixoperators.md)
   * **`for` loop counters should use postfix operators**
   * Replace `for` loop control variables using pre-increment (`++i`) or pre-decrement (`--i`) operators with their post-increment (`i++`) or post-decrement (`i++`) notation equivalents.
 * [org.openrewrite.staticanalysis.ForLoopIncrementInUpdate](/user-documentation/recipes/recipe-catalog/staticanalysis/forloopincrementinupdate.md)
   * **`for` loop counters incremented in update**
-  * The increment should be moved to the loop's increment clause if possible.
+  * The increment should be moved to the loop's increment clause if possible. Placing the counter update in the loop body rather than the update clause obscures the loop's control flow and makes it harder to reason about termination.
 * [org.openrewrite.staticanalysis.HiddenField](/user-documentation/recipes/recipe-catalog/staticanalysis/hiddenfield.md)
   * **Hidden field**
-  * Refactor local variables or parameters which shadow a field defined in the same class.
+  * Refactor local variables or parameters which shadow a field defined in the same class. Shadowing a field with a local variable of the same name makes it easy to accidentally reference the wrong one, leading to confusing bugs.
 * [org.openrewrite.staticanalysis.HideUtilityClassConstructor](/user-documentation/recipes/recipe-catalog/staticanalysis/hideutilityclassconstructor.md)
   * **Hide utility class constructor**
-  * Ensures utility classes (classes containing only static methods or fields in their API) do not have a public constructor.
+  * Ensures utility classes (classes containing only static methods or fields in their API) do not have a public constructor. Instantiating a utility class is almost certainly a mistake, and a private constructor makes that intent clear while preventing misuse.
 * [org.openrewrite.staticanalysis.IndexOfChecksShouldUseAStartPosition](/user-documentation/recipes/recipe-catalog/staticanalysis/indexofchecksshoulduseastartposition.md)
   * **Use `indexOf(String, int)`**
-  * Replaces `indexOf(String)` in binary operations if the compared value is an int and not less than 1.
+  * Replaces `indexOf(String)` in binary operations if the compared value is an int and not less than 1. Using the two-argument `indexOf(String, int)` form with a start position avoids redundantly scanning the beginning of the string when you already know the match must occur after a certain index.
 * [org.openrewrite.staticanalysis.IndexOfReplaceableByContains](/user-documentation/recipes/recipe-catalog/staticanalysis/indexofreplaceablebycontains.md)
   * **`indexOf()` replaceable by `contains()`**
-  * Checking if a value is included in a `String` or `List` using `indexOf(value)&gt;-1` or `indexOf(value)&gt;=0` can be replaced with `contains(value)`.
+  * Checking if a value is included in a `String` or `List` using `indexOf(value)&gt;-1` or `indexOf(value)&gt;=0` can be replaced with `contains(value)`. Using `contains()` expresses the intent more directly and avoids the mental overhead of interpreting index comparisons.
 * [org.openrewrite.staticanalysis.IndexOfShouldNotCompareGreaterThanZero](/user-documentation/recipes/recipe-catalog/staticanalysis/indexofshouldnotcomparegreaterthanzero.md)
   * **`indexOf` should not compare greater than zero**
   * Replaces `String#indexOf(String) &gt; 0` and `List#indexOf(Object) &gt; 0` with `&gt;=1`. Checking `indexOf` against `&gt;0` ignores the first element, whereas `&gt;-1` is inclusive of the first element. For clarity, `&gt;=1` is used, because `&gt;0` and `&gt;=1` are semantically equal. Using `&gt;0` may appear to be a mistake with the intent of including all elements. If the intent is to check whether a value in included in a `String` or `List`, the `String#contains(String)` or `List#contains(Object)` methods may be better options altogether.
 * [org.openrewrite.staticanalysis.InlineVariable](/user-documentation/recipes/recipe-catalog/staticanalysis/inlinevariable.md)
   * **Inline variable**
-  * Inline variables when they are immediately used to return or throw. Supports both variable declarations and assignments to local variables.
+  * Inline variables when they are immediately used to return or throw. Supports both variable declarations and assignments to local variables. A variable that is declared only to be returned or thrown on the very next line adds an unnecessary level of indirection without improving readability.
 * [org.openrewrite.staticanalysis.InstanceOfPatternMatch](/user-documentation/recipes/recipe-catalog/staticanalysis/instanceofpatternmatch.md)
   * **Changes code to use Java 17's `instanceof` pattern matching**
-  * Adds pattern variables to `instanceof` expressions wherever the same (side effect free) expression is referenced in a corresponding type cast expression within the flow scope of the `instanceof`. Currently, this recipe supports `if` statements and ternary operator expressions.
+  * Adds pattern variables to `instanceof` expressions wherever the same (side effect free) expression is referenced in a corresponding type cast expression within the flow scope of the `instanceof`. Currently, this recipe supports `if` statements and ternary operator expressions. Pattern matching for `instanceof` collapses the type check, cast, and variable declaration into a single expression, reducing boilerplate and eliminating the risk of an incorrect cast.
 * [org.openrewrite.staticanalysis.InterruptedExceptionHandling](/user-documentation/recipes/recipe-catalog/staticanalysis/interruptedexceptionhandling.md)
   * **Restore interrupted state in catch blocks**
   * When `InterruptedException` is caught, `Thread.currentThread().interrupt()` should be called to restore the thread's interrupted state. Failing to do so can suppress the interruption signal and prevent proper thread cancellation.
 * [org.openrewrite.staticanalysis.IsEmptyCallOnCollections](/user-documentation/recipes/recipe-catalog/staticanalysis/isemptycalloncollections.md)
   * **Use `Collection#isEmpty()` instead of comparing `size()`**
-  * Also check for _not_ `isEmpty()` when testing for not equal to zero size.
+  * Also check for _not_ `isEmpty()` when testing for not equal to zero size. Using `isEmpty()` communicates intent more clearly than comparing `size()` to zero, and for some collection implementations `isEmpty()` can be more efficient since `size()` may require traversal.
 * [org.openrewrite.staticanalysis.JavaApiBestPractices](/user-documentation/recipes/recipe-catalog/staticanalysis/javaapibestpractices.md)
   * **Java API best practices**
   * Use the Java standard library in a way that is most idiomatic.
 * [org.openrewrite.staticanalysis.LambdaBlockToExpression](/user-documentation/recipes/recipe-catalog/staticanalysis/lambdablocktoexpression.md)
   * **Simplify lambda blocks to expressions**
-  * Single-line statement lambdas returning a value can be replaced with expression lambdas.
+  * Single-line statement lambdas returning a value can be replaced with expression lambdas. Expression-form lambdas are more concise and consistent with a functional programming style, making the code easier to scan.
 * [org.openrewrite.staticanalysis.LowercasePackage](/user-documentation/recipes/recipe-catalog/staticanalysis/lowercasepackage.md)
   * **Rename packages to lowercase**
-  * By convention all Java package names should contain only lowercase letters, numbers, and dashes. This recipe converts any uppercase letters in package names to be lowercase.
+  * By convention all Java package names should contain only lowercase letters, numbers, and dashes. This recipe converts any uppercase letters in package names to be lowercase. Consistent package naming prevents confusion and potential issues on case-insensitive file systems.
 * [org.openrewrite.staticanalysis.MaskCreditCardNumbers](/user-documentation/recipes/recipe-catalog/staticanalysis/maskcreditcardnumbers.md)
   * **Mask credit card numbers**
   * When encountering string literals which appear to be credit card numbers, mask the last eight digits with the letter 'X'.
 * [org.openrewrite.staticanalysis.MemberNameCaseInsensitiveDuplicates](/user-documentation/recipes/recipe-catalog/staticanalysis/membernamecaseinsensitiveduplicates.md)
   * **Members should not have names differing only by capitalization**
-  * Looking at the set of methods and fields in a class and all of its parents, no two members should have names that differ only in capitalization. This rule will not report if a method overrides a parent method.
+  * Looking at the set of methods and fields in a class and all of its parents, no two members should have names that differ only in capitalization. This rule will not report if a method overrides a parent method. Members with near-identical names are easily confused, leading to bugs where the wrong field or method is referenced.
 * [org.openrewrite.staticanalysis.MethodNameCasing](/user-documentation/recipes/recipe-catalog/staticanalysis/methodnamecasing.md)
   * **Standardize method name casing**
-  * Fixes method names that do not follow standard naming conventions. For example, `String getFoo_bar()` would be adjusted to `String getFooBar()` and `int DoSomething()` would be adjusted to `int doSomething()`.
+  * Fixes method names that do not follow standard naming conventions. For example, `String getFoo_bar()` would be adjusted to `String getFooBar()` and `int DoSomething()` would be adjusted to `int doSomething()`. Following a consistent casing convention for method names improves code readability and helps developers quickly distinguish methods from classes or constants.
 * [org.openrewrite.staticanalysis.MinimumSwitchCases](/user-documentation/recipes/recipe-catalog/staticanalysis/minimumswitchcases.md)
   * **`switch` statements should have at least 3 `case` clauses**
-  * `switch` statements are useful when many code paths branch depending on the value of a single expression. For just one or two code paths, the code will be more readable with `if` statements.
+  * `switch` statements are useful when many code paths branch depending on the value of a single expression. For just one or two code paths, the code will be more readable with `if` statements. Using `switch` for trivial branching adds unnecessary syntactic overhead and obscures the simplicity of the logic.
 * [org.openrewrite.staticanalysis.MissingOverrideAnnotation](/user-documentation/recipes/recipe-catalog/staticanalysis/missingoverrideannotation.md)
   * **Add missing `@Override` to overriding and implementing methods**
   * Adds `@Override` to methods overriding superclass methods or implementing interface methods. Annotating methods improves readability by showing the author's intent to override. Additionally, when annotated, the compiler will emit an error when a signature of the overridden method does not match the superclass method.
 * [org.openrewrite.staticanalysis.ModifierOrder](/user-documentation/recipes/recipe-catalog/staticanalysis/modifierorder.md)
   * **Modifier order**
-  * Modifiers should be declared in the correct order as recommended by the JLS.
+  * Modifiers should be declared in the correct order as recommended by the JLS. Ordering modifiers consistently reduces cognitive load for developers who are accustomed to the standard sequence.
 * [org.openrewrite.staticanalysis.MoveConditionsToWhile](/user-documentation/recipes/recipe-catalog/staticanalysis/moveconditionstowhile.md)
   * **Convert `while (true)` with initial `if` break to loop condition**
   * Simplifies `while (true)` loops where the first statement is an `if` statement that only contains a `break`. The condition is inverted and moved to the loop condition for better readability.
 * [org.openrewrite.staticanalysis.MultipleVariableDeclarations](/user-documentation/recipes/recipe-catalog/staticanalysis/multiplevariabledeclarations.md)
   * **No multiple variable declarations**
-  * Places each variable declaration in its own statement and on its own line. Using one variable declaration per line encourages commenting and can increase readability.
+  * Places each variable declaration in its own statement and on its own line. Using one variable declaration per line encourages commenting and can increase readability. Multi-variable declarations also make it harder to track individual types and initializers, increasing the risk of subtle errors.
 * [org.openrewrite.staticanalysis.NeedBraces](/user-documentation/recipes/recipe-catalog/staticanalysis/needbraces.md)
   * **Fix missing braces**
-  * Adds missing braces around code such as single-line `if`, `for`, `while`, and `do-while` block bodies.
+  * Adds missing braces around code such as single-line `if`, `for`, `while`, and `do-while` block bodies. Omitting braces can lead to dangling-statement bugs when additional lines are later added to a block without realizing they fall outside the control structure.
 * [org.openrewrite.staticanalysis.NestedEnumsAreNotStatic](/user-documentation/recipes/recipe-catalog/staticanalysis/nestedenumsarenotstatic.md)
   * **Nested enums are not static**
-  * Remove static modifier from nested enum types since they are implicitly static.
+  * Remove static modifier from nested enum types since they are implicitly static. The redundant modifier adds visual noise and may mislead readers into thinking there is a non-static alternative.
 * [org.openrewrite.staticanalysis.NewStringBuilderBufferWithCharArgument](/user-documentation/recipes/recipe-catalog/staticanalysis/newstringbuilderbufferwithcharargument.md)
   * **Change `StringBuilder` and `StringBuffer` character constructor argument to `String`**
-  * Instantiating a `StringBuilder` or a `StringBuffer` with a `Character` results in the `int` representation of the character being used for the initial size.
+  * Instantiating a `StringBuilder` or a `StringBuffer` with a `Character` results in the `int` representation of the character being used for the initial size. This is almost never the developer's intent and silently produces a buffer with an arbitrary capacity instead of the expected initial content.
 * [org.openrewrite.staticanalysis.NoDoubleBraceInitialization](/user-documentation/recipes/recipe-catalog/staticanalysis/nodoublebraceinitialization.md)
   * **No double brace initialization**
-  * Replace `List`, `Map`, and `Set` double brace initialization with an initialization block.
+  * Replace `List`, `Map`, and `Set` double brace initialization with an initialization block. Double brace initialization creates an anonymous inner class that holds a hidden reference to the enclosing instance, which can cause memory leaks and serialization issues.
 * [org.openrewrite.staticanalysis.NoEmptyCollectionWithRawType](/user-documentation/recipes/recipe-catalog/staticanalysis/noemptycollectionwithrawtype.md)
   * **Use `Collections#emptyList()`, `emptyMap()`, and `emptySet()`**
-  * Replaces `Collections#EMPTY_...` with methods that return generic types.
+  * Replaces `Collections#EMPTY_...` with methods that return generic types. The raw-typed constant fields bypass generics checks, which can hide type mismatches that only surface as `ClassCastException` at runtime.
 * [org.openrewrite.staticanalysis.NoEqualityInForCondition](/user-documentation/recipes/recipe-catalog/staticanalysis/noequalityinforcondition.md)
   * **Use comparison rather than equality checks in for conditions**
   * Testing for loop termination using an equality operator (`==` and `!=`) is dangerous, because it could set up an infinite loop. Using a relational operator instead makes it harder to accidentally write an infinite loop.
@@ -12300,25 +12501,25 @@ _176 recipes_
   * Finalizers are deprecated. Use of `finalize()` can lead to performance issues, deadlocks, hangs, and other undesirable behavior.
 * [org.openrewrite.staticanalysis.NoPrimitiveWrappersForToStringOrCompareTo](/user-documentation/recipes/recipe-catalog/staticanalysis/noprimitivewrappersfortostringorcompareto.md)
   * **No primitive wrappers for #toString() or #compareTo(..)**
-  * Primitive wrappers should not be instantiated only for `#toString()` or `#compareTo(..)` invocations.
+  * Primitive wrappers should not be instantiated only for `#toString()` or `#compareTo(..)` invocations. Allocating a wrapper object just to call a method that has a static equivalent is wasteful; the static versions avoid the unnecessary object creation.
 * [org.openrewrite.staticanalysis.NoRedundantJumpStatements](/user-documentation/recipes/recipe-catalog/staticanalysis/noredundantjumpstatements.md)
   * **Jump statements should not be redundant**
   * Jump statements such as return and continue let you change the default flow of program execution, but jump statements that direct the control flow to the original direction are just a waste of keystrokes.
 * [org.openrewrite.staticanalysis.NoToStringOnStringType](/user-documentation/recipes/recipe-catalog/staticanalysis/notostringonstringtype.md)
   * **Unnecessary `String#toString`**
-  * Remove unnecessary `String#toString` invocations on objects which are already a string.
+  * Remove unnecessary `String#toString` invocations on objects which are already a string. Calling `toString()` on something that is already a `String` is redundant and clutters the code.
 * [org.openrewrite.staticanalysis.NoValueOfOnStringType](/user-documentation/recipes/recipe-catalog/staticanalysis/novalueofonstringtype.md)
   * **Unnecessary `String#valueOf(..)`**
-  * Replace unnecessary `String#valueOf(..)` method invocations with the argument directly. This occurs when the argument to `String#valueOf(arg)` is a string literal, such as `String.valueOf(&quot;example&quot;)`. Or, when the `String#valueOf(..)` invocation is used in a concatenation, such as `&quot;example&quot; + String.valueOf(&quot;example&quot;)`.
+  * Replace unnecessary `String#valueOf(..)` method invocations with the argument directly. This occurs when the argument to `String#valueOf(arg)` is a string literal, such as `String.valueOf(&quot;example&quot;)`. Or, when the `String#valueOf(..)` invocation is used in a concatenation, such as `&quot;example&quot; + String.valueOf(&quot;example&quot;)`. The wrapping call is redundant since Java already performs the conversion implicitly in these contexts.
 * [org.openrewrite.staticanalysis.NullableOnMethodReturnType](/user-documentation/recipes/recipe-catalog/staticanalysis/nullableonmethodreturntype.md)
   * **Move `@Nullable` method annotations to the return type**
   * This is the way the cool kids do it.
 * [org.openrewrite.staticanalysis.ObjectFinalizeCallsSuper](/user-documentation/recipes/recipe-catalog/staticanalysis/objectfinalizecallssuper.md)
   * **`finalize()` calls super**
-  * Overrides of `Object#finalize()` should call super.
+  * Overrides of `Object#finalize()` should call super. Skipping the super call can prevent parent classes from releasing critical system resources during garbage collection.
 * [org.openrewrite.staticanalysis.OnlyCatchDeclaredExceptions](/user-documentation/recipes/recipe-catalog/staticanalysis/onlycatchdeclaredexceptions.md)
   * **Replace `catch(Exception)` with specific declared exceptions thrown in the try block**
-  * Replaces `catch(Exception e)` blocks with a multi-catch block (`catch (SpecificException1 | SpecificException2 e)`) containing only the exceptions declared thrown by method or constructor invocations within the `try` block that are not already caught by more specific `catch` clauses.
+  * Replaces `catch(Exception e)` blocks with a multi-catch block (`catch (SpecificException1 | SpecificException2 e)`) containing only the exceptions declared thrown by method or constructor invocations within the `try` block that are not already caught by more specific `catch` clauses. Catching a broad `Exception` type can unintentionally swallow runtime exceptions that indicate programming errors, making bugs harder to detect and diagnose.
 * [org.openrewrite.staticanalysis.OperatorWrap](/user-documentation/recipes/recipe-catalog/staticanalysis/operatorwrap.md)
   * **Operator wrapping**
   * Fixes line wrapping policies on operators.
@@ -12333,76 +12534,82 @@ _176 recipes_
   * Replaces `System.getenv(&quot;HOME&quot;)` with `System.getProperty(&quot;user.home&quot;)` for better portability.
 * [org.openrewrite.staticanalysis.PrimitiveWrapperClassConstructorToValueOf](/user-documentation/recipes/recipe-catalog/staticanalysis/primitivewrapperclassconstructortovalueof.md)
   * **Use primitive wrapper `valueOf` method**
-  * The constructor of all primitive types has been deprecated in favor of using the static factory method `valueOf` available for each of the primitive type wrappers.
+  * The constructor of all primitive types has been deprecated in favor of using the static factory method `valueOf` available for each of the primitive type wrappers. Using `valueOf` enables object caching for frequently used values, reducing unnecessary heap allocations.
 * [org.openrewrite.staticanalysis.RedundantFileCreation](/user-documentation/recipes/recipe-catalog/staticanalysis/redundantfilecreation.md)
   * **Redundant file creation**
   * Remove unnecessary intermediate creations of files.
 * [org.openrewrite.staticanalysis.ReferentialEqualityToObjectEquals](/user-documentation/recipes/recipe-catalog/staticanalysis/referentialequalitytoobjectequals.md)
   * **Replace referential equality operators with Object equals method invocations when the operands both override `Object.equals(Object obj)`**
-  * Using `==` or `!=` compares object references, not the equality of two objects. This modifies code where both sides of a binary operation (`==` or `!=`) override `Object.equals(Object obj)` except when the comparison is within an overridden `Object.equals(Object obj)` method declaration itself. The resulting transformation must be carefully reviewed since any modifications change the program's semantics.
+  * Using `==` or `!=` compares object references, not the equality of two objects. This modifies code where both sides of a binary operation (`==` or `!=`) override `Object.equals(Object obj)` except when the comparison is within an overridden `Object.equals(Object obj)` method declaration itself. The resulting transformation must be carefully reviewed since any modifications change the program's semantics. When a class defines its own notion of equality through `equals`, using reference comparison is almost always a bug that causes logically identical objects to be treated as different.
 * [org.openrewrite.staticanalysis.RemoveCallsToObjectFinalize](/user-documentation/recipes/recipe-catalog/staticanalysis/removecallstoobjectfinalize.md)
   * **Remove `Object.finalize()` invocations**
-  * Remove calls to `Object.finalize()`. This method is called during garbage collection and calling it manually is misleading.
+  * Remove calls to `Object.finalize()`. This method is called during garbage collection and calling it manually is misleading. Explicit finalize invocations can trigger resource cleanup prematurely while the object is still in use, leading to unpredictable behavior.
 * [org.openrewrite.staticanalysis.RemoveCallsToSystemGc](/user-documentation/recipes/recipe-catalog/staticanalysis/removecallstosystemgc.md)
   * **Remove garbage collection invocations**
-  * Removes calls to `System.gc()` and `Runtime.gc()`. When to invoke garbage collection is best left to the JVM.
+  * Removes calls to `System.gc()` and `Runtime.gc()`. When to invoke garbage collection is best left to the JVM. Manual GC calls produce unpredictable results across different JVM implementations and can cause unnecessary application pauses.
 * [org.openrewrite.staticanalysis.RemoveEmptyJavaDocParameters](/user-documentation/recipes/recipe-catalog/staticanalysis/removeemptyjavadocparameters.md)
   * **Remove JavaDoc `@param`, `@return`, and `@throws` with no description**
   * Removes `@param`, `@return`, and `@throws` with no description from JavaDocs.
 * [org.openrewrite.staticanalysis.RemoveExtraSemicolons](/user-documentation/recipes/recipe-catalog/staticanalysis/removeextrasemicolons.md)
   * **Remove extra semicolons**
-  * Removes not needed semicolons. Semicolons are considered not needed:  * Optional semicolons at the end of try-with-resources,  * after the last enum value if no field or method is defined,  * no statement between two semicolon.
+  * Removes not needed semicolons. Semicolons are considered not needed:  * Optional semicolons at the end of try-with-resources,  * after the last enum value if no field or method is defined,  * no statement between two semicolon.  Stray semicolons are typically typos or remnants of refactoring and can mislead readers into thinking a statement is present.
 * [org.openrewrite.staticanalysis.RemoveHashCodeCallsFromArrayInstances](/user-documentation/recipes/recipe-catalog/staticanalysis/removehashcodecallsfromarrayinstances.md)
   * **`hashCode()` should not be called on array instances**
-  * Replace `hashCode()` calls on arrays with `Arrays.hashCode()` because the results from `hashCode()` are not helpful.
+  * Replace `hashCode()` calls on arrays with `Arrays.hashCode()` because the results from `hashCode()` are not helpful. Arrays inherit `hashCode()` from `Object`, which returns an identity-based value unrelated to the array contents, so two arrays with identical elements will produce different hash codes.
 * [org.openrewrite.staticanalysis.RemoveInstanceOfPatternMatch](/user-documentation/recipes/recipe-catalog/staticanalysis/removeinstanceofpatternmatch.md)
   * **Removes from code Java 14's `instanceof` pattern matching**
   * Adds an explicit variable declaration at the beginning of `if` statement instead of `instanceof` pattern matching.
 * [org.openrewrite.staticanalysis.RemoveJavaDocAuthorTag](/user-documentation/recipes/recipe-catalog/staticanalysis/removejavadocauthortag.md)
   * **Remove author tags from JavaDocs**
   * Removes author tags from JavaDocs to reduce code maintenance.
+* [org.openrewrite.staticanalysis.RemoveMethodsOnlyCallSuper](/user-documentation/recipes/recipe-catalog/staticanalysis/removemethodsonlycallsuper.md)
+  * **Remove methods that only call super**
+  * Methods that override a parent method but only call `super` with the same arguments are redundant and should be removed.
 * [org.openrewrite.staticanalysis.RemoveRedundantNullCheckBeforeInstanceof](/user-documentation/recipes/recipe-catalog/staticanalysis/removeredundantnullcheckbeforeinstanceof.md)
   * **Remove redundant null checks before instanceof**
-  * Removes redundant null checks before instanceof operations since instanceof returns false for null.
+  * Removes redundant null checks before instanceof operations since instanceof returns false for null. Removing the extra check simplifies the conditional and makes the null-safety guarantee of `instanceof` more visible to readers.
 * [org.openrewrite.staticanalysis.RemoveRedundantNullCheckBeforeLiteralEquals](/user-documentation/recipes/recipe-catalog/staticanalysis/removeredundantnullcheckbeforeliteralequals.md)
   * **Remove redundant null checks before literal equals**
   * Removes redundant null checks before `equals()` comparisons when the receiver is a literal string, since literals can never be null and `equals()` returns false for null arguments.
 * [org.openrewrite.staticanalysis.RemoveRedundantTypeCast](/user-documentation/recipes/recipe-catalog/staticanalysis/removeredundanttypecast.md)
   * **Remove redundant casts**
-  * Removes unnecessary type casts. Does not currently check casts in lambdas and class constructors.
+  * Removes unnecessary type casts. Does not currently check casts in lambdas and class constructors. Redundant casts add visual noise and can obscure the actual type relationships in the code, making it harder to follow the data flow.
 * [org.openrewrite.staticanalysis.RemoveSystemOutPrintln](/user-documentation/recipes/recipe-catalog/staticanalysis/removesystemoutprintln.md)
   * **Remove `System.out#println` statements**
-  * Print statements are often left accidentally after debugging an issue. This recipe removes all `System.out#println` and `System.err#println` statements from the code.
+  * Print statements are often left accidentally after debugging an issue. This recipe removes all `System.out#println` and `System.err#println` statements from the code. Production code should use a proper logging framework which provides consistent formatting, configurable log levels, and centralized output control.
 * [org.openrewrite.staticanalysis.RemoveToStringCallsFromArrayInstances](/user-documentation/recipes/recipe-catalog/staticanalysis/removetostringcallsfromarrayinstances.md)
   * **Remove `toString()` calls on arrays**
-  * The result from `toString()` calls on arrays is largely useless. The output does not actually reflect the contents of the array. `Arrays.toString(array)` should be used instead as it gives the contents of the array.
+  * The result from `toString()` calls on arrays is largely useless. The output does not actually reflect the contents of the array. `Arrays.toString(array)` should be used instead as it gives the contents of the array. Since arrays do not override `toString()` from `Object`, calling it produces only the type name and memory address, which is rarely what was intended.
 * [org.openrewrite.staticanalysis.RemoveUnneededAssertion](/user-documentation/recipes/recipe-catalog/staticanalysis/removeunneededassertion.md)
   * **Remove unneeded assertions**
   * Remove unneeded assertions like `assert true`, `assertTrue(true)`, or `assertFalse(false)`.
 * [org.openrewrite.staticanalysis.RemoveUnneededBlock](/user-documentation/recipes/recipe-catalog/staticanalysis/removeunneededblock.md)
   * **Remove unneeded block**
-  * Flatten blocks into inline statements when possible.
+  * Flatten blocks into inline statements when possible. Unnecessary nested blocks add indentation and scope boundaries that obscure the control flow, often indicating code that should be extracted into its own method.
+* [org.openrewrite.staticanalysis.RemoveUnusedLabels](/user-documentation/recipes/recipe-catalog/staticanalysis/removeunusedlabels.md)
+  * **Remove unused labels**
+  * Remove labels that are not referenced by any `break` or `continue` statement.
 * [org.openrewrite.staticanalysis.RemoveUnusedLocalVariables](/user-documentation/recipes/recipe-catalog/staticanalysis/removeunusedlocalvariables.md)
   * **Remove unused local variables**
-  * If a local variable is declared but not used, it is dead code and should be removed.
+  * If a local variable is declared but not used, it is dead code and should be removed. Unused variables increase cognitive load for readers who must determine whether the variable matters, and they may signal incomplete implementations or missed refactoring.
 * [org.openrewrite.staticanalysis.RemoveUnusedPrivateFields](/user-documentation/recipes/recipe-catalog/staticanalysis/removeunusedprivatefields.md)
   * **Remove unused private fields**
-  * If a private field is declared but not used in the program, it can be considered dead code and should therefore be removed.
+  * If a private field is declared but not used in the program, it can be considered dead code and should therefore be removed. Dead fields clutter the class, increase its memory footprint, and can mislead developers into thinking they are part of the class's behavior.
 * [org.openrewrite.staticanalysis.RemoveUnusedPrivateMethods](/user-documentation/recipes/recipe-catalog/staticanalysis/removeunusedprivatemethods.md)
   * **Remove unused private methods**
-  * `private` methods that are never executed are dead code and should be removed.
+  * `private` methods that are never executed are dead code and should be removed. Keeping unreachable methods around adds maintenance burden and can give a false impression of the class's capabilities.
 * [org.openrewrite.staticanalysis.RenameExceptionInEmptyCatch](/user-documentation/recipes/recipe-catalog/staticanalysis/renameexceptioninemptycatch.md)
   * **Rename caught exceptions in empty catch blocks to `ignored`**
   * Renames caught exceptions in empty catch blocks to `ignored`. `ignored` will be incremented by 1 if a namespace conflict exists.
 * [org.openrewrite.staticanalysis.RenameLocalVariablesToCamelCase](/user-documentation/recipes/recipe-catalog/staticanalysis/renamelocalvariablestocamelcase.md)
   * **Reformat local variable names to camelCase**
-  * Reformat local variable and method parameter names to camelCase to comply with Java naming convention. The recipe will not rename variables declared in for loop controls or catches with a single character. The first character is set to lower case and existing capital letters are preserved. Special characters that are allowed in java field names `$` and `_` are removed (unless the name starts with one). If a special character is removed the next valid alphanumeric will be capitalized. Currently, does not support renaming members of classes. The recipe will not rename a variable if the result already exists in the class, conflicts with a java reserved keyword, or the result is blank.
+  * Reformat local variable and method parameter names to camelCase to comply with Java naming convention. The recipe will not rename variables declared in for loop controls or catches with a single character. The first character is set to lower case and existing capital letters are preserved. Special characters that are allowed in java field names `$` and `_` are removed (unless the name starts with one). If a special character is removed the next valid alphanumeric will be capitalized. Currently, does not support renaming members of classes. The recipe will not rename a variable if the result already exists in the class, conflicts with a java reserved keyword, or the result is blank. Consistent naming conventions improve readability and reduce friction when navigating unfamiliar code.
 * [org.openrewrite.staticanalysis.RenameMethodsNamedHashcodeEqualOrToString](/user-documentation/recipes/recipe-catalog/staticanalysis/renamemethodsnamedhashcodeequalortostring.md)
   * **Rename methods named `hashcode`, `equal`, or `tostring`**
-  * Methods should not be named `hashcode`, `equal`, or `tostring`. Any of these are confusing as they appear to be intended as overridden methods from the `Object` base class, despite being case-insensitive.
+  * Methods should not be named `hashcode`, `equal`, or `tostring`. Any of these are confusing as they appear to be intended as overridden methods from the `Object` base class, despite being case-insensitive. These near-miss names are almost certainly spelling mistakes that silently introduce a new method instead of overriding the intended one.
 * [org.openrewrite.staticanalysis.RenamePrivateFieldsToCamelCase](/user-documentation/recipes/recipe-catalog/staticanalysis/renameprivatefieldstocamelcase.md)
   * **Reformat private field names to camelCase**
-  * Reformat private field names to camelCase to comply with Java naming convention. The recipe will not rename fields with default, protected or public access modifiers. The recipe will not rename private constants. The first character is set to lower case and existing capital letters are preserved. Special characters that are allowed in java field names `$` and `_` are removed. If a special character is removed the next valid alphanumeric will be capitalized. The recipe will not rename a field if the result already exists in the class, conflicts with a java reserved keyword, or the result is blank.
+  * Reformat private field names to camelCase to comply with Java naming convention. The recipe will not rename fields with default, protected or public access modifiers. The recipe will not rename private constants. The first character is set to lower case and existing capital letters are preserved. Special characters that are allowed in java field names `$` and `_` are removed. If a special character is removed the next valid alphanumeric will be capitalized. The recipe will not rename a field if the result already exists in the class, conflicts with a java reserved keyword, or the result is blank. Consistent naming conventions improve code readability and help developers quickly understand the purpose and scope of fields.
 * [org.openrewrite.staticanalysis.ReorderAnnotationAttributes](/user-documentation/recipes/recipe-catalog/staticanalysis/reorderannotationattributes.md)
   * **Reorder annotation attributes alphabetically**
   * Reorder annotation attributes to be alphabetical. Positional arguments (those without explicit attribute names) are left in their original position.
@@ -12414,7 +12621,7 @@ _176 recipes_
   * Replace `org.apache.commons.lang3.Validate.notNull(..)` with `Objects.requireNonNull(..)`.
 * [org.openrewrite.staticanalysis.ReplaceClassIsInstanceWithInstanceof](/user-documentation/recipes/recipe-catalog/staticanalysis/replaceclassisinstancewithinstanceof.md)
   * **Replace `A.class.isInstance(a)` with `a instanceof A`**
-  * There should be no `A.class.isInstance(a)`, it should be replaced by `a instanceof A`.
+  * There should be no `A.class.isInstance(a)`, it should be replaced by `a instanceof A`. Using `instanceof` enables the compiler to catch type incompatibilities at compile time rather than silently passing at runtime, which helps detect dead code early.
 * [org.openrewrite.staticanalysis.ReplaceCollectionToArrayArgWithEmptyArray](/user-documentation/recipes/recipe-catalog/staticanalysis/replacecollectiontoarrayargwithemptyarray.md)
   * **Use Empty Array for `Collection.toArray()`**
   * Changes new array creation with `Collection#toArray(T[])` to use an empty array argument, which is better for performance.  According to the `Collection#toArray(T[])` documentation:  &gt; If the collection fits in the specified array, it is returned therein.  However, although it's not intuitive, allocating a right-sized array ahead of time to pass to the API appears to be [generally worse for performance](https://shipilev.net/blog/2016/arrays-wisdom-ancients/#_conclusion) according to benchmarking and JVM developers due to a number of implementation details in both Java and the virtual machine.  H2 achieved significant performance gains by [switching to empty arrays instead pre-sized ones](https://github.com/h2database/h2database/issues/311).
@@ -12423,10 +12630,10 @@ _176 recipes_
   * Replace `Runtime#exec(String)` methods to use `exec(String[])` instead because the former is deprecated after Java 18 and is no longer recommended for use by the Java documentation.
 * [org.openrewrite.staticanalysis.ReplaceDuplicateStringLiterals](/user-documentation/recipes/recipe-catalog/staticanalysis/replaceduplicatestringliterals.md)
   * **Replace duplicate `String` literals**
-  * Replaces `String` literals with a length of 5 or greater repeated a minimum of 3 times. Qualified `String` literals include final Strings, method invocations, and new class invocations. Adds a new `private static final String` or uses an existing equivalent class field. A new variable name will be generated based on the literal value if an existing field does not exist. The generated name will append a numeric value to the variable name if a name already exists in the compilation unit.
+  * Replaces `String` literals with a length of 5 or greater repeated a minimum of 3 times. Qualified `String` literals include final Strings, method invocations, and new class invocations. Adds a new `private static final String` or uses an existing equivalent class field. A new variable name will be generated based on the literal value if an existing field does not exist. The generated name will append a numeric value to the variable name if a name already exists in the compilation unit. Centralizing repeated string values into constants makes refactoring safer and reduces the risk of inconsistent updates.
 * [org.openrewrite.staticanalysis.ReplaceLambdaWithMethodReference](/user-documentation/recipes/recipe-catalog/staticanalysis/replacelambdawithmethodreference.md)
   * **Use method references in lambda**
-  * Replaces the single statement lambdas `o -&gt; o instanceOf X`, `o -&gt; (A) o`, `o -&gt; System.out.println(o)`, `o -&gt; o != null`, `o -&gt; o == null` with the equivalent method reference.
+  * Replaces the single statement lambdas `o -&gt; o instanceOf X`, `o -&gt; (A) o`, `o -&gt; System.out.println(o)`, `o -&gt; o != null`, `o -&gt; o == null` with the equivalent method reference. Method references are often more concise and readable than their lambda equivalents, making the code's intent clearer at a glance.
 * [org.openrewrite.staticanalysis.ReplaceOptionalIsPresentWithIfPresent](/user-documentation/recipes/recipe-catalog/staticanalysis/replaceoptionalispresentwithifpresent.md)
   * **Replace `Optional#isPresent()` with `Optional#ifPresent()`**
   * Replace `Optional#isPresent()` with `Optional#ifPresent()`. Please note that this recipe is only suitable for if-blocks that lack an Else-block and have a single condition applied.
@@ -12435,16 +12642,16 @@ _176 recipes_
   * Replaces `PrintStream.print(String.format(format, ...args))` with `PrintStream.printf(format, ...args)` (and for `println`, appends a newline to the format string).
 * [org.openrewrite.staticanalysis.ReplaceStackWithDeque](/user-documentation/recipes/recipe-catalog/staticanalysis/replacestackwithdeque.md)
   * **Replace `java.util.Stack` with `java.util.Deque`**
-  * From the Javadoc of `Stack`: &gt; A more complete and consistent set of LIFO stack operations is provided by the Deque interface and its implementations, which should be used in preference to this class.
+  * From the Javadoc of `Stack`: &gt; A more complete and consistent set of LIFO stack operations is provided by the Deque interface and its implementations, which should be used in preference to this class.  `Stack` inherits from `Vector`, which carries unnecessary synchronization overhead in single-threaded contexts and exposes non-stack operations like random index access.
 * [org.openrewrite.staticanalysis.ReplaceStringBuilderWithString](/user-documentation/recipes/recipe-catalog/staticanalysis/replacestringbuilderwithstring.md)
   * **Replace `StringBuilder#append` with `String`**
   * Replace `StringBuilder.append()` with String if you are only concatenating a small number of strings and the code is simple and easy to read, as the compiler can optimize simple string concatenation expressions into a single String object, which can be more efficient than using StringBuilder.
 * [org.openrewrite.staticanalysis.ReplaceStringConcatenationWithStringValueOf](/user-documentation/recipes/recipe-catalog/staticanalysis/replacestringconcatenationwithstringvalueof.md)
   * **Replace String concatenation with `String.valueOf()`**
-  * Replace inefficient string concatenation patterns like `&quot;&quot; + ...` with `String.valueOf(...)`. This improves code readability and may have minor performance benefits.
+  * Replace inefficient string concatenation patterns like `&quot;&quot; + ...` with `String.valueOf(...)`. This improves code readability and may have minor performance benefits. The empty string prefix `&quot;&quot; +` is an indirect way to convert a value to a `String`, while `String.valueOf()` clearly communicates the conversion intent.
 * [org.openrewrite.staticanalysis.ReplaceTextBlockWithString](/user-documentation/recipes/recipe-catalog/staticanalysis/replacetextblockwithstring.md)
   * **Replace text block with regular string**
-  * Replace text block with a regular multi-line string.
+  * Replace text block with a regular multi-line string. Text blocks that fit on a single line without concatenation or escaped newlines gain no readability benefit from the triple-quote syntax and are clearer as plain string literals.
 * [org.openrewrite.staticanalysis.ReplaceThreadRunWithThreadStart](/user-documentation/recipes/recipe-catalog/staticanalysis/replacethreadrunwiththreadstart.md)
   * **Replace calls to `Thread.run()` with `Thread.start()`**
   * `Thread.run()` should not be called directly.
@@ -12456,19 +12663,22 @@ _176 recipes_
   * Replace `org.apache.commons.lang3.Validate.notNull(Object, String, Object[])` with `Objects.requireNonNull(Object, String)`.
 * [org.openrewrite.staticanalysis.ReplaceWeekYearWithYear](/user-documentation/recipes/recipe-catalog/staticanalysis/replaceweekyearwithyear.md)
   * **Week Year (YYYY) should not be used for date formatting**
-  * For most dates Week Year (YYYY) and Year (yyyy) yield the same results. However, on the last week of December and the first week of January, Week Year could produce unexpected results.
+  * For most dates Week Year (YYYY) and Year (yyyy) yield the same results. However, on the last week of December and the first week of January, Week Year could produce unexpected results. This is a common source of off-by-one-year bugs that typically only manifest around New Year's Eve, making them difficult to catch during development and testing.
+* [org.openrewrite.staticanalysis.SillyEqualsCheck](/user-documentation/recipes/recipe-catalog/staticanalysis/sillyequalscheck.md)
+  * **Silly equality checks should not be made**
+  * Detects `.equals()` calls that compare incompatible types and will always return `false`. Replaces `.equals(null)` with `== null` and array `.equals()` with `Arrays.equals()`. Flags comparisons between unrelated types or between arrays and non-arrays.
 * [org.openrewrite.staticanalysis.SimplifyArraysAsList](/user-documentation/recipes/recipe-catalog/staticanalysis/simplifyarraysaslist.md)
   * **Simplify `Arrays.asList(..)` with varargs**
-  * Simplifies `Arrays.asList()` method calls that use explicit array creation to use varargs instead. For example, `Arrays.asList(new String[]\{&quot;a&quot;, &quot;b&quot;, &quot;c&quot;\})` becomes `Arrays.asList(&quot;a&quot;, &quot;b&quot;, &quot;c&quot;)`.
+  * Simplifies `Arrays.asList()` method calls that use explicit array creation to use varargs instead. For example, `Arrays.asList(new String[]\{&quot;a&quot;, &quot;b&quot;, &quot;c&quot;\})` becomes `Arrays.asList(&quot;a&quot;, &quot;b&quot;, &quot;c&quot;)`. Explicitly constructing an array to pass to a varargs parameter adds visual clutter without changing behavior, since the compiler generates the array automatically.
 * [org.openrewrite.staticanalysis.SimplifyBooleanExpression](/user-documentation/recipes/recipe-catalog/staticanalysis/simplifybooleanexpression.md)
   * **Simplify boolean expression**
-  * Checks for overly complicated boolean expressions, such as `if (b == true)`, `b || true`, `!false`, etc.
+  * Checks for overly complicated boolean expressions, such as `if (b == true)`, `b || true`, `!false`, etc. Needlessly complex boolean logic makes code harder to reason about and increases the chance of introducing errors during future modifications.
 * [org.openrewrite.staticanalysis.SimplifyBooleanExpressionWithDeMorgan](/user-documentation/recipes/recipe-catalog/staticanalysis/simplifybooleanexpressionwithdemorgan.md)
   * **Simplify boolean expressions using De Morgan's laws**
-  * Applies De Morgan's laws to simplify boolean expressions with negation. Transforms `!(a &amp;&amp; b)` to `!a || !b` and `!(a || b)` to `!a &amp;&amp; !b`.
+  * Applies De Morgan's laws to simplify boolean expressions with negation. Transforms `!(a &amp;&amp; b)` to `!a || !b` and `!(a || b)` to `!a &amp;&amp; !b`. Distributing negations inward eliminates the outer `!` and makes each individual condition's polarity immediately visible, which aids comprehension.
 * [org.openrewrite.staticanalysis.SimplifyBooleanReturn](/user-documentation/recipes/recipe-catalog/staticanalysis/simplifybooleanreturn.md)
   * **Simplify boolean return**
-  * Simplifies Boolean expressions by removing redundancies. For example, `a &amp;&amp; true` simplifies to `a`.
+  * Simplifies Boolean expressions by removing redundancies. For example, `a &amp;&amp; true` simplifies to `a`. Wrapping a boolean expression in an if-then-else just to return `true` or `false` adds unnecessary control flow that obscures the straightforward intent of the expression.
 * [org.openrewrite.staticanalysis.SimplifyCompoundStatement](/user-documentation/recipes/recipe-catalog/staticanalysis/simplifycompoundstatement.md)
   * **Simplify compound statement**
   * Fixes or removes useless compound statements. For example, removing `b &amp;= true`, and replacing `b &amp;= false` with `b = false`.
@@ -12477,7 +12687,7 @@ _176 recipes_
   * Combine consecutive assignments into a single statement where possible.
 * [org.openrewrite.staticanalysis.SimplifyConstantIfBranchExecution](/user-documentation/recipes/recipe-catalog/staticanalysis/simplifyconstantifbranchexecution.md)
   * **Simplify constant if branch execution**
-  * Checks for if expressions that are always `true` or `false` and simplifies them.
+  * Checks for if expressions that are always `true` or `false` and simplifies them. Branches that can never execute are dead code that misleads readers and may mask logic errors introduced during refactoring.
 * [org.openrewrite.staticanalysis.SimplifyDurationCreationUnits](/user-documentation/recipes/recipe-catalog/staticanalysis/simplifydurationcreationunits.md)
   * **Simplify `java.time.Duration` units**
   * Simplifies `java.time.Duration` units to be more human-readable.
@@ -12489,25 +12699,31 @@ _176 recipes_
   * Replace `&lt;=` with `&lt;` in for loop conditions by adjusting the comparison operands. For example, `i &lt;= n - 1` simplifies to `i &lt; n`, and `i &lt;= n` becomes `i &lt; n + 1`.
 * [org.openrewrite.staticanalysis.SimplifyTernaryRecipes](/user-documentation/recipes/recipe-catalog/staticanalysis/simplifyternaryrecipes.md)
   * **Simplify ternary expressions**
-  * Simplifies various types of ternary expressions to improve code readability.
+  * Simplifies various types of ternary expressions to improve code readability. Ternaries that simply select between `true` and `false` are redundant wrappers around the condition itself and add unnecessary complexity.
 * [org.openrewrite.staticanalysis.SimplifyTernaryRecipes$SimplifyTernaryFalseTrueRecipe](/user-documentation/recipes/recipe-catalog/staticanalysis/simplifyternaryrecipes$simplifyternaryfalsetruerecipe.md)
   * **Replace `booleanExpression ? false : true` with `!booleanExpression`**
   * Replace ternary expressions like `booleanExpression ? false : true` with `!booleanExpression`.
 * [org.openrewrite.staticanalysis.SimplifyTernaryRecipes$SimplifyTernaryTrueFalseRecipe](/user-documentation/recipes/recipe-catalog/staticanalysis/simplifyternaryrecipes$simplifyternarytruefalserecipe.md)
   * **Replace `booleanExpression ? true : false` with `booleanExpression`**
   * Replace ternary expressions like `booleanExpression ? true : false` with `booleanExpression`.
+* [org.openrewrite.staticanalysis.SingleLineCommentSpacing](/user-documentation/recipes/recipe-catalog/staticanalysis/singlelinecommentspacing.md)
+  * **Add space after // in single-line comments**
+  * Ensures there is exactly one space after // in single-line comments when missing.
 * [org.openrewrite.staticanalysis.SortedSetStreamToLinkedHashSet](/user-documentation/recipes/recipe-catalog/staticanalysis/sortedsetstreamtolinkedhashset.md)
   * **Sorted set stream should be collected to LinkedHashSet**
   * Converts `set.stream().sorted().collect(Collectors.toSet())` to `set.stream().sorted().collect(LinkedHashSet::new)`.
+* [org.openrewrite.staticanalysis.StaticAccessViaInstance](/user-documentation/recipes/recipe-catalog/staticanalysis/staticaccessviainstance.md)
+  * **Static members should be accessed via the class name**
+  * Accessing static fields or calling static methods on an instance reference is misleading. Static members should be accessed using the declaring class name instead.
 * [org.openrewrite.staticanalysis.StaticMethodNotFinal](/user-documentation/recipes/recipe-catalog/staticanalysis/staticmethodnotfinal.md)
   * **Static methods need not be final**
-  * Static methods do not need to be declared final because they cannot be overridden.
+  * Static methods do not need to be declared final because they cannot be overridden. Redundant modifiers add noise to the code and can suggest a misunderstanding of the language's dispatch model.
 * [org.openrewrite.staticanalysis.StringLiteralEquality](/user-documentation/recipes/recipe-catalog/staticanalysis/stringliteralequality.md)
   * **Use `String.equals()` on `String` literals**
-  * `String.equals()` should be used when checking value equality on String literals. Using `==` or `!=` compares object references, not the actual value of the Strings. This only modifies code where at least one side of the binary operation (`==` or `!=`) is a String literal, such as `&quot;someString&quot; == someVariable;`. This is to prevent inadvertently changing code where referential equality is the user's intent.
+  * `String.equals()` should be used when checking value equality on String literals. Using `==` or `!=` compares object references, not the actual value of the Strings. This only modifies code where at least one side of the binary operation (`==` or `!=`) is a String literal, such as `&quot;someString&quot; == someVariable;`. This is to prevent inadvertently changing code where referential equality is the user's intent. Reference equality on strings is fragile because it depends on JVM string interning behavior, which can vary across runtimes and is not guaranteed for dynamically constructed strings.
 * [org.openrewrite.staticanalysis.TernaryOperatorsShouldNotBeNested](/user-documentation/recipes/recipe-catalog/staticanalysis/ternaryoperatorsshouldnotbenested.md)
   * **Ternary operators should not be nested**
-  * Nested ternary operators can be hard to read quickly. Prefer simpler constructs for improved readability. If supported, this recipe will try to replace nested ternaries with switch expressions.
+  * Nested ternary operators can be hard to read quickly. Prefer simpler constructs for improved readability. If supported, this recipe will try to replace nested ternaries with switch expressions. Deeply nested conditional expressions obscure the branching logic and make it easy to misread which value corresponds to which condition.
 * [org.openrewrite.staticanalysis.TypecastParenPad](/user-documentation/recipes/recipe-catalog/staticanalysis/typecastparenpad.md)
   * **Typecast parenthesis padding**
   * Fixes whitespace padding between a typecast type identifier and the enclosing left and right parentheses. For example, when configured to remove spacing, `( int ) 0L;` becomes `(int) 0L;`.
@@ -12525,46 +12741,46 @@ _176 recipes_
   * A refactoring operation may result in a checked exception that is no longer thrown from a `try` block. This recipe will find and remove unnecessary catch blocks.
 * [org.openrewrite.staticanalysis.UnnecessaryCloseInTryWithResources](/user-documentation/recipes/recipe-catalog/staticanalysis/unnecessarycloseintrywithresources.md)
   * **Unnecessary close in try-with-resources**
-  * Remove unnecessary `AutoCloseable#close()` statements in try-with-resources.
+  * Remove unnecessary `AutoCloseable#close()` statements in try-with-resources. Try-with-resources already guarantees that each declared resource is closed when the block exits, so an explicit `close()` call is redundant and can be confusing.
 * [org.openrewrite.staticanalysis.UnnecessaryExplicitTypeArguments](/user-documentation/recipes/recipe-catalog/staticanalysis/unnecessaryexplicittypearguments.md)
   * **Unnecessary explicit type arguments**
   * When explicit type arguments are inferable by the compiler, they may be removed.
 * [org.openrewrite.staticanalysis.UnnecessaryParentheses](/user-documentation/recipes/recipe-catalog/staticanalysis/unnecessaryparentheses.md)
   * **Remove unnecessary parentheses**
-  * Removes unnecessary parentheses from code where extra parentheses pairs are redundant.
+  * Removes unnecessary parentheses from code where extra parentheses pairs are redundant. Redundant parentheses add visual noise and can obscure the actual structure of an expression, making code harder to read at a glance.
 * [org.openrewrite.staticanalysis.UnnecessaryPrimitiveAnnotations](/user-documentation/recipes/recipe-catalog/staticanalysis/unnecessaryprimitiveannotations.md)
   * **Remove `@Nullable` and `@CheckForNull` annotations from primitives**
-  * Primitives can't be null anyway, so these annotations are not useful in this context.
+  * Primitives can't be null anyway, so these annotations are not useful in this context. Leaving them in place gives the false impression that a null value is possible, which can confuse readers and static analysis tools alike.
 * [org.openrewrite.staticanalysis.UnnecessaryReturnAsLastStatement](/user-documentation/recipes/recipe-catalog/staticanalysis/unnecessaryreturnaslaststatement.md)
   * **Unnecessary `return` as last statement in void method**
-  * Removes `return` from a `void` method if it's the last statement.
+  * Removes `return` from a `void` method if it's the last statement. A trailing `return` in a void method has no effect on control flow and is just noise that distracts from the meaningful logic.
 * [org.openrewrite.staticanalysis.UnnecessaryThrows](/user-documentation/recipes/recipe-catalog/staticanalysis/unnecessarythrows.md)
   * **Unnecessary throws**
-  * Remove unnecessary `throws` declarations. This recipe will only remove unused, checked exceptions if:   - The declaring class or the method declaration is `final`.  - The method declaration is `static` or `private`.  - The method overrides a method declaration in a super class and the super class does not throw the exception.  - The method is `public` or `protected` and the exception is not documented via a JavaDoc as a `@throws` tag.
+  * Remove unnecessary `throws` declarations. This recipe will only remove unused, checked exceptions if:   - The declaring class or the method declaration is `final`.  - The method declaration is `static` or `private`.  - The method overrides a method declaration in a super class and the super class does not throw the exception.  - The method is `public` or `protected` and the exception is not documented via a JavaDoc as a `@throws` tag.  Declaring exceptions that are never thrown misleads callers into writing unnecessary error-handling code and obscures the method's true behavior.
 * [org.openrewrite.staticanalysis.UnwrapElseAfterReturn](/user-documentation/recipes/recipe-catalog/staticanalysis/unwrapelseafterreturn.md)
   * **Unwrap else block after return or throw statement**
   * Unwraps the else block when the if block ends with a return or throw statement, reducing nesting and improving code readability.
 * [org.openrewrite.staticanalysis.UnwrapRepeatableAnnotations](/user-documentation/recipes/recipe-catalog/staticanalysis/unwraprepeatableannotations.md)
   * **Unwrap `@Repeatable` annotations**
-  * Java 8 introduced the concept of `@Repeatable` annotations, making the wrapper annotation unnecessary.
+  * Java 8 introduced the concept of `@Repeatable` annotations, making the wrapper annotation unnecessary. Using the repeatable form directly reduces nesting and makes the individual annotations easier to scan.
 * [org.openrewrite.staticanalysis.UpperCaseLiteralSuffixes](/user-documentation/recipes/recipe-catalog/staticanalysis/uppercaseliteralsuffixes.md)
   * **Upper case literal suffixes**
-  * Using upper case literal suffixes for declaring literals is less ambiguous, e.g., `1l` versus `1L`.
+  * Using upper case literal suffixes for declaring literals is less ambiguous, e.g., `1l` versus `1L`. A lowercase `l` is easily mistaken for the digit `1` in many fonts, which can lead to incorrect assumptions about the value.
 * [org.openrewrite.staticanalysis.UseAsBuilder](/user-documentation/recipes/recipe-catalog/staticanalysis/useasbuilder.md)
   * **Chain calls to builder methods**
   * Chain calls to builder methods that are on separate lines into one chain of builder calls.
 * [org.openrewrite.staticanalysis.UseCollectionInterfaces](/user-documentation/recipes/recipe-catalog/staticanalysis/usecollectioninterfaces.md)
   * **Use `Collection` interfaces**
-  * Use `Deque`, `List`, `Map`, `ConcurrentMap`, `Queue`, and `Set` instead of implemented collections. Replaces the return type of public method declarations and the variable type public variable declarations.
+  * Use `Deque`, `List`, `Map`, `ConcurrentMap`, `Queue`, and `Set` instead of implemented collections. Replaces the return type of public method declarations and the variable type public variable declarations. Programming to an interface rather than a concrete collection type decouples callers from a specific implementation, making it easier to swap data structures later without breaking dependent code.
 * [org.openrewrite.staticanalysis.UseDiamondOperator](/user-documentation/recipes/recipe-catalog/staticanalysis/usediamondoperator.md)
   * **Use the diamond operator**
-  * The diamond operator (`&lt;&gt;`) should be used. Java 7 introduced the diamond operator to reduce the verbosity of generics code. For instance, instead of having to declare a `List`'s type in both its declaration and its constructor, you can now simplify the constructor declaration with `&lt;&gt;`, and the compiler will infer the type.
+  * The diamond operator (`&lt;&gt;`) should be used. Java 7 introduced the diamond operator to reduce the verbosity of generics code. For instance, instead of having to declare a `List`'s type in both its declaration and its constructor, you can now simplify the constructor declaration with `&lt;&gt;`, and the compiler will infer the type. Repeating type arguments that the compiler can already deduce is unnecessary boilerplate that clutters the code.
 * [org.openrewrite.staticanalysis.UseForEachRemoveInsteadOfSetRemoveAll](/user-documentation/recipes/recipe-catalog/staticanalysis/useforeachremoveinsteadofsetremoveall.md)
   * **Replace `java.util.Set#removeAll(java.util.Collection)` with `java.util.Collection#forEach(Set::remove)`**
   * Using `java.util.Collection#forEach(Set::remove)` rather than `java.util.Set#removeAll(java.util.Collection)` may improve performance due to a possible O(n^2) complexity.
 * [org.openrewrite.staticanalysis.UseJavaStyleArrayDeclarations](/user-documentation/recipes/recipe-catalog/staticanalysis/usejavastylearraydeclarations.md)
   * **No C-style array declarations**
-  * Change C-Style array declarations `int i[];` to `int[] i;`.
+  * Change C-Style array declarations `int i[];` to `int[] i;`. Keeping the brackets with the type groups all type information in one place, so readers do not have to inspect both the type and the variable name to determine whether something is an array.
 * [org.openrewrite.staticanalysis.UseLambdaForFunctionalInterface](/user-documentation/recipes/recipe-catalog/staticanalysis/uselambdaforfunctionalinterface.md)
   * **Use lambda expressions instead of anonymous classes**
   * Instead of anonymous class declarations, use a lambda where possible. Using lambdas to replace anonymous classes can lead to more expressive and maintainable code, improve code readability, reduce code duplication, and achieve better performance in some cases.
@@ -12576,13 +12792,13 @@ _176 recipes_
   * `map.keySet().contains(a)` can be simplified to `map.containsKey(a)`.
 * [org.openrewrite.staticanalysis.UseObjectNotifyAll](/user-documentation/recipes/recipe-catalog/staticanalysis/useobjectnotifyall.md)
   * **Replaces `Object.notify()` with `Object.notifyAll()`**
-  * `Object.notifyAll()` and `Object.notify()` both wake up sleeping threads, but `Object.notify()` only rouses one while `Object.notifyAll()` rouses all of them. Since `Object.notify()` might not wake up the right thread, `Object.notifyAll()` should be used instead. See [this](https://wiki.sei.cmu.edu/confluence/display/java/THI02-J.+Notify+all+waiting+threads+rather+than+a+single+thread) for more information.
+  * `Object.notifyAll()` and `Object.notify()` both wake up sleeping threads, but `Object.notify()` only rouses one while `Object.notifyAll()` rouses all of them. Since `Object.notify()` might not wake up the right thread, `Object.notifyAll()` should be used instead. See [this](https://wiki.sei.cmu.edu/confluence/display/java/THI02-J.+Notify+all+waiting+threads+rather+than+a+single+thread) for more information. Using `notify()` in a multi-waiter scenario risks leaving threads permanently stalled when the wrong one is awakened.
 * [org.openrewrite.staticanalysis.UsePortableNewlines](/user-documentation/recipes/recipe-catalog/staticanalysis/useportablenewlines.md)
   * **Use %n instead of \n in format strings**
-  * Format strings should use %n rather than \n to produce platform-specific line separators.
+  * Format strings should use %n rather than \n to produce platform-specific line separators. Hard-coded `\n` characters produce incorrect line endings on Windows, whereas `%n` adapts to the runtime platform automatically.
 * [org.openrewrite.staticanalysis.UseStandardCharset](/user-documentation/recipes/recipe-catalog/staticanalysis/usestandardcharset.md)
   * **Use `StandardCharset` constants**
-  * Replaces `Charset.forName(java.lang.String)` with the equivalent `StandardCharset` constant.
+  * Replaces `Charset.forName(java.lang.String)` with the equivalent `StandardCharset` constant. Using the predefined constants is both compile-time safe and avoids the need to handle `UnsupportedEncodingException` for charsets that are guaranteed to exist on every JVM.
 * [org.openrewrite.staticanalysis.UseStringReplace](/user-documentation/recipes/recipe-catalog/staticanalysis/usestringreplace.md)
   * **Use `String::replace()` when first parameter is not a real regular expression**
   * When `String::replaceAll` is used, the first argument should be a real regular expression. If it’s not the case, `String::replace` does exactly the same thing as `String::replaceAll` without the performance drawback of the regex.
@@ -12591,13 +12807,13 @@ _176 recipes_
   * Replace calls to `System.getProperty(&quot;line.separator&quot;)` with `System.lineSeparator()`.
 * [org.openrewrite.staticanalysis.UseTryWithResources](/user-documentation/recipes/recipe-catalog/staticanalysis/usetrywithresources.md)
   * **Use try-with-resources**
-  * Refactor try/finally blocks to use try-with-resources when the finally block only closes an `AutoCloseable` resource.
+  * Refactor try/finally blocks to use try-with-resources when the finally block only closes an `AutoCloseable` resource. Try-with-resources guarantees that resources are closed even when exceptions occur, eliminating an entire class of resource-leak bugs that manual `finally` blocks are prone to.
 * [org.openrewrite.staticanalysis.WhileInsteadOfFor](/user-documentation/recipes/recipe-catalog/staticanalysis/whileinsteadoffor.md)
   * **Prefer `while` over `for` loops**
-  * When only the condition expression is defined in a for loop, and the initialization and increment expressions are missing, a while loop should be used instead to increase readability.
+  * When only the condition expression is defined in a for loop, and the initialization and increment expressions are missing, a while loop should be used instead to increase readability. A `for` loop with empty init and update sections signals iteration mechanics that do not exist, whereas `while` clearly communicates a simple conditional loop.
 * [org.openrewrite.staticanalysis.WriteOctalValuesAsDecimal](/user-documentation/recipes/recipe-catalog/staticanalysis/writeoctalvaluesasdecimal.md)
   * **Write octal values as decimal**
-  * Developers may not recognize octal values as such, mistaking them instead for decimal values.
+  * Developers may not recognize octal values as such, mistaking them instead for decimal values. Because a leading zero silently switches the literal to base-8, what looks like `010` actually represents `8`, which is a common source of subtle numeric bugs.
 * [org.openrewrite.staticanalysis.java.MoveFieldAnnotationToType](/user-documentation/recipes/recipe-catalog/staticanalysis/java/movefieldannotationtotype.md)
   * **Move annotation to type instead of field**
   * Annotations that could be applied to either a field or a type are better applied to the type, because similar annotations may be more restrictive, leading to compile errors like 'scoping construct cannot be annotated with type-use annotation' when migrating later.
@@ -13356,7 +13572,7 @@ _133 recipes_
 
 _License: Moderne Source Available License_
 
-_244 recipes_
+_249 recipes_
 
 * [org.openrewrite.java.testing.archunit.ArchUnit0to1Migration](/user-documentation/recipes/recipe-catalog/java/testing/archunit/archunit0to1migration.md)
   * **ArchUnit 0.x upgrade**
@@ -13871,6 +14087,9 @@ _244 recipes_
 * [org.openrewrite.java.testing.junit5.UpdateMockWebServer](/user-documentation/recipes/recipe-catalog/java/testing/junit5/updatemockwebserver.md)
   * **OkHttp 3.x `MockWebServer` `@Rule` To 4.x `MockWebServer`**
   * Replace usages of okhttp3 3.x `@Rule` MockWebServer with 4.x `MockWebServer`.
+* [org.openrewrite.java.testing.junit5.UpdateMockWebServerDispatcher](/user-documentation/recipes/recipe-catalog/java/testing/junit5/updatemockwebserverdispatcher.md)
+  * **Preserve `MockResponse` return type for `Dispatcher.dispatch()` overrides**
+  * In mockwebserver3 5.x, `Dispatcher.dispatch()` returns `MockResponse`, not `MockResponse.Builder`. Pre-pin the return type to `mockwebserver3.MockResponse` and wrap return expressions with `.build()`, so the subsequent blanket `MockResponse` → `Builder` type change leaves `dispatch()` alone.
 * [org.openrewrite.java.testing.junit5.UpdateMockWebServerMockResponse](/user-documentation/recipes/recipe-catalog/java/testing/junit5/updatemockwebservermockresponse.md)
   * **OkHttp `MockWebServer` `MockResponse` to 5.x `MockWebServer3` `MockResponse`**
   * Replace usages of OkHttp MockWebServer `MockResponse` with 5.x MockWebServer3 `MockResponse` and it's `Builder`.
@@ -13928,6 +14147,12 @@ _244 recipes_
 * [org.openrewrite.java.testing.mockito.AddMockitoJupiterDependency](/user-documentation/recipes/recipe-catalog/java/testing/mockito/addmockitojupiterdependency.md)
   * **Add mockito-junit-jupiter dependency**
   * Adds `org.mockito:mockito-junit-jupiter` dependency if `@ExtendWith(MockitoExtension.class)` will be added to any test class, i.e. when Mockito annotations are used in JUnit 5 tests without the extension already present.
+* [org.openrewrite.java.testing.mockito.AddMockitoSettingsWithWarnStrictness](/user-documentation/recipes/recipe-catalog/java/testing/mockito/addmockitosettingswithwarnstrictness.md)
+  * **Add `@MockitoSettings(strictness = Strictness.WARN)` to `@ExtendWith(MockitoExtension.class)` classes**
+  * Adds `@MockitoSettings(strictness = Strictness.WARN)` to test classes that have `@ExtendWith(MockitoExtension.class)` but do not already have a `@MockitoSettings` annotation. This preserves the lenient stubbing behavior from Mockito 1.x/2.x migrations and prevents `UnnecessaryStubbingException` from strict stubbing defaults.
+* [org.openrewrite.java.testing.mockito.AddMockitoSettingsWithWarnStrictnessForLegacyMockito](/user-documentation/recipes/recipe-catalog/java/testing/mockito/addmockitosettingswithwarnstrictnessforlegacymockito.md)
+  * **Add `@MockitoSettings(strictness = Strictness.WARN)` for legacy Mockito modules**
+  * Adds `@MockitoSettings(strictness = Strictness.WARN)` to test classes annotated with `@ExtendWith(MockitoExtension.class)` only when the module depends on a pre-3.0 version of Mockito. This preserves the lenient stubbing behavior from Mockito 1.x/2.x and prevents `UnnecessaryStubbingException` errors once MockitoExtension's strict stubbing default kicks in.
 * [org.openrewrite.java.testing.mockito.AnyStringToNullable](/user-documentation/recipes/recipe-catalog/java/testing/mockito/anystringtonullable.md)
   * **Replace Mockito 1.x `anyString()` with `nullable(String.class)`**
   * Since Mockito 2.10 `anyString()` no longer matches null values. Use `nullable(Class)` instead.
@@ -14048,9 +14273,15 @@ _244 recipes_
 * [org.openrewrite.java.testing.testcontainers.GetHostMigration](/user-documentation/recipes/recipe-catalog/java/testing/testcontainers/gethostmigration.md)
   * **Replace `ContainerState.getContainerIpAddress()` with `getHost()`**
   * Replace `org.testcontainers.containers.ContainerState.getContainerIpAddress()` with `getHost()`.
+* [org.openrewrite.java.testing.testcontainers.MigrateToKafkaNative](/user-documentation/recipes/recipe-catalog/java/testing/testcontainers/migratetokafkanative.md)
+  * **Migrate to Apache Kafka Native container**
+  * Replace `confluentinc/cp-kafka` with the much faster `apache/kafka-native` image and migrate from `org.testcontainers.containers.KafkaContainer` to `org.testcontainers.kafka.KafkaContainer`.
 * [org.openrewrite.java.testing.testcontainers.MigrateToOracleFree](/user-documentation/recipes/recipe-catalog/java/testing/testcontainers/migratetooraclefree.md)
   * **Migrate from `oracle-xe` to `oracle-free`**
   * Oracle Database Free is the successor of Oracle XE. Migrate from `org.testcontainers:oracle-xe` to `org.testcontainers:oracle-free`.
+* [org.openrewrite.java.testing.testcontainers.ReplaceContainerImageName](/user-documentation/recipes/recipe-catalog/java/testing/testcontainers/replacecontainerimagename.md)
+  * **Replace container image name**
+  * Replace a Docker image name in `DockerImageName.parse(image)` or `new DockerImageName(image)` constructor arguments for a specific container class.
 * [org.openrewrite.java.testing.testcontainers.TestContainersBestPractices](/user-documentation/recipes/recipe-catalog/java/testing/testcontainers/testcontainersbestpractices.md)
   * **Testcontainers best practices**
   * Apply best practices to Testcontainers usage.
@@ -14095,7 +14326,7 @@ _244 recipes_
 
 _License: Apache License Version 2.0_
 
-_1494 recipes_
+_1553 recipes_
 
 * [ai.timefold.solver.migration.ChangeVersion](/user-documentation/recipes/recipe-catalog/ai/timefold/solver/migration/changeversion.md)
   * **Change the Timefold version**
@@ -15726,6 +15957,15 @@ _1494 recipes_
 * [tech.picnic.errorprone.refasterrules.AssertJIterableRulesRecipes](/user-documentation/recipes/recipe-catalog/tech/picnic/errorprone/refasterrules/assertjiterablerulesrecipes.md)
   * **`AssertJIterableRules` Refaster recipes**
   * Refaster rules related to AssertJ assertions over `Iterable`s. [Source](https://error-prone.picnic.tech/refasterrules/AssertJIterableRules).
+* [tech.picnic.errorprone.refasterrules.AssertJIterableRulesRecipes$AssertThatContainsAllRecipe](/user-documentation/recipes/recipe-catalog/tech/picnic/errorprone/refasterrules/assertjiterablerulesrecipes$assertthatcontainsallrecipe.md)
+  * **Refaster template `AssertJIterableRules.AssertThatContainsAll`**
+  * Prefer `AbstractIterableAssert#containsAll(Iterable)` over less explicit alternatives.
+* [tech.picnic.errorprone.refasterrules.AssertJIterableRulesRecipes$AssertThatContainsRecipe](/user-documentation/recipes/recipe-catalog/tech/picnic/errorprone/refasterrules/assertjiterablerulesrecipes$assertthatcontainsrecipe.md)
+  * **Refaster template `AssertJIterableRules.AssertThatContains`**
+  * Prefer `ObjectEnumerableAssert#contains(Object[])` over less explicit alternatives.
+* [tech.picnic.errorprone.refasterrules.AssertJIterableRulesRecipes$AssertThatDoesNotContainRecipe](/user-documentation/recipes/recipe-catalog/tech/picnic/errorprone/refasterrules/assertjiterablerulesrecipes$assertthatdoesnotcontainrecipe.md)
+  * **Refaster template `AssertJIterableRules.AssertThatDoesNotContain`**
+  * Prefer `ObjectEnumerableAssert#doesNotContain(Object[])` over less explicit alternatives.
 * [tech.picnic.errorprone.refasterrules.AssertJIterableRulesRecipes$AssertThatIterableHasOneElementEqualToRecipe](/user-documentation/recipes/recipe-catalog/tech/picnic/errorprone/refasterrules/assertjiterablerulesrecipes$assertthatiterablehasoneelementequaltorecipe.md)
   * **Refaster template `AssertJIterableRules.AssertThatIterableHasOneElementEqualTo`**
   * Recipe created for the following Refaster template: ```java static final class AssertThatIterableHasOneElementEqualTo&lt;S, E extends S&gt; \{          @BeforeTemplate     ObjectAssert&lt;S&gt; before(Iterable&lt;S&gt; iterable, E element) \{         return assertThat(Iterables.getOnlyElement(iterable)).isEqualTo(element);     \}          @AfterTemplate     @UseImportPolicy(value = STATIC_IMPORT_ALWAYS)     IterableAssert&lt;S&gt; after(Iterable&lt;S&gt; iterable, E element) \{         return assertThat(iterable).containsExactly(element);     \} \} ``` .
@@ -15981,6 +16221,9 @@ _1494 recipes_
 * [tech.picnic.errorprone.refasterrules.AssertJRulesRecipes$AssertThatStreamContainsAnyOfRecipe](/user-documentation/recipes/recipe-catalog/tech/picnic/errorprone/refasterrules/assertjrulesrecipes$assertthatstreamcontainsanyofrecipe.md)
   * **Refaster template `AssertJRules.AssertThatStreamContainsAnyOf`**
   * Recipe created for the following Refaster template: ```java static final class AssertThatStreamContainsAnyOf&lt;S, T extends S, U extends T&gt; \{          @BeforeTemplate     IterableAssert&lt;T&gt; before(Stream&lt;S&gt; stream, U[] array, Collector&lt;S, ?, ? extends Iterable&lt;T&gt;&gt; collector) \{         return assertThat(stream.collect(collector)).containsAnyOf(array);     \}          @BeforeTemplate     AbstractCollectionAssert&lt;?, Collection&lt;? extends T&gt;, T, ObjectAssert&lt;T&gt;&gt; before2(Stream&lt;S&gt; stream, U[] array, Collector&lt;S, ?, ? extends Collection&lt;T&gt;&gt; collector) \{         return assertThat(stream.collect(collector)).containsAnyOf(array);     \}          @BeforeTemplate     ListAssert&lt;T&gt; before3(Stream&lt;S&gt; stream, U[] array, Collector&lt;S, ?, ? extends List&lt;T&gt;&gt; collector) \{         return assertThat(stream.collect(collector)).containsAnyOf(array);     \}          @AfterTemplate     @UseImportPolicy(value = STATIC_IMPORT_ALWAYS)     ListAssert&lt;S&gt; after(Stream&lt;S&gt; stream, U[] array) \{         return assertThat(stream).containsAnyOf(array);     \} \} ``` .
+* [tech.picnic.errorprone.refasterrules.AssertJRulesRecipes$AssertThatStreamContainsAnyOfVarArgsRecipe](/user-documentation/recipes/recipe-catalog/tech/picnic/errorprone/refasterrules/assertjrulesrecipes$assertthatstreamcontainsanyofvarargsrecipe.md)
+  * **Refaster template `AssertJRules.AssertThatStreamContainsAnyOfVarArgs`**
+  * Recipe created for the following Refaster template: ```java static final class AssertThatStreamContainsAnyOfVarArgs&lt;S, T extends S, U extends T&gt; \{          @BeforeTemplate     @SuppressWarnings(value = &quot;AssertThatStreamContainsAnyOf&quot;)     IterableAssert&lt;T&gt; before(Stream&lt;S&gt; stream, @Repeated     U elements, Collector&lt;S, ?, ? extends Iterable&lt;T&gt;&gt; collector) \{         return assertThat(stream.collect(collector)).containsAnyOf(Refaster.asVarargs(elements));     \}          @BeforeTemplate     @SuppressWarnings(value = &quot;AssertThatStreamContainsAnyOf&quot;)     AbstractCollectionAssert&lt;?, Collection&lt;? extends T&gt;, T, ObjectAssert&lt;T&gt;&gt; before2(Stream&lt;S&gt; stream, @Repeated     U elements, Collector&lt;S, ?, ? extends Collection&lt;T&gt;&gt; collector) \{         return assertThat(stream.collect(collector)).containsAnyOf(Refaster.asVarargs(elements));     \}          @BeforeTemplate     @SuppressWarnings(value = &quot;AssertThatStreamContainsAnyOf&quot;)     ListAssert&lt;T&gt; before3(Stream&lt;S&gt; stream, @Repeated     U elements, Collector&lt;S, ?, ? extends List&lt;T&gt;&gt; collector) \{         return assertThat(stream.collect(collector)).containsAnyOf(Refaster.asVarargs(elements));     \}          @AfterTemplate     @SuppressWarnings(value = &quot;ObjectEnumerableContainsOneElement&quot;)     @UseImportPolicy(value = STATIC_IMPORT_ALWAYS)     ListAssert&lt;S&gt; after(Stream&lt;S&gt; stream, @Repeated     U elements) \{         return assertThat(stream).containsAnyOf(elements);     \} \} ``` .
 * [tech.picnic.errorprone.refasterrules.AssertJRulesRecipes$AssertThatStreamContainsExactlyElementsOfRecipe](/user-documentation/recipes/recipe-catalog/tech/picnic/errorprone/refasterrules/assertjrulesrecipes$assertthatstreamcontainsexactlyelementsofrecipe.md)
   * **Refaster template `AssertJRules.AssertThatStreamContainsExactlyElementsOf`**
   * Recipe created for the following Refaster template: ```java static final class AssertThatStreamContainsExactlyElementsOf&lt;S, T extends S, U extends T&gt; \{          @BeforeTemplate     ListAssert&lt;T&gt; before(Stream&lt;S&gt; stream, Iterable&lt;U&gt; iterable, Collector&lt;S, ?, ? extends List&lt;T&gt;&gt; collector) \{         return assertThat(stream.collect(collector)).containsExactlyElementsOf(iterable);     \}          @AfterTemplate     @UseImportPolicy(value = STATIC_IMPORT_ALWAYS)     ListAssert&lt;S&gt; after(Stream&lt;S&gt; stream, Iterable&lt;U&gt; iterable) \{         return assertThat(stream).containsExactlyElementsOf(iterable);     \} \} ``` .
@@ -15990,21 +16233,39 @@ _1494 recipes_
 * [tech.picnic.errorprone.refasterrules.AssertJRulesRecipes$AssertThatStreamContainsExactlyInAnyOrderRecipe](/user-documentation/recipes/recipe-catalog/tech/picnic/errorprone/refasterrules/assertjrulesrecipes$assertthatstreamcontainsexactlyinanyorderrecipe.md)
   * **Refaster template `AssertJRules.AssertThatStreamContainsExactlyInAnyOrder`**
   * Recipe created for the following Refaster template: ```java static final class AssertThatStreamContainsExactlyInAnyOrder&lt;S, T extends S, U extends T&gt; \{          @BeforeTemplate     ListAssert&lt;T&gt; before(Stream&lt;S&gt; stream, U[] array, Collector&lt;S, ?, ? extends List&lt;T&gt;&gt; collector) \{         return assertThat(stream.collect(collector)).containsExactlyInAnyOrder(array);     \}          @BeforeTemplate     AbstractCollectionAssert&lt;?, ?, T, ?&gt; before2(Stream&lt;S&gt; stream, U[] array, Collector&lt;S, ?, ? extends Multiset&lt;T&gt;&gt; collector) \{         return assertThat(stream.collect(collector)).containsExactlyInAnyOrder(array);     \}          @AfterTemplate     @UseImportPolicy(value = STATIC_IMPORT_ALWAYS)     ListAssert&lt;S&gt; after(Stream&lt;S&gt; stream, U[] array) \{         return assertThat(stream).containsExactlyInAnyOrder(array);     \} \} ``` .
+* [tech.picnic.errorprone.refasterrules.AssertJRulesRecipes$AssertThatStreamContainsExactlyInAnyOrderVarArgsRecipe](/user-documentation/recipes/recipe-catalog/tech/picnic/errorprone/refasterrules/assertjrulesrecipes$assertthatstreamcontainsexactlyinanyordervarargsrecipe.md)
+  * **Refaster template `AssertJRules.AssertThatStreamContainsExactlyInAnyOrderVarArgs`**
+  * Recipe created for the following Refaster template: ```java static final class AssertThatStreamContainsExactlyInAnyOrderVarArgs&lt;S, T extends S, U extends T&gt; \{          @BeforeTemplate     @SuppressWarnings(value = &quot;AssertThatStreamContainsExactlyInAnyOrder&quot;)     ListAssert&lt;T&gt; before(Stream&lt;S&gt; stream, @Repeated     U elements, Collector&lt;S, ?, ? extends List&lt;T&gt;&gt; collector) \{         return assertThat(stream.collect(collector)).containsExactlyInAnyOrder(Refaster.asVarargs(elements));     \}          @BeforeTemplate     @SuppressWarnings(value = &quot;AssertThatStreamContainsExactlyInAnyOrder&quot;)     AbstractCollectionAssert&lt;?, ?, T, ?&gt; before2(Stream&lt;S&gt; stream, @Repeated     U elements, Collector&lt;S, ?, ? extends Multiset&lt;T&gt;&gt; collector) \{         return assertThat(stream.collect(collector)).containsExactlyInAnyOrder(Refaster.asVarargs(elements));     \}          @AfterTemplate     @SuppressWarnings(value = &quot;ObjectEnumerableContainsExactlyOneElement&quot;)     @UseImportPolicy(value = STATIC_IMPORT_ALWAYS)     ListAssert&lt;S&gt; after(Stream&lt;S&gt; stream, @Repeated     U elements) \{         return assertThat(stream).containsExactlyInAnyOrder(elements);     \} \} ``` .
 * [tech.picnic.errorprone.refasterrules.AssertJRulesRecipes$AssertThatStreamContainsExactlyRecipe](/user-documentation/recipes/recipe-catalog/tech/picnic/errorprone/refasterrules/assertjrulesrecipes$assertthatstreamcontainsexactlyrecipe.md)
   * **Refaster template `AssertJRules.AssertThatStreamContainsExactly`**
   * Recipe created for the following Refaster template: ```java static final class AssertThatStreamContainsExactly&lt;S, T extends S, U extends T&gt; \{          @BeforeTemplate     ListAssert&lt;T&gt; before(Stream&lt;S&gt; stream, U[] array, Collector&lt;S, ?, ? extends List&lt;T&gt;&gt; collector) \{         return assertThat(stream.collect(collector)).containsExactly(array);     \}          @AfterTemplate     @UseImportPolicy(value = STATIC_IMPORT_ALWAYS)     ListAssert&lt;S&gt; after(Stream&lt;S&gt; stream, U[] array) \{         return assertThat(stream).containsExactly(array);     \} \} ``` .
+* [tech.picnic.errorprone.refasterrules.AssertJRulesRecipes$AssertThatStreamContainsExactlyVarargsRecipe](/user-documentation/recipes/recipe-catalog/tech/picnic/errorprone/refasterrules/assertjrulesrecipes$assertthatstreamcontainsexactlyvarargsrecipe.md)
+  * **Refaster template `AssertJRules.AssertThatStreamContainsExactlyVarargs`**
+  * Recipe created for the following Refaster template: ```java static final class AssertThatStreamContainsExactlyVarargs&lt;S, T extends S, U extends T&gt; \{          @BeforeTemplate     @SuppressWarnings(value = &quot;AssertThatStreamContainsExactly&quot;)     ListAssert&lt;T&gt; before(Stream&lt;S&gt; stream, @Repeated     U elements, Collector&lt;S, ?, ? extends List&lt;T&gt;&gt; collector) \{         return assertThat(stream.collect(collector)).containsExactly(Refaster.asVarargs(elements));     \}          @AfterTemplate     @UseImportPolicy(value = STATIC_IMPORT_ALWAYS)     ListAssert&lt;S&gt; after(Stream&lt;S&gt; stream, @Repeated     U elements) \{         return assertThat(stream).containsExactly(elements);     \} \} ``` .
 * [tech.picnic.errorprone.refasterrules.AssertJRulesRecipes$AssertThatStreamContainsOnlyRecipe](/user-documentation/recipes/recipe-catalog/tech/picnic/errorprone/refasterrules/assertjrulesrecipes$assertthatstreamcontainsonlyrecipe.md)
   * **Refaster template `AssertJRules.AssertThatStreamContainsOnly`**
   * Recipe created for the following Refaster template: ```java static final class AssertThatStreamContainsOnly&lt;S, T extends S, U extends T&gt; \{          @BeforeTemplate     IterableAssert&lt;T&gt; before(Stream&lt;S&gt; stream, U[] array, Collector&lt;S, ?, ? extends Iterable&lt;T&gt;&gt; collector) \{         return assertThat(stream.collect(collector)).containsOnly(array);     \}          @BeforeTemplate     AbstractCollectionAssert&lt;?, Collection&lt;? extends T&gt;, T, ObjectAssert&lt;T&gt;&gt; before2(Stream&lt;S&gt; stream, U[] array, Collector&lt;S, ?, ? extends Collection&lt;T&gt;&gt; collector) \{         return assertThat(stream.collect(collector)).containsOnly(array);     \}          @BeforeTemplate     ListAssert&lt;T&gt; before3(Stream&lt;S&gt; stream, U[] array, Collector&lt;S, ?, ? extends List&lt;T&gt;&gt; collector) \{         return assertThat(stream.collect(collector)).containsOnly(array);     \}          @AfterTemplate     @UseImportPolicy(value = STATIC_IMPORT_ALWAYS)     ListAssert&lt;S&gt; after(Stream&lt;S&gt; stream, U[] array) \{         return assertThat(stream).containsOnly(array);     \} \} ``` .
+* [tech.picnic.errorprone.refasterrules.AssertJRulesRecipes$AssertThatStreamContainsOnlyVarArgsRecipe](/user-documentation/recipes/recipe-catalog/tech/picnic/errorprone/refasterrules/assertjrulesrecipes$assertthatstreamcontainsonlyvarargsrecipe.md)
+  * **Refaster template `AssertJRules.AssertThatStreamContainsOnlyVarArgs`**
+  * Recipe created for the following Refaster template: ```java static final class AssertThatStreamContainsOnlyVarArgs&lt;S, T extends S, U extends T&gt; \{          @BeforeTemplate     @SuppressWarnings(value = &quot;AssertThatStreamContainsOnly&quot;)     IterableAssert&lt;T&gt; before(Stream&lt;S&gt; stream, @Repeated     U elements, Collector&lt;S, ?, ? extends Iterable&lt;T&gt;&gt; collector) \{         return assertThat(stream.collect(collector)).containsOnly(Refaster.asVarargs(elements));     \}          @BeforeTemplate     @SuppressWarnings(value = &quot;AssertThatStreamContainsOnly&quot;)     AbstractCollectionAssert&lt;?, Collection&lt;? extends T&gt;, T, ObjectAssert&lt;T&gt;&gt; before2(Stream&lt;S&gt; stream, @Repeated     U elements, Collector&lt;S, ?, ? extends Collection&lt;T&gt;&gt; collector) \{         return assertThat(stream.collect(collector)).containsOnly(Refaster.asVarargs(elements));     \}          @BeforeTemplate     @SuppressWarnings(value = &quot;AssertThatStreamContainsOnly&quot;)     ListAssert&lt;T&gt; before3(Stream&lt;S&gt; stream, @Repeated     U elements, Collector&lt;S, ?, ? extends List&lt;T&gt;&gt; collector) \{         return assertThat(stream.collect(collector)).containsOnly(Refaster.asVarargs(elements));     \}          @AfterTemplate     @UseImportPolicy(value = STATIC_IMPORT_ALWAYS)     ListAssert&lt;S&gt; after(Stream&lt;S&gt; stream, @Repeated     U elements) \{         return assertThat(stream).containsOnly(elements);     \} \} ``` .
 * [tech.picnic.errorprone.refasterrules.AssertJRulesRecipes$AssertThatStreamContainsRecipe](/user-documentation/recipes/recipe-catalog/tech/picnic/errorprone/refasterrules/assertjrulesrecipes$assertthatstreamcontainsrecipe.md)
   * **Refaster template `AssertJRules.AssertThatStreamContains`**
   * Recipe created for the following Refaster template: ```java static final class AssertThatStreamContains&lt;S, T extends S, U extends T&gt; \{          @BeforeTemplate     IterableAssert&lt;T&gt; before(Stream&lt;S&gt; stream, U[] array, Collector&lt;S, ?, ? extends Iterable&lt;T&gt;&gt; collector) \{         return assertThat(stream.collect(collector)).contains(array);     \}          @BeforeTemplate     AbstractCollectionAssert&lt;?, Collection&lt;? extends T&gt;, T, ObjectAssert&lt;T&gt;&gt; before2(Stream&lt;S&gt; stream, U[] array, Collector&lt;S, ?, ? extends Collection&lt;T&gt;&gt; collector) \{         return assertThat(stream.collect(collector)).contains(array);     \}          @BeforeTemplate     ListAssert&lt;T&gt; before3(Stream&lt;S&gt; stream, U[] array, Collector&lt;S, ?, ? extends List&lt;T&gt;&gt; collector) \{         return assertThat(stream.collect(collector)).contains(array);     \}          @AfterTemplate     @UseImportPolicy(value = STATIC_IMPORT_ALWAYS)     ListAssert&lt;S&gt; after(Stream&lt;S&gt; stream, U[] array) \{         return assertThat(stream).contains(array);     \} \} ``` .
 * [tech.picnic.errorprone.refasterrules.AssertJRulesRecipes$AssertThatStreamContainsSequenceRecipe](/user-documentation/recipes/recipe-catalog/tech/picnic/errorprone/refasterrules/assertjrulesrecipes$assertthatstreamcontainssequencerecipe.md)
   * **Refaster template `AssertJRules.AssertThatStreamContainsSequence`**
   * Recipe created for the following Refaster template: ```java static final class AssertThatStreamContainsSequence&lt;S, T extends S, U extends T&gt; \{          @BeforeTemplate     ListAssert&lt;T&gt; before(Stream&lt;S&gt; stream, Iterable&lt;U&gt; iterable, Collector&lt;S, ?, ? extends List&lt;T&gt;&gt; collector) \{         return assertThat(stream.collect(collector)).containsSequence(iterable);     \}          @BeforeTemplate     ListAssert&lt;T&gt; before(Stream&lt;S&gt; stream, U[] iterable, Collector&lt;S, ?, ? extends List&lt;T&gt;&gt; collector) \{         return assertThat(stream.collect(collector)).containsSequence(iterable);     \}          @AfterTemplate     @UseImportPolicy(value = STATIC_IMPORT_ALWAYS)     ListAssert&lt;S&gt; after(Stream&lt;S&gt; stream, Iterable&lt;U&gt; iterable) \{         return assertThat(stream).containsSequence(iterable);     \} \} ``` .
+* [tech.picnic.errorprone.refasterrules.AssertJRulesRecipes$AssertThatStreamContainsSequenceVarArgsRecipe](/user-documentation/recipes/recipe-catalog/tech/picnic/errorprone/refasterrules/assertjrulesrecipes$assertthatstreamcontainssequencevarargsrecipe.md)
+  * **Refaster template `AssertJRules.AssertThatStreamContainsSequenceVarArgs`**
+  * Recipe created for the following Refaster template: ```java static final class AssertThatStreamContainsSequenceVarArgs&lt;S, T extends S, U extends T&gt; \{          @BeforeTemplate     @SuppressWarnings(value = &quot;AssertThatStreamContainsSequence&quot;)     ListAssert&lt;T&gt; before(Stream&lt;S&gt; stream, @Repeated     U elements, Collector&lt;S, ?, ? extends List&lt;T&gt;&gt; collector) \{         return assertThat(stream.collect(collector)).containsSequence(Refaster.asVarargs(elements));     \}          @AfterTemplate     @SuppressWarnings(value = &quot;ObjectEnumerableContainsOneElement&quot;)     @UseImportPolicy(value = STATIC_IMPORT_ALWAYS)     ListAssert&lt;S&gt; after(Stream&lt;S&gt; stream, @Repeated     U elements) \{         return assertThat(stream).containsSequence(elements);     \} \} ``` .
 * [tech.picnic.errorprone.refasterrules.AssertJRulesRecipes$AssertThatStreamContainsSubsequenceRecipe](/user-documentation/recipes/recipe-catalog/tech/picnic/errorprone/refasterrules/assertjrulesrecipes$assertthatstreamcontainssubsequencerecipe.md)
   * **Refaster template `AssertJRules.AssertThatStreamContainsSubsequence`**
   * Recipe created for the following Refaster template: ```java static final class AssertThatStreamContainsSubsequence&lt;S, T extends S, U extends T&gt; \{          @BeforeTemplate     ListAssert&lt;T&gt; before(Stream&lt;S&gt; stream, Iterable&lt;U&gt; iterable, Collector&lt;S, ?, ? extends List&lt;T&gt;&gt; collector) \{         return assertThat(stream.collect(collector)).containsSubsequence(iterable);     \}          @BeforeTemplate     ListAssert&lt;T&gt; before(Stream&lt;S&gt; stream, U[] iterable, Collector&lt;S, ?, ? extends List&lt;T&gt;&gt; collector) \{         return assertThat(stream.collect(collector)).containsSubsequence(iterable);     \}          @AfterTemplate     @UseImportPolicy(value = STATIC_IMPORT_ALWAYS)     ListAssert&lt;S&gt; after(Stream&lt;S&gt; stream, Iterable&lt;U&gt; iterable) \{         return assertThat(stream).containsSubsequence(iterable);     \} \} ``` .
+* [tech.picnic.errorprone.refasterrules.AssertJRulesRecipes$AssertThatStreamContainsSubsequenceVarArgsRecipe](/user-documentation/recipes/recipe-catalog/tech/picnic/errorprone/refasterrules/assertjrulesrecipes$assertthatstreamcontainssubsequencevarargsrecipe.md)
+  * **Refaster template `AssertJRules.AssertThatStreamContainsSubsequenceVarArgs`**
+  * Recipe created for the following Refaster template: ```java static final class AssertThatStreamContainsSubsequenceVarArgs&lt;S, T extends S, U extends T&gt; \{          @BeforeTemplate     @SuppressWarnings(value = &quot;AssertThatStreamContainsSubsequence&quot;)     ListAssert&lt;T&gt; before(Stream&lt;S&gt; stream, @Repeated     U elements, Collector&lt;S, ?, ? extends List&lt;T&gt;&gt; collector) \{         return assertThat(stream.collect(collector)).containsSubsequence(Refaster.asVarargs(elements));     \}          @AfterTemplate     @SuppressWarnings(value = &quot;ObjectEnumerableContainsOneElement&quot;)     @UseImportPolicy(value = STATIC_IMPORT_ALWAYS)     ListAssert&lt;S&gt; after(Stream&lt;S&gt; stream, @Repeated     U elements) \{         return assertThat(stream).containsSubsequence(elements);     \} \} ``` .
+* [tech.picnic.errorprone.refasterrules.AssertJRulesRecipes$AssertThatStreamContainsVarArgsRecipe](/user-documentation/recipes/recipe-catalog/tech/picnic/errorprone/refasterrules/assertjrulesrecipes$assertthatstreamcontainsvarargsrecipe.md)
+  * **Refaster template `AssertJRules.AssertThatStreamContainsVarArgs`**
+  * Recipe created for the following Refaster template: ```java static final class AssertThatStreamContainsVarArgs&lt;S, T extends S, U extends T&gt; \{          @BeforeTemplate     @SuppressWarnings(value = &quot;AssertThatStreamContains&quot;)     IterableAssert&lt;T&gt; before(Stream&lt;S&gt; stream, @Repeated     U elements, Collector&lt;S, ?, ? extends Iterable&lt;T&gt;&gt; collector) \{         return assertThat(stream.collect(collector)).contains(Refaster.asVarargs(elements));     \}          @BeforeTemplate     @SuppressWarnings(value = &quot;AssertThatStreamContains&quot;)     AbstractCollectionAssert&lt;?, Collection&lt;? extends T&gt;, T, ObjectAssert&lt;T&gt;&gt; before2(Stream&lt;S&gt; stream, @Repeated     U elements, Collector&lt;S, ?, ? extends Collection&lt;T&gt;&gt; collector) \{         return assertThat(stream.collect(collector)).contains(Refaster.asVarargs(elements));     \}          @BeforeTemplate     @SuppressWarnings(value = &quot;AssertThatStreamContains&quot;)     ListAssert&lt;T&gt; before3(Stream&lt;S&gt; stream, @Repeated     U elements, Collector&lt;S, ?, ? extends List&lt;T&gt;&gt; collector) \{         return assertThat(stream.collect(collector)).contains(Refaster.asVarargs(elements));     \}          @AfterTemplate     @UseImportPolicy(value = STATIC_IMPORT_ALWAYS)     ListAssert&lt;S&gt; after(Stream&lt;S&gt; stream, @Repeated     U elements) \{         return assertThat(stream).contains(elements);     \} \} ``` .
 * [tech.picnic.errorprone.refasterrules.AssertJRulesRecipes$AssertThatStreamDoesNotContainAnyElementsOfRecipe](/user-documentation/recipes/recipe-catalog/tech/picnic/errorprone/refasterrules/assertjrulesrecipes$assertthatstreamdoesnotcontainanyelementsofrecipe.md)
   * **Refaster template `AssertJRules.AssertThatStreamDoesNotContainAnyElementsOf`**
   * Recipe created for the following Refaster template: ```java static final class AssertThatStreamDoesNotContainAnyElementsOf&lt;S, T extends S, U extends T&gt; \{          @BeforeTemplate     IterableAssert&lt;T&gt; before(Stream&lt;S&gt; stream, Iterable&lt;U&gt; iterable, Collector&lt;S, ?, ? extends Iterable&lt;T&gt;&gt; collector) \{         return assertThat(stream.collect(collector)).doesNotContainAnyElementsOf(iterable);     \}          @BeforeTemplate     AbstractCollectionAssert&lt;?, Collection&lt;? extends T&gt;, T, ObjectAssert&lt;T&gt;&gt; before2(Stream&lt;S&gt; stream, Iterable&lt;U&gt; iterable, Collector&lt;S, ?, ? extends Collection&lt;T&gt;&gt; collector) \{         return assertThat(stream.collect(collector)).doesNotContainAnyElementsOf(iterable);     \}          @BeforeTemplate     ListAssert&lt;T&gt; before3(Stream&lt;S&gt; stream, Iterable&lt;U&gt; iterable, Collector&lt;S, ?, ? extends List&lt;T&gt;&gt; collector) \{         return assertThat(stream.collect(collector)).doesNotContainAnyElementsOf(iterable);     \}          @AfterTemplate     @UseImportPolicy(value = STATIC_IMPORT_ALWAYS)     ListAssert&lt;S&gt; after(Stream&lt;S&gt; stream, Iterable&lt;U&gt; iterable) \{         return assertThat(stream).doesNotContainAnyElementsOf(iterable);     \} \} ``` .
@@ -16014,12 +16275,21 @@ _1494 recipes_
 * [tech.picnic.errorprone.refasterrules.AssertJRulesRecipes$AssertThatStreamDoesNotContainSequenceRecipe](/user-documentation/recipes/recipe-catalog/tech/picnic/errorprone/refasterrules/assertjrulesrecipes$assertthatstreamdoesnotcontainsequencerecipe.md)
   * **Refaster template `AssertJRules.AssertThatStreamDoesNotContainSequence`**
   * Recipe created for the following Refaster template: ```java static final class AssertThatStreamDoesNotContainSequence&lt;S, T extends S, U extends T&gt; \{          @BeforeTemplate     ListAssert&lt;T&gt; before(Stream&lt;S&gt; stream, Iterable&lt;U&gt; iterable, Collector&lt;S, ?, ? extends List&lt;T&gt;&gt; collector) \{         return assertThat(stream.collect(collector)).doesNotContainSequence(iterable);     \}          @BeforeTemplate     ListAssert&lt;T&gt; before(Stream&lt;S&gt; stream, U[] iterable, Collector&lt;S, ?, ? extends List&lt;T&gt;&gt; collector) \{         return assertThat(stream.collect(collector)).doesNotContainSequence(iterable);     \}          @AfterTemplate     @UseImportPolicy(value = STATIC_IMPORT_ALWAYS)     ListAssert&lt;S&gt; after(Stream&lt;S&gt; stream, Iterable&lt;U&gt; iterable) \{         return assertThat(stream).doesNotContainSequence(iterable);     \} \} ``` .
+* [tech.picnic.errorprone.refasterrules.AssertJRulesRecipes$AssertThatStreamDoesNotContainSequenceVarArgsRecipe](/user-documentation/recipes/recipe-catalog/tech/picnic/errorprone/refasterrules/assertjrulesrecipes$assertthatstreamdoesnotcontainsequencevarargsrecipe.md)
+  * **Refaster template `AssertJRules.AssertThatStreamDoesNotContainSequenceVarArgs`**
+  * Recipe created for the following Refaster template: ```java static final class AssertThatStreamDoesNotContainSequenceVarArgs&lt;S, T extends S, U extends T&gt; \{          @BeforeTemplate     @SuppressWarnings(value = &quot;AssertThatStreamDoesNotContainSequence&quot;)     ListAssert&lt;T&gt; before(Stream&lt;S&gt; stream, @Repeated     U elements, Collector&lt;S, ?, ? extends List&lt;T&gt;&gt; collector) \{         return assertThat(stream.collect(collector)).doesNotContainSequence(Refaster.asVarargs(elements));     \}          @AfterTemplate     @SuppressWarnings(value = &quot;ObjectEnumerableDoesNotContainOneElement&quot;)     @UseImportPolicy(value = STATIC_IMPORT_ALWAYS)     ListAssert&lt;S&gt; after(Stream&lt;S&gt; stream, @Repeated     U elements) \{         return assertThat(stream).doesNotContainSequence(elements);     \} \} ``` .
+* [tech.picnic.errorprone.refasterrules.AssertJRulesRecipes$AssertThatStreamDoesNotContainVarArgsRecipe](/user-documentation/recipes/recipe-catalog/tech/picnic/errorprone/refasterrules/assertjrulesrecipes$assertthatstreamdoesnotcontainvarargsrecipe.md)
+  * **Refaster template `AssertJRules.AssertThatStreamDoesNotContainVarArgs`**
+  * Recipe created for the following Refaster template: ```java static final class AssertThatStreamDoesNotContainVarArgs&lt;S, T extends S, U extends T&gt; \{          @BeforeTemplate     @SuppressWarnings(value = &quot;AssertThatStreamDoesNotContain&quot;)     IterableAssert&lt;T&gt; before(Stream&lt;S&gt; stream, @Repeated     U elements, Collector&lt;S, ?, ? extends Iterable&lt;T&gt;&gt; collector) \{         return assertThat(stream.collect(collector)).doesNotContain(Refaster.asVarargs(elements));     \}          @BeforeTemplate     @SuppressWarnings(value = &quot;AssertThatStreamDoesNotContain&quot;)     AbstractCollectionAssert&lt;?, Collection&lt;? extends T&gt;, T, ObjectAssert&lt;T&gt;&gt; before2(Stream&lt;S&gt; stream, @Repeated     U elements, Collector&lt;S, ?, ? extends Collection&lt;T&gt;&gt; collector) \{         return assertThat(stream.collect(collector)).doesNotContain(Refaster.asVarargs(elements));     \}          @BeforeTemplate     @SuppressWarnings(value = &quot;AssertThatStreamDoesNotContain&quot;)     ListAssert&lt;T&gt; before3(Stream&lt;S&gt; stream, @Repeated     U elements, Collector&lt;S, ?, ? extends List&lt;T&gt;&gt; collector) \{         return assertThat(stream.collect(collector)).doesNotContain(Refaster.asVarargs(elements));     \}          @AfterTemplate     @UseImportPolicy(value = STATIC_IMPORT_ALWAYS)     ListAssert&lt;S&gt; after(Stream&lt;S&gt; stream, @Repeated     U elements) \{         return assertThat(stream).doesNotContain(elements);     \} \} ``` .
 * [tech.picnic.errorprone.refasterrules.AssertJRulesRecipes$AssertThatStreamHasSameElementsAsRecipe](/user-documentation/recipes/recipe-catalog/tech/picnic/errorprone/refasterrules/assertjrulesrecipes$assertthatstreamhassameelementsasrecipe.md)
   * **Refaster template `AssertJRules.AssertThatStreamHasSameElementsAs`**
   * Recipe created for the following Refaster template: ```java static final class AssertThatStreamHasSameElementsAs&lt;S, T extends S, U extends T&gt; \{          @BeforeTemplate     IterableAssert&lt;T&gt; before(Stream&lt;S&gt; stream, Iterable&lt;U&gt; iterable, Collector&lt;S, ?, ? extends Iterable&lt;T&gt;&gt; collector) \{         return assertThat(stream.collect(collector)).hasSameElementsAs(iterable);     \}          @BeforeTemplate     AbstractCollectionAssert&lt;?, Collection&lt;? extends T&gt;, T, ObjectAssert&lt;T&gt;&gt; before2(Stream&lt;S&gt; stream, Iterable&lt;U&gt; iterable, Collector&lt;S, ?, ? extends Collection&lt;T&gt;&gt; collector) \{         return assertThat(stream.collect(collector)).hasSameElementsAs(iterable);     \}          @BeforeTemplate     ListAssert&lt;T&gt; before3(Stream&lt;S&gt; stream, Iterable&lt;U&gt; iterable, Collector&lt;S, ?, ? extends List&lt;T&gt;&gt; collector) \{         return assertThat(stream.collect(collector)).hasSameElementsAs(iterable);     \}          @AfterTemplate     @UseImportPolicy(value = STATIC_IMPORT_ALWAYS)     ListAssert&lt;S&gt; after(Stream&lt;S&gt; stream, Iterable&lt;U&gt; iterable) \{         return assertThat(stream).hasSameElementsAs(iterable);     \} \} ``` .
 * [tech.picnic.errorprone.refasterrules.AssertJRulesRecipes$AssertThatStreamIsSubsetOfRecipe](/user-documentation/recipes/recipe-catalog/tech/picnic/errorprone/refasterrules/assertjrulesrecipes$assertthatstreamissubsetofrecipe.md)
   * **Refaster template `AssertJRules.AssertThatStreamIsSubsetOf`**
   * Recipe created for the following Refaster template: ```java static final class AssertThatStreamIsSubsetOf&lt;S, T extends S, U extends T&gt; \{          @BeforeTemplate     IterableAssert&lt;T&gt; before(Stream&lt;S&gt; stream, Iterable&lt;U&gt; iterable, Collector&lt;S, ?, ? extends Iterable&lt;T&gt;&gt; collector) \{         return assertThat(stream.collect(collector)).isSubsetOf(iterable);     \}          @BeforeTemplate     IterableAssert&lt;T&gt; before(Stream&lt;S&gt; stream, U[] iterable, Collector&lt;S, ?, ? extends Iterable&lt;T&gt;&gt; collector) \{         return assertThat(stream.collect(collector)).isSubsetOf(iterable);     \}          @BeforeTemplate     AbstractCollectionAssert&lt;?, Collection&lt;? extends T&gt;, T, ObjectAssert&lt;T&gt;&gt; before2(Stream&lt;S&gt; stream, Iterable&lt;U&gt; iterable, Collector&lt;S, ?, ? extends Collection&lt;T&gt;&gt; collector) \{         return assertThat(stream.collect(collector)).isSubsetOf(iterable);     \}          @BeforeTemplate     AbstractCollectionAssert&lt;?, Collection&lt;? extends T&gt;, T, ObjectAssert&lt;T&gt;&gt; before2(Stream&lt;S&gt; stream, U[] iterable, Collector&lt;S, ?, ? extends Collection&lt;T&gt;&gt; collector) \{         return assertThat(stream.collect(collector)).isSubsetOf(iterable);     \}          @BeforeTemplate     ListAssert&lt;T&gt; before3(Stream&lt;S&gt; stream, Iterable&lt;U&gt; iterable, Collector&lt;S, ?, ? extends List&lt;T&gt;&gt; collector) \{         return assertThat(stream.collect(collector)).isSubsetOf(iterable);     \}          @BeforeTemplate     ListAssert&lt;T&gt; before3(Stream&lt;S&gt; stream, U[] iterable, Collector&lt;S, ?, ? extends List&lt;T&gt;&gt; collector) \{         return assertThat(stream.collect(collector)).isSubsetOf(iterable);     \}          @AfterTemplate     @UseImportPolicy(value = STATIC_IMPORT_ALWAYS)     ListAssert&lt;S&gt; after(Stream&lt;S&gt; stream, U[] iterable) \{         return assertThat(stream).isSubsetOf(iterable);     \} \} ``` .
+* [tech.picnic.errorprone.refasterrules.AssertJRulesRecipes$AssertThatStreamIsSubsetOfVarArgsRecipe](/user-documentation/recipes/recipe-catalog/tech/picnic/errorprone/refasterrules/assertjrulesrecipes$assertthatstreamissubsetofvarargsrecipe.md)
+  * **Refaster template `AssertJRules.AssertThatStreamIsSubsetOfVarArgs`**
+  * Recipe created for the following Refaster template: ```java static final class AssertThatStreamIsSubsetOfVarArgs&lt;S, T extends S, U extends T&gt; \{          @BeforeTemplate     @SuppressWarnings(value = &quot;AssertThatStreamIsSubsetOf&quot;)     IterableAssert&lt;T&gt; before(Stream&lt;S&gt; stream, @Repeated     U elements, Collector&lt;S, ?, ? extends Iterable&lt;T&gt;&gt; collector) \{         return assertThat(stream.collect(collector)).isSubsetOf(Refaster.asVarargs(elements));     \}          @BeforeTemplate     @SuppressWarnings(value = &quot;AssertThatStreamIsSubsetOf&quot;)     AbstractCollectionAssert&lt;?, Collection&lt;? extends T&gt;, T, ObjectAssert&lt;T&gt;&gt; before2(Stream&lt;S&gt; stream, @Repeated     U elements, Collector&lt;S, ?, ? extends Collection&lt;T&gt;&gt; collector) \{         return assertThat(stream.collect(collector)).isSubsetOf(Refaster.asVarargs(elements));     \}          @BeforeTemplate     @SuppressWarnings(value = &quot;AssertThatStreamIsSubsetOf&quot;)     ListAssert&lt;T&gt; before3(Stream&lt;S&gt; stream, @Repeated     U elements, Collector&lt;S, ?, ? extends List&lt;T&gt;&gt; collector) \{         return assertThat(stream.collect(collector)).isSubsetOf(Refaster.asVarargs(elements));     \}          @AfterTemplate     @UseImportPolicy(value = STATIC_IMPORT_ALWAYS)     ListAssert&lt;S&gt; after(Stream&lt;S&gt; stream, @Repeated     U elements) \{         return assertThat(stream).isSubsetOf(elements);     \} \} ``` .
 * [tech.picnic.errorprone.refasterrules.AssertJRulesRecipes$ObjectEnumerableContainsOneElementRecipe](/user-documentation/recipes/recipe-catalog/tech/picnic/errorprone/refasterrules/assertjrulesrecipes$objectenumerablecontainsoneelementrecipe.md)
   * **Refaster template `AssertJRules.ObjectEnumerableContainsOneElement`**
   * Recipe created for the following Refaster template: ```java static final class ObjectEnumerableContainsOneElement&lt;S, T extends S&gt; \{          @BeforeTemplate     @SuppressWarnings(value = &quot;unchecked&quot;)     ObjectEnumerableAssert&lt;?, S&gt; before(ObjectEnumerableAssert&lt;?, S&gt; iterAssert, T element) \{         return Refaster.anyOf(iterAssert.containsAnyOf(element), iterAssert.containsSequence(element), iterAssert.containsSubsequence(element));     \}          @AfterTemplate     @SuppressWarnings(value = &quot;unchecked&quot;)     ObjectEnumerableAssert&lt;?, S&gt; after(ObjectEnumerableAssert&lt;?, S&gt; iterAssert, T element) \{         return iterAssert.contains(element);     \} \} ``` .
@@ -16080,6 +16350,18 @@ _1494 recipes_
 * [tech.picnic.errorprone.refasterrules.AssertJStringRulesRecipes$AssertThatDoesNotMatchRecipe](/user-documentation/recipes/recipe-catalog/tech/picnic/errorprone/refasterrules/assertjstringrulesrecipes$assertthatdoesnotmatchrecipe.md)
   * **Refaster template `AssertJStringRules.AssertThatDoesNotMatch`**
   * Recipe created for the following Refaster template: ```java static final class AssertThatDoesNotMatch \{          @BeforeTemplate     AbstractAssert&lt;?, ?&gt; before(String string, String regex) \{         return assertThat(string.matches(regex)).isFalse();     \}          @AfterTemplate     @UseImportPolicy(value = STATIC_IMPORT_ALWAYS)     AbstractAssert&lt;?, ?&gt; after(String string, String regex) \{         return assertThat(string).doesNotMatch(regex);     \} \} ``` .
+* [tech.picnic.errorprone.refasterrules.AssertJStringRulesRecipes$AssertThatIsBlankRecipe](/user-documentation/recipes/recipe-catalog/tech/picnic/errorprone/refasterrules/assertjstringrulesrecipes$assertthatisblankrecipe.md)
+  * **Refaster template `AssertJStringRules.AssertThatIsBlank`**
+  * Prefer `AbstractStringAssert#isBlank()` over less explicit alternatives.
+* [tech.picnic.errorprone.refasterrules.AssertJStringRulesRecipes$AssertThatIsEqualToIgnoringCaseRecipe](/user-documentation/recipes/recipe-catalog/tech/picnic/errorprone/refasterrules/assertjstringrulesrecipes$assertthatisequaltoignoringcaserecipe.md)
+  * **Refaster template `AssertJStringRules.AssertThatIsEqualToIgnoringCase`**
+  * Prefer `AbstractStringAssert#isEqualToIgnoringCase(CharSequence)` over less explicit alternatives.
+* [tech.picnic.errorprone.refasterrules.AssertJStringRulesRecipes$AssertThatIsNotBlankRecipe](/user-documentation/recipes/recipe-catalog/tech/picnic/errorprone/refasterrules/assertjstringrulesrecipes$assertthatisnotblankrecipe.md)
+  * **Refaster template `AssertJStringRules.AssertThatIsNotBlank`**
+  * Prefer `AbstractStringAssert#isNotBlank()` over less explicit alternatives.
+* [tech.picnic.errorprone.refasterrules.AssertJStringRulesRecipes$AssertThatIsNotEqualToIgnoringCaseRecipe](/user-documentation/recipes/recipe-catalog/tech/picnic/errorprone/refasterrules/assertjstringrulesrecipes$assertthatisnotequaltoignoringcaserecipe.md)
+  * **Refaster template `AssertJStringRules.AssertThatIsNotEqualToIgnoringCase`**
+  * Prefer `AbstractStringAssert#isNotEqualToIgnoringCase(CharSequence)` over less explicit alternatives.
 * [tech.picnic.errorprone.refasterrules.AssertJStringRulesRecipes$AssertThatMatchesRecipe](/user-documentation/recipes/recipe-catalog/tech/picnic/errorprone/refasterrules/assertjstringrulesrecipes$assertthatmatchesrecipe.md)
   * **Refaster template `AssertJStringRules.AssertThatMatches`**
   * Recipe created for the following Refaster template: ```java static final class AssertThatMatches \{          @BeforeTemplate     AbstractAssert&lt;?, ?&gt; before(String string, String regex) \{         return assertThat(string.matches(regex)).isTrue();     \}          @AfterTemplate     @UseImportPolicy(value = STATIC_IMPORT_ALWAYS)     AbstractAssert&lt;?, ?&gt; after(String string, String regex) \{         return assertThat(string).matches(regex);     \} \} ``` .
@@ -16113,6 +16395,12 @@ _1494 recipes_
 * [tech.picnic.errorprone.refasterrules.AssertJThrowingCallableRulesRecipes$AbstractThrowableAssertCauseIsSameAsRecipe](/user-documentation/recipes/recipe-catalog/tech/picnic/errorprone/refasterrules/assertjthrowingcallablerulesrecipes$abstractthrowableassertcauseissameasrecipe.md)
   * **Refaster template `AssertJThrowingCallableRules.AbstractThrowableAssertCauseIsSameAs`**
   * Recipe created for the following Refaster template: ```java static final class AbstractThrowableAssertCauseIsSameAs \{          @BeforeTemplate     @SuppressWarnings(value = &quot;deprecation&quot;)     AbstractThrowableAssert&lt;?, ? extends Throwable&gt; before(AbstractThrowableAssert&lt;?, ? extends Throwable&gt; throwableAssert, Throwable expected) \{         return throwableAssert.hasCauseReference(expected);     \}          @AfterTemplate     AbstractThrowableAssert&lt;?, ? extends Throwable&gt; after(AbstractThrowableAssert&lt;?, ? extends Throwable&gt; throwableAssert, Throwable expected) \{         return throwableAssert.cause().isSameAs(expected);     \} \} ``` .
+* [tech.picnic.errorprone.refasterrules.AssertJThrowingCallableRulesRecipes$AbstractThrowableAssertHasMessageRecipe](/user-documentation/recipes/recipe-catalog/tech/picnic/errorprone/refasterrules/assertjthrowingcallablerulesrecipes$abstractthrowableasserthasmessagerecipe.md)
+  * **Refaster template `AssertJThrowingCallableRules.AbstractThrowableAssertHasMessage`**
+  * Recipe created for the following Refaster template: ```java static final class AbstractThrowableAssertHasMessage \{          @BeforeTemplate     AbstractThrowableAssert&lt;?, ? extends Throwable&gt; before(AbstractThrowableAssert&lt;?, ? extends Throwable&gt; abstractThrowableAssert, String message, @Repeated     Object parameters) \{         return abstractThrowableAssert.hasMessage(message.formatted(parameters));     \}          @AfterTemplate     AbstractThrowableAssert&lt;?, ? extends Throwable&gt; after(AbstractThrowableAssert&lt;?, ? extends Throwable&gt; abstractThrowableAssert, String message, @Repeated     Object parameters) \{         return abstractThrowableAssert.hasMessage(message, parameters);     \} \} ``` .
+* [tech.picnic.errorprone.refasterrules.AssertJThrowingCallableRulesRecipes$AbstractThrowableAssertWithFailMessageRecipe](/user-documentation/recipes/recipe-catalog/tech/picnic/errorprone/refasterrules/assertjthrowingcallablerulesrecipes$abstractthrowableassertwithfailmessagerecipe.md)
+  * **Refaster template `AssertJThrowingCallableRules.AbstractThrowableAssertWithFailMessage`**
+  * Recipe created for the following Refaster template: ```java static final class AbstractThrowableAssertWithFailMessage \{          @BeforeTemplate     AbstractThrowableAssert&lt;?, ? extends Throwable&gt; before(AbstractThrowableAssert&lt;?, ? extends Throwable&gt; abstractThrowableAssert, String message, @Repeated     Object args) \{         return abstractThrowableAssert.withFailMessage(message.formatted(args));     \}          @AfterTemplate     AbstractThrowableAssert&lt;?, ? extends Throwable&gt; after(AbstractThrowableAssert&lt;?, ? extends Throwable&gt; abstractThrowableAssert, String message, @Repeated     Object args) \{         return abstractThrowableAssert.withFailMessage(message, args);     \} \} ``` .
 * [tech.picnic.errorprone.refasterrules.AssertJThrowingCallableRulesRecipes$AssertThatThrownByAsInstanceOfThrowableRecipe](/user-documentation/recipes/recipe-catalog/tech/picnic/errorprone/refasterrules/assertjthrowingcallablerulesrecipes$assertthatthrownbyasinstanceofthrowablerecipe.md)
   * **Refaster template `AssertJThrowingCallableRules.AssertThatThrownByAsInstanceOfThrowable`**
   * Recipe created for the following Refaster template: ```java static final class AssertThatThrownByAsInstanceOfThrowable&lt;T extends Throwable&gt; \{          @BeforeTemplate     ThrowableAssertAlternative&lt;T&gt; before(ThrowingCallable throwingCallable, Class&lt;T&gt; exceptionType) \{         return assertThatExceptionOfType(exceptionType).isThrownBy(throwingCallable);     \}          @AfterTemplate     @UseImportPolicy(value = STATIC_IMPORT_ALWAYS)     AbstractThrowableAssert&lt;?, T&gt; after(ThrowingCallable throwingCallable, Class&lt;T&gt; exceptionType) \{         return assertThatThrownBy(throwingCallable).asInstanceOf(throwable(exceptionType));     \} \} ``` .
@@ -16122,6 +16410,9 @@ _1494 recipes_
 * [tech.picnic.errorprone.refasterrules.AssertJThrowingCallableRulesRecipes$AssertThatThrownByHasMessageNotContainingRecipe](/user-documentation/recipes/recipe-catalog/tech/picnic/errorprone/refasterrules/assertjthrowingcallablerulesrecipes$assertthatthrownbyhasmessagenotcontainingrecipe.md)
   * **Refaster template `AssertJThrowingCallableRules.AssertThatThrownByHasMessageNotContaining`**
   * Recipe created for the following Refaster template: ```java static final class AssertThatThrownByHasMessageNotContaining \{          @BeforeTemplate     @SuppressWarnings(value = &quot;AssertThatThrownByAsInstanceOfThrowable&quot;)     AbstractObjectAssert&lt;?, ?&gt; before(ThrowingCallable throwingCallable, Class&lt;? extends Throwable&gt; exceptionType, String message) \{         return assertThatExceptionOfType(exceptionType).isThrownBy(throwingCallable).withMessageNotContaining(message);     \}          @AfterTemplate     @UseImportPolicy(value = STATIC_IMPORT_ALWAYS)     AbstractObjectAssert&lt;?, ?&gt; after(ThrowingCallable throwingCallable, Class&lt;? extends Throwable&gt; exceptionType, String message) \{         return assertThatThrownBy(throwingCallable).isInstanceOf(exceptionType).hasMessageNotContaining(message);     \} \} ``` .
+* [tech.picnic.errorprone.refasterrules.AssertJThrowingCallableRulesRecipes$AssertThatThrownByHasMessageParametersRecipe](/user-documentation/recipes/recipe-catalog/tech/picnic/errorprone/refasterrules/assertjthrowingcallablerulesrecipes$assertthatthrownbyhasmessageparametersrecipe.md)
+  * **Refaster template `AssertJThrowingCallableRules.AssertThatThrownByHasMessageParameters`**
+  * Recipe created for the following Refaster template: ```java static final class AssertThatThrownByHasMessageParameters \{          @BeforeTemplate     @SuppressWarnings(value = &quot;AssertThatThrownByAsInstanceOfThrowable&quot;)     AbstractObjectAssert&lt;?, ?&gt; before(ThrowingCallable throwingCallable, Class&lt;? extends Throwable&gt; exceptionType, String message, @Repeated     Object parameters) \{         return assertThatExceptionOfType(exceptionType).isThrownBy(throwingCallable).withMessage(message, parameters);     \}          @AfterTemplate     @UseImportPolicy(value = STATIC_IMPORT_ALWAYS)     AbstractObjectAssert&lt;?, ?&gt; after(ThrowingCallable throwingCallable, Class&lt;? extends Throwable&gt; exceptionType, String message, @Repeated     Object parameters) \{         return assertThatThrownBy(throwingCallable).isInstanceOf(exceptionType).hasMessage(message, parameters);     \} \} ``` .
 * [tech.picnic.errorprone.refasterrules.AssertJThrowingCallableRulesRecipes$AssertThatThrownByHasMessageRecipe](/user-documentation/recipes/recipe-catalog/tech/picnic/errorprone/refasterrules/assertjthrowingcallablerulesrecipes$assertthatthrownbyhasmessagerecipe.md)
   * **Refaster template `AssertJThrowingCallableRules.AssertThatThrownByHasMessage`**
   * Recipe created for the following Refaster template: ```java static final class AssertThatThrownByHasMessage \{          @BeforeTemplate     @SuppressWarnings(value = &quot;AssertThatThrownByAsInstanceOfThrowable&quot;)     AbstractObjectAssert&lt;?, ?&gt; before(ThrowingCallable throwingCallable, Class&lt;? extends Throwable&gt; exceptionType, String message) \{         return assertThatExceptionOfType(exceptionType).isThrownBy(throwingCallable).withMessage(message);     \}          @AfterTemplate     @UseImportPolicy(value = STATIC_IMPORT_ALWAYS)     AbstractObjectAssert&lt;?, ?&gt; after(ThrowingCallable throwingCallable, Class&lt;? extends Throwable&gt; exceptionType, String message) \{         return assertThatThrownBy(throwingCallable).isInstanceOf(exceptionType).hasMessage(message);     \} \} ``` .
@@ -16134,6 +16425,9 @@ _1494 recipes_
 * [tech.picnic.errorprone.refasterrules.AssertJThrowingCallableRulesRecipes$AssertThatThrownByIOExceptionHasMessageNotContainingRecipe](/user-documentation/recipes/recipe-catalog/tech/picnic/errorprone/refasterrules/assertjthrowingcallablerulesrecipes$assertthatthrownbyioexceptionhasmessagenotcontainingrecipe.md)
   * **Refaster template `AssertJThrowingCallableRules.AssertThatThrownByIOExceptionHasMessageNotContaining`**
   * Recipe created for the following Refaster template: ```java static final class AssertThatThrownByIOExceptionHasMessageNotContaining \{          @BeforeTemplate     @SuppressWarnings(value = &quot;AssertThatThrownByIOException&quot;)     AbstractObjectAssert&lt;?, ?&gt; before(ThrowingCallable throwingCallable, String message) \{         return assertThatIOException().isThrownBy(throwingCallable).withMessageNotContaining(message);     \}          @AfterTemplate     @UseImportPolicy(value = STATIC_IMPORT_ALWAYS)     AbstractObjectAssert&lt;?, ?&gt; after(ThrowingCallable throwingCallable, String message) \{         return assertThatThrownBy(throwingCallable).isInstanceOf(IOException.class).hasMessageNotContaining(message);     \} \} ``` .
+* [tech.picnic.errorprone.refasterrules.AssertJThrowingCallableRulesRecipes$AssertThatThrownByIOExceptionHasMessageParametersRecipe](/user-documentation/recipes/recipe-catalog/tech/picnic/errorprone/refasterrules/assertjthrowingcallablerulesrecipes$assertthatthrownbyioexceptionhasmessageparametersrecipe.md)
+  * **Refaster template `AssertJThrowingCallableRules.AssertThatThrownByIOExceptionHasMessageParameters`**
+  * Recipe created for the following Refaster template: ```java static final class AssertThatThrownByIOExceptionHasMessageParameters \{          @BeforeTemplate     @SuppressWarnings(value = &quot;AssertThatThrownByIOException&quot;)     AbstractObjectAssert&lt;?, ?&gt; before(ThrowingCallable throwingCallable, String message, @Repeated     Object parameters) \{         return assertThatIOException().isThrownBy(throwingCallable).withMessage(message, parameters);     \}          @AfterTemplate     @UseImportPolicy(value = STATIC_IMPORT_ALWAYS)     AbstractObjectAssert&lt;?, ?&gt; after(ThrowingCallable throwingCallable, String message, @Repeated     Object parameters) \{         return assertThatThrownBy(throwingCallable).isInstanceOf(IOException.class).hasMessage(message, parameters);     \} \} ``` .
 * [tech.picnic.errorprone.refasterrules.AssertJThrowingCallableRulesRecipes$AssertThatThrownByIOExceptionHasMessageRecipe](/user-documentation/recipes/recipe-catalog/tech/picnic/errorprone/refasterrules/assertjthrowingcallablerulesrecipes$assertthatthrownbyioexceptionhasmessagerecipe.md)
   * **Refaster template `AssertJThrowingCallableRules.AssertThatThrownByIOExceptionHasMessage`**
   * Recipe created for the following Refaster template: ```java static final class AssertThatThrownByIOExceptionHasMessage \{          @BeforeTemplate     @SuppressWarnings(value = &quot;AssertThatThrownByIOException&quot;)     AbstractObjectAssert&lt;?, ?&gt; before(ThrowingCallable throwingCallable, String message) \{         return assertThatIOException().isThrownBy(throwingCallable).withMessage(message);     \}          @AfterTemplate     @UseImportPolicy(value = STATIC_IMPORT_ALWAYS)     AbstractObjectAssert&lt;?, ?&gt; after(ThrowingCallable throwingCallable, String message) \{         return assertThatThrownBy(throwingCallable).isInstanceOf(IOException.class).hasMessage(message);     \} \} ``` .
@@ -16149,6 +16443,12 @@ _1494 recipes_
 * [tech.picnic.errorprone.refasterrules.AssertJThrowingCallableRulesRecipes$AssertThatThrownByIllegalArgumentExceptionHasMessageContainingRecipe](/user-documentation/recipes/recipe-catalog/tech/picnic/errorprone/refasterrules/assertjthrowingcallablerulesrecipes$assertthatthrownbyillegalargumentexceptionhasmessagecontainingrecipe.md)
   * **Refaster template `AssertJThrowingCallableRules.AssertThatThrownByIllegalArgumentExceptionHasMessageContaining`**
   * Recipe created for the following Refaster template: ```java static final class AssertThatThrownByIllegalArgumentExceptionHasMessageContaining \{          @BeforeTemplate     @SuppressWarnings(value = &quot;AssertThatThrownByIllegalArgumentException&quot;)     AbstractObjectAssert&lt;?, ?&gt; before(ThrowingCallable throwingCallable, String message) \{         return assertThatIllegalArgumentException().isThrownBy(throwingCallable).withMessageContaining(message);     \}          @AfterTemplate     @UseImportPolicy(value = STATIC_IMPORT_ALWAYS)     AbstractObjectAssert&lt;?, ?&gt; after(ThrowingCallable throwingCallable, String message) \{         return assertThatThrownBy(throwingCallable).isInstanceOf(IllegalArgumentException.class).hasMessageContaining(message);     \} \} ``` .
+* [tech.picnic.errorprone.refasterrules.AssertJThrowingCallableRulesRecipes$AssertThatThrownByIllegalArgumentExceptionHasMessageNotContainingAnyRecipe](/user-documentation/recipes/recipe-catalog/tech/picnic/errorprone/refasterrules/assertjthrowingcallablerulesrecipes$assertthatthrownbyillegalargumentexceptionhasmessagenotcontaininganyrecipe.md)
+  * **Refaster template `AssertJThrowingCallableRules.AssertThatThrownByIllegalArgumentExceptionHasMessageNotContainingAny`**
+  * Recipe created for the following Refaster template: ```java static final class AssertThatThrownByIllegalArgumentExceptionHasMessageNotContainingAny \{          @BeforeTemplate     @SuppressWarnings(value = &quot;AssertThatThrownByIllegalArgumentException&quot;)     AbstractObjectAssert&lt;?, ?&gt; before(ThrowingCallable throwingCallable, @Repeated     CharSequence values) \{         return assertThatIllegalArgumentException().isThrownBy(throwingCallable).withMessageNotContainingAny(values);     \}          @AfterTemplate     @UseImportPolicy(value = STATIC_IMPORT_ALWAYS)     AbstractObjectAssert&lt;?, ?&gt; after(ThrowingCallable throwingCallable, @Repeated     CharSequence values) \{         return assertThatThrownBy(throwingCallable).isInstanceOf(IllegalArgumentException.class).hasMessageNotContainingAny(values);     \} \} ``` .
+* [tech.picnic.errorprone.refasterrules.AssertJThrowingCallableRulesRecipes$AssertThatThrownByIllegalArgumentExceptionHasMessageParametersRecipe](/user-documentation/recipes/recipe-catalog/tech/picnic/errorprone/refasterrules/assertjthrowingcallablerulesrecipes$assertthatthrownbyillegalargumentexceptionhasmessageparametersrecipe.md)
+  * **Refaster template `AssertJThrowingCallableRules.AssertThatThrownByIllegalArgumentExceptionHasMessageParameters`**
+  * Recipe created for the following Refaster template: ```java static final class AssertThatThrownByIllegalArgumentExceptionHasMessageParameters \{          @BeforeTemplate     @SuppressWarnings(value = &quot;AssertThatThrownByIllegalArgumentException&quot;)     AbstractObjectAssert&lt;?, ?&gt; before(ThrowingCallable throwingCallable, String message, @Repeated     Object parameters) \{         return assertThatIllegalArgumentException().isThrownBy(throwingCallable).withMessage(message, parameters);     \}          @AfterTemplate     @UseImportPolicy(value = STATIC_IMPORT_ALWAYS)     AbstractObjectAssert&lt;?, ?&gt; after(ThrowingCallable throwingCallable, String message, @Repeated     Object parameters) \{         return assertThatThrownBy(throwingCallable).isInstanceOf(IllegalArgumentException.class).hasMessage(message, parameters);     \} \} ``` .
 * [tech.picnic.errorprone.refasterrules.AssertJThrowingCallableRulesRecipes$AssertThatThrownByIllegalArgumentExceptionHasMessageRecipe](/user-documentation/recipes/recipe-catalog/tech/picnic/errorprone/refasterrules/assertjthrowingcallablerulesrecipes$assertthatthrownbyillegalargumentexceptionhasmessagerecipe.md)
   * **Refaster template `AssertJThrowingCallableRules.AssertThatThrownByIllegalArgumentExceptionHasMessage`**
   * Recipe created for the following Refaster template: ```java static final class AssertThatThrownByIllegalArgumentExceptionHasMessage \{          @BeforeTemplate     @SuppressWarnings(value = &quot;AssertThatThrownByIllegalArgumentException&quot;)     AbstractObjectAssert&lt;?, ?&gt; before(ThrowingCallable throwingCallable, String message) \{         return assertThatIllegalArgumentException().isThrownBy(throwingCallable).withMessage(message);     \}          @AfterTemplate     @UseImportPolicy(value = STATIC_IMPORT_ALWAYS)     AbstractObjectAssert&lt;?, ?&gt; after(ThrowingCallable throwingCallable, String message) \{         return assertThatThrownBy(throwingCallable).isInstanceOf(IllegalArgumentException.class).hasMessage(message);     \} \} ``` .
@@ -16167,6 +16467,9 @@ _1494 recipes_
 * [tech.picnic.errorprone.refasterrules.AssertJThrowingCallableRulesRecipes$AssertThatThrownByIllegalStateExceptionHasMessageNotContainingRecipe](/user-documentation/recipes/recipe-catalog/tech/picnic/errorprone/refasterrules/assertjthrowingcallablerulesrecipes$assertthatthrownbyillegalstateexceptionhasmessagenotcontainingrecipe.md)
   * **Refaster template `AssertJThrowingCallableRules.AssertThatThrownByIllegalStateExceptionHasMessageNotContaining`**
   * Recipe created for the following Refaster template: ```java static final class AssertThatThrownByIllegalStateExceptionHasMessageNotContaining \{          @BeforeTemplate     @SuppressWarnings(value = &quot;AssertThatThrownByIllegalStateException&quot;)     AbstractObjectAssert&lt;?, ?&gt; before(ThrowingCallable throwingCallable, String message) \{         return assertThatIllegalStateException().isThrownBy(throwingCallable).withMessageNotContaining(message);     \}          @AfterTemplate     @UseImportPolicy(value = STATIC_IMPORT_ALWAYS)     AbstractObjectAssert&lt;?, ?&gt; after(ThrowingCallable throwingCallable, String message) \{         return assertThatThrownBy(throwingCallable).isInstanceOf(IllegalStateException.class).hasMessageNotContaining(message);     \} \} ``` .
+* [tech.picnic.errorprone.refasterrules.AssertJThrowingCallableRulesRecipes$AssertThatThrownByIllegalStateExceptionHasMessageParametersRecipe](/user-documentation/recipes/recipe-catalog/tech/picnic/errorprone/refasterrules/assertjthrowingcallablerulesrecipes$assertthatthrownbyillegalstateexceptionhasmessageparametersrecipe.md)
+  * **Refaster template `AssertJThrowingCallableRules.AssertThatThrownByIllegalStateExceptionHasMessageParameters`**
+  * Recipe created for the following Refaster template: ```java static final class AssertThatThrownByIllegalStateExceptionHasMessageParameters \{          @BeforeTemplate     @SuppressWarnings(value = &quot;AssertThatThrownByIllegalStateException&quot;)     AbstractObjectAssert&lt;?, ?&gt; before(ThrowingCallable throwingCallable, String message, @Repeated     Object parameters) \{         return assertThatIllegalStateException().isThrownBy(throwingCallable).withMessage(message, parameters);     \}          @AfterTemplate     @UseImportPolicy(value = STATIC_IMPORT_ALWAYS)     AbstractObjectAssert&lt;?, ?&gt; after(ThrowingCallable throwingCallable, String message, @Repeated     Object parameters) \{         return assertThatThrownBy(throwingCallable).isInstanceOf(IllegalStateException.class).hasMessage(message, parameters);     \} \} ``` .
 * [tech.picnic.errorprone.refasterrules.AssertJThrowingCallableRulesRecipes$AssertThatThrownByIllegalStateExceptionHasMessageRecipe](/user-documentation/recipes/recipe-catalog/tech/picnic/errorprone/refasterrules/assertjthrowingcallablerulesrecipes$assertthatthrownbyillegalstateexceptionhasmessagerecipe.md)
   * **Refaster template `AssertJThrowingCallableRules.AssertThatThrownByIllegalStateExceptionHasMessage`**
   * Recipe created for the following Refaster template: ```java static final class AssertThatThrownByIllegalStateExceptionHasMessage \{          @BeforeTemplate     @SuppressWarnings(value = &quot;AssertThatThrownByIllegalStateException&quot;)     AbstractObjectAssert&lt;?, ?&gt; before(ThrowingCallable throwingCallable, String message) \{         return assertThatIllegalStateException().isThrownBy(throwingCallable).withMessage(message);     \}          @AfterTemplate     @UseImportPolicy(value = STATIC_IMPORT_ALWAYS)     AbstractObjectAssert&lt;?, ?&gt; after(ThrowingCallable throwingCallable, String message) \{         return assertThatThrownBy(throwingCallable).isInstanceOf(IllegalStateException.class).hasMessage(message);     \} \} ``` .
@@ -16188,6 +16491,9 @@ _1494 recipes_
 * [tech.picnic.errorprone.refasterrules.AssertJThrowingCallableRulesRecipes$AssertThatThrownByNullPointerExceptionHasMessageNotContainingRecipe](/user-documentation/recipes/recipe-catalog/tech/picnic/errorprone/refasterrules/assertjthrowingcallablerulesrecipes$assertthatthrownbynullpointerexceptionhasmessagenotcontainingrecipe.md)
   * **Refaster template `AssertJThrowingCallableRules.AssertThatThrownByNullPointerExceptionHasMessageNotContaining`**
   * Recipe created for the following Refaster template: ```java static final class AssertThatThrownByNullPointerExceptionHasMessageNotContaining \{          @BeforeTemplate     @SuppressWarnings(value = &quot;AssertThatThrownByNullPointerException&quot;)     AbstractObjectAssert&lt;?, ?&gt; before(ThrowingCallable throwingCallable, String message) \{         return assertThatNullPointerException().isThrownBy(throwingCallable).withMessageNotContaining(message);     \}          @AfterTemplate     @UseImportPolicy(value = STATIC_IMPORT_ALWAYS)     AbstractObjectAssert&lt;?, ?&gt; after(ThrowingCallable throwingCallable, String message) \{         return assertThatThrownBy(throwingCallable).isInstanceOf(NullPointerException.class).hasMessageNotContaining(message);     \} \} ``` .
+* [tech.picnic.errorprone.refasterrules.AssertJThrowingCallableRulesRecipes$AssertThatThrownByNullPointerExceptionHasMessageParametersRecipe](/user-documentation/recipes/recipe-catalog/tech/picnic/errorprone/refasterrules/assertjthrowingcallablerulesrecipes$assertthatthrownbynullpointerexceptionhasmessageparametersrecipe.md)
+  * **Refaster template `AssertJThrowingCallableRules.AssertThatThrownByNullPointerExceptionHasMessageParameters`**
+  * Recipe created for the following Refaster template: ```java static final class AssertThatThrownByNullPointerExceptionHasMessageParameters \{          @BeforeTemplate     @SuppressWarnings(value = &quot;AssertThatThrownByNullPointerException&quot;)     AbstractObjectAssert&lt;?, ?&gt; before(ThrowingCallable throwingCallable, String message, @Repeated     Object parameters) \{         return assertThatNullPointerException().isThrownBy(throwingCallable).withMessage(message, parameters);     \}          @AfterTemplate     @UseImportPolicy(value = STATIC_IMPORT_ALWAYS)     AbstractObjectAssert&lt;?, ?&gt; after(ThrowingCallable throwingCallable, String message, @Repeated     Object parameters) \{         return assertThatThrownBy(throwingCallable).isInstanceOf(NullPointerException.class).hasMessage(message, parameters);     \} \} ``` .
 * [tech.picnic.errorprone.refasterrules.AssertJThrowingCallableRulesRecipes$AssertThatThrownByNullPointerExceptionHasMessageRecipe](/user-documentation/recipes/recipe-catalog/tech/picnic/errorprone/refasterrules/assertjthrowingcallablerulesrecipes$assertthatthrownbynullpointerexceptionhasmessagerecipe.md)
   * **Refaster template `AssertJThrowingCallableRules.AssertThatThrownByNullPointerExceptionHasMessage`**
   * Recipe created for the following Refaster template: ```java static final class AssertThatThrownByNullPointerExceptionHasMessage \{          @BeforeTemplate     @SuppressWarnings(value = &quot;AssertThatThrownByNullPointerException&quot;)     AbstractObjectAssert&lt;?, ?&gt; before(ThrowingCallable throwingCallable, String message) \{         return assertThatNullPointerException().isThrownBy(throwingCallable).withMessage(message);     \}          @AfterTemplate     @UseImportPolicy(value = STATIC_IMPORT_ALWAYS)     AbstractObjectAssert&lt;?, ?&gt; after(ThrowingCallable throwingCallable, String message) \{         return assertThatThrownBy(throwingCallable).isInstanceOf(NullPointerException.class).hasMessage(message);     \} \} ``` .
@@ -16209,12 +16515,6 @@ _1494 recipes_
 * [tech.picnic.errorprone.refasterrules.AssortedRulesRecipes$CheckIndexRecipe](/user-documentation/recipes/recipe-catalog/tech/picnic/errorprone/refasterrules/assortedrulesrecipes$checkindexrecipe.md)
   * **Refaster template `AssortedRules.CheckIndex`**
   * Prefer `Objects#checkIndex(int, int)` over the Guava alternative.
-* [tech.picnic.errorprone.refasterrules.AssortedRulesRecipes$DisjointCollectionsRecipe](/user-documentation/recipes/recipe-catalog/tech/picnic/errorprone/refasterrules/assortedrulesrecipes$disjointcollectionsrecipe.md)
-  * **Refaster template `AssortedRules.DisjointCollections`**
-  * Don't unnecessarily copy collections before passing them to `Collections#disjoint(Collection, Collection)`.
-* [tech.picnic.errorprone.refasterrules.AssortedRulesRecipes$DisjointSetsRecipe](/user-documentation/recipes/recipe-catalog/tech/picnic/errorprone/refasterrules/assortedrulesrecipes$disjointsetsrecipe.md)
-  * **Refaster template `AssortedRules.DisjointSets`**
-  * Prefer `Collections#disjoint(Collection, Collection)` over more contrived alternatives.
 * [tech.picnic.errorprone.refasterrules.AssortedRulesRecipes$IterableIsEmptyRecipe](/user-documentation/recipes/recipe-catalog/tech/picnic/errorprone/refasterrules/assortedrulesrecipes$iterableisemptyrecipe.md)
   * **Refaster template `AssortedRules.IterableIsEmpty`**
   * Prefer `Iterables#isEmpty(Iterable)` over more contrived alternatives.
@@ -16238,10 +16538,10 @@ _1494 recipes_
   * Prefer using the constant `BigDecimal#ONE` when possible.
 * [tech.picnic.errorprone.refasterrules.BigDecimalRulesRecipes$BigDecimalSignumIsNegativeRecipe](/user-documentation/recipes/recipe-catalog/tech/picnic/errorprone/refasterrules/bigdecimalrulesrecipes$bigdecimalsignumisnegativerecipe.md)
   * **Refaster template `BigDecimalRules.BigDecimalSignumIsNegative`**
-  * Prefer a `BigDecimal#signum()` comparison to -1 over more contrived or less clear alternatives.
+  * Prefer a `BigDecimal#signum()` comparison to -1 over more contrived or less idiomatic alternatives.
 * [tech.picnic.errorprone.refasterrules.BigDecimalRulesRecipes$BigDecimalSignumIsPositiveRecipe](/user-documentation/recipes/recipe-catalog/tech/picnic/errorprone/refasterrules/bigdecimalrulesrecipes$bigdecimalsignumispositiverecipe.md)
   * **Refaster template `BigDecimalRules.BigDecimalSignumIsPositive`**
-  * Prefer a `BigDecimal#signum()` comparison to 1 over more contrived or less clear alternatives.
+  * Prefer a `BigDecimal#signum()` comparison to 0 over more contrived or less idiomatic alternatives.
 * [tech.picnic.errorprone.refasterrules.BigDecimalRulesRecipes$BigDecimalSignumIsZeroRecipe](/user-documentation/recipes/recipe-catalog/tech/picnic/errorprone/refasterrules/bigdecimalrulesrecipes$bigdecimalsignumiszerorecipe.md)
   * **Refaster template `BigDecimalRules.BigDecimalSignumIsZero`**
   * Prefer using `BigDecimal#signum()` over more contrived alternatives.
@@ -16320,6 +16620,9 @@ _1494 recipes_
 * [tech.picnic.errorprone.refasterrules.CollectionRulesRecipes$CollectionToArrayRecipe](/user-documentation/recipes/recipe-catalog/tech/picnic/errorprone/refasterrules/collectionrulesrecipes$collectiontoarrayrecipe.md)
   * **Refaster template `CollectionRules.CollectionToArray`**
   * Prefer calling `Collection#toArray()` over more contrived alternatives.
+* [tech.picnic.errorprone.refasterrules.CollectionRulesRecipes$CollectionsDisjointRecipe](/user-documentation/recipes/recipe-catalog/tech/picnic/errorprone/refasterrules/collectionrulesrecipes$collectionsdisjointrecipe.md)
+  * **Refaster template `CollectionRules.CollectionsDisjoint`**
+  * Prefer `Collections#disjoint(Collection, Collection)` over non-JDK or less efficient alternatives.
 * [tech.picnic.errorprone.refasterrules.CollectionRulesRecipes$ImmutableCollectionAsListRecipe](/user-documentation/recipes/recipe-catalog/tech/picnic/errorprone/refasterrules/collectionrulesrecipes$immutablecollectionaslistrecipe.md)
   * **Refaster template `CollectionRules.ImmutableCollectionAsList`**
   * Prefer `ImmutableCollection#asList()` over the more verbose alternative.
@@ -16368,6 +16671,9 @@ _1494 recipes_
 * [tech.picnic.errorprone.refasterrules.CollectionRulesRecipes$SequencedCollectionGetLastRecipe](/user-documentation/recipes/recipe-catalog/tech/picnic/errorprone/refasterrules/collectionrulesrecipes$sequencedcollectiongetlastrecipe.md)
   * **Refaster template `CollectionRules.SequencedCollectionGetLast`**
   * Prefer `SequencedCollection#getLast()` over less idiomatic alternatives.
+* [tech.picnic.errorprone.refasterrules.CollectionRulesRecipes$SetOfVarargsRecipe](/user-documentation/recipes/recipe-catalog/tech/picnic/errorprone/refasterrules/collectionrulesrecipes$setofvarargsrecipe.md)
+  * **Refaster template `CollectionRules.SetOfVarargs`**
+  * Prefer `Set#of(Object[])` over more contrived alternatives.
 * [tech.picnic.errorprone.refasterrules.CollectionRulesRecipes$SetStreamRecipe](/user-documentation/recipes/recipe-catalog/tech/picnic/errorprone/refasterrules/collectionrulesrecipes$setstreamrecipe.md)
   * **Refaster template `CollectionRules.SetStream`**
   * Don't unnecessarily call `Stream#distinct()` on an already-unique stream of elements.
@@ -16404,23 +16710,41 @@ _1494 recipes_
 * [tech.picnic.errorprone.refasterrules.ComparatorRulesRecipes$CompareToRecipe](/user-documentation/recipes/recipe-catalog/tech/picnic/errorprone/refasterrules/comparatorrulesrecipes$comparetorecipe.md)
   * **Refaster template `ComparatorRules.CompareTo`**
   * Prefer `Comparable#compareTo(Object)`\} over more verbose alternatives.
+* [tech.picnic.errorprone.refasterrules.ComparatorRulesRecipes$GreatestNaturalOrderRecipe](/user-documentation/recipes/recipe-catalog/tech/picnic/errorprone/refasterrules/comparatorrulesrecipes$greatestnaturalorderrecipe.md)
+  * **Refaster template `ComparatorRules.GreatestNaturalOrder`**
+  * Prefer `Comparators#greatest(int, Comparator)` with `Comparator#naturalOrder()` over more contrived alternatives.
+* [tech.picnic.errorprone.refasterrules.ComparatorRulesRecipes$GreatestRecipe](/user-documentation/recipes/recipe-catalog/tech/picnic/errorprone/refasterrules/comparatorrulesrecipes$greatestrecipe.md)
+  * **Refaster template `ComparatorRules.Greatest`**
+  * Prefer `Comparators#greatest(int, Comparator)` over more contrived alternatives.
 * [tech.picnic.errorprone.refasterrules.ComparatorRulesRecipes$IsLessThanOrEqualToRecipe](/user-documentation/recipes/recipe-catalog/tech/picnic/errorprone/refasterrules/comparatorrulesrecipes$islessthanorequaltorecipe.md)
   * **Refaster template `ComparatorRules.IsLessThanOrEqualTo`**
   * Don't explicitly compare enums by their ordinal.
 * [tech.picnic.errorprone.refasterrules.ComparatorRulesRecipes$IsLessThanRecipe](/user-documentation/recipes/recipe-catalog/tech/picnic/errorprone/refasterrules/comparatorrulesrecipes$islessthanrecipe.md)
   * **Refaster template `ComparatorRules.IsLessThan`**
   * Don't explicitly compare enums by their ordinal.
+* [tech.picnic.errorprone.refasterrules.ComparatorRulesRecipes$LeastNaturalOrderRecipe](/user-documentation/recipes/recipe-catalog/tech/picnic/errorprone/refasterrules/comparatorrulesrecipes$leastnaturalorderrecipe.md)
+  * **Refaster template `ComparatorRules.LeastNaturalOrder`**
+  * Prefer `Comparators#least(int, Comparator)` with `Comparator#naturalOrder()` over more contrived alternatives.
+* [tech.picnic.errorprone.refasterrules.ComparatorRulesRecipes$LeastRecipe](/user-documentation/recipes/recipe-catalog/tech/picnic/errorprone/refasterrules/comparatorrulesrecipes$leastrecipe.md)
+  * **Refaster template `ComparatorRules.Least`**
+  * Prefer `Comparators#least(int, Comparator)` over more contrived alternatives.
 * [tech.picnic.errorprone.refasterrules.ComparatorRulesRecipes$MaxByNaturalOrderRecipe](/user-documentation/recipes/recipe-catalog/tech/picnic/errorprone/refasterrules/comparatorrulesrecipes$maxbynaturalorderrecipe.md)
   * **Refaster template `ComparatorRules.MaxByNaturalOrder`**
   * Prefer `Comparator#naturalOrder()` over `Comparator#reverseOrder()` where possible.
 * [tech.picnic.errorprone.refasterrules.ComparatorRulesRecipes$MaxOfArrayRecipe](/user-documentation/recipes/recipe-catalog/tech/picnic/errorprone/refasterrules/comparatorrulesrecipes$maxofarrayrecipe.md)
   * **Refaster template `ComparatorRules.MaxOfArray`**
   * Avoid unnecessary creation of a `Stream` to determine the maximum of a known collection of values.
+* [tech.picnic.errorprone.refasterrules.ComparatorRulesRecipes$MaxOfVarargsRecipe](/user-documentation/recipes/recipe-catalog/tech/picnic/errorprone/refasterrules/comparatorrulesrecipes$maxofvarargsrecipe.md)
+  * **Refaster template `ComparatorRules.MaxOfVarargs`**
+  * Avoid unnecessary creation of a `Stream` to determine the maximum of a known collection of values.
 * [tech.picnic.errorprone.refasterrules.ComparatorRulesRecipes$MinByNaturalOrderRecipe](/user-documentation/recipes/recipe-catalog/tech/picnic/errorprone/refasterrules/comparatorrulesrecipes$minbynaturalorderrecipe.md)
   * **Refaster template `ComparatorRules.MinByNaturalOrder`**
   * Prefer `Comparator#naturalOrder()` over `Comparator#reverseOrder()` where possible.
 * [tech.picnic.errorprone.refasterrules.ComparatorRulesRecipes$MinOfArrayRecipe](/user-documentation/recipes/recipe-catalog/tech/picnic/errorprone/refasterrules/comparatorrulesrecipes$minofarrayrecipe.md)
   * **Refaster template `ComparatorRules.MinOfArray`**
+  * Avoid unnecessary creation of a `Stream` to determine the minimum of a known collection of values.
+* [tech.picnic.errorprone.refasterrules.ComparatorRulesRecipes$MinOfVarargsRecipe](/user-documentation/recipes/recipe-catalog/tech/picnic/errorprone/refasterrules/comparatorrulesrecipes$minofvarargsrecipe.md)
+  * **Refaster template `ComparatorRules.MinOfVarargs`**
   * Avoid unnecessary creation of a `Stream` to determine the minimum of a known collection of values.
 * [tech.picnic.errorprone.refasterrules.ComparatorRulesRecipes$ReverseOrderRecipe](/user-documentation/recipes/recipe-catalog/tech/picnic/errorprone/refasterrules/comparatorrulesrecipes$reverseorderrecipe.md)
   * **Refaster template `ComparatorRules.ReverseOrder`**
@@ -16548,18 +16872,24 @@ _1494 recipes_
 * [tech.picnic.errorprone.refasterrules.FileRulesRecipes$FilesCreateTempFileToFileRecipe](/user-documentation/recipes/recipe-catalog/tech/picnic/errorprone/refasterrules/filerulesrecipes$filescreatetempfiletofilerecipe.md)
   * **Prefer `Files#createTempFile(String, String, FileAttribute[])` over alternatives that create files with more liberal permissions**
   * Note that `File#createTempFile` treats the given prefix as a path, and ignores all but  its file name. That is, the actual prefix used is derived from all characters following the  final file separator (if any). This is not the case with `Files#createTempFile`, which  will instead throw an `IllegalArgumentException` if the prefix contains any file  separators.
-* [tech.picnic.errorprone.refasterrules.FileRulesRecipes$FilesNewBufferedReaderPathOfRecipe](/user-documentation/recipes/recipe-catalog/tech/picnic/errorprone/refasterrules/filerulesrecipes$filesnewbufferedreaderpathofrecipe.md)
-  * **Refaster template `FileRules.FilesNewBufferedReaderPathOf`**
+* [tech.picnic.errorprone.refasterrules.FileRulesRecipes$FilesNewBufferedReaderRecipe](/user-documentation/recipes/recipe-catalog/tech/picnic/errorprone/refasterrules/filerulesrecipes$filesnewbufferedreaderrecipe.md)
+  * **Refaster template `FileRules.FilesNewBufferedReader`**
   * Prefer `Files#newBufferedReader(Path)` over more verbose or contrived alternatives.
-* [tech.picnic.errorprone.refasterrules.FileRulesRecipes$FilesNewBufferedReaderPathOfWithCharsetRecipe](/user-documentation/recipes/recipe-catalog/tech/picnic/errorprone/refasterrules/filerulesrecipes$filesnewbufferedreaderpathofwithcharsetrecipe.md)
-  * **Refaster template `FileRules.FilesNewBufferedReaderPathOfWithCharset`**
+* [tech.picnic.errorprone.refasterrules.FileRulesRecipes$FilesNewBufferedReaderWithCharsetRecipe](/user-documentation/recipes/recipe-catalog/tech/picnic/errorprone/refasterrules/filerulesrecipes$filesnewbufferedreaderwithcharsetrecipe.md)
+  * **Refaster template `FileRules.FilesNewBufferedReaderWithCharset`**
   * Prefer `Files#newBufferedReader(Path, Charset)` over more contrived alternatives.
-* [tech.picnic.errorprone.refasterrules.FileRulesRecipes$FilesNewBufferedReaderToPathRecipe](/user-documentation/recipes/recipe-catalog/tech/picnic/errorprone/refasterrules/filerulesrecipes$filesnewbufferedreadertopathrecipe.md)
-  * **Refaster template `FileRules.FilesNewBufferedReaderToPath`**
-  * Prefer `Files#newBufferedReader(Path)` over more verbose or contrived alternatives.
-* [tech.picnic.errorprone.refasterrules.FileRulesRecipes$FilesNewBufferedReaderToPathWithCharsetRecipe](/user-documentation/recipes/recipe-catalog/tech/picnic/errorprone/refasterrules/filerulesrecipes$filesnewbufferedreadertopathwithcharsetrecipe.md)
-  * **Refaster template `FileRules.FilesNewBufferedReaderToPathWithCharset`**
-  * Prefer `Files#newBufferedReader(Path, Charset)` over more contrived alternatives.
+* [tech.picnic.errorprone.refasterrules.FileRulesRecipes$FilesNewInputStreamPathOfRecipe](/user-documentation/recipes/recipe-catalog/tech/picnic/errorprone/refasterrules/filerulesrecipes$filesnewinputstreampathofrecipe.md)
+  * **Refaster template `FileRules.FilesNewInputStreamPathOf`**
+  * Prefer `Files#newInputStream(Path, OpenOption...)` over less idiomatic alternatives.
+* [tech.picnic.errorprone.refasterrules.FileRulesRecipes$FilesNewInputStreamToPathRecipe](/user-documentation/recipes/recipe-catalog/tech/picnic/errorprone/refasterrules/filerulesrecipes$filesnewinputstreamtopathrecipe.md)
+  * **Refaster template `FileRules.FilesNewInputStreamToPath`**
+  * Prefer `Files#newInputStream(Path, OpenOption...)` over less idiomatic alternatives.
+* [tech.picnic.errorprone.refasterrules.FileRulesRecipes$FilesNewOutputStreamPathOfRecipe](/user-documentation/recipes/recipe-catalog/tech/picnic/errorprone/refasterrules/filerulesrecipes$filesnewoutputstreampathofrecipe.md)
+  * **Refaster template `FileRules.FilesNewOutputStreamPathOf`**
+  * Prefer `Files#newOutputStream(Path, OpenOption...)` over less idiomatic alternatives.
+* [tech.picnic.errorprone.refasterrules.FileRulesRecipes$FilesNewOutputStreamToPathRecipe](/user-documentation/recipes/recipe-catalog/tech/picnic/errorprone/refasterrules/filerulesrecipes$filesnewoutputstreamtopathrecipe.md)
+  * **Refaster template `FileRules.FilesNewOutputStreamToPath`**
+  * Prefer `Files#newOutputStream(Path, OpenOption...)` over less idiomatic alternatives.
 * [tech.picnic.errorprone.refasterrules.FileRulesRecipes$FilesReadStringRecipe](/user-documentation/recipes/recipe-catalog/tech/picnic/errorprone/refasterrules/filerulesrecipes$filesreadstringrecipe.md)
   * **Refaster template `FileRules.FilesReadString`**
   * Prefer `Files#readString(Path)` over more verbose alternatives.
@@ -16569,9 +16899,18 @@ _1494 recipes_
 * [tech.picnic.errorprone.refasterrules.FileRulesRecipes$PathInstanceRecipe](/user-documentation/recipes/recipe-catalog/tech/picnic/errorprone/refasterrules/filerulesrecipes$pathinstancerecipe.md)
   * **Refaster template `FileRules.PathInstance`**
   * Avoid redundant conversions from `Path` to `File`.
+* [tech.picnic.errorprone.refasterrules.FileRulesRecipes$PathOfStringRecipe](/user-documentation/recipes/recipe-catalog/tech/picnic/errorprone/refasterrules/filerulesrecipes$pathofstringrecipe.md)
+  * **Refaster template `FileRules.PathOfString`**
+  * Prefer the more idiomatic `Path#of(String, String...)` over `Paths#get(String, String...)`.
 * [tech.picnic.errorprone.refasterrules.FileRulesRecipes$PathOfUriRecipe](/user-documentation/recipes/recipe-catalog/tech/picnic/errorprone/refasterrules/filerulesrecipes$pathofurirecipe.md)
   * **Refaster template `FileRules.PathOfUri`**
   * Prefer the more idiomatic `Path#of(URI)` over `Paths#get(URI)`.
+* [tech.picnic.errorprone.refasterrules.FileRulesRecipes$PathResolveSiblingPathRecipe](/user-documentation/recipes/recipe-catalog/tech/picnic/errorprone/refasterrules/filerulesrecipes$pathresolvesiblingpathrecipe.md)
+  * **Refaster template `FileRules.PathResolveSiblingPath`**
+  * Prefer `Path#resolveSibling(Path)` over more verbose alternatives.
+* [tech.picnic.errorprone.refasterrules.FileRulesRecipes$PathResolveSiblingStringRecipe](/user-documentation/recipes/recipe-catalog/tech/picnic/errorprone/refasterrules/filerulesrecipes$pathresolvesiblingstringrecipe.md)
+  * **Refaster template `FileRules.PathResolveSiblingString`**
+  * Prefer `Path#resolveSibling(String)` over the more verbose alternatives.
 * [tech.picnic.errorprone.refasterrules.FileRulesRecipes$PathToFileMkDirsFilesExistsRecipe](/user-documentation/recipes/recipe-catalog/tech/picnic/errorprone/refasterrules/filerulesrecipes$pathtofilemkdirsfilesexistsrecipe.md)
   * **Refaster template `FileRules.PathToFileMkDirsFilesExists`**
   * Invoke `File#mkdirs()` before `Files#exists(Path, LinkOption...)` to avoid concurrency issues.
@@ -16602,6 +16941,9 @@ _1494 recipes_
 * [tech.picnic.errorprone.refasterrules.ImmutableEnumSetRulesRecipes$SetsImmutableEnumSetIterableRecipe](/user-documentation/recipes/recipe-catalog/tech/picnic/errorprone/refasterrules/immutableenumsetrulesrecipes$setsimmutableenumsetiterablerecipe.md)
   * **Prefer `Sets#immutableEnumSet(Iterable)` for enum collections to take advantage of the internally used `EnumSet`**
   * &lt;strong&gt;Warning:&lt;/strong&gt; this rule is not completely behavior preserving: while the  original code produces a set that iterates over its elements in the same order as the input  `Iterable`, the replacement code iterates over the elements in enum definition order.
+* [tech.picnic.errorprone.refasterrules.ImmutableEnumSetRulesRecipes$SetsImmutableEnumSetVarArgsRecipe](/user-documentation/recipes/recipe-catalog/tech/picnic/errorprone/refasterrules/immutableenumsetrulesrecipes$setsimmutableenumsetvarargsrecipe.md)
+  * **Refaster template `ImmutableEnumSetRules.SetsImmutableEnumSetVarArgs`**
+  * Prefer `Sets#immutableEnumSet(Enum, Enum[])` for enum collections to take advantage of the internally used `EnumSet`.
 * [tech.picnic.errorprone.refasterrules.ImmutableEnumSetRulesRecipes$StreamToImmutableEnumSetRecipe](/user-documentation/recipes/recipe-catalog/tech/picnic/errorprone/refasterrules/immutableenumsetrulesrecipes$streamtoimmutableenumsetrecipe.md)
   * **Use `Sets#toImmutableEnumSet()` when possible, as it is more efficient than `ImmutableSet#toImmutableSet()` and produces a more compact object**
   * &lt;strong&gt;Warning:&lt;/strong&gt; this rule is not completely behavior preserving: while the  original code produces a set that iterates over its elements in encounter order, the  replacement code iterates over the elements in enum definition order.
@@ -16653,6 +16995,12 @@ _1494 recipes_
 * [tech.picnic.errorprone.refasterrules.ImmutableListRulesRecipes$ImmutableListOfRecipe](/user-documentation/recipes/recipe-catalog/tech/picnic/errorprone/refasterrules/immutablelistrulesrecipes$immutablelistofrecipe.md)
   * **Refaster template `ImmutableListRules.ImmutableListOf`**
   * Prefer `ImmutableList#of()` over more contrived alternatives or alternatives that don't communicate the immutability of the resulting list at the type level.
+* [tech.picnic.errorprone.refasterrules.ImmutableListRulesRecipes$ImmutableListSortedCopyOfIteratorRecipe](/user-documentation/recipes/recipe-catalog/tech/picnic/errorprone/refasterrules/immutablelistrulesrecipes$immutablelistsortedcopyofiteratorrecipe.md)
+  * **Refaster template `ImmutableListRules.ImmutableListSortedCopyOfIterator`**
+  * Prefer `ImmutableList.sortedCopyOf(iterable).iterator()` over less efficient alternatives.
+* [tech.picnic.errorprone.refasterrules.ImmutableListRulesRecipes$ImmutableListSortedCopyOfIteratorWithComparatorRecipe](/user-documentation/recipes/recipe-catalog/tech/picnic/errorprone/refasterrules/immutablelistrulesrecipes$immutablelistsortedcopyofiteratorwithcomparatorrecipe.md)
+  * **Refaster template `ImmutableListRules.ImmutableListSortedCopyOfIteratorWithComparator`**
+  * Prefer `ImmutableList.sortedCopyOf(cmp, iterable).iterator()` over less efficient alternatives.
 * [tech.picnic.errorprone.refasterrules.ImmutableListRulesRecipes$ImmutableListSortedCopyOfRecipe](/user-documentation/recipes/recipe-catalog/tech/picnic/errorprone/refasterrules/immutablelistrulesrecipes$immutablelistsortedcopyofrecipe.md)
   * **Refaster template `ImmutableListRules.ImmutableListSortedCopyOf`**
   * Prefer `ImmutableList#sortedCopyOf(Iterable)` over more contrived alternatives.
@@ -16701,6 +17049,9 @@ _1494 recipes_
 * [tech.picnic.errorprone.refasterrules.ImmutableMapRulesRecipes$ImmutableMapOf5Recipe](/user-documentation/recipes/recipe-catalog/tech/picnic/errorprone/refasterrules/immutablemaprulesrecipes$immutablemapof5recipe.md)
   * **Refaster template `ImmutableMapRules.ImmutableMapOf5`**
   * Prefer `ImmutableMap#of(Object, Object, Object, Object, Object, Object, Object, Object, Object, Object)` over alternatives that don't communicate the immutability of the resulting map at the type level.
+* [tech.picnic.errorprone.refasterrules.ImmutableMapRulesRecipes$ImmutableMapOfEntriesRecipe](/user-documentation/recipes/recipe-catalog/tech/picnic/errorprone/refasterrules/immutablemaprulesrecipes$immutablemapofentriesrecipe.md)
+  * **Refaster template `ImmutableMapRules.ImmutableMapOfEntries`**
+  * Prefer `ImmutableMap#ofEntries(Map.Entry[])` over alternatives that don't communicate the immutability of the resulting map at the type level.
 * [tech.picnic.errorprone.refasterrules.ImmutableMapRulesRecipes$ImmutableMapOfRecipe](/user-documentation/recipes/recipe-catalog/tech/picnic/errorprone/refasterrules/immutablemaprulesrecipes$immutablemapofrecipe.md)
   * **Refaster template `ImmutableMapRules.ImmutableMapOf`**
   * Prefer `ImmutableMap#of()` over more contrived alternatives or alternatives that don't communicate the immutability of the resulting map at the type level.
@@ -16932,6 +17283,12 @@ _1494 recipes_
 * [tech.picnic.errorprone.refasterrules.IntStreamRulesRecipes$IntStreamTakeWhileRecipe](/user-documentation/recipes/recipe-catalog/tech/picnic/errorprone/refasterrules/intstreamrulesrecipes$intstreamtakewhilerecipe.md)
   * **Refaster template `IntStreamRules.IntStreamTakeWhile`**
   * Recipe created for the following Refaster template: ```java static final class IntStreamTakeWhile \{          @BeforeTemplate     IntStream before(IntStream stream, IntPredicate predicate) \{         return stream.takeWhile(predicate).filter(predicate);     \}          @AfterTemplate     IntStream after(IntStream stream, IntPredicate predicate) \{         return stream.takeWhile(predicate);     \} \} ``` .
+* [tech.picnic.errorprone.refasterrules.JUnitRulesRecipes](/user-documentation/recipes/recipe-catalog/tech/picnic/errorprone/refasterrules/junitrulesrecipes.md)
+  * **`JUnitRules` Refaster recipes**
+  * Refaster rules related to JUnit expressions and statements. [Source](https://error-prone.picnic.tech/refasterrules/JUnitRules).
+* [tech.picnic.errorprone.refasterrules.JUnitRulesRecipes$ArgumentsEnumerationRecipe](/user-documentation/recipes/recipe-catalog/tech/picnic/errorprone/refasterrules/junitrulesrecipes$argumentsenumerationrecipe.md)
+  * **Refaster template `JUnitRules.ArgumentsEnumeration`**
+  * Prefer statically imported `Arguments#arguments` over `Arguments#of` calls.
 * [tech.picnic.errorprone.refasterrules.JUnitToAssertJRulesRecipes](/user-documentation/recipes/recipe-catalog/tech/picnic/errorprone/refasterrules/junittoassertjrulesrecipes.md)
   * **Refaster rules to replace JUnit assertions with AssertJ equivalents**
   * Note that, while both libraries throw an `AssertionError` in case of an assertion  failure, the exact subtype used generally differs. [Source](https://error-prone.picnic.tech/refasterrules/JUnitToAssertJRules).
@@ -17450,10 +17807,10 @@ _1494 recipes_
   * Prefer JDK's `Integer#remainderUnsigned(int, int)` over third-party alternatives.
 * [tech.picnic.errorprone.refasterrules.PrimitiveRulesRecipes$IntegerSignumIsNegativeRecipe](/user-documentation/recipes/recipe-catalog/tech/picnic/errorprone/refasterrules/primitiverulesrecipes$integersignumisnegativerecipe.md)
   * **Refaster template `PrimitiveRules.IntegerSignumIsNegative`**
-  * Prefer an `Integer#signum(int)` comparison to -1 over less clear alternatives.
+  * Prefer an `Integer#signum(int)` comparison to 0 over less idiomatic alternatives.
 * [tech.picnic.errorprone.refasterrules.PrimitiveRulesRecipes$IntegerSignumIsPositiveRecipe](/user-documentation/recipes/recipe-catalog/tech/picnic/errorprone/refasterrules/primitiverulesrecipes$integersignumispositiverecipe.md)
   * **Refaster template `PrimitiveRules.IntegerSignumIsPositive`**
-  * Prefer an `Integer#signum(int)` comparison to 1 over less clear alternatives.
+  * Prefer an `Integer#signum(int)` comparison to 0 over less idiomatic alternatives.
 * [tech.picnic.errorprone.refasterrules.PrimitiveRulesRecipes$IntegerToUnsignedStringRecipe](/user-documentation/recipes/recipe-catalog/tech/picnic/errorprone/refasterrules/primitiverulesrecipes$integertounsignedstringrecipe.md)
   * **Refaster template `PrimitiveRules.IntegerToUnsignedString`**
   * Prefer JDK's `Integer#toUnsignedString(int)` over third-party or more verbose alternatives.
@@ -17486,10 +17843,10 @@ _1494 recipes_
   * Prefer JDK's `Long#remainderUnsigned(long, long)` over third-party alternatives.
 * [tech.picnic.errorprone.refasterrules.PrimitiveRulesRecipes$LongSignumIsNegativeRecipe](/user-documentation/recipes/recipe-catalog/tech/picnic/errorprone/refasterrules/primitiverulesrecipes$longsignumisnegativerecipe.md)
   * **Refaster template `PrimitiveRules.LongSignumIsNegative`**
-  * Prefer an `Long#signum(long)` comparison to -1 over less clear alternatives.
+  * Prefer an `Long#signum(long)` comparison to 0 over less idiomatic alternatives.
 * [tech.picnic.errorprone.refasterrules.PrimitiveRulesRecipes$LongSignumIsPositiveRecipe](/user-documentation/recipes/recipe-catalog/tech/picnic/errorprone/refasterrules/primitiverulesrecipes$longsignumispositiverecipe.md)
   * **Refaster template `PrimitiveRules.LongSignumIsPositive`**
-  * Prefer an `Long#signum(long)` comparison to 1 over less clear alternatives.
+  * Prefer an `Long#signum(long)` comparison to 0 over less idiomatic alternatives.
 * [tech.picnic.errorprone.refasterrules.PrimitiveRulesRecipes$LongToIntExactRecipe](/user-documentation/recipes/recipe-catalog/tech/picnic/errorprone/refasterrules/primitiverulesrecipes$longtointexactrecipe.md)
   * **Refaster template `PrimitiveRules.LongToIntExact`**
   * Prefer `Math#toIntExact(long)` over the Guava alternative.
@@ -17499,6 +17856,18 @@ _1494 recipes_
 * [tech.picnic.errorprone.refasterrules.PrimitiveRulesRecipes$LongToUnsignedStringWithRadixRecipe](/user-documentation/recipes/recipe-catalog/tech/picnic/errorprone/refasterrules/primitiverulesrecipes$longtounsignedstringwithradixrecipe.md)
   * **Refaster template `PrimitiveRules.LongToUnsignedStringWithRadix`**
   * Prefer JDK's `Long#toUnsignedString(long,int)` over third-party alternatives.
+* [tech.picnic.errorprone.refasterrules.PrimitiveRulesRecipes$MathClampDoubleRecipe](/user-documentation/recipes/recipe-catalog/tech/picnic/errorprone/refasterrules/primitiverulesrecipes$mathclampdoublerecipe.md)
+  * **Refaster template `PrimitiveRules.MathClampDouble`**
+  * Prefer `Math#clamp(double, double, double)` over more verbose alternatives.
+* [tech.picnic.errorprone.refasterrules.PrimitiveRulesRecipes$MathClampFloatRecipe](/user-documentation/recipes/recipe-catalog/tech/picnic/errorprone/refasterrules/primitiverulesrecipes$mathclampfloatrecipe.md)
+  * **Refaster template `PrimitiveRules.MathClampFloat`**
+  * Prefer `Math#clamp(float, float, float)` over more verbose alternatives.
+* [tech.picnic.errorprone.refasterrules.PrimitiveRulesRecipes$MathClampIntRecipe](/user-documentation/recipes/recipe-catalog/tech/picnic/errorprone/refasterrules/primitiverulesrecipes$mathclampintrecipe.md)
+  * **Refaster template `PrimitiveRules.MathClampInt`**
+  * Prefer `Math#clamp(long, int, int)` over more verbose alternatives.
+* [tech.picnic.errorprone.refasterrules.PrimitiveRulesRecipes$MathClampLongRecipe](/user-documentation/recipes/recipe-catalog/tech/picnic/errorprone/refasterrules/primitiverulesrecipes$mathclamplongrecipe.md)
+  * **Refaster template `PrimitiveRules.MathClampLong`**
+  * Prefer `Math#clamp(long, long, long)` over more verbose alternatives.
 * [tech.picnic.errorprone.refasterrules.PrimitiveRulesRecipes$ShortBytesRecipe](/user-documentation/recipes/recipe-catalog/tech/picnic/errorprone/refasterrules/primitiverulesrecipes$shortbytesrecipe.md)
   * **Refaster template `PrimitiveRules.ShortBytes`**
   * Prefer `Short#BYTES` over the Guava alternative.
@@ -17508,12 +17877,21 @@ _1494 recipes_
 * [tech.picnic.errorprone.refasterrules.RandomGeneratorRulesRecipes$RandomGeneratorNextDoubleRecipe](/user-documentation/recipes/recipe-catalog/tech/picnic/errorprone/refasterrules/randomgeneratorrulesrecipes$randomgeneratornextdoublerecipe.md)
   * **Refaster template `RandomGeneratorRules.RandomGeneratorNextDouble`**
   * Prefer `RandomGenerator#nextDouble(double)` over alternatives that yield a smaller domain of values and may result in `Double#isInfinite() inifinity`.
+* [tech.picnic.errorprone.refasterrules.RandomGeneratorRulesRecipes$RandomGeneratorNextDoubleWithOriginRecipe](/user-documentation/recipes/recipe-catalog/tech/picnic/errorprone/refasterrules/randomgeneratorrulesrecipes$randomgeneratornextdoublewithoriginrecipe.md)
+  * **Refaster template `RandomGeneratorRules.RandomGeneratorNextDoubleWithOrigin`**
+  * Prefer `RandomGenerator#nextDouble(double origin, double bound)` over alternatives that may silently yield an ununiform domain of values.
 * [tech.picnic.errorprone.refasterrules.RandomGeneratorRulesRecipes$RandomGeneratorNextIntRecipe](/user-documentation/recipes/recipe-catalog/tech/picnic/errorprone/refasterrules/randomgeneratorrulesrecipes$randomgeneratornextintrecipe.md)
   * **Refaster template `RandomGeneratorRules.RandomGeneratorNextInt`**
   * Prefer `RandomGenerator#nextInt(int)` over more contrived alternatives.
+* [tech.picnic.errorprone.refasterrules.RandomGeneratorRulesRecipes$RandomGeneratorNextIntWithOriginRecipe](/user-documentation/recipes/recipe-catalog/tech/picnic/errorprone/refasterrules/randomgeneratorrulesrecipes$randomgeneratornextintwithoriginrecipe.md)
+  * **Refaster template `RandomGeneratorRules.RandomGeneratorNextIntWithOrigin`**
+  * Prefer `RandomGenerator#nextInt(int origin, int bound)` over alternatives that may silently yield values outside the intended domain.
 * [tech.picnic.errorprone.refasterrules.RandomGeneratorRulesRecipes$RandomGeneratorNextLongRecipe](/user-documentation/recipes/recipe-catalog/tech/picnic/errorprone/refasterrules/randomgeneratorrulesrecipes$randomgeneratornextlongrecipe.md)
   * **Prefer `RandomGenerator#nextLong(long)` over more contrived alternatives**
   * Additionally, for large bounds, the unnecessary floating point arithmetic prevents some  `long` values from being generated.
+* [tech.picnic.errorprone.refasterrules.RandomGeneratorRulesRecipes$RandomGeneratorNextLongWithOriginRecipe](/user-documentation/recipes/recipe-catalog/tech/picnic/errorprone/refasterrules/randomgeneratorrulesrecipes$randomgeneratornextlongwithoriginrecipe.md)
+  * **Refaster template `RandomGeneratorRules.RandomGeneratorNextLongWithOrigin`**
+  * Prefer `RandomGenerator#nextLong(long origin, long bound)` over more contrived alternatives.
 * [tech.picnic.errorprone.refasterrules.ReactorRulesRecipes](/user-documentation/recipes/recipe-catalog/tech/picnic/errorprone/refasterrules/reactorrulesrecipes.md)
   * **`ReactorRules` Refaster recipes**
   * Refaster rules related to Reactor expressions and statements. [Source](https://error-prone.picnic.tech/refasterrules/ReactorRules).
@@ -17562,6 +17940,9 @@ _1494 recipes_
 * [tech.picnic.errorprone.refasterrules.ReactorRulesRecipes$FluxFromStreamSupplierRecipe](/user-documentation/recipes/recipe-catalog/tech/picnic/errorprone/refasterrules/reactorrulesrecipes$fluxfromstreamsupplierrecipe.md)
   * **Refaster template `ReactorRules.FluxFromStreamSupplier`**
   * Prefer `Flux#fromStream(Supplier)` over `Flux#fromStream(Stream)`, as the former yields a `Flux` that is more likely to behave as expected when subscribed to more than once.
+* [tech.picnic.errorprone.refasterrules.ReactorRulesRecipes$FluxJustArrayRecipe](/user-documentation/recipes/recipe-catalog/tech/picnic/errorprone/refasterrules/reactorrulesrecipes$fluxjustarrayrecipe.md)
+  * **Refaster template `ReactorRules.FluxJustArray`**
+  * Prefer `Flux#just(Object[])` over more contrived alternatives.
 * [tech.picnic.errorprone.refasterrules.ReactorRulesRecipes$FluxJustRecipe](/user-documentation/recipes/recipe-catalog/tech/picnic/errorprone/refasterrules/reactorrulesrecipes$fluxjustrecipe.md)
   * **Refaster template `ReactorRules.FluxJust`**
   * Prefer `Flux#just(Object)` over more contrived alternatives.
@@ -17898,6 +18279,12 @@ _1494 recipes_
 * [tech.picnic.errorprone.refasterrules.StreamRulesRecipes$JoiningRecipe](/user-documentation/recipes/recipe-catalog/tech/picnic/errorprone/refasterrules/streamrulesrecipes$joiningrecipe.md)
   * **Refaster template `StreamRules.Joining`**
   * Prefer `Collectors#joining()` over `Collectors#joining(CharSequence)` with an empty delimiter string.
+* [tech.picnic.errorprone.refasterrules.StreamRulesRecipes$StreamCollectLeastNaturalOrderStreamRecipe](/user-documentation/recipes/recipe-catalog/tech/picnic/errorprone/refasterrules/streamrulesrecipes$streamcollectleastnaturalorderstreamrecipe.md)
+  * **Refaster template `StreamRules.StreamCollectLeastNaturalOrderStream`**
+  * Prefer `Comparators#least(int, Comparator)` over alternatives that require space proportional to the size of the input stream, rather than space proportional to the result stream.
+* [tech.picnic.errorprone.refasterrules.StreamRulesRecipes$StreamCollectLeastStreamRecipe](/user-documentation/recipes/recipe-catalog/tech/picnic/errorprone/refasterrules/streamrulesrecipes$streamcollectleaststreamrecipe.md)
+  * **Refaster template `StreamRules.StreamCollectLeastStream`**
+  * Prefer `Comparators#least(int, Comparator)` over alternatives that require space proportional to the size of the input stream, rather than space proportional to the result stream.
 * [tech.picnic.errorprone.refasterrules.StreamRulesRecipes$StreamCountRecipe](/user-documentation/recipes/recipe-catalog/tech/picnic/errorprone/refasterrules/streamrulesrecipes$streamcountrecipe.md)
   * **Refaster template `StreamRules.StreamCount`**
   * Recipe created for the following Refaster template: ```java static final class StreamCount&lt;T&gt; \{          @BeforeTemplate     @SuppressWarnings(value = &quot;java:S4266&quot;)     long before(Stream&lt;T&gt; stream) \{         return stream.collect(counting());     \}          @AfterTemplate     long after(Stream&lt;T&gt; stream) \{         return stream.count();     \} \} ``` .
@@ -17922,6 +18309,9 @@ _1494 recipes_
 * [tech.picnic.errorprone.refasterrules.StreamRulesRecipes$StreamFindAnyIsPresentRecipe](/user-documentation/recipes/recipe-catalog/tech/picnic/errorprone/refasterrules/streamrulesrecipes$streamfindanyispresentrecipe.md)
   * **Refaster template `StreamRules.StreamFindAnyIsPresent`**
   * Prefer `Stream#findAny()` over `Stream#findFirst()` if one only cares whether the stream is nonempty.
+* [tech.picnic.errorprone.refasterrules.StreamRulesRecipes$StreamFindFirstRecipe](/user-documentation/recipes/recipe-catalog/tech/picnic/errorprone/refasterrules/streamrulesrecipes$streamfindfirstrecipe.md)
+  * **Refaster template `StreamRules.StreamFindFirst`**
+  * Prefer `Stream#findFirst()` over more contrived alternatives.
 * [tech.picnic.errorprone.refasterrules.StreamRulesRecipes$StreamFlatMapCollectRecipe](/user-documentation/recipes/recipe-catalog/tech/picnic/errorprone/refasterrules/streamrulesrecipes$streamflatmapcollectrecipe.md)
   * **Refaster template `StreamRules.StreamFlatMapCollect`**
   * Recipe created for the following Refaster template: ```java static final class StreamFlatMapCollect&lt;T, U, R&gt; \{          @BeforeTemplate     R before(Stream&lt;T&gt; stream, Function&lt;? super T, ? extends Stream&lt;? extends U&gt;&gt; mapper, Collector&lt;? super U, ?, R&gt; collector) \{         return stream.collect(flatMapping(mapper, collector));     \}          @AfterTemplate     R after(Stream&lt;T&gt; stream, Function&lt;? super T, ? extends Stream&lt;? extends U&gt;&gt; mapper, Collector&lt;? super U, ?, R&gt; collector) \{         return stream.flatMap(mapper).collect(collector);     \} \} ``` .
@@ -17982,12 +18372,21 @@ _1494 recipes_
 * [tech.picnic.errorprone.refasterrules.StreamRulesRecipes$StreamReduceWithIdentityRecipe](/user-documentation/recipes/recipe-catalog/tech/picnic/errorprone/refasterrules/streamrulesrecipes$streamreducewithidentityrecipe.md)
   * **Refaster template `StreamRules.StreamReduceWithIdentity`**
   * Recipe created for the following Refaster template: ```java static final class StreamReduceWithIdentity&lt;T&gt; \{          @BeforeTemplate     @SuppressWarnings(value = &quot;java:S4266&quot;)     T before(Stream&lt;T&gt; stream, T identity, BinaryOperator&lt;T&gt; accumulator) \{         return stream.collect(reducing(identity, accumulator));     \}          @AfterTemplate     T after(Stream&lt;T&gt; stream, T identity, BinaryOperator&lt;T&gt; accumulator) \{         return stream.reduce(identity, accumulator);     \} \} ``` .
+* [tech.picnic.errorprone.refasterrules.StreamRulesRecipes$StreamSortedRecipe](/user-documentation/recipes/recipe-catalog/tech/picnic/errorprone/refasterrules/streamrulesrecipes$streamsortedrecipe.md)
+  * **Refaster template `StreamRules.StreamSorted`**
+  * Prefer `Stream#sorted()` over more contrived alternatives.
 * [tech.picnic.errorprone.refasterrules.StreamRulesRecipes$StreamTakeWhileRecipe](/user-documentation/recipes/recipe-catalog/tech/picnic/errorprone/refasterrules/streamrulesrecipes$streamtakewhilerecipe.md)
   * **Refaster template `StreamRules.StreamTakeWhile`**
   * Recipe created for the following Refaster template: ```java static final class StreamTakeWhile&lt;T&gt; \{          @BeforeTemplate     Stream&lt;T&gt; before(Stream&lt;T&gt; stream, Predicate&lt;? super T&gt; predicate) \{         return stream.takeWhile(predicate).filter(predicate);     \}          @AfterTemplate     Stream&lt;T&gt; after(Stream&lt;T&gt; stream, Predicate&lt;? super T&gt; predicate) \{         return stream.takeWhile(predicate);     \} \} ``` .
 * [tech.picnic.errorprone.refasterrules.StreamRulesRecipes$StreamsStreamRecipe](/user-documentation/recipes/recipe-catalog/tech/picnic/errorprone/refasterrules/streamrulesrecipes$streamsstreamrecipe.md)
   * **Refaster template `StreamRules.StreamsStream`**
   * Prefer `Streams#stream(Iterable)` over more contrived alternatives.
+* [tech.picnic.errorprone.refasterrules.StringBuilderRulesRecipes](/user-documentation/recipes/recipe-catalog/tech/picnic/errorprone/refasterrules/stringbuilderrulesrecipes.md)
+  * **`StringBuilderRules` Refaster recipes**
+  * Refaster rules related to expressions dealing with `StringBuilder`s. [Source](https://error-prone.picnic.tech/refasterrules/StringBuilderRules).
+* [tech.picnic.errorprone.refasterrules.StringBuilderRulesRecipes$StringBuilderRepeatRecipe](/user-documentation/recipes/recipe-catalog/tech/picnic/errorprone/refasterrules/stringbuilderrulesrecipes$stringbuilderrepeatrecipe.md)
+  * **Prefer `StringBuilder#repeat(CharSequence, int)` over less efficient alternatives**
+  * &lt;strong&gt;Warning:&lt;/strong&gt; this rule is not behavior preserving: while the original code  throws a `NullPointerException` if the repeated string is `null`, the replacement  code will repeat the literal string `&quot;null&quot;`.
 * [tech.picnic.errorprone.refasterrules.StringRulesRecipes](/user-documentation/recipes/recipe-catalog/tech/picnic/errorprone/refasterrules/stringrulesrecipes.md)
   * **`StringRules` Refaster recipes**
   * Refaster rules related to expressions dealing with `String`s. [Source](https://error-prone.picnic.tech/refasterrules/StringRules).
@@ -18009,6 +18408,9 @@ _1494 recipes_
 * [tech.picnic.errorprone.refasterrules.StringRulesRecipes$OptionalNonEmptyStringRecipe](/user-documentation/recipes/recipe-catalog/tech/picnic/errorprone/refasterrules/stringrulesrecipes$optionalnonemptystringrecipe.md)
   * **Refaster template `StringRules.OptionalNonEmptyString`**
   * Don't use the ternary operator to create an optionally-absent string.
+* [tech.picnic.errorprone.refasterrules.StringRulesRecipes$StringFormattedRecipe](/user-documentation/recipes/recipe-catalog/tech/picnic/errorprone/refasterrules/stringrulesrecipes$stringformattedrecipe.md)
+  * **Refaster template `StringRules.StringFormatted`**
+  * Prefer `String#formatted(Object...)` over `String#format(String, Object...)`, as the former works more nicely with text blocks, while the latter does not appear advantageous in any circumstance (assuming one targets JDK 15+).
 * [tech.picnic.errorprone.refasterrules.StringRulesRecipes$StringIdentityRecipe](/user-documentation/recipes/recipe-catalog/tech/picnic/errorprone/refasterrules/stringrulesrecipes$stringidentityrecipe.md)
   * **Refaster template `StringRules.StringIdentity`**
   * Avoid unnecessary creation of new `String` objects.
@@ -18039,6 +18441,9 @@ _1494 recipes_
 * [tech.picnic.errorprone.refasterrules.StringRulesRecipes$StringIsNullOrEmptyRecipe](/user-documentation/recipes/recipe-catalog/tech/picnic/errorprone/refasterrules/stringrulesrecipes$stringisnulloremptyrecipe.md)
   * **Refaster template `StringRules.StringIsNullOrEmpty`**
   * Prefer `Strings#isNullOrEmpty(String)` over the more verbose alternative.
+* [tech.picnic.errorprone.refasterrules.StringRulesRecipes$StringJoinDelimiterVarargsRecipe](/user-documentation/recipes/recipe-catalog/tech/picnic/errorprone/refasterrules/stringrulesrecipes$stringjoindelimitervarargsrecipe.md)
+  * **Refaster template `StringRules.StringJoinDelimiterVarargs`**
+  * Prefer `String#join(CharSequence, CharSequence...)` over less efficient alternatives.
 * [tech.picnic.errorprone.refasterrules.StringRulesRecipes$StringLastIndexOfCharRecipe](/user-documentation/recipes/recipe-catalog/tech/picnic/errorprone/refasterrules/stringrulesrecipes$stringlastindexofcharrecipe.md)
   * **Refaster template `StringRules.StringLastIndexOfChar`**
   * Prefer `String#lastIndexOf(int, int)` over less efficient alternatives.
@@ -18561,6 +18966,9 @@ _1494 recipes_
 * [tech.picnic.errorprone.refasterrules.WebClientRulesRecipes$BodyValueRecipe](/user-documentation/recipes/recipe-catalog/tech/picnic/errorprone/refasterrules/webclientrulesrecipes$bodyvaluerecipe.md)
   * **Refaster template `WebClientRules.BodyValue`**
   * Prefer `RequestBodySpec#bodyValue(Object)` over more contrived alternatives.
+* [tech.picnic.errorprone.refasterrules.WebClientRulesRecipes$RequestHeadersUriSpecUriRecipe](/user-documentation/recipes/recipe-catalog/tech/picnic/errorprone/refasterrules/webclientrulesrecipes$requestheadersurispecurirecipe.md)
+  * **Refaster template `WebClientRules.RequestHeadersUriSpecUri`**
+  * Don't unnecessarily use `RequestHeadersUriSpec#uri(Function)`.
 * [tech.picnic.errorprone.refasterrules.WebClientRulesRecipes$WebClientGetRecipe](/user-documentation/recipes/recipe-catalog/tech/picnic/errorprone/refasterrules/webclientrulesrecipes$webclientgetrecipe.md)
   * **Refaster template `WebClientRules.WebClientGet`**
   * Prefer `WebClient#get()` over `WebClient#method(HttpMethod)` with `HttpMethod#GET`.

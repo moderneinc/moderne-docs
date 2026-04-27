@@ -48,9 +48,7 @@ This recipe is available under the [Moderne Source Available License](https://do
   * newGroupId: `io.quarkus`
   * newArtifactId: `quarkus-mongodb-panache`
   * newVersion: `x`
-* [Change type](../../java/changetype)
-  * oldFullyQualifiedTypeName: `org.springframework.data.mongodb.repository.MongoRepository`
-  * newFullyQualifiedTypeName: `io.quarkus.mongodb.panache.PanacheMongoRepository`
+* [Convert MongoRepository to PanacheMongoRepository](../../quarkus/spring/mongorepositorytopanachemongorepository)
 * [Change type](../../java/changetype)
   * oldFullyQualifiedTypeName: `org.springframework.data.mongodb.core.mapping.Document`
   * newFullyQualifiedTypeName: `io.quarkus.mongodb.panache.common.MongoEntity`
@@ -82,9 +80,7 @@ recipeList:
       newGroupId: io.quarkus
       newArtifactId: quarkus-mongodb-panache
       newVersion: x
-  - org.openrewrite.java.ChangeType:
-      oldFullyQualifiedTypeName: org.springframework.data.mongodb.repository.MongoRepository
-      newFullyQualifiedTypeName: io.quarkus.mongodb.panache.PanacheMongoRepository
+  - org.openrewrite.quarkus.spring.MongoRepositoryToPanacheMongoRepository
   - org.openrewrite.java.ChangeType:
       oldFullyQualifiedTypeName: org.springframework.data.mongodb.core.mapping.Document
       newFullyQualifiedTypeName: io.quarkus.mongodb.panache.common.MongoEntity
@@ -104,7 +100,7 @@ This recipe is used as part of the following composite recipes:
 
 ## Examples
 ##### Example 1
-`MigrateSpringDataMongodbTest#convertDocumentAnnotation`
+`MigrateSpringDataMongodbTest#convertMongoRepository`
 
 
 <Tabs groupId="beforeAfter">
@@ -113,33 +109,17 @@ This recipe is used as part of the following composite recipes:
 
 ###### Before
 ```java
-import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.mongodb.repository.MongoRepository;
 
-@Document(collection = "users")
-public class User {
-    private String id;
-    private String name;
-
-    public String getId() { return id; }
-    public void setId(String id) { this.id = id; }
-    public String getName() { return name; }
-    public void setName(String name) { this.name = name; }
+public interface UserRepository extends MongoRepository<User, String> {
 }
 ```
 
 ###### After
 ```java
-import io.quarkus.mongodb.panache.common.MongoEntity;
+import io.quarkus.mongodb.panache.PanacheMongoRepository;
 
-@MongoEntity(collection = "users")
-public class User {
-    private String id;
-    private String name;
-
-    public String getId() { return id; }
-    public void setId(String id) { this.id = id; }
-    public String getName() { return name; }
-    public void setName(String name) { this.name = name; }
+public interface UserRepository extends PanacheMongoRepository<User> {
 }
 ```
 
@@ -148,23 +128,29 @@ public class User {
 
 ```diff
 @@ -1,1 +1,1 @@
--import org.springframework.data.mongodb.core.mapping.Document;
-+import io.quarkus.mongodb.panache.common.MongoEntity;
+-import org.springframework.data.mongodb.repository.MongoRepository;
++import io.quarkus.mongodb.panache.PanacheMongoRepository;
 
 @@ -3,1 +3,1 @@
-import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.mongodb.repository.MongoRepository;
 
--@Document(collection = "users")
-+@MongoEntity(collection = "users")
-public class User {
+-public interface UserRepository extends MongoRepository<User, String> {
++public interface UserRepository extends PanacheMongoRepository<User> {
+}
 ```
 </TabItem>
 </Tabs>
+
+###### Unchanged
+```java
+public class User {
+}
+```
 
 ---
 
 ##### Example 2
-`MigrateSpringDataMongodbTest#convertDocumentAnnotation`
+`MigrateSpringDataMongodbTest#convertMongoRepository`
 
 
 <Tabs groupId="beforeAfter">
@@ -173,33 +159,17 @@ public class User {
 
 ###### Before
 ```java
-import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.mongodb.repository.MongoRepository;
 
-@Document(collection = "users")
-public class User {
-    private String id;
-    private String name;
-
-    public String getId() { return id; }
-    public void setId(String id) { this.id = id; }
-    public String getName() { return name; }
-    public void setName(String name) { this.name = name; }
+public interface UserRepository extends MongoRepository<User, String> {
 }
 ```
 
 ###### After
 ```java
-import io.quarkus.mongodb.panache.common.MongoEntity;
+import io.quarkus.mongodb.panache.PanacheMongoRepository;
 
-@MongoEntity(collection = "users")
-public class User {
-    private String id;
-    private String name;
-
-    public String getId() { return id; }
-    public void setId(String id) { this.id = id; }
-    public String getName() { return name; }
-    public void setName(String name) { this.name = name; }
+public interface UserRepository extends PanacheMongoRepository<User> {
 }
 ```
 
@@ -208,18 +178,24 @@ public class User {
 
 ```diff
 @@ -1,1 +1,1 @@
--import org.springframework.data.mongodb.core.mapping.Document;
-+import io.quarkus.mongodb.panache.common.MongoEntity;
+-import org.springframework.data.mongodb.repository.MongoRepository;
++import io.quarkus.mongodb.panache.PanacheMongoRepository;
 
 @@ -3,1 +3,1 @@
-import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.mongodb.repository.MongoRepository;
 
--@Document(collection = "users")
-+@MongoEntity(collection = "users")
-public class User {
+-public interface UserRepository extends MongoRepository<User, String> {
++public interface UserRepository extends PanacheMongoRepository<User> {
+}
 ```
 </TabItem>
 </Tabs>
+
+###### Unchanged
+```java
+public class User {
+}
+```
 
 
 ## Usage

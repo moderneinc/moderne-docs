@@ -31,6 +31,54 @@ This recipe is available under the [Moderne Source Available License](https://do
 This recipe is used as part of the following composite recipes:
 
 * [Migrate to Spring Framework 5.3 (Community Edition)](/user-documentation/recipes/recipe-catalog/java/spring/framework/upgradespringframework_5_3-community-edition.md)
+* [Migrate to Spring Framework 5.3 (Moderne Edition)](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/spring/framework/upgradespringframework_5_3-moderne-edition)
+
+## Example
+
+
+<Tabs groupId="beforeAfter">
+<TabItem value="java" label="java">
+
+
+###### Before
+```java
+import org.springframework.util.StringUtils;
+
+class A {
+    boolean test(String s) {
+        return StringUtils.isEmpty(s);
+    }
+}
+```
+
+###### After
+```java
+import org.springframework.util.ObjectUtils;
+
+class A {
+    boolean test(String s) {
+        return ObjectUtils.isEmpty(s);
+    }
+}
+```
+
+</TabItem>
+<TabItem value="diff" label="Diff" >
+
+```diff
+@@ -1,1 +1,1 @@
+-import org.springframework.util.StringUtils;
++import org.springframework.util.ObjectUtils;
+
+@@ -5,1 +5,1 @@
+class A {
+    boolean test(String s) {
+-       return StringUtils.isEmpty(s);
++       return ObjectUtils.isEmpty(s);
+    }
+```
+</TabItem>
+</Tabs>
 
 
 ## Usage

@@ -84,7 +84,6 @@ This recipe is used as part of the following composite recipes:
 
 * [Migrate to Spring Boot 2.7](/user-documentation/recipes/recipe-catalog/java/spring/boot2/upgradespringboot_2_7.md)
 * [Migrate to Spring Data 3.0](/user-documentation/recipes/recipe-catalog/java/spring/data/upgradespringdata_3_0.md)
-* [Migrate to Spring Framework 6.2 for WebLogic 15.1.1](/user-documentation/recipes/recipe-catalog/com/oracle/weblogic/rewrite/spring/framework/upgradetospringframework_6_2.md)
 
 ## Examples
 ##### Example 1

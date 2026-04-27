@@ -58,7 +58,7 @@ mod git sync moderne . --organization "Default" --with-sources
 <summary>You should see output similar to the following.</summary>
 
 ```bash
-Moderne CLI 4.1.6
+Moderne CLI 4.2.0
 
 ● Retrieving organization from Moderne
 
@@ -167,7 +167,7 @@ mod build .
 <summary>You should see output similar to the following.</summary>
 
 ```bash
-Moderne CLI 4.1.6
+Moderne CLI 4.2.0
 
 ● Reading organization
 
@@ -241,7 +241,7 @@ mod run . --recipe org.openrewrite.java.dependencies.DependencyVulnerabilityChec
 <summary>You should see output similar to the following.</summary>
 
 ```bash
-Moderne CLI 4.1.6
+Moderne CLI 4.2.0
 
 Found 1 organization containing 11 repositories (1s)
 
@@ -352,7 +352,7 @@ mod study . --last-recipe-run --data-table VulnerabilityReport
 <summary>You should see output similar to the following.</summary>
 
 ```bash
-Moderne CLI 4.1.6
+Moderne CLI 4.2.0
 
 ⏺ Reading organization
 
@@ -419,7 +419,7 @@ mod run . --recipe CommonStaticAnalysis
 <summary>You should see output similar to the following.</summary>
 
 ```bash
-Moderne CLI 4.1.6
+Moderne CLI 4.2.0
 
 ● Reading organization
 
@@ -498,7 +498,7 @@ mod git checkout . -b workshop-changes --last-recipe-run
 <summary>You should see output similar to the following.</summary>
 
 ```bash
-Moderne CLI 4.1.6
+Moderne CLI 4.2.0
 
 ● Reading organization
 
@@ -611,7 +611,7 @@ Congratulations! You've completed the Moderne CLI workshop. You've learned how t
 If you want to learn more about the Moderne CLI, we'd encourage you to check out the following docs:
 
 * [Layered configuration in the CLI](../how-to-guides/layer-config-cli.md)
-* [JDK selection and configuration](../how-to-guides/jdk-selection-and-config.md)
+* [Java configuration](../how-to-guides/java.md)
 * [Using the Moderne IntelliJ plugin with the CLI](../../moderne-ide-integration/how-to-guides/moderne-plugin-install.md)
 
 ### Video tutorials

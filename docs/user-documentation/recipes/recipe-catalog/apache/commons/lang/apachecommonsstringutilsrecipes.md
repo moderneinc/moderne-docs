@@ -89,6 +89,13 @@ recipeList:
 ```
 </TabItem>
 </Tabs>
+
+## Used by
+
+This recipe is used as part of the following composite recipes:
+
+* [Prefer the Java standard library instead of Apache Commons](/user-documentation/recipes/recipe-catalog/apache/commons/preferjavastandardlibrary.md)
+
 ## Example
 
 

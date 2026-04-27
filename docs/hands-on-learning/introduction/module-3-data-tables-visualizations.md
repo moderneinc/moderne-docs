@@ -86,7 +86,7 @@ Building LSTs may take a few minutes to complete. It also requires a local JDK i
    ▛▀▀█▀▛▀▀▀▀▜
    ▌▟▀  ▛▀▀▀▀▜
    ▀▀▀▀▀▀▀▀▀▀▀
-Moderne CLI 4.1.6
+Moderne CLI 4.2.0
 
 ⏺ Reading organization
 
@@ -247,7 +247,7 @@ mod study . --last-recipe-run --data-table MethodCalls
    ▛▀▀█▀▛▀▀▀▀▜
    ▌▟▀  ▛▀▀▀▀▜
    ▀▀▀▀▀▀▀▀▀▀▀
-Moderne CLI 4.1.6
+Moderne CLI 4.2.0
 
 ⏺ Reading organization
 
