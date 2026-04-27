@@ -56,9 +56,7 @@ Update your `repos.csv` file to ensure the `origin`, `path`, and `branch` values
 
 #### To fix:
 
-Check your VCS URL in your Connector configuration. For example, if this is a GitHub repo, check that `MODERNE_AGENT_GITHUB_0_URL` is `https://github.com` (or the base URL of your on-prem GitHub instance).
-
-If your VCS is Bitbucket Server or Bitbucket Data Center, and you use a non-standard SSH port or a different URL, make sure that you have an alternate URL defined via `MODERNE_AGENT_BITBUCKET_0_ALTERNATEURLS_0`.
+Check your VCS URL in your Connector configuration. For example, if this is a GitHub repo, check that `MODERNE_SCM_GITHUB_0_URI` is `https://github.com` (or the base URL of your on-prem GitHub instance).
 
 ## Using the Lost and Found query
 

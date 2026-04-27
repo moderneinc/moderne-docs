@@ -96,7 +96,7 @@ Create a **new Maven 2 type repository** dedicated to LST artifacts. We strongly
 
 ### Option 2: Amazon S3 (or S3-compatible storage)
 
-Create a **dedicated S3 bucket** for LST artifacts. The bucket must only contain LST artifacts — other objects in the bucket will slow down indexing as the Connector scans all objects on every sync. The [S3 configuration guide](../../../administrator-documentation/moderne-platform/how-to-guides/agent-configuration/configure-an-agent-with-s3-access.md) covers authentication options (IAM role, AWS profile, or access keys) and setup instructions.
+Create a **dedicated S3 bucket** for LST artifacts. The mass ingest pipeline publishes LSTs into this bucket and also writes a `repos-lock.csv` that the Connector reads to discover your repositories and their LST locations. The [S3 organization source guide](../../../administrator-documentation/moderne-platform/how-to-guides/agent-configuration/configure-an-agent-with-s3-access.md) covers the Connector-side configuration — authentication options (IAM role, AWS profile, or access keys) and the S3 URI for the CSV object.
 
 :::info
 The Connector also needs read access to any artifact repositories that contain **dependencies** for the projects you will be running recipes against.

@@ -11,9 +11,9 @@ import VersionBanner from '@site/src/components/VersionBanner';
 
 # Configure a Connector with Artifactory access: LSTs
 
-Artifactory serves as a source of LST artifacts for Moderne. This integration uses [Artifactory Query Language](https://www.jfrog.com/confluence/display/JFROG/Artifactory+Query+Language) (AQL) to identify LST artifacts that have not yet been encrypted and transmitted to Moderne in near real-time.
+This guide explains how to configure the Moderne Connector to talk to your Artifactory instance so the Connector can discover and download your LST artifacts.
 
-This guide will walk you through how to configure the Moderne Connector to connect to your Artifactory instance to retrieve LST artifacts.
+When your [repository CSV](./agent-config.md#step-5-configure-the-connector-to-find-your-repositories-and-their-lsts) does not include `publishUri` values, the Connector uses [Artifactory Query Language](https://www.jfrog.com/confluence/display/JFROG/Artifactory+Query+Language) (AQL) to discover LST locations in near real-time — within a minute or two of publishing. Even when your CSV already includes `publishUri` values, the credentials you configure here are still used to fetch LSTs from Artifactory.
 
 :::info
 If you're wanting to configure repositories for recipe artifacts, please see [Recipe marketplace repositories](./configure-recipe-marketplace-repositories.md) instead.

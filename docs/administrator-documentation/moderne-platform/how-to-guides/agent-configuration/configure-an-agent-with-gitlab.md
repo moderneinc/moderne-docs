@@ -115,11 +115,6 @@ You can configure multiple GitLab OAuth apps by including multiple entries, each
 | `MODERNE_SCM_GITLAB_{index}_OAUTH_CLIENTSECRET` | `true`                                       |         | The secret configured in GitLab.                                                                                                                                       |
 | `MODERNE_SCM_GITLAB_{index}_URI`                | `true`                                       |         | The fully-qualified hostname of your GitLab instance.                                                                                                                  |
 | `MODERNE_SCM_GITLAB_{index}_SKIPSSL`            | `false`                                      | `false` | Specifies whether or not to skip SSL validation for HTTP connections to this GitLab instance. This must be set to `true` if you use a self-signed SSL/TLS certificate. |
-| `MODERNE_SCM_GITLAB_{index}_SSH_PRIVATEKEY`     | `false`                                      |         | The SSH private key used to establish a SSH connection with GitLab.                                                                                                    |
-| `MODERNE_SCM_GITLAB_{index}_SSH_PASSPHRASE`     | `true` (If the SSH private key is specified) |         | The passphrase used to encrypt the SSH private key.                                                                                                                    |
-| `MODERNE_SCM_GITLAB_{index}_SSH_SSHFILENAME`    | `true` (If the SSH private key is specified) |         | The file name of the private key, which the Connector will store locally.                                                                                              |
-| `MODERNE_SCM_GITLAB_{index}_SSH_USER`           | `true` (If the SSH private key is specified) |         | The username used for SSH communication with GitLab.                                                                                                                   |
-| `MODERNE_SCM_GITLAB_{index}_SSH_PORT`           | `false`                                      | `22`    | The port used to communicate via SSH with GitLab.                                                                                                                      |
 
 **Example:**
 
@@ -143,11 +138,6 @@ docker run \
 | `--moderne.scm.gitlab[{index}].oauth.clientSecret` | `true`                                       |         | The secret configured in GitLab.                                                                                                                                       |
 | `--moderne.scm.gitlab[{index}].uri`                | `true`                                       |         | The fully-qualified hostname of your GitLab instance.                                                                                                                  |
 | `--moderne.scm.gitlab[{index}].skipSsl`            | `false`                                      | `false` | Specifies whether or not to skip SSL validation for HTTP connections to this GitLab instance. This must be set to `true` if you use a self-signed SSL/TLS certificate. |
-| `--moderne.scm.gitlab[{index}].ssh.privateKey`     | `false`                                      |         | The SSH private key used to establish a SSH connection with GitLab.                                                                                                    |
-| `--moderne.scm.gitlab[{index}].ssh.passphrase`     | `true` (If the SSH private key is specified) |         | The passphrase used to encrypt the SSH private key.                                                                                                                    |
-| `--moderne.scm.gitlab[{index}].ssh.sshFileName`    | `true` (If the SSH private key is specified) |         | The file name of the private key, which the Connector will store locally.                                                                                              |
-| `--moderne.scm.gitlab[{index}].ssh.user`           | `true` (If the SSH private key is specified) |         | The username used for SSH communication with GitLab.                                                                                                                   |
-| `--moderne.scm.gitlab[{index}].ssh.port`           | `false`                                      | `22`    | The port used to communicate via SSH with GitLab.                                                                                                                      |
 
 **Example:**
 

@@ -11,17 +11,15 @@ import VersionBanner from '@site/src/components/VersionBanner';
 
 # Configure a Connector with Maven repository access
 
-In order for Moderne to retrieve your [Lossless Semantic Tree](../../references/lossless-semantic-trees.md) (LST) artifacts from a Maven repository, the Connector needs to be configured to talk to your Maven-formatted artifact repositories. This connection also allows Moderne to lookup dependency versions to determine if a new version is available.
+This guide explains how to configure the Moderne Connector to talk to a Maven-formatted artifact repository (Artifactory, Nexus, etc.) so the Connector can discover and download your LST artifacts.
+
+When your [repository CSV](./agent-config.md#step-5-configure-the-connector-to-find-your-repositories-and-their-lsts) does not include `publishUri` values, the Connector uses the [Maven Indexer](https://maven.apache.org/maven-indexer/) to discover LST locations. Note that there will be a delay between when an LST is published and when it shows up in Moderne, controlled by a batch index-update process. Even when your CSV already includes `publishUri` values, the credentials you configure here are still used to fetch LSTs from the repository. This connection also allows Moderne to look up dependency versions to determine if a new version is available.
 
 :::note
 This page covers Maven repositories used to serve **LST artifacts** for code analysis. If you're looking to configure repositories for **recipe artifacts** (Maven, NPM, NuGet, or PyPI), see [Recipe marketplace repositories](./configure-recipe-marketplace-repositories.md) instead.
 :::
 
 There are a variety of services that support Maven-formatted artifact repositories. Some examples include [JFrog Artifactory](https://jfrog.com/artifactory/), [Sonatype Nexus](https://www.sonatype.com/products/nexus-repository), and [Azure Artifacts](https://azure.microsoft.com/en-us/services/devops/artifacts/).
-
-:::info
-If your company has a rule that any externally-hosted JARs (e.g., Maven Central) be brought into an internal Maven repository (e.g., Artifactory) and scanned before being used, the instructions in this doc **must** be followed. Furthermore, [please ensure that you point the agent to your internal Maven repository and that the OpenRewrite JARs and dependencies are included in said repository](./configure-an-agent-with-strict-recipe-sources.md).
-:::
 
 This guide will explain how to:
 

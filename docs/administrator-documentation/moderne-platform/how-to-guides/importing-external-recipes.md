@@ -17,8 +17,7 @@ It is the responsibility of the administrator configuring this to ensure that th
 
 ### Prerequisites
 
-* If you are a **single-tenant** user, you will need an Administrator-level account in your Moderne tenant to upload new recipe artifacts.
-* If you are a **multi-tenant** user, anyone with an `@mycompany.com` email can deploy a recipe artifact if said artifact has a `groupId` that starts with `com.mycompany` (the `tenantDomain` inverted).
+* You will need an Administrator-level account in your Moderne tenant to upload new recipe artifacts.
 
 ## Importing recipes from the Moderne Platform
 
@@ -41,10 +40,6 @@ From your Moderne tenant, click on _Deploy_ in the left-hand menu:
 </figure>
 
 2. Provide the `Group ID`, `Artifact ID`, and `Version` for the published artifact. You can also configure what organization to deploy it to and what ecosystem your artifacts live in.
-
-:::info
-If you are a multi-tenant customer, you must ensure that your artifact's `groupId` starts with `com.mycompany` (the `tenantDomain` inverted). You also must ensure that your account has an `@mycompany.com` email address.
-:::
 
 <figure>
   ![Deploy new recipe artifact form with Group ID, Artifact ID, and Version fields](./assets/gav-artifact.png)

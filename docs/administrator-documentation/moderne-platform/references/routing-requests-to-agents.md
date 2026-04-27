@@ -31,9 +31,3 @@ Depending on the action, requests to these Connectors are routed differently. Mo
 | no        | yes                                  | many      | Syncing LST artifacts from a representative Connector for each distinct artifact repository (partition by artifact repository)  |
 | yes       | no                                   | many      | No current use case                                                                                                             |
 | no        | no                                   | one       | Git commit                                                                                                                      |
-
-## Multi-tenant customers
-
-For multi-tenant customers, Moderne runs a Connector that connects to your artifact repositories. For instance, if you work for a company whose email addresses end with `@mycompany.com`, Moderne configures a Connector for you with a `tenantDomain` of `mycompany.com`.
-
-If a user is logged into Moderne with an `@mycompany.com` email address, they will find that their requests (e.g., Maven resolution requests) are made to the `mycompany.com` artifact repositories.

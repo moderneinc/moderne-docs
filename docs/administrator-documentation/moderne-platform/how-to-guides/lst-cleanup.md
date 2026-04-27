@@ -150,7 +150,18 @@ The retention period (days) should at least match how often you build LSTs:
 
 #### Custom cleanup script
 
-For cases where lifecycle rules are insufficient (e.g., keeping LSTs for specific branches longer or targeting cleanup to specific date ranges), you can use the following script with the AWS CLI. It leverages the [date-based key structure](./agent-configuration/configure-an-agent-with-s3-access.md#s3-bucket-structure) used by the Moderne CLI when publishing to S3.
+For cases where lifecycle rules are insufficient (e.g., keeping LSTs for specific branches longer or targeting cleanup to specific date ranges), you can use the following script with the AWS CLI. It targets the date-based key structure used by `mod publish` when the CLI writes LST artifacts to S3:
+
+```
+s3://my-lst-bucket/
+└── YYYY/
+    └── MM/
+        └── DD/
+            └── HH/
+                └── <ULID>.jar
+```
+
+The script only deletes objects whose keys match this `YYYY/MM/DD/HH/` prefix pattern, so files like `repos.csv` or `repos-lock.csv` at the bucket root are left alone.
 
 :::warning
 Always run the script in dry run mode first (the default) to verify which objects will be deleted before performing actual deletion.
@@ -285,7 +296,7 @@ To run this cleanup automatically, add it to a cron job:
 ```
 
 :::note
-This script requires `s3:ListBucket`, `s3:DeleteObject`, and `s3:HeadBucket` permissions on your S3 bucket. The `s3:DeleteObject` and `s3:HeadBucket` permissions are in addition to the [permissions required by the Moderne Connector](./agent-configuration/configure-an-agent-with-s3-access.md#prerequisites).
+This script requires `s3:ListBucket`, `s3:DeleteObject`, and `s3:HeadBucket` permissions on the LST bucket. These are the credentials used to _run the cleanup script_ — they are separate from the credentials the Connector uses to fetch a CSV from S3 (covered in the [S3 organization source guide](./agent-configuration/configure-an-agent-with-s3-access.md)).
 :::
 
 :::tip

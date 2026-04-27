@@ -336,34 +336,37 @@ java -jar connector-{version}.jar \
 </TabItem>
 </Tabs>
 
-### Step 5: Configure the Connector to connect to your artifact repositories
+### Step 5: Configure the Connector to find your repositories and their LSTs
 
-Connecting the Connector to your artifact repositories enables Moderne to retrieve [LST](../../references/lossless-semantic-trees.md) artifacts so that recipes can be run on your code. Your company might have many artifact repositories, potentially in different products, that can serve LST artifacts. The setup instructions differ based on what product you use.
+Before Moderne can run recipes on your code, the Connector needs two things:
 
-Moderne offers several options for connecting to your LST storage:
+1. The list of repositories you want Moderne to index.
+2. The [LST](../../references/lossless-semantic-trees.md) artifact location for each repository.
 
-* **[Artifactory](./configure-an-agent-with-artifactory-access.md)**: Uses AQL (Artifact Query Language) to be able to see your repos in the platform within two minutes after publishing. **(recommended for Artifactory users)**
-* **[Maven repository](./configure-an-agent-with-maven-repository-access.md)**: A generic connection that works with any Maven-formatted repository (Artifactory, Nexus, etc.).
-* **[Amazon S3](./configure-an-agent-with-s3-access.md)**: Store and retrieve LST artifacts directly from S3 or S3-compatible storage (e.g., MinIO).
+Both come from a CSV file that you point the Connector at.
 
-:::info
-For Maven and Artifactory configurations, the Moderne Connector connects to _Maven formatted_ artifact repositories. There are a variety of open-source and commercial products that exist that can serve artifacts in this format (such as [Artifactory](https://jfrog.com/artifactory/) and [Sonatype Nexus](https://www.sonatype.com/products/nexus-repository)).
-:::
+#### Configure where your CSV lives
 
-**Choosing your LST source:**
+The CSV can live in a few different places - pick whichever fits your environment. All three options sit under `moderne.organization.sources.*`:
 
-* If you use **Artifactory**, use the [Artifactory LST configuration](./configure-an-agent-with-artifactory-access.md).
-* If you use **Amazon S3** or S3-compatible storage, use the [S3 configuration](./configure-an-agent-with-s3-access.md).
-* If you use a **different Maven repository** (Nexus, etc.) or cannot use AQL queries, use the [Maven repository configuration](./configure-an-agent-with-maven-repository-access.md).
+| Source type | Description                          | Configuration prefix                   |
+|-------------|--------------------------------------|----------------------------------------|
+| File        | A CSV on the Connector's filesystem. | `moderne.organization.sources.file[*]` |
+| HTTP(S)     | A URL serving a CSV.                 | `moderne.organization.sources.http[*]` |
+| S3 object   | An S3 URI pointing to a CSV object.  | `moderne.organization.sources.s3[*]`   |
 
-The below table shows the key differences between the Maven and Artifactory configurations:
+For `file` and `http` sources, please see the [organizational hierarchy configuration guide](./configure-organizations-hierarchy.md). For `s3` sources, please see the [S3 organization source guide](./configure-an-agent-with-s3-access.md). For details on the CSV format itself (such as required and optional columns, how to express an organizational hierarchy), please see the [repos.csv reference](../../../../user-documentation/moderne-cli/references/repos-csv.md).
 
-| **Maven repository configuration**                                                                                                                                                                                                                                                                                                          | **Artifactory repository configuration**                                                                                                                                                                                                                                                                 |
-|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Is not tied to a particular vendor. Works with any Maven-formatted repository (Artifactory, Nexus, etc.).                                                                                                                                                                                                                                   | Can only be used with Artifactory.                                                                                                                                                                                                                                                                       |
-| LSTs are discovered via an index in the [Maven Indexer](https://maven.apache.org/maven-indexer/) format that must be regularly published to the repository. There will be a delay between when an LST is published and when it shows up in Moderne — approximately the delay between index updates, which is controlled by a batch process. | LSTs show up in near-real time (within a minute or two) via [Artifactory Query Language](https://www.jfrog.com/confluence/display/JFROG/Artifactory+Query+Language) (AQL), which queries Artifactory's internal database for recently published artifacts rather than relying on a batch-produced index. |
+#### Configure where your LSTs live
 
-Please ensure you've followed either the [Maven](./configure-an-agent-with-maven-repository-access.md) or [Artifactory](./configure-an-agent-with-artifactory-access.md) instructions before continuing.
+You have two options:
+
+* **(Recommended) Include publish URIs in the CSV.** When each row has a `publishUri` column, the Connector trusts those values and fetches LSTs directly. You can generate such a CSV by setting up a [Mass Ingest](../mass-ingest.md) pipeline; its `mod publish` step produces a `repos-lock.csv` with `publishUri` values for every repository.
+* **Let the Connector discover them.** If your CSV does not have `publishUri` values, point the Connector at the artifact repository (or repositories) where your LSTs are published. The Connector will query it to look up each LST's location at runtime:
+  * **[Artifactory](./configure-an-agent-with-artifactory-access.md)** - uses [AQL](https://www.jfrog.com/confluence/display/JFROG/Artifactory+Query+Language) to discover LSTs in near real-time (within a minute or two of publishing). Recommended for Artifactory users.
+  * **[Maven repository](./configure-an-agent-with-maven-repository-access.md)** - works with any Maven-formatted repository (Artifactory, Nexus, etc.) via the [Maven Indexer](https://maven.apache.org/maven-indexer/). There will be a delay between when an LST is published and when it shows up in Moderne, controlled by a batch index-update process.
+
+The Connector picks between these two paths automatically based on whether you've configured poll repositories. If you need to force one or the other, set `moderne.connector.organization.mode` - see the [agent variables reference](./agent-variables.md) for the full list of values.
 
 Below is an example of what a Connector run command might look like at the end of this step.
 
@@ -377,10 +380,6 @@ export MODERNE_CONNECTOR_CRYPTO_SYMMETRICKEY=...
 export MODERNE_CONNECTOR_TOKEN=...
 export MODERNE_SCM_GITHUB_0_OAUTH_CLIENTID=...
 export MODERNE_SCM_GITHUB_0_OAUTH_CLIENTSECRET=...
-export MODERNE_CONNECTOR_ORGANIZATION_POLL_ARTIFACTORY_0_USERNAME=...
-export MODERNE_CONNECTOR_ORGANIZATION_POLL_ARTIFACTORY_0_PASSWORD=...
-export MODERNE_CONNECTOR_ORGANIZATION_POLL_MAVEN_0_USERNAME=...
-export MODERNE_CONNECTOR_ORGANIZATION_POLL_MAVEN_0_PASSWORD=...
 
 docker run \
 -e MODERNE_CONNECTOR_APIGATEWAYRSOCKETURI=https://api.tenant.moderne.io/connector \
@@ -393,14 +392,13 @@ docker run \
 -e MODERNE_SCM_GITHUB_0_ALLOWABLE_ORGANIZATIONS_0=moderne \
 -e MODERNE_SCM_GITHUB_0_ALLOWABLE_ORGANIZATIONS_1=openrewrite \
 -e MODERNE_SCM_GITHUB_0_OAUTH_INCLUDEPRIVATEREPOS=true \
--e MODERNE_CONNECTOR_ORGANIZATION_POLL_ARTIFACTORY_0_URI=https://myartifactory.example.com/artifactory/ \
--e MODERNE_CONNECTOR_ORGANIZATION_POLL_ARTIFACTORY_0_USERNAME \
--e MODERNE_CONNECTOR_ORGANIZATION_POLL_ARTIFACTORY_0_PASSWORD \
--e MODERNE_CONNECTOR_ORGANIZATION_POLL_ARTIFACTORY_0_LSTQUERYFILTERS_0='"name":{"$match":"*-ast.jar"}' \
--e MODERNE_CONNECTOR_ORGANIZATION_POLL_ARTIFACTORY_0_LSTQUERYFILTERS_1='"repo":{"$eq":"example-maven"}' \
--e MODERNE_CONNECTOR_ORGANIZATION_POLL_MAVEN_0_URI=https://myartifactory.example.com/artifactory/libs-releases-local \
--e MODERNE_CONNECTOR_ORGANIZATION_POLL_MAVEN_0_USERNAME \
--e MODERNE_CONNECTOR_ORGANIZATION_POLL_MAVEN_0_PASSWORD \
+# Point the Connector at a CSV describing your repositories. Prefer `repos-lock.csv` from Mass Ingest for LOCK mode.
+-e MODERNE_ORGANIZATION_SOURCES_HTTP_0_URI=https://internal.example.com/repos-lock.csv \
+# (Optional) Enrichment pollers — only needed if your CSV lacks publishUri values.
+# -e MODERNE_CONNECTOR_ORGANIZATION_POLL_ARTIFACTORY_0_URI=https://myartifactory.example.com/artifactory/ \
+# -e MODERNE_CONNECTOR_ORGANIZATION_POLL_ARTIFACTORY_0_USERNAME=... \
+# -e MODERNE_CONNECTOR_ORGANIZATION_POLL_ARTIFACTORY_0_PASSWORD=... \
+# -e MODERNE_CONNECTOR_ORGANIZATION_POLL_ARTIFACTORY_0_LSTQUERYFILTERS_0='"name":{"$match":"*-ast.jar"}' \
 # ... Additional variables to come
 -p 8080:8080
 moderne-connector:latest
@@ -416,10 +414,6 @@ export MODERNE_CONNECTOR_CRYPTO_SYMMETRICKEY=...
 export MODERNE_CONNECTOR_TOKEN=...
 export MODERNE_SCM_GITHUB_0_OAUTH_CLIENTID=...
 export MODERNE_SCM_GITHUB_0_OAUTH_CLIENTSECRET=...
-export MODERNE_CONNECTOR_ORGANIZATION_POLL_ARTIFACTORY_0_USERNAME=...
-export MODERNE_CONNECTOR_ORGANIZATION_POLL_ARTIFACTORY_0_PASSWORD=...
-export MODERNE_CONNECTOR_ORGANIZATION_POLL_MAVEN_0_USERNAME=...
-export MODERNE_CONNECTOR_ORGANIZATION_POLL_MAVEN_0_PASSWORD=...
 
 java -jar connector-{version}.jar \
 --moderne.connector.apiGatewayRsocketUri=https://api.tenant.moderne.io/connector \
@@ -428,10 +422,13 @@ java -jar connector-{version}.jar \
 --moderne.scm.github[0].allowableOrganizations[0]=moderne \
 --moderne.scm.github[0].allowableOrganizations[1]=openrewrite \
 --moderne.scm.github[0].oauth.includePrivateRepos=true \
---moderne.connector.organization.poll.artifactory[0].uri=https://myartifactory.example.com/artifactory/ \
---moderne.connector.organization.poll.artifactory[0].lstQueryFilters[0]='{"name":{"$match":"*-ast.jar"}}' \
---moderne.connector.organization.poll.artifactory[0].lstQueryFilters[1]='{"repo":{"$eq":"example-maven"}}' \
---moderne.connector.organization.poll.maven[0].uri=https://myartifactory.example.com/artifactory/libs-releases-local \
+# Point the Connector at a CSV describing your repositories. Prefer `repos-lock.csv` from Mass Ingest for LOCK mode.
+--moderne.organization.sources.http[0].uri=https://internal.example.com/repos-lock.csv \
+# (Optional) Enrichment pollers — only needed if your CSV lacks publishUri values.
+# --moderne.connector.organization.poll.artifactory[0].uri=https://myartifactory.example.com/artifactory/ \
+# --moderne.connector.organization.poll.artifactory[0].username=... \
+# --moderne.connector.organization.poll.artifactory[0].password=... \
+# --moderne.connector.organization.poll.artifactory[0].lstQueryFilters[0]='{"name":{"$match":"*-ast.jar"}}' \
 # ... Additional arguments to come
 ```
 </TabItem>
@@ -459,176 +456,11 @@ Once you configure one or more Maven repositories, only those are searched — t
 
 For the full list of variables/arguments, please see the [recipe marketplace repositories guide](./configure-recipe-marketplace-repositories.md).
 
-### Step 7: (Optionally) Use strict recipe sources.
-
-Some organizations want recipe artifacts to only come from locations configured in the Moderne Connector. If you want to configure that, please follow the [strict recipe sources instructions](./configure-an-agent-with-strict-recipe-sources.md).
-
-Below is an example of what a Connector run command might look like at the end of this step if you configured the Connector to use only configured recipe sources.
-
-<Tabs groupId="connector-type">
-<TabItem value="oci-container" label="OCI Container">
-
-```bash
-# Please note that if you create environment variables for secrets, you still need to let Docker
-# know that these variables exist by including it via: `-e ENV_VAR_NAME`.
-export MODERNE_CONNECTOR_CRYPTO_SYMMETRICKEY=...
-export MODERNE_CONNECTOR_TOKEN=...
-export MODERNE_SCM_GITHUB_0_OAUTH_CLIENTID=...
-export MODERNE_SCM_GITHUB_0_OAUTH_CLIENTSECRET=...
-export MODERNE_CONNECTOR_ORGANIZATION_POLL_ARTIFACTORY_0_USERNAME=...
-export MODERNE_CONNECTOR_ORGANIZATION_POLL_ARTIFACTORY_0_PASSWORD=...
-export MODERNE_CONNECTOR_ORGANIZATION_POLL_MAVEN_0_USERNAME=...
-export MODERNE_CONNECTOR_ORGANIZATION_POLL_MAVEN_0_PASSWORD=...
-
-docker run \
--e MODERNE_CONNECTOR_APIGATEWAYRSOCKETURI=https://api.tenant.moderne.io/connector \
--e MODERNE_CONNECTOR_CRYPTO_SYMMETRICKEY \
--e MODERNE_CONNECTOR_NICKNAME=prod-1 \
--e MODERNE_CONNECTOR_TOKEN \
--e MODERNE_SCM_GITHUB_0_OAUTH_CLIENTID \
--e MODERNE_SCM_GITHUB_0_OAUTH_CLIENTSECRET \
--e MODERNE_SCM_GITHUB_0_URI=https://myorg.github.com \
--e MODERNE_SCM_GITHUB_0_ALLOWABLE_ORGANIZATIONS_0=moderne \
--e MODERNE_SCM_GITHUB_0_ALLOWABLE_ORGANIZATIONS_1=openrewrite \
--e MODERNE_SCM_GITHUB_0_OAUTH_INCLUDEPRIVATEREPOS=true \
--e MODERNE_CONNECTOR_ORGANIZATION_POLL_ARTIFACTORY_0_URI=https://myartifactory.example.com/artifactory/ \
--e MODERNE_CONNECTOR_ORGANIZATION_POLL_ARTIFACTORY_0_USERNAME \
--e MODERNE_CONNECTOR_ORGANIZATION_POLL_ARTIFACTORY_0_PASSWORD \
--e MODERNE_CONNECTOR_ORGANIZATION_POLL_ARTIFACTORY_0_LSTQUERYFILTERS_0='"name":{"$match":"*-ast.jar"}' \
--e MODERNE_CONNECTOR_ORGANIZATION_POLL_ARTIFACTORY_0_LSTQUERYFILTERS_1='"repo":{"$eq":"example-maven"}' \
--e MODERNE_CONNECTOR_ORGANIZATION_POLL_MAVEN_0_URI=https://myartifactory.example.com/artifactory/libs-releases-local \
--e MODERNE_CONNECTOR_ORGANIZATION_POLL_MAVEN_0_USERNAME \
--e MODERNE_CONNECTOR_ORGANIZATION_POLL_MAVEN_0_PASSWORD \
--p 8080:8080
-moderne-connector:latest
-```
-</TabItem>
-
-<TabItem value="executable-jar" label="Executable JAR">
-
-```bash
-# Exporting environment variables with the exact same structure as the parameter in the Java command makes it so you no longer need to include them in the below Java command. For instance, the first export below is equivalent to including this parameter in the Java command:
-# --moderne.connector.crypto.symmetricKey=...
-export MODERNE_CONNECTOR_CRYPTO_SYMMETRICKEY=...
-export MODERNE_CONNECTOR_TOKEN=...
-export MODERNE_SCM_GITHUB_0_OAUTH_CLIENTID=...
-export MODERNE_SCM_GITHUB_0_OAUTH_CLIENTSECRET=...
-export MODERNE_CONNECTOR_ORGANIZATION_POLL_ARTIFACTORY_0_USERNAME=...
-export MODERNE_CONNECTOR_ORGANIZATION_POLL_ARTIFACTORY_0_PASSWORD=...
-export MODERNE_CONNECTOR_ORGANIZATION_POLL_MAVEN_0_USERNAME=...
-export MODERNE_CONNECTOR_ORGANIZATION_POLL_MAVEN_0_PASSWORD=...
-
-java -jar connector-{version}.jar \
---moderne.connector.apiGatewayRsocketUri=https://api.tenant.moderne.io/connector \
---moderne.connector.nickname=prod-1 \
---moderne.connector.token=yourToken \
---moderne.scm.github[0].uri=https://myorg.github.com \
---moderne.scm.github[0].allowableOrganizations[0]=moderne \
---moderne.scm.github[0].allowableOrganizations[1]=openrewrite \
---moderne.scm.github[0].oauth.includePrivateRepos=true \
---moderne.connector.organization.poll.artifactory[0].uri=https://myartifactory.example.com/artifactory/ \
---moderne.connector.organization.poll.artifactory[0].lstQueryFilters[0]='{"name":{"$match":"*-ast.jar"}}' \
---moderne.connector.organization.poll.artifactory[0].lstQueryFilters[1]='{"repo":{"$eq":"example-maven"}}' \
---moderne.connector.organization.poll.maven[0].uri=https://myartifactory.example.com/artifactory/libs-releases-local \
-```
-</TabItem>
-</Tabs>
-
-### Step 8: (Optionally) Configure LLM support for Moddy
+### Step 7: (Optionally) Configure LLM support for Moddy
 
 If you want to enable Moddy (Moderne's AI agent) in your platform, you'll need to configure LLM support. Moddy allows users to interact with their codebase using natural language. Please follow the [Moddy configuration instructions](./configure-an-agent-with-llm-for-moddy.md) to set this up.
 
-### Step 9: (Optional but recommended) Configure organizational hierarchy
-
-If you would like to have an organizational hierarchy available inside of the Moderne Platform, you can provide this information using a `repos.csv` file.
-
-#### Using a repos.csv file
-
-A `repos.csv` file defines your repositories and their organizational structure. The Connector can load this file to create organizations in the Moderne Platform.
-
-**Required columns:**
-
-* `cloneUrl` - The URL of the repository
-* `branch` - The branch to check out
-* `origin` - The host domain of the repository
-* `path` - The organization and repository name portion of the clone URL
-
-**Optional hierarchy columns:**
-
-* `org1`, `org2`, `org3`, ... - Define parent-child organizational relationships
-
-Organizations on the left are children of organizations on the right. For example, if you have `org1=Team1`, `org2=DirectorA`, `org3=ALL`, then `Team1` is a child of `DirectorA`, which is a child of `ALL`.
-
-**Example repos.csv:**
-
-```csv
-cloneUrl,branch,origin,path,org1,org2,org3
-https://github.com/apache/maven-doxia,master,github.com,apache/maven-doxia,Team 1,Director A,ALL
-https://github.com/Netflix/photon,main,github.com,Netflix/photon,Team 2,Director A,ALL
-https://github.com/Netflix/ribbon,master,github.com,Netflix/ribbon,Director A,ALL
-```
-
-**Loading the repos.csv file:**
-
-You can provide the file to the Connector in two ways:
-
-1. **Remote URL:** Set the environment variable to point to a hosted CSV file
-2. **Local file:** Mount the file into the container and configure the path
-
-<Tabs groupId="connector-type">
-<TabItem value="oci-container" label="OCI Container">
-
-**Option 1: Remote URL**
-
-```bash
-docker run \
-  -e MODERNE_ORGANIZATION_SOURCES_HTTP_0_URI=https://example.com/repos.csv \
-  # ... other environment variables
-  moderne-connector:latest
-```
-
-**Option 2: Local file (relative to the Connector's permanent directory)**
-
-```bash
-docker run \
-  -v /path/to/repos.csv:/moderne/permanent/repos.csv \
-  -e MODERNE_ORGANIZATION_SOURCES_FILE_0_PATH=repos.csv \
-  # ... other environment variables
-  moderne-connector:latest
-```
-
-</TabItem>
-
-<TabItem value="executable-jar" label="Executable JAR">
-
-**Option 1: Remote URL**
-
-```bash
-java -jar connector-{version}.jar \
-  --moderne.organization.sources.http[0].uri=https://example.com/repos.csv \
-  # ... other arguments
-```
-
-**Option 2: Local file (relative to the Connector's permanent directory)**
-
-```bash
-java -jar connector-{version}.jar \
-  --moderne.organization.sources.file[0].path=repos.csv \
-  # ... other arguments
-```
-
-</TabItem>
-</Tabs>
-
-:::tip
-For detailed information about creating and formatting a `repos.csv` file, including how to handle different SCM providers and define complex organizational hierarchies, see the [creating a repos.csv file](../../../../user-documentation/moderne-cli/references/repos-csv.md) guide.
-:::
-
-**Alternative configuration:**
-
-If you need more advanced organizational configuration options, you can also [configure an organizational hierarchy](./configure-organizations-hierarchy.md) using other methods and [let the Connector know about it](./configure-organizations-hierarchy.md#connector-configuration).
-
-### Step 10: (Optionally) Create an Organizations service
+### Step 8: (Optionally) Create an Organizations service
 
 You should create an Organizations service if you want to:
 
@@ -637,15 +469,15 @@ You should create an Organizations service if you want to:
 
 To do so, please follow the instructions in our [creating an Organizations service guide](../org-service.md) and then [let the Connector know about it](../org-service.md#connector-variables).
 
-### Step 11: (Optionally) Configure a DevCenter
+### Step 9: (Optionally) Configure a DevCenter
 
 The DevCenter is the mission-control dashboard of the Moderne Platform. If you wish to have DevCenters available inside of the Moderne Platform, you will need to [ensure you've defined an organizational hierarchy](./configure-organizations-hierarchy.md) and then [follow the instructions for configuring a DevCenter](../creating-a-devcenter-recipe.md).
 
-### Step 12: (Optionally) Provide SSL client keystore
+### Step 10: (Optionally) Provide SSL client keystore
 
 If you have configured any services that require client SSL certificates (such as Maven or Artifactory), you will need to provide a KeyStore with these certificates. Please follow [these instructions](./configure-an-agent-with-client-ssl-certificates.md) to configure the KeyStore.
 
-### Step 13: Run the Connector
+### Step 11: Run the Connector
 
 At this point, you should have configured everything needed to run the Moderne Connector. If you run into issues running the command, please don't hesitate to reach out.
 
@@ -775,37 +607,7 @@ These endpoints are particularly useful for:
 
 ## Monitoring
 
-The Moderne Connector exposes Prometheus-compatible metrics that can be used for monitoring and observability.
-
-### Prometheus metrics endpoint
-
-The agent exposes metrics at `/actuator/prometheus` on port 8080.
-
-**Example Prometheus scrape configuration:**
-
-```yaml
-scrape_configs:
-  - job_name: 'moderne-agent'
-    static_configs:
-      - targets: ['localhost:8080']
-    metrics_path: '/actuator/prometheus'
-```
-
-### Grafana dashboard
-
-A pre-built Grafana dashboard is available in the [Moderne Connector example repository](https://github.com/moderneinc/moderne-agent-example/tree/main/grafana). The dashboard provides visualizations for:
-
-* Connector connectivity status
-* LST indexing performance
-* Artifact download metrics
-* Resource utilization
-* Error rates
-
-To use the dashboard:
-
-1. Import `moderne-agent-dashboard-v1.json` into your Grafana instance
-2. Select your Prometheus datasource when prompted
-3. The dashboard will automatically populate with metrics from your Connector(s)
+Moderne SaaS provides a hosted observability dashboard at `https://status.<TENANT>.moderne.io`. This Atlas-backed dashboard gives you a tenant-wide view of Connector health, LST ingestion progress, recipe runs, and other SaaS internals — with no scrape configuration or local metrics infrastructure required.
 
 ## Scaling considerations
 

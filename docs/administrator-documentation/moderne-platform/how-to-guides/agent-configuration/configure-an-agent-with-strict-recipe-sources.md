@@ -1,6 +1,6 @@
 ---
-sidebar_label: Strict recipe source configuration
-description: How to configure the Moderne Connector to have strict recipe sources.
+sidebar_label: POM cache configuration
+description: How to configure the Moderne Connector's POM cache for recipe resolution.
 ---
 
 import Tabs from '@theme/Tabs';
@@ -9,51 +9,11 @@ import VersionBanner from '@site/src/components/VersionBanner';
 
 <VersionBanner version="v2" linkPath="/administrator-documentation/moderne-platform-v1/how-to-guides/agent-configuration/configure-an-agent-with-strict-recipe-sources" />
 
-# Configure a Connector with strict recipe sources
+# Configure the POM cache
 
-The Moderne SaaS is configured to use the following Maven repositories to load recipe artifacts from in the event the Connector has not been configured with any recipe sources or if a recipe artifact cannot be sourced from what is configured. (Requires Connector version `0.118.0` or greater)
+When the Moderne Connector resolves a recipe artifact, it walks the artifact's POM dependency graph against your [recipe marketplace repositories](./configure-recipe-marketplace-repositories.md). To avoid re-fetching the same POMs on every resolution, the Connector caches them.
 
-```xml
-<repository>
-  <id>maven-central-explicit</id>
-  <url>https://repo1.maven.org/maven2</url>
-  <snapshots>
-    <enabled>false</enabled>
-  </snapshots>
-  <releases>
-    <enabled>true</enabled>
-  </releases>
-</repository>
-<repository>
-  <id>oss-snapshots</id>
-  <url>https://central.sonatype.com/repository/maven-snapshots</url>
-  <snapshots>
-    <enabled>true</enabled>
-  </snapshots>
-  <releases>
-    <enabled>false</enabled>
-  </releases>
-</repository>
-<repository>
-  <id>artifact-registry</id>
-  <url>https://us-west1-maven.pkg.dev/moderne-dev/moderne-recipe</url>
-  <releases>
-    <enabled>true</enabled>
-  </releases>
-  <snapshots>
-    <enabled>true</enabled>
-  </snapshots>
-</repository>
-<repository>
-  <id>jitpack</id>
-  <url>https://jitpack.io</url>
-  <releases>
-    <enabled>true</enabled>
-  </releases>
-</repository>
-```
-
-This fallback behavior can be disabled using recipe configuration. If any Connector is configured with this setting then recipes will only be sourced by what the Connector defines.
+By default the cache lives in memory. For larger deployments — especially when running multiple Connector replicas — you can switch to a shared Redis cache so that POM lookups are reused across replicas.
 
 <Tabs groupId="agent-type">
 <TabItem value="oci-container" label="OCI Container">
