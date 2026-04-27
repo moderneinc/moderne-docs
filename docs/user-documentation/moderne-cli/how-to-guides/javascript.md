@@ -49,7 +49,85 @@ build:
 // highlight-end
 ```
 
-## Step 2: (Optionally) Clone a custom list of repositories
+## Step 2: (Optionally) Configure your Node.js installation
+
+By default, the CLI uses the Node.js installation found on your `$PATH`.
+
+### Discovering installations
+
+You can see all detected Node.js installations by running:
+
+```bash
+mod config node installation list
+```
+
+### Adding installation locations
+
+If Node.js is installed in a non-standard location, you can register it:
+
+```bash
+mod config node installation edit /path/to/node
+```
+
+You can also register multiple installations at once:
+
+```bash
+mod config node installation edit /opt/node-18 /opt/node-22
+```
+
+To remove manually configured installation paths:
+
+```bash
+mod config node installation delete
+```
+
+This only removes user-configured paths. Automatically discovered installations remain available.
+
+### Selecting a version
+
+To pin the Node.js version globally:
+
+```bash
+mod config node version edit 22
+```
+
+You can use a major version (`22`), minor (`22.9`), or exact patch (`22.9.0`) depending on how tight you need the match to be. The version must correspond to one of the installations known to the CLI.
+
+To apply a version only to a specific group of repositories, use the `--local` flag:
+
+```bash
+mod config node version edit 18 --local ./legacy-set
+```
+
+To revert to auto-detection:
+
+```bash
+mod config node version delete
+```
+
+To see the currently configured version:
+
+```bash
+mod config node version show
+```
+
+### Specifying a Node.js version in the CSV
+
+You can also override the Node.js version per repository by specifying a `nodeVersion` column in your `repos.csv`:
+
+```csv
+"cloneUrl","branch","origin","path","nodeVersion"
+"https://github.com/example/frontend-app","main","github.com","example/frontend-app","18"
+"https://github.com/example/legacy-frontend","main","github.com","example/legacy-frontend","16.20.2"
+```
+
+During `mod git sync csv`, this value is written to each repository's `.moderne` directory.
+
+### Setting Node.js options
+
+You can set Node.js options via the `nodeOptions` column in your `repos.csv`. These are passed through the `NODE_OPTIONS` environment variable when building LSTs and running recipes. For more details, please check out our [repos.csv reference](../references/repos-csv.md).
+
+## Step 3: (Optionally) Clone a custom list of repositories
 
 If you don't have the repositories you want to work with cloned locally already, you can clone a group of them by defining a `repos.csv` file that lists them out such as in the following example:
 
@@ -75,7 +153,7 @@ After creating the CSV, clone the repositories by running the following command:
 mod git sync csv . repos.csv --with-sources
 ```
 
-## Step 3: Build your JavaScript repositories
+## Step 4: Build your JavaScript repositories
 
 The next thing you'll need to do is build LSTs for each of your repositories. To build the LSTs, run:
 
@@ -97,7 +175,7 @@ Presuming everything has been set up correctly, you should see output similar to
     Cleaned 1 older builds
 ```
 
-## Step 4: Install recipes
+## Step 5: Install recipes
 
 In order to run recipes, you'll need to make sure the recipes are installed on your local machine.
 
@@ -107,7 +185,7 @@ You can install a specific JavaScript recipe module by running a command like:
 mod config recipes npm install @openrewrite/recipes-nodejs
 ```
 
-## Step 5: Run recipes
+## Step 6: Run recipes
 
 With the LSTs built and recipes installed, you can now run recipes against your JavaScript repositories. You can either specify the full recipe path for running such as in:
 
@@ -150,7 +228,7 @@ mod run . --recipe org.openrewrite.java.ChangeMethodName -PmethodPattern="* test
 ```
 :::
 
-## Step 6: View data tables
+## Step 7: View data tables
 
 Many recipes will also produce useful data tables that you can access via the `mod study` command such as in:
 

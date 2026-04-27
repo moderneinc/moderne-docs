@@ -749,7 +749,7 @@ For more options, see the [CLI reference documentation](../cli-reference.md#mod-
 If you want to learn more about the Moderne CLI, we'd encourage you to check out the following docs:
 
 * [Layered configuration in the CLI](../how-to-guides/layer-config-cli.md)
-* [JDK selection and configuration](../how-to-guides/jdk-selection-and-config.md)
+* [Java configuration](../how-to-guides/java.md)
 * [Using the Moderne IntelliJ plugin with the CLI](../../moderne-ide-integration/how-to-guides/moderne-plugin-install.md)
 
 Or watch the following videos:
