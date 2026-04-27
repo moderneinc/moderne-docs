@@ -36,7 +36,7 @@ Any recipe that meets the following requirements can be displayed as a DevCenter
 
 * Requires no input options
 * Outputs the `UpgradesAndMigrations` and/or `SecurityIssues` data tables (either or both)
-* Includes the correct columns for those tables (see [DevCenterStarter data table definitions](https://docs.openrewrite.org/recipes/devcenter/devcenterstarter#data-tables) for details)
+* Includes the correct columns for those tables (see [DevCenterStarter data table definitions](../../../user-documentation/recipes/recipe-catalog/devcenter/devcenterstarter.md#data-tables) for details)
 
 ### Step 4: Deploy the recipe artifact
 

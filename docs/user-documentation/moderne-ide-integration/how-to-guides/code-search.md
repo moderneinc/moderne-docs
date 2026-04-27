@@ -22,7 +22,7 @@ To begin, find some API that you're interested in searching for. Then right-clic
 
 This opens a small menu which allows you to do three things:
 
-1. Search across all of the repositories in your multi-repo list, regardless of which one you happen to have open in the IDE currently. Behind the scenes, this uses the [Find method usages recipe](https://docs.openrewrite.org/recipes/java/search/findmethods).
+1. Search across all of the repositories in your multi-repo list, regardless of which one you happen to have open in the IDE currently. Behind the scenes, this uses the [Find method usages recipe](../../recipes/recipe-catalog/java/search/findmethods.md).
 2. Generate a [Refaster recipe](https://docs.openrewrite.org/authoring-recipes/refaster-recipes) that matches the API you've selected.
 3. Generate an [imperative visitor-based recipe](https://docs.openrewrite.org/authoring-recipes/types-of-recipes#imperative-recipes) that matches the API you've selected.
 
