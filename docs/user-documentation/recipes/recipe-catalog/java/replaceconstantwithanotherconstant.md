@@ -49,6 +49,7 @@ This recipe is used as part of the following composite recipes:
 * [Migrate the use of TaskExecutors with blocking IO](/user-documentation/recipes/recipe-catalog/java/micronaut/updateblockingtaskexecutors.md)
 * [Migrate to ApacheHttpClient 5.x Classes Namespace from 4.x](/user-documentation/recipes/recipe-catalog/apache/httpclient5/upgradeapachehttpclient_5_classmapping.md)
 * [Migrate to Hibernate 4.0.x](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/hibernate/migratetohibernate40)
+* [Migrate to Hibernate 7.0.x (Community Edition)](/user-documentation/recipes/recipe-catalog/hibernate/migratetohibernate70-community-edition.md)
 * [Migrate to Kafka 2.7](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/kafka/migratetokafka27)
 * [Migrate to Spring Framework 6.2](/user-documentation/recipes/recipe-catalog/java/spring/framework/upgradespringframework_6_2.md)
 * [Migrate to Spring Kafka 3.0](/user-documentation/recipes/recipe-catalog/java/spring/kafka/upgradespringkafka_3_0.md)

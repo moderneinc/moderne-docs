@@ -1,5 +1,5 @@
 ---
-sidebar_label: "Upgrade build to Java 25 (default)"
+sidebar_label: "Upgrade build to Java 25 (non-Kotlin)"
 ---
 
 
@@ -11,11 +11,11 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import RunRecipe from '@site/src/components/RunRecipe';
 
-# Upgrade build to Java 25 (default)
+# Upgrade build to Java 25 (non-Kotlin)
 
 **org.openrewrite.java.migrate.UpgradeBuildToJava25**
 
-_Upgrades build files to Java 25 for projects without Kotlin pre-2.3._
+_Upgrades build files to Java 25 for modules without Kotlin source files. This covers pure Java projects, including those that only pick up `kotlin-stdlib` transitively through another dependency._
 
 ## Recipe source
 
@@ -32,10 +32,7 @@ This recipe is available under the [Moderne Source Available License](https://do
 <TabItem value="recipe-list" label="Recipe List" >
 **Preconditions**
 
-* [Module has dependency](../../java/dependencies/search/modulehasdependency)
-  * groupIdPattern: `org.jetbrains.kotlin`
-  * artifactIdPattern: `kotlin-stdlib*`
-  * version: `[0,2.3)`
+* [Module has Kotlin source files](../../java/migrate/search/modulehaskotlinsource)
   * invertMarking: `true`
 
 **Recipes**
@@ -51,14 +48,11 @@ This recipe is available under the [Moderne Source Available License](https://do
 ---
 type: specs.openrewrite.org/v1beta/recipe
 name: org.openrewrite.java.migrate.UpgradeBuildToJava25
-displayName: Upgrade build to Java 25 (default)
+displayName: Upgrade build to Java 25 (non-Kotlin)
 description: |
-  Upgrades build files to Java 25 for projects without Kotlin pre-2.3.
+  Upgrades build files to Java 25 for modules without Kotlin source files. This covers pure Java projects, including those that only pick up `kotlin-stdlib` transitively through another dependency.
 preconditions:
-  - org.openrewrite.java.dependencies.search.ModuleHasDependency:
-      groupIdPattern: org.jetbrains.kotlin
-      artifactIdPattern: kotlin-stdlib*
-      version: [0,2.3)
+  - org.openrewrite.java.migrate.search.ModuleHasKotlinSource:
       invertMarking: true
 recipeList:
   - org.openrewrite.java.migrate.UpgradeJavaVersion:
@@ -79,7 +73,7 @@ This recipe is used as part of the following composite recipes:
 
 <RunRecipe
   recipeName="org.openrewrite.java.migrate.UpgradeBuildToJava25"
-  displayName="Upgrade build to Java 25 (default)"
+  displayName="Upgrade build to Java 25 (non-Kotlin)"
   groupId="org.openrewrite.recipe"
   artifactId="rewrite-migrate-java"
   versionKey="VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_MIGRATE_JAVA"

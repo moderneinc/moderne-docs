@@ -46,15 +46,7 @@ This recipe is available under the [Moderne Source Available License](https://do
   * artifactId: `quarkus-config-yaml`
   * version: `x`
   * onlyIfUsing: `org.springframework.boot.context.properties.ConfigurationProperties`
-* [Change type](../../java/changetype)
-  * oldFullyQualifiedTypeName: `org.springframework.boot.context.properties.ConfigurationProperties`
-  * newFullyQualifiedTypeName: `io.smallrye.config.ConfigMapping`
-* [Remove annotation attribute](../../java/removeannotationattribute)
-  * annotationType: `io.smallrye.config.ConfigMapping`
-  * attributeName: `ignoreUnknownFields`
-* [Remove annotation attribute](../../java/removeannotationattribute)
-  * annotationType: `io.smallrye.config.ConfigMapping`
-  * attributeName: `ignoreInvalidFields`
+* [Convert @ConfigurationProperties class to @ConfigMapping interface](../../quarkus/spring/configurationpropertiestoconfigmapping)
 * [Remove annotation](../../java/removeannotation)
   * annotationPattern: `org.springframework.boot.context.properties.EnableConfigurationProperties`
 * [Remove annotation](../../java/removeannotation)
@@ -82,15 +74,7 @@ recipeList:
       artifactId: quarkus-config-yaml
       version: x
       onlyIfUsing: org.springframework.boot.context.properties.ConfigurationProperties
-  - org.openrewrite.java.ChangeType:
-      oldFullyQualifiedTypeName: org.springframework.boot.context.properties.ConfigurationProperties
-      newFullyQualifiedTypeName: io.smallrye.config.ConfigMapping
-  - org.openrewrite.java.RemoveAnnotationAttribute:
-      annotationType: io.smallrye.config.ConfigMapping
-      attributeName: ignoreUnknownFields
-  - org.openrewrite.java.RemoveAnnotationAttribute:
-      annotationType: io.smallrye.config.ConfigMapping
-      attributeName: ignoreInvalidFields
+  - org.openrewrite.quarkus.spring.ConfigurationPropertiesToConfigMapping
   - org.openrewrite.java.RemoveAnnotation:
       annotationPattern: org.springframework.boot.context.properties.EnableConfigurationProperties
   - org.openrewrite.java.RemoveAnnotation:
@@ -147,25 +131,10 @@ public class AppProperties {
 import io.smallrye.config.ConfigMapping;
 
 @ConfigMapping(prefix = "app")
-public class AppProperties {
-    private String name;
-    private int timeout;
+public interface AppProperties {
+    String name();
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public int getTimeout() {
-        return timeout;
-    }
-
-    public void setTimeout(int timeout) {
-        this.timeout = timeout;
-    }
+    int timeout();
 }
 ```
 
@@ -177,12 +146,37 @@ public class AppProperties {
 -import org.springframework.boot.context.properties.ConfigurationProperties;
 +import io.smallrye.config.ConfigMapping;
 
-@@ -3,1 +3,1 @@
+@@ -3,4 +3,3 @@
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
 -@ConfigurationProperties(prefix = "app")
+-public class AppProperties {
+-   private String name;
+-   private int timeout;
 +@ConfigMapping(prefix = "app")
-public class AppProperties {
++public interface AppProperties {
++   String name();
+
+@@ -8,15 +7,1 @@
+    private int timeout;
+
+-   public String getName() {
+-       return name;
+-   }
+-
+-   public void setName(String name) {
+-       this.name = name;
+-   }
+-
+-   public int getTimeout() {
+-       return timeout;
+-   }
+-
+-   public void setTimeout(int timeout) {
+-       this.timeout = timeout;
+-   }
++   int timeout();
+}
 ```
 </TabItem>
 </Tabs>
@@ -229,25 +223,10 @@ public class AppProperties {
 import io.smallrye.config.ConfigMapping;
 
 @ConfigMapping(prefix = "app")
-public class AppProperties {
-    private String name;
-    private int timeout;
+public interface AppProperties {
+    String name();
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public int getTimeout() {
-        return timeout;
-    }
-
-    public void setTimeout(int timeout) {
-        this.timeout = timeout;
-    }
+    int timeout();
 }
 ```
 
@@ -259,12 +238,37 @@ public class AppProperties {
 -import org.springframework.boot.context.properties.ConfigurationProperties;
 +import io.smallrye.config.ConfigMapping;
 
-@@ -3,1 +3,1 @@
+@@ -3,4 +3,3 @@
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
 -@ConfigurationProperties(prefix = "app")
+-public class AppProperties {
+-   private String name;
+-   private int timeout;
 +@ConfigMapping(prefix = "app")
-public class AppProperties {
++public interface AppProperties {
++   String name();
+
+@@ -8,15 +7,1 @@
+    private int timeout;
+
+-   public String getName() {
+-       return name;
+-   }
+-
+-   public void setName(String name) {
+-       this.name = name;
+-   }
+-
+-   public int getTimeout() {
+-       return timeout;
+-   }
+-
+-   public void setTimeout(int timeout) {
+-       this.timeout = timeout;
+-   }
++   int timeout();
+}
 ```
 </TabItem>
 </Tabs>

@@ -1,16 +1,16 @@
 ---
-sidebar_label: "Replace `sys.last_value` with `sys.last_exc` and flag `sys.last_type` / `sys.last_traceback`"
+sidebar_label: "Replace `sys.last_type` / `sys.last_value` / `sys.last_traceback` with `sys.last_exc`"
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import RunRecipe from '@site/src/components/RunRecipe';
 
-# Replace `sys.last_value` with `sys.last_exc` and flag `sys.last_type` / `sys.last_traceback`
+# Replace `sys.last_type` / `sys.last_value` / `sys.last_traceback` with `sys.last_exc`
 
 **org.openrewrite.python.migrate.ReplaceSysLastExcInfo**
 
-_`sys.last_type`, `sys.last_value`, and `sys.last_traceback` were deprecated in Python 3.12. `sys.last_value` is auto-replaced with `sys.last_exc`; `sys.last_type` and `sys.last_traceback` are flagged for manual review._
+_`sys.last_type`, `sys.last_value`, and `sys.last_traceback` were deprecated in Python 3.12. Replace them with their `sys.last_exc`-based equivalents: `type(sys.last_exc)`, `sys.last_exc`, and `sys.last_exc.__traceback__` respectively._
 
 ### Tags
 
@@ -38,6 +38,6 @@ This recipe is used as part of the following composite recipes:
 
 <RunRecipe
   recipeName="org.openrewrite.python.migrate.ReplaceSysLastExcInfo"
-  displayName="Replace `sys.last_value` with `sys.last_exc` and flag `sys.last_type` / `sys.last_traceback`"
+  displayName="Replace `sys.last_type` / `sys.last_value` / `sys.last_traceback` with `sys.last_exc`"
   pipPackage="openrewrite-migrate-python"
 />

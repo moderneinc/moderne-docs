@@ -36,7 +36,7 @@ This recipe is available under the [Apache License Version 2.0](https://www.apac
 
 This recipe is used as part of the following composite recipes:
 
-* [Migrate from Spring Boot 1.x to 2.0 (Community Edition)](/user-documentation/recipes/recipe-catalog/java/spring/boot2/upgradespringboot_2_0-community-edition.md)
+* [Migrate from Spring Boot 1.x to 2.0](/user-documentation/recipes/recipe-catalog/java/spring/boot2/upgradespringboot_2_0.md)
 * [Migrate to Spring Boot 3.2](/user-documentation/recipes/recipe-catalog/java/spring/boot3/upgradespringboot_3_2.md)
 * [Modernize a Jenkins plugin to the latest versions supported by Java 8](/user-documentation/recipes/recipe-catalog/jenkins/modernizepluginforjava8.md)
 

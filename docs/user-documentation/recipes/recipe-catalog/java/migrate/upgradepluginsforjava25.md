@@ -70,6 +70,7 @@ This recipe is available under the [Moderne Source Available License](https://do
   * groupId: `org.mockito`
   * artifactId: `mockito-*`
   * newVersion: `5.17.x`
+* [Add surefire `--add-opens` for Mockito/ByteBuddy](../../java/migrate/addsurefirefailsafearglineformockito)
 
 </TabItem>
 
@@ -113,6 +114,7 @@ recipeList:
       groupId: org.mockito
       artifactId: mockito-*
       newVersion: 5.17.x
+  - org.openrewrite.java.migrate.AddSurefireFailsafeArgLineForMockito
 
 ```
 </TabItem>

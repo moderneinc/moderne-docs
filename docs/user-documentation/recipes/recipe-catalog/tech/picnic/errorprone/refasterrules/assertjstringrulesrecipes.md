@@ -42,6 +42,10 @@ This recipe is available under the [Apache License Version 2.0](https://www.apac
 * [Refaster template `AssertJStringRules.AssertThatStringDoesNotEndWith`](../../../../tech/picnic/errorprone/refasterrules/assertjstringrulesrecipes$assertthatstringdoesnotendwithrecipe)
 * [Refaster template `AssertJStringRules.AssertThatStringContains`](../../../../tech/picnic/errorprone/refasterrules/assertjstringrulesrecipes$assertthatstringcontainsrecipe)
 * [Refaster template `AssertJStringRules.AssertThatStringDoesNotContain`](../../../../tech/picnic/errorprone/refasterrules/assertjstringrulesrecipes$assertthatstringdoesnotcontainrecipe)
+* [Refaster template `AssertJStringRules.AssertThatIsEqualToIgnoringCase`](../../../../tech/picnic/errorprone/refasterrules/assertjstringrulesrecipes$assertthatisequaltoignoringcaserecipe)
+* [Refaster template `AssertJStringRules.AssertThatIsNotEqualToIgnoringCase`](../../../../tech/picnic/errorprone/refasterrules/assertjstringrulesrecipes$assertthatisnotequaltoignoringcaserecipe)
+* [Refaster template `AssertJStringRules.AssertThatIsBlank`](../../../../tech/picnic/errorprone/refasterrules/assertjstringrulesrecipes$assertthatisblankrecipe)
+* [Refaster template `AssertJStringRules.AssertThatIsNotBlank`](../../../../tech/picnic/errorprone/refasterrules/assertjstringrulesrecipes$assertthatisnotblankrecipe)
 * [Refaster template `AssertJStringRules.AssertThatMatches`](../../../../tech/picnic/errorprone/refasterrules/assertjstringrulesrecipes$assertthatmatchesrecipe)
 * [Refaster template `AssertJStringRules.AssertThatDoesNotMatch`](../../../../tech/picnic/errorprone/refasterrules/assertjstringrulesrecipes$assertthatdoesnotmatchrecipe)
 * [Refaster template `AssertJStringRules.AssertThatPathContent`](../../../../tech/picnic/errorprone/refasterrules/assertjstringrulesrecipes$assertthatpathcontentrecipe)
@@ -67,6 +71,10 @@ recipeList:
   - tech.picnic.errorprone.refasterrules.AssertJStringRulesRecipes$AssertThatStringDoesNotEndWithRecipe
   - tech.picnic.errorprone.refasterrules.AssertJStringRulesRecipes$AssertThatStringContainsRecipe
   - tech.picnic.errorprone.refasterrules.AssertJStringRulesRecipes$AssertThatStringDoesNotContainRecipe
+  - tech.picnic.errorprone.refasterrules.AssertJStringRulesRecipes$AssertThatIsEqualToIgnoringCaseRecipe
+  - tech.picnic.errorprone.refasterrules.AssertJStringRulesRecipes$AssertThatIsNotEqualToIgnoringCaseRecipe
+  - tech.picnic.errorprone.refasterrules.AssertJStringRulesRecipes$AssertThatIsBlankRecipe
+  - tech.picnic.errorprone.refasterrules.AssertJStringRulesRecipes$AssertThatIsNotBlankRecipe
   - tech.picnic.errorprone.refasterrules.AssertJStringRulesRecipes$AssertThatMatchesRecipe
   - tech.picnic.errorprone.refasterrules.AssertJStringRulesRecipes$AssertThatDoesNotMatchRecipe
   - tech.picnic.errorprone.refasterrules.AssertJStringRulesRecipes$AssertThatPathContentRecipe
@@ -80,6 +88,7 @@ recipeList:
 
 This recipe is used as part of the following composite recipes:
 
+* [All Picnic Refaster rules](/user-documentation/recipes/recipe-catalog/tech/picnic/errorprone/refasterrules/allrefasterrules.md)
 * [AssertJ best practices](/user-documentation/recipes/recipe-catalog/java/testing/assertj/assertj-best-practices.md)
 
 ## Example

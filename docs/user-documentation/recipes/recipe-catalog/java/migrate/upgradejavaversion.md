@@ -87,7 +87,8 @@ This recipe is used as part of the following composite recipes:
 * [Upgrade build to Java 17](/user-documentation/recipes/recipe-catalog/java/migrate/upgradebuildtojava17.md)
 * [Upgrade build to Java 21](/user-documentation/recipes/recipe-catalog/java/migrate/upgradebuildtojava21.md)
 * [Upgrade build to Java 24 for Kotlin pre-2.3](/user-documentation/recipes/recipe-catalog/java/migrate/upgradebuildtojava24.md)
-* [Upgrade build to Java 25 (default)](/user-documentation/recipes/recipe-catalog/java/migrate/upgradebuildtojava25.md)
+* [Upgrade build to Java 25 (non-Kotlin)](/user-documentation/recipes/recipe-catalog/java/migrate/upgradebuildtojava25.md)
+* [Upgrade build to Java 25 for Kotlin 2.3+](/user-documentation/recipes/recipe-catalog/java/migrate/upgradebuildtojava25forkotlin.md)
 
 ## Example
 

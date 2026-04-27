@@ -25,6 +25,13 @@ _[Host runners](https://docs.github.com/en/actions/using-github-hosted-runners/a
 
 This recipe is available under the [Moderne Source Available License](https://docs.moderne.io/licensing/moderne-source-available-license).
 
+
+## Used by
+
+This recipe is used as part of the following composite recipes:
+
+* [GitHub Actions best practices](/user-documentation/recipes/recipe-catalog/github/githubactionsbestpractices.md)
+
 ## Example
 
 
