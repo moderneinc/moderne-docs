@@ -171,7 +171,7 @@ mod config recipes nuget install OpenRewrite.MigrateDotNet
 ```
 
 :::tip
-You can find the specific installation command for any recipe on its page in the [recipe catalog](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/).
+You can find the specific installation command for any recipe on its page in the [recipe catalog](../../recipes/recipe-catalog).
 :::
 
 ## Step 6: Run recipes
