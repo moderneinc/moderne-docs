@@ -100,7 +100,7 @@ _Recipes that include further recipes, often including the individual recipes be
 * [Replace `platform.popen()` with `subprocess.check_output()`](./replaceplatformpopen.md)
 * [Replace `re.template()` with `re.compile()` and flag `re.TEMPLATE`/`re.T`](./replaceretemplate.md)
 * [Replace `str.format()` with f-string](./replacestrformatwithfstring.md)
-* [Replace `sys.last_value` with `sys.last_exc` and flag `sys.last_type` / `sys.last_traceback`](./replacesyslastexcinfo.md)
+* [Replace `sys.last_type` / `sys.last_value` / `sys.last_traceback` with `sys.last_exc`](./replacesyslastexcinfo.md)
 * [Replace `tarfile.filemode` with `stat.filemode`](./replacetarfilefilemode.md)
 * [Replace `threading.activeCount()` with `threading.active_count()`](./replacethreadingactivecount.md)
 * [Replace `threading.currentThread()` with `threading.current_thread()`](./replacethreadingcurrentthread.md)

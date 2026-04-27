@@ -26,6 +26,13 @@ _GitHub actions supports dependency caching on Maven and Gradle projects. See th
 This recipe is available under the [Moderne Source Available License](https://docs.moderne.io/licensing/moderne-source-available-license).
 
 
+## Used by
+
+This recipe is used as part of the following composite recipes:
+
+* [GitHub Actions best practices](/user-documentation/recipes/recipe-catalog/github/githubactionsbestpractices.md)
+
+
 ## Usage
 
 <RunRecipe

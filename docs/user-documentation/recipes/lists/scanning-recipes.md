@@ -10,6 +10,45 @@ _This doc contains all [scanning recipes](https://docs.openrewrite.org/concepts-
 ## io.moderne.recipe
 
 
+### rewrite-cryptography
+
+* [io.moderne.cryptography.FindCryptoVulnerabilitiesPipeline](/user-documentation/recipes/recipe-catalog/cryptography/findcryptovulnerabilitiespipeline.md)
+  * **Find cryptographic vulnerability chains**
+  * Detects cryptographic vulnerabilities that span multiple operations, tracking flow from hardcoded algorithms through key material to encryption operations.
+* [io.moderne.cryptography.FindDirectSSLConfigurationEditing](/user-documentation/recipes/recipe-catalog/cryptography/finddirectsslconfigurationediting.md)
+  * **Find direct SSL configuration editing**
+  * Detects direct configuration of protocols or cipher suites on SSL objects like SSLSocket, SSLServerSocket, or SSLEngine. This pattern makes SSL/TLS configuration scattered throughout the codebase and prevents centralized security policy management, hindering crypto-agility.
+* [io.moderne.cryptography.FindHardcodedAlgorithmChoice](/user-documentation/recipes/recipe-catalog/cryptography/findhardcodedalgorithmchoice.md)
+  * **Find hardcoded algorithm choices**
+  * Detects hardcoded algorithm choices in cryptographic operations. Hardcoded algorithms prevent easy migration to stronger or quantum-resistant algorithms when needed. This is a critical crypto-agility issue that makes systems vulnerable to future attacks.
+* [io.moderne.cryptography.FindHardcodedAlgorithmParameters](/user-documentation/recipes/recipe-catalog/cryptography/findhardcodedalgorithmparameters.md)
+  * **Find hardcoded algorithm-specific parameters**
+  * Detects hardcoded algorithm-specific parameters like RSA public exponents or EC curve parameters. These hardcoded values prevent algorithm agility and may use weak or non-standard parameters that compromise security.
+* [io.moderne.cryptography.FindHardcodedCertificate](/user-documentation/recipes/recipe-catalog/cryptography/findhardcodedcertificate.md)
+  * **Find hardcoded certificates**
+  * Detects hardcoded certificates in the code, including certificates that are hardcoded as strings and used to generate X509Certificate instances via CertificateFactory. Hardcoded certificates can lead to security issues when they expire or need to be revoked.
+* [io.moderne.cryptography.FindHardcodedCiphersuiteChoice](/user-documentation/recipes/recipe-catalog/cryptography/findhardcodedciphersuitechoice.md)
+  * **Find hardcoded cipher suite choices**
+  * Detects hardcoded cipher suite choices used in SSL/TLS configurations. Hardcoded cipher suites prevent easy updates when cipher suites become weak or need to be changed for compliance reasons.
+* [io.moderne.cryptography.FindHardcodedKeyLength](/user-documentation/recipes/recipe-catalog/cryptography/findhardcodedkeylength.md)
+  * **Find hardcoded cryptographic key lengths**
+  * Detects hardcoded key lengths used in cryptographic operations like KeyGenerator.init(), KeyPairGenerator.initialize(), RSAKeyGenParameterSpec, and PBEKeySpec. Hardcoded key lengths reduce flexibility and may not meet changing security requirements.
+* [io.moderne.cryptography.FindHardcodedPrivateKey](/user-documentation/recipes/recipe-catalog/cryptography/findhardcodedprivatekey.md)
+  * **Find hardcoded private keys**
+  * Detects hardcoded private keys in the code, including PEM-encoded keys that flow into KeyFactory.generatePrivate() calls. Hardcoded private keys are a severe security vulnerability as they compromise the entire cryptographic system.
+* [io.moderne.cryptography.FindHardcodedProtocolChoice](/user-documentation/recipes/recipe-catalog/cryptography/findhardcodedprotocolchoice.md)
+  * **Find hardcoded SSL/TLS protocol choices**
+  * Detects hardcoded SSL/TLS protocol choices like 'TLSv1.2', 'SSLv3' used in SSLContext.getInstance() and setProtocols() calls. Hardcoded protocols prevent easy updates when protocols become obsolete or insecure.
+* [io.moderne.cryptography.FindHardcodedProviderName](/user-documentation/recipes/recipe-catalog/cryptography/findhardcodedprovidername.md)
+  * **Find hardcoded cryptographic provider names**
+  * Detects hardcoded cryptographic provider names (like 'BC', 'SunJCE') used in getInstance() calls. Hardcoding provider names reduces portability and can cause issues when the provider is not available on different systems.
+* [io.moderne.cryptography.FindProgrammaticProviderEditing](/user-documentation/recipes/recipe-catalog/cryptography/findprogrammaticproviderediting.md)
+  * **Find programmatic security provider editing**
+  * Detects programmatic modifications to the Java Security Provider list through Security.addProvider(), insertProviderAt(), or removeProvider() calls. Modifying providers at runtime makes the security configuration unpredictable and prevents crypto-agility by hardcoding provider dependencies.
+* [io.moderne.cryptography.FindSSLContextSetDefault](/user-documentation/recipes/recipe-catalog/cryptography/findsslcontextsetdefault.md)
+  * **Find SSLContext.setDefault() usage**
+  * Detects calls to SSLContext.setDefault() which sets the system-wide default SSL context. This is problematic because it affects all SSL/TLS connections in the JVM, potentially overriding security configurations set by other parts of the application or libraries. It also prevents crypto-agility as the configuration becomes global.
+
 ### rewrite-devcenter
 
 * [io.moderne.devcenter.FindOrganizationStatistics](/user-documentation/recipes/recipe-catalog/devcenter/findorganizationstatistics.md)
@@ -36,6 +75,15 @@ _This doc contains all [scanning recipes](https://docs.openrewrite.org/concepts-
 * [io.moderne.java.server.jboss.jetty.devcenter.JBossToJettyMigrationCard$Scanner](/user-documentation/recipes/recipe-catalog/java/server/jboss/jetty/devcenter/jbosstojettymigrationcard$scanner.md)
   * **JBoss to Jetty migration scanner**
   * Scans for JBoss and Jetty configuration files.
+* [io.moderne.java.server.jboss.tomcat.CreateTomcatContextXml](/user-documentation/recipes/recipe-catalog/java/server/jboss/tomcat/createtomcatcontextxml.md)
+  * **Create Tomcat context XML**
+  * Creates a `context.xml` file for projects containing JBoss descriptor files.
+* [io.moderne.java.server.jboss.tomcat.CreateTomcatSourceFile](/user-documentation/recipes/recipe-catalog/java/server/jboss/tomcat/createtomcatsourcefile.md)
+  * **Create Tomcat server source file**
+  * Creates a `TomcatServer.java` source file for projects containing JBoss descriptor files.
+* [io.moderne.java.server.jboss.tomcat.devcenter.JBossToTomcatMigrationCard$Scanner](/user-documentation/recipes/recipe-catalog/java/server/jboss/tomcat/devcenter/jbosstotomcatmigrationcard$scanner.md)
+  * **JBoss to Tomcat migration scanner**
+  * Scans for JBoss and Tomcat configuration files.
 
 ### rewrite-prethink
 
@@ -312,6 +360,9 @@ _This doc contains all [scanning recipes](https://docs.openrewrite.org/concepts-
 * [org.openrewrite.maven.UpgradeTransitiveDependencyVersion](/user-documentation/recipes/recipe-catalog/maven/upgradetransitivedependencyversion.md)
   * **Upgrade transitive Maven dependencies**
   * Upgrades the version of a transitive dependency in a Maven pom file. Leaves direct dependencies unmodified. Can be paired with the regular Upgrade Dependency Version recipe to upgrade a dependency everywhere, regardless of whether it is direct or transitive.
+* [org.openrewrite.maven.UseMavenCompilerPluginReleaseConfiguration](/user-documentation/recipes/recipe-catalog/maven/usemavencompilerpluginreleaseconfiguration.md)
+  * **Use Maven compiler plugin release configuration**
+  * Replaces any explicit `source` or `target` configuration (if present) on the `maven-compiler-plugin` with `release`, and updates the `release` value if needed. When `testSource` or `testTarget` differ from the main version, introduces `testRelease`. Will not downgrade the Java version if the current version is higher. Also removes stale `maven.compiler.source`, `maven.compiler.target`, `maven.compiler.testSource`, and `maven.compiler.testTarget` properties that are no longer referenced.
 * [org.openrewrite.maven.search.ModuleHasDependency](/user-documentation/recipes/recipe-catalog/maven/search/modulehasdependency.md)
   * **Module has dependency**
   * Searches for Maven modules that have a dependency matching the specified groupId and artifactId. Places a `SearchResult` marker on all sources within a module with a matching dependency. This recipe is intended to be used as a precondition for other recipes. For example this could be used to limit the application of a spring boot migration to only projects that use spring-boot-starter, limiting unnecessary upgrading. If the search result you want is instead just the build.gradle(.kts) file applying the plugin, use the `FindDependency` recipe instead.
@@ -503,7 +554,7 @@ _This doc contains all [scanning recipes](https://docs.openrewrite.org/concepts-
   * Locates and reports on all licenses in use.
 * [org.openrewrite.java.dependencies.DependencyVulnerabilityCheck](/user-documentation/recipes/recipe-catalog/java/dependencies/dependencyvulnerabilitycheck.md)
   * **Find and fix vulnerable dependencies**
-  * This software composition analysis (SCA) tool detects and upgrades dependencies with publicly disclosed vulnerabilities. This recipe both generates a report of vulnerable dependencies and upgrades to newer versions with fixes. This recipe by default only upgrades to the latest **patch** version.  If a minor or major upgrade is required to reach the fixed version, this can be controlled using the `maximumUpgradeDelta` option. Vulnerability information comes from the [GitHub Security Advisory Database](https://docs.github.com/en/code-security/security-advisories/global-security-advisories/about-the-github-advisory-database), which aggregates vulnerability data from several public databases, including the [National Vulnerability Database](https://nvd.nist.gov/) maintained by the United States government. Upgrades dependencies versioned according to [Semantic Versioning](https://semver.org/).   ## Customizing Vulnerability Data  This recipe can be customized by extending `DependencyVulnerabilityCheckBase` and overriding the vulnerability data sources:   - **`baselineVulnerabilities(ExecutionContext ctx)`**: Provides the default set of known vulnerabilities. The base implementation loads vulnerability data from the GitHub Security Advisory Database CSV file using `ResourceUtils.parseResourceAsCsv()`. Override this method to replace the entire vulnerability dataset with your own curated list.   - **`supplementalVulnerabilities(ExecutionContext ctx)`**: Allows adding custom vulnerability data beyond the baseline. The base implementation returns an empty list. Override this method to add organization-specific vulnerabilities, internal security advisories, or vulnerabilities from additional sources while retaining the baseline GitHub Advisory Database.  Both methods return `List&lt;Vulnerability&gt;` objects. Vulnerability data can be loaded from CSV files using `ResourceUtils.parseResourceAsCsv(path, Vulnerability.class, consumer)` or constructed programmatically. To customize, extend `DependencyVulnerabilityCheckBase` and override one or both methods depending on your needs. For example, override `supplementalVulnerabilities()` to add custom CVEs while keeping the standard vulnerability database, or override `baselineVulnerabilities()` to use an entirely different vulnerability data source. Last updated: 2026-04-06T1118.
+  * This software composition analysis (SCA) tool detects and upgrades dependencies with publicly disclosed vulnerabilities. This recipe both generates a report of vulnerable dependencies and upgrades to newer versions with fixes. This recipe by default only upgrades to the latest **patch** version.  If a minor or major upgrade is required to reach the fixed version, this can be controlled using the `maximumUpgradeDelta` option. Vulnerability information comes from the [GitHub Security Advisory Database](https://docs.github.com/en/code-security/security-advisories/global-security-advisories/about-the-github-advisory-database), which aggregates vulnerability data from several public databases, including the [National Vulnerability Database](https://nvd.nist.gov/) maintained by the United States government. Upgrades dependencies versioned according to [Semantic Versioning](https://semver.org/).   ## Customizing Vulnerability Data  This recipe can be customized by extending `DependencyVulnerabilityCheckBase` and overriding the vulnerability data sources:   - **`baselineVulnerabilities(ExecutionContext ctx)`**: Provides the default set of known vulnerabilities. The base implementation loads vulnerability data from the GitHub Security Advisory Database CSV file using `ResourceUtils.parseResourceAsCsv()`. Override this method to replace the entire vulnerability dataset with your own curated list.   - **`supplementalVulnerabilities(ExecutionContext ctx)`**: Allows adding custom vulnerability data beyond the baseline. The base implementation returns an empty list. Override this method to add organization-specific vulnerabilities, internal security advisories, or vulnerabilities from additional sources while retaining the baseline GitHub Advisory Database.  Both methods return `List&lt;Vulnerability&gt;` objects. Vulnerability data can be loaded from CSV files using `ResourceUtils.parseResourceAsCsv(path, Vulnerability.class, consumer)` or constructed programmatically. To customize, extend `DependencyVulnerabilityCheckBase` and override one or both methods depending on your needs. For example, override `supplementalVulnerabilities()` to add custom CVEs while keeping the standard vulnerability database, or override `baselineVulnerabilities()` to use an entirely different vulnerability data source. Last updated: 2026-04-27T1132.
 * [org.openrewrite.java.dependencies.RemoveUnusedDependencies](/user-documentation/recipes/recipe-catalog/java/dependencies/removeunuseddependencies.md)
   * **Remove unused dependencies**
   * Scans through source code collecting references to types and methods, removing any dependencies that are not used from Maven or Gradle build files. This is best effort and not guaranteed to work well in all cases; false positives are still possible.  This recipe takes reflective access into account: - When reflective access to a class is made unambiguously via a string literal, such as: `Class.forName(&quot;java.util.List&quot;)` that is counted correctly. - When reflective access to a class is made ambiguously via anything other than a string literal no dependencies will be removed.  This recipe takes transitive dependencies into account: - When a direct dependency is not used but a transitive dependency it brings in _is_ in use the direct dependency is not removed.
@@ -513,6 +564,9 @@ _This doc contains all [scanning recipes](https://docs.openrewrite.org/concepts-
 * [org.openrewrite.java.security.XmlParserXXEVulnerability](/user-documentation/recipes/recipe-catalog/java/security/xmlparserxxevulnerability.md)
   * **XML parser XXE vulnerability**
   * Avoid exposing dangerous features of the XML parser by updating certain factory settings.
+* [org.openrewrite.java.security.search.FindHardcodedAuthenticationCredentials](/user-documentation/recipes/recipe-catalog/java/security/search/findhardcodedauthenticationcredentials.md)
+  * **Find hardcoded authentication credentials**
+  * Finds hardcoded passwords flowing into Spring Security user builders: `InMemoryUserDetailsManagerConfigurer` (`inMemoryAuthentication().withUser(...).password(...)`) and the `User.UserBuilder.password(...)` API. Uses taint analysis so credentials assigned to a variable, field, or constant before being passed to `.password(...)` are also detected.
 * [org.openrewrite.java.security.spring.CsrfProtection](/user-documentation/recipes/recipe-catalog/java/security/spring/csrfprotection.md)
   * **Enable CSRF attack prevention**
   * Cross-Site Request Forgery (CSRF) is a type of attack that occurs when a malicious web site, email, blog, instant message, or program causes a user's web browser to perform an unwanted action on a trusted site when the user is authenticated. See the full [OWASP cheatsheet](https://cheatsheetseries.owasp.org/cheatsheets/Cross-Site_Request_Forgery_Prevention_Cheat_Sheet.html).
@@ -521,7 +575,7 @@ _This doc contains all [scanning recipes](https://docs.openrewrite.org/concepts-
   * The `frame-ancestors` directive can be used in a Content-Security-Policy HTTP response header to indicate whether or not a browser should be allowed to render a page in a `&lt;frame&gt;` or `&lt;iframe&gt;`. Sites can use this to avoid Clickjacking attacks by ensuring that their content is not embedded into other sites.
 * [org.openrewrite.python.dependencies.DependencyVulnerabilityCheck](/user-documentation/recipes/recipe-catalog/python/dependencies/dependencyvulnerabilitycheck.md)
   * **Find and fix vulnerable PyPI dependencies**
-  * This software composition analysis (SCA) tool detects and upgrades dependencies with publicly disclosed vulnerabilities. This recipe both generates a report of vulnerable dependencies and upgrades to newer versions with fixes. This recipe by default only upgrades to the latest **patch** version. If a minor or major upgrade is required to reach the fixed version, this can be controlled using the `maximumUpgradeDelta` option. Vulnerability information comes from the [GitHub Security Advisory Database](https://docs.github.com/en/code-security/security-advisories/global-security-advisories/about-the-github-advisory-database), which aggregates vulnerability data from several public databases, including the [National Vulnerability Database](https://nvd.nist.gov/) maintained by the United States government. Dependencies following [Semantic Versioning](https://semver.org/) will see their _patch_ version updated where applicable.  ## Customizing Vulnerability Data  This recipe can be customized by extending `DependencyVulnerabilityCheckBase` and overriding the vulnerability data sources:   - **`baselineVulnerabilities(ExecutionContext ctx)`**: Provides the default set of known vulnerabilities. The base implementation loads vulnerability data from the GitHub Security Advisory Database CSV file using `ResourceUtils.parseResourceAsCsv()`. Override this method to replace the entire vulnerability dataset with your own curated list.   - **`supplementalVulnerabilities(ExecutionContext ctx)`**: Allows adding custom vulnerability data beyond the baseline. The base implementation returns an empty list. Override this method to add organization-specific vulnerabilities, internal security advisories, or vulnerabilities from additional sources while retaining the baseline GitHub Advisory Database.  Both methods return `List&lt;Vulnerability&gt;` objects. Vulnerability data can be loaded from CSV files using `ResourceUtils.parseResourceAsCsv(path, Vulnerability.class, consumer)` or constructed programmatically. To customize, extend `DependencyVulnerabilityCheckBase` and override one or both methods depending on your needs. For example, override `supplementalVulnerabilities()` to add custom CVEs while keeping the standard vulnerability database, or override `baselineVulnerabilities()` to use an entirely different vulnerability data source.
+  * This software composition analysis (SCA) tool detects and upgrades dependencies with publicly disclosed vulnerabilities. This recipe both generates a report of vulnerable dependencies and upgrades to newer versions with fixes. This recipe by default only upgrades to the latest **patch** version. If a minor or major upgrade is required to reach the fixed version, this can be controlled using the `maximumUpgradeDelta` option. Vulnerability information comes from the [GitHub Security Advisory Database](https://docs.github.com/en/code-security/security-advisories/global-security-advisories/about-the-github-advisory-database), which aggregates vulnerability data from several public databases, including the [National Vulnerability Database](https://nvd.nist.gov/) maintained by the United States government. Dependencies following [Semantic Versioning](https://semver.org/) will see their _patch_ version updated where applicable.   ## Customizing Vulnerability Data  This recipe can be customized by extending `DependencyVulnerabilityCheckBase` and overriding the vulnerability data sources:   - **`baselineVulnerabilities(ExecutionContext ctx)`**: Provides the default set of known vulnerabilities. The base implementation loads vulnerability data from the GitHub Security Advisory Database CSV file using `ResourceUtils.parseResourceAsCsv()`. Override this method to replace the entire vulnerability dataset with your own curated list.   - **`supplementalVulnerabilities(ExecutionContext ctx)`**: Allows adding custom vulnerability data beyond the baseline. The base implementation returns an empty list. Override this method to add organization-specific vulnerabilities, internal security advisories, or vulnerabilities from additional sources while retaining the baseline GitHub Advisory Database.  Both methods return `List&lt;Vulnerability&gt;` objects. Vulnerability data can be loaded from CSV files using `ResourceUtils.parseResourceAsCsv(path, Vulnerability.class, consumer)` or constructed programmatically. To customize, extend `DependencyVulnerabilityCheckBase` and override one or both methods depending on your needs. For example, override `supplementalVulnerabilities()` to add custom CVEs while keeping the standard vulnerability database, or override `baselineVulnerabilities()` to use an entirely different vulnerability data source.
 
 ### rewrite-jenkins
 
@@ -585,6 +639,9 @@ _This doc contains all [scanning recipes](https://docs.openrewrite.org/concepts-
 * [org.openrewrite.java.migrate.lombok.LombokValueToRecord](/user-documentation/recipes/recipe-catalog/java/migrate/lombok/lombokvaluetorecord.md)
   * **Convert `@lombok.Value` class to Record**
   * Convert Lombok `@Value` annotated classes to standard Java Records.
+* [org.openrewrite.java.migrate.search.ModuleHasKotlinSource](/user-documentation/recipes/recipe-catalog/java/migrate/search/modulehaskotlinsource.md)
+  * **Module has Kotlin source files**
+  * Marks all files in modules that contain at least one Kotlin source file (`.kt`). Intended as a precondition to scope recipes to projects that actually compile Kotlin, as opposed to projects that merely pick up `kotlin-stdlib` transitively.
 * [org.openrewrite.java.migrate.search.PlanJavaMigration](/user-documentation/recipes/recipe-catalog/java/migrate/search/planjavamigration.md)
   * **Plan a Java version migration**
   * Study the set of Java versions and associated tools in use across many repositories.
@@ -683,10 +740,10 @@ _This doc contains all [scanning recipes](https://docs.openrewrite.org/concepts-
 
 * [org.openrewrite.staticanalysis.LowercasePackage](/user-documentation/recipes/recipe-catalog/staticanalysis/lowercasepackage.md)
   * **Rename packages to lowercase**
-  * By convention all Java package names should contain only lowercase letters, numbers, and dashes. This recipe converts any uppercase letters in package names to be lowercase.
+  * By convention all Java package names should contain only lowercase letters, numbers, and dashes. This recipe converts any uppercase letters in package names to be lowercase. Consistent package naming prevents confusion and potential issues on case-insensitive file systems.
 * [org.openrewrite.staticanalysis.MethodNameCasing](/user-documentation/recipes/recipe-catalog/staticanalysis/methodnamecasing.md)
   * **Standardize method name casing**
-  * Fixes method names that do not follow standard naming conventions. For example, `String getFoo_bar()` would be adjusted to `String getFooBar()` and `int DoSomething()` would be adjusted to `int doSomething()`.
+  * Fixes method names that do not follow standard naming conventions. For example, `String getFoo_bar()` would be adjusted to `String getFooBar()` and `int DoSomething()` would be adjusted to `int doSomething()`. Following a consistent casing convention for method names improves code readability and helps developers quickly distinguish methods from classes or constants.
 
 ### rewrite-struts
 

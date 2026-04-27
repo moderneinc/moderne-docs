@@ -65,7 +65,7 @@ This recipe is used as part of the following composite recipes:
         <dependency>
             <groupId>org.apache.tapestry</groupId>
             <artifactId>tapestry-core</artifactId>
-            <version>5.9.0</version>
+            <version>5.9.1</version>
         </dependency>
     </dependencies>
 </project>
@@ -83,7 +83,7 @@ This recipe is used as part of the following composite recipes:
 -           <artifactId>tapestry-framework</artifactId>
 -           <version>4.1.6</version>
 +           <artifactId>tapestry-core</artifactId>
-+           <version>5.9.0</version>
++           <version>5.9.1</version>
         </dependency>
 ```
 </TabItem>
@@ -125,7 +125,7 @@ This recipe is used as part of the following composite recipes:
         <dependency>
             <groupId>org.apache.tapestry</groupId>
             <artifactId>tapestry-core</artifactId>
-            <version>5.9.0</version>
+            <version>5.9.1</version>
         </dependency>
     </dependencies>
 </project>
@@ -143,7 +143,7 @@ This recipe is used as part of the following composite recipes:
 -           <artifactId>tapestry-framework</artifactId>
 -           <version>4.1.6</version>
 +           <artifactId>tapestry-core</artifactId>
-+           <version>5.9.0</version>
++           <version>5.9.1</version>
         </dependency>
 ```
 </TabItem>

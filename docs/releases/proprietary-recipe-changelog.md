@@ -10,6 +10,145 @@ This page contains release notes for [Moderne proprietary OpenRewrite recipes](h
 This changelog is automatically generated from GitHub releases and only contains information from the past year.
 :::
 
+## April 27, 2026
+
+#### rewrite-ai - 0.3.2
+
+* Updated repository to use OpenRewrite version v8.81.0
+
+#### rewrite-ai-search - 0.33.2
+
+* Updated repository to use OpenRewrite version v8.81.0
+
+#### rewrite-android - 0.16.3
+
+* Updated repository to use OpenRewrite version v8.81.0
+
+#### rewrite-angular - 1.1.3
+
+* Updated repository to use OpenRewrite version v8.81.0
+
+#### rewrite-circleci - 3.10.2
+
+* Updated repository to use OpenRewrite version v8.81.0
+
+#### rewrite-cobol - 2.17.3
+
+* Updated repository to use OpenRewrite version v8.81.0
+
+#### rewrite-codemods - 0.25.3
+
+* Updated repository to use OpenRewrite version v8.81.0
+
+#### rewrite-codemods-ng - 0.20.3
+
+* Updated repository to use OpenRewrite version v8.81.0
+
+#### rewrite-compiled-analysis - 0.13.2
+
+* Updated repository to use OpenRewrite version v8.81.0
+
+#### rewrite-concourse - 3.10.2
+
+* Updated repository to use OpenRewrite version v8.81.0
+
+#### rewrite-cryptography - 0.13.3
+
+* Updated repository to use OpenRewrite version v8.81.0
+
+#### rewrite-devcenter - 1.22.3
+
+* Updated repository to use OpenRewrite version v8.81.0
+
+#### rewrite-dotnet - 0.15.2
+
+* Updated repository to use OpenRewrite version v8.81.0
+
+#### rewrite-elastic - 0.6.3
+
+* Updated repository to use OpenRewrite version v8.81.0
+
+#### rewrite-hibernate - 0.22.1
+
+* Updated repository to use OpenRewrite version v8.81.0
+
+#### rewrite-jasperreports - 0.5.2
+
+* Updated repository to use OpenRewrite version v8.81.0
+
+#### rewrite-java-application-server - 0.6.0
+
+* Add JBoss-to-Tomcat migration recipes
+* Cancel Gradle build before closing ProjectConnection in integration tests
+
+#### rewrite-java-security - 3.29.3
+
+* Updated repository to use OpenRewrite version v8.81.0
+
+#### rewrite-kafka - 0.5.3
+
+* Updated repository to use OpenRewrite version v8.81.0
+
+#### rewrite-kubernetes - 3.16.2
+
+* Updated repository to use OpenRewrite version v8.81.0
+
+#### rewrite-migrate-kotlin - 0.3.0
+
+* Pin bouncycastle 1.84 in kotlinBouncyCastleConfiguration
+
+#### rewrite-migrate-python - 0.7.0
+
+* Transform sys.last_type and sys.last_traceback
+
+#### rewrite-nodejs - 0.44.0
+
+* Re-generate recipes.csv
+* Bump yaml from 2.8.2 to 2.8.3 in /recipes-nodejs[bot]
+* Bump handlebars from 4.7.8 to 4.7.9 in /recipes-nodejs[bot]
+* Bump picomatch from 2.3.1 to 2.3.2 in /recipes-nodejs[bot]
+* Adding project icon
+
+#### rewrite-prethink - 0.5.8
+
+* Updated repository to use OpenRewrite version v8.81.0
+
+#### rewrite-program-analysis - 0.12.3
+
+* Updated repository to use OpenRewrite version v8.81.0
+
+#### rewrite-react - 0.2.7
+
+* Updated repository to use OpenRewrite version v8.81.0
+
+#### rewrite-reactive-streams - 0.19.2
+
+* Updated repository to use OpenRewrite version v8.81.0
+
+#### rewrite-spring - 0.32.0
+
+* Inline the org.openrewrite spring boot migrations.
+
+#### rewrite-sql - 2.11.2
+
+* Updated repository to use OpenRewrite version v8.81.0
+
+#### rewrite-struts - 0.25.7
+
+* Updated repository to use OpenRewrite version v8.81.0
+
+#### rewrite-tapestry - 0.3.1
+
+* Updated repository to use OpenRewrite version v8.81.0
+
+#### rewrite-terraform - 3.13.7
+
+* Updated repository to use OpenRewrite version v8.81.0
+
+#### rewrite-vulncheck - 0.6.8
+
+* Updated repository to use OpenRewrite version v8.81.0
+
 ## April 23, 2026
 
 #### rewrite-java-security - 3.29.2
@@ -19,7 +158,7 @@ This changelog is automatically generated from GitHub releases and only contains
 #### rewrite-spring - 0.31.1
 
 * Fix `spring-jms` classpath lookup in `AddDynamicDestinationResolverToJmsTemplate`
-* Replace @MockitoBean with @Bean methods in @Configuration classes
+* Replace `@MockitoBean` with `@Bean` methods in `@Configuration` classes
 
 ## April 21, 2026
 
@@ -91,10 +230,6 @@ This changelog is automatically generated from GitHub releases and only contains
 
 * Updated repository to use OpenRewrite version v8.80.0
 
-#### rewrite-java-application-server - 0.6.0
-
-* Add JBoss-to-Tomcat migration recipes
-
 #### rewrite-java-security - 3.29.1
 
 * Updated repository to use OpenRewrite version v8.80.0
@@ -154,7 +289,7 @@ This changelog is automatically generated from GitHub releases and only contains
 #### rewrite-spring - 0.31.0
 
 * Skip primitive-typed parameters in NullableSpringWebParameters
-* Add recipe to replace @Controller + @ResponseBody with @RestController
+* Add recipe to replace `@Controller` + `@ResponseBody` with `@RestController`
 
 #### rewrite-sql - 2.11.1
 
@@ -3486,71 +3621,4 @@ Republishing to update dependencies
 #### rewrite-terraform - 3.3.0
 
 * refactor: Update Gradle wrapper to 8.14
-
-## April 24, 2025
-
-#### rewrite-ai-search - 0.26.0
-
-* refactor: New line at the end of `SourceSpecs` text blocks
-* refactor: Extract documentation examples from tests
-
-#### rewrite-android - 0.8.0
-
-* refactor: Extract documentation examples from tests
-
-#### rewrite-circleci - 3.4.0
-
-* refactor: New line at the end of `SourceSpecs` text blocks
-* refactor: Extract documentation examples from tests
-
-#### rewrite-codemods - 0.12.2
-
-* Updated repository to use OpenRewrite version v8.51.0
-
-#### rewrite-compiled-analysis - 0.4.2
-
-* Updated repository to use OpenRewrite version v8.51.0
-
-#### rewrite-comprehension - 0.5.4
-
-* Updated repository to use OpenRewrite version v8.51.0
-
-#### rewrite-concourse - 3.3.0
-
-* refactor: Extract documentation examples from tests
-
-#### rewrite-java-security - 3.7.0
-
-* refactor: New line at the end of `SourceSpecs` text blocks
-* refactor: Extract documentation examples from tests
-* Ignore the TraitErrorsException in XmlParserXXEVulnerability
-* Update DocumentBuilderFactoryFixVisitor.java
-
-#### rewrite-kubernetes - 3.3.0
-
-* refactor: New line at the end of `SourceSpecs` text blocks
-* Skip .csproj files when finding hardcoded IP addresses
-* refactor: Extract documentation examples from tests
-
-#### rewrite-nodejs - 0.22.0
-
-* refactor: Extract documentation examples from tests
-
-#### rewrite-reactive-streams - 0.12.0
-
-* refactor: Extract documentation examples from tests
-
-#### rewrite-spring - 0.5.0
-
-* refactor: Extract documentation examples from tests
-* Bump spring AWS cloud if applicable when migrating to spring boot 3.4
-
-#### rewrite-sql - 2.2.0
-
-* refactor: New line at the end of `SourceSpecs` text blocks
-* refactor: Extract documentation examples from tests
-
-#### rewrite-terraform - 3.2.0
-
-* refactor: Extract documentation examples from tests
 

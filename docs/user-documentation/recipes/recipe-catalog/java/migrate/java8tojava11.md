@@ -49,6 +49,7 @@ This recipe is available under the [Moderne Source Available License](https://do
 **Recipes**
 
 * [Migrate to Java 8](../../java/migrate/upgradetojava8)
+* [Rename `_` identifier to `__`](../../java/migrate/lang/renameunderscoreidentifier)
 * [Prefer `java.util.Base64` instead of `sun.misc`](../../java/migrate/usejavautilbase64)
   * useMimeCoder: `false`
 * [Remove explicit casts on `Arrays.asList(..).toArray()`](../../java/migrate/castarraysaslisttolist)
@@ -79,6 +80,7 @@ This recipe is available under the [Moderne Source Available License](https://do
 * [Prefer `Optional.isEmpty()`](../../java/migrate/util/optionalnotpresenttoisempty)
 * [Prefer `Optional.isPresent()`](../../java/migrate/util/optionalnotemptytoispresent)
 * [`Stream&lt;Optional&gt;` idiom recipe](../../java/migrate/util/optionalstreamrecipe)
+* [Prefer `Predicate.not(..)` over casting to `Predicate` and calling `negate()`](../../java/migrate/util/usepredicatenot)
 * [Use `com.sun.xml.bind.*` instead of `com.sun.xml.internal.bind.*`](../../java/migrate/internalbindpackages)
 * [Replace deprecated methods in`SecurityManager`](../../java/migrate/removedsecuritymanagermethods)
 * [Upgrade plugins to Java 11 compatible versions](../../java/migrate/upgradepluginsforjava11)
@@ -125,6 +127,7 @@ preconditions:
   - org.openrewrite.Singleton
 recipeList:
   - org.openrewrite.java.migrate.UpgradeToJava8
+  - org.openrewrite.java.migrate.lang.RenameUnderscoreIdentifier
   - org.openrewrite.java.migrate.UseJavaUtilBase64:
       useMimeCoder: false
   - org.openrewrite.java.migrate.CastArraysAsListToList
@@ -155,6 +158,7 @@ recipeList:
   - org.openrewrite.java.migrate.util.OptionalNotPresentToIsEmpty
   - org.openrewrite.java.migrate.util.OptionalNotEmptyToIsPresent
   - org.openrewrite.java.migrate.util.OptionalStreamRecipe
+  - org.openrewrite.java.migrate.util.UsePredicateNot
   - org.openrewrite.java.migrate.InternalBindPackages
   - org.openrewrite.java.migrate.RemovedSecurityManagerMethods
   - org.openrewrite.java.migrate.UpgradePluginsForJava11

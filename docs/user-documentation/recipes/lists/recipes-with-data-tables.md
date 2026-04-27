@@ -54,6 +54,105 @@ _This doc contains all of the recipes with **unique** data tables that have been
 
 ### rewrite-cryptography
 
+#### [io.moderne.cryptography.FindCryptoVulnerabilitiesPipeline](/user-documentation/recipes/recipe-catalog/cryptography/findcryptovulnerabilitiespipeline.md)
+  * **Find cryptographic vulnerability chains**
+  * Detects cryptographic vulnerabilities that span multiple operations, tracking flow from hardcoded algorithms through key material to encryption operations.
+
+##### Data tables:
+
+  * **org.openrewrite.analysis.java.taint.TaintFlowDataTable**: *Tracks taint flow through pipeline stages, supporting up to 10 stages.*
+
+
+#### [io.moderne.cryptography.FindDirectSSLConfigurationEditing](/user-documentation/recipes/recipe-catalog/cryptography/finddirectsslconfigurationediting.md)
+  * **Find direct SSL configuration editing**
+  * Detects direct configuration of protocols or cipher suites on SSL objects like SSLSocket, SSLServerSocket, or SSLEngine. This pattern makes SSL/TLS configuration scattered throughout the codebase and prevents centralized security policy management, hindering crypto-agility.
+
+##### Data tables:
+
+  * **org.openrewrite.analysis.java.taint.table.TaintFlowTable**: *Records taint flows from sources to sinks with their taint types.*
+
+
+#### [io.moderne.cryptography.FindHardcodedAlgorithmChoice](/user-documentation/recipes/recipe-catalog/cryptography/findhardcodedalgorithmchoice.md)
+  * **Find hardcoded algorithm choices**
+  * Detects hardcoded algorithm choices in cryptographic operations. Hardcoded algorithms prevent easy migration to stronger or quantum-resistant algorithms when needed. This is a critical crypto-agility issue that makes systems vulnerable to future attacks.
+
+##### Data tables:
+
+  * **org.openrewrite.analysis.java.taint.table.TaintFlowTable**: *Records taint flows from sources to sinks with their taint types.*
+
+
+#### [io.moderne.cryptography.FindHardcodedAlgorithmParameters](/user-documentation/recipes/recipe-catalog/cryptography/findhardcodedalgorithmparameters.md)
+  * **Find hardcoded algorithm-specific parameters**
+  * Detects hardcoded algorithm-specific parameters like RSA public exponents or EC curve parameters. These hardcoded values prevent algorithm agility and may use weak or non-standard parameters that compromise security.
+
+##### Data tables:
+
+  * **org.openrewrite.analysis.java.taint.table.TaintFlowTable**: *Records taint flows from sources to sinks with their taint types.*
+
+
+#### [io.moderne.cryptography.FindHardcodedCertificate](/user-documentation/recipes/recipe-catalog/cryptography/findhardcodedcertificate.md)
+  * **Find hardcoded certificates**
+  * Detects hardcoded certificates in the code, including certificates that are hardcoded as strings and used to generate X509Certificate instances via CertificateFactory. Hardcoded certificates can lead to security issues when they expire or need to be revoked.
+
+##### Data tables:
+
+  * **org.openrewrite.analysis.java.taint.table.TaintFlowTable**: *Records taint flows from sources to sinks with their taint types.*
+
+
+#### [io.moderne.cryptography.FindHardcodedCiphersuiteChoice](/user-documentation/recipes/recipe-catalog/cryptography/findhardcodedciphersuitechoice.md)
+  * **Find hardcoded cipher suite choices**
+  * Detects hardcoded cipher suite choices used in SSL/TLS configurations. Hardcoded cipher suites prevent easy updates when cipher suites become weak or need to be changed for compliance reasons.
+
+##### Data tables:
+
+  * **org.openrewrite.analysis.java.taint.table.TaintFlowTable**: *Records taint flows from sources to sinks with their taint types.*
+
+
+#### [io.moderne.cryptography.FindHardcodedKeyLength](/user-documentation/recipes/recipe-catalog/cryptography/findhardcodedkeylength.md)
+  * **Find hardcoded cryptographic key lengths**
+  * Detects hardcoded key lengths used in cryptographic operations like KeyGenerator.init(), KeyPairGenerator.initialize(), RSAKeyGenParameterSpec, and PBEKeySpec. Hardcoded key lengths reduce flexibility and may not meet changing security requirements.
+
+##### Data tables:
+
+  * **org.openrewrite.analysis.java.taint.table.TaintFlowTable**: *Records taint flows from sources to sinks with their taint types.*
+
+
+#### [io.moderne.cryptography.FindHardcodedPrivateKey](/user-documentation/recipes/recipe-catalog/cryptography/findhardcodedprivatekey.md)
+  * **Find hardcoded private keys**
+  * Detects hardcoded private keys in the code, including PEM-encoded keys that flow into KeyFactory.generatePrivate() calls. Hardcoded private keys are a severe security vulnerability as they compromise the entire cryptographic system.
+
+##### Data tables:
+
+  * **org.openrewrite.analysis.java.taint.table.TaintFlowTable**: *Records taint flows from sources to sinks with their taint types.*
+
+
+#### [io.moderne.cryptography.FindHardcodedProtocolChoice](/user-documentation/recipes/recipe-catalog/cryptography/findhardcodedprotocolchoice.md)
+  * **Find hardcoded SSL/TLS protocol choices**
+  * Detects hardcoded SSL/TLS protocol choices like 'TLSv1.2', 'SSLv3' used in SSLContext.getInstance() and setProtocols() calls. Hardcoded protocols prevent easy updates when protocols become obsolete or insecure.
+
+##### Data tables:
+
+  * **org.openrewrite.analysis.java.taint.table.TaintFlowTable**: *Records taint flows from sources to sinks with their taint types.*
+
+
+#### [io.moderne.cryptography.FindHardcodedProviderName](/user-documentation/recipes/recipe-catalog/cryptography/findhardcodedprovidername.md)
+  * **Find hardcoded cryptographic provider names**
+  * Detects hardcoded cryptographic provider names (like 'BC', 'SunJCE') used in getInstance() calls. Hardcoding provider names reduces portability and can cause issues when the provider is not available on different systems.
+
+##### Data tables:
+
+  * **org.openrewrite.analysis.java.taint.table.TaintFlowTable**: *Records taint flows from sources to sinks with their taint types.*
+
+
+#### [io.moderne.cryptography.FindProgrammaticProviderEditing](/user-documentation/recipes/recipe-catalog/cryptography/findprogrammaticproviderediting.md)
+  * **Find programmatic security provider editing**
+  * Detects programmatic modifications to the Java Security Provider list through Security.addProvider(), insertProviderAt(), or removeProvider() calls. Modifying providers at runtime makes the security configuration unpredictable and prevents crypto-agility by hardcoding provider dependencies.
+
+##### Data tables:
+
+  * **org.openrewrite.analysis.java.taint.table.TaintFlowTable**: *Records taint flows from sources to sinks with their taint types.*
+
+
 #### [io.moderne.cryptography.FindRSAKeyGenParameters](/user-documentation/recipes/recipe-catalog/cryptography/findrsakeygenparameters.md)
   * **Find RSA key generation parameters**
   * Finds RSAKeyGenParameterSpec instantiations and extracts their parameter values into a data table.
@@ -61,6 +160,15 @@ _This doc contains all of the recipes with **unique** data tables that have been
 ##### Data tables:
 
   * **io.moderne.cryptography.table.RSAKeyGenParametersTable**: *RSAKeyGenParameterSpec instantiations and their configured parameters including key size, public exponent, and optional parameters.*
+
+
+#### [io.moderne.cryptography.FindSSLContextSetDefault](/user-documentation/recipes/recipe-catalog/cryptography/findsslcontextsetdefault.md)
+  * **Find SSLContext.setDefault() usage**
+  * Detects calls to SSLContext.setDefault() which sets the system-wide default SSL context. This is problematic because it affects all SSL/TLS connections in the JVM, potentially overriding security configurations set by other parts of the application or libraries. It also prevents crypto-agility as the configuration becomes global.
+
+##### Data tables:
+
+  * **org.openrewrite.analysis.java.taint.table.TaintFlowTable**: *Records taint flows from sources to sinks with their taint types.*
 
 
 #### [io.moderne.cryptography.FindSSLSocketParameters](/user-documentation/recipes/recipe-catalog/cryptography/findsslsocketparameters.md)
@@ -401,6 +509,24 @@ _This doc contains all of the recipes with **unique** data tables that have been
 ##### Data tables:
 
   * **io.moderne.java.server.jboss.PlanJBossMigration$JBossProjects**: *Summary of JBoss descriptor files found in the repository.*
+
+
+#### [io.moderne.java.server.jboss.jetty.devcenter.JBossToJettyMigrationCard](/user-documentation/recipes/recipe-catalog/java/server/jboss/jetty/devcenter/jbosstojettymigrationcard.md)
+  * **JBoss to Jetty migration**
+  * Measures the progress of migrating applications from JBoss to Jetty. Analyzes the presence of JBoss descriptor files (jboss-web.xml, jboss-deployment-structure.xml) and Jetty jetty-env.xml configuration files to determine migration state.
+
+##### Data tables:
+
+  * **io.moderne.devcenter.table.UpgradesAndMigrations**: *Progress towards organizational objectives on library or language migrations and upgrades.*
+
+
+#### [io.moderne.java.server.jboss.tomcat.devcenter.JBossToTomcatMigrationCard](/user-documentation/recipes/recipe-catalog/java/server/jboss/tomcat/devcenter/jbosstotomcatmigrationcard.md)
+  * **JBoss to Tomcat migration**
+  * Measures the progress of migrating applications from JBoss to Tomcat. Analyzes the presence of JBoss descriptor files (jboss-web.xml, jboss-deployment-structure.xml) and Tomcat context.xml configuration files to determine migration state.
+
+##### Data tables:
+
+  * **io.moderne.devcenter.table.UpgradesAndMigrations**: *Progress towards organizational objectives on library or language migrations and upgrades.*
 
 
 
@@ -5387,7 +5513,7 @@ _This doc contains all of the recipes with **unique** data tables that have been
 
 #### [org.openrewrite.java.dependencies.DependencyVulnerabilityCheck](/user-documentation/recipes/recipe-catalog/java/dependencies/dependencyvulnerabilitycheck.md)
   * **Find and fix vulnerable dependencies**
-  * This software composition analysis (SCA) tool detects and upgrades dependencies with publicly disclosed vulnerabilities. This recipe both generates a report of vulnerable dependencies and upgrades to newer versions with fixes. This recipe by default only upgrades to the latest **patch** version.  If a minor or major upgrade is required to reach the fixed version, this can be controlled using the `maximumUpgradeDelta` option. Vulnerability information comes from the [GitHub Security Advisory Database](https://docs.github.com/en/code-security/security-advisories/global-security-advisories/about-the-github-advisory-database), which aggregates vulnerability data from several public databases, including the [National Vulnerability Database](https://nvd.nist.gov/) maintained by the United States government. Upgrades dependencies versioned according to [Semantic Versioning](https://semver.org/).   ## Customizing Vulnerability Data  This recipe can be customized by extending `DependencyVulnerabilityCheckBase` and overriding the vulnerability data sources:   - **`baselineVulnerabilities(ExecutionContext ctx)`**: Provides the default set of known vulnerabilities. The base implementation loads vulnerability data from the GitHub Security Advisory Database CSV file using `ResourceUtils.parseResourceAsCsv()`. Override this method to replace the entire vulnerability dataset with your own curated list.   - **`supplementalVulnerabilities(ExecutionContext ctx)`**: Allows adding custom vulnerability data beyond the baseline. The base implementation returns an empty list. Override this method to add organization-specific vulnerabilities, internal security advisories, or vulnerabilities from additional sources while retaining the baseline GitHub Advisory Database.  Both methods return `List&lt;Vulnerability&gt;` objects. Vulnerability data can be loaded from CSV files using `ResourceUtils.parseResourceAsCsv(path, Vulnerability.class, consumer)` or constructed programmatically. To customize, extend `DependencyVulnerabilityCheckBase` and override one or both methods depending on your needs. For example, override `supplementalVulnerabilities()` to add custom CVEs while keeping the standard vulnerability database, or override `baselineVulnerabilities()` to use an entirely different vulnerability data source. Last updated: 2026-04-06T1118.
+  * This software composition analysis (SCA) tool detects and upgrades dependencies with publicly disclosed vulnerabilities. This recipe both generates a report of vulnerable dependencies and upgrades to newer versions with fixes. This recipe by default only upgrades to the latest **patch** version.  If a minor or major upgrade is required to reach the fixed version, this can be controlled using the `maximumUpgradeDelta` option. Vulnerability information comes from the [GitHub Security Advisory Database](https://docs.github.com/en/code-security/security-advisories/global-security-advisories/about-the-github-advisory-database), which aggregates vulnerability data from several public databases, including the [National Vulnerability Database](https://nvd.nist.gov/) maintained by the United States government. Upgrades dependencies versioned according to [Semantic Versioning](https://semver.org/).   ## Customizing Vulnerability Data  This recipe can be customized by extending `DependencyVulnerabilityCheckBase` and overriding the vulnerability data sources:   - **`baselineVulnerabilities(ExecutionContext ctx)`**: Provides the default set of known vulnerabilities. The base implementation loads vulnerability data from the GitHub Security Advisory Database CSV file using `ResourceUtils.parseResourceAsCsv()`. Override this method to replace the entire vulnerability dataset with your own curated list.   - **`supplementalVulnerabilities(ExecutionContext ctx)`**: Allows adding custom vulnerability data beyond the baseline. The base implementation returns an empty list. Override this method to add organization-specific vulnerabilities, internal security advisories, or vulnerabilities from additional sources while retaining the baseline GitHub Advisory Database.  Both methods return `List&lt;Vulnerability&gt;` objects. Vulnerability data can be loaded from CSV files using `ResourceUtils.parseResourceAsCsv(path, Vulnerability.class, consumer)` or constructed programmatically. To customize, extend `DependencyVulnerabilityCheckBase` and override one or both methods depending on your needs. For example, override `supplementalVulnerabilities()` to add custom CVEs while keeping the standard vulnerability database, or override `baselineVulnerabilities()` to use an entirely different vulnerability data source. Last updated: 2026-04-27T1132.
 
 ##### Data tables:
 
@@ -5441,6 +5567,15 @@ _This doc contains all of the recipes with **unique** data tables that have been
 ##### Data tables:
 
   * **org.openrewrite.java.table.MethodCalls**: *The text of matching method invocations.*
+  * **org.openrewrite.analysis.java.taint.table.TaintFlowTable**: *Records taint flows from sources to sinks with their taint types.*
+
+
+#### [org.openrewrite.java.security.Owasp2025A07](/user-documentation/recipes/recipe-catalog/java/security/owasp2025a07.md)
+  * **Remediate OWASP A07:2025 Identification and authentication failures**
+  * OWASP [A07:2025](https://owasp.org/Top10/2025/A07_2025-Authentication_Failures/) describes failures related to identification and authentication, including weak credential management, missing brute force protections, session fixation, hardcoded credentials, insecure &quot;remember me&quot;, and missing multi-factor authentication. Same position as A07:2021 (no prior aggregator existed).
+
+##### Data tables:
+
   * **org.openrewrite.analysis.java.taint.table.TaintFlowTable**: *Records taint flows from sources to sinks with their taint types.*
 
 
@@ -5501,6 +5636,15 @@ _This doc contains all of the recipes with **unique** data tables that have been
 ##### Data tables:
 
   * **org.openrewrite.java.table.MethodCalls**: *The text of matching method invocations.*
+
+
+#### [org.openrewrite.java.security.search.FindHardcodedAuthenticationCredentials](/user-documentation/recipes/recipe-catalog/java/security/search/findhardcodedauthenticationcredentials.md)
+  * **Find hardcoded authentication credentials**
+  * Finds hardcoded passwords flowing into Spring Security user builders: `InMemoryUserDetailsManagerConfigurer` (`inMemoryAuthentication().withUser(...).password(...)`) and the `User.UserBuilder.password(...)` API. Uses taint analysis so credentials assigned to a variable, field, or constant before being passed to `.password(...)` are also detected.
+
+##### Data tables:
+
+  * **org.openrewrite.analysis.java.taint.table.TaintFlowTable**: *Records taint flows from sources to sinks with their taint types.*
 
 
 #### [org.openrewrite.java.security.search.FindHttpResponseSplitting](/user-documentation/recipes/recipe-catalog/java/security/search/findhttpresponsesplitting.md)
@@ -5578,7 +5722,7 @@ _This doc contains all of the recipes with **unique** data tables that have been
 
 #### [org.openrewrite.python.dependencies.DependencyVulnerabilityCheck](/user-documentation/recipes/recipe-catalog/python/dependencies/dependencyvulnerabilitycheck.md)
   * **Find and fix vulnerable PyPI dependencies**
-  * This software composition analysis (SCA) tool detects and upgrades dependencies with publicly disclosed vulnerabilities. This recipe both generates a report of vulnerable dependencies and upgrades to newer versions with fixes. This recipe by default only upgrades to the latest **patch** version. If a minor or major upgrade is required to reach the fixed version, this can be controlled using the `maximumUpgradeDelta` option. Vulnerability information comes from the [GitHub Security Advisory Database](https://docs.github.com/en/code-security/security-advisories/global-security-advisories/about-the-github-advisory-database), which aggregates vulnerability data from several public databases, including the [National Vulnerability Database](https://nvd.nist.gov/) maintained by the United States government. Dependencies following [Semantic Versioning](https://semver.org/) will see their _patch_ version updated where applicable.  ## Customizing Vulnerability Data  This recipe can be customized by extending `DependencyVulnerabilityCheckBase` and overriding the vulnerability data sources:   - **`baselineVulnerabilities(ExecutionContext ctx)`**: Provides the default set of known vulnerabilities. The base implementation loads vulnerability data from the GitHub Security Advisory Database CSV file using `ResourceUtils.parseResourceAsCsv()`. Override this method to replace the entire vulnerability dataset with your own curated list.   - **`supplementalVulnerabilities(ExecutionContext ctx)`**: Allows adding custom vulnerability data beyond the baseline. The base implementation returns an empty list. Override this method to add organization-specific vulnerabilities, internal security advisories, or vulnerabilities from additional sources while retaining the baseline GitHub Advisory Database.  Both methods return `List&lt;Vulnerability&gt;` objects. Vulnerability data can be loaded from CSV files using `ResourceUtils.parseResourceAsCsv(path, Vulnerability.class, consumer)` or constructed programmatically. To customize, extend `DependencyVulnerabilityCheckBase` and override one or both methods depending on your needs. For example, override `supplementalVulnerabilities()` to add custom CVEs while keeping the standard vulnerability database, or override `baselineVulnerabilities()` to use an entirely different vulnerability data source.
+  * This software composition analysis (SCA) tool detects and upgrades dependencies with publicly disclosed vulnerabilities. This recipe both generates a report of vulnerable dependencies and upgrades to newer versions with fixes. This recipe by default only upgrades to the latest **patch** version. If a minor or major upgrade is required to reach the fixed version, this can be controlled using the `maximumUpgradeDelta` option. Vulnerability information comes from the [GitHub Security Advisory Database](https://docs.github.com/en/code-security/security-advisories/global-security-advisories/about-the-github-advisory-database), which aggregates vulnerability data from several public databases, including the [National Vulnerability Database](https://nvd.nist.gov/) maintained by the United States government. Dependencies following [Semantic Versioning](https://semver.org/) will see their _patch_ version updated where applicable.   ## Customizing Vulnerability Data  This recipe can be customized by extending `DependencyVulnerabilityCheckBase` and overriding the vulnerability data sources:   - **`baselineVulnerabilities(ExecutionContext ctx)`**: Provides the default set of known vulnerabilities. The base implementation loads vulnerability data from the GitHub Security Advisory Database CSV file using `ResourceUtils.parseResourceAsCsv()`. Override this method to replace the entire vulnerability dataset with your own curated list.   - **`supplementalVulnerabilities(ExecutionContext ctx)`**: Allows adding custom vulnerability data beyond the baseline. The base implementation returns an empty list. Override this method to add organization-specific vulnerabilities, internal security advisories, or vulnerabilities from additional sources while retaining the baseline GitHub Advisory Database.  Both methods return `List&lt;Vulnerability&gt;` objects. Vulnerability data can be loaded from CSV files using `ResourceUtils.parseResourceAsCsv(path, Vulnerability.class, consumer)` or constructed programmatically. To customize, extend `DependencyVulnerabilityCheckBase` and override one or both methods depending on your needs. For example, override `supplementalVulnerabilities()` to add custom CVEs while keeping the standard vulnerability database, or override `baselineVulnerabilities()` to use an entirely different vulnerability data source.
 
 ##### Data tables:
 
@@ -6327,8 +6471,8 @@ _This doc contains all of the recipes with **unique** data tables that have been
   * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
 
 
-#### [org.openrewrite.java.spring.boot2.UpgradeSpringBoot_2_0](/user-documentation/recipes/recipe-catalog/java/spring/boot2/upgradespringboot_2_0-community-edition.md)
-  * **Migrate from Spring Boot 1.x to 2.0 (Community Edition)**
+#### [org.openrewrite.java.spring.boot2.UpgradeSpringBoot_2_0](/user-documentation/recipes/recipe-catalog/java/spring/boot2/upgradespringboot_2_0.md)
+  * **Migrate from Spring Boot 1.x to 2.0**
   * Migrate Spring Boot 1.x applications to the latest Spring Boot 2.0 release. This recipe will modify an application's build files, make changes to deprecated/preferred APIs, and migrate configuration settings that have changes between versions. This recipe will also chain additional framework migrations (Spring Framework, Spring Data, etc) that are required as part of the migration to Spring Boot 2.0.
 
 ##### Data tables:

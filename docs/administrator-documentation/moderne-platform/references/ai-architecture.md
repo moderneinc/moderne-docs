@@ -80,7 +80,7 @@ Moderne offers recipes that can read and comprehend your code – and then provi
 
 For instance, if you created or updated a project that didn't have a useful README, you could [run a recipe to generate a useful one](https://github.com/openrewrite/rewrite-docker/pull/10). 
 
-For more details into how to install and run this recipe, check out our [recipe documentation](https://docs.openrewrite.org/recipes/knowledge/docs/updateopenrewritereadme).
+For more details into how to install and run this recipe, check out our [recipe documentation](../../../user-documentation/recipes/recipe-catalog/prethink/comprehendcode.md).
 
 #### Deployment
 
@@ -102,7 +102,7 @@ No data is saved – all interactions are stateless. Recipe results are ephemera
 
 Moderne has created recipes that can look through your code base and offer suggestions of recipes that you should consider running to help modernize or secure your code base. 
 
-Check out the [get recommendations recipe documentation](https://docs.openrewrite.org/recipes/ai/research/getrecommendations#recommendations) for more information into how to use this. You might also find it beneficial to read about [AI embeddings and how we use them](https://www.moderne.ai/blog/what-are-embeddings-and-why-are-they-great-for-code-impact-analysis).
+Check out the [get recommendations recipe documentation](../../../user-documentation/recipes/recipe-catalog/ai/research/getrecommendations.md#recommendations) for more information into how to use this. You might also find it beneficial to read about [AI embeddings and how we use them](https://www.moderne.ai/blog/what-are-embeddings-and-why-are-they-great-for-code-impact-analysis).
 
 #### Deployment
 
