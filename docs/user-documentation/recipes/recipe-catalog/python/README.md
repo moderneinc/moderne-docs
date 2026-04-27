@@ -7,6 +7,7 @@ description: Python OpenRewrite recipes.
 ## Categories
 
 * [Cleanup](/user-documentation/recipes/recipe-catalog/python/cleanup)
+* [Codequality](/user-documentation/recipes/recipe-catalog/python/codequality)
 * [Dependencies](/user-documentation/recipes/recipe-catalog/python/dependencies)
 * [Format](/user-documentation/recipes/recipe-catalog/python/format)
 * [Migrate](/user-documentation/recipes/recipe-catalog/python/migrate)

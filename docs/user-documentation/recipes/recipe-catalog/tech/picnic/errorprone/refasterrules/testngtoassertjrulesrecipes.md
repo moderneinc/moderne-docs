@@ -158,6 +158,7 @@ recipeList:
 
 This recipe is used as part of the following composite recipes:
 
+* [All Picnic Refaster rules](/user-documentation/recipes/recipe-catalog/tech/picnic/errorprone/refasterrules/allrefasterrules.md)
 * [Migrate TestNG assertions to AssertJ](/user-documentation/recipes/recipe-catalog/java/testing/testng/testngtoassertj.md)
 
 

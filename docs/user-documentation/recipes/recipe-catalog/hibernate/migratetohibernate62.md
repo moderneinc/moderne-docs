@@ -42,6 +42,7 @@ This recipe is available under the [Moderne Source Available License](https://do
 
 * [Migrate to Hibernate 6.1.x](../hibernate/migratetohibernate61)
 * [Migrate Hibernate Types to Hypersistence Utils 6.2](../hibernate/migratetohypersistenceutilshibernate62)
+* [Migrate Hibernate dialect to the generic dialect](../hibernate/migratedialect)
 * [Upgrade Gradle or Maven dependency versions](../java/dependencies/upgradedependencyversion)
   * groupId: `org.hibernate.orm`
   * artifactId: `*`
@@ -64,6 +65,7 @@ preconditions:
 recipeList:
   - org.openrewrite.hibernate.MigrateToHibernate61
   - org.openrewrite.hibernate.MigrateToHypersistenceUtilsHibernate62
+  - org.openrewrite.hibernate.MigrateDialect
   - org.openrewrite.java.dependencies.UpgradeDependencyVersion:
       groupId: org.hibernate.orm
       artifactId: "*"

@@ -41,7 +41,7 @@ This recipe is available under the [Apache License Version 2.0](https://www.apac
 This recipe is used as part of the following composite recipes:
 
 * [Migrate from Micronaut 3.x to 4.x](/user-documentation/recipes/recipe-catalog/java/micronaut/micronaut3to4migration.md)
-* [Migrate from Spring Boot 1.x to 2.0 (Community Edition)](/user-documentation/recipes/recipe-catalog/java/spring/boot2/upgradespringboot_2_0-community-edition.md)
+* [Migrate from Spring Boot 1.x to 2.0](/user-documentation/recipes/recipe-catalog/java/spring/boot2/upgradespringboot_2_0.md)
 * [Migrate to Gradle 5 from Gradle 4](/user-documentation/recipes/recipe-catalog/gradle/migratetogradle5.md)
 * [Migrate to Gradle 6 from Gradle 5](/user-documentation/recipes/recipe-catalog/gradle/migratetogradle6.md)
 * [Migrate to Gradle 7 from Gradle 6](/user-documentation/recipes/recipe-catalog/gradle/migratetogradle7.md)
@@ -52,6 +52,7 @@ This recipe is used as part of the following composite recipes:
 * [Migrate to Spring Boot 2.3](/user-documentation/recipes/recipe-catalog/java/spring/boot2/upgradespringboot_2_3.md)
 * [Migrate to Spring Boot 3.0](/user-documentation/recipes/recipe-catalog/java/spring/boot3/upgradespringboot_3_0.md)
 * [Migrate to Spring Boot 4.0 (Community Edition)](/user-documentation/recipes/recipe-catalog/java/spring/boot4/upgradespringboot_4_0-community-edition.md)
+* [Migrate to Spring Boot 4.0 (Moderne Edition)](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/spring/boot4/upgradespringboot_4_0-moderne-edition)
 * [Upgrade Android Gradle Plugin (AGP) version](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/android/upgradeandroidgradlepluginversion)
 * [Upgrade plugins to Java 17 compatible versions](/user-documentation/recipes/recipe-catalog/java/migrate/upgradepluginsforjava17.md)
 * [Upgrade plugins to Java 21 compatible versions](/user-documentation/recipes/recipe-catalog/java/migrate/upgradepluginsforjava21.md)

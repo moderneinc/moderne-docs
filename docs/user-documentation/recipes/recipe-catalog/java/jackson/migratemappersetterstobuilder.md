@@ -36,7 +36,65 @@ This recipe is used as part of the following composite recipes:
 
 * [Migrates from Jackson 2.x to Jackson 3.x](/user-documentation/recipes/recipe-catalog/java/jackson/upgradejackson_2_3.md)
 
-## Example
+## Examples
+##### Example 1
+`KotlinMigrateMapperSettersToBuilderTest#fluentChainInFunction`
+
+
+<Tabs groupId="beforeAfter">
+<TabItem value="kotlin" label="kotlin">
+
+
+###### Before
+```kotlin
+import com.fasterxml.jackson.databind.SerializationFeature
+import com.fasterxml.jackson.databind.json.JsonMapper
+
+class A {
+    fun create(): JsonMapper {
+        return JsonMapper()
+            .disable(SerializationFeature.INDENT_OUTPUT)
+    }
+}
+```
+
+###### After
+```kotlin
+import com.fasterxml.jackson.databind.SerializationFeature
+import com.fasterxml.jackson.databind.json.JsonMapper
+
+class A {
+    fun create(): JsonMapper {
+        return JsonMapper.builder()
+            .disable(SerializationFeature.INDENT_OUTPUT)
+            .build()
+    }
+}
+```
+
+</TabItem>
+<TabItem value="diff" label="Diff" >
+
+```diff
+@@ -6,1 +6,1 @@
+class A {
+    fun create(): JsonMapper {
+-       return JsonMapper()
++       return JsonMapper.builder()
+            .disable(SerializationFeature.INDENT_OUTPUT)
+@@ -8,0 +8,1 @@
+        return JsonMapper()
+            .disable(SerializationFeature.INDENT_OUTPUT)
++           .build()
+    }
+```
+</TabItem>
+</Tabs>
+
+---
+
+##### Example 2
+`MigrateMapperSettersToBuilderTest#allSettersMigratedToBuilder`
 
 
 <Tabs groupId="beforeAfter">
@@ -230,7 +288,7 @@ class A {
                 .defaultLocale(Locale.US)
                 .defaultBase64Variant(Base64Variants.MIME)
                 .defaultAttributes(attributes)
-                .defaultPropertyInclusion(JsonInclude.Value.empty())
+                .changeDefaultPropertyInclusion(incl -> JsonInclude.Value.empty())
                 .defaultSetterInfo(JsonSetter.Value.empty())
                 .defaultMergeable(Boolean.TRUE)
                 .defaultLeniency(Boolean.TRUE)
@@ -321,7 +379,7 @@ class A {
 +               .defaultLocale(Locale.US)
 +               .defaultBase64Variant(Base64Variants.MIME)
 +               .defaultAttributes(attributes)
-+               .defaultPropertyInclusion(JsonInclude.Value.empty())
++               .changeDefaultPropertyInclusion(incl -> JsonInclude.Value.empty())
 +               .defaultSetterInfo(JsonSetter.Value.empty())
 +               .defaultMergeable(Boolean.TRUE)
 +               .defaultLeniency(Boolean.TRUE)

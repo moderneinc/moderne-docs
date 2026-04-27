@@ -30,6 +30,7 @@ This recipe is available under the [Moderne Proprietary License](https://docs.mo
 This recipe is used as part of the following composite recipes:
 
 * [Remediate OWASP A04:2025 Cryptographic failures](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/security/owasp2025a04)
+* [Remediate OWASP A07:2025 Identification and authentication failures](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/security/owasp2025a07)
 
 
 ## Usage

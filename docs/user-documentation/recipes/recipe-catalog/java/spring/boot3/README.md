@@ -82,6 +82,7 @@ _Recipes that include further recipes, often including the individual recipes be
 * [Remove Unnecessary `@ConstructorBinding`](./removeconstructorbindingannotation.md)
 * [Rename `logback.xml` to `logback-spring.xml`](./renamelogbacktologbackspring.md)
 * [Rename `server.max-http-header-size` to `server.max-http-request-header-size`](./migratemaxhttpheadersize.md)
+* [Replace `@MockitoBean` and `@MockitoSpyBean` with `@Bean` methods in `@Configuration` classes](./replacemockitobeanwithbeanmethod.md)
 * [Replace ConditionOutcome.inverse() with constructor](./replaceconditionaloutcomeinverse.md)
 * [Replace `RestTemplateBuilder.requestFactory(Function)` with `requestFactoryBuilder`](./replaceresttemplatebuilderrequestfactorymethod.md)
 * [Replace deprecated `KafkaConnectionDetails` bootstrap server methods](./replacedeprecatedkafkaconnectiondetailsbootstrapservergetters.md)

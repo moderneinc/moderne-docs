@@ -118,7 +118,7 @@ springdoc:
     path: /v3/api-docs
   swagger-ui:
     path: /swagger-ui.html
-  paths-to-match: "/**"
+  paths-to-match: /**
 ```
 
 </TabItem>
@@ -134,7 +134,7 @@ spring.application.name: main
 +   path: /v3/api-docs
 + swagger-ui:
 +   path: /swagger-ui.html
-+ paths-to-match: "/**"
++ paths-to-match: /**
 
 ```
 </TabItem>

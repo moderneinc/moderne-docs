@@ -29,6 +29,7 @@ This recipe is available under the [Moderne Proprietary License](https://docs.mo
 This recipe is used as part of the following composite recipes:
 
 * [Remediate OWASP A02:2025 Security misconfiguration](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/security/owasp2025a02)
+* [Remediate OWASP A07:2025 Identification and authentication failures](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/security/owasp2025a07)
 
 ## Example
 

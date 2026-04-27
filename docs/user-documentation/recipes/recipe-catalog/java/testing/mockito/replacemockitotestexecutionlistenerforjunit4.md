@@ -35,6 +35,7 @@ This recipe is available under the [Moderne Source Available License](https://do
 * [Module has dependency](../../../java/dependencies/search/modulehasdependency)
   * groupIdPattern: `junit`
   * artifactIdPattern: `junit`
+* [Singleton](../../../core/singleton)
 
 **Recipes**
 
@@ -56,6 +57,7 @@ preconditions:
   - org.openrewrite.java.dependencies.search.ModuleHasDependency:
       groupIdPattern: junit
       artifactIdPattern: junit
+  - org.openrewrite.Singleton
 recipeList:
   - org.openrewrite.java.testing.mockito.ReplaceMockitoTestExecutionListener:
       targetFramework: junit4

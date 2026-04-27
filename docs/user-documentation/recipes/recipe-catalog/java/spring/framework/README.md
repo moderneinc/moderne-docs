@@ -64,6 +64,7 @@ _Recipes that include further recipes, often including the individual recipes be
 * [Remove deprecated `setPathMatcher()` calls](./removesetpathmatchercall.md)
 * [Remove empty path match configuration methods](./removeemptypathmatchconfiguration.md)
 * [Remove `public` from `@Bean` methods](./beanmethodsnotpublic.md)
+* [Replace `@Controller` with `@RestController`](./replacecontrollerwithrestcontroller.md)
 * [Replace `WebMvcConfigurerAdapter` with `WebMvcConfigurer`](./migratewebmvcconfigureradapter.md)
 * [Replace `setObjectMapper` with constructor injection](./migrateconvertersetobjectmapper.md)
 * [Replaces deprecated `ClientHttpResponse#getRawStatusCode()`](./migrateclienthttpresponsegetrawstatuscodemethod.md)
