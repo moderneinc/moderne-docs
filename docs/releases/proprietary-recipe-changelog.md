@@ -24,6 +24,11 @@ This changelog is automatically generated from GitHub releases and only contains
 
 * Updated repository to use OpenRewrite version v8.81.0
 
+#### rewrite-angular - 1.1.4
+
+* Do not add `standalone:false` when there are imports
+* Bump @openrewrite/rewrite from 8.78.3 to 8.80.1 in /recipes-angular[bot]
+
 #### rewrite-angular - 1.1.3
 
 * Updated repository to use OpenRewrite version v8.81.0
@@ -61,6 +66,10 @@ This changelog is automatically generated from GitHub releases and only contains
 * Updated repository to use OpenRewrite version v8.81.0
 
 #### rewrite-dotnet - 0.15.2
+
+* Updated repository to use OpenRewrite version v8.81.0
+
+#### rewrite-dropwizard - 0.2.2
 
 * Updated repository to use OpenRewrite version v8.81.0
 
@@ -122,6 +131,10 @@ This changelog is automatically generated from GitHub releases and only contains
 * Updated repository to use OpenRewrite version v8.81.0
 
 #### rewrite-reactive-streams - 0.19.2
+
+* Updated repository to use OpenRewrite version v8.81.0
+
+#### rewrite-release-metromap - 0.1.1
 
 * Updated repository to use OpenRewrite version v8.81.0
 
@@ -211,6 +224,10 @@ This changelog is automatically generated from GitHub releases and only contains
 * Updated repository to use OpenRewrite version v8.80.0
 
 #### rewrite-dotnet - 0.15.1
+
+* Updated repository to use OpenRewrite version v8.80.0
+
+#### rewrite-dropwizard - 0.2.1
 
 * Updated repository to use OpenRewrite version v8.80.0
 
@@ -420,6 +437,14 @@ This changelog is automatically generated from GitHub releases and only contains
 
 * Update Prethink context
 
+#### rewrite-dropwizard - 0.2.0
+
+* Add Spring starters when removing Dropwizard modules
+* Migrate DataSourceFactory to Spring DataSource configuration
+* Migrate MetricRegistry to Micrometer MeterRegistry
+* Replace Jackson.newObjectMapper() with standard ObjectMapper
+* Fix RemoveUnnecessaryOverride annotation removal crash
+
 #### rewrite-elastic - 0.6.0
 
 * Fix compilation errors from uncast TreeVisitor.visit() returns
@@ -587,6 +612,15 @@ This changelog is automatically generated from GitHub releases and only contains
 
 * Remove uv availability checks from Python tests
 * Fix GenerateCalmMermaidDiagram not overwriting ExportContext architecture.md
+
+## March 30, 2026
+
+#### rewrite-dropwizard - v0.1.0
+
+* Add core Dropwizard-to-Spring-Boot migration recipes
+* Expand recipes and restructure to allow migration DW4 -&gt; SB3/4
+* Regenerate recipes.csv for configuration recipes
+* Scaled migration feedback
 
 ## March 28, 2026
 
@@ -839,6 +873,12 @@ This changelog is automatically generated from GitHub releases and only contains
 #### rewrite-spring - 0.28.2
 
 * Migrate ObjectPostProcessor import for Spring Security 7
+
+## March 16, 2026
+
+#### rewrite-spring - 0.28.1
+
+* Fix `ClassCastException` in `MigrateSpringRetryToSpringFramework7`
 
 ## March 12, 2026
 
@@ -1144,12 +1184,23 @@ This changelog is automatically generated from GitHub releases and only contains
 
 * Updated repository to use OpenRewrite version v8.75.0
 
+## February 28, 2026
+
+#### rewrite-migrate-python - 0.1.1
+
+* Treat `openrewrite` as a provided dependency
+
 ## February 27, 2026
 
 #### rewrite-spring - v0.26.1
 
 * Remove upgrade duplications from Upgrade Boot 3.5 proprietary vs OSS
 * Update Prethink context
+
+#### rewrite-static-analysis - 0.2.0
+
+* Add Python cleanup recipes
+* Change group to io.moderne.recipe
 
 ## February 25, 2026
 
@@ -1384,6 +1435,21 @@ This changelog is automatically generated from GitHub releases and only contains
 
 * Making the build task (the removal of files / directories specifically) platform neutral
 * Lots of new React migration recipes
+
+#### rewrite-spring - 0.25.1
+
+* Improve code generation for Spring configuration recipes
+* Extend SpringBootServletInitializer for WAR packaging
+* Also adjusting the `BootstrapRegistry` package within `spring.factories` file
+* Fix target location calculation for multi-package modules
+* Use version pattern in UpgradeSpringSecurity70Test
+* Skip adding @AutoConfigureMockMvc when already present from new package
+* Narrow MigrateToModularStarters precondition to monolithic starters
+* Rename AutoConfigureWebClient to AutoConfigureRestClient in Boot 4 migration
+* Add spring-boot-jackson dependency in AdoptJackson3 recipe
+* Use example values in tests for handleError migration
+* Also add validation starter when constraint annotations are used
+* Add useDefaultJaasConfig=true to MSSQL Kerberos JDBC URLs
 
 #### rewrite-terraform - v3.12.0
 
@@ -1623,10 +1689,6 @@ This changelog is automatically generated from GitHub releases and only contains
 
 * Updated repository to use OpenRewrite version v8.72.0
 
-#### rewrite-azul - 0.8.5
-
-* Updated repository to use OpenRewrite version v8.72.0
-
 #### rewrite-circleci - 3.9.5
 
 * Updated repository to use OpenRewrite version v8.72.0
@@ -1788,10 +1850,6 @@ This changelog is automatically generated from GitHub releases and only contains
 
 * Updated repository to use OpenRewrite version v8.71.0
 
-#### rewrite-azul - 0.8.4
-
-* Updated repository to use OpenRewrite version v8.71.0
-
 #### rewrite-circleci - 3.9.4
 
 * Updated repository to use OpenRewrite version v8.71.0
@@ -1919,10 +1977,6 @@ This changelog is automatically generated from GitHub releases and only contains
 
 * Updated repository to use OpenRewrite version v8.69.0
 
-#### rewrite-azul - 0.8.3
-
-* Updated repository to use OpenRewrite version v8.69.0
-
 #### rewrite-circleci - 3.9.3
 
 * Updated repository to use OpenRewrite version v8.69.0
@@ -1936,10 +1990,6 @@ This changelog is automatically generated from GitHub releases and only contains
 * Updated repository to use OpenRewrite version v8.69.0
 
 #### rewrite-compiled-analysis - 0.11.2
-
-* Updated repository to use OpenRewrite version v8.69.0
-
-#### rewrite-comprehension - 0.10.2
 
 * Updated repository to use OpenRewrite version v8.69.0
 
@@ -2046,10 +2096,6 @@ This changelog is automatically generated from GitHub releases and only contains
 
 * Updated repository to use OpenRewrite version v8.68.1
 
-#### rewrite-azul - 0.8.2
-
-* Updated repository to use OpenRewrite version v8.68.1
-
 #### rewrite-circleci - 3.9.2
 
 * Updated repository to use OpenRewrite version v8.68.1
@@ -2063,10 +2109,6 @@ This changelog is automatically generated from GitHub releases and only contains
 * chore(deps): bump glob from 10.3.10 to 10.5.0 in /src/main/resources/codemods[bot]
 
 #### rewrite-compiled-analysis - 0.11.1
-
-* Updated repository to use OpenRewrite version v8.68.1
-
-#### rewrite-comprehension - 0.10.1
 
 * Updated repository to use OpenRewrite version v8.68.1
 
@@ -2193,10 +2235,6 @@ Republishing to update dependencies
 * New `UpdateComponentTemplateUrl` recipe
 * Change group ID to `io.moderne.recipe`
 
-#### rewrite-azul - 0.8.1
-
-* Updated repository to use OpenRewrite version v8.67.0
-
 #### rewrite-circleci - 3.9.1
 
 * Updated repository to use OpenRewrite version v8.67.0
@@ -2212,10 +2250,6 @@ Republishing to update dependencies
 * Updated repository to use OpenRewrite version v8.67.0
 
 #### rewrite-compiled-analysis - 0.11.0
-
-* Common static analysis issues
-
-#### rewrite-comprehension - 0.10.0
 
 * Common static analysis issues
 
@@ -2328,10 +2362,6 @@ Republishing to update dependencies
 
 ## November 5, 2025
 
-#### rewrite-comprehension - 0.9.0
-
-* Gradle 9.2.0
-
 #### rewrite-cryptography - 0.11.0
 
 * Gradle 9.2.0
@@ -2374,10 +2404,6 @@ Republishing to update dependencies
 * Gradle 9.2.0
 
 #### rewrite-android - 0.14.0
-
-* Gradle 9.2.0
-
-#### rewrite-azul - 0.8.0
 
 * Gradle 9.2.0
 
@@ -2470,10 +2496,6 @@ Republishing to update dependencies
 
 * Updated repository to use OpenRewrite version v8.64.0
 
-#### rewrite-azul - 0.7.1
-
-* Updated repository to use OpenRewrite version v8.64.0
-
 #### rewrite-circleci - 3.8.1
 
 * Updated repository to use OpenRewrite version v8.64.0
@@ -2487,10 +2509,6 @@ Republishing to update dependencies
 * Updated repository to use OpenRewrite version v8.64.0
 
 #### rewrite-compiled-analysis - 0.9.1
-
-* Updated repository to use OpenRewrite version v8.64.0
-
-#### rewrite-comprehension - 0.8.1
 
 * Updated repository to use OpenRewrite version v8.64.0
 
@@ -2584,10 +2602,6 @@ Republishing to update dependencies
 
 * Update recipe documentation examples
 
-#### rewrite-azul - 0.7.0
-
-* Update recipe documentation examples
-
 #### rewrite-circleci - 3.8.0
 
 * Update recipe documentation examples
@@ -2603,11 +2617,6 @@ Republishing to update dependencies
 #### rewrite-compiled-analysis - 0.9.0
 
 * Add new documentation examples
-* Update recipe documentation examples
-
-#### rewrite-comprehension - 0.8.0
-
-* Updating Gemini to gemini-2.5-flash
 * Update recipe documentation examples
 
 #### rewrite-concourse - 3.8.0
@@ -2722,10 +2731,6 @@ Republishing to update dependencies
 
 * Updated repository to use OpenRewrite version v8.62.4
 
-#### rewrite-azul - 0.6.2
-
-* Updated repository to use OpenRewrite version v8.62.4
-
 #### rewrite-circleci - 3.7.5
 
 * Updated repository to use OpenRewrite version v8.62.4
@@ -2739,10 +2744,6 @@ Republishing to update dependencies
 * Updated repository to use OpenRewrite version v8.62.4
 
 #### rewrite-compiled-analysis - 0.8.3
-
-* Updated repository to use OpenRewrite version v8.62.4
-
-#### rewrite-comprehension - 0.7.7
 
 * Updated repository to use OpenRewrite version v8.62.4
 
@@ -2849,10 +2850,6 @@ Republishing to update dependencies
 
 * Updated repository to use OpenRewrite version v8.62.0
 
-#### rewrite-azul - 0.6.1
-
-* Updated repository to use OpenRewrite version v8.62.0
-
 #### rewrite-circleci - 3.7.4
 
 * Updated repository to use OpenRewrite version v8.62.0
@@ -2866,10 +2863,6 @@ Republishing to update dependencies
 * Updated repository to use OpenRewrite version v8.62.0
 
 #### rewrite-compiled-analysis - 0.8.2
-
-* Updated repository to use OpenRewrite version v8.62.0
-
-#### rewrite-comprehension - 0.7.6
 
 * Updated repository to use OpenRewrite version v8.62.0
 
@@ -2998,10 +2991,6 @@ Republishing to update dependencies
 
 * Updated repository to use OpenRewrite version v8.61.1
 
-#### rewrite-comprehension - 0.7.5
-
-* Apply OpenRewrite best practices
-
 #### rewrite-concourse - 3.7.1
 
 * Updated repository to use OpenRewrite version v8.61.1
@@ -3079,10 +3068,6 @@ Republishing to update dependencies
 
 * Refactor RewriteTest to use defaults method
 
-#### rewrite-comprehension - 0.7.4
-
-* Updated repository to use OpenRewrite version v8.60.0
-
 #### rewrite-hibernate - 0.9.0
 
 * Add `cascade=PERSIST` for @Id and @MapsId Attributes
@@ -3123,10 +3108,6 @@ Republishing to update dependencies
 
 * common static analysis issues
 
-#### rewrite-azul - 0.4.1
-
-* Updated repository to use OpenRewrite version v8.59.1
-
 #### rewrite-circleci - 3.7.1
 
 * Updated repository to use OpenRewrite version v8.59.1
@@ -3148,14 +3129,6 @@ Republishing to update dependencies
 * Updated repository to use OpenRewrite version v8.59.1
 
 #### rewrite-compiled-analysis - 0.7.2
-
-* Updated repository to use OpenRewrite version v8.59.0
-
-#### rewrite-comprehension - 0.7.3
-
-* Updated repository to use OpenRewrite version v8.59.1
-
-#### rewrite-comprehension - 0.7.2
 
 * Updated repository to use OpenRewrite version v8.59.0
 
@@ -3271,10 +3244,6 @@ Republishing to update dependencies
 
 * Updated repository to use OpenRewrite version v8.57.0
 
-#### rewrite-azul - 0.3.1
-
-* Updated repository to use OpenRewrite version v8.57.0
-
 #### rewrite-circleci - 3.6.1
 
 * Updated repository to use OpenRewrite version v8.57.0
@@ -3290,10 +3259,6 @@ Republishing to update dependencies
 #### rewrite-compiled-analysis - v0.7.1
 
 * Update for maven central
-
-#### rewrite-comprehension - v0.7.1
-
-* Updates publish maven central workflow
 
 #### rewrite-concourse - 3.5.1
 
@@ -3354,10 +3319,6 @@ Republishing to update dependencies
 * Pin organizations-format to be able to build & release for a CLI patch release
 
 ## June 25, 2025
-
-#### rewrite-azul - 0.3.0
-
-* Adopt Moderne recipe module CI workflows
 
 #### rewrite-codemods - 0.14.1
 
@@ -3478,23 +3439,7 @@ Republishing to update dependencies
 
 * Updated repository to use OpenRewrite version v8.54.0
 
-#### rewrite-azul - 0.2.0
-
-* refactor: Gradle wrapper 8.12
-* refactor: Delete `gradle_enterprise_access_key`
-* refactor: OpenRewrite best practices
-* refactor: Extract documentation examples from tests
-* refactor: Update Gradle wrapper to 8.14
-* refactor: OpenRewrite Recipe best practices
-* refactor: Find and replace
-* refactor: Delete `gradle_enterprise_access_key`
-* Switch over to moderneinc/gh-automation
-
 #### rewrite-circleci - 3.5.1
-
-* Updated repository to use OpenRewrite version v8.54.0
-
-#### rewrite-comprehension - 0.6.1
 
 * Updated repository to use OpenRewrite version v8.54.0
 
