@@ -11,8 +11,8 @@ rewrite-concourse
 rewrite-cryptography
 rewrite-devcenter
 rewrite-dotnet
+rewrite-dropwizard
 rewrite-elastic
-rewrite-en-workshop
 rewrite-hibernate
 rewrite-jasperreports
 rewrite-java-application-server
@@ -26,11 +26,10 @@ rewrite-prethink
 rewrite-program-analysis
 rewrite-react
 rewrite-reactive-streams
-rewrite-recipe-starter
 rewrite-release-metromap
 rewrite-spring
 rewrite-sql
-rewrite-stl-workshop
+rewrite-static-analysis
 rewrite-struts
 rewrite-tapestry
 rewrite-terraform
