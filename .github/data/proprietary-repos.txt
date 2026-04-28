@@ -2,13 +2,11 @@ rewrite-ai
 rewrite-ai-search
 rewrite-android
 rewrite-angular
-rewrite-azul
 rewrite-circleci
 rewrite-cobol
 rewrite-codemods
 rewrite-codemods-ng
 rewrite-compiled-analysis
-rewrite-comprehension
 rewrite-concourse
 rewrite-cryptography
 rewrite-devcenter
@@ -28,6 +26,7 @@ rewrite-prethink
 rewrite-program-analysis
 rewrite-react
 rewrite-reactive-streams
+rewrite-release-metromap
 rewrite-spring
 rewrite-sql
 rewrite-static-analysis
