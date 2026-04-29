@@ -10,6 +10,18 @@ This page contains release notes for [Moderne proprietary OpenRewrite recipes](h
 This changelog is automatically generated from GitHub releases and only contains information from the past year.
 :::
 
+## April 28, 2026
+
+#### rewrite-cryptography - 0.13.4
+
+* Add recipes.csv for marketplace listing
+
+#### rewrite-spring - v0.32.1
+
+* Correct Boot 4 metrics package relocations
+* Scaffold Spring Boot 4.1 migration recipe
+* Spring Boot 4.1 modular starter migration (#318 phase 5)
+
 ## April 27, 2026
 
 #### rewrite-ai - 0.3.2
