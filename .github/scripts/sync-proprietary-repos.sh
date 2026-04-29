@@ -5,8 +5,10 @@ ORG="${GITHUB_ORG:-moderneinc}"
 PREFIX="rewrite-"
 DATA_FILE=".github/data/proprietary-repos.txt"
 
-# Repos to exclude (space-separated, add names here if needed)
-EXCLUDE_REPOS=""
+# Repos to exclude (space-separated exact names)
+EXCLUDE_REPOS="rewrite-recipe-starter rewrite-module-template"
+# Substrings that mark a repo for exclusion (any match excludes the repo)
+EXCLUDE_SUBSTRINGS="workshop"
 
 echo "Discovering ${PREFIX}* repos in ${ORG}..."
 
@@ -21,10 +23,17 @@ discovered=$(gh repo list "$ORG" \
 discovered_count=$(echo "$discovered" | wc -l | tr -d ' ')
 echo "Found ${discovered_count} repos matching ${PREFIX}*"
 
-# Apply exclusions
+# Apply exact-name exclusions
 if [ -n "$EXCLUDE_REPOS" ]; then
   for repo in $EXCLUDE_REPOS; do
     discovered=$(echo "$discovered" | grep -v "^${repo}$" || true)
+  done
+fi
+
+# Apply substring exclusions
+if [ -n "$EXCLUDE_SUBSTRINGS" ]; then
+  for substr in $EXCLUDE_SUBSTRINGS; do
+    discovered=$(echo "$discovered" | grep -v "$substr" || true)
   done
 fi
 

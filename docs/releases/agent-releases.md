@@ -5,17 +5,20 @@ description: The current version of the Moderne Connector and where to download 
 
 # Connector releases
 
-| Component                                  | Current version |
-| ------------------------------------------ | --------------- |
-| Connector (recommended to use **latest**)  | 0.258.0         |
+| Component                             | Current version |
+| ------------------------------------- | --------------- |
+| Agent (recommended to use **latest**) | 0.259.0         |
 
 ### Maven download
 
-[Connector download link](https://repo1.maven.org/maven2/io/moderne/moderne-agent/0.258.0/moderne-agent-0.258.0.jar)
+[Agent download link](https://repo1.maven.org/maven2/io/moderne/moderne-agent/0.259.0/moderne-agent-0.259.0.jar)
 
 
 ## Changelog
 
+### v0.259.0 - 2026-04-29
+
+* Suppress plexus-utils CVE-2025-67030
 ### v0.258.0 - 2026-03-19
 
 * Revert "Add absolute read timeout on agent outbound proxy response body (#665)"

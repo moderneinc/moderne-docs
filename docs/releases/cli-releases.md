@@ -7,7 +7,7 @@ description: The current version of the Moderne CLI and links to useful CLI docu
 
 | Component   | Current version |
 | ----------- | --------------- |
-| CLI version | 4.2.0           |
+| CLI version | 4.2.1           |
 
 For CLI command documentation, see the [CLI reference](../user-documentation/moderne-cli/cli-reference.md).
 
@@ -16,6 +16,15 @@ The Moderne CLI previously followed a two-track release model with separate "sta
 :::
 
 ## Changelog
+
+### CLI / DX v4.2.1 (2026-04-28)
+
+#### What's Changed
+* JavaScript: when building have another fallback with `--legacy-peer-deps` option
+* JavaScript: handle custom NPM registry overrides in `typesync` phase
+* Don't trace RPC messages for NPM and Pip
+* Skip runtime lookup in resource build steps when no work
+* Allow installing rewrite-docker again
 
 ### CLI / DX v4.2.0 (2026-04-27)
 
