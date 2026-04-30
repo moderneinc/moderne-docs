@@ -1,4 +1,8 @@
 # Platform changelog
+### UI v12.36.0 (2026/04/30)
+
+- Singleton reference collapse + recipeDetail split + nesting tune
+
 ### UI v12.35.1 (2026/04/28)
 
 - Bug fixes and other improvements.
