@@ -347,9 +347,9 @@ html {
   }
 }
 
-/* Doc main container padding for breathing room */
+/* Align top of main content with top of sidebar */
 [class*="docMainContainer"] {
-  padding-top: var(--neo-spacing_4);
+  padding-top: 0;
 }
 
 .reactPlayer + p {
@@ -360,16 +360,17 @@ html {
   font-size: var(--neo-font-size-default);
 }
 
-/* Apply flexbox with 32px gap between breadcrumbs and document content */
 [class*="docItemContainer"] article {
   display: flex;
   flex-direction: column;
-  gap: var(--neo-spacing_4);
 }
 
-[class^=docMainContainer_] h1 {
-  font-size: var(--neo-font-size-h1);
-  font-weight: var(--neo-font-weight-medium);
+h1 {
+  font-family: var(--neo-font-family-heading), sans-serif;
+  font-size: 36px !important;
+  font-weight: 700 !important;
+  line-height: 45px;
+  color: var(--brand-midnight);
 }
 
 [class^=docMainContainer_] h2:not(.doc-card-title) {

@@ -39,13 +39,12 @@
   flex-direction: column;
   gap: var(--neo-spacing_1);
 
-  /* Page header typography - matching Figma design (node 478:5567)
-     Nested for higher specificity to override Docusaurus h1 defaults */
   .title {
-    font-size: var(--neo-font-size-h3);
-    font-weight: var(--neo-font-weight-medium);
-    line-height: 1.4;
-    color: var(--neo-typography-input-default);
+    font-family: var(--neo-font-family-heading), sans-serif;
+    font-size: 36px;
+    font-weight: var(--neo-font-weight-bold);
+    line-height: 45px;
+    color: var(--brand-midnight);
     margin: 0;
   }
 
