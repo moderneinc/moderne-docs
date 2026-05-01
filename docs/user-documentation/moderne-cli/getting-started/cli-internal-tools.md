@@ -22,7 +22,7 @@ This guide walks you through configuring the Moderne CLI to work in environments
 Before installing the CLI, please ensure your internal artifact repository contains the following artifacts:
 
 * **The Moderne CLI** — distributed as a platform-specific self-extracting installer that bundles the `modw` wrapper, a Java 25 runtime, and the CLI JAR. It's published to Maven Central under platform-specific artifact IDs: [`moderne-cli-linux`](https://central.sonatype.com/artifact/io.moderne/moderne-cli-linux/versions), [`moderne-cli-osx`](https://central.sonatype.com/artifact/io.moderne/moderne-cli-osx/versions), and [`moderne-cli-windows`](https://central.sonatype.com/artifact/io.moderne/moderne-cli-windows/versions).
-* **OpenRewrite recipe modules** — [there are numerous OpenRewrite recipe modules available on Maven Central](https://central.sonatype.com/namespace/org.openrewrite). [The full list of recipe JARs and a CLI install command is regenerated on every release](../../recipes/lists/latest-versions-of-every-openrewrite-module.md#cli-installation).
+* **OpenRewrite recipe modules** — there are numerous OpenRewrite recipe modules available on Maven Central under the [`org.openrewrite`](https://central.sonatype.com/namespace/org.openrewrite) and [`org.openrewrite.recipe`](https://central.sonatype.com/namespace/org.openrewrite.recipe) namespaces. [The full list of recipe JARs and a CLI install command is regenerated on every release](../../recipes/lists/latest-versions-of-every-openrewrite-module.md#cli-installation).
 
 :::tip
 If your mirror is configured as a remote proxy of Maven Central (e.g., a virtual repository in Artifactory or a proxy repo in Nexus), most of this happens automatically — artifacts are fetched on demand and cached. If your mirror requires explicit sync-on-approval, each version you wish to use must be synced before users can install or upgrade.
@@ -30,7 +30,7 @@ If your mirror is configured as a remote proxy of Maven Central (e.g., a virtual
 
 ### Step 1: Install the CLI from your internal mirror
 
-The CLI ships as a self-extracting installer (a `.sh` archive on Linux/macOS or a `.zip` archive on Windows) that bundles the `modw` wrapper, a Java 25 runtime, and the CLI JAR. Running the installer extracts everything into `~/.moderne/cli/` (or `%USERPROFILE%\.moderne\cli` on Windows) without any further network access.
+The CLI ships as a platform-specific installer that bundles the `modw` wrapper, a Java 25 runtime, and the CLI JAR. On Linux/macOS it's a self-extracting shell script (`.sh`); on Windows it's a zip archive (`.zip`) containing an `install.cmd` to run after extracting. Either way, installation drops everything into `~/.moderne/cli/` (or `%USERPROFILE%\.moderne\cli` on Windows) without further network access.
 
 <Tabs groupId="cli-install-os" queryString="os">
 <TabItem value="linux-macos" label="Linux or macOS" default>
@@ -38,7 +38,7 @@ The CLI ships as a self-extracting installer (a `.sh` archive on Linux/macOS or 
 Download the platform-appropriate distribution from your internal mirror. For example, for Linux x86_64:
 
 ```bash
-curl -fsSL -o moderne-cli.sh \
+curl -fL -o moderne-cli.sh \
     "https://internal-mirror.example.com/io/moderne/moderne-cli-linux/4.2.1/moderne-cli-linux-4.2.1.sh"
 ```
 
@@ -55,20 +55,28 @@ The installer adds `~/.moderne/cli/bin` to your `PATH` and configures shell comp
 </TabItem>
 <TabItem value="windows" label="Windows">
 
-Download `moderne-cli-windows-<version>.zip` from your internal mirror, extract it, and run the included `install.cmd` script:
+Download the Windows distribution from your internal mirror:
 
 ```powershell
-Expand-Archive moderne-cli-windows-4.2.1.zip -DestinationPath .
+Invoke-WebRequest `
+    -Uri "https://internal-mirror.example.com/io/moderne/moderne-cli-windows/4.2.1/moderne-cli-windows-4.2.1.zip" `
+    -OutFile moderne-cli.zip
+```
+
+Replace `4.2.1` with the version you intend to install. Then extract the archive and run the included `install.cmd` script:
+
+```powershell
+Expand-Archive moderne-cli.zip -DestinationPath .
 .\install.cmd
 ```
 
-Replace `4.2.1` with the version you intend to install. The installer adds `%USERPROFILE%\.moderne\cli\bin` to your user `PATH`. Open a new terminal to pick up the change.
+The installer adds `%USERPROFILE%\.moderne\cli\bin` to your user `PATH`. Open a new terminal to pick up the change.
 
 </TabItem>
 </Tabs>
 
 :::warning
-The macOS distribution bundles a JRE for **Apple Silicon only**. Intel Mac users will need to install a Java 25+ runtime separately and ensure it's discoverable by the wrapper 0 see [how the wrapper finds Java](../how-to-guides/cli-wrapper.md#how-the-wrapper-finds-java) for details.
+The macOS distribution bundles a JRE for **Apple Silicon only**. Intel Mac users will need to install a Java 25+ runtime separately and ensure it's discoverable by the wrapper — see [how the wrapper finds Java](../how-to-guides/cli-wrapper.md#how-the-wrapper-finds-java) for details.
 :::
 
 ### Step 2: Pin the CLI version
@@ -97,14 +105,17 @@ echo "version=4.2.1" > ~/.moderne/cli/dist/moderne-wrapper.properties
 Replace `4.2.1` with the version you installed.
 
 :::warning
-Pinning a version is **required** in environments that cannot reach `repo1.maven.org`. The wrapper's `RELEASE` and `LATEST` resolution always queries Maven Central for `maven-metadata.xml`, regardless of any `distributionUrl` setting. If Maven Central is not reachable and no version is pinned, every `mod` invocation will fail at version resolution. To upgrade the CLI later, run the new version's installer (Step 1) and update this file with the new version.
+Pinning a version is **required** in environments that cannot reach `repo1.maven.org`. The wrapper's `RELEASE` and `LATEST` resolution always queries Maven Central for `maven-metadata.xml`, regardless of any `distributionUrl` setting. If Maven Central is not reachable and no version is pinned, every `modw` invocation will fail at version resolution.
 :::
 
-You should now be able to verify the installation by running `mod --version`:
+:::tip
+There are two ways to upgrade the CLI later:
 
-```bash
-mod --version
-```
+* **Re-run the installer** (Step 1) for the new version, then update `version=` in this file.
+* **Bump `version=` and let the wrapper download the new distribution.** This requires also setting `distributionUrl` in this file to point at your internal mirror — see the [air-gapped or restricted environments](../how-to-guides/cli-wrapper.md#air-gapped-or-restricted-environments) section of the CLI wrapper guide for the URL template. Once configured, you can also bump versions via `mod wrapper --global --version=<new-version>`.
+:::
+
+You should now be able to verify the installation by running `mod --version`.
 
 For more on how the wrapper works (auto-update behavior, distribution URLs, JDK selection, environment variables), see the [CLI wrapper and version management guide](../how-to-guides/cli-wrapper.md).
 
