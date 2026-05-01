@@ -434,6 +434,113 @@ h1, .markdown h3, .markdown h4 {
   font-weight: bold;
 }
 
+/* Replit-style admonitions: rounded, subtle border, icon inline with text */
+.theme-admonition {
+  border: 1px solid;
+  border-radius: var(--neo-border-radius-m);
+  padding: var(--neo-spacing_2);
+  display: flex;
+  flex-direction: row;
+  gap: var(--neo-spacing_1);
+  align-items: flex-start;
+}
+
+.theme-admonition [class*='admonitionHeading_'] {
+  margin: 0;
+  font-size: 0;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.theme-admonition [class*='admonitionHeading_'] [class*='admonitionIcon_'] {
+  font-size: initial;
+  margin-right: 0;
+  display: inline-flex;
+  align-items: center;
+}
+
+.theme-admonition [class*='admonitionHeading_'] [class*='admonitionIcon_'] svg {
+  fill: none;
+  stroke: currentColor;
+}
+
+.theme-admonition [class*='admonitionContent_'] {
+  flex: 1;
+  color: inherit;
+}
+
+.theme-admonition [class*='admonitionContent_'] > p:first-child {
+  margin-top: 0;
+}
+
+.theme-admonition [class*='admonitionContent_'] > p:last-child {
+  margin-bottom: 0;
+}
+
+/* Per-type colors */
+.theme-admonition-info {
+  background-color: var(--neo-digital-blue-50);
+  border-color: var(--neo-digital-blue-200);
+  color: var(--neo-digital-blue-600);
+}
+
+.theme-admonition-tip {
+  background-color: var(--neo-digital-green-50);
+  border-color: var(--neo-digital-green-300);
+  color: var(--neo-digital-green-800);
+}
+
+.theme-admonition-note {
+  background-color: var(--neo-grey-50);
+  border-color: var(--neo-grey-200);
+  color: var(--neo-grey-800);
+}
+
+.theme-admonition-warning,
+.theme-admonition-caution {
+  background-color: var(--neo-orange-50);
+  border-color: var(--neo-gold-200);
+  color: var(--neo-gold-800);
+}
+
+.theme-admonition-danger {
+  background-color: var(--neo-red-50);
+  border-color: var(--neo-red-200);
+  color: var(--neo-red-700);
+}
+
+/* Dark mode */
+html[data-theme='dark'] .theme-admonition-info {
+  background-color: var(--neo-digital-blue-900);
+  border-color: var(--neo-digital-blue-700);
+  color: var(--neo-digital-blue-100);
+}
+
+html[data-theme='dark'] .theme-admonition-tip {
+  background-color: var(--neo-digital-green-900);
+  border-color: var(--neo-digital-green-700);
+  color: var(--neo-digital-green-100);
+}
+
+html[data-theme='dark'] .theme-admonition-note {
+  background-color: var(--neo-grey-900);
+  border-color: var(--neo-grey-700);
+  color: var(--neo-grey-100);
+}
+
+html[data-theme='dark'] .theme-admonition-warning,
+html[data-theme='dark'] .theme-admonition-caution {
+  background-color: var(--neo-gold-900);
+  border-color: var(--neo-gold-700);
+  color: var(--neo-gold-100);
+}
+
+html[data-theme='dark'] .theme-admonition-danger {
+  background-color: var(--neo-red-900);
+  border-color: var(--neo-red-700);
+  color: var(--neo-red-100);
+}
+
 /* Colorblind-friendly code highlighting */
 :root {
   /* Light theme highlight colors - colorblind accessible */
