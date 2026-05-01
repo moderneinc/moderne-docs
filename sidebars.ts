@@ -683,6 +683,25 @@ const handsOnLearning = {
       ],
     },
     {
+      type: 'category' as const,
+      label: 'Agent tools for AI coding agents',
+      link: {
+        type: 'generated-index' as const,
+        title: 'Agent tools for AI coding agents',
+        description: 'Set up the Moderne agent tools and use Prethink, Trigrep, and the MCP server with your AI coding agent.',
+        slug: '/hands-on-learning/agent-tools',
+        keywords: ['ai', 'agent-tools', 'skills', 'mcp', 'prethink', 'trigrep'],
+      },
+      items: [
+        'hands-on-learning/agent-tools/workshop-overview',
+        'hands-on-learning/agent-tools/module-1-cli-and-lsts',
+        'hands-on-learning/agent-tools/module-2-install-agent-tools',
+        'hands-on-learning/agent-tools/module-3-prethink',
+        'hands-on-learning/agent-tools/module-4-trigrep',
+        'hands-on-learning/agent-tools/module-5-mcp',
+      ],
+    },
+    {
       type: 'link' as const,
       label: 'Live OpenRewrite training',
       description: 'Hands-on sessions for both newcomers and advanced practitioners.',
