@@ -26,9 +26,6 @@ export const ProductCardsGrid: FunctionComponent<ProductCardsGridProps> = ({
             href={product.homepageHref || product.href}
             className={styles.productCard}
           >
-            <div className={styles.productCardIcon}>
-              <img src={product.icon} alt="" className={styles.productCardIconImage} />
-            </div>
             <div className={styles.productCardContent}>
               <h3 className={styles.productCardTitle}>{product.name}</h3>
               <p className={styles.productCardDescription}>{product.description}</p>

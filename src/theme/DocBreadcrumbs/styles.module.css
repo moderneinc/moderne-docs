@@ -1,0 +1,77 @@
+.breadcrumbs {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--neo-spacing_1);
+  margin: 0 0 var(--neo-spacing_2) 0;
+  padding: 0;
+  font-size: var(--neo-font-size-sm);
+  color: var(--brand-midnight);
+}
+
+.homeLink {
+  display: inline-flex;
+  align-items: center;
+  color: var(--brand-midnight);
+  text-decoration: none;
+  line-height: 0;
+}
+
+.homeLink:hover {
+  color: var(--brand-digital-blue);
+  text-decoration: none;
+}
+
+.crumb {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--neo-spacing_1);
+}
+
+.link {
+  color: var(--brand-midnight);
+  text-decoration: none;
+  font-weight: var(--neo-font-weight-regular);
+}
+
+.link:hover {
+  color: var(--brand-digital-blue);
+  text-decoration: none;
+}
+
+.separator {
+  color: var(--neo-grey-400);
+  flex-shrink: 0;
+}
+
+.current {
+  display: inline-flex;
+  align-items: center;
+  padding: var(--neo-spacing_1_2) var(--neo-spacing_1_1_2);
+  background-color: var(--neo-surfaces-white);
+  border: 1px solid var(--neo-grey-200);
+  border-radius: var(--neo-border-radius-button);
+  font-weight: var(--neo-font-weight-regular);
+  color: var(--brand-midnight);
+}
+
+html[data-theme='dark'] .breadcrumbs,
+html[data-theme='dark'] .homeLink,
+html[data-theme='dark'] .link {
+  color: var(--neo-surfaces-white);
+}
+
+html[data-theme='dark'] .homeLink:hover,
+html[data-theme='dark'] .link:hover {
+  color: var(--brand-digital-green);
+}
+
+html[data-theme='dark'] .separator {
+  color: var(--neo-grey-600);
+}
+
+html[data-theme='dark'] .current {
+  background-color: var(--neo-grey-800);
+  border-color: var(--neo-grey-700);
+  color: var(--neo-surfaces-white);
+}

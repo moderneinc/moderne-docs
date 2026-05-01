@@ -10,7 +10,7 @@
   /* Override default menu padding with NeoDesign spacing */
   .menu {
     flex-grow: 1;
-    padding: var(--neo-spacing_3) var(--neo-spacing_3) var(--neo-spacing_1) var(--neo-spacing_3);
+    padding: var(--neo-spacing_3) var(--neo-spacing_3);
   }
 
   @supports (scrollbar-gutter: stable) {
@@ -44,7 +44,8 @@
 
 /* Sidebar link spacing */
 :global(.theme-doc-sidebar-menu .menu__link) {
-  padding: var(--neo-spacing_1_1_2);
+  padding: var(--neo-spacing_3_4) var(--neo-spacing_1_1_2);
+  line-height: 1.4;
 }
 
 /* Hover states - brand lavender tint (not in NeoDesign) + selected color */

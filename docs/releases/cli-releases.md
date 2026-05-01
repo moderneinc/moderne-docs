@@ -17,6 +17,8 @@ The Moderne CLI previously followed a two-track release model with separate "sta
 
 ## Changelog
 
+## April 2026
+
 ### CLI / DX v4.2.1 (2026-04-28)
 
 #### What's Changed
@@ -159,6 +161,8 @@ The Moderne CLI previously followed a two-track release model with separate "sta
 * Gradle: prevent parsing subprojects as separate if the top project fails
 * Change `mod mcp` server name to `io.moderne/cli`
 
+## March 2026
+
 ### CLI / DX v4.0.10 (2026-03-30)
 
 #### What's Changed
@@ -243,6 +247,12 @@ The Moderne CLI previously followed a two-track release model with separate "sta
 * Fix version downgrading issue
 * Add `mod config python version edit/delete/show` commands
 
+### CLI / DX v3.57.16 (2026-03-19)
+
+#### What's Changed
+* Fix Bitbucket Server repos with org columns skipped as no source code
+* Daemon running recipes not to advertise port number until the server is started
+
 ### CLI / DX v4.0.5 (2026-03-12)
 
 #### What's Changed
@@ -274,12 +284,6 @@ The Moderne CLI previously followed a two-track release model with separate "sta
 * Wire nodeVersion from repos.csv to per-repo Node.js selection
 * JavaScript: Prefer node from `PATH` if it satisfies constraints
 * Convert dotted groupIds to slashes in Maven GAV download URL
-
-### CLI / DX v3.57.16 (2026-03-19)
-
-#### What's Changed
-* Fix Bitbucket Server repos with org columns skipped as no source code
-* Daemon running recipes not to advertise port number until the server is started
 
 ### CLI / DX v3.57.15 (2026-03-12)
 
@@ -335,6 +339,8 @@ The Moderne CLI previously followed a two-track release model with separate "sta
 * Fix OOM in gradle-metadata JSON serialization
 * Fix node config installation edit not persisting for list
 * Publish platform distributions to separate Maven Central artifacts
+
+## February 2026
 
 ### CLI / DX v4.0.2 (2026-02-27)
 
@@ -560,6 +566,8 @@ The Moderne CLI previously followed a two-track release model with separate "sta
 * Adding basic-mod-commands-check CI step
 * Add Sourcegraph/Zoekt-compatible trigram search
 
+## January 2026
+
 ### CLI / DX v3.56.4 (2026-01-28)
 
 #### What's Changed
@@ -649,6 +657,8 @@ The Moderne CLI previously followed a two-track release model with separate "sta
 #### What's Changed DX
 * N/A
 
+## December 2025
+
 ### CLI / DX v3.54.5 (2025-12-31)
 
 #### What's Changed
@@ -721,6 +731,7 @@ The Moderne CLI previously followed a two-track release model with separate "sta
 * When reading HTTP response headers for downloading LSTs, treat them as case-insensitive
 * JavaScript: Fix processing of JSON source files
 
+## November 2025
 
 ### CLI / DX v3.51.4 (2025-11-25)
 
@@ -733,7 +744,6 @@ The Moderne CLI previously followed a two-track release model with separate "sta
 * Fixing discovery of repositories on disk when they are placed in a subdirectory on `mod build`
 * Mask moderne.license.key in run.log
 * `mod git sync` now generates an aggregated build trace.csv file usable by `mod trace builds analyze`
-
 
 ### CLI / DX v3.51.3 (2025-11-18)
 
@@ -751,18 +761,15 @@ The Moderne CLI previously followed a two-track release model with separate "sta
 * Gradle wrapper 9.2.0
 * CLI to depend on the latest version of OpenRewrite
 
-
 ### CLI / DX v3.51.2 (2025-11-12)
 
 #### What's Changed
 * Fix maven-cache.cache being created as a folder, not a file, if it is first created by a recipe run. This bug affected only CLI 3.51.1
 
-
 ### CLI / DX v3.51.1 (2025-11-12)
 
 #### What's Changed
 * Use a persistent POM cache to accelerate dependency resolution in recipe runs
-
 
 ### CLI / DX v3.51.0 (2025-11-12)
 
@@ -780,13 +787,13 @@ The Moderne CLI previously followed a two-track release model with separate "sta
 - Enable JavaTemplate to correctly generate code for repos that use Java 21 or 25
 - Skip resolving Scala plugin-internal Gradle configurations, which eliminates unnecessary warning messages
 
+## October 2025
 
 ### CLI / DX v3.50.1 (2025-10-24)
 
 #### What's Changed
 * JavaScript: Support `pnpm` and `yarn`
 * Use configured Maven settings' `localRepository` when installing recipes
-
 
 ### CLI / DX v3.50.0 (2025-10-22)
 
@@ -799,13 +806,11 @@ The Moderne CLI previously followed a two-track release model with separate "sta
 * JavaScript: Check for `npm install` failure
 * Fix concurrency issue running JavaScript recipes
 
-
 ### CLI / DX v3.49.4 (2025-10-17)
 
 #### What's Changed CLI
 * Fix reporting of number of parallel tasks in progress bar
 * `mod run`: Fix error when running with `--parallel 1`
-
 
 ### CLI / DX v3.49.3 (2025-10-16)
 
@@ -813,13 +818,11 @@ The Moderne CLI previously followed a two-track release model with separate "sta
 * Fix audit output so that the Moderne IntelliJ plugin can show the organization view again
 * Fix recipe installation `ArrayIndexOutOfBoundsException`
 
-
 ### CLI / DX v3.49.2 (2025-10-14)
 
 #### What's Changed
 * Ensure JavaScript recipes can correctly call Java recipes
 * Mask sensitive values in environment variables when logging what command is being run
-
 
 ### CLI / DX v3.49.1 (2025-10-13)
 
@@ -827,7 +830,6 @@ The Moderne CLI previously followed a two-track release model with separate "sta
 * Fix native build npm recipe installation
 * Ensure JVM options are quoted when they contain a space or a vertical pipe
 * Prevent logging of proxy password into the build log
-
 
 ### CLI / DX v3.49.0 (2025-10-09)
 
@@ -848,6 +850,7 @@ The Moderne CLI previously followed a two-track release model with separate "sta
 * Fix artifact and org name extraction from repository path
 * Adopt plain text parsing from OpenRewrite
 
+## September 2025
 
 ### CLI / DX v3.48.8 (2025-09-29)
 
@@ -861,12 +864,10 @@ The Moderne CLI previously followed a two-track release model with separate "sta
 * Make sure `trace.json` gets updated with `Skipped` outcome
 * Use origin and branch from repos(-lock).csv at LST build time (if available) instead of trying to determine them
 
-
 ### CLI / DX v3.48.7 (2025-09-25)
 
 #### What's Changed CLI
 * Solve an issue where GraphQL requests fail when a content type is not set.
-
 
 ### CLI / DX v3.48.6 (2025-09-25)
 
@@ -882,12 +883,10 @@ The Moderne CLI previously followed a two-track release model with separate "sta
 * Maven: Better support for older plugin versions
 * URL encode spaces (and other special chars) in path segments during `mod publish`
 
-
 ### CLI / DX v3.48.5 (2025-09-23)
 
 #### What's Changed
 * Revert "System processor and network metrics"
-
 
 ### CLI / DX v3.48.4 (2025-09-23)
 
@@ -910,7 +909,6 @@ The Moderne CLI previously followed a two-track release model with separate "sta
 * Run `npm install` on JavaScript build step
 * Improvements to git clone operation (only perform a single `git fetch` operation)
 
-
 ### CLI / DX v3.48.3 (2025-09-19)
 
 #### What's Changed CLI
@@ -919,19 +917,16 @@ The Moderne CLI previously followed a two-track release model with separate "sta
 * Align Jackson version to 2.17.2 to avoid conflicts
 * Fix JavaScript support in native CLI
 
-
 ### CLI / DX v3.48.2 (2025-09-18)
 
 #### What's Changed CLI
 * Removing `.git` directory on failed clone
 * `modgradle`: Don't load `libzstd-jni` in isolated classloader
 
-
 ### CLI / DX v3.48.1 (2025-09-18)
 
 #### What's Changed CLI
 * Remove JS from `Autodetections#enableResources()`
-
 
 ### CLI / DX v3.48.0 (2025-09-17)
 
@@ -956,7 +951,6 @@ The Moderne CLI previously followed a two-track release model with separate "sta
 * Add additional support for `@Example` annotations
 * Add JavaScript support via Rewrite RPC
 
-
 ### CLI / DX v3.47.1 (2025-09-12)
 
 #### What's Changed CLI
@@ -972,7 +966,6 @@ The Moderne CLI previously followed a two-track release model with separate "sta
 * `mod build`: Parse all non-binary files as PlainText
 * Suggest additional next steps from `git checkout`, `git commit` and `git push`
 
-
 ### CLI / DX v3.47.0 (2025-09-09)
 
 #### What's Changed CLI
@@ -985,13 +978,11 @@ The Moderne CLI previously followed a two-track release model with separate "sta
 * Correct references to `.modernecfg` in command help
 * Fix `mod run` performance regression introduced in 3.46
 
-
 ### CLI / DX v3.46.2 (2025-09-05)
 
 #### What's Changed CLI
 * `mod git sync csv` now correctly handles repos that appear in multiple orgs
 * `gradle` build step no longer uses Gradle daemon to prevent issues with zombie daemons
-
 
 ### CLI / DX v3.46.1 (2025-09-04)
 
@@ -1001,7 +992,6 @@ The Moderne CLI previously followed a two-track release model with separate "sta
 * Lower memory footprint for `mod run`
 * Fix bug in `mod git sync` causing subsequent `mod build` to not find sources
 * Add rewrite-java-25 to `modmaven` and `modgradle`
-
 
 ### CLI / DX v3.46.0 (2025-09-01)
 
@@ -1015,12 +1005,12 @@ The Moderne CLI previously followed a two-track release model with separate "sta
 * Bug fix - `mod git pull` failure for one repository not to fail the whole command
 * Other minor fixes
 
+## August 2025
 
 ### CLI / DX v3.45.5 (2025-08-28)
 
 #### What's Changed DX
 * Correct obfuscation rules - solving potential serialization issues intoduced in 3.45.4
-
 
 ### CLI / DX v3.45.4 (2025-08-28)
 
@@ -1036,7 +1026,6 @@ The Moderne CLI previously followed a two-track release model with separate "sta
 - Fix DX proguard issue possibly causing NPE on startup
 - and ensure jackson pinned to 2.17.2 - while without it it is implicitly set to 2.17.2 again now, by pinning it we ensure it.
 
-
 ### CLI / DX v3.45.3 (2025-08-26)
 
 #### What's Changed CLI
@@ -1048,13 +1037,11 @@ The Moderne CLI previously followed a two-track release model with separate "sta
 * Trace analysis - Display "No data available" instead of missing chart
 * Fix case in `org.gradle.daemon.idletimeout` property
 
-
 ### CLI / DX v3.45.2 (2025-08-21)
 
 #### What's Changed
 * Update with rewrite 8.60.2
 * When no maven settings are explicitly configured, recipe runs should read them from the default location.
-
 
 ### CLI / DX v3.45.1 (2025-08-21)
 
@@ -1082,7 +1069,6 @@ This release is not available due to publishing issues please use v3.45.1 instea
 #### What's Changed DX
 * N/A
 
-
 ### CLI / DX v3.44.5 (2025-08-15)
 
 #### What's Changed
@@ -1099,6 +1085,7 @@ This release is not available due to publishing issues please use v3.45.1 instea
 * Improved `mod build` by adding `Makefile`, `*.jelly`, `lombok.config`, `.env` and a few others filenames to be treated as text files by the parser
 * Improved `mod config build maven show` outputs by specifying if the default maven settings are used as a fallback
 
+## July 2025
 
 ### CLI / DX v3.44.4 (2025-07-29)
 
@@ -1115,7 +1102,6 @@ This release is not available due to publishing issues please use v3.45.1 instea
 * Merge repo-defined orgs with root when traversing organization hierarchies on disk
 #### What's Changed DX
 * Do not publish latest tag for DX docker to aws ecr
-
 
 ### CLI / DX v3.44.3 (2025-07-23)
 
@@ -1171,7 +1157,7 @@ This release is not available due to publishing issues please use v3.45.1 instea
 #### What's Changed CLI
 
 * Updated where the CLI is published. We are no longer publishing to Azure due to size limitations of what could be uploaded. 
-    * If you were downloading the CLI via an Azure URL, you will need to [download it from the new URL](../user-documentation/moderne-cli/getting-started/cli-intro.md#step-1-download-the-cli). 
+    * If you were downloading the CLI via an Azure URL, you will need to [download it from the new URL](../user-documentation/moderne-cli/getting-started/cli-intro.md#step-1-download-the-cli).
 
 ### CLI / DX v3.43.0 (2025-07-09)
 
@@ -1200,6 +1186,8 @@ This release is not available due to publishing issues please use v3.45.1 instea
 * During DX's artifact sync, ensure that all "artifacts to process" will be processed oldest to newest
 * Fix /graphiql for DX, which was broken by upstream CDN changes in graphql itself
 * dx build improvements
+
+## June 2025
 
 ### CLI / DX v3.42.5 (2025-06-12)
 
@@ -1258,6 +1246,8 @@ This release is not available due to publishing issues please use v3.45.1 instea
 #### What's Changed DX
 
 * Remove returning DevCenter configurations in DX's `/organization` query
+
+## May 2025
 
 ### CLI / DX v3.41.0 (2025-05-20)
 
@@ -1328,6 +1318,8 @@ This release is not available due to publishing issues please use v3.45.1 instea
 * Detect Java version from pom.xml properties even when parsing fails
 * Sorting options in root command alphabetically
 * Suggest to run `mod config recipes export` after `mod config recipes list`
+
+## April 2025
 
 ### CLI / DX v3.38.2 (2025-04-29)
 
@@ -1430,6 +1422,8 @@ This release is not available due to publishing issues please use v3.45.1 instea
 * Use FormatStyle.LONG for license expiry
 * Fix parsing truststore config
 
+## March 2025
+
 ### CLI / DX v3.35.0 (2025-03-27)
 
 #### What's Changed CLI
@@ -1522,6 +1516,8 @@ This release is not available due to publishing issues please use v3.45.1 instea
 * Update IntelliJ run config to use the correct module.
 * Refine matching of version strings from `gradle --version` output
 * Downstream fix for maven.config parsing fix
+
+## February 2025
 
 ### CLI / DX v3.33.5 (2025-02-27)
 
@@ -1660,6 +1656,8 @@ This release is not available due to publishing issues please use v3.45.1 instea
 * Add inclusions into the Gradle plugin
 * Apply Remote files
 
+## January 2025
+
 ### CLI / DX v3.31.2 (2025-01-29)
 
 #### What's Changed
@@ -1751,6 +1749,8 @@ This release is not available due to publishing issues please use v3.45.1 instea
 * Add `maxFragmentWeight` to `scm.properties` to determine if an LST fragment might be too big to load into memory.
 * Add `TomlParser`
 * Also resolve snapshots from `s01.oss.sonatype.org`
+
+## December 2024
 
 ### CLI / DX v3.28.0 (2024-12-31)
 
@@ -1866,6 +1866,8 @@ This release is not available due to publishing issues please use v3.45.1 instea
 * Fallback to `python` when `python3` is not available
 * Enable completion from `install.sh` by default
 
+## November 2024
+
 ### CLI / DX v3.26.7 (2024-11-29)
 
 #### What's Changed CLI
@@ -1948,7 +1950,7 @@ This release is not available due to publishing issues please use v3.45.1 instea
 
 #### What's Changed CLI
 
-* Remove `rewrite-kotlin` dependency 
+* Remove `rewrite-kotlin` dependency
 
 ### CLI / DX v3.26.0 (2024-11-12)
 
@@ -1998,6 +2000,8 @@ This release is not available due to publishing issues please use v3.45.1 instea
 
 * Consistently set a timeout per job, not step
 * Revert "Align ~/.rewrite/classpath to ~/.moderne/cli/rewrite-classpath in the CLI"
+
+## October 2024
 
 ### CLI / DX v3.25.0 (2024-10-31)
 
@@ -2195,6 +2199,8 @@ When DX is integrated with the organization service, it will now utilize the new
 
 * backport orphaned repositories
 
+## September 2024
+
 ### CLI / DX v3.22.0 (2024-09-30)
 
 #### What's Changed CLI
@@ -2379,6 +2385,8 @@ When DX is integrated with the organization service, it will now utilize the new
 #### What's Changed DX
 
 * Add support for alternate URLs for private SCMs to allow for better origin matching for different protocols/port combinations
+
+## August 2024
 
 ### CLI / DX v3.18.8 (2024-08-27)
 
@@ -2577,6 +2585,8 @@ This requires a slight change to how `mod git sync moderne` is used. Previously 
 * Fix expected repo count when cloning in DxCliIntegrationTests
 * Pass base64 encoded inclusion as String
 * Cache git provenance
+
+## July 2024
 
 ### CLI / DX v3.14.1 (2024-07-31)
 

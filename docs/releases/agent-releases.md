@@ -13,80 +13,111 @@ description: The current version of the Moderne Agent and where to download it.
 
 [Agent download link](https://repo1.maven.org/maven2/io/moderne/moderne-agent/0.259.0/moderne-agent-0.259.0.jar)
 
-
 ## Changelog
+
+## April 2026
 
 ### v0.259.0 - 2026-04-29
 
 * Suppress plexus-utils CVE-2025-67030
+
+## March 2026
+
 ### v0.258.0 - 2026-03-19
 
 * Revert "Add absolute read timeout on agent outbound proxy response body (#665)"
+
 ### v0.257.0 - 2026-03-18
 
 * Pin Jackson 2.x to 2.18.6 to fix GHSA-72hv-8253-57qq
+
 ### v0.256.0 - 2026-03-12
 
 * Add absolute read timeout on agent outbound proxy
+
 ### v0.255.0 - 2026-03-11
 
 * Propagate tool connect timeout to agent outbound proxy WebClient
+
 ### v0.254.0 - 2026-03-06
 
 * Add support for LSTs in S3 for agents deployed to EKS where pod assumes ServiceAccount role
+
+## February 2026
+
 ### v0.253.0 - 2026-02-26
 
 * Update Prethink context (no AI)
 * Update Gradle wrapper to 9.3.1
 * Support bearer token auth on API gateway WebSocket connection
+
 ### v0.252.0 - 2026-02-24
 
 * Add 256MB weight limit to in-memory Maven cache
+
 ### v0.251.0 - 2026-02-21
 
 * Async Maven cache with request coalescing
 * Fix basic auth on RSocket WebSocket upgrade through reverse proxy
+
 ### v0.250.0 - 2026-02-20
 
 * Remove PR suggestions bot which tends to overwhelm review comments
 * Support basic auth credentials in the API gateway RSocket URI
+
 ### v0.249.0 - 2026-02-12
 
 * Detect and recover from stale Maven index state
+
 ### v0.248.0 - 2026-02-11
 
 * Filter S3 LST listing to non-empty .jar files
+
 ### v0.247.0 - 2026-02-10
 
 * Make Maven localRepository conditional on isAstSource
 * Assertj should be a test dependency
+
 ### v0.246.0 - 2026-02-07
 
 * Fix S3 LST listing blocking Netty event loop
+
 ### v0.245.0 - 2026-02-04
 
 * Add personal access token configuration support
 * Remove builder
+
+## January 2026
+
 ### v0.244.0 - 2026-01-29
 
 * Fix logback configuration with nested if elements
 * Fix ByteBuf memory leak in GitSshController and GitSshClient
 * Don't follow redirects when request body has been consumed
 * Add proxy HTTP request metrics
+
+## December 2025
+
 ### v0.243.0 - 2025-12-20
 
 * Expose better exception when tool is not found
 * Add support for loading `repos.csv` from S3 directly
+
 ### v0.242.0 - 2025-12-05
 
 * Use "builder" pattern for configuration classes in tests
+
+## November 2025
+
 ### v0.241.0 - 2025-11-26
 
 * Add support for S3 as an LST source
+
 ### v0.240.1 - 2025-11-19
 
 * Fix doc location for crypto symmetric key instructions
 * Fix Azure ACR authentication for gradle-docker-plugin v10.0.0
+
 ### v0.240.2 - 2025-11-18
 
 ## Changes
@@ -94,15 +125,19 @@ description: The current version of the Moderne Agent and where to download it.
 - Fix Azure ACR authentication in publish workflow (#596)
 
 This patch release fixes the publish workflow failure caused by gradle-docker-plugin v10.0.0 upgrade, which changed how registry credentials are handled.
+
 ### v0.240.0 - 2025-11-18
 
 * Use `actions/setup-node@v6`
 * Update Gradle wrapper
 * Expose health probes and set agent nickname as display name in metrics
 * Revert "Update Gradle wrapper"
+
 ### v0.239.0 - 2025-11-04
 
 * Add `moderne.agent.llm.adminOnly` to be able to limit Moddy usage to only admins
+
+## October 2025
 
 ### v0.238.0 - 2025-10-30
 
@@ -110,7 +145,7 @@ This patch release fixes the publish workflow failure caused by gradle-docker-pl
 * Update Gradle wrapper
 * Expose health probes and set agent nickname as display name in metrics
 * Revert "Update Gradle wrapper"
- 
+
 ### v0.237.0 - 2025-10-15
 
 * Allow relative URL redirects in ProxyController - Fixes an issue with GAR redirects
@@ -121,6 +156,8 @@ This patch release fixes the publish workflow failure caused by gradle-docker-pl
 * Add changelog to agent releases page
 * Specify version in workflow dispatch for agent docs
 * Upgrade to Spring Boot 3.5 platform
+
+## September 2025
 
 ### v0.235.0 - 2025-09-19
 

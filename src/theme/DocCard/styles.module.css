@@ -5,30 +5,33 @@
 
   padding: var(--neo-spacing_3);
   border-radius: var(--neo-border-radius-x-s);
-  background-color: var(--neo-surfaces-white);
+  background-color: transparent;
   border: 1px solid var(--neo-border-card);
   box-shadow: none;
   display: flex;
   flex-direction: row;
   gap: var(--neo-spacing_2);
-  transition: background-color var(--ifm-transition-fast) ease;
+  transition: background-color var(--ifm-transition-fast) ease,
+              border-color var(--ifm-transition-fast) ease;
   width: 100%;
   align-items: flex-start;
 }
 
 .cardContainer:hover {
-  background-color: var(--neo-grey-50);
-  box-shadow: none;
+  background-color: var(--neo-surfaces-white);
+  border-color: var(--neo-grey-300);
+  box-shadow: var(--neo-shadow-card);
 }
 
 /* Dark mode styles */
 [data-theme='dark'] .cardContainer {
-  background-color: var(--neo-grey-800);
-  border-color: var(--neo-grey-600);
+  background-color: transparent;
+  border-color: var(--neo-grey-700);
 }
 
 [data-theme='dark'] .cardContainer:hover {
-  background-color: var(--neo-grey-700);
+  background-color: var(--neo-grey-800);
+  border-color: var(--neo-grey-600);
 }
 
 .cardContent {
