@@ -330,6 +330,13 @@ figure figcaption {
   margin-bottom: var(--neo-spacing_5);
 }
 
+.markdown figure {
+  width: fit-content;
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .markdown figure img {
   padding: 0;
   background-color: transparent;
