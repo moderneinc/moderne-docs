@@ -35,31 +35,21 @@
 
 .productCard {
   display: flex;
-  gap: var(--neo-spacing_2);
   padding: var(--neo-spacing_3);
-  background: var(--neo-surfaces-card);
+  background: transparent;
   border: 1px solid var(--neo-border-card);
   border-radius: var(--neo-border-radius-x-s);
   text-decoration: none;
-  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  transition: background-color var(--ifm-transition-fast) ease,
+              border-color var(--ifm-transition-fast) ease,
+              box-shadow var(--ifm-transition-fast) ease;
 }
 
 .productCard:hover {
-  border-color: var(--neo-border-tab-active);
+  background: var(--neo-surfaces-white);
+  border-color: var(--neo-grey-300);
   box-shadow: var(--neo-shadow-card);
   text-decoration: none;
-}
-
-.productCardIcon {
-  flex-shrink: 0;
-  width: 24px;
-  height: 24px;
-}
-
-.productCardIconImage {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
 }
 
 .productCardContent {
@@ -87,13 +77,13 @@
 
 /* Dark mode adjustments */
 :global(html[data-theme='dark']) .productCard {
-  background: var(--neo-grey-800);
+  background: transparent;
   border-color: var(--neo-grey-700);
 }
 
 :global(html[data-theme='dark']) .productCard:hover {
-  background: var(--neo-grey-700);
-  border-color: var(--neo-border-tab-active);
+  background: var(--neo-grey-800);
+  border-color: var(--neo-grey-600);
 }
 
 :global(html[data-theme='dark']) .productCardTitle {

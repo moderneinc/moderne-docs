@@ -26,11 +26,10 @@
   }
 }
 
-/* Flexbox layout with 32px gaps between sections */
+/* Flex column; per-element margins handle spacing for breadcrumb + header + list */
 .content {
   display: flex;
   flex-direction: column;
-  gap: var(--neo-spacing_4);
 }
 
 /* Header group (title + description) */
@@ -38,14 +37,14 @@
   display: flex;
   flex-direction: column;
   gap: var(--neo-spacing_1);
+  margin-bottom: var(--neo-spacing_4);
 
-  /* Page header typography - matching Figma design (node 478:5567)
-     Nested for higher specificity to override Docusaurus h1 defaults */
   .title {
-    font-size: var(--neo-font-size-h3);
-    font-weight: var(--neo-font-weight-medium);
-    line-height: 1.4;
-    color: var(--neo-typography-input-default);
+    font-family: var(--neo-font-family-heading), sans-serif;
+    font-size: 36px;
+    font-weight: var(--neo-font-weight-semi-bold);
+    line-height: 45px;
+    color: var(--brand-midnight);
     margin: 0;
   }
 

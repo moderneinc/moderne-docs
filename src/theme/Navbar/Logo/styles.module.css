@@ -61,25 +61,22 @@
   display: block;
 }
 
-/* Wordmark - 93x20px (from SVG) */
+/* Moderne Docs combined logo (M symbol + wordmark + Docs)
+   SVG intrinsic size 203x28; integer-multiple sizing keeps strokes crisp */
 .wordmarkImage {
-  width: auto;
-  height: auto;
   display: block;
+  height: 41px;
+  width: 297px;
   flex-shrink: 0;
   color: var(--ifm-navbar-link-color);
+  shape-rendering: geometricPrecision;
 }
 
-/* Docs label - visible next to wordmark */
-.docsLabel {
-  height: 1.7rem; /* fine tune to align with wordmark height */
-  display: inline;
-  font-family: var(--neo-font-family-body), system-ui, -apple-system, sans-serif;
-  font-weight: var(--neo-font-weight-light);
-  font-size: var(--neo-font-size-h4);
-  line-height: 1.4;
-  color: var(--ifm-navbar-link-color);
-  user-select: none;
+@media (min-width: 1280px) {
+  .wordmarkImage {
+    height: 46px;
+    width: 334px;
+  }
 }
 
 /* Dark mode logo colors */

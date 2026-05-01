@@ -21,8 +21,8 @@
 /* You can override the default Infima variables here. */
 :root {
   /* BRAND: Custom light blue/lavender background from Figma */
-  --ifm-background-color: #f7f7fe;
-  --background: #f7f7fe; /* Figma design token */
+  --ifm-background-color: #fafaff;
+  --background: #fafaff; /* Figma design token */
 
   /* BRAND: Preserve mint accent - no Neo-Design mapping */
   --ifm-color-mint: #85FE99;
@@ -129,18 +129,19 @@ html[data-theme=light] {
 /* Algolia DocSearch - Pill Shape Styling */
 .DocSearch-Button {
   width: 232px;
-  height: 44px;
-  border-radius: 64px;
+  height: 40px;
+  border-radius: 999px;
   background: var(--neo-surfaces-white);
-  border: 1px solid var(--neo-grey-100);
-  padding: 0 16px;
+  border: 1px solid var(--neo-grey-200);
+  padding: 0 14px;
   margin: 0;
-  box-shadow: var(--neo-shadow-neutral-small);
+  box-shadow: none;
 }
 
 .DocSearch-Button:hover {
   background: var(--neo-surfaces-white);
-  box-shadow: var(--neo-shadow-neutral-small), 0 0 0 1px var(--ifm-color-border);
+  border-color: var(--neo-grey-300);
+  box-shadow: none;
 }
 
 .DocSearch-Button-Container {
@@ -150,15 +151,16 @@ html[data-theme=light] {
 }
 
 .DocSearch-Search-Icon {
-  width: 20px;
-  height: 20px;
-  color: rgba(4, 24, 52, 0.5);
+  width: 18px;
+  height: 18px;
+  color: var(--brand-midnight);
+  stroke-width: 2;
 }
 
 .DocSearch-Button-Placeholder {
   font-size: 14px;
   font-weight: 400;
-  color: rgba(4, 24, 52, 0.5);
+  color: var(--brand-midnight);
   padding: 0;
 }
 
@@ -171,16 +173,17 @@ html[data-theme=light] {
 
 .DocSearch-Button-Key {
   background: var(--neo-grey-100);
-  border: 1px solid var(--neo-grey-200);
+  border: none;
   border-radius: 4px;
-  padding: 4px 8px;
+  padding: 2px 6px;
   font-family: var(--neo-font-family-body), system-ui, -apple-system, sans-serif;
   font-size: 12px;
   font-weight: 500;
-  color: var(--neo-grey-800);
+  color: var(--brand-midnight);
   box-shadow: none;
   min-width: auto;
   width: auto;
+  height: auto;
 }
 
 /* Mobile: Collapse search to icon only, no background */
@@ -290,15 +293,57 @@ figure img {
 
 figure figcaption {
   text-align: center;
+  margin-top: var(--neo-spacing_1_1_2);
 }
 
 .reactPlayer {
   margin: auto;
+  padding: var(--neo-spacing_1);
+  background-color: transparent;
+  border: 1px solid var(--neo-grey-200);
+  border-radius: var(--neo-border-radius-m);
+  box-shadow: var(--neo-shadow-card);
+}
+
+.reactPlayer > *,
+.reactPlayer iframe,
+.reactPlayer video {
+  border-radius: var(--neo-border-radius-x-s);
+  overflow: hidden;
 }
 
 /* Video session summary: spacing between player and admonition */
 .reactPlayer {
   margin-bottom: var(--neo-spacing_2);
+}
+
+/* Hairline outer border + 8px padding around media; inner element keeps its own rounding */
+.markdown img,
+.markdown figure {
+  padding: var(--neo-spacing_1);
+  background-color: transparent;
+  border: 1px solid var(--neo-grey-200);
+  border-radius: var(--neo-border-radius-m);
+  box-shadow: var(--neo-shadow-card);
+  box-sizing: border-box;
+  margin-top: var(--neo-spacing_5);
+  margin-bottom: var(--neo-spacing_5);
+}
+
+.markdown figure img {
+  padding: 0;
+  background-color: transparent;
+  border: none;
+  border-radius: var(--neo-border-radius-x-s);
+  box-shadow: none;
+  display: block;
+  margin: 0;
+}
+
+html[data-theme='dark'] .markdown img,
+html[data-theme='dark'] .markdown figure,
+html[data-theme='dark'] .reactPlayer {
+  border-color: var(--neo-grey-700);
 }
 
 /* Zoomed image background */
@@ -317,8 +362,8 @@ html {
 
 /* Push main content below fixed navbar */
 .main-wrapper {
-  margin-top: calc(var(--ifm-navbar-height) + var(--ifm-secondary-nav-height) + var(--ifm-announcement-bar-height) + var(--neo-spacing_2));
-  min-height: calc(100vh - var(--ifm-navbar-height) - var(--ifm-secondary-nav-height) - var(--ifm-announcement-bar-height) - var(--neo-spacing_2));
+  margin-top: calc(var(--ifm-navbar-height) + var(--ifm-secondary-nav-height) + var(--ifm-announcement-bar-height));
+  min-height: calc(100vh - var(--ifm-navbar-height) - var(--ifm-secondary-nav-height) - var(--ifm-announcement-bar-height));
 }
 
 /* Ensure sidebar container has correct height calculation */
@@ -347,9 +392,11 @@ html {
   }
 }
 
-/* Doc main container padding for breathing room */
-[class*="docMainContainer"] {
-  padding-top: var(--neo-spacing_4);
+/* Align top of main content with top of sidebar */
+[class*="docMainContainer"],
+[class*="docItemCol"],
+[class*="docItemContainer"] {
+  padding-top: 0;
 }
 
 .reactPlayer + p {
@@ -360,16 +407,18 @@ html {
   font-size: var(--neo-font-size-default);
 }
 
-/* Apply flexbox with 32px gap between breadcrumbs and document content */
 [class*="docItemContainer"] article {
   display: flex;
   flex-direction: column;
-  gap: var(--neo-spacing_4);
 }
 
-[class^=docMainContainer_] h1 {
-  font-size: var(--neo-font-size-h1);
-  font-weight: var(--neo-font-weight-medium);
+h1 {
+  font-family: var(--neo-font-family-heading), sans-serif;
+  font-size: 36px;
+  font-weight: var(--neo-font-weight-semi-bold);
+  line-height: 45px;
+  color: var(--brand-midnight);
+  margin-top: 0;
 }
 
 [class^=docMainContainer_] h2:not(.doc-card-title) {
@@ -378,6 +427,48 @@ html {
   font-weight: var(--neo-font-weight-medium);
   line-height: calc(var(--neo-line-height-xl) * 1px); /* neo is in pixels */
   color: var(--neo-typography-input-default);
+  margin-top: var(--neo-spacing_5);
+  padding-bottom: var(--neo-spacing_1);
+  border-bottom: 1px solid var(--neo-grey-200);
+}
+
+html[data-theme='dark'] [class^=docMainContainer_] h2:not(.doc-card-title) {
+  border-bottom-color: var(--neo-grey-700);
+}
+
+/* Changelog month-year section headers — heavier weight so dates anchor reading */
+.markdown h2[id^="january-"],
+.markdown h2[id^="february-"],
+.markdown h2[id^="march-"],
+.markdown h2[id^="april-"],
+.markdown h2[id^="may-"],
+.markdown h2[id^="june-"],
+.markdown h2[id^="july-"],
+.markdown h2[id^="august-"],
+.markdown h2[id^="september-"],
+.markdown h2[id^="october-"],
+.markdown h2[id^="november-"],
+.markdown h2[id^="december-"],
+.markdown h2[id="earlier-releases"] {
+  font-family: var(--neo-font-family-heading), sans-serif;
+  font-weight: var(--neo-font-weight-semi-bold);
+}
+
+/* Indent release entries under each month header so months read as anchors */
+.markdown h2[id^="january-"] ~ :not(h2),
+.markdown h2[id^="february-"] ~ :not(h2),
+.markdown h2[id^="march-"] ~ :not(h2),
+.markdown h2[id^="april-"] ~ :not(h2),
+.markdown h2[id^="may-"] ~ :not(h2),
+.markdown h2[id^="june-"] ~ :not(h2),
+.markdown h2[id^="july-"] ~ :not(h2),
+.markdown h2[id^="august-"] ~ :not(h2),
+.markdown h2[id^="september-"] ~ :not(h2),
+.markdown h2[id^="october-"] ~ :not(h2),
+.markdown h2[id^="november-"] ~ :not(h2),
+.markdown h2[id^="december-"] ~ :not(h2),
+.markdown h2[id="earlier-releases"] ~ :not(h2) {
+  margin-left: 10px;
 }
 [class^=docMainContainer_] h3:not(.doc-card-title) {
   font-size: var(--neo-font-size-h3);
@@ -431,7 +522,136 @@ html[data-theme='dark'] [class^=docMainContainer_] .card {
 }
 
 h1, .markdown h3, .markdown h4 {
-  font-weight: bold;
+  font-weight: var(--neo-font-weight-semi-bold);
+}
+
+/* Inline code: thin-outlined pill, SFMono 13/21, midnight text */
+.markdown :not(pre) > code {
+  background-color: var(--neo-grey-50);
+  border: 1px solid var(--neo-grey-200);
+  border-radius: var(--neo-border-radius-x-s);
+  color: var(--brand-midnight);
+  font-family: 'SFMono-Regular', Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 21px;
+  padding: 1px 6px;
+  vertical-align: baseline;
+}
+
+html[data-theme='dark'] .markdown :not(pre) > code {
+  background-color: var(--neo-grey-900);
+  border-color: var(--neo-grey-700);
+  color: var(--neo-grey-100);
+}
+
+/* Replit-style admonitions: rounded, subtle border, icon inline with text */
+.theme-admonition {
+  border: 1px solid;
+  border-radius: var(--neo-border-radius-m);
+  padding: var(--neo-spacing_2);
+  display: flex;
+  flex-direction: row;
+  gap: var(--neo-spacing_1);
+  align-items: flex-start;
+  margin-top: var(--neo-spacing_3);
+  margin-bottom: var(--neo-spacing_3);
+}
+
+.theme-admonition [class*='admonitionHeading_'] {
+  margin: 0;
+  font-size: 0;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.theme-admonition [class*='admonitionHeading_'] [class*='admonitionIcon_'] {
+  font-size: initial;
+  margin-right: 0;
+  display: inline-flex;
+  align-items: center;
+}
+
+.theme-admonition [class*='admonitionHeading_'] [class*='admonitionIcon_'] svg {
+  fill: none;
+  stroke: currentColor;
+}
+
+.theme-admonition [class*='admonitionContent_'] {
+  flex: 1;
+  color: inherit;
+}
+
+.theme-admonition [class*='admonitionContent_'] > p:first-child {
+  margin-top: 0;
+}
+
+.theme-admonition [class*='admonitionContent_'] > p:last-child {
+  margin-bottom: 0;
+}
+
+/* Per-type colors */
+.theme-admonition-info {
+  background-color: var(--neo-digital-blue-50);
+  border-color: var(--neo-digital-blue-200);
+  color: var(--neo-digital-blue-600);
+}
+
+.theme-admonition-tip {
+  background-color: var(--neo-digital-green-50);
+  border-color: var(--neo-digital-green-300);
+  color: var(--neo-digital-green-800);
+}
+
+.theme-admonition-note {
+  background-color: var(--neo-grey-50);
+  border-color: var(--neo-grey-200);
+  color: var(--neo-grey-800);
+}
+
+.theme-admonition-warning,
+.theme-admonition-caution {
+  background-color: var(--neo-orange-50);
+  border-color: var(--neo-gold-200);
+  color: var(--neo-gold-800);
+}
+
+.theme-admonition-danger {
+  background-color: var(--neo-red-50);
+  border-color: var(--neo-red-200);
+  color: var(--neo-red-700);
+}
+
+/* Dark mode */
+html[data-theme='dark'] .theme-admonition-info {
+  background-color: var(--neo-digital-blue-900);
+  border-color: var(--neo-digital-blue-700);
+  color: var(--neo-digital-blue-100);
+}
+
+html[data-theme='dark'] .theme-admonition-tip {
+  background-color: var(--neo-digital-green-900);
+  border-color: var(--neo-digital-green-700);
+  color: var(--neo-digital-green-100);
+}
+
+html[data-theme='dark'] .theme-admonition-note {
+  background-color: var(--neo-grey-900);
+  border-color: var(--neo-grey-700);
+  color: var(--neo-grey-100);
+}
+
+html[data-theme='dark'] .theme-admonition-warning,
+html[data-theme='dark'] .theme-admonition-caution {
+  background-color: var(--neo-gold-900);
+  border-color: var(--neo-gold-700);
+  color: var(--neo-gold-100);
+}
+
+html[data-theme='dark'] .theme-admonition-danger {
+  background-color: var(--neo-red-900);
+  border-color: var(--neo-red-700);
+  color: var(--neo-red-100);
 }
 
 /* Colorblind-friendly code highlighting */

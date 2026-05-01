@@ -1,4 +1,7 @@
 # Platform changelog
+
+## April 2026
+
 ### UI v12.36.0 (2026/04/30)
 
 - Singleton reference collapse + recipeDetail split + nesting tune
@@ -14,6 +17,8 @@
 ### UI v12.34.2 (2026/04/16)
 
 - Bug fixes and other improvements.
+
+## March 2026
 
 ### UI v12.34.1 (2026/03/26)
 
@@ -42,6 +47,8 @@
 ### UI v12.32.1 (2026/03/09)
 
 - Bug fixes and other improvements.
+
+## February 2026
 
 ### UI v12.32.0 (2026/02/24)
 
@@ -95,6 +102,8 @@ Builder nodes can now be individually run from the tree view. This allows users 
 
 ![Update Agent Integration dashboard](./assets/builder-node-run.png)
 
+## January 2026
+
 ### UI v12.26.0 (2026/01/22)
 
 - neo dev center polish
@@ -107,7 +116,6 @@ Builder nodes can now be individually run from the tree view. This allows users 
 
 - add refresh organizations button to agents page
 - update marketplace pages with Neo components
-
 
 ### UI v12.24.1 (2026/01/13)
 
@@ -122,6 +130,8 @@ Builder nodes can now be individually run from the tree view. This allows users 
 * Add Jasper Reports category support.
 * Add recipe queue.
 * Add Apollo @defer incremental handler.
+
+## December 2025
 
 ### UI v12.22.5 (2025/12/31)
 
@@ -194,6 +204,8 @@ Builder nodes can now be individually run from the tree view. This allows users 
 
 * Converted admin pages to new Neo design system.
 
+## November 2025
+
 ### UI v12.13.3 (2025/11/27)
 
 * Bug fixes and other improvements.
@@ -241,6 +253,8 @@ Builder nodes can now be individually run from the tree view. This allows users 
 ### UI v12.6.0 (2025/11/03)
 
 - add new chat button to moddy to start a new chat
+
+## October 2025
 
 ### UI v12.5.1 (2025/10/30)
 
@@ -317,6 +331,8 @@ Builder nodes can now be individually run from the tree view. This allows users 
 ### UI v11.109.1 (2025/10/03)
 
 - Bug fixes and other improvements.
+
+## September 2025
 
 ### UI v11.109.0 (2025/09/29)
 
@@ -433,6 +449,7 @@ Builder nodes can now be individually run from the tree view. This allows users 
 
 - Allow set-secret-env to work with IMDSv2 in AWS
 
+## August 2025
 
 ### UI v11.97.0 (2025/08/29)
 
@@ -569,6 +586,8 @@ We have made changes to the key bindings and command palette:
 
 - Bug fixes and other improvements.
 
+## July 2025
+
 ### UI v11.79.0 (2025/07/30)
 
 - persist file exclusions. File exclusions are now included when committing from the result tree
@@ -685,6 +704,8 @@ We have made changes to the key bindings and command palette:
 
 - remove openai integration
 
+## June 2025
+
 ### UI v11.65.0 (2025/06/27)
 
 - Bug fixes and other improvements.
@@ -732,6 +753,8 @@ We have made changes to the key bindings and command palette:
 ### UI v11.55.2 (2025/06/02)
 
 - Bug fixes and other improvements.
+
+## May 2025
 
 ### UI v11.55.1 (2025/05/30)
 
@@ -786,6 +809,8 @@ We have made changes to the key bindings and command palette:
 ### UI v11.50.0 (2025/05/02)
 
 - add new task center
+
+## April 2025
 
 ### UI v11.49.0 (2025/04/30)
 
@@ -901,6 +926,8 @@ We have made changes to the key bindings and command palette:
 
 - Bug fixes and other improvements.
 
+## March 2025
+
 ### UI v11.31.1 (2025/03/31)
 
 - Bug fixes and other improvements.
@@ -1002,6 +1029,8 @@ We have made changes to the key bindings and command palette:
 ### UI v11.16.0 (2025/03/03)
 
 - Bug fixes and other improvements.
+
+## February 2025
 
 ### UI v11.15.0 (2025/02/28)
 
@@ -1160,6 +1189,8 @@ Repository status tab
 
 - add scm organization hierarchy to results. sorting by result count
 
+## January 2025
+
 ### UI v11.2.0 (2025/01/30)
 
 - add mass commit controls for results v2. Adds retrieval of all results after run completes.
@@ -1205,6 +1236,8 @@ feat/marketplace img tag
 ### UI v10.180.0 (2025/01/04)
 
 - Bug fixes and other improvements.
+
+## December 2024
 
 ### UI v10.179.2 (2024/12/27)
 
@@ -1308,6 +1341,8 @@ When on you can edit the Name and the last part of the recipe ID will automatica
 
 When toggled off you can edit the fields seperately.
 
+## November 2024
+
 ### UI v10.171.0 (2024/11/26)
 
 #### Builder
@@ -1366,6 +1401,8 @@ When selecting the layout (3D topology or the tree view in the main content pane
 ### UI v10.166.0 (2024/11/05)
 
 - Bug fixes and other improvements.
+
+## October 2024
 
 ### UI v10.165.1 (2024/10/31)
 
@@ -1473,6 +1510,8 @@ Often times you may come across marketplace recipes or more often custom recipes
 ### UI v10.157.0 (2024/10/04)
 
 - allow repository removal from organization from the repositories table
+
+## September 2024
 
 ### UI v10.156.0 (2024/09/30)
 
@@ -1626,6 +1665,8 @@ We improved the performance of the recipe tree and dramatically improved the dra
 
 - Bug fixes and other improvements.
 
+## August 2024
+
 ### UI v10.145.1 (2024/08/30)
 
 - Bug fixes and other improvements.
@@ -1740,6 +1781,8 @@ This new mime type allows visualization notebook authors the ability to generate
   <figcaption></figcaption>
 </figure>
 
+## July 2024
+
 ### UI v10.133.0 (2024/07/29)
 
 We have added more quality of life improvements for the new builder:
@@ -1819,6 +1862,8 @@ In this release we have made various improvements to the new builder to increase
 ### UI v10.128.0 (2024/07/03)
 
 - use animated icon for loading-like statuses
+
+## June 2024
 
 ### UI v10.127.0 (2024/06/28)
 
@@ -1923,6 +1968,8 @@ UI v10.125.2 (2024/06/26)
   <figcaption></figcaption>
 </figure>
 
+## May 2024
+
 ### UI v10.118.0 (2024/05/31)
 
 - add more visual improvements to builder
@@ -2012,6 +2059,8 @@ Adding marketplace recipes all happens now within the new Builder experience. Th
 - allow creating user repositories from the repositories page
 - Draft not supported in Bitbucket Cloud helper text
 
+## April 2024
+
 ### UI v10.105.0 (2024/04/30)
 
 - Update text for upgrades and migrations
@@ -2052,6 +2101,8 @@ Adding marketplace recipes all happens now within the new Builder experience. Th
 ### UI v10.96.0 (2024/04/04)
 
 - Bug fixes and other improvements.
+
+## March 2024
 
 ### UI v10.95.0 (2024/03/29)
 
@@ -2157,6 +2208,8 @@ Adding marketplace recipes all happens now within the new Builder experience. Th
 ### UI v10.76.0 (2024/03/01)
 
 - Bug fixes and other improvements.
+
+## February 2024
 
 ### UI v10.75.0 (2024/02/28)
 
@@ -2287,6 +2340,8 @@ Example hierarchy from our public tenant.
   <figcaption>_Note that `Open Source`,`Netflix + Spring + Apache` and `Netflix + Spring` organizations are parent organizations that are defined without repositories._</figcaption>
 </figure>
 
+## January 2024
+
 ### UI v10.51.0 (2024/01/31)
 
 - preserve column size, order, and visibility to URL `state` hash on change
@@ -2400,6 +2455,8 @@ Here you can see **the most recent activities performed on the selected Organiza
 ### UI v10.34.1 (2024/01/02)
 
 - Bug fixes and other improvements.
+
+## December 2023
 
 ### UI v10.34.0 (2023/12/29)
 
@@ -2535,6 +2592,8 @@ Once a precondition has been added, it will appear as a new tab on the _Recipe B
 
 - Bug fixes and other improvements.
 
+## November 2023
+
 ### UI v10.19.0 (2023/11/30)
 
 - add visualization id for easy reference
@@ -2658,6 +2717,8 @@ Unified Sidebar Navigation: All navigation elements are now consolidated into a 
 
 Elimination of Top Bar: Removing the top navigation bar frees up valuable screen real estate, allowing for more content to be displayed and making it easier for users to focus on their work.
 
+## October 2023
+
 ### UI v9.177.0 (2023/10/30)
 
 - determine ability to deploy artifacts based on new ACL
@@ -2780,6 +2841,8 @@ To improve the number of recipe results and commit jobs that can be viewed on th
 
 - add mass close pull requests
 
+## September 2023
+
 ### UI v9.166.0 (2023/09/27)
 
 - download patch with patch download task.
@@ -2861,6 +2924,8 @@ To improve the number of recipe results and commit jobs that can be viewed on th
 ### UI v9.152.1 (2023/09/01)
 
 - Bug fixes and other improvements.
+
+## August 2023
 
 ### UI v9.152.0 (2023/08/31)
 
@@ -3043,6 +3108,8 @@ Pan/zoom controls and download options are now available for Visualizations.
 
 - data grid for visualization repositories.
 
+## July 2023
+
 ### UI v9.127.0 (2023/07/31)
 
 - Bug fixes and other improvements.
@@ -3135,6 +3202,8 @@ Pan/zoom controls and download options are now available for Visualizations.
 ### UI v9.112.1 (2023/07/01)
 
 - add dependency resolution time and worker name to recipe run summary
+
+## June 2023
 
 ### UI v9.112.0 (2023/06/29)
 
@@ -3241,6 +3310,8 @@ Pan/zoom controls and download options are now available for Visualizations.
 
 - Bug fixes and other improvements.
 
+## May 2023
+
 ### UI v9.98.0 (2023/05/30)
 
 - add support for multiple auth providers through keycloak on multitenant
@@ -3312,6 +3383,8 @@ Pan/zoom controls and download options are now available for Visualizations.
 ### UI v9.88.2 (2023/05/01)
 
 - Bug fixes and other improvements.
+
+## April 2023
 
 ### UI v9.88.1 (2023/04/30)
 
@@ -3440,6 +3513,8 @@ We've completed a change to move over queries for _Organizations_ and _Repositor
 ### UI v9.80.1 (2023/04/01)
 
 - Bug fixes and other improvements.
+
+## March 2023
 
 ### UI v9.80.0 (2023/03/31)
 
@@ -3631,6 +3706,8 @@ Up until now repository groups have been stored in the users' localStorage on th
 
 We have now switch to using IndexedDB for this purpose which will not run into these same thresholds and provides faster reads and writes for large objects.
 
+## February 2023
+
 ### UI v9.63.0 (2023/02/27)
 
 The interactive origin icon now includes links:
@@ -3713,6 +3790,8 @@ A new option has been added to the Pull Request form to allow or disallow the re
   <figcaption></figcaption>
 </figure>
 
+## January 2023
+
 ### UI v9.46.0 (2023/01/21)
 
 Data tables: Recipes can now emit tabular data according to a schema that they define.
@@ -3778,6 +3857,8 @@ Repositories hosted on Bitbucket Cloud are now supported. This [requires additio
   ![](./assets/bit-cloud.png)
   <figcaption></figcaption>
 </figure>
+
+## December 2022
 
 ### UI v9.35.0 (2022/12/30)
 
@@ -3880,6 +3961,8 @@ This has been added to the following pages:
   <figcaption></figcaption>
 </figure>
 
+## November 2022
+
 ### UI v9.23.0 (2022/11/30)
 
 #### Ignore whitespace changes
@@ -3976,6 +4059,8 @@ As shown above, only repositories defined in the user's repository group are dis
 
 New groups can be created from the selected rows of a recipe run.
 
+## October 2022
+
 ### UI v9.11.0 (2022/10/24)
 
 #### Only show error hunks
@@ -3990,6 +4075,8 @@ In addition to using Moderne for running recipes, it is also common to use the b
 Previously, the `Only show errors` a toggle would limit diffs to only those containing errors. For large files with multiple hunks of changes, this behavior still required recipe authors to manually search for the errors that surfaced.
 
 We have changed this behavior so that `Only show errors` will now cause only the hunks with errors to render.
+
+## Earlier releases
 
 ### UI v9.8.0
 

@@ -43,9 +43,9 @@
 
 .heroHeading {
   font-family: var(--ifm-font-family-base);
-  font-size: 42px;
-  font-weight: var(--neo-font-weight-bold, 700);
-  line-height: 1.4;
+  font-size: 54px;
+  font-weight: var(--neo-font-weight-medium);
+  line-height: 1.1;
   margin: 0;
 }
 
@@ -67,8 +67,8 @@
 
 .heroSubheading {
   font-family: var(--ifm-font-family-base);
-  font-size: var(--neo-font-size-h5, 18px);
-  font-weight: var(--neo-font-weight-medium, 500);
+  font-size: 28px;
+  font-weight: var(--neo-font-weight-medium);
   line-height: 1.4;
   color: var(--brand-midnight);
   margin: 0;
@@ -111,7 +111,7 @@
 .sectionTitle {
   font-family: var(--ifm-font-family-base);
   font-size: 24px;
-  font-weight: var(--neo-font-weight-bold, 700);
+  font-weight: var(--neo-font-weight-semi-bold);
   line-height: 1.4;
   color: var(--brand-midnight);
   margin: 0;
@@ -123,11 +123,11 @@
 
 .sectionDescription {
   font-family: var(--ifm-font-family-base);
-  font-size: var(--neo-font-size-sm, 14px);
+  font-size: 15px;
   font-weight: var(--neo-font-weight-regular, 400);
   line-height: 1.4;
   color: var(--brand-midnight);
-  max-width: 1440px;
+  max-width: 700px;
   margin: 0;
 }
 
@@ -139,6 +139,32 @@
   display: flex;
   gap: var(--neo-spacing_5, 40px);
   flex-wrap: wrap;
+}
+
+/* Hairline outer border + 8px padding around home-page video thumbnails */
+.videoThumbnail {
+  padding: var(--neo-spacing_1);
+  background-color: transparent;
+  border: 1px solid var(--neo-grey-200);
+  border-radius: var(--neo-border-radius-m);
+  box-shadow: var(--neo-shadow-card);
+  box-sizing: content-box;
+}
+
+[data-theme='dark'] .videoThumbnail {
+  border-color: var(--neo-grey-700);
+}
+
+.videoThumbnail > * {
+  border-radius: var(--neo-border-radius-x-s);
+  overflow: hidden;
+}
+
+.videoThumbnail :global(iframe),
+.videoThumbnail :global(video),
+.videoThumbnail :global(img) {
+  display: block;
+  border-radius: var(--neo-border-radius-x-s);
 }
 
 
@@ -159,11 +185,11 @@
 
 .platformContent {
   font-family: var(--ifm-font-family-base);
-  font-size: var(--neo-font-size-sm, 14px);
+  font-size: 15px;
   font-weight: var(--neo-font-weight-regular, 400);
   line-height: 1.4;
   color: var(--brand-midnight);
-  max-width: 1440px;
+  max-width: 700px;
 }
 
 [data-theme='dark'] .platformContent {
