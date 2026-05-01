@@ -21,8 +21,8 @@ This guide walks you through configuring the Moderne CLI to work in environments
 
 Before installing the CLI, please ensure your internal artifact repository contains the following artifacts:
 
-* **The Moderne CLI** — distributed as a platform-specific self-extracting installer that bundles the `modw` wrapper, a Java 25 runtime, and the CLI JAR. It's published to Maven Central under platform-specific artifact IDs: [`moderne-cli-linux-x64`](https://central.sonatype.com/artifact/io.moderne/moderne-cli-linux-x64/versions), [`moderne-cli-linux-aarch64`](https://central.sonatype.com/artifact/io.moderne/moderne-cli-linux-aarch64/versions), [`moderne-cli-osx`](https://central.sonatype.com/artifact/io.moderne/moderne-cli-osx/versions), and [`moderne-cli-windows`](https://central.sonatype.com/artifact/io.moderne/moderne-cli-windows/versions).
-* **OpenRewrite recipe modules** — [there are numerous OpenRewrite recipe modules available on Maven Central](https://mvnrepository.com/artifact/org.openrewrite). [The full list of recipe JARs and a CLI install command is regenerated on every release](../../recipes/lists/latest-versions-of-every-openrewrite-module.md#cli-installation).
+* **The Moderne CLI** — distributed as a platform-specific self-extracting installer that bundles the `modw` wrapper, a Java 25 runtime, and the CLI JAR. It's published to Maven Central under platform-specific artifact IDs: [`moderne-cli-linux`](https://central.sonatype.com/artifact/io.moderne/moderne-cli-linux/versions), [`moderne-cli-osx`](https://central.sonatype.com/artifact/io.moderne/moderne-cli-osx/versions), and [`moderne-cli-windows`](https://central.sonatype.com/artifact/io.moderne/moderne-cli-windows/versions).
+* **OpenRewrite recipe modules** — [there are numerous OpenRewrite recipe modules available on Maven Central](https://central.sonatype.com/namespace/org.openrewrite). [The full list of recipe JARs and a CLI install command is regenerated on every release](../../recipes/lists/latest-versions-of-every-openrewrite-module.md#cli-installation).
 
 :::tip
 If your mirror is configured as a remote proxy of Maven Central (e.g., a virtual repository in Artifactory or a proxy repo in Nexus), most of this happens automatically — artifacts are fetched on demand and cached. If your mirror requires explicit sync-on-approval, each version you wish to use must be synced before users can install or upgrade.
@@ -39,10 +39,10 @@ Download the platform-appropriate distribution from your internal mirror. For ex
 
 ```bash
 curl -fsSL -o moderne-cli.sh \
-    "https://internal-mirror.example.com/io/moderne/moderne-cli-linux-x64/4.2.1/moderne-cli-linux-x64-4.2.1.sh"
+    "https://internal-mirror.example.com/io/moderne/moderne-cli-linux/4.2.1/moderne-cli-linux-4.2.1.sh"
 ```
 
-Replace `4.2.1` with the version you intend to install, and adjust the artifact name to match your platform (`moderne-cli-linux-x64`, `moderne-cli-linux-aarch64`, or `moderne-cli-osx`).
+Replace `4.2.1` with the version you intend to install, and adjust the artifact name to match your platform (`moderne-cli-linux`, or `moderne-cli-osx`).
 
 Then run the installer:
 
