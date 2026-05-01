@@ -89,6 +89,9 @@ On corporate networks behind a proxy or with restricted Maven Central access, se
 
 Instead of syncing the entire recipe catalog, install just the JARs you need:
 
+<Tabs groupId="cli-install-os" queryString="os">
+<TabItem value="linux-macos" label="Linux / macOS" default>
+
 ```bash
 mod config recipes jar install \
   org.openrewrite.recipe:rewrite-prethink \
@@ -96,6 +99,20 @@ mod config recipes jar install \
   org.openrewrite.recipe:rewrite-static-analysis \
   org.openrewrite.recipe:rewrite-spring
 ```
+
+</TabItem>
+<TabItem value="windows" label="Windows">
+
+```powershell
+mod config recipes jar install `
+  org.openrewrite.recipe:rewrite-prethink `
+  io.moderne.recipe:rewrite-prethink `
+  org.openrewrite.recipe:rewrite-static-analysis `
+  org.openrewrite.recipe:rewrite-spring
+```
+
+</TabItem>
+</Tabs>
 
 The two `rewrite-prethink` artifacts are the focus of this workshop: the `org.openrewrite.recipe` module is the open-source building blocks, and `io.moderne.recipe:rewrite-prethink` adds pre-configured discovery for Spring, JPA, Kafka, and other common frameworks. See [Recipe modules](../../user-documentation/agent-tools/prethink.md#recipe-modules) for the full breakdown.
 
@@ -113,7 +130,7 @@ Search for one of the Prethink recipes to confirm it resolved:
 mod config recipes search UpdatePrethinkContext
 ```
 
-You should see at least the `io.moderne.prethink.UpdatePrethinkContextNoAiStarter` and `io.moderne.prethink.UpdatePrethinkContextStarter` recipes listed.
+The CLI walks through each matching recipe interactively and asks whether to set it as the active recipe. You should see at least the `io.moderne.prethink.UpdatePrethinkContextNoAiStarter` and `io.moderne.prethink.UpdatePrethinkContextStarter` recipes show up. Press `n` (or just `Enter`) at each prompt to skip — you'll select recipes explicitly with `--recipe` later.
 
 ### Takeaways
 
@@ -159,14 +176,28 @@ The `--with-sources` flag clones the source code in addition to fetching pre-bui
 <details>
 <summary>Reference: what gets synced</summary>
 
-The `Default` organization includes public repositories like `spring-projects/spring-petclinic`, `Netflix/photon`, `finos/messageml-utils`, and a handful of others. The exact list is updated occasionally, but it's always a small enough set to build locally without consuming much disk.
+At the time of writing, the `Default` organization contains 11 public repositories spanning Maven, Gradle, and Spring projects:
+
+* `apache/maven-doxia`
+* `awslabs/aws-saas-boost`
+* `finos/messageml-utils`
+* `finos/spring-bot`
+* `finos/symphony-bdk-java`
+* `finos/symphony-wdk`
+* `Netflix/photon`
+* `Netflix/ribbon`
+* `openrewrite/rewrite-recipe-bom`
+* `spring-projects/spring-data-commons`
+* `spring-projects/spring-petclinic`
+
+The exact list is updated occasionally, but it's always a small enough set to build locally without consuming much disk.
 
 If you want a different mix (for example, only Spring repositories), browse the available organizations with `mod config moderne organizations show` and substitute a different name.
 
 </details>
 
 :::info
-If a few LST downloads fail with HTTP 404 or 401, that's expected for some open-source repos. As long as most synced successfully, you can continue. Repositories without LSTs will be rebuilt locally in Step 3.
+Don't worry if some LST downloads fail (you may see HTTP 404/401 messages, or skipped repos in the progress output). That's expected for a few of these public repos. Anything without an LST will be rebuilt locally in Step 3, and any repo whose build also fails is silently skipped. As long as a handful succeed, you're fine.
 :::
 
 #### Step 3: Build any missing LSTs locally
@@ -189,7 +220,15 @@ If multiple projects fail with the same root cause, run `mod trace builds analyz
 mod list .
 ```
 
-Repositories without LSTs will be marked with a `(no LST)` annotation. As long as a handful of Java/Spring projects show up clean (no annotation), you're ready for the next module.
+Repositories without LSTs are marked with a `(no LST)` annotation, like this:
+
+```text
+  9% (1s)     ▶ awslabs/aws-saas-boost@main (no LST)
+ 18% (1s)     ▶ finos/messageml-utils@main
+ 27% (1s)     ▶ finos/spring-bot@spring-bot-master
+```
+
+As long as a handful of Java/Spring projects show up without that annotation, you're ready for the next module.
 
 ### Takeaways
 

@@ -49,7 +49,9 @@ Start your agent inside the workspace from Module 1:
 
 ```bash
 cd ~/agent-tools-workshop
-claude
+claude       # Claude Code
+# cursor .   # Cursor
+# windsurf . # Windsurf
 ```
 
 In Claude Code, the MCP tools appear as `mcp__moderne__*` and are listed when the agent shows its available tools. In Cursor, they appear as MCP tool calls in the agent's chat. In each case, the names match the table in [Available tools](../../user-documentation/agent-tools/mcp/overview.md#available-tools).

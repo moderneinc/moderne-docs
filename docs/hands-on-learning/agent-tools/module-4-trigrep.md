@@ -26,7 +26,7 @@ From your workspace root:
 mod postbuild search index .
 ```
 
-The CLI walks every repository with an LST and produces a trigram index per repo. Indexes live in `.moderne/search/` inside each repository and use the `.zoekt` extension. Index size is roughly 10-20% of the source size.
+The CLI walks every repository with an LST and produces a trigram index per repo. Indexes live in `.moderne/mcp/search/` inside each repository and use the `.zoekt` extension. Index size is roughly 10-20% of the source size.
 
 :::tip
 Re-run the same command after significant code changes (or after a fresh `mod build`). Add `--force` if you want to regenerate even when the index already exists.

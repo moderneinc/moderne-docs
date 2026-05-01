@@ -53,6 +53,10 @@ Agents don't always respond the same way. Your results will differ from the exam
 Most agents ask for your approval before running tools (reading files, executing commands, writing code, etc.). The exercises don't call out these approval steps explicitly. It's up to you whether to approve each action individually or configure your agent to proceed automatically.
 :::
 
+:::tip Agent-agnostic by design
+Examples in this workshop demo with Claude Code (slash commands like `/moderne:create-recipe`, the `claude` startup command). Every step works the same way in Cursor, GitHub Copilot, Windsurf, Amp, and Codex. When you see a Claude-specific command, substitute the equivalent for your agent. See [Invoking skills](../../user-documentation/agent-tools/skills.md#invoking-skills) for the per-agent syntax.
+:::
+
 ## Workshop modules
 
 * [Module 1: CLI and LSTs](./module-1-cli-and-lsts.md) - Install the Moderne CLI, install the Prethink recipe modules, sync repositories, and build LSTs

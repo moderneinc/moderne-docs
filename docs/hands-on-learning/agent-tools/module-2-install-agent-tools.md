@@ -61,7 +61,7 @@ Cursor and GitHub Copilot install skills *per project* (into `.cursor/rules/` or
 
 #### Step 3: Verify the skills are available
 
-How you check depends on your agent.
+How you check depends on your agent. Restart the agent first if it was already running — most agents pick up new skills/MCP servers at startup.
 
 **Claude Code** - Open Claude Code in your workshop directory and type `/`. You should see entries like `/moderne:create-recipe`, `/moderne:run-recipe`, `/moderne:create-organization`, and `/moderne:analyze-impact`.
 

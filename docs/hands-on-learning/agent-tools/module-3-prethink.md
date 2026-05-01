@@ -60,10 +60,10 @@ After this, each repository has a `.moderne/context/` directory and updated agen
 Before moving on, you can ask the CLI for a detailed run summary:
 
 ```bash
-mod run-history list .
+mod run-history .
 ```
 
-This shows what Prethink touched per repository. It's useful if you want to share context with someone or pick a specific repo to dig into.
+This shows what Prethink touched per repository. It's useful if you want to share context with someone or pick a specific repo to dig into. Add `--most-recent` to limit the output to one entry per recipe.
 
 ### Takeaways
 
@@ -140,6 +140,8 @@ Pick one repository with rich quality data (Spring PetClinic and Spring Data Com
 cd spring-projects/spring-petclinic
 claude
 ```
+
+For Cursor, run `cursor .`. For Windsurf, run `windsurf .`. For other agents, open the directory the way you normally would.
 
 #### Step 2: Ask the agent to visualize the metrics
 

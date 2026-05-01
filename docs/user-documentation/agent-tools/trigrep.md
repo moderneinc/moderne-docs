@@ -382,7 +382,7 @@ Even in a codebase with millions of files, the intersection of posting lists typ
 
 Moderne Trigrep generates its indexes from LSTs rather than raw source code, which gives the index access to symbol information, type data, and other semantic details that wouldn't be available from text alone. This is what powers semantic filters like `sym:`, `extends:`, and `visibility:`.
 
-The index files use the `.zoekt` extension and live in the `.moderne/search/` directory within each repository. You can use the `--force` flag to regenerate indexes even if they already exist, which is useful after significant code changes.
+The index files use the `.zoekt` extension and live in the `.moderne/mcp/search/` directory within each repository. You can use the `--force` flag to regenerate indexes even if they already exist, which is useful after significant code changes.
 
 </details>
 
