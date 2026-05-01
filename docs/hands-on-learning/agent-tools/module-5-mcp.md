@@ -43,6 +43,19 @@ claude mcp list
 
 You should see `moderne` (or similar) listed. For Cursor, open `~/.cursor/mcp.json` and confirm a `moderne` entry exists.
 
+<details>
+<summary>Sample <code>claude mcp list</code> output</summary>
+
+```text
+Checking MCP server health...
+
+moderne: bash -c if [ -x '/opt/homebrew/bin/mod' ]; then exec '/opt/homebrew/bin/mod' mcp; else exec mod mcp; fi - ✓ Connected
+```
+
+The exact path to `mod` depends on how you installed the CLI (Homebrew lands at `/opt/homebrew/bin/mod` on Apple Silicon, the install script lands at `~/.moderne/cli/mod` on Linux/macOS, and `%LOCALAPPDATA%\Programs\moderne\mod.exe` on Windows). The wrapper is the same on every platform.
+
+</details>
+
 #### Step 2: Open the project and confirm tools are exposed
 
 Start your agent inside the workspace from Module 1:

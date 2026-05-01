@@ -28,6 +28,29 @@ mod postbuild search index .
 
 The CLI walks every repository with an LST and produces a trigram index per repo. Indexes live in `.moderne/mcp/search/` inside each repository and use the `.zoekt` extension. Index size is roughly 10-20% of the source size.
 
+<details>
+<summary>Sample output</summary>
+
+```text
+● Generating search indexes
+  ...
+  9% (3s)     ▶ awslabs/aws-saas-boost@main (no LST)
+  9% (3s)         Skipped: no LST artifact
+ 18% (3s)     ▶ finos/messageml-utils@main
+ 18% (3s)         ✓ Indexed
+ ...
+100% (4s)     Done
+
+Generated search indexes: 10 indexed, 1 skipped, 0 failed
+
+● What to do next
+    > 1 repository have no LST artifact. Run mod build first.
+```
+
+The `1 skipped` count corresponds to the same `awslabs/aws-saas-boost` repo whose LST failed to download in [Module 1](./module-1-cli-and-lsts.md). Without an LST, there's nothing to index.
+
+</details>
+
 :::tip
 Re-run the same command after significant code changes (or after a fresh `mod build`). Add `--force` if you want to regenerate even when the index already exists.
 :::
@@ -37,18 +60,48 @@ Re-run the same command after significant code changes (or after a fresh `mod bu
 Pick a term you'd expect in a Spring workspace:
 
 ```bash
+mod search . "@RestController"
+```
+
+You should get sub-second results showing every file that mentions `@RestController`, with line numbers and a snippet. Try a few more:
+
+```bash
+mod search . "spring.datasource"
+mod search . "System.out.println"
 mod search . "KafkaTemplate"
 ```
 
-You should get sub-second results showing every file that mentions `KafkaTemplate`, with line numbers and a snippet. Try a few more:
+Notice how each search returns in well under a second, even though the workspace contains thousands of files. The index does the work.
 
-```bash
-mod search . "@RestController"
-mod search . "spring.datasource"
-mod search . "System.out.println"
+<details>
+<summary>Sample output for <code>mod search . "@RestController"</code></summary>
+
+```text
+● Searching for: @RestController
+  0% (1s)     ▶ apache/maven-doxia@master
+  0% (1s)         ✓ No matches
+  9% (1s)     ▶ awslabs/aws-saas-boost@main
+  9% (1s)         No search index
+  ...
+ 27% (1s)     ▶ finos/spring-bot@spring-bot-master
+ 27% (1s)         ● File(libs/.../BotController.java)
+ 27% (1s)              36   @RestController
+ 27% (1s)              37   public class BotController {
+ 27% (1s)         ✓ 1 matches in 1 files
+  ...
+Found 12 matches in 12 files across 10 repositories.
+
+● What to do next
+    > 1 repository has no search index. Run mod postbuild search index to generate indexes from existing LSTs.
 ```
 
-Notice how each search returns in well under a second, even though the workspace contains thousands of files. The index does the work.
+The `No search index` line for `awslabs/aws-saas-boost` is expected — that repo's LST didn't sync (see [Module 1 Step 2](./module-1-cli-and-lsts.md)), so the index couldn't be built. The other 10 repos searched fine.
+
+</details>
+
+:::tip
+Some queries return zero matches in the `Default` org because nothing in those repos uses the keyword. For example `KafkaTemplate` returns 0 matches across the `Default` org. That's not a bug — it just means none of these public repos use Spring Kafka.
+:::
 
 ### Takeaways
 
@@ -116,15 +169,33 @@ The hole syntax includes typed variants like `:[name:e]` (balanced expression), 
 Trigrep extends Sourcegraph's filter syntax with Java-specific filters that read from LST metadata. These are the queries `grep` simply can't answer:
 
 ```bash
-# All public methods that return a List
-mod search . 'visibility:public returns:List'
+# All public methods that return a List (pass each filter as a separate arg)
+mod search . visibility:public returns:List
 
 # Classes that extend a Spring base class
-mod search . 'extends:WebSecurityConfigurerAdapter'
+mod search . extends:WebSecurityConfigurerAdapter
 
 # Methods that throw a checked exception
-mod search . 'throws:IOException'
+mod search . throws:IOException
 ```
+
+:::warning Quoting
+Don't wrap multiple filters in a single pair of quotes (e.g. `'visibility:public returns:List'`). With one shell-arg, the CLI parses the whole string as a single filter value and prints `Search failed: Unknown visibility: public returns:List`. Pass each filter as its own arg, or quote each individually: `"visibility:public" "returns:List"`.
+:::
+
+<details>
+<summary>Sample output for <code>mod search . throws:IOException</code></summary>
+
+```text
+● Searching for: throws:IOException
+  0% (1s)     ▶ apache/maven-doxia@master
+  0% (1s)         doxia-sink-api/src/main/java/.../SinkFactory.java
+  0% (1s)           L41: Sink createSink(File outputDir, String outputName) throws IOException;
+  0% (1s)           L54: Sink createSink(File outputDir, String outputName, String encoding) throws IOException;
+  ...
+```
+
+</details>
 
 ### Takeaways
 

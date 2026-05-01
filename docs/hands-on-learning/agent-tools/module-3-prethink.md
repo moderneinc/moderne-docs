@@ -35,6 +35,31 @@ mod run . --recipe io.moderne.prethink.UpdatePrethinkContextNoAiStarter
 
 This will take a few minutes. The recipe runs through architectural discovery, code quality analysis, test coverage mapping, dependency inventory, and CALM architecture diagram generation. The CLI will report `Fix results` per repository as it completes.
 
+<details>
+<summary>Sample tail of the run output</summary>
+
+```text
+        Fix results at file:///.../.moderne/run/.../fix.patch
+        ✓ Recipe run complete
+   Done
+
+3m 18s saved by using previously built LSTs
+3h 30m saved by using recipes
+
+Produced results for 1 repository.
+
+● What to do next
+    > Run mod study . --last-recipe-run --data-table ClassQualityMetrics
+    > Run mod study . --last-recipe-run --data-table CodeSmells
+    > Run mod study . --last-recipe-run --data-table MethodQualityMetrics
+    ... (more data tables)
+    > Run mod git apply . --last-recipe-run to apply the changes
+```
+
+The "What to do next" footer suggests `mod study` commands for inspecting each generated data table — handy for spot-checking what the recipe found.
+
+</details>
+
 :::tip
 If you're impatient, target a single repository first to see the output faster:
 
@@ -53,7 +78,22 @@ Until you apply the run, the output exists only as patches. Make the files real:
 mod git apply . --last-recipe-run
 ```
 
-After this, each repository has a `.moderne/context/` directory and updated agent configuration files (`AGENTS.md`, `CLAUDE.md`, `.cursorrules`, or `.github/copilot-instructions.md`, depending on which agents you're targeting).
+After this, each repository has a `.moderne/context/` directory and an updated agent-configuration file. Prethink writes only the files for the agents Prethink was configured to target — most commonly `CLAUDE.md`, but it can also be `AGENTS.md`, `.cursorrules`, or `.github/copilot-instructions.md`.
+
+<details>
+<summary>Sample <code>mod git apply</code> output</summary>
+
+```text
+● Executing git apply
+
+  0% (1s)     ▶ spring-projects/spring-petclinic@main
+  0% (1s)         ✓ Applied file:///.../spring-petclinic/.moderne/run/.../fix.patch
+100% (1s)     Done
+
+Applied patches to 1 repository.
+```
+
+</details>
 
 #### Step 3 (optional): Examine a recipe run summary
 
@@ -96,19 +136,87 @@ You should see CSVs and matching Markdown files for each context type. For the f
 |-----------------------------------|-----------------------------------------------------------------------------------------------------------|
 | `service-endpoints.csv`           | REST/HTTP endpoints with HTTP methods, paths, and the framework that exposed them                         |
 | `database-connections.csv`        | JPA entities, repositories, and JDBC connection points                                                    |
-| `dependencies.csv`                | Resolved dependency graph including transitive dependencies                                               |
+| `dependency-list-report.csv`      | Resolved dependency graph including transitive dependencies                                               |
 | `method-quality-metrics.csv`      | Per-method cyclomatic complexity, cognitive complexity, ABC, Halstead measures                            |
 | `class-quality-metrics.csv`       | Per-class WMC, LCOM4, TCC, CBO, Maintainability Index                                                     |
 | `package-quality-metrics.csv`     | Per-package coupling, instability, abstractness, dependency cycles                                        |
 | `code-smells.csv`                 | God Class, Feature Envy, Data Class detections with severity and metric evidence                          |
 | `test-gaps.csv`                   | Untested public methods ranked by risk score (complexity x architectural centrality)                      |
-| `architecture-diagram.md`         | Mermaid architecture diagram you can render directly in GitHub or your IDE                                |
+| `architecture.md`                 | Mermaid architecture diagram you can render directly in GitHub or your IDE                                |
+
+<details>
+<summary>Sample <code>ls .moderne/context/</code> output</summary>
+
+```text
+architecture.md
+calm-architecture.json
+class-quality-metrics.csv
+class-quality-metrics.md
+code-smells.csv
+code-smells.md
+coding-conventions.csv
+coding-conventions.md
+data-assets.csv
+database-connections.csv
+dependencies.md
+dependency-list-report.csv
+dependency-usage.csv
+deployment-artifacts.csv
+error-handling-patterns.csv
+error-handling.md
+external-service-calls.csv
+library-usage.md
+method-descriptions.csv
+method-quality-metrics.csv
+method-quality-metrics.md
+package-quality-metrics.csv
+package-quality-metrics.md
+project-identity.md
+project-metadata.csv
+server-configuration.csv
+service-endpoints.csv
+test-coverage.md
+test-gaps.csv
+test-gaps.md
+test-mapping.csv
+test-quality-issues.csv
+test-quality.md
+token-estimates.md
+```
+
+</details>
 
 The corresponding `.md` files describe the schema and meaning of each CSV. They're written for humans **and** agents, so opening them is the fastest way to understand a column.
 
 #### Step 2: Open the architecture diagram
 
-Open `architecture-diagram.md` in your editor or a Mermaid renderer (GitHub, GitLab, and most IDEs support Mermaid out of the box). For a Spring web app you'll see services, controllers, databases, and messaging components and the relationships between them.
+Open `architecture.md` in your editor or a Mermaid renderer (GitHub, GitLab, and most IDEs support Mermaid out of the box). For a Spring web app you'll see services, controllers, databases, and messaging components and the relationships between them.
+
+<details>
+<summary>Sample diagram excerpt for spring-petclinic</summary>
+
+```mermaid
+flowchart LR
+  subgraph spring-petclinic["petclinic"]
+    owner-controller["Owner Controller"]
+    pet-controller["Pet Controller"]
+    visit-controller["Visit Controller"]
+    crash-controller["Crash Controller"]
+    welcome-controller["Welcome Controller"]
+    vet-controller["Vet Controller"]
+  end
+
+  owner-db[("Owner")]
+  pet-type-db[("PetType")]
+  vet-db[("Vet")]
+  ...
+
+  owner-controller -->|JDBC| owner-db
+  owner-controller -->|JDBC| pet-type-db
+  ...
+```
+
+</details>
 
 #### Step 3: Skim the updated agent config
 
@@ -157,6 +265,8 @@ Point the agent at the quality CSVs and ask it to surface what's worst. A few ti
 > Read `.moderne/context/method-quality-metrics.csv`, `.moderne/context/class-quality-metrics.csv`, and `.moderne/context/code-smells.csv`. Produce a single visualization that highlights the methods and classes most in need of refactoring, weighted by complexity and code smells. Render it as a Mermaid diagram or an HTML file I can open in a browser. Cap it to the top 10 methods and top 10 classes.
 
 </details>
+
+Each CSV has a matching `.md` file (e.g., `method-quality-metrics.md`) that documents every column. If the agent's first chart looks confused about what a column means, tell it to read the `.md` first.
 
 Most agents will write a small HTML file with a chart, or a Markdown file with a Mermaid diagram. Either is fine. The point is to see the distribution.
 

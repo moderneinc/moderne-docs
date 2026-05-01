@@ -65,8 +65,14 @@ mod config moderne login
 
 The login command opens a browser, asks you to grant the CLI access to your account, and stores a token locally that's valid for 365 days. If you're running on an Enterprise tenant, replace the URL with your tenant's hostname.
 
-:::tip
-On corporate networks behind a proxy or with restricted Maven Central access, see [Using the CLI with internal tools and artifact repositories](../../user-documentation/moderne-cli/getting-started/cli-internal-tools.md) before continuing.
+:::tip Restrictive networks
+On corporate networks with proxies or limited Maven Central / Moderne SaaS access, see [Using the CLI with internal tools and artifact repositories](../../user-documentation/moderne-cli/getting-started/cli-internal-tools.md) before continuing. Symptoms you might hit later in this workshop:
+
+* `mod git sync moderne` reports `PARTIAL SUCCESS` because a few LSTs sit on hosts your network can't reach
+* `mod config recipes jar install` fails to resolve a JAR — point it at your internal Artifactory/Nexus first via `mod config recipes artifacts`
+* `mod build` can't download Maven/Gradle plugins — set up your build tool's mirror and proxy as you normally would, then re-run
+
+For the workshop you only need a handful of repos to succeed. Don't try to fix every failure up front.
 :::
 
 ### Takeaways
@@ -156,10 +162,24 @@ You can either **download** pre-built LSTs from the Moderne Platform or **build*
 
 #### Step 1: Create a workspace directory
 
+<Tabs groupId="cli-install-os" queryString="os">
+<TabItem value="linux-macos" label="Linux / macOS" default>
+
 ```bash
 mkdir ~/agent-tools-workshop
 cd ~/agent-tools-workshop
 ```
+
+</TabItem>
+<TabItem value="windows" label="Windows">
+
+```powershell
+New-Item -ItemType Directory -Path "$HOME\agent-tools-workshop"
+cd $HOME\agent-tools-workshop
+```
+
+</TabItem>
+</Tabs>
 
 This directory will hold the repositories, LSTs, search indexes, and recipe run artifacts for the rest of the workshop.
 
@@ -172,6 +192,31 @@ mod git sync moderne . --organization "Default" --with-sources
 ```
 
 The `--with-sources` flag clones the source code in addition to fetching pre-built LSTs. Sources are required for the apply/commit steps in [Module 3](./module-3-prethink.md).
+
+<details>
+<summary>Sample sync output</summary>
+
+```text
+● Synchronizing organization directory structure
+Found 1 organization containing 11 repositories
+
+● Downloading LSTs for repositories
+  0% (1s)     ▶ awslabs/aws-saas-boost@main
+  0% (1s)         ✗ Failed to download LST from http://artifactory.moderne.internal/...
+  9% (1s)     ▶ apache/maven-doxia@master
+  9% (1s)         ✓ Downloaded LST from https://artifactory.moderne.ninja/...
+  ... (other repos)
+100% (12s)    Done
+
+Synced 11 repositories.
+
+PARTIAL SUCCESS: mod partially succeeded with an exception
+1 repository failed to sync. The exception for the failure on awslabs/aws-saas-boost@main is shown above.
+```
+
+A `PARTIAL SUCCESS` message is normal here — at the time of writing, one of the LSTs in the `Default` org is hosted on a Moderne-internal artifactory and isn't reachable from public networks. The 10 repos that did sync are enough for the workshop.
+
+</details>
 
 <details>
 <summary>Reference: what gets synced</summary>
