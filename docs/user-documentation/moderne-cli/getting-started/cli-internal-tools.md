@@ -8,117 +8,105 @@ import TabItem from '@theme/TabItem';
 
 # How to configure the Moderne CLI to work with internal tools
 
-This guide walks you through configuring the Moderne CLI to work in environments with restricted internet access or internal artifact repositories. You'll learn how to set up the CLI to use your internal Maven repository, configure it to download recipe JARs from your internal systems, and prepare it to run OpenRewrite recipes against your repositories. The process ensures that all dependencies and recipe modules are properly accessible within your internal infrastructure.
+This guide walks you through configuring the Moderne CLI to work in environments with restricted internet access or internal artifact repositories. The instructions apply to any Moderne edition (Standard, Enterprise, or DX) — what matters is that the CLI fetches its distribution, dependencies, and recipe JARs from your internal infrastructure rather than reaching out to the public internet. By the end of this guide, you'll have the CLI installed from your internal mirror, configured against your Maven settings and recipe artifact repository, and ready to run OpenRewrite recipes against your repositories.
 
 ## Assumptions
 
 * You have an internal mirror of Maven Central (or some other internal artifact repository)
-* You have the ability to download and add JARs from Maven Central to your internal artifact repository
+* You have the ability to download and add artifacts from Maven Central to your internal artifact repository
 
 ## Installation and configuration
 
-### Step 0: Ensure recipes exist in your internal artifact repository
+### Step 0: Ensure required artifacts exist in your internal artifact repository
 
-[There are numerous OpenRewrite recipe modules available in Maven Central](https://mvnrepository.com/artifact/org.openrewrite). Please ensure that those are copied over to your internal artifact repository (or your internal mirror of Maven Central).
+Before installing the CLI, please ensure your internal artifact repository contains the following artifacts:
 
-[You can find the full list of all OpenRewrite recipe JARs available here](../../recipes/lists/latest-versions-of-every-openrewrite-module.md#cli-installation).
+* **The Moderne CLI** — distributed as a platform-specific self-extracting installer that bundles the `modw` wrapper, a Java 25 runtime, and the CLI JAR. It's published to Maven Central under platform-specific artifact IDs: [`moderne-cli-linux-x64`](https://central.sonatype.com/artifact/io.moderne/moderne-cli-linux-x64/versions), [`moderne-cli-linux-aarch64`](https://central.sonatype.com/artifact/io.moderne/moderne-cli-linux-aarch64/versions), [`moderne-cli-osx`](https://central.sonatype.com/artifact/io.moderne/moderne-cli-osx/versions), and [`moderne-cli-windows`](https://central.sonatype.com/artifact/io.moderne/moderne-cli-windows/versions).
+* **OpenRewrite recipe modules** — [there are numerous OpenRewrite recipe modules available on Maven Central](https://mvnrepository.com/artifact/org.openrewrite). [The full list of recipe JARs and a CLI install command is regenerated on every release](../../recipes/lists/latest-versions-of-every-openrewrite-module.md#cli-installation).
 
-### Step 1: Download the Moderne CLI JAR
+:::tip
+If your mirror is configured as a remote proxy of Maven Central (e.g., a virtual repository in Artifactory or a proxy repo in Nexus), most of this happens automatically — artifacts are fetched on demand and cached. If your mirror requires explicit sync-on-approval, each version you wish to use must be synced before users can install or upgrade.
+:::
 
-[Download the latest version of the Moderne CLI from Maven Central](https://central.sonatype.com/artifact/io.moderne/moderne-cli/versions). Once downloaded, please add it to your internal mirror so that it's accessible for all users in your environment.
+### Step 1: Install the CLI from your internal mirror
 
-Alternatively, if your internal artifact repository mirrors Maven Central, you can download the CLI JAR using Maven:
+The CLI ships as a self-extracting installer (a `.sh` archive on Linux/macOS or a `.zip` archive on Windows) that bundles the `modw` wrapper, a Java 25 runtime, and the CLI JAR. Running the installer extracts everything into `~/.moderne/cli/` (or `%USERPROFILE%\.moderne\cli` on Windows) without any further network access.
 
-```bash
-mvn dependency:copy -Dartifact=io.moderne:moderne-cli:LATEST \
-    -DoutputDirectory=/path/to/
-```
+<Tabs groupId="cli-install-os" queryString="os">
+<TabItem value="linux-macos" label="Linux or macOS" default>
 
-Replace `LATEST` with a specific version (e.g., `3.54.1`) if needed, and update the output directory to your desired location.
-
-### Step 2: (Optional - but recommended) Create an alias for the Moderne CLI JAR
-
-While not required, you are **strongly encouraged** to set up an alias for running the CLI JAR. Below are some ways you might configure this depending on your OS and terminal:
-
-<Tabs>
-<TabItem value="git-bash-windows" label="Git Bash (Windows)">
-
-Add the following function to your `.bashrc` file:
+Download the platform-appropriate distribution from your internal mirror. For example, for Linux x86_64:
 
 ```bash
-mod() {
-    java -jar "/path/to/mod.jar" "$@"
-}
+curl -fsSL -o moderne-cli.sh \
+    "https://internal-mirror.example.com/io/moderne/moderne-cli-linux-x64/4.2.1/moderne-cli-linux-x64-4.2.1.sh"
 ```
+
+Replace `4.2.1` with the version you intend to install, and adjust the artifact name to match your platform (`moderne-cli-linux-x64`, `moderne-cli-linux-aarch64`, or `moderne-cli-osx`).
+
+Then run the installer:
+
+```bash
+bash moderne-cli.sh
+```
+
+The installer adds `~/.moderne/cli/bin` to your `PATH` and configures shell completion. Open a new terminal (or `source` your shell's rc file) to pick up the changes.
+
 </TabItem>
+<TabItem value="windows" label="Windows">
 
-<TabItem value="bash-or-zsh-mac-or-linux" label="Bash or Zsh (Mac or Linux)">
+Download `moderne-cli-windows-<version>.zip` from your internal mirror, extract it, and run the included `install.cmd` script:
 
-Add the following to your `.bashrc` or `.zshrc` file:
-
-```bash
-alias mod="java -jar /path/to/mod.jar"
+```powershell
+Expand-Archive moderne-cli-windows-4.2.1.zip -DestinationPath .
+.\install.cmd
 ```
-</TabItem>
 
-<TabItem value="powershell" label="Powershell">
+Replace `4.2.1` with the version you intend to install. The installer adds `%USERPROFILE%\.moderne\cli\bin` to your user `PATH`. Open a new terminal to pick up the change.
 
-Use the [Set-Alias command](https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.utility/set-alias?view=powershell-7.4) within a [profile script](https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_profiles?view=powershell-7.4\&viewFallbackFrom=powershell-7).
 </TabItem>
 </Tabs>
 
-If everything was configured correctly, you should be able to type `mod` into your terminal and see a list of commands:
+:::warning
+The macOS distribution bundles a JRE for **Apple Silicon only**. Intel Mac users will need to install a Java 25+ runtime separately and ensure it's discoverable by the wrapper 0 see [how the wrapper finds Java](../how-to-guides/cli-wrapper.md#how-the-wrapper-finds-java) for details.
+:::
 
-<details>
+### Step 2: Pin the CLI version
 
-<summary>mod command results</summary>
+The wrapper reads its global configuration from `~/.moderne/cli/dist/moderne-wrapper.properties`. By default (when no version is configured), the wrapper resolves `RELEASE` against `https://repo1.maven.org/maven2` - which won't work in an environment that cannot reach Maven Central directly.
+
+Before running any `mod` command, please pin the wrapper to the version you installed in Step 1:
+
+<Tabs groupId="cli-install-os" queryString="os">
+<TabItem value="linux-macos" label="Linux or macOS" default>
 
 ```bash
-➜ mod
-
-Moderne CLI 4.2.1
-
-Usage:
-
-mod [-h] [--version] [COMMAND]
-
-Description:
-
-Automated code remediation.
-
-Options:
-
-  -h, --help      Display this help message.
-      --version   Display version info.
-Commands:
-
-  audit                (INCUBATING) Perform an audit of recent activity.
-  build                Generates LST artifacts for one or more repositories.
-  clean                Clean build and run artifacts produced by the CLI.
-  config               Global configuration options that are required by some
-                         CLI commands.
-  devcenter            DevCenter operations.
-  exec                 Execute an arbitrary shell command recursively on
-                         selected repository roots.
-  git                  Multi-repository git operations.
-  log                  Manages a log aggregate.
-  list                 Lists the repositories that can be built and published.
-  monitor              (INCUBATING) Launches an HTTP server used to monitor the
-                         CLI.
-  publish              Publishes the LST artifacts for one or more projects.
-  run                  Runs an OpenRewrite recipe locally on pre-built LSTS.
-  run-history          Get information about the most recent recipe runs. This
-                         will be transitioning to mod audit runs list
-                         eventually. A deprecation notice will be added here
-                         when we suggest adopting the alternative.
-  study                Produces studies from OpenRewrite recipe data tables
-                         locally.
-  generate-completion  Generate bash/zsh completion script for mod.
-
-MOD SUCCEEDED in 1s
+echo "version=4.2.1" > ~/.moderne/cli/dist/moderne-wrapper.properties
 ```
 
-</details>
+</TabItem>
+<TabItem value="windows" label="Windows">
+
+```powershell
+"version=4.2.1" | Out-File -Encoding ascii "$env:USERPROFILE\.moderne\cli\dist\moderne-wrapper.properties"
+```
+
+</TabItem>
+</Tabs>
+
+Replace `4.2.1` with the version you installed.
+
+:::warning
+Pinning a version is **required** in environments that cannot reach `repo1.maven.org`. The wrapper's `RELEASE` and `LATEST` resolution always queries Maven Central for `maven-metadata.xml`, regardless of any `distributionUrl` setting. If Maven Central is not reachable and no version is pinned, every `mod` invocation will fail at version resolution. To upgrade the CLI later, run the new version's installer (Step 1) and update this file with the new version.
+:::
+
+You should now be able to verify the installation by running `mod --version`:
+
+```bash
+mod --version
+```
+
+For more on how the wrapper works (auto-update behavior, distribution URLs, JDK selection, environment variables), see the [CLI wrapper and version management guide](../how-to-guides/cli-wrapper.md).
 
 ### Step 3: Configure the CLI to use your license
 
@@ -128,7 +116,7 @@ In order to run recipes, you'll need to ensure the CLI is configured with a lice
 mod config license edit <license-you-were-provided>
 ```
 
-_For more information on the Moderne CLI license, please see our [license documentation](../getting-started/moderne-cli-license.md)._
+_For more information on the Moderne CLI license, please see our [license documentation](./moderne-cli-license.md)._
 
 ### (Optional) Step 4: Configure the CLI to point to your internal artifact repository
 
@@ -487,4 +475,23 @@ With all of the repositories cloned to your machine, you can then build LSTs for
 mod build .
 ```
 
-With the LSTs built, you're ready to run recipes against them! Consider checking out the [using the CLI section in the getting started guide](../getting-started/cli-intro.md#running) to see some ways you can use the CLI.
+With the LSTs built, you're ready to run recipes against them! Consider checking out the [using the CLI section in the getting started guide](./cli-intro.md#running) to see some ways you can use the CLI.
+
+## Standardizing CLI installation across your team
+
+For team-wide standardization, consider committing a [Moderne CLI wrapper](../how-to-guides/cli-wrapper.md#project-wrapper) to a shared repository. This works similarly to the Gradle wrapper: every developer and CI job uses a consistent, version-pinned CLI, and the wrapper downloads the CLI installer from your internal mirror on first run.
+
+To set this up:
+
+1. On a machine that can run `mod`, generate the wrapper files with `mod wrapper --version <pinned-version>`. This produces `modw`, `modw.cmd`, and `moderne/wrapper/moderne-wrapper.properties` in the current directory.
+2. Edit the generated `moderne-wrapper.properties` file to set `distributionUrl` to your internal mirror, [along with any required credentials](../how-to-guides/cli-wrapper.md#authenticated-artifact-repositories). For example:
+
+   ```properties
+   version=4.2.1
+   distributionUrl=https://internal-mirror.example.com/io/moderne/moderne-cli-${platform}/${version}/moderne-cli-${platform}-${version}.sh
+   jdkUrl=skip
+   ```
+
+3. Commit `modw`, `modw.cmd`, and `moderne/wrapper/moderne-wrapper.properties` to your shared repository. Anyone who clones it can then run `./modw <command>` — the wrapper will fetch the pinned distribution from your internal mirror on first invocation.
+
+For full details on the wrapper's properties, environment variables, JDK discovery, and authentication options, see the [CLI wrapper and version management guide](../how-to-guides/cli-wrapper.md).

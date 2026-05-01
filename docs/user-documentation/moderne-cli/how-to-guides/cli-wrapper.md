@@ -13,7 +13,7 @@ Most users never need to think about this. But if you need to control which CLI 
 
 The standard installation methods place `modw` in `~/.moderne/cli/bin/` and add it to your `PATH`. When you run any `mod` command, the wrapper handles four things before launching the CLI:
 
-1. **Ensures a distribution is installed** — downloads the platform-specific CLI distribution (JAR + bundled JRE) if needed
+1. **Ensures the CLI is installed** — downloads and extracts the platform-specific CLI installer (JAR + bundled JRE) if needed
 2. **Finds a JDK** — locates a compatible Java runtime
 3. **Finds the CLI JAR** — resolves which JAR to launch
 4. **Optimizes startup** — manages an ahead-of-time (AOT) compilation cache for faster startup
@@ -190,10 +190,10 @@ The CLI requires Java 25+. The wrapper looks for a compatible runtime in this or
 2. `JAVA_HOME` environment variable (if version is 25+)
 3. `java` on `PATH` (if version is 25+)
 4. Well-known JDK locations (SDKMAN, macOS `/Library/Java/JavaVirtualMachines`, IntelliJ/Gradle toolchains, `/usr/lib/jvm`, etc.)
-5. Bundled JRE at `~/.moderne/cli/dist/jre/` (included in platform distributions)
+5. Bundled JRE at `~/.moderne/cli/dist/jre/` (bundled with the CLI installer)
 6. Auto-download from Eclipse Adoptium to `~/.moderne/cli/dist/jdk/`
 
-Most users never need to think about this — the platform distribution includes a bundled JRE (step 5), so no separate Java installation is required.
+Most users never need to think about this — the CLI installer includes a bundled JRE (step 5), so no separate Java installation is required.
 
 :::warning
 The macOS distribution bundles a JRE for **Apple Silicon only**. Intel Mac users will need to install a Java 25+ runtime separately (e.g., from [Eclipse Adoptium](https://adoptium.net/)) and ensure it is available via one of the locations above.
@@ -232,7 +232,7 @@ Everything lives under `~/.moderne/cli/` (or `$MODERNE_CLI_HOME`):
     │   ├── version.txt                   # installed version stamp
     │   ├── lib/
     │   │   └── moderne-cli.jar           # CLI fat JAR
-    │   ├── jre/                          # bundled JRE (platform distribution)
+    │   ├── jre/                          # bundled JRE (from the CLI installer)
     │   ├── jdk/                          # auto-downloaded JDK (when no bundled JRE)
     │   ├── aot/
     │   │   ├── mod.aot                   # AOT compilation cache
