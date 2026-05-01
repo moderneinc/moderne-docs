@@ -243,7 +243,7 @@ Everything lives under `~/.moderne/cli/` (or `$MODERNE_CLI_HOME`):
 
 ## Running the CLI without the wrapper
 
-Some teams download the CLI JAR directly from Artifactory or another artifact repository and run it with `java -jar`. While this works, **we recommend using the wrapper for everything except [mass ingest](../../../administrator-documentation/moderne-platform/how-to-guides/mass-ingest.md)**. The wrapper manages an ahead-of-time (AOT) compilation cache that significantly improves CLI startup performance — running the JAR directly does not benefit from this optimization.
+Some teams download the CLI JAR directly from Artifactory or another artifact repository and run it with `java -jar`. While this may work, **we recommend using the wrapper for everything**. The wrapper manages an ahead-of-time (AOT) compilation cache that significantly improves CLI startup performance — running the JAR directly does not benefit from this optimization.
 
 ### Migrating to the wrapper
 
