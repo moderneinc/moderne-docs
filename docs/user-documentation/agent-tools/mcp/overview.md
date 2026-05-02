@@ -36,12 +36,13 @@ Tools become available progressively as each build completes. You can check thei
 
 The MCP server exposes the following tools:
 
-### Indexed search
+### Code search
 
 | Tool                        | Description                                                                                                                                                                                                                                                                                      |
 |-----------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `trigrep_search`            | Searches the codebase using a pre-built trigram index. Faster than grep/ripgrep because it uses indexed search, returning results in milliseconds regardless of repo size. Supports plain text, regex, and filters (`lang:`, `file:`).                                                           |
 | `trigrep_structural_search` | Searches using [Comby](https://comby.dev/) structural matching over the trigram index. Use this when you need to find code patterns that span multiple tokens or lines, such as method signatures, call patterns, or control flow. Uses `:[hole]` placeholders that respect balanced delimiters. |
+| `grep`                      | Linear file-content search using ripgrep or the system grep binary. No index required, so it is available before the trigram index finishes building. Prefer `trigrep_search` once the index is ready.                                                                                           |
 
 ### Semantic search
 
