@@ -209,7 +209,6 @@ Feature flags are stored in the Moderne CLI's local configuration file and manag
 |--------------------------|---------|-----------------------------------------------------------------------------------------|
 | `feature.agentToolsTray` | `false` | Enables macOS tray app integration. When false, no side-channel HTTP server is started. |
 | `feature.noMavenCentral` | `false` | When true, prevents Maven Central from being contacted for recipe JAR resolution.       |
-| `feature.search`         | `false` | Enables or disables the trigram search feature.                                         |
 
 ### Environment variables
 
