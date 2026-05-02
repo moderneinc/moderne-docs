@@ -298,6 +298,20 @@ Terms separated by space are implicitly ANDed. The `or` keyword creates disjunct
 | `returns:`    | Match methods by return type            | `returns:List`           |
 | `throws:`     | Match methods by declared exceptions    | `throws:IOException`     |
 
+:::warning Quoting multiple filters
+Don't combine multiple filters inside a single pair of shell quotes. The CLI parses `'visibility:public returns:List'` as a single filter with the value `public returns:List` and fails with `Unknown visibility: public returns:List`. Pass each filter as its own argument, or quote each individually:
+
+```bash
+# Works
+mod search . visibility:public returns:List
+mod search . "visibility:public" "returns:List"
+
+# Fails
+mod search . 'visibility:public returns:List'
+```
+
+:::
+
 ### Structural holes
 
 These holes require the `struct:` prefix (see [structural pattern matching](#structural-pattern-matching)).
@@ -397,6 +411,7 @@ Since Moderne Trigrep supports both Sourcegraph and Zoekt query syntax as well a
 
 ## Next steps
 
+* [Try the hands-on agent tools workshop](../../hands-on-learning/agent-tools/workshop-overview.md) to practice Trigrep queries on a sample workspace.
 * [Moderne CLI reference](../moderne-cli/cli-reference.md) for the full `mod search` command documentation.
 * [Type-aware code search](../moderne-platform/how-to-guides/introduction-to-type-aware-code-search.md) for the web-based search experience on the Moderne Platform.
 * [Recipe authoring fundamentals](../../hands-on-learning/fundamentals/workshop-overview.md) to learn how to build recipes for searches that require full type resolution.

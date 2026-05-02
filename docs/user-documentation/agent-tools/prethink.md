@@ -627,8 +627,8 @@ After running a Prethink recipe, you'll find generated files in the `.moderne/co
 ├── coding-conventions.md
 ├── database-connections.csv
 ├── database-connections.md
-├── dependencies.csv
 ├── dependencies.md
+├── dependency-list-report.csv
 ├── dependency-usage.csv
 ├── dependency-usage.md
 ├── error-handling.csv
@@ -647,7 +647,7 @@ After running a Prethink recipe, you'll find generated files in the `.moderne/co
 ├── test-mapping.md
 ├── test-quality.csv
 ├── test-quality.md
-└── architecture-diagram.md
+└── architecture.md
 ```
 
 * **CSV files** contain structured data that AI agents can parse directly
@@ -698,6 +698,7 @@ This creates a feedback loop: the agent writes code, regenerates Prethink contex
 
 ## Next steps
 
+* [Try the hands-on agent tools workshop](../../hands-on-learning/agent-tools/workshop-overview.md) to run Prethink end-to-end on a sample workspace
 * [Run Prethink recipes on the Moderne Platform](../moderne-platform/getting-started/prethink.md)
 * [Generate Prethink context with the CLI](../moderne-cli/how-to-guides/cli-prethink.md)
 * [Explore Prethink code quality visualizations](../moderne-platform/getting-started/visualizations.md#prethink-code-quality-visualizations) for dashboards including executive summaries, coupling/cohesion matrices, and method risk radar charts
