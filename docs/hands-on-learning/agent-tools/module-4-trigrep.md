@@ -68,7 +68,7 @@ You should get sub-second results showing every file that mentions `@RestControl
 ```bash
 mod search . "spring.datasource"
 mod search . "System.out.println"
-mod search . "KafkaTemplate"
+mod search . "@Autowired"
 ```
 
 Notice how each search returns in well under a second, even though the workspace contains thousands of files. The index does the work.
@@ -100,7 +100,7 @@ The `No search index` line for `awslabs/aws-saas-boost` is expected — that rep
 </details>
 
 :::tip
-Some queries return zero matches in the `Default` org because nothing in those repos uses the keyword. For example `KafkaTemplate` returns 0 matches across the `Default` org. That's not a bug — it just means none of these public repos use Spring Kafka.
+Zero matches just means none of these repos use the keyword — for example, the `Default` org has no Spring Kafka, no JMS, and no `@KafkaListener` annotations. Try a Spring annotation that the petclinic and spring-data-commons repos definitely use (`@Repository`, `@Transactional`, `findById`) to see plenty of hits.
 :::
 
 ### Takeaways
@@ -121,13 +121,17 @@ Some queries return zero matches in the `Default` org because nothing in those r
 
 #### Step 1: Literal queries with boolean operators
 
-Literal search supports implicit AND, explicit OR, and negation with `-`. Pass each token as its own argument so the CLI parses the query as Sourcegraph syntax instead of a literal phrase (see the warning below):
+Literal search supports implicit AND, explicit OR, and negation. Pass each token as its own argument so the CLI parses the query as Sourcegraph syntax instead of a literal phrase (see the warning below):
 
 ```bash
-mod search . @Service getUserById
-mod search . @Service or @Controller
-mod search . KafkaTemplate -test
+mod search . @Repository findById        # implicit AND
+mod search . @Service or @Controller     # explicit OR
+mod search . @Autowired not test         # negation
 ```
+
+:::note
+Sourcegraph's negation operator is also written as `-test`, but `mod` parses leading-dash arguments as CLI flags and rejects them. Use `not` (or `NOT`) instead, or pass the rest of the query after a `--` separator.
+:::
 
 Combine with [filters](../../user-documentation/agent-tools/trigrep.md#filters) to narrow by file path, language, or symbol type:
 
@@ -167,14 +171,15 @@ Use regex when literal search isn't expressive enough but you don't need to resp
 Prefix a query with `struct:` to switch into [structural matching](../../user-documentation/agent-tools/trigrep.md#structural-pattern-matching). Holes (`:[name]`) match content while respecting balanced delimiters, which lets you express things regex can't:
 
 ```bash
-# Find Kafka send calls regardless of argument shape
-mod search . struct:'kafkaTemplate.send(:[topic:e], :[payload:e])'
-
-# Catch blocks that only print stack traces
-mod search . struct:'catch (:[ex:e] :[var:id]) { :[_].printStackTrace()'
+# Find findById calls regardless of receiver expression
+mod search . struct:'repository.findById(:[id:e])'
 
 # String concatenation inside log calls (a known performance smell)
 mod search . struct:'logger.:[level](:[msg] + :[rest])'
+
+# Catch blocks that only print stack traces (illustrative — 0 matches in
+# the Default org, but try it on your own codebase)
+mod search . struct:'catch (:[ex:e] :[var:id]) { :[_].printStackTrace()'
 ```
 
 The hole syntax includes typed variants like `:[name:e]` (balanced expression), `:[name:id]` (identifier), `:[name:block]` (balanced braces), and `:[name:g]` (generics). See [Structural holes](../../user-documentation/agent-tools/trigrep.md#structural-holes) for the full reference.
@@ -228,13 +233,13 @@ mod search . throws:IOException
 
 #### Step 1: Search for the targets
 
-Suppose you want to migrate a Kafka-using subset of your workspace. Find them first:
+Suppose you want to run a static-analysis pass only over the transactional-persistence repos in your workspace. Find them first:
 
 ```bash
-mod search . "KafkaTemplate or @KafkaListener or @SendTo"
+mod search . @Transactional
 ```
 
-This finishes in under a second and tells you exactly which repositories contain Kafka producer or consumer patterns.
+In the `Default` org, this matches 3 of the 10 indexed repos (`finos/symphony-wdk`, `spring-projects/spring-data-commons`, `spring-projects/spring-petclinic`). The search finishes in under a second.
 
 #### Step 2: Run a recipe scoped to the matched repos
 
@@ -244,7 +249,7 @@ Use `--last-search` to make the next `mod run` only process repositories the sea
 mod run . --recipe org.openrewrite.staticanalysis.CommonStaticAnalysis --last-search
 ```
 
-If the search matched 3 of 11 repositories, the recipe processes 3 instead of 11. On larger workspaces (think thousands of repos) this is the difference between a coffee break and overnight.
+If the search matched 3 of 10 repositories, the recipe processes 3 instead of 10. On larger workspaces (think thousands of repos) this is the difference between a coffee break and overnight.
 
 See [Using search as a prefilter for recipes](../../user-documentation/agent-tools/trigrep.md#using-search-as-a-prefilter-for-recipes) for more on this pattern.
 

@@ -112,9 +112,9 @@ Ask your agent:
 
 #### Step 2: Find method invocations by AspectJ pattern
 
-> Use `find_methods` to list every call to `org.springframework.kafka.core.KafkaTemplate send(..)`. Show me the file and line for each call.
+> Use `find_methods` to list every call to `org.springframework.data.repository.CrudRepository findById(..)`. Show me the file and line for each call.
 
-`find_methods` resolves the type at every call site, so it finds `kafkaTemplate.send(...)` even when `kafkaTemplate` is declared in a parent class or injected via Spring. Grep would miss the indirect cases.
+`find_methods` resolves the type at every call site, so it finds `repository.findById(...)` even when `repository` is declared in a parent class or injected via Spring. Grep would miss the indirect cases — and would also match unrelated `findById` methods on classes that aren't repositories.
 
 #### Step 3: Find annotation usages
 
