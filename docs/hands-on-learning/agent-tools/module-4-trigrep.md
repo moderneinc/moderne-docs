@@ -136,7 +136,7 @@ Sourcegraph's negation operator is also written as `-test`, but `mod` parses lea
 Combine with [filters](../../user-documentation/agent-tools/trigrep.md#filters) to narrow by file path, language, or symbol type:
 
 ```bash
-mod search . lang:java visibility:public @RestController
+mod search . visibility:public @RestController
 mod search . "file:**/*Test.java" @Mock
 ```
 
@@ -177,9 +177,8 @@ mod search . struct:'repository.findById(:[id:e])'
 # String concatenation inside log calls (a known performance smell)
 mod search . struct:'logger.:[level](:[msg] + :[rest])'
 
-# Catch blocks that only print stack traces (illustrative — 0 matches in
-# the Default org, but try it on your own codebase)
-mod search . struct:'catch (:[ex:e] :[var:id]) { :[_].printStackTrace()'
+# Optional.ofNullable(x).orElse(y) — superseded by Objects.requireNonNullElse since Java 9
+mod search . struct:'Optional.ofNullable(:[x:e]).orElse(:[y:e])'
 ```
 
 The hole syntax includes typed variants like `:[name:e]` (balanced expression), `:[name:id]` (identifier), `:[name:block]` (balanced braces), and `:[name:g]` (generics). See [Structural holes](../../user-documentation/agent-tools/trigrep.md#structural-holes) for the full reference.
@@ -192,8 +191,8 @@ Trigrep extends Sourcegraph's filter syntax with Java-specific filters that read
 # All public methods that return a List
 mod search . visibility:public returns:List
 
-# Classes that extend a Spring base class
-mod search . extends:WebSecurityConfigurerAdapter
+# Custom exception classes that extend RuntimeException
+mod search . extends:RuntimeException
 
 # Methods that throw a checked exception
 mod search . throws:IOException
