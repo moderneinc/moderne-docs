@@ -121,20 +121,35 @@ Some queries return zero matches in the `Default` org because nothing in those r
 
 #### Step 1: Literal queries with boolean operators
 
-Literal search supports implicit AND, explicit OR, and negation with `-`:
+Literal search supports implicit AND, explicit OR, and negation with `-`. Pass each token as its own argument so the CLI parses the query as Sourcegraph syntax instead of a literal phrase (see the warning below):
 
 ```bash
-mod search . "@Service getUserById"
-mod search . "@Service or @Controller"
-mod search . "KafkaTemplate -test"
+mod search . @Service getUserById
+mod search . @Service or @Controller
+mod search . KafkaTemplate -test
 ```
 
 Combine with [filters](../../user-documentation/agent-tools/trigrep.md#filters) to narrow by file path, language, or symbol type:
 
 ```bash
-mod search . 'lang:java visibility:public @RestController'
-mod search . 'file:**/*Test.java @Mock'
+mod search . lang:java visibility:public @RestController
+mod search . "file:**/*Test.java" @Mock
 ```
+
+:::warning Quoting
+Don't wrap a multi-token query in a single pair of shell quotes. The CLI treats a single-arg query as a literal phrase and re-emits it quoted in the `Searching for:` line — so `"@Service or @Controller"` looks for the phrase `@Service or @Controller` (which appears nowhere) and returns 0 matches. The same trap applies to `"visibility:public returns:List"`, which fails with `Unknown visibility: public returns:List`. Either pass each token as its own argument, or quote each one individually:
+
+```bash
+# Works
+mod search . @Service or @Controller
+mod search . "@Service" or "@Controller"
+
+# Fails (literal phrase)
+mod search . "@Service or @Controller"
+```
+
+Quoting a single token (e.g. `"file:**/*Test.java"` to keep the shell from expanding the glob) is fine.
+:::
 
 #### Step 2: Regex queries
 
@@ -169,7 +184,7 @@ The hole syntax includes typed variants like `:[name:e]` (balanced expression), 
 Trigrep extends Sourcegraph's filter syntax with Java-specific filters that read from LST metadata. These are the queries `grep` simply can't answer:
 
 ```bash
-# All public methods that return a List (pass each filter as a separate arg)
+# All public methods that return a List
 mod search . visibility:public returns:List
 
 # Classes that extend a Spring base class
@@ -178,10 +193,6 @@ mod search . extends:WebSecurityConfigurerAdapter
 # Methods that throw a checked exception
 mod search . throws:IOException
 ```
-
-:::warning Quoting
-Don't wrap multiple filters in a single pair of quotes (e.g. `'visibility:public returns:List'`). With one shell-arg, the CLI parses the whole string as a single filter value and prints `Search failed: Unknown visibility: public returns:List`. Pass each filter as its own arg, or quote each individually: `"visibility:public" "returns:List"`.
-:::
 
 <details>
 <summary>Sample output for <code>mod search . throws:IOException</code></summary>

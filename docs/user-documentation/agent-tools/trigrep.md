@@ -298,18 +298,27 @@ Terms separated by space are implicitly ANDed. The `or` keyword creates disjunct
 | `returns:`    | Match methods by return type            | `returns:List`           |
 | `throws:`     | Match methods by declared exceptions    | `throws:IOException`     |
 
-:::warning Quoting multiple filters
-Don't combine multiple filters inside a single pair of shell quotes. The CLI parses `'visibility:public returns:List'` as a single filter with the value `public returns:List` and fails with `Unknown visibility: public returns:List`. Pass each filter as its own argument, or quote each individually:
+:::warning Quoting multi-token queries
+The CLI treats a single-arg query as a **literal phrase** and re-emits it quoted in the `Searching for:` line. As a result, multi-token queries wrapped in a single pair of shell quotes lose their Sourcegraph semantics and almost always return 0 matches. Examples:
+
+* `'@Service or @Controller'` is searched as the literal phrase `@Service or @Controller` (which appears nowhere) — 0 matches.
+* `'visibility:public returns:List'` is parsed as a single filter with value `public returns:List` — fails with `Unknown visibility: public returns:List`.
+* `'KafkaTemplate -test'` is searched as the literal phrase `KafkaTemplate -test` — 0 matches.
+
+Pass each token as its own argument, or quote each individually:
 
 ```bash
 # Works
+mod search . @Service or @Controller
 mod search . visibility:public returns:List
-mod search . "visibility:public" "returns:List"
+mod search . "@Service" or "@Controller"
 
-# Fails
+# Fails (literal phrase)
+mod search . "@Service or @Controller"
 mod search . 'visibility:public returns:List'
 ```
 
+Quoting a single token to protect it from the shell (e.g. `"file:**/*Test.java"` to prevent glob expansion) is fine.
 :::
 
 ### Structural holes
