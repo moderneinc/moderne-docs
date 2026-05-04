@@ -37,7 +37,7 @@ You will also need:
 
 * [Module 1: Migration assessment](./module-1-migration-assessment.md) - Run an initial migration and gather code insight data
 * [Module 2: Wave planning](./module-2-wave-planning.md) - Analyze dependencies in the platform and organize upgrade waves
-* [Module 3: Establish a baseline](./module-3-establish-baseline.md) - Normalize Maven, Java, and Spring Boot versions across the portfolio
-* [Module 4: Raise baseline and smoke test](./module-4-smoke-test.md) - Raise the baseline and validate readiness
+* [Module 3: Establish a baseline (Optional)](./module-3-establish-baseline.md) - Normalize Maven, Java, and Spring Boot versions across the portfolio
+* [Module 4: Java 17 upgrade and Spring Boot 4 smoke test](./module-4-smoke-test.md) - Raise Java version to 17 and Smoke test the Spring Boot 4 migration
 * [Module 5: Build the QueryDSL recipe](./module-5-build-querydsl-recipe.md) - Diagnose the blocker and build a custom recipe with AI
 * [Module 6: Finish migration in waves](./module-6-wave-migration.md) - Compose a freight-train recipe and complete the migration in waves

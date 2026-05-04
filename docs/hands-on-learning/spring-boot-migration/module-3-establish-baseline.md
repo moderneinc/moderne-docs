@@ -1,5 +1,5 @@
 ---
-sidebar_label: "Module 3: Establish a baseline"
+sidebar_label: "Module 3: Establish a baseline (Optional)"
 description: Normalize Maven, Java, and Spring Boot versions before major upgrades.
 ---
 

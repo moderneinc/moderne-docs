@@ -1,5 +1,5 @@
 ---
-sidebar_label: "Module 4: Raise baseline and smoke test"
+sidebar_label: "Module 4: Java 17 upgrade and Spring Boot 4 smoke test"
 description: Upgrade to Java 17 and run a Spring Boot 4 smoke test.
 ---
 
