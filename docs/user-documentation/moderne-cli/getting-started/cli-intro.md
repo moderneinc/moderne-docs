@@ -58,7 +58,7 @@ Alternatively, you can install via a package manager:
 * **Homebrew** (macOS/Linux): `brew install moderneinc/moderne/mod`
 * **Chocolatey** (Windows): `choco install mod --prerelease`
 
-Each of these methods installs a lightweight wrapper script called `modw`. The `mod` command is a symlink to this wrapper. On first run, the wrapper automatically downloads the correct platform distribution (JAR + JRE) for your system. For details on how the wrapper manages versions and updates, see [CLI wrapper and version management](../how-to-guides/cli-wrapper.md).
+Each of these methods installs a lightweight wrapper script called `modw`. The `mod` command is a symlink to this wrapper. On first run, the wrapper automatically downloads the platform-specific CLI installer (JAR + JRE) for your system. For details on how the wrapper manages versions and updates, see [CLI wrapper and version management](../how-to-guides/cli-wrapper.md).
 
 After installation, verify by running `mod` in your terminal:
 
@@ -220,7 +220,7 @@ Alternatively, you can install via a package manager:
 * **Homebrew** (macOS/Linux): `brew install moderneinc/moderne/mod`
 * **Chocolatey** (Windows): `choco install mod --prerelease`
 
-Each of these methods installs a lightweight wrapper script called `modw`. The `mod` command is a symlink to this wrapper. On first run, the wrapper automatically downloads the correct platform distribution (JAR + JRE) for your system. For details on how the wrapper manages versions and updates, see [CLI wrapper and version management](../how-to-guides/cli-wrapper.md).
+Each of these methods installs a lightweight wrapper script called `modw`. The `mod` command is a symlink to this wrapper. On first run, the wrapper automatically downloads the platform-specific CLI installer (JAR + JRE) for your system. For details on how the wrapper manages versions and updates, see [CLI wrapper and version management](../how-to-guides/cli-wrapper.md).
 
 After installation, verify by running `mod` in your terminal:
 
@@ -367,7 +367,7 @@ This will grab _all_ of the recipes from your tenant – so please expect this c
 </TabItem>
 <TabItem value="dx" label="Moderne DX">
 
-> If your organization is paying for Moderne DX and you need to set up the CLI in an air-gapped or a restricted environment, please follow the instructions in our [installing and configuring the CLI for DX users guide](./dx-cli-install.md).
+> Moderne DX is typically deployed alongside an internal artifact repository, so DX setup follows the same path as any other internal-tools install. See the [connecting to internal tools](#connecting-to-internal-tools) section below for installation and configuration steps.
 </TabItem>
 </Tabs>
 
