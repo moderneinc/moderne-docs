@@ -54,12 +54,12 @@ You can't use recipe builder in this case since you are referring to a custom re
 mod config recipes yaml install $WORKSHOP/CustomUpgradeSpringBoot_4_0.yml
 ```
 
-## Exercise 6-2: Upgrade wave 0
+## Exercise 6-2: Upgrade Wave 0
 
 ### Goals for this exercise
 
-* Apply the composite recipe to wave 0
-* Build and release wave 0
+* Apply the composite recipe to Wave 0
+* Build and release Wave 0
 
 ### Steps
 
@@ -87,12 +87,12 @@ $WORKSHOP/release.sh 0
 
 This isn't surprising since you saw Wave 0 successfully build earlier. It was Wave 1 that failed last time, so the real test will be upgrading Wave 1.
 
-## Exercise 6-3: Upgrade wave 1
+## Exercise 6-3: Upgrade Wave 1
 
 ### Goals for this exercise
 
-* Apply the composite recipe to wave 1
-* Build and release wave 1
+* Apply the composite recipe to Wave 1
+* Build and release Wave 1
 
 ### Steps
 

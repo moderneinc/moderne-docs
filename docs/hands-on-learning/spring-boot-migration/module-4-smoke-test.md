@@ -65,7 +65,7 @@ mod build $WORKSPACE
 <details>
 <summary>Reference output</summary>
 
-```
+```text
 Starting build process...
 Running Wave 0...
 ecom-common built successfully
@@ -297,7 +297,7 @@ Now that your repositories are upgraded to Java 17, you can run another quick sm
 
 #### Step 1: Run the upgrade recipe
 
-In Module 1, you ran the recipe in the platform and used the `Verify compilation` recipe ([`io.moderne.compiled.verification.VerifyCompilation`](https://docs.openrewrite.org/recipes/compiled/verification/verifycompilation)) to check for build failures. Now, you can run the Spring Boot 4 Upgrade recipe ([`io.moderne.java.spring.boot4.UpgradeSpringBoot_4_0`](https://docs.openrewrite.org/recipes/java/spring/boot4/upgradespringboot_4_0-moderne-edition)) by itself with the CLI and verify the build directly to isolate any remaining obstacles that may require custom fixes. 
+In Module 1, you ran the recipe in the platform and used the `Verify compilation` recipe ([`io.moderne.compiled.verification.VerifyCompilation`](https://docs.openrewrite.org/recipes/compiled/verification/verifycompilation)) to check for build failures. Now, you can run the Spring Boot 4 Upgrade recipe ([`io.moderne.java.spring.boot4.UpgradeSpringBoot_4_0`](https://docs.openrewrite.org/recipes/java/spring/boot4/upgradespringboot_4_0-moderne-edition)) by itself with the CLI and verify the build directly to isolate any remaining obstacles that may require custom fixes.
 
 First, run the recipe and apply the changes:
 
@@ -314,7 +314,7 @@ Don't worry if you see warnings about "errors while running the recipe." You'll 
 You may wish to open the diffs to inspect the changes before applying them. Use ctrl-click (Windows) or cmd-click (Mac) on the `Fix results` links to preview the changes after running the recipe.
 :::
 
-#### Step 2: Build wave 0 and wave 1
+#### Step 2: Build Wave 0 and Wave 1
 
 Now, you can run your build wave by wave. Expect Wave 0 to build cleanly and Wave 1 to fail due to the QueryDSL issues you saw in Module 1.
 

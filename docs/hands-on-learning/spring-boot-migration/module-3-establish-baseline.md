@@ -1,5 +1,5 @@
 ---
-sidebar_label: "Module 3: Establish a baseline (Optional)"
+sidebar_label: "Module 3: Establish a baseline"
 description: Normalize Maven, Java, and Spring Boot versions before major upgrades.
 ---
 
@@ -20,8 +20,8 @@ You saw from the analysis earlier that these projects all use a variety of Sprin
 
 1. In the Moderne Platform, open the recipe builder and create a new recipe.
 2. Toggle off the `Auto-generate ID from name` setting so you can manually enter an ID, then fill in the fields as follows:
-   - **Name:** `Spring Boot Migration Workshop Baseline`
-   - **ID:** `com.example.ecom.recipe.SpringBootMigrationWorkshopBaseline`
+   * **Name:** `Spring Boot Migration Workshop Baseline`
+   * **ID:** `com.example.ecom.recipe.SpringBootMigrationWorkshopBaseline`
 
 <figure>
   ![New recipe dialog with name and manually entered ID for the baseline recipe](./assets/workshop-baseline-name-id.png)

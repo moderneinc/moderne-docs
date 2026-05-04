@@ -98,7 +98,7 @@ In this module, you will run the Spring Boot 4 migration recipe in the Moderne P
 
 1. Run the recipe against the organization by clicking the **Dry Run** button above the recipe list. A dry run executes the recipe across all repositories in the selected organization and shows you what changes it would make, without actually modifying any code.
 2. Open the change tree and click into a few files to review. Look for failures highlighted in the diffs by yellow squiggly lines.
-3. Take a few minutes to review the failures and note missing or incompatible classes and dependencies. 
+3. Take a few minutes to review the failures and note missing or incompatible classes and dependencies.
 
 Common blockers include:
 
@@ -149,7 +149,7 @@ A migration dry run plus the `Verify compilation` recipe ([`io.moderne.compiled.
 You won't see any diff results when running this recipe. It only generates data tables that you can access from the **Data tables** tab.
 :::
 
-This helps you confirm the baseline Java versions and build tooling in use so you know what you are starting from. For this example, you're using Java 8 and Maven across the board. 
+This helps you confirm the baseline Java versions and build tooling in use so you know what you are starting from. For this example, you're using Java 8 and Maven across the board.
 
 #### Step 2: Inspect Spring Boot versions
 
