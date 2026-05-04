@@ -55,8 +55,7 @@ The recipes below progress from simple to complex. Links go to the [public Moder
 </TabItem>
 <TabItem value="cli" label="Moderne CLI">
 
-1. **Download the Moderne CLI** – Download the [latest JAR from Maven Central](https://central.sonatype.com/artifact/io.moderne/moderne-cli/versions).
-    * While not required, you are strongly encouraged to [set up an alias for running the JAR](../../moderne-cli/getting-started/cli-internal-tools.md#step-2-optional---but-recommended-create-an-alias-for-the-moderne-cli-jar).
+1. **Install the Moderne CLI** – Follow the [installation steps in the getting started guide](../../moderne-cli/getting-started/cli-intro.md#installation-and-configuration) to install the CLI for your platform.
     * **Note:** You may experience a few speed bumps related to your internal nexus/scanners that block recipes JARs. For example, the Spring migrations recipes have migrations going back a few major versions. Those versions call out now vulnerable dependencies – but those calls may get blocked by your firewall as it doesn't recognize what the purpose of the recipe is. Ideally this is not an issue, but if it is, please let us know, and we'll work together with you to address it.
 
 2. **Clone repos to your local machine** – In order for the CLI to run recipes against your code, you will need to provide it with [a repos.csv file](../../moderne-cli/references/repos-csv.md).
