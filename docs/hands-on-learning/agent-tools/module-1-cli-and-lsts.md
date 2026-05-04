@@ -8,7 +8,7 @@ import TabItem from '@theme/TabItem';
 
 # Module 1: CLI and LSTs
 
-In this module, you'll set up everything the agent tools depend on: the Moderne CLI, a couple of recipe JARs (including `io.moderne.recipe:rewrite-prethink`), and Lossless Semantic Trees (LSTs) for a small working set of Java and Spring repositories. The later modules build on top of this setup, so don't skip ahead until your LSTs build cleanly.
+In this module, you'll set up everything the agent tools depend on: the Moderne CLI, a couple of recipe JARs (including `io.moderne.recipe:rewrite-prethink`), and [Lossless Semantic Trees (LSTs)](../../administrator-documentation/moderne-platform/references/lossless-semantic-trees.md) for a small working set of Java and Spring repositories. The later modules build on top of this setup, so don't skip ahead until your LSTs build cleanly.
 
 ## Exercise 1-1: Install and configure the Moderne CLI
 
@@ -66,18 +66,18 @@ mod config moderne login
 The login command opens a browser, asks you to grant the CLI access to your account, and stores a token locally that's valid for 365 days. If you're running on an Enterprise tenant, replace the URL with your tenant's hostname.
 
 :::tip Restrictive networks
-On corporate networks with proxies or limited Maven Central / Moderne SaaS access, see [Using the CLI with internal tools and artifact repositories](../../user-documentation/moderne-cli/getting-started/cli-internal-tools.md) before continuing. Symptoms you might hit later in this workshop:
+On corporate networks with proxies or limited Maven Central / Moderne SaaS access, see [Using the CLI with internal tools and artifact repositories](../../user-documentation/moderne-cli/getting-started/cli-internal-tools.md) before continuing. Without a properly configured setup, you'll commonly see:
 
 * `mod git sync moderne` reports `PARTIAL SUCCESS` because a few LSTs sit on hosts your network can't reach
 * `mod config recipes jar install` fails to resolve a JAR — point it at your internal Artifactory/Nexus first via `mod config recipes artifacts`
 * `mod build` can't download Maven/Gradle plugins — set up your build tool's mirror and proxy as you normally would, then re-run
 
-For the workshop you only need a handful of repos to succeed. Don't try to fix every failure up front.
+For the workshop you only need a handful of repos to succeed. **Don't try to fix every failure up front**.
 :::
 
 ### Takeaways
 
-* The Moderne CLI is the entry point for everything in this workshop. Skills, the MCP server, Prethink, and Trigrep all run through `mod`.
+* The Moderne CLI is the entry point for everything in this workshop. Every command you'll run starts with `mod`.
 * You only need to authenticate once. The CLI caches your token across terminal sessions.
 
 ---
@@ -100,7 +100,6 @@ Instead of syncing the entire recipe catalog, install just the JARs you need:
 
 ```bash
 mod config recipes jar install \
-  org.openrewrite.recipe:rewrite-prethink \
   io.moderne.recipe:rewrite-prethink \
   org.openrewrite.recipe:rewrite-static-analysis \
   org.openrewrite.recipe:rewrite-spring
@@ -111,7 +110,6 @@ mod config recipes jar install \
 
 ```powershell
 mod config recipes jar install `
-  org.openrewrite.recipe:rewrite-prethink `
   io.moderne.recipe:rewrite-prethink `
   org.openrewrite.recipe:rewrite-static-analysis `
   org.openrewrite.recipe:rewrite-spring
@@ -120,7 +118,7 @@ mod config recipes jar install `
 </TabItem>
 </Tabs>
 
-The two `rewrite-prethink` artifacts are the focus of this workshop: the `org.openrewrite.recipe` module is the open-source building blocks, and `io.moderne.recipe:rewrite-prethink` adds pre-configured discovery for Spring, JPA, Kafka, and other common frameworks. See [Recipe modules](../../user-documentation/agent-tools/prethink.md#recipe-modules) for the full breakdown.
+The `rewrite-prethink` artifact is the focus of this workshop: it uses an open-source `org.openrewrite.recipe` module for building blocks, while `io.moderne.recipe:rewrite-prethink` adds pre-configured discovery for Spring, JPA, Kafka, and other common frameworks. See [Recipe modules](../../user-documentation/agent-tools/prethink.md#recipe-modules) for the full breakdown.
 
 The other two JARs are useful warm-up recipes you'll touch later when verifying everything works.
 

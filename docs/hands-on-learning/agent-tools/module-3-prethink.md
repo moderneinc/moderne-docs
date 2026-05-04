@@ -7,7 +7,7 @@ description: Run Prethink on a working set, apply the changes, and ask your agen
 
 In this module, you'll run Moderne Prethink on the workspace you set up in [Module 1](./module-1-cli-and-lsts.md), apply the generated context to your repositories, and inspect what shows up: service endpoints, messaging connections, dependencies, and per-method/class/package code quality metrics. Then you'll ask your agent to read the metrics and propose a refactoring plan.
 
-For the deep reference on what Prethink is, see [Moderne Prethink recipes](../../user-documentation/agent-tools/prethink.md). This module focuses on running it and using the output.
+For the deep reference on what Prethink is, see the [Moderne Prethink doc](../../user-documentation/agent-tools/prethink.md). This module focuses on running it and using the output.
 
 ## Exercise 3-1: Run Prethink and apply the changes
 

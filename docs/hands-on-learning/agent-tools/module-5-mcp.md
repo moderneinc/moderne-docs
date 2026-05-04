@@ -58,10 +58,10 @@ The exact path to `mod` depends on how you installed the CLI (Homebrew lands at 
 
 #### Step 2: Open the project and confirm tools are exposed
 
-Start your agent inside the workspace from Module 1:
+The MCP server must be started from within a git repository, so `cd` into one of the repos you synced in [Module 1](./module-1-cli-and-lsts.md) (Spring PetClinic is a good default) and start your agent there:
 
 ```bash
-cd ~/agent-tools-workshop
+cd ~/agent-tools-workshop/spring-projects/spring-petclinic
 claude       # Claude Code
 # cursor .   # Cursor
 # windsurf . # Windsurf
@@ -70,7 +70,7 @@ claude       # Claude Code
 In Claude Code, the MCP tools appear as `mcp__moderne__*` and are listed when the agent shows its available tools. In Cursor, they appear as MCP tool calls in the agent's chat. In each case, the names match the table in [Available tools](../../user-documentation/agent-tools/mcp/overview.md#available-tools).
 
 :::warning
-The MCP server **must be started from within a git repository**. If your working directory isn't a git repo, the server exits immediately and none of the tools become available. The `mod git sync` from [Module 1](./module-1-cli-and-lsts.md) takes care of this — every cloned repo is its own git directory.
+If your working directory isn't a git repo, the MCP server exits immediately and none of the tools become available. Starting at the workspace root (`~/agent-tools-workshop`) doesn't work — that directory is *not* a git repository, even though every subdirectory you synced is. Always start your agent inside one of the cloned repos.
 :::
 
 #### Step 3: Watch the build progress
