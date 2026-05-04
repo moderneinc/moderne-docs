@@ -298,6 +298,29 @@ Terms separated by space are implicitly ANDed. The `or` keyword creates disjunct
 | `returns:`    | Match methods by return type            | `returns:List`           |
 | `throws:`     | Match methods by declared exceptions    | `throws:IOException`     |
 
+:::warning Quoting multi-token queries
+The CLI treats a single-arg query as a **literal phrase** and re-emits it quoted in the `Searching for:` line. As a result, multi-token queries wrapped in a single pair of shell quotes lose their Sourcegraph semantics and almost always return 0 matches. Examples:
+
+* `'@Service or @Controller'` is searched as the literal phrase `@Service or @Controller` (which appears nowhere) — 0 matches.
+* `'visibility:public returns:List'` is parsed as a single filter with value `public returns:List` — fails with `Unknown visibility: public returns:List`.
+* `'KafkaTemplate -test'` is searched as the literal phrase `KafkaTemplate -test` — 0 matches.
+
+Pass each token as its own argument, or quote each individually:
+
+```bash
+# Works
+mod search . @Service or @Controller
+mod search . visibility:public returns:List
+mod search . "@Service" or "@Controller"
+
+# Fails (literal phrase)
+mod search . "@Service or @Controller"
+mod search . 'visibility:public returns:List'
+```
+
+Quoting a single token to protect it from the shell (e.g. `"file:**/*Test.java"` to prevent glob expansion) is fine.
+:::
+
 ### Structural holes
 
 These holes require the `struct:` prefix (see [structural pattern matching](#structural-pattern-matching)).
@@ -382,7 +405,7 @@ Even in a codebase with millions of files, the intersection of posting lists typ
 
 Moderne Trigrep generates its indexes from LSTs rather than raw source code, which gives the index access to symbol information, type data, and other semantic details that wouldn't be available from text alone. This is what powers semantic filters like `sym:`, `extends:`, and `visibility:`.
 
-The index files use the `.zoekt` extension and live in the `.moderne/search/` directory within each repository. You can use the `--force` flag to regenerate indexes even if they already exist, which is useful after significant code changes.
+The index files use the `.zoekt` extension and live in the `.moderne/mcp/search/` directory within each repository. You can use the `--force` flag to regenerate indexes even if they already exist, which is useful after significant code changes.
 
 </details>
 
@@ -397,6 +420,7 @@ Since Moderne Trigrep supports both Sourcegraph and Zoekt query syntax as well a
 
 ## Next steps
 
+* [Try the hands-on agent tools workshop](../../hands-on-learning/agent-tools/workshop-overview.md) to practice Trigrep queries on a sample workspace.
 * [Moderne CLI reference](../moderne-cli/cli-reference.md) for the full `mod search` command documentation.
 * [Type-aware code search](../moderne-platform/how-to-guides/introduction-to-type-aware-code-search.md) for the web-based search experience on the Moderne Platform.
 * [Recipe authoring fundamentals](../../hands-on-learning/fundamentals/workshop-overview.md) to learn how to build recipes for searches that require full type resolution.

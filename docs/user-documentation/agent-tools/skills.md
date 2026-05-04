@@ -201,5 +201,6 @@ This ensures the agent tools stay current as CLI capabilities evolve.
 
 ## Next steps
 
+* [Try the hands-on agent tools workshop](../../hands-on-learning/agent-tools/workshop-overview.md) to install skills and exercise them end-to-end
 * [Set up the Moderne MCP server](./mcp/overview.md) to give agents tools for semantic code search, navigation, and refactoring
 * [Learn about Moderne Prethink](./prethink.md) for giving agents pre-resolved codebase context
