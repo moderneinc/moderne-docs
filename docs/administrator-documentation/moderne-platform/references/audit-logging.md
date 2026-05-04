@@ -3,13 +3,15 @@ sidebar_label: Audit logging
 description: Describes how the Moderne Platform records and manages audit logs.
 ---
 
+import VersionBanner from '@site/src/components/VersionBanner';
+
+<VersionBanner version="v2" linkPath="/administrator-documentation/moderne-platform-v1/references/audit-logging" />
+
 # Audit logging
 
 The Moderne Platform records a structured audit log of every user-initiated and system-initiated action. All audit events are persisted to a dedicated PostgreSQL database with a retention period of one year. Events are categorized by a CRUD action type (Create, Read, Update, Delete), tagged with the acting user's identity (or identified as a system-initiated action when performed automatically by the platform), timestamped in UTC, and marked with an outcome of Success or Failed.
 
 Tenant administrators (users in your organization that have been granted the `admin` role) can query audit logs through the Moderne UI, a paginated GraphQL API, or export them in CEF (Common Event Format) or CSV for ingestion into a SIEM or other log aggregation system. Access to the audit log is itself audited.
-
-Please refer to the [reporting reference](./reporting.md) documentation for instructions on how to export audit logs.
 
 ## Centralized audit framework
 
@@ -54,8 +56,6 @@ Audit logs can be exported in the following formats:
 * **CEF (Common Event Format)**: Compliant with ArcSight CEF v0 standard, suitable for SIEM ingestion.
 * **CSV**: Tabular export with all audit log fields.
 * **GraphQL API**: Paginated query interface for programmatic access with filtering and sorting.
-
-For details on each export format, see the [reporting reference](./reporting.md) documentation.
 
 ## Time synchronization
 

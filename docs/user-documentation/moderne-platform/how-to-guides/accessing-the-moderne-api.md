@@ -3,6 +3,10 @@ sidebar_label: Accessing the Moderne API
 description: How to access the Moderne API and where to find documentation for it.
 ---
 
+import VersionBanner from '@site/src/components/VersionBanner';
+
+<VersionBanner version="v2" linkPath="/user-documentation/moderne-platform-v1/how-to-guides/accessing-the-moderne-api" />
+
 # Accessing the Moderne API
 
 Moderne offers a GraphQL API for customers to interact with through the usage of a personal access token. In this doc, we'll walk through everything you need to know to access and use this API.

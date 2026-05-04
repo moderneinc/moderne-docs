@@ -244,7 +244,7 @@ Builder nodes can now be individually run from the tree view. This allows users 
 
 ### UI v12.8.0 (2025/11/05)
 
-- Tenant administrators can now configure their Modern Agent so the Moddy navigation item is only visible to tenant administrators.
+- Tenant administrators can now configure their Moderne Connector so the Moddy navigation item is only visible to tenant administrators.
 
 ### UI v12.7.0 (2025/11/03)
 
@@ -453,12 +453,12 @@ Builder nodes can now be individually run from the tree view. This allows users 
 
 ### UI v11.97.0 (2025/08/29)
 
-#### Enhanced Administrative Agents Dashboard
+#### Enhanced Administrative Connectors Dashboard
 
-![Update Agent Integration dashboard](./assets/agent-integration-dashboard.png)
+![Update Connector Integration dashboard](./assets/agent-integration-dashboard.png)
 
-The administrative Agents dashboard now uses a table-based layout that improves how administrators discover and view agent integrations. The new unified view allows filtering by tools,
-tenants, and agents, making it faster to locate specific configurations compared to the previous card-based interface.
+The administrative Connectors dashboard now uses a table-based layout that improves how administrators discover and view Connector integrations. The new unified view allows filtering by tools,
+tenants, and Connectors, making it faster to locate specific configurations compared to the previous card-based interface.
 
 ### UI v11.96.2 (2025/08/28)
 
@@ -1068,9 +1068,9 @@ We have made changes to the key bindings and command palette:
 
 - Bug fixes and other improvements.
 
-### Agent v0.210.0 (2025/02/22)
+### Connector v0.210.0 (2025/02/22)
 
-As of Moderne Agent v0.210.0, the organizations service configuration has moved from `moderne.agent.organization` to `moderne.agent.organization.service`.
+As of Moderne Connector v0.210.0, the organizations service configuration has moved from `moderne.agent.organization` to `moderne.agent.organization.service`.
 
 #### Before
 
@@ -1308,7 +1308,7 @@ Usage reports are now available across the entire tenant for administrators. In 
 
 #### Ingest changes
 
-The way origins are determined has changed. The SaaS now uses `GitRemote.Parser` to determine the origin which means we no longer remove `/scm` at the end of a (possible) origin. This can have impact if you use Bitbucket (DC/Server) and have not correctly configured the origin in the agent.
+The way origins are determined has changed. The SaaS now uses `GitRemote.Parser` to determine the origin which means we no longer remove `/scm` at the end of a (possible) origin. This can have impact if you use Bitbucket (DC/Server) and have not correctly configured the origin in the Connector.
 
 Please make sure that, in case of Bitbucket, you have configured it as such:
 
@@ -1355,10 +1355,10 @@ When searching the recipe tree partial and full matches of the recipe ID are now
 
 The header on a visualization page will now include the organization the visualization was run on.
 
-### Agent 0.195.0 (2024/11/21)
+### Connector 0.195.0 (2024/11/21)
 
-- As of Agent version 0.195.0 we are now **no longer publishing new versions to Azure Container Registry**. If you were using Azure Container Registry to pull a Docker image for Moderne Agent, you will need to follow the instructions [here](../administrator-documentation/moderne-platform/how-to-guides/agent-configuration/agent-config.md#step-2-determine-how-you-will-run-the-agent) to build a Dockerfile and publish your own Docker image for the Moderne Agent.
-- As of Agent version 0.195.0 we are now **no longer publishing new versions to Azure DevOps**. If you were using Azure DevOps to pull the agent's executable JAR, you will now pull the agent from Maven Central. The link to the latest agent release on Maven Central can be found on our [agent releases page](./agent-releases.md)
+- As of Connector version 0.195.0 we are now **no longer publishing new versions to Azure Container Registry**. If you were using Azure Container Registry to pull a Docker image for the Moderne Connector, you will need to follow the instructions [here](../administrator-documentation/moderne-platform/how-to-guides/agent-configuration/agent-config.md#step-2-determine-how-you-will-run-the-connector) to build a Dockerfile and publish your own Docker image for the Moderne Connector.
+- As of Connector version 0.195.0 we are now **no longer publishing new versions to Azure DevOps**. If you were using Azure DevOps to pull the Connector's executable JAR, you will now pull the Connector from Maven Central. The link to the latest Connector release on Maven Central can be found on our [Connector releases page](./agent-releases.md)
 
 ### UI v10.169.2 (2024/11/15)
 
@@ -1774,7 +1774,7 @@ This new mime type allows visualization notebook authors the ability to generate
 
 ### UI v10.134.0 (2024/08/01)
 
-- add authorization support for Azure DevOps. See how to [setup your agent to connect to Azure DevOps](../administrator-documentation/moderne-platform/how-to-guides/agent-configuration/configure-an-agent-with-azure-devops-services)
+- add authorization support for Azure DevOps. See how to [setup your Connector to connect to Azure DevOps](../administrator-documentation/moderne-platform/how-to-guides/agent-configuration/configure-an-agent-with-azure-devops-services)
 
 <figure>
   ![](./assets/azure-connection.png)
@@ -2761,9 +2761,9 @@ This journey begins this version with a rework of the left navigation icons:
 
 - Bug fixes and other improvements.
 
-### Agent v0.150.0 (2023/10/11)
+### Connector v0.150.0 (2023/10/11)
 
-- Tool connectivity validation on startup. Now when Agent starts it tests the connectivity of each tool configured (maven, artifactory, SCM provider). If connectivity fails for any configured tool, the Agent will fail to start and the logs will display which configuration failed to connect.
+- Tool connectivity validation on startup. Now when the Connector starts it tests the connectivity of each tool configured (maven, artifactory, SCM provider). If connectivity fails for any configured tool, the Connector will fail to start and the logs will display which configuration failed to connect.
 
   ```log
   ***************************
@@ -3441,9 +3441,9 @@ Custom yaml recipe runs can now be replayed. Now hitting replay on a custom reci
   <figcaption></figcaption>
 </figure>
 
-#### Admin agent version notice
+#### Admin Connector version notice
 
-Admin users will now see a notice that can be dismissed whenever there is a new agent version available:
+Admin users will now see a notice that can be dismissed whenever there is a new Connector version available:
 
 <figure>
   ![](./assets/agent-update.png)
@@ -3765,7 +3765,7 @@ Added more data table driven Jupyter lite notebooks. Currently supported:
 
 ### UI v9.56.0 (2023/02/14)
 
-Repository Groups has been refreshed. The global menu will now separate Organizations that are defined by either the Moderne Agent or your implementation of the Moderne Organization service and _Repository groups_ that are locally curated collections of repositories.
+Repository Groups has been refreshed. The global menu will now separate Organizations that are defined by either the Moderne Connector or your implementation of the Moderne Organization service and _Repository groups_ that are locally curated collections of repositories.
 
 <figure>
   ![](./assets/repo-group.png)
@@ -3821,7 +3821,7 @@ Hover over the info icon to quickly view more information including the commit t
 
 #### Removal of the default repository group `All`
 
-Moderne SaaS no longer provides a default named repository group called `All` that represents all ingested repositories. Customers can define their own named repository group through Agent to provide this functionality. See the example below.
+Moderne SaaS no longer provides a default named repository group called `All` that represents all ingested repositories. Customers can define their own named repository group through the Connector to provide this functionality. See the example below.
 
 ```json
 {
@@ -3851,7 +3851,7 @@ Actions for grids are now presented on the left-hand side of the table.
 
 #### Bitbucket Cloud support
 
-Repositories hosted on Bitbucket Cloud are now supported. This [requires additional configuration through your agent](../administrator-documentation/moderne-platform/how-to-guides/agent-configuration/configure-bitbucket-cloud-to-agent.md#prerequisites).
+Repositories hosted on Bitbucket Cloud are now supported. This [requires additional configuration through your Connector](../administrator-documentation/moderne-platform/how-to-guides/agent-configuration/configure-bitbucket-cloud-to-agent.md#prerequisites).
 
 <figure>
   ![](./assets/bit-cloud.png)

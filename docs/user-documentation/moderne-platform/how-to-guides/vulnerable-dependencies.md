@@ -3,6 +3,10 @@ sidebar_label: Fixing vulnerable dependencies
 description: How to find and fix vulnerable dependencies.
 ---
 
+import VersionBanner from '@site/src/components/VersionBanner';
+
+<VersionBanner version="v2" linkPath="/user-documentation/moderne-platform-v1/how-to-guides/vulnerable-dependencies" />
+
 # How to find and fix vulnerable dependencies
 
 Vulnerable dependencies can be a ticking time bomb for software projects. A single outdated or compromised library can expose your entire company to security risks, data breaches, and reputational damage. Finding and fixing these vulnerabilities is crucial, but it's often easier said than done - especially when dealing with transitive dependencies buried deep within your project's dependency graph.

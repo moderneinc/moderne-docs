@@ -4,6 +4,9 @@ description: A guide on the different types of data tables and how to create/use
 ---
 
 import ReactPlayer from '@site/src/components/VideoPlayer';
+import VersionBanner from '@site/src/components/VersionBanner';
+
+<VersionBanner version="v2" linkPath="/user-documentation/moderne-platform-v1/getting-started/data-tables" />
 
 # Getting started with data tables
 
@@ -37,7 +40,7 @@ Let's take a look at a recipe that attempts to fix security vulnerabilities and 
 
 To get started, make sure you've selected the `Default` organization and then run the [check for dependency vulnerabilities](https://app.moderne.io/recipes/org.openrewrite.java.dependencies.DependencyVulnerabilityCheck?) recipe:
 
-![Find and fix vulnerable dependencies recipe page with description and options](./assets/check-dep-1.png)
+![Find and fix vulnerable dependencies recipe page with description and options](./assets/find-fix-vuln-dep.png)
 
 You will then be taken to the recipe results page:
 
@@ -45,7 +48,7 @@ You will then be taken to the recipe results page:
 
 If the recipe can fix a security vulnerability, it will do so. You can view the diffs and commit the results as you would in any other recipe. In most situations, however, this recipe will identify that there is a security vulnerability rather than fix it. If there are security vulnerabilities identified, the recipe will produce a detailed data table.
 
-To see the data table, wait until the recipe has finished running and then click on the `Data Tables` tab:
+To see the data table, wait until the recipe has finished running and then click on the `Data tables` tab:
 
 ![Arrow pointing to the Data tables tab in the recipe results navigation](./assets/data-tables-tab.png)
 

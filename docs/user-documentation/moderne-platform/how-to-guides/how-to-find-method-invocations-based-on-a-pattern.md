@@ -3,6 +3,10 @@ sidebar_label: Using AI to find methods
 description: How to find method invocations based on a pattern using AI.
 ---
 
+import VersionBanner from '@site/src/components/VersionBanner';
+
+<VersionBanner version="v2" linkPath="/user-documentation/moderne-platform-v1/how-to-guides/how-to-find-method-invocations-based-on-a-pattern" />
+
 # How to find method invocations based on a pattern using AI
 
 :::warning

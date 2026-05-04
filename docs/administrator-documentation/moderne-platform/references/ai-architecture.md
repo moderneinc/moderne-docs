@@ -3,6 +3,10 @@ sidebar_label: AI architecture
 description: A detailed technical document about all of the places Moderne uses AI.
 ---
 
+import VersionBanner from '@site/src/components/VersionBanner';
+
+<VersionBanner version="v2" linkPath="/administrator-documentation/moderne-platform-v1/references/ai-architecture" />
+
 # AI architecture
 
 Moderne has integrated AI capabilities into our solution set in a number of ways to enhance your experience, including: 

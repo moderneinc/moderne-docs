@@ -5,6 +5,9 @@ description: How to configure a recipe-based DevCenter.
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import VersionBanner from '@site/src/components/VersionBanner';
+
+<VersionBanner version="v2" linkPath="/administrator-documentation/moderne-platform-v1/how-to-guides/recipe-based-devcenter" />
 
 # Configuring a recipe-based DevCenter
 
