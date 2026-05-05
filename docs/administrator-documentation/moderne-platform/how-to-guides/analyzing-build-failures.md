@@ -3,6 +3,10 @@ sidebar_label: Analyzing build failures
 description: How to use the Moderne CLI build trace analyzer to troubleshoot build failures across repositories.
 ---
 
+import VersionBanner from '@site/src/components/VersionBanner';
+
+<VersionBanner version="v2" linkPath="/administrator-documentation/moderne-platform-v1/how-to-guides/analyzing-build-failures" />
+
 # Analyzing build failures with mod trace
 
 When building [Lossless Semantic Trees (LSTs)](../references/lossless-semantic-trees.md) across many repositories, some builds will inevitably fail due to missing dependencies, compilation errors, or infrastructure issues. If you are managing a handful of repositories, you can probably dig through logs one at a time.

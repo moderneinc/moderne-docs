@@ -1,16 +1,19 @@
 ---
 sidebar_label: UI customizations
-description: How to configure the Moderne agent to provide custom UI elements and help links.
+description: How to configure the Moderne Connector to provide custom UI elements and help links.
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import VersionBanner from '@site/src/components/VersionBanner';
 
-# Configure an agent with UI customizations
+<VersionBanner version="v2" linkPath="/administrator-documentation/moderne-platform-v1/how-to-guides/agent-configuration/configure-an-agent-with-ui-customizations" />
+
+# Configure a Connector with UI customizations
 
 The Moderne Platform provides default UI elements and help links throughout the interface. However, organizations may want to customize these elements to provide organization-specific help resources or branding.
 
-This guide will show you how to configure the Moderne agent to customize UI elements with your own help links and labels.
+This guide will show you how to configure the Moderne Connector to customize UI elements with your own help links and labels.
 
 ## Why customize UI elements?
 
@@ -20,33 +23,33 @@ Organizations may want to customize UI elements for several reasons:
 * **Custom support channels**: You may want to direct users to organization-specific help desks or chat systems
 * **Accessibility**: The default support methods may not be accessible within your organization
 
-## Agent configuration
+## Connector configuration
 
-The following table contains the variables/arguments needed to configure custom UI elements for your Moderne agent. Please note that these variables/arguments must be combined with ones found in other steps in the [Configuring the Moderne agent guide](./agent-config.md).
+The following table contains the variables/arguments needed to configure custom UI elements for your Moderne Connector. Please note that these variables/arguments must be combined with ones found in other steps in the [Configuring the Moderne Connector guide](./agent-config.md).
 
 <Tabs groupId="agent-type">
 <TabItem value="oci-container" label="OCI Container">
 
 **Environment variables:**
 
-| Variable Name                      | Required | Default | Description                                                                                                                                                          |
-|------------------------------------|----------|---------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `MODERNE_AGENT_UI_MOREHELP_0_LABEL` | `false`  | `null`  | Custom label for first link under the 'Need more help?' menu. If populated, the URL property must also be populated. Maximum of 3 help items supported.       |
-| `MODERNE_AGENT_UI_MOREHELP_0_URL`   | `false`  | `null`  | The URL for the first custom help resource. Must be a fully qualified URL that is accessible to users of the platform.                                           |
-| `MODERNE_AGENT_UI_MOREHELP_1_LABEL` | `false`  | `null`  | Custom label for second link under the 'Need more help?' menu. If populated, the URL property must also be populated.                                            |
-| `MODERNE_AGENT_UI_MOREHELP_1_URL`   | `false`  | `null`  | The URL for the second custom help resource. Must be a fully qualified URL that is accessible to users of the platform.                                          |
-| `MODERNE_AGENT_UI_MOREHELP_2_LABEL` | `false`  | `null`  | Custom label for third link under the 'Need more help?' menu. If populated, the URL property must also be populated.                                             |
-| `MODERNE_AGENT_UI_MOREHELP_2_URL`   | `false`  | `null`  | The URL for the third custom help resource. Must be a fully qualified URL that is accessible to users of the platform.                                           |
+| Variable Name                 | Required | Default | Description                                                                                                                                             |
+|-------------------------------|----------|---------|---------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `MODERNE_UI_MOREHELP_0_LABEL` | `false`  | `null`  | Custom label for first link under the 'Need more help?' menu. If populated, the URL property must also be populated. Maximum of 3 help items supported. |
+| `MODERNE_UI_MOREHELP_0_URI`   | `false`  | `null`  | The URL for the first custom help resource. Must be a fully qualified URL that is accessible to users of the platform.                                  |
+| `MODERNE_UI_MOREHELP_1_LABEL` | `false`  | `null`  | Custom label for second link under the 'Need more help?' menu. If populated, the URL property must also be populated.                                   |
+| `MODERNE_UI_MOREHELP_1_URI`   | `false`  | `null`  | The URL for the second custom help resource. Must be a fully qualified URL that is accessible to users of the platform.                                 |
+| `MODERNE_UI_MOREHELP_2_LABEL` | `false`  | `null`  | Custom label for third link under the 'Need more help?' menu. If populated, the URL property must also be populated.                                    |
+| `MODERNE_UI_MOREHELP_2_URI`   | `false`  | `null`  | The URL for the third custom help resource. Must be a fully qualified URL that is accessible to users of the platform.                                  |
 
 **Example:**
 
 ```bash
 docker run \
 # ... Existing variables
--e MODERNE_AGENT_UI_MOREHELP_0_LABEL="Getting started" \
--e MODERNE_AGENT_UI_MOREHELP_0_URL="https://docs.moderne.io/user-documentation/moderne-platform/getting-started" \
--e MODERNE_AGENT_UI_MOREHELP_1_LABEL="How to guides" \
--e MODERNE_AGENT_UI_MOREHELP_1_URL="https://docs.moderne.io/user-documentation/moderne-platform/how-to-guides" \
+-e MODERNE_UI_MOREHELP_0_LABEL="Getting started" \
+-e MODERNE_UI_MOREHELP_0_URI="https://docs.moderne.io/user-documentation/moderne-platform/getting-started" \
+-e MODERNE_UI_MOREHELP_1_LABEL="How to guides" \
+-e MODERNE_UI_MOREHELP_1_URI="https://docs.moderne.io/user-documentation/moderne-platform/how-to-guides" \
 # ... Additional variables
 ```
 
@@ -56,24 +59,24 @@ docker run \
 
 **Arguments:**
 
-| Argument Name                         | Required | Default | Description                                                                                                                                                          |
-|---------------------------------------|----------|---------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `--moderne.agent.ui.moreHelp[0].label` | `false`  | `null`  | Custom label for first link under the 'Need more help?' menu. If populated, the URL property must also be populated. Maximum of 3 help items supported.       |
-| `--moderne.agent.ui.moreHelp[0].url`   | `false`  | `null`  | The URL for the first custom help resource. Must be a fully qualified URL that is accessible to users of the platform.                                           |
-| `--moderne.agent.ui.moreHelp[1].label` | `false`  | `null`  | Custom label for second link under the 'Need more help?' menu. If populated, the URL property must also be populated.                                            |
-| `--moderne.agent.ui.moreHelp[1].url`   | `false`  | `null`  | The URL for the second custom help resource. Must be a fully qualified URL that is accessible to users of the platform.                                          |
-| `--moderne.agent.ui.moreHelp[2].label` | `false`  | `null`  | Custom label for third link under the 'Need more help?' menu. If populated, the URL property must also be populated.                                             |
-| `--moderne.agent.ui.moreHelp[2].url`   | `false`  | `null`  | The URL for the third custom help resource. Must be a fully qualified URL that is accessible to users of the platform.                                           |
+| Argument Name                    | Required | Default | Description                                                                                                                                             |
+|----------------------------------|----------|---------|---------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `--moderne.ui.moreHelp[0].label` | `false`  | `null`  | Custom label for first link under the 'Need more help?' menu. If populated, the URL property must also be populated. Maximum of 3 help items supported. |
+| `--moderne.ui.moreHelp[0].uri`   | `false`  | `null`  | The URL for the first custom help resource. Must be a fully qualified URL that is accessible to users of the platform.                                  |
+| `--moderne.ui.moreHelp[1].label` | `false`  | `null`  | Custom label for second link under the 'Need more help?' menu. If populated, the URL property must also be populated.                                   |
+| `--moderne.ui.moreHelp[1].uri`   | `false`  | `null`  | The URL for the second custom help resource. Must be a fully qualified URL that is accessible to users of the platform.                                 |
+| `--moderne.ui.moreHelp[2].label` | `false`  | `null`  | Custom label for third link under the 'Need more help?' menu. If populated, the URL property must also be populated.                                    |
+| `--moderne.ui.moreHelp[2].uri`   | `false`  | `null`  | The URL for the third custom help resource. Must be a fully qualified URL that is accessible to users of the platform.                                  |
 
 **Example:**
 
 ```bash
-java -jar moderne-agent-{version}.jar \
+java -jar connector-{version}.jar \
 # ... Existing arguments
---moderne.agent.ui.moreHelp[0].label="Getting started" \
---moderne.agent.ui.moreHelp[0].url="https://docs.moderne.io/user-documentation/moderne-platform/getting-started" \
---moderne.agent.ui.moreHelp[1].label="How to guides" \
---moderne.agent.ui.moreHelp[1].url="https://docs.moderne.io/user-documentation/moderne-platform/how-to-guides" \
+--moderne.ui.moreHelp[0].label="Getting started" \
+--moderne.ui.moreHelp[0].uri="https://docs.moderne.io/user-documentation/moderne-platform/getting-started" \
+--moderne.ui.moreHelp[1].label="How to guides" \
+--moderne.ui.moreHelp[1].uri="https://docs.moderne.io/user-documentation/moderne-platform/how-to-guides" \
 # ... Additional arguments
 ```
 

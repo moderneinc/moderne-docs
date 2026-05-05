@@ -3,6 +3,10 @@ sidebar_label: GitHub permissions
 description: A look into the GitHub OAuth permissions needed for Moderne to work correctly.
 ---
 
+import VersionBanner from '@site/src/components/VersionBanner';
+
+<VersionBanner version="v2" linkPath="/administrator-documentation/moderne-platform-v1/references/github-permissions" />
+
 # GitHub permissions
 
 Moderne uses a GitHub OAuth application (GitHub OAuth Apps or GitHub Apps) to perform various actions on your behalf. Below is an explanation of each type, their permissions, and how they're used by Moderne.
@@ -68,7 +72,7 @@ Moderne requires a select number of OAuth scopes necessary to help you transform
 | Permission                            | Access     | Description                                                                                                                                                                                                                                                                                                            |
 |---------------------------------------|------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Repositories (public)                 | Read/write | Create branches, create forks of public repositories, and push changesets on your behalf.                                                                                                                                                                                                                              |
-| Repositories (private) **(optional)** | Read/write | Create branches, create forks of private repositories, and push changesets on your behalf.<br/><br/>Only enabled if `includePrivateRepos=true` is set in agent configuration for GitHub. See [configure an agent with github](../how-to-guides/agent-configuration/configure-an-agent-with-github.md) for more detail. |
+| Repositories (private) **(optional)** | Read/write | Create branches, create forks of private repositories, and push changesets on your behalf.<br/><br/>Only enabled if `includePrivateRepos=true` is set in Connector configuration for GitHub. See [configure a Connector with github](../how-to-guides/agent-configuration/configure-an-agent-with-github.md) for more detail. |
 | Organizations and teams               | Read-only  | Understand the organizations you belong to and your level of access within them.                                                                                                                                                                                                                                       |
 | Workflow                              | Read/write | Recipes that alter GitHub Action workflow files require this permission to make commits to them.                                                                                                                                                                                                                       |
 | Personal user data                    | Read-only  | Recognize your account as a new or returning user. Email and Profile are included by default with OpenID Connect through OAuth.                                                                                                                                                                                        |
@@ -152,10 +156,10 @@ In the GitHub App settings under **General**, scroll to the bottom to find the *
 
 <figure>
   ![GitHub App IP allow list configuration](./assets/github-apps-ip-allow.png)
-  <figcaption>_Add IP addresses for your Moderne agent to ensure it can access the GitHub API even when IP restrictions are enabled._</figcaption>
+  <figcaption>_Add IP addresses for your Moderne Connector to ensure it can access the GitHub API even when IP restrictions are enabled._</figcaption>
 </figure>
 
-Add the IP addresses of your Moderne agent deployment. Include both IPv4 and IPv6 addresses if your infrastructure uses both, as GitHub is gradually rolling out IPv6 support.
+Add the IP addresses of your Moderne Connector deployment. Include both IPv4 and IPv6 addresses if your infrastructure uses both, as GitHub is gradually rolling out IPv6 support.
 
 **Step 2: Enable IP allow list inheritance in your organization**
 
