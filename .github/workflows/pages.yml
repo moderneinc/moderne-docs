@@ -20,7 +20,7 @@ jobs:
   build:
     name: Build Docusaurus
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    timeout-minutes: 90
     steps:
       - uses: actions/checkout@v6
         with:
@@ -42,10 +42,13 @@ jobs:
             docusaurus-${{ runner.os }}-${{ hashFiles('yarn.lock') }}-
             docusaurus-${{ runner.os }}-
 
+      - name: Install GNU time
+        run: sudo apt-get update && sudo apt-get install -y time
+
       - name: Build website
         run: |
           set -o pipefail
-          yarn build 2>&1 | { grep -v "^Generated markdown file:" || true; }
+          /usr/bin/time -v yarn build 2>&1 | { grep -v "^Generated markdown file:" || true; }
         env:
           NODE_OPTIONS: --max-old-space-size=12288
           DOCUSAURUS_IGNORE_SSG_WARNINGS: true
