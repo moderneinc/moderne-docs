@@ -37,9 +37,8 @@ jobs:
         uses: actions/cache@v4
         with:
           path: node_modules/.cache
-          key: docusaurus-${{ runner.os }}-${{ hashFiles('yarn.lock') }}-${{ github.run_id }}
+          key: docusaurus-${{ runner.os }}-${{ hashFiles('yarn.lock') }}
           restore-keys: |
-            docusaurus-${{ runner.os }}-${{ hashFiles('yarn.lock') }}-
             docusaurus-${{ runner.os }}-
 
       - name: Build website
@@ -47,7 +46,7 @@ jobs:
           set -o pipefail
           yarn build 2>&1 | { grep -v "^Generated markdown file:" || true; }
         env:
-          NODE_OPTIONS: --max-old-space-size=12288
+          NODE_OPTIONS: --max-old-space-size=8192
           DOCUSAURUS_IGNORE_SSG_WARNINGS: true
 
       - name: Upload Build Artifact
