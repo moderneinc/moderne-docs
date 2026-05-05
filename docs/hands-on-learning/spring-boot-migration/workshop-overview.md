@@ -21,9 +21,9 @@ Throughout the workshop, you will see screenshot placeholders and collapsible **
 
 ## What you'll build
 
-* A wave-organized workspace mirroring your portfolio's upgrade order, which you can reuse as the template for your real migration.
-* A hand-authored OpenRewrite recipe for QueryDSL 4 → 5 that you can commit to your organization's recipe repository.
-* A composite "freight-train" recipe YAML bundling prerequisites and the Spring Boot 4 upgrade — the deliverable you carry out of the workshop.
+* A wave-organized workspace mirroring your portfolio's upgrade order, which you can reuse as the template for your real migration
+* A hand-authored OpenRewrite recipe for QueryDSL 4 → 5 that you can commit to your organization's recipe repository
+* A composite "freight-train" recipe YAML bundling prerequisites and the Spring Boot 4 upgrade — the deliverable you carry out of the workshop
 
 :::note Freight-train recipe
 
@@ -55,7 +55,7 @@ You will also need:
 * [Module 2: Wave planning](./module-2-wave-planning.md) - Analyze dependencies in the platform and organize upgrade waves
 * [Module 3: Establish a baseline](./module-3-establish-baseline.md) - Normalize Maven, Java, and Spring Boot versions across the portfolio
 * [Module 4: Java 17 upgrade and Spring Boot 4 smoke test](./module-4-smoke-test.md) - Raise Java version to 17 and smoke test the Spring Boot 4 migration
-* [Module 5: Build the QueryDSL recipe](./module-5-build-querydsl-recipe.md) - Diagnose the blocker and build a custom recipe with an AI agent — or install the pre-built recipes from the Moderne training organization
+* [Module 5: Building the QueryDSL upgrade recipe](./module-5-build-querydsl-recipe.md) - Diagnose the blocker and build a custom recipe with an AI agent — or install the pre-built recipes from the Moderne training organization
 * [Module 6: Finish migration in waves](./module-6-wave-migration.md) - Compose a freight-train recipe and complete the migration in waves
 
 Modules 4 and 5 produce the recipes that Module 6 composes into the freight-train YAML you run across the portfolio.

@@ -1,5 +1,5 @@
 ---
-sidebar_label: "Module 5: Build the QueryDSL recipe"
+sidebar_label: "Module 5: Building the QueryDSL upgrade recipe"
 description: Diagnose the QueryDSL blocker and build a custom upgrade recipe with AI assistance.
 ---
 

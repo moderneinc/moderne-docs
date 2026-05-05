@@ -18,7 +18,7 @@ In this module, you will raise the Java baseline to 17 and run a controlled Spri
 ### Steps
 
 1. Back in the [Moderne Platform](https://app.moderne.io), relogin if needed, then click **Activity** in the left navigation. The Activity page shows a history of all recipe runs, including their status and results.
-2. Open the failed run of your custom `Try Spring Boot 4 Upgrade` recipe from Module 1 that included [`io.moderne.java.spring.boot4.UpgradeSpringBoot_4_0`](https://docs.openrewrite.org/recipes/java/spring/boot4/upgradespringboot_4_0) and [`io.moderne.compiled.verification.VerifyCompilation`](https://docs.openrewrite.org/recipes/compiled/verification/verifycompilation).
+2. Open the failed run of your custom `Try Spring Boot 4 Upgrade` recipe from Module 1 that included [`io.moderne.java.spring.boot4.UpgradeSpringBoot_4_0`](https://docs.openrewrite.org/recipes/java/spring/boot4/upgradespringboot_4_0-moderne-edition) and [`io.moderne.compiled.verification.VerifyCompilation`](https://docs.openrewrite.org/recipes/compiled/verification/verifycompilation).
 3. Click the **Visualizations** tab and run the **Composite recipe results** visualization.
 
 <figure>
@@ -339,6 +339,6 @@ mod build $WORKSPACE
 
 ## Takeaways
 
-* The composite visualization shows why Java 17 is a prerequisite for Spring Boot 4
-* A Java 17 upgrade raises the baseline across the organization before framework changes
-* The Spring Boot 4 smoke test exposes blockers without committing to a full upgrade
+* The composite visualization shows why Java 17 is a prerequisite for Spring Boot 4.
+* A Java 17 upgrade raises the baseline across the organization before framework changes.
+* The Spring Boot 4 smoke test exposes blockers without committing to a full upgrade.

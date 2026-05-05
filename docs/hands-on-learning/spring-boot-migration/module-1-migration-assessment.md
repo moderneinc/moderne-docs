@@ -199,6 +199,6 @@ Other useful code insight recipes you may want to explore later: `FindInternalJa
 
 ## Takeaways
 
-* A full migration dry run surfaces real blockers before you start making changes
-* Code insight recipes help you quantify Java, Spring Boot, and `javax.*` usage hotspots
-* DevCenter gives you a baseline view to compare against after each wave
+* A full migration dry run surfaces real blockers before you start making changes.
+* Code insight recipes help you quantify Java, Spring Boot, and `javax.*` usage hotspots.
+* DevCenter gives you a baseline view to compare against after each wave.

@@ -128,6 +128,6 @@ This command may take a couple of minutes to run as it builds LSTs for each repo
 
 ## Takeaways
 
-* Dependency data helps you define a safe upgrade order
-* The Release-Train-Metro-Plan recipe and visualization in the platform produce a wave map directly
-* Organizing repos by wave lets you run recipes and releases in controlled batches
+* Dependency data helps you define a safe upgrade order.
+* The Release-Train-Metro-Plan recipe and visualization in the platform produce a wave map directly.
+* Organizing repos by wave lets you run recipes and releases in controlled batches.
