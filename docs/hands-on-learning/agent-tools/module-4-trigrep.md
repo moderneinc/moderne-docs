@@ -140,7 +140,7 @@ mod search . visibility:public @RestController
 mod search . "file:**/*Test.java" @Mock
 ```
 
-:::warning Quoting
+:::warning[Quoting]
 Don't wrap a multi-token query in a single pair of shell quotes. The CLI treats a single-arg query as a literal phrase and re-emits it quoted in the `Searching for:` line — so `"@Service or @Controller"` looks for the phrase `@Service or @Controller` (which appears nowhere) and returns 0 matches. The same trap applies to `"visibility:public returns:List"`, which fails with `Unknown visibility: public returns:List`. Either pass each token as its own argument, or quote each one individually:
 
 ```bash

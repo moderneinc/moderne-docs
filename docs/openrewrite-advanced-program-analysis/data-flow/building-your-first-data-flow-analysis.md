@@ -371,7 +371,7 @@ Now that you've built your first data flow analysis, you can:
 3. **Optimize Further**: Add special handling for common patterns like loop variables
 4. **Create Fix Recipes**: Don't just detect dead code – automatically remove it
 
-:::tip Building on This Foundation
+:::tip[Building on This Foundation]
 The pattern shown here works for any data flow analysis. Just swap `LivenessAnalysis` for `ReachingDefinitionsAnalysis`, `TaintAnalysis`, or your custom analysis. Always use `ControlFlowSupport` to ensure proper CFG caching.
 :::
 

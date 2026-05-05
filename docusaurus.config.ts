@@ -181,7 +181,7 @@ const config: Config = {
   ],
 
   future: {
-    experimental_faster: true,
+    faster: true,
     v4: true,
   },
 

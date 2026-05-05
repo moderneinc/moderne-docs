@@ -187,7 +187,7 @@ if (condition) {
 // Used in available expressions - we can only reuse if computed on EVERY path
 ```
 
-:::tip Understanding May vs Must
+:::tip[Understanding May vs Must]
 A simple way to remember: "may" analyses are optimistic (anything possible), while "must" analyses are pessimistic (only what's guaranteed). Choose based on safety – use "may" when missing a fact could cause incorrectness, use "must" when incorrectly including a fact could cause problems.
 :::
 
@@ -243,7 +243,7 @@ Security tools use specialized data flow analyses:
 * **Taint analysis**: Tracks untrusted data through the program (covered in detail in another section)
 * **Information flow analysis**: Ensures sensitive data doesn't leak to public outputs
 
-:::info Real-World Impact
+:::info[Real-World Impact]
 Modern Java IDEs perform data flow analysis constantly. When IntelliJ IDEA grays out an unused variable or warns about a potential null pointer, it's using these exact techniques behind the scenes.
 :::
 
@@ -255,6 +255,6 @@ Now that you understand the fundamentals, you can dive deeper:
 * [Liveness analysis in detail](./liveness-analysis.md) - Deep dive into this fundamental backward analysis
 * [Reaching definitions analysis](./reaching-definitions.md) - Master the classic forward analysis
 
-:::info Further Reading
+:::info[Further Reading]
 For theoretical foundations, see "Principles of Program Analysis" by Nielson, Nielson, and Hankin. For practical implementation details, "Modern Compiler Implementation in Java" by Appel provides excellent coverage with actual code.
 :::

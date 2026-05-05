@@ -66,7 +66,7 @@ From the migration guide and Spring Boot 4 context:
 
 This is the change specification you will hand to the AI agent in the next exercise.
 
-:::tip Alternative: let the agent build the change specification
+:::tip[Alternative: let the agent build the change specification]
 Instead of running the searches manually, you can point Claude at the workspace directory and let it discover the problem end-to-end:
 
 ```bash

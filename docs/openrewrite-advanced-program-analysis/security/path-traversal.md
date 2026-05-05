@@ -552,6 +552,6 @@ public class UrlPathValidator {
 * [Command Injection](./command-injection.md) - OS command execution
 * [XXE Vulnerabilities](./xxe.md) - XML external entity attacks
 
-:::danger Critical Security Issue
+:::danger[Critical Security Issue]
 Path traversal can lead to complete system compromise. Always validate and sanitize file paths, use canonical path checking, and implement defense in depth with OS-level restrictions where possible.
 :::
