@@ -7,7 +7,7 @@ description: The current version of the Moderne CLI and links to useful CLI docu
 
 | Component   | Current version |
 | ----------- | --------------- |
-| CLI version | 4.2.1           |
+| CLI version | 4.2.2           |
 
 For CLI command documentation, see the [CLI reference](../user-documentation/moderne-cli/cli-reference.md).
 
@@ -16,6 +16,25 @@ The Moderne CLI previously followed a two-track release model with separate "sta
 :::
 
 ## Changelog
+
+### CLI / DX v4.2.2 (2026-05-05)
+
+#### What's Changed
+* Do not clobber clone log when writing per-repo sync.log
+* Pick GC and LST seed pool sizes to match the workload
+* Stop the Moderne CLI from stealing focus on macOS
+* Train AOT cache under the runtime GC, invalidate on mismatch
+* Use `SimpleQueryParser` for recipe search to tolerate special characters
+* Build a Linux aarch64 CLI distribution; wrapper picks by arch
+* Stay JAR-only on auto-upgrade when the install has no bundled JRE
+* JAR-only upgrade: pin DIST_ARTIFACT to moderne-cli before version resolution
+* Set SSL/proxy props as -D flags from `modw`, before JVM boot
+* Give legacy Linux publication its own source file for signing
+* Use actual command name, e.g `modw`, in next steps
+* Correct regression which saw `mod run` not obey configured run timeout
+* modw.cmd: command-aware GC + GC-aware AOT cache training
+* Bump `org.apache.maven` dependencies to address CLI CVEs
+* trace: --trace-tag option for arbitrary k=v columns in trace.csv
 
 ## April 2026
 
