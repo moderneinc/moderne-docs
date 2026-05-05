@@ -48,7 +48,14 @@ jobs:
       - name: Build website
         run: |
           set -o pipefail
-          /usr/bin/time -v script -qefc "yarn build" /dev/null 2>&1 | { grep -v "^Generated markdown file:" || true; }
+          yarn build 2>&1 | { grep -v "^Generated markdown file:" || true; }
+          /usr/bin/time -v yarn build > build.log 2>&1 || {
+            echo "=== Build failed - last 300 lines of build.log ==="
+            tail -300 build.log
+            exit 1
+          }
+          echo "=== Build succeeded - tail of build.log ==="
+          tail -50 build.log
         env:
           NODE_OPTIONS: --max-old-space-size=12288
           DOCUSAURUS_IGNORE_SSG_WARNINGS: true
