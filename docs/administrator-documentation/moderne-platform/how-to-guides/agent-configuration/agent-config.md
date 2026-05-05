@@ -445,7 +445,7 @@ Moderne supports the following recipe marketplace registry types:
 * **NuGet** feeds
 * **PyPI** indexes
 
-:::info Defaults and override behavior
+:::info[Defaults and override behavior]
 If no Maven recipe marketplace repositories are configured, Moderne SaaS falls back to the following defaults:
 
 * `https://repo.maven.apache.org/maven2` (Maven Central — releases only)

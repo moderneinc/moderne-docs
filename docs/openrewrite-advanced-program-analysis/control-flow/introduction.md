@@ -126,6 +126,6 @@ Now that you understand the basics of control flow analysis, you can explore:
 * [Loop Analysis Techniques](./loop-analysis.md) - Master the intricacies of loop detection and analysis.
 * [Data Flow Analysis](../data-flow/introduction.md) - See how CFGs enable powerful data analyses.
 
-:::info Want to Learn More?
+:::info[Want to Learn More?]
 For a deeper dive into the theory behind control flow analysis, check out the classic textbook "Compilers: Principles, Techniques, and Tools" by Aho, Lam, Sethi, and Ullman (often called the "Dragon Book"). Chapter 8 provides an excellent theoretical foundation.
 :::

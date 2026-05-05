@@ -49,7 +49,7 @@ Please see our [creating a repos.csv guide](../../../../user-documentation/moder
 
 The `repos.csv` source location is provided to the Connector by setting a variable in the Connector run command. A source can be a local file (`file` source), an HTTP(S) URL (`http` source), or an S3 object URI (`s3` source — see [S3 organization source](./configure-an-agent-with-s3-access.md) for S3-specific variables). You can configure multiple sources of each type.
 
-:::tip `repos.csv` vs. `repos-lock.csv`
+:::tip[`repos.csv` vs. `repos-lock.csv`]
 If you set up a [Mass Ingest](../mass-ingest.md) pipeline, the `mod publish` step produces a `repos-lock.csv` with a `publishUri` for every repository. Pointing the Connector at this file lets it fetch LSTs directly from the URIs in the CSV, which is faster and more reliable than asking the Connector to discover LSTs at runtime. See [how the Connector finds your repositories and their LSTs](./agent-config.md#step-5-configure-the-connector-to-find-your-repositories-and-their-lsts) for the full picture.
 :::
 
