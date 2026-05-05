@@ -599,7 +599,7 @@ mod trace builds analyze . --last-build
 
 The dashboard displays build metadata and lets you drill into individual repositories to view logs and troubleshooting suggestions.
 
-### Running recipes {#running}
+### Running recipes {/* #running */}
 
 Once you have the LSTs downloaded or built, you can then run recipes against them.
 

@@ -720,7 +720,7 @@ Now that you understand SQL injection detection, explore related security analys
 * [XSS Detection](./xss.md) - Finding cross-site scripting vulnerabilities
 * [Path Traversal](./path-traversal.md) - Preventing directory traversal attacks
 
-:::warning Security Best Practices
+:::warning[Security Best Practices]
 Remember that automated detection is just one layer of defense. A comprehensive security strategy includes:
 
 * **Secure coding standards**: Enforce prepared statements as the default

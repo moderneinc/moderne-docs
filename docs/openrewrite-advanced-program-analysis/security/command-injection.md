@@ -463,6 +463,6 @@ fi
 * [LDAP Injection](./ldap-injection.md) - Directory service command injection
 * [Path Traversal](./path-traversal.md) - File system access vulnerabilities
 
-:::danger Critical Security Issue
+:::danger[Critical Security Issue]
 Command injection is one of the most dangerous vulnerabilities. Always validate input, avoid shell invocation when possible, and use parameterized commands. Never trust user input in system commands.
 :::

@@ -133,7 +133,7 @@ Remaining challenges:
 * **Reflection**: Dynamic method invocation requires conservative handling
 * **Dynamic class loading**: Runtime-loaded classes aren't visible to static analysis
 
-:::info Real-World Usage
+:::info[Real-World Usage]
 IDEs use call graphs constantly. When you use "Find Usages" on a method, the IDE is querying its call graph. When it warns that a method is never used, it's checked the call graph for callers.
 :::
 
@@ -242,7 +242,7 @@ class Connection {
 
 Path sensitivity comes at a cost. The number of paths can grow exponentially with program size. Analyses must use techniques like path merging, pruning infeasible paths, and symbolic execution to remain tractable.
 
-:::warning Precision vs Performance
+:::warning[Precision vs Performance]
 Full path sensitivity is often impractical for large programs. Most analyses use selective path sensitivity, maintaining separate paths only where it significantly improves precision (like null checks).
 :::
 
@@ -384,7 +384,7 @@ Ensure resources are released on all execution paths.
 // Together: Verify release on ALL paths, not just some
 ```
 
-:::tip Synergy in Practice
+:::tip[Synergy in Practice]
 Modern IDEs and analysis tools rarely use just one technique. When IntelliJ suggests extracting a method, it's using control flow (to find complete code blocks), data flow (to determine parameters), and call graph analysis (to check for conflicts).
 :::
 

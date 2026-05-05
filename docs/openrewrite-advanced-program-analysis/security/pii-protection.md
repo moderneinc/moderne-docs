@@ -671,6 +671,6 @@ public class PIIAccessAuditor {
 }
 ```
 
-:::warning Privacy First
+:::warning[Privacy First]
 PII protection is not just about security—it's about respecting user privacy and maintaining trust. Always apply the principle of data minimization: collect only what you need, store it only as long as necessary, and protect it at all times.
 :::

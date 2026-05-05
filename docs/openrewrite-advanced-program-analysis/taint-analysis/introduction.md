@@ -123,7 +123,7 @@ if (file.getPath().startsWith(baseDir.getPath())) {  // Ensure within base direc
 }
 ```
 
-:::warning Not All Sanitizers Are Equal
+:::warning[Not All Sanitizers Are Equal]
 A common mistake is using the wrong sanitizer for the sink. HTML encoding prevents XSS but won't stop SQL injection. URL encoding prevents some attacks but not others. Always match the sanitizer to the specific sink.
 :::
 
@@ -276,7 +276,7 @@ if (!file.getPath().startsWith("/uploads/")) {
 file.delete();
 ```
 
-:::info Defense in Depth
+:::info[Defense in Depth]
 Even with taint analysis, follow defense-in-depth principles:
 1. Validate input at trust boundaries
 2. Use safe APIs that prevent injection by design
@@ -317,7 +317,7 @@ Ready to put taint analysis to work? Explore these topics:
 * [Comprehensive Guide to Taint Analysis](./comprehensive-guide.md) - Deep dive into implementation and advanced patterns
 * [Security Analysis](../security/overview.md) - Use pre-built analyses for common vulnerabilities
 
-:::tip Start Small
+:::tip[Start Small]
 Begin with one vulnerability type (like SQL injection) in a small codebase. Once you understand how taint flows through your application, expand to other vulnerability types and larger scopes.
 :::
 
