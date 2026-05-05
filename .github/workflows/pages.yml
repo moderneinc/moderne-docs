@@ -33,12 +33,21 @@ jobs:
       - name: Install dependencies
         run: yarn install --frozen-lockfile
 
+      - name: Cache build compilation artifacts
+        uses: actions/cache@v4
+        with:
+          path: node_modules/.cache
+          key: docusaurus-${{ runner.os }}-${{ hashFiles('yarn.lock') }}-${{ github.run_id }}
+          restore-keys: |
+            docusaurus-${{ runner.os }}-${{ hashFiles('yarn.lock') }}-
+            docusaurus-${{ runner.os }}-
+
       - name: Build website
         run: |
           set -o pipefail
           yarn build 2>&1 | { grep -v "^Generated markdown file:" || true; }
         env:
-          NODE_OPTIONS: --max-old-space-size=8192
+          NODE_OPTIONS: --max-old-space-size=12288
           DOCUSAURUS_IGNORE_SSG_WARNINGS: true
 
       - name: Upload Build Artifact
