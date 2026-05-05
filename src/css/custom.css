@@ -344,7 +344,7 @@ figure figcaption {
   border-radius: var(--neo-border-radius-x-s);
   box-shadow: none;
   display: block;
-  margin: 0;
+  margin: 0 auto;
 }
 
 html[data-theme='dark'] .markdown img,
