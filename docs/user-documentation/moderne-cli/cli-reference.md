@@ -614,6 +614,7 @@ mod build /path/to/project
 | `--no-download` |  Do not attempt to download LSTs from Moderne. |
 | `--offline` |  When an underlying build tool has an offline mode, enable it. |
 | `--streaming` |  (INCUBATING) Stream results from the build to the console as they are produced. This is intended to be machine readable for the creation of incremental experiences like in the IDE. |
+| `--trace-tag` |  Tags to add as extra columns to the trace.csv emitted by this command. Each tag becomes a column with header `tag.<key>` and the supplied value. Repeat the option to add multiple tags. |
 
 
 ## mod clean
@@ -7102,6 +7103,7 @@ mod exec /path/to/project rm *.hprof
 | `-o`, `--out`, `--output` |  The output type for the command. Accepts `Console` and `File`. If not specified, the output will be printed to a file. |
 | `--recipe-run` |  A recipe run ID listed by **mod run-history** |
 | `--search` |  A search run ID to filter repositories to only those with matches. |
+| `--trace-tag` |  Tags to add as extra columns to the trace.csv emitted by this command. Each tag becomes a column with header `tag.<key>` and the supplied value. Repeat the option to add multiple tags. |
 
 
 ## mod factory
@@ -7220,6 +7222,7 @@ mod git add /path/to/project --recipe-run <recipe-run-id>
 | `--last-search` |  Select the ID of the last search run to filter repositories. Only repositories that had search matches will be processed. |
 | `--recipe-run` |  A recipe run ID listed by **mod run-history** |
 | `--search` |  A search run ID to filter repositories to only those with matches. |
+| `--trace-tag` |  Tags to add as extra columns to the trace.csv emitted by this command. Each tag becomes a column with header `tag.<key>` and the supplied value. Repeat the option to add multiple tags. |
 
 
 ## mod git apply
@@ -7255,6 +7258,7 @@ mod git apply /path/to/project --recipe-run 20230903164310-2qVRM
 | `--last-search` |  Select the ID of the last search run to filter repositories. Only repositories that had search matches will be processed. |
 | `--recipe-run` |  A recipe run ID listed by **mod run-history** |
 | `--search` |  A search run ID to filter repositories to only those with matches. |
+| `--trace-tag` |  Tags to add as extra columns to the trace.csv emitted by this command. Each tag becomes a column with header `tag.<key>` and the supplied value. Repeat the option to add multiple tags. |
 
 
 ## mod git checkout
@@ -7292,6 +7296,7 @@ mod git checkout /path/to/project
 | `--last-search` |  Select the ID of the last search run to filter repositories. Only repositories that had search matches will be processed. |
 | `--recipe-run` |  A recipe run ID listed by **mod run-history** |
 | `--search` |  A search run ID to filter repositories to only those with matches. |
+| `--trace-tag` |  Tags to add as extra columns to the trace.csv emitted by this command. Each tag becomes a column with header `tag.<key>` and the supplied value. Repeat the option to add multiple tags. |
 
 
 ## mod git clone (deprecated)
@@ -7424,6 +7429,7 @@ mod git commit /path/to/project -m "commit message"
 | `--recipe-run` |  A recipe run ID listed by **mod run-history** |
 | `-S`, `--gpg-sign` |  GPG sign the commit. Uses the local GPG keyring, or a key file if **--gpg-private-key-path** is provided. |
 | `--search` |  A search run ID to filter repositories to only those with matches. |
+| `--trace-tag` |  Tags to add as extra columns to the trace.csv emitted by this command. Each tag becomes a column with header `tag.<key>` and the supplied value. Repeat the option to add multiple tags. |
 
 
 ## mod git pull
@@ -7494,6 +7500,7 @@ mod git push /path/to/project -u origin feature-branch
 | `--last-search` |  Select the ID of the last search run to filter repositories. Only repositories that had search matches will be processed. |
 | `--recipe-run` |  A recipe run ID listed by **mod run-history** |
 | `--search` |  A search run ID to filter repositories to only those with matches. |
+| `--trace-tag` |  Tags to add as extra columns to the trace.csv emitted by this command. Each tag becomes a column with header `tag.<key>` and the supplied value. Repeat the option to add multiple tags. |
 | `-u`, `--set-upstream` |  For every branch that is up to date or successfully pushed, add upstream (tracking) reference. |
 
 
@@ -7720,6 +7727,7 @@ mod git sync csv [parameters]
 | `--parallel` |  (INCUBATING) Run the command in parallel. Setting this option to 2 or more causes the command to run with a fixed-size thread pool with that many threads. Setting this to 1 causes the command to run sequentially. Setting this to 0 runs the command with a thread pool sized to the number of CPU cores on your machine. Setting this to a negative number runs the command with a fixed-size thread pool equal to the number of CPU cores minus the absolute value of that number. For example, `-1` runs the command with (cores-1) threads. |
 | `--save` |  If the CSV has per repository configuration like custom build tool options, JVM configuration, etc. save that configuration in a **.moderne/moderne.yml** which can be committed to source control. |
 | `--single-branch` |  Equivalent to the **git clone --single-branch** option. |
+| `--trace-tag` |  Tags to add as extra columns to the trace.csv emitted by this command. Each tag becomes a column with header `tag.<key>` and the supplied value. Repeat the option to add multiple tags. |
 | `--with-lsts` |  Whether to download LSTs for the repositories. |
 | `--with-sources` |  Whether to clone the repository at the specified branch. |
 
@@ -8102,6 +8110,11 @@ mod publish /path/to/project
 | ---- | ----------- | ---------- |
 | `path` |  The absolute or relative path on disk to a directory containing one or more checked-out Git repositories that you want to operate on. This typically takes the form of targeting a single, checked-out copy of a Git repository or it can be a folder containing a collection of Git repositories that will be discovered by recursively scanning the initial provided directory. | `/path/to/project` |
 
+### Options
+
+| Name | Description |
+| ---- | ----------- |
+| `--trace-tag` |  Tags to add as extra columns to the trace.csv emitted by this command. Each tag becomes a column with header `tag.<key>` and the supplied value. Repeat the option to add multiple tags. |
 
 
 ## mod run
@@ -8145,6 +8158,7 @@ mod run /path/to/project \
 | `--recipe-run` |  A recipe run ID listed by **mod run-history** |  |
 | `--search` |  A search run ID to filter repositories to only those with matches. |  |
 | `--streaming` |  (INCUBATING) Stream results from the recipe run to the console as they are produced. This is intended to be machine readable for the creation of incremental experiences like usage search in the IDE. Executes the recipe in parallel by default. |  |
+| `--trace-tag` |  Tags to add as extra columns to the trace.csv emitted by this command. Each tag becomes a column with header `tag.<key>` and the supplied value. Repeat the option to add multiple tags. |  |
 
 
 ## mod run-history
