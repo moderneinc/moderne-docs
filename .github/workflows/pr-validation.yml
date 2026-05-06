@@ -53,7 +53,7 @@ jobs:
       - name: Build site
         run: |
           set -o pipefail
-          yarn build 2>&1 | { grep -v "^Generated markdown file:" || true; }
+          yarn build 2>&1 | { grep --line-buffered -v "^Generated markdown file:" || true; }
         env:
           SKIP_RECIPE_CATALOG: "1"
           CI_STRICT_LINKS: "1"

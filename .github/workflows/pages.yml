@@ -44,7 +44,7 @@ jobs:
       - name: Build website
         run: |
           set -o pipefail
-          yarn build 2>&1 | { grep -v "^Generated markdown file:" || true; }
+          yarn build 2>&1 | { grep --line-buffered -v "^Generated markdown file:" || true; }
         env:
           NODE_OPTIONS: --max-old-space-size=8192
           DOCUSAURUS_IGNORE_SSG_WARNINGS: true
