@@ -1,0 +1,18 @@
+.banner {
+  padding: var(--neo-spacing_1_1_2) var(--neo-spacing_2);
+  margin-bottom: var(--neo-spacing_2);
+  background-color: var(--neo-digital-blue-100);
+  border: 1px solid var(--neo-digital-blue-500);
+  border-radius: var(--neo-border-radius-card);
+  font-size: var(--neo-font-size-sm);
+  color: var(--neo-typography-input-default);
+}
+
+.bannerLink {
+  color: var(--neo-typography-link-primary);
+  text-decoration: underline;
+}
+
+.bannerLink:hover {
+  color: var(--neo-digital-blue-700);
+}
