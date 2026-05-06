@@ -43,33 +43,8 @@ jobs:
 
       - name: Build website
         run: |
-          set +e
           set -o pipefail
-          start=$(date +%s)
           yarn build 2>&1 | { grep --line-buffered -v "^Generated markdown file:" || true; }
-          BUILD_RC=${PIPESTATUS[0]}
-          elapsed=$(( $(date +%s) - start ))
-
-          cgroup_path=$(awk -F: '$1 == "0" {print $3}' /proc/self/cgroup 2>/dev/null || true)
-          peak_file="/sys/fs/cgroup${cgroup_path}/memory.peak"
-          [[ -r "$peak_file" ]] || peak_file=/sys/fs/cgroup/memory.peak
-
-          {
-            echo '## Build memory profile'
-            echo ""
-            printf 'Elapsed: **%dm %02ds**\n\n' $((elapsed/60)) $((elapsed%60))
-            if [[ -r "$peak_file" ]]; then
-              peak_bytes=$(cat "$peak_file")
-              peak_mb=$((peak_bytes / 1024 / 1024))
-              echo "Peak cgroup memory: **${peak_mb} MB** (${peak_bytes} bytes)"
-              echo ""
-              echo "Source: \`$peak_file\`"
-            else
-              echo '(cgroup memory.peak not available)'
-            fi
-          } >> "$GITHUB_STEP_SUMMARY"
-
-          exit "$BUILD_RC"
         env:
           DOCUSAURUS_IGNORE_SSG_WARNINGS: true
 
