@@ -1,9 +1,9 @@
 ---
-sidebar_label: Connector releases
-description: The current version of the Moderne Connector and where to download it.
+sidebar_label: Agent releases
+description: The current version of the Moderne Agent and where to download it.
 ---
 
-# Connector releases
+# Agent releases
 
 | Component                             | Current version |
 | ------------------------------------- | --------------- |
