@@ -57,4 +57,5 @@ jobs:
         env:
           SKIP_RECIPE_CATALOG: "1"
           CI_STRICT_LINKS: "1"
+          NODE_OPTIONS: --max-old-space-size=8192
           DOCUSAURUS_IGNORE_SSG_WARNINGS: true
