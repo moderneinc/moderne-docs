@@ -50,6 +50,14 @@ jobs:
       - name: Install dependencies
         run: yarn install --frozen-lockfile
 
+      - name: Cache build compilation artifacts
+        uses: actions/cache@v4
+        with:
+          path: node_modules/.cache
+          key: docusaurus-${{ runner.os }}-${{ hashFiles('yarn.lock') }}
+          restore-keys: |
+            docusaurus-${{ runner.os }}-
+
       - name: Build site
         run: |
           set -o pipefail
