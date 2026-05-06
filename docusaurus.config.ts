@@ -181,7 +181,16 @@ const config: Config = {
   ],
 
   future: {
-    faster: true,
+    faster: {
+      ssgWorkerThreads: false,
+      swcJsLoader: true,
+      swcJsMinimizer: true,
+      swcHtmlMinimizer: true,
+      lightningCssMinimizer: true,
+      rspackBundler: true,
+      rspackPersistentCache: true,
+      mdxCrossCompilerCache: true,
+    },
     v4: true,
   },
 
