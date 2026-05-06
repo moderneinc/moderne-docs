@@ -13,16 +13,6 @@ import RunRecipe from '@site/src/components/RunRecipe';
 
 # Migrate to Spring Boot 4.0 (Community Edition)
 
-:::info
-
-**Spring Boot 3.5.x reaches end of OSS support on June 30, 2026.**
-
-Moderne's recipe automates your migration across dozens or hundreds of services. As the company that builds and maintains OpenRewrite, we can help you scope, coordinate, and execute your full portfolio migration so you're never chasing a deadline again.
-
-[**Book a free 30-minute migration scope discussion →**](https://www.moderne.ai/book-a-demo?utm_source=openrewrite_docs&utm_medium=referral&utm_campaign=26_spring_boot_demo)
-
-:::
-
 **org.openrewrite.java.spring.boot4.UpgradeSpringBoot\_4\_0**
 
 _Migrate applications to the latest Spring Boot 4.0 release. This recipe will modify an application's build files, make changes to deprecated/preferred APIs._

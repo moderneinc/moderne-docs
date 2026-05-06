@@ -9,16 +9,6 @@ import RunRecipe from '@site/src/components/RunRecipe';
 
 # Migrate to Spring Boot 3
 
-:::info
-
-**Spring Boot 3.5.x reaches end of OSS support on June 30, 2026.**
-
-Moderne's recipe automates your migration across dozens or hundreds of services. As the company that builds and maintains OpenRewrite, we can help you scope, coordinate, and execute your full portfolio migration so you're never chasing a deadline again.
-
-[**Book a free 30-minute migration scope discussion →**](https://www.moderne.ai/book-a-demo?utm_source=openrewrite_docs&utm_medium=referral&utm_campaign=26_spring_boot_demo)
-
-:::
-
 Spring Boot 3 brought one of the most significant breaking changes in the framework's history: the move from `javax.*` to `jakarta.*`, alongside renamed configuration properties, a rewritten Spring Security configuration model, and a baseline bump to Java 17. Every Spring Boot 2 codebase is touched by these changes.
 
 A manual upgrade typically means hunting through every `javax` import, every renamed property, and every deprecated annotation across dozens of repositories – repetitive work that's easy to leave half-done.
