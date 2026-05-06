@@ -1,6 +1,7 @@
 ---
 sidebar_label: Workshop overview
 description: Set up the Moderne agent tools and use Prethink, Trigrep, and the MCP server with your AI coding agent.
+draft: true
 ---
 
 # Overview: Agent tools for AI coding agents

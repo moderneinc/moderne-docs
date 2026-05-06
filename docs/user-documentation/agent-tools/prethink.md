@@ -698,7 +698,7 @@ This creates a feedback loop: the agent writes code, regenerates Prethink contex
 
 ## Next steps
 
-* [Try the hands-on agent tools workshop](../../hands-on-learning/agent-tools/workshop-overview.md) to run Prethink end-to-end on a sample workspace
+{/* Hidden until ready to share publicly: * [Try the hands-on agent tools workshop](../../hands-on-learning/agent-tools/workshop-overview.md) to run Prethink end-to-end on a sample workspace */}
 * [Run Prethink recipes on the Moderne Platform](../moderne-platform/getting-started/prethink.md)
 * [Generate Prethink context with the CLI](../moderne-cli/how-to-guides/cli-prethink.md)
 * [Explore Prethink code quality visualizations](../moderne-platform/getting-started/visualizations.md#prethink-code-quality-visualizations) for dashboards including executive summaries, coupling/cohesion matrices, and method risk radar charts

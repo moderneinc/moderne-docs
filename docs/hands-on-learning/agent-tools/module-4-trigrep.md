@@ -1,6 +1,7 @@
 ---
 sidebar_label: "Module 4: Trigrep"
 description: Build a trigram search index with mod postbuild search index, then explore literal, regex, and structural queries across your workspace.
+draft: true
 ---
 
 # Module 4: Trigrep

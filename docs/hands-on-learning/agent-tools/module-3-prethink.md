@@ -1,6 +1,7 @@
 ---
 sidebar_label: "Module 3: Prethink"
 description: Run Prethink on a working set, apply the changes, and ask your agent to visualize the generated code quality metrics.
+draft: true
 ---
 
 # Module 3: Prethink

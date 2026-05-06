@@ -90,6 +90,7 @@ Use AI as a co-author to build an OpenRewrite migration recipe from scratch. Lea
 
 [Start workshop →](./hands-on-learning/ai-recipes/workshop-overview.md)
 
+{/* Hidden until ready to share publicly:
 ### Agent tools for AI coding agents
 
 Set up the Moderne agent tools and use Prethink, Trigrep, and the MCP server with your AI coding agent. Build a working setup you can point at your own repositories the same day.
@@ -105,6 +106,7 @@ Set up the Moderne agent tools and use Prethink, Trigrep, and the MCP server wit
 **Prerequisites:** Comfort running terminal commands, basic git familiarity, and a working AI coding agent (Claude Code, Cursor, GitHub Copilot, Windsurf, Amp, or Codex).
 
 [Start workshop →](./hands-on-learning/agent-tools/workshop-overview.md)
+*/}
 
 ## Need help?
 

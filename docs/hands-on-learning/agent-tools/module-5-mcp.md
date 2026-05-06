@@ -1,6 +1,7 @@
 ---
 sidebar_label: "Module 5: MCP server"
 description: Explore the Moderne MCP server and the semantic search, navigation, and refactoring tools it exposes to your AI coding agent.
+draft: true
 ---
 
 # Module 5: MCP server
