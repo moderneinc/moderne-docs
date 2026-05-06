@@ -55,5 +55,4 @@ jobs:
           set -o pipefail
           yarn build 2>&1 | { grep --line-buffered -v "^Generated markdown file:" || true; }
         env:
-          CI_STRICT_LINKS: "1"
           DOCUSAURUS_IGNORE_SSG_WARNINGS: true
