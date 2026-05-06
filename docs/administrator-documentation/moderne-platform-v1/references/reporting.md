@@ -4,10 +4,6 @@ description: Instructions for downloading reports.
 noIndex: true
 ---
 
-import VersionBanner from '@site/src/components/VersionBanner';
-
-<VersionBanner version="v1" linkPath="/administrator-documentation/moderne-platform/references/reporting" />
-
 # Reporting
 
 ## Overview

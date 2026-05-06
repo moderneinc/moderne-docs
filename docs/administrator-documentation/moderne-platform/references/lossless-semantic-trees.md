@@ -3,6 +3,10 @@ sidebar_label: Lossless semantic trees
 description: An in-depth technical document describing what lossless semantic trees are and how they're used.
 ---
 
+import VersionBanner from '@site/src/components/VersionBanner';
+
+<VersionBanner version="v2" linkPath="/administrator-documentation/moderne-platform-v1/references/lossless-semantic-trees" />
+
 # Lossless semantic trees
 
 <figure>

@@ -3,6 +3,10 @@ sidebar_label: Setting up mass ingest
 description: Instructions for ingesting a large number of repositories with Moderne.
 ---
 
+import VersionBanner from '@site/src/components/VersionBanner';
+
+<VersionBanner version="v2" linkPath="/administrator-documentation/moderne-platform-v1/how-to-guides/mass-ingest" />
+
 # Mass ingest
 
 One of the first steps of integrating your code with Moderne is setting up a pipeline that builds and publishes [LST](../references/lossless-semantic-trees.md) artifacts to an artifact repository that you control.
@@ -67,4 +71,4 @@ Some customers have successfully run mass ingest on Kubernetes, but it typically
 
 ## Next steps
 
-* [Configure the Moderne agent](./agent-configuration/agent-config.md)
+* [Configure the Moderne Connector](./agent-configuration/agent-config.md)

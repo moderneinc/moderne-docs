@@ -625,7 +625,7 @@ You should create an Organizations service if you want to:
 * Limit access to the organizations you've [previously defined](./configure-organizations-hierarchy.md) so that some users only have access to some repositories OR
 * Customize commit messages by repository (e.g., adding a JIRA ticket to your commit messages based on the repository)
 
-To do so, please follow the instructions in our [creating an Organizations service guide](../org-service.md) and then [let the agent know about it](../org-service.md#agent-variables).
+To do so, please follow the instructions in our [creating an Organizations service guide](../org-service.md) and then [let the agent know about it](../org-service.md#connector-variables).
 
 ### Step 10: (Optionally) Configure a DevCenter
 
