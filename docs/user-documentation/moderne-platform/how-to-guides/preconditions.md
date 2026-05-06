@@ -4,6 +4,9 @@ description: Describes what preconditions are and how to use them to get more re
 ---
 
 import ReactPlayer from '@site/src/components/VideoPlayer';
+import VersionBanner from '@site/src/components/VersionBanner';
+
+<VersionBanner version="v2" linkPath="/user-documentation/moderne-platform-v1/how-to-guides/preconditions" />
 
 # How to use preconditions
 

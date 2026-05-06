@@ -3,6 +3,10 @@ sidebar_label: Addressing CVEs
 description: How to systematically address CVEs in Moderne.
 ---
 
+import VersionBanner from '@site/src/components/VersionBanner';
+
+<VersionBanner version="v2" linkPath="/user-documentation/moderne-platform-v1/how-to-guides/addressing-cves" />
+
 # How to address CVEs with Moderne
 
 Let's assume a new Jackson CVE has just been disclosed. Your security team has reached out to you and told you that this is a critical issue. You have to quickly determine if your company is affected and, if so, what needs to be fixed. This is a common scenario that plays out whenever a new vulnerability is discovered in a popular library.

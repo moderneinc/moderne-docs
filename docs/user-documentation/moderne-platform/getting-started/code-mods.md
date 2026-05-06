@@ -4,6 +4,9 @@ description: Where to find codemods and a real-world example of using them at sc
 ---
 
 import ReactPlayer from '@site/src/components/VideoPlayer';
+import VersionBanner from '@site/src/components/VersionBanner';
+
+<VersionBanner version="v2" linkPath="/user-documentation/moderne-platform-v1/getting-started/code-mods" />
 
 # JavaScript codemods scaled with Moderne
 
