@@ -111,6 +111,7 @@ mod config agent-tools skills install
 ```
 
 This installs skills for every detected agent but leaves the MCP server unconfigured.
+{/* Hidden until ready for consumption: You can pair this with [Module 4](./module-4-trigrep.md) (Trigrep) to get fast search via the CLI without needing the MCP server. */}
 
 ### Takeaways
 
