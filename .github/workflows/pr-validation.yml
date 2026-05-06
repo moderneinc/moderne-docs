@@ -40,10 +40,6 @@ jobs:
     name: Build
     runs-on: ubuntu-latest
     steps:
-      - name: Collect workflow telemetry
-        uses: catchpoint/workflow-telemetry-action@v2
-        with:
-          comment_on_pr: false
       - uses: actions/checkout@v6
 
       - uses: actions/setup-node@v6
@@ -57,7 +53,61 @@ jobs:
       - name: Build site
         run: |
           set -o pipefail
-          yarn build 2>&1 | { grep --line-buffered -v "^Generated markdown file:" || true; }
+
+          # Background sampler: ts,pid,ppid,rss_kb,vsz_kb,comm — every 2s
+          {
+            while :; do
+              ts=$(date +%s)
+              ps -eo pid=,ppid=,rss=,vsz=,comm= 2>/dev/null \
+                | awk -v ts="$ts" '$5 ~ /^(node|yarn)$/ {print ts","$1","$2","$3","$4","$5}'
+              sleep 2
+            done
+          } > /tmp/proc-samples.csv 2>/dev/null &
+          SAMPLER_PID=$!
+
+          set +e
+          /usr/bin/time -v -o /tmp/build-time.txt \
+            bash -c 'yarn build 2>&1' \
+            | { grep --line-buffered -v "^Generated markdown file:" || true; }
+          BUILD_RC=${PIPESTATUS[0]}
+          set -e
+
+          kill "$SAMPLER_PID" 2>/dev/null || true
+          wait "$SAMPLER_PID" 2>/dev/null || true
+
+          {
+            echo "## Build memory profile"
+            echo ""
+            echo "### Wall stats (\`/usr/bin/time -v\`)"
+            echo '```'
+            grep -E "Elapsed|User time|System time|Maximum resident|page faults|Percent of CPU" /tmp/build-time.txt || true
+            echo '```'
+            echo ""
+            echo "### Peak RSS per node/yarn process (top 20)"
+            echo "| PID | PPID | Peak RSS (MB) | Command |"
+            echo "|---:|---:|---:|:---|"
+            awk -F, '
+              { if (($4+0) > peak[$2]+0) { peak[$2]=$4; ppid[$2]=$3; comm[$2]=$6 } }
+              END {
+                for (p in peak) printf "%s\t%s\t%.0f\t%s\n", p, ppid[p], peak[p]/1024, comm[p]
+              }
+            ' /tmp/proc-samples.csv \
+              | sort -t$'\t' -k3 -rn \
+              | head -20 \
+              | awk -F$'\t' '{printf "| %s | %s | %s | `%s` |\n", $1, $2, $3, $4}'
+            echo ""
+            echo "### Concurrency"
+            awk -F, '
+              { count[$1]++ }
+              END {
+                max=0
+                for (t in count) if (count[t]>max) max=count[t]
+                printf "Max concurrent node/yarn processes (2s sample): **%d**\n", max
+              }
+            ' /tmp/proc-samples.csv
+          } >> "$GITHUB_STEP_SUMMARY"
+
+          exit "$BUILD_RC"
         env:
           CI_STRICT_LINKS: "1"
           DOCUSAURUS_IGNORE_SSG_WARNINGS: true
