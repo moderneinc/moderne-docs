@@ -3,10 +3,6 @@ sidebar_label: Authentication
 description: An in-depth look at how authentication works in the Moderne Platform.
 ---
 
-import VersionBanner from '@site/src/components/VersionBanner';
-
-<VersionBanner version="v2" linkPath="/administrator-documentation/moderne-platform-v1/references/authentication" />
-
 # Authentication
 
 ### Goals

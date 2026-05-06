@@ -3,10 +3,6 @@ sidebar_label: User roles
 description: Outlines what permissions different types of users have in the Moderne Platform.
 ---
 
-import VersionBanner from '@site/src/components/VersionBanner';
-
-<VersionBanner version="v2" linkPath="/administrator-documentation/moderne-platform-v1/references/user-roles" />
-
 # User roles
 
 | Action                                            |       Everyone                    |    Administrators     |
@@ -38,7 +34,7 @@ In order to view recipe results, download data tables produced by a recipe, or c
 
 ## Repository insights
 
-The repository insights page provides details about a repository such as where the artifacts live, what version of Java it uses, how it was built, etc.
+The repository insights page provides details about a repository such as what languages it is composed of, where the artifacts live, what version of Java it uses, how it was built, etc.
 
 You can find repository insights by clicking on the repositories link in the navigation bar:
 

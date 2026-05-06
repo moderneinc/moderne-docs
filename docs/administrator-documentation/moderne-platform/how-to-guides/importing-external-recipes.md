@@ -3,10 +3,6 @@ sidebar_label: Importing external recipes
 description: How to import external recipes.
 ---
 
-import VersionBanner from '@site/src/components/VersionBanner';
-
-<VersionBanner version="v2" linkPath="/administrator-documentation/moderne-platform-v1/how-to-guides/importing-external-recipes" />
-
 # Importing external recipes
 
 External recipes can be imported into Moderne for use by your organization.
@@ -17,7 +13,8 @@ It is the responsibility of the administrator configuring this to ensure that th
 
 ### Prerequisites
 
-* You will need an Administrator-level account in your Moderne tenant to upload new recipe artifacts.
+* If you are a **single-tenant** user, you will need an Administrator-level account in your Moderne tenant to upload new recipe artifacts.
+* If you are a **multi-tenant** user, anyone with an `@mycompany.com` email can deploy a recipe artifact if said artifact has a `groupId` that starts with `com.mycompany` (the `tenantDomain` inverted).
 
 ## Importing recipes from the Moderne Platform
 
@@ -39,7 +36,11 @@ From your Moderne tenant, click on _Deploy_ in the left-hand menu:
   <figcaption></figcaption>
 </figure>
 
-2. Provide the `Group ID`, `Artifact ID`, and `Version` for the published artifact. You can also configure what organization to deploy it to and what ecosystem your artifacts live in.
+2. Provide the `Group ID`, `Artifact ID`, and `Version` for the published artifact:
+
+:::info
+If you are a multi-tenant customer, you must ensure that your artifact's `groupId` starts with `com.mycompany` (the `tenantDomain` inverted). You also must ensure that your account has an `@mycompany.com` email address.
+:::
 
 <figure>
   ![Deploy new recipe artifact form with Group ID, Artifact ID, and Version fields](./assets/gav-artifact.png)
@@ -50,7 +51,7 @@ From your Moderne tenant, click on _Deploy_ in the left-hand menu:
 
 The artifact information will appear in the table if Moderne successfully locates the requested artifact.
 
-**Note:** If you have an [on-premise Connector](./agent-configuration/agent-config.md) connected to an Artifactory instance that has been configured to serve recipes, we will look up recipes in your Artifactory repositories in addition to [Nexus](https://oss.sonatype.org/) and [Maven Central](https://search.maven.org/).
+**Note:** If you have an [on-premise agent](./agent-configuration/agent-config.md) connected to an Artifactory instance that has been configured to serve recipes, we will look up recipes in your Artifactory repositories in addition to [Nexus](https://oss.sonatype.org/) and [Maven Central](https://search.maven.org/).
 
 ### Step 3: View recipes in the catalog
 
