@@ -80,5 +80,6 @@ jobs:
 
           exit "$BUILD_RC"
         env:
+          SKIP_RECIPE_CATALOG: "1"
           CI_STRICT_LINKS: "1"
           DOCUSAURUS_IGNORE_SSG_WARNINGS: true

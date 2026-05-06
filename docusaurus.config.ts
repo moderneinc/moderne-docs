@@ -181,7 +181,22 @@ const config: Config = {
   ],
 
   future: {
-    faster: true,
+    faster: {
+      // SSG worker threads parallelise per-page rendering; each worker
+      // holds a React render tree, multiplying peak memory across pages
+      // in flight. With the full recipe-catalog build (~5,700 pages) on
+      // ubuntu-latest's 16 GB the kernel SIGTERMs the job mid-build.
+      // Serialising SSG keeps peak memory bounded; Rspack/SWC keep
+      // their own internal parallelism for the bundling/minimising work.
+      ssgWorkerThreads: false,
+      swcJsLoader: true,
+      swcJsMinimizer: true,
+      swcHtmlMinimizer: true,
+      lightningCssMinimizer: true,
+      rspackBundler: true,
+      rspackPersistentCache: true,
+      mdxCrossCompilerCache: true,
+    },
     v4: true,
   },
 
