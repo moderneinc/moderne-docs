@@ -1,5 +1,5 @@
 ---
-sidebar_label: "Module 4: Raise baseline and smoke test"
+sidebar_label: "Module 4: Java 17 upgrade and Spring Boot 4 smoke test"
 description: Upgrade to Java 17 and run a Spring Boot 4 smoke test.
 ---
 
@@ -18,7 +18,7 @@ In this module, you will raise the Java baseline to 17 and run a controlled Spri
 ### Steps
 
 1. Back in the [Moderne Platform](https://app.moderne.io), relogin if needed, then click **Activity** in the left navigation. The Activity page shows a history of all recipe runs, including their status and results.
-2. Open the failed run of your custom `Try Spring Boot 4 Upgrade` recipe from Module 1 that included [`io.moderne.java.spring.boot4.UpgradeSpringBoot_4_0`](https://docs.openrewrite.org/recipes/java/spring/boot4/upgradespringboot_4_0) and [`io.moderne.compiled.verification.VerifyCompilation`](https://docs.openrewrite.org/recipes/compiled/verification/verifycompilation).
+2. Open the failed run of your custom `Try Spring Boot 4 Upgrade` recipe from Module 1 that included [`io.moderne.java.spring.boot4.UpgradeSpringBoot_4_0`](https://docs.openrewrite.org/recipes/java/spring/boot4/upgradespringboot_4_0-moderne-edition) and [`io.moderne.compiled.verification.VerifyCompilation`](https://docs.openrewrite.org/recipes/compiled/verification/verifycompilation).
 3. Click the **Visualizations** tab and run the **Composite recipe results** visualization.
 
 <figure>
@@ -65,7 +65,7 @@ mod build $WORKSPACE
 <details>
 <summary>Reference output</summary>
 
-```
+```text
 Starting build process...
 Running Wave 0...
 ecom-common built successfully
@@ -297,7 +297,7 @@ Now that your repositories are upgraded to Java 17, you can run another quick sm
 
 #### Step 1: Run the upgrade recipe
 
-In Module 1, you ran the recipe in the platform and used the `Verify compilation` recipe ([`io.moderne.compiled.verification.VerifyCompilation`](https://docs.openrewrite.org/recipes/compiled/verification/verifycompilation)) to check for build failures. Now, you can run the Spring Boot 4 Upgrade recipe ([`io.moderne.java.spring.boot4.UpgradeSpringBoot_4_0`](https://docs.openrewrite.org/recipes/java/spring/boot4/upgradespringboot_4_0-moderne-edition)) by itself with the CLI and verify the build directly to isolate any remaining obstacles that may require custom fixes. 
+In Module 1, you ran the recipe in the platform and used the `Verify compilation` recipe ([`io.moderne.compiled.verification.VerifyCompilation`](https://docs.openrewrite.org/recipes/compiled/verification/verifycompilation)) to check for build failures. Now, you can run the Spring Boot 4 Upgrade recipe ([`io.moderne.java.spring.boot4.UpgradeSpringBoot_4_0`](https://docs.openrewrite.org/recipes/java/spring/boot4/upgradespringboot_4_0-moderne-edition)) by itself with the CLI and verify the build directly to isolate any remaining obstacles that may require custom fixes.
 
 First, run the recipe and apply the changes:
 
@@ -314,7 +314,7 @@ Don't worry if you see warnings about "errors while running the recipe." You'll 
 You may wish to open the diffs to inspect the changes before applying them. Use ctrl-click (Windows) or cmd-click (Mac) on the `Fix results` links to preview the changes after running the recipe.
 :::
 
-#### Step 2: Build wave 0 and wave 1
+#### Step 2: Build Wave 0 and Wave 1
 
 Now, you can run your build wave by wave. Expect Wave 0 to build cleanly and Wave 1 to fail due to the QueryDSL issues you saw in Module 1.
 
@@ -339,6 +339,6 @@ mod build $WORKSPACE
 
 ## Takeaways
 
-* The composite visualization shows why Java 17 is a prerequisite for Spring Boot 4
-* A Java 17 upgrade raises the baseline across the organization before framework changes
-* The Spring Boot 4 smoke test exposes blockers without committing to a full upgrade
+* The composite visualization shows why Java 17 is a prerequisite for Spring Boot 4.
+* A Java 17 upgrade raises the baseline across the organization before framework changes.
+* The Spring Boot 4 smoke test exposes blockers without committing to a full upgrade.

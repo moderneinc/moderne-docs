@@ -1,5 +1,5 @@
 ---
-sidebar_label: "Module 5: Build the QueryDSL recipe"
+sidebar_label: "Module 5: Building the QueryDSL upgrade recipe"
 description: Diagnose the QueryDSL blocker and build a custom upgrade recipe with AI assistance.
 ---
 
@@ -97,7 +97,7 @@ The agent will run the same searches you did above, cross-reference them with th
 
 #### Step 1: Set up the recipe project
 
-Create a directory for the recipe project and launch your AI coding agent. This exercise uses [Claude Code](https://docs.anthropic.com/en/docs/claude-code) with the Moderne extension, but you can use any AI coding agent or build the recipe manually. If you don't have an agent available, skip to the fallback option in Step 4.
+Create a directory for the recipe project and launch your AI coding agent. This exercise uses [Claude Code](https://docs.anthropic.com/en/docs/claude-code) with the Moderne extension, but you can use any AI coding agent or build the recipe manually. If you prefer not to use an agent, skip to the alternative path in Step 4.
 
 ```bash
 mkdir -p $PROJECTS/rewrite-querydsl && cd $PROJECTS/rewrite-querydsl
@@ -153,8 +153,9 @@ Once the agent has produced the recipe, build and install it locally. Use the gr
 mod config recipes jar install <group>:<artifact>:<version>  # e.g., org.openrewrite.recipe:rewrite-querydsl:0.1.0-SNAPSHOT
 ```
 
-:::tip
-If you are running short on time or your agent is not cooperating, you can use the pre-built recipe as a fallback:
+:::info Alternative path
+
+If you prefer not to use an agent, install the pre-built QueryDSL recipes from the Moderne training organization — the same recipes you would have built:
 
 ```bash
 cd $PROJECTS
@@ -164,7 +165,8 @@ mvn clean install
 mod config recipes jar install org.openrewrite.recipe:rewrite-querydsl:0.1.0-SNAPSHOT
 ```
 
-This is the "answer key" — the same recipe you would have built. You can compare your version against it after the workshop.
+You can compare your version against this one after the workshop.
+
 :::
 
 ### Takeaways
@@ -189,7 +191,7 @@ This exercise followed an abbreviated version of the plan-build-test workflow fr
 
 #### Step 1: Run the recipe
 
-Run your recipe against the workspace to see what it changes. If you used the pre-built fallback, the recipe name is `org.openrewrite.recipe.querydsl.UpgradeToQueryDsl5`:
+Run your recipe against the workspace to see what it changes. If you installed the pre-built recipes, the recipe name is `org.openrewrite.recipe.querydsl.UpgradeToQueryDsl5`:
 
 ```bash
 mod run $WORKSPACE --recipe org.openrewrite.recipe.querydsl.UpgradeToQueryDsl5

@@ -23,7 +23,7 @@ Additionally, since you will be upgrading in waves to ensure that custom library
 This is an example of a migration recipe _freight train_. You will often build a custom recipe that runs the out-of-the-box recipes and then applies some additional ones that are needed in your particular environment. In this workshop, the composite recipe upgrades internal dependencies, applies the Spring Boot 4 recipe, and then runs the QueryDSL upgrade.
 :::
 
-1. Create a local YAML recipe file in your `$WORKSHOP` directory. This composite recipe is named `org.openrewrite.recipe.querydsl.CustomUpgradeSpringBoot_4_0` and combines [`org.openrewrite.java.dependencies.UpgradeDependencyVersion`](https://docs.openrewrite.org/recipes/java/dependencies/upgradedependencyversion), [`io.moderne.java.spring.boot4.UpgradeSpringBoot_4_0`](https://docs.openrewrite.org/recipes/java/spring/boot4/upgradespringboot_4_0), and `org.openrewrite.recipe.querydsl.UpgradeToQueryDsl5`. If you prefer, you can copy and paste the YAML directly into a new file instead of using the command.
+1. Create a local YAML recipe file in your `$WORKSHOP` directory. This composite recipe is named `org.openrewrite.recipe.querydsl.CustomUpgradeSpringBoot_4_0` and combines [`org.openrewrite.java.dependencies.UpgradeDependencyVersion`](https://docs.openrewrite.org/recipes/java/dependencies/upgradedependencyversion), [`io.moderne.java.spring.boot4.UpgradeSpringBoot_4_0`](https://docs.openrewrite.org/recipes/java/spring/boot4/upgradespringboot_4_0-moderne-edition), and `org.openrewrite.recipe.querydsl.UpgradeToQueryDsl5`. If you prefer, you can copy and paste the YAML directly into a new file instead of using the command.
 
 ```bash
 cat <<'EOF' > $WORKSHOP/CustomUpgradeSpringBoot_4_0.yml
@@ -54,12 +54,12 @@ You can't use recipe builder in this case since you are referring to a custom re
 mod config recipes yaml install $WORKSHOP/CustomUpgradeSpringBoot_4_0.yml
 ```
 
-## Exercise 6-2: Upgrade wave 0
+## Exercise 6-2: Upgrade Wave 0
 
 ### Goals for this exercise
 
-* Apply the composite recipe to wave 0
-* Build and release wave 0
+* Apply the composite recipe to Wave 0
+* Build and release Wave 0
 
 ### Steps
 
@@ -87,12 +87,12 @@ $WORKSHOP/release.sh 0
 
 This isn't surprising since you saw Wave 0 successfully build earlier. It was Wave 1 that failed last time, so the real test will be upgrading Wave 1.
 
-## Exercise 6-3: Upgrade wave 1
+## Exercise 6-3: Upgrade Wave 1
 
 ### Goals for this exercise
 
-* Apply the composite recipe to wave 1
-* Build and release wave 1
+* Apply the composite recipe to Wave 1
+* Build and release Wave 1
 
 ### Steps
 
@@ -295,9 +295,9 @@ The final dashboard should show all 11 repositories on Spring Boot 4.0 and Java 
 
 ## Takeaways
 
-* Composite "freight train" recipes bundle prerequisite upgrades with the main migration step
-* Wave-by-wave upgrades keep dependency releases aligned and reduce downstream breakage
-* DevCenter refreshes provide a quick progress check after each wave
+* Composite "freight train" recipes bundle prerequisite upgrades with the main migration step.
+* Wave-by-wave upgrades keep dependency releases aligned and reduce downstream breakage.
+* DevCenter refreshes provide a quick progress check after each wave.
 
 ## Learn more
 
