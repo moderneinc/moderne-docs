@@ -63,4 +63,7 @@ jobs:
           set -o pipefail
           yarn build 2>&1 | { grep --line-buffered -v "^Generated markdown file:" || true; }
         env:
+          DOCUSAURUS_SSG_WORKER_THREADS: "2"
+          NODE_OPTIONS: "--max-old-space-size=12288"
+          DOCUSAURUS_PERF_LOGGER: "true"
           DOCUSAURUS_IGNORE_SSG_WARNINGS: true
