@@ -5,6 +5,9 @@ description: Working with commits and PRs in Moderne.
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import VersionBanner from '@site/src/components/VersionBanner';
+
+<VersionBanner version="v2" linkPath="/user-documentation/moderne-platform-v1/how-to-guides/track-commits" />
 
 # Working with commits and PRs in Moderne
 
@@ -56,7 +59,7 @@ Moderne supports five different commit strategies:
 5. Creating a pull request from a fork
 
 :::info
-The commit strategies available to you depend on what your tenant administrator has configured. By default, all options are available, but administrators can restrict which options are shown. For more details, see the [agent configuration documentation](../../../administrator-documentation/moderne-platform/how-to-guides/agent-configuration/agent-config.md).
+The commit strategies available to you depend on what your tenant administrator has configured. By default, all options are available, but administrators can restrict which options are shown. For more details, see the [Connector configuration documentation](../../../administrator-documentation/moderne-platform/how-to-guides/agent-configuration/agent-config.md).
 :::
 
 For each of those, there are a wide variety of options that you can configure to meet your needs:

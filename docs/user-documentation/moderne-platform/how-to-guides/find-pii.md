@@ -4,6 +4,9 @@ description: How to find personally identifiable information (PII) and secrets e
 ---
 
 import ReactPlayer from '@site/src/components/VideoPlayer';
+import VersionBanner from '@site/src/components/VersionBanner';
+
+<VersionBanner version="v2" linkPath="/user-documentation/moderne-platform-v1/how-to-guides/find-pii" />
 
 # How to find personally identifiable information (PII) and secrets exposed by your APIs
 

@@ -1,14 +1,21 @@
 ---
-sidebar_label: All agent variables
-description: A reference manual that contains all agent configuration variables.
+sidebar_label: All Connector variables
+description: A reference manual that contains all Connector configuration variables.
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import VersionBanner from '@site/src/components/VersionBanner';
 
-# All agent configuration variables
+<VersionBanner version="v2" linkPath="/administrator-documentation/moderne-platform-v1/how-to-guides/agent-configuration/agent-variables" />
 
-This document includes all of the variables you can configure the Moderne agent to run with. Your configuration will only use some of these.
+# All Connector configuration variables
+
+:::info
+As of SaaS v2, Connector configuration uses new canonical property names documented below. The legacy `moderne.agent.*` property names (and their `MODERNE_AGENT_*` environment variable equivalents) are still accepted and automatically mapped to their canonical equivalents at startup. New deployments should use the canonical names shown here.
+:::
+
+This document includes all of the variables you can configure the Moderne Connector to run with. Your configuration will only use some of these.
 
 ## Core variables
 
@@ -17,27 +24,25 @@ This document includes all of the variables you can configure the Moderne agent 
 
 **Environment variables:**
 
-| Variable Name                                | Required | Default                | Description                                                                                                                                        |
-|----------------------------------------------|----------|------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------|
-| `MODERNE_AGENT_APIGATEWAYRSOCKETURI`         | `true`   |                        | The URI used to connect to the Moderne API, provided by Moderne.                                                                                   |
-| `MODERNE_AGENT_CRYPTO_SYMMETRICKEY`          | `true`   |                        | A 256-bit AES encryption key, hex encoded. Used to encrypt your artifacts.                                                                         |
-| `MODERNE_AGENT_NICKNAME`                     | `true`   |                        | A name used to identify your agent in the SaaS agent dashboard UI.                                                                                 |
-| `MODERNE_AGENT_TOKEN`                        | `true`   |                        | The Moderne SaaS agent connection token, provided by Moderne.                                                                                      |
-| `MODERNE_AGENT_DOWNLOADPARALLELISM`          | `false`  | 2 threads              | How many threads are used to download LSTs.                                                                                                        |
-| `MODERNE_AGENT_ARTIFACTINDEXINTERVALSECONDS` | `false`  | 120 seconds            | How frequently LSTs will be indexed.                                                                                                               |
-| `MODERNE_AGENT_DEFAULTCOMMITOPTIONS_{index}`          | `false`  | All options available. | Use to restrict which commit options are available in Moderne. Acceptable values: `Direct`, `Branch`, `Fork`, `PullRequest`, `ForkAndPullRequest`. |
-| `MODERNE_AGENT_PERSONALACCESSTOKENS_MAXEXPIRYDAYS`    | `false`  |                        | The maximum number of days a personal access token can be configured to expire in. When set, users cannot create tokens with an expiry date beyond this limit. |
+| Variable Name                                      | Required | Default                | Description                                                                                                                                                    |
+|----------------------------------------------------|----------|------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `MODERNE_CONNECTOR_APIGATEWAYRSOCKETURI`           | `true`   |                        | The URI used to connect to the Moderne API, provided by Moderne.                                                                                               |
+| `MODERNE_CONNECTOR_CRYPTO_SYMMETRICKEY`            | `true`   |                        | A 256-bit AES encryption key, hex encoded. Used to encrypt your artifacts.                                                                                     |
+| `MODERNE_CONNECTOR_NICKNAME`                       | `true`   |                        | A name used to identify your Connector in the SaaS Connector dashboard UI.                                                                                     |
+| `MODERNE_CONNECTOR_TOKEN`                          | `true`   |                        | The Moderne SaaS Connector connection token, provided by Moderne.                                                                                              |
+| `MODERNE_SCM_DEFAULTCOMMITOPTIONS_{index}`         | `false`  | All options available. | Use to restrict which commit options are available in Moderne. Acceptable values: `Direct`, `Branch`, `Fork`, `PullRequest`, `ForkAndPullRequest`.             |
+| `MODERNE_AUTHORIZATION_ACCESSTOKENS_MAXEXPIRYDAYS` | `false`  |                        | The maximum number of days a personal access token can be configured to expire in. When set, users cannot create tokens with an expiry date beyond this limit. |
 
 **Example:**
 
 ```bash
 docker run \
--e MODERNE_AGENT_APIGATEWAYRSOCKETURI=https://api.tenant.moderne.io/rsocket \
--e MODERNE_AGENT_CRYPTO_SYMMETRICKEY=yourSymmetricKey \
--e MODERNE_AGENT_NICKNAME=prod-1 \
--e MODERNE_AGENT_TOKEN=yourToken \
--e MODERNE_AGENT_DEFAULTCOMMITOPTIONS_0=PullRequest \
--e MODERNE_AGENT_DEFAULTCOMMITOPTIONS_1=ForkAndPullRequest \
+-e MODERNE_CONNECTOR_APIGATEWAYRSOCKETURI=https://api.tenant.moderne.io/connector \
+-e MODERNE_CONNECTOR_CRYPTO_SYMMETRICKEY=yourSymmetricKey \
+-e MODERNE_CONNECTOR_NICKNAME=prod-1 \
+-e MODERNE_CONNECTOR_TOKEN=yourToken \
+-e MODERNE_SCM_DEFAULTCOMMITOPTIONS_0=PullRequest \
+-e MODERNE_SCM_DEFAULTCOMMITOPTIONS_1=ForkAndPullRequest \
 # ... Additional variables
 ```
 </TabItem>
@@ -46,27 +51,25 @@ docker run \
 
 **Arguments:**
 
-| Argument Name                                   | Required | Default                | Description                                                                                                                                        |
-|-------------------------------------------------|----------|------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------|
-| `--moderne.agent.apiGatewayRsocketUri`          | `true`   |                        | The URI used to connect to the Moderne API, provided by Moderne.                                                                                   |
-| `--moderne.agent.crypto.symmetricKey`           | `true`   |                        | A 256-bit AES encryption key, hex encoded. Used to encrypt your artifacts.                                                                         |
-| `--moderne.agent.nickname`                      | `true`   |                        | A name used to identify your agent in the SaaS agent dashboard UI.                                                                                 |
-| `--moderne.agent.token`                         | `true`   |                        | The Moderne SaaS agent connection token, provided by Moderne.                                                                                      |
-| `--moderne.agent.downloadParallelism`           | `false`  | 2 threads              | How many threads are used to download LSTs.                                                                                                        |
-| `--moderne.agent.artifactIndexIntervalSeconds`  | `false`  | 120 seconds            | How frequently LSTs will be indexed.                                                                                                               |
-| `--moderne.agent.defaultCommitOptions[{index}]`      | `false`  | All options available. | Use to restrict which commit options are available in Moderne. Acceptable values: `Direct`, `Branch`, `Fork`, `PullRequest`, `ForkAndPullRequest`. |
-| `--moderne.agent.personalAccessTokens.maxExpiryDays` | `false`  |                        | The maximum number of days a personal access token can be configured to expire in. When set, users cannot create tokens with an expiry date beyond this limit. |
+| Argument Name                                        | Required | Default                | Description                                                                                                                                                    |
+|------------------------------------------------------|----------|------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `--moderne.connector.apiGatewayRsocketUri`           | `true`   |                        | The URI used to connect to the Moderne API, provided by Moderne.                                                                                               |
+| `--moderne.connector.crypto.symmetricKey`            | `true`   |                        | A 256-bit AES encryption key, hex encoded. Used to encrypt your artifacts.                                                                                     |
+| `--moderne.connector.nickname`                       | `true`   |                        | A name used to identify your Connector in the SaaS Connector dashboard UI.                                                                                     |
+| `--moderne.connector.token`                          | `true`   |                        | The Moderne SaaS Connector connection token, provided by Moderne.                                                                                              |
+| `--moderne.scm.defaultCommitOptions[{index}]`        | `false`  | All options available. | Use to restrict which commit options are available in Moderne. Acceptable values: `Direct`, `Branch`, `Fork`, `PullRequest`, `ForkAndPullRequest`.             |
+| `--moderne.authorization.accessTokens.maxExpiryDays` | `false`  |                        | The maximum number of days a personal access token can be configured to expire in. When set, users cannot create tokens with an expiry date beyond this limit. |
 
 **Example:**
 
 ```bash
-java -jar moderne-agent-{version}.jar \
---moderne.agent.apiGatewayRsocketUri=https://api.tenant.moderne.io/rsocket \
---moderne.agent.crypto.symmetricKey=yourSymmetricKey
---moderne.agent.nickname=prod-1 \
---moderne.agent.token=yourToken \
---moderne.agent.defaultCommitOptions[0]=PullRequest \
---moderne.agent.defaultCommitOptions[1]=ForkAndPullRequest \
+java -jar connector-{version}.jar \
+--moderne.connector.apiGatewayRsocketUri=https://api.tenant.moderne.io/connector \
+--moderne.connector.crypto.symmetricKey=yourSymmetricKey \
+--moderne.connector.nickname=prod-1 \
+--moderne.connector.token=yourToken \
+--moderne.scm.defaultCommitOptions[0]=PullRequest \
+--moderne.scm.defaultCommitOptions[1]=ForkAndPullRequest \
 # ... Additional arguments
 ```
 </TabItem>
@@ -79,25 +82,20 @@ java -jar moderne-agent-{version}.jar \
 
 **Environment variables:**
 
-| Variable Name                                          | Required                                         | Default | Description                                                                                                                                                                  |
-|--------------------------------------------------------|--------------------------------------------------|---------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `MODERNE_AGENT_AZUREDEVOPS_{index}_OAUTH_CLIENTID`     | `true`                                           |         | The client ID of the registered OAuth app.                                                                                                                                   |
-| `MODERNE_AGENT_AZUREDEVOPS_{index}_OAUTH_CLIENTSECRET` | `true`                                           |         | The client secret of the registered OAuth app.                                                                                                                               |
-| `MODERNE_AGENT_AZUREDEVOPS_{index}_OAUTH_TENANTID`     | `true`                                           |         | The Azure tenant ID of the registered OAuth app.                                                                                                                             |
-| `MODERNE_AGENT_AZUREDEVOPS_{index}_SKIPSSL`            | `false`                                          | `false` | Specifies whether or not to skip SSL validation for HTTP connections to this Azure DevOps instance. This must be set to `true` if you use a self-signed SSL/TLS certificate. |
-| `MODERNE_AGENT_AZUREDEVOPS_{index}_SSH_PRIVATEKEY`     | `false`                                          |         | The SSH private key used to establish a SSH connection with Azure DevOps.                                                                                                    |
-| `MODERNE_AGENT_AZUREDEVOPS_{index}_SSH_PASSPHRASE`     | `true` (If the SSH key is specified + encrypted) |         | The passphrase used to encrypt the SSH private key                                                                                                                           |
-| `MODERNE_AGENT_AZUREDEVOPS_{index}_SSH_SSHFILENAME`    | `true` (If the SSH key is specified)             |         | The file name of the private key, which the agent will store locally.                                                                                                        |
-| `MODERNE_AGENT_AZUREDEVOPS_{index}_SSH_USER`           | `true` (If the SSH key is specified)             |         | The username used for SSH communication with Azure DevOps.                                                                                                                   |
+| Variable Name                                        | Required | Default | Description                                      |
+|------------------------------------------------------|----------|---------|--------------------------------------------------|
+| `MODERNE_SCM_AZUREDEVOPS_{index}_OAUTH_CLIENTID`     | `true`   |         | The client ID of the registered OAuth app.       |
+| `MODERNE_SCM_AZUREDEVOPS_{index}_OAUTH_CLIENTSECRET` | `true`   |         | The client secret of the registered OAuth app.   |
+| `MODERNE_SCM_AZUREDEVOPS_{index}_OAUTH_TENANTID`     | `true`   |         | The Azure tenant ID of the registered OAuth app. |
 
 **Example:**
 
 ```bash
 docker run \
 # ... Existing variables
--e MODERNE_AGENT_AZUREDEVOPS_0_OAUTH_CLIENTID=4affd674-286d-423f-b643-7ffe4dec0f53 \
--e MODERNE_AGENT_AZUREDEVOPS_0_OAUTH_CLIENTSECRET=yourClientSecret \
--e MODERNE_AGENT_AZUREDEVOPS_0_OAUTH_TENANTID=488bc312-9fdc-43d2-a647-7a7b28066cc4 \
+-e MODERNE_SCM_AZUREDEVOPS_0_OAUTH_CLIENTID=4affd674-286d-423f-b643-7ffe4dec0f53 \
+-e MODERNE_SCM_AZUREDEVOPS_0_OAUTH_CLIENTSECRET=yourClientSecret \
+-e MODERNE_SCM_AZUREDEVOPS_0_OAUTH_TENANTID=488bc312-9fdc-43d2-a647-7a7b28066cc4 \
 # ... Additional variables
 ```
 </TabItem>
@@ -106,25 +104,20 @@ docker run \
 
 **Arguments:**
 
-| Argument Name                                             | Required                                         | Default | Description                                                                                                                                                                  |
-|-----------------------------------------------------------|--------------------------------------------------|---------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `--moderne.agent.azuredevops[{index}].oauth.clientId`     | `true`                                           |         | The client ID of the registered OAuth app.                                                                                                                                   |
-| `--moderne.agent.azuredevops[{index}].oauth.clientSecret` | `true`                                           |         | The client secret of the registered OAuth app.                                                                                                                               |
-| `--moderne.agent.azuredevops[{index}].oauth.tenantId`     | `true`                                           |         | The Azure tenant ID of the registered OAuth app.                                                                                                                             |
-| `--moderne.agent.azuredevops[{index}].skipSsl`            | `false`                                          | `false` | Specifies whether or not to skip SSL validation for HTTP connections to this Azure DevOps instance. This must be set to `true` if you use a self-signed SSL/TLS certificate. |
-| `--moderne.agent.azuredevops[{index}].ssh.privateKey`     | `false`                                          |         | The SSH private key used to establish a SSH connection with Azure DevOps.                                                                                                    |
-| `--moderne.agent.azuredevops[{index}].ssh.passphrase`     | `true` (If the SSH key is specified + encrypted) |         | The passphrase used to encrypt the SSH private key                                                                                                                           |
-| `--moderne.agent.azuredevops[{index}].ssh.sshFileName`    | `true` (If the SSH key is specified)             |         | The file name of the private key, which the agent will store locally.                                                                                                        |
-| `--moderne.agent.azuredevops[{index}].ssh.user`           | `true` (If the SSH key is specified)             |         | The username used for SSH communication with Azure DevOps.                                                                                                                   |
+| Argument Name                                           | Required | Default | Description                                      |
+|---------------------------------------------------------|----------|---------|--------------------------------------------------|
+| `--moderne.scm.azureDevops[{index}].oauth.clientId`     | `true`   |         | The client ID of the registered OAuth app.       |
+| `--moderne.scm.azureDevops[{index}].oauth.clientSecret` | `true`   |         | The client secret of the registered OAuth app.   |
+| `--moderne.scm.azureDevops[{index}].oauth.tenantId`     | `true`   |         | The Azure tenant ID of the registered OAuth app. |
 
 **Example:**
 
 ```bash
-java -jar moderne-agent-{version}.jar \
+java -jar connector-{version}.jar \
 # ... Existing arguments
---moderne.agent.azuredevops[0].oauth.clientId=4affd674-286d-423f-b643-7ffe4dec0f53 \
---moderne.agent.azuredevops[0].oauth.clientSecret=yourClientSecret \
---moderne.agent.azuredevops[0].oauth.tenantId=488bc312-9fdc-43d2-a647-7a7b28066cc4 \
+--moderne.scm.azureDevops[0].oauth.clientId=4affd674-286d-423f-b643-7ffe4dec0f53 \
+--moderne.scm.azureDevops[0].oauth.clientSecret=yourClientSecret \
+--moderne.scm.azureDevops[0].oauth.tenantId=488bc312-9fdc-43d2-a647-7a7b28066cc4 \
 # ... Additional arguments
 ```
 </TabItem>
@@ -137,18 +130,18 @@ java -jar moderne-agent-{version}.jar \
 
 **Environment variables:**
 
-| Variable Name                                | Required | Default | Description                                            |
-|----------------------------------------------|----------|---------|--------------------------------------------------------|
-| `MODERNE_AGENT_BITBUCKET_CLOUD_OAUTH_KEY`    | `true`   |         | The key specified in your Bitbucket OAuth consumer.    |
-| `MODERNE_AGENT_BITBUCKET_CLOUD_OAUTH_SECRET` | `true`   |         | The secret specified in your Bitbucket OAuth consumer. |
+| Variable Name                             | Required | Default | Description                                            |
+|-------------------------------------------|----------|---------|--------------------------------------------------------|
+| `MODERNE_SCM_BITBUCKETCLOUD_OAUTH_KEY`    | `true`   |         | The key specified in your Bitbucket OAuth consumer.    |
+| `MODERNE_SCM_BITBUCKETCLOUD_OAUTH_SECRET` | `true`   |         | The secret specified in your Bitbucket OAuth consumer. |
 
 **Example:**
 
 ```bash
 docker run \
 # ... Existing variables
--e MODERNE_AGENT_BITBUCKET_CLOUD_OAUTH_KEY=yourOAuthKey \
--e MODERNE_AGENT_BITBUCKET_CLOUD_OAUTH_SECRET=yourSecretKey \
+-e MODERNE_SCM_BITBUCKETCLOUD_OAUTH_KEY=yourOAuthKey \
+-e MODERNE_SCM_BITBUCKETCLOUD_OAUTH_SECRET=yourSecretKey \
 # ... Additional variables
 ```
 </TabItem>
@@ -157,18 +150,18 @@ docker run \
 
 **Arguments:**
 
-| Argument Name                                 | Required | Default | Description                                            |
-|-----------------------------------------------|----------|---------|--------------------------------------------------------|
-| `--moderne.agent.bitbucket.cloud.oauthKey`    | `true`   |         | The key specified in your Bitbucket OAuth consumer.    |
-| `--moderne.agent.bitbucket.cloud.oauthSecret` | `true`   |         | The secret specified in your Bitbucket OAuth consumer. |
+| Argument Name                               | Required | Default | Description                                            |
+|---------------------------------------------|----------|---------|--------------------------------------------------------|
+| `--moderne.scm.bitbucketCloud.oauth.key`    | `true`   |         | The key specified in your Bitbucket OAuth consumer.    |
+| `--moderne.scm.bitbucketCloud.oauth.secret` | `true`   |         | The secret specified in your Bitbucket OAuth consumer. |
 
 **Example:**
 
 ```bash
-java -jar moderne-agent-{version}.jar \
+java -jar connector-{version}.jar \
 # ... Existing arguments
---moderne.agent.bitbucket.cloud.oauthKey=yourOAuthKey \
---moderne.agent.bitbucket.cloud.oauthSecret=yourSecretKey \
+--moderne.scm.bitbucketCloud.oauth.key=yourOAuthKey \
+--moderne.scm.bitbucketCloud.oauth.secret=yourSecretKey \
 # ... Additional arguments
 ```
 </TabItem>
@@ -185,28 +178,22 @@ You can configure multiple Bitbucket instances by including multiple entries, ea
 
 **Environment variables:**
 
-| Variable Name                                           | Required                                     | Default | Description                                                                                                                                                               |
-|---------------------------------------------------------|----------------------------------------------|---------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `MODERNE_AGENT_BITBUCKET_{index}_URL`                   | `true`                                       |         | The fully-qualified URL of the running Bitbucket instance. For example:  `https://bitbucket.myorg.com`.                                                                   |
-| `MODERNE_AGENT_BITBUCKET_{index}_PRIVATEKEY`            | `conditional`                                |         | (OAuth1.0a only) The private key you configured for this Bitbucket instance.                                                                                              |
-| `MODERNE_AGENT_BITBUCKET_{index}_OAUTH_KEY`             | `conditional`                                |         | (OAuth2 only) The client id for the Application Link that you configured for this Bitbucket instance.                                                                     |
-| `MODERNE_AGENT_BITBUCKET_{index}_OAUTH_SECRET`          | `conditional`                                |         | (OAuth2 only) The client secret for the Application Link that you configured for this Bitbucket instance.                                                                 |
-| `MODERNE_AGENT_BITBUCKET_{index}_ALTERNATEURLS_{index}` | `false`                                      |         | The list of alternative fully-qualified URL of the running Bitbucket instance. For example: `https://bitbucket.myorg.com`.                                                |
-| `MODERNE_AGENT_BITBUCKET_{index}_SKIPSSL`               | `false`                                      | `false` | Specifies whether or not to skip SSL validation for HTTP connections to this Bitbucket instance. This must be set to `true` if you use a self-signed SSL/TLS certificate. |
-| `MODERNE_AGENT_BITBUCKET_{index}_SSH_PRIVATEKEY`        | `false`                                      |         | The SSH private key used to establish a SSH connection with Bitbucket.                                                                                                    |
-| `MODERNE_AGENT_BITBUCKET_{index}_SSH_PASSPHRASE`        | `true` (If the SSH private key is specified) |         | The file name of the private key, which the agent will store locally.                                                                                                     |
-| `MODERNE_AGENT_BITBUCKET_{index}_SSH_SSHFILENAME`       | `true` (If the SSH private key is specified) |         | The file name of the private key, which the agent will store locally.                                                                                                     |
-| `MODERNE_AGENT_BITBUCKET_{index}_SSH_USER`              | `true` (If the SSH private key is specified) |         | The username used for SSH communication with Bitbucket.                                                                                                                   |
-| `MODERNE_AGENT_BITBUCKET_{index}_SSH_PORT`              | `true` (If the SSH private key is specified) | `7999`  | The port used to communicate via SSH with Bitbucket.                                                                                                                      |
+| Variable Name                                          | Required      | Default | Description                                                                                                                                                               |
+|--------------------------------------------------------|---------------|---------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `MODERNE_SCM_BITBUCKETDATACENTER_{index}_URI`          | `true`        |         | The fully-qualified URI of the running Bitbucket instance. For example: `https://bitbucket.myorg.com`.                                                                    |
+| `MODERNE_SCM_BITBUCKETDATACENTER_{index}_PRIVATEKEY`   | `conditional` |         | (OAuth1.0a only) The private key you configured for this Bitbucket instance.                                                                                              |
+| `MODERNE_SCM_BITBUCKETDATACENTER_{index}_OAUTH_KEY`    | `conditional` |         | (OAuth2 only) The client id for the Application Link that you configured for this Bitbucket instance.                                                                     |
+| `MODERNE_SCM_BITBUCKETDATACENTER_{index}_OAUTH_SECRET` | `conditional` |         | (OAuth2 only) The client secret for the Application Link that you configured for this Bitbucket instance.                                                                 |
+| `MODERNE_SCM_BITBUCKETDATACENTER_{index}_SKIPSSL`      | `false`       | `false` | Specifies whether or not to skip SSL validation for HTTP connections to this Bitbucket instance. This must be set to `true` if you use a self-signed SSL/TLS certificate. |
 
 **Example:**
 
 ```bash
 docker run \
 # ... Existing variables
--e MODERNE_AGENT_BITBUCKET_0_OAUTH_KEY=yourClientId \
--e MODERNE_AGENT_BITBUCKET_0_OAUTH_SECRET=yourClientSecret \
--e MODERNE_AGENT_BITBUCKET_0_URL=https://bitbucket.myorg.com \
+-e MODERNE_SCM_BITBUCKETDATACENTER_0_OAUTH_KEY=yourClientId \
+-e MODERNE_SCM_BITBUCKETDATACENTER_0_OAUTH_SECRET=yourClientSecret \
+-e MODERNE_SCM_BITBUCKETDATACENTER_0_URI=https://bitbucket.myorg.com \
 # ... Additional variables
 ```
 </TabItem>
@@ -215,29 +202,22 @@ docker run \
 
 **Arguments:**
 
-| Argument Name                                               | Required                                     | Default | Description                                                                                                                                                               |
-|-------------------------------------------------------------|----------------------------------------------|---------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `--moderne.agent.bitbucket[{index}].privateKey`             | `conditional`                                |         | (OAuth1.0a only) The private key you configured for this Bitbucket.                                                                                                       |
-| `--moderne.agent.bitbucket[{index}].oauth.key`              | `conditional`                                |         | (OAuth2 only) The client id for the Application Link that you configured for this Bitbucket instance.                                                                     |
-| `--moderne.agent.bitbucket[{index}].oauth.secret`           | `conditional`                                |         | (OAuth2 only) The client secret for the Application Link that you configured for this Bitbucket instance.                                                                 |
-| `--moderne.agent.bitbucket[{index}].url`                    | `true`                                       |         | The fully-qualified URL of the running Bitbucket instance. For example:  `https://bitbucket.myorg.com`.                                                                   |
-| `--moderne.agent.bitbucket[{index}].alternateUrls[{index}]` | `false`                                      |         | The list of alternative fully-qualified URL of the running Bitbucket instance. For example: `https://bitbucket.myorg.com`.                                                |
-| `--moderne.agent.bitbucket[{index}].skipSsl`                | `false`                                      | `false` | Specifies whether or not to skip SSL validation for HTTP connections to this Bitbucket instance. This must be set to `true` if you use a self-signed SSL/TLS certificate. |
-| `--moderne.agent.bitbucket[{index}].ssh.privateKey`         | `false`                                      |         | The SSH private key used to establish a SSH connection with Bitbucket.                                                                                                    |
-| `--moderne.agent.bitbucket[{index}].ssh.passphrase`         | `true` (If the SSH private key is specified) |         | The file name of the private key, which the agent will store locally.                                                                                                     |
-| `--moderne.agent.bitbucket[{index}].ssh.sshFileName`        | `true` (If the SSH private key is specified) |         | The file name of the private key, which the agent will store locally.                                                                                                     |
-| `--moderne.agent.bitbucket[{index}].ssh.user`               | `true` (If the SSH private key is specified) |         | The username used for SSH communication with Bitbucket.                                                                                                                   |
-| `--moderne.agent.bitbucket[{index}].ssh.port`               | `true` (If the SSH private key is specified) | `7999`  | The port used to communicate via SSH with Bitbucket.                                                                                                                      |
-
+| Argument Name                                             | Required      | Default | Description                                                                                                                                                               |
+|-----------------------------------------------------------|---------------|---------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `--moderne.scm.bitbucketDatacenter[{index}].uri`          | `true`        |         | The fully-qualified URI of the running Bitbucket instance. For example: `https://bitbucket.myorg.com`.                                                                    |
+| `--moderne.scm.bitbucketDatacenter[{index}].privateKey`   | `conditional` |         | (OAuth1.0a only) The private key you configured for this Bitbucket instance.                                                                                              |
+| `--moderne.scm.bitbucketDatacenter[{index}].oauth.key`    | `conditional` |         | (OAuth2 only) The client id for the Application Link that you configured for this Bitbucket instance.                                                                     |
+| `--moderne.scm.bitbucketDatacenter[{index}].oauth.secret` | `conditional` |         | (OAuth2 only) The client secret for the Application Link that you configured for this Bitbucket instance.                                                                 |
+| `--moderne.scm.bitbucketDatacenter[{index}].skipSsl`      | `false`       | `false` | Specifies whether or not to skip SSL validation for HTTP connections to this Bitbucket instance. This must be set to `true` if you use a self-signed SSL/TLS certificate. |
 
 **Example:**
 
 ```bash
-java -jar moderne-agent-{version}.jar \
+java -jar connector-{version}.jar \
 # ... Existing arguments
---moderne.agent.bitbucket[0].oauth.key=yourClientId \
---moderne.agent.bitbucket[0].oauth.secret=yourClientSecret \
---moderne.agent.bitbucket[0].url=https://bitbucket.myorg.com \
+--moderne.scm.bitbucketDatacenter[0].oauth.key=yourClientId \
+--moderne.scm.bitbucketDatacenter[0].oauth.secret=yourClientSecret \
+--moderne.scm.bitbucketDatacenter[0].uri=https://bitbucket.myorg.com \
 # ... Additional arguments
 ```
 </TabItem>
@@ -254,32 +234,26 @@ You can configure multiple GitHub OAuth apps by including multiple entries, each
 
 **Environment variables:**
 
-| Variable Name                                                  | Required                                     | Default         | Description                                                                                                                                                                                                                      |
-|----------------------------------------------------------------|----------------------------------------------|-----------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `MODERNE_AGENT_GITHUB_{index}_OAUTH_CLIENTID`                  | `true`                                       |                 | The client id configured in GitHub.                                                                                                                                                                                              |
-| `MODERNE_AGENT_GITHUB_{index}_OAUTH_CLIENTSECRET`              | `true`                                       |                 | The client secret configured in GitHub.                                                                                                                                                                                          |
-| `MODERNE_AGENT_GITHUB_{index}_URL`                             | `true`                                       |                 | The fully-qualified hostname of the running GitHub instance.                                                                                                                                                                     |
-| `MODERNE_AGENT_GITHUB_{index}_ALTERNATEURLS_{index}`           | `false`                                      |                 | The list of alternative fully-qualified URL of the running GitHub instance.                                                                                                                                                      |
-| `MODERNE_AGENT_GITHUB_{index}_SKIPSSL`                         | `false`                                      | `false`         | Specifies whether or not to skip SSL validation for HTTP connections to this GitHub instance. This must be set to `true` if you use a self-signed SSL/TLS certificate.                                                           |
-| `MODERNE_AGENT_GITHUB_{index}_ALLOWABLE_ORGANIZATIONS_{index}` | `false`                                      | See description | Specifies what organizations you can fork recipe results to. By default, there are no restrictions on which organizations can be committed to. If you want multiple organizations, increase the last index and add one per line. |
-| `MODERNE_AGENT_GITHUB_{index}_OAUTH_INCLUDEPRIVATEREPOS`       | `false`                                      | See description | By default, the OAuth app will only have access to public repositories within your organization(s). To provide the OAuth app access to private repositories, you can set this to `true`.                                         |
-| `MODERNE_AGENT_GITHUB_{index}_SSH_PRIVATEKEY`                  | `false`                                      |                 | (Optional) The SSH private key used to establish a SSH connection with GitHub.                                                                                                                                                   |
-| `MODERNE_AGENT_GITHUB_{index}_SSH_PASSPHRASE`                  | `true` (If the SSH private key is specified) |                 | The passphrase used to encrypt the SSH private key.                                                                                                                                                                              |
-| `MODERNE_AGENT_GITHUB_{index}_SSH_SSHFILENAME`                 | `true` (If the SSH private key is specified) |                 | The file name of the private key, which the agent will store locally.                                                                                                                                                            |
-| `MODERNE_AGENT_GITHUB_{index}_SSH_USER`                        | `true` (If the SSH private key is specified) |                 | The username used for SSH communication with GitHub.                                                                                                                                                                             |
-| `MODERNE_AGENT_GITHUB_{index}_SSH_PORT`                        | `false`                                      | `7999`          | The port used to communicate via SSH with GitHub.                                                                                                                                                                                |
+| Variable Name                                                | Required | Default         | Description                                                                                                                                                                                                                      |
+|--------------------------------------------------------------|----------|-----------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `MODERNE_SCM_GITHUB_{index}_OAUTH_CLIENTID`                  | `true`   |                 | The client id configured in GitHub.                                                                                                                                                                                              |
+| `MODERNE_SCM_GITHUB_{index}_OAUTH_CLIENTSECRET`              | `true`   |                 | The client secret configured in GitHub.                                                                                                                                                                                          |
+| `MODERNE_SCM_GITHUB_{index}_URI`                             | `true`   |                 | The fully-qualified hostname of the running GitHub instance.                                                                                                                                                                     |
+| `MODERNE_SCM_GITHUB_{index}_SKIPSSL`                         | `false`  | `false`         | Specifies whether or not to skip SSL validation for HTTP connections to this GitHub instance. This must be set to `true` if you use a self-signed SSL/TLS certificate.                                                           |
+| `MODERNE_SCM_GITHUB_{index}_ALLOWABLE_ORGANIZATIONS_{index}` | `false`  | See description | Specifies what organizations you can fork recipe results to. By default, there are no restrictions on which organizations can be committed to. If you want multiple organizations, increase the last index and add one per line. |
+| `MODERNE_SCM_GITHUB_{index}_OAUTH_INCLUDEPRIVATEREPOS`       | `false`  | See description | By default, the OAuth app will only have access to public repositories within your organization(s). To provide the OAuth app access to private repositories, you can set this to `true`.                                         |
 
 **Example:**
 
 ```bash
 docker run \
 # ... Existing variables
--e MODERNE_AGENT_GITHUB_0_OAUTH_CLIENTID=yourClientId \
--e MODERNE_AGENT_GITHUB_0_OAUTH_CLIENTSECRET=yourClientSecret \
--e MODERNE_AGENT_GITHUB_0_URL=https://myorg.github.com \
--e MODERNE_AGENT_GITHUB_0_ALLOWABLE_ORGANIZATIONS_0=moderne \
--e MODERNE_AGENT_GITHUB_0_ALLOWABLE_ORGANIZATIONS_1=openrewrite \
--e MODERNE_AGENT_GITHUB_0_OAUTH_INCLUDEPRIVATEREPOS=true \
+-e MODERNE_SCM_GITHUB_0_OAUTH_CLIENTID=yourClientId \
+-e MODERNE_SCM_GITHUB_0_OAUTH_CLIENTSECRET=yourClientSecret \
+-e MODERNE_SCM_GITHUB_0_URI=https://myorg.github.com \
+-e MODERNE_SCM_GITHUB_0_ALLOWABLE_ORGANIZATIONS_0=moderne \
+-e MODERNE_SCM_GITHUB_0_ALLOWABLE_ORGANIZATIONS_1=openrewrite \
+-e MODERNE_SCM_GITHUB_0_OAUTH_INCLUDEPRIVATEREPOS=true \
 # ... Additional variables
 ```
 </TabItem>
@@ -288,32 +262,26 @@ docker run \
 
 **Arguments:**
 
-| Argument Name                                                     | Required                                     | Default         | Description                                                                                                                                                                                                                      |
-|-------------------------------------------------------------------|----------------------------------------------|-----------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `--moderne.agent.github[{index}].oauth.clientId`                  | `true`                                       |                 | The client id configured in GitHub.                                                                                                                                                                                              |
-| `--moderne.agent.github[{index}].oauth.clientSecret`              | `true`                                       |                 | The client secret configured in GitHub.                                                                                                                                                                                          |
-| `--moderne.agent.github[{index}].url`                             | `true`                                       |                 | The fully-qualified hostname of the running GitHub instance.                                                                                                                                                                     |
-| `--moderne.agent.github[{index}].alternateUrls[{index}]`          | `false`                                      |                 | The list of alternative fully-qualified URL of the running GitHub instance.                                                                                                                                                      |
-| `--moderne.agent.github[{index}].skipSsl`                         | `false`                                      | `false`         | Specifies whether or not to skip SSL validation for HTTP connections to this GitHub instance. This must be set to `true` if you use a self-signed SSL/TLS certificate.                                                           |
-| `--moderne.agent.github[{index}].allowableOrganizations[{index}]` | `false`                                      | See description | Specifies what organizations you can fork recipe results to. By default, there are no restrictions on which organizations can be committed to. If you want multiple organizations, increase the last index and add one per line. |
-| `--moderne.agent.github[{index}].oauth.includePrivateRepos`       | `false`                                      | See description | By default, the OAuth app will only have access to public repositories within your organization(s). To provide the OAuth app access to private repositories, you can set this to `true`.                                         |
-| `--moderne.agent.github[{index}].ssh.privateKey`                  | `false`                                      |                 | (Optional) The SSH private key used to establish a SSH connection with GitHub.                                                                                                                                                   |
-| `--moderne.agent.github[{index}].ssh.passphrase`                  | `true` (If the SSH private key is specified) |                 | The passphrase used to encrypt the SSH private key.                                                                                                                                                                              |
-| `--moderne.agent.github[{index}].ssh.sshFileName`                 | `true` (If the SSH private key is specified) |                 | The file name of the private key, which the agent will store locally.                                                                                                                                                            |
-| `--moderne.agent.github[{index}].ssh.user`                        | `true` (If the SSH private key is specified) |                 | The username used for SSH communication with GitHub.                                                                                                                                                                             |
-| `--moderne.agent.github[{index}].ssh.port`                        | `false`                                      | `7999`          | The port used to communicate via SSH with GitHub.                                                                                                                                                                                |
+| Argument Name                                                   | Required | Default         | Description                                                                                                                                                                                                                      |
+|-----------------------------------------------------------------|----------|-----------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `--moderne.scm.github[{index}].oauth.clientId`                  | `true`   |                 | The client id configured in GitHub.                                                                                                                                                                                              |
+| `--moderne.scm.github[{index}].oauth.clientSecret`              | `true`   |                 | The client secret configured in GitHub.                                                                                                                                                                                          |
+| `--moderne.scm.github[{index}].uri`                             | `true`   |                 | The fully-qualified hostname of the running GitHub instance.                                                                                                                                                                     |
+| `--moderne.scm.github[{index}].skipSsl`                         | `false`  | `false`         | Specifies whether or not to skip SSL validation for HTTP connections to this GitHub instance. This must be set to `true` if you use a self-signed SSL/TLS certificate.                                                           |
+| `--moderne.scm.github[{index}].allowableOrganizations[{index}]` | `false`  | See description | Specifies what organizations you can fork recipe results to. By default, there are no restrictions on which organizations can be committed to. If you want multiple organizations, increase the last index and add one per line. |
+| `--moderne.scm.github[{index}].oauth.includePrivateRepos`       | `false`  | See description | By default, the OAuth app will only have access to public repositories within your organization(s). To provide the OAuth app access to private repositories, you can set this to `true`.                                         |
 
 **Example:**
 
 ```bash
-java -jar moderne-agent-{version}.jar \
+java -jar connector-{version}.jar \
 # ... Existing arguments
---moderne.agent.github[0].oauth.clientId=yourClientId \
---moderne.agent.github[0].oauth.clientSecret=yourClientSecret \
---moderne.agent.github[0].url=https://myorg.github.com \
---moderne.agent.github[0].allowableOrganizations[0]=moderne \
---moderne.agent.github[0].allowableOrganizations[1]=openrewrite \
---moderne.agent.github[0].oauth.includePrivateRepos=true \
+--moderne.scm.github[0].oauth.clientId=yourClientId \
+--moderne.scm.github[0].oauth.clientSecret=yourClientSecret \
+--moderne.scm.github[0].uri=https://myorg.github.com \
+--moderne.scm.github[0].allowableOrganizations[0]=moderne \
+--moderne.scm.github[0].allowableOrganizations[1]=openrewrite \
+--moderne.scm.github[0].oauth.includePrivateRepos=true \
 # ... Additional arguments
 ```
 </TabItem>
@@ -328,27 +296,21 @@ You can configure multiple GitLab OAuth apps by including multiple entries, each
 
 **Environment variables:**
 
-| Variable Name                                        | Required                                     | Default | Description                                                                                                                                                            |
-|------------------------------------------------------|----------------------------------------------|---------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `MODERNE_AGENT_GITLAB_{index}_OAUTH_CLIENTID`        | `true`                                       |         | The application id configured in GitLab.                                                                                                                               |
-| `MODERNE_AGENT_GITLAB_{index}_OAUTH_CLIENTSECRET`    | `true`                                       |         | The secret configured in GitLab.                                                                                                                                       |
-| `MODERNE_AGENT_GITLAB_{index}_URL`                   | `true`                                       |         | The fully-qualified hostname of your GitLab instance.                                                                                                                  |
-| `MODERNE_AGENT_GITLAB_{index}_ALTERNATEURLS_{index}` | `false`                                      |         | The list of alternative fully-qualified URL of the running GitLab instance.                                                                                            |
-| `MODERNE_AGENT_GITLAB_{index}_SKIPSSL`               | `false`                                      | `false` | Specifies whether or not to skip SSL validation for HTTP connections to this GitLab instance. This must be set to `true` if you use a self-signed SSL/TLS certificate. |
-| `MODERNE_AGENT_GITLAB_{index}_SSH_PRIVATEKEY`        | `false`                                      |         | The SSH private key used to establish a SSH connection with GitLab.                                                                                                    |
-| `MODERNE_AGENT_GITLAB_{index}_SSH_PASSPHRASE`        | `true` (If the SSH private key is specified) |         | The passphrase used to encrypt the SSH private key.                                                                                                                    |
-| `MODERNE_AGENT_GITLAB_{index}_SSH_SSHFILENAME`       | `true` (If the SSH private key is specified) |         | The file name of the private key, which the agent will store locally.                                                                                                  |
-| `MODERNE_AGENT_GITLAB_{index}_SSH_USER`              | `true` (If the SSH private key is specified) |         | The username used for SSH communication with GitLab.                                                                                                                   |
-| `MODERNE_AGENT_GITLAB_{index}_SSH_PORT`              | `false`                                      | `7999`  | The port used to communicate via SSH with GitLab.                                                                                                                      |
+| Variable Name                                   | Required | Default | Description                                                                                                                                                            |
+|-------------------------------------------------|----------|---------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `MODERNE_SCM_GITLAB_{index}_OAUTH_CLIENTID`     | `true`   |         | The application id configured in GitLab.                                                                                                                               |
+| `MODERNE_SCM_GITLAB_{index}_OAUTH_CLIENTSECRET` | `true`   |         | The secret configured in GitLab.                                                                                                                                       |
+| `MODERNE_SCM_GITLAB_{index}_URI`                | `true`   |         | The fully-qualified hostname of your GitLab instance.                                                                                                                  |
+| `MODERNE_SCM_GITLAB_{index}_SKIPSSL`            | `false`  | `false` | Specifies whether or not to skip SSL validation for HTTP connections to this GitLab instance. This must be set to `true` if you use a self-signed SSL/TLS certificate. |
 
 **Example:**
 
 ```bash
 docker run \
 # ... Existing variables
--e MODERNE_AGENT_GITLAB_0_OAUTH_CLIENTID=yourClientId \
--e MODERNE_AGENT_GITLAB_0_OAUTH_CLIENTSECRET=yourClientSecret \
--e MODERNE_AGENT_GITLAB_0_URL=https://your-gitlab.com \
+-e MODERNE_SCM_GITLAB_0_OAUTH_CLIENTID=yourClientId \
+-e MODERNE_SCM_GITLAB_0_OAUTH_CLIENTSECRET=yourClientSecret \
+-e MODERNE_SCM_GITLAB_0_URI=https://your-gitlab.com \
 # ... Additional variables
 ```
 </TabItem>
@@ -357,53 +319,59 @@ docker run \
 
 **Arguments:**
 
-| Argument Name                                            | Required                                     | Default | Description                                                                                                                                                            |
-|----------------------------------------------------------|----------------------------------------------|---------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `--moderne.agent.gitlab[{index}].oauth.clientId`         | `true`                                       |         | The application id configured in GitLab.                                                                                                                               |
-| `--moderne.agent.gitlab[{index}].oauth.clientSecret`     | `true`                                       |         | The secret configured in GitLab.                                                                                                                                       |
-| `--moderne.agent.gitlab[{index}].url`                    | `true`                                       |         | The fully-qualified hostname of your GitLab instance.                                                                                                                  |
-| `--moderne.agent.gitlab[{index}].alternateUrls[{index}]` | `false`                                      |         | The list of alternative fully-qualified URL of the running GitLab instance.                                                                                            |
-| `--moderne.agent.gitlab[{index}].skipSsl`                | `false`                                      | `false` | Specifies whether or not to skip SSL validation for HTTP connections to this GitLab instance. This must be set to `true` if you use a self-signed SSL/TLS certificate. |
-| `--moderne.agent.gitlab[{index}].ssh.privateKey`         | `false`                                      |         | The SSH private key used to establish a SSH connection with GitLab.                                                                                                    |
-| `--moderne.agent.gitlab[{index}].ssh.passphrase`         | `true` (If the SSH private key is specified) |         | The passphrase used to encrypt the SSH private key.                                                                                                                    |
-| `--moderne.agent.gitlab[{index}].ssh.sshFileName`        | `true` (If the SSH private key is specified) |         | The file name of the private key, which the agent will store locally.                                                                                                  |
-| `--moderne.agent.gitlab[{index}].ssh.user`               | `true` (If the SSH private key is specified) |         | The username used for SSH communication with GitLab.                                                                                                                   |
-| `--moderne.agent.gitlab[{index}].ssh.port`               | `false`                                      | `7999`  | The port used to communicate via SSH with GitLab.                                                                                                                      |
+| Argument Name                                      | Required | Default | Description                                                                                                                                                            |
+|----------------------------------------------------|----------|---------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `--moderne.scm.gitlab[{index}].oauth.clientId`     | `true`   |         | The application id configured in GitLab.                                                                                                                               |
+| `--moderne.scm.gitlab[{index}].oauth.clientSecret` | `true`   |         | The secret configured in GitLab.                                                                                                                                       |
+| `--moderne.scm.gitlab[{index}].uri`                | `true`   |         | The fully-qualified hostname of your GitLab instance.                                                                                                                  |
+| `--moderne.scm.gitlab[{index}].skipSsl`            | `false`  | `false` | Specifies whether or not to skip SSL validation for HTTP connections to this GitLab instance. This must be set to `true` if you use a self-signed SSL/TLS certificate. |
 
 **Example:**
 
 ```bash
-java -jar moderne-agent-{version}.jar \
+java -jar connector-{version}.jar \
 # ... Existing arguments
---moderne.agent.gitlab[0].oauth.clientId=yourClientId \
---moderne.agent.gitlab[0].oauth.clientSecret=yourClientSecret \
---moderne.agent.gitlab[0].url=https://your-gitlab.com \
+--moderne.scm.gitlab[0].oauth.clientId=yourClientId \
+--moderne.scm.gitlab[0].oauth.clientSecret=yourClientSecret \
+--moderne.scm.gitlab[0].uri=https://your-gitlab.com \
 # ... Additional arguments
 ```
 </TabItem>
 </Tabs>
 
-## Organization hierarchy and DevCenter variables
+## Organization hierarchy variables
 
 <Tabs groupId="agent-type">
 <TabItem value="oci-container" label="OCI Container">
 
 **Environment variables:**
 
-| Environment Variable                               | Required | Default | Description                                                                                                                                                                                      |
-|----------------------------------------------------|----------|---------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `MODERNE_AGENT_ORGANIZATION_REPOSCSV`              | `false`  |         | The path of your `repos.csv` file that provides organization information. This could also be an unauthenticated HTTP/S URL in the form of `https://<internal-endpoint>/repos.csv`.               |
-| `MODERNE_AGENT_ORGANIZATION_DEVCENTER`             | `false`  |         | The path of your `devcenter.json` file that provides the DevCenter configurations. This could also be an unauthenticated HTTP/S URL in the form of `https://<internal-endpoint>/devcenter.json`. |
-| `MODERNE_AGENT_ORGANIZATION_UPDATEINTERVALSECONDS` | `false`  | `600`   | The number of seconds that the agent should wait before it checks for an update to your `repos.csv` file.                                                                                        |
+| Environment Variable                                    | Required | Default | Description                                                                                                                                                                                             |
+|---------------------------------------------------------|----------|---------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `MODERNE_ORGANIZATION_SOURCES_FILE_{index}_PATH`        | `false`  |         | The path to a local `repos.csv` file, relative to the Connector's permanent directory (`MODERNE_CONNECTOR_STORAGE_PERMANENTDIR`).                                                                       |
+| `MODERNE_ORGANIZATION_SOURCES_HTTP_{index}_URI`         | `false`  |         | The URL of an HTTP(S) endpoint serving your `repos.csv` file (e.g., `https://<internal-endpoint>/repos.csv`).                                                                                           |
+| `MODERNE_ORGANIZATION_SOURCES_HTTP_{index}_USERNAME`    | `false`  |         | Username for basic auth against the HTTP endpoint. Mutually exclusive with `BEARERTOKEN`.                                                                                                               |
+| `MODERNE_ORGANIZATION_SOURCES_HTTP_{index}_PASSWORD`    | `false`  |         | Password for basic auth against the HTTP endpoint. Mutually exclusive with `BEARERTOKEN`.                                                                                                               |
+| `MODERNE_ORGANIZATION_SOURCES_HTTP_{index}_BEARERTOKEN` | `false`  |         | Bearer token for the HTTP endpoint. Mutually exclusive with `USERNAME`/`PASSWORD`.                                                                                                                      |
+| `MODERNE_ORGANIZATION_SOURCES_HTTP_{index}_PROXY_HOST`  | `false`  |         | The hostname of a proxy server to use for connections to the HTTP endpoint. If specified, `PROXY_PORT` must also be set.                                                                                |
+| `MODERNE_ORGANIZATION_SOURCES_HTTP_{index}_PROXY_PORT`  | `false`  |         | The port of the proxy server to use for connections to the HTTP endpoint. If specified, `PROXY_HOST` must also be set.                                                                                  |
+| `MODERNE_ORGANIZATION_SOURCES_S3_{index}_URI`           | `false`  |         | The S3 URI of a CSV object (e.g., `s3://my-bucket/repos-lock.csv`). For the full set of S3 auth/region/endpoint variables, please see [S3 organization source](./configure-an-agent-with-s3-access.md). |
 
-**Example:**
+**Example using a local file:**
 
 ```bash
 docker run \
 # ... Existing variables
--e MODERNE_AGENT_ORGANIZATION_REPOSCSV=/Users/MY_USER/Documents/repos.csv \
--e MODERNE_AGENT_ORGANIZATION_DEVCENTER=/Users/MY_USER/Documents/devcenter.json \
--e MODERNE_AGENT_ORGANIZATION_UPDATEINTERVALSECONDS=600 \
+-e MODERNE_ORGANIZATION_SOURCES_FILE_0_PATH=repos.csv \
+# ... Additional variables
+```
+
+**Example using an HTTP URL:**
+
+```bash
+docker run \
+# ... Existing variables
+-e MODERNE_ORGANIZATION_SOURCES_HTTP_0_URI=https://internal.example.com/repos.csv \
 # ... Additional variables
 ```
 </TabItem>
@@ -412,43 +380,59 @@ docker run \
 
 **Arguments:**
 
-| Argument Name                                        | Required | Default | Description                                                                                                                                                                                      |
-|------------------------------------------------------|----------|---------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `--moderne.agent.organization.reposCsv`              | `false`  |         | The path of your `repos.csv` file that provides organization information. This could also be an unauthenticated HTTP/S URL in the form of `https://<internal-endpoint>/repos.csv`.               |
-| `--moderne.agent.organization.devCenter`             | `false`  |         | The path of your `devcenter.json` file that provides the DevCenter configurations. This could also be an unauthenticated HTTP/S URL in the form of `https://<internal-endpoint>/devcenter.json`. |
-| `--moderne.agent.organization.updateIntervalSeconds` | `false`  | `600`   | The number of seconds that the agent should wait before it checks for an update to your `repos.csv` file.                                                                                        |
+| Argument Name                                              | Required | Default | Description                                                                                                                                                                                             |
+|------------------------------------------------------------|----------|---------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `--moderne.organization.sources.file[{index}].path`        | `false`  |         | The path to a local `repos.csv` file, relative to the Connector's permanent directory (`--moderne.connector.storage.permanentDir`).                                                                     |
+| `--moderne.organization.sources.http[{index}].uri`         | `false`  |         | The URL of an HTTP(S) endpoint serving your `repos.csv` file (e.g., `https://<internal-endpoint>/repos.csv`).                                                                                           |
+| `--moderne.organization.sources.http[{index}].username`    | `false`  |         | Username for basic auth against the HTTP endpoint. Mutually exclusive with `bearerToken`.                                                                                                               |
+| `--moderne.organization.sources.http[{index}].password`    | `false`  |         | Password for basic auth against the HTTP endpoint. Mutually exclusive with `bearerToken`.                                                                                                               |
+| `--moderne.organization.sources.http[{index}].bearerToken` | `false`  |         | Bearer token for the HTTP endpoint. Mutually exclusive with `username`/`password`.                                                                                                                      |
+| `--moderne.organization.sources.http[{index}].proxy.host`  | `false`  |         | The hostname of a proxy server to use for connections to the HTTP endpoint. If specified, `proxy.port` must also be set.                                                                                |
+| `--moderne.organization.sources.http[{index}].proxy.port`  | `false`  |         | The port of the proxy server to use for connections to the HTTP endpoint. If specified, `proxy.host` must also be set.                                                                                  |
+| `--moderne.organization.sources.s3[{index}].uri`           | `false`  |         | The S3 URI of a CSV object (e.g., `s3://my-bucket/repos-lock.csv`). For the full set of S3 auth/region/endpoint arguments, please see [S3 organization source](./configure-an-agent-with-s3-access.md). |
 
-**Example:**
+**Example using a local file:**
 
 ```bash
-java -jar moderne-agent-{version}.jar \
+java -jar connector-{version}.jar \
 # ... Existing arguments
---moderne.agent.organization.reposCsv=/Users/MY_USER/Documents/repos.csv \
---moderne.agent.organization.devCenter=/Users/MY_USER/Documents/devcenter.json \
---moderne.agent.organization.updateIntervalSeconds=600 \
+--moderne.organization.sources.file[0].path=repos.csv \
+# ... Additional arguments
+```
+
+**Example using an HTTP URL:**
+
+```bash
+java -jar connector-{version}.jar \
+# ... Existing arguments
+--moderne.organization.sources.http[0].uri=https://internal.example.com/repos.csv \
 # ... Additional arguments
 ```
 </TabItem>
 </Tabs>
 
-## Org service variables
+## Organization sync variables
+
+These variables control how often the Connector re-fetches each `repos.csv` source and the global concurrency for LST download, encryption, and upload operations. Both are optional.
 
 <Tabs groupId="agent-type">
 <TabItem value="oci-container" label="OCI Container">
 
 **Environment variables:**
 
-| Variable Name                                | Required | Default | Description                                                                                                                                                                          |
-|----------------------------------------------|----------|---------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `MODERNE_AGENT_ORGANIZATION_SERVICE_URL`     | `true`   |         | The URL of your GraphQL service that provides access control for your organizations or commit message customization.                                                                 |
-| `MODERNE_AGENT_ORGANIZATION_SERVICE_SKIPSSL` | `false`  | `false` | Specifies whether or not to skip SSL validation for HTTP connections to this Organization service instance. This must be set to `true` if you use a self-signed SSL/TLS certificate. |
+| Environment Variable                                 | Required | Default                         | Description                                                                                                                                                                                                                                                                               |
+|------------------------------------------------------|----------|---------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `MODERNE_CONNECTOR_ORGANIZATION_MODE`                | `false`  | `AUTO`                          | Indexing mode. `AUTO` infers `POLLING` when any poll repository is configured and `LOCK` otherwise. `LOCK` forces use of `publishUri` values from the CSV (poll repositories, if any, supply credentials only). `POLLING` forces AQL / Maven Indexer discovery against poll repositories. |
+| `MODERNE_CONNECTOR_ORGANIZATION_INTERVAL`            | `false`  | `10m`                           | How often the Connector re-fetches each source `repos.csv` and re-runs enrichment. Applies to both LOCK and POLLING modes. Specified as a duration (e.g., `10m`, `1h`).                                                                                                                   |
+| `MODERNE_CONNECTOR_ORGANIZATION_DOWNLOADPARALLELISM` | `false`  | `max(4, availableProcessors())` | Global cap on concurrent LST download, encrypt, and upload operations across all configured sources.                                                                                                                                                                                      |
 
 **Example:**
 
 ```bash
 docker run \
 # ... Existing variables
--e MODERNE_AGENT_ORGANIZATION_SERVICE_URL=http://localhost:8091 \
+-e MODERNE_CONNECTOR_ORGANIZATION_INTERVAL=5m \
+-e MODERNE_CONNECTOR_ORGANIZATION_DOWNLOADPARALLELISM=8 \
 # ... Additional variables
 ```
 </TabItem>
@@ -457,17 +441,19 @@ docker run \
 
 **Arguments:**
 
-| Argument Name                                  | Required | Default | Description                                                                                                                                                                          |
-|------------------------------------------------|----------|---------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `--moderne.agent.organization.service.url`     | `true`   |         | The URL of your GraphQL service that provides access control for your organizations or commit message customization.                                                                 |
-| `--moderne.agent.organization.service.skipSsl` | `false`  | `false` | Specifies whether or not to skip SSL validation for HTTP connections to this Organization service instance. This must be set to `true` if you use a self-signed SSL/TLS certificate. |
+| Argument Name                                          | Required | Default                         | Description                                                                                                                                                                                                                                                                               |
+|--------------------------------------------------------|----------|---------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `--moderne.connector.organization.mode`                | `false`  | `AUTO`                          | Indexing mode. `AUTO` infers `POLLING` when any poll repository is configured and `LOCK` otherwise. `LOCK` forces use of `publishUri` values from the CSV (poll repositories, if any, supply credentials only). `POLLING` forces AQL / Maven Indexer discovery against poll repositories. |
+| `--moderne.connector.organization.interval`            | `false`  | `10m`                           | How often the Connector re-fetches each source `repos.csv` and re-runs enrichment. Applies to both LOCK and POLLING modes. Specified as a duration (e.g., `10m`, `1h`).                                                                                                                   |
+| `--moderne.connector.organization.downloadParallelism` | `false`  | `max(4, availableProcessors())` | Global cap on concurrent LST download, encrypt, and upload operations across all configured sources.                                                                                                                                                                                      |
 
 **Example:**
 
 ```bash
-java -jar moderne-agent-{version}.jar \
+java -jar connector-{version}.jar \
 # ... Existing arguments
---moderne.agent.organization.service.url=http://localhost:8091 \
+--moderne.connector.organization.interval=5m \
+--moderne.connector.organization.downloadParallelism=8 \
 # ... Additional arguments
 ```
 </TabItem>
@@ -482,28 +468,29 @@ You can configure multiple Maven repositories by including multiple entries, eac
 
 **Environment variables:**
 
-| Variable Name                                 | Required | Default            | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
-|-----------------------------------------------|----------|--------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `MODERNE_AGENT_MAVEN_{index}_URL`             | `true`   |                    | The URL of your Maven repository.                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
-| `MODERNE_AGENT_MAVEN_{index}_LOCALREPOSITORY` | `false`  | `~/.moderne-maven/maven{index}` | The path on disk where LST artifacts and Maven index files will be downloaded to. This is on the disk where the agent is being run and **not** on the Maven instance. Only used when `ASTSOURCE` is `true`. If not specified, a unique path is automatically generated based on the configuration index. <br/><br/> LST artifacts are deleted from this location after they are transmitted to Moderne. Index files will remain behind to be used to detect diffs in the artifacts. |
-| `MODERNE_AGENT_MAVEN_{index}_USERNAME`        | `false`  | `null`             | The username used to resolve artifacts.                                                                                                                                                                                                                                                                                                                                                                                                                                             |
-| `MODERNE_AGENT_MAVEN_{index}_PASSWORD`        | `false`  | `null`             | The password used to resolve artifacts.                                                                                                                                                                                                                                                                                                                                                                                                                                             |
-| `MODERNE_AGENT_MAVEN_{index}_RELEASES`        | `false`  | `true`             | Specifies whether or not this repository should be searched for releases.                                                                                                                                                                                                                                                                                                                                                                                                           |
-| `MODERNE_AGENT_MAVEN_{index}_SNAPSHOTS`       | `false`  | `true`             | Specifies whether or not this repository should be searched for snapshots.                                                                                                                                                                                                                                                                                                                                                                                                          |
-| `MODERNE_AGENT_MAVEN_{index}_ASTSOURCE`       | `false`  | `true`             | Specifies whether or not this repository should be searched for LST artifacts (Note: LSTs used to be called ASTs).                                                                                                                                                                                                                                                                                                                                                                  |
-| `MODERNE_AGENT_MAVEN_{index}_RECIPESOURCE`    | `false`  | `true`             | Specifies whether or not this repository should be searched for recipe jars.                                                                                                                                                                                                                                                                                                                                                                                                        |
-| `MODERNE_AGENT_MAVEN_{index}_SKIPSSL`         | `false`  | `false`            | Whether or not to skip SSL/TLS verification for calls from the agent to this Maven repository. This must be set to `true` if you use a self-signed SSL/TLS certificate.                                                                                                                                                                                                                                                                                                             |
-| `MODERNE_AGENT_MAVEN_{index}_CONNECTTIMEOUT`  | `false`  | `30s`              | Timeout for the connection to be established (and the first data received). Specified as a duration (e.g., `30s`, `1m`).                                                                                                                                                                                                                                                                                                                                                             |
-| `MODERNE_AGENT_MAVEN_{index}_READTIMEOUT`     | `false`  | `60s`              | Timeout for reading the response body from the Maven repository. Specified as a duration (e.g., `60s`, `5m`).                                                                                                                                                                                                                                                                                                                                                                        |
+| Variable Name                                                                | Required | Default            | Description                                                                                                                                                                                                                                                                                                                                          |
+|------------------------------------------------------------------------------|----------|--------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `MODERNE_CONNECTOR_ORGANIZATION_POLL_MAVEN_{index}_URI`                      | `true`   |                    | The URI of your Maven repository.                                                                                                                                                                                                                                                                                                                    |
+| `MODERNE_CONNECTOR_ORGANIZATION_POLL_MAVEN_{index}_LOCALREPOSITORY`          | `false`  | `~/.moderne-maven` | The path on disk where LST artifacts and Maven index files will be downloaded to. This is on the disk where the Connector is being run and **not** on the Maven instance. <br/><br/> LST artifacts are deleted from this location after they are transmitted to Moderne. Index files will remain behind to be used to detect diffs in the artifacts. |
+| `MODERNE_CONNECTOR_ORGANIZATION_POLL_MAVEN_{index}_USERNAME`                 | `false`  | `null`             | The username used to resolve artifacts.                                                                                                                                                                                                                                                                                                              |
+| `MODERNE_CONNECTOR_ORGANIZATION_POLL_MAVEN_{index}_PASSWORD`                 | `false`  | `null`             | The password used to resolve artifacts.                                                                                                                                                                                                                                                                                                              |
+| `MODERNE_CONNECTOR_ORGANIZATION_POLL_MAVEN_{index}_RELEASES`                 | `false`  | `true`             | Specifies whether or not this repository should be searched for releases.                                                                                                                                                                                                                                                                            |
+| `MODERNE_CONNECTOR_ORGANIZATION_POLL_MAVEN_{index}_SNAPSHOTS`                | `false`  | `true`             | Specifies whether or not this repository should be searched for snapshots.                                                                                                                                                                                                                                                                           |
+| `MODERNE_CONNECTOR_ORGANIZATION_POLL_MAVEN_{index}_SKIPSSL`                  | `false`  | `false`            | Whether or not to skip SSL/TLS verification for calls from the Connector to this Maven repository. This must be set to `true` if you use a self-signed SSL/TLS certificate.                                                                                                                                                                          |
+| `MODERNE_CONNECTOR_ORGANIZATION_POLL_MAVEN_{index}_SKIPVALIDATECONNECTIVITY` | `false`  | `false`            | By default, on Connector startup, we will validate that we can connect to this Maven repository, and fail to start up the Connector if we cannot. Set this to `true` to skip this validation.                                                                                                                                                        |
+| `MODERNE_CONNECTOR_ORGANIZATION_POLL_MAVEN_{index}_PROXY_HOST`               | `false`  |                    | The hostname of a proxy server to use for connections to this Maven repository.                                                                                                                                                                                                                                                                      |
+| `MODERNE_CONNECTOR_ORGANIZATION_POLL_MAVEN_{index}_PROXY_PORT`               | `false`  |                    | The port of the proxy server to use for connections to this Maven repository.                                                                                                                                                                                                                                                                        |
+| `MODERNE_CONNECTOR_ORGANIZATION_POLL_MAVEN_{index}_CONNECTTIMEOUT`           | `false`  | `30s`              | Timeout for the connection to be established (and the first data received). Specified as a duration (e.g., `30s`, `1m`).                                                                                                                                                                                                                             |
+| `MODERNE_CONNECTOR_ORGANIZATION_POLL_MAVEN_{index}_READTIMEOUT`              | `false`  | `60s`              | Timeout for reading the response body from the Maven repository. Specified as a duration (e.g., `60s`, `5m`).                                                                                                                                                                                                                                        |
 
 **Example:**
 
 ```bash
 docker run \
 # ... Existing variables
--e MODERNE_AGENT_MAVEN_0_URL=https://myartifactory.example.com/artifactory/libs-releases-local \
--e MODERNE_AGENT_MAVEN_0_USERNAME=admin \
--e MODERNE_AGENT_MAVEN_0_PASSWORD=password \
+-e MODERNE_CONNECTOR_ORGANIZATION_POLL_MAVEN_0_URI=https://myartifactory.example.com/artifactory/libs-releases-local \
+-e MODERNE_CONNECTOR_ORGANIZATION_POLL_MAVEN_0_USERNAME=admin \
+-e MODERNE_CONNECTOR_ORGANIZATION_POLL_MAVEN_0_PASSWORD=password \
 # ... Additional variables
 ```
 </TabItem>
@@ -512,28 +499,29 @@ docker run \
 
 **Arguments:**
 
-| Argument Name                                    | Required | Default            | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
-|--------------------------------------------------|----------|--------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `--moderne.agent.maven[{index}].url`             | `true`   |                    | The URL of your Maven repository.                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
-| `--moderne.agent.maven[{index}].localRepository` | `false`  | `~/.moderne-maven/maven{index}` | The path on disk where LST artifacts and Maven index files will be downloaded to. This is on the disk where the agent is being run and **not** on the Maven instance. Only used when `astSource` is `true`. If not specified, a unique path is automatically generated based on the configuration index. <br/><br/> LST artifacts are deleted from this location after they are transmitted to Moderne. Index files will remain behind to be used to detect diffs in the artifacts. |
-| `--moderne.agent.maven[{index}].username`        | `false`  | `null`             | The username used to resolve artifacts.                                                                                                                                                                                                                                                                                                                                                                                                                                             |
-| `--moderne.agent.maven[{index}].password`        | `false`  | `null`             | The password used to resolve artifacts.                                                                                                                                                                                                                                                                                                                                                                                                                                             |
-| `--moderne.agent.maven[{index}].releases`        | `false`  | `true`             | Specifies whether or not this repository should be searched for releases.                                                                                                                                                                                                                                                                                                                                                                                                           |
-| `--moderne.agent.maven[{index}].snapshots`       | `false`  | `true`             | Specifies whether or not this repository should be searched for snapshots.                                                                                                                                                                                                                                                                                                                                                                                                          |
-| `--moderne.agent.maven[{index}].astSource`       | `false`  | `true`             | Specifies whether or not this repository should be searched for LST artifacts (Note: LSTs used to be called ASTs).                                                                                                                                                                                                                                                                                                                                                                  |
-| `--moderne.agent.maven[{index}].recipeSource`    | `false`  | `true`             | Specifies whether or not this repository should be searched for recipe jars.                                                                                                                                                                                                                                                                                                                                                                                                        |
-| `--moderne.agent.maven[{index}].skipSsl`         | `false`  | `false`            | Whether or not to skip SSL/TLS verification for calls from the agent to this Maven repository. This must be set to `true` if you use a self-signed SSL/TLS certificate.                                                                                                                                                                                                                                                                                                             |
-| `--moderne.agent.maven[{index}].connectTimeout`  | `false`  | `30s`              | Timeout for the connection to be established (and the first data received). Specified as a duration (e.g., `30s`, `1m`).                                                                                                                                                                                                                                                                                                                                                             |
-| `--moderne.agent.maven[{index}].readTimeout`     | `false`  | `60s`              | Timeout for reading the response body from the Maven repository. Specified as a duration (e.g., `60s`, `5m`).                                                                                                                                                                                                                                                                                                                                                                        |
+| Argument Name                                                                   | Required | Default            | Description                                                                                                                                                                                                                                                                                                                                          |
+|---------------------------------------------------------------------------------|----------|--------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `--moderne.connector.organization.poll.maven[{index}].uri`                      | `true`   |                    | The URI of your Maven repository.                                                                                                                                                                                                                                                                                                                    |
+| `--moderne.connector.organization.poll.maven[{index}].localRepository`          | `false`  | `~/.moderne-maven` | The path on disk where LST artifacts and Maven index files will be downloaded to. This is on the disk where the Connector is being run and **not** on the Maven instance. <br/><br/> LST artifacts are deleted from this location after they are transmitted to Moderne. Index files will remain behind to be used to detect diffs in the artifacts. |
+| `--moderne.connector.organization.poll.maven[{index}].username`                 | `false`  | `null`             | The username used to resolve artifacts.                                                                                                                                                                                                                                                                                                              |
+| `--moderne.connector.organization.poll.maven[{index}].password`                 | `false`  | `null`             | The password used to resolve artifacts.                                                                                                                                                                                                                                                                                                              |
+| `--moderne.connector.organization.poll.maven[{index}].releases`                 | `false`  | `true`             | Specifies whether or not this repository should be searched for releases.                                                                                                                                                                                                                                                                            |
+| `--moderne.connector.organization.poll.maven[{index}].snapshots`                | `false`  | `true`             | Specifies whether or not this repository should be searched for snapshots.                                                                                                                                                                                                                                                                           |
+| `--moderne.connector.organization.poll.maven[{index}].skipSsl`                  | `false`  | `false`            | Whether or not to skip SSL/TLS verification for calls from the Connector to this Maven repository. This must be set to `true` if you use a self-signed SSL/TLS certificate.                                                                                                                                                                          |
+| `--moderne.connector.organization.poll.maven[{index}].skipValidateConnectivity` | `false`  | `false`            | By default, on Connector startup, we will validate that we can connect to this Maven repository, and fail to start up the Connector if we cannot. Set this to `true` to skip this validation.                                                                                                                                                        |
+| `--moderne.connector.organization.poll.maven[{index}].proxy.host`               | `false`  |                    | The hostname of a proxy server to use for connections to this Maven repository.                                                                                                                                                                                                                                                                      |
+| `--moderne.connector.organization.poll.maven[{index}].proxy.port`               | `false`  |                    | The port of the proxy server to use for connections to this Maven repository.                                                                                                                                                                                                                                                                        |
+| `--moderne.connector.organization.poll.maven[{index}].connectTimeout`           | `false`  | `30s`              | Timeout for the connection to be established (and the first data received). Specified as a duration (e.g., `30s`, `1m`).                                                                                                                                                                                                                             |
+| `--moderne.connector.organization.poll.maven[{index}].readTimeout`              | `false`  | `60s`              | Timeout for reading the response body from the Maven repository. Specified as a duration (e.g., `60s`, `5m`).                                                                                                                                                                                                                                        |
 
 **Example:**
 
 ```bash
-java -jar moderne-agent-{version}.jar \
+java -jar connector-{version}.jar \
 # ... Existing arguments
---moderne.agent.maven[0].url=https://myartifactory.example.com/artifactory/libs-releases-local \
---moderne.agent.maven[0].username=admin \
---moderne.agent.maven[0].password=password \
+--moderne.connector.organization.poll.maven[0].uri=https://myartifactory.example.com/artifactory/libs-releases-local \
+--moderne.connector.organization.poll.maven[0].username=admin \
+--moderne.connector.organization.poll.maven[0].password=password \
 # ... Additional arguments
 ```
 </TabItem>
@@ -548,26 +536,30 @@ You can configure multiple Artifactory servers by including multiple entries, ea
 
 **Environment variables:**
 
-| Variable Name                                               | Required | Default | Description                                                                                                                                                                                   |
-|-------------------------------------------------------------|----------|---------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `MODERNE_AGENT_ARTIFACTORY_{index}_URL`                     | `true`   |         | The URL of your Artifactory instance.                                                                                                                                                         |
-| `MODERNE_AGENT_ARTIFACTORY_{index}_USERNAME`                | `true`   |         | The username used to connect to your Artifactory instance. This user must have permission to run AQL queries.                                                                                 |
-| `MODERNE_AGENT_ARTIFACTORY_{index}_PASSWORD`                | `true`   |         | The password used to connect to your Artifactory instance.                                                                                                                                    |
-| `MODERNE_AGENT_ARTIFACTORY_{index}_ASTQUERYFILTERS_{index}` | `true`   |         | The AQL query fragment used to select LST artifacts to send to Moderne. If multiple are specified, they are combined together with an `AND`.                                                  |
-| `MODERNE_AGENT_ARTIFACTORY_{index}_SKIPSSL`                 | `false`  | `false` | Specifies whether or not to skip SSL verification for HTTP connections from the agent to this Artifactory instance.  This must be set to `true` if you use a self-signed SSL/TLS certificate. |
-| `MODERNE_AGENT_ARTIFACTORY_{index}_CONNECTTIMEOUT`          | `false`  | `30s`   | Timeout for the connection to be established (and the first data received). Specified as a duration (e.g., `30s`, `1m`).                                                                       |
-| `MODERNE_AGENT_ARTIFACTORY_{index}_READTIMEOUT`             | `false`  | `60s`   | Timeout for reading the response body from the Artifactory instance. Specified as a duration (e.g., `60s`, `5m`).                                                                              |
+| Variable Name                                                                      | Required | Default | Description                                                                                                                                                                                                                                          |
+|------------------------------------------------------------------------------------|----------|---------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `MODERNE_CONNECTOR_ORGANIZATION_POLL_ARTIFACTORY_{index}_URI`                      | `true`   |         | The URL of your Artifactory instance.                                                                                                                                                                                                                |
+| `MODERNE_CONNECTOR_ORGANIZATION_POLL_ARTIFACTORY_{index}_USERNAME`                 | `false`  |         | The username used to connect to your Artifactory instance. This user must have permission to run AQL queries. <br/><br/>**Note:** Only one of basic auth (username+password) or bearer token can be used.                                            |
+| `MODERNE_CONNECTOR_ORGANIZATION_POLL_ARTIFACTORY_{index}_PASSWORD`                 | `false`  |         | The password used to connect to your Artifactory instance. <br/><br/>**Note:** Only one of basic auth (username+password) or bearer token can be used.                                                                                               |
+| `MODERNE_CONNECTOR_ORGANIZATION_POLL_ARTIFACTORY_{index}_BEARERTOKEN`              | `false`  |         | The bearer token (access token) used to connect to your Artifactory instance. <br/><br/>**Note:** Only one of basic auth (username+password) or bearer token can be used. If `bearerToken` is specified, username and password must not be provided. |
+| `MODERNE_CONNECTOR_ORGANIZATION_POLL_ARTIFACTORY_{index}_LSTQUERYFILTERS_{index}`  | `true`   |         | The AQL query fragment used to select LST artifacts to send to Moderne. If multiple are specified, they are combined together with an `AND`.                                                                                                         |
+| `MODERNE_CONNECTOR_ORGANIZATION_POLL_ARTIFACTORY_{index}_SKIPSSL`                  | `false`  | `false` | Specifies whether or not to skip SSL verification for HTTP connections from the Connector to this Artifactory instance. This must be set to `true` if you use a self-signed SSL/TLS certificate.                                                     |
+| `MODERNE_CONNECTOR_ORGANIZATION_POLL_ARTIFACTORY_{index}_SKIPVALIDATECONNECTIVITY` | `false`  | `false` | By default, on Connector startup, we will validate that we can connect to this Artifactory instance, and fail to start up the Connector if we cannot. Set this to `true` to skip this validation.                                                    |
+| `MODERNE_CONNECTOR_ORGANIZATION_POLL_ARTIFACTORY_{index}_PROXY_HOST`               | `false`  |         | The hostname of a proxy server to use for connections to this Artifactory instance.                                                                                                                                                                  |
+| `MODERNE_CONNECTOR_ORGANIZATION_POLL_ARTIFACTORY_{index}_PROXY_PORT`               | `false`  |         | The port of the proxy server to use for connections to this Artifactory instance.                                                                                                                                                                    |
+| `MODERNE_CONNECTOR_ORGANIZATION_POLL_ARTIFACTORY_{index}_CONNECTTIMEOUT`           | `false`  | `30s`   | Timeout for the connection to be established (and the first data received). Specified as a duration (e.g., `30s`, `1m`).                                                                                                                             |
+| `MODERNE_CONNECTOR_ORGANIZATION_POLL_ARTIFACTORY_{index}_READTIMEOUT`              | `false`  | `60s`   | Timeout for reading the response body from the Artifactory instance. Specified as a duration (e.g., `60s`, `5m`).                                                                                                                                    |
 
 **Example:**
 
 ```bash
 docker run \
 # ... Existing variables
--e MODERNE_AGENT_ARTIFACTORY_0_URL=https://myartifactory.example.com/artifactory/ \
--e MODERNE_AGENT_ARTIFACTORY_0_USERNAME=admin \
--e MODERNE_AGENT_ARTIFACTORY_0_PASSWORD=password \
--e MODERNE_AGENT_ARTIFACTORY_0_ASTQUERYFILTERS_0='"name":{"$match":"*-ast.jar"}' \
--e MODERNE_AGENT_ARTIFACTORY_0_ASTQUERYFILTERS_1='"repo":{"$eq":"example-maven"}' \
+-e MODERNE_CONNECTOR_ORGANIZATION_POLL_ARTIFACTORY_0_URI=https://myartifactory.example.com/artifactory/ \
+-e MODERNE_CONNECTOR_ORGANIZATION_POLL_ARTIFACTORY_0_USERNAME=admin \
+-e MODERNE_CONNECTOR_ORGANIZATION_POLL_ARTIFACTORY_0_PASSWORD=password \
+-e MODERNE_CONNECTOR_ORGANIZATION_POLL_ARTIFACTORY_0_LSTQUERYFILTERS_0='"name":{"$match":"*-ast.jar"}' \
+-e MODERNE_CONNECTOR_ORGANIZATION_POLL_ARTIFACTORY_0_LSTQUERYFILTERS_1='"repo":{"$eq":"example-maven"}' \
 # ... Additional variables
 ```
 </TabItem>
@@ -576,62 +568,63 @@ docker run \
 
 **Arguments:**
 
-| Argument Name                                                   | Required | Default | Description                                                                                                                                                                                  |
-|-----------------------------------------------------------------|----------|---------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `--moderne.agent.artifactory[{index}].url`                      | `true`   |         | The URL of your Artifactory instance.                                                                                                                                                        |
-| `--moderne.agent.artifactory[{index}].username`                 | `true`   |         | The username used to connect to your Artifactory instance. This user must have permission to run AQL queries.                                                                                |
-| `--moderne.agent.artifactory[{index}].password`                 | `true`   |         | The password used to connect to your Artifactory instance.                                                                                                                                   |
-| `--moderne.agent.artifactory[{index}].astQueryFilters[{index}]` | `true`   |         | The AQL query fragment used to select LST artifacts to send to Moderne. If multiple are specified, they are combined together with an `AND`.                                                 |
-| `--moderne.agent.artifactory[{index}].skipSsl`                  | `false`  | `false` | Specifies whether or not to skip SSL verification for HTTP connections from the agent to this Artifactory instance. This must be set to `true` if you use a self-signed SSL/TLS certificate. |
-| `--moderne.agent.artifactory[{index}].connectTimeout`           | `false`  | `30s`   | Timeout for the connection to be established (and the first data received). Specified as a duration (e.g., `30s`, `1m`).                                                                      |
-| `--moderne.agent.artifactory[{index}].readTimeout`              | `false`  | `60s`   | Timeout for reading the response body from the Artifactory instance. Specified as a duration (e.g., `60s`, `5m`).                                                                             |
+| Argument Name                                                                         | Required | Default | Description                                                                                                                                                                                                                                          |
+|---------------------------------------------------------------------------------------|----------|---------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `--moderne.connector.organization.poll.artifactory[{index}].uri`                      | `true`   |         | The URL of your Artifactory instance.                                                                                                                                                                                                                |
+| `--moderne.connector.organization.poll.artifactory[{index}].username`                 | `false`  |         | The username used to connect to your Artifactory instance. This user must have permission to run AQL queries. <br/><br/>**Note:** Only one of basic auth (username+password) or bearer token can be used.                                            |
+| `--moderne.connector.organization.poll.artifactory[{index}].password`                 | `false`  |         | The password used to connect to your Artifactory instance. <br/><br/>**Note:** Only one of basic auth (username+password) or bearer token can be used.                                                                                               |
+| `--moderne.connector.organization.poll.artifactory[{index}].bearerToken`              | `false`  |         | The bearer token (access token) used to connect to your Artifactory instance. <br/><br/>**Note:** Only one of basic auth (username+password) or bearer token can be used. If `bearerToken` is specified, username and password must not be provided. |
+| `--moderne.connector.organization.poll.artifactory[{index}].lstQueryFilters[{index}]` | `true`   |         | The AQL query fragment used to select LST artifacts to send to Moderne. If multiple are specified, they are combined together with an `AND`.                                                                                                         |
+| `--moderne.connector.organization.poll.artifactory[{index}].skipSsl`                  | `false`  | `false` | Specifies whether or not to skip SSL verification for HTTP connections from the Connector to this Artifactory instance. This must be set to `true` if you use a self-signed SSL/TLS certificate.                                                     |
+| `--moderne.connector.organization.poll.artifactory[{index}].skipValidateConnectivity` | `false`  | `false` | By default, on Connector startup, we will validate that we can connect to this Artifactory instance, and fail to start up the Connector if we cannot. Set this to `true` to skip this validation.                                                    |
+| `--moderne.connector.organization.poll.artifactory[{index}].proxy.host`               | `false`  |         | The hostname of a proxy server to use for connections to this Artifactory instance.                                                                                                                                                                  |
+| `--moderne.connector.organization.poll.artifactory[{index}].proxy.port`               | `false`  |         | The port of the proxy server to use for connections to this Artifactory instance.                                                                                                                                                                    |
+| `--moderne.connector.organization.poll.artifactory[{index}].connectTimeout`           | `false`  | `30s`   | Timeout for the connection to be established (and the first data received). Specified as a duration (e.g., `30s`, `1m`).                                                                                                                             |
+| `--moderne.connector.organization.poll.artifactory[{index}].readTimeout`              | `false`  | `60s`   | Timeout for reading the response body from the Artifactory instance. Specified as a duration (e.g., `60s`, `5m`).                                                                                                                                    |
 
 **Example:**
 
 ```bash
-java -jar moderne-agent-{version}.jar \
+java -jar connector-{version}.jar \
 # ... Existing arguments
---moderne.agent.artifactory[0].url=https://myartifactory.example.com/artifactory/ \
---moderne.agent.artifactory[0].username=admin \
---moderne.agent.artifactory[0].password=password \
---moderne.agent.artifactory[0].astQueryFilters[0]='{"name":{"$match":"*-ast.jar"}}' \
---moderne.agent.artifactory[0].astQueryFilters[1]='{"repo":{"$eq":"example-maven"}}' \
+--moderne.connector.organization.poll.artifactory[0].uri=https://myartifactory.example.com/artifactory/ \
+--moderne.connector.organization.poll.artifactory[0].username=admin \
+--moderne.connector.organization.poll.artifactory[0].password=password \
+--moderne.connector.organization.poll.artifactory[0].lstQueryFilters[0]='{"name":{"$match":"*-ast.jar"}}' \
+--moderne.connector.organization.poll.artifactory[0].lstQueryFilters[1]='{"repo":{"$eq":"example-maven"}}' \
 # ... Additional arguments
 ```
 </TabItem>
 </Tabs>
 
-## Artifactory recipe variables
+## Recipe marketplace Maven variables
+
+Recipe marketplace repositories are configured under the `moderne.recipe.marketplace.repositories` namespace. You can configure multiple Maven repositories by including multiple entries, each with a different `{index}`.
 
 <Tabs groupId="agent-type">
 <TabItem value="oci-container" label="OCI Container">
 
 **Environment variables:**
 
-| Variable Name                                 | Required | Default            | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
-|-----------------------------------------------|----------|--------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `MODERNE_AGENT_MAVEN_{index}_URL`             | `true`   |                    | The URL of your Maven repository.                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
-| `MODERNE_AGENT_MAVEN_{index}_ASTSOURCE`       | `true`   | `true`             | Specifies whether or not this repository should be searched for LST artifacts. **You should set this to false** (Note: LSTs used to be called ASTs).                                                                                                                                                                                                                                                                                                                                |
-| `MODERNE_AGENT_MAVEN_{index}_USERNAME`        | `false`  | `null`             | The username used to resolve artifacts.                                                                                                                                                                                                                                                                                                                                                                                                                                             |
-| `MODERNE_AGENT_MAVEN_{index}_PASSWORD`        | `false`  | `null`             | The password used to resolve artifacts.                                                                                                                                                                                                                                                                                                                                                                                                                                             |
-| `MODERNE_AGENT_MAVEN_{index}_RELEASES`        | `false`  | `true`             | Specifies whether or not this repository should be searched for releases.                                                                                                                                                                                                                                                                                                                                                                                                           |
-| `MODERNE_AGENT_MAVEN_{index}_SNAPSHOTS`       | `false`  | `true`             | Specifies whether or not this repository should be searched for snapshots.                                                                                                                                                                                                                                                                                                                                                                                                          |
-| `MODERNE_AGENT_MAVEN_{index}_RECIPESOURCE`    | `false`  | `true`             | Specifies whether or not this repository should be searched for recipe jars.                                                                                                                                                                                                                                                                                                                                                                                                        |
-| `MODERNE_AGENT_MAVEN_{index}_SKIPSSL`         | `false`  | `false`            | Whether or not to skip SSL/TLS verification for calls from the agent to this Maven repository. This must be set to `true` if you use a self-signed SSL/TLS certificate.                                                                                                                                                                                                                                                                                                             |
-
-:::warning
-If you want to configure a [Moderne DevCenter](../creating-a-devcenter-recipe.md), you will need to ensure that you have exactly one Maven repository configured with `RECIPESOURCE` set to `true`. (It is fine to have this same Maven repository configured in multiple agents.)
-:::
+| Variable Name                                                      | Required | Default | Description                                                                                                                                                                 |
+|--------------------------------------------------------------------|----------|---------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `MODERNE_RECIPE_MARKETPLACE_REPOSITORIES_MAVEN_{index}_URI`        | `true`   |         | The URL of your Maven repository.                                                                                                                                           |
+| `MODERNE_RECIPE_MARKETPLACE_REPOSITORIES_MAVEN_{index}_USERNAME`   | `false`  | `null`  | The username used to resolve artifacts.                                                                                                                                     |
+| `MODERNE_RECIPE_MARKETPLACE_REPOSITORIES_MAVEN_{index}_PASSWORD`   | `false`  | `null`  | The password used to resolve artifacts.                                                                                                                                     |
+| `MODERNE_RECIPE_MARKETPLACE_REPOSITORIES_MAVEN_{index}_PROXY_HOST` | `false`  | `null`  | The host of an HTTP proxy used to reach this repository.                                                                                                                    |
+| `MODERNE_RECIPE_MARKETPLACE_REPOSITORIES_MAVEN_{index}_PROXY_PORT` | `false`  | `null`  | The port of an HTTP proxy used to reach this repository.                                                                                                                    |
+| `MODERNE_RECIPE_MARKETPLACE_REPOSITORIES_MAVEN_{index}_SKIPSSL`    | `false`  | `false` | Whether or not to skip SSL/TLS verification for calls from the Connector to this Maven repository. This must be set to `true` if you use a self-signed SSL/TLS certificate. |
+| `MODERNE_RECIPE_MARKETPLACE_REPOSITORIES_MAVEN_{index}_RELEASES`   | `false`  | `true`  | Specifies whether or not this repository should be searched for releases.                                                                                                   |
+| `MODERNE_RECIPE_MARKETPLACE_REPOSITORIES_MAVEN_{index}_SNAPSHOTS`  | `false`  | `true`  | Specifies whether or not this repository should be searched for snapshots.                                                                                                  |
 
 **Example:**
 
 ```bash
 docker run \
 # ... Existing variables
--e MODERNE_AGENT_MAVEN_0_URL=https://myartifactory.example.com/artifactory/libs-releases-local \
--e MODERNE_AGENT_MAVEN_0_ASTSOURCE=false \
--e MODERNE_AGENT_MAVEN_0_USERNAME=admin \
--e MODERNE_AGENT_MAVEN_0_PASSWORD=password \
+-e MODERNE_RECIPE_MARKETPLACE_REPOSITORIES_MAVEN_0_URI=https://myartifactory.example.com/artifactory/libs-releases-local \
+-e MODERNE_RECIPE_MARKETPLACE_REPOSITORIES_MAVEN_0_USERNAME=admin \
+-e MODERNE_RECIPE_MARKETPLACE_REPOSITORIES_MAVEN_0_PASSWORD=password \
 # ... Additional variables
 ```
 </TabItem>
@@ -640,30 +633,193 @@ docker run \
 
 **Arguments:**
 
-| Argument Name                                    | Required | Default            | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
-|--------------------------------------------------|----------|--------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `--moderne.agent.maven[{index}].url`             | `true`   |                    | The URL of your Maven repository.                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
-| `--moderne.agent.maven[{index}].astSource`       | `true`   | `true`             | Specifies whether or not this repository should be searched for LST artifacts. **You should set this to false** (Note: LSTs used to be called ASTs).                                                                                                                                                                                                                                                                                                                                |
-| `--moderne.agent.maven[{index}].username`        | `false`  | `null`             | The username used to resolve artifacts.                                                                                                                                                                                                                                                                                                                                                                                                                                             |
-| `--moderne.agent.maven[{index}].password`        | `false`  | `null`             | The password used to resolve artifacts.                                                                                                                                                                                                                                                                                                                                                                                                                                             |
-| `--moderne.agent.maven[{index}].releases`        | `false`  | `true`             | Specifies whether or not this repository should be searched for releases.                                                                                                                                                                                                                                                                                                                                                                                                           |
-| `--moderne.agent.maven[{index}].snapshots`       | `false`  | `true`             | Specifies whether or not this repository should be searched for snapshots.                                                                                                                                                                                                                                                                                                                                                                                                          |
-| `--moderne.agent.maven[{index}].recipeSource`    | `false`  | `true`             | Specifies whether or not this repository should be searched for recipe jars.                                                                                                                                                                                                                                                                                                                                                                                                        |
-| `--moderne.agent.maven[{index}].skipSsl`         | `false`  | `false`            | Whether or not to skip SSL/TLS verification for calls from the agent to this Maven repository. This must be set to `true` if you use a self-signed SSL/TLS certificate.                                                                                                                                                                                                                                                                                                             |
-
-:::warning
-If you want to configure a [Moderne DevCenter](../creating-a-devcenter-recipe.md), you will need to ensure that you have exactly one Maven repository configured with `recipeSource` set to `true`. (It is fine to have this same Maven repository configured in multiple agents.)
-:::
+| Argument Name                                                         | Required | Default | Description                                                                                                                                                                 |
+|-----------------------------------------------------------------------|----------|---------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `--moderne.recipe.marketplace.repositories.maven[{index}].uri`        | `true`   |         | The URL of your Maven repository.                                                                                                                                           |
+| `--moderne.recipe.marketplace.repositories.maven[{index}].username`   | `false`  | `null`  | The username used to resolve artifacts.                                                                                                                                     |
+| `--moderne.recipe.marketplace.repositories.maven[{index}].password`   | `false`  | `null`  | The password used to resolve artifacts.                                                                                                                                     |
+| `--moderne.recipe.marketplace.repositories.maven[{index}].proxy.host` | `false`  | `null`  | The host of an HTTP proxy used to reach this repository.                                                                                                                    |
+| `--moderne.recipe.marketplace.repositories.maven[{index}].proxy.port` | `false`  | `null`  | The port of an HTTP proxy used to reach this repository.                                                                                                                    |
+| `--moderne.recipe.marketplace.repositories.maven[{index}].skipSsl`    | `false`  | `false` | Whether or not to skip SSL/TLS verification for calls from the Connector to this Maven repository. This must be set to `true` if you use a self-signed SSL/TLS certificate. |
+| `--moderne.recipe.marketplace.repositories.maven[{index}].releases`   | `false`  | `true`  | Specifies whether or not this repository should be searched for releases.                                                                                                   |
+| `--moderne.recipe.marketplace.repositories.maven[{index}].snapshots`  | `false`  | `true`  | Specifies whether or not this repository should be searched for snapshots.                                                                                                  |
 
 **Example:**
 
 ```bash
-java -jar moderne-agent-{version}.jar \
+java -jar connector-{version}.jar \
 # ... Existing arguments
---moderne.agent.maven[0].url=https://myartifactory.example.com/artifactory/libs-releases-local \
---moderne.agent.maven[0].astSource=false \
---moderne.agent.maven[0].username=admin \
---moderne.agent.maven[0].password=password \
+--moderne.recipe.marketplace.repositories.maven[0].uri=https://myartifactory.example.com/artifactory/libs-releases-local \
+--moderne.recipe.marketplace.repositories.maven[0].username=admin \
+--moderne.recipe.marketplace.repositories.maven[0].password=password \
+# ... Additional arguments
+```
+</TabItem>
+</Tabs>
+
+## Recipe marketplace NPM variables
+
+NPM repositories support either basic authentication (`username` + `password`) or bearer token authentication (`bearerToken`), but not both at the same time. You can configure multiple NPM registries by including multiple entries, each with a different `{index}`.
+
+<Tabs groupId="agent-type">
+<TabItem value="oci-container" label="OCI Container">
+
+**Environment variables:**
+
+| Variable Name                                                     | Required | Default | Description                                                                                                                                                             |
+|-------------------------------------------------------------------|----------|---------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `MODERNE_RECIPE_MARKETPLACE_REPOSITORIES_NPM_{index}_URI`         | `true`   |         | The URL of your NPM registry.                                                                                                                                           |
+| `MODERNE_RECIPE_MARKETPLACE_REPOSITORIES_NPM_{index}_USERNAME`    | `false`  | `null`  | The username used to resolve artifacts. Mutually exclusive with `BEARERTOKEN`.                                                                                          |
+| `MODERNE_RECIPE_MARKETPLACE_REPOSITORIES_NPM_{index}_PASSWORD`    | `false`  | `null`  | The password used to resolve artifacts. Mutually exclusive with `BEARERTOKEN`.                                                                                          |
+| `MODERNE_RECIPE_MARKETPLACE_REPOSITORIES_NPM_{index}_BEARERTOKEN` | `false`  | `null`  | A bearer token used to resolve artifacts. Mutually exclusive with `USERNAME`/`PASSWORD`.                                                                                |
+| `MODERNE_RECIPE_MARKETPLACE_REPOSITORIES_NPM_{index}_PROXY_HOST`  | `false`  | `null`  | The host of an HTTP proxy used to reach this registry.                                                                                                                  |
+| `MODERNE_RECIPE_MARKETPLACE_REPOSITORIES_NPM_{index}_PROXY_PORT`  | `false`  | `null`  | The port of an HTTP proxy used to reach this registry.                                                                                                                  |
+| `MODERNE_RECIPE_MARKETPLACE_REPOSITORIES_NPM_{index}_SKIPSSL`     | `false`  | `false` | Whether or not to skip SSL/TLS verification for calls from the Connector to this NPM registry. This must be set to `true` if you use a self-signed SSL/TLS certificate. |
+
+**Example:**
+
+```bash
+docker run \
+# ... Existing variables
+-e MODERNE_RECIPE_MARKETPLACE_REPOSITORIES_NPM_0_URI=https://myartifactory.example.com/artifactory/api/npm/npm-local \
+-e MODERNE_RECIPE_MARKETPLACE_REPOSITORIES_NPM_0_BEARERTOKEN=... \
+# ... Additional variables
+```
+</TabItem>
+
+<TabItem value="executable-jar" label="Executable JAR">
+
+**Arguments:**
+
+| Argument Name                                                        | Required | Default | Description                                                                                                                                                             |
+|----------------------------------------------------------------------|----------|---------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `--moderne.recipe.marketplace.repositories.npm[{index}].uri`         | `true`   |         | The URL of your NPM registry.                                                                                                                                           |
+| `--moderne.recipe.marketplace.repositories.npm[{index}].username`    | `false`  | `null`  | The username used to resolve artifacts. Mutually exclusive with `bearerToken`.                                                                                          |
+| `--moderne.recipe.marketplace.repositories.npm[{index}].password`    | `false`  | `null`  | The password used to resolve artifacts. Mutually exclusive with `bearerToken`.                                                                                          |
+| `--moderne.recipe.marketplace.repositories.npm[{index}].bearerToken` | `false`  | `null`  | A bearer token used to resolve artifacts. Mutually exclusive with `username`/`password`.                                                                                |
+| `--moderne.recipe.marketplace.repositories.npm[{index}].proxy.host`  | `false`  | `null`  | The host of an HTTP proxy used to reach this registry.                                                                                                                  |
+| `--moderne.recipe.marketplace.repositories.npm[{index}].proxy.port`  | `false`  | `null`  | The port of an HTTP proxy used to reach this registry.                                                                                                                  |
+| `--moderne.recipe.marketplace.repositories.npm[{index}].skipSsl`     | `false`  | `false` | Whether or not to skip SSL/TLS verification for calls from the Connector to this NPM registry. This must be set to `true` if you use a self-signed SSL/TLS certificate. |
+
+**Example:**
+
+```bash
+java -jar connector-{version}.jar \
+# ... Existing arguments
+--moderne.recipe.marketplace.repositories.npm[0].uri=https://myartifactory.example.com/artifactory/api/npm/npm-local \
+--moderne.recipe.marketplace.repositories.npm[0].bearerToken=... \
+# ... Additional arguments
+```
+</TabItem>
+</Tabs>
+
+## Recipe marketplace NuGet variables
+
+NuGet repositories support either basic authentication (`username` + `password`) or bearer token authentication (`bearerToken`), but not both at the same time. You can configure multiple NuGet feeds by including multiple entries, each with a different `{index}`.
+
+<Tabs groupId="agent-type">
+<TabItem value="oci-container" label="OCI Container">
+
+**Environment variables:**
+
+| Variable Name                                                       | Required | Default | Description                                                                                                                                                           |
+|---------------------------------------------------------------------|----------|---------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `MODERNE_RECIPE_MARKETPLACE_REPOSITORIES_NUGET_{index}_URI`         | `true`   |         | The URL of your NuGet feed.                                                                                                                                           |
+| `MODERNE_RECIPE_MARKETPLACE_REPOSITORIES_NUGET_{index}_USERNAME`    | `false`  | `null`  | The username used to resolve artifacts. Mutually exclusive with `BEARERTOKEN`.                                                                                        |
+| `MODERNE_RECIPE_MARKETPLACE_REPOSITORIES_NUGET_{index}_PASSWORD`    | `false`  | `null`  | The password used to resolve artifacts. Mutually exclusive with `BEARERTOKEN`.                                                                                        |
+| `MODERNE_RECIPE_MARKETPLACE_REPOSITORIES_NUGET_{index}_BEARERTOKEN` | `false`  | `null`  | A bearer token used to resolve artifacts. Mutually exclusive with `USERNAME`/`PASSWORD`.                                                                              |
+| `MODERNE_RECIPE_MARKETPLACE_REPOSITORIES_NUGET_{index}_PROXY_HOST`  | `false`  | `null`  | The host of an HTTP proxy used to reach this feed.                                                                                                                    |
+| `MODERNE_RECIPE_MARKETPLACE_REPOSITORIES_NUGET_{index}_PROXY_PORT`  | `false`  | `null`  | The port of an HTTP proxy used to reach this feed.                                                                                                                    |
+| `MODERNE_RECIPE_MARKETPLACE_REPOSITORIES_NUGET_{index}_SKIPSSL`     | `false`  | `false` | Whether or not to skip SSL/TLS verification for calls from the Connector to this NuGet feed. This must be set to `true` if you use a self-signed SSL/TLS certificate. |
+
+**Example:**
+
+```bash
+docker run \
+# ... Existing variables
+-e MODERNE_RECIPE_MARKETPLACE_REPOSITORIES_NUGET_0_URI=https://myartifactory.example.com/artifactory/api/nuget/nuget-local \
+-e MODERNE_RECIPE_MARKETPLACE_REPOSITORIES_NUGET_0_BEARERTOKEN=... \
+# ... Additional variables
+```
+</TabItem>
+
+<TabItem value="executable-jar" label="Executable JAR">
+
+**Arguments:**
+
+| Argument Name                                                          | Required | Default | Description                                                                                                                                                           |
+|------------------------------------------------------------------------|----------|---------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `--moderne.recipe.marketplace.repositories.nuget[{index}].uri`         | `true`   |         | The URL of your NuGet feed.                                                                                                                                           |
+| `--moderne.recipe.marketplace.repositories.nuget[{index}].username`    | `false`  | `null`  | The username used to resolve artifacts. Mutually exclusive with `bearerToken`.                                                                                        |
+| `--moderne.recipe.marketplace.repositories.nuget[{index}].password`    | `false`  | `null`  | The password used to resolve artifacts. Mutually exclusive with `bearerToken`.                                                                                        |
+| `--moderne.recipe.marketplace.repositories.nuget[{index}].bearerToken` | `false`  | `null`  | A bearer token used to resolve artifacts. Mutually exclusive with `username`/`password`.                                                                              |
+| `--moderne.recipe.marketplace.repositories.nuget[{index}].proxy.host`  | `false`  | `null`  | The host of an HTTP proxy used to reach this feed.                                                                                                                    |
+| `--moderne.recipe.marketplace.repositories.nuget[{index}].proxy.port`  | `false`  | `null`  | The port of an HTTP proxy used to reach this feed.                                                                                                                    |
+| `--moderne.recipe.marketplace.repositories.nuget[{index}].skipSsl`     | `false`  | `false` | Whether or not to skip SSL/TLS verification for calls from the Connector to this NuGet feed. This must be set to `true` if you use a self-signed SSL/TLS certificate. |
+
+**Example:**
+
+```bash
+java -jar connector-{version}.jar \
+# ... Existing arguments
+--moderne.recipe.marketplace.repositories.nuget[0].uri=https://myartifactory.example.com/artifactory/api/nuget/nuget-local \
+--moderne.recipe.marketplace.repositories.nuget[0].bearerToken=... \
+# ... Additional arguments
+```
+</TabItem>
+</Tabs>
+
+## Recipe marketplace PyPI variables
+
+You can configure multiple PyPI indexes by including multiple entries, each with a different `{index}`.
+
+<Tabs groupId="agent-type">
+<TabItem value="oci-container" label="OCI Container">
+
+**Environment variables:**
+
+| Variable Name                                                     | Required | Default | Description                                                                                                                                                           |
+|-------------------------------------------------------------------|----------|---------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `MODERNE_RECIPE_MARKETPLACE_REPOSITORIES_PYPI_{index}_URI`        | `true`   |         | The URL of your PyPI index.                                                                                                                                           |
+| `MODERNE_RECIPE_MARKETPLACE_REPOSITORIES_PYPI_{index}_USERNAME`   | `false`  | `null`  | The username used to resolve artifacts.                                                                                                                               |
+| `MODERNE_RECIPE_MARKETPLACE_REPOSITORIES_PYPI_{index}_PASSWORD`   | `false`  | `null`  | The password used to resolve artifacts.                                                                                                                               |
+| `MODERNE_RECIPE_MARKETPLACE_REPOSITORIES_PYPI_{index}_PROXY_HOST` | `false`  | `null`  | The host of an HTTP proxy used to reach this index.                                                                                                                   |
+| `MODERNE_RECIPE_MARKETPLACE_REPOSITORIES_PYPI_{index}_PROXY_PORT` | `false`  | `null`  | The port of an HTTP proxy used to reach this index.                                                                                                                   |
+| `MODERNE_RECIPE_MARKETPLACE_REPOSITORIES_PYPI_{index}_SKIPSSL`    | `false`  | `false` | Whether or not to skip SSL/TLS verification for calls from the Connector to this PyPI index. This must be set to `true` if you use a self-signed SSL/TLS certificate. |
+
+**Example:**
+
+```bash
+docker run \
+# ... Existing variables
+-e MODERNE_RECIPE_MARKETPLACE_REPOSITORIES_PYPI_0_URI=https://myartifactory.example.com/artifactory/api/pypi/pypi-local/simple \
+-e MODERNE_RECIPE_MARKETPLACE_REPOSITORIES_PYPI_0_USERNAME=admin \
+-e MODERNE_RECIPE_MARKETPLACE_REPOSITORIES_PYPI_0_PASSWORD=password \
+# ... Additional variables
+```
+</TabItem>
+
+<TabItem value="executable-jar" label="Executable JAR">
+
+**Arguments:**
+
+| Argument Name                                                        | Required | Default | Description                                                                                                                                                           |
+|----------------------------------------------------------------------|----------|---------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `--moderne.recipe.marketplace.repositories.pypi[{index}].uri`        | `true`   |         | The URL of your PyPI index.                                                                                                                                           |
+| `--moderne.recipe.marketplace.repositories.pypi[{index}].username`   | `false`  | `null`  | The username used to resolve artifacts.                                                                                                                               |
+| `--moderne.recipe.marketplace.repositories.pypi[{index}].password`   | `false`  | `null`  | The password used to resolve artifacts.                                                                                                                               |
+| `--moderne.recipe.marketplace.repositories.pypi[{index}].proxy.host` | `false`  | `null`  | The host of an HTTP proxy used to reach this index.                                                                                                                   |
+| `--moderne.recipe.marketplace.repositories.pypi[{index}].proxy.port` | `false`  | `null`  | The port of an HTTP proxy used to reach this index.                                                                                                                   |
+| `--moderne.recipe.marketplace.repositories.pypi[{index}].skipSsl`    | `false`  | `false` | Whether or not to skip SSL/TLS verification for calls from the Connector to this PyPI index. This must be set to `true` if you use a self-signed SSL/TLS certificate. |
+
+**Example:**
+
+```bash
+java -jar connector-{version}.jar \
+# ... Existing arguments
+--moderne.recipe.marketplace.repositories.pypi[0].uri=https://myartifactory.example.com/artifactory/api/pypi/pypi-local/simple \
+--moderne.recipe.marketplace.repositories.pypi[0].username=admin \
+--moderne.recipe.marketplace.repositories.pypi[0].password=password \
 # ... Additional arguments
 ```
 </TabItem>
@@ -678,25 +834,25 @@ You can configure multiple S3 buckets by including multiple entries, each with a
 
 **Environment variables:**
 
-| Variable Name                          | Required                                                 | Default | Description                                                                                                                |
-|----------------------------------------|----------------------------------------------------------|---------|----------------------------------------------------------------------------------------------------------------------------|
-| `MODERNE_AGENT_S3_{index}_BUCKETURI`   | `true`                                                   |         | The S3 bucket URI. Must start with `s3://` (e.g., `s3://my-bucket-name`).                                                  |
-| `MODERNE_AGENT_S3_{index}_ENDPOINTURL` | `false`                                                  |         | Custom endpoint URL for S3-compatible services (e.g., `http://localhost:9000` for MinIO). Leave empty for standard AWS S3. |
-| `MODERNE_AGENT_S3_{index}_REGION`      | `false`                                                  |         | The AWS region where the bucket is located (e.g., `us-east-1`).                                                            |
-| `MODERNE_AGENT_S3_{index}_ACCESSKEY`   | `false` (Required if not using profile or IAM role)      |         | The AWS access key ID for authentication.                                                                                  |
-| `MODERNE_AGENT_S3_{index}_SECRETKEY`   | `false` (Required if using access key)                   |         | The AWS secret key for authentication.                                                                                     |
-| `MODERNE_AGENT_S3_{index}_PROFILE`     | `false` (Alternative to access key/secret key)           |         | The AWS profile name from your credentials file.                                                                           |
-| `MODERNE_AGENT_S3_{index}_SKIPSSL`     | `true` (If using self-signed cert or non-HTTPS endpoint) | `false` | Specifies whether to skip SSL verification for connections to the S3 endpoint.                                             |
+| Variable Name                                         | Required                                                 | Default | Description                                                                                                                |
+|-------------------------------------------------------|----------------------------------------------------------|---------|----------------------------------------------------------------------------------------------------------------------------|
+| `MODERNE_ORGANIZATION_SOURCES_S3_{index}_URI`         | `true`                                                   |         | The S3 bucket URI. Must start with `s3://` (e.g., `s3://my-bucket-name`).                                                  |
+| `MODERNE_ORGANIZATION_SOURCES_S3_{index}_ENDPOINTURL` | `false`                                                  |         | Custom endpoint URL for S3-compatible services (e.g., `http://localhost:9000` for MinIO). Leave empty for standard AWS S3. |
+| `MODERNE_ORGANIZATION_SOURCES_S3_{index}_REGION`      | `false`                                                  |         | The AWS region where the bucket is located (e.g., `us-east-1`).                                                            |
+| `MODERNE_ORGANIZATION_SOURCES_S3_{index}_ACCESSKEY`   | `false` (Required if not using profile or IAM role)      |         | The AWS access key ID for authentication.                                                                                  |
+| `MODERNE_ORGANIZATION_SOURCES_S3_{index}_SECRETKEY`   | `false` (Required if using access key)                   |         | The AWS secret key for authentication.                                                                                     |
+| `MODERNE_ORGANIZATION_SOURCES_S3_{index}_PROFILE`     | `false` (Alternative to access key/secret key)           |         | The AWS profile name from your credentials file.                                                                           |
+| `MODERNE_ORGANIZATION_SOURCES_S3_{index}_SKIPSSL`     | `true` (If using self-signed cert or non-HTTPS endpoint) | `false` | Specifies whether to skip SSL verification for connections to the S3 endpoint.                                             |
 
 **Example:**
 
 ```bash
 docker run \
 # ... Existing variables
--e MODERNE_AGENT_S3_0_BUCKETURI=s3://my-lst-bucket \
--e MODERNE_AGENT_S3_0_REGION=us-east-1 \
--e MODERNE_AGENT_S3_0_ACCESSKEY=AKIAIOSFODNN7EXAMPLE \
--e MODERNE_AGENT_S3_0_SECRETKEY=wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY \
+-e MODERNE_ORGANIZATION_SOURCES_S3_0_URI=s3://my-lst-bucket \
+-e MODERNE_ORGANIZATION_SOURCES_S3_0_REGION=us-east-1 \
+-e MODERNE_ORGANIZATION_SOURCES_S3_0_ACCESSKEY=AKIAIOSFODNN7EXAMPLE \
+-e MODERNE_ORGANIZATION_SOURCES_S3_0_SECRETKEY=wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY \
 # ... Additional variables
 ```
 </TabItem>
@@ -705,55 +861,55 @@ docker run \
 
 **Arguments:**
 
-| Argument Name                             | Required                                                 | Default | Description                                                                                                                |
-|-------------------------------------------|----------------------------------------------------------|---------|----------------------------------------------------------------------------------------------------------------------------|
-| `--moderne.agent.s3[{index}].bucketUri`   | `true`                                                   |         | The S3 bucket URI. Must start with `s3://` (e.g., `s3://my-bucket-name`).                                                  |
-| `--moderne.agent.s3[{index}].endpointUrl` | `false`                                                  |         | Custom endpoint URL for S3-compatible services (e.g., `http://localhost:9000` for MinIO). Leave empty for standard AWS S3. |
-| `--moderne.agent.s3[{index}].region`      | `false`                                                  |         | The AWS region where the bucket is located (e.g., `us-east-1`).                                                            |
-| `--moderne.agent.s3[{index}].accessKey`   | `false` (Required if not using profile or IAM role)      |         | The AWS access key ID for authentication.                                                                                  |
-| `--moderne.agent.s3[{index}].secretKey`   | `false` (Required if using access key)                   |         | The AWS secret key for authentication.                                                                                     |
-| `--moderne.agent.s3[{index}].profile`     | `false` (Alternative to access key/secret key)           |         | The AWS profile name from your credentials file.                                                                           |
-| `--moderne.agent.s3[{index}].skipSsl`     | `true` (If using self-signed cert or non-HTTPS endpoint) | `false` | Specifies whether to skip SSL verification for connections to the S3 endpoint.                                             |
+| Argument Name                                            | Required                                                 | Default | Description                                                                                                                |
+|----------------------------------------------------------|----------------------------------------------------------|---------|----------------------------------------------------------------------------------------------------------------------------|
+| `--moderne.organization.sources.s3[{index}].uri`         | `true`                                                   |         | The S3 bucket URI. Must start with `s3://` (e.g., `s3://my-bucket-name`).                                                  |
+| `--moderne.organization.sources.s3[{index}].endpointUrl` | `false`                                                  |         | Custom endpoint URL for S3-compatible services (e.g., `http://localhost:9000` for MinIO). Leave empty for standard AWS S3. |
+| `--moderne.organization.sources.s3[{index}].region`      | `false`                                                  |         | The AWS region where the bucket is located (e.g., `us-east-1`).                                                            |
+| `--moderne.organization.sources.s3[{index}].accessKey`   | `false` (Required if not using profile or IAM role)      |         | The AWS access key ID for authentication.                                                                                  |
+| `--moderne.organization.sources.s3[{index}].secretKey`   | `false` (Required if using access key)                   |         | The AWS secret key for authentication.                                                                                     |
+| `--moderne.organization.sources.s3[{index}].profile`     | `false` (Alternative to access key/secret key)           |         | The AWS profile name from your credentials file.                                                                           |
+| `--moderne.organization.sources.s3[{index}].skipSsl`     | `true` (If using self-signed cert or non-HTTPS endpoint) | `false` | Specifies whether to skip SSL verification for connections to the S3 endpoint.                                             |
 
 **Example:**
 
 ```bash
-java -jar moderne-agent-{version}.jar \
+java -jar connector-{version}.jar \
 # ... Existing arguments
---moderne.agent.s3[0].bucketUri=s3://my-lst-bucket \
---moderne.agent.s3[0].region=us-east-1 \
---moderne.agent.s3[0].accessKey=AKIAIOSFODNN7EXAMPLE \
---moderne.agent.s3[0].secretKey=wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY \
+--moderne.organization.sources.s3[0].uri=s3://my-lst-bucket \
+--moderne.organization.sources.s3[0].region=us-east-1 \
+--moderne.organization.sources.s3[0].accessKey=AKIAIOSFODNN7EXAMPLE \
+--moderne.organization.sources.s3[0].secretKey=wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY \
 # ... Additional arguments
 ```
 </TabItem>
 </Tabs>
 
-## Strict recipe sources variables
+## Recipe POM cache variables
 
 <Tabs groupId="agent-type">
 <TabItem value="oci-container" label="OCI Container">
 
 **Environment variables:**
 
-| Variable Name                                   | Required                                  | Default | Description                                                                                       |
-|-------------------------------------------------|-------------------------------------------|---------|---------------------------------------------------------------------------------------------------|
-| `MODERNE_AGENT_RECIPE_USEONLYCONFIGURED`        | `true`                                    |         | Only use the recipe sources configured in the agent.                                              |
-| `MODERNE_AGENT_RECIPE_POMCACHE_TYPE`            | `false`                                   |         | Used to specify what type of cache the POM should use. Acceptable values: `IN_MEMORY` or `REDIS`. |
-| `MODERNE_AGENT_RECIPE_POMCACHE_ENTRYTTLMINUTES` | `false`                                   | 60      | How long entries should live in the POM cache.                                                    |
-| `MODERNE_AGENT_RECIPE_POMCACHE_REDIS_HOST`      | `true` (If the POM cache type is `REDIS`) |         | The URL of the Redis instance.                                                                    |
-| `MODERNE_AGENT_RECIPE_POMCACHE_REDIS_PORT`      | `true` (If the POM cache type is `REDIS`) | 6379    | The port number of the Redis instance.                                                            |
-| `MODERNE_AGENT_RECIPE_POMCACHE_REDIS_USERNAME`  | `false`                                   |         | The username needed to authenticate to the Redis instance.                                        |
-| `MODERNE_AGENT_RECIPE_POMCACHE_REDIS_PASSWORD`  | `false`                                   |         | The password needed to authenticate with the Redis instance.                                      |
-| `MODERNE_AGENT_RECIPE_POMCACHE_REDIS_SSL`       | `false`                                   | `false` | If set to `true`, then SSL will be enabled for the connection to the Redis instance.              |
-| `MODERNE_AGENT_RECIPE_POMCACHE_REDIS_DATABASE`  | `false`                                   | 0       | The Redis DB index.                                                                               |
+| Variable Name                                       | Required                                  | Default | Description                                                                                       |
+|-----------------------------------------------------|-------------------------------------------|---------|---------------------------------------------------------------------------------------------------|
+| `MODERNE_CONNECTOR_RECIPE_POMCACHE_TYPE`            | `false`                                   |         | Used to specify what type of cache the POM should use. Acceptable values: `IN_MEMORY` or `REDIS`. |
+| `MODERNE_CONNECTOR_RECIPE_POMCACHE_ENTRYTTLMINUTES` | `false`                                   | 60      | How long entries should live in the POM cache.                                                    |
+| `MODERNE_CONNECTOR_RECIPE_POMCACHE_REDIS_HOST`      | `true` (If the POM cache type is `REDIS`) |         | The URL of the Redis instance.                                                                    |
+| `MODERNE_CONNECTOR_RECIPE_POMCACHE_REDIS_PORT`      | `true` (If the POM cache type is `REDIS`) | 6379    | The port number of the Redis instance.                                                            |
+| `MODERNE_CONNECTOR_RECIPE_POMCACHE_REDIS_USERNAME`  | `false`                                   |         | The username needed to authenticate to the Redis instance.                                        |
+| `MODERNE_CONNECTOR_RECIPE_POMCACHE_REDIS_PASSWORD`  | `false`                                   |         | The password needed to authenticate with the Redis instance.                                      |
+| `MODERNE_CONNECTOR_RECIPE_POMCACHE_REDIS_SSL`       | `false`                                   | `false` | If set to `true`, then SSL will be enabled for the connection to the Redis instance.              |
+| `MODERNE_CONNECTOR_RECIPE_POMCACHE_REDIS_DATABASE`  | `false`                                   | 0       | The Redis DB index.                                                                               |
 
 **Example:**
 
 ```bash
 docker run \
 # ... Existing variables
--e MODERNE_AGENT_RECIPE_USEONLYCONFIGURED=true \
+-e MODERNE_CONNECTOR_RECIPE_POMCACHE_TYPE=REDIS \
+-e MODERNE_CONNECTOR_RECIPE_POMCACHE_REDIS_HOST=localhost \
 # ... Additional variables
 ```
 </TabItem>
@@ -762,86 +918,24 @@ docker run \
 
 **Arguments:**
 
-| Argument Name                                     | Required                                  | Default | Description                                                                                       |
-|---------------------------------------------------|-------------------------------------------|---------|---------------------------------------------------------------------------------------------------|
-| `--moderne.agent.recipe.useOnlyConfigured`        | `true`                                    |         | Only use the recipe sources configured in the agent.                                              |
-| `--moderne.agent.recipe.pomCache.type`            | `false`                                   |         | Used to specify what type of cache the POM should use. Acceptable values: `IN_MEMORY` or `REDIS`. |
-| `--moderne.agent.recipe.pomCache.entryTtlMinutes` | `false`                                   | 60      | How long entries should live in the POM cache.                                                    |
-| `--moderne.agent.recipe.pomCache.redis.host`      | `true` (If the POM cache type is `REDIS`) |         | The URL of the Redis instance.                                                                    |
-| `--moderne.agent.recipe.pomCache.redis.port`      | `true` (If the POM cache type is `REDIS`) | 6379    | The port number of the Redis instance.                                                            |
-| `--moderne.agent.recipe.pomCache.redis.username`  | `false`                                   |         | The username needed to authenticate to the Redis instance.                                        |
-| `--moderne.agent.recipe.pomCache.redis.password`  | `false`                                   |         | The password needed to authenticate with the Redis instance.                                      |
-| `--moderne.agent.recipe.pomCache.redis.ssl`       | `false`                                   | `false` | If set to `true`, then SSL will be enabled for the connection to the Redis instance.              |
-| `--moderne.agent.recipe.pomCache.redis.database`  | `false`                                   | 0       | The Redis DB index.                                                                               |
+| Argument Name                                         | Required                                  | Default | Description                                                                                       |
+|-------------------------------------------------------|-------------------------------------------|---------|---------------------------------------------------------------------------------------------------|
+| `--moderne.connector.recipe.pomCache.type`            | `false`                                   |         | Used to specify what type of cache the POM should use. Acceptable values: `IN_MEMORY` or `REDIS`. |
+| `--moderne.connector.recipe.pomCache.entryTtlMinutes` | `false`                                   | 60      | How long entries should live in the POM cache.                                                    |
+| `--moderne.connector.recipe.pomCache.redis.host`      | `true` (If the POM cache type is `REDIS`) |         | The URL of the Redis instance.                                                                    |
+| `--moderne.connector.recipe.pomCache.redis.port`      | `true` (If the POM cache type is `REDIS`) | 6379    | The port number of the Redis instance.                                                            |
+| `--moderne.connector.recipe.pomCache.redis.username`  | `false`                                   |         | The username needed to authenticate to the Redis instance.                                        |
+| `--moderne.connector.recipe.pomCache.redis.password`  | `false`                                   |         | The password needed to authenticate with the Redis instance.                                      |
+| `--moderne.connector.recipe.pomCache.redis.ssl`       | `false`                                   | `false` | If set to `true`, then SSL will be enabled for the connection to the Redis instance.              |
+| `--moderne.connector.recipe.pomCache.redis.database`  | `false`                                   | 0       | The Redis DB index.                                                                               |
 
 **Example:**
 
 ```bash
-java -jar moderne-agent-{version}.jar \
+java -jar connector-{version}.jar \
 # ... Existing arguments
---moderne.agent.recipe.useOnlyConfigured=true \
-# ... Additional arguments
-```
-</TabItem>
-</Tabs>
-
-## PyPI variables
-
-:::info
-You can configure multiple PyPI package indexes by including multiple entries, each with a different `{index}`.
-:::
-
-<Tabs groupId="agent-type">
-<TabItem value="oci-container" label="OCI Container">
-
-**Environment variables:**
-
-| Variable Name                                   | Required | Default | Description                                                                                                                                                               |
-|-------------------------------------------------|----------|---------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `MODERNE_AGENT_VISUALIZATION_USEONLYCONFIGURED` | `true`   | `false` | Only use the visualization sources configured in the agent.                                                                                                               |
-| `MODERNE_AGENT_PYPI_{index}_URL`                | `true`   |         | The URL of your PyPI package index.                                                                                                                                       |
-| `MODERNE_AGENT_PYPI_{index}_USERNAME`           | `false`  | `null`  | The username used to access the index.                                                                                                                                    |
-| `MODERNE_AGENT_PYPI_{index}_PASSWORD`           | `false`  | `null`  | The password used to access the index.                                                                                                                                    |
-| `MODERNE_AGENT_PYPI_{index}_SKIPSSL`            | `false`  | `false` | Whether or not to skip SSL/TLS verification for calls from the agent to this PyPI package index. This must be set to `true` if you use a self-signed SSL/TLS certificate. |
-| `MODERNE_AGENT_PYPI_{index}_CONNECTTIMEOUT`     | `false`  | `30s`   | Timeout for the connection to be established (and the first data received). Specified as a duration (e.g., `30s`, `1m`).                                                   |
-| `MODERNE_AGENT_PYPI_{index}_READTIMEOUT`        | `false`  | `60s`   | Timeout for reading the response body from the PyPI package index. Specified as a duration (e.g., `60s`, `5m`).                                                            |
-
-**Example:**
-
-```bash
-docker run \
-# ... Existing variables
--e MODERNE_AGENT_VISUALIZATION_USEONLYCONFIGURED=true \
--e MODERNE_AGENT_PYPI_0_URL=https://pypi.example.com/simple \
--e MODERNE_AGENT_PYPI_0_USERNAME=admin \
--e MODERNE_AGENT_PYPI_0_PASSWORD=password \
-# ... Additional variables
-```
-</TabItem>
-
-<TabItem value="executable-jar" label="Executable JAR">
-
-**Arguments:**
-
-| Argument Name                                     | Required | Default | Description                                                                                                                                                               |
-|---------------------------------------------------|----------|---------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `--moderne.agent.visualization.useOnlyConfigured` | `true`   | `false` | Only use the visualization sources configured in the agent.                                                                                                               |
-| `--moderne.agent.pypi[{index}].url`               | `true`   |         | The URL of your PyPI package index.                                                                                                                                       |
-| `--moderne.agent.pypi[{index}].username`          | `false`  | `null`  | The username used to access the index.                                                                                                                                    |
-| `--moderne.agent.pypi[{index}].password`          | `false`  | `null`  | The password used to access the index.                                                                                                                                    |
-| `--moderne.agent.pypi[{index}].skipSsl`           | `false`  | `false` | Whether or not to skip SSL/TLS verification for calls from the agent to this PyPI package index. This must be set to `true` if you use a self-signed SSL/TLS certificate. |
-| `--moderne.agent.pypi[{index}].connectTimeout`    | `false`  | `30s`   | Timeout for the connection to be established (and the first data received). Specified as a duration (e.g., `30s`, `1m`).                                                   |
-| `--moderne.agent.pypi[{index}].readTimeout`       | `false`  | `60s`   | Timeout for reading the response body from the PyPI package index. Specified as a duration (e.g., `60s`, `5m`).                                                            |
-
-**Example:**
-
-```bash
-java -jar moderne-agent-{version}.jar \
-# ... Existing arguments
---moderne.agent.visualization.useOnlyConfigured=true \
---moderne.agent.pypi[0].url=https://pypi.example.com/simple \
---moderne.agent.pypi[0].username=admin \
---moderne.agent.pypi[0].password=password \
+--moderne.connector.recipe.pomCache.type=REDIS \
+--moderne.connector.recipe.pomCache.redis.host=localhost \
 # ... Additional arguments
 ```
 </TabItem>
@@ -854,14 +948,13 @@ java -jar moderne-agent-{version}.jar \
 
 **Environment variables:**
 
-| Variable Name                          | Required | Default | Description                                                                      |
-|----------------------------------------|----------|---------|----------------------------------------------------------------------------------|
-| `MODERNE_AGENT_APIGATEWAY_PROXY_HOST`  | `false`  |         | Host (without scheme) for the proxy server.                                      |
-| `MODERNE_AGENT_APIGATEWAY_PROXY_PORT`  | `false`  |         | Port for the proxy server.                                                       |
-| `MODERNE_AGENT_APIGATEWAY_BEARERTOKEN` | `false`  |         | Bearer token sent as an `Authorization` header on the WebSocket upgrade request. |
+| Variable Name                             | Required | Default | Description                                 |
+|-------------------------------------------|----------|---------|---------------------------------------------|
+| `MODERNE_CONNECTOR_APIGATEWAY_PROXY_HOST` | `false`  |         | Host (without scheme) for the proxy server. |
+| `MODERNE_CONNECTOR_APIGATEWAY_PROXY_PORT` | `false`  |         | Port for the proxy server.                  |
 
 :::info
-If you include either a host or port, you must include both. The bearer token is independent of the proxy host/port and is used for reverse proxy authentication.
+If you include either a host or port, you must include both.
 :::
 
 **Example:**
@@ -869,8 +962,8 @@ If you include either a host or port, you must include both. The bearer token is
 ```bash
 docker run \
 # ... Existing variables
--e MODERNE_AGENT_APIGATEWAY_PROXY_HOST=proxy.mycompany.com \
--e MODERNE_AGENT_APIGATEWAY_PROXY_PORT=8179 \
+-e MODERNE_CONNECTOR_APIGATEWAY_PROXY_HOST=proxy.mycompany.com \
+-e MODERNE_CONNECTOR_APIGATEWAY_PROXY_PORT=8179 \
 # ... Additional variables
 ```
 
@@ -880,23 +973,22 @@ docker run \
 
 **Arguments:**
 
-| Argument Name                            | Required | Default | Description                                                                      |
-|------------------------------------------|----------|---------|----------------------------------------------------------------------------------|
-| `--moderne.agent.apiGateway.proxy.host`  | `false`  |         | Host (without scheme) for the proxy server.                                      |
-| `--moderne.agent.apiGateway.proxy.port`  | `false`  |         | Port for the proxy server.                                                       |
-| `--moderne.agent.apiGateway.bearerToken` | `false`  |         | Bearer token sent as an `Authorization` header on the WebSocket upgrade request. |
+| Argument Name                               | Required | Default | Description                                 |
+|---------------------------------------------|----------|---------|---------------------------------------------|
+| `--moderne.connector.apiGateway.proxy.host` | `false`  |         | Host (without scheme) for the proxy server. |
+| `--moderne.connector.apiGateway.proxy.port` | `false`  |         | Port for the proxy server.                  |
 
 :::info
-If you include either a host or port, you must include both. The bearer token is independent of the proxy host/port and is used for reverse proxy authentication.
+If you include either a host or port, you must include both.
 :::
 
 **Example:**
 
 ```bash
-java -jar moderne-agent-{version}.jar \
+java -jar connector-{version}.jar \
 # ... Existing arguments
---moderne.agent.apiGateway.proxy.host=proxy.mycompany.com \
---moderne.agent.apiGateway.proxy.port=8179 \
+--moderne.connector.apiGateway.proxy.host=proxy.mycompany.com \
+--moderne.connector.apiGateway.proxy.port=8179 \
 # ... Additional arguments
 ```
 
@@ -910,28 +1002,28 @@ java -jar moderne-agent-{version}.jar \
 
 **Environment variables:**
 
-| Variable Name                                  | Required | Default | Description                                                                                                                                                                                                                |
-|------------------------------------------------|----------|---------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `MODERNE_AGENT_UI_MOREHELP_0_LABEL`            | `false`  | `null`  | Custom label for first link under the 'Need more help?' menu. If populated, the URL property must also be populated. Maximum of 3 help items supported.                                                                    |
-| `MODERNE_AGENT_UI_MOREHELP_0_URL`              | `false`  | `null`  | The URL for the first custom help resource. Must be a fully qualified URL that is accessible to users of the platform.                                                                                                     |
-| `MODERNE_AGENT_UI_MOREHELP_1_LABEL`            | `false`  | `null`  | Custom label for second link under the 'Need more help?' menu. If populated, the URL property must also be populated.                                                                                                      |
-| `MODERNE_AGENT_UI_MOREHELP_1_URL`              | `false`  | `null`  | The URL for the second custom help resource. Must be a fully qualified URL that is accessible to users of the platform.                                                                                                    |
-| `MODERNE_AGENT_UI_MOREHELP_2_LABEL`            | `false`  | `null`  | Custom label for third link under the 'Need more help?' menu. If populated, the URL property must also be populated.                                                                                                       |
-| `MODERNE_AGENT_UI_MOREHELP_2_URL`              | `false`  | `null`  | The URL for the third custom help resource. Must be a fully qualified URL that is accessible to users of the platform.                                                                                                     |
-| `MODERNE_AGENT_CLI_DOWNLOADINSTRUCTIONS_LABEL` | `false`  | `null`  | CLI download instructions label to show in the platform UI. Overrides the default display of the CLI tools menu presented in the Moderne platform's user interface. If populated, the URL property must also be populated. |
-| `MODERNE_AGENT_CLI_DOWNLOADINSTRUCTIONS_URL`   | `false`  | `null`  | The URL of the instructions documentation. Must be a fully qualified URL that is accessible to users of the platform.                                                                                                      |
+| Variable Name                              | Required | Default | Description                                                                                                                                                                                                                |
+|--------------------------------------------|----------|---------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `MODERNE_UI_MOREHELP_0_LABEL`              | `false`  | `null`  | Custom label for first link under the 'Need more help?' menu. If populated, the URI property must also be populated. Maximum of 3 help items supported.                                                                    |
+| `MODERNE_UI_MOREHELP_0_URI`                | `false`  | `null`  | The URI for the first custom help resource. Must be a fully qualified URI that is accessible to users of the platform.                                                                                                     |
+| `MODERNE_UI_MOREHELP_1_LABEL`              | `false`  | `null`  | Custom label for second link under the 'Need more help?' menu. If populated, the URI property must also be populated.                                                                                                      |
+| `MODERNE_UI_MOREHELP_1_URI`                | `false`  | `null`  | The URI for the second custom help resource. Must be a fully qualified URI that is accessible to users of the platform.                                                                                                    |
+| `MODERNE_UI_MOREHELP_2_LABEL`              | `false`  | `null`  | Custom label for third link under the 'Need more help?' menu. If populated, the URI property must also be populated.                                                                                                       |
+| `MODERNE_UI_MOREHELP_2_URI`                | `false`  | `null`  | The URI for the third custom help resource. Must be a fully qualified URI that is accessible to users of the platform.                                                                                                     |
+| `MODERNE_UI_CLIDOWNLOADINSTRUCTIONS_LABEL` | `false`  | `null`  | CLI download instructions label to show in the platform UI. Overrides the default display of the CLI tools menu presented in the Moderne platform's user interface. If populated, the URI property must also be populated. |
+| `MODERNE_UI_CLIDOWNLOADINSTRUCTIONS_URI`   | `false`  | `null`  | The URI of the instructions documentation. Must be a fully qualified URI that is accessible to users of the platform.                                                                                                      |
 
 **Example:**
 
 ```bash
 docker run \
 # ... Existing variables
--e MODERNE_AGENT_UI_MOREHELP_0_LABEL="Getting started" \
--e MODERNE_AGENT_UI_MOREHELP_0_URL="https://docs.moderne.io/user-documentation/moderne-platform/getting-started" \
--e MODERNE_AGENT_UI_MOREHELP_1_LABEL="How to guides" \
--e MODERNE_AGENT_UI_MOREHELP_1_URL="https://docs.moderne.io/user-documentation/moderne-platform/how-to-guides" \
--e MODERNE_AGENT_CLI_DOWNLOADINSTRUCTIONS_LABEL="Download CLI Tools" \
--e MODERNE_AGENT_CLI_DOWNLOADINSTRUCTIONS_URL="https://docs.example.com/moderne-cli-setup" \
+-e MODERNE_UI_MOREHELP_0_LABEL="Getting started" \
+-e MODERNE_UI_MOREHELP_0_URI="https://docs.moderne.io/user-documentation/moderne-platform/getting-started" \
+-e MODERNE_UI_MOREHELP_1_LABEL="How to guides" \
+-e MODERNE_UI_MOREHELP_1_URI="https://docs.moderne.io/user-documentation/moderne-platform/how-to-guides" \
+-e MODERNE_UI_CLIDOWNLOADINSTRUCTIONS_LABEL="Download CLI Tools" \
+-e MODERNE_UI_CLIDOWNLOADINSTRUCTIONS_URI="https://docs.example.com/moderne-cli-setup" \
 # ... Additional variables
 ```
 
@@ -941,28 +1033,28 @@ docker run \
 
 **Arguments:**
 
-| Argument Name                                    | Required | Default | Description                                                                                                                                                                                                                |
-|--------------------------------------------------|----------|---------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `--moderne.agent.ui.moreHelp[0].label`           | `false`  | `null`  | Custom label for first link under the 'Need more help?' menu. If populated, the URL property must also be populated. Maximum of 3 help items supported.                                                                    |
-| `--moderne.agent.ui.moreHelp[0].url`             | `false`  | `null`  | The URL for the first custom help resource. Must be a fully qualified URL that is accessible to users of the platform.                                                                                                     |
-| `--moderne.agent.ui.moreHelp[1].label`           | `false`  | `null`  | Custom label for second link under the 'Need more help?' menu. If populated, the URL property must also be populated.                                                                                                      |
-| `--moderne.agent.ui.moreHelp[1].url`             | `false`  | `null`  | The URL for the second custom help resource. Must be a fully qualified URL that is accessible to users of the platform.                                                                                                    |
-| `--moderne.agent.ui.moreHelp[2].label`           | `false`  | `null`  | Custom label for third link under the 'Need more help?' menu. If populated, the URL property must also be populated.                                                                                                       |
-| `--moderne.agent.ui.moreHelp[2].url`             | `false`  | `null`  | The URL for the third custom help resource. Must be a fully qualified URL that is accessible to users of the platform.                                                                                                     |
-| `--moderne.agent.cli.downloadInstructions.label` | `false`  | `null`  | CLI download instructions label to show in the platform UI. Overrides the default display of the CLI tools menu presented in the Moderne platform's user interface. If populated, the URL property must also be populated. |
-| `--moderne.agent.cli.downloadInstructions.url`   | `false`  | `null`  | The URL of the instructions documentation. Must be a fully qualified URL that is accessible to users of the platform.                                                                                                      |
+| Argument Name                                | Required | Default | Description                                                                                                                                                                                                                |
+|----------------------------------------------|----------|---------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `--moderne.ui.moreHelp[0].label`             | `false`  | `null`  | Custom label for first link under the 'Need more help?' menu. If populated, the URI property must also be populated. Maximum of 3 help items supported.                                                                    |
+| `--moderne.ui.moreHelp[0].uri`               | `false`  | `null`  | The URI for the first custom help resource. Must be a fully qualified URI that is accessible to users of the platform.                                                                                                     |
+| `--moderne.ui.moreHelp[1].label`             | `false`  | `null`  | Custom label for second link under the 'Need more help?' menu. If populated, the URI property must also be populated.                                                                                                      |
+| `--moderne.ui.moreHelp[1].uri`               | `false`  | `null`  | The URI for the second custom help resource. Must be a fully qualified URI that is accessible to users of the platform.                                                                                                    |
+| `--moderne.ui.moreHelp[2].label`             | `false`  | `null`  | Custom label for third link under the 'Need more help?' menu. If populated, the URI property must also be populated.                                                                                                       |
+| `--moderne.ui.moreHelp[2].uri`               | `false`  | `null`  | The URI for the third custom help resource. Must be a fully qualified URI that is accessible to users of the platform.                                                                                                     |
+| `--moderne.ui.cliDownloadInstructions.label` | `false`  | `null`  | CLI download instructions label to show in the platform UI. Overrides the default display of the CLI tools menu presented in the Moderne platform's user interface. If populated, the URI property must also be populated. |
+| `--moderne.ui.cliDownloadInstructions.uri`   | `false`  | `null`  | The URI of the instructions documentation. Must be a fully qualified URI that is accessible to users of the platform.                                                                                                      |
 
 **Example:**
 
 ```bash
-java -jar moderne-agent-{version}.jar \
+java -jar connector-{version}.jar \
 # ... Existing arguments
---moderne.agent.ui.moreHelp[0].label="Getting started" \
---moderne.agent.ui.moreHelp[0].url="https://docs.moderne.io/user-documentation/moderne-platform/getting-started" \
---moderne.agent.ui.moreHelp[1].label="How to guides" \
---moderne.agent.ui.moreHelp[1].url="https://docs.moderne.io/user-documentation/moderne-platform/how-to-guides" \
---moderne.agent.cli.downloadInstructions.label="Download CLI Tools" \
---moderne.agent.cli.downloadInstructions.url="https://docs.example.com/moderne-cli-setup" \
+--moderne.ui.moreHelp[0].label="Getting started" \
+--moderne.ui.moreHelp[0].uri="https://docs.moderne.io/user-documentation/moderne-platform/getting-started" \
+--moderne.ui.moreHelp[1].label="How to guides" \
+--moderne.ui.moreHelp[1].uri="https://docs.moderne.io/user-documentation/moderne-platform/how-to-guides" \
+--moderne.ui.cliDownloadInstructions.label="Download CLI Tools" \
+--moderne.ui.cliDownloadInstructions.uri="https://docs.example.com/moderne-cli-setup" \
 # ... Additional arguments
 ```
 
@@ -976,25 +1068,27 @@ java -jar moderne-agent-{version}.jar \
 
 **Environment variables:**
 
-| Variable Name                                             | Required | Default | Description                                                                                                                                                                                                             |
-|-----------------------------------------------------------|----------|---------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `MODERNE_AGENT_HTTPTOOL_{index}_URL`                      | `true`   |         | Fully qualified URL to your HTTP tool.                                                                                                                                                                                  |
-| `MODERNE_AGENT_HTTPTOOL_{index}_USERNAME`                 | `false`  |         | Username used to authenticate to HTTP tool. <br/><br/>**Note:** Only one of basic auth (username+password) and bearer token can be used. If username and password are specified, `bearerToken` must not be provided.    |
-| `MODERNE_AGENT_HTTPTOOL_{index}_PASSWORD`                 | `false`  |         | Password used to authenticate to HTTP tool. <br/><br/>**Note:** Only one of basic auth (username+password) and bearer token can be used. If username and password are specified, `bearerToken` must not be provided.    |
-| `MODERNE_AGENT_HTTPTOOL_{index}_BEARERTOKEN`              | `false`  |         | Bearer token used to authenticate to HTTP tool. <br/><br/>**Note:** Only one of basic auth (username+password) and bearer token can be used. If `bearerToken` is specified, username and password must not be provided. |
-| `MODERNE_AGENT_HTTPTOOL_{index}_SKIPSSL`                  | `false`  | `false` | Specifies whether or not to skip SSL validation for HTTP connections to this HTTP tool. This must be set to `true` if you use a self-signed SSL/TLS certificate.                                                        |
-| `MODERNE_AGENT_HTTPTOOL_{index}_SKIPVALIDATECONNECTIVITY` | `false`  | `false` | By default, on agent startup, we will validate that we can connect to this HTTP tool, and fail to start up the agent if we cannot. Set this to `true` to skip this validation.                                          |
-| `MODERNE_AGENT_HTTPTOOL_{index}_CONNECTTIMEOUT`           | `false`  | `30s`   | Timeout for the connection to be established (and the first data received). Specified as a duration (e.g., `30s`, `1m`).                                                                                                 |
-| `MODERNE_AGENT_HTTPTOOL_{index}_READTIMEOUT`              | `false`  | `60s`   | Timeout for reading the response body from the HTTP tool. Specified as a duration (e.g., `60s`, `5m`).                                                                                                                   |
+| Variable Name                                                 | Required | Default | Description                                                                                                                                                                                                             |
+|---------------------------------------------------------------|----------|---------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `MODERNE_CONNECTOR_HTTPTOOL_{index}_URI`                      | `true`   |         | Fully qualified URI to your HTTP tool.                                                                                                                                                                                  |
+| `MODERNE_CONNECTOR_HTTPTOOL_{index}_USERNAME`                 | `false`  |         | Username used to authenticate to HTTP tool. <br/><br/>**Note:** Only one of basic auth (username+password) and bearer token can be used. If username and password are specified, `bearerToken` must not be provided.    |
+| `MODERNE_CONNECTOR_HTTPTOOL_{index}_PASSWORD`                 | `false`  |         | Password used to authenticate to HTTP tool. <br/><br/>**Note:** Only one of basic auth (username+password) and bearer token can be used. If username and password are specified, `bearerToken` must not be provided.    |
+| `MODERNE_CONNECTOR_HTTPTOOL_{index}_BEARERTOKEN`              | `false`  |         | Bearer token used to authenticate to HTTP tool. <br/><br/>**Note:** Only one of basic auth (username+password) and bearer token can be used. If `bearerToken` is specified, username and password must not be provided. |
+| `MODERNE_CONNECTOR_HTTPTOOL_{index}_SKIPSSL`                  | `false`  | `false` | Specifies whether or not to skip SSL validation for HTTP connections to this HTTP tool. This must be set to `true` if you use a self-signed SSL/TLS certificate.                                                        |
+| `MODERNE_CONNECTOR_HTTPTOOL_{index}_SKIPVALIDATECONNECTIVITY` | `false`  | `false` | By default, on Connector startup, we will validate that we can connect to this HTTP tool, and fail to start up the Connector if we cannot. Set this to `true` to skip this validation.                                  |
+| `MODERNE_CONNECTOR_HTTPTOOL_{index}_PROXY_HOST`               | `false`  |         | The hostname of a proxy server to use for connections to this HTTP tool.                                                                                                                                                |
+| `MODERNE_CONNECTOR_HTTPTOOL_{index}_PROXY_PORT`               | `false`  |         | The port of the proxy server to use for connections to this HTTP tool.                                                                                                                                                  |
+| `MODERNE_CONNECTOR_HTTPTOOL_{index}_CONNECTTIMEOUT`           | `false`  | `30s`   | Timeout for the connection to be established (and the first data received). Specified as a duration (e.g., `30s`, `1m`).                                                                                                |
+| `MODERNE_CONNECTOR_HTTPTOOL_{index}_READTIMEOUT`              | `false`  | `60s`   | Timeout for reading the response body from the HTTP tool. Specified as a duration (e.g., `60s`, `5m`).                                                                                                                  |
 
 **Example:**
 
 ```bash
 docker run \
 # ... Existing variables
--e MODERNE_AGENT_HTTPTOOL_0_URL=https://launchdarkly.mycompany.com \
--e MODERNE_AGENT_HTTPTOOL_0_USERNAME=myUser \
--e MODERNE_AGENT_HTTPTOOL_0_PASSWORD=${SECRET_NAME} \
+-e MODERNE_CONNECTOR_HTTPTOOL_0_URI=https://launchdarkly.mycompany.com \
+-e MODERNE_CONNECTOR_HTTPTOOL_0_USERNAME=myUser \
+-e MODERNE_CONNECTOR_HTTPTOOL_0_PASSWORD=${SECRET_NAME} \
 # ... Additional variables
 ```
 </TabItem>
@@ -1003,52 +1097,56 @@ docker run \
 
 **Arguments:**
 
-| Argument Name                                                | Required | Default | Description                                                                                                                                                                                                             |
-|--------------------------------------------------------------|----------|---------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `--moderne.agent.httpTool[{index}].url`                      | `true`   |         | Fully qualified URL to your HTTP tool.                                                                                                                                                                                  |
-| `--moderne.agent.httpTool[{index}].username`                 | `false`  |         | Username used to authenticate to HTTP tool. <br/><br/>**Note:** Only one of basic auth (username+password) and bearer token can be used. If username and password are specified, `bearerToken` must not be provided.    |
-| `--moderne.agent.httpTool[{index}].password`                 | `false`  |         | Password used to authenticate to HTTP tool. <br/><br/>**Note:** Only one of basic auth (username+password) and bearer token can be used. If username and password are specified, `bearerToken` must not be provided.    |
-| `--moderne.agent.httpTool[{index}].bearerToken`              | `false`  |         | Bearer token used to authenticate to HTTP tool. <br/><br/>**Note:** Only one of basic auth (username+password) and bearer token can be used. If `bearerToken` is specified, username and password must not be provided. |
-| `--moderne.agent.httpTool[{index}].skipSsl`                  | `false`  | `false` | Specifies whether or not to skip SSL validation for HTTP connections to this HTTP tool. This must be set to `true` if you use a self-signed SSL/TLS certificate.                                                        |
-| `--moderne.agent.httpTool[{index}].skipValidateConnectivity` | `false`  | `false` | By default, on agent startup, we will validate that we can connect to this HTTP tool, and fail to start up the agent if we cannot. Set this to `true` to skip this validation.                                          |
-| `--moderne.agent.httpTool[{index}].connectTimeout`           | `false`  | `30s`   | Timeout for the connection to be established (and the first data received). Specified as a duration (e.g., `30s`, `1m`).                                                                                                 |
-| `--moderne.agent.httpTool[{index}].readTimeout`              | `false`  | `60s`   | Timeout for reading the response body from the HTTP tool. Specified as a duration (e.g., `60s`, `5m`).                                                                                                                   |
+| Argument Name                                                    | Required | Default | Description                                                                                                                                                                                                             |
+|------------------------------------------------------------------|----------|---------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `--moderne.connector.httpTool[{index}].uri`                      | `true`   |         | Fully qualified URI to your HTTP tool.                                                                                                                                                                                  |
+| `--moderne.connector.httpTool[{index}].username`                 | `false`  |         | Username used to authenticate to HTTP tool. <br/><br/>**Note:** Only one of basic auth (username+password) and bearer token can be used. If username and password are specified, `bearerToken` must not be provided.    |
+| `--moderne.connector.httpTool[{index}].password`                 | `false`  |         | Password used to authenticate to HTTP tool. <br/><br/>**Note:** Only one of basic auth (username+password) and bearer token can be used. If username and password are specified, `bearerToken` must not be provided.    |
+| `--moderne.connector.httpTool[{index}].bearerToken`              | `false`  |         | Bearer token used to authenticate to HTTP tool. <br/><br/>**Note:** Only one of basic auth (username+password) and bearer token can be used. If `bearerToken` is specified, username and password must not be provided. |
+| `--moderne.connector.httpTool[{index}].skipSsl`                  | `false`  | `false` | Specifies whether or not to skip SSL validation for HTTP connections to this HTTP tool. This must be set to `true` if you use a self-signed SSL/TLS certificate.                                                        |
+| `--moderne.connector.httpTool[{index}].skipValidateConnectivity` | `false`  | `false` | By default, on Connector startup, we will validate that we can connect to this HTTP tool, and fail to start up the Connector if we cannot. Set this to `true` to skip this validation.                                  |
+| `--moderne.connector.httpTool[{index}].proxy.host`               | `false`  |         | The hostname of a proxy server to use for connections to this HTTP tool.                                                                                                                                                |
+| `--moderne.connector.httpTool[{index}].proxy.port`               | `false`  |         | The port of the proxy server to use for connections to this HTTP tool.                                                                                                                                                  |
+| `--moderne.connector.httpTool[{index}].connectTimeout`           | `false`  | `30s`   | Timeout for the connection to be established (and the first data received). Specified as a duration (e.g., `30s`, `1m`).                                                                                                |
+| `--moderne.connector.httpTool[{index}].readTimeout`              | `false`  | `60s`   | Timeout for reading the response body from the HTTP tool. Specified as a duration (e.g., `60s`, `5m`).                                                                                                                  |
 
 **Example:**
 
 ```bash
-java -jar moderne-agent-{version}.jar \
+java -jar connector-{version}.jar \
 # ... Existing arguments
---moderne.agent.httpTool[0].url=https://launchdarkly.mycompany.com \
---moderne.agent.httpTool[0].username=myUser \
---moderne.agent.httpTool[0].password=${SECRET_NAME} \
+--moderne.connector.httpTool[0].uri=https://launchdarkly.mycompany.com \
+--moderne.connector.httpTool[0].username=myUser \
+--moderne.connector.httpTool[0].password=${SECRET_NAME} \
 # ... Additional arguments
 ```
 </TabItem>
 </Tabs>
 
-## Multi-tenant private recipes
+## Moddy LLM variables
+
+Variables for enabling [Moddy](./configure-an-agent-with-llm-for-moddy.md), Moderne's multi-repo AI agent. Variables are nested under the specific provider you are configuring. Replace `{PROVIDER}` with one of `OPENAI`, `ANTHROPIC`, `GEMINI`, or `MISTRAL` (for environment variables) or `{provider}` with one of `openai`, `anthropic`, `gemini`, or `mistral` (for JAR arguments).
 
 <Tabs groupId="agent-type">
 <TabItem value="oci-container" label="OCI Container">
 
 **Environment variables:**
 
-| Variable Name                | Required | Default | Description                                                                   |
-|------------------------------|----------|---------|-------------------------------------------------------------------------------|
-| `MODERNE_AGENT_TENANTDOMAIN` | `false`  |         | Host (without scheme) to upload and deploy your own company-specific recipes. |
-
-:::warning
-Only be used when your company is using the [app.moderne.io](https://app.moderne.io/getting-started) tenant AND you want to upload and deploy your own company-specific recipes.
-See [Multi-tenant private recipes](./multi-tenant-private-recipes.md) for more information.
-:::
+| Variable Name                         | Required | Default | Description                                                                                                                                                                |
+|---------------------------------------|----------|---------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `MODERNE_MODDY_{PROVIDER}_APIKEY`     | `true`   |         | The API key for the specified LLM provider. Replace `{PROVIDER}` with `OPENAI`, `ANTHROPIC`, `GEMINI`, or `MISTRAL`.                                                       |
+| `MODERNE_MODDY_{PROVIDER}_MODEL`      | `false`  |         | Optional model name override for the LLM provider.                                                                                                                         |
+| `MODERNE_MODDY_{PROVIDER}_URI`        | `false`  |         | Optional URI override for the LLM API endpoint. If not specified, the default endpoint for the provider is used. Useful for routing requests through a custom API gateway. |
+| `MODERNE_MODDY_{PROVIDER}_PROXY_HOST` | `false`  |         | The hostname of a proxy server used to reach the LLM API. If specified, `PROXY_PORT` must also be set.                                                                     |
+| `MODERNE_MODDY_{PROVIDER}_PROXY_PORT` | `false`  |         | The port of the proxy server used to reach the LLM API. If specified, `PROXY_HOST` must also be set.                                                                       |
+| `MODERNE_MODDY_ADMINONLY`             | `false`  | `false` | If `true`, only admins will see Moddy in the UI and be able to chat with Moddy.                                                                                            |
 
 **Example:**
 
 ```bash
 docker run \
 # ... Existing variables
--e MODERNE_AGENT_TENANTDOMAIN=mycompany.com \
+-e MODERNE_MODDY_ANTHROPIC_APIKEY=${ANTHROPIC_API_KEY} \
 # ... Additional variables
 ```
 </TabItem>
@@ -1057,23 +1155,23 @@ docker run \
 
 **Arguments:**
 
-| Argument Name                  | Required | Default | Description                                                                   |
-|--------------------------------|----------|---------|-------------------------------------------------------------------------------|
-| `--moderne.agent.tenantDomain` | `false`  |         | Host (without scheme) to upload and deploy your own company-specific recipes. |
-
-:::warning
-Only be used when your company is using the [app.moderne.io](https://app.moderne.io/getting-started) tenant, and you want to upload and deploy your own company-specific recipes.
-See [Multi-tenant private recipes](./multi-tenant-private-recipes.md) for more information.
-:::
-
+| Argument Name                           | Required | Default | Description                                                                                                                                                                |
+|-----------------------------------------|----------|---------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `--moderne.moddy.{provider}.apiKey`     | `true`   |         | The API key for the specified LLM provider. Replace `{provider}` with `openai`, `anthropic`, `gemini`, or `mistral`.                                                       |
+| `--moderne.moddy.{provider}.model`      | `false`  |         | Optional model name override for the LLM provider.                                                                                                                         |
+| `--moderne.moddy.{provider}.uri`        | `false`  |         | Optional URI override for the LLM API endpoint. If not specified, the default endpoint for the provider is used. Useful for routing requests through a custom API gateway. |
+| `--moderne.moddy.{provider}.proxy.host` | `false`  |         | The hostname of a proxy server used to reach the LLM API. If specified, `proxy.port` must also be set.                                                                     |
+| `--moderne.moddy.{provider}.proxy.port` | `false`  |         | The port of the proxy server used to reach the LLM API. If specified, `proxy.host` must also be set.                                                                       |
+| `--moderne.moddy.adminOnly`             | `false`  | `false` | If `true`, only admins will see Moddy in the UI and be able to chat with Moddy.                                                                                            |
 
 **Example:**
 
 ```bash
-java -jar moderne-agent-{version}.jar \
+java -jar connector-{version}.jar \
 # ... Existing arguments
---moderne.agent.tenantDomain=mycompany.com \
+--moderne.moddy.anthropic.apiKey=${ANTHROPIC_API_KEY} \
 # ... Additional arguments
 ```
 </TabItem>
 </Tabs>
+

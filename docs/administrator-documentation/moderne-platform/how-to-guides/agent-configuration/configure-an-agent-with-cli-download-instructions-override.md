@@ -1,16 +1,19 @@
 ---
 sidebar_label: CLI download instructions override
-description: How to configure the Moderne agent to provide custom CLI download instructions.
+description: How to configure the Moderne Connector to provide custom CLI download instructions.
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import VersionBanner from '@site/src/components/VersionBanner';
 
-# Configure an agent with CLI download instructions
+<VersionBanner version="v2" linkPath="/administrator-documentation/moderne-platform-v1/how-to-guides/agent-configuration/configure-an-agent-with-cli-download-instructions-override" />
+
+# Configure a Connector with CLI download instructions
 
 The Moderne Platform provides a default CLI tools menu to help users download and install the Moderne CLI. However, some organizations may want to customize these instructions to point to internal documentation, mirror sites, or provide organization-specific installation steps.
 
-This guide will show you how to configure the Moderne agent to override the default CLI download instructions with your own custom documentation.
+This guide will show you how to configure the Moderne Connector to override the default CLI download instructions with your own custom documentation.
 
 ## Why customize CLI download instructions?
 
@@ -21,27 +24,27 @@ Organizations may want to customize CLI download instructions for several reason
 * **Platform-specific guidance**: You may want to provide tailored instructions for your supported platforms
 * **Access control**: You may need to direct users to request access or follow approval processes
 
-## Agent configuration
+## Connector configuration
 
-The following table contains the variables/arguments needed to configure custom CLI download instructions for your Moderne agent. Please note that these variables/arguments must be combined with ones found in other steps in the [Configuring the Moderne agent guide](./agent-config.md).
+The following table contains the variables/arguments needed to configure custom CLI download instructions for your Moderne Connector. Please note that these variables/arguments must be combined with ones found in other steps in the [Configuring the Moderne Connector guide](./agent-config.md).
 
 <Tabs groupId="agent-type">
 <TabItem value="oci-container" label="OCI Container">
 
 **Environment variables:**
 
-| Variable Name                                   | Required | Default | Description                                                                                                                                                                                                              |
-|-------------------------------------------------|----------|---------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `MODERNE_AGENT_CLI_DOWNLOADINSTRUCTIONS_LABEL` | `false`  | `null`  | CLI download instructions label to show in the platform UI. Overrides the default display of the CLI tools menu presented in the Moderne platform's user interface. If populated, the URL property must also be populated. |
-| `MODERNE_AGENT_CLI_DOWNLOADINSTRUCTIONS_URL`   | `false`  | `null`  | The URL of the instructions documentation. Must be a fully qualified URL that is accessible to users of the platform.                                                                                                    |
+| Variable Name                              | Required | Default | Description                                                                                                                                                                                                                |
+|--------------------------------------------|----------|---------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `MODERNE_UI_CLIDOWNLOADINSTRUCTIONS_LABEL` | `false`  | `null`  | CLI download instructions label to show in the platform UI. Overrides the default display of the CLI tools menu presented in the Moderne platform's user interface. If populated, the URL property must also be populated. |
+| `MODERNE_UI_CLIDOWNLOADINSTRUCTIONS_URI`   | `false`  | `null`  | The URL of the instructions documentation. Must be a fully qualified URL that is accessible to users of the platform.                                                                                                      |
 
 **Example:**
 
 ```bash
 docker run \
 # ... Existing variables
--e MODERNE_AGENT_CLI_DOWNLOADINSTRUCTIONS_LABEL="Download CLI Tools" \
--e MODERNE_AGENT_CLI_DOWNLOADINSTRUCTIONS_URL="https://docs.example.com/moderne-cli-setup" \
+-e MODERNE_UI_CLIDOWNLOADINSTRUCTIONS_LABEL="Download CLI Tools" \
+-e MODERNE_UI_CLIDOWNLOADINSTRUCTIONS_URI="https://docs.example.com/moderne-cli-setup" \
 # ... Additional variables
 ```
 
@@ -51,18 +54,18 @@ docker run \
 
 **Arguments:**
 
-| Argument Name                                      | Required | Default | Description                                                                                                                                                                                                              |
-|----------------------------------------------------|----------|---------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `--moderne.agent.cli.downloadInstructions.label`  | `false`  | `null`  | CLI download instructions label to show in the platform UI. Overrides the default display of the CLI tools menu presented in the Moderne platform's user interface. If populated, the URL property must also be populated. |
-| `--moderne.agent.cli.downloadInstructions.url`   | `false`  | `null`  | The URL of the instructions documentation. Must be a fully qualified URL that is accessible to users of the platform.                                                                                                    |
+| Argument Name                                | Required | Default | Description                                                                                                                                                                                                                |
+|----------------------------------------------|----------|---------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `--moderne.ui.cliDownloadInstructions.label` | `false`  | `null`  | CLI download instructions label to show in the platform UI. Overrides the default display of the CLI tools menu presented in the Moderne platform's user interface. If populated, the URL property must also be populated. |
+| `--moderne.ui.cliDownloadInstructions.uri`   | `false`  | `null`  | The URL of the instructions documentation. Must be a fully qualified URL that is accessible to users of the platform.                                                                                                      |
 
 **Example:**
 
 ```bash
-java -jar moderne-agent-{version}.jar \
+java -jar connector-{version}.jar \
 # ... Existing arguments
---moderne.agent.cli.downloadInstructions.label="Download CLI Tools" \
---moderne.agent.cli.downloadInstructions.url="https://docs.example.com/moderne-cli-setup" \
+--moderne.ui.cliDownloadInstructions.label="Download CLI Tools" \
+--moderne.ui.cliDownloadInstructions.uri="https://docs.example.com/moderne-cli-setup" \
 # ... Additional arguments
 ```
 

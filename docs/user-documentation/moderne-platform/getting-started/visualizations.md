@@ -4,6 +4,9 @@ description: A guide on the different types of visualizations.
 ---
 
 import ReactPlayer from '@site/src/components/VideoPlayer';
+import VersionBanner from '@site/src/components/VersionBanner';
+
+<VersionBanner version="v2" linkPath="/user-documentation/moderne-platform-v1/getting-started/visualizations" />
 
 # Getting started with visualizations
 

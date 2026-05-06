@@ -4,6 +4,9 @@ description: How to upgrade transitive dependencies – especially useful for se
 ---
 
 import ReactPlayer from '@site/src/components/VideoPlayer';
+import VersionBanner from '@site/src/components/VersionBanner';
+
+<VersionBanner version="v2" linkPath="/user-documentation/moderne-platform-v1/how-to-guides/transitive-dependencies" />
 
 # How to upgrade transitive dependencies
 

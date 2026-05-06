@@ -3,6 +3,10 @@ sidebar_label: Managing user-configured organizations
 description: How to create custom organizations to run recipes against so you get more relevant results.
 ---
 
+import VersionBanner from '@site/src/components/VersionBanner';
+
+<VersionBanner version="v2" linkPath="/user-documentation/moderne-platform-v1/how-to-guides/managing-user-configured-organizations" />
+
 # Managing user-configured organizations
 
 When running recipes in Moderne, it's a good idea to filter them to run on a selection of repositories you care about so that you get relevant results more quickly. In filtering these recipes, many people have found that they wanted to create multiple user-configured organizations of repositories that they can easily switch between. Both of these issues can be solved by using user-configured organizations.
@@ -14,11 +18,6 @@ To help you get started with user-configured organizations, in this guide you wi
 * [How to export user-configured organization JSON](#how-to-modify-or-delete-existing-user-configured-organizations)
 
 ## How to create a user-configured organization
-
-<figure style={{maxWidth: '800px'}}>
-  ![Animated demo of creating a new user-configured organization](./assets/CreateUserOrg.gif)
-  <figcaption>_A gif showing the whole process described below._</figcaption>
-</figure>
 
 1. In the top nav bar, you will see an organization selector:
 
@@ -68,7 +67,7 @@ To help you get started with user-configured organizations, in this guide you wi
   <figcaption></figcaption>
 </figure>
 
-3. To modify a user-configured organization, click on the triple dots next to the organization you want to modify and then select `Update organization`:
+3. To modify a user-configured organization, mouse over the org and select the pencil icon:
 
 <figure>
   ![Context menu with Update, Copy, Delete, and Export organization options](./assets/update-org.png)
@@ -77,11 +76,11 @@ To help you get started with user-configured organizations, in this guide you wi
 
 4. You will be redirected to a page that allows you to select repositories.
 
-5. To remove a user-configured organization, select `Delete user organization` instead of `Update organization`.
+5. To remove a user-configured organization, click on the trash can icon.
 
 ## How to export user-configured organization JSON
 
-Follow the same instructions as above, but instead of selecting "delete", select "export".
+Follow the same instructions as above, but click on the download button.
 
 ## Additional information
 

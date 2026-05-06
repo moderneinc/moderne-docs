@@ -3,6 +3,10 @@ sidebar_label: Running Moderne Prethink recipes
 description: How to run Moderne Prethink recipes on the Moderne Platform to generate context for AI coding agents.
 ---
 
+import VersionBanner from '@site/src/components/VersionBanner';
+
+<VersionBanner version="v2" linkPath="/user-documentation/moderne-platform-v1/getting-started/prethink" />
+
 # Running Moderne Prethink recipes on the Moderne Platform
 
 Moderne Prethink recipes generate structured context that gives AI coding agents a clear, accurate understanding of your codebase. Instead of forcing AI agents to infer your architecture from raw code, Prethink provides pre-resolved knowledge about service endpoints, dependencies, test coverage, and more.
