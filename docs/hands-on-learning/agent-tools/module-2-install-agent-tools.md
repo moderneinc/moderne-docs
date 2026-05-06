@@ -1,6 +1,7 @@
 ---
 sidebar_label: "Module 2: Install agent tools"
 description: Install Moderne skills and the MCP server with mod config agent-tools install, scope to specific agents, and verify what your AI agent now exposes.
+draft: true
 ---
 
 # Module 2: Install agent tools

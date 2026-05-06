@@ -420,7 +420,7 @@ Since Moderne Trigrep supports both Sourcegraph and Zoekt query syntax as well a
 
 ## Next steps
 
-* [Try the hands-on agent tools workshop](../../hands-on-learning/agent-tools/workshop-overview.md) to practice Trigrep queries on a sample workspace.
+{/* Hidden until ready to share publicly: * [Try the hands-on agent tools workshop](../../hands-on-learning/agent-tools/workshop-overview.md) to practice Trigrep queries on a sample workspace. */}
 * [Moderne CLI reference](../moderne-cli/cli-reference.md) for the full `mod search` command documentation.
 * [Type-aware code search](../moderne-platform/how-to-guides/introduction-to-type-aware-code-search.md) for the web-based search experience on the Moderne Platform.
 * [Recipe authoring fundamentals](../../hands-on-learning/fundamentals/workshop-overview.md) to learn how to build recipes for searches that require full type resolution.

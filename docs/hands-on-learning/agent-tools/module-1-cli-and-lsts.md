@@ -1,6 +1,7 @@
 ---
 sidebar_label: "Module 1: CLI and LSTs"
 description: Install the Moderne CLI, install the Prethink recipe modules, and build LSTs for a working set of Java and Spring projects.
+draft: true
 ---
 
 import Tabs from '@theme/Tabs';
