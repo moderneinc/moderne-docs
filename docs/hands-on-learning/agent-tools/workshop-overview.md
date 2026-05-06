@@ -62,5 +62,3 @@ Examples in this workshop demo with Claude Code (slash commands like `/moderne:c
 * [Module 1: CLI and LSTs](./module-1-cli-and-lsts.md) - Install the Moderne CLI, install the Prethink recipe modules, sync repositories, and build LSTs
 * [Module 2: Install agent tools](./module-2-install-agent-tools.md) - Install skills and the MCP server with `mod config agent-tools install`, and verify what each agent now exposes
 * [Module 3: Prethink](./module-3-prethink.md) - Run Prethink, apply the changes, inspect the generated context, and ask your agent to visualize the code quality metrics
-* [Module 4: Trigrep](./module-4-trigrep.md) - Build a search index with `mod postbuild search index` and explore literal, regex, and structural queries
-* [Module 5: MCP server](./module-5-mcp.md) - Explore how the Moderne MCP server exposes semantic search, navigation, and refactoring tools to your agent

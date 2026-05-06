@@ -697,8 +697,6 @@ const handsOnLearning = {
         'hands-on-learning/agent-tools/module-1-cli-and-lsts',
         'hands-on-learning/agent-tools/module-2-install-agent-tools',
         'hands-on-learning/agent-tools/module-3-prethink',
-        'hands-on-learning/agent-tools/module-4-trigrep',
-        'hands-on-learning/agent-tools/module-5-mcp',
       ],
     },
     {

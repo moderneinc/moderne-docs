@@ -110,7 +110,7 @@ If you want the procedural guidance but not the live MCP server (for example, on
 mod config agent-tools skills install
 ```
 
-This installs skills for every detected agent but leaves the MCP server unconfigured. You can pair this with [Module 4](./module-4-trigrep.md) (Trigrep) to get fast search via the CLI without needing the MCP server.
+This installs skills for every detected agent but leaves the MCP server unconfigured.
 
 ### Takeaways
 

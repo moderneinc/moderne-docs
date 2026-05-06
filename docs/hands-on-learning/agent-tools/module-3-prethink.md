@@ -300,6 +300,3 @@ The Moderne Platform has built-in [Prethink code quality visualizations](../../u
 * Asking the agent to visualize first, then plan, helps it ground its reasoning in the data rather than its priors.
 * Once the agent writes any code, you can re-run Prethink to see whether the metrics actually improved. See [Incremental Prethink via MCP](../../user-documentation/agent-tools/prethink.md#incremental-prethink-via-mcp) for the feedback loop.
 
-## Next up
-
-In [Module 4](./module-4-trigrep.md), you'll build a trigram search index across the same workspace and explore what makes Trigrep faster and more structurally aware than `grep`.
