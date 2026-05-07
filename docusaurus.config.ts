@@ -188,7 +188,7 @@ const config: Config = {
       // ubuntu-latest's 16 GB the kernel SIGTERMs the job mid-build.
       // Serialising SSG keeps peak memory bounded; Rspack/SWC keep
       // their own internal parallelism for the bundling/minimising work.
-      ssgWorkerThreads: false,
+      ssgWorkerThreads: true,
       swcJsLoader: true,
       swcJsMinimizer: true,
       swcHtmlMinimizer: true,
