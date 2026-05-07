@@ -7,11 +7,21 @@ description: The current version of the Moderne Connector and where to download 
 
 | Component | Current version |
 | --------- | --------------- |
-| Connector | 0.148.65 |
+| Connector | 0.148.74 |
 
-[Download latest](https://repo1.maven.org/maven2/io/moderne/connector/0.148.65/connector-0.148.65.jar)
+[Download latest](https://repo1.maven.org/maven2/io/moderne/connector/0.148.74/connector-0.148.74.jar)
 
 ## Changelog
+
+### v0.148.74 – 2026-05-06
+
+[Download](https://repo1.maven.org/maven2/io/moderne/connector/0.148.74/connector-0.148.74.jar)
+
+* Preserve URL path/query encoding for GitLab tools only (#721)
+* Revert "connector: preserve URL path/query encoding in scheme filter (#719)" (#720)
+* Preserve URL path/query encoding in scheme filter (#719)
+* Exclude SecretsManagerAutoConfiguration so non-AWS hosts can start
+
 
 ### v0.148.65 – 2026-05-04
 
