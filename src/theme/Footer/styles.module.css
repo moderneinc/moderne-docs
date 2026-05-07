@@ -1,7 +1,49 @@
 .footer {
   background-color: transparent;
-  /* padding: var(--ifm-footer-padding-vertical) var(--ifm-footer-padding-horizontal); */
   padding: var(--ifm-footer-padding-vertical) var(--ifm-footer-padding-horizontal);
+  isolation: isolate;
+  overflow: hidden;
+  position: relative;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+/* Sticky to viewport bottom only on top-level category index pages */
+:global(body:has([class*='topLevelCategory'])) .footer {
+  position: sticky;
+  bottom: 0;
+  z-index: 50;
+}
+
+/* On desktop docs pages, scope the footer to the main content column only */
+@media (min-width: 997px) {
+  :global(html.docs-wrapper) .footer {
+    margin-left: 307px;
+  }
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+
+
+/* Blurred gradient image, faded from top (transparent) to bottom (visible) */
+.footer::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url('/img/page-header-pattern.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  filter: blur(24px);
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.85) 100%);
+  mask-image: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.85) 100%);
+  z-index: -1;
+  pointer-events: none;
 }
 
 .container {
@@ -9,8 +51,9 @@
   align-items: center;
   justify-content: space-between;
   gap: 2rem;
-  width: 100%;
-  padding: 0 var(--neo-spacing_5);
+  width: 83%;
+  margin: 0 auto;
+  padding: 0 var(--neo-spacing_3_1_4);
 }
 
 .social {

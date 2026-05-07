@@ -47,7 +47,7 @@
 
 .productCard:hover {
   background: var(--neo-surfaces-white);
-  border-color: var(--neo-grey-300);
+  border-color: transparent;
   box-shadow: var(--neo-shadow-card);
   text-decoration: none;
 }

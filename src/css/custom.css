@@ -381,6 +381,7 @@ html {
   align-self: flex-start;
 }
 
+
 /* Fix sidebar border to not extend behind navbar */
 @media (min-width: 997px) {
   .theme-doc-sidebar-container {

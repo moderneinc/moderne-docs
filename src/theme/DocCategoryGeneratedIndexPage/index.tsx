@@ -1,4 +1,4 @@
-import { useCurrentSidebarCategory } from '@docusaurus/plugin-content-docs/client';
+import { useCurrentSidebarCategory, useSidebarBreadcrumbs } from '@docusaurus/plugin-content-docs/client';
 import { PageMetadata } from '@docusaurus/theme-common';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 import DocBreadcrumbs from '@theme/DocBreadcrumbs';
@@ -29,17 +29,56 @@ const DocCategoryGeneratedIndexPageMetadata: FunctionComponent<Props> = ({
 
 DocCategoryGeneratedIndexPageMetadata.displayName = 'DocCategoryGeneratedIndexPageMetadata';
 
+type WaveConfig = {file: string; flip?: boolean};
+
+const WAVE_IMAGES: string[] = [
+  'wave-14.png',
+  'wave-19.png',
+  'wave-20.png',
+  'wave-23.png',
+  'wave-26.png',
+  'wave-27.png',
+  'wave-36.png',
+  'wave-45.png',
+];
+
+const TITLE_OVERRIDES: Record<string, WaveConfig> = {
+  'Moderne Platform': {file: 'wave-23-v1.png'},
+  'Moddy': {file: 'wave-19.png'},
+  'Moderne IDE plugins': {file: 'wave-5.png'},
+  'IDE plugins': {file: 'wave-5.png'},
+  'Moderne CLI': {file: 'wave-49.png'},
+  'CLI': {file: 'wave-49.png'},
+  'Recipes': {file: 'wave-37.png'},
+};
+
+function pickWaveForTitle(title: string): WaveConfig {
+  if (TITLE_OVERRIDES[title]) return TITLE_OVERRIDES[title];
+  let hash = 0;
+  for (let i = 0; i < title.length; i++) {
+    hash = (hash * 31 + title.charCodeAt(i)) >>> 0;
+  }
+  return {file: WAVE_IMAGES[hash % WAVE_IMAGES.length]};
+}
+
 const DocCategoryGeneratedIndexPageContent: FunctionComponent<Props> = ({
   categoryGeneratedIndex,
 }) => {
   const category = useCurrentSidebarCategory();
+  const breadcrumbs = useSidebarBreadcrumbs();
+  const isTopLevel = (breadcrumbs?.length ?? 0) <= 1;
+  const waveConfig = pickWaveForTitle(categoryGeneratedIndex.title);
+  const headerStyle = {
+    '--header-wave-image': `url('/img/waves/${waveConfig.file}')`,
+    '--header-wave-transform': waveConfig.flip ? 'scaleX(-1)' : 'none',
+  } as React.CSSProperties;
   return (
-    <div className={styles.generatedIndexPage}>
+    <div className={`${styles.generatedIndexPage} ${isTopLevel ? styles.topLevelCategory : ''}`}>
       <DocVersionBanner />
       <div className={styles.content}>
         <DocBreadcrumbs />
         <DocVersionBadge />
-        <header className={styles.header}>
+        <header className={styles.header} style={headerStyle}>
           <Heading as="h1" className={styles.title}>
             {categoryGeneratedIndex.title}
           </Heading>

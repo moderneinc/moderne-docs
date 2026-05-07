@@ -75,9 +75,11 @@ const Footer: FunctionComponent = () => {
   return (
     <footer className={styles.footer}>
       <div className={styles.container}>
-        <SocialLinks />
         <FooterLinks />
-        <FeedbackButton />
+        <div className={styles.actions}>
+          <FeedbackButton />
+          <SocialLinks />
+        </div>
       </div>
     </footer>
   );

@@ -3,7 +3,7 @@
   flex-wrap: wrap;
   align-items: center;
   gap: var(--neo-spacing_1);
-  margin: 0 0 var(--neo-spacing_2) 0;
+  margin: var(--neo-spacing_1) 0 var(--neo-spacing_2) 0;
   padding: 0;
   font-size: var(--neo-font-size-sm);
   color: var(--brand-midnight);

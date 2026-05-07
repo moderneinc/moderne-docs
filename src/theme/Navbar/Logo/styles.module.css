@@ -65,18 +65,11 @@
    SVG intrinsic size 203x28; integer-multiple sizing keeps strokes crisp */
 .wordmarkImage {
   display: block;
-  height: 41px;
-  width: 297px;
+  height: 31px;
+  width: auto;
   flex-shrink: 0;
   color: var(--ifm-navbar-link-color);
   shape-rendering: geometricPrecision;
-}
-
-@media (min-width: 1280px) {
-  .wordmarkImage {
-    height: 46px;
-    width: 334px;
-  }
 }
 
 /* Dark mode logo colors */
