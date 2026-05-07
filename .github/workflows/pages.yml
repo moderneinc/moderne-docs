@@ -46,6 +46,9 @@ jobs:
           set -o pipefail
           yarn build 2>&1 | { grep --line-buffered -v "^Generated markdown file:" || true; }
         env:
+          DOCUSAURUS_SSG_WORKER_THREAD_RECYCLER_MAX_MEMORY: "512000000"
+          DOCUSAURUS_SSR_CONCURRENCY: "16"
+          NODE_OPTIONS: "--max-old-space-size=1536 --max-semi-space-size=64"
           DOCUSAURUS_IGNORE_SSG_WARNINGS: true
 
       - name: Upload Build Artifact
