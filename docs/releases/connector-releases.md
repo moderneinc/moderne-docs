@@ -7,11 +7,18 @@ description: The current version of the Moderne Connector and where to download 
 
 | Component | Current version |
 | --------- | --------------- |
-| Connector | 0.148.59 |
+| Connector | 0.148.65 |
 
-[Download latest](https://repo1.maven.org/maven2/io/moderne/connector/0.148.59/connector-0.148.59.jar)
+[Download latest](https://repo1.maven.org/maven2/io/moderne/connector/0.148.65/connector-0.148.65.jar)
 
 ## Changelog
+
+### v0.148.65 – 2026-05-04
+
+[Download](https://repo1.maven.org/maven2/io/moderne/connector/0.148.65/connector-0.148.65.jar)
+
+* Time all three repos.csv routes on push and receipt
+
 
 ## May 2026
 
