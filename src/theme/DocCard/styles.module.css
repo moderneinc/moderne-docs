@@ -4,7 +4,7 @@
   --ifm-link-hover-decoration: none;
 
   padding: var(--neo-spacing_3);
-  border-radius: var(--neo-border-radius-x-s);
+  border-radius: var(--neo-border-radius-m);
   background-color: transparent;
   border: 1px solid var(--neo-border-card);
   box-shadow: none;
@@ -19,7 +19,7 @@
 
 .cardContainer:hover {
   background-color: var(--neo-surfaces-white);
-  border-color: var(--neo-grey-300);
+  border-color: var(--brand-digital-blue);
   box-shadow: var(--neo-shadow-card);
 }
 
@@ -31,7 +31,7 @@
 
 [data-theme='dark'] .cardContainer:hover {
   background-color: var(--neo-grey-800);
-  border-color: var(--neo-grey-600);
+  border-color: var(--brand-digital-blue);
 }
 
 .cardContent {
@@ -72,16 +72,5 @@
 }
 
 .cardIcon {
-  flex-shrink: 0;
-  width: 31px;
-  height: 35px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.cardIcon img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
+  display: none;
 }

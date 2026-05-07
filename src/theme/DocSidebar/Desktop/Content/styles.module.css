@@ -10,7 +10,9 @@
   /* Override default menu padding with NeoDesign spacing */
   .menu {
     flex-grow: 1;
-    padding: var(--neo-spacing_3) var(--neo-spacing_3);
+    padding: var(--neo-spacing_1) var(--neo-spacing_4) 8rem var(--neo-spacing_4);
+    overflow-y: auto;
+    scroll-padding-top: 12rem;
   }
 
   @supports (scrollbar-gutter: stable) {

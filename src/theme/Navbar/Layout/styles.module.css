@@ -9,21 +9,35 @@
  * - Logo sizing and navbar link styling
  */
 
-/* Wrapper for both primary navbar and secondary nav */
+/* Wrapper for both primary navbar and secondary nav.
+   The frosted-glass effect is applied via ::before so the navbar's
+   children (e.g. the SVG logo) stay on a separate compositing layer
+   and don't get rasterized by backdrop-filter. */
 .navbarWrapper {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   z-index: var(--ifm-z-index-fixed);
-  background-color: rgba(255, 255, 255, 0.2);
-  backdrop-filter: blur(10px);
+  isolation: isolate;
 }
 
-/* Frosted glass navbar styling */
+.navbarWrapper::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-color: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  z-index: -1;
+  pointer-events: none;
+}
+
+:global(html[data-theme='dark']) .navbarWrapper::before {
+  background-color: rgba(12, 17, 43, 0.8);
+}
+
 .navbar {
-  /* background-color: rgba(255, 255, 255, 0.2); */
-  /* backdrop-filter: blur(10px); */
   border-bottom: none;
   box-shadow: none;
 }
@@ -35,12 +49,6 @@
 
 .navbarHidden {
   transform: translate3d(0, calc(-100% - 2px), 0);
-}
-
-/* Dark mode frosted glass effect */
-:global(html[data-theme='dark']) .navbar {
-  background-color: rgba(12, 17, 43, 0.8);
-  backdrop-filter: blur(10px);
 }
 
 @media (min-width: 997px) {
