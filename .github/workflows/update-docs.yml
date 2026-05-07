@@ -28,10 +28,10 @@ jobs:
         with:
           distribution: temurin
           java-version: 21
-      - uses: actions/setup-python@v5
+      - uses: actions/setup-python@v6
         with:
           python-version: '3.12'
-      - uses: actions/setup-dotnet@v4
+      - uses: actions/setup-dotnet@v5
         with:
           dotnet-version: '9.0.x'
       - uses: gradle/actions/setup-gradle@v5
