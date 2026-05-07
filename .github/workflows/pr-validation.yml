@@ -65,8 +65,6 @@ jobs:
         env:
           DOCUSAURUS_SSG_WORKER_THREAD_COUNT: "2"
           DOCUSAURUS_SSG_WORKER_THREAD_RECYCLER_MAX_MEMORY: "512000000"
-          DOCUSAURUS_SSG_WORKER_THREAD_TASK_SIZE: "20"
           DOCUSAURUS_SSR_CONCURRENCY: "16"
           NODE_OPTIONS: "--max-old-space-size=1536 --max-semi-space-size=64"
-          DOCUSAURUS_PERF_LOGGER: "true"
           DOCUSAURUS_IGNORE_SSG_WARNINGS: true
