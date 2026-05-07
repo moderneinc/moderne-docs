@@ -54,6 +54,13 @@
   width: 83%;
   margin: 0 auto;
   padding: 0 var(--neo-spacing_3_1_4);
+  transform: translateX(-120px);
+}
+
+@media (max-width: 996px) {
+  .container {
+    transform: none;
+  }
 }
 
 .social {
@@ -101,11 +108,29 @@
 
 :global(html[data-theme='dark']) .links a,
 :global(html[data-theme='dark']) .links span {
-  color: #d4d3e4;
+  color: var(--neo-surfaces-white);
 }
 
 :global(html[data-theme='dark']) .social a {
-  color: #d4d3e4;
+  color: var(--neo-surfaces-white);
+}
+
+/* Dark mode: pattern stays visible via mix-blend-mode: screen so the
+   light parts of the image add to the dark page background (looks
+   like a soft glow). The overlay below still gives white text a
+   readable surface to sit on. */
+:global(html[data-theme='dark']) .footer::before {
+  opacity: 0.5;
+  mix-blend-mode: screen;
+}
+
+:global(html[data-theme='dark']) .footer::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, transparent 0%, rgba(4, 24, 52, 0.85) 100%);
+  z-index: -1;
+  pointer-events: none;
 }
 
 @media (max-width: 768px) {

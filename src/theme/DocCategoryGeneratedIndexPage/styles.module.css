@@ -94,6 +94,9 @@
 }
 
 [data-theme='dark'] .header {
+  border-color: var(--brand-digital-blue);
+  box-shadow: none;
+
   .title {
     color: var(--neo-surfaces-white);
   }

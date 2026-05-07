@@ -62,14 +62,28 @@
 }
 
 /* Moderne Docs combined logo (M symbol + wordmark + Docs)
-   SVG intrinsic size 203x28; integer-multiple sizing keeps strokes crisp */
+   SVG intrinsic size 203x28.
+
+   Note: a new logo from Siren is coming soon — leaving this at the
+   prior size (41 / 46 at ≥1280px) rather than iterating further on
+   the rasterization workaround. The height/width are pinned to
+   integer pixels at the native 7.25:1 ratio so the SVG doesn't end
+   up at sub-pixel boundaries; shape-rendering: geometricPrecision
+   keeps the edges crisp until the new asset lands. */
 .wordmarkImage {
   display: block;
-  height: 31px;
-  width: auto;
+  height: 41px;
+  width: 297px;
   flex-shrink: 0;
   color: var(--ifm-navbar-link-color);
   shape-rendering: geometricPrecision;
+}
+
+@media (min-width: 1280px) {
+  .wordmarkImage {
+    height: 46px;
+    width: 334px;
+  }
 }
 
 /* Dark mode logo colors */
