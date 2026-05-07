@@ -10,6 +10,193 @@ This page contains release notes for [Moderne proprietary OpenRewrite recipes](h
 This changelog is automatically generated from GitHub releases and only contains information from the past year.
 :::
 
+## May 7, 2026
+
+#### rewrite-ai - v0.3.3
+
+* OpenRewrite v8.81.6
+
+#### rewrite-ai-search - v0.33.3
+
+- OpenRewrite v8.81.6
+
+#### rewrite-android - v0.17.0
+
+* OpenRewrite v8.81.6
+* Add AGP 8.8–9.2 and Android SDK 36 migration bundles
+* Add RemoveBuildToolsVersion recipe (#21)
+* Add recipes to rename `aaptOptions` and `lintOptions` DSL blocks
+
+#### rewrite-angular - v1.1.5
+
+* OpenRewrite v8.81.6
+* Add PrimeNG 18 migration recipes
+
+#### rewrite-circleci - v3.10.3
+
+* OpenRewrite v8.81.6
+
+#### rewrite-codemods-ng - v0.20.4
+
+* OpenRewrite v8.81.6
+
+#### rewrite-compiled-analysis - v0.13.3
+
+* OpenRewrite v8.81.6
+
+#### rewrite-concourse - v3.10.3
+
+* OpenRewrite v8.81.6
+
+#### rewrite-cryptography - v0.13.5
+
+* Regenerate recipes.csv
+
+#### rewrite-devcenter - v1.22.4
+
+* OpenRewrite v8.81.6
+* Fix EPSS measure labels for consistency
+* Rename EPSSMeasure.NotFound label to "No vulnerability scores"
+* Refresh Apache Maven parent POM versions
+* Fix DataTableRowWatcher to work under CsvDataTableStore
+
+#### rewrite-dotnet - v0.15.3
+
+* OpenRewrite v8.81.6
+
+#### rewrite-dropwizard - v0.2.4
+
+* Add @SpringBootTest for DropwizardAppExtension; fix RemoveVariablesByPackage scope check
+
+#### rewrite-dropwizard - v0.2.3
+
+* OpenRewrite v8.81.6
+* Add @SpringBootTest for DropwizardAppExtension; fix RemoveVariablesByPackage scope check
+
+#### rewrite-elastic - v0.6.4
+
+* OpenRewrite v8.81.6
+
+#### rewrite-hibernate - v0.22.2
+
+* Extend `MigrateJdbcTypeToJdbcTypeCode` to handle legacy `@Type(X.class)`
+
+#### rewrite-jasperreports - v0.5.3
+
+* OpenRewrite v8.81.6
+
+#### rewrite-java-security - v3.29.5
+
+* Update SsrfGuardInsertion reference to FixCwe918
+* Move "Last updated" timestamp out of recipe instance name
+* Adopt new rewrite-python lock regeneration API
+* Use default Gradle Tooling API version in tests
+
+#### rewrite-java-security - v3.29.4
+
+* OpenRewrite v8.81.6
+* Update SsrfGuardInsertion reference to FixCwe918
+* Move "Last updated" timestamp out of recipe instance name
+* Adopt new rewrite-python lock regeneration API
+* Use default Gradle Tooling API version in tests
+
+#### rewrite-kafka - v0.5.4
+
+* OpenRewrite v8.81.6
+
+#### rewrite-kubernetes - v3.16.3
+
+* OpenRewrite v8.81.6
+
+#### rewrite-migrate-kotlin - v0.3.1
+
+* OpenRewrite v8.81.6
+
+#### rewrite-migrate-python - v0.7.1
+
+* OpenRewrite v8.81.6
+
+#### rewrite-nodejs - v0.44.1
+
+* OpenRewrite v8.81.6
+* Bump uuid and jest-junit in /recipes-nodejs[bot]
+* Remove Java recipe of `DependencyVulnerabilityCheck`
+
+#### rewrite-prethink - v0.5.9
+
+* OpenRewrite v8.81.6
+* Sort feature envy rows for stable code-smells.csv output
+* Aggregate and sort dependency-usage rows for stable CSV output
+* Remove old POC artifacts, stale results, and unused gstack skills
+* Skip Gradle build scripts to keep Prethink CSV output stable (#49)
+
+#### rewrite-program-analysis - v0.12.4
+
+* OpenRewrite v8.81.6
+* Add FindInsecureCryptoComparison taint recipe for CWE-208
+
+#### rewrite-react - v0.2.8
+
+* OpenRewrite v8.81.6
+
+#### rewrite-reactive-streams - v0.19.3
+
+* OpenRewrite v8.81.6
+
+#### rewrite-release-metromap - v0.2.0
+
+* OpenRewrite v8.81.6
+* Emit gradle project -&gt; root project mappings in lieu of "parent" concept
+* Filter release metro plan to declared dependencies via FindDependency
+
+#### rewrite-release-metromap - v0.1.2
+
+* OpenRewrite v8.81.6
+* Emit gradle project -&gt; root project mappings in lieu of "parent" concept
+* Filter release metro plan to declared dependencies via FindDependency
+
+#### rewrite-spring - v0.32.3
+
+* OpenRewrite recipe best practices
+* Strip Kotlin nullability from Spring HTTP entity type arguments
+
+#### rewrite-spring - v0.32.2
+
+* OpenRewrite v8.81.6
+* OpenRewrite recipe best practices
+* Strip Kotlin nullability from Spring HTTP entity type arguments
+
+#### rewrite-sql - v2.11.3
+
+* OpenRewrite v8.81.6
+* Add Snowflake SQL support via dedicated parser layer
+
+#### rewrite-struts - v0.25.8
+
+* OpenRewrite v8.81.6
+
+#### rewrite-tapestry - v0.3.2
+
+* OpenRewrite v8.81.6
+
+#### rewrite-terraform - v3.13.8
+
+* OpenRewrite v8.81.6
+
+#### rewrite-vulncheck - v0.6.9
+
+* OpenRewrite v8.81.6
+
+## May 6, 2026
+
+#### rewrite-cobol - v2.17.4
+
+- OpenRewrite v8.81.6
+
+#### rewrite-codemods - v0.25.4
+
+- OpenRewrite v8.81.6
+
 ## April 28, 2026
 
 #### rewrite-cryptography - 0.13.4
