@@ -19,7 +19,7 @@
 
 .cardContainer:hover {
   background-color: var(--neo-surfaces-white);
-  border-color: var(--brand-digital-blue);
+  border-color: transparent;
   box-shadow: var(--neo-shadow-card);
 }
 
