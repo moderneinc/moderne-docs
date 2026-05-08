@@ -1021,6 +1021,7 @@ const releases = {
     keywords: ['releases', 'changelog'],
   },
   items: [
+    'releases/connector-releases',
     'releases/agent-releases',
     'releases/cli-releases',
     'releases/changelog',

@@ -24,14 +24,6 @@ export type NavLink = {
 };
 
 /**
- * Column for the "Start exploring" section on homepage
- */
-export type StartExploringColumn = {
-  title: string;
-  links: NavLink[];
-};
-
-/**
  * Product documentation items - DERIVED FROM SIDEBARS.TS
  * Automatically extracts products from sidebar categories marked with customProps.megaMenu: true
  *
@@ -129,7 +121,7 @@ export const learningItems: LearningItem[] = [
   },
   {
     name: 'Releases',
-    href: '/releases/agent-releases',
+    href: '/releases/connector-releases',
     external: false,
   },
   {
@@ -212,6 +204,10 @@ export const trainingItems: NavLink[] = [
  */
 export const releasesItems: NavLink[] = [
   {
+    name: 'Connector releases',
+    href: '/releases/connector-releases',
+  },
+  {
     name: 'Agent releases',
     href: '/releases/agent-releases',
   },
@@ -229,59 +225,3 @@ export const releasesItems: NavLink[] = [
   },
 ];
 
-/**
- * "Start exploring" section columns for homepage
- * Organized in 3 columns: Try it out, Learning, Resources
- */
-export const startExploringColumns: StartExploringColumn[] = [
-  {
-    title: 'Try it out',
-    links: [
-      {
-        name: 'Free public instance',
-        href: 'https://app.moderne.io/',
-        external: true,
-      },
-      {
-        name: 'Request a private team instance',
-        href: 'https://www.moderne.io/demo',
-        external: true,
-      },
-      {
-        name: 'Quickstart guide',
-        href: '/user-documentation/moderne-platform/getting-started/running-your-first-recipe',
-      },
-    ],
-  },
-  {
-    title: 'Learning',
-    links: [
-      {
-        name: 'Hands on Learning',
-        href: '/hands-on-learning',
-      },
-      {
-        name: 'OpenRewrite Advanced Program Analysis',
-        href: '/openrewrite-advanced-program-analysis',
-      },
-      {
-        name: 'Code Remix',
-        href: '/user-documentation/code-remix-sessions/2026',
-        external: false,
-      },
-    ],
-  },
-  {
-    title: 'Resources',
-    links: [
-      {
-        name: 'Releases',
-        href: '/releases/agent-releases',
-      },
-      {
-        name: 'Licensing',
-        href: '/licensing/overview',
-      },
-    ],
-  },
-];
