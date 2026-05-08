@@ -531,6 +531,15 @@ html[data-theme='dark'] [class^=docMainContainer_] .card {
 }
 
 @media(min-width: 997px) {
+  /* On desktop, redefine --ifm-navbar-height to include the secondary
+     nav. This is what Docusaurus's internal layout (e.g. TOC top
+     offset) uses to clear the visible navbar stack. The explicit
+     formulas below intentionally add secondary-nav-height again to
+     reserve breathing room between the navbar and content. */
+  :root {
+    --ifm-navbar-height: calc(37px + var(--ifm-secondary-nav-height));
+  }
+
   .theme-doc-sidebar-container {
     --ifm-toc-border-color: var(--ifm-section-divider-color);
   }
