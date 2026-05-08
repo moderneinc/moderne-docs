@@ -8,12 +8,8 @@
   -webkit-backdrop-filter: blur(12px);
 }
 
-/* Sticky to viewport bottom only on top-level category index pages */
-:global(body:has([class*='topLevelCategory'])) .footer {
-  position: sticky;
-  bottom: 0;
-  z-index: 50;
-}
+/* Footer flows as the last element in the page — no sticky/overlay
+   behavior so it never sits on top of article content. */
 
 /* On desktop docs pages, scope the footer to the main content column only */
 @media (min-width: 997px) {
@@ -133,14 +129,47 @@
   pointer-events: none;
 }
 
-@media (max-width: 768px) {
+/* Below 1060px the wide single-row layout starts wrapping on individual
+   links ("Contact us" → 2 lines). Stack instead: Give feedback → social
+   icons → links. */
+@media (max-width: 1060px) {
+  .footer {
+    --ifm-footer-padding-horizontal: 0px;
+  }
+
   .container {
     flex-direction: column;
-    gap: 1.5rem;
+    align-items: flex-start;
+    gap: 1rem;
+    transform: none;
+    width: 100%;
+    margin: 0;
+    padding: 0 20px;
   }
 
   .links {
-    flex-wrap: wrap;
-    justify-content: center;
+    order: 1;
+    flex-direction: column;
+    align-items: flex-start;
+    flex-wrap: nowrap;
+    gap: 0.5rem;
+  }
+
+  .actions {
+    order: 2;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+
+  .social {
+    /* Social row aligns with the Give feedback button above it */
+    margin: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    gap: 1.5rem;
   }
 }
