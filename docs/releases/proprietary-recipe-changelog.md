@@ -122,6 +122,13 @@ This changelog is automatically generated from GitHub releases and only contains
 * Bump uuid and jest-junit in /recipes-nodejs[bot]
 * Remove Java recipe of `DependencyVulnerabilityCheck`
 
+#### rewrite-prethink - v0.5.10
+
+* Fix `FindCodeSmells` NPE on Kotlin Gradle scripts
+* Force opennlp-tools to 2.5.9 (CVE-2026-42027/-40682/-42440)
+* Add Go language support across prethink
+* Add API Contracts context for OpenAPI 3.0.3 + contract-test generation
+
 #### rewrite-prethink - v0.5.9
 
 * OpenRewrite v8.81.6
@@ -3702,67 +3709,4 @@ Republishing to update dependencies
 * Recreate type table using latest patch versions
 * Made transitive dependency bump a ScanningRecipe
 * `DependencyVulnerabilityCheck` recursively checks upgrade paths for transitive dependencies
-
-## May 7, 2025
-
-#### rewrite-ai-search - 0.27.0
-
-* refactor: Update Gradle wrapper to 8.14
-
-#### rewrite-android - 0.9.0
-
-* refactor: Update Gradle wrapper to 8.14
-
-#### rewrite-circleci - 3.5.0
-
-* refactor: Update Gradle wrapper to 8.14
-
-#### rewrite-codemods - 0.13.0
-
-* refactor: OpenRewrite Recipe best practices
-
-#### rewrite-codemods-ng - 0.9.0
-
-* refactor: Update Gradle wrapper to 8.14
-* Retrieve .npmrc file from global scope
-
-#### rewrite-concourse - 3.4.0
-
-* refactor: Update Gradle wrapper to 8.14
-
-#### rewrite-dotnet - 0.10.0
-
-* refactor: Update Gradle wrapper to 8.14
-
-#### rewrite-java-security - 3.8.0
-
-* refactor: Update Gradle wrapper to 8.14
-* Inline DocumentBuilderFactory feature variables
-
-#### rewrite-kubernetes - 3.4.0
-
-* refactor: Update Gradle wrapper to 8.14
-
-#### rewrite-nodejs - 0.23.0
-
-* refactor: Update Gradle wrapper to 8.14
-
-#### rewrite-reactive-streams - 0.13.0
-
-* refactor: Update Gradle wrapper to 8.14
-
-#### rewrite-spring - 0.6.0
-
-* refactor: Update Gradle wrapper to 8.14
-* Delegate to the OSS `UpgradeSpringBoot_3_4`
-* 1117 spring boot 35 follow redirects with testresttemplate
-* Spring Boot 3.5 recipe
-
-#### rewrite-sql - 2.3.0
-
-* refactor: Update Gradle wrapper to 8.14
-
-#### rewrite-terraform - 3.3.0
-
-* refactor: Update Gradle wrapper to 8.14
 
