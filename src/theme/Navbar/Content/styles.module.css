@@ -60,7 +60,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 0;
+  gap: 20px;
 }
 
 /* Desktop: Center search bar absolutely */
@@ -88,7 +88,14 @@
   .mobileControls {
     display: flex;
     align-items: center;
-    gap: var(--neo-spacing_2);
+    gap: 24px;
+  }
+
+  /* NavbarSearch renders a div with [class*='navbarSearchContainer'] —
+     give it explicit right margin so the search icon never collides
+     with the color-mode toggle next to it. */
+  .mobileControls :global([class*='navbarSearchContainer']) {
+    margin-right: 24px;
   }
 }
 

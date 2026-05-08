@@ -8,24 +8,6 @@
   -webkit-backdrop-filter: blur(12px);
 }
 
-/* Footer flows as the last element in the page — no sticky/overlay
-   behavior so it never sits on top of article content. */
-
-/* On desktop docs pages, scope the footer to the main content column only */
-@media (min-width: 997px) {
-  :global(html.docs-wrapper) .footer {
-    margin-left: 307px;
-  }
-}
-
-.actions {
-  display: flex;
-  align-items: center;
-  gap: 1.5rem;
-}
-
-
-
 /* Blurred gradient image, faded from top (transparent) to bottom (visible) */
 .footer::before {
   content: '';
@@ -47,16 +29,14 @@
   align-items: center;
   justify-content: space-between;
   gap: 2rem;
-  width: 83%;
-  margin: 0 auto;
+  width: 100%;
   padding: 0 var(--neo-spacing_3_1_4);
-  transform: translateX(-120px);
 }
 
-@media (max-width: 996px) {
-  .container {
-    transform: none;
-  }
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
 }
 
 .social {
@@ -85,7 +65,7 @@
   display: flex;
   align-items: center;
   gap: 2rem;
-  font-size: 1rem;
+  font-size: 15px;
   font-family: var(--ifm-font-family-base);
 }
 
@@ -129,9 +109,7 @@
   pointer-events: none;
 }
 
-/* Below 1060px the wide single-row layout starts wrapping on individual
-   links ("Contact us" → 2 lines). Stack instead: Give feedback → social
-   icons → links. */
+/* Below 1060px stack vertically: links → Give feedback → social icons */
 @media (max-width: 1060px) {
   .footer {
     --ifm-footer-padding-horizontal: 0px;
@@ -141,9 +119,6 @@
     flex-direction: column;
     align-items: flex-start;
     gap: 1rem;
-    transform: none;
-    width: 100%;
-    margin: 0;
     padding: 0 20px;
   }
 
@@ -159,17 +134,6 @@
     order: 2;
     flex-direction: column;
     align-items: flex-start;
-    gap: 0.75rem;
-  }
-
-  .social {
-    /* Social row aligns with the Give feedback button above it */
-    margin: 0;
-  }
-}
-
-@media (max-width: 768px) {
-  .container {
     gap: 1.5rem;
   }
 }
