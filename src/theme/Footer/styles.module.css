@@ -133,14 +133,27 @@
   pointer-events: none;
 }
 
-@media (max-width: 768px) {
+/* Below 1280px the row gets cramped — especially on docs pages where
+   the 307px sidebar eats footer width. Stack the whole footer
+   left-aligned: links → Give feedback → social icons. */
+@media (max-width: 1280px) {
   .container {
     flex-direction: column;
-    gap: 1.5rem;
+    align-items: flex-start;
+    gap: 1rem;
+    transform: translateX(-100px);
   }
 
   .links {
-    flex-wrap: wrap;
-    justify-content: center;
+    flex-direction: column;
+    align-items: flex-start;
+    flex-wrap: nowrap;
+    gap: 0.5rem;
+  }
+
+  .actions {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.5rem;
   }
 }
