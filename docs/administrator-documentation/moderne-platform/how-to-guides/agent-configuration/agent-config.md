@@ -179,7 +179,7 @@ MODERNE_CONNECTOR_ORGANIZATION_POLL_MAVEN_0_PASSWORD=${MAVEN_PASSWORD}
 <TabItem value="executable-jar" label="Executable JAR">
 
 **Download the JAR:**
-The download URL can be found on the [**Connector releases page**](../../../../releases/agent-releases.md#maven-download)**.**
+The download URL can be found on the [**Connector releases page**](../../../../releases/connector-releases.md)**.**
 
 **How to run the Connector:**
 
@@ -740,11 +740,11 @@ If you want to update the Moderne Connector over time, please follow the instruc
 
 If you're running the commands provided in this guide, you should see that the last line of every Connector run command is `moderne-connector:latest`.
 
-If that's true, then you can rebuild the Connector image and it should pick up the latest version. If you've decided to pin the version to something else instead of `latest`, please see our [releases page](../../../../releases/agent-releases.md) for the versions.
+If that's true, then you can rebuild the Connector image and it should pick up the latest version. If you've decided to pin the version to something else instead of `latest`, please see our [releases page](../../../../releases/connector-releases.md) for the versions.
 </TabItem>
 
 <TabItem value="executable-jar" label="Executable JAR">
 
-To update your version of the Executable JAR, change the `{version}` in `java -jar connector-{version}.jar` to be the latest one on [the releases page](../../../../releases/agent-releases.md).
+To update your version of the Executable JAR, change the `{version}` in `java -jar connector-{version}.jar` to be the latest one on [the releases page](../../../../releases/connector-releases.md).
 </TabItem>
 </Tabs>

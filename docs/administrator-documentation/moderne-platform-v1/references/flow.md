@@ -32,8 +32,6 @@ The [Moderne agent](#moderne-agent) that is deployed in your environment is the 
 
 LST artifacts are encrypted before they are transmitted to Moderne. When [workers](#moderne-worker) need to access these artifacts, they will make a request to the agent to obtain the key to decrypt them. This will happen as the artifacts are deserialized into memory.
 
-Your custom recipe artifacts are similarly encrypted before they are transmitted. They are then decrypted by the [recipe execution service](#moderne-recipe-execution) – with the key again being obtained from the agent. The recipe execution service will use these artifacts to build a category tree of the available recipes. Worker instances will use these artifacts to run a recipe.
-
 Below you can find a component diagram that has been simplified to only show interactions that are related to the encryption and decryption of LST artifacts:
 
 ![LST encryption diagram](./assets/LST-encryption-diagram.png)

@@ -84,7 +84,7 @@ const MobileMegaMenuContent: FunctionComponent = () => {
   // Add Releases as a menu item (links to first releases item)
   const releasesMenuItem: MenuItem = {
     name: 'Releases',
-    href: releasesItems[0]?.href || '/releases/agent-releases',
+    href: releasesItems[0]?.href || '/releases/connector-releases',
   };
 
   return (

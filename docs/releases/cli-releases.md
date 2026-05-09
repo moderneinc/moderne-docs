@@ -7,7 +7,7 @@ description: The current version of the Moderne CLI and links to useful CLI docu
 
 | Component   | Current version |
 | ----------- | --------------- |
-| CLI version | 4.2.3           |
+| CLI version | 4.2.4           |
 
 For CLI command documentation, see the [CLI reference](../user-documentation/moderne-cli/cli-reference.md).
 
@@ -16,6 +16,12 @@ The Moderne CLI previously followed a two-track release model with separate "sta
 :::
 
 ## Changelog
+
+### CLI / DX v4.2.4 (2026-05-08)
+
+#### What's Changed
+* [4.2.x] Publish repos.csv and repos-lock.csv to a Maven coordinate on Maven artifact stores
+* [4.2.x] Log effective pom.xml to it's own file to avoid `build.log` bloat
 
 ### CLI / DX v4.2.3 (2026-05-06)
 
