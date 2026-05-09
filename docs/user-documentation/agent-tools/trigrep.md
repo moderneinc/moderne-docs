@@ -128,7 +128,7 @@ When you need to match code shapes that regular expressions struggle with (like 
 
 The key concept is the **hole**, written as `:[name]`. A hole matches content and optionally captures it for reference. For example, the pattern `logger.:[level](:[message])` matches any logger call, capturing the log level and message separately. Unlike the regex equivalent, this correctly handles nested parentheses in the message argument.
 
-To use structural matching, add the `struct:` prefix before your pattern (e.g., `mod search working-set struct:'logger.:[level](:[message])'`). Without this prefix, hole syntax is treated as literal text.
+To use structural matching, add the `struct:` prefix (or its `structural:` alias) before your pattern (e.g., `mod search working-set struct:'logger.:[level](:[message])'`). Without this prefix, hole syntax is treated as literal text. In Sourcegraph mode you can also enter structural mode with `patternType:structural`, which lets bare terms in the rest of the query be parsed as Comby patterns.
 
 You can use typed holes to constrain what they match:
 
@@ -205,10 +205,6 @@ Both dialects share the same core query features: literal search, regex, boolean
 | Pattern type switching | `patternType:regexp foo.bar` | `/foo.bar/` (slash-delimited) |
 | Revision filter        | `rev:main`                   | `branch:main`                 |
 
-:::info
-Features like `context:`, `fork:`, `archived:`, and `timeout:` are parsed in Sourcegraph mode but not applicable to local indexes. They produce a warning and are dropped from the query.
-:::
-
 ### Example queries in both syntaxes
 
 **Filter by file path:**
@@ -282,21 +278,32 @@ Terms separated by space are implicitly ANDed. The `or` keyword creates disjunct
 
 ### Filters
 
-| Filter        | Description                             | Example                  |
-|---------------|-----------------------------------------|--------------------------|
-| `file:`       | Match file paths (globs or regex)       | `file:src/**/*.java`     |
-| `repo:`       | Match repository names                  | `repo:user-service@main` |
-| `branch:`     | Match git branch names                  | `branch:feature-*`       |
-| `lang:`       | Filter by language                      | `lang:java`              |
-| `case:`       | Control case sensitivity                | `case:yes findById`      |
-| `sym:`        | Restrict to symbol definitions          | `sym:UserRepository`     |
-| `visibility:` | Filter by access modifier               | `visibility:public`      |
-| `static:`     | Filter for static modifier              | `static:yes`             |
-| `final:`      | Filter for final modifier               | `final:yes`              |
-| `extends:`    | Match classes extending a type          | `extends:BaseService`    |
-| `implements:` | Match classes implementing an interface | `implements:Repository`  |
-| `returns:`    | Match methods by return type            | `returns:List`           |
-| `throws:`     | Match methods by declared exceptions    | `throws:IOException`     |
+| Filter         | Description                                                                                                                              | Example                      |
+|----------------|------------------------------------------------------------------------------------------------------------------------------------------|------------------------------|
+| `file:`        | Match file paths (globs or regex). Aliases: `f:`, `path:` (Sourcegraph)                                                                  | `file:src/**/*.java`         |
+| `repo:`        | Match repository names. Use `name@branch` to also filter by branch. Alias: `r:`                                                          | `repo:user-service@main`     |
+| `branch:`      | Match git branch names. Alias: `b:`                                                                                                      | `branch:feature-*`           |
+| `rev:`         | Sourcegraph-only branch/tag filter. Alias: `revision:`                                                                                   | `rev:main`                   |
+| `lang:`        | Filter by language. Aliases: `language:`, `l:` (Sourcegraph)                                                                             | `lang:java`                  |
+| `case:`        | Control case sensitivity (`yes`/`no`)                                                                                                    | `case:yes findById`          |
+| `type:`        | Restrict matching surface: `file` (content, default), `path` (file names only), or `symbol` (symbol sections)                            | `type:path Repository`       |
+| `sym:`         | Restrict to symbol definitions. Alias: `symbol:`                                                                                         | `sym:UserRepository`         |
+| `select:`      | Filter symbol matches by kind: `symbol.class`, `symbol.interface`, `symbol.enum`, `symbol.method`, `symbol.constructor`, `symbol.field`  | `select:symbol.method`       |
+| `count:`       | Cap total results returned by the query                                                                                                  | `count:500`                  |
+| `content:`     | Search file content explicitly (Sourcegraph). Pairs with `patternType:` and disambiguates literals that look like a filter prefix        | `content:"text"`             |
+| `patternType:` | Sourcegraph-only. Switch how bare terms are interpreted: `keyword` (default), `literal`, `regexp`, or `structural`                       | `patternType:regexp foo.bar` |
+| `visibility:`  | Filter by access modifier: `public`, `private`, `protected`, `package` (or `package-private`), or `any` (Sourcegraph; matches everything) | `visibility:public`          |
+| `static:`      | Filter for static modifier (`yes`/`no`)                                                                                                  | `static:yes`                 |
+| `final:`       | Filter for final modifier (`yes`/`no`)                                                                                                   | `final:yes`                  |
+| `abstract:`    | Filter for abstract modifier (`yes`/`no`)                                                                                                | `abstract:yes`               |
+| `extends:`     | Match classes extending a type                                                                                                           | `extends:BaseService`        |
+| `implements:`  | Match classes implementing an interface                                                                                                  | `implements:Repository`      |
+| `returns:`     | Match methods by return type                                                                                                             | `returns:List`               |
+| `throws:`      | Match methods by declared exceptions                                                                                                     | `throws:IOException`         |
+
+:::info
+The Sourcegraph filters `context:`, `fork:`, `archived:`, and `timeout:` are parsed but have no effect on local indexes — they emit a warning and are dropped from the query.
+:::
 
 :::warning[Quoting multi-token queries]
 The CLI treats a single-arg query as a **literal phrase** and re-emits it quoted in the `Searching for:` line. As a result, multi-token queries wrapped in a single pair of shell quotes lose their Sourcegraph semantics and almost always return 0 matches. Examples:
