@@ -286,8 +286,8 @@ Terms separated by space are implicitly ANDed. The `or` keyword creates disjunct
 | `rev:`         | Sourcegraph-only branch/tag filter. Alias: `revision:`                                                                                   | `rev:main`                   |
 | `lang:`        | Filter by language. Aliases: `language:`, `l:` (Sourcegraph)                                                                             | `lang:java`                  |
 | `case:`        | Control case sensitivity (`yes`/`no`)                                                                                                    | `case:yes findById`          |
-| `type:`        | Restrict matching surface: `file` (content, default), `path` (file names only), or `symbol` (symbol sections)                            | `type:path Repository`       |
-| `sym:`         | Restrict to symbol definitions. Alias: `symbol:`                                                                                         | `sym:UserRepository`         |
+| `type:`        | Restrict matching surface: `file` (content, default), `path` (file names only), or `symbol` (matches at symbol-name granularity). Must precede the term it applies to | `type:symbol Person`         |
+| `sym:`         | Match symbols by substring on their fully qualified name. Alias: `symbol:`                                                               | `sym:UserRepository`         |
 | `select:`      | Filter symbol matches by kind: `symbol.class`, `symbol.interface`, `symbol.enum`, `symbol.method`, `symbol.constructor`, `symbol.field`  | `select:symbol.method`       |
 | `count:`       | Cap total results returned by the query                                                                                                  | `count:500`                  |
 | `content:`     | Search file content explicitly (Sourcegraph). Pairs with `patternType:` and disambiguates literals that look like a filter prefix        | `content:"text"`             |
@@ -303,6 +303,17 @@ Terms separated by space are implicitly ANDed. The `or` keyword creates disjunct
 
 :::info
 The Sourcegraph filters `context:`, `fork:`, `archived:`, and `timeout:` are parsed but have no effect on local indexes — they emit a warning and are dropped from the query.
+:::
+
+:::info[Filter ordering and `type:symbol` vs `sym:`]
+The `type:`, `case:`, `count:`, and `patternType:` filters affect how subsequent terms are parsed, so they must appear **before** the term they apply to. For example, `type:symbol Person` filters the search; `Person type:symbol` is silently equivalent to bare `Person`.
+
+`type:symbol` and `sym:` are not synonyms either:
+
+* `type:symbol Person` is the narrow lens — it matches at symbol-name granularity (e.g., the `Person` class itself, not `PersonRepository`).
+* `sym:Person` is the wide net — it does a substring match on each symbol's fully qualified name, so it picks up any symbol whose FQN contains `Person`: the `PersonRepository` class, every method inside `class Person` (because their FQN is `...Person.methodName`), and so on. The match is still constrained to symbols — it won't surface string literals, comments, or other non-symbol text.
+
+Bare `Person` is broader still — every textual occurrence including imports, comments, and string literals.
 :::
 
 :::warning[Quoting multi-token queries]
