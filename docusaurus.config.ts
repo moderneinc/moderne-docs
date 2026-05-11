@@ -206,7 +206,6 @@ const config: Config = {
       apiKey: "15eb9c9f6f3147b1cf82b1b7f93cace8",
       indexName: "moderne",
       // Search filtering is handled by SearchFacetTabs (src/theme/SearchBar)
-      insights: true,
       searchParameters: {
         clickAnalytics: true,
       },
