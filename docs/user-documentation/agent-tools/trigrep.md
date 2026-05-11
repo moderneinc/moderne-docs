@@ -305,10 +305,8 @@ Terms separated by space are implicitly ANDed. The `or` keyword creates disjunct
 The Sourcegraph filters `context:`, `fork:`, `archived:`, and `timeout:` are parsed but have no effect on local indexes — they emit a warning and are dropped from the query.
 :::
 
-:::info[Filter ordering and `type:symbol` vs `sym:`]
-The `type:`, `case:`, `count:`, and `patternType:` filters affect how subsequent terms are parsed, so they must appear **before** the term they apply to. For example, `type:symbol Person` filters the search; `Person type:symbol` is silently equivalent to bare `Person`.
-
-`type:symbol` and `sym:` are not synonyms either:
+:::info[`type:symbol` vs `sym:`]
+`type:symbol` and `sym:` are not synonyms:
 
 * `type:symbol Person` matches `Person` at symbol *declaration sites* only — class headers, method/constructor signatures, and field declarations. So `class PersonRepository`, `Person currentPerson;`, and `void savePerson(Person p)` all match, but uses inside method bodies, imports, and comments do not. This restriction applies to literal terms; regex patterns (`type:symbol /Person/`) currently bypass it and search the full file.
 * `sym:Person` matches every symbol whose fully qualified name contains `Person`. That covers `Person`, `PersonRepository`, etc., plus every method and field inside them (`Person.getFirstName`, `PersonRepository.findByLastName`, ...) because each member's FQN inherits the containing class name. The match is still constrained to symbols — it won't surface string literals, comments, or other non-symbol text.
