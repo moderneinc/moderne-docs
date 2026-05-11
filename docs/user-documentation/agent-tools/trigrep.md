@@ -61,7 +61,6 @@ To refine your search, you can combine terms with boolean logic:
 
 * **AND** (implicit) — Multiple terms are combined with AND. For example, `@Service getUserById` only matches files containing both.
 * **OR** — Use `or` for either term to match. For example, `@Service or @Controller` matches files with either annotation.
-* **NOT** — Prefix with `-` to exclude. For example, `-test` filters out files containing `test`.
 * **Grouping** — Parentheses control precedence. For example, `(@Service or @Controller) getUserById` finds files with `getUserById` that also have either annotation.
 
 You can also combine literal searches with [filters](#filters) to narrow results by file path, repository, language, or Java-specific properties like visibility and inheritance.
@@ -274,7 +273,7 @@ This section provides a quick reference for all query operators, filters, and st
 
 ### Boolean operators
 
-Terms separated by space are implicitly ANDed. The `or` keyword creates disjunction. Parentheses group terms. A leading `-` negates a term.
+Terms separated by space are implicitly ANDed. The `or` keyword creates disjunction. Parentheses group terms.
 
 ### Filters
 
@@ -286,8 +285,8 @@ Terms separated by space are implicitly ANDed. The `or` keyword creates disjunct
 | `rev:`         | Sourcegraph-only branch/tag filter. Alias: `revision:`                                                                                   | `rev:main`                   |
 | `lang:`        | Filter by language. Aliases: `language:`, `l:` (Sourcegraph)                                                                             | `lang:java`                  |
 | `case:`        | Control case sensitivity (`yes`/`no`)                                                                                                    | `case:yes findById`          |
-| `type:`        | Restrict matching surface: `file` (content, default), `path` (file names only), or `symbol` (matches at symbol-name granularity). Must precede the term it applies to | `type:symbol Person`         |
-| `sym:`         | Match symbols by substring on their fully qualified name. Alias: `symbol:`                                                               | `sym:UserRepository`         |
+| `type:`        | Restrict matching surface: `file` (content, default), `path` (file names only), or `symbol` (symbol declarations only — literal terms; see note below) | `type:symbol Person`         |
+| `sym:`         | Match symbols by substring on their fully qualified name. Zoekt-native; trigrep also accepts it in Sourcegraph mode. Alias: `symbol:`    | `sym:UserRepository`         |
 | `select:`      | Filter symbol matches by kind: `symbol.class`, `symbol.interface`, `symbol.enum`, `symbol.method`, `symbol.constructor`, `symbol.field`  | `select:symbol.method`       |
 | `count:`       | Cap total results returned by the query                                                                                                  | `count:500`                  |
 | `content:`     | Search file content explicitly (Sourcegraph). Pairs with `patternType:` and disambiguates literals that look like a filter prefix        | `content:"text"`             |
@@ -310,8 +309,8 @@ The `type:`, `case:`, `count:`, and `patternType:` filters affect how subsequent
 
 `type:symbol` and `sym:` are not synonyms either:
 
-* `type:symbol Person` is the narrow lens — it matches at symbol-name granularity (e.g., the `Person` class itself, not `PersonRepository`).
-* `sym:Person` is the wide net — it does a substring match on each symbol's fully qualified name, so it picks up any symbol whose FQN contains `Person`: the `PersonRepository` class, every method inside `class Person` (because their FQN is `...Person.methodName`), and so on. The match is still constrained to symbols — it won't surface string literals, comments, or other non-symbol text.
+* `type:symbol Person` matches `Person` at symbol *declaration sites* only — class headers, method/constructor signatures, and field declarations. So `class PersonRepository`, `Person currentPerson;`, and `void savePerson(Person p)` all match, but uses inside method bodies, imports, and comments do not. This restriction applies to literal terms; regex patterns (`type:symbol /Person/`) currently bypass it and search the full file.
+* `sym:Person` matches every symbol whose fully qualified name contains `Person`. That covers `Person`, `PersonRepository`, etc., plus every method and field inside them (`Person.getFirstName`, `PersonRepository.findByLastName`, ...) because each member's FQN inherits the containing class name. The match is still constrained to symbols — it won't surface string literals, comments, or other non-symbol text.
 
 Bare `Person` is broader still — every textual occurrence including imports, comments, and string literals.
 :::
@@ -321,7 +320,6 @@ The CLI treats a single-arg query as a **literal phrase** and re-emits it quoted
 
 * `'@Service or @Controller'` is searched as the literal phrase `@Service or @Controller` (which appears nowhere) — 0 matches.
 * `'visibility:public returns:List'` is parsed as a single filter with value `public returns:List` — fails with `Unknown visibility: public returns:List`.
-* `'KafkaTemplate -test'` is searched as the literal phrase `KafkaTemplate -test` — 0 matches.
 
 Pass each token as its own argument, or quote each individually:
 
