@@ -61,6 +61,7 @@ To refine your search, you can combine terms with boolean logic:
 
 * **AND** (implicit) — Multiple terms are combined with AND. For example, `@Service getUserById` only matches files containing both.
 * **OR** — Use `or` for either term to match. For example, `@Service or @Controller` matches files with either annotation.
+* **NOT** — Prefix with `-` to exclude. Because the CLI intercepts leading `-` as an option marker, insert `--` between the path and the query: `mod search . -- @RestController -test` finds files containing `@RestController` but not `test`.
 * **Grouping** — Parentheses control precedence. For example, `(@Service or @Controller) getUserById` finds files with `getUserById` that also have either annotation.
 
 You can also combine literal searches with [filters](#filters) to narrow results by file path, repository, language, or Java-specific properties like visibility and inheritance.
@@ -273,7 +274,7 @@ This section provides a quick reference for all query operators, filters, and st
 
 ### Boolean operators
 
-Terms separated by space are implicitly ANDed. The `or` keyword creates disjunction. Parentheses group terms.
+Terms separated by space are implicitly ANDed. The `or` keyword creates disjunction. Parentheses group terms. A leading `-` negates a term (requires `--` between the path and the query — see the [NOT example above](#literal-and-sourcegraph-style-queries)).
 
 ### Filters
 
@@ -320,6 +321,7 @@ The CLI treats a single-arg query as a **literal phrase** and re-emits it quoted
 
 * `'@Service or @Controller'` is searched as the literal phrase `@Service or @Controller` (which appears nowhere) — 0 matches.
 * `'visibility:public returns:List'` is parsed as a single filter with value `public returns:List` — fails with `Unknown visibility: public returns:List`.
+* `'KafkaTemplate -test'` is searched as the literal phrase `KafkaTemplate -test` — 0 matches. To use `-` negation, pass terms unquoted with `--`: `mod search . -- KafkaTemplate -test`.
 
 Pass each token as its own argument, or quote each individually:
 
