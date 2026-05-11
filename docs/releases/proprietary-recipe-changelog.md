@@ -14,7 +14,7 @@ This changelog is automatically generated from GitHub releases and only contains
 
 #### rewrite-migrate-python - 0.7.2
 
-* Wrap Replace{Array}{Tostring,Fromstring} editors in Preconditions.check
+* Wrap `Replace{Array}{Tostring,Fromstring}` editors in Preconditions.check
 * Wrap multi-name Find* recipes in Preconditions.or_ + uses_method/uses_type
 
 ## May 7, 2026
