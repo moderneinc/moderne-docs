@@ -43,7 +43,8 @@
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
     "react-medium-image-zoom": "^5.2.10",
-    "react-player": "^2.16.0"
+    "react-player": "^2.16.0",
+    "search-insights": "2.17.3"
   },
   "devDependencies": {
     "@docusaurus/module-type-aliases": "^3.10.1",
