@@ -118,13 +118,40 @@ function useNavigator({
 function useTransformSearchClient(): DocSearchModalProps['transformSearchClient'] {
   const {
     siteMetadata: {docusaurusVersion},
+    siteConfig: {themeConfig},
   } = useDocusaurusContext();
+  const {appId, apiKey} = themeConfig.algolia as {appId: string; apiKey: string};
+
   return useCallback(
     (searchClient: DocSearchTransformClient) => {
       searchClient.addAlgoliaAgent('docusaurus', docusaurusVersion);
+
+      // DocSearch v4.6.3 doesn't attach __autocomplete_algoliaCredentials,
+      // __autocomplete_queryID, or __autocomplete_indexName to hits, which
+      // causes the insights plugin to crash on click. This is fixed in the
+      // DocSearch main branch but not yet released. Backport the fix here
+      // and remove once @docsearch/react > 4.6.3 ships.
+      const originalSearch = (
+        searchClient as unknown as {search: (...args: unknown[]) => Promise<{results: unknown[]}>}
+      ).search.bind(searchClient);
+      (searchClient as unknown as {search: unknown}).search = async function (...args: unknown[]) {
+        const response = await originalSearch(...args);
+        response?.results?.forEach((result: unknown) => {
+          const r = result as {queryID?: string; index?: string; hits?: Record<string, unknown>[]};
+          if (r?.queryID && Array.isArray(r.hits)) {
+            r.hits.forEach((hit) => {
+              hit.__autocomplete_queryID = r.queryID;
+              hit.__autocomplete_indexName = r.index;
+              hit.__autocomplete_algoliaCredentials = {appId, apiKey};
+            });
+          }
+        });
+        return response;
+      };
+
       return searchClient;
     },
-    [docusaurusVersion],
+    [docusaurusVersion, appId, apiKey],
   );
 }
 
