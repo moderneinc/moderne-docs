@@ -381,6 +381,18 @@ html {
   align-self: flex-start;
 }
 
+/* On narrow widths the secondary nav is replaced by the hamburger
+   menu, so its 48px shouldn't be reserved as empty space above the
+   breadcrumbs. Also align hamburger and article column to a shared
+   20px left edge so they line up visually. */
+@media (max-width: 996px) {
+  :root {
+    --ifm-secondary-nav-height: 0px;
+    --ifm-navbar-padding-horizontal: 20px;
+    --ifm-spacing-horizontal: 20px;
+  }
+}
+
 
 /* Fix sidebar border to not extend behind navbar */
 @media (min-width: 997px) {
