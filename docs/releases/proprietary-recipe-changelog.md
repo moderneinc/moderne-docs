@@ -10,6 +10,13 @@ This page contains release notes for [Moderne proprietary OpenRewrite recipes](h
 This changelog is automatically generated from GitHub releases and only contains information from the past year.
 :::
 
+## May 10, 2026
+
+#### rewrite-migrate-python - 0.7.2
+
+* Wrap `Replace{Array}{Tostring,Fromstring}` editors in Preconditions.check
+* Wrap multi-name Find* recipes in Preconditions.or_ + uses_method/uses_type
+
 ## May 7, 2026
 
 #### rewrite-ai - v0.3.3
