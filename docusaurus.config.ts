@@ -31,6 +31,7 @@ const config: Config = {
   clientModules: [
     require.resolve('./src/client/gtagGuard.js'),
     require.resolve('./src/client/loadNeoDesign.js'),
+    require.resolve('./src/client/algoliaInsights.js'),
   ],
 
   headTags: [
@@ -206,6 +207,10 @@ const config: Config = {
       apiKey: "15eb9c9f6f3147b1cf82b1b7f93cace8",
       indexName: "moderne",
       // Search filtering is handled by SearchFacetTabs (src/theme/SearchBar)
+      insights: true,
+      searchParameters: {
+        clickAnalytics: true,
+      },
     },
     announcementBar: {
       id: "code_remix_26",
