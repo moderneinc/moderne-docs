@@ -212,10 +212,10 @@ const config: Config = {
         clickAnalytics: true,
       },
     },
-    announcementBar: {
-      id: "code_remix_26",
-      content: '<strong><a href="https://coderemix.ai/?utm_source=docs&utm_medium=referral&utm_campaign=26_crs_banner">Code Remix Summit is back</a></strong> ✦ May 11–13',
-    },
+    // announcementBar: {
+    //   id: "code_remix_26",
+    //   content: '<strong><a href="https://coderemix.ai/?utm_source=docs&utm_medium=referral&utm_campaign=26_crs_banner">Code Remix Summit is back</a></strong> ✦ May 11–13',
+    // },
     colorMode: {
       respectPrefersColorScheme: true,
     },
