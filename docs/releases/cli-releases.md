@@ -7,7 +7,7 @@ description: The current version of the Moderne CLI and links to useful CLI docu
 
 | Component   | Current version |
 | ----------- | --------------- |
-| CLI version | 4.2.6           |
+| CLI version | 4.2.7           |
 
 For CLI command documentation, see the [CLI reference](../user-documentation/moderne-cli/cli-reference.md).
 
@@ -16,6 +16,13 @@ The Moderne CLI previously followed a two-track release model with separate "sta
 :::
 
 ## Changelog
+
+### CLI / DX v4.2.7 (2026-05-12)
+
+#### What's Changed
+* Fix race condition in RepositoryGitTask#updateBranchChangeset
+* mod run: release recipe classloader handles when all partitions complete
+* Unbundle rewrite-devcenter from CLI fat jar; consume DevCenter via JSON
 
 ### CLI / DX v4.2.6 (2026-05-11)
 
