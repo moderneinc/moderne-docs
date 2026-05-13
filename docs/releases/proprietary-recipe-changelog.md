@@ -10,11 +10,44 @@ This page contains release notes for [Moderne proprietary OpenRewrite recipes](h
 This changelog is automatically generated from GitHub releases and only contains information from the past year.
 :::
 
+## May 12, 2026
+
+#### rewrite-devcenter - 1.23.0
+
+* Add `DevCenter.getSpec()` returning a versioned JSON description
+* Fix DevCenter cards silently emitting zero rows
+
+#### rewrite-java-security - v3.30.1
+
+* Use
+
+#### rewrite-java-security - 3.30.0
+
+* Fix NPE in FindTextDirectionChanges on JS/TSX sources
+* C#: Add support for maximumUpgradeDelta in FFVD
+* Add FindBasicAuthSecrets recipe
+* Add FindBearerTokenSecrets recipe
+* Expose vulnerabilities(Accumulator) for direct row access
+* Route tests through the Maven settings mirror
+
+#### rewrite-prethink - v0.5.11
+
+* Add Scala test coverage for quality-metrics recipes
+* Detect cucumber-jvm step definitions as test methods
+
+#### rewrite-react - 0.2.10
+
+* Fix dist paths
+
+#### rewrite-react - 0.2.9
+
+* Set up NPMJS publishing
+
 ## May 10, 2026
 
 #### rewrite-migrate-python - 0.7.2
 
-* Wrap `Replace{Array}{Tostring,Fromstring}` editors in Preconditions.check
+* Wrap `Replace{Array}{Tostring,Fromstring}` editors in `Preconditions.check`
 * Wrap multi-name Find* recipes in Preconditions.or_ + uses_method/uses_type
 
 ## May 7, 2026
