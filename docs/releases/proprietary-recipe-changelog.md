@@ -19,7 +19,7 @@ This changelog is automatically generated from GitHub releases and only contains
 
 #### rewrite-java-security - v3.30.1
 
-* Use
+* Use [v8.81.15](https://github.com/openrewrite/rewrite/releases/tag/v8.81.15)
 
 #### rewrite-java-security - 3.30.0
 
