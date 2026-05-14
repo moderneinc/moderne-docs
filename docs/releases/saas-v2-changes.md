@@ -21,7 +21,7 @@ You can now view all code changes across your organization in one place. The Mod
 
 ### Atlas status pages
 
-Atlas status pages surface significantly more insight into what's happening across the platform, making it easier to monitor service health and pinpoint issues when they arise.
+[Atlas](https://github.com/Netflix/atlas) status pages surface significantly more insight into what's happening across the platform, making it easier to monitor service health and pinpoint issues when they arise.
 
 <figure>
   ![An Atlas status page reporting the health of the recipe marketplace](./assets/saas-v2-atlas-status.png)
@@ -30,7 +30,7 @@ Atlas status pages surface significantly more insight into what's happening acro
 
 ### Continuous profiling across the platform
 
-SaaS v2 ships with Pyroscope-based continuous profiling for every microservice in the platform — authorization, organization, the recipe worker, Moddy, the marketplace, and more. You can inspect CPU usage, memory allocation, mutex contention, and blocking time as flamegraphs, making it much easier to track down performance regressions wherever they live in the stack. When a recipe is running slowly, profiling the `recipeworker` service can pinpoint exactly which code path is responsible.
+SaaS v2 ships with [Pyroscope-based](https://grafana.com/oss/pyroscope/) continuous profiling for every microservice in the platform — authorization, organization, the recipe worker, Moddy, the marketplace, and more. You can inspect CPU usage, memory allocation, mutex contention, and blocking time as flamegraphs, making it much easier to track down performance regressions wherever they live in the stack. When a recipe is running slowly, profiling the `recipeworker` service can pinpoint exactly which code path is responsible.
 
 <figure>
   ![A Pyroscope page showing CPU analysis of the recipe worker](./assets/saas-v2-recipe-profiling.png)
@@ -105,7 +105,8 @@ There is now a global org that encompasses every organization, including user or
 The deploy page has been substantially updated:
 
 * You can now deploy recipes from ecosystems like pip and NuGet, which was not previously supported.
-* The **Add artifact** modal has smart defaults and clearer ecosystem-specific syntax, making it easier to understand what to enter for each ecosystem.
+* The **Add artifact** modal has smart defaults and clearer ecosystem-specific syntax, making it easier to understand what to enter for each ecosystem. 
+  * For instance, if you wanted to deploy an NPM artifact, the version dropdown would let you specify a specific version or use the latest/next tag - with descriptions of what each did. In contrast, if you tried to deploy a Pip artifact, the version dropdown would not include a "next" tag as that doesn't apply to Pip artifacts.
 
 <figure>
   ![The updated deploy modal showing ecosystem-specific defaults for a pip package](./assets/saas-v2-deploy-modal.png)
