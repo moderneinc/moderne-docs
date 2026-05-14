@@ -7,7 +7,7 @@ description: The current version of the Moderne CLI and links to useful CLI docu
 
 | Component   | Current version |
 | ----------- | --------------- |
-| CLI version | 4.2.7           |
+| CLI version | 4.2.8           |
 
 For CLI command documentation, see the [CLI reference](../user-documentation/moderne-cli/cli-reference.md).
 
@@ -16,6 +16,14 @@ The Moderne CLI previously followed a two-track release model with separate "sta
 :::
 
 ## Changelog
+
+### CLI / DX v4.2.8 (2026-05-14)
+
+#### What's Changed
+* Exclude filter-mismatched repos from the `mod run` progress bar (#3835)
+* Restore JDK selection logging for gradle build steps
+* Fix DevCenter spec loading for declarative parent recipes (#3851)
+* Fix `mod` commands finding zero repos when sync target is nested in a parent git worktree
 
 ### CLI / DX v4.2.7 (2026-05-12)
 
