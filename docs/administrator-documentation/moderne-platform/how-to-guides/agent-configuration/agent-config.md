@@ -163,16 +163,16 @@ MODERNE_SCM_GITHUB_0_OAUTH_INCLUDEPRIVATEREPOS=true
 
 # Set the environment variables for your artifactory
 # Remove this part if you can not use the artifactory repository configuration (see step 5)
-MODERNE_CONNECTOR_ORGANIZATION_POLL_ARTIFACTORY_0_URI=https://myartifactory.example.com/artifactory/
-MODERNE_CONNECTOR_ORGANIZATION_POLL_ARTIFACTORY_0_USERNAME=${ARTIFACTORY_USERNAME}
-MODERNE_CONNECTOR_ORGANIZATION_POLL_ARTIFACTORY_0_PASSWORD=${ARTIFACTORY_PASSWORD}
-MODERNE_CONNECTOR_ORGANIZATION_POLL_ARTIFACTORY_0_LSTQUERYFILTERS_0='"name":{"$match":"*-ast.jar"}'
-MODERNE_CONNECTOR_ORGANIZATION_POLL_ARTIFACTORY_0_LSTQUERYFILTERS_1='"repo":{"$eq":"example-maven"}'
+MODERNE_ORGANIZATION_SOURCES_HTTP_0_POLL_ARTIFACTORY_0_URI=https://myartifactory.example.com/artifactory/
+MODERNE_ORGANIZATION_SOURCES_HTTP_0_POLL_ARTIFACTORY_0_USERNAME=${ARTIFACTORY_USERNAME}
+MODERNE_ORGANIZATION_SOURCES_HTTP_0_POLL_ARTIFACTORY_0_PASSWORD=${ARTIFACTORY_PASSWORD}
+MODERNE_ORGANIZATION_SOURCES_HTTP_0_POLL_ARTIFACTORY_0_LSTQUERYFILTERS_0='"name":{"$match":"*-ast.jar"}'
+MODERNE_ORGANIZATION_SOURCES_HTTP_0_POLL_ARTIFACTORY_0_LSTQUERYFILTERS_1='"repo":{"$eq":"example-maven"}'
 
 # Set the environment variables for your artifactory recipe access or your maven repository access
-MODERNE_CONNECTOR_ORGANIZATION_POLL_MAVEN_0_URI=https://myartifactory.example.com/artifactory/libs-releases-local
-MODERNE_CONNECTOR_ORGANIZATION_POLL_MAVEN_0_USERNAME=${MAVEN_USERNAME}
-MODERNE_CONNECTOR_ORGANIZATION_POLL_MAVEN_0_PASSWORD=${MAVEN_PASSWORD}
+MODERNE_ORGANIZATION_SOURCES_HTTP_0_POLL_MAVEN_0_URI=https://myartifactory.example.com/artifactory/libs-releases-local
+MODERNE_ORGANIZATION_SOURCES_HTTP_0_POLL_MAVEN_0_USERNAME=${MAVEN_USERNAME}
+MODERNE_ORGANIZATION_SOURCES_HTTP_0_POLL_MAVEN_0_PASSWORD=${MAVEN_PASSWORD}
 ```
 </TabItem>
 
@@ -395,10 +395,10 @@ docker run \
 # Point the Connector at a CSV describing your repositories. Prefer `repos-lock.csv` from Mass Ingest for LOCK mode.
 -e MODERNE_ORGANIZATION_SOURCES_HTTP_0_URI=https://internal.example.com/repos-lock.csv \
 # (Optional) Enrichment pollers — only needed if your CSV lacks publishUri values.
-# -e MODERNE_CONNECTOR_ORGANIZATION_POLL_ARTIFACTORY_0_URI=https://myartifactory.example.com/artifactory/ \
-# -e MODERNE_CONNECTOR_ORGANIZATION_POLL_ARTIFACTORY_0_USERNAME=... \
-# -e MODERNE_CONNECTOR_ORGANIZATION_POLL_ARTIFACTORY_0_PASSWORD=... \
-# -e MODERNE_CONNECTOR_ORGANIZATION_POLL_ARTIFACTORY_0_LSTQUERYFILTERS_0='"name":{"$match":"*-ast.jar"}' \
+# -e MODERNE_ORGANIZATION_SOURCES_HTTP_0_POLL_ARTIFACTORY_0_URI=https://myartifactory.example.com/artifactory/ \
+# -e MODERNE_ORGANIZATION_SOURCES_HTTP_0_POLL_ARTIFACTORY_0_USERNAME=... \
+# -e MODERNE_ORGANIZATION_SOURCES_HTTP_0_POLL_ARTIFACTORY_0_PASSWORD=... \
+# -e MODERNE_ORGANIZATION_SOURCES_HTTP_0_POLL_ARTIFACTORY_0_LSTQUERYFILTERS_0='"name":{"$match":"*-ast.jar"}' \
 # ... Additional variables to come
 -p 8080:8080
 moderne-connector:latest
@@ -425,10 +425,10 @@ java -jar connector-{version}.jar \
 # Point the Connector at a CSV describing your repositories. Prefer `repos-lock.csv` from Mass Ingest for LOCK mode.
 --moderne.organization.sources.http[0].uri=https://internal.example.com/repos-lock.csv \
 # (Optional) Enrichment pollers — only needed if your CSV lacks publishUri values.
-# --moderne.connector.organization.poll.artifactory[0].uri=https://myartifactory.example.com/artifactory/ \
-# --moderne.connector.organization.poll.artifactory[0].username=... \
-# --moderne.connector.organization.poll.artifactory[0].password=... \
-# --moderne.connector.organization.poll.artifactory[0].lstQueryFilters[0]='{"name":{"$match":"*-ast.jar"}}' \
+# --moderne.organization.sources.http[0].poll.artifactory[0].uri=https://myartifactory.example.com/artifactory/ \
+# --moderne.organization.sources.http[0].poll.artifactory[0].username=... \
+# --moderne.organization.sources.http[0].poll.artifactory[0].password=... \
+# --moderne.organization.sources.http[0].poll.artifactory[0].lstQueryFilters[0]='{"name":{"$match":"*-ast.jar"}}' \
 # ... Additional arguments to come
 ```
 </TabItem>
@@ -507,10 +507,10 @@ export MODERNE_CONNECTOR_CRYPTO_SYMMETRICKEY=...
 export MODERNE_CONNECTOR_TOKEN=...
 export MODERNE_SCM_GITHUB_0_OAUTH_CLIENTID=...
 export MODERNE_SCM_GITHUB_0_OAUTH_CLIENTSECRET=...
-export MODERNE_CONNECTOR_ORGANIZATION_POLL_ARTIFACTORY_0_USERNAME=...
-export MODERNE_CONNECTOR_ORGANIZATION_POLL_ARTIFACTORY_0_PASSWORD=...
-export MODERNE_CONNECTOR_ORGANIZATION_POLL_MAVEN_0_USERNAME=...
-export MODERNE_CONNECTOR_ORGANIZATION_POLL_MAVEN_0_PASSWORD=...
+export MODERNE_ORGANIZATION_SOURCES_HTTP_0_POLL_ARTIFACTORY_0_USERNAME=...
+export MODERNE_ORGANIZATION_SOURCES_HTTP_0_POLL_ARTIFACTORY_0_PASSWORD=...
+export MODERNE_ORGANIZATION_SOURCES_HTTP_0_POLL_MAVEN_0_USERNAME=...
+export MODERNE_ORGANIZATION_SOURCES_HTTP_0_POLL_MAVEN_0_PASSWORD=...
 
 docker run \
 -e MODERNE_CONNECTOR_APIGATEWAYRSOCKETURI=https://api.tenant.moderne.io/connector \
@@ -523,14 +523,15 @@ docker run \
 -e MODERNE_SCM_GITHUB_0_ALLOWABLE_ORGANIZATIONS_0=moderne \
 -e MODERNE_SCM_GITHUB_0_ALLOWABLE_ORGANIZATIONS_1=openrewrite \
 -e MODERNE_SCM_GITHUB_0_OAUTH_INCLUDEPRIVATEREPOS=true \
--e MODERNE_CONNECTOR_ORGANIZATION_POLL_ARTIFACTORY_0_URI=https://myartifactory.example.com/artifactory/ \
--e MODERNE_CONNECTOR_ORGANIZATION_POLL_ARTIFACTORY_0_USERNAME \
--e MODERNE_CONNECTOR_ORGANIZATION_POLL_ARTIFACTORY_0_PASSWORD \
--e MODERNE_CONNECTOR_ORGANIZATION_POLL_ARTIFACTORY_0_LSTQUERYFILTERS_0='"name":{"$match":"*-ast.jar"}' \
--e MODERNE_CONNECTOR_ORGANIZATION_POLL_ARTIFACTORY_0_LSTQUERYFILTERS_1='"repo":{"$eq":"example-maven"}' \
--e MODERNE_CONNECTOR_ORGANIZATION_POLL_MAVEN_0_URI=https://myartifactory.example.com/artifactory/libs-releases-local \
--e MODERNE_CONNECTOR_ORGANIZATION_POLL_MAVEN_0_USERNAME \
--e MODERNE_CONNECTOR_ORGANIZATION_POLL_MAVEN_0_PASSWORD \
+-e MODERNE_ORGANIZATION_SOURCES_HTTP_0_URI=https://internal.example.com/repos-lock.csv \
+-e MODERNE_ORGANIZATION_SOURCES_HTTP_0_POLL_ARTIFACTORY_0_URI=https://myartifactory.example.com/artifactory/ \
+-e MODERNE_ORGANIZATION_SOURCES_HTTP_0_POLL_ARTIFACTORY_0_USERNAME \
+-e MODERNE_ORGANIZATION_SOURCES_HTTP_0_POLL_ARTIFACTORY_0_PASSWORD \
+-e MODERNE_ORGANIZATION_SOURCES_HTTP_0_POLL_ARTIFACTORY_0_LSTQUERYFILTERS_0='"name":{"$match":"*-ast.jar"}' \
+-e MODERNE_ORGANIZATION_SOURCES_HTTP_0_POLL_ARTIFACTORY_0_LSTQUERYFILTERS_1='"repo":{"$eq":"example-maven"}' \
+-e MODERNE_ORGANIZATION_SOURCES_HTTP_0_POLL_MAVEN_0_URI=https://myartifactory.example.com/artifactory/libs-releases-local \
+-e MODERNE_ORGANIZATION_SOURCES_HTTP_0_POLL_MAVEN_0_USERNAME \
+-e MODERNE_ORGANIZATION_SOURCES_HTTP_0_POLL_MAVEN_0_PASSWORD \
 -p 8080:8080
 moderne-connector:latest
 ```
@@ -547,10 +548,10 @@ export MODERNE_CONNECTOR_CRYPTO_SYMMETRICKEY=...
 export MODERNE_CONNECTOR_TOKEN=...
 export MODERNE_SCM_GITHUB_0_OAUTH_CLIENTID=...
 export MODERNE_SCM_GITHUB_0_OAUTH_CLIENTSECRET=...
-export MODERNE_CONNECTOR_ORGANIZATION_POLL_ARTIFACTORY_0_USERNAME=...
-export MODERNE_CONNECTOR_ORGANIZATION_POLL_ARTIFACTORY_0_PASSWORD=...
-export MODERNE_CONNECTOR_ORGANIZATION_POLL_MAVEN_0_USERNAME=...
-export MODERNE_CONNECTOR_ORGANIZATION_POLL_MAVEN_0_PASSWORD=...
+export MODERNE_ORGANIZATION_SOURCES_HTTP_0_POLL_ARTIFACTORY_0_USERNAME=...
+export MODERNE_ORGANIZATION_SOURCES_HTTP_0_POLL_ARTIFACTORY_0_PASSWORD=...
+export MODERNE_ORGANIZATION_SOURCES_HTTP_0_POLL_MAVEN_0_USERNAME=...
+export MODERNE_ORGANIZATION_SOURCES_HTTP_0_POLL_MAVEN_0_PASSWORD=...
 
 java -jar connector-{version}.jar \
 --moderne.connector.apiGatewayRsocketUri=https://api.tenant.moderne.io/connector \
@@ -559,10 +560,11 @@ java -jar connector-{version}.jar \
 --moderne.scm.github[0].allowableOrganizations[0]=moderne \
 --moderne.scm.github[0].allowableOrganizations[1]=openrewrite \
 --moderne.scm.github[0].oauth.includePrivateRepos=true \
---moderne.connector.organization.poll.artifactory[0].uri=https://myartifactory.example.com/artifactory/ \
---moderne.connector.organization.poll.artifactory[0].lstQueryFilters[0]='{"name":{"$match":"*-ast.jar"}}' \
---moderne.connector.organization.poll.artifactory[0].lstQueryFilters[1]='{"repo":{"$eq":"example-maven"}}' \
---moderne.connector.organization.poll.maven[0].uri=https://myartifactory.example.com/artifactory/libs-releases-local \
+--moderne.organization.sources.http[0].uri=https://internal.example.com/repos-lock.csv \
+--moderne.organization.sources.http[0].poll.artifactory[0].uri=https://myartifactory.example.com/artifactory/ \
+--moderne.organization.sources.http[0].poll.artifactory[0].lstQueryFilters[0]='{"name":{"$match":"*-ast.jar"}}' \
+--moderne.organization.sources.http[0].poll.artifactory[0].lstQueryFilters[1]='{"repo":{"$eq":"example-maven"}}' \
+--moderne.organization.sources.http[0].poll.maven[0].uri=https://myartifactory.example.com/artifactory/libs-releases-local \
 ```
 
 * Note: System properties can be used in place of arguments. For example, you can use `-Dmoderne.connector.token={token_value}` as an argument instead of `--moderne.connector.token={token_value}`.
@@ -717,7 +719,7 @@ This allows the Connector to use the host's network stack directly, including it
 **Common causes and solutions:**
 
 * **Artifact repository configuration:** Verify Maven or Artifactory repository settings (URLs, credentials)
-* **AQL filters (Artifactory):** Check that `MODERNE_CONNECTOR_ORGANIZATION_POLL_ARTIFACTORY_0_LSTQUERYFILTERS_*` correctly matches your LST artifacts
+* **AQL filters (Artifactory):** Check that `MODERNE_ORGANIZATION_SOURCES_HTTP_0_POLL_ARTIFACTORY_0_LSTQUERYFILTERS_*` correctly matches your LST artifacts
 * **Maven indexing:** If using Maven repository configuration, ensure the Maven index is being published and updated regularly
 * **Artifact publication:** Confirm LST artifacts are actually being published to the configured repository
 * **Network access:** Verify the Connector can reach the artifact repository from its network location
