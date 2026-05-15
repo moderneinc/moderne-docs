@@ -7,13 +7,20 @@ description: The current version of the Moderne Connector and where to download 
 
 | Component | Current version |
 | --------- | --------------- |
-| Connector | 0.148.102 |
+| Connector | 0.148.106 |
 
-[Download latest](https://repo1.maven.org/maven2/io/moderne/connector/0.148.102/connector-0.148.102.jar)
+[Download latest](https://repo1.maven.org/maven2/io/moderne/connector/0.148.106/connector-0.148.106.jar)
 
 ## Changelog
 
 ## May 2026
+
+### v0.148.106 – 2026-05-14
+
+[Download](https://repo1.maven.org/maven2/io/moderne/connector/0.148.106/connector-0.148.106.jar)
+
+* Require explicit isSkipSsl/isSkipValidateConnectivity on HttpToolConfiguration
+
 
 ### v0.148.102 – 2026-05-12
 
