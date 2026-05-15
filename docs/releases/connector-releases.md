@@ -7,13 +7,22 @@ description: The current version of the Moderne Connector and where to download 
 
 | Component | Current version |
 | --------- | --------------- |
-| Connector | 0.148.100 |
+| Connector | 0.148.102 |
 
-[Download latest](https://repo1.maven.org/maven2/io/moderne/connector/0.148.100/connector-0.148.100.jar)
+[Download latest](https://repo1.maven.org/maven2/io/moderne/connector/0.148.102/connector-0.148.102.jar)
 
 ## Changelog
 
 ## May 2026
+
+### v0.148.102 – 2026-05-12
+
+[Download](https://repo1.maven.org/maven2/io/moderne/connector/0.148.102/connector-0.148.102.jar)
+
+* Build(deps): upgrade Netty 4.2.13.Final and plexus-utils 3.6.1 for CVE-2026-42582/3/4
+* Log error on 404 handshake from API gateway (#792)
+* Don't start enrichment until gateway is connected; aggregate per-row failures into one summary
+
 
 ### v0.148.100 – 2026-05-12
 
