@@ -7,13 +7,20 @@ description: The current version of the Moderne Connector and where to download 
 
 | Component | Current version |
 | --------- | --------------- |
-| Connector | 0.148.106 |
+| Connector | 0.148.107 |
 
-[Download latest](https://repo1.maven.org/maven2/io/moderne/connector/0.148.106/connector-0.148.106.jar)
+[Download latest](https://repo1.maven.org/maven2/io/moderne/connector/0.148.107/connector-0.148.107.jar)
 
 ## Changelog
 
 ## May 2026
+
+### v0.148.107 – 2026-05-14
+
+[Download](https://repo1.maven.org/maven2/io/moderne/connector/0.148.107/connector-0.148.107.jar)
+
+* Short-circuit encrypt+upload before opening source when prev already encrypted (#804)
+
 
 ### v0.148.106 – 2026-05-14
 
