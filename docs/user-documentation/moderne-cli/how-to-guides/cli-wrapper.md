@@ -10,7 +10,7 @@ When you install the Moderne CLI (via the curl/PowerShell installer, Homebrew, o
 Most users never need to think about this. But if you need to control which CLI version your team uses, pin a version for CI reproducibility, understand what network calls the CLI makes, or troubleshoot startup issues, this guide will explain how the wrapper works and how to configure it.
 
 :::warning
-The wrapper is part of the CLI, not an optional convenience. As of CLI 4.x, SSL and proxy configuration in `moderne.yml` is applied by the wrapper as JVM `-D` flags at startup. If you run the CLI JAR directly without the wrapper, those settings are not applied — `mod config moderne login`, recipe sync, and any other HTTPS call will fail in environments that depend on a corporate trust store or proxy. See [Running the CLI without the wrapper](#running-the-cli-without-the-wrapper) for what this means in practice.
+The wrapper is part of the CLI, not an optional convenience. As of CLI 4.2.2, SSL and proxy configuration in `moderne.yml` is applied by the wrapper as JVM `-D` flags at startup. If you run the CLI JAR directly without the wrapper, those settings are not applied — `mod config moderne login`, recipe sync, and any other HTTPS call will fail in environments that depend on a corporate trust store or proxy. See [Running the CLI without the wrapper](#running-the-cli-without-the-wrapper) for what this means in practice.
 :::
 
 ## What is `modw`?
@@ -248,13 +248,13 @@ Everything lives under `~/.moderne/cli/` (or `$MODERNE_CLI_HOME`):
 
 ## Running the CLI without the wrapper
 
-Some teams download the CLI JAR directly from Artifactory or another artifact repository and run it with `java -jar`. **This is not a supported configuration in CLI 4.x.** The wrapper is the entry point that the CLI is designed around, and several things that used to happen inside `mod` itself have moved into the wrapper. If you bypass it, you must take on responsibility for that work yourself.
+Some teams download the CLI JAR directly from Artifactory or another artifact repository and run it with `java -jar`. **This is not a supported configuration as of CLI 4.2.2.** The wrapper is the entry point that the CLI is designed around, and several things that used to happen inside `mod` itself have moved into the wrapper. If you bypass it, you must take on responsibility for that work yourself.
 
 ### What breaks without the wrapper
 
 The following stop working when you run `java -jar moderne-cli.jar` (or any equivalent) directly:
 
-* **SSL and proxy configuration from `moderne.yml` is not applied.** In CLI 4.x, the wrapper reads SSL/trust-store, key-store, and HTTP proxy settings from `moderne.yml` and passes them to the JVM as `-D` flags before any application code runs. This is required because JVM agents (for example, the Pyroscope profiler bundled into recipe workers) capture their TrustManager at premain time — before the CLI itself can call `System.setProperty`. Without the wrapper, those `-D` flags are never set, and any HTTPS call goes out with the default JDK trust store and no proxy. In environments that depend on a corporate proxy or custom CA bundle (which is the case for most enterprise installs), `mod config moderne login`, `mod git sync`, recipe install, and almost anything else that talks to a Moderne or Git endpoint will fail with a PKIX error or a connection error.
+* **SSL and proxy configuration from `moderne.yml` is not applied.** Starting in CLI 4.2.2, the wrapper reads SSL/trust-store, key-store, and HTTP proxy settings from `moderne.yml` and passes them to the JVM as `-D` flags before any application code runs. This is required because JVM agents (for example, the Pyroscope profiler bundled into recipe workers) capture their TrustManager at premain time — before the CLI itself can call `System.setProperty`. Without the wrapper, those `-D` flags are never set, and any HTTPS call goes out with the default JDK trust store and no proxy. In environments that depend on a corporate proxy or custom CA bundle (which is the case for most enterprise installs), `mod config moderne login`, `mod git sync`, recipe install, and almost anything else that talks to a Moderne or Git endpoint will fail with a PKIX error or a connection error.
 
 * **The AOT cache is not used.** The wrapper trains and reuses a Project Leyden ahead-of-time compilation cache that significantly improves CLI startup. Running the JAR directly skips this — every invocation pays the full JVM warm-up cost.
 
