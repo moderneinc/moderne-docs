@@ -4,500 +4,558 @@ description: Complete reference for the Moderne GraphQL API, including all queri
 hide_title: true
 ---
 
+<style>{`
+.gql-card{border:1px solid var(--ifm-color-emphasis-300);border-radius:6px;padding:12px 14px;margin-bottom:12px;background:var(--ifm-background-surface-color)}
+.gql-hdr{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px}
+.gql-name{font-family:var(--ifm-code-font-family);font-size:15px;font-weight:700;color:var(--ifm-color-content)}
+.gql-svc{font-size:11px;padding:2px 7px;border-radius:20px;background:var(--ifm-color-emphasis-200);color:var(--ifm-color-content-secondary);border:1px solid var(--ifm-color-emphasis-300)}
+.gql-ret{font-family:var(--ifm-code-font-family);font-size:13px;color:var(--ifm-color-content-secondary);margin:0 0 4px}
+.gql-args{font-family:var(--ifm-code-font-family);font-size:12px;color:var(--ifm-color-content-secondary);opacity:.7;margin:0 0 6px}
+.gql-impl{font-size:11px;padding:2px 7px;border-radius:20px;background:var(--ifm-color-emphasis-200);color:var(--ifm-color-primary);border:1px solid var(--ifm-color-emphasis-300)}
+`}</style>
+
 <h1>GraphQL API reference</h1>
 
 <p><em>This page is auto-generated from the Moderne GraphQL schema. Do not edit manually.</em></p>
 
 ## Queries
 
-<div id="auditLogs" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>auditLogs</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>auditreader</span>
+<div id="auditLogs" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">auditLogs</span>
+<span className="gql-svc">auditreader</span>
 </div>
-<div style={{fontFamily: 'monospace', fontSize: '12px', color: '#94a3b8', margin: '0 0 6px'}}>(first: Int = 100, after: String, where: <a href="#auditlogwhereinput">AuditLogWhereInput</a>, orderBy: [<a href="#auditlogorderbyinput">AuditLogOrderByInput</a>!]): <a href="#auditlogconnection">AuditLogConnection</a>!</div>
+<div className="gql-ret">: <a href="#auditlogconnection">AuditLogConnection</a>!</div>
+<div className="gql-args">(first: Int = 100, after: String, where: <a href="#auditlogwhereinput">AuditLogWhereInput</a>, orderBy: [<a href="#auditlogorderbyinput">AuditLogOrderByInput</a>!])</div>
 <p>Query audit log events with pagination and filtering.</p>
 </div>
 
-<div id="auditLogsDownloads" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>auditLogsDownloads</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>auditreader</span>
+<div id="auditLogsDownloads" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">auditLogsDownloads</span>
+<span className="gql-svc">auditreader</span>
 </div>
-<div style={{fontFamily: 'monospace', fontSize: '12px', color: '#94a3b8', margin: '0 0 6px'}}>(first: Int = 50, after: String, where: <a href="#auditlogsdownloadwhereinput">AuditLogsDownloadWhereInput</a>, orderBy: [<a href="#auditlogsdownloadorderbyinput">AuditLogsDownloadOrderByInput</a>!]): <a href="#auditlogsdownloadconnection">AuditLogsDownloadConnection</a>!</div>
+<div className="gql-ret">: <a href="#auditlogsdownloadconnection">AuditLogsDownloadConnection</a>!</div>
+<div className="gql-args">(first: Int = 50, after: String, where: <a href="#auditlogsdownloadwhereinput">AuditLogsDownloadWhereInput</a>, orderBy: [<a href="#auditlogsdownloadorderbyinput">AuditLogsDownloadOrderByInput</a>!])</div>
 <p>Query audit log downloads with pagination and filtering. Use where: &#123; id: &#123; _eq: "..." &#125; &#125; to poll a specific download.</p>
 </div>
 
-<div id="bulkPullRequestAction" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>bulkPullRequestAction</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changelogreader</span>
+<div id="bulkPullRequestAction" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">bulkPullRequestAction</span>
+<span className="gql-svc">changelogreader</span>
 </div>
-<div style={{fontFamily: 'monospace', fontSize: '12px', color: '#94a3b8', margin: '0 0 6px'}}>(id: ID!): <a href="#bulkpullrequestaction">BulkPullRequestAction</a></div>
+<div className="gql-ret">: <a href="#bulkpullrequestaction">BulkPullRequestAction</a></div>
+<div className="gql-args">(id: ID!)</div>
 <p>Get a bulk pull request action by ID to poll for progress.</p>
 </div>
 
-<div id="capabilities" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>capabilities</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>gateway</span>
+<div id="capabilities" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">capabilities</span>
+<span className="gql-svc">gateway</span>
 </div>
-<div style={{fontFamily: 'monospace', fontSize: '12px', color: '#94a3b8', margin: '0 0 6px'}}>: <a href="#platformcapabilities">PlatformCapabilities</a>!</div>
+<div className="gql-ret">: <a href="#platformcapabilities">PlatformCapabilities</a>!</div>
 <p>Returns which optional platform features are enabled in this deployment. Each field defaults to false and is overridden to true by the corresponding optional service when it is present in the supergraph composition.</p>
 </div>
 
-<div id="codeSearch" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>codeSearch</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>code-search</span>
+<div id="codeSearch" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">codeSearch</span>
+<span className="gql-svc">code-search</span>
 </div>
-<div style={{fontFamily: 'monospace', fontSize: '12px', color: '#94a3b8', margin: '0 0 6px'}}>(repositoryId: String!, query: String!, first: Int = 100, after: String): <a href="#codesearchresultconnection">CodeSearchResultConnection</a>!</div>
+<div className="gql-ret">: <a href="#codesearchresultconnection">CodeSearchResultConnection</a>!</div>
+<div className="gql-args">(repositoryId: String!, query: String!, first: Int = 100, after: String)</div>
 <p>Search source code across artifact repositories. Searches the given repository and all its descendants in the hierarchy. Results are grouped by artifact (groupId:artifactId) with file-level matches.</p>
 </div>
 
-<div id="connectors" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>connectors</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>gateway</span>
+<div id="connectors" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">connectors</span>
+<span className="gql-svc">gateway</span>
 </div>
-<div style={{fontFamily: 'monospace', fontSize: '12px', color: '#94a3b8', margin: '0 0 6px'}}>(first: Int = 100, after: String, where: <a href="#connectorwhereinput">ConnectorWhereInput</a>, orderBy: [<a href="#connectororderbyinput">ConnectorOrderByInput</a>!]): <a href="#connectorconnection">ConnectorConnection</a>!</div>
+<div className="gql-ret">: <a href="#connectorconnection">ConnectorConnection</a>!</div>
+<div className="gql-args">(first: Int = 100, after: String, where: <a href="#connectorwhereinput">ConnectorWhereInput</a>, orderBy: [<a href="#connectororderbyinput">ConnectorOrderByInput</a>!])</div>
 </div>
 
-<div id="conversation" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>conversation</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>moddy</span>
+<div id="conversation" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">conversation</span>
+<span className="gql-svc">moddy</span>
 </div>
-<div style={{fontFamily: 'monospace', fontSize: '12px', color: '#94a3b8', margin: '0 0 6px'}}>(conversationId: ID!): <a href="#conversation">Conversation</a></div>
+<div className="gql-ret">: <a href="#conversation">Conversation</a></div>
+<div className="gql-args">(conversationId: ID!)</div>
 <p>Look up a single conversation by id. Returns null when no conversation matches or the caller does not have access. Restores the v1 query the moderne-ui client already references.</p>
 </div>
 
-<div id="currentUser" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>currentUser</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>authz</span>
+<div id="currentUser" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">currentUser</span>
+<span className="gql-svc">authz</span>
 </div>
-<div style={{fontFamily: 'monospace', fontSize: '12px', color: '#94a3b8', margin: '0 0 6px'}}>: <a href="#user">User</a>!</div>
+<div className="gql-ret">: <a href="#user">User</a>!</div>
 <p>Returns the currently authenticated user.</p>
 </div>
 
-<div id="devCenterRecipes" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>devCenterRecipes</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>recipemarketplace</span>
+<div id="devCenterRecipes" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">devCenterRecipes</span>
+<span className="gql-svc">recipemarketplace</span>
 </div>
-<div style={{fontFamily: 'monospace', fontSize: '12px', color: '#94a3b8', margin: '0 0 6px'}}>: [<a href="#recipedescriptor">RecipeDescriptor</a>!]!</div>
+<div className="gql-ret">: [<a href="#recipedescriptor">RecipeDescriptor</a>!]!</div>
 <p>Get available DevCenter recipes for configuration.</p>
 </div>
 
-<div id="license" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>license</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>authz</span>
+<div id="license" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">license</span>
+<span className="gql-svc">authz</span>
 </div>
-<div style={{fontFamily: 'monospace', fontSize: '12px', color: '#94a3b8', margin: '0 0 6px'}}>: <a href="#license">License</a>!</div>
+<div className="gql-ret">: <a href="#license">License</a>!</div>
 <p>Request a new license lease key</p>
 </div>
 
-<div id="organization" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>organization</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>organization</span>
+<div id="organization" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">organization</span>
+<span className="gql-svc">organization</span>
 </div>
-<div style={{fontFamily: 'monospace', fontSize: '12px', color: '#94a3b8', margin: '0 0 6px'}}>(id: ID!): <a href="#organization">Organization</a>!</div>
-</div>
-
-<div id="organizations" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>organizations</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>organization</span>
-</div>
-<div style={{fontFamily: 'monospace', fontSize: '12px', color: '#94a3b8', margin: '0 0 6px'}}>(first: Int = 100, after: String, where: <a href="#organizationwhereinput">OrganizationWhereInput</a>, orderBy: [<a href="#organizationorderbyinput">OrganizationOrderByInput</a>!]): <a href="#organizationconnection">OrganizationConnection</a>!</div>
+<div className="gql-ret">: <a href="#organization">Organization</a>!</div>
+<div className="gql-args">(id: ID!)</div>
 </div>
 
-<div id="scmConnections" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>scmConnections</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>authz</span>
+<div id="organizations" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">organizations</span>
+<span className="gql-svc">organization</span>
 </div>
-<div style={{fontFamily: 'monospace', fontSize: '12px', color: '#94a3b8', margin: '0 0 6px'}}>: [<a href="#scmconnection">ScmConnection</a>!]!</div>
+<div className="gql-ret">: <a href="#organizationconnection">OrganizationConnection</a>!</div>
+<div className="gql-args">(first: Int = 100, after: String, where: <a href="#organizationwhereinput">OrganizationWhereInput</a>, orderBy: [<a href="#organizationorderbyinput">OrganizationOrderByInput</a>!])</div>
+</div>
+
+<div id="scmConnections" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">scmConnections</span>
+<span className="gql-svc">authz</span>
+</div>
+<div className="gql-ret">: [<a href="#scmconnection">ScmConnection</a>!]!</div>
 <p>Returns connections for all SCM providers.</p>
 </div>
 
-<div id="users" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>users</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>authz</span>
+<div id="users" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">users</span>
+<span className="gql-svc">authz</span>
 </div>
-<div style={{fontFamily: 'monospace', fontSize: '12px', color: '#94a3b8', margin: '0 0 6px'}}>(first: Int = 100, after: String, where: <a href="#userwhereinput">UserWhereInput</a>, orderBy: [<a href="#userorderbyinput">UserOrderByInput</a>!]): <a href="#userconnection">UserConnection</a>!</div>
+<div className="gql-ret">: <a href="#userconnection">UserConnection</a>!</div>
+<div className="gql-args">(first: Int = 100, after: String, where: <a href="#userwhereinput">UserWhereInput</a>, orderBy: [<a href="#userorderbyinput">UserOrderByInput</a>!])</div>
 <p>Returns users with option to filter by role.</p>
 </div>
 
-<div id="verifyToken" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>verifyToken</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetcommitter</span>
+<div id="verifyToken" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">verifyToken</span>
+<span className="gql-svc">changesetcommitter</span>
 </div>
-<div style={{fontFamily: 'monospace', fontSize: '12px', color: '#94a3b8', margin: '0 0 6px'}}>(origin: String!, scmType: <a href="#scmtype">ScmType</a>!): String</div>
+<div className="gql-ret">: String</div>
+<div className="gql-args">(origin: String!, scmType: <a href="#scmtype">ScmType</a>!)</div>
 </div>
 
 ## Mutations
 
-<div id="approvePullRequests" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>approvePullRequests</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changelogreader</span>
+<div id="approvePullRequests" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">approvePullRequests</span>
+<span className="gql-svc">changelogreader</span>
 </div>
-<div style={{fontFamily: 'monospace', fontSize: '12px', color: '#94a3b8', margin: '0 0 6px'}}>(organizationId: ID!, selection: <a href="#pullrequestselectioninput">PullRequestSelectionInput</a>!): <a href="#bulkpullrequestactionqueued">BulkPullRequestActionQueued</a>!</div>
+<div className="gql-ret">: <a href="#bulkpullrequestactionqueued">BulkPullRequestActionQueued</a>!</div>
+<div className="gql-args">(organizationId: ID!, selection: <a href="#pullrequestselectioninput">PullRequestSelectionInput</a>!)</div>
 <p>Approve pull requests in bulk. Returns the queued action for polling.</p>
 </div>
 
-<div id="cancelBulkPullRequestAction" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>cancelBulkPullRequestAction</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changelogreader</span>
+<div id="cancelBulkPullRequestAction" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">cancelBulkPullRequestAction</span>
+<span className="gql-svc">changelogreader</span>
 </div>
-<div style={{fontFamily: 'monospace', fontSize: '12px', color: '#94a3b8', margin: '0 0 6px'}}>(id: ID!): <a href="#bulkpullrequestactioncanceled">BulkPullRequestActionCanceled</a>!</div>
+<div className="gql-ret">: <a href="#bulkpullrequestactioncanceled">BulkPullRequestActionCanceled</a>!</div>
+<div className="gql-args">(id: ID!)</div>
 <p>Cancel a pending bulk pull request action.</p>
 </div>
 
-<div id="cancelCommit" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>cancelCommit</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetcommitter</span>
+<div id="cancelCommit" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">cancelCommit</span>
+<span className="gql-svc">changesetcommitter</span>
 </div>
-<div style={{fontFamily: 'monospace', fontSize: '12px', color: '#94a3b8', margin: '0 0 6px'}}>(id: ID!): <a href="#organizationcommitcanceled">OrganizationCommitCanceled</a>!</div>
+<div className="gql-ret">: <a href="#organizationcommitcanceled">OrganizationCommitCanceled</a>!</div>
+<div className="gql-args">(id: ID!)</div>
 <p>Cancel a running commit operation.</p>
 </div>
 
-<div id="cancelDevCenterRun" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>cancelDevCenterRun</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>recipeworker</span>
+<div id="cancelDevCenterRun" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">cancelDevCenterRun</span>
+<span className="gql-svc">recipeworker</span>
 </div>
-<div style={{fontFamily: 'monospace', fontSize: '12px', color: '#94a3b8', margin: '0 0 6px'}}>(id: ID!): ID!</div>
+<div className="gql-ret">: ID!</div>
+<div className="gql-args">(id: ID!)</div>
 <p>Cancel a DevCenter run. Cancellation is best-effort and asynchronous.</p>
 </div>
 
-<div id="cancelMessage" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>cancelMessage</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>moddy</span>
+<div id="cancelMessage" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">cancelMessage</span>
+<span className="gql-svc">moddy</span>
 </div>
-<div style={{fontFamily: 'monospace', fontSize: '12px', color: '#94a3b8', margin: '0 0 6px'}}>(conversationId: ID!, messageId: ID): Boolean!</div>
+<div className="gql-ret">: Boolean!</div>
+<div className="gql-args">(conversationId: ID!, messageId: ID)</div>
 <p>Interrupt the currently-running turn for a conversation. The virtual thread driving the turn is interrupted — a blocking LLM stream unwinds immediately, and long-running downstream work (recipe runs) receives a best-effort cancel via `cancelRecipeRun` on recipe-worker. Cheap tool calls finish naturally. A terminal CANCELLED `ErrorMessage` is appended to the log regardless.</p>
 <p>LLM-memory consistency on the next turn is preserved by the JSONL collapse: `buildChatMessages` pairs every tool-origin row into an `AiMessage(toolRequests)` + `ToolExecutionResultMessage` batch, and only rows that actually persisted are rebuilt — partially-executed tool batches are reconstructed from whichever tool-origin rows made it to the log.</p>
 <p>Returns <code>true</code> when a running turn was actually interrupted, <code>false</code> when the conversation was already idle (no-op, not an error). <code>messageId</code> is accepted for client compatibility but only the conversation's active turn is cancellable — there is never more than one turn in flight.</p>
 </div>
 
-<div id="cancelRecipeRun" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>cancelRecipeRun</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>recipeworker</span>
+<div id="cancelRecipeRun" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">cancelRecipeRun</span>
+<span className="gql-svc">recipeworker</span>
 </div>
-<div style={{fontFamily: 'monospace', fontSize: '12px', color: '#94a3b8', margin: '0 0 6px'}}>(id: ID!): ID!</div>
+<div className="gql-ret">: ID!</div>
+<div className="gql-args">(id: ID!)</div>
 <p>Cancel a recipe run. Cancellation is best-effort and asynchronous.</p>
 </div>
 
-<div id="clearOrganizationPrompt" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>clearOrganizationPrompt</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>moddy</span>
+<div id="clearOrganizationPrompt" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">clearOrganizationPrompt</span>
+<span className="gql-svc">moddy</span>
 </div>
-<div style={{fontFamily: 'monospace', fontSize: '12px', color: '#94a3b8', margin: '0 0 6px'}}>(organizationId: ID!): Boolean!</div>
+<div className="gql-ret">: Boolean!</div>
+<div className="gql-args">(organizationId: ID!)</div>
 <p>Clear the organization-level prompt override, falling back to universal.</p>
 </div>
 
-<div id="clearUserPrompt" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>clearUserPrompt</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>moddy</span>
+<div id="clearUserPrompt" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">clearUserPrompt</span>
+<span className="gql-svc">moddy</span>
 </div>
-<div style={{fontFamily: 'monospace', fontSize: '12px', color: '#94a3b8', margin: '0 0 6px'}}>: Boolean!</div>
+<div className="gql-ret">: Boolean!</div>
 <p>Clear the current user's prompt override, falling back to organization or universal.</p>
 </div>
 
-<div id="closePullRequests" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>closePullRequests</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changelogreader</span>
+<div id="closePullRequests" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">closePullRequests</span>
+<span className="gql-svc">changelogreader</span>
 </div>
-<div style={{fontFamily: 'monospace', fontSize: '12px', color: '#94a3b8', margin: '0 0 6px'}}>(organizationId: ID!, selection: <a href="#pullrequestselectioninput">PullRequestSelectionInput</a>!): <a href="#bulkpullrequestactionqueued">BulkPullRequestActionQueued</a>!</div>
+<div className="gql-ret">: <a href="#bulkpullrequestactionqueued">BulkPullRequestActionQueued</a>!</div>
+<div className="gql-args">(organizationId: ID!, selection: <a href="#pullrequestselectioninput">PullRequestSelectionInput</a>!)</div>
 <p>Close pull requests in bulk. Returns the queued action for polling.</p>
 </div>
 
-<div id="commit" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>commit</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetcommitter</span>
+<div id="commit" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">commit</span>
+<span className="gql-svc">changesetcommitter</span>
 </div>
-<div style={{fontFamily: 'monospace', fontSize: '12px', color: '#94a3b8', margin: '0 0 6px'}}>(input: <a href="#commitinput">CommitInput</a>!): <a href="#organizationcommitqueued">OrganizationCommitQueued</a>!</div>
+<div className="gql-ret">: <a href="#organizationcommitqueued">OrganizationCommitQueued</a>!</div>
+<div className="gql-args">(input: <a href="#commitinput">CommitInput</a>!)</div>
 <p>Create commits from a changeset (recipe run, batch change, etc.).</p>
 </div>
 
-<div id="createAccessToken" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>createAccessToken</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>authz</span>
+<div id="createAccessToken" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">createAccessToken</span>
+<span className="gql-svc">authz</span>
 </div>
-<div style={{fontFamily: 'monospace', fontSize: '12px', color: '#94a3b8', margin: '0 0 6px'}}>(description: String, expiresAt: <a href="#datetime">DateTime</a>): <a href="#createaccesstokenresult">CreateAccessTokenResult</a>!</div>
+<div className="gql-ret">: <a href="#createaccesstokenresult">CreateAccessTokenResult</a>!</div>
+<div className="gql-args">(description: String, expiresAt: <a href="#datetime">DateTime</a>)</div>
 <p>Creates a new Moderne Personal Access Token for the current user. Returns the token value only once - it cannot be retrieved again.</p>
 </div>
 
-<div id="createConversation" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>createConversation</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>moddy</span>
+<div id="createConversation" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">createConversation</span>
+<span className="gql-svc">moddy</span>
 </div>
-<div style={{fontFamily: 'monospace', fontSize: '12px', color: '#94a3b8', margin: '0 0 6px'}}>(input: <a href="#createconversationinput">CreateConversationInput</a>!, waitForCompletion: Boolean = false): <a href="#sendmessageresult">SendMessageResult</a>!</div>
+<div className="gql-ret">: <a href="#sendmessageresult">SendMessageResult</a>!</div>
+<div className="gql-args">(input: <a href="#createconversationinput">CreateConversationInput</a>!, waitForCompletion: Boolean = false)</div>
 <p>Create a new conversation and send the first message. Uses the effective prompt for the organization context. `waitForCompletion` has the same semantics as on `sendMessage`.</p>
 </div>
 
-<div id="createUserOrganization" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>createUserOrganization</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>organization</span>
+<div id="createUserOrganization" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">createUserOrganization</span>
+<span className="gql-svc">organization</span>
 </div>
-<div style={{fontFamily: 'monospace', fontSize: '12px', color: '#94a3b8', margin: '0 0 6px'}}>(input: <a href="#createuserorganizationinput">CreateUserOrganizationInput</a>!): <a href="#organization">Organization</a>!</div>
+<div className="gql-ret">: <a href="#organization">Organization</a>!</div>
+<div className="gql-args">(input: <a href="#createuserorganizationinput">CreateUserOrganizationInput</a>!)</div>
 <p>Create a new user-defined organization visible only to the current user.</p>
 </div>
 
-<div id="deleteUser" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>deleteUser</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>authz</span>
+<div id="deleteUser" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">deleteUser</span>
+<span className="gql-svc">authz</span>
 </div>
-<div style={{fontFamily: 'monospace', fontSize: '12px', color: '#94a3b8', margin: '0 0 6px'}}>(email: String!): Boolean!</div>
+<div className="gql-ret">: Boolean!</div>
+<div className="gql-args">(email: String!)</div>
 <p>Deletes a user and all associated access tokens. Returns true if the user was found and deleted.</p>
 </div>
 
-<div id="deleteUserOrganization" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>deleteUserOrganization</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>organization</span>
+<div id="deleteUserOrganization" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">deleteUserOrganization</span>
+<span className="gql-svc">organization</span>
 </div>
-<div style={{fontFamily: 'monospace', fontSize: '12px', color: '#94a3b8', margin: '0 0 6px'}}>(id: ID!): Boolean!</div>
+<div className="gql-ret">: Boolean!</div>
+<div className="gql-args">(id: ID!)</div>
 <p>Delete a user-defined organization.</p>
 </div>
 
-<div id="downloadAuditLogs" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>downloadAuditLogs</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>auditreader</span>
+<div id="downloadAuditLogs" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">downloadAuditLogs</span>
+<span className="gql-svc">auditreader</span>
 </div>
-<div style={{fontFamily: 'monospace', fontSize: '12px', color: '#94a3b8', margin: '0 0 6px'}}>(first: Int, since: <a href="#datetime">DateTime</a>, until: <a href="#datetime">DateTime</a>, format: <a href="#auditlogexportformat">AuditLogExportFormat</a>!): <a href="#auditlogsdownload">AuditLogsDownload</a>!</div>
+<div className="gql-ret">: <a href="#auditlogsdownload">AuditLogsDownload</a>!</div>
+<div className="gql-args">(first: Int, since: <a href="#datetime">DateTime</a>, until: <a href="#datetime">DateTime</a>, format: <a href="#auditlogexportformat">AuditLogExportFormat</a>!)</div>
 <p>Start an asynchronous export of audit logs. Returns a task whose state can be polled via auditLogsDownloads.</p>
 </div>
 
-<div id="downloadDataTable" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>downloadDataTable</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetreader</span>
+<div id="downloadDataTable" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">downloadDataTable</span>
+<span className="gql-svc">changesetreader</span>
 </div>
-<div style={{fontFamily: 'monospace', fontSize: '12px', color: '#94a3b8', margin: '0 0 6px'}}>(changesetId: ID!, dataTable: String!, group: String, format: <a href="#datatableformat">DataTableFormat</a>!): <a href="#datatable">DataTable</a>!</div>
+<div className="gql-ret">: <a href="#datatable">DataTable</a>!</div>
+<div className="gql-args">(changesetId: ID!, dataTable: String!, group: String, format: <a href="#datatableformat">DataTableFormat</a>!)</div>
 <p>Start or retrieve a data table download. If the same data table + group + format combination was already requested, returns the existing download state.</p>
 </div>
 
-<div id="exchangeAuthorizationCode" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>exchangeAuthorizationCode</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>authz</span>
+<div id="exchangeAuthorizationCode" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">exchangeAuthorizationCode</span>
+<span className="gql-svc">authz</span>
 </div>
-<div style={{fontFamily: 'monospace', fontSize: '12px', color: '#94a3b8', margin: '0 0 6px'}}>(input: <a href="#exchangeauthorizationcodeinput">ExchangeAuthorizationCodeInput</a>!): <a href="#exchangeauthorizationresult">ExchangeAuthorizationResult</a>!</div>
+<div className="gql-ret">: <a href="#exchangeauthorizationresult">ExchangeAuthorizationResult</a>!</div>
+<div className="gql-args">(input: <a href="#exchangeauthorizationcodeinput">ExchangeAuthorizationCodeInput</a>!)</div>
 <p>Exchange an OAuth authorization code for an access token.</p>
 <p>This unified mutation handles all OAuth 2.0 VCS providers. The backend uses the authorizationId to look up: - The origin and VCS type - PKCE code_verifier (GitLab)</p>
 <p>On success, the token is stored and future requests will be authenticated.</p>
 </div>
 
-<div id="initiateAuthorization" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>initiateAuthorization</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>authz</span>
+<div id="initiateAuthorization" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">initiateAuthorization</span>
+<span className="gql-svc">authz</span>
 </div>
-<div style={{fontFamily: 'monospace', fontSize: '12px', color: '#94a3b8', margin: '0 0 6px'}}>(input: <a href="#initiateauthorizationinput">InitiateAuthorizationInput</a>!): <a href="#oauthauthorization">OAuthAuthorization</a>!</div>
+<div className="gql-ret">: <a href="#oauthauthorization">OAuthAuthorization</a>!</div>
+<div className="gql-args">(input: <a href="#initiateauthorizationinput">InitiateAuthorizationInput</a>!)</div>
 <p>Initiate OAuth authorization for a VCS origin. Returns an authorization URL to redirect the user to.</p>
 <p>The backend constructs the full OAuth URL including: - PKCE code_challenge for GitLab - Correct scopes for each VCS type - State parameter for CSRF protection</p>
 <p>The authorization ID should be passed to exchangeAuthorizationCode after the user completes OAuth.</p>
 </div>
 
-<div id="installRecipesForCurrentUser" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>installRecipesForCurrentUser</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>recipemarketplace</span>
+<div id="installRecipesForCurrentUser" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">installRecipesForCurrentUser</span>
+<span className="gql-svc">recipemarketplace</span>
 </div>
-<div style={{fontFamily: 'monospace', fontSize: '12px', color: '#94a3b8', margin: '0 0 6px'}}>(bundle: <a href="#recipebundleinput">RecipeBundleInput</a>!): <a href="#recipeinstallation">RecipeInstallation</a>!</div>
+<div className="gql-ret">: <a href="#recipeinstallation">RecipeInstallation</a>!</div>
+<div className="gql-args">(bundle: <a href="#recipebundleinput">RecipeBundleInput</a>!)</div>
 <p>Install a recipe bundle to the current user's personal marketplace.</p>
 </div>
 
-<div id="installRecipesForOrganization" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>installRecipesForOrganization</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>recipemarketplace</span>
+<div id="installRecipesForOrganization" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">installRecipesForOrganization</span>
+<span className="gql-svc">recipemarketplace</span>
 </div>
-<div style={{fontFamily: 'monospace', fontSize: '12px', color: '#94a3b8', margin: '0 0 6px'}}>(organizationId: ID!, bundle: <a href="#recipebundleinput">RecipeBundleInput</a>!): <a href="#recipeinstallation">RecipeInstallation</a>!</div>
+<div className="gql-ret">: <a href="#recipeinstallation">RecipeInstallation</a>!</div>
+<div className="gql-args">(organizationId: ID!, bundle: <a href="#recipebundleinput">RecipeBundleInput</a>!)</div>
 <p>Install a recipe bundle to a specific organization's marketplace. Requires the `admin` role.</p>
 </div>
 
-<div id="installRecipesUniversal" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>installRecipesUniversal</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>recipemarketplace</span>
+<div id="installRecipesUniversal" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">installRecipesUniversal</span>
+<span className="gql-svc">recipemarketplace</span>
 </div>
-<div style={{fontFamily: 'monospace', fontSize: '12px', color: '#94a3b8', margin: '0 0 6px'}}>(bundle: <a href="#recipebundleinput">RecipeBundleInput</a>!): <a href="#recipeinstallation">RecipeInstallation</a>!</div>
+<div className="gql-ret">: <a href="#recipeinstallation">RecipeInstallation</a>!</div>
+<div className="gql-args">(bundle: <a href="#recipebundleinput">RecipeBundleInput</a>!)</div>
 <p>Install a recipe bundle to the universal marketplace (visible to all). Requires the `admin` role.</p>
 </div>
 
-<div id="mergePullRequests" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>mergePullRequests</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changelogreader</span>
+<div id="mergePullRequests" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">mergePullRequests</span>
+<span className="gql-svc">changelogreader</span>
 </div>
-<div style={{fontFamily: 'monospace', fontSize: '12px', color: '#94a3b8', margin: '0 0 6px'}}>(organizationId: ID!, selection: <a href="#pullrequestselectioninput">PullRequestSelectionInput</a>!, mergeMethod: <a href="#mergemethod">MergeMethod</a>!, deleteSourceBranch: Boolean! = false): <a href="#bulkpullrequestactionqueued">BulkPullRequestActionQueued</a>!</div>
+<div className="gql-ret">: <a href="#bulkpullrequestactionqueued">BulkPullRequestActionQueued</a>!</div>
+<div className="gql-args">(organizationId: ID!, selection: <a href="#pullrequestselectioninput">PullRequestSelectionInput</a>!, mergeMethod: <a href="#mergemethod">MergeMethod</a>!, deleteSourceBranch: Boolean! = false)</div>
 <p>Merge pull requests in bulk. Returns the queued action for polling.</p>
 </div>
 
-<div id="reindexChangelog" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>reindexChangelog</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changelogwriter</span>
+<div id="reindexChangelog" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">reindexChangelog</span>
+<span className="gql-svc">changelogwriter</span>
 </div>
-<div style={{fontFamily: 'monospace', fontSize: '12px', color: '#94a3b8', margin: '0 0 6px'}}>(since: <a href="#datetime">DateTime</a>!, origin: String): <a href="#reindexresult">ReindexResult</a>!</div>
+<div className="gql-ret">: <a href="#reindexresult">ReindexResult</a>!</div>
+<div className="gql-args">(since: <a href="#datetime">DateTime</a>!, origin: String)</div>
 <p>Reset poll cursors so the next poll cycle re-fetches and re-enriches changelog entries from the given timestamp forward. Use this to backfill data after deploying enrichment improvements.</p>
 </div>
 
-<div id="revokeAccessToken" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>revokeAccessToken</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>authz</span>
+<div id="revokeAccessToken" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">revokeAccessToken</span>
+<span className="gql-svc">authz</span>
 </div>
-<div style={{fontFamily: 'monospace', fontSize: '12px', color: '#94a3b8', margin: '0 0 6px'}}>(id: ID!): Boolean!</div>
+<div className="gql-ret">: Boolean!</div>
+<div className="gql-args">(id: ID!)</div>
 <p>Revokes an access token by ID. Returns true if the token was revoked, false if not found.</p>
 </div>
 
-<div id="revokeAllAccessTokens" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>revokeAllAccessTokens</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>authz</span>
+<div id="revokeAllAccessTokens" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">revokeAllAccessTokens</span>
+<span className="gql-svc">authz</span>
 </div>
-<div style={{fontFamily: 'monospace', fontSize: '12px', color: '#94a3b8', margin: '0 0 6px'}}>(email: String!): Boolean!</div>
+<div className="gql-ret">: Boolean!</div>
+<div className="gql-args">(email: String!)</div>
 <p>Revokes all access tokens for a given user. Returns true if all token were revoked, otherwise false.</p>
 </div>
 
-<div id="revokeScmToken" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>revokeScmToken</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>authz</span>
+<div id="revokeScmToken" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">revokeScmToken</span>
+<span className="gql-svc">authz</span>
 </div>
-<div style={{fontFamily: 'monospace', fontSize: '12px', color: '#94a3b8', margin: '0 0 6px'}}>(input: <a href="#revokescmtokeninput">RevokeScmTokenInput</a>!): <a href="#revoketokenresult">RevokeTokenResult</a>!</div>
+<div className="gql-ret">: <a href="#revoketokenresult">RevokeTokenResult</a>!</div>
+<div className="gql-args">(input: <a href="#revokescmtokeninput">RevokeScmTokenInput</a>!)</div>
 <p>Revoke an SCM OAuth token for the current user and a specific origin. This removes the stored token, disconnecting the user from the VCS.</p>
 </div>
 
-<div id="runDevCenter" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>runDevCenter</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>recipeworker</span>
+<div id="runDevCenter" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">runDevCenter</span>
+<span className="gql-svc">recipeworker</span>
 </div>
-<div style={{fontFamily: 'monospace', fontSize: '12px', color: '#94a3b8', margin: '0 0 6px'}}>(input: <a href="#rundevcenterinput">RunDevCenterInput</a>!): <a href="#devcenterrunrunning">DevCenterRunRunning</a>!</div>
+<div className="gql-ret">: <a href="#devcenterrunrunning">DevCenterRunRunning</a>!</div>
+<div className="gql-args">(input: <a href="#rundevcenterinput">RunDevCenterInput</a>!)</div>
 <p>Start a DevCenter run for an organization. Returns immediately with running status.</p>
 </div>
 
-<div id="runRecipe" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>runRecipe</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>recipeworker</span>
+<div id="runRecipe" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">runRecipe</span>
+<span className="gql-svc">recipeworker</span>
 </div>
-<div style={{fontFamily: 'monospace', fontSize: '12px', color: '#94a3b8', margin: '0 0 6px'}}>(input: <a href="#runrecipeinput">RunRecipeInput</a>!): <a href="#organizationreciperunqueued">OrganizationRecipeRunQueued</a>!</div>
+<div className="gql-ret">: <a href="#organizationreciperunqueued">OrganizationRecipeRunQueued</a>!</div>
+<div className="gql-args">(input: <a href="#runrecipeinput">RunRecipeInput</a>!)</div>
 <p>Run a recipe against repositories. Returns the recipe run in its initial queued state.</p>
 </div>
 
-<div id="runVisualization" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>runVisualization</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetvisualizer</span>
+<div id="runVisualization" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">runVisualization</span>
+<span className="gql-svc">changesetvisualizer</span>
 </div>
-<div style={{fontFamily: 'monospace', fontSize: '12px', color: '#94a3b8', margin: '0 0 6px'}}>(organizationId: ID!, visualizationId: ID!, options: [<a href="#visualizationoptioninput">VisualizationOptionInput</a>!]): <a href="#visualization">Visualization</a>!</div>
+<div className="gql-ret">: <a href="#visualization">Visualization</a>!</div>
+<div className="gql-args">(organizationId: ID!, visualizationId: ID!, options: [<a href="#visualizationoptioninput">VisualizationOptionInput</a>!])</div>
 <p>Request a visualization to be generated based on the provided descriptor. Returns the existing visualization if already run with the same options, otherwise queues a new visualization run.</p>
 </div>
 
-<div id="sendMessage" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>sendMessage</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>moddy</span>
+<div id="sendMessage" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">sendMessage</span>
+<span className="gql-svc">moddy</span>
 </div>
-<div style={{fontFamily: 'monospace', fontSize: '12px', color: '#94a3b8', margin: '0 0 6px'}}>(conversationId: ID!, message: String!, waitForCompletion: Boolean = false): <a href="#sendmessageresult">SendMessageResult</a>!</div>
+<div className="gql-ret">: <a href="#sendmessageresult">SendMessageResult</a>!</div>
+<div className="gql-args">(conversationId: ID!, message: String!, waitForCompletion: Boolean = false)</div>
 <p>Send a message to an existing conversation. Returns a handle for polling — `initialCursor` is the cursor to pass to the next `messages(after:)` query, and `turnState` carries the server- recommended poll cadence.</p>
 <p>When `waitForCompletion: true`, the mutation blocks until the turn completes (or the server cap of 4 minutes is reached, whichever comes first). On cap, the mutation returns the current turn state rather than erroring so the caller can continue polling.</p>
 </div>
 
-<div id="setOrganizationPrompt" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>setOrganizationPrompt</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>moddy</span>
+<div id="setOrganizationPrompt" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">setOrganizationPrompt</span>
+<span className="gql-svc">moddy</span>
 </div>
-<div style={{fontFamily: 'monospace', fontSize: '12px', color: '#94a3b8', margin: '0 0 6px'}}>(organizationId: ID!, content: <a href="#markdown">Markdown</a>!): <a href="#prompt">Prompt</a>!</div>
+<div className="gql-ret">: <a href="#prompt">Prompt</a>!</div>
+<div className="gql-args">(organizationId: ID!, content: <a href="#markdown">Markdown</a>!)</div>
 <p>Set the system prompt for a specific organization (overrides universal).</p>
 </div>
 
-<div id="setProfiling" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>setProfiling</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>gateway</span>
+<div id="setProfiling" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">setProfiling</span>
+<span className="gql-svc">gateway</span>
 </div>
-<div style={{fontFamily: 'monospace', fontSize: '12px', color: '#94a3b8', margin: '0 0 6px'}}>(enabled: Boolean!, event: <a href="#profilingevent">ProfilingEvent</a> = CPU): Boolean!</div>
+<div className="gql-ret">: Boolean!</div>
+<div className="gql-args">(enabled: Boolean!, event: <a href="#profilingevent">ProfilingEvent</a> = CPU)</div>
 <p>Turn continuous profiling on or off for this tenant. When enabled, Pyroscope profiles for every service start landing in the Pyroscope UI within seconds. The primary event the agent samples on is selected by `event` (defaults to CPU); calling the mutation again with a different event while profiling is already on rotates the agent to the new event. Fails when the profiling capability is not enabled for the tenant. Admin role required.</p>
 </div>
 
-<div id="setUniversalPrompt" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>setUniversalPrompt</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>moddy</span>
+<div id="setUniversalPrompt" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">setUniversalPrompt</span>
+<span className="gql-svc">moddy</span>
 </div>
-<div style={{fontFamily: 'monospace', fontSize: '12px', color: '#94a3b8', margin: '0 0 6px'}}>(content: <a href="#markdown">Markdown</a>!): <a href="#prompt">Prompt</a>!</div>
+<div className="gql-ret">: <a href="#prompt">Prompt</a>!</div>
+<div className="gql-args">(content: <a href="#markdown">Markdown</a>!)</div>
 <p>Set the universal (default) system prompt.</p>
 </div>
 
-<div id="setUserPrompt" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>setUserPrompt</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>moddy</span>
+<div id="setUserPrompt" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">setUserPrompt</span>
+<span className="gql-svc">moddy</span>
 </div>
-<div style={{fontFamily: 'monospace', fontSize: '12px', color: '#94a3b8', margin: '0 0 6px'}}>(content: <a href="#markdown">Markdown</a>!): <a href="#prompt">Prompt</a>!</div>
+<div className="gql-ret">: <a href="#prompt">Prompt</a>!</div>
+<div className="gql-args">(content: <a href="#markdown">Markdown</a>!)</div>
 <p>Set the system prompt for the current user (overrides organization and universal).</p>
 </div>
 
-<div id="uninstallRecipesFromCurrentUser" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>uninstallRecipesFromCurrentUser</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>recipemarketplace</span>
+<div id="uninstallRecipesFromCurrentUser" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">uninstallRecipesFromCurrentUser</span>
+<span className="gql-svc">recipemarketplace</span>
 </div>
-<div style={{fontFamily: 'monospace', fontSize: '12px', color: '#94a3b8', margin: '0 0 6px'}}>(packageName: String!): <a href="#recipeuninstallation">RecipeUninstallation</a>!</div>
+<div className="gql-ret">: <a href="#recipeuninstallation">RecipeUninstallation</a>!</div>
+<div className="gql-args">(packageName: String!)</div>
 <p>Uninstall a recipe bundle from the current user's personal marketplace. Returns the number of recipes that were removed.</p>
 </div>
 
-<div id="uninstallRecipesFromOrganization" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>uninstallRecipesFromOrganization</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>recipemarketplace</span>
+<div id="uninstallRecipesFromOrganization" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">uninstallRecipesFromOrganization</span>
+<span className="gql-svc">recipemarketplace</span>
 </div>
-<div style={{fontFamily: 'monospace', fontSize: '12px', color: '#94a3b8', margin: '0 0 6px'}}>(organizationId: ID!, packageName: String!): <a href="#recipeuninstallation">RecipeUninstallation</a>!</div>
+<div className="gql-ret">: <a href="#recipeuninstallation">RecipeUninstallation</a>!</div>
+<div className="gql-args">(organizationId: ID!, packageName: String!)</div>
 <p>Uninstall a recipe bundle from a specific organization's marketplace. Returns the number of recipes that were removed. Requires the `admin` role.</p>
 </div>
 
-<div id="uninstallRecipesUniversal" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>uninstallRecipesUniversal</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>recipemarketplace</span>
+<div id="uninstallRecipesUniversal" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">uninstallRecipesUniversal</span>
+<span className="gql-svc">recipemarketplace</span>
 </div>
-<div style={{fontFamily: 'monospace', fontSize: '12px', color: '#94a3b8', margin: '0 0 6px'}}>(packageName: String!): <a href="#recipeuninstallation">RecipeUninstallation</a>!</div>
+<div className="gql-ret">: <a href="#recipeuninstallation">RecipeUninstallation</a>!</div>
+<div className="gql-args">(packageName: String!)</div>
 <p>Uninstall a recipe bundle from the universal marketplace. Returns the number of recipes that were removed. Requires the `admin` role.</p>
 </div>
 
-<div id="updateUserOrganization" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>updateUserOrganization</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>organization</span>
+<div id="updateUserOrganization" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">updateUserOrganization</span>
+<span className="gql-svc">organization</span>
 </div>
-<div style={{fontFamily: 'monospace', fontSize: '12px', color: '#94a3b8', margin: '0 0 6px'}}>(input: <a href="#updateuserorganizationinput">UpdateUserOrganizationInput</a>!): <a href="#organization">Organization</a>!</div>
+<div className="gql-ret">: <a href="#organization">Organization</a>!</div>
+<div className="gql-args">(input: <a href="#updateuserorganizationinput">UpdateUserOrganizationInput</a>!)</div>
 <p>Update an existing user-defined organization.</p>
 </div>
 
@@ -505,10 +563,10 @@ hide_title: true
 
 ### Object types
 
-<div id="accesstoken" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>AccessToken</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>authz</span>
+<div id="accesstoken" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">AccessToken</span>
+<span className="gql-svc">authz</span>
 </div>
 <p>Moderne Personal Access Tokens</p>
 <table>
@@ -522,10 +580,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="accesstokenconnection" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>AccessTokenConnection</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>authz</span>
+<div id="accesstokenconnection" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">AccessTokenConnection</span>
+<span className="gql-svc">authz</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -537,10 +595,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="accesstokenedge" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>AccessTokenEdge</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>authz</span>
+<div id="accesstokenedge" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">AccessTokenEdge</span>
+<span className="gql-svc">authz</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -551,10 +609,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="artifactoryconfiguration" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>ArtifactoryConfiguration</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>gateway</span>
+<div id="artifactoryconfiguration" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">ArtifactoryConfiguration</span>
+<span className="gql-svc">gateway</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -569,10 +627,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="auditlog" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>AuditLog</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>auditreader</span>
+<div id="auditlog" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">AuditLog</span>
+<span className="gql-svc">auditreader</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -589,10 +647,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="auditlogconnection" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>AuditLogConnection</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>auditreader</span>
+<div id="auditlogconnection" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">AuditLogConnection</span>
+<span className="gql-svc">auditreader</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -604,10 +662,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="auditlogedge" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>AuditLogEdge</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>auditreader</span>
+<div id="auditlogedge" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">AuditLogEdge</span>
+<span className="gql-svc">auditreader</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -618,10 +676,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="auditlogsdownloadconnection" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>AuditLogsDownloadConnection</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>auditreader</span>
+<div id="auditlogsdownloadconnection" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">AuditLogsDownloadConnection</span>
+<span className="gql-svc">auditreader</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -633,10 +691,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="auditlogsdownloadedge" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>AuditLogsDownloadEdge</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>auditreader</span>
+<div id="auditlogsdownloadedge" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">AuditLogsDownloadEdge</span>
+<span className="gql-svc">auditreader</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -647,11 +705,11 @@ hide_title: true
 </table>
 </div>
 
-<div id="auditlogsdownloaderror" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>AuditLogsDownloadError</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>auditreader</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#ede9fe', color: '#4338ca', border: '1px solid #c7d2fe'}}>implements <a href="#auditlogsdownload">AuditLogsDownload</a></span>
+<div id="auditlogsdownloaderror" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">AuditLogsDownloadError</span>
+<span className="gql-svc">auditreader</span>
+<span className="gql-impl">implements <a href="#auditlogsdownload">AuditLogsDownload</a></span>
 </div>
 <p>An audit log download failed.</p>
 <table>
@@ -665,11 +723,11 @@ hide_title: true
 </table>
 </div>
 
-<div id="auditlogsdownloadfinished" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>AuditLogsDownloadFinished</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>auditreader</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#ede9fe', color: '#4338ca', border: '1px solid #c7d2fe'}}>implements <a href="#auditlogsdownload">AuditLogsDownload</a></span>
+<div id="auditlogsdownloadfinished" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">AuditLogsDownloadFinished</span>
+<span className="gql-svc">auditreader</span>
+<span className="gql-impl">implements <a href="#auditlogsdownload">AuditLogsDownload</a></span>
 </div>
 <p>An audit log download has completed successfully.</p>
 <table>
@@ -684,11 +742,11 @@ hide_title: true
 </table>
 </div>
 
-<div id="auditlogsdownloadprocessing" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>AuditLogsDownloadProcessing</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>auditreader</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#ede9fe', color: '#4338ca', border: '1px solid #c7d2fe'}}>implements <a href="#auditlogsdownload">AuditLogsDownload</a></span>
+<div id="auditlogsdownloadprocessing" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">AuditLogsDownloadProcessing</span>
+<span className="gql-svc">auditreader</span>
+<span className="gql-impl">implements <a href="#auditlogsdownload">AuditLogsDownload</a></span>
 </div>
 <p>An audit log download is being processed.</p>
 <table>
@@ -701,10 +759,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="azuredevopsconfiguration" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>AzureDevOpsConfiguration</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>gateway</span>
+<div id="azuredevopsconfiguration" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">AzureDevOpsConfiguration</span>
+<span className="gql-svc">gateway</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -718,11 +776,11 @@ hide_title: true
 </table>
 </div>
 
-<div id="azuredevopsconnection" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>AzureDevOpsConnection</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>authz</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#ede9fe', color: '#4338ca', border: '1px solid #c7d2fe'}}>implements <a href="#scmconnection">ScmConnection</a></span>
+<div id="azuredevopsconnection" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">AzureDevOpsConnection</span>
+<span className="gql-svc">authz</span>
+<span className="gql-impl">implements <a href="#scmconnection">ScmConnection</a></span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -734,10 +792,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="azuredevopsoauth" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>AzureDevOpsOauth</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>gateway</span>
+<div id="azuredevopsoauth" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">AzureDevOpsOauth</span>
+<span className="gql-svc">gateway</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -748,11 +806,11 @@ hide_title: true
 </table>
 </div>
 
-<div id="batchchange" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>BatchChange</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetreader</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#ede9fe', color: '#4338ca', border: '1px solid #c7d2fe'}}>implements <a href="#organizationchangeset">OrganizationChangeset</a></span>
+<div id="batchchange" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">BatchChange</span>
+<span className="gql-svc">changesetreader</span>
+<span className="gql-impl">implements <a href="#organizationchangeset">OrganizationChangeset</a></span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -772,11 +830,11 @@ hide_title: true
 </table>
 </div>
 
-<div id="batchchangefilechange" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>BatchChangeFileChange</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetreader</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#ede9fe', color: '#4338ca', border: '1px solid #c7d2fe'}}>implements <a href="#filechange">FileChange</a></span>
+<div id="batchchangefilechange" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">BatchChangeFileChange</span>
+<span className="gql-svc">changesetreader</span>
+<span className="gql-impl">implements <a href="#filechange">FileChange</a></span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -789,10 +847,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="bitbucketcloudconfiguration" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>BitbucketCloudConfiguration</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>gateway</span>
+<div id="bitbucketcloudconfiguration" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">BitbucketCloudConfiguration</span>
+<span className="gql-svc">gateway</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -806,11 +864,11 @@ hide_title: true
 </table>
 </div>
 
-<div id="bitbucketcloudconnection" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>BitbucketCloudConnection</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>authz</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#ede9fe', color: '#4338ca', border: '1px solid #c7d2fe'}}>implements <a href="#scmconnection">ScmConnection</a></span>
+<div id="bitbucketcloudconnection" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">BitbucketCloudConnection</span>
+<span className="gql-svc">authz</span>
+<span className="gql-impl">implements <a href="#scmconnection">ScmConnection</a></span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -822,10 +880,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="bitbucketcloudoauth" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>BitbucketCloudOauth</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>gateway</span>
+<div id="bitbucketcloudoauth" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">BitbucketCloudOauth</span>
+<span className="gql-svc">gateway</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -835,10 +893,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="bitbucketconfiguration" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>BitbucketConfiguration</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>gateway</span>
+<div id="bitbucketconfiguration" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">BitbucketConfiguration</span>
+<span className="gql-svc">gateway</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -852,11 +910,11 @@ hide_title: true
 </table>
 </div>
 
-<div id="bitbucketconnection" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>BitbucketConnection</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>authz</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#ede9fe', color: '#4338ca', border: '1px solid #c7d2fe'}}>implements <a href="#scmconnection">ScmConnection</a></span>
+<div id="bitbucketconnection" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">BitbucketConnection</span>
+<span className="gql-svc">authz</span>
+<span className="gql-impl">implements <a href="#scmconnection">ScmConnection</a></span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -868,10 +926,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="bitbucketoauth" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>BitbucketOauth</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>gateway</span>
+<div id="bitbucketoauth" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">BitbucketOauth</span>
+<span className="gql-svc">gateway</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -881,11 +939,11 @@ hide_title: true
 </table>
 </div>
 
-<div id="branchcommitoptions" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>BranchCommitOptions</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetcommitter</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#ede9fe', color: '#4338ca', border: '1px solid #c7d2fe'}}>implements <a href="#commitoptions">CommitOptions</a></span>
+<div id="branchcommitoptions" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">BranchCommitOptions</span>
+<span className="gql-svc">changesetcommitter</span>
+<span className="gql-impl">implements <a href="#commitoptions">CommitOptions</a></span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -895,11 +953,11 @@ hide_title: true
 </table>
 </div>
 
-<div id="bulkpullrequestactioncanceled" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>BulkPullRequestActionCanceled</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changelogreader</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#ede9fe', color: '#4338ca', border: '1px solid #c7d2fe'}}>implements <a href="#bulkpullrequestaction">BulkPullRequestAction</a></span>
+<div id="bulkpullrequestactioncanceled" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">BulkPullRequestActionCanceled</span>
+<span className="gql-svc">changelogreader</span>
+<span className="gql-impl">implements <a href="#bulkpullrequestaction">BulkPullRequestAction</a></span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -913,10 +971,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="bulkpullrequestactionconnection" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>BulkPullRequestActionConnection</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changelogreader</span>
+<div id="bulkpullrequestactionconnection" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">BulkPullRequestActionConnection</span>
+<span className="gql-svc">changelogreader</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -928,10 +986,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="bulkpullrequestactionedge" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>BulkPullRequestActionEdge</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changelogreader</span>
+<div id="bulkpullrequestactionedge" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">BulkPullRequestActionEdge</span>
+<span className="gql-svc">changelogreader</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -942,11 +1000,11 @@ hide_title: true
 </table>
 </div>
 
-<div id="bulkpullrequestactionerror" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>BulkPullRequestActionError</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changelogreader</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#ede9fe', color: '#4338ca', border: '1px solid #c7d2fe'}}>implements <a href="#bulkpullrequestaction">BulkPullRequestAction</a></span>
+<div id="bulkpullrequestactionerror" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">BulkPullRequestActionError</span>
+<span className="gql-svc">changelogreader</span>
+<span className="gql-impl">implements <a href="#bulkpullrequestaction">BulkPullRequestAction</a></span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -960,11 +1018,11 @@ hide_title: true
 </table>
 </div>
 
-<div id="bulkpullrequestactionfinished" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>BulkPullRequestActionFinished</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changelogreader</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#ede9fe', color: '#4338ca', border: '1px solid #c7d2fe'}}>implements <a href="#bulkpullrequestaction">BulkPullRequestAction</a></span>
+<div id="bulkpullrequestactionfinished" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">BulkPullRequestActionFinished</span>
+<span className="gql-svc">changelogreader</span>
+<span className="gql-impl">implements <a href="#bulkpullrequestaction">BulkPullRequestAction</a></span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -979,11 +1037,11 @@ hide_title: true
 </table>
 </div>
 
-<div id="bulkpullrequestactionqueued" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>BulkPullRequestActionQueued</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changelogreader</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#ede9fe', color: '#4338ca', border: '1px solid #c7d2fe'}}>implements <a href="#bulkpullrequestaction">BulkPullRequestAction</a></span>
+<div id="bulkpullrequestactionqueued" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">BulkPullRequestActionQueued</span>
+<span className="gql-svc">changelogreader</span>
+<span className="gql-impl">implements <a href="#bulkpullrequestaction">BulkPullRequestAction</a></span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -997,11 +1055,11 @@ hide_title: true
 </table>
 </div>
 
-<div id="bulkpullrequestactionrunning" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>BulkPullRequestActionRunning</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changelogreader</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#ede9fe', color: '#4338ca', border: '1px solid #c7d2fe'}}>implements <a href="#bulkpullrequestaction">BulkPullRequestAction</a></span>
+<div id="bulkpullrequestactionrunning" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">BulkPullRequestActionRunning</span>
+<span className="gql-svc">changelogreader</span>
+<span className="gql-impl">implements <a href="#bulkpullrequestaction">BulkPullRequestAction</a></span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -1015,10 +1073,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="changeparticipant" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>ChangeParticipant</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changelogreader</span>
+<div id="changeparticipant" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">ChangeParticipant</span>
+<span className="gql-svc">changelogreader</span>
 </div>
 <p>A participant identity from the VCS provider. Not necessarily a Moderne user.</p>
 <table>
@@ -1033,11 +1091,11 @@ hide_title: true
 </table>
 </div>
 
-<div id="changelogcommit" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>ChangelogCommit</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changelogreader</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#ede9fe', color: '#4338ca', border: '1px solid #c7d2fe'}}>implements <a href="#changelogentry">ChangelogEntry</a></span>
+<div id="changelogcommit" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">ChangelogCommit</span>
+<span className="gql-svc">changelogreader</span>
+<span className="gql-impl">implements <a href="#changelogentry">ChangelogEntry</a></span>
 </div>
 <p>A direct commit to a branch.</p>
 <table>
@@ -1059,10 +1117,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="changelogentryconnection" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>ChangelogEntryConnection</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changelogreader</span>
+<div id="changelogentryconnection" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">ChangelogEntryConnection</span>
+<span className="gql-svc">changelogreader</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -1074,10 +1132,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="changelogentryedge" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>ChangelogEntryEdge</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changelogreader</span>
+<div id="changelogentryedge" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">ChangelogEntryEdge</span>
+<span className="gql-svc">changelogreader</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -1088,10 +1146,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="changelogparticipantconnection" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>ChangelogParticipantConnection</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changelogreader</span>
+<div id="changelogparticipantconnection" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">ChangelogParticipantConnection</span>
+<span className="gql-svc">changelogreader</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -1103,10 +1161,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="changelogparticipantedge" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>ChangelogParticipantEdge</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changelogreader</span>
+<div id="changelogparticipantedge" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">ChangelogParticipantEdge</span>
+<span className="gql-svc">changelogreader</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -1117,11 +1175,11 @@ hide_title: true
 </table>
 </div>
 
-<div id="changelogpullrequest" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>ChangelogPullRequest</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changelogreader</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#ede9fe', color: '#4338ca', border: '1px solid #c7d2fe'}}>implements <a href="#changelogentry">ChangelogEntry</a></span>
+<div id="changelogpullrequest" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">ChangelogPullRequest</span>
+<span className="gql-svc">changelogreader</span>
+<span className="gql-impl">implements <a href="#changelogentry">ChangelogEntry</a></span>
 </div>
 <p>A pull request (open, draft, merged, or closed).</p>
 <table>
@@ -1152,10 +1210,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="clidownloadinstructionlink" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>CliDownloadInstructionLink</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>gateway</span>
+<div id="clidownloadinstructionlink" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">CliDownloadInstructionLink</span>
+<span className="gql-svc">gateway</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -1166,10 +1224,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="codesearchresult" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>CodeSearchResult</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>code-search</span>
+<div id="codesearchresult" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">CodeSearchResult</span>
+<span className="gql-svc">code-search</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -1181,10 +1239,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="codesearchresultconnection" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>CodeSearchResultConnection</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>code-search</span>
+<div id="codesearchresultconnection" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">CodeSearchResultConnection</span>
+<span className="gql-svc">code-search</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -1197,10 +1255,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="codesearchresultedge" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>CodeSearchResultEdge</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>code-search</span>
+<div id="codesearchresultedge" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">CodeSearchResultEdge</span>
+<span className="gql-svc">code-search</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -1211,10 +1269,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="column" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>Column</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>corechangeset</span>
+<div id="column" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">Column</span>
+<span className="gql-svc">corechangeset</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -1227,10 +1285,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="connector" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>Connector</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>gateway</span>
+<div id="connector" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">Connector</span>
+<span className="gql-svc">gateway</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -1245,10 +1303,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="connectorconnection" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>ConnectorConnection</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>gateway</span>
+<div id="connectorconnection" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">ConnectorConnection</span>
+<span className="gql-svc">gateway</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -1260,10 +1318,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="connectoredge" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>ConnectorEdge</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>gateway</span>
+<div id="connectoredge" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">ConnectorEdge</span>
+<span className="gql-svc">gateway</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -1274,10 +1332,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="conversation" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>Conversation</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>moddy</span>
+<div id="conversation" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">Conversation</span>
+<span className="gql-svc">moddy</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -1293,10 +1351,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="conversationconnection" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>ConversationConnection</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>moddy</span>
+<div id="conversationconnection" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">ConversationConnection</span>
+<span className="gql-svc">moddy</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -1307,10 +1365,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="conversationedge" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>ConversationEdge</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>moddy</span>
+<div id="conversationedge" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">ConversationEdge</span>
+<span className="gql-svc">moddy</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -1321,10 +1379,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="conversationturnstate" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>ConversationTurnState</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>moddy</span>
+<div id="conversationturnstate" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">ConversationTurnState</span>
+<span className="gql-svc">moddy</span>
 </div>
 <p>Represents the current phase of the conversation's active turn (if any). Drives client poll cadence.</p>
 <table>
@@ -1337,10 +1395,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="createaccesstokenresult" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>CreateAccessTokenResult</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>authz</span>
+<div id="createaccesstokenresult" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">CreateAccessTokenResult</span>
+<span className="gql-svc">authz</span>
 </div>
 <p>Result of creating a new access token. The token value is only available in this response.</p>
 <table>
@@ -1355,11 +1413,11 @@ hide_title: true
 </table>
 </div>
 
-<div id="datatableavailable" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>DataTableAvailable</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetreader</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#ede9fe', color: '#4338ca', border: '1px solid #c7d2fe'}}>implements <a href="#datatable">DataTable</a></span>
+<div id="datatableavailable" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">DataTableAvailable</span>
+<span className="gql-svc">changesetreader</span>
+<span className="gql-impl">implements <a href="#datatable">DataTable</a></span>
 </div>
 <p>A data table is available for download but no download has been initiated yet.</p>
 <table>
@@ -1374,10 +1432,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="datatableconnection" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>DataTableConnection</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>corechangeset</span>
+<div id="datatableconnection" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">DataTableConnection</span>
+<span className="gql-svc">corechangeset</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -1389,10 +1447,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="datatabledescriptor" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>DataTableDescriptor</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>corechangeset</span>
+<div id="datatabledescriptor" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">DataTableDescriptor</span>
+<span className="gql-svc">corechangeset</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -1405,10 +1463,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="datatableedge" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>DataTableEdge</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>corechangeset</span>
+<div id="datatableedge" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">DataTableEdge</span>
+<span className="gql-svc">corechangeset</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -1419,11 +1477,11 @@ hide_title: true
 </table>
 </div>
 
-<div id="datatableerror" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>DataTableError</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetreader</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#ede9fe', color: '#4338ca', border: '1px solid #c7d2fe'}}>implements <a href="#datatable">DataTable</a></span>
+<div id="datatableerror" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">DataTableError</span>
+<span className="gql-svc">changesetreader</span>
+<span className="gql-impl">implements <a href="#datatable">DataTable</a></span>
 </div>
 <p>A data table download failed.</p>
 <table>
@@ -1441,11 +1499,11 @@ hide_title: true
 </table>
 </div>
 
-<div id="datatablefinished" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>DataTableFinished</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetreader</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#ede9fe', color: '#4338ca', border: '1px solid #c7d2fe'}}>implements <a href="#datatable">DataTable</a></span>
+<div id="datatablefinished" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">DataTableFinished</span>
+<span className="gql-svc">changesetreader</span>
+<span className="gql-impl">implements <a href="#datatable">DataTable</a></span>
 </div>
 <p>A data table download has completed successfully.</p>
 <table>
@@ -1465,11 +1523,11 @@ hide_title: true
 </table>
 </div>
 
-<div id="datatableprocessing" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>DataTableProcessing</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetreader</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#ede9fe', color: '#4338ca', border: '1px solid #c7d2fe'}}>implements <a href="#datatable">DataTable</a></span>
+<div id="datatableprocessing" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">DataTableProcessing</span>
+<span className="gql-svc">changesetreader</span>
+<span className="gql-impl">implements <a href="#datatable">DataTable</a></span>
 </div>
 <p>A data table download is being processed.</p>
 <table>
@@ -1486,11 +1544,11 @@ hide_title: true
 </table>
 </div>
 
-<div id="datatablesqlmessage" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>DataTableSqlMessage</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>moddy</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#ede9fe', color: '#4338ca', border: '1px solid #c7d2fe'}}>implements <a href="#message">Message</a></span>
+<div id="datatablesqlmessage" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">DataTableSqlMessage</span>
+<span className="gql-svc">moddy</span>
+<span className="gql-impl">implements <a href="#message">Message</a></span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -1504,11 +1562,11 @@ hide_title: true
 </table>
 </div>
 
-<div id="datatablesmessage" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>DataTablesMessage</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>moddy</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#ede9fe', color: '#4338ca', border: '1px solid #c7d2fe'}}>implements <a href="#message">Message</a></span>
+<div id="datatablesmessage" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">DataTablesMessage</span>
+<span className="gql-svc">moddy</span>
+<span className="gql-impl">implements <a href="#message">Message</a></span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -1522,10 +1580,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="devcenter" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>DevCenter</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetreader</span>
+<div id="devcenter" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">DevCenter</span>
+<span className="gql-svc">changesetreader</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -1536,10 +1594,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="devcentercard" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>DevCenterCard</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetreader</span>
+<div id="devcentercard" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">DevCenterCard</span>
+<span className="gql-svc">changesetreader</span>
 </div>
 <p>A DevCenter card represents a category of work (e.g., "Spring Boot 3", "Java 21", "Security"). Cards contain measures that track progress toward completion.</p>
 <table>
@@ -1555,10 +1613,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="devcentercarddescriptor" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>DevCenterCardDescriptor</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>recipemarketplace</span>
+<div id="devcentercarddescriptor" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">DevCenterCardDescriptor</span>
+<span className="gql-svc">recipemarketplace</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -1572,10 +1630,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="devcentermeasure" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>DevCenterMeasure</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetreader</span>
+<div id="devcentermeasure" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">DevCenterMeasure</span>
+<span className="gql-svc">changesetreader</span>
 </div>
 <p>A measure within a DevCenter card representing a specific state or finding, with a count from the run results.</p>
 <table>
@@ -1589,10 +1647,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="devcentermeasuredescriptor" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>DevCenterMeasureDescriptor</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>recipemarketplace</span>
+<div id="devcentermeasuredescriptor" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">DevCenterMeasureDescriptor</span>
+<span className="gql-svc">recipemarketplace</span>
 </div>
 <p>A measure descriptor within a DevCenter card, representing metadata about a specific state or finding. See DevCenterMeasure in changeset:reader for the runtime version with counts.</p>
 <table>
@@ -1605,10 +1663,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="devcenterorganization" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>DevCenterOrganization</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetreader</span>
+<div id="devcenterorganization" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">DevCenterOrganization</span>
+<span className="gql-svc">changesetreader</span>
 </div>
 <p>Organization-level context from a DevCenter run.</p>
 <table>
@@ -1621,10 +1679,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="devcenterrepositories" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>DevCenterRepositories</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetreader</span>
+<div id="devcenterrepositories" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">DevCenterRepositories</span>
+<span className="gql-svc">changesetreader</span>
 </div>
 <p>Repository counts from a DevCenter run.</p>
 <table>
@@ -1636,11 +1694,11 @@ hide_title: true
 </table>
 </div>
 
-<div id="devcenterruncanceled" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>DevCenterRunCanceled</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetreader</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#ede9fe', color: '#4338ca', border: '1px solid #c7d2fe'}}>implements <a href="#devcenterrun">DevCenterRun</a></span>
+<div id="devcenterruncanceled" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">DevCenterRunCanceled</span>
+<span className="gql-svc">changesetreader</span>
+<span className="gql-impl">implements <a href="#devcenterrun">DevCenterRun</a></span>
 </div>
 <p>DevCenter run was canceled before completion.</p>
 <table>
@@ -1654,10 +1712,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="devcenterrunconnection" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>DevCenterRunConnection</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetreader</span>
+<div id="devcenterrunconnection" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">DevCenterRunConnection</span>
+<span className="gql-svc">changesetreader</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -1669,10 +1727,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="devcenterrunedge" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>DevCenterRunEdge</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetreader</span>
+<div id="devcenterrunedge" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">DevCenterRunEdge</span>
+<span className="gql-svc">changesetreader</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -1683,11 +1741,11 @@ hide_title: true
 </table>
 </div>
 
-<div id="devcenterrunerror" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>DevCenterRunError</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetreader</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#ede9fe', color: '#4338ca', border: '1px solid #c7d2fe'}}>implements <a href="#devcenterrun">DevCenterRun</a></span>
+<div id="devcenterrunerror" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">DevCenterRunError</span>
+<span className="gql-svc">changesetreader</span>
+<span className="gql-impl">implements <a href="#devcenterrun">DevCenterRun</a></span>
 </div>
 <p>DevCenter run failed with an error.</p>
 <table>
@@ -1702,11 +1760,11 @@ hide_title: true
 </table>
 </div>
 
-<div id="devcenterrunfinished" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>DevCenterRunFinished</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetreader</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#ede9fe', color: '#4338ca', border: '1px solid #c7d2fe'}}>implements <a href="#devcenterrun">DevCenterRun</a></span>
+<div id="devcenterrunfinished" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">DevCenterRunFinished</span>
+<span className="gql-svc">changesetreader</span>
+<span className="gql-impl">implements <a href="#devcenterrun">DevCenterRun</a></span>
 </div>
 <p>DevCenter run completed successfully with summarized results.</p>
 <table>
@@ -1723,11 +1781,11 @@ hide_title: true
 </table>
 </div>
 
-<div id="devcenterrunrunning" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>DevCenterRunRunning</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetreader</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#ede9fe', color: '#4338ca', border: '1px solid #c7d2fe'}}>implements <a href="#devcenterrun">DevCenterRun</a></span>
+<div id="devcenterrunrunning" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">DevCenterRunRunning</span>
+<span className="gql-svc">changesetreader</span>
+<span className="gql-impl">implements <a href="#devcenterrun">DevCenterRun</a></span>
 </div>
 <p>DevCenter recipe is currently running across repositories.</p>
 <table>
@@ -1740,10 +1798,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="diffstat" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>DiffStat</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changelogreader</span>
+<div id="diffstat" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">DiffStat</span>
+<span className="gql-svc">changelogreader</span>
 </div>
 <p>Aggregate line-level diff statistics.</p>
 <table>
@@ -1755,12 +1813,12 @@ hide_title: true
 </table>
 </div>
 
-<div id="directcommitsucceeded" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>DirectCommitSucceeded</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetcommitter</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#ede9fe', color: '#4338ca', border: '1px solid #c7d2fe'}}>implements <a href="#repositorycommitsucceeded">RepositoryCommitSucceeded</a></span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#ede9fe', color: '#4338ca', border: '1px solid #c7d2fe'}}>implements <a href="#repositorycommit">RepositoryCommit</a></span>
+<div id="directcommitsucceeded" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">DirectCommitSucceeded</span>
+<span className="gql-svc">changesetcommitter</span>
+<span className="gql-impl">implements <a href="#repositorycommitsucceeded">RepositoryCommitSucceeded</a></span>
+<span className="gql-impl">implements <a href="#repositorycommit">RepositoryCommit</a></span>
 </div>
 <p>Direct commit to repository completed successfully.</p>
 <table>
@@ -1774,11 +1832,11 @@ hide_title: true
 </table>
 </div>
 
-<div id="errormessage" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>ErrorMessage</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>moddy</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#ede9fe', color: '#4338ca', border: '1px solid #c7d2fe'}}>implements <a href="#message">Message</a></span>
+<div id="errormessage" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">ErrorMessage</span>
+<span className="gql-svc">moddy</span>
+<span className="gql-impl">implements <a href="#message">Message</a></span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -1793,10 +1851,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="exchangeauthorizationresult" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>ExchangeAuthorizationResult</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>authz</span>
+<div id="exchangeauthorizationresult" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">ExchangeAuthorizationResult</span>
+<span className="gql-svc">authz</span>
 </div>
 <p>Result of exchanging an authorization code.</p>
 <table>
@@ -1808,10 +1866,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="filechangeconnection" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>FileChangeConnection</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>corechangeset</span>
+<div id="filechangeconnection" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">FileChangeConnection</span>
+<span className="gql-svc">corechangeset</span>
 </div>
 <p>Connection for file changes with aggregate statistics.</p>
 <table>
@@ -1827,10 +1885,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="filechangeedge" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>FileChangeEdge</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>corechangeset</span>
+<div id="filechangeedge" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">FileChangeEdge</span>
+<span className="gql-svc">corechangeset</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -1841,12 +1899,12 @@ hide_title: true
 </table>
 </div>
 
-<div id="forkandpullrequestcommitsucceeded" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>ForkAndPullRequestCommitSucceeded</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetcommitter</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#ede9fe', color: '#4338ca', border: '1px solid #c7d2fe'}}>implements <a href="#repositorycommitsucceeded">RepositoryCommitSucceeded</a></span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#ede9fe', color: '#4338ca', border: '1px solid #c7d2fe'}}>implements <a href="#repositorycommit">RepositoryCommit</a></span>
+<div id="forkandpullrequestcommitsucceeded" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">ForkAndPullRequestCommitSucceeded</span>
+<span className="gql-svc">changesetcommitter</span>
+<span className="gql-impl">implements <a href="#repositorycommitsucceeded">RepositoryCommitSucceeded</a></span>
+<span className="gql-impl">implements <a href="#repositorycommit">RepositoryCommit</a></span>
 </div>
 <p>Fork and pull request commit completed successfully.</p>
 <table>
@@ -1861,11 +1919,11 @@ hide_title: true
 </table>
 </div>
 
-<div id="forkcommitoptions" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>ForkCommitOptions</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetcommitter</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#ede9fe', color: '#4338ca', border: '1px solid #c7d2fe'}}>implements <a href="#commitoptions">CommitOptions</a></span>
+<div id="forkcommitoptions" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">ForkCommitOptions</span>
+<span className="gql-svc">changesetcommitter</span>
+<span className="gql-impl">implements <a href="#commitoptions">CommitOptions</a></span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -1877,12 +1935,12 @@ hide_title: true
 </table>
 </div>
 
-<div id="forkcommitsucceeded" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>ForkCommitSucceeded</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetcommitter</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#ede9fe', color: '#4338ca', border: '1px solid #c7d2fe'}}>implements <a href="#repositorycommitsucceeded">RepositoryCommitSucceeded</a></span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#ede9fe', color: '#4338ca', border: '1px solid #c7d2fe'}}>implements <a href="#repositorycommit">RepositoryCommit</a></span>
+<div id="forkcommitsucceeded" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">ForkCommitSucceeded</span>
+<span className="gql-svc">changesetcommitter</span>
+<span className="gql-impl">implements <a href="#repositorycommitsucceeded">RepositoryCommitSucceeded</a></span>
+<span className="gql-impl">implements <a href="#repositorycommit">RepositoryCommit</a></span>
 </div>
 <p>Fork commit completed successfully.</p>
 <table>
@@ -1896,11 +1954,11 @@ hide_title: true
 </table>
 </div>
 
-<div id="forkpullrequestoptions" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>ForkPullRequestOptions</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetcommitter</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#ede9fe', color: '#4338ca', border: '1px solid #c7d2fe'}}>implements <a href="#commitoptions">CommitOptions</a></span>
+<div id="forkpullrequestoptions" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">ForkPullRequestOptions</span>
+<span className="gql-svc">changesetcommitter</span>
+<span className="gql-impl">implements <a href="#commitoptions">CommitOptions</a></span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -1918,10 +1976,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="generichttptoolconfiguration" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>GenericHttpToolConfiguration</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>gateway</span>
+<div id="generichttptoolconfiguration" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">GenericHttpToolConfiguration</span>
+<span className="gql-svc">gateway</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -1934,10 +1992,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="gitlabconfiguration" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>GitLabConfiguration</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>gateway</span>
+<div id="gitlabconfiguration" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">GitLabConfiguration</span>
+<span className="gql-svc">gateway</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -1951,11 +2009,11 @@ hide_title: true
 </table>
 </div>
 
-<div id="gitlabconnection" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>GitLabConnection</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>authz</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#ede9fe', color: '#4338ca', border: '1px solid #c7d2fe'}}>implements <a href="#scmconnection">ScmConnection</a></span>
+<div id="gitlabconnection" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">GitLabConnection</span>
+<span className="gql-svc">authz</span>
+<span className="gql-impl">implements <a href="#scmconnection">ScmConnection</a></span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -1967,10 +2025,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="gitlaboauth" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>GitLabOauth</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>gateway</span>
+<div id="gitlaboauth" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">GitLabOauth</span>
+<span className="gql-svc">gateway</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -1980,10 +2038,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="githubconfiguration" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>GithubConfiguration</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>gateway</span>
+<div id="githubconfiguration" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">GithubConfiguration</span>
+<span className="gql-svc">gateway</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -1998,11 +2056,11 @@ hide_title: true
 </table>
 </div>
 
-<div id="githubconnection" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>GithubConnection</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>authz</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#ede9fe', color: '#4338ca', border: '1px solid #c7d2fe'}}>implements <a href="#scmconnection">ScmConnection</a></span>
+<div id="githubconnection" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">GithubConnection</span>
+<span className="gql-svc">authz</span>
+<span className="gql-impl">implements <a href="#scmconnection">ScmConnection</a></span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -2014,10 +2072,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="githuboauth" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>GithubOauth</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>gateway</span>
+<div id="githuboauth" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">GithubOauth</span>
+<span className="gql-svc">gateway</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -2028,11 +2086,11 @@ hide_title: true
 </table>
 </div>
 
-<div id="gorecipebundle" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>GoRecipeBundle</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetreader</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#ede9fe', color: '#4338ca', border: '1px solid #c7d2fe'}}>implements <a href="#recipebundle">RecipeBundle</a></span>
+<div id="gorecipebundle" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">GoRecipeBundle</span>
+<span className="gql-svc">changesetreader</span>
+<span className="gql-impl">implements <a href="#recipebundle">RecipeBundle</a></span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -2045,10 +2103,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="httptoolconnectivity" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>HttpToolConnectivity</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>gateway</span>
+<div id="httptoolconnectivity" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">HttpToolConnectivity</span>
+<span className="gql-svc">gateway</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -2059,10 +2117,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="license" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>License</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>authz</span>
+<div id="license" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">License</span>
+<span className="gql-svc">authz</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -2072,10 +2130,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="llmconfiguration" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>LlmConfiguration</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>gateway</span>
+<div id="llmconfiguration" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">LlmConfiguration</span>
+<span className="gql-svc">gateway</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -2089,10 +2147,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="lstartifact" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>LstArtifact</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>organization</span>
+<div id="lstartifact" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">LstArtifact</span>
+<span className="gql-svc">organization</span>
 </div>
 <p>The LST artifact for a repository - the precomputed Lossless Semantic Tree that recipe runs consume. Every repository has a conceptual artifact; `published` reflects the upstream `mod publish` timestamp, while `available` indicates whether the saas can route a recipe run to it yet.</p>
 <table>
@@ -2104,11 +2162,11 @@ hide_title: true
 </table>
 </div>
 
-<div id="markup" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>Markup</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>corechangeset</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#ede9fe', color: '#4338ca', border: '1px solid #c7d2fe'}}>implements <a href="#marker">Marker</a></span>
+<div id="markup" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">Markup</span>
+<span className="gql-svc">corechangeset</span>
+<span className="gql-impl">implements <a href="#marker">Marker</a></span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -2121,10 +2179,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="mavenconfiguration" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>MavenConfiguration</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>gateway</span>
+<div id="mavenconfiguration" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">MavenConfiguration</span>
+<span className="gql-svc">gateway</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -2139,11 +2197,11 @@ hide_title: true
 </table>
 </div>
 
-<div id="mavenrecipebundle" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>MavenRecipeBundle</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetreader</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#ede9fe', color: '#4338ca', border: '1px solid #c7d2fe'}}>implements <a href="#recipebundle">RecipeBundle</a></span>
+<div id="mavenrecipebundle" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">MavenRecipeBundle</span>
+<span className="gql-svc">changesetreader</span>
+<span className="gql-impl">implements <a href="#recipebundle">RecipeBundle</a></span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -2158,10 +2216,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="mergeoptions" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>MergeOptions</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetcommitter</span>
+<div id="mergeoptions" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">MergeOptions</span>
+<span className="gql-svc">changesetcommitter</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -2172,10 +2230,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="messageconnection" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>MessageConnection</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>moddy</span>
+<div id="messageconnection" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">MessageConnection</span>
+<span className="gql-svc">moddy</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -2186,10 +2244,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="messageedge" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>MessageEdge</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>moddy</span>
+<div id="messageedge" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">MessageEdge</span>
+<span className="gql-svc">moddy</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -2200,10 +2258,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="moddy" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>Moddy</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>moddy</span>
+<div id="moddy" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">Moddy</span>
+<span className="gql-svc">moddy</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -2217,10 +2275,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="morehelplink" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>MoreHelpLink</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>gateway</span>
+<div id="morehelplink" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">MoreHelpLink</span>
+<span className="gql-svc">gateway</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -2231,10 +2289,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="npmconfiguration" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>NpmConfiguration</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>gateway</span>
+<div id="npmconfiguration" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">NpmConfiguration</span>
+<span className="gql-svc">gateway</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -2247,11 +2305,11 @@ hide_title: true
 </table>
 </div>
 
-<div id="npmrecipebundle" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>NpmRecipeBundle</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetreader</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#ede9fe', color: '#4338ca', border: '1px solid #c7d2fe'}}>implements <a href="#recipebundle">RecipeBundle</a></span>
+<div id="npmrecipebundle" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">NpmRecipeBundle</span>
+<span className="gql-svc">changesetreader</span>
+<span className="gql-impl">implements <a href="#recipebundle">RecipeBundle</a></span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -2264,10 +2322,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="nugetconfiguration" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>NugetConfiguration</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>gateway</span>
+<div id="nugetconfiguration" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">NugetConfiguration</span>
+<span className="gql-svc">gateway</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -2280,11 +2338,11 @@ hide_title: true
 </table>
 </div>
 
-<div id="nugetrecipebundle" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>NugetRecipeBundle</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetreader</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#ede9fe', color: '#4338ca', border: '1px solid #c7d2fe'}}>implements <a href="#recipebundle">RecipeBundle</a></span>
+<div id="nugetrecipebundle" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">NugetRecipeBundle</span>
+<span className="gql-svc">changesetreader</span>
+<span className="gql-impl">implements <a href="#recipebundle">RecipeBundle</a></span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -2297,10 +2355,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="oauthauthorization" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>OAuthAuthorization</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>authz</span>
+<div id="oauthauthorization" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">OAuthAuthorization</span>
+<span className="gql-svc">authz</span>
 </div>
 <p>Represents a pending OAuth authorization. The UI should redirect to authorizationUrl, then call exchangeAuthorizationCode with the id and extracted callback parameters.</p>
 <table>
@@ -2314,10 +2372,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="option" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>Option</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetreader</span>
+<div id="option" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">Option</span>
+<span className="gql-svc">changesetreader</span>
 </div>
 <p>RecipeDescriptor resolved from changeset-specific recipes.csv. When a recipe run is created, the recipes.csv is copied to the changeset directory, so we can resolve the recipe that was used at the time of the run (not the current global state).</p>
 <table>
@@ -2335,10 +2393,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="organization" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>Organization</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changelogreader</span>
+<div id="organization" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">Organization</span>
+<span className="gql-svc">changelogreader</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -2360,10 +2418,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="organizationchangeset" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>OrganizationChangeset</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changelogreader</span>
+<div id="organizationchangeset" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">OrganizationChangeset</span>
+<span className="gql-svc">changelogreader</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -2381,10 +2439,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="organizationchangesetconnection" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>OrganizationChangesetConnection</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>corechangeset</span>
+<div id="organizationchangesetconnection" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">OrganizationChangesetConnection</span>
+<span className="gql-svc">corechangeset</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -2396,10 +2454,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="organizationchangesetedge" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>OrganizationChangesetEdge</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>corechangeset</span>
+<div id="organizationchangesetedge" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">OrganizationChangesetEdge</span>
+<span className="gql-svc">corechangeset</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -2411,11 +2469,11 @@ hide_title: true
 </table>
 </div>
 
-<div id="organizationcommitcanceled" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>OrganizationCommitCanceled</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetcommitter</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#ede9fe', color: '#4338ca', border: '1px solid #c7d2fe'}}>implements <a href="#organizationcommit">OrganizationCommit</a></span>
+<div id="organizationcommitcanceled" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">OrganizationCommitCanceled</span>
+<span className="gql-svc">changesetcommitter</span>
+<span className="gql-impl">implements <a href="#organizationcommit">OrganizationCommit</a></span>
 </div>
 <p>Commit was canceled before completion.</p>
 <table>
@@ -2434,10 +2492,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="organizationcommitconnection" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>OrganizationCommitConnection</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetcommitter</span>
+<div id="organizationcommitconnection" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">OrganizationCommitConnection</span>
+<span className="gql-svc">changesetcommitter</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -2449,10 +2507,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="organizationcommitedge" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>OrganizationCommitEdge</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetcommitter</span>
+<div id="organizationcommitedge" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">OrganizationCommitEdge</span>
+<span className="gql-svc">changesetcommitter</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -2463,11 +2521,11 @@ hide_title: true
 </table>
 </div>
 
-<div id="organizationcommiterror" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>OrganizationCommitError</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetcommitter</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#ede9fe', color: '#4338ca', border: '1px solid #c7d2fe'}}>implements <a href="#organizationcommit">OrganizationCommit</a></span>
+<div id="organizationcommiterror" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">OrganizationCommitError</span>
+<span className="gql-svc">changesetcommitter</span>
+<span className="gql-impl">implements <a href="#organizationcommit">OrganizationCommit</a></span>
 </div>
 <p>Commit failed with an error.</p>
 <table>
@@ -2486,11 +2544,11 @@ hide_title: true
 </table>
 </div>
 
-<div id="organizationcommitfinished" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>OrganizationCommitFinished</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetcommitter</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#ede9fe', color: '#4338ca', border: '1px solid #c7d2fe'}}>implements <a href="#organizationcommit">OrganizationCommit</a></span>
+<div id="organizationcommitfinished" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">OrganizationCommitFinished</span>
+<span className="gql-svc">changesetcommitter</span>
+<span className="gql-impl">implements <a href="#organizationcommit">OrganizationCommit</a></span>
 </div>
 <p>Commit completed successfully (all or partial success).</p>
 <table>
@@ -2508,11 +2566,11 @@ hide_title: true
 </table>
 </div>
 
-<div id="organizationcommitqueued" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>OrganizationCommitQueued</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetcommitter</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#ede9fe', color: '#4338ca', border: '1px solid #c7d2fe'}}>implements <a href="#organizationcommit">OrganizationCommit</a></span>
+<div id="organizationcommitqueued" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">OrganizationCommitQueued</span>
+<span className="gql-svc">changesetcommitter</span>
+<span className="gql-impl">implements <a href="#organizationcommit">OrganizationCommit</a></span>
 </div>
 <p>Commit is queued and waiting to be processed.</p>
 <table>
@@ -2529,11 +2587,11 @@ hide_title: true
 </table>
 </div>
 
-<div id="organizationcommitrunning" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>OrganizationCommitRunning</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetcommitter</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#ede9fe', color: '#4338ca', border: '1px solid #c7d2fe'}}>implements <a href="#organizationcommit">OrganizationCommit</a></span>
+<div id="organizationcommitrunning" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">OrganizationCommitRunning</span>
+<span className="gql-svc">changesetcommitter</span>
+<span className="gql-impl">implements <a href="#organizationcommit">OrganizationCommit</a></span>
 </div>
 <p>Commit is actively being processed across repositories.</p>
 <table>
@@ -2550,10 +2608,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="organizationconfiguration" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>OrganizationConfiguration</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>gateway</span>
+<div id="organizationconfiguration" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">OrganizationConfiguration</span>
+<span className="gql-svc">gateway</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -2566,10 +2624,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="organizationconnection" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>OrganizationConnection</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>organization</span>
+<div id="organizationconnection" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">OrganizationConnection</span>
+<span className="gql-svc">organization</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -2581,10 +2639,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="organizationedge" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>OrganizationEdge</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>organization</span>
+<div id="organizationedge" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">OrganizationEdge</span>
+<span className="gql-svc">organization</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -2595,10 +2653,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="organizationreciperun" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>OrganizationRecipeRun</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changelogreader</span>
+<div id="organizationreciperun" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">OrganizationRecipeRun</span>
+<span className="gql-svc">changelogreader</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -2620,12 +2678,12 @@ hide_title: true
 </table>
 </div>
 
-<div id="organizationreciperuncanceled" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>OrganizationRecipeRunCanceled</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetreader</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#ede9fe', color: '#4338ca', border: '1px solid #c7d2fe'}}>implements <a href="#organizationchangeset">OrganizationChangeset</a></span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#ede9fe', color: '#4338ca', border: '1px solid #c7d2fe'}}>implements <a href="#organizationreciperun">OrganizationRecipeRun</a></span>
+<div id="organizationreciperuncanceled" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">OrganizationRecipeRunCanceled</span>
+<span className="gql-svc">changesetreader</span>
+<span className="gql-impl">implements <a href="#organizationchangeset">OrganizationChangeset</a></span>
+<span className="gql-impl">implements <a href="#organizationreciperun">OrganizationRecipeRun</a></span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -2648,10 +2706,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="organizationreciperunconnection" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>OrganizationRecipeRunConnection</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetreader</span>
+<div id="organizationreciperunconnection" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">OrganizationRecipeRunConnection</span>
+<span className="gql-svc">changesetreader</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -2663,10 +2721,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="organizationreciperunedge" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>OrganizationRecipeRunEdge</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetreader</span>
+<div id="organizationreciperunedge" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">OrganizationRecipeRunEdge</span>
+<span className="gql-svc">changesetreader</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -2677,12 +2735,12 @@ hide_title: true
 </table>
 </div>
 
-<div id="organizationreciperunerror" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>OrganizationRecipeRunError</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetreader</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#ede9fe', color: '#4338ca', border: '1px solid #c7d2fe'}}>implements <a href="#organizationchangeset">OrganizationChangeset</a></span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#ede9fe', color: '#4338ca', border: '1px solid #c7d2fe'}}>implements <a href="#organizationreciperun">OrganizationRecipeRun</a></span>
+<div id="organizationreciperunerror" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">OrganizationRecipeRunError</span>
+<span className="gql-svc">changesetreader</span>
+<span className="gql-impl">implements <a href="#organizationchangeset">OrganizationChangeset</a></span>
+<span className="gql-impl">implements <a href="#organizationreciperun">OrganizationRecipeRun</a></span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -2705,12 +2763,12 @@ hide_title: true
 </table>
 </div>
 
-<div id="organizationreciperunfinished" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>OrganizationRecipeRunFinished</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetreader</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#ede9fe', color: '#4338ca', border: '1px solid #c7d2fe'}}>implements <a href="#organizationchangeset">OrganizationChangeset</a></span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#ede9fe', color: '#4338ca', border: '1px solid #c7d2fe'}}>implements <a href="#organizationreciperun">OrganizationRecipeRun</a></span>
+<div id="organizationreciperunfinished" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">OrganizationRecipeRunFinished</span>
+<span className="gql-svc">changesetreader</span>
+<span className="gql-impl">implements <a href="#organizationchangeset">OrganizationChangeset</a></span>
+<span className="gql-impl">implements <a href="#organizationreciperun">OrganizationRecipeRun</a></span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -2734,12 +2792,12 @@ hide_title: true
 </table>
 </div>
 
-<div id="organizationreciperunqueued" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>OrganizationRecipeRunQueued</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetreader</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#ede9fe', color: '#4338ca', border: '1px solid #c7d2fe'}}>implements <a href="#organizationchangeset">OrganizationChangeset</a></span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#ede9fe', color: '#4338ca', border: '1px solid #c7d2fe'}}>implements <a href="#organizationreciperun">OrganizationRecipeRun</a></span>
+<div id="organizationreciperunqueued" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">OrganizationRecipeRunQueued</span>
+<span className="gql-svc">changesetreader</span>
+<span className="gql-impl">implements <a href="#organizationchangeset">OrganizationChangeset</a></span>
+<span className="gql-impl">implements <a href="#organizationreciperun">OrganizationRecipeRun</a></span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -2760,12 +2818,12 @@ hide_title: true
 </table>
 </div>
 
-<div id="organizationreciperunrunning" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>OrganizationRecipeRunRunning</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetreader</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#ede9fe', color: '#4338ca', border: '1px solid #c7d2fe'}}>implements <a href="#organizationchangeset">OrganizationChangeset</a></span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#ede9fe', color: '#4338ca', border: '1px solid #c7d2fe'}}>implements <a href="#organizationreciperun">OrganizationRecipeRun</a></span>
+<div id="organizationreciperunrunning" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">OrganizationRecipeRunRunning</span>
+<span className="gql-svc">changesetreader</span>
+<span className="gql-impl">implements <a href="#organizationchangeset">OrganizationChangeset</a></span>
+<span className="gql-impl">implements <a href="#organizationreciperun">OrganizationRecipeRun</a></span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -2787,12 +2845,12 @@ hide_title: true
 </table>
 </div>
 
-<div id="organizationreciperunsyncing" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>OrganizationRecipeRunSyncing</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetreader</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#ede9fe', color: '#4338ca', border: '1px solid #c7d2fe'}}>implements <a href="#organizationchangeset">OrganizationChangeset</a></span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#ede9fe', color: '#4338ca', border: '1px solid #c7d2fe'}}>implements <a href="#organizationreciperun">OrganizationRecipeRun</a></span>
+<div id="organizationreciperunsyncing" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">OrganizationRecipeRunSyncing</span>
+<span className="gql-svc">changesetreader</span>
+<span className="gql-impl">implements <a href="#organizationchangeset">OrganizationChangeset</a></span>
+<span className="gql-impl">implements <a href="#organizationreciperun">OrganizationRecipeRun</a></span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -2813,10 +2871,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="pageinfo" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>PageInfo</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>coregraphql</span>
+<div id="pageinfo" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">PageInfo</span>
+<span className="gql-svc">coregraphql</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -2829,10 +2887,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="patch" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>Patch</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>corechangeset</span>
+<div id="patch" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">Patch</span>
+<span className="gql-svc">corechangeset</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -2844,10 +2902,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="personalaccesstokenconfiguration" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>PersonalAccessTokenConfiguration</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>gateway</span>
+<div id="personalaccesstokenconfiguration" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">PersonalAccessTokenConfiguration</span>
+<span className="gql-svc">gateway</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -2857,11 +2915,11 @@ hide_title: true
 </table>
 </div>
 
-<div id="piprecipebundle" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>PipRecipeBundle</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetreader</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#ede9fe', color: '#4338ca', border: '1px solid #c7d2fe'}}>implements <a href="#recipebundle">RecipeBundle</a></span>
+<div id="piprecipebundle" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">PipRecipeBundle</span>
+<span className="gql-svc">changesetreader</span>
+<span className="gql-impl">implements <a href="#recipebundle">RecipeBundle</a></span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -2874,10 +2932,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="platformcapabilities" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>PlatformCapabilities</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>artifactsmaven</span>
+<div id="platformcapabilities" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">PlatformCapabilities</span>
+<span className="gql-svc">artifactsmaven</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -2893,10 +2951,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="profiling" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>Profiling</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>gateway</span>
+<div id="profiling" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">Profiling</span>
+<span className="gql-svc">gateway</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -2907,10 +2965,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="profilingsession" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>ProfilingSession</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>gateway</span>
+<div id="profilingsession" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">ProfilingSession</span>
+<span className="gql-svc">gateway</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -2922,10 +2980,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="prompt" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>Prompt</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>moddy</span>
+<div id="prompt" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">Prompt</span>
+<span className="gql-svc">moddy</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -2937,11 +2995,11 @@ hide_title: true
 </table>
 </div>
 
-<div id="pullrequestactioncanceled" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>PullRequestActionCanceled</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changelogreader</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#ede9fe', color: '#4338ca', border: '1px solid #c7d2fe'}}>implements <a href="#pullrequestaction">PullRequestAction</a></span>
+<div id="pullrequestactioncanceled" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">PullRequestActionCanceled</span>
+<span className="gql-svc">changelogreader</span>
+<span className="gql-impl">implements <a href="#pullrequestaction">PullRequestAction</a></span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -2952,10 +3010,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="pullrequestactionconnection" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>PullRequestActionConnection</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changelogreader</span>
+<div id="pullrequestactionconnection" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">PullRequestActionConnection</span>
+<span className="gql-svc">changelogreader</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -2967,10 +3025,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="pullrequestactionedge" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>PullRequestActionEdge</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changelogreader</span>
+<div id="pullrequestactionedge" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">PullRequestActionEdge</span>
+<span className="gql-svc">changelogreader</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -2981,11 +3039,11 @@ hide_title: true
 </table>
 </div>
 
-<div id="pullrequestactionfailed" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>PullRequestActionFailed</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changelogreader</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#ede9fe', color: '#4338ca', border: '1px solid #c7d2fe'}}>implements <a href="#pullrequestaction">PullRequestAction</a></span>
+<div id="pullrequestactionfailed" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">PullRequestActionFailed</span>
+<span className="gql-svc">changelogreader</span>
+<span className="gql-impl">implements <a href="#pullrequestaction">PullRequestAction</a></span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -2998,11 +3056,11 @@ hide_title: true
 </table>
 </div>
 
-<div id="pullrequestactionqueued" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>PullRequestActionQueued</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changelogreader</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#ede9fe', color: '#4338ca', border: '1px solid #c7d2fe'}}>implements <a href="#pullrequestaction">PullRequestAction</a></span>
+<div id="pullrequestactionqueued" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">PullRequestActionQueued</span>
+<span className="gql-svc">changelogreader</span>
+<span className="gql-impl">implements <a href="#pullrequestaction">PullRequestAction</a></span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -3012,11 +3070,11 @@ hide_title: true
 </table>
 </div>
 
-<div id="pullrequestactionrunning" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>PullRequestActionRunning</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changelogreader</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#ede9fe', color: '#4338ca', border: '1px solid #c7d2fe'}}>implements <a href="#pullrequestaction">PullRequestAction</a></span>
+<div id="pullrequestactionrunning" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">PullRequestActionRunning</span>
+<span className="gql-svc">changelogreader</span>
+<span className="gql-impl">implements <a href="#pullrequestaction">PullRequestAction</a></span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -3027,11 +3085,11 @@ hide_title: true
 </table>
 </div>
 
-<div id="pullrequestactionsucceeded" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>PullRequestActionSucceeded</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changelogreader</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#ede9fe', color: '#4338ca', border: '1px solid #c7d2fe'}}>implements <a href="#pullrequestaction">PullRequestAction</a></span>
+<div id="pullrequestactionsucceeded" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">PullRequestActionSucceeded</span>
+<span className="gql-svc">changelogreader</span>
+<span className="gql-impl">implements <a href="#pullrequestaction">PullRequestAction</a></span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -3043,12 +3101,12 @@ hide_title: true
 </table>
 </div>
 
-<div id="pullrequestcommitsucceeded" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>PullRequestCommitSucceeded</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetcommitter</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#ede9fe', color: '#4338ca', border: '1px solid #c7d2fe'}}>implements <a href="#repositorycommitsucceeded">RepositoryCommitSucceeded</a></span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#ede9fe', color: '#4338ca', border: '1px solid #c7d2fe'}}>implements <a href="#repositorycommit">RepositoryCommit</a></span>
+<div id="pullrequestcommitsucceeded" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">PullRequestCommitSucceeded</span>
+<span className="gql-svc">changesetcommitter</span>
+<span className="gql-impl">implements <a href="#repositorycommitsucceeded">RepositoryCommitSucceeded</a></span>
+<span className="gql-impl">implements <a href="#repositorycommit">RepositoryCommit</a></span>
 </div>
 <p>Pull request commit completed successfully.</p>
 <table>
@@ -3063,11 +3121,11 @@ hide_title: true
 </table>
 </div>
 
-<div id="pullrequestoptions" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>PullRequestOptions</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetcommitter</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#ede9fe', color: '#4338ca', border: '1px solid #c7d2fe'}}>implements <a href="#commitoptions">CommitOptions</a></span>
+<div id="pullrequestoptions" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">PullRequestOptions</span>
+<span className="gql-svc">changesetcommitter</span>
+<span className="gql-impl">implements <a href="#commitoptions">CommitOptions</a></span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -3082,10 +3140,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="pullrequestref" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>PullRequestRef</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changelogreader</span>
+<div id="pullrequestref" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">PullRequestRef</span>
+<span className="gql-svc">changelogreader</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -3098,10 +3156,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="pullrequeststatus" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>PullRequestStatus</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetcommitter</span>
+<div id="pullrequeststatus" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">PullRequestStatus</span>
+<span className="gql-svc">changesetcommitter</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -3115,10 +3173,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="pypiconfiguration" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>PypiConfiguration</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>gateway</span>
+<div id="pypiconfiguration" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">PypiConfiguration</span>
+<span className="gql-svc">gateway</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -3131,10 +3189,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="recipebundleconnection" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RecipeBundleConnection</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>recipemarketplace</span>
+<div id="recipebundleconnection" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">RecipeBundleConnection</span>
+<span className="gql-svc">recipemarketplace</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -3146,10 +3204,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="recipebundleedge" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RecipeBundleEdge</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>recipemarketplace</span>
+<div id="recipebundleedge" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">RecipeBundleEdge</span>
+<span className="gql-svc">recipemarketplace</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -3160,10 +3218,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="recipecategory" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RecipeCategory</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>recipemarketplace</span>
+<div id="recipecategory" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">RecipeCategory</span>
+<span className="gql-svc">recipemarketplace</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -3179,10 +3237,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="recipecategoryconnection" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RecipeCategoryConnection</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>recipemarketplace</span>
+<div id="recipecategoryconnection" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">RecipeCategoryConnection</span>
+<span className="gql-svc">recipemarketplace</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -3194,10 +3252,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="recipecategoryedge" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RecipeCategoryEdge</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>recipemarketplace</span>
+<div id="recipecategoryedge" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">RecipeCategoryEdge</span>
+<span className="gql-svc">recipemarketplace</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -3208,10 +3266,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="recipedescriptor" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RecipeDescriptor</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetreader</span>
+<div id="recipedescriptor" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">RecipeDescriptor</span>
+<span className="gql-svc">changesetreader</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -3230,10 +3288,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="recipedescriptorconnection" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RecipeDescriptorConnection</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>recipemarketplace</span>
+<div id="recipedescriptorconnection" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">RecipeDescriptorConnection</span>
+<span className="gql-svc">recipemarketplace</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -3245,10 +3303,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="recipedescriptoredge" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RecipeDescriptorEdge</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>recipemarketplace</span>
+<div id="recipedescriptoredge" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">RecipeDescriptorEdge</span>
+<span className="gql-svc">recipemarketplace</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -3260,11 +3318,11 @@ hide_title: true
 </table>
 </div>
 
-<div id="recipedetailerror" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RecipeDetailError</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>recipemarketplace</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#ede9fe', color: '#4338ca', border: '1px solid #c7d2fe'}}>implements <a href="#recipedetail">RecipeDetail</a></span>
+<div id="recipedetailerror" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">RecipeDetailError</span>
+<span className="gql-svc">recipemarketplace</span>
+<span className="gql-impl">implements <a href="#recipedetail">RecipeDetail</a></span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -3276,11 +3334,11 @@ hide_title: true
 </table>
 </div>
 
-<div id="recipedetailfinished" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RecipeDetailFinished</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>recipemarketplace</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#ede9fe', color: '#4338ca', border: '1px solid #c7d2fe'}}>implements <a href="#recipedetail">RecipeDetail</a></span>
+<div id="recipedetailfinished" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">RecipeDetailFinished</span>
+<span className="gql-svc">recipemarketplace</span>
+<span className="gql-impl">implements <a href="#recipedetail">RecipeDetail</a></span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -3295,11 +3353,11 @@ hide_title: true
 </table>
 </div>
 
-<div id="recipedetailloading" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RecipeDetailLoading</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>recipemarketplace</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#ede9fe', color: '#4338ca', border: '1px solid #c7d2fe'}}>implements <a href="#recipedetail">RecipeDetail</a></span>
+<div id="recipedetailloading" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">RecipeDetailLoading</span>
+<span className="gql-svc">recipemarketplace</span>
+<span className="gql-impl">implements <a href="#recipedetail">RecipeDetail</a></span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -3309,10 +3367,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="recipegraph" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RecipeGraph</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>recipemarketplace</span>
+<div id="recipegraph" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">RecipeGraph</span>
+<span className="gql-svc">recipemarketplace</span>
 </div>
 <p>Flat vertices-and-edges representation of a composite recipe with `org.openrewrite.Singleton` deduplication pre-applied. Produced by the marketplace backend and served to visualization clients in one round trip.</p>
 <table>
@@ -3325,10 +3383,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="recipegraphedge" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RecipeGraphEdge</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>recipemarketplace</span>
+<div id="recipegraphedge" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">RecipeGraphEdge</span>
+<span className="gql-svc">recipemarketplace</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -3340,10 +3398,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="recipegraphvertex" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RecipeGraphVertex</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>recipemarketplace</span>
+<div id="recipegraphvertex" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">RecipeGraphVertex</span>
+<span className="gql-svc">recipemarketplace</span>
 </div>
 <p>A vertex in a RecipeGraph: a full recipe occurrence with its configured options. Recipes that declare `org.openrewrite.Singleton` as a precondition are deduplicated — additional occurrences are expressed as REFERENCE edges pointing back to the first occurrence rather than as separate vertices.</p>
 <table>
@@ -3356,10 +3414,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="recipeinstallationconnection" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RecipeInstallationConnection</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>recipemarketplace</span>
+<div id="recipeinstallationconnection" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">RecipeInstallationConnection</span>
+<span className="gql-svc">recipemarketplace</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -3371,10 +3429,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="recipeinstallationedge" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RecipeInstallationEdge</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>recipemarketplace</span>
+<div id="recipeinstallationedge" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">RecipeInstallationEdge</span>
+<span className="gql-svc">recipemarketplace</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -3388,11 +3446,11 @@ hide_title: true
 </table>
 </div>
 
-<div id="recipeinstallationerror" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RecipeInstallationError</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>recipemarketplace</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#ede9fe', color: '#4338ca', border: '1px solid #c7d2fe'}}>implements <a href="#recipeinstallation">RecipeInstallation</a></span>
+<div id="recipeinstallationerror" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">RecipeInstallationError</span>
+<span className="gql-svc">recipemarketplace</span>
+<span className="gql-impl">implements <a href="#recipeinstallation">RecipeInstallation</a></span>
 </div>
 <p>Installation failed with an error.</p>
 <table>
@@ -3407,11 +3465,11 @@ hide_title: true
 </table>
 </div>
 
-<div id="recipeinstallationfinished" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RecipeInstallationFinished</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>recipemarketplace</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#ede9fe', color: '#4338ca', border: '1px solid #c7d2fe'}}>implements <a href="#recipeinstallation">RecipeInstallation</a></span>
+<div id="recipeinstallationfinished" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">RecipeInstallationFinished</span>
+<span className="gql-svc">recipemarketplace</span>
+<span className="gql-impl">implements <a href="#recipeinstallation">RecipeInstallation</a></span>
 </div>
 <p>Installation completed successfully.</p>
 <table>
@@ -3426,11 +3484,11 @@ hide_title: true
 </table>
 </div>
 
-<div id="recipeinstallationprocessing" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RecipeInstallationProcessing</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>recipemarketplace</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#ede9fe', color: '#4338ca', border: '1px solid #c7d2fe'}}>implements <a href="#recipeinstallation">RecipeInstallation</a></span>
+<div id="recipeinstallationprocessing" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">RecipeInstallationProcessing</span>
+<span className="gql-svc">recipemarketplace</span>
+<span className="gql-impl">implements <a href="#recipeinstallation">RecipeInstallation</a></span>
 </div>
 <p>Installation is actively loading and resolving the recipe bundle.</p>
 <table>
@@ -3444,11 +3502,11 @@ hide_title: true
 </table>
 </div>
 
-<div id="recipeinstallationqueued" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RecipeInstallationQueued</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>recipemarketplace</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#ede9fe', color: '#4338ca', border: '1px solid #c7d2fe'}}>implements <a href="#recipeinstallation">RecipeInstallation</a></span>
+<div id="recipeinstallationqueued" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">RecipeInstallationQueued</span>
+<span className="gql-svc">recipemarketplace</span>
+<span className="gql-impl">implements <a href="#recipeinstallation">RecipeInstallation</a></span>
 </div>
 <p>Installation is queued and waiting to be processed.</p>
 <table>
@@ -3461,10 +3519,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="recipemarketplace" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RecipeMarketplace</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>recipemarketplace</span>
+<div id="recipemarketplace" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">RecipeMarketplace</span>
+<span className="gql-svc">recipemarketplace</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -3476,10 +3534,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="recipeoptionvalue" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RecipeOptionValue</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetreader</span>
+<div id="recipeoptionvalue" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">RecipeOptionValue</span>
+<span className="gql-svc">changesetreader</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -3490,11 +3548,11 @@ hide_title: true
 </table>
 </div>
 
-<div id="recipeoptionsmessage" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RecipeOptionsMessage</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>moddy</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#ede9fe', color: '#4338ca', border: '1px solid #c7d2fe'}}>implements <a href="#message">Message</a></span>
+<div id="recipeoptionsmessage" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">RecipeOptionsMessage</span>
+<span className="gql-svc">moddy</span>
+<span className="gql-impl">implements <a href="#message">Message</a></span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -3508,11 +3566,11 @@ hide_title: true
 </table>
 </div>
 
-<div id="reciperunfilechange" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RecipeRunFileChange</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetreader</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#ede9fe', color: '#4338ca', border: '1px solid #c7d2fe'}}>implements <a href="#filechange">FileChange</a></span>
+<div id="reciperunfilechange" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">RecipeRunFileChange</span>
+<span className="gql-svc">changesetreader</span>
+<span className="gql-impl">implements <a href="#filechange">FileChange</a></span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -3526,11 +3584,11 @@ hide_title: true
 </table>
 </div>
 
-<div id="reciperunmessage" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RecipeRunMessage</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>moddy</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#ede9fe', color: '#4338ca', border: '1px solid #c7d2fe'}}>implements <a href="#message">Message</a></span>
+<div id="reciperunmessage" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">RecipeRunMessage</span>
+<span className="gql-svc">moddy</span>
+<span className="gql-impl">implements <a href="#message">Message</a></span>
 </div>
 <p>Long-running recipe execution started by the LLM. Carries a typed progress envelope while IN_PROGRESS — clients should read `progress` rather than poking at a free-form payload. When the run reaches a terminal state, `recipeRun` resolves via federation.</p>
 <table>
@@ -3546,10 +3604,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="reciperunprogress" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RecipeRunProgress</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>moddy</span>
+<div id="reciperunprogress" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">RecipeRunProgress</span>
+<span className="gql-svc">moddy</span>
 </div>
 <p>Typed progress envelope for an in-flight recipe run.</p>
 <table>
@@ -3564,10 +3622,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="reciperuntotals" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RecipeRunTotals</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetreader</span>
+<div id="reciperuntotals" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">RecipeRunTotals</span>
+<span className="gql-svc">changesetreader</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -3586,11 +3644,11 @@ hide_title: true
 </table>
 </div>
 
-<div id="recipesearchmessage" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RecipeSearchMessage</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>moddy</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#ede9fe', color: '#4338ca', border: '1px solid #c7d2fe'}}>implements <a href="#message">Message</a></span>
+<div id="recipesearchmessage" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">RecipeSearchMessage</span>
+<span className="gql-svc">moddy</span>
+<span className="gql-impl">implements <a href="#message">Message</a></span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -3604,10 +3662,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="recipeuninstallation" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RecipeUninstallation</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>recipemarketplace</span>
+<div id="recipeuninstallation" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">RecipeUninstallation</span>
+<span className="gql-svc">recipemarketplace</span>
 </div>
 <p>Result of an uninstall operation.</p>
 <table>
@@ -3618,10 +3676,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="reindexresult" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>ReindexResult</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changelogwriter</span>
+<div id="reindexresult" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">ReindexResult</span>
+<span className="gql-svc">changelogwriter</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -3632,10 +3690,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="repository" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>Repository</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changelogreader</span>
+<div id="repository" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">Repository</span>
+<span className="gql-svc">changelogreader</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -3649,10 +3707,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="repositoryauthorization" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RepositoryAuthorization</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>corechangeset</span>
+<div id="repositoryauthorization" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">RepositoryAuthorization</span>
+<span className="gql-svc">corechangeset</span>
 </div>
 <p>Authorization status for accessing repository content. Resolved by the changeset reader using a batch check against the authorization service.</p>
 <table>
@@ -3664,11 +3722,11 @@ hide_title: true
 </table>
 </div>
 
-<div id="repositorybatchchange" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RepositoryBatchChange</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetreader</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#ede9fe', color: '#4338ca', border: '1px solid #c7d2fe'}}>implements <a href="#repositorychangeset">RepositoryChangeset</a></span>
+<div id="repositorybatchchange" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">RepositoryBatchChange</span>
+<span className="gql-svc">changesetreader</span>
+<span className="gql-impl">implements <a href="#repositorychangeset">RepositoryChangeset</a></span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -3680,10 +3738,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="repositorychangesetconnection" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RepositoryChangesetConnection</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>corechangeset</span>
+<div id="repositorychangesetconnection" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">RepositoryChangesetConnection</span>
+<span className="gql-svc">corechangeset</span>
 </div>
 <p>Paginated connection for repository changesets.</p>
 <p>`completed` indicates how many repositories have finished processing: - For BatchChange: completed always equals count (all repositories are pre-processed). - For OrganizationRecipeRun: completed counts repository runs in a terminal state   (regardless of success/failure), excluding canceled runs. A canceled run shows   the completion status reached prior to cancellation.</p>
@@ -3704,10 +3762,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="repositorychangesetedge" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RepositoryChangesetEdge</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>corechangeset</span>
+<div id="repositorychangesetedge" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">RepositoryChangesetEdge</span>
+<span className="gql-svc">corechangeset</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -3718,11 +3776,11 @@ hide_title: true
 </table>
 </div>
 
-<div id="repositorycommitcanceled" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RepositoryCommitCanceled</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetcommitter</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#ede9fe', color: '#4338ca', border: '1px solid #c7d2fe'}}>implements <a href="#repositorycommit">RepositoryCommit</a></span>
+<div id="repositorycommitcanceled" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">RepositoryCommitCanceled</span>
+<span className="gql-svc">changesetcommitter</span>
+<span className="gql-impl">implements <a href="#repositorycommit">RepositoryCommit</a></span>
 </div>
 <p>Repository commit was canceled. Use `options.__typename` to determine the specific commit type.</p>
 <table>
@@ -3736,10 +3794,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="repositorycommitconnection" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RepositoryCommitConnection</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetcommitter</span>
+<div id="repositorycommitconnection" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">RepositoryCommitConnection</span>
+<span className="gql-svc">changesetcommitter</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -3752,10 +3810,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="repositorycommitedge" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RepositoryCommitEdge</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetcommitter</span>
+<div id="repositorycommitedge" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">RepositoryCommitEdge</span>
+<span className="gql-svc">changesetcommitter</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -3766,11 +3824,11 @@ hide_title: true
 </table>
 </div>
 
-<div id="repositorycommitfailed" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RepositoryCommitFailed</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetcommitter</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#ede9fe', color: '#4338ca', border: '1px solid #c7d2fe'}}>implements <a href="#repositorycommit">RepositoryCommit</a></span>
+<div id="repositorycommitfailed" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">RepositoryCommitFailed</span>
+<span className="gql-svc">changesetcommitter</span>
+<span className="gql-impl">implements <a href="#repositorycommit">RepositoryCommit</a></span>
 </div>
 <p>Repository commit failed with an error. Use `options.__typename` to determine the specific commit type.</p>
 <table>
@@ -3786,11 +3844,11 @@ hide_title: true
 </table>
 </div>
 
-<div id="repositorycommitnochanges" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RepositoryCommitNoChanges</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetcommitter</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#ede9fe', color: '#4338ca', border: '1px solid #c7d2fe'}}>implements <a href="#repositorycommit">RepositoryCommit</a></span>
+<div id="repositorycommitnochanges" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">RepositoryCommitNoChanges</span>
+<span className="gql-svc">changesetcommitter</span>
+<span className="gql-impl">implements <a href="#repositorycommit">RepositoryCommit</a></span>
 </div>
 <p>Repository commit completed but yielded no changes. Generally occurs when applying a patch does not produce any changes to commit. Use `options.__typename` to determine the specific commit type.</p>
 <table>
@@ -3804,11 +3862,11 @@ hide_title: true
 </table>
 </div>
 
-<div id="repositorycommitqueued" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RepositoryCommitQueued</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetcommitter</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#ede9fe', color: '#4338ca', border: '1px solid #c7d2fe'}}>implements <a href="#repositorycommit">RepositoryCommit</a></span>
+<div id="repositorycommitqueued" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">RepositoryCommitQueued</span>
+<span className="gql-svc">changesetcommitter</span>
+<span className="gql-impl">implements <a href="#repositorycommit">RepositoryCommit</a></span>
 </div>
 <p>Repository commit is queued and waiting to be processed. Use `options.__typename` to determine the specific commit type.</p>
 <table>
@@ -3822,11 +3880,11 @@ hide_title: true
 </table>
 </div>
 
-<div id="repositorycommitrunning" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RepositoryCommitRunning</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetcommitter</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#ede9fe', color: '#4338ca', border: '1px solid #c7d2fe'}}>implements <a href="#repositorycommit">RepositoryCommit</a></span>
+<div id="repositorycommitrunning" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">RepositoryCommitRunning</span>
+<span className="gql-svc">changesetcommitter</span>
+<span className="gql-impl">implements <a href="#repositorycommit">RepositoryCommit</a></span>
 </div>
 <p>Repository commit is actively being processed. Use `options.__typename` to determine the specific commit type.</p>
 <table>
@@ -3839,10 +3897,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="repositoryconnection" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RepositoryConnection</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>organization</span>
+<div id="repositoryconnection" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">RepositoryConnection</span>
+<span className="gql-svc">organization</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -3854,10 +3912,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="repositoryedge" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RepositoryEdge</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>organization</span>
+<div id="repositoryedge" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">RepositoryEdge</span>
+<span className="gql-svc">organization</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -3868,12 +3926,12 @@ hide_title: true
 </table>
 </div>
 
-<div id="repositoryreciperuncanceled" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RepositoryRecipeRunCanceled</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetreader</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#ede9fe', color: '#4338ca', border: '1px solid #c7d2fe'}}>implements <a href="#repositoryreciperun">RepositoryRecipeRun</a></span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#ede9fe', color: '#4338ca', border: '1px solid #c7d2fe'}}>implements <a href="#repositorychangeset">RepositoryChangeset</a></span>
+<div id="repositoryreciperuncanceled" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">RepositoryRecipeRunCanceled</span>
+<span className="gql-svc">changesetreader</span>
+<span className="gql-impl">implements <a href="#repositoryreciperun">RepositoryRecipeRun</a></span>
+<span className="gql-impl">implements <a href="#repositorychangeset">RepositoryChangeset</a></span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -3886,10 +3944,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="repositoryreciperunconnection" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RepositoryRecipeRunConnection</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetreader</span>
+<div id="repositoryreciperunconnection" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">RepositoryRecipeRunConnection</span>
+<span className="gql-svc">changesetreader</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -3901,10 +3959,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="repositoryreciperunedge" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RepositoryRecipeRunEdge</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetreader</span>
+<div id="repositoryreciperunedge" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">RepositoryRecipeRunEdge</span>
+<span className="gql-svc">changesetreader</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -3915,12 +3973,12 @@ hide_title: true
 </table>
 </div>
 
-<div id="repositoryreciperunerror" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RepositoryRecipeRunError</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetreader</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#ede9fe', color: '#4338ca', border: '1px solid #c7d2fe'}}>implements <a href="#repositoryreciperun">RepositoryRecipeRun</a></span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#ede9fe', color: '#4338ca', border: '1px solid #c7d2fe'}}>implements <a href="#repositorychangeset">RepositoryChangeset</a></span>
+<div id="repositoryreciperunerror" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">RepositoryRecipeRunError</span>
+<span className="gql-svc">changesetreader</span>
+<span className="gql-impl">implements <a href="#repositoryreciperun">RepositoryRecipeRun</a></span>
+<span className="gql-impl">implements <a href="#repositorychangeset">RepositoryChangeset</a></span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -3937,12 +3995,12 @@ hide_title: true
 </table>
 </div>
 
-<div id="repositoryreciperunfinished" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RepositoryRecipeRunFinished</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetreader</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#ede9fe', color: '#4338ca', border: '1px solid #c7d2fe'}}>implements <a href="#repositoryreciperun">RepositoryRecipeRun</a></span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#ede9fe', color: '#4338ca', border: '1px solid #c7d2fe'}}>implements <a href="#repositorychangeset">RepositoryChangeset</a></span>
+<div id="repositoryreciperunfinished" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">RepositoryRecipeRunFinished</span>
+<span className="gql-svc">changesetreader</span>
+<span className="gql-impl">implements <a href="#repositoryreciperun">RepositoryRecipeRun</a></span>
+<span className="gql-impl">implements <a href="#repositorychangeset">RepositoryChangeset</a></span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -3958,12 +4016,12 @@ hide_title: true
 </table>
 </div>
 
-<div id="repositoryreciperunnolst" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RepositoryRecipeRunNoLst</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetreader</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#ede9fe', color: '#4338ca', border: '1px solid #c7d2fe'}}>implements <a href="#repositoryreciperun">RepositoryRecipeRun</a></span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#ede9fe', color: '#4338ca', border: '1px solid #c7d2fe'}}>implements <a href="#repositorychangeset">RepositoryChangeset</a></span>
+<div id="repositoryreciperunnolst" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">RepositoryRecipeRunNoLst</span>
+<span className="gql-svc">changesetreader</span>
+<span className="gql-impl">implements <a href="#repositoryreciperun">RepositoryRecipeRun</a></span>
+<span className="gql-impl">implements <a href="#repositorychangeset">RepositoryChangeset</a></span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -3976,12 +4034,12 @@ hide_title: true
 </table>
 </div>
 
-<div id="repositoryreciperunqueued" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RepositoryRecipeRunQueued</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetreader</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#ede9fe', color: '#4338ca', border: '1px solid #c7d2fe'}}>implements <a href="#repositoryreciperun">RepositoryRecipeRun</a></span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#ede9fe', color: '#4338ca', border: '1px solid #c7d2fe'}}>implements <a href="#repositorychangeset">RepositoryChangeset</a></span>
+<div id="repositoryreciperunqueued" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">RepositoryRecipeRunQueued</span>
+<span className="gql-svc">changesetreader</span>
+<span className="gql-impl">implements <a href="#repositoryreciperun">RepositoryRecipeRun</a></span>
+<span className="gql-impl">implements <a href="#repositorychangeset">RepositoryChangeset</a></span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -3995,12 +4053,12 @@ hide_title: true
 </table>
 </div>
 
-<div id="repositoryreciperunrunning" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RepositoryRecipeRunRunning</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetreader</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#ede9fe', color: '#4338ca', border: '1px solid #c7d2fe'}}>implements <a href="#repositoryreciperun">RepositoryRecipeRun</a></span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#ede9fe', color: '#4338ca', border: '1px solid #c7d2fe'}}>implements <a href="#repositorychangeset">RepositoryChangeset</a></span>
+<div id="repositoryreciperunrunning" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">RepositoryRecipeRunRunning</span>
+<span className="gql-svc">changesetreader</span>
+<span className="gql-impl">implements <a href="#repositoryreciperun">RepositoryRecipeRun</a></span>
+<span className="gql-impl">implements <a href="#repositorychangeset">RepositoryChangeset</a></span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -4014,10 +4072,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="reviewstatus" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>ReviewStatus</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetcommitter</span>
+<div id="reviewstatus" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">ReviewStatus</span>
+<span className="gql-svc">changesetcommitter</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -4028,10 +4086,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="revoketokenresult" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RevokeTokenResult</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>authz</span>
+<div id="revoketokenresult" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">RevokeTokenResult</span>
+<span className="gql-svc">authz</span>
 </div>
 <p>Result of revoking an SCM OAuth token.</p>
 <table>
@@ -4043,10 +4101,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="s3configuration" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>S3Configuration</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>gateway</span>
+<div id="s3configuration" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">S3Configuration</span>
+<span className="gql-svc">gateway</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -4061,10 +4119,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="scmtokeninfo" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>ScmTokenInfo</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>authz</span>
+<div id="scmtokeninfo" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">ScmTokenInfo</span>
+<span className="gql-svc">authz</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -4075,11 +4133,11 @@ hide_title: true
 </table>
 </div>
 
-<div id="searchresult" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>SearchResult</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>corechangeset</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#ede9fe', color: '#4338ca', border: '1px solid #c7d2fe'}}>implements <a href="#marker">Marker</a></span>
+<div id="searchresult" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">SearchResult</span>
+<span className="gql-svc">corechangeset</span>
+<span className="gql-impl">implements <a href="#marker">Marker</a></span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -4091,10 +4149,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="sendmessageresult" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>SendMessageResult</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>moddy</span>
+<div id="sendmessageresult" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">SendMessageResult</span>
+<span className="gql-svc">moddy</span>
 </div>
 <p>Handle returned by `createConversation` / `sendMessage`. Clients should poll `conversation.messages(after: initialCursor)` using `turnState.recommendedPollIntervalMs` as the cadence hint.</p>
 <table>
@@ -4107,11 +4165,11 @@ hide_title: true
 </table>
 </div>
 
-<div id="textmessage" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>TextMessage</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>moddy</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#ede9fe', color: '#4338ca', border: '1px solid #c7d2fe'}}>implements <a href="#message">Message</a></span>
+<div id="textmessage" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">TextMessage</span>
+<span className="gql-svc">moddy</span>
+<span className="gql-impl">implements <a href="#message">Message</a></span>
 </div>
 <p>A text message from either the human user or the chatbot. Check the `user` field to distinguish sender.</p>
 <table>
@@ -4127,10 +4185,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="toolinfo" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>ToolInfo</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetreader</span>
+<div id="toolinfo" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">ToolInfo</span>
+<span className="gql-svc">changesetreader</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -4142,10 +4200,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="uiconfiguration" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>UiConfiguration</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>gateway</span>
+<div id="uiconfiguration" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">UiConfiguration</span>
+<span className="gql-svc">gateway</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -4158,10 +4216,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="user" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>User</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>authz</span>
+<div id="user" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">User</span>
+<span className="gql-svc">authz</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -4176,10 +4234,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="userconnection" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>UserConnection</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>authz</span>
+<div id="userconnection" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">UserConnection</span>
+<span className="gql-svc">authz</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -4191,10 +4249,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="usersedge" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>UsersEdge</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>authz</span>
+<div id="usersedge" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">UsersEdge</span>
+<span className="gql-svc">authz</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -4205,11 +4263,11 @@ hide_title: true
 </table>
 </div>
 
-<div id="visualizationavailable" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>VisualizationAvailable</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetreader</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#ede9fe', color: '#4338ca', border: '1px solid #c7d2fe'}}>implements <a href="#visualization">Visualization</a></span>
+<div id="visualizationavailable" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">VisualizationAvailable</span>
+<span className="gql-svc">changesetreader</span>
+<span className="gql-impl">implements <a href="#visualization">Visualization</a></span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -4221,10 +4279,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="visualizationconnection" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>VisualizationConnection</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>corechangeset</span>
+<div id="visualizationconnection" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">VisualizationConnection</span>
+<span className="gql-svc">corechangeset</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -4236,10 +4294,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="visualizationdescriptor" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>VisualizationDescriptor</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetvisualizer</span>
+<div id="visualizationdescriptor" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">VisualizationDescriptor</span>
+<span className="gql-svc">changesetvisualizer</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -4253,10 +4311,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="visualizationedge" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>VisualizationEdge</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>corechangeset</span>
+<div id="visualizationedge" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">VisualizationEdge</span>
+<span className="gql-svc">corechangeset</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -4267,11 +4325,11 @@ hide_title: true
 </table>
 </div>
 
-<div id="visualizationerror" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>VisualizationError</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetreader</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#ede9fe', color: '#4338ca', border: '1px solid #c7d2fe'}}>implements <a href="#visualization">Visualization</a></span>
+<div id="visualizationerror" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">VisualizationError</span>
+<span className="gql-svc">changesetreader</span>
+<span className="gql-impl">implements <a href="#visualization">Visualization</a></span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -4287,11 +4345,11 @@ hide_title: true
 </table>
 </div>
 
-<div id="visualizationfinished" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>VisualizationFinished</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetreader</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#ede9fe', color: '#4338ca', border: '1px solid #c7d2fe'}}>implements <a href="#visualization">Visualization</a></span>
+<div id="visualizationfinished" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">VisualizationFinished</span>
+<span className="gql-svc">changesetreader</span>
+<span className="gql-impl">implements <a href="#visualization">Visualization</a></span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -4308,11 +4366,11 @@ hide_title: true
 </table>
 </div>
 
-<div id="visualizationimageoutput" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>VisualizationImageOutput</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetreader</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#ede9fe', color: '#4338ca', border: '1px solid #c7d2fe'}}>implements <a href="#visualizationoutput">VisualizationOutput</a></span>
+<div id="visualizationimageoutput" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">VisualizationImageOutput</span>
+<span className="gql-svc">changesetreader</span>
+<span className="gql-impl">implements <a href="#visualizationoutput">VisualizationOutput</a></span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -4323,10 +4381,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="visualizationoption" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>VisualizationOption</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetvisualizer</span>
+<div id="visualizationoption" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">VisualizationOption</span>
+<span className="gql-svc">changesetvisualizer</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -4343,11 +4401,11 @@ hide_title: true
 </table>
 </div>
 
-<div id="visualizationplotlyoutput" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>VisualizationPlotlyOutput</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetreader</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#ede9fe', color: '#4338ca', border: '1px solid #c7d2fe'}}>implements <a href="#visualizationoutput">VisualizationOutput</a></span>
+<div id="visualizationplotlyoutput" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">VisualizationPlotlyOutput</span>
+<span className="gql-svc">changesetreader</span>
+<span className="gql-impl">implements <a href="#visualizationoutput">VisualizationOutput</a></span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -4357,11 +4415,11 @@ hide_title: true
 </table>
 </div>
 
-<div id="visualizationprocessing" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>VisualizationProcessing</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetreader</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#ede9fe', color: '#4338ca', border: '1px solid #c7d2fe'}}>implements <a href="#visualization">Visualization</a></span>
+<div id="visualizationprocessing" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">VisualizationProcessing</span>
+<span className="gql-svc">changesetreader</span>
+<span className="gql-impl">implements <a href="#visualization">Visualization</a></span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -4375,10 +4433,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="visualizationrepository" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>VisualizationRepository</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetreader</span>
+<div id="visualizationrepository" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">VisualizationRepository</span>
+<span className="gql-svc">changesetreader</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -4390,10 +4448,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="visualizationrepositoryconnection" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>VisualizationRepositoryConnection</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetreader</span>
+<div id="visualizationrepositoryconnection" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">VisualizationRepositoryConnection</span>
+<span className="gql-svc">changesetreader</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -4405,10 +4463,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="visualizationrepositoryedge" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>VisualizationRepositoryEdge</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetreader</span>
+<div id="visualizationrepositoryedge" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">VisualizationRepositoryEdge</span>
+<span className="gql-svc">changesetreader</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -4419,11 +4477,11 @@ hide_title: true
 </table>
 </div>
 
-<div id="yamlrecipebundle" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>YamlRecipeBundle</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetreader</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#ede9fe', color: '#4338ca', border: '1px solid #c7d2fe'}}>implements <a href="#recipebundle">RecipeBundle</a></span>
+<div id="yamlrecipebundle" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">YamlRecipeBundle</span>
+<span className="gql-svc">changesetreader</span>
+<span className="gql-impl">implements <a href="#recipebundle">RecipeBundle</a></span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -4439,10 +4497,10 @@ hide_title: true
 
 ### Interfaces
 
-<div id="auditlogsdownload" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>AuditLogsDownload</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>auditreader</span>
+<div id="auditlogsdownload" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">AuditLogsDownload</span>
+<span className="gql-svc">auditreader</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -4452,10 +4510,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="bulkpullrequestaction" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>BulkPullRequestAction</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changelogreader</span>
+<div id="bulkpullrequestaction" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">BulkPullRequestAction</span>
+<span className="gql-svc">changelogreader</span>
 </div>
 <p>A bulk pull request action (approve, merge, close) that operates on potentially multiple repositories. Use `__typename` to determine the current state.</p>
 <p>Each `BulkPullRequestAction` contains individual `PullRequestAction` entries representing the state of each repository targeted by the bulk operation.</p>
@@ -4470,10 +4528,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="changelogentry" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>ChangelogEntry</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changelogreader</span>
+<div id="changelogentry" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">ChangelogEntry</span>
+<span className="gql-svc">changelogreader</span>
 </div>
 <p>A single entry in the changelog — either a commit or a pull request. Use `__typename` to distinguish between `ChangelogCommit` and `ChangelogPullRequest`.</p>
 <table>
@@ -4494,10 +4552,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="commitoptions" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>CommitOptions</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetcommitter</span>
+<div id="commitoptions" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">CommitOptions</span>
+<span className="gql-svc">changesetcommitter</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -4507,10 +4565,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="datatable" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>DataTable</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>corechangeset</span>
+<div id="datatable" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">DataTable</span>
+<span className="gql-svc">corechangeset</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -4523,10 +4581,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="devcenterrun" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>DevCenterRun</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetreader</span>
+<div id="devcenterrun" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">DevCenterRun</span>
+<span className="gql-svc">changesetreader</span>
 </div>
 <p>A DevCenter run represents the execution of a DevCenter recipe. Use `__typename` to determine the current state.</p>
 <table>
@@ -4539,10 +4597,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="filechange" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>FileChange</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>corechangeset</span>
+<div id="filechange" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">FileChange</span>
+<span className="gql-svc">corechangeset</span>
 </div>
 <p>A change to a single file within a repository changeset.</p>
 <table>
@@ -4556,10 +4614,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="marker" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>Marker</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>corechangeset</span>
+<div id="marker" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">Marker</span>
+<span className="gql-svc">corechangeset</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -4569,10 +4627,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="message" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>Message</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>moddy</span>
+<div id="message" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">Message</span>
+<span className="gql-svc">moddy</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -4585,10 +4643,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="organizationcommit" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>OrganizationCommit</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetcommitter</span>
+<div id="organizationcommit" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">OrganizationCommit</span>
+<span className="gql-svc">changesetcommitter</span>
 </div>
 <p>An organization-level commit operation represents applying changes across multiple repositories. Use `__typename` to determine the current state.</p>
 <table>
@@ -4604,10 +4662,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="pullrequestaction" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>PullRequestAction</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changelogreader</span>
+<div id="pullrequestaction" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">PullRequestAction</span>
+<span className="gql-svc">changelogreader</span>
 </div>
 <p>The state of an individual repository within a `BulkPullRequestAction`. Use `__typename` to determine the current state.</p>
 <table>
@@ -4618,10 +4676,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="recipebundle" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RecipeBundle</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetreader</span>
+<div id="recipebundle" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">RecipeBundle</span>
+<span className="gql-svc">changesetreader</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -4633,10 +4691,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="recipedetail" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RecipeDetail</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>recipemarketplace</span>
+<div id="recipedetail" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">RecipeDetail</span>
+<span className="gql-svc">recipemarketplace</span>
 </div>
 <p>State machine for recipe detail resolution. Querying the `detail` field on a RecipeDescriptor triggers background resolution of the full recipe bundle. Poll until `__typename` is `RecipeDetailFinished`.</p>
 <table>
@@ -4647,10 +4705,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="recipeinstallation" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RecipeInstallation</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>recipemarketplace</span>
+<div id="recipeinstallation" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">RecipeInstallation</span>
+<span className="gql-svc">recipemarketplace</span>
 </div>
 <p>Common fields for all recipe installation states. Use `__typename` to determine the current state.</p>
 <table>
@@ -4663,10 +4721,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="repositorychangeset" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RepositoryChangeset</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>corechangeset</span>
+<div id="repositorychangeset" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">RepositoryChangeset</span>
+<span className="gql-svc">corechangeset</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -4678,10 +4736,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="repositorycommit" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RepositoryCommit</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetcommitter</span>
+<div id="repositorycommit" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">RepositoryCommit</span>
+<span className="gql-svc">changesetcommitter</span>
 </div>
 <p>A commit result for a single repository within an organization-level commit operation. Use `__typename` to determine the current state.</p>
 <table>
@@ -4692,10 +4750,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="repositorycommitsucceeded" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RepositoryCommitSucceeded</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetcommitter</span>
+<div id="repositorycommitsucceeded" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">RepositoryCommitSucceeded</span>
+<span className="gql-svc">changesetcommitter</span>
 </div>
 <p>Repository commit completed successfully. Use `__typename` to determine the specific commit type.</p>
 <table>
@@ -4709,10 +4767,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="repositoryreciperun" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RepositoryRecipeRun</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetreader</span>
+<div id="repositoryreciperun" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">RepositoryRecipeRun</span>
+<span className="gql-svc">changesetreader</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -4725,10 +4783,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="scmconnection" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>ScmConnection</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>authz</span>
+<div id="scmconnection" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">ScmConnection</span>
+<span className="gql-svc">authz</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -4740,10 +4798,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="visualization" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>Visualization</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>corechangeset</span>
+<div id="visualization" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">Visualization</span>
+<span className="gql-svc">corechangeset</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -4754,10 +4812,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="visualizationoutput" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>VisualizationOutput</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetreader</span>
+<div id="visualizationoutput" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">VisualizationOutput</span>
+<span className="gql-svc">changesetreader</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -4769,10 +4827,10 @@ hide_title: true
 
 ### Enums
 
-<div id="accesstokenorderbyfield" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>AccessTokenOrderByField</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>authz</span>
+<div id="accesstokenorderbyfield" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">AccessTokenOrderByField</span>
+<span className="gql-svc">authz</span>
 </div>
 <ul>
   <li><code>CREATED</code></li>
@@ -4780,10 +4838,10 @@ hide_title: true
 </ul>
 </div>
 
-<div id="auditactiontype" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>AuditActionType</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>auditreader</span>
+<div id="auditactiontype" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">AuditActionType</span>
+<span className="gql-svc">auditreader</span>
 </div>
 <ul>
   <li><code>CREATE</code></li>
@@ -4793,10 +4851,10 @@ hide_title: true
 </ul>
 </div>
 
-<div id="auditlogexportformat" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>AuditLogExportFormat</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>auditreader</span>
+<div id="auditlogexportformat" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">AuditLogExportFormat</span>
+<span className="gql-svc">auditreader</span>
 </div>
 <ul>
   <li><code>CEF</code></li>
@@ -4804,10 +4862,10 @@ hide_title: true
 </ul>
 </div>
 
-<div id="auditlogorderbyfield" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>AuditLogOrderByField</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>auditreader</span>
+<div id="auditlogorderbyfield" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">AuditLogOrderByField</span>
+<span className="gql-svc">auditreader</span>
 </div>
 <ul>
   <li><code>TIMESTAMP</code></li>
@@ -4817,20 +4875,20 @@ hide_title: true
 </ul>
 </div>
 
-<div id="auditlogsdownloadorderbyfield" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>AuditLogsDownloadOrderByField</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>auditreader</span>
+<div id="auditlogsdownloadorderbyfield" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">AuditLogsDownloadOrderByField</span>
+<span className="gql-svc">auditreader</span>
 </div>
 <ul>
   <li><code>STARTED_AT</code></li>
 </ul>
 </div>
 
-<div id="auditoutcome" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>AuditOutcome</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>auditreader</span>
+<div id="auditoutcome" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">AuditOutcome</span>
+<span className="gql-svc">auditreader</span>
 </div>
 <ul>
   <li><code>SUCCESS</code></li>
@@ -4838,10 +4896,10 @@ hide_title: true
 </ul>
 </div>
 
-<div id="buildstate" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>BuildState</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changelogreader</span>
+<div id="buildstate" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">BuildState</span>
+<span className="gql-svc">changelogreader</span>
 </div>
 <ul>
   <li><code>PENDING</code></li>
@@ -4853,10 +4911,10 @@ hide_title: true
 </ul>
 </div>
 
-<div id="bulkpullrequestactionorderbyfield" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>BulkPullRequestActionOrderByField</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changelogreader</span>
+<div id="bulkpullrequestactionorderbyfield" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">BulkPullRequestActionOrderByField</span>
+<span className="gql-svc">changelogreader</span>
 </div>
 <ul>
   <li><code>CREATED_AT</code></li>
@@ -4865,10 +4923,10 @@ hide_title: true
 </ul>
 </div>
 
-<div id="bulkpullrequestactionstate" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>BulkPullRequestActionState</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changelogreader</span>
+<div id="bulkpullrequestactionstate" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">BulkPullRequestActionState</span>
+<span className="gql-svc">changelogreader</span>
 </div>
 <p>The lifecycle state of a `BulkPullRequestAction`. Matches the `__typename` of the concrete state types (Queued, Running, Finished, Canceled, Error).</p>
 <ul>
@@ -4880,10 +4938,10 @@ hide_title: true
 </ul>
 </div>
 
-<div id="changelogentryorderbyfield" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>ChangelogEntryOrderByField</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changelogreader</span>
+<div id="changelogentryorderbyfield" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">ChangelogEntryOrderByField</span>
+<span className="gql-svc">changelogreader</span>
 </div>
 <ul>
   <li><code>UPDATED_AT</code></li>
@@ -4893,10 +4951,10 @@ hide_title: true
 </ul>
 </div>
 
-<div id="changelogentrytype" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>ChangelogEntryType</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changelogreader</span>
+<div id="changelogentrytype" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">ChangelogEntryType</span>
+<span className="gql-svc">changelogreader</span>
 </div>
 <p>Discriminator for filtering by entry type.</p>
 <ul>
@@ -4905,10 +4963,10 @@ hide_title: true
 </ul>
 </div>
 
-<div id="changelogparticipantorderbyfield" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>ChangelogParticipantOrderByField</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changelogreader</span>
+<div id="changelogparticipantorderbyfield" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">ChangelogParticipantOrderByField</span>
+<span className="gql-svc">changelogreader</span>
 </div>
 <ul>
   <li><code>USERNAME</code></li>
@@ -4917,10 +4975,10 @@ hide_title: true
 </ul>
 </div>
 
-<div id="commitoption" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>CommitOption</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetcommitter</span>
+<div id="commitoption" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">CommitOption</span>
+<span className="gql-svc">changesetcommitter</span>
 </div>
 <ul>
   <li><code>DIRECT</code></li>
@@ -4932,10 +4990,10 @@ hide_title: true
 </ul>
 </div>
 
-<div id="connectororderbyfield" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>ConnectorOrderByField</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>gateway</span>
+<div id="connectororderbyfield" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">ConnectorOrderByField</span>
+<span className="gql-svc">gateway</span>
 </div>
 <ul>
   <li><code>NICKNAME</code></li>
@@ -4943,10 +5001,10 @@ hide_title: true
 </ul>
 </div>
 
-<div id="connectortooltype" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>ConnectorToolType</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>gateway</span>
+<div id="connectortooltype" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">ConnectorToolType</span>
+<span className="gql-svc">gateway</span>
 </div>
 <ul>
   <li><code>GITHUB</code></li>
@@ -4966,10 +5024,10 @@ hide_title: true
 </ul>
 </div>
 
-<div id="contributorrole" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>ContributorRole</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changelogreader</span>
+<div id="contributorrole" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">ContributorRole</span>
+<span className="gql-svc">changelogreader</span>
 </div>
 <p>The participant's role for filtering.</p>
 <ul>
@@ -4980,10 +5038,10 @@ hide_title: true
 </ul>
 </div>
 
-<div id="conversationorderbyfield" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>ConversationOrderByField</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>moddy</span>
+<div id="conversationorderbyfield" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">ConversationOrderByField</span>
+<span className="gql-svc">moddy</span>
 </div>
 <ul>
   <li><code>STARTED_AT</code></li>
@@ -4991,10 +5049,10 @@ hide_title: true
 </ul>
 </div>
 
-<div id="conversationphase" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>ConversationPhase</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>moddy</span>
+<div id="conversationphase" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">ConversationPhase</span>
+<span className="gql-svc">moddy</span>
 </div>
 <ul>
   <li><code>IDLE</code></li>
@@ -5005,10 +5063,10 @@ hide_title: true
 </ul>
 </div>
 
-<div id="datatableformat" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>DataTableFormat</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>corechangeset</span>
+<div id="datatableformat" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">DataTableFormat</span>
+<span className="gql-svc">corechangeset</span>
 </div>
 <ul>
   <li><code>CSV</code></li>
@@ -5016,10 +5074,10 @@ hide_title: true
 </ul>
 </div>
 
-<div id="datatableorderbyfield" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>DataTableOrderByField</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>corechangeset</span>
+<div id="datatableorderbyfield" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">DataTableOrderByField</span>
+<span className="gql-svc">corechangeset</span>
 </div>
 <ul>
   <li><code>DATA_TABLE</code></li>
@@ -5027,10 +5085,10 @@ hide_title: true
 </ul>
 </div>
 
-<div id="devcenteraggregation" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>DevCenterAggregation</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetreader</span>
+<div id="devcenteraggregation" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">DevCenterAggregation</span>
+<span className="gql-svc">changesetreader</span>
 </div>
 <p>How DevCenter card results are aggregated across repositories.</p>
 <ul>
@@ -5039,10 +5097,10 @@ hide_title: true
 </ul>
 </div>
 
-<div id="devcenterrunorderbyfield" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>DevCenterRunOrderByField</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetreader</span>
+<div id="devcenterrunorderbyfield" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">DevCenterRunOrderByField</span>
+<span className="gql-svc">changesetreader</span>
 </div>
 <ul>
   <li><code>STARTED_AT</code></li>
@@ -5050,10 +5108,10 @@ hide_title: true
 </ul>
 </div>
 
-<div id="devcenterrunstate" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>DevCenterRunState</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetreader</span>
+<div id="devcenterrunstate" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">DevCenterRunState</span>
+<span className="gql-svc">changesetreader</span>
 </div>
 <p>Execution state of a DevCenter run.</p>
 <ul>
@@ -5064,20 +5122,20 @@ hide_title: true
 </ul>
 </div>
 
-<div id="filechangeorderbyfield" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>FileChangeOrderByField</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>corechangeset</span>
+<div id="filechangeorderbyfield" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">FileChangeOrderByField</span>
+<span className="gql-svc">corechangeset</span>
 </div>
 <ul>
   <li><code>PATH</code></li>
 </ul>
 </div>
 
-<div id="imageformat" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>ImageFormat</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetreader</span>
+<div id="imageformat" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">ImageFormat</span>
+<span className="gql-svc">changesetreader</span>
 </div>
 <ul>
   <li><code>SVG</code></li>
@@ -5087,10 +5145,10 @@ hide_title: true
 </ul>
 </div>
 
-<div id="llmprovider" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>LlmProvider</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>gateway</span>
+<div id="llmprovider" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">LlmProvider</span>
+<span className="gql-svc">gateway</span>
 </div>
 <ul>
   <li><code>ANTHROPIC</code></li>
@@ -5100,10 +5158,10 @@ hide_title: true
 </ul>
 </div>
 
-<div id="markuplevel" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>MarkupLevel</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>corechangeset</span>
+<div id="markuplevel" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">MarkupLevel</span>
+<span className="gql-svc">corechangeset</span>
 </div>
 <ul>
   <li><code>DEBUG</code></li>
@@ -5114,10 +5172,10 @@ hide_title: true
 </ul>
 </div>
 
-<div id="mergemethod" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>MergeMethod</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changelogreader</span>
+<div id="mergemethod" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">MergeMethod</span>
+<span className="gql-svc">changelogreader</span>
 </div>
 <ul>
   <li><code>MERGE</code></li>
@@ -5126,10 +5184,10 @@ hide_title: true
 </ul>
 </div>
 
-<div id="mergeable" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>Mergeable</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetcommitter</span>
+<div id="mergeable" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">Mergeable</span>
+<span className="gql-svc">changesetcommitter</span>
 </div>
 <ul>
   <li><code>MERGEABLE</code></li>
@@ -5138,10 +5196,10 @@ hide_title: true
 </ul>
 </div>
 
-<div id="messagestate" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>MessageState</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>moddy</span>
+<div id="messagestate" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">MessageState</span>
+<span className="gql-svc">moddy</span>
 </div>
 <ul>
   <li><code>IN_PROGRESS</code></li>
@@ -5149,10 +5207,10 @@ hide_title: true
 </ul>
 </div>
 
-<div id="organizationchangesetorderbyfield" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>OrganizationChangesetOrderByField</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>corechangeset</span>
+<div id="organizationchangesetorderbyfield" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">OrganizationChangesetOrderByField</span>
+<span className="gql-svc">corechangeset</span>
 </div>
 <ul>
   <li><code>CREATED_AT</code></li>
@@ -5161,10 +5219,10 @@ hide_title: true
 </ul>
 </div>
 
-<div id="organizationchangesettype" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>OrganizationChangesetType</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>corechangeset</span>
+<div id="organizationchangesettype" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">OrganizationChangesetType</span>
+<span className="gql-svc">corechangeset</span>
 </div>
 <ul>
   <li><code>RECIPE_RUN</code></li>
@@ -5172,30 +5230,30 @@ hide_title: true
 </ul>
 </div>
 
-<div id="organizationcommitorderbyfield" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>OrganizationCommitOrderByField</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetcommitter</span>
+<div id="organizationcommitorderbyfield" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">OrganizationCommitOrderByField</span>
+<span className="gql-svc">changesetcommitter</span>
 </div>
 <ul>
   <li><code>STARTED_AT</code></li>
 </ul>
 </div>
 
-<div id="organizationorderbyfield" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>OrganizationOrderByField</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>organization</span>
+<div id="organizationorderbyfield" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">OrganizationOrderByField</span>
+<span className="gql-svc">organization</span>
 </div>
 <ul>
   <li><code>NAME</code></li>
 </ul>
 </div>
 
-<div id="organizationreciperunorderbyfield" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>OrganizationRecipeRunOrderByField</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetreader</span>
+<div id="organizationreciperunorderbyfield" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">OrganizationRecipeRunOrderByField</span>
+<span className="gql-svc">changesetreader</span>
 </div>
 <ul>
   <li><code>STARTED_AT</code></li>
@@ -5205,10 +5263,10 @@ hide_title: true
 </ul>
 </div>
 
-<div id="organizationreciperunstate" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>OrganizationRecipeRunState</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetreader</span>
+<div id="organizationreciperunstate" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">OrganizationRecipeRunState</span>
+<span className="gql-svc">changesetreader</span>
 </div>
 <ul>
   <li><code>QUEUED</code></li>
@@ -5220,10 +5278,10 @@ hide_title: true
 </ul>
 </div>
 
-<div id="profilingevent" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>ProfilingEvent</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>gateway</span>
+<div id="profilingevent" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">ProfilingEvent</span>
+<span className="gql-svc">gateway</span>
 </div>
 <p>The primary event the Pyroscope agent samples on. async-profiler can only collect one of these at a time as the primary event; alloc and lock sampling run on separate channels and are always on.</p>
 <ul>
@@ -5232,10 +5290,10 @@ hide_title: true
 </ul>
 </div>
 
-<div id="pullrequestactionorderbyfield" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>PullRequestActionOrderByField</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changelogreader</span>
+<div id="pullrequestactionorderbyfield" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">PullRequestActionOrderByField</span>
+<span className="gql-svc">changelogreader</span>
 </div>
 <ul>
   <li><code>REPOSITORY_PATH</code></li>
@@ -5244,10 +5302,10 @@ hide_title: true
 </ul>
 </div>
 
-<div id="pullrequestactionstate" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>PullRequestActionState</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changelogreader</span>
+<div id="pullrequestactionstate" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">PullRequestActionState</span>
+<span className="gql-svc">changelogreader</span>
 </div>
 <ul>
   <li><code>QUEUED</code></li>
@@ -5258,10 +5316,10 @@ hide_title: true
 </ul>
 </div>
 
-<div id="pullrequestactiontype" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>PullRequestActionType</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changelogreader</span>
+<div id="pullrequestactiontype" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">PullRequestActionType</span>
+<span className="gql-svc">changelogreader</span>
 </div>
 <ul>
   <li><code>APPROVE</code></li>
@@ -5270,10 +5328,10 @@ hide_title: true
 </ul>
 </div>
 
-<div id="pullrequeststate" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>PullRequestState</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changelogreader</span>
+<div id="pullrequeststate" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">PullRequestState</span>
+<span className="gql-svc">changelogreader</span>
 </div>
 <ul>
   <li><code>OPEN</code></li>
@@ -5283,10 +5341,10 @@ hide_title: true
 </ul>
 </div>
 
-<div id="recipebundleorderbyfield" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RecipeBundleOrderByField</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>recipemarketplace</span>
+<div id="recipebundleorderbyfield" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">RecipeBundleOrderByField</span>
+<span className="gql-svc">recipemarketplace</span>
 </div>
 <ul>
   <li><code>PACKAGE_NAME</code></li>
@@ -5296,10 +5354,10 @@ hide_title: true
 </ul>
 </div>
 
-<div id="recipecategoryorderbyfield" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RecipeCategoryOrderByField</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>recipemarketplace</span>
+<div id="recipecategoryorderbyfield" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">RecipeCategoryOrderByField</span>
+<span className="gql-svc">recipemarketplace</span>
 </div>
 <ul>
   <li><code>DISPLAY_NAME</code></li>
@@ -5307,10 +5365,10 @@ hide_title: true
 </ul>
 </div>
 
-<div id="recipeecosystem" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RecipeEcosystem</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>recipemarketplace</span>
+<div id="recipeecosystem" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">RecipeEcosystem</span>
+<span className="gql-svc">recipemarketplace</span>
 </div>
 <ul>
   <li><code>Maven</code></li>
@@ -5322,10 +5380,10 @@ hide_title: true
 </ul>
 </div>
 
-<div id="recipegraphedgetype" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RecipeGraphEdgeType</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>recipemarketplace</span>
+<div id="recipegraphedgetype" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">RecipeGraphEdgeType</span>
+<span className="gql-svc">recipemarketplace</span>
 </div>
 <ul>
   <li><code>RECIPE</code></li>
@@ -5334,10 +5392,10 @@ hide_title: true
 </ul>
 </div>
 
-<div id="recipeinstallationorderbyfield" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RecipeInstallationOrderByField</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>recipemarketplace</span>
+<div id="recipeinstallationorderbyfield" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">RecipeInstallationOrderByField</span>
+<span className="gql-svc">recipemarketplace</span>
 </div>
 <ul>
   <li><code>STARTED_AT</code></li>
@@ -5345,10 +5403,10 @@ hide_title: true
 </ul>
 </div>
 
-<div id="recipeinstallationstatus" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RecipeInstallationStatus</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>recipemarketplace</span>
+<div id="recipeinstallationstatus" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">RecipeInstallationStatus</span>
+<span className="gql-svc">recipemarketplace</span>
 </div>
 <ul>
   <li><code>QUEUED</code></li>
@@ -5358,10 +5416,10 @@ hide_title: true
 </ul>
 </div>
 
-<div id="recipeorderbyfield" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RecipeOrderByField</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>recipemarketplace</span>
+<div id="recipeorderbyfield" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">RecipeOrderByField</span>
+<span className="gql-svc">recipemarketplace</span>
 </div>
 <ul>
   <li><code>ID</code></li>
@@ -5371,10 +5429,10 @@ hide_title: true
 </ul>
 </div>
 
-<div id="reciperunpriority" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RecipeRunPriority</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetreader</span>
+<div id="reciperunpriority" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">RecipeRunPriority</span>
+<span className="gql-svc">changesetreader</span>
 </div>
 <p>Priority level for recipe runs. HIGH priority runs target small organizations (≤100 repositories). LOW priority runs target large organizations (>100 repositories).</p>
 <ul>
@@ -5383,10 +5441,10 @@ hide_title: true
 </ul>
 </div>
 
-<div id="repositorychangesetorderbyfield" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RepositoryChangesetOrderByField</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>corechangeset</span>
+<div id="repositorychangesetorderbyfield" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">RepositoryChangesetOrderByField</span>
+<span className="gql-svc">corechangeset</span>
 </div>
 <ul>
   <li><code>PATH</code></li>
@@ -5396,10 +5454,10 @@ hide_title: true
 </ul>
 </div>
 
-<div id="repositorychangesetstate" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RepositoryChangesetState</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetcommitter</span>
+<div id="repositorychangesetstate" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">RepositoryChangesetState</span>
+<span className="gql-svc">changesetcommitter</span>
 </div>
 <p>Result state of a repository within a changeset.</p>
 <ul>
@@ -5412,20 +5470,20 @@ hide_title: true
 </ul>
 </div>
 
-<div id="repositorycommitorderbyfield" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RepositoryCommitOrderByField</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetcommitter</span>
+<div id="repositorycommitorderbyfield" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">RepositoryCommitOrderByField</span>
+<span className="gql-svc">changesetcommitter</span>
 </div>
 <ul>
   <li><code>STARTED_AT</code></li>
 </ul>
 </div>
 
-<div id="repositoryerrorreason" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RepositoryErrorReason</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetreader</span>
+<div id="repositoryerrorreason" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">RepositoryErrorReason</span>
+<span className="gql-svc">changesetreader</span>
 </div>
 <ul>
   <li><code>FAILED_LOAD_AST</code></li>
@@ -5435,10 +5493,10 @@ hide_title: true
 </ul>
 </div>
 
-<div id="repositoryorderbyfield" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RepositoryOrderByField</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>organization</span>
+<div id="repositoryorderbyfield" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">RepositoryOrderByField</span>
+<span className="gql-svc">organization</span>
 </div>
 <ul>
   <li><code>ORIGIN</code></li>
@@ -5449,10 +5507,10 @@ hide_title: true
 </ul>
 </div>
 
-<div id="repositoryreciperunorderbyfield" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RepositoryRecipeRunOrderByField</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetreader</span>
+<div id="repositoryreciperunorderbyfield" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">RepositoryRecipeRunOrderByField</span>
+<span className="gql-svc">changesetreader</span>
 </div>
 <ul>
   <li><code>PATH</code></li>
@@ -5461,10 +5519,10 @@ hide_title: true
 </ul>
 </div>
 
-<div id="repositorysyncstatus" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RepositorySyncStatus</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>corechangeset</span>
+<div id="repositorysyncstatus" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">RepositorySyncStatus</span>
+<span className="gql-svc">corechangeset</span>
 </div>
 <p>Sync status of a repository within a recipe run. Tracks whether the repository has been synced (cloned + LST downloaded) before the recipe execution phase begins.</p>
 <p>`SKIPPED` indicates the CLI elected not to sync the repository — typically because there is no LST available to fetch — and is distinct from `FAILED`, which indicates an actual error during the sync attempt. `CANCELED` is set when sync was interrupted (e.g., the run was canceled before the repository's sync completed).</p>
@@ -5477,10 +5535,10 @@ hide_title: true
 </ul>
 </div>
 
-<div id="reviewdecision" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>ReviewDecision</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changelogreader</span>
+<div id="reviewdecision" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">ReviewDecision</span>
+<span className="gql-svc">changelogreader</span>
 </div>
 <ul>
   <li><code>APPROVED</code></li>
@@ -5491,10 +5549,10 @@ hide_title: true
 </ul>
 </div>
 
-<div id="scmtype" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>ScmType</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>authz</span>
+<div id="scmtype" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">ScmType</span>
+<span className="gql-svc">authz</span>
 </div>
 <ul>
   <li><code>GITHUB</code></li>
@@ -5505,10 +5563,10 @@ hide_title: true
 </ul>
 </div>
 
-<div id="sortorder" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>SortOrder</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>coregraphql</span>
+<div id="sortorder" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">SortOrder</span>
+<span className="gql-svc">coregraphql</span>
 </div>
 <ul>
   <li><code>ASC</code></li>
@@ -5516,10 +5574,10 @@ hide_title: true
 </ul>
 </div>
 
-<div id="userorderbyfield" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>UserOrderByField</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>authz</span>
+<div id="userorderbyfield" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">UserOrderByField</span>
+<span className="gql-svc">authz</span>
 </div>
 <ul>
   <li><code>EMAIL</code></li>
@@ -5529,10 +5587,10 @@ hide_title: true
 </ul>
 </div>
 
-<div id="userrole" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>UserRole</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>authz</span>
+<div id="userrole" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">UserRole</span>
+<span className="gql-svc">authz</span>
 </div>
 <ul>
   <li><code>ADMIN</code></li>
@@ -5540,10 +5598,10 @@ hide_title: true
 </ul>
 </div>
 
-<div id="visualizationorderbyfield" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>VisualizationOrderByField</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>corechangeset</span>
+<div id="visualizationorderbyfield" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">VisualizationOrderByField</span>
+<span className="gql-svc">corechangeset</span>
 </div>
 <ul>
   <li><code>VISUALIZATION</code></li>
@@ -5551,10 +5609,10 @@ hide_title: true
 </ul>
 </div>
 
-<div id="visualizationrepositoryrunstate" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>VisualizationRepositoryRunState</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetreader</span>
+<div id="visualizationrepositoryrunstate" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">VisualizationRepositoryRunState</span>
+<span className="gql-svc">changesetreader</span>
 </div>
 <ul>
   <li><code>QUEUED</code></li>
@@ -5568,10 +5626,10 @@ hide_title: true
 
 ### Input types
 
-<div id="accesstokenorderbyinput" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>AccessTokenOrderByInput</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>authz</span>
+<div id="accesstokenorderbyinput" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">AccessTokenOrderByInput</span>
+<span className="gql-svc">authz</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -5582,10 +5640,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="accesstokenwhereinput" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>AccessTokenWhereInput</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>authz</span>
+<div id="accesstokenwhereinput" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">AccessTokenWhereInput</span>
+<span className="gql-svc">authz</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -5600,10 +5658,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="auditactiontypefilter" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>AuditActionTypeFilter</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>auditreader</span>
+<div id="auditactiontypefilter" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">AuditActionTypeFilter</span>
+<span className="gql-svc">auditreader</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -5616,10 +5674,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="auditlogexportformatfilter" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>AuditLogExportFormatFilter</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>auditreader</span>
+<div id="auditlogexportformatfilter" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">AuditLogExportFormatFilter</span>
+<span className="gql-svc">auditreader</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -5632,10 +5690,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="auditlogorderbyinput" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>AuditLogOrderByInput</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>auditreader</span>
+<div id="auditlogorderbyinput" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">AuditLogOrderByInput</span>
+<span className="gql-svc">auditreader</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -5646,10 +5704,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="auditlogwhereinput" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>AuditLogWhereInput</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>auditreader</span>
+<div id="auditlogwhereinput" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">AuditLogWhereInput</span>
+<span className="gql-svc">auditreader</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -5668,10 +5726,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="auditlogsdownloadorderbyinput" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>AuditLogsDownloadOrderByInput</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>auditreader</span>
+<div id="auditlogsdownloadorderbyinput" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">AuditLogsDownloadOrderByInput</span>
+<span className="gql-svc">auditreader</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -5682,10 +5740,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="auditlogsdownloadwhereinput" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>AuditLogsDownloadWhereInput</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>auditreader</span>
+<div id="auditlogsdownloadwhereinput" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">AuditLogsDownloadWhereInput</span>
+<span className="gql-svc">auditreader</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -5699,10 +5757,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="auditoutcomefilter" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>AuditOutcomeFilter</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>auditreader</span>
+<div id="auditoutcomefilter" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">AuditOutcomeFilter</span>
+<span className="gql-svc">auditreader</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -5713,10 +5771,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="booleanfilter" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>BooleanFilter</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>coregraphql</span>
+<div id="booleanfilter" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">BooleanFilter</span>
+<span className="gql-svc">coregraphql</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -5727,10 +5785,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="buildstatefilter" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>BuildStateFilter</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changelogreader</span>
+<div id="buildstatefilter" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">BuildStateFilter</span>
+<span className="gql-svc">changelogreader</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -5743,10 +5801,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="bulkpullrequestactionorderbyinput" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>BulkPullRequestActionOrderByInput</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changelogreader</span>
+<div id="bulkpullrequestactionorderbyinput" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">BulkPullRequestActionOrderByInput</span>
+<span className="gql-svc">changelogreader</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -5757,10 +5815,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="bulkpullrequestactionstatefilter" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>BulkPullRequestActionStateFilter</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changelogreader</span>
+<div id="bulkpullrequestactionstatefilter" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">BulkPullRequestActionStateFilter</span>
+<span className="gql-svc">changelogreader</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -5773,10 +5831,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="bulkpullrequestactionwhereinput" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>BulkPullRequestActionWhereInput</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changelogreader</span>
+<div id="bulkpullrequestactionwhereinput" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">BulkPullRequestActionWhereInput</span>
+<span className="gql-svc">changelogreader</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -5792,10 +5850,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="changelogauthorwhereinput" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>ChangelogAuthorWhereInput</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changelogreader</span>
+<div id="changelogauthorwhereinput" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">ChangelogAuthorWhereInput</span>
+<span className="gql-svc">changelogreader</span>
 </div>
 <p>Filter by changelog author.</p>
 <table>
@@ -5812,10 +5870,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="changelogentryorderbyinput" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>ChangelogEntryOrderByInput</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changelogreader</span>
+<div id="changelogentryorderbyinput" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">ChangelogEntryOrderByInput</span>
+<span className="gql-svc">changelogreader</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -5826,10 +5884,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="changelogentrytypefilter" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>ChangelogEntryTypeFilter</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changelogreader</span>
+<div id="changelogentrytypefilter" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">ChangelogEntryTypeFilter</span>
+<span className="gql-svc">changelogreader</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -5842,10 +5900,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="changelogentrywhereinput" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>ChangelogEntryWhereInput</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changelogreader</span>
+<div id="changelogentrywhereinput" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">ChangelogEntryWhereInput</span>
+<span className="gql-svc">changelogreader</span>
 </div>
 <p>Filter input for changelog entries.</p>
 <table>
@@ -5869,10 +5927,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="changelogparticipantorderbyinput" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>ChangelogParticipantOrderByInput</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changelogreader</span>
+<div id="changelogparticipantorderbyinput" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">ChangelogParticipantOrderByInput</span>
+<span className="gql-svc">changelogreader</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -5883,10 +5941,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="changelogparticipantwhereinput" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>ChangelogParticipantWhereInput</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changelogreader</span>
+<div id="changelogparticipantwhereinput" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">ChangelogParticipantWhereInput</span>
+<span className="gql-svc">changelogreader</span>
 </div>
 <p>Filter input for participants.</p>
 <table>
@@ -5904,10 +5962,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="commitinput" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>CommitInput</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetcommitter</span>
+<div id="commitinput" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">CommitInput</span>
+<span className="gql-svc">changesetcommitter</span>
 </div>
 <p>Input for creating a commit from a changeset.</p>
 <table>
@@ -5927,10 +5985,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="commitstrategyinput" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>CommitStrategyInput</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetcommitter</span>
+<div id="commitstrategyinput" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">CommitStrategyInput</span>
+<span className="gql-svc">changesetcommitter</span>
 </div>
 <p>Commit delivery strategy. Choose one option.</p>
 <table>
@@ -5944,10 +6002,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="connectororderbyinput" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>ConnectorOrderByInput</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>gateway</span>
+<div id="connectororderbyinput" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">ConnectorOrderByInput</span>
+<span className="gql-svc">gateway</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -5958,10 +6016,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="connectortooltypefilter" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>ConnectorToolTypeFilter</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>gateway</span>
+<div id="connectortooltypefilter" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">ConnectorToolTypeFilter</span>
+<span className="gql-svc">gateway</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -5972,10 +6030,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="connectorwhereinput" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>ConnectorWhereInput</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>gateway</span>
+<div id="connectorwhereinput" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">ConnectorWhereInput</span>
+<span className="gql-svc">gateway</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -5991,10 +6049,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="conversationorderbyinput" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>ConversationOrderByInput</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>moddy</span>
+<div id="conversationorderbyinput" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">ConversationOrderByInput</span>
+<span className="gql-svc">moddy</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -6005,10 +6063,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="conversationwhereinput" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>ConversationWhereInput</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>moddy</span>
+<div id="conversationwhereinput" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">ConversationWhereInput</span>
+<span className="gql-svc">moddy</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -6024,10 +6082,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="createconversationinput" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>CreateConversationInput</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>moddy</span>
+<div id="createconversationinput" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">CreateConversationInput</span>
+<span className="gql-svc">moddy</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -6038,10 +6096,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="createuserorganizationinput" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>CreateUserOrganizationInput</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>organization</span>
+<div id="createuserorganizationinput" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">CreateUserOrganizationInput</span>
+<span className="gql-svc">organization</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -6052,10 +6110,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="datatableformatfilter" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>DataTableFormatFilter</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>corechangeset</span>
+<div id="datatableformatfilter" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">DataTableFormatFilter</span>
+<span className="gql-svc">corechangeset</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -6068,10 +6126,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="datatableorderbyinput" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>DataTableOrderByInput</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>corechangeset</span>
+<div id="datatableorderbyinput" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">DataTableOrderByInput</span>
+<span className="gql-svc">corechangeset</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -6082,10 +6140,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="datatablewhereinput" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>DataTableWhereInput</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>corechangeset</span>
+<div id="datatablewhereinput" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">DataTableWhereInput</span>
+<span className="gql-svc">corechangeset</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -6101,10 +6159,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="datetimefilter" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>DateTimeFilter</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>coregraphql</span>
+<div id="datetimefilter" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">DateTimeFilter</span>
+<span className="gql-svc">coregraphql</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -6119,10 +6177,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="devcenterrunorderbyinput" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>DevCenterRunOrderByInput</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetreader</span>
+<div id="devcenterrunorderbyinput" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">DevCenterRunOrderByInput</span>
+<span className="gql-svc">changesetreader</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -6133,10 +6191,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="devcenterrunstatefilter" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>DevCenterRunStateFilter</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetreader</span>
+<div id="devcenterrunstatefilter" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">DevCenterRunStateFilter</span>
+<span className="gql-svc">changesetreader</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -6149,10 +6207,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="devcenterrunwhereinput" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>DevCenterRunWhereInput</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetreader</span>
+<div id="devcenterrunwhereinput" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">DevCenterRunWhereInput</span>
+<span className="gql-svc">changesetreader</span>
 </div>
 <p>Filter input for DevCenter run queries.</p>
 <table>
@@ -6168,10 +6226,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="directcommitinput" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>DirectCommitInput</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetcommitter</span>
+<div id="directcommitinput" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">DirectCommitInput</span>
+<span className="gql-svc">changesetcommitter</span>
 </div>
 <p>Direct commit to origin. No additional options required.</p>
 <table>
@@ -6182,10 +6240,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="exchangeauthorizationcodeinput" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>ExchangeAuthorizationCodeInput</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>authz</span>
+<div id="exchangeauthorizationcodeinput" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">ExchangeAuthorizationCodeInput</span>
+<span className="gql-svc">authz</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -6197,10 +6255,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="filechangeorderbyinput" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>FileChangeOrderByInput</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>corechangeset</span>
+<div id="filechangeorderbyinput" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">FileChangeOrderByInput</span>
+<span className="gql-svc">corechangeset</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -6211,10 +6269,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="filechangewhereinput" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>FileChangeWhereInput</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetcommitter</span>
+<div id="filechangewhereinput" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">FileChangeWhereInput</span>
+<span className="gql-svc">changesetcommitter</span>
 </div>
 <p>Filter for file changes.</p>
 <table>
@@ -6228,10 +6286,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="forkandpullrequestcommitinput" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>ForkAndPullRequestCommitInput</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetcommitter</span>
+<div id="forkandpullrequestcommitinput" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">ForkAndPullRequestCommitInput</span>
+<span className="gql-svc">changesetcommitter</span>
 </div>
 <p>Create a pull request from a branch on a fork.</p>
 <table>
@@ -6249,10 +6307,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="forkcommitinput" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>ForkCommitInput</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetcommitter</span>
+<div id="forkcommitinput" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">ForkCommitInput</span>
+<span className="gql-svc">changesetcommitter</span>
 </div>
 <p>Commit to a fork of the origin repository.</p>
 <table>
@@ -6264,10 +6322,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="gorecipebundleinput" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>GoRecipeBundleInput</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>recipemarketplace</span>
+<div id="gorecipebundleinput" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">GoRecipeBundleInput</span>
+<span className="gql-svc">recipemarketplace</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -6278,10 +6336,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="gpginput" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>GpgInput</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetcommitter</span>
+<div id="gpginput" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">GpgInput</span>
+<span className="gql-svc">changesetcommitter</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -6293,10 +6351,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="idfilter" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>IDFilter</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>coregraphql</span>
+<div id="idfilter" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">IDFilter</span>
+<span className="gql-svc">coregraphql</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -6309,10 +6367,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="initiateauthorizationinput" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>InitiateAuthorizationInput</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>authz</span>
+<div id="initiateauthorizationinput" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">InitiateAuthorizationInput</span>
+<span className="gql-svc">authz</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -6323,10 +6381,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="intfilter" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>IntFilter</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>coregraphql</span>
+<div id="intfilter" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">IntFilter</span>
+<span className="gql-svc">coregraphql</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -6341,10 +6399,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="lstartifactwhereinput" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>LstArtifactWhereInput</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>organization</span>
+<div id="lstartifactwhereinput" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">LstArtifactWhereInput</span>
+<span className="gql-svc">organization</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -6358,10 +6416,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="mavenrecipebundleinput" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>MavenRecipeBundleInput</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>recipemarketplace</span>
+<div id="mavenrecipebundleinput" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">MavenRecipeBundleInput</span>
+<span className="gql-svc">recipemarketplace</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -6373,10 +6431,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="npmrecipebundleinput" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>NpmRecipeBundleInput</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>recipemarketplace</span>
+<div id="npmrecipebundleinput" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">NpmRecipeBundleInput</span>
+<span className="gql-svc">recipemarketplace</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -6387,10 +6445,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="nugetrecipebundleinput" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>NugetRecipeBundleInput</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>recipemarketplace</span>
+<div id="nugetrecipebundleinput" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">NugetRecipeBundleInput</span>
+<span className="gql-svc">recipemarketplace</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -6401,10 +6459,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="organizationchangesetorderbyinput" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>OrganizationChangesetOrderByInput</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>corechangeset</span>
+<div id="organizationchangesetorderbyinput" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">OrganizationChangesetOrderByInput</span>
+<span className="gql-svc">corechangeset</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -6415,10 +6473,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="organizationchangesettypefilter" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>OrganizationChangesetTypeFilter</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>corechangeset</span>
+<div id="organizationchangesettypefilter" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">OrganizationChangesetTypeFilter</span>
+<span className="gql-svc">corechangeset</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -6431,10 +6489,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="organizationchangesetwhereinput" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>OrganizationChangesetWhereInput</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>corechangeset</span>
+<div id="organizationchangesetwhereinput" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">OrganizationChangesetWhereInput</span>
+<span className="gql-svc">corechangeset</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -6450,10 +6508,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="organizationcommitorderbyinput" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>OrganizationCommitOrderByInput</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetcommitter</span>
+<div id="organizationcommitorderbyinput" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">OrganizationCommitOrderByInput</span>
+<span className="gql-svc">changesetcommitter</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -6464,10 +6522,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="organizationcommitwhereinput" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>OrganizationCommitWhereInput</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetcommitter</span>
+<div id="organizationcommitwhereinput" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">OrganizationCommitWhereInput</span>
+<span className="gql-svc">changesetcommitter</span>
 </div>
 <p>Filter input for organization-level commit queries.</p>
 <table>
@@ -6482,10 +6540,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="organizationorderbyinput" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>OrganizationOrderByInput</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>organization</span>
+<div id="organizationorderbyinput" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">OrganizationOrderByInput</span>
+<span className="gql-svc">organization</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -6496,10 +6554,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="organizationreciperunorderbyinput" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>OrganizationRecipeRunOrderByInput</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetreader</span>
+<div id="organizationreciperunorderbyinput" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">OrganizationRecipeRunOrderByInput</span>
+<span className="gql-svc">changesetreader</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -6510,10 +6568,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="organizationreciperunstatefilter" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>OrganizationRecipeRunStateFilter</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetreader</span>
+<div id="organizationreciperunstatefilter" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">OrganizationRecipeRunStateFilter</span>
+<span className="gql-svc">changesetreader</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -6526,10 +6584,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="organizationreciperunwhereinput" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>OrganizationRecipeRunWhereInput</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetreader</span>
+<div id="organizationreciperunwhereinput" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">OrganizationRecipeRunWhereInput</span>
+<span className="gql-svc">changesetreader</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -6545,10 +6603,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="organizationwhereinput" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>OrganizationWhereInput</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>organization</span>
+<div id="organizationwhereinput" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">OrganizationWhereInput</span>
+<span className="gql-svc">organization</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -6562,10 +6620,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="pathfilter" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>PathFilter</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>coregraphql</span>
+<div id="pathfilter" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">PathFilter</span>
+<span className="gql-svc">coregraphql</span>
 </div>
 <p>Filter for file paths using glob patterns.</p>
 <table>
@@ -6579,10 +6637,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="piprecipebundleinput" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>PipRecipeBundleInput</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>recipemarketplace</span>
+<div id="piprecipebundleinput" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">PipRecipeBundleInput</span>
+<span className="gql-svc">recipemarketplace</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -6593,10 +6651,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="pullrequestactionorderbyinput" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>PullRequestActionOrderByInput</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changelogreader</span>
+<div id="pullrequestactionorderbyinput" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">PullRequestActionOrderByInput</span>
+<span className="gql-svc">changelogreader</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -6607,10 +6665,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="pullrequestactionstatefilter" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>PullRequestActionStateFilter</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changelogreader</span>
+<div id="pullrequestactionstatefilter" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">PullRequestActionStateFilter</span>
+<span className="gql-svc">changelogreader</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -6623,10 +6681,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="pullrequestactiontypefilter" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>PullRequestActionTypeFilter</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changelogreader</span>
+<div id="pullrequestactiontypefilter" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">PullRequestActionTypeFilter</span>
+<span className="gql-svc">changelogreader</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -6639,10 +6697,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="pullrequestactionwhereinput" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>PullRequestActionWhereInput</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changelogreader</span>
+<div id="pullrequestactionwhereinput" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">PullRequestActionWhereInput</span>
+<span className="gql-svc">changelogreader</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -6655,10 +6713,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="pullrequestcommitinput" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>PullRequestCommitInput</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetcommitter</span>
+<div id="pullrequestcommitinput" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">PullRequestCommitInput</span>
+<span className="gql-svc">changesetcommitter</span>
 </div>
 <p>Create a pull request from a branch on the origin remote.</p>
 <table>
@@ -6673,10 +6731,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="pullrequestinput" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>PullRequestInput</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changelogreader</span>
+<div id="pullrequestinput" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">PullRequestInput</span>
+<span className="gql-svc">changelogreader</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -6687,10 +6745,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="pullrequestselectioninput" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>PullRequestSelectionInput</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changelogreader</span>
+<div id="pullrequestselectioninput" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">PullRequestSelectionInput</span>
+<span className="gql-svc">changelogreader</span>
 </div>
 <p>Selects pull requests for a bulk action.</p>
 <p>The `where` filter defines a base set of matching PRs. The optional `pullRequests` modifier can include or exclude specific PRs from that base set.</p>
@@ -6704,10 +6762,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="pullrequestselectionmodifier" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>PullRequestSelectionModifier</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changelogreader</span>
+<div id="pullrequestselectionmodifier" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">PullRequestSelectionModifier</span>
+<span className="gql-svc">changelogreader</span>
 </div>
 <p>Modifies a PR selection by either including or excluding specific PRs. Exactly one field must be set.</p>
 <table>
@@ -6719,10 +6777,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="pullrequeststatefilter" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>PullRequestStateFilter</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changelogreader</span>
+<div id="pullrequeststatefilter" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">PullRequestStateFilter</span>
+<span className="gql-svc">changelogreader</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -6735,10 +6793,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="recipebundleinput" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RecipeBundleInput</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>recipemarketplace</span>
+<div id="recipebundleinput" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">RecipeBundleInput</span>
+<span className="gql-svc">recipemarketplace</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -6753,10 +6811,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="recipebundleorderbyinput" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RecipeBundleOrderByInput</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>recipemarketplace</span>
+<div id="recipebundleorderbyinput" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">RecipeBundleOrderByInput</span>
+<span className="gql-svc">recipemarketplace</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -6767,10 +6825,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="recipebundlewhereinput" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RecipeBundleWhereInput</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>recipemarketplace</span>
+<div id="recipebundlewhereinput" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">RecipeBundleWhereInput</span>
+<span className="gql-svc">recipemarketplace</span>
 </div>
 <p>Filter input for RecipeBundle queries.</p>
 <table>
@@ -6787,10 +6845,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="recipecategoryorderbyinput" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RecipeCategoryOrderByInput</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>recipemarketplace</span>
+<div id="recipecategoryorderbyinput" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">RecipeCategoryOrderByInput</span>
+<span className="gql-svc">recipemarketplace</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -6801,10 +6859,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="recipecategorywhereinput" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RecipeCategoryWhereInput</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>recipemarketplace</span>
+<div id="recipecategorywhereinput" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">RecipeCategoryWhereInput</span>
+<span className="gql-svc">recipemarketplace</span>
 </div>
 <p>Filter input for RecipeCategory queries.</p>
 <table>
@@ -6820,10 +6878,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="recipeecosystemfilter" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RecipeEcosystemFilter</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>recipemarketplace</span>
+<div id="recipeecosystemfilter" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">RecipeEcosystemFilter</span>
+<span className="gql-svc">recipemarketplace</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -6836,10 +6894,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="recipeinput" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RecipeInput</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>recipeworker</span>
+<div id="recipeinput" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">RecipeInput</span>
+<span className="gql-svc">recipeworker</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -6850,10 +6908,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="recipeinstallationorderbyinput" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RecipeInstallationOrderByInput</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>recipemarketplace</span>
+<div id="recipeinstallationorderbyinput" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">RecipeInstallationOrderByInput</span>
+<span className="gql-svc">recipemarketplace</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -6864,10 +6922,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="recipeinstallationstatusfilter" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RecipeInstallationStatusFilter</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>recipemarketplace</span>
+<div id="recipeinstallationstatusfilter" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">RecipeInstallationStatusFilter</span>
+<span className="gql-svc">recipemarketplace</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -6880,10 +6938,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="recipeinstallationwhereinput" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RecipeInstallationWhereInput</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>recipemarketplace</span>
+<div id="recipeinstallationwhereinput" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">RecipeInstallationWhereInput</span>
+<span className="gql-svc">recipemarketplace</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -6901,10 +6959,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="recipeoptioninput" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RecipeOptionInput</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>recipeworker</span>
+<div id="recipeoptioninput" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">RecipeOptionInput</span>
+<span className="gql-svc">recipeworker</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -6915,10 +6973,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="recipeorderbyinput" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RecipeOrderByInput</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>recipemarketplace</span>
+<div id="recipeorderbyinput" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">RecipeOrderByInput</span>
+<span className="gql-svc">recipemarketplace</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -6929,10 +6987,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="recipewhereinput" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RecipeWhereInput</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>recipemarketplace</span>
+<div id="recipewhereinput" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">RecipeWhereInput</span>
+<span className="gql-svc">recipemarketplace</span>
 </div>
 <p>Filter input for Recipe queries. Use `query` for semantic search, or use field filters for exact matching.</p>
 <table>
@@ -6948,10 +7006,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="repositorychangesetorderbyinput" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RepositoryChangesetOrderByInput</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>corechangeset</span>
+<div id="repositorychangesetorderbyinput" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">RepositoryChangesetOrderByInput</span>
+<span className="gql-svc">corechangeset</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -6962,10 +7020,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="repositorychangesetstatefilter" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RepositoryChangesetStateFilter</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetcommitter</span>
+<div id="repositorychangesetstatefilter" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">RepositoryChangesetStateFilter</span>
+<span className="gql-svc">changesetcommitter</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -6978,10 +7036,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="repositorychangesetwhereinput" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RepositoryChangesetWhereInput</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetcommitter</span>
+<div id="repositorychangesetwhereinput" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">RepositoryChangesetWhereInput</span>
+<span className="gql-svc">changesetcommitter</span>
 </div>
 <p>Filter for repository changesets.</p>
 <table>
@@ -7000,10 +7058,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="repositorycommitorderbyinput" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RepositoryCommitOrderByInput</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetcommitter</span>
+<div id="repositorycommitorderbyinput" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">RepositoryCommitOrderByInput</span>
+<span className="gql-svc">changesetcommitter</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -7014,10 +7072,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="repositorycommitwhereinput" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RepositoryCommitWhereInput</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetcommitter</span>
+<div id="repositorycommitwhereinput" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">RepositoryCommitWhereInput</span>
+<span className="gql-svc">changesetcommitter</span>
 </div>
 <p>Filter input for repository-level commit queries.</p>
 <table>
@@ -7030,10 +7088,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="repositoryinput" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RepositoryInput</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>corecommitter</span>
+<div id="repositoryinput" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">RepositoryInput</span>
+<span className="gql-svc">corecommitter</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -7045,10 +7103,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="repositoryorderbyinput" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RepositoryOrderByInput</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>organization</span>
+<div id="repositoryorderbyinput" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">RepositoryOrderByInput</span>
+<span className="gql-svc">organization</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -7059,10 +7117,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="repositoryreciperunorderbyinput" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RepositoryRecipeRunOrderByInput</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetreader</span>
+<div id="repositoryreciperunorderbyinput" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">RepositoryRecipeRunOrderByInput</span>
+<span className="gql-svc">changesetreader</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -7073,10 +7131,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="repositoryreciperunwhereinput" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RepositoryRecipeRunWhereInput</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetreader</span>
+<div id="repositoryreciperunwhereinput" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">RepositoryRecipeRunWhereInput</span>
+<span className="gql-svc">changesetreader</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -7090,10 +7148,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="repositorywhereinput" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RepositoryWhereInput</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>organization</span>
+<div id="repositorywhereinput" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">RepositoryWhereInput</span>
+<span className="gql-svc">organization</span>
 </div>
 <p>Filter input for Repository queries using typed field filters.</p>
 <table>
@@ -7111,10 +7169,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="reviewdecisionfilter" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>ReviewDecisionFilter</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changelogreader</span>
+<div id="reviewdecisionfilter" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">ReviewDecisionFilter</span>
+<span className="gql-svc">changelogreader</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -7127,10 +7185,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="revokescmtokeninput" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RevokeScmTokenInput</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>authz</span>
+<div id="revokescmtokeninput" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">RevokeScmTokenInput</span>
+<span className="gql-svc">authz</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -7140,10 +7198,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="rundevcenterinput" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RunDevCenterInput</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>recipeworker</span>
+<div id="rundevcenterinput" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">RunDevCenterInput</span>
+<span className="gql-svc">recipeworker</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -7154,10 +7212,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="runrecipeinput" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RunRecipeInput</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>recipeworker</span>
+<div id="runrecipeinput" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">RunRecipeInput</span>
+<span className="gql-svc">recipeworker</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -7170,10 +7228,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="scmaccesstoken" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>ScmAccessToken</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetcommitter</span>
+<div id="scmaccesstoken" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">ScmAccessToken</span>
+<span className="gql-svc">changesetcommitter</span>
 </div>
 <p>An access token for a specific SCM origin. When provided on a commit mutation, these tokens are preferred over stored OAuth tokens.</p>
 <table>
@@ -7185,10 +7243,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="stringfilter" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>StringFilter</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>coregraphql</span>
+<div id="stringfilter" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">StringFilter</span>
+<span className="gql-svc">coregraphql</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -7206,10 +7264,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="updateuserorganizationinput" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>UpdateUserOrganizationInput</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>organization</span>
+<div id="updateuserorganizationinput" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">UpdateUserOrganizationInput</span>
+<span className="gql-svc">organization</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -7221,10 +7279,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="userorderbyinput" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>UserOrderByInput</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>authz</span>
+<div id="userorderbyinput" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">UserOrderByInput</span>
+<span className="gql-svc">authz</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -7235,10 +7293,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="userwhereinput" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>UserWhereInput</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>coregraphql</span>
+<div id="userwhereinput" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">UserWhereInput</span>
+<span className="gql-svc">coregraphql</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -7251,10 +7309,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="visualizationoptioninput" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>VisualizationOptionInput</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetvisualizer</span>
+<div id="visualizationoptioninput" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">VisualizationOptionInput</span>
+<span className="gql-svc">changesetvisualizer</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -7265,10 +7323,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="visualizationorderbyinput" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>VisualizationOrderByInput</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>corechangeset</span>
+<div id="visualizationorderbyinput" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">VisualizationOrderByInput</span>
+<span className="gql-svc">corechangeset</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -7279,10 +7337,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="visualizationwhereinput" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>VisualizationWhereInput</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>corechangeset</span>
+<div id="visualizationwhereinput" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">VisualizationWhereInput</span>
+<span className="gql-svc">corechangeset</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -7296,10 +7354,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="yamlrecipebundleinput" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>YamlRecipeBundleInput</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>recipemarketplace</span>
+<div id="yamlrecipebundleinput" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">YamlRecipeBundleInput</span>
+<span className="gql-svc">recipemarketplace</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -7312,78 +7370,78 @@ hide_title: true
 
 ### Unions
 
-<div id="connectortool" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>ConnectorTool</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>gateway</span>
+<div id="connectortool" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">ConnectorTool</span>
+<span className="gql-svc">gateway</span>
 </div>
 <p>= <a href="#githubconfiguration">GithubConfiguration</a> | <a href="#gitlabconfiguration">GitLabConfiguration</a> | <a href="#bitbucketconfiguration">BitbucketConfiguration</a> | <a href="#bitbucketcloudconfiguration">BitbucketCloudConfiguration</a> | <a href="#azuredevopsconfiguration">AzureDevOpsConfiguration</a> | <a href="#artifactoryconfiguration">ArtifactoryConfiguration</a> | <a href="#mavenconfiguration">MavenConfiguration</a> | <a href="#pypiconfiguration">PypiConfiguration</a> | <a href="#npmconfiguration">NpmConfiguration</a> | <a href="#nugetconfiguration">NugetConfiguration</a> | <a href="#generichttptoolconfiguration">GenericHttpToolConfiguration</a> | <a href="#organizationconfiguration">OrganizationConfiguration</a> | <a href="#llmconfiguration">LlmConfiguration</a> | <a href="#s3configuration">S3Configuration</a></p>
 </div>
 
 ### Scalars
 
-<div id="base64" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>Base64</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>coregraphql</span>
+<div id="base64" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">Base64</span>
+<span className="gql-svc">coregraphql</span>
 </div>
 <p>`Base64` represents a base64 encoded string. In the browser, `btoa` encodes ASCII strings to Base64.</p>
 </div>
 
-<div id="date" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>Date</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>coregraphql</span>
+<div id="date" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">Date</span>
+<span className="gql-svc">coregraphql</span>
 </div>
 </div>
 
-<div id="datetime" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>DateTime</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>coregraphql</span>
+<div id="datetime" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">DateTime</span>
+<span className="gql-svc">coregraphql</span>
 </div>
 </div>
 
-<div id="duration" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>Duration</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>coregraphql</span>
+<div id="duration" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">Duration</span>
+<span className="gql-svc">coregraphql</span>
 </div>
 </div>
 
-<div id="json" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>JSON</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>coregraphql</span>
+<div id="json" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">JSON</span>
+<span className="gql-svc">coregraphql</span>
 </div>
 </div>
 
-<div id="long" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>Long</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>coregraphql</span>
+<div id="long" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">Long</span>
+<span className="gql-svc">coregraphql</span>
 </div>
 </div>
 
-<div id="markdown" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>Markdown</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>coregraphql</span>
+<div id="markdown" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">Markdown</span>
+<span className="gql-svc">coregraphql</span>
 </div>
 <p>Contents may contain Markdown, HTML, or other text and should be passed through a Markdown parser by consumers</p>
 </div>
 
-<div id="object" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>Object</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>coregraphql</span>
+<div id="object" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">Object</span>
+<span className="gql-svc">coregraphql</span>
 </div>
 </div>
 
-<div id="path" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
-<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
-<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>Path</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>coregraphql</span>
+<div id="path" className="gql-card">
+<div className="gql-hdr">
+<span className="gql-name">Path</span>
+<span className="gql-svc">coregraphql</span>
 </div>
 <p>A file path relative to repository root (e.g., "src/main/java/Foo.java").</p>
 </div>
