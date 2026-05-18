@@ -25,8 +25,7 @@ description: Complete reference for the Moderne GraphQL API, including all queri
 
 <p><code>auditLogsDownloads</code>(first: Int = 50, after: String, where: <a href="#auditlogsdownloadwhereinput">AuditLogsDownloadWhereInput</a>, orderBy: [<a href="#auditlogsdownloadorderbyinput">AuditLogsDownloadOrderByInput</a>!]): <a href="#auditlogsdownloadconnection">AuditLogsDownloadConnection</a>!</p>
 
-<p>Query audit log downloads with pagination and filtering.
-Use where: &#123; id: &#123; _eq: "..." &#125; &#125; to poll a specific download.</p>
+<p>Query audit log downloads with pagination and filtering. Use where: &#123; id: &#123; _eq: "..." &#125; &#125; to poll a specific download.</p>
 
 <hr/>
 
@@ -46,9 +45,7 @@ Use where: &#123; id: &#123; _eq: "..." &#125; &#125; to poll a specific downloa
 
 <p><code>capabilities</code>: <a href="#platformcapabilities">PlatformCapabilities</a>!</p>
 
-<p>Returns which optional platform features are enabled in this deployment.
-Each field defaults to false and is overridden to true by the corresponding
-optional service when it is present in the supergraph composition.</p>
+<p>Returns which optional platform features are enabled in this deployment. Each field defaults to false and is overridden to true by the corresponding optional service when it is present in the supergraph composition.</p>
 
 <hr/>
 
@@ -58,9 +55,7 @@ optional service when it is present in the supergraph composition.</p>
 
 <p><code>codeSearch</code>(repositoryId: String!, query: String!, first: Int = 100, after: String): <a href="#codesearchresultconnection">CodeSearchResultConnection</a>!</p>
 
-<p>Search source code across artifact repositories.
-Searches the given repository and all its descendants in the hierarchy.
-Results are grouped by artifact (groupId:artifactId) with file-level matches.</p>
+<p>Search source code across artifact repositories. Searches the given repository and all its descendants in the hierarchy. Results are grouped by artifact (groupId:artifactId) with file-level matches.</p>
 
 <hr/>
 
@@ -78,9 +73,7 @@ Results are grouped by artifact (groupId:artifactId) with file-level matches.</p
 
 <p><code>conversation</code>(conversationId: ID!): <a href="#conversation">Conversation</a></p>
 
-<p>Look up a single conversation by id. Returns null when no conversation
-matches or the caller does not have access. Restores the v1 query the
-moderne-ui client already references.</p>
+<p>Look up a single conversation by id. Returns null when no conversation matches or the caller does not have access. Restores the v1 query the moderne-ui client already references.</p>
 
 <hr/>
 
@@ -206,23 +199,9 @@ moderne-ui client already references.</p>
 
 <p><code>cancelMessage</code>(conversationId: ID!, messageId: ID): Boolean!</p>
 
-<p>Interrupt the currently-running turn for a conversation. The virtual
-thread driving the turn is interrupted — a blocking LLM stream unwinds
-immediately, and long-running downstream work (recipe runs) receives
-a best-effort cancel via `cancelRecipeRun` on recipe-worker. Cheap
-tool calls finish naturally. A terminal CANCELLED `ErrorMessage` is
-appended to the log regardless.</p>
-<p>LLM-memory consistency on the next turn is preserved by the JSONL
-collapse: `buildChatMessages` pairs every tool-origin row into an
-`AiMessage(toolRequests)` + `ToolExecutionResultMessage` batch, and
-only rows that actually persisted are rebuilt — partially-executed
-tool batches are reconstructed from whichever tool-origin rows made
-it to the log.</p>
-<p>Returns <code>true</code> when a running turn was actually interrupted,
-<code>false</code> when the conversation was already idle (no-op, not an
-error). <code>messageId</code> is accepted for client compatibility but
-only the conversation's active turn is cancellable — there is never
-more than one turn in flight.</p>
+<p>Interrupt the currently-running turn for a conversation. The virtual thread driving the turn is interrupted — a blocking LLM stream unwinds immediately, and long-running downstream work (recipe runs) receives a best-effort cancel via `cancelRecipeRun` on recipe-worker. Cheap tool calls finish naturally. A terminal CANCELLED `ErrorMessage` is appended to the log regardless.</p>
+<p>LLM-memory consistency on the next turn is preserved by the JSONL collapse: `buildChatMessages` pairs every tool-origin row into an `AiMessage(toolRequests)` + `ToolExecutionResultMessage` batch, and only rows that actually persisted are rebuilt — partially-executed tool batches are reconstructed from whichever tool-origin rows made it to the log.</p>
+<p>Returns <code>true</code> when a running turn was actually interrupted, <code>false</code> when the conversation was already idle (no-op, not an error). <code>messageId</code> is accepted for client compatibility but only the conversation's active turn is cancellable — there is never more than one turn in flight.</p>
 
 <hr/>
 
@@ -282,8 +261,7 @@ more than one turn in flight.</p>
 
 <p><code>createAccessToken</code>(description: String, expiresAt: <a href="#datetime">DateTime</a>): <a href="#createaccesstokenresult">CreateAccessTokenResult</a>!</p>
 
-<p>Creates a new Moderne Personal Access Token for the current user.
-Returns the token value only once - it cannot be retrieved again.</p>
+<p>Creates a new Moderne Personal Access Token for the current user. Returns the token value only once - it cannot be retrieved again.</p>
 
 <hr/>
 
@@ -293,9 +271,7 @@ Returns the token value only once - it cannot be retrieved again.</p>
 
 <p><code>createConversation</code>(input: <a href="#createconversationinput">CreateConversationInput</a>!, waitForCompletion: Boolean = false): <a href="#sendmessageresult">SendMessageResult</a>!</p>
 
-<p>Create a new conversation and send the first message. Uses the
-effective prompt for the organization context. `waitForCompletion`
-has the same semantics as on `sendMessage`.</p>
+<p>Create a new conversation and send the first message. Uses the effective prompt for the organization context. `waitForCompletion` has the same semantics as on `sendMessage`.</p>
 
 <hr/>
 
@@ -315,8 +291,7 @@ has the same semantics as on `sendMessage`.</p>
 
 <p><code>deleteUser</code>(email: String!): Boolean!</p>
 
-<p>Deletes a user and all associated access tokens.
-Returns true if the user was found and deleted.</p>
+<p>Deletes a user and all associated access tokens. Returns true if the user was found and deleted.</p>
 
 <hr/>
 
@@ -336,8 +311,7 @@ Returns true if the user was found and deleted.</p>
 
 <p><code>downloadAuditLogs</code>(first: Int, since: <a href="#datetime">DateTime</a>, until: <a href="#datetime">DateTime</a>, format: <a href="#auditlogexportformat">AuditLogExportFormat</a>!): <a href="#auditlogsdownload">AuditLogsDownload</a>!</p>
 
-<p>Start an asynchronous export of audit logs. Returns a task whose state
-can be polled via auditLogsDownloads.</p>
+<p>Start an asynchronous export of audit logs. Returns a task whose state can be polled via auditLogsDownloads.</p>
 
 <hr/>
 
@@ -347,9 +321,7 @@ can be polled via auditLogsDownloads.</p>
 
 <p><code>downloadDataTable</code>(changesetId: ID!, dataTable: String!, group: String, format: <a href="#datatableformat">DataTableFormat</a>!): <a href="#datatable">DataTable</a>!</p>
 
-<p>Start or retrieve a data table download.
-If the same data table + group + format combination was already requested,
-returns the existing download state.</p>
+<p>Start or retrieve a data table download. If the same data table + group + format combination was already requested, returns the existing download state.</p>
 
 <hr/>
 
@@ -360,10 +332,7 @@ returns the existing download state.</p>
 <p><code>exchangeAuthorizationCode</code>(input: <a href="#exchangeauthorizationcodeinput">ExchangeAuthorizationCodeInput</a>!): <a href="#exchangeauthorizationresult">ExchangeAuthorizationResult</a>!</p>
 
 <p>Exchange an OAuth authorization code for an access token.</p>
-<p>This unified mutation handles all OAuth 2.0 VCS providers.
-The backend uses the authorizationId to look up:
-- The origin and VCS type
-- PKCE code_verifier (GitLab)</p>
+<p>This unified mutation handles all OAuth 2.0 VCS providers. The backend uses the authorizationId to look up: - The origin and VCS type - PKCE code_verifier (GitLab)</p>
 <p>On success, the token is stored and future requests will be authenticated.</p>
 
 <hr/>
@@ -374,14 +343,9 @@ The backend uses the authorizationId to look up:
 
 <p><code>initiateAuthorization</code>(input: <a href="#initiateauthorizationinput">InitiateAuthorizationInput</a>!): <a href="#oauthauthorization">OAuthAuthorization</a>!</p>
 
-<p>Initiate OAuth authorization for a VCS origin.
-Returns an authorization URL to redirect the user to.</p>
-<p>The backend constructs the full OAuth URL including:
-- PKCE code_challenge for GitLab
-- Correct scopes for each VCS type
-- State parameter for CSRF protection</p>
-<p>The authorization ID should be passed to exchangeAuthorizationCode
-after the user completes OAuth.</p>
+<p>Initiate OAuth authorization for a VCS origin. Returns an authorization URL to redirect the user to.</p>
+<p>The backend constructs the full OAuth URL including: - PKCE code_challenge for GitLab - Correct scopes for each VCS type - State parameter for CSRF protection</p>
+<p>The authorization ID should be passed to exchangeAuthorizationCode after the user completes OAuth.</p>
 
 <hr/>
 
@@ -401,8 +365,7 @@ after the user completes OAuth.</p>
 
 <p><code>installRecipesForOrganization</code>(organizationId: ID!, bundle: <a href="#recipebundleinput">RecipeBundleInput</a>!): <a href="#recipeinstallation">RecipeInstallation</a>!</p>
 
-<p>Install a recipe bundle to a specific organization's marketplace.
-Requires the `admin` role.</p>
+<p>Install a recipe bundle to a specific organization's marketplace. Requires the `admin` role.</p>
 
 <hr/>
 
@@ -412,8 +375,7 @@ Requires the `admin` role.</p>
 
 <p><code>installRecipesUniversal</code>(bundle: <a href="#recipebundleinput">RecipeBundleInput</a>!): <a href="#recipeinstallation">RecipeInstallation</a>!</p>
 
-<p>Install a recipe bundle to the universal marketplace (visible to all).
-Requires the `admin` role.</p>
+<p>Install a recipe bundle to the universal marketplace (visible to all). Requires the `admin` role.</p>
 
 <hr/>
 
@@ -433,9 +395,7 @@ Requires the `admin` role.</p>
 
 <p><code>reindexChangelog</code>(since: <a href="#datetime">DateTime</a>!, origin: String): <a href="#reindexresult">ReindexResult</a>!</p>
 
-<p>Reset poll cursors so the next poll cycle re-fetches and re-enriches
-changelog entries from the given timestamp forward. Use this to backfill
-data after deploying enrichment improvements.</p>
+<p>Reset poll cursors so the next poll cycle re-fetches and re-enriches changelog entries from the given timestamp forward. Use this to backfill data after deploying enrichment improvements.</p>
 
 <hr/>
 
@@ -445,8 +405,7 @@ data after deploying enrichment improvements.</p>
 
 <p><code>revokeAccessToken</code>(id: ID!): Boolean!</p>
 
-<p>Revokes an access token by ID.
-Returns true if the token was revoked, false if not found.</p>
+<p>Revokes an access token by ID. Returns true if the token was revoked, false if not found.</p>
 
 <hr/>
 
@@ -456,8 +415,7 @@ Returns true if the token was revoked, false if not found.</p>
 
 <p><code>revokeAllAccessTokens</code>(email: String!): Boolean!</p>
 
-<p>Revokes all access tokens for a given user.
-Returns true if all token were revoked, otherwise false.</p>
+<p>Revokes all access tokens for a given user. Returns true if all token were revoked, otherwise false.</p>
 
 <hr/>
 
@@ -467,8 +425,7 @@ Returns true if all token were revoked, otherwise false.</p>
 
 <p><code>revokeScmToken</code>(input: <a href="#revokescmtokeninput">RevokeScmTokenInput</a>!): <a href="#revoketokenresult">RevokeTokenResult</a>!</p>
 
-<p>Revoke an SCM OAuth token for the current user and a specific origin.
-This removes the stored token, disconnecting the user from the VCS.</p>
+<p>Revoke an SCM OAuth token for the current user and a specific origin. This removes the stored token, disconnecting the user from the VCS.</p>
 
 <hr/>
 
@@ -478,8 +435,7 @@ This removes the stored token, disconnecting the user from the VCS.</p>
 
 <p><code>runDevCenter</code>(input: <a href="#rundevcenterinput">RunDevCenterInput</a>!): <a href="#devcenterrunrunning">DevCenterRunRunning</a>!</p>
 
-<p>Start a DevCenter run for an organization.
-Returns immediately with running status.</p>
+<p>Start a DevCenter run for an organization. Returns immediately with running status.</p>
 
 <hr/>
 
@@ -489,8 +445,7 @@ Returns immediately with running status.</p>
 
 <p><code>runRecipe</code>(input: <a href="#runrecipeinput">RunRecipeInput</a>!): <a href="#organizationreciperunqueued">OrganizationRecipeRunQueued</a>!</p>
 
-<p>Run a recipe against repositories.
-Returns the recipe run in its initial queued state.</p>
+<p>Run a recipe against repositories. Returns the recipe run in its initial queued state.</p>
 
 <hr/>
 
@@ -500,9 +455,7 @@ Returns the recipe run in its initial queued state.</p>
 
 <p><code>runVisualization</code>(organizationId: ID!, visualizationId: ID!, options: [<a href="#visualizationoptioninput">VisualizationOptionInput</a>!]): <a href="#visualization">Visualization</a>!</p>
 
-<p>Request a visualization to be generated based on the provided descriptor.
-Returns the existing visualization if already run with the same options,
-otherwise queues a new visualization run.</p>
+<p>Request a visualization to be generated based on the provided descriptor. Returns the existing visualization if already run with the same options, otherwise queues a new visualization run.</p>
 
 <hr/>
 
@@ -512,14 +465,8 @@ otherwise queues a new visualization run.</p>
 
 <p><code>sendMessage</code>(conversationId: ID!, message: String!, waitForCompletion: Boolean = false): <a href="#sendmessageresult">SendMessageResult</a>!</p>
 
-<p>Send a message to an existing conversation. Returns a handle for
-polling — `initialCursor` is the cursor to pass to the next
-`messages(after:)` query, and `turnState` carries the server-
-recommended poll cadence.</p>
-<p>When `waitForCompletion: true`, the mutation blocks until the turn
-completes (or the server cap of 4 minutes is reached, whichever comes
-first). On cap, the mutation returns the current turn state rather
-than erroring so the caller can continue polling.</p>
+<p>Send a message to an existing conversation. Returns a handle for polling — `initialCursor` is the cursor to pass to the next `messages(after:)` query, and `turnState` carries the server- recommended poll cadence.</p>
+<p>When `waitForCompletion: true`, the mutation blocks until the turn completes (or the server cap of 4 minutes is reached, whichever comes first). On cap, the mutation returns the current turn state rather than erroring so the caller can continue polling.</p>
 
 <hr/>
 
@@ -539,13 +486,7 @@ than erroring so the caller can continue polling.</p>
 
 <p><code>setProfiling</code>(enabled: Boolean!, event: <a href="#profilingevent">ProfilingEvent</a> = CPU): Boolean!</p>
 
-<p>Turn continuous profiling on or off for this tenant. When enabled,
-Pyroscope profiles for every service start landing in the Pyroscope UI
-within seconds. The primary event the agent samples on is selected by
-`event` (defaults to CPU); calling the mutation again with a different
-event while profiling is already on rotates the agent to the new event.
-Fails when the profiling capability is not enabled for the tenant.
-Admin role required.</p>
+<p>Turn continuous profiling on or off for this tenant. When enabled, Pyroscope profiles for every service start landing in the Pyroscope UI within seconds. The primary event the agent samples on is selected by `event` (defaults to CPU); calling the mutation again with a different event while profiling is already on rotates the agent to the new event. Fails when the profiling capability is not enabled for the tenant. Admin role required.</p>
 
 <hr/>
 
@@ -575,8 +516,7 @@ Admin role required.</p>
 
 <p><code>uninstallRecipesFromCurrentUser</code>(packageName: String!): <a href="#recipeuninstallation">RecipeUninstallation</a>!</p>
 
-<p>Uninstall a recipe bundle from the current user's personal marketplace.
-Returns the number of recipes that were removed.</p>
+<p>Uninstall a recipe bundle from the current user's personal marketplace. Returns the number of recipes that were removed.</p>
 
 <hr/>
 
@@ -586,9 +526,7 @@ Returns the number of recipes that were removed.</p>
 
 <p><code>uninstallRecipesFromOrganization</code>(organizationId: ID!, packageName: String!): <a href="#recipeuninstallation">RecipeUninstallation</a>!</p>
 
-<p>Uninstall a recipe bundle from a specific organization's marketplace.
-Returns the number of recipes that were removed.
-Requires the `admin` role.</p>
+<p>Uninstall a recipe bundle from a specific organization's marketplace. Returns the number of recipes that were removed. Requires the `admin` role.</p>
 
 <hr/>
 
@@ -598,9 +536,7 @@ Requires the `admin` role.</p>
 
 <p><code>uninstallRecipesUniversal</code>(packageName: String!): <a href="#recipeuninstallation">RecipeUninstallation</a>!</p>
 
-<p>Uninstall a recipe bundle from the universal marketplace.
-Returns the number of recipes that were removed.
-Requires the `admin` role.</p>
+<p>Uninstall a recipe bundle from the universal marketplace. Returns the number of recipes that were removed. Requires the `admin` role.</p>
 
 <hr/>
 
@@ -1429,8 +1365,7 @@ Requires the `admin` role.</p>
 
 <p><strong>Service:</strong> moddy</p>
 
-<p>Represents the current phase of the conversation's active turn (if any).
-Drives client poll cadence.</p>
+<p>Represents the current phase of the conversation's active turn (if any). Drives client poll cadence.</p>
 
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -1447,8 +1382,7 @@ Drives client poll cadence.</p>
 
 <p><strong>Service:</strong> authz</p>
 
-<p>Result of creating a new access token.
-The token value is only available in this response.</p>
+<p>Result of creating a new access token. The token value is only available in this response.</p>
 
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -1646,8 +1580,7 @@ The token value is only available in this response.</p>
 
 <p><strong>Service:</strong> changesetreader</p>
 
-<p>A DevCenter card represents a category of work (e.g., "Spring Boot 3", "Java 21", "Security").
-Cards contain measures that track progress toward completion.</p>
+<p>A DevCenter card represents a category of work (e.g., "Spring Boot 3", "Java 21", "Security"). Cards contain measures that track progress toward completion.</p>
 
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -1684,8 +1617,7 @@ Cards contain measures that track progress toward completion.</p>
 
 <p><strong>Service:</strong> changesetreader</p>
 
-<p>A measure within a DevCenter card representing a specific state or finding,
-with a count from the run results.</p>
+<p>A measure within a DevCenter card representing a specific state or finding, with a count from the run results.</p>
 
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -1703,9 +1635,7 @@ with a count from the run results.</p>
 
 <p><strong>Service:</strong> recipemarketplace</p>
 
-<p>A measure descriptor within a DevCenter card, representing metadata about
-a specific state or finding. See DevCenterMeasure in changeset:reader
-for the runtime version with counts.</p>
+<p>A measure descriptor within a DevCenter card, representing metadata about a specific state or finding. See DevCenterMeasure in changeset:reader for the runtime version with counts.</p>
 
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -2202,10 +2132,7 @@ for the runtime version with counts.</p>
 
 <p><strong>Service:</strong> organization</p>
 
-<p>The LST artifact for a repository - the precomputed Lossless Semantic Tree
-that recipe runs consume. Every repository has a conceptual artifact;
-`published` reflects the upstream `mod publish` timestamp, while
-`available` indicates whether the saas can route a recipe run to it yet.</p>
+<p>The LST artifact for a repository - the precomputed Lossless Semantic Tree that recipe runs consume. Every repository has a conceptual artifact; `published` reflects the upstream `mod publish` timestamp, while `available` indicates whether the saas can route a recipe run to it yet.</p>
 
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -2410,9 +2337,7 @@ that recipe runs consume. Every repository has a conceptual artifact;
 
 <p><strong>Service:</strong> authz</p>
 
-<p>Represents a pending OAuth authorization.
-The UI should redirect to authorizationUrl, then call exchangeAuthorizationCode
-with the id and extracted callback parameters.</p>
+<p>Represents a pending OAuth authorization. The UI should redirect to authorizationUrl, then call exchangeAuthorizationCode with the id and extracted callback parameters.</p>
 
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -2430,9 +2355,7 @@ with the id and extracted callback parameters.</p>
 
 <p><strong>Service:</strong> changesetreader</p>
 
-<p>RecipeDescriptor resolved from changeset-specific recipes.csv.
-When a recipe run is created, the recipes.csv is copied to the changeset directory,
-so we can resolve the recipe that was used at the time of the run (not the current global state).</p>
+<p>RecipeDescriptor resolved from changeset-specific recipes.csv. When a recipe run is created, the recipes.csv is copied to the changeset directory, so we can resolve the recipe that was used at the time of the run (not the current global state).</p>
 
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -3405,9 +3328,7 @@ so we can resolve the recipe that was used at the time of the run (not the curre
 
 <p><strong>Service:</strong> recipemarketplace</p>
 
-<p>Flat vertices-and-edges representation of a composite recipe with
-`org.openrewrite.Singleton` deduplication pre-applied. Produced by the
-marketplace backend and served to visualization clients in one round trip.</p>
+<p>Flat vertices-and-edges representation of a composite recipe with `org.openrewrite.Singleton` deduplication pre-applied. Produced by the marketplace backend and served to visualization clients in one round trip.</p>
 
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -3439,10 +3360,7 @@ marketplace backend and served to visualization clients in one round trip.</p>
 
 <p><strong>Service:</strong> recipemarketplace</p>
 
-<p>A vertex in a RecipeGraph: a full recipe occurrence with its configured
-options. Recipes that declare `org.openrewrite.Singleton` as a precondition
-are deduplicated — additional occurrences are expressed as REFERENCE edges
-pointing back to the first occurrence rather than as separate vertices.</p>
+<p>A vertex in a RecipeGraph: a full recipe occurrence with its configured options. Recipes that declare `org.openrewrite.Singleton` as a precondition are deduplicated — additional occurrences are expressed as REFERENCE edges pointing back to the first occurrence rather than as separate vertices.</p>
 
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -3627,10 +3545,7 @@ pointing back to the first occurrence rather than as separate vertices.</p>
 
 <p><strong>Service:</strong> moddy | <strong>Implements:</strong> <a href="#message">Message</a></p>
 
-<p>Long-running recipe execution started by the LLM. Carries a typed
-progress envelope while IN_PROGRESS — clients should read `progress`
-rather than poking at a free-form payload. When the run reaches a
-terminal state, `recipeRun` resolves via federation.</p>
+<p>Long-running recipe execution started by the LLM. Carries a typed progress envelope while IN_PROGRESS — clients should read `progress` rather than poking at a free-form payload. When the run reaches a terminal state, `recipeRun` resolves via federation.</p>
 
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -3754,8 +3669,7 @@ terminal state, `recipeRun` resolves via federation.</p>
 
 <p><strong>Service:</strong> corechangeset</p>
 
-<p>Authorization status for accessing repository content.
-Resolved by the changeset reader using a batch check against the authorization service.</p>
+<p>Authorization status for accessing repository content. Resolved by the changeset reader using a batch check against the authorization service.</p>
 
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -3787,13 +3701,8 @@ Resolved by the changeset reader using a batch check against the authorization s
 <p><strong>Service:</strong> corechangeset</p>
 
 <p>Paginated connection for repository changesets.</p>
-<p>`completed` indicates how many repositories have finished processing:
-- For BatchChange: completed always equals count (all repositories are pre-processed).
-- For OrganizationRecipeRun: completed counts repository runs in a terminal state
-  (regardless of success/failure), excluding canceled runs. A canceled run shows
-  the completion status reached prior to cancellation.</p>
-<p>Sync totals (`syncPending`, `synced`, `syncFailed`, `syncCanceled`, `syncSkipped`)
-track repository sync progress during the SYNCING phase. Their sum equals `count`.</p>
+<p>`completed` indicates how many repositories have finished processing: - For BatchChange: completed always equals count (all repositories are pre-processed). - For OrganizationRecipeRun: completed counts repository runs in a terminal state   (regardless of success/failure), excluding canceled runs. A canceled run shows   the completion status reached prior to cancellation.</p>
+<p>Sync totals (`syncPending`, `synced`, `syncFailed`, `syncCanceled`, `syncSkipped`) track repository sync progress during the SYNCING phase. Their sum equals `count`.</p>
 
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -3830,8 +3739,7 @@ track repository sync progress during the SYNCING phase. Their sum equals `count
 
 <p><strong>Service:</strong> changesetcommitter | <strong>Implements:</strong> <a href="#repositorycommit">RepositoryCommit</a></p>
 
-<p>Repository commit was canceled.
-Use `options.__typename` to determine the specific commit type.</p>
+<p>Repository commit was canceled. Use `options.__typename` to determine the specific commit type.</p>
 
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -3879,8 +3787,7 @@ Use `options.__typename` to determine the specific commit type.</p>
 
 <p><strong>Service:</strong> changesetcommitter | <strong>Implements:</strong> <a href="#repositorycommit">RepositoryCommit</a></p>
 
-<p>Repository commit failed with an error.
-Use `options.__typename` to determine the specific commit type.</p>
+<p>Repository commit failed with an error. Use `options.__typename` to determine the specific commit type.</p>
 
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -3900,9 +3807,7 @@ Use `options.__typename` to determine the specific commit type.</p>
 
 <p><strong>Service:</strong> changesetcommitter | <strong>Implements:</strong> <a href="#repositorycommit">RepositoryCommit</a></p>
 
-<p>Repository commit completed but yielded no changes.
-Generally occurs when applying a patch does not produce any changes to commit.
-Use `options.__typename` to determine the specific commit type.</p>
+<p>Repository commit completed but yielded no changes. Generally occurs when applying a patch does not produce any changes to commit. Use `options.__typename` to determine the specific commit type.</p>
 
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -3920,8 +3825,7 @@ Use `options.__typename` to determine the specific commit type.</p>
 
 <p><strong>Service:</strong> changesetcommitter | <strong>Implements:</strong> <a href="#repositorycommit">RepositoryCommit</a></p>
 
-<p>Repository commit is queued and waiting to be processed.
-Use `options.__typename` to determine the specific commit type.</p>
+<p>Repository commit is queued and waiting to be processed. Use `options.__typename` to determine the specific commit type.</p>
 
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -3939,8 +3843,7 @@ Use `options.__typename` to determine the specific commit type.</p>
 
 <p><strong>Service:</strong> changesetcommitter | <strong>Implements:</strong> <a href="#repositorycommit">RepositoryCommit</a></p>
 
-<p>Repository commit is actively being processed.
-Use `options.__typename` to determine the specific commit type.</p>
+<p>Repository commit is actively being processed. Use `options.__typename` to determine the specific commit type.</p>
 
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -4197,9 +4100,7 @@ Use `options.__typename` to determine the specific commit type.</p>
 
 <p><strong>Service:</strong> moddy</p>
 
-<p>Handle returned by `createConversation` / `sendMessage`. Clients should
-poll `conversation.messages(after: initialCursor)` using
-`turnState.recommendedPollIntervalMs` as the cadence hint.</p>
+<p>Handle returned by `createConversation` / `sendMessage`. Clients should poll `conversation.messages(after: initialCursor)` using `turnState.recommendedPollIntervalMs` as the cadence hint.</p>
 
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -4216,8 +4117,7 @@ poll `conversation.messages(after: initialCursor)` using
 
 <p><strong>Service:</strong> moddy | <strong>Implements:</strong> <a href="#message">Message</a></p>
 
-<p>A text message from either the human user or the chatbot.
-Check the `user` field to distinguish sender.</p>
+<p>A text message from either the human user or the chatbot. Check the `user` field to distinguish sender.</p>
 
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -4555,10 +4455,8 @@ Check the `user` field to distinguish sender.</p>
 
 <p><strong>Service:</strong> changelogreader</p>
 
-<p>A bulk pull request action (approve, merge, close) that operates on potentially
-multiple repositories. Use `__typename` to determine the current state.</p>
-<p>Each `BulkPullRequestAction` contains individual `PullRequestAction` entries
-representing the state of each repository targeted by the bulk operation.</p>
+<p>A bulk pull request action (approve, merge, close) that operates on potentially multiple repositories. Use `__typename` to determine the current state.</p>
+<p>Each `BulkPullRequestAction` contains individual `PullRequestAction` entries representing the state of each repository targeted by the bulk operation.</p>
 
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -4576,8 +4474,7 @@ representing the state of each repository targeted by the bulk operation.</p>
 
 <p><strong>Service:</strong> changelogreader</p>
 
-<p>A single entry in the changelog — either a commit or a pull request.
-Use `__typename` to distinguish between `ChangelogCommit` and `ChangelogPullRequest`.</p>
+<p>A single entry in the changelog — either a commit or a pull request. Use `__typename` to distinguish between `ChangelogCommit` and `ChangelogPullRequest`.</p>
 
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -4631,8 +4528,7 @@ Use `__typename` to distinguish between `ChangelogCommit` and `ChangelogPullRequ
 
 <p><strong>Service:</strong> changesetreader</p>
 
-<p>A DevCenter run represents the execution of a DevCenter recipe.
-Use `__typename` to determine the current state.</p>
+<p>A DevCenter run represents the execution of a DevCenter recipe. Use `__typename` to determine the current state.</p>
 
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -4696,8 +4592,7 @@ Use `__typename` to determine the current state.</p>
 
 <p><strong>Service:</strong> changesetcommitter</p>
 
-<p>An organization-level commit operation represents applying changes across multiple
-repositories. Use `__typename` to determine the current state.</p>
+<p>An organization-level commit operation represents applying changes across multiple repositories. Use `__typename` to determine the current state.</p>
 
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -4717,8 +4612,7 @@ repositories. Use `__typename` to determine the current state.</p>
 
 <p><strong>Service:</strong> changelogreader</p>
 
-<p>The state of an individual repository within a `BulkPullRequestAction`.
-Use `__typename` to determine the current state.</p>
+<p>The state of an individual repository within a `BulkPullRequestAction`. Use `__typename` to determine the current state.</p>
 
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -4748,9 +4642,7 @@ Use `__typename` to determine the current state.</p>
 
 <p><strong>Service:</strong> recipemarketplace</p>
 
-<p>State machine for recipe detail resolution. Querying the `detail` field on a
-RecipeDescriptor triggers background resolution of the full recipe bundle.
-Poll until `__typename` is `RecipeDetailFinished`.</p>
+<p>State machine for recipe detail resolution. Querying the `detail` field on a RecipeDescriptor triggers background resolution of the full recipe bundle. Poll until `__typename` is `RecipeDetailFinished`.</p>
 
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -4765,8 +4657,7 @@ Poll until `__typename` is `RecipeDetailFinished`.</p>
 
 <p><strong>Service:</strong> recipemarketplace</p>
 
-<p>Common fields for all recipe installation states.
-Use `__typename` to determine the current state.</p>
+<p>Common fields for all recipe installation states. Use `__typename` to determine the current state.</p>
 
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -4798,8 +4689,7 @@ Use `__typename` to determine the current state.</p>
 
 <p><strong>Service:</strong> changesetcommitter</p>
 
-<p>A commit result for a single repository within an organization-level commit operation.
-Use `__typename` to determine the current state.</p>
+<p>A commit result for a single repository within an organization-level commit operation. Use `__typename` to determine the current state.</p>
 
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -4814,8 +4704,7 @@ Use `__typename` to determine the current state.</p>
 
 <p><strong>Service:</strong> changesetcommitter</p>
 
-<p>Repository commit completed successfully.
-Use `__typename` to determine the specific commit type.</p>
+<p>Repository commit completed successfully. Use `__typename` to determine the specific commit type.</p>
 
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -4989,8 +4878,7 @@ Use `__typename` to determine the specific commit type.</p>
 
 <p><strong>Service:</strong> changelogreader</p>
 
-<p>The lifecycle state of a `BulkPullRequestAction`. Matches the `__typename`
-of the concrete state types (Queued, Running, Finished, Canceled, Error).</p>
+<p>The lifecycle state of a `BulkPullRequestAction`. Matches the `__typename` of the concrete state types (Queued, Running, Finished, Canceled, Error).</p>
 
 <ul>
   <li><code>QUEUED</code></li>
@@ -5350,9 +5238,7 @@ of the concrete state types (Queued, Running, Finished, Canceled, Error).</p>
 
 <p><strong>Service:</strong> gateway</p>
 
-<p>The primary event the Pyroscope agent samples on. async-profiler can only
-collect one of these at a time as the primary event; alloc and lock
-sampling run on separate channels and are always on.</p>
+<p>The primary event the Pyroscope agent samples on. async-profiler can only collect one of these at a time as the primary event; alloc and lock sampling run on separate channels and are always on.</p>
 
 <ul>
   <li><code>CPU</code></li>
@@ -5504,9 +5390,7 @@ sampling run on separate channels and are always on.</p>
 
 <p><strong>Service:</strong> changesetreader</p>
 
-<p>Priority level for recipe runs.
-HIGH priority runs target small organizations (≤100 repositories).
-LOW priority runs target large organizations (>100 repositories).</p>
+<p>Priority level for recipe runs. HIGH priority runs target small organizations (≤100 repositories). LOW priority runs target large organizations (>100 repositories).</p>
 
 <ul>
   <li><code>HIGH</code></li>
@@ -5598,14 +5482,8 @@ LOW priority runs target large organizations (>100 repositories).</p>
 
 <p><strong>Service:</strong> corechangeset</p>
 
-<p>Sync status of a repository within a recipe run.
-Tracks whether the repository has been synced (cloned + LST downloaded)
-before the recipe execution phase begins.</p>
-<p>`SKIPPED` indicates the CLI elected not to sync the repository — typically
-because there is no LST available to fetch — and is distinct from `FAILED`,
-which indicates an actual error during the sync attempt. `CANCELED` is set
-when sync was interrupted (e.g., the run was canceled before the repository's
-sync completed).</p>
+<p>Sync status of a repository within a recipe run. Tracks whether the repository has been synced (cloned + LST downloaded) before the recipe execution phase begins.</p>
+<p>`SKIPPED` indicates the CLI elected not to sync the repository — typically because there is no LST available to fetch — and is distinct from `FAILED`, which indicates an actual error during the sync attempt. `CANCELED` is set when sync was interrupted (e.g., the run was canceled before the repository's sync completed).</p>
 
 <ul>
   <li><code>PENDING</code></li>
@@ -6845,13 +6723,8 @@ sync completed).</p>
 <p><strong>Service:</strong> changelogreader</p>
 
 <p>Selects pull requests for a bulk action.</p>
-<p>The `where` filter defines a base set of matching PRs. The optional `pullRequests`
-modifier can include or exclude specific PRs from that base set.</p>
-<p>Examples:
-- Filter-only: `&#123; where: &#123; ... &#125; &#125;` — all matching PRs
-- Explicit: `&#123; pullRequests: &#123; include: [...] &#125; &#125;` — exactly those PRs
-- Filter + exclusions: `&#123; where: &#123; ... &#125;, pullRequests: &#123; exclude: [...] &#125; &#125;` — matching minus excluded
-- Filter + additions: `&#123; where: &#123; ... &#125;, pullRequests: &#123; include: [...] &#125; &#125;` — matching plus included</p>
+<p>The `where` filter defines a base set of matching PRs. The optional `pullRequests` modifier can include or exclude specific PRs from that base set.</p>
+<p>Examples: - Filter-only: `&#123; where: &#123; ... &#125; &#125;` — all matching PRs - Explicit: `&#123; pullRequests: &#123; include: [...] &#125; &#125;` — exactly those PRs - Filter + exclusions: `&#123; where: &#123; ... &#125;, pullRequests: &#123; exclude: [...] &#125; &#125;` — matching minus excluded - Filter + additions: `&#123; where: &#123; ... &#125;, pullRequests: &#123; include: [...] &#125; &#125;` — matching plus included</p>
 
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -6867,8 +6740,7 @@ modifier can include or exclude specific PRs from that base set.</p>
 
 <p><strong>Service:</strong> changelogreader</p>
 
-<p>Modifies a PR selection by either including or excluding specific PRs.
-Exactly one field must be set.</p>
+<p>Modifies a PR selection by either including or excluding specific PRs. Exactly one field must be set.</p>
 
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -7096,8 +6968,7 @@ Exactly one field must be set.</p>
 
 <p><strong>Service:</strong> recipemarketplace</p>
 
-<p>Filter input for Recipe queries.
-Use `query` for semantic search, or use field filters for exact matching.</p>
+<p>Filter input for Recipe queries. Use `query` for semantic search, or use field filters for exact matching.</p>
 
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -7342,8 +7213,7 @@ Use `query` for semantic search, or use field filters for exact matching.</p>
 
 <p><strong>Service:</strong> changesetcommitter</p>
 
-<p>An access token for a specific SCM origin. When provided on a commit mutation,
-these tokens are preferred over stored OAuth tokens.</p>
+<p>An access token for a specific SCM origin. When provided on a commit mutation, these tokens are preferred over stored OAuth tokens.</p>
 
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -7496,8 +7366,7 @@ these tokens are preferred over stored OAuth tokens.</p>
 
 <p><strong>Service:</strong> coregraphql</p>
 
-<p>`Base64` represents a base64 encoded string.
-In the browser, `btoa` encodes ASCII strings to Base64.</p>
+<p>`Base64` represents a base64 encoded string. In the browser, `btoa` encodes ASCII strings to Base64.</p>
 
 <hr/>
 
