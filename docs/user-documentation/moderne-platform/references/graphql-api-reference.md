@@ -8,7 +8,7 @@ hide_title: true
 
 <p><em>This page is auto-generated from the Moderne GraphQL schema. Do not edit manually.</em></p>
 
-<h2>Queries</h2>
+## Queries
 
 <div id="auditLogs" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #10b981', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
@@ -156,7 +156,7 @@ hide_title: true
 <div style={{fontFamily: 'monospace', fontSize: '12px', color: '#94a3b8', margin: '0 0 6px'}}>(origin: String!, scmType: <a href="#scmtype">ScmType</a>!): String</div>
 </div>
 
-<h2>Mutations</h2>
+## Mutations
 
 <div id="approvePullRequests" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #f59e0b', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
@@ -555,9 +555,9 @@ hide_title: true
 <p>Update an existing user-defined organization.</p>
 </div>
 
-<h2>Types</h2>
+## Types
 
-<h3>Object types</h3>
+### Object types
 
 <div id="accesstoken" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
@@ -4491,7 +4491,7 @@ hide_title: true
 </table>
 </div>
 
-<h3>Interfaces</h3>
+### Interfaces
 
 <div id="auditlogsdownload" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
@@ -4821,7 +4821,7 @@ hide_title: true
 </table>
 </div>
 
-<h3>Enums</h3>
+### Enums
 
 <div id="accesstokenorderbyfield" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
@@ -5620,7 +5620,7 @@ hide_title: true
 </ul>
 </div>
 
-<h3>Input types</h3>
+### Input types
 
 <div id="accesstokenorderbyinput" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
@@ -7364,7 +7364,7 @@ hide_title: true
 </table>
 </div>
 
-<h3>Unions</h3>
+### Unions
 
 <div id="connectortool" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
@@ -7374,7 +7374,7 @@ hide_title: true
 <p>= <a href="#githubconfiguration">GithubConfiguration</a> | <a href="#gitlabconfiguration">GitLabConfiguration</a> | <a href="#bitbucketconfiguration">BitbucketConfiguration</a> | <a href="#bitbucketcloudconfiguration">BitbucketCloudConfiguration</a> | <a href="#azuredevopsconfiguration">AzureDevOpsConfiguration</a> | <a href="#artifactoryconfiguration">ArtifactoryConfiguration</a> | <a href="#mavenconfiguration">MavenConfiguration</a> | <a href="#pypiconfiguration">PypiConfiguration</a> | <a href="#npmconfiguration">NpmConfiguration</a> | <a href="#nugetconfiguration">NugetConfiguration</a> | <a href="#generichttptoolconfiguration">GenericHttpToolConfiguration</a> | <a href="#organizationconfiguration">OrganizationConfiguration</a> | <a href="#llmconfiguration">LlmConfiguration</a> | <a href="#s3configuration">S3Configuration</a></p>
 </div>
 
-<h3>Scalars</h3>
+### Scalars
 
 <div id="base64" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
