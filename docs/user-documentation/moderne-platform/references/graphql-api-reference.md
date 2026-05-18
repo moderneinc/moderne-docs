@@ -10,147 +10,132 @@ hide_title: true
 
 ## Queries
 
-<div id="auditLogs" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #10b981', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="auditLogs" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>auditLogs</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', fontWeight: '700', padding: '2px 7px', borderRadius: '20px', background: '#d1fae5', color: '#065f46'}}>query</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>auditreader</span>
 </div>
 <div style={{fontFamily: 'monospace', fontSize: '12px', color: '#94a3b8', margin: '0 0 6px'}}>(first: Int = 100, after: String, where: <a href="#auditlogwhereinput">AuditLogWhereInput</a>, orderBy: [<a href="#auditlogorderbyinput">AuditLogOrderByInput</a>!]): <a href="#auditlogconnection">AuditLogConnection</a>!</div>
 <p>Query audit log events with pagination and filtering.</p>
 </div>
 
-<div id="auditLogsDownloads" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #10b981', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="auditLogsDownloads" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>auditLogsDownloads</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', fontWeight: '700', padding: '2px 7px', borderRadius: '20px', background: '#d1fae5', color: '#065f46'}}>query</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>auditreader</span>
 </div>
 <div style={{fontFamily: 'monospace', fontSize: '12px', color: '#94a3b8', margin: '0 0 6px'}}>(first: Int = 50, after: String, where: <a href="#auditlogsdownloadwhereinput">AuditLogsDownloadWhereInput</a>, orderBy: [<a href="#auditlogsdownloadorderbyinput">AuditLogsDownloadOrderByInput</a>!]): <a href="#auditlogsdownloadconnection">AuditLogsDownloadConnection</a>!</div>
 <p>Query audit log downloads with pagination and filtering. Use where: &#123; id: &#123; _eq: "..." &#125; &#125; to poll a specific download.</p>
 </div>
 
-<div id="bulkPullRequestAction" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #10b981', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="bulkPullRequestAction" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>bulkPullRequestAction</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', fontWeight: '700', padding: '2px 7px', borderRadius: '20px', background: '#d1fae5', color: '#065f46'}}>query</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changelogreader</span>
 </div>
 <div style={{fontFamily: 'monospace', fontSize: '12px', color: '#94a3b8', margin: '0 0 6px'}}>(id: ID!): <a href="#bulkpullrequestaction">BulkPullRequestAction</a></div>
 <p>Get a bulk pull request action by ID to poll for progress.</p>
 </div>
 
-<div id="capabilities" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #10b981', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="capabilities" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>capabilities</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', fontWeight: '700', padding: '2px 7px', borderRadius: '20px', background: '#d1fae5', color: '#065f46'}}>query</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>gateway</span>
 </div>
 <div style={{fontFamily: 'monospace', fontSize: '12px', color: '#94a3b8', margin: '0 0 6px'}}>: <a href="#platformcapabilities">PlatformCapabilities</a>!</div>
 <p>Returns which optional platform features are enabled in this deployment. Each field defaults to false and is overridden to true by the corresponding optional service when it is present in the supergraph composition.</p>
 </div>
 
-<div id="codeSearch" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #10b981', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="codeSearch" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>codeSearch</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', fontWeight: '700', padding: '2px 7px', borderRadius: '20px', background: '#d1fae5', color: '#065f46'}}>query</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>code-search</span>
 </div>
 <div style={{fontFamily: 'monospace', fontSize: '12px', color: '#94a3b8', margin: '0 0 6px'}}>(repositoryId: String!, query: String!, first: Int = 100, after: String): <a href="#codesearchresultconnection">CodeSearchResultConnection</a>!</div>
 <p>Search source code across artifact repositories. Searches the given repository and all its descendants in the hierarchy. Results are grouped by artifact (groupId:artifactId) with file-level matches.</p>
 </div>
 
-<div id="connectors" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #10b981', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="connectors" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>connectors</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', fontWeight: '700', padding: '2px 7px', borderRadius: '20px', background: '#d1fae5', color: '#065f46'}}>query</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>gateway</span>
 </div>
 <div style={{fontFamily: 'monospace', fontSize: '12px', color: '#94a3b8', margin: '0 0 6px'}}>(first: Int = 100, after: String, where: <a href="#connectorwhereinput">ConnectorWhereInput</a>, orderBy: [<a href="#connectororderbyinput">ConnectorOrderByInput</a>!]): <a href="#connectorconnection">ConnectorConnection</a>!</div>
 </div>
 
-<div id="conversation" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #10b981', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="conversation" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>conversation</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', fontWeight: '700', padding: '2px 7px', borderRadius: '20px', background: '#d1fae5', color: '#065f46'}}>query</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>moddy</span>
 </div>
 <div style={{fontFamily: 'monospace', fontSize: '12px', color: '#94a3b8', margin: '0 0 6px'}}>(conversationId: ID!): <a href="#conversation">Conversation</a></div>
 <p>Look up a single conversation by id. Returns null when no conversation matches or the caller does not have access. Restores the v1 query the moderne-ui client already references.</p>
 </div>
 
-<div id="currentUser" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #10b981', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="currentUser" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>currentUser</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', fontWeight: '700', padding: '2px 7px', borderRadius: '20px', background: '#d1fae5', color: '#065f46'}}>query</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>authz</span>
 </div>
 <div style={{fontFamily: 'monospace', fontSize: '12px', color: '#94a3b8', margin: '0 0 6px'}}>: <a href="#user">User</a>!</div>
 <p>Returns the currently authenticated user.</p>
 </div>
 
-<div id="devCenterRecipes" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #10b981', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="devCenterRecipes" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>devCenterRecipes</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', fontWeight: '700', padding: '2px 7px', borderRadius: '20px', background: '#d1fae5', color: '#065f46'}}>query</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>recipemarketplace</span>
 </div>
 <div style={{fontFamily: 'monospace', fontSize: '12px', color: '#94a3b8', margin: '0 0 6px'}}>: [<a href="#recipedescriptor">RecipeDescriptor</a>!]!</div>
 <p>Get available DevCenter recipes for configuration.</p>
 </div>
 
-<div id="license" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #10b981', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="license" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>license</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', fontWeight: '700', padding: '2px 7px', borderRadius: '20px', background: '#d1fae5', color: '#065f46'}}>query</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>authz</span>
 </div>
 <div style={{fontFamily: 'monospace', fontSize: '12px', color: '#94a3b8', margin: '0 0 6px'}}>: <a href="#license">License</a>!</div>
 <p>Request a new license lease key</p>
 </div>
 
-<div id="organization" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #10b981', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="organization" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>organization</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', fontWeight: '700', padding: '2px 7px', borderRadius: '20px', background: '#d1fae5', color: '#065f46'}}>query</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>organization</span>
 </div>
 <div style={{fontFamily: 'monospace', fontSize: '12px', color: '#94a3b8', margin: '0 0 6px'}}>(id: ID!): <a href="#organization">Organization</a>!</div>
 </div>
 
-<div id="organizations" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #10b981', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="organizations" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>organizations</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', fontWeight: '700', padding: '2px 7px', borderRadius: '20px', background: '#d1fae5', color: '#065f46'}}>query</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>organization</span>
 </div>
 <div style={{fontFamily: 'monospace', fontSize: '12px', color: '#94a3b8', margin: '0 0 6px'}}>(first: Int = 100, after: String, where: <a href="#organizationwhereinput">OrganizationWhereInput</a>, orderBy: [<a href="#organizationorderbyinput">OrganizationOrderByInput</a>!]): <a href="#organizationconnection">OrganizationConnection</a>!</div>
 </div>
 
-<div id="scmConnections" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #10b981', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="scmConnections" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>scmConnections</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', fontWeight: '700', padding: '2px 7px', borderRadius: '20px', background: '#d1fae5', color: '#065f46'}}>query</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>authz</span>
 </div>
 <div style={{fontFamily: 'monospace', fontSize: '12px', color: '#94a3b8', margin: '0 0 6px'}}>: [<a href="#scmconnection">ScmConnection</a>!]!</div>
 <p>Returns connections for all SCM providers.</p>
 </div>
 
-<div id="users" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #10b981', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="users" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>users</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', fontWeight: '700', padding: '2px 7px', borderRadius: '20px', background: '#d1fae5', color: '#065f46'}}>query</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>authz</span>
 </div>
 <div style={{fontFamily: 'monospace', fontSize: '12px', color: '#94a3b8', margin: '0 0 6px'}}>(first: Int = 100, after: String, where: <a href="#userwhereinput">UserWhereInput</a>, orderBy: [<a href="#userorderbyinput">UserOrderByInput</a>!]): <a href="#userconnection">UserConnection</a>!</div>
 <p>Returns users with option to filter by role.</p>
 </div>
 
-<div id="verifyToken" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #10b981', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="verifyToken" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>verifyToken</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', fontWeight: '700', padding: '2px 7px', borderRadius: '20px', background: '#d1fae5', color: '#065f46'}}>query</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetcommitter</span>
 </div>
 <div style={{fontFamily: 'monospace', fontSize: '12px', color: '#94a3b8', margin: '0 0 6px'}}>(origin: String!, scmType: <a href="#scmtype">ScmType</a>!): String</div>
@@ -158,50 +143,45 @@ hide_title: true
 
 ## Mutations
 
-<div id="approvePullRequests" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #f59e0b', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="approvePullRequests" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>approvePullRequests</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', fontWeight: '700', padding: '2px 7px', borderRadius: '20px', background: '#fef3c7', color: '#92400e'}}>mutation</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changelogreader</span>
 </div>
 <div style={{fontFamily: 'monospace', fontSize: '12px', color: '#94a3b8', margin: '0 0 6px'}}>(organizationId: ID!, selection: <a href="#pullrequestselectioninput">PullRequestSelectionInput</a>!): <a href="#bulkpullrequestactionqueued">BulkPullRequestActionQueued</a>!</div>
 <p>Approve pull requests in bulk. Returns the queued action for polling.</p>
 </div>
 
-<div id="cancelBulkPullRequestAction" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #f59e0b', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="cancelBulkPullRequestAction" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>cancelBulkPullRequestAction</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', fontWeight: '700', padding: '2px 7px', borderRadius: '20px', background: '#fef3c7', color: '#92400e'}}>mutation</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changelogreader</span>
 </div>
 <div style={{fontFamily: 'monospace', fontSize: '12px', color: '#94a3b8', margin: '0 0 6px'}}>(id: ID!): <a href="#bulkpullrequestactioncanceled">BulkPullRequestActionCanceled</a>!</div>
 <p>Cancel a pending bulk pull request action.</p>
 </div>
 
-<div id="cancelCommit" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #f59e0b', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="cancelCommit" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>cancelCommit</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', fontWeight: '700', padding: '2px 7px', borderRadius: '20px', background: '#fef3c7', color: '#92400e'}}>mutation</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetcommitter</span>
 </div>
 <div style={{fontFamily: 'monospace', fontSize: '12px', color: '#94a3b8', margin: '0 0 6px'}}>(id: ID!): <a href="#organizationcommitcanceled">OrganizationCommitCanceled</a>!</div>
 <p>Cancel a running commit operation.</p>
 </div>
 
-<div id="cancelDevCenterRun" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #f59e0b', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="cancelDevCenterRun" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>cancelDevCenterRun</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', fontWeight: '700', padding: '2px 7px', borderRadius: '20px', background: '#fef3c7', color: '#92400e'}}>mutation</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>recipeworker</span>
 </div>
 <div style={{fontFamily: 'monospace', fontSize: '12px', color: '#94a3b8', margin: '0 0 6px'}}>(id: ID!): ID!</div>
 <p>Cancel a DevCenter run. Cancellation is best-effort and asynchronous.</p>
 </div>
 
-<div id="cancelMessage" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #f59e0b', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="cancelMessage" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>cancelMessage</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', fontWeight: '700', padding: '2px 7px', borderRadius: '20px', background: '#fef3c7', color: '#92400e'}}>mutation</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>moddy</span>
 </div>
 <div style={{fontFamily: 'monospace', fontSize: '12px', color: '#94a3b8', margin: '0 0 6px'}}>(conversationId: ID!, messageId: ID): Boolean!</div>
@@ -210,130 +190,117 @@ hide_title: true
 <p>Returns <code>true</code> when a running turn was actually interrupted, <code>false</code> when the conversation was already idle (no-op, not an error). <code>messageId</code> is accepted for client compatibility but only the conversation's active turn is cancellable — there is never more than one turn in flight.</p>
 </div>
 
-<div id="cancelRecipeRun" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #f59e0b', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="cancelRecipeRun" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>cancelRecipeRun</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', fontWeight: '700', padding: '2px 7px', borderRadius: '20px', background: '#fef3c7', color: '#92400e'}}>mutation</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>recipeworker</span>
 </div>
 <div style={{fontFamily: 'monospace', fontSize: '12px', color: '#94a3b8', margin: '0 0 6px'}}>(id: ID!): ID!</div>
 <p>Cancel a recipe run. Cancellation is best-effort and asynchronous.</p>
 </div>
 
-<div id="clearOrganizationPrompt" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #f59e0b', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="clearOrganizationPrompt" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>clearOrganizationPrompt</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', fontWeight: '700', padding: '2px 7px', borderRadius: '20px', background: '#fef3c7', color: '#92400e'}}>mutation</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>moddy</span>
 </div>
 <div style={{fontFamily: 'monospace', fontSize: '12px', color: '#94a3b8', margin: '0 0 6px'}}>(organizationId: ID!): Boolean!</div>
 <p>Clear the organization-level prompt override, falling back to universal.</p>
 </div>
 
-<div id="clearUserPrompt" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #f59e0b', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="clearUserPrompt" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>clearUserPrompt</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', fontWeight: '700', padding: '2px 7px', borderRadius: '20px', background: '#fef3c7', color: '#92400e'}}>mutation</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>moddy</span>
 </div>
 <div style={{fontFamily: 'monospace', fontSize: '12px', color: '#94a3b8', margin: '0 0 6px'}}>: Boolean!</div>
 <p>Clear the current user's prompt override, falling back to organization or universal.</p>
 </div>
 
-<div id="closePullRequests" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #f59e0b', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="closePullRequests" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>closePullRequests</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', fontWeight: '700', padding: '2px 7px', borderRadius: '20px', background: '#fef3c7', color: '#92400e'}}>mutation</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changelogreader</span>
 </div>
 <div style={{fontFamily: 'monospace', fontSize: '12px', color: '#94a3b8', margin: '0 0 6px'}}>(organizationId: ID!, selection: <a href="#pullrequestselectioninput">PullRequestSelectionInput</a>!): <a href="#bulkpullrequestactionqueued">BulkPullRequestActionQueued</a>!</div>
 <p>Close pull requests in bulk. Returns the queued action for polling.</p>
 </div>
 
-<div id="commit" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #f59e0b', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="commit" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>commit</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', fontWeight: '700', padding: '2px 7px', borderRadius: '20px', background: '#fef3c7', color: '#92400e'}}>mutation</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetcommitter</span>
 </div>
 <div style={{fontFamily: 'monospace', fontSize: '12px', color: '#94a3b8', margin: '0 0 6px'}}>(input: <a href="#commitinput">CommitInput</a>!): <a href="#organizationcommitqueued">OrganizationCommitQueued</a>!</div>
 <p>Create commits from a changeset (recipe run, batch change, etc.).</p>
 </div>
 
-<div id="createAccessToken" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #f59e0b', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="createAccessToken" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>createAccessToken</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', fontWeight: '700', padding: '2px 7px', borderRadius: '20px', background: '#fef3c7', color: '#92400e'}}>mutation</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>authz</span>
 </div>
 <div style={{fontFamily: 'monospace', fontSize: '12px', color: '#94a3b8', margin: '0 0 6px'}}>(description: String, expiresAt: <a href="#datetime">DateTime</a>): <a href="#createaccesstokenresult">CreateAccessTokenResult</a>!</div>
 <p>Creates a new Moderne Personal Access Token for the current user. Returns the token value only once - it cannot be retrieved again.</p>
 </div>
 
-<div id="createConversation" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #f59e0b', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="createConversation" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>createConversation</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', fontWeight: '700', padding: '2px 7px', borderRadius: '20px', background: '#fef3c7', color: '#92400e'}}>mutation</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>moddy</span>
 </div>
 <div style={{fontFamily: 'monospace', fontSize: '12px', color: '#94a3b8', margin: '0 0 6px'}}>(input: <a href="#createconversationinput">CreateConversationInput</a>!, waitForCompletion: Boolean = false): <a href="#sendmessageresult">SendMessageResult</a>!</div>
 <p>Create a new conversation and send the first message. Uses the effective prompt for the organization context. `waitForCompletion` has the same semantics as on `sendMessage`.</p>
 </div>
 
-<div id="createUserOrganization" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #f59e0b', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="createUserOrganization" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>createUserOrganization</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', fontWeight: '700', padding: '2px 7px', borderRadius: '20px', background: '#fef3c7', color: '#92400e'}}>mutation</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>organization</span>
 </div>
 <div style={{fontFamily: 'monospace', fontSize: '12px', color: '#94a3b8', margin: '0 0 6px'}}>(input: <a href="#createuserorganizationinput">CreateUserOrganizationInput</a>!): <a href="#organization">Organization</a>!</div>
 <p>Create a new user-defined organization visible only to the current user.</p>
 </div>
 
-<div id="deleteUser" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #f59e0b', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="deleteUser" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>deleteUser</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', fontWeight: '700', padding: '2px 7px', borderRadius: '20px', background: '#fef3c7', color: '#92400e'}}>mutation</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>authz</span>
 </div>
 <div style={{fontFamily: 'monospace', fontSize: '12px', color: '#94a3b8', margin: '0 0 6px'}}>(email: String!): Boolean!</div>
 <p>Deletes a user and all associated access tokens. Returns true if the user was found and deleted.</p>
 </div>
 
-<div id="deleteUserOrganization" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #f59e0b', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="deleteUserOrganization" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>deleteUserOrganization</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', fontWeight: '700', padding: '2px 7px', borderRadius: '20px', background: '#fef3c7', color: '#92400e'}}>mutation</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>organization</span>
 </div>
 <div style={{fontFamily: 'monospace', fontSize: '12px', color: '#94a3b8', margin: '0 0 6px'}}>(id: ID!): Boolean!</div>
 <p>Delete a user-defined organization.</p>
 </div>
 
-<div id="downloadAuditLogs" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #f59e0b', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="downloadAuditLogs" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>downloadAuditLogs</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', fontWeight: '700', padding: '2px 7px', borderRadius: '20px', background: '#fef3c7', color: '#92400e'}}>mutation</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>auditreader</span>
 </div>
 <div style={{fontFamily: 'monospace', fontSize: '12px', color: '#94a3b8', margin: '0 0 6px'}}>(first: Int, since: <a href="#datetime">DateTime</a>, until: <a href="#datetime">DateTime</a>, format: <a href="#auditlogexportformat">AuditLogExportFormat</a>!): <a href="#auditlogsdownload">AuditLogsDownload</a>!</div>
 <p>Start an asynchronous export of audit logs. Returns a task whose state can be polled via auditLogsDownloads.</p>
 </div>
 
-<div id="downloadDataTable" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #f59e0b', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="downloadDataTable" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>downloadDataTable</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', fontWeight: '700', padding: '2px 7px', borderRadius: '20px', background: '#fef3c7', color: '#92400e'}}>mutation</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetreader</span>
 </div>
 <div style={{fontFamily: 'monospace', fontSize: '12px', color: '#94a3b8', margin: '0 0 6px'}}>(changesetId: ID!, dataTable: String!, group: String, format: <a href="#datatableformat">DataTableFormat</a>!): <a href="#datatable">DataTable</a>!</div>
 <p>Start or retrieve a data table download. If the same data table + group + format combination was already requested, returns the existing download state.</p>
 </div>
 
-<div id="exchangeAuthorizationCode" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #f59e0b', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="exchangeAuthorizationCode" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>exchangeAuthorizationCode</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', fontWeight: '700', padding: '2px 7px', borderRadius: '20px', background: '#fef3c7', color: '#92400e'}}>mutation</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>authz</span>
 </div>
 <div style={{fontFamily: 'monospace', fontSize: '12px', color: '#94a3b8', margin: '0 0 6px'}}>(input: <a href="#exchangeauthorizationcodeinput">ExchangeAuthorizationCodeInput</a>!): <a href="#exchangeauthorizationresult">ExchangeAuthorizationResult</a>!</div>
@@ -342,10 +309,9 @@ hide_title: true
 <p>On success, the token is stored and future requests will be authenticated.</p>
 </div>
 
-<div id="initiateAuthorization" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #f59e0b', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="initiateAuthorization" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>initiateAuthorization</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', fontWeight: '700', padding: '2px 7px', borderRadius: '20px', background: '#fef3c7', color: '#92400e'}}>mutation</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>authz</span>
 </div>
 <div style={{fontFamily: 'monospace', fontSize: '12px', color: '#94a3b8', margin: '0 0 6px'}}>(input: <a href="#initiateauthorizationinput">InitiateAuthorizationInput</a>!): <a href="#oauthauthorization">OAuthAuthorization</a>!</div>
@@ -354,120 +320,108 @@ hide_title: true
 <p>The authorization ID should be passed to exchangeAuthorizationCode after the user completes OAuth.</p>
 </div>
 
-<div id="installRecipesForCurrentUser" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #f59e0b', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="installRecipesForCurrentUser" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>installRecipesForCurrentUser</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', fontWeight: '700', padding: '2px 7px', borderRadius: '20px', background: '#fef3c7', color: '#92400e'}}>mutation</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>recipemarketplace</span>
 </div>
 <div style={{fontFamily: 'monospace', fontSize: '12px', color: '#94a3b8', margin: '0 0 6px'}}>(bundle: <a href="#recipebundleinput">RecipeBundleInput</a>!): <a href="#recipeinstallation">RecipeInstallation</a>!</div>
 <p>Install a recipe bundle to the current user's personal marketplace.</p>
 </div>
 
-<div id="installRecipesForOrganization" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #f59e0b', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="installRecipesForOrganization" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>installRecipesForOrganization</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', fontWeight: '700', padding: '2px 7px', borderRadius: '20px', background: '#fef3c7', color: '#92400e'}}>mutation</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>recipemarketplace</span>
 </div>
 <div style={{fontFamily: 'monospace', fontSize: '12px', color: '#94a3b8', margin: '0 0 6px'}}>(organizationId: ID!, bundle: <a href="#recipebundleinput">RecipeBundleInput</a>!): <a href="#recipeinstallation">RecipeInstallation</a>!</div>
 <p>Install a recipe bundle to a specific organization's marketplace. Requires the `admin` role.</p>
 </div>
 
-<div id="installRecipesUniversal" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #f59e0b', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="installRecipesUniversal" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>installRecipesUniversal</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', fontWeight: '700', padding: '2px 7px', borderRadius: '20px', background: '#fef3c7', color: '#92400e'}}>mutation</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>recipemarketplace</span>
 </div>
 <div style={{fontFamily: 'monospace', fontSize: '12px', color: '#94a3b8', margin: '0 0 6px'}}>(bundle: <a href="#recipebundleinput">RecipeBundleInput</a>!): <a href="#recipeinstallation">RecipeInstallation</a>!</div>
 <p>Install a recipe bundle to the universal marketplace (visible to all). Requires the `admin` role.</p>
 </div>
 
-<div id="mergePullRequests" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #f59e0b', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="mergePullRequests" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>mergePullRequests</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', fontWeight: '700', padding: '2px 7px', borderRadius: '20px', background: '#fef3c7', color: '#92400e'}}>mutation</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changelogreader</span>
 </div>
 <div style={{fontFamily: 'monospace', fontSize: '12px', color: '#94a3b8', margin: '0 0 6px'}}>(organizationId: ID!, selection: <a href="#pullrequestselectioninput">PullRequestSelectionInput</a>!, mergeMethod: <a href="#mergemethod">MergeMethod</a>!, deleteSourceBranch: Boolean! = false): <a href="#bulkpullrequestactionqueued">BulkPullRequestActionQueued</a>!</div>
 <p>Merge pull requests in bulk. Returns the queued action for polling.</p>
 </div>
 
-<div id="reindexChangelog" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #f59e0b', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="reindexChangelog" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>reindexChangelog</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', fontWeight: '700', padding: '2px 7px', borderRadius: '20px', background: '#fef3c7', color: '#92400e'}}>mutation</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changelogwriter</span>
 </div>
 <div style={{fontFamily: 'monospace', fontSize: '12px', color: '#94a3b8', margin: '0 0 6px'}}>(since: <a href="#datetime">DateTime</a>!, origin: String): <a href="#reindexresult">ReindexResult</a>!</div>
 <p>Reset poll cursors so the next poll cycle re-fetches and re-enriches changelog entries from the given timestamp forward. Use this to backfill data after deploying enrichment improvements.</p>
 </div>
 
-<div id="revokeAccessToken" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #f59e0b', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="revokeAccessToken" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>revokeAccessToken</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', fontWeight: '700', padding: '2px 7px', borderRadius: '20px', background: '#fef3c7', color: '#92400e'}}>mutation</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>authz</span>
 </div>
 <div style={{fontFamily: 'monospace', fontSize: '12px', color: '#94a3b8', margin: '0 0 6px'}}>(id: ID!): Boolean!</div>
 <p>Revokes an access token by ID. Returns true if the token was revoked, false if not found.</p>
 </div>
 
-<div id="revokeAllAccessTokens" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #f59e0b', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="revokeAllAccessTokens" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>revokeAllAccessTokens</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', fontWeight: '700', padding: '2px 7px', borderRadius: '20px', background: '#fef3c7', color: '#92400e'}}>mutation</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>authz</span>
 </div>
 <div style={{fontFamily: 'monospace', fontSize: '12px', color: '#94a3b8', margin: '0 0 6px'}}>(email: String!): Boolean!</div>
 <p>Revokes all access tokens for a given user. Returns true if all token were revoked, otherwise false.</p>
 </div>
 
-<div id="revokeScmToken" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #f59e0b', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="revokeScmToken" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>revokeScmToken</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', fontWeight: '700', padding: '2px 7px', borderRadius: '20px', background: '#fef3c7', color: '#92400e'}}>mutation</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>authz</span>
 </div>
 <div style={{fontFamily: 'monospace', fontSize: '12px', color: '#94a3b8', margin: '0 0 6px'}}>(input: <a href="#revokescmtokeninput">RevokeScmTokenInput</a>!): <a href="#revoketokenresult">RevokeTokenResult</a>!</div>
 <p>Revoke an SCM OAuth token for the current user and a specific origin. This removes the stored token, disconnecting the user from the VCS.</p>
 </div>
 
-<div id="runDevCenter" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #f59e0b', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="runDevCenter" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>runDevCenter</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', fontWeight: '700', padding: '2px 7px', borderRadius: '20px', background: '#fef3c7', color: '#92400e'}}>mutation</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>recipeworker</span>
 </div>
 <div style={{fontFamily: 'monospace', fontSize: '12px', color: '#94a3b8', margin: '0 0 6px'}}>(input: <a href="#rundevcenterinput">RunDevCenterInput</a>!): <a href="#devcenterrunrunning">DevCenterRunRunning</a>!</div>
 <p>Start a DevCenter run for an organization. Returns immediately with running status.</p>
 </div>
 
-<div id="runRecipe" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #f59e0b', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="runRecipe" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>runRecipe</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', fontWeight: '700', padding: '2px 7px', borderRadius: '20px', background: '#fef3c7', color: '#92400e'}}>mutation</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>recipeworker</span>
 </div>
 <div style={{fontFamily: 'monospace', fontSize: '12px', color: '#94a3b8', margin: '0 0 6px'}}>(input: <a href="#runrecipeinput">RunRecipeInput</a>!): <a href="#organizationreciperunqueued">OrganizationRecipeRunQueued</a>!</div>
 <p>Run a recipe against repositories. Returns the recipe run in its initial queued state.</p>
 </div>
 
-<div id="runVisualization" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #f59e0b', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="runVisualization" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>runVisualization</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', fontWeight: '700', padding: '2px 7px', borderRadius: '20px', background: '#fef3c7', color: '#92400e'}}>mutation</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetvisualizer</span>
 </div>
 <div style={{fontFamily: 'monospace', fontSize: '12px', color: '#94a3b8', margin: '0 0 6px'}}>(organizationId: ID!, visualizationId: ID!, options: [<a href="#visualizationoptioninput">VisualizationOptionInput</a>!]): <a href="#visualization">Visualization</a>!</div>
 <p>Request a visualization to be generated based on the provided descriptor. Returns the existing visualization if already run with the same options, otherwise queues a new visualization run.</p>
 </div>
 
-<div id="sendMessage" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #f59e0b', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="sendMessage" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>sendMessage</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', fontWeight: '700', padding: '2px 7px', borderRadius: '20px', background: '#fef3c7', color: '#92400e'}}>mutation</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>moddy</span>
 </div>
 <div style={{fontFamily: 'monospace', fontSize: '12px', color: '#94a3b8', margin: '0 0 6px'}}>(conversationId: ID!, message: String!, waitForCompletion: Boolean = false): <a href="#sendmessageresult">SendMessageResult</a>!</div>
@@ -475,80 +429,72 @@ hide_title: true
 <p>When `waitForCompletion: true`, the mutation blocks until the turn completes (or the server cap of 4 minutes is reached, whichever comes first). On cap, the mutation returns the current turn state rather than erroring so the caller can continue polling.</p>
 </div>
 
-<div id="setOrganizationPrompt" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #f59e0b', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="setOrganizationPrompt" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>setOrganizationPrompt</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', fontWeight: '700', padding: '2px 7px', borderRadius: '20px', background: '#fef3c7', color: '#92400e'}}>mutation</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>moddy</span>
 </div>
 <div style={{fontFamily: 'monospace', fontSize: '12px', color: '#94a3b8', margin: '0 0 6px'}}>(organizationId: ID!, content: <a href="#markdown">Markdown</a>!): <a href="#prompt">Prompt</a>!</div>
 <p>Set the system prompt for a specific organization (overrides universal).</p>
 </div>
 
-<div id="setProfiling" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #f59e0b', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="setProfiling" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>setProfiling</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', fontWeight: '700', padding: '2px 7px', borderRadius: '20px', background: '#fef3c7', color: '#92400e'}}>mutation</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>gateway</span>
 </div>
 <div style={{fontFamily: 'monospace', fontSize: '12px', color: '#94a3b8', margin: '0 0 6px'}}>(enabled: Boolean!, event: <a href="#profilingevent">ProfilingEvent</a> = CPU): Boolean!</div>
 <p>Turn continuous profiling on or off for this tenant. When enabled, Pyroscope profiles for every service start landing in the Pyroscope UI within seconds. The primary event the agent samples on is selected by `event` (defaults to CPU); calling the mutation again with a different event while profiling is already on rotates the agent to the new event. Fails when the profiling capability is not enabled for the tenant. Admin role required.</p>
 </div>
 
-<div id="setUniversalPrompt" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #f59e0b', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="setUniversalPrompt" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>setUniversalPrompt</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', fontWeight: '700', padding: '2px 7px', borderRadius: '20px', background: '#fef3c7', color: '#92400e'}}>mutation</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>moddy</span>
 </div>
 <div style={{fontFamily: 'monospace', fontSize: '12px', color: '#94a3b8', margin: '0 0 6px'}}>(content: <a href="#markdown">Markdown</a>!): <a href="#prompt">Prompt</a>!</div>
 <p>Set the universal (default) system prompt.</p>
 </div>
 
-<div id="setUserPrompt" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #f59e0b', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="setUserPrompt" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>setUserPrompt</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', fontWeight: '700', padding: '2px 7px', borderRadius: '20px', background: '#fef3c7', color: '#92400e'}}>mutation</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>moddy</span>
 </div>
 <div style={{fontFamily: 'monospace', fontSize: '12px', color: '#94a3b8', margin: '0 0 6px'}}>(content: <a href="#markdown">Markdown</a>!): <a href="#prompt">Prompt</a>!</div>
 <p>Set the system prompt for the current user (overrides organization and universal).</p>
 </div>
 
-<div id="uninstallRecipesFromCurrentUser" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #f59e0b', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="uninstallRecipesFromCurrentUser" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>uninstallRecipesFromCurrentUser</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', fontWeight: '700', padding: '2px 7px', borderRadius: '20px', background: '#fef3c7', color: '#92400e'}}>mutation</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>recipemarketplace</span>
 </div>
 <div style={{fontFamily: 'monospace', fontSize: '12px', color: '#94a3b8', margin: '0 0 6px'}}>(packageName: String!): <a href="#recipeuninstallation">RecipeUninstallation</a>!</div>
 <p>Uninstall a recipe bundle from the current user's personal marketplace. Returns the number of recipes that were removed.</p>
 </div>
 
-<div id="uninstallRecipesFromOrganization" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #f59e0b', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="uninstallRecipesFromOrganization" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>uninstallRecipesFromOrganization</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', fontWeight: '700', padding: '2px 7px', borderRadius: '20px', background: '#fef3c7', color: '#92400e'}}>mutation</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>recipemarketplace</span>
 </div>
 <div style={{fontFamily: 'monospace', fontSize: '12px', color: '#94a3b8', margin: '0 0 6px'}}>(organizationId: ID!, packageName: String!): <a href="#recipeuninstallation">RecipeUninstallation</a>!</div>
 <p>Uninstall a recipe bundle from a specific organization's marketplace. Returns the number of recipes that were removed. Requires the `admin` role.</p>
 </div>
 
-<div id="uninstallRecipesUniversal" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #f59e0b', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="uninstallRecipesUniversal" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>uninstallRecipesUniversal</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', fontWeight: '700', padding: '2px 7px', borderRadius: '20px', background: '#fef3c7', color: '#92400e'}}>mutation</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>recipemarketplace</span>
 </div>
 <div style={{fontFamily: 'monospace', fontSize: '12px', color: '#94a3b8', margin: '0 0 6px'}}>(packageName: String!): <a href="#recipeuninstallation">RecipeUninstallation</a>!</div>
 <p>Uninstall a recipe bundle from the universal marketplace. Returns the number of recipes that were removed. Requires the `admin` role.</p>
 </div>
 
-<div id="updateUserOrganization" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #f59e0b', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="updateUserOrganization" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>updateUserOrganization</span>
-<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', fontWeight: '700', padding: '2px 7px', borderRadius: '20px', background: '#fef3c7', color: '#92400e'}}>mutation</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>organization</span>
 </div>
 <div style={{fontFamily: 'monospace', fontSize: '12px', color: '#94a3b8', margin: '0 0 6px'}}>(input: <a href="#updateuserorganizationinput">UpdateUserOrganizationInput</a>!): <a href="#organization">Organization</a>!</div>
@@ -559,7 +505,7 @@ hide_title: true
 
 ### Object types
 
-<div id="accesstoken" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="accesstoken" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>AccessToken</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>authz</span>
@@ -576,7 +522,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="accesstokenconnection" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="accesstokenconnection" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>AccessTokenConnection</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>authz</span>
@@ -591,7 +537,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="accesstokenedge" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="accesstokenedge" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>AccessTokenEdge</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>authz</span>
@@ -605,7 +551,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="artifactoryconfiguration" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="artifactoryconfiguration" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>ArtifactoryConfiguration</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>gateway</span>
@@ -623,7 +569,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="auditlog" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="auditlog" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>AuditLog</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>auditreader</span>
@@ -643,7 +589,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="auditlogconnection" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="auditlogconnection" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>AuditLogConnection</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>auditreader</span>
@@ -658,7 +604,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="auditlogedge" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="auditlogedge" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>AuditLogEdge</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>auditreader</span>
@@ -672,7 +618,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="auditlogsdownloadconnection" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="auditlogsdownloadconnection" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>AuditLogsDownloadConnection</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>auditreader</span>
@@ -687,7 +633,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="auditlogsdownloadedge" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="auditlogsdownloadedge" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>AuditLogsDownloadEdge</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>auditreader</span>
@@ -701,7 +647,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="auditlogsdownloaderror" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="auditlogsdownloaderror" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>AuditLogsDownloadError</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>auditreader</span>
@@ -719,7 +665,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="auditlogsdownloadfinished" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="auditlogsdownloadfinished" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>AuditLogsDownloadFinished</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>auditreader</span>
@@ -738,7 +684,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="auditlogsdownloadprocessing" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="auditlogsdownloadprocessing" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>AuditLogsDownloadProcessing</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>auditreader</span>
@@ -755,7 +701,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="azuredevopsconfiguration" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="azuredevopsconfiguration" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>AzureDevOpsConfiguration</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>gateway</span>
@@ -772,7 +718,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="azuredevopsconnection" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="azuredevopsconnection" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>AzureDevOpsConnection</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>authz</span>
@@ -788,7 +734,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="azuredevopsoauth" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="azuredevopsoauth" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>AzureDevOpsOauth</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>gateway</span>
@@ -802,7 +748,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="batchchange" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="batchchange" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>BatchChange</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetreader</span>
@@ -826,7 +772,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="batchchangefilechange" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="batchchangefilechange" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>BatchChangeFileChange</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetreader</span>
@@ -843,7 +789,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="bitbucketcloudconfiguration" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="bitbucketcloudconfiguration" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>BitbucketCloudConfiguration</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>gateway</span>
@@ -860,7 +806,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="bitbucketcloudconnection" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="bitbucketcloudconnection" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>BitbucketCloudConnection</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>authz</span>
@@ -876,7 +822,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="bitbucketcloudoauth" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="bitbucketcloudoauth" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>BitbucketCloudOauth</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>gateway</span>
@@ -889,7 +835,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="bitbucketconfiguration" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="bitbucketconfiguration" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>BitbucketConfiguration</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>gateway</span>
@@ -906,7 +852,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="bitbucketconnection" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="bitbucketconnection" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>BitbucketConnection</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>authz</span>
@@ -922,7 +868,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="bitbucketoauth" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="bitbucketoauth" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>BitbucketOauth</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>gateway</span>
@@ -935,7 +881,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="branchcommitoptions" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="branchcommitoptions" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>BranchCommitOptions</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetcommitter</span>
@@ -949,7 +895,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="bulkpullrequestactioncanceled" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="bulkpullrequestactioncanceled" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>BulkPullRequestActionCanceled</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changelogreader</span>
@@ -967,7 +913,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="bulkpullrequestactionconnection" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="bulkpullrequestactionconnection" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>BulkPullRequestActionConnection</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changelogreader</span>
@@ -982,7 +928,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="bulkpullrequestactionedge" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="bulkpullrequestactionedge" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>BulkPullRequestActionEdge</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changelogreader</span>
@@ -996,7 +942,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="bulkpullrequestactionerror" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="bulkpullrequestactionerror" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>BulkPullRequestActionError</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changelogreader</span>
@@ -1014,7 +960,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="bulkpullrequestactionfinished" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="bulkpullrequestactionfinished" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>BulkPullRequestActionFinished</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changelogreader</span>
@@ -1033,7 +979,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="bulkpullrequestactionqueued" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="bulkpullrequestactionqueued" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>BulkPullRequestActionQueued</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changelogreader</span>
@@ -1051,7 +997,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="bulkpullrequestactionrunning" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="bulkpullrequestactionrunning" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>BulkPullRequestActionRunning</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changelogreader</span>
@@ -1069,7 +1015,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="changeparticipant" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="changeparticipant" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>ChangeParticipant</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changelogreader</span>
@@ -1087,7 +1033,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="changelogcommit" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="changelogcommit" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>ChangelogCommit</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changelogreader</span>
@@ -1113,7 +1059,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="changelogentryconnection" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="changelogentryconnection" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>ChangelogEntryConnection</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changelogreader</span>
@@ -1128,7 +1074,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="changelogentryedge" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="changelogentryedge" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>ChangelogEntryEdge</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changelogreader</span>
@@ -1142,7 +1088,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="changelogparticipantconnection" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="changelogparticipantconnection" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>ChangelogParticipantConnection</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changelogreader</span>
@@ -1157,7 +1103,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="changelogparticipantedge" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="changelogparticipantedge" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>ChangelogParticipantEdge</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changelogreader</span>
@@ -1171,7 +1117,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="changelogpullrequest" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="changelogpullrequest" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>ChangelogPullRequest</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changelogreader</span>
@@ -1206,7 +1152,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="clidownloadinstructionlink" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="clidownloadinstructionlink" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>CliDownloadInstructionLink</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>gateway</span>
@@ -1220,7 +1166,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="codesearchresult" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="codesearchresult" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>CodeSearchResult</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>code-search</span>
@@ -1235,7 +1181,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="codesearchresultconnection" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="codesearchresultconnection" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>CodeSearchResultConnection</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>code-search</span>
@@ -1251,7 +1197,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="codesearchresultedge" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="codesearchresultedge" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>CodeSearchResultEdge</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>code-search</span>
@@ -1265,7 +1211,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="column" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="column" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>Column</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>corechangeset</span>
@@ -1281,7 +1227,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="connector" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="connector" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>Connector</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>gateway</span>
@@ -1299,7 +1245,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="connectorconnection" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="connectorconnection" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>ConnectorConnection</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>gateway</span>
@@ -1314,7 +1260,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="connectoredge" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="connectoredge" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>ConnectorEdge</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>gateway</span>
@@ -1328,7 +1274,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="conversation" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="conversation" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>Conversation</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>moddy</span>
@@ -1347,7 +1293,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="conversationconnection" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="conversationconnection" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>ConversationConnection</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>moddy</span>
@@ -1361,7 +1307,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="conversationedge" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="conversationedge" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>ConversationEdge</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>moddy</span>
@@ -1375,7 +1321,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="conversationturnstate" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="conversationturnstate" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>ConversationTurnState</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>moddy</span>
@@ -1391,7 +1337,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="createaccesstokenresult" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="createaccesstokenresult" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>CreateAccessTokenResult</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>authz</span>
@@ -1409,7 +1355,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="datatableavailable" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="datatableavailable" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>DataTableAvailable</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetreader</span>
@@ -1428,7 +1374,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="datatableconnection" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="datatableconnection" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>DataTableConnection</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>corechangeset</span>
@@ -1443,7 +1389,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="datatabledescriptor" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="datatabledescriptor" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>DataTableDescriptor</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>corechangeset</span>
@@ -1459,7 +1405,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="datatableedge" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="datatableedge" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>DataTableEdge</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>corechangeset</span>
@@ -1473,7 +1419,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="datatableerror" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="datatableerror" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>DataTableError</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetreader</span>
@@ -1495,7 +1441,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="datatablefinished" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="datatablefinished" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>DataTableFinished</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetreader</span>
@@ -1519,7 +1465,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="datatableprocessing" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="datatableprocessing" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>DataTableProcessing</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetreader</span>
@@ -1540,7 +1486,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="datatablesqlmessage" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="datatablesqlmessage" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>DataTableSqlMessage</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>moddy</span>
@@ -1558,7 +1504,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="datatablesmessage" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="datatablesmessage" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>DataTablesMessage</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>moddy</span>
@@ -1576,7 +1522,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="devcenter" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="devcenter" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>DevCenter</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetreader</span>
@@ -1590,7 +1536,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="devcentercard" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="devcentercard" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>DevCenterCard</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetreader</span>
@@ -1609,7 +1555,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="devcentercarddescriptor" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="devcentercarddescriptor" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>DevCenterCardDescriptor</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>recipemarketplace</span>
@@ -1626,7 +1572,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="devcentermeasure" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="devcentermeasure" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>DevCenterMeasure</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetreader</span>
@@ -1643,7 +1589,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="devcentermeasuredescriptor" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="devcentermeasuredescriptor" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>DevCenterMeasureDescriptor</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>recipemarketplace</span>
@@ -1659,7 +1605,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="devcenterorganization" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="devcenterorganization" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>DevCenterOrganization</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetreader</span>
@@ -1675,7 +1621,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="devcenterrepositories" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="devcenterrepositories" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>DevCenterRepositories</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetreader</span>
@@ -1690,7 +1636,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="devcenterruncanceled" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="devcenterruncanceled" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>DevCenterRunCanceled</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetreader</span>
@@ -1708,7 +1654,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="devcenterrunconnection" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="devcenterrunconnection" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>DevCenterRunConnection</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetreader</span>
@@ -1723,7 +1669,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="devcenterrunedge" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="devcenterrunedge" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>DevCenterRunEdge</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetreader</span>
@@ -1737,7 +1683,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="devcenterrunerror" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="devcenterrunerror" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>DevCenterRunError</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetreader</span>
@@ -1756,7 +1702,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="devcenterrunfinished" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="devcenterrunfinished" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>DevCenterRunFinished</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetreader</span>
@@ -1777,7 +1723,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="devcenterrunrunning" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="devcenterrunrunning" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>DevCenterRunRunning</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetreader</span>
@@ -1794,7 +1740,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="diffstat" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="diffstat" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>DiffStat</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changelogreader</span>
@@ -1809,7 +1755,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="directcommitsucceeded" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="directcommitsucceeded" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>DirectCommitSucceeded</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetcommitter</span>
@@ -1828,7 +1774,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="errormessage" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="errormessage" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>ErrorMessage</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>moddy</span>
@@ -1847,7 +1793,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="exchangeauthorizationresult" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="exchangeauthorizationresult" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>ExchangeAuthorizationResult</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>authz</span>
@@ -1862,7 +1808,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="filechangeconnection" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="filechangeconnection" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>FileChangeConnection</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>corechangeset</span>
@@ -1881,7 +1827,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="filechangeedge" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="filechangeedge" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>FileChangeEdge</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>corechangeset</span>
@@ -1895,7 +1841,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="forkandpullrequestcommitsucceeded" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="forkandpullrequestcommitsucceeded" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>ForkAndPullRequestCommitSucceeded</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetcommitter</span>
@@ -1915,7 +1861,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="forkcommitoptions" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="forkcommitoptions" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>ForkCommitOptions</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetcommitter</span>
@@ -1931,7 +1877,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="forkcommitsucceeded" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="forkcommitsucceeded" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>ForkCommitSucceeded</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetcommitter</span>
@@ -1950,7 +1896,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="forkpullrequestoptions" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="forkpullrequestoptions" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>ForkPullRequestOptions</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetcommitter</span>
@@ -1972,7 +1918,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="generichttptoolconfiguration" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="generichttptoolconfiguration" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>GenericHttpToolConfiguration</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>gateway</span>
@@ -1988,7 +1934,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="gitlabconfiguration" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="gitlabconfiguration" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>GitLabConfiguration</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>gateway</span>
@@ -2005,7 +1951,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="gitlabconnection" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="gitlabconnection" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>GitLabConnection</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>authz</span>
@@ -2021,7 +1967,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="gitlaboauth" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="gitlaboauth" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>GitLabOauth</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>gateway</span>
@@ -2034,7 +1980,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="githubconfiguration" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="githubconfiguration" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>GithubConfiguration</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>gateway</span>
@@ -2052,7 +1998,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="githubconnection" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="githubconnection" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>GithubConnection</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>authz</span>
@@ -2068,7 +2014,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="githuboauth" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="githuboauth" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>GithubOauth</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>gateway</span>
@@ -2082,7 +2028,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="gorecipebundle" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="gorecipebundle" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>GoRecipeBundle</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetreader</span>
@@ -2099,7 +2045,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="httptoolconnectivity" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="httptoolconnectivity" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>HttpToolConnectivity</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>gateway</span>
@@ -2113,7 +2059,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="license" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="license" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>License</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>authz</span>
@@ -2126,7 +2072,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="llmconfiguration" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="llmconfiguration" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>LlmConfiguration</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>gateway</span>
@@ -2143,7 +2089,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="lstartifact" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="lstartifact" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>LstArtifact</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>organization</span>
@@ -2158,7 +2104,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="markup" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="markup" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>Markup</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>corechangeset</span>
@@ -2175,7 +2121,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="mavenconfiguration" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="mavenconfiguration" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>MavenConfiguration</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>gateway</span>
@@ -2193,7 +2139,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="mavenrecipebundle" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="mavenrecipebundle" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>MavenRecipeBundle</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetreader</span>
@@ -2212,7 +2158,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="mergeoptions" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="mergeoptions" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>MergeOptions</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetcommitter</span>
@@ -2226,7 +2172,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="messageconnection" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="messageconnection" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>MessageConnection</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>moddy</span>
@@ -2240,7 +2186,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="messageedge" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="messageedge" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>MessageEdge</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>moddy</span>
@@ -2254,7 +2200,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="moddy" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="moddy" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>Moddy</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>moddy</span>
@@ -2271,7 +2217,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="morehelplink" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="morehelplink" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>MoreHelpLink</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>gateway</span>
@@ -2285,7 +2231,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="npmconfiguration" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="npmconfiguration" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>NpmConfiguration</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>gateway</span>
@@ -2301,7 +2247,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="npmrecipebundle" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="npmrecipebundle" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>NpmRecipeBundle</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetreader</span>
@@ -2318,7 +2264,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="nugetconfiguration" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="nugetconfiguration" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>NugetConfiguration</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>gateway</span>
@@ -2334,7 +2280,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="nugetrecipebundle" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="nugetrecipebundle" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>NugetRecipeBundle</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetreader</span>
@@ -2351,7 +2297,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="oauthauthorization" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="oauthauthorization" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>OAuthAuthorization</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>authz</span>
@@ -2368,7 +2314,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="option" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="option" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>Option</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetreader</span>
@@ -2389,7 +2335,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="organization" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="organization" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>Organization</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changelogreader</span>
@@ -2414,7 +2360,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="organizationchangeset" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="organizationchangeset" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>OrganizationChangeset</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changelogreader</span>
@@ -2435,7 +2381,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="organizationchangesetconnection" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="organizationchangesetconnection" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>OrganizationChangesetConnection</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>corechangeset</span>
@@ -2450,7 +2396,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="organizationchangesetedge" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="organizationchangesetedge" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>OrganizationChangesetEdge</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>corechangeset</span>
@@ -2465,7 +2411,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="organizationcommitcanceled" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="organizationcommitcanceled" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>OrganizationCommitCanceled</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetcommitter</span>
@@ -2488,7 +2434,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="organizationcommitconnection" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="organizationcommitconnection" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>OrganizationCommitConnection</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetcommitter</span>
@@ -2503,7 +2449,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="organizationcommitedge" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="organizationcommitedge" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>OrganizationCommitEdge</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetcommitter</span>
@@ -2517,7 +2463,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="organizationcommiterror" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="organizationcommiterror" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>OrganizationCommitError</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetcommitter</span>
@@ -2540,7 +2486,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="organizationcommitfinished" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="organizationcommitfinished" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>OrganizationCommitFinished</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetcommitter</span>
@@ -2562,7 +2508,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="organizationcommitqueued" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="organizationcommitqueued" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>OrganizationCommitQueued</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetcommitter</span>
@@ -2583,7 +2529,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="organizationcommitrunning" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="organizationcommitrunning" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>OrganizationCommitRunning</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetcommitter</span>
@@ -2604,7 +2550,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="organizationconfiguration" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="organizationconfiguration" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>OrganizationConfiguration</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>gateway</span>
@@ -2620,7 +2566,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="organizationconnection" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="organizationconnection" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>OrganizationConnection</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>organization</span>
@@ -2635,7 +2581,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="organizationedge" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="organizationedge" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>OrganizationEdge</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>organization</span>
@@ -2649,7 +2595,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="organizationreciperun" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="organizationreciperun" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>OrganizationRecipeRun</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changelogreader</span>
@@ -2674,7 +2620,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="organizationreciperuncanceled" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="organizationreciperuncanceled" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>OrganizationRecipeRunCanceled</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetreader</span>
@@ -2702,7 +2648,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="organizationreciperunconnection" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="organizationreciperunconnection" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>OrganizationRecipeRunConnection</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetreader</span>
@@ -2717,7 +2663,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="organizationreciperunedge" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="organizationreciperunedge" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>OrganizationRecipeRunEdge</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetreader</span>
@@ -2731,7 +2677,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="organizationreciperunerror" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="organizationreciperunerror" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>OrganizationRecipeRunError</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetreader</span>
@@ -2759,7 +2705,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="organizationreciperunfinished" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="organizationreciperunfinished" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>OrganizationRecipeRunFinished</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetreader</span>
@@ -2788,7 +2734,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="organizationreciperunqueued" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="organizationreciperunqueued" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>OrganizationRecipeRunQueued</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetreader</span>
@@ -2814,7 +2760,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="organizationreciperunrunning" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="organizationreciperunrunning" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>OrganizationRecipeRunRunning</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetreader</span>
@@ -2841,7 +2787,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="organizationreciperunsyncing" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="organizationreciperunsyncing" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>OrganizationRecipeRunSyncing</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetreader</span>
@@ -2867,7 +2813,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="pageinfo" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="pageinfo" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>PageInfo</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>coregraphql</span>
@@ -2883,7 +2829,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="patch" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="patch" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>Patch</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>corechangeset</span>
@@ -2898,7 +2844,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="personalaccesstokenconfiguration" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="personalaccesstokenconfiguration" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>PersonalAccessTokenConfiguration</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>gateway</span>
@@ -2911,7 +2857,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="piprecipebundle" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="piprecipebundle" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>PipRecipeBundle</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetreader</span>
@@ -2928,7 +2874,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="platformcapabilities" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="platformcapabilities" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>PlatformCapabilities</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>artifactsmaven</span>
@@ -2947,7 +2893,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="profiling" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="profiling" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>Profiling</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>gateway</span>
@@ -2961,7 +2907,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="profilingsession" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="profilingsession" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>ProfilingSession</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>gateway</span>
@@ -2976,7 +2922,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="prompt" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="prompt" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>Prompt</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>moddy</span>
@@ -2991,7 +2937,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="pullrequestactioncanceled" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="pullrequestactioncanceled" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>PullRequestActionCanceled</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changelogreader</span>
@@ -3006,7 +2952,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="pullrequestactionconnection" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="pullrequestactionconnection" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>PullRequestActionConnection</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changelogreader</span>
@@ -3021,7 +2967,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="pullrequestactionedge" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="pullrequestactionedge" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>PullRequestActionEdge</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changelogreader</span>
@@ -3035,7 +2981,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="pullrequestactionfailed" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="pullrequestactionfailed" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>PullRequestActionFailed</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changelogreader</span>
@@ -3052,7 +2998,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="pullrequestactionqueued" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="pullrequestactionqueued" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>PullRequestActionQueued</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changelogreader</span>
@@ -3066,7 +3012,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="pullrequestactionrunning" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="pullrequestactionrunning" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>PullRequestActionRunning</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changelogreader</span>
@@ -3081,7 +3027,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="pullrequestactionsucceeded" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="pullrequestactionsucceeded" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>PullRequestActionSucceeded</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changelogreader</span>
@@ -3097,7 +3043,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="pullrequestcommitsucceeded" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="pullrequestcommitsucceeded" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>PullRequestCommitSucceeded</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetcommitter</span>
@@ -3117,7 +3063,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="pullrequestoptions" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="pullrequestoptions" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>PullRequestOptions</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetcommitter</span>
@@ -3136,7 +3082,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="pullrequestref" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="pullrequestref" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>PullRequestRef</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changelogreader</span>
@@ -3152,7 +3098,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="pullrequeststatus" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="pullrequeststatus" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>PullRequestStatus</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetcommitter</span>
@@ -3169,7 +3115,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="pypiconfiguration" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="pypiconfiguration" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>PypiConfiguration</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>gateway</span>
@@ -3185,7 +3131,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="recipebundleconnection" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="recipebundleconnection" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RecipeBundleConnection</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>recipemarketplace</span>
@@ -3200,7 +3146,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="recipebundleedge" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="recipebundleedge" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RecipeBundleEdge</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>recipemarketplace</span>
@@ -3214,7 +3160,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="recipecategory" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="recipecategory" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RecipeCategory</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>recipemarketplace</span>
@@ -3233,7 +3179,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="recipecategoryconnection" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="recipecategoryconnection" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RecipeCategoryConnection</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>recipemarketplace</span>
@@ -3248,7 +3194,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="recipecategoryedge" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="recipecategoryedge" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RecipeCategoryEdge</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>recipemarketplace</span>
@@ -3262,7 +3208,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="recipedescriptor" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="recipedescriptor" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RecipeDescriptor</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetreader</span>
@@ -3284,7 +3230,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="recipedescriptorconnection" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="recipedescriptorconnection" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RecipeDescriptorConnection</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>recipemarketplace</span>
@@ -3299,7 +3245,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="recipedescriptoredge" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="recipedescriptoredge" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RecipeDescriptorEdge</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>recipemarketplace</span>
@@ -3314,7 +3260,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="recipedetailerror" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="recipedetailerror" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RecipeDetailError</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>recipemarketplace</span>
@@ -3330,7 +3276,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="recipedetailfinished" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="recipedetailfinished" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RecipeDetailFinished</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>recipemarketplace</span>
@@ -3349,7 +3295,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="recipedetailloading" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="recipedetailloading" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RecipeDetailLoading</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>recipemarketplace</span>
@@ -3363,7 +3309,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="recipegraph" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="recipegraph" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RecipeGraph</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>recipemarketplace</span>
@@ -3379,7 +3325,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="recipegraphedge" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="recipegraphedge" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RecipeGraphEdge</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>recipemarketplace</span>
@@ -3394,7 +3340,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="recipegraphvertex" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="recipegraphvertex" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RecipeGraphVertex</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>recipemarketplace</span>
@@ -3410,7 +3356,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="recipeinstallationconnection" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="recipeinstallationconnection" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RecipeInstallationConnection</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>recipemarketplace</span>
@@ -3425,7 +3371,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="recipeinstallationedge" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="recipeinstallationedge" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RecipeInstallationEdge</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>recipemarketplace</span>
@@ -3442,7 +3388,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="recipeinstallationerror" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="recipeinstallationerror" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RecipeInstallationError</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>recipemarketplace</span>
@@ -3461,7 +3407,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="recipeinstallationfinished" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="recipeinstallationfinished" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RecipeInstallationFinished</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>recipemarketplace</span>
@@ -3480,7 +3426,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="recipeinstallationprocessing" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="recipeinstallationprocessing" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RecipeInstallationProcessing</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>recipemarketplace</span>
@@ -3498,7 +3444,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="recipeinstallationqueued" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="recipeinstallationqueued" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RecipeInstallationQueued</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>recipemarketplace</span>
@@ -3515,7 +3461,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="recipemarketplace" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="recipemarketplace" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RecipeMarketplace</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>recipemarketplace</span>
@@ -3530,7 +3476,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="recipeoptionvalue" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="recipeoptionvalue" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RecipeOptionValue</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetreader</span>
@@ -3544,7 +3490,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="recipeoptionsmessage" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="recipeoptionsmessage" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RecipeOptionsMessage</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>moddy</span>
@@ -3562,7 +3508,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="reciperunfilechange" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="reciperunfilechange" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RecipeRunFileChange</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetreader</span>
@@ -3580,7 +3526,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="reciperunmessage" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="reciperunmessage" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RecipeRunMessage</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>moddy</span>
@@ -3600,7 +3546,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="reciperunprogress" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="reciperunprogress" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RecipeRunProgress</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>moddy</span>
@@ -3618,7 +3564,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="reciperuntotals" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="reciperuntotals" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RecipeRunTotals</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetreader</span>
@@ -3640,7 +3586,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="recipesearchmessage" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="recipesearchmessage" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RecipeSearchMessage</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>moddy</span>
@@ -3658,7 +3604,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="recipeuninstallation" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="recipeuninstallation" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RecipeUninstallation</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>recipemarketplace</span>
@@ -3672,7 +3618,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="reindexresult" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="reindexresult" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>ReindexResult</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changelogwriter</span>
@@ -3686,7 +3632,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="repository" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="repository" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>Repository</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changelogreader</span>
@@ -3703,7 +3649,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="repositoryauthorization" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="repositoryauthorization" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RepositoryAuthorization</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>corechangeset</span>
@@ -3718,7 +3664,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="repositorybatchchange" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="repositorybatchchange" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RepositoryBatchChange</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetreader</span>
@@ -3734,7 +3680,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="repositorychangesetconnection" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="repositorychangesetconnection" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RepositoryChangesetConnection</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>corechangeset</span>
@@ -3758,7 +3704,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="repositorychangesetedge" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="repositorychangesetedge" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RepositoryChangesetEdge</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>corechangeset</span>
@@ -3772,7 +3718,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="repositorycommitcanceled" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="repositorycommitcanceled" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RepositoryCommitCanceled</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetcommitter</span>
@@ -3790,7 +3736,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="repositorycommitconnection" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="repositorycommitconnection" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RepositoryCommitConnection</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetcommitter</span>
@@ -3806,7 +3752,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="repositorycommitedge" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="repositorycommitedge" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RepositoryCommitEdge</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetcommitter</span>
@@ -3820,7 +3766,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="repositorycommitfailed" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="repositorycommitfailed" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RepositoryCommitFailed</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetcommitter</span>
@@ -3840,7 +3786,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="repositorycommitnochanges" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="repositorycommitnochanges" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RepositoryCommitNoChanges</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetcommitter</span>
@@ -3858,7 +3804,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="repositorycommitqueued" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="repositorycommitqueued" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RepositoryCommitQueued</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetcommitter</span>
@@ -3876,7 +3822,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="repositorycommitrunning" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="repositorycommitrunning" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RepositoryCommitRunning</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetcommitter</span>
@@ -3893,7 +3839,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="repositoryconnection" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="repositoryconnection" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RepositoryConnection</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>organization</span>
@@ -3908,7 +3854,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="repositoryedge" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="repositoryedge" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RepositoryEdge</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>organization</span>
@@ -3922,7 +3868,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="repositoryreciperuncanceled" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="repositoryreciperuncanceled" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RepositoryRecipeRunCanceled</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetreader</span>
@@ -3940,7 +3886,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="repositoryreciperunconnection" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="repositoryreciperunconnection" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RepositoryRecipeRunConnection</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetreader</span>
@@ -3955,7 +3901,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="repositoryreciperunedge" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="repositoryreciperunedge" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RepositoryRecipeRunEdge</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetreader</span>
@@ -3969,7 +3915,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="repositoryreciperunerror" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="repositoryreciperunerror" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RepositoryRecipeRunError</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetreader</span>
@@ -3991,7 +3937,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="repositoryreciperunfinished" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="repositoryreciperunfinished" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RepositoryRecipeRunFinished</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetreader</span>
@@ -4012,7 +3958,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="repositoryreciperunnolst" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="repositoryreciperunnolst" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RepositoryRecipeRunNoLst</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetreader</span>
@@ -4030,7 +3976,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="repositoryreciperunqueued" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="repositoryreciperunqueued" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RepositoryRecipeRunQueued</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetreader</span>
@@ -4049,7 +3995,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="repositoryreciperunrunning" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="repositoryreciperunrunning" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RepositoryRecipeRunRunning</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetreader</span>
@@ -4068,7 +4014,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="reviewstatus" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="reviewstatus" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>ReviewStatus</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetcommitter</span>
@@ -4082,7 +4028,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="revoketokenresult" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="revoketokenresult" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RevokeTokenResult</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>authz</span>
@@ -4097,7 +4043,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="s3configuration" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="s3configuration" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>S3Configuration</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>gateway</span>
@@ -4115,7 +4061,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="scmtokeninfo" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="scmtokeninfo" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>ScmTokenInfo</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>authz</span>
@@ -4129,7 +4075,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="searchresult" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="searchresult" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>SearchResult</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>corechangeset</span>
@@ -4145,7 +4091,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="sendmessageresult" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="sendmessageresult" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>SendMessageResult</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>moddy</span>
@@ -4161,7 +4107,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="textmessage" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="textmessage" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>TextMessage</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>moddy</span>
@@ -4181,7 +4127,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="toolinfo" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="toolinfo" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>ToolInfo</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetreader</span>
@@ -4196,7 +4142,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="uiconfiguration" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="uiconfiguration" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>UiConfiguration</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>gateway</span>
@@ -4212,7 +4158,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="user" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="user" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>User</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>authz</span>
@@ -4230,7 +4176,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="userconnection" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="userconnection" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>UserConnection</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>authz</span>
@@ -4245,7 +4191,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="usersedge" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="usersedge" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>UsersEdge</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>authz</span>
@@ -4259,7 +4205,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="visualizationavailable" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="visualizationavailable" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>VisualizationAvailable</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetreader</span>
@@ -4275,7 +4221,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="visualizationconnection" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="visualizationconnection" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>VisualizationConnection</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>corechangeset</span>
@@ -4290,7 +4236,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="visualizationdescriptor" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="visualizationdescriptor" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>VisualizationDescriptor</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetvisualizer</span>
@@ -4307,7 +4253,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="visualizationedge" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="visualizationedge" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>VisualizationEdge</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>corechangeset</span>
@@ -4321,7 +4267,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="visualizationerror" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="visualizationerror" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>VisualizationError</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetreader</span>
@@ -4341,7 +4287,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="visualizationfinished" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="visualizationfinished" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>VisualizationFinished</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetreader</span>
@@ -4362,7 +4308,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="visualizationimageoutput" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="visualizationimageoutput" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>VisualizationImageOutput</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetreader</span>
@@ -4377,7 +4323,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="visualizationoption" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="visualizationoption" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>VisualizationOption</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetvisualizer</span>
@@ -4397,7 +4343,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="visualizationplotlyoutput" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="visualizationplotlyoutput" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>VisualizationPlotlyOutput</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetreader</span>
@@ -4411,7 +4357,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="visualizationprocessing" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="visualizationprocessing" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>VisualizationProcessing</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetreader</span>
@@ -4429,7 +4375,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="visualizationrepository" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="visualizationrepository" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>VisualizationRepository</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetreader</span>
@@ -4444,7 +4390,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="visualizationrepositoryconnection" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="visualizationrepositoryconnection" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>VisualizationRepositoryConnection</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetreader</span>
@@ -4459,7 +4405,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="visualizationrepositoryedge" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="visualizationrepositoryedge" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>VisualizationRepositoryEdge</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetreader</span>
@@ -4473,7 +4419,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="yamlrecipebundle" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="yamlrecipebundle" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>YamlRecipeBundle</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetreader</span>
@@ -4493,7 +4439,7 @@ hide_title: true
 
 ### Interfaces
 
-<div id="auditlogsdownload" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="auditlogsdownload" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>AuditLogsDownload</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>auditreader</span>
@@ -4506,7 +4452,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="bulkpullrequestaction" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="bulkpullrequestaction" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>BulkPullRequestAction</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changelogreader</span>
@@ -4524,7 +4470,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="changelogentry" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="changelogentry" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>ChangelogEntry</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changelogreader</span>
@@ -4548,7 +4494,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="commitoptions" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="commitoptions" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>CommitOptions</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetcommitter</span>
@@ -4561,7 +4507,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="datatable" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="datatable" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>DataTable</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>corechangeset</span>
@@ -4577,7 +4523,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="devcenterrun" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="devcenterrun" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>DevCenterRun</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetreader</span>
@@ -4593,7 +4539,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="filechange" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="filechange" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>FileChange</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>corechangeset</span>
@@ -4610,7 +4556,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="marker" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="marker" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>Marker</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>corechangeset</span>
@@ -4623,7 +4569,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="message" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="message" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>Message</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>moddy</span>
@@ -4639,7 +4585,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="organizationcommit" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="organizationcommit" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>OrganizationCommit</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetcommitter</span>
@@ -4658,7 +4604,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="pullrequestaction" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="pullrequestaction" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>PullRequestAction</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changelogreader</span>
@@ -4672,7 +4618,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="recipebundle" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="recipebundle" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RecipeBundle</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetreader</span>
@@ -4687,7 +4633,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="recipedetail" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="recipedetail" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RecipeDetail</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>recipemarketplace</span>
@@ -4701,7 +4647,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="recipeinstallation" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="recipeinstallation" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RecipeInstallation</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>recipemarketplace</span>
@@ -4717,7 +4663,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="repositorychangeset" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="repositorychangeset" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RepositoryChangeset</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>corechangeset</span>
@@ -4732,7 +4678,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="repositorycommit" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="repositorycommit" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RepositoryCommit</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetcommitter</span>
@@ -4746,7 +4692,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="repositorycommitsucceeded" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="repositorycommitsucceeded" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RepositoryCommitSucceeded</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetcommitter</span>
@@ -4763,7 +4709,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="repositoryreciperun" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="repositoryreciperun" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RepositoryRecipeRun</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetreader</span>
@@ -4779,7 +4725,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="scmconnection" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="scmconnection" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>ScmConnection</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>authz</span>
@@ -4794,7 +4740,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="visualization" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="visualization" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>Visualization</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>corechangeset</span>
@@ -4808,7 +4754,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="visualizationoutput" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="visualizationoutput" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>VisualizationOutput</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetreader</span>
@@ -4823,7 +4769,7 @@ hide_title: true
 
 ### Enums
 
-<div id="accesstokenorderbyfield" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="accesstokenorderbyfield" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>AccessTokenOrderByField</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>authz</span>
@@ -4834,7 +4780,7 @@ hide_title: true
 </ul>
 </div>
 
-<div id="auditactiontype" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="auditactiontype" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>AuditActionType</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>auditreader</span>
@@ -4847,7 +4793,7 @@ hide_title: true
 </ul>
 </div>
 
-<div id="auditlogexportformat" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="auditlogexportformat" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>AuditLogExportFormat</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>auditreader</span>
@@ -4858,7 +4804,7 @@ hide_title: true
 </ul>
 </div>
 
-<div id="auditlogorderbyfield" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="auditlogorderbyfield" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>AuditLogOrderByField</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>auditreader</span>
@@ -4871,7 +4817,7 @@ hide_title: true
 </ul>
 </div>
 
-<div id="auditlogsdownloadorderbyfield" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="auditlogsdownloadorderbyfield" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>AuditLogsDownloadOrderByField</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>auditreader</span>
@@ -4881,7 +4827,7 @@ hide_title: true
 </ul>
 </div>
 
-<div id="auditoutcome" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="auditoutcome" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>AuditOutcome</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>auditreader</span>
@@ -4892,7 +4838,7 @@ hide_title: true
 </ul>
 </div>
 
-<div id="buildstate" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="buildstate" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>BuildState</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changelogreader</span>
@@ -4907,7 +4853,7 @@ hide_title: true
 </ul>
 </div>
 
-<div id="bulkpullrequestactionorderbyfield" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="bulkpullrequestactionorderbyfield" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>BulkPullRequestActionOrderByField</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changelogreader</span>
@@ -4919,7 +4865,7 @@ hide_title: true
 </ul>
 </div>
 
-<div id="bulkpullrequestactionstate" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="bulkpullrequestactionstate" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>BulkPullRequestActionState</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changelogreader</span>
@@ -4934,7 +4880,7 @@ hide_title: true
 </ul>
 </div>
 
-<div id="changelogentryorderbyfield" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="changelogentryorderbyfield" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>ChangelogEntryOrderByField</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changelogreader</span>
@@ -4947,7 +4893,7 @@ hide_title: true
 </ul>
 </div>
 
-<div id="changelogentrytype" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="changelogentrytype" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>ChangelogEntryType</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changelogreader</span>
@@ -4959,7 +4905,7 @@ hide_title: true
 </ul>
 </div>
 
-<div id="changelogparticipantorderbyfield" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="changelogparticipantorderbyfield" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>ChangelogParticipantOrderByField</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changelogreader</span>
@@ -4971,7 +4917,7 @@ hide_title: true
 </ul>
 </div>
 
-<div id="commitoption" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="commitoption" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>CommitOption</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetcommitter</span>
@@ -4986,7 +4932,7 @@ hide_title: true
 </ul>
 </div>
 
-<div id="connectororderbyfield" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="connectororderbyfield" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>ConnectorOrderByField</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>gateway</span>
@@ -4997,7 +4943,7 @@ hide_title: true
 </ul>
 </div>
 
-<div id="connectortooltype" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="connectortooltype" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>ConnectorToolType</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>gateway</span>
@@ -5020,7 +4966,7 @@ hide_title: true
 </ul>
 </div>
 
-<div id="contributorrole" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="contributorrole" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>ContributorRole</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changelogreader</span>
@@ -5034,7 +4980,7 @@ hide_title: true
 </ul>
 </div>
 
-<div id="conversationorderbyfield" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="conversationorderbyfield" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>ConversationOrderByField</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>moddy</span>
@@ -5045,7 +4991,7 @@ hide_title: true
 </ul>
 </div>
 
-<div id="conversationphase" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="conversationphase" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>ConversationPhase</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>moddy</span>
@@ -5059,7 +5005,7 @@ hide_title: true
 </ul>
 </div>
 
-<div id="datatableformat" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="datatableformat" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>DataTableFormat</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>corechangeset</span>
@@ -5070,7 +5016,7 @@ hide_title: true
 </ul>
 </div>
 
-<div id="datatableorderbyfield" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="datatableorderbyfield" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>DataTableOrderByField</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>corechangeset</span>
@@ -5081,7 +5027,7 @@ hide_title: true
 </ul>
 </div>
 
-<div id="devcenteraggregation" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="devcenteraggregation" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>DevCenterAggregation</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetreader</span>
@@ -5093,7 +5039,7 @@ hide_title: true
 </ul>
 </div>
 
-<div id="devcenterrunorderbyfield" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="devcenterrunorderbyfield" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>DevCenterRunOrderByField</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetreader</span>
@@ -5104,7 +5050,7 @@ hide_title: true
 </ul>
 </div>
 
-<div id="devcenterrunstate" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="devcenterrunstate" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>DevCenterRunState</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetreader</span>
@@ -5118,7 +5064,7 @@ hide_title: true
 </ul>
 </div>
 
-<div id="filechangeorderbyfield" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="filechangeorderbyfield" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>FileChangeOrderByField</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>corechangeset</span>
@@ -5128,7 +5074,7 @@ hide_title: true
 </ul>
 </div>
 
-<div id="imageformat" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="imageformat" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>ImageFormat</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetreader</span>
@@ -5141,7 +5087,7 @@ hide_title: true
 </ul>
 </div>
 
-<div id="llmprovider" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="llmprovider" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>LlmProvider</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>gateway</span>
@@ -5154,7 +5100,7 @@ hide_title: true
 </ul>
 </div>
 
-<div id="markuplevel" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="markuplevel" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>MarkupLevel</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>corechangeset</span>
@@ -5168,7 +5114,7 @@ hide_title: true
 </ul>
 </div>
 
-<div id="mergemethod" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="mergemethod" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>MergeMethod</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changelogreader</span>
@@ -5180,7 +5126,7 @@ hide_title: true
 </ul>
 </div>
 
-<div id="mergeable" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="mergeable" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>Mergeable</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetcommitter</span>
@@ -5192,7 +5138,7 @@ hide_title: true
 </ul>
 </div>
 
-<div id="messagestate" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="messagestate" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>MessageState</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>moddy</span>
@@ -5203,7 +5149,7 @@ hide_title: true
 </ul>
 </div>
 
-<div id="organizationchangesetorderbyfield" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="organizationchangesetorderbyfield" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>OrganizationChangesetOrderByField</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>corechangeset</span>
@@ -5215,7 +5161,7 @@ hide_title: true
 </ul>
 </div>
 
-<div id="organizationchangesettype" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="organizationchangesettype" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>OrganizationChangesetType</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>corechangeset</span>
@@ -5226,7 +5172,7 @@ hide_title: true
 </ul>
 </div>
 
-<div id="organizationcommitorderbyfield" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="organizationcommitorderbyfield" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>OrganizationCommitOrderByField</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetcommitter</span>
@@ -5236,7 +5182,7 @@ hide_title: true
 </ul>
 </div>
 
-<div id="organizationorderbyfield" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="organizationorderbyfield" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>OrganizationOrderByField</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>organization</span>
@@ -5246,7 +5192,7 @@ hide_title: true
 </ul>
 </div>
 
-<div id="organizationreciperunorderbyfield" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="organizationreciperunorderbyfield" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>OrganizationRecipeRunOrderByField</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetreader</span>
@@ -5259,7 +5205,7 @@ hide_title: true
 </ul>
 </div>
 
-<div id="organizationreciperunstate" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="organizationreciperunstate" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>OrganizationRecipeRunState</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetreader</span>
@@ -5274,7 +5220,7 @@ hide_title: true
 </ul>
 </div>
 
-<div id="profilingevent" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="profilingevent" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>ProfilingEvent</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>gateway</span>
@@ -5286,7 +5232,7 @@ hide_title: true
 </ul>
 </div>
 
-<div id="pullrequestactionorderbyfield" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="pullrequestactionorderbyfield" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>PullRequestActionOrderByField</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changelogreader</span>
@@ -5298,7 +5244,7 @@ hide_title: true
 </ul>
 </div>
 
-<div id="pullrequestactionstate" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="pullrequestactionstate" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>PullRequestActionState</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changelogreader</span>
@@ -5312,7 +5258,7 @@ hide_title: true
 </ul>
 </div>
 
-<div id="pullrequestactiontype" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="pullrequestactiontype" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>PullRequestActionType</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changelogreader</span>
@@ -5324,7 +5270,7 @@ hide_title: true
 </ul>
 </div>
 
-<div id="pullrequeststate" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="pullrequeststate" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>PullRequestState</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changelogreader</span>
@@ -5337,7 +5283,7 @@ hide_title: true
 </ul>
 </div>
 
-<div id="recipebundleorderbyfield" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="recipebundleorderbyfield" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RecipeBundleOrderByField</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>recipemarketplace</span>
@@ -5350,7 +5296,7 @@ hide_title: true
 </ul>
 </div>
 
-<div id="recipecategoryorderbyfield" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="recipecategoryorderbyfield" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RecipeCategoryOrderByField</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>recipemarketplace</span>
@@ -5361,7 +5307,7 @@ hide_title: true
 </ul>
 </div>
 
-<div id="recipeecosystem" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="recipeecosystem" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RecipeEcosystem</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>recipemarketplace</span>
@@ -5376,7 +5322,7 @@ hide_title: true
 </ul>
 </div>
 
-<div id="recipegraphedgetype" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="recipegraphedgetype" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RecipeGraphEdgeType</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>recipemarketplace</span>
@@ -5388,7 +5334,7 @@ hide_title: true
 </ul>
 </div>
 
-<div id="recipeinstallationorderbyfield" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="recipeinstallationorderbyfield" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RecipeInstallationOrderByField</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>recipemarketplace</span>
@@ -5399,7 +5345,7 @@ hide_title: true
 </ul>
 </div>
 
-<div id="recipeinstallationstatus" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="recipeinstallationstatus" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RecipeInstallationStatus</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>recipemarketplace</span>
@@ -5412,7 +5358,7 @@ hide_title: true
 </ul>
 </div>
 
-<div id="recipeorderbyfield" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="recipeorderbyfield" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RecipeOrderByField</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>recipemarketplace</span>
@@ -5425,7 +5371,7 @@ hide_title: true
 </ul>
 </div>
 
-<div id="reciperunpriority" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="reciperunpriority" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RecipeRunPriority</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetreader</span>
@@ -5437,7 +5383,7 @@ hide_title: true
 </ul>
 </div>
 
-<div id="repositorychangesetorderbyfield" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="repositorychangesetorderbyfield" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RepositoryChangesetOrderByField</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>corechangeset</span>
@@ -5450,7 +5396,7 @@ hide_title: true
 </ul>
 </div>
 
-<div id="repositorychangesetstate" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="repositorychangesetstate" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RepositoryChangesetState</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetcommitter</span>
@@ -5466,7 +5412,7 @@ hide_title: true
 </ul>
 </div>
 
-<div id="repositorycommitorderbyfield" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="repositorycommitorderbyfield" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RepositoryCommitOrderByField</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetcommitter</span>
@@ -5476,7 +5422,7 @@ hide_title: true
 </ul>
 </div>
 
-<div id="repositoryerrorreason" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="repositoryerrorreason" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RepositoryErrorReason</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetreader</span>
@@ -5489,7 +5435,7 @@ hide_title: true
 </ul>
 </div>
 
-<div id="repositoryorderbyfield" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="repositoryorderbyfield" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RepositoryOrderByField</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>organization</span>
@@ -5503,7 +5449,7 @@ hide_title: true
 </ul>
 </div>
 
-<div id="repositoryreciperunorderbyfield" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="repositoryreciperunorderbyfield" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RepositoryRecipeRunOrderByField</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetreader</span>
@@ -5515,7 +5461,7 @@ hide_title: true
 </ul>
 </div>
 
-<div id="repositorysyncstatus" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="repositorysyncstatus" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RepositorySyncStatus</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>corechangeset</span>
@@ -5531,7 +5477,7 @@ hide_title: true
 </ul>
 </div>
 
-<div id="reviewdecision" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="reviewdecision" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>ReviewDecision</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changelogreader</span>
@@ -5545,7 +5491,7 @@ hide_title: true
 </ul>
 </div>
 
-<div id="scmtype" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="scmtype" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>ScmType</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>authz</span>
@@ -5559,7 +5505,7 @@ hide_title: true
 </ul>
 </div>
 
-<div id="sortorder" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="sortorder" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>SortOrder</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>coregraphql</span>
@@ -5570,7 +5516,7 @@ hide_title: true
 </ul>
 </div>
 
-<div id="userorderbyfield" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="userorderbyfield" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>UserOrderByField</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>authz</span>
@@ -5583,7 +5529,7 @@ hide_title: true
 </ul>
 </div>
 
-<div id="userrole" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="userrole" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>UserRole</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>authz</span>
@@ -5594,7 +5540,7 @@ hide_title: true
 </ul>
 </div>
 
-<div id="visualizationorderbyfield" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="visualizationorderbyfield" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>VisualizationOrderByField</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>corechangeset</span>
@@ -5605,7 +5551,7 @@ hide_title: true
 </ul>
 </div>
 
-<div id="visualizationrepositoryrunstate" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="visualizationrepositoryrunstate" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>VisualizationRepositoryRunState</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetreader</span>
@@ -5622,7 +5568,7 @@ hide_title: true
 
 ### Input types
 
-<div id="accesstokenorderbyinput" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="accesstokenorderbyinput" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>AccessTokenOrderByInput</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>authz</span>
@@ -5636,7 +5582,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="accesstokenwhereinput" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="accesstokenwhereinput" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>AccessTokenWhereInput</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>authz</span>
@@ -5654,7 +5600,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="auditactiontypefilter" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="auditactiontypefilter" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>AuditActionTypeFilter</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>auditreader</span>
@@ -5670,7 +5616,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="auditlogexportformatfilter" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="auditlogexportformatfilter" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>AuditLogExportFormatFilter</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>auditreader</span>
@@ -5686,7 +5632,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="auditlogorderbyinput" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="auditlogorderbyinput" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>AuditLogOrderByInput</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>auditreader</span>
@@ -5700,7 +5646,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="auditlogwhereinput" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="auditlogwhereinput" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>AuditLogWhereInput</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>auditreader</span>
@@ -5722,7 +5668,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="auditlogsdownloadorderbyinput" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="auditlogsdownloadorderbyinput" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>AuditLogsDownloadOrderByInput</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>auditreader</span>
@@ -5736,7 +5682,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="auditlogsdownloadwhereinput" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="auditlogsdownloadwhereinput" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>AuditLogsDownloadWhereInput</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>auditreader</span>
@@ -5753,7 +5699,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="auditoutcomefilter" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="auditoutcomefilter" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>AuditOutcomeFilter</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>auditreader</span>
@@ -5767,7 +5713,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="booleanfilter" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="booleanfilter" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>BooleanFilter</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>coregraphql</span>
@@ -5781,7 +5727,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="buildstatefilter" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="buildstatefilter" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>BuildStateFilter</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changelogreader</span>
@@ -5797,7 +5743,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="bulkpullrequestactionorderbyinput" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="bulkpullrequestactionorderbyinput" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>BulkPullRequestActionOrderByInput</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changelogreader</span>
@@ -5811,7 +5757,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="bulkpullrequestactionstatefilter" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="bulkpullrequestactionstatefilter" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>BulkPullRequestActionStateFilter</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changelogreader</span>
@@ -5827,7 +5773,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="bulkpullrequestactionwhereinput" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="bulkpullrequestactionwhereinput" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>BulkPullRequestActionWhereInput</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changelogreader</span>
@@ -5846,7 +5792,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="changelogauthorwhereinput" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="changelogauthorwhereinput" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>ChangelogAuthorWhereInput</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changelogreader</span>
@@ -5866,7 +5812,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="changelogentryorderbyinput" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="changelogentryorderbyinput" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>ChangelogEntryOrderByInput</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changelogreader</span>
@@ -5880,7 +5826,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="changelogentrytypefilter" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="changelogentrytypefilter" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>ChangelogEntryTypeFilter</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changelogreader</span>
@@ -5896,7 +5842,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="changelogentrywhereinput" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="changelogentrywhereinput" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>ChangelogEntryWhereInput</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changelogreader</span>
@@ -5923,7 +5869,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="changelogparticipantorderbyinput" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="changelogparticipantorderbyinput" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>ChangelogParticipantOrderByInput</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changelogreader</span>
@@ -5937,7 +5883,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="changelogparticipantwhereinput" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="changelogparticipantwhereinput" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>ChangelogParticipantWhereInput</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changelogreader</span>
@@ -5958,7 +5904,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="commitinput" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="commitinput" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>CommitInput</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetcommitter</span>
@@ -5981,7 +5927,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="commitstrategyinput" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="commitstrategyinput" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>CommitStrategyInput</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetcommitter</span>
@@ -5998,7 +5944,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="connectororderbyinput" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="connectororderbyinput" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>ConnectorOrderByInput</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>gateway</span>
@@ -6012,7 +5958,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="connectortooltypefilter" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="connectortooltypefilter" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>ConnectorToolTypeFilter</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>gateway</span>
@@ -6026,7 +5972,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="connectorwhereinput" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="connectorwhereinput" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>ConnectorWhereInput</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>gateway</span>
@@ -6045,7 +5991,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="conversationorderbyinput" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="conversationorderbyinput" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>ConversationOrderByInput</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>moddy</span>
@@ -6059,7 +6005,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="conversationwhereinput" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="conversationwhereinput" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>ConversationWhereInput</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>moddy</span>
@@ -6078,7 +6024,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="createconversationinput" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="createconversationinput" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>CreateConversationInput</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>moddy</span>
@@ -6092,7 +6038,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="createuserorganizationinput" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="createuserorganizationinput" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>CreateUserOrganizationInput</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>organization</span>
@@ -6106,7 +6052,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="datatableformatfilter" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="datatableformatfilter" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>DataTableFormatFilter</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>corechangeset</span>
@@ -6122,7 +6068,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="datatableorderbyinput" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="datatableorderbyinput" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>DataTableOrderByInput</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>corechangeset</span>
@@ -6136,7 +6082,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="datatablewhereinput" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="datatablewhereinput" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>DataTableWhereInput</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>corechangeset</span>
@@ -6155,7 +6101,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="datetimefilter" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="datetimefilter" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>DateTimeFilter</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>coregraphql</span>
@@ -6173,7 +6119,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="devcenterrunorderbyinput" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="devcenterrunorderbyinput" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>DevCenterRunOrderByInput</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetreader</span>
@@ -6187,7 +6133,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="devcenterrunstatefilter" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="devcenterrunstatefilter" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>DevCenterRunStateFilter</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetreader</span>
@@ -6203,7 +6149,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="devcenterrunwhereinput" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="devcenterrunwhereinput" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>DevCenterRunWhereInput</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetreader</span>
@@ -6222,7 +6168,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="directcommitinput" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="directcommitinput" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>DirectCommitInput</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetcommitter</span>
@@ -6236,7 +6182,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="exchangeauthorizationcodeinput" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="exchangeauthorizationcodeinput" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>ExchangeAuthorizationCodeInput</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>authz</span>
@@ -6251,7 +6197,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="filechangeorderbyinput" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="filechangeorderbyinput" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>FileChangeOrderByInput</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>corechangeset</span>
@@ -6265,7 +6211,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="filechangewhereinput" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="filechangewhereinput" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>FileChangeWhereInput</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetcommitter</span>
@@ -6282,7 +6228,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="forkandpullrequestcommitinput" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="forkandpullrequestcommitinput" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>ForkAndPullRequestCommitInput</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetcommitter</span>
@@ -6303,7 +6249,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="forkcommitinput" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="forkcommitinput" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>ForkCommitInput</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetcommitter</span>
@@ -6318,7 +6264,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="gorecipebundleinput" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="gorecipebundleinput" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>GoRecipeBundleInput</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>recipemarketplace</span>
@@ -6332,7 +6278,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="gpginput" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="gpginput" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>GpgInput</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetcommitter</span>
@@ -6347,7 +6293,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="idfilter" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="idfilter" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>IDFilter</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>coregraphql</span>
@@ -6363,7 +6309,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="initiateauthorizationinput" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="initiateauthorizationinput" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>InitiateAuthorizationInput</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>authz</span>
@@ -6377,7 +6323,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="intfilter" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="intfilter" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>IntFilter</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>coregraphql</span>
@@ -6395,7 +6341,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="lstartifactwhereinput" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="lstartifactwhereinput" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>LstArtifactWhereInput</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>organization</span>
@@ -6412,7 +6358,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="mavenrecipebundleinput" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="mavenrecipebundleinput" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>MavenRecipeBundleInput</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>recipemarketplace</span>
@@ -6427,7 +6373,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="npmrecipebundleinput" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="npmrecipebundleinput" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>NpmRecipeBundleInput</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>recipemarketplace</span>
@@ -6441,7 +6387,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="nugetrecipebundleinput" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="nugetrecipebundleinput" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>NugetRecipeBundleInput</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>recipemarketplace</span>
@@ -6455,7 +6401,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="organizationchangesetorderbyinput" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="organizationchangesetorderbyinput" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>OrganizationChangesetOrderByInput</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>corechangeset</span>
@@ -6469,7 +6415,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="organizationchangesettypefilter" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="organizationchangesettypefilter" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>OrganizationChangesetTypeFilter</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>corechangeset</span>
@@ -6485,7 +6431,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="organizationchangesetwhereinput" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="organizationchangesetwhereinput" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>OrganizationChangesetWhereInput</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>corechangeset</span>
@@ -6504,7 +6450,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="organizationcommitorderbyinput" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="organizationcommitorderbyinput" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>OrganizationCommitOrderByInput</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetcommitter</span>
@@ -6518,7 +6464,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="organizationcommitwhereinput" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="organizationcommitwhereinput" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>OrganizationCommitWhereInput</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetcommitter</span>
@@ -6536,7 +6482,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="organizationorderbyinput" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="organizationorderbyinput" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>OrganizationOrderByInput</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>organization</span>
@@ -6550,7 +6496,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="organizationreciperunorderbyinput" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="organizationreciperunorderbyinput" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>OrganizationRecipeRunOrderByInput</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetreader</span>
@@ -6564,7 +6510,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="organizationreciperunstatefilter" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="organizationreciperunstatefilter" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>OrganizationRecipeRunStateFilter</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetreader</span>
@@ -6580,7 +6526,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="organizationreciperunwhereinput" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="organizationreciperunwhereinput" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>OrganizationRecipeRunWhereInput</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetreader</span>
@@ -6599,7 +6545,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="organizationwhereinput" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="organizationwhereinput" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>OrganizationWhereInput</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>organization</span>
@@ -6616,7 +6562,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="pathfilter" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="pathfilter" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>PathFilter</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>coregraphql</span>
@@ -6633,7 +6579,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="piprecipebundleinput" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="piprecipebundleinput" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>PipRecipeBundleInput</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>recipemarketplace</span>
@@ -6647,7 +6593,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="pullrequestactionorderbyinput" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="pullrequestactionorderbyinput" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>PullRequestActionOrderByInput</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changelogreader</span>
@@ -6661,7 +6607,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="pullrequestactionstatefilter" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="pullrequestactionstatefilter" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>PullRequestActionStateFilter</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changelogreader</span>
@@ -6677,7 +6623,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="pullrequestactiontypefilter" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="pullrequestactiontypefilter" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>PullRequestActionTypeFilter</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changelogreader</span>
@@ -6693,7 +6639,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="pullrequestactionwhereinput" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="pullrequestactionwhereinput" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>PullRequestActionWhereInput</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changelogreader</span>
@@ -6709,7 +6655,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="pullrequestcommitinput" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="pullrequestcommitinput" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>PullRequestCommitInput</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetcommitter</span>
@@ -6727,7 +6673,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="pullrequestinput" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="pullrequestinput" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>PullRequestInput</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changelogreader</span>
@@ -6741,7 +6687,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="pullrequestselectioninput" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="pullrequestselectioninput" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>PullRequestSelectionInput</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changelogreader</span>
@@ -6758,7 +6704,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="pullrequestselectionmodifier" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="pullrequestselectionmodifier" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>PullRequestSelectionModifier</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changelogreader</span>
@@ -6773,7 +6719,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="pullrequeststatefilter" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="pullrequeststatefilter" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>PullRequestStateFilter</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changelogreader</span>
@@ -6789,7 +6735,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="recipebundleinput" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="recipebundleinput" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RecipeBundleInput</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>recipemarketplace</span>
@@ -6807,7 +6753,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="recipebundleorderbyinput" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="recipebundleorderbyinput" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RecipeBundleOrderByInput</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>recipemarketplace</span>
@@ -6821,7 +6767,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="recipebundlewhereinput" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="recipebundlewhereinput" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RecipeBundleWhereInput</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>recipemarketplace</span>
@@ -6841,7 +6787,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="recipecategoryorderbyinput" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="recipecategoryorderbyinput" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RecipeCategoryOrderByInput</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>recipemarketplace</span>
@@ -6855,7 +6801,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="recipecategorywhereinput" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="recipecategorywhereinput" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RecipeCategoryWhereInput</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>recipemarketplace</span>
@@ -6874,7 +6820,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="recipeecosystemfilter" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="recipeecosystemfilter" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RecipeEcosystemFilter</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>recipemarketplace</span>
@@ -6890,7 +6836,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="recipeinput" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="recipeinput" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RecipeInput</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>recipeworker</span>
@@ -6904,7 +6850,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="recipeinstallationorderbyinput" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="recipeinstallationorderbyinput" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RecipeInstallationOrderByInput</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>recipemarketplace</span>
@@ -6918,7 +6864,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="recipeinstallationstatusfilter" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="recipeinstallationstatusfilter" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RecipeInstallationStatusFilter</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>recipemarketplace</span>
@@ -6934,7 +6880,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="recipeinstallationwhereinput" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="recipeinstallationwhereinput" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RecipeInstallationWhereInput</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>recipemarketplace</span>
@@ -6955,7 +6901,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="recipeoptioninput" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="recipeoptioninput" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RecipeOptionInput</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>recipeworker</span>
@@ -6969,7 +6915,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="recipeorderbyinput" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="recipeorderbyinput" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RecipeOrderByInput</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>recipemarketplace</span>
@@ -6983,7 +6929,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="recipewhereinput" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="recipewhereinput" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RecipeWhereInput</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>recipemarketplace</span>
@@ -7002,7 +6948,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="repositorychangesetorderbyinput" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="repositorychangesetorderbyinput" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RepositoryChangesetOrderByInput</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>corechangeset</span>
@@ -7016,7 +6962,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="repositorychangesetstatefilter" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="repositorychangesetstatefilter" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RepositoryChangesetStateFilter</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetcommitter</span>
@@ -7032,7 +6978,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="repositorychangesetwhereinput" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="repositorychangesetwhereinput" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RepositoryChangesetWhereInput</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetcommitter</span>
@@ -7054,7 +7000,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="repositorycommitorderbyinput" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="repositorycommitorderbyinput" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RepositoryCommitOrderByInput</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetcommitter</span>
@@ -7068,7 +7014,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="repositorycommitwhereinput" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="repositorycommitwhereinput" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RepositoryCommitWhereInput</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetcommitter</span>
@@ -7084,7 +7030,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="repositoryinput" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="repositoryinput" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RepositoryInput</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>corecommitter</span>
@@ -7099,7 +7045,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="repositoryorderbyinput" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="repositoryorderbyinput" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RepositoryOrderByInput</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>organization</span>
@@ -7113,7 +7059,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="repositoryreciperunorderbyinput" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="repositoryreciperunorderbyinput" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RepositoryRecipeRunOrderByInput</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetreader</span>
@@ -7127,7 +7073,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="repositoryreciperunwhereinput" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="repositoryreciperunwhereinput" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RepositoryRecipeRunWhereInput</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetreader</span>
@@ -7144,7 +7090,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="repositorywhereinput" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="repositorywhereinput" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RepositoryWhereInput</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>organization</span>
@@ -7165,7 +7111,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="reviewdecisionfilter" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="reviewdecisionfilter" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>ReviewDecisionFilter</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changelogreader</span>
@@ -7181,7 +7127,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="revokescmtokeninput" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="revokescmtokeninput" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RevokeScmTokenInput</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>authz</span>
@@ -7194,7 +7140,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="rundevcenterinput" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="rundevcenterinput" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RunDevCenterInput</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>recipeworker</span>
@@ -7208,7 +7154,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="runrecipeinput" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="runrecipeinput" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RunRecipeInput</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>recipeworker</span>
@@ -7224,7 +7170,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="scmaccesstoken" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="scmaccesstoken" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>ScmAccessToken</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetcommitter</span>
@@ -7239,7 +7185,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="stringfilter" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="stringfilter" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>StringFilter</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>coregraphql</span>
@@ -7260,7 +7206,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="updateuserorganizationinput" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="updateuserorganizationinput" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>UpdateUserOrganizationInput</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>organization</span>
@@ -7275,7 +7221,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="userorderbyinput" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="userorderbyinput" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>UserOrderByInput</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>authz</span>
@@ -7289,7 +7235,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="userwhereinput" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="userwhereinput" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>UserWhereInput</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>coregraphql</span>
@@ -7305,7 +7251,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="visualizationoptioninput" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="visualizationoptioninput" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>VisualizationOptionInput</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetvisualizer</span>
@@ -7319,7 +7265,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="visualizationorderbyinput" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="visualizationorderbyinput" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>VisualizationOrderByInput</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>corechangeset</span>
@@ -7333,7 +7279,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="visualizationwhereinput" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="visualizationwhereinput" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>VisualizationWhereInput</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>corechangeset</span>
@@ -7350,7 +7296,7 @@ hide_title: true
 </table>
 </div>
 
-<div id="yamlrecipebundleinput" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="yamlrecipebundleinput" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>YamlRecipeBundleInput</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>recipemarketplace</span>
@@ -7366,7 +7312,7 @@ hide_title: true
 
 ### Unions
 
-<div id="connectortool" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="connectortool" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>ConnectorTool</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>gateway</span>
@@ -7376,7 +7322,7 @@ hide_title: true
 
 ### Scalars
 
-<div id="base64" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="base64" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>Base64</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>coregraphql</span>
@@ -7384,42 +7330,42 @@ hide_title: true
 <p>`Base64` represents a base64 encoded string. In the browser, `btoa` encodes ASCII strings to Base64.</p>
 </div>
 
-<div id="date" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="date" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>Date</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>coregraphql</span>
 </div>
 </div>
 
-<div id="datetime" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="datetime" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>DateTime</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>coregraphql</span>
 </div>
 </div>
 
-<div id="duration" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="duration" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>Duration</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>coregraphql</span>
 </div>
 </div>
 
-<div id="json" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="json" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>JSON</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>coregraphql</span>
 </div>
 </div>
 
-<div id="long" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="long" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>Long</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>coregraphql</span>
 </div>
 </div>
 
-<div id="markdown" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="markdown" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>Markdown</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>coregraphql</span>
@@ -7427,14 +7373,14 @@ hide_title: true
 <p>Contents may contain Markdown, HTML, or other text and should be passed through a Markdown parser by consumers</p>
 </div>
 
-<div id="object" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="object" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>Object</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>coregraphql</span>
 </div>
 </div>
 
-<div id="path" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div id="path" style={{border: '1px solid #e2e8f0', borderRadius: '6px', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
 <div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
 <span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>Path</span>
 <span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>coregraphql</span>
