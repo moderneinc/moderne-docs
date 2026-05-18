@@ -15,7 +15,7 @@ This page is auto-generated from the Moderne GraphQL schema. Do not edit manuall
 
 **Service:** auditreader
 
-`auditLogs`(first: Int = 100, after: String, where: [AuditLogWhereInput](#auditlogwhereinput), orderBy: [[AuditLogOrderByInput](#auditlogorderbyinput)!]): [AuditLogConnection](#auditlogconnection)!
+`auditLogs`(first: Int = 100, after: String, where: <a href="#auditlogwhereinput">AuditLogWhereInput</a>, orderBy: [<a href="#auditlogorderbyinput">AuditLogOrderByInput</a>!]): <a href="#auditlogconnection">AuditLogConnection</a>!
 
 Query audit log events with pagination and filtering.
 
@@ -25,7 +25,7 @@ Query audit log events with pagination and filtering.
 
 **Service:** auditreader
 
-`auditLogsDownloads`(first: Int = 50, after: String, where: [AuditLogsDownloadWhereInput](#auditlogsdownloadwhereinput), orderBy: [[AuditLogsDownloadOrderByInput](#auditlogsdownloadorderbyinput)!]): [AuditLogsDownloadConnection](#auditlogsdownloadconnection)!
+`auditLogsDownloads`(first: Int = 50, after: String, where: <a href="#auditlogsdownloadwhereinput">AuditLogsDownloadWhereInput</a>, orderBy: [<a href="#auditlogsdownloadorderbyinput">AuditLogsDownloadOrderByInput</a>!]): <a href="#auditlogsdownloadconnection">AuditLogsDownloadConnection</a>!
 
 Query audit log downloads with pagination and filtering.
 Use where: \{ id: \{ _eq: "..." } } to poll a specific download.
@@ -36,7 +36,7 @@ Use where: \{ id: \{ _eq: "..." } } to poll a specific download.
 
 **Service:** changelogreader
 
-`bulkPullRequestAction`(id: ID!): [BulkPullRequestAction](#bulkpullrequestaction)
+`bulkPullRequestAction`(id: ID!): <a href="#bulkpullrequestaction">BulkPullRequestAction</a>
 
 Get a bulk pull request action by ID to poll for progress.
 
@@ -46,7 +46,7 @@ Get a bulk pull request action by ID to poll for progress.
 
 **Service:** gateway
 
-`capabilities`: [PlatformCapabilities](#platformcapabilities)!
+`capabilities`: <a href="#platformcapabilities">PlatformCapabilities</a>!
 
 Returns which optional platform features are enabled in this deployment.
 Each field defaults to false and is overridden to true by the corresponding
@@ -58,7 +58,7 @@ optional service when it is present in the supergraph composition.
 
 **Service:** code-search
 
-`codeSearch`(repositoryId: String!, query: String!, first: Int = 100, after: String): [CodeSearchResultConnection](#codesearchresultconnection)!
+`codeSearch`(repositoryId: String!, query: String!, first: Int = 100, after: String): <a href="#codesearchresultconnection">CodeSearchResultConnection</a>!
 
 Search source code across artifact repositories.
 Searches the given repository and all its descendants in the hierarchy.
@@ -70,7 +70,7 @@ Results are grouped by artifact (groupId:artifactId) with file-level matches.
 
 **Service:** gateway
 
-`connectors`(first: Int = 100, after: String, where: [ConnectorWhereInput](#connectorwhereinput), orderBy: [[ConnectorOrderByInput](#connectororderbyinput)!]): [ConnectorConnection](#connectorconnection)!
+`connectors`(first: Int = 100, after: String, where: <a href="#connectorwhereinput">ConnectorWhereInput</a>, orderBy: [<a href="#connectororderbyinput">ConnectorOrderByInput</a>!]): <a href="#connectorconnection">ConnectorConnection</a>!
 
 ---
 
@@ -78,7 +78,7 @@ Results are grouped by artifact (groupId:artifactId) with file-level matches.
 
 **Service:** moddy
 
-`conversation`(conversationId: ID!): [Conversation](#conversation)
+`conversation`(conversationId: ID!): <a href="#conversation">Conversation</a>
 
 Look up a single conversation by id. Returns null when no conversation
 matches or the caller does not have access. Restores the v1 query the
@@ -90,7 +90,7 @@ moderne-ui client already references.
 
 **Service:** authz
 
-`currentUser`: [User](#user)!
+`currentUser`: <a href="#user">User</a>!
 
 Returns the currently authenticated user.
 
@@ -100,7 +100,7 @@ Returns the currently authenticated user.
 
 **Service:** recipemarketplace
 
-`devCenterRecipes`: [[RecipeDescriptor](#recipedescriptor)!]!
+`devCenterRecipes`: [<a href="#recipedescriptor">RecipeDescriptor</a>!]!
 
 Get available DevCenter recipes for configuration.
 
@@ -110,7 +110,7 @@ Get available DevCenter recipes for configuration.
 
 **Service:** authz
 
-`license`: [License](#license)!
+`license`: <a href="#license">License</a>!
 
 Request a new license lease key
 
@@ -120,7 +120,7 @@ Request a new license lease key
 
 **Service:** organization
 
-`organization`(id: ID!): [Organization](#organization)!
+`organization`(id: ID!): <a href="#organization">Organization</a>!
 
 ---
 
@@ -128,7 +128,7 @@ Request a new license lease key
 
 **Service:** organization
 
-`organizations`(first: Int = 100, after: String, where: [OrganizationWhereInput](#organizationwhereinput), orderBy: [[OrganizationOrderByInput](#organizationorderbyinput)!]): [OrganizationConnection](#organizationconnection)!
+`organizations`(first: Int = 100, after: String, where: <a href="#organizationwhereinput">OrganizationWhereInput</a>, orderBy: [<a href="#organizationorderbyinput">OrganizationOrderByInput</a>!]): <a href="#organizationconnection">OrganizationConnection</a>!
 
 ---
 
@@ -136,7 +136,7 @@ Request a new license lease key
 
 **Service:** authz
 
-`scmConnections`: [[ScmConnection](#scmconnection)!]!
+`scmConnections`: [<a href="#scmconnection">ScmConnection</a>!]!
 
 Returns connections for all SCM providers.
 
@@ -146,7 +146,7 @@ Returns connections for all SCM providers.
 
 **Service:** authz
 
-`users`(first: Int = 100, after: String, where: [UserWhereInput](#userwhereinput), orderBy: [[UserOrderByInput](#userorderbyinput)!]): [UserConnection](#userconnection)!
+`users`(first: Int = 100, after: String, where: <a href="#userwhereinput">UserWhereInput</a>, orderBy: [<a href="#userorderbyinput">UserOrderByInput</a>!]): <a href="#userconnection">UserConnection</a>!
 
 Returns users with option to filter by role.
 
@@ -156,7 +156,7 @@ Returns users with option to filter by role.
 
 **Service:** changesetcommitter
 
-`verifyToken`(origin: String!, scmType: [ScmType](#scmtype)!): String
+`verifyToken`(origin: String!, scmType: <a href="#scmtype">ScmType</a>!): String
 
 ---
 
@@ -166,7 +166,7 @@ Returns users with option to filter by role.
 
 **Service:** changelogreader
 
-`approvePullRequests`(organizationId: ID!, selection: [PullRequestSelectionInput](#pullrequestselectioninput)!): [BulkPullRequestActionQueued](#bulkpullrequestactionqueued)!
+`approvePullRequests`(organizationId: ID!, selection: <a href="#pullrequestselectioninput">PullRequestSelectionInput</a>!): <a href="#bulkpullrequestactionqueued">BulkPullRequestActionQueued</a>!
 
 Approve pull requests in bulk. Returns the queued action for polling.
 
@@ -176,7 +176,7 @@ Approve pull requests in bulk. Returns the queued action for polling.
 
 **Service:** changelogreader
 
-`cancelBulkPullRequestAction`(id: ID!): [BulkPullRequestActionCanceled](#bulkpullrequestactioncanceled)!
+`cancelBulkPullRequestAction`(id: ID!): <a href="#bulkpullrequestactioncanceled">BulkPullRequestActionCanceled</a>!
 
 Cancel a pending bulk pull request action.
 
@@ -186,7 +186,7 @@ Cancel a pending bulk pull request action.
 
 **Service:** changesetcommitter
 
-`cancelCommit`(id: ID!): [OrganizationCommitCanceled](#organizationcommitcanceled)!
+`cancelCommit`(id: ID!): <a href="#organizationcommitcanceled">OrganizationCommitCanceled</a>!
 
 Cancel a running commit operation.
 
@@ -264,7 +264,7 @@ Clear the current user's prompt override, falling back to organization or univer
 
 **Service:** changelogreader
 
-`closePullRequests`(organizationId: ID!, selection: [PullRequestSelectionInput](#pullrequestselectioninput)!): [BulkPullRequestActionQueued](#bulkpullrequestactionqueued)!
+`closePullRequests`(organizationId: ID!, selection: <a href="#pullrequestselectioninput">PullRequestSelectionInput</a>!): <a href="#bulkpullrequestactionqueued">BulkPullRequestActionQueued</a>!
 
 Close pull requests in bulk. Returns the queued action for polling.
 
@@ -274,7 +274,7 @@ Close pull requests in bulk. Returns the queued action for polling.
 
 **Service:** changesetcommitter
 
-`commit`(input: [CommitInput](#commitinput)!): [OrganizationCommitQueued](#organizationcommitqueued)!
+`commit`(input: <a href="#commitinput">CommitInput</a>!): <a href="#organizationcommitqueued">OrganizationCommitQueued</a>!
 
 Create commits from a changeset (recipe run, batch change, etc.).
 
@@ -284,7 +284,7 @@ Create commits from a changeset (recipe run, batch change, etc.).
 
 **Service:** authz
 
-`createAccessToken`(description: String, expiresAt: [DateTime](#datetime)): [CreateAccessTokenResult](#createaccesstokenresult)!
+`createAccessToken`(description: String, expiresAt: <a href="#datetime">DateTime</a>): <a href="#createaccesstokenresult">CreateAccessTokenResult</a>!
 
 Creates a new Moderne Personal Access Token for the current user.
 Returns the token value only once - it cannot be retrieved again.
@@ -295,7 +295,7 @@ Returns the token value only once - it cannot be retrieved again.
 
 **Service:** moddy
 
-`createConversation`(input: [CreateConversationInput](#createconversationinput)!, waitForCompletion: Boolean = false): [SendMessageResult](#sendmessageresult)!
+`createConversation`(input: <a href="#createconversationinput">CreateConversationInput</a>!, waitForCompletion: Boolean = false): <a href="#sendmessageresult">SendMessageResult</a>!
 
 Create a new conversation and send the first message. Uses the
 effective prompt for the organization context. `waitForCompletion`
@@ -307,7 +307,7 @@ has the same semantics as on `sendMessage`.
 
 **Service:** organization
 
-`createUserOrganization`(input: [CreateUserOrganizationInput](#createuserorganizationinput)!): [Organization](#organization)!
+`createUserOrganization`(input: <a href="#createuserorganizationinput">CreateUserOrganizationInput</a>!): <a href="#organization">Organization</a>!
 
 Create a new user-defined organization visible only to the current user.
 
@@ -338,7 +338,7 @@ Delete a user-defined organization.
 
 **Service:** auditreader
 
-`downloadAuditLogs`(first: Int, since: [DateTime](#datetime), until: [DateTime](#datetime), format: [AuditLogExportFormat](#auditlogexportformat)!): [AuditLogsDownload](#auditlogsdownload)!
+`downloadAuditLogs`(first: Int, since: <a href="#datetime">DateTime</a>, until: <a href="#datetime">DateTime</a>, format: <a href="#auditlogexportformat">AuditLogExportFormat</a>!): <a href="#auditlogsdownload">AuditLogsDownload</a>!
 
 Start an asynchronous export of audit logs. Returns a task whose state
 can be polled via auditLogsDownloads.
@@ -349,7 +349,7 @@ can be polled via auditLogsDownloads.
 
 **Service:** changesetreader
 
-`downloadDataTable`(changesetId: ID!, dataTable: String!, group: String, format: [DataTableFormat](#datatableformat)!): [DataTable](#datatable)!
+`downloadDataTable`(changesetId: ID!, dataTable: String!, group: String, format: <a href="#datatableformat">DataTableFormat</a>!): <a href="#datatable">DataTable</a>!
 
 Start or retrieve a data table download.
 If the same data table + group + format combination was already requested,
@@ -361,7 +361,7 @@ returns the existing download state.
 
 **Service:** authz
 
-`exchangeAuthorizationCode`(input: [ExchangeAuthorizationCodeInput](#exchangeauthorizationcodeinput)!): [ExchangeAuthorizationResult](#exchangeauthorizationresult)!
+`exchangeAuthorizationCode`(input: <a href="#exchangeauthorizationcodeinput">ExchangeAuthorizationCodeInput</a>!): <a href="#exchangeauthorizationresult">ExchangeAuthorizationResult</a>!
 
 Exchange an OAuth authorization code for an access token.
 
@@ -378,7 +378,7 @@ On success, the token is stored and future requests will be authenticated.
 
 **Service:** authz
 
-`initiateAuthorization`(input: [InitiateAuthorizationInput](#initiateauthorizationinput)!): [OAuthAuthorization](#oauthauthorization)!
+`initiateAuthorization`(input: <a href="#initiateauthorizationinput">InitiateAuthorizationInput</a>!): <a href="#oauthauthorization">OAuthAuthorization</a>!
 
 Initiate OAuth authorization for a VCS origin.
 Returns an authorization URL to redirect the user to.
@@ -397,7 +397,7 @@ after the user completes OAuth.
 
 **Service:** recipemarketplace
 
-`installRecipesForCurrentUser`(bundle: [RecipeBundleInput](#recipebundleinput)!): [RecipeInstallation](#recipeinstallation)!
+`installRecipesForCurrentUser`(bundle: <a href="#recipebundleinput">RecipeBundleInput</a>!): <a href="#recipeinstallation">RecipeInstallation</a>!
 
 Install a recipe bundle to the current user's personal marketplace.
 
@@ -407,7 +407,7 @@ Install a recipe bundle to the current user's personal marketplace.
 
 **Service:** recipemarketplace
 
-`installRecipesForOrganization`(organizationId: ID!, bundle: [RecipeBundleInput](#recipebundleinput)!): [RecipeInstallation](#recipeinstallation)!
+`installRecipesForOrganization`(organizationId: ID!, bundle: <a href="#recipebundleinput">RecipeBundleInput</a>!): <a href="#recipeinstallation">RecipeInstallation</a>!
 
 Install a recipe bundle to a specific organization's marketplace.
 Requires the `admin` role.
@@ -418,7 +418,7 @@ Requires the `admin` role.
 
 **Service:** recipemarketplace
 
-`installRecipesUniversal`(bundle: [RecipeBundleInput](#recipebundleinput)!): [RecipeInstallation](#recipeinstallation)!
+`installRecipesUniversal`(bundle: <a href="#recipebundleinput">RecipeBundleInput</a>!): <a href="#recipeinstallation">RecipeInstallation</a>!
 
 Install a recipe bundle to the universal marketplace (visible to all).
 Requires the `admin` role.
@@ -429,7 +429,7 @@ Requires the `admin` role.
 
 **Service:** changelogreader
 
-`mergePullRequests`(organizationId: ID!, selection: [PullRequestSelectionInput](#pullrequestselectioninput)!, mergeMethod: [MergeMethod](#mergemethod)!, deleteSourceBranch: Boolean! = false): [BulkPullRequestActionQueued](#bulkpullrequestactionqueued)!
+`mergePullRequests`(organizationId: ID!, selection: <a href="#pullrequestselectioninput">PullRequestSelectionInput</a>!, mergeMethod: <a href="#mergemethod">MergeMethod</a>!, deleteSourceBranch: Boolean! = false): <a href="#bulkpullrequestactionqueued">BulkPullRequestActionQueued</a>!
 
 Merge pull requests in bulk. Returns the queued action for polling.
 
@@ -439,7 +439,7 @@ Merge pull requests in bulk. Returns the queued action for polling.
 
 **Service:** changelogwriter
 
-`reindexChangelog`(since: [DateTime](#datetime)!, origin: String): [ReindexResult](#reindexresult)!
+`reindexChangelog`(since: <a href="#datetime">DateTime</a>!, origin: String): <a href="#reindexresult">ReindexResult</a>!
 
 Reset poll cursors so the next poll cycle re-fetches and re-enriches
 changelog entries from the given timestamp forward. Use this to backfill
@@ -473,7 +473,7 @@ Returns true if all token were revoked, otherwise false.
 
 **Service:** authz
 
-`revokeScmToken`(input: [RevokeScmTokenInput](#revokescmtokeninput)!): [RevokeTokenResult](#revoketokenresult)!
+`revokeScmToken`(input: <a href="#revokescmtokeninput">RevokeScmTokenInput</a>!): <a href="#revoketokenresult">RevokeTokenResult</a>!
 
 Revoke an SCM OAuth token for the current user and a specific origin.
 This removes the stored token, disconnecting the user from the VCS.
@@ -484,7 +484,7 @@ This removes the stored token, disconnecting the user from the VCS.
 
 **Service:** recipeworker
 
-`runDevCenter`(input: [RunDevCenterInput](#rundevcenterinput)!): [DevCenterRunRunning](#devcenterrunrunning)!
+`runDevCenter`(input: <a href="#rundevcenterinput">RunDevCenterInput</a>!): <a href="#devcenterrunrunning">DevCenterRunRunning</a>!
 
 Start a DevCenter run for an organization.
 Returns immediately with running status.
@@ -495,7 +495,7 @@ Returns immediately with running status.
 
 **Service:** recipeworker
 
-`runRecipe`(input: [RunRecipeInput](#runrecipeinput)!): [OrganizationRecipeRunQueued](#organizationreciperunqueued)!
+`runRecipe`(input: <a href="#runrecipeinput">RunRecipeInput</a>!): <a href="#organizationreciperunqueued">OrganizationRecipeRunQueued</a>!
 
 Run a recipe against repositories.
 Returns the recipe run in its initial queued state.
@@ -506,7 +506,7 @@ Returns the recipe run in its initial queued state.
 
 **Service:** changesetvisualizer
 
-`runVisualization`(organizationId: ID!, visualizationId: ID!, options: [[VisualizationOptionInput](#visualizationoptioninput)!]): [Visualization](#visualization)!
+`runVisualization`(organizationId: ID!, visualizationId: ID!, options: [<a href="#visualizationoptioninput">VisualizationOptionInput</a>!]): <a href="#visualization">Visualization</a>!
 
 Request a visualization to be generated based on the provided descriptor.
 Returns the existing visualization if already run with the same options,
@@ -518,7 +518,7 @@ otherwise queues a new visualization run.
 
 **Service:** moddy
 
-`sendMessage`(conversationId: ID!, message: String!, waitForCompletion: Boolean = false): [SendMessageResult](#sendmessageresult)!
+`sendMessage`(conversationId: ID!, message: String!, waitForCompletion: Boolean = false): <a href="#sendmessageresult">SendMessageResult</a>!
 
 Send a message to an existing conversation. Returns a handle for
 polling — `initialCursor` is the cursor to pass to the next
@@ -536,7 +536,7 @@ than erroring so the caller can continue polling.
 
 **Service:** moddy
 
-`setOrganizationPrompt`(organizationId: ID!, content: [Markdown](#markdown)!): [Prompt](#prompt)!
+`setOrganizationPrompt`(organizationId: ID!, content: <a href="#markdown">Markdown</a>!): <a href="#prompt">Prompt</a>!
 
 Set the system prompt for a specific organization (overrides universal).
 
@@ -546,7 +546,7 @@ Set the system prompt for a specific organization (overrides universal).
 
 **Service:** gateway
 
-`setProfiling`(enabled: Boolean!, event: [ProfilingEvent](#profilingevent) = CPU): Boolean!
+`setProfiling`(enabled: Boolean!, event: <a href="#profilingevent">ProfilingEvent</a> = CPU): Boolean!
 
 Turn continuous profiling on or off for this tenant. When enabled,
 Pyroscope profiles for every service start landing in the Pyroscope UI
@@ -562,7 +562,7 @@ Admin role required.
 
 **Service:** moddy
 
-`setUniversalPrompt`(content: [Markdown](#markdown)!): [Prompt](#prompt)!
+`setUniversalPrompt`(content: <a href="#markdown">Markdown</a>!): <a href="#prompt">Prompt</a>!
 
 Set the universal (default) system prompt.
 
@@ -572,7 +572,7 @@ Set the universal (default) system prompt.
 
 **Service:** moddy
 
-`setUserPrompt`(content: [Markdown](#markdown)!): [Prompt](#prompt)!
+`setUserPrompt`(content: <a href="#markdown">Markdown</a>!): <a href="#prompt">Prompt</a>!
 
 Set the system prompt for the current user (overrides organization and universal).
 
@@ -582,7 +582,7 @@ Set the system prompt for the current user (overrides organization and universal
 
 **Service:** recipemarketplace
 
-`uninstallRecipesFromCurrentUser`(packageName: String!): [RecipeUninstallation](#recipeuninstallation)!
+`uninstallRecipesFromCurrentUser`(packageName: String!): <a href="#recipeuninstallation">RecipeUninstallation</a>!
 
 Uninstall a recipe bundle from the current user's personal marketplace.
 Returns the number of recipes that were removed.
@@ -593,7 +593,7 @@ Returns the number of recipes that were removed.
 
 **Service:** recipemarketplace
 
-`uninstallRecipesFromOrganization`(organizationId: ID!, packageName: String!): [RecipeUninstallation](#recipeuninstallation)!
+`uninstallRecipesFromOrganization`(organizationId: ID!, packageName: String!): <a href="#recipeuninstallation">RecipeUninstallation</a>!
 
 Uninstall a recipe bundle from a specific organization's marketplace.
 Returns the number of recipes that were removed.
@@ -605,7 +605,7 @@ Requires the `admin` role.
 
 **Service:** recipemarketplace
 
-`uninstallRecipesUniversal`(packageName: String!): [RecipeUninstallation](#recipeuninstallation)!
+`uninstallRecipesUniversal`(packageName: String!): <a href="#recipeuninstallation">RecipeUninstallation</a>!
 
 Uninstall a recipe bundle from the universal marketplace.
 Returns the number of recipes that were removed.
@@ -617,7 +617,7 @@ Requires the `admin` role.
 
 **Service:** organization
 
-`updateUserOrganization`(input: [UpdateUserOrganizationInput](#updateuserorganizationinput)!): [Organization](#organization)!
+`updateUserOrganization`(input: <a href="#updateuserorganizationinput">UpdateUserOrganizationInput</a>!): <a href="#organization">Organization</a>!
 
 Update an existing user-defined organization.
 
@@ -640,8 +640,8 @@ This is not the same as the token itself. |
 | `description` | String | Optional description of the token.
 
 Useful for distinguishing between multiple tokens. |
-| `created` | [DateTime](#datetime)! | The date and time the token was created. |
-| `expiresAt` | [DateTime](#datetime) | The date and time the token will expire. |
+| `created` | <a href="#datetime">DateTime</a>! | The date and time the token was created. |
+| `expiresAt` | <a href="#datetime">DateTime</a> | The date and time the token will expire. |
 
 ---
 
@@ -651,8 +651,8 @@ Useful for distinguishing between multiple tokens. |
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `edges` | [[AccessTokenEdge](#accesstokenedge)!]! |  |
-| `pageInfo` | [PageInfo](#pageinfo)! |  |
+| `edges` | [<a href="#accesstokenedge">AccessTokenEdge</a>!]! |  |
+| `pageInfo` | <a href="#pageinfo">PageInfo</a>! |  |
 | `count` | Int! |  |
 
 ---
@@ -663,7 +663,7 @@ Useful for distinguishing between multiple tokens. |
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `node` | [AccessToken](#accesstoken)! |  |
+| `node` | <a href="#accesstoken">AccessToken</a>! |  |
 | `cursor` | String! |  |
 
 ---
@@ -677,9 +677,9 @@ Useful for distinguishing between multiple tokens. |
 | `resourceId` | String! |  |
 | `skipSsl` | Boolean! |  |
 | `skipValidateConnectivity` | Boolean! |  |
-| `connectivity` | [HttpToolConnectivity](#httptoolconnectivity)! |  |
+| `connectivity` | <a href="#httptoolconnectivity">HttpToolConnectivity</a>! |  |
 | `lstQuery` | [String!] |  |
-| `lastIngestedAt` | [DateTime](#datetime) |  |
+| `lastIngestedAt` | <a href="#datetime">DateTime</a> |  |
 
 ---
 
@@ -690,13 +690,13 @@ Useful for distinguishing between multiple tokens. |
 | Field | Type | Description |
 |-------|------|-------------|
 | `id` | ID! |  |
-| `user` | [User](#user)! | The user who performed the action. |
+| `user` | <a href="#user">User</a>! | The user who performed the action. |
 | `target` | String! | The resource type that was acted upon (e.g., "access.tokens", "organizations"). |
 | `action` | String! | The specific action that was performed (e.g., "create.token", "delete.organization"). |
-| `actionType` | [AuditActionType](#auditactiontype)! | The CRUD classification of the action. |
-| `outcome` | [AuditOutcome](#auditoutcome)! | Whether the action succeeded or failed. |
+| `actionType` | <a href="#auditactiontype">AuditActionType</a>! | The CRUD classification of the action. |
+| `outcome` | <a href="#auditoutcome">AuditOutcome</a>! | Whether the action succeeded or failed. |
 | `description` | String | Human-readable description of what happened. |
-| `timestamp` | [DateTime](#datetime)! | When the action occurred. |
+| `timestamp` | <a href="#datetime">DateTime</a>! | When the action occurred. |
 
 ---
 
@@ -706,8 +706,8 @@ Useful for distinguishing between multiple tokens. |
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `edges` | [[AuditLogEdge](#auditlogedge)!]! |  |
-| `pageInfo` | [PageInfo](#pageinfo)! |  |
+| `edges` | [<a href="#auditlogedge">AuditLogEdge</a>!]! |  |
+| `pageInfo` | <a href="#pageinfo">PageInfo</a>! |  |
 | `count` | Int! |  |
 
 ---
@@ -718,7 +718,7 @@ Useful for distinguishing between multiple tokens. |
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `node` | [AuditLog](#auditlog)! |  |
+| `node` | <a href="#auditlog">AuditLog</a>! |  |
 | `cursor` | String! |  |
 
 ---
@@ -729,8 +729,8 @@ Useful for distinguishing between multiple tokens. |
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `edges` | [[AuditLogsDownloadEdge](#auditlogsdownloadedge)!]! |  |
-| `pageInfo` | [PageInfo](#pageinfo)! |  |
+| `edges` | [<a href="#auditlogsdownloadedge">AuditLogsDownloadEdge</a>!]! |  |
+| `pageInfo` | <a href="#pageinfo">PageInfo</a>! |  |
 | `count` | Int! |  |
 
 ---
@@ -741,53 +741,53 @@ Useful for distinguishing between multiple tokens. |
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `node` | [AuditLogsDownload](#auditlogsdownload)! |  |
+| `node` | <a href="#auditlogsdownload">AuditLogsDownload</a>! |  |
 | `cursor` | String! |  |
 
 ---
 
 #### `AuditLogsDownloadError`
 
-**Service:** auditreader | **Implements:** [AuditLogsDownload](#auditlogsdownload)
+**Service:** auditreader | **Implements:** <a href="#auditlogsdownload">AuditLogsDownload</a>
 
 An audit log download failed.
 
 | Field | Type | Description |
 |-------|------|-------------|
 | `id` | ID! |  |
-| `startedAt` | [DateTime](#datetime)! |  |
-| `finishedAt` | [DateTime](#datetime)! |  |
+| `startedAt` | <a href="#datetime">DateTime</a>! |  |
+| `finishedAt` | <a href="#datetime">DateTime</a>! |  |
 | `message` | String! |  |
 
 ---
 
 #### `AuditLogsDownloadFinished`
 
-**Service:** auditreader | **Implements:** [AuditLogsDownload](#auditlogsdownload)
+**Service:** auditreader | **Implements:** <a href="#auditlogsdownload">AuditLogsDownload</a>
 
 An audit log download has completed successfully.
 
 | Field | Type | Description |
 |-------|------|-------------|
 | `id` | ID! |  |
-| `format` | [AuditLogExportFormat](#auditlogexportformat)! |  |
-| `startedAt` | [DateTime](#datetime)! |  |
-| `finishedAt` | [DateTime](#datetime)! |  |
+| `format` | <a href="#auditlogexportformat">AuditLogExportFormat</a>! |  |
+| `startedAt` | <a href="#datetime">DateTime</a>! |  |
+| `finishedAt` | <a href="#datetime">DateTime</a>! |  |
 | `downloadUrl` | String! | URL path to download the file (relative to the service base URL). |
 
 ---
 
 #### `AuditLogsDownloadProcessing`
 
-**Service:** auditreader | **Implements:** [AuditLogsDownload](#auditlogsdownload)
+**Service:** auditreader | **Implements:** <a href="#auditlogsdownload">AuditLogsDownload</a>
 
 An audit log download is being processed.
 
 | Field | Type | Description |
 |-------|------|-------------|
 | `id` | ID! |  |
-| `format` | [AuditLogExportFormat](#auditlogexportformat)! |  |
-| `startedAt` | [DateTime](#datetime)! |  |
+| `format` | <a href="#auditlogexportformat">AuditLogExportFormat</a>! |  |
+| `startedAt` | <a href="#datetime">DateTime</a>! |  |
 
 ---
 
@@ -800,20 +800,20 @@ An audit log download is being processed.
 | `resourceId` | String! |  |
 | `skipSsl` | Boolean! |  |
 | `skipValidateConnectivity` | Boolean! |  |
-| `connectivity` | [HttpToolConnectivity](#httptoolconnectivity)! |  |
-| `oauth` | [AzureDevOpsOauth](#azuredevopsoauth) |  |
+| `connectivity` | <a href="#httptoolconnectivity">HttpToolConnectivity</a>! |  |
+| `oauth` | <a href="#azuredevopsoauth">AzureDevOpsOauth</a> |  |
 
 ---
 
 #### `AzureDevOpsConnection`
 
-**Service:** authz | **Implements:** [ScmConnection](#scmconnection)
+**Service:** authz | **Implements:** <a href="#scmconnection">ScmConnection</a>
 
 | Field | Type | Description |
 |-------|------|-------------|
 | `resourceId` | String! |  |
 | `isAuthorized` | Boolean! |  |
-| `tokens` | [[ScmTokenInfo](#scmtokeninfo)!]! |  |
+| `tokens` | [<a href="#scmtokeninfo">ScmTokenInfo</a>!]! |  |
 
 ---
 
@@ -830,36 +830,36 @@ An audit log download is being processed.
 
 #### `BatchChange`
 
-**Service:** changesetreader | **Implements:** [OrganizationChangeset](#organizationchangeset)
+**Service:** changesetreader | **Implements:** <a href="#organizationchangeset">OrganizationChangeset</a>
 
 | Field | Type | Description |
 |-------|------|-------------|
 | `id` | ID! |  |
-| `user` | [User](#user)! |  |
-| `createdAt` | [DateTime](#datetime)! |  |
-| `parent` | [OrganizationChangeset](#organizationchangeset) |  |
-| `repositories` | (first: Int = 100, after: String, where: [RepositoryChangesetWhereInput](#repositorychangesetwhereinput), orderBy: [[RepositoryChangesetOrderByInput](#repositorychangesetorderbyinput)!]): [RepositoryChangesetConnection](#repositorychangesetconnection)! |  |
+| `user` | <a href="#user">User</a>! |  |
+| `createdAt` | <a href="#datetime">DateTime</a>! |  |
+| `parent` | <a href="#organizationchangeset">OrganizationChangeset</a> |  |
+| `repositories` | (first: Int = 100, after: String, where: <a href="#repositorychangesetwhereinput">RepositoryChangesetWhereInput</a>, orderBy: [<a href="#repositorychangesetorderbyinput">RepositoryChangesetOrderByInput</a>!]): <a href="#repositorychangesetconnection">RepositoryChangesetConnection</a>! |  |
 | `name` | String |  |
 | `description` | String |  |
-| `sourceTool` | [ToolInfo](#toolinfo) |  |
-| `diffTool` | [ToolInfo](#toolinfo) |  |
-| `dataTables` | (first: Int = 50, after: String, where: [DataTableWhereInput](#datatablewhereinput), orderBy: [[DataTableOrderByInput](#datatableorderbyinput)!]): [DataTableConnection](#datatableconnection)! | Data tables produced by this batch change.
+| `sourceTool` | <a href="#toolinfo">ToolInfo</a> |  |
+| `diffTool` | <a href="#toolinfo">ToolInfo</a> |  |
+| `dataTables` | (first: Int = 50, after: String, where: <a href="#datatablewhereinput">DataTableWhereInput</a>, orderBy: [<a href="#datatableorderbyinput">DataTableOrderByInput</a>!]): <a href="#datatableconnection">DataTableConnection</a>! | Data tables produced by this batch change.
 Each data table starts as Available and transitions to Processing/Finished/Error
 when downloadDataTable mutation is called. |
-| `visualizations` | (first: Int = 50, after: String, where: [VisualizationWhereInput](#visualizationwhereinput), orderBy: [[VisualizationOrderByInput](#visualizationorderbyinput)!]): [VisualizationConnection](#visualizationconnection)! | Visualizations produced by this batch change. |
+| `visualizations` | (first: Int = 50, after: String, where: <a href="#visualizationwhereinput">VisualizationWhereInput</a>, orderBy: [<a href="#visualizationorderbyinput">VisualizationOrderByInput</a>!]): <a href="#visualizationconnection">VisualizationConnection</a>! | Visualizations produced by this batch change. |
 
 ---
 
 #### `BatchChangeFileChange`
 
-**Service:** changesetreader | **Implements:** [FileChange](#filechange)
+**Service:** changesetreader | **Implements:** <a href="#filechange">FileChange</a>
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `path` | [Path](#path)! |  |
-| `beforeSourcePath` | [Path](#path) |  |
-| `afterSourcePath` | [Path](#path) |  |
-| `diff` | (markupLevel: [MarkupLevel](#markuplevel) = ERROR, showWhitespaceOnlyChanges: Boolean = true): [Patch](#patch) |  |
+| `path` | <a href="#path">Path</a>! |  |
+| `beforeSourcePath` | <a href="#path">Path</a> |  |
+| `afterSourcePath` | <a href="#path">Path</a> |  |
+| `diff` | (markupLevel: <a href="#markuplevel">MarkupLevel</a> = ERROR, showWhitespaceOnlyChanges: Boolean = true): <a href="#patch">Patch</a> |  |
 
 ---
 
@@ -872,20 +872,20 @@ when downloadDataTable mutation is called. |
 | `resourceId` | String! |  |
 | `skipSsl` | Boolean! |  |
 | `skipValidateConnectivity` | Boolean! |  |
-| `connectivity` | [HttpToolConnectivity](#httptoolconnectivity)! |  |
-| `oauth` | [BitbucketCloudOauth](#bitbucketcloudoauth) |  |
+| `connectivity` | <a href="#httptoolconnectivity">HttpToolConnectivity</a>! |  |
+| `oauth` | <a href="#bitbucketcloudoauth">BitbucketCloudOauth</a> |  |
 
 ---
 
 #### `BitbucketCloudConnection`
 
-**Service:** authz | **Implements:** [ScmConnection](#scmconnection)
+**Service:** authz | **Implements:** <a href="#scmconnection">ScmConnection</a>
 
 | Field | Type | Description |
 |-------|------|-------------|
 | `resourceId` | String! |  |
 | `isAuthorized` | Boolean! |  |
-| `tokens` | [[ScmTokenInfo](#scmtokeninfo)!]! |  |
+| `tokens` | [<a href="#scmtokeninfo">ScmTokenInfo</a>!]! |  |
 
 ---
 
@@ -908,20 +908,20 @@ when downloadDataTable mutation is called. |
 | `resourceId` | String! |  |
 | `skipSsl` | Boolean! |  |
 | `skipValidateConnectivity` | Boolean! |  |
-| `connectivity` | [HttpToolConnectivity](#httptoolconnectivity)! |  |
-| `oauth` | [BitbucketOauth](#bitbucketoauth) |  |
+| `connectivity` | <a href="#httptoolconnectivity">HttpToolConnectivity</a>! |  |
+| `oauth` | <a href="#bitbucketoauth">BitbucketOauth</a> |  |
 
 ---
 
 #### `BitbucketConnection`
 
-**Service:** authz | **Implements:** [ScmConnection](#scmconnection)
+**Service:** authz | **Implements:** <a href="#scmconnection">ScmConnection</a>
 
 | Field | Type | Description |
 |-------|------|-------------|
 | `resourceId` | String! |  |
 | `isAuthorized` | Boolean! |  |
-| `tokens` | [[ScmTokenInfo](#scmtokeninfo)!]! |  |
+| `tokens` | [<a href="#scmtokeninfo">ScmTokenInfo</a>!]! |  |
 
 ---
 
@@ -937,7 +937,7 @@ when downloadDataTable mutation is called. |
 
 #### `BranchCommitOptions`
 
-**Service:** changesetcommitter | **Implements:** [CommitOptions](#commitoptions)
+**Service:** changesetcommitter | **Implements:** <a href="#commitoptions">CommitOptions</a>
 
 | Field | Type | Description |
 |-------|------|-------------|
@@ -947,15 +947,15 @@ when downloadDataTable mutation is called. |
 
 #### `BulkPullRequestActionCanceled`
 
-**Service:** changelogreader | **Implements:** [BulkPullRequestAction](#bulkpullrequestaction)
+**Service:** changelogreader | **Implements:** <a href="#bulkpullrequestaction">BulkPullRequestAction</a>
 
 | Field | Type | Description |
 |-------|------|-------------|
 | `id` | ID! |  |
-| `actionType` | [PullRequestActionType](#pullrequestactiontype)! |  |
-| `user` | [User](#user)! |  |
-| `canceledBy` | [User](#user)! |  |
-| `results` | (first: Int = 50, after: String, where: [PullRequestActionWhereInput](#pullrequestactionwhereinput), orderBy: [[PullRequestActionOrderByInput](#pullrequestactionorderbyinput)!]): [PullRequestActionConnection](#pullrequestactionconnection)! |  |
+| `actionType` | <a href="#pullrequestactiontype">PullRequestActionType</a>! |  |
+| `user` | <a href="#user">User</a>! |  |
+| `canceledBy` | <a href="#user">User</a>! |  |
+| `results` | (first: Int = 50, after: String, where: <a href="#pullrequestactionwhereinput">PullRequestActionWhereInput</a>, orderBy: [<a href="#pullrequestactionorderbyinput">PullRequestActionOrderByInput</a>!]): <a href="#pullrequestactionconnection">PullRequestActionConnection</a>! |  |
 
 ---
 
@@ -965,8 +965,8 @@ when downloadDataTable mutation is called. |
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `edges` | [[BulkPullRequestActionEdge](#bulkpullrequestactionedge)!]! |  |
-| `pageInfo` | [PageInfo](#pageinfo)! |  |
+| `edges` | [<a href="#bulkpullrequestactionedge">BulkPullRequestActionEdge</a>!]! |  |
+| `pageInfo` | <a href="#pageinfo">PageInfo</a>! |  |
 | `count` | Int! |  |
 
 ---
@@ -977,65 +977,65 @@ when downloadDataTable mutation is called. |
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `node` | [BulkPullRequestAction](#bulkpullrequestaction)! |  |
+| `node` | <a href="#bulkpullrequestaction">BulkPullRequestAction</a>! |  |
 | `cursor` | String! |  |
 
 ---
 
 #### `BulkPullRequestActionError`
 
-**Service:** changelogreader | **Implements:** [BulkPullRequestAction](#bulkpullrequestaction)
+**Service:** changelogreader | **Implements:** <a href="#bulkpullrequestaction">BulkPullRequestAction</a>
 
 | Field | Type | Description |
 |-------|------|-------------|
 | `id` | ID! |  |
-| `actionType` | [PullRequestActionType](#pullrequestactiontype)! |  |
-| `user` | [User](#user)! |  |
+| `actionType` | <a href="#pullrequestactiontype">PullRequestActionType</a>! |  |
+| `user` | <a href="#user">User</a>! |  |
 | `errorMessage` | String! |  |
-| `results` | (first: Int = 50, after: String, where: [PullRequestActionWhereInput](#pullrequestactionwhereinput), orderBy: [[PullRequestActionOrderByInput](#pullrequestactionorderbyinput)!]): [PullRequestActionConnection](#pullrequestactionconnection)! |  |
+| `results` | (first: Int = 50, after: String, where: <a href="#pullrequestactionwhereinput">PullRequestActionWhereInput</a>, orderBy: [<a href="#pullrequestactionorderbyinput">PullRequestActionOrderByInput</a>!]): <a href="#pullrequestactionconnection">PullRequestActionConnection</a>! |  |
 
 ---
 
 #### `BulkPullRequestActionFinished`
 
-**Service:** changelogreader | **Implements:** [BulkPullRequestAction](#bulkpullrequestaction)
+**Service:** changelogreader | **Implements:** <a href="#bulkpullrequestaction">BulkPullRequestAction</a>
 
 | Field | Type | Description |
 |-------|------|-------------|
 | `id` | ID! |  |
-| `actionType` | [PullRequestActionType](#pullrequestactiontype)! |  |
-| `user` | [User](#user)! |  |
-| `startedAt` | [DateTime](#datetime)! |  |
-| `finishedAt` | [DateTime](#datetime)! |  |
-| `results` | (first: Int = 50, after: String, where: [PullRequestActionWhereInput](#pullrequestactionwhereinput), orderBy: [[PullRequestActionOrderByInput](#pullrequestactionorderbyinput)!]): [PullRequestActionConnection](#pullrequestactionconnection)! |  |
+| `actionType` | <a href="#pullrequestactiontype">PullRequestActionType</a>! |  |
+| `user` | <a href="#user">User</a>! |  |
+| `startedAt` | <a href="#datetime">DateTime</a>! |  |
+| `finishedAt` | <a href="#datetime">DateTime</a>! |  |
+| `results` | (first: Int = 50, after: String, where: <a href="#pullrequestactionwhereinput">PullRequestActionWhereInput</a>, orderBy: [<a href="#pullrequestactionorderbyinput">PullRequestActionOrderByInput</a>!]): <a href="#pullrequestactionconnection">PullRequestActionConnection</a>! |  |
 
 ---
 
 #### `BulkPullRequestActionQueued`
 
-**Service:** changelogreader | **Implements:** [BulkPullRequestAction](#bulkpullrequestaction)
+**Service:** changelogreader | **Implements:** <a href="#bulkpullrequestaction">BulkPullRequestAction</a>
 
 | Field | Type | Description |
 |-------|------|-------------|
 | `id` | ID! |  |
-| `actionType` | [PullRequestActionType](#pullrequestactiontype)! |  |
-| `user` | [User](#user)! |  |
-| `queuedAt` | [DateTime](#datetime)! |  |
-| `results` | (first: Int = 50, after: String, where: [PullRequestActionWhereInput](#pullrequestactionwhereinput), orderBy: [[PullRequestActionOrderByInput](#pullrequestactionorderbyinput)!]): [PullRequestActionConnection](#pullrequestactionconnection)! |  |
+| `actionType` | <a href="#pullrequestactiontype">PullRequestActionType</a>! |  |
+| `user` | <a href="#user">User</a>! |  |
+| `queuedAt` | <a href="#datetime">DateTime</a>! |  |
+| `results` | (first: Int = 50, after: String, where: <a href="#pullrequestactionwhereinput">PullRequestActionWhereInput</a>, orderBy: [<a href="#pullrequestactionorderbyinput">PullRequestActionOrderByInput</a>!]): <a href="#pullrequestactionconnection">PullRequestActionConnection</a>! |  |
 
 ---
 
 #### `BulkPullRequestActionRunning`
 
-**Service:** changelogreader | **Implements:** [BulkPullRequestAction](#bulkpullrequestaction)
+**Service:** changelogreader | **Implements:** <a href="#bulkpullrequestaction">BulkPullRequestAction</a>
 
 | Field | Type | Description |
 |-------|------|-------------|
 | `id` | ID! |  |
-| `actionType` | [PullRequestActionType](#pullrequestactiontype)! |  |
-| `user` | [User](#user)! |  |
-| `startedAt` | [DateTime](#datetime)! |  |
-| `results` | (first: Int = 50, after: String, where: [PullRequestActionWhereInput](#pullrequestactionwhereinput), orderBy: [[PullRequestActionOrderByInput](#pullrequestactionorderbyinput)!]): [PullRequestActionConnection](#pullrequestactionconnection)! |  |
+| `actionType` | <a href="#pullrequestactiontype">PullRequestActionType</a>! |  |
+| `user` | <a href="#user">User</a>! |  |
+| `startedAt` | <a href="#datetime">DateTime</a>! |  |
+| `results` | (first: Int = 50, after: String, where: <a href="#pullrequestactionwhereinput">PullRequestActionWhereInput</a>, orderBy: [<a href="#pullrequestactionorderbyinput">PullRequestActionOrderByInput</a>!]): <a href="#pullrequestactionconnection">PullRequestActionConnection</a>! |  |
 
 ---
 
@@ -1051,13 +1051,13 @@ A participant identity from the VCS provider. Not necessarily a Moderne user.
 | `email` | String | Email address. |
 | `username` | String | Username/login on the VCS provider. |
 | `avatarUrl` | String | Avatar URL from the VCS provider. |
-| `roles` | [[ContributorRole](#contributorrole)!]! | The roles this participant has across changelog entries. |
+| `roles` | [<a href="#contributorrole">ContributorRole</a>!]! | The roles this participant has across changelog entries. |
 
 ---
 
 #### `ChangelogCommit`
 
-**Service:** changelogreader | **Implements:** [ChangelogEntry](#changelogentry)
+**Service:** changelogreader | **Implements:** <a href="#changelogentry">ChangelogEntry</a>
 
 A direct commit to a branch.
 
@@ -1065,16 +1065,16 @@ A direct commit to a branch.
 |-------|------|-------------|
 | `id` | ID! |  |
 | `title` | String! |  |
-| `author` | [ChangeParticipant](#changeparticipant)! |  |
-| `repository` | [Repository](#repository)! |  |
+| `author` | <a href="#changeparticipant">ChangeParticipant</a>! |  |
+| `repository` | <a href="#repository">Repository</a>! |  |
 | `url` | String! |  |
 | `branch` | String! |  |
 | `sha` | String! | The commit SHA. |
-| `updatedAt` | [DateTime](#datetime)! |  |
-| `createdAt` | [DateTime](#datetime)! |  |
-| `changeset` | [OrganizationChangeset](#organizationchangeset) |  |
-| `buildState` | [BuildState](#buildstate) |  |
-| `diffstat` | [DiffStat](#diffstat)! |  |
+| `updatedAt` | <a href="#datetime">DateTime</a>! |  |
+| `createdAt` | <a href="#datetime">DateTime</a>! |  |
+| `changeset` | <a href="#organizationchangeset">OrganizationChangeset</a> |  |
+| `buildState` | <a href="#buildstate">BuildState</a> |  |
+| `diffstat` | <a href="#diffstat">DiffStat</a>! |  |
 
 ---
 
@@ -1084,8 +1084,8 @@ A direct commit to a branch.
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `edges` | [[ChangelogEntryEdge](#changelogentryedge)!]! |  |
-| `pageInfo` | [PageInfo](#pageinfo)! |  |
+| `edges` | [<a href="#changelogentryedge">ChangelogEntryEdge</a>!]! |  |
+| `pageInfo` | <a href="#pageinfo">PageInfo</a>! |  |
 | `count` | Int! |  |
 
 ---
@@ -1096,7 +1096,7 @@ A direct commit to a branch.
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `node` | [ChangelogEntry](#changelogentry)! |  |
+| `node` | <a href="#changelogentry">ChangelogEntry</a>! |  |
 | `cursor` | String! |  |
 
 ---
@@ -1107,8 +1107,8 @@ A direct commit to a branch.
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `edges` | [[ChangelogParticipantEdge](#changelogparticipantedge)!]! |  |
-| `pageInfo` | [PageInfo](#pageinfo)! |  |
+| `edges` | [<a href="#changelogparticipantedge">ChangelogParticipantEdge</a>!]! |  |
+| `pageInfo` | <a href="#pageinfo">PageInfo</a>! |  |
 | `count` | Int! |  |
 
 ---
@@ -1119,14 +1119,14 @@ A direct commit to a branch.
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `node` | [ChangeParticipant](#changeparticipant)! |  |
+| `node` | <a href="#changeparticipant">ChangeParticipant</a>! |  |
 | `cursor` | String! |  |
 
 ---
 
 #### `ChangelogPullRequest`
 
-**Service:** changelogreader | **Implements:** [ChangelogEntry](#changelogentry)
+**Service:** changelogreader | **Implements:** <a href="#changelogentry">ChangelogEntry</a>
 
 A pull request (open, draft, merged, or closed).
 
@@ -1134,25 +1134,25 @@ A pull request (open, draft, merged, or closed).
 |-------|------|-------------|
 | `id` | ID! |  |
 | `title` | String! |  |
-| `author` | [ChangeParticipant](#changeparticipant)! |  |
-| `repository` | [Repository](#repository)! |  |
+| `author` | <a href="#changeparticipant">ChangeParticipant</a>! |  |
+| `repository` | <a href="#repository">Repository</a>! |  |
 | `url` | String! |  |
 | `branch` | String! |  |
 | `number` | Int! | The PR number. |
 | `sourceBranch` | String! | The source branch of the pull request. |
-| `state` | [PullRequestState](#pullrequeststate)! | Current state of the pull request. |
+| `state` | <a href="#pullrequeststate">PullRequestState</a>! | Current state of the pull request. |
 | `draft` | Boolean! | Whether this is a draft pull request. |
-| `updatedAt` | [DateTime](#datetime)! |  |
-| `createdAt` | [DateTime](#datetime)! |  |
-| `buildState` | [BuildState](#buildstate) |  |
-| `reviewDecision` | [ReviewDecision](#reviewdecision) | Review decision for the pull request. |
-| `approvedBy` | [[ChangeParticipant](#changeparticipant)!] | Reviewers who approved this pull request. |
-| `requestedReviewers` | [[ChangeParticipant](#changeparticipant)!] | Reviewers assigned/requested on this pull request. |
+| `updatedAt` | <a href="#datetime">DateTime</a>! |  |
+| `createdAt` | <a href="#datetime">DateTime</a>! |  |
+| `buildState` | <a href="#buildstate">BuildState</a> |  |
+| `reviewDecision` | <a href="#reviewdecision">ReviewDecision</a> | Review decision for the pull request. |
+| `approvedBy` | [<a href="#changeparticipant">ChangeParticipant</a>!] | Reviewers who approved this pull request. |
+| `requestedReviewers` | [<a href="#changeparticipant">ChangeParticipant</a>!] | Reviewers assigned/requested on this pull request. |
 | `additions` | Int | Lines added. |
 | `deletions` | Int | Lines removed. |
-| `changeset` | [OrganizationChangeset](#organizationchangeset) |  |
-| `diffstat` | [DiffStat](#diffstat)! |  |
-| `actions` | (first: Int = 50, after: String, where: [PullRequestActionWhereInput](#pullrequestactionwhereinput), orderBy: [[PullRequestActionOrderByInput](#pullrequestactionorderbyinput)!]): [PullRequestActionConnection](#pullrequestactionconnection)! | Actions (approve, merge, close) that have been applied to this pull request.
+| `changeset` | <a href="#organizationchangeset">OrganizationChangeset</a> |  |
+| `diffstat` | <a href="#diffstat">DiffStat</a>! |  |
+| `actions` | (first: Int = 50, after: String, where: <a href="#pullrequestactionwhereinput">PullRequestActionWhereInput</a>, orderBy: [<a href="#pullrequestactionorderbyinput">PullRequestActionOrderByInput</a>!]): <a href="#pullrequestactionconnection">PullRequestActionConnection</a>! | Actions (approve, merge, close) that have been applied to this pull request.
 Default sort order is descending by startedAt. |
 
 ---
@@ -1176,7 +1176,7 @@ Default sort order is descending by startedAt. |
 |-------|------|-------------|
 | `groupId` | String! |  |
 | `artifactId` | String! |  |
-| `fileChanges` | (first: Int = 100, after: String): [FileChangeConnection](#filechangeconnection)! |  |
+| `fileChanges` | (first: Int = 100, after: String): <a href="#filechangeconnection">FileChangeConnection</a>! |  |
 
 ---
 
@@ -1186,10 +1186,10 @@ Default sort order is descending by startedAt. |
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `edges` | [[CodeSearchResultEdge](#codesearchresultedge)!]! |  |
-| `pageInfo` | [PageInfo](#pageinfo)! |  |
+| `edges` | [<a href="#codesearchresultedge">CodeSearchResultEdge</a>!]! |  |
+| `pageInfo` | <a href="#pageinfo">PageInfo</a>! |  |
 | `count` | Int! |  |
-| `searchDurationMs` | [Long](#long)! |  |
+| `searchDurationMs` | <a href="#long">Long</a>! |  |
 
 ---
 
@@ -1199,7 +1199,7 @@ Default sort order is descending by startedAt. |
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `node` | [CodeSearchResult](#codesearchresult)! |  |
+| `node` | <a href="#codesearchresult">CodeSearchResult</a>! |  |
 | `cursor` | String! |  |
 
 ---
@@ -1226,9 +1226,9 @@ Default sort order is descending by startedAt. |
 | `id` | ID! |  |
 | `nickname` | String |  |
 | `version` | String! |  |
-| `tools` | [[ConnectorTool](#connectortool)!]! |  |
-| `uiConfiguration` | [UiConfiguration](#uiconfiguration) |  |
-| `personalAccessTokenConfiguration` | [PersonalAccessTokenConfiguration](#personalaccesstokenconfiguration) |  |
+| `tools` | [<a href="#connectortool">ConnectorTool</a>!]! |  |
+| `uiConfiguration` | <a href="#uiconfiguration">UiConfiguration</a> |  |
+| `personalAccessTokenConfiguration` | <a href="#personalaccesstokenconfiguration">PersonalAccessTokenConfiguration</a> |  |
 
 ---
 
@@ -1238,8 +1238,8 @@ Default sort order is descending by startedAt. |
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `edges` | [[ConnectorEdge](#connectoredge)!]! |  |
-| `pageInfo` | [PageInfo](#pageinfo)! |  |
+| `edges` | [<a href="#connectoredge">ConnectorEdge</a>!]! |  |
+| `pageInfo` | <a href="#pageinfo">PageInfo</a>! |  |
 | `count` | Int! |  |
 
 ---
@@ -1250,7 +1250,7 @@ Default sort order is descending by startedAt. |
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `node` | [Connector](#connector)! |  |
+| `node` | <a href="#connector">Connector</a>! |  |
 | `cursor` | String! |  |
 
 ---
@@ -1262,14 +1262,14 @@ Default sort order is descending by startedAt. |
 | Field | Type | Description |
 |-------|------|-------------|
 | `id` | ID! |  |
-| `organization` | [Organization](#organization)! |  |
-| `user` | [User](#user)! |  |
-| `messages` | (first: Int = 100, after: String): [MessageConnection](#messageconnection)! |  |
-| `turnState` | [ConversationTurnState](#conversationturnstate)! | Current turn state for this conversation. Carries the server-
+| `organization` | <a href="#organization">Organization</a>! |  |
+| `user` | <a href="#user">User</a>! |  |
+| `messages` | (first: Int = 100, after: String): <a href="#messageconnection">MessageConnection</a>! |  |
+| `turnState` | <a href="#conversationturnstate">ConversationTurnState</a>! | Current turn state for this conversation. Carries the server-
 recommended poll cadence — clients should respect this rather than
 hardcoding an interval. |
-| `startedAt` | [DateTime](#datetime)! |  |
-| `lastUpdatedAt` | [DateTime](#datetime)! |  |
+| `startedAt` | <a href="#datetime">DateTime</a>! |  |
+| `lastUpdatedAt` | <a href="#datetime">DateTime</a>! |  |
 
 ---
 
@@ -1279,8 +1279,8 @@ hardcoding an interval. |
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `edges` | [[ConversationEdge](#conversationedge)!]! |  |
-| `pageInfo` | [PageInfo](#pageinfo)! |  |
+| `edges` | [<a href="#conversationedge">ConversationEdge</a>!]! |  |
+| `pageInfo` | <a href="#pageinfo">PageInfo</a>! |  |
 
 ---
 
@@ -1290,7 +1290,7 @@ hardcoding an interval. |
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `node` | [Conversation](#conversation)! |  |
+| `node` | <a href="#conversation">Conversation</a>! |  |
 | `cursor` | String! |  |
 
 ---
@@ -1304,9 +1304,9 @@ Drives client poll cadence.
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `phase` | [ConversationPhase](#conversationphase)! |  |
+| `phase` | <a href="#conversationphase">ConversationPhase</a>! |  |
 | `recommendedPollIntervalMs` | Int! | Server-recommended poll interval in milliseconds. |
-| `activeTurnStartedAt` | [DateTime](#datetime) | When the currently-active turn started, if any. |
+| `activeTurnStartedAt` | <a href="#datetime">DateTime</a> | When the currently-active turn started, if any. |
 
 ---
 
@@ -1322,21 +1322,21 @@ The token value is only available in this response.
 | `id` | ID! | The unique identifier for the token. Use this ID for revocation. |
 | `token` | String! | The actual token value. Store this securely - it cannot be retrieved again. |
 | `description` | String | The description provided when creating the token. |
-| `created` | [DateTime](#datetime)! | When the token was created. |
-| `expiresAt` | [DateTime](#datetime) | When the token will expire, or null if it never expires. |
+| `created` | <a href="#datetime">DateTime</a>! | When the token was created. |
+| `expiresAt` | <a href="#datetime">DateTime</a> | When the token will expire, or null if it never expires. |
 
 ---
 
 #### `DataTableAvailable`
 
-**Service:** changesetreader | **Implements:** [DataTable](#datatable)
+**Service:** changesetreader | **Implements:** <a href="#datatable">DataTable</a>
 
 A data table is available for download but no download has been initiated yet.
 
 | Field | Type | Description |
 |-------|------|-------------|
 | `id` | ID! |  |
-| `dataTable` | [DataTableDescriptor](#datatabledescriptor)! |  |
+| `dataTable` | <a href="#datatabledescriptor">DataTableDescriptor</a>! |  |
 | `instanceName` | String! |  |
 | `group` | String |  |
 | `changesetId` | ID! |  |
@@ -1349,8 +1349,8 @@ A data table is available for download but no download has been initiated yet.
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `edges` | [[DataTableEdge](#datatableedge)!]! |  |
-| `pageInfo` | [PageInfo](#pageinfo)! |  |
+| `edges` | [<a href="#datatableedge">DataTableEdge</a>!]! |  |
+| `pageInfo` | <a href="#pageinfo">PageInfo</a>! |  |
 | `count` | Int! |  |
 
 ---
@@ -1364,7 +1364,7 @@ A data table is available for download but no download has been initiated yet.
 | `name` | String! |  |
 | `displayName` | String! |  |
 | `description` | String! |  |
-| `columns` | [[Column](#column)!]! |  |
+| `columns` | [<a href="#column">Column</a>!]! |  |
 
 ---
 
@@ -1374,94 +1374,94 @@ A data table is available for download but no download has been initiated yet.
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `node` | [DataTable](#datatable)! |  |
+| `node` | <a href="#datatable">DataTable</a>! |  |
 | `cursor` | String! |  |
 
 ---
 
 #### `DataTableError`
 
-**Service:** changesetreader | **Implements:** [DataTable](#datatable)
+**Service:** changesetreader | **Implements:** <a href="#datatable">DataTable</a>
 
 A data table download failed.
 
 | Field | Type | Description |
 |-------|------|-------------|
 | `id` | ID! |  |
-| `dataTable` | [DataTableDescriptor](#datatabledescriptor)! |  |
+| `dataTable` | <a href="#datatabledescriptor">DataTableDescriptor</a>! |  |
 | `instanceName` | String! |  |
 | `group` | String |  |
 | `changesetId` | ID! |  |
-| `startedAt` | [DateTime](#datetime)! |  |
-| `finishedAt` | [DateTime](#datetime)! |  |
+| `startedAt` | <a href="#datetime">DateTime</a>! |  |
+| `finishedAt` | <a href="#datetime">DateTime</a>! |  |
 | `message` | String! |  |
 
 ---
 
 #### `DataTableFinished`
 
-**Service:** changesetreader | **Implements:** [DataTable](#datatable)
+**Service:** changesetreader | **Implements:** <a href="#datatable">DataTable</a>
 
 A data table download has completed successfully.
 
 | Field | Type | Description |
 |-------|------|-------------|
 | `id` | ID! |  |
-| `dataTable` | [DataTableDescriptor](#datatabledescriptor)! |  |
+| `dataTable` | <a href="#datatabledescriptor">DataTableDescriptor</a>! |  |
 | `instanceName` | String! |  |
 | `group` | String |  |
-| `format` | [DataTableFormat](#datatableformat)! |  |
+| `format` | <a href="#datatableformat">DataTableFormat</a>! |  |
 | `changesetId` | ID! |  |
-| `startedAt` | [DateTime](#datetime)! |  |
-| `finishedAt` | [DateTime](#datetime)! |  |
-| `duration` | [Duration](#duration) |  |
+| `startedAt` | <a href="#datetime">DateTime</a>! |  |
+| `finishedAt` | <a href="#datetime">DateTime</a>! |  |
+| `duration` | <a href="#duration">Duration</a> |  |
 | `downloadUrl` | String! | URL path to download the file (relative to the service base URL). |
 
 ---
 
 #### `DataTableProcessing`
 
-**Service:** changesetreader | **Implements:** [DataTable](#datatable)
+**Service:** changesetreader | **Implements:** <a href="#datatable">DataTable</a>
 
 A data table download is being processed.
 
 | Field | Type | Description |
 |-------|------|-------------|
 | `id` | ID! |  |
-| `dataTable` | [DataTableDescriptor](#datatabledescriptor)! |  |
+| `dataTable` | <a href="#datatabledescriptor">DataTableDescriptor</a>! |  |
 | `instanceName` | String! |  |
 | `group` | String |  |
-| `format` | [DataTableFormat](#datatableformat)! |  |
+| `format` | <a href="#datatableformat">DataTableFormat</a>! |  |
 | `changesetId` | ID! |  |
-| `startedAt` | [DateTime](#datetime)! |  |
+| `startedAt` | <a href="#datetime">DateTime</a>! |  |
 
 ---
 
 #### `DataTableSqlMessage`
 
-**Service:** moddy | **Implements:** [Message](#message)
+**Service:** moddy | **Implements:** <a href="#message">Message</a>
 
 | Field | Type | Description |
 |-------|------|-------------|
 | `id` | ID! |  |
-| `user` | [User](#user)! |  |
+| `user` | <a href="#user">User</a>! |  |
 | `sqlQuery` | String! |  |
-| `state` | [MessageState](#messagestate)! |  |
-| `lastUpdatedAt` | [DateTime](#datetime)! |  |
+| `state` | <a href="#messagestate">MessageState</a>! |  |
+| `lastUpdatedAt` | <a href="#datetime">DateTime</a>! |  |
 
 ---
 
 #### `DataTablesMessage`
 
-**Service:** moddy | **Implements:** [Message](#message)
+**Service:** moddy | **Implements:** <a href="#message">Message</a>
 
 | Field | Type | Description |
 |-------|------|-------------|
 | `id` | ID! |  |
-| `user` | [User](#user)! |  |
-| `dataTables` | [[DataTableDescriptor](#datatabledescriptor)!]! |  |
-| `state` | [MessageState](#messagestate)! |  |
-| `lastUpdatedAt` | [DateTime](#datetime)! |  |
+| `user` | <a href="#user">User</a>! |  |
+| `dataTables` | [<a href="#datatabledescriptor">DataTableDescriptor</a>!]! |  |
+| `state` | <a href="#messagestate">MessageState</a>! |  |
+| `lastUpdatedAt` | <a href="#datetime">DateTime</a>! |  |
 
 ---
 
@@ -1471,8 +1471,8 @@ A data table download is being processed.
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `recipe` | [RecipeDescriptor](#recipedescriptor) | The currently configured DevCenter recipe for this organization. |
-| `runs` | (first: Int = 10, after: String, where: [DevCenterRunWhereInput](#devcenterrunwhereinput), orderBy: [[DevCenterRunOrderByInput](#devcenterrunorderbyinput)!]): [DevCenterRunConnection](#devcenterrunconnection)! | DevCenter runs for this organization, ordered by start time descending. |
+| `recipe` | <a href="#recipedescriptor">RecipeDescriptor</a> | The currently configured DevCenter recipe for this organization. |
+| `runs` | (first: Int = 10, after: String, where: <a href="#devcenterrunwhereinput">DevCenterRunWhereInput</a>, orderBy: [<a href="#devcenterrunorderbyinput">DevCenterRunOrderByInput</a>!]): <a href="#devcenterrunconnection">DevCenterRunConnection</a>! | DevCenter runs for this organization, ordered by start time descending. |
 
 ---
 
@@ -1485,11 +1485,11 @@ Cards contain measures that track progress toward completion.
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `displayName` | [Markdown](#markdown)! | Display name of the card. |
-| `description` | [Markdown](#markdown) | Description of what this card tracks. |
-| `fixRecipe` | [RecipeDescriptor](#recipedescriptor) | Recipe that can fix/complete the work tracked by this card. |
-| `aggregation` | [DevCenterAggregation](#devcenteraggregation)! | How results are aggregated for this card. |
-| `measures` | [[DevCenterMeasure](#devcentermeasure)!]! | Measures within this card, ordered by ordinal. |
+| `displayName` | <a href="#markdown">Markdown</a>! | Display name of the card. |
+| `description` | <a href="#markdown">Markdown</a> | Description of what this card tracks. |
+| `fixRecipe` | <a href="#recipedescriptor">RecipeDescriptor</a> | Recipe that can fix/complete the work tracked by this card. |
+| `aggregation` | <a href="#devcenteraggregation">DevCenterAggregation</a>! | How results are aggregated for this card. |
+| `measures` | [<a href="#devcentermeasure">DevCenterMeasure</a>!]! | Measures within this card, ordered by ordinal. |
 | `repositoriesNotApplicable` | Int! | Repositories where this card is not applicable. |
 
 ---
@@ -1500,11 +1500,11 @@ Cards contain measures that track progress toward completion.
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `displayName` | [Markdown](#markdown)! |  |
-| `description` | [Markdown](#markdown) |  |
-| `fixRecipe` | [RecipeDescriptor](#recipedescriptor) |  |
-| `aggregation` | [DevCenterAggregation](#devcenteraggregation)! |  |
-| `measures` | [[DevCenterMeasureDescriptor](#devcentermeasuredescriptor)!]! |  |
+| `displayName` | <a href="#markdown">Markdown</a>! |  |
+| `description` | <a href="#markdown">Markdown</a> |  |
+| `fixRecipe` | <a href="#recipedescriptor">RecipeDescriptor</a> |  |
+| `aggregation` | <a href="#devcenteraggregation">DevCenterAggregation</a>! |  |
+| `measures` | [<a href="#devcentermeasuredescriptor">DevCenterMeasureDescriptor</a>!]! |  |
 
 ---
 
@@ -1517,8 +1517,8 @@ with a count from the run results.
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `displayName` | [Markdown](#markdown)! | Display name of the measure. |
-| `description` | [Markdown](#markdown) | Description of what this measure represents. |
+| `displayName` | <a href="#markdown">Markdown</a>! | Display name of the measure. |
+| `description` | <a href="#markdown">Markdown</a> | Description of what this measure represents. |
 | `ordinal` | Int! | Sort order relative to other measures in the card. |
 | `count` | Int! | Count of repositories or occurrences for this measure.
 For PER_REPOSITORY: number of repositories in this state.
@@ -1536,8 +1536,8 @@ for the runtime version with counts.
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `displayName` | [Markdown](#markdown)! |  |
-| `description` | [Markdown](#markdown) |  |
+| `displayName` | <a href="#markdown">Markdown</a>! |  |
+| `description` | <a href="#markdown">Markdown</a> |  |
 | `ordinal` | Int! |  |
 
 ---
@@ -1550,9 +1550,9 @@ Organization-level context from a DevCenter run.
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `repositories` | [DevCenterRepositories](#devcenterrepositories)! | Repository counts at the time of the run. |
+| `repositories` | <a href="#devcenterrepositories">DevCenterRepositories</a>! | Repository counts at the time of the run. |
 | `contributingDevelopers` | Int! | Number of unique contributing developers (last 90 days). |
-| `linesOfCode` | [Long](#long)! | Total lines of code across all repositories on platform. |
+| `linesOfCode` | <a href="#long">Long</a>! | Total lines of code across all repositories on platform. |
 
 ---
 
@@ -1571,16 +1571,16 @@ Repository counts from a DevCenter run.
 
 #### `DevCenterRunCanceled`
 
-**Service:** changesetreader | **Implements:** [DevCenterRun](#devcenterrun)
+**Service:** changesetreader | **Implements:** <a href="#devcenterrun">DevCenterRun</a>
 
 DevCenter run was canceled before completion.
 
 | Field | Type | Description |
 |-------|------|-------------|
 | `id` | ID! |  |
-| `startedAt` | [DateTime](#datetime)! |  |
-| `changeset` | [OrganizationChangeset](#organizationchangeset) |  |
-| `finishedAt` | [DateTime](#datetime)! |  |
+| `startedAt` | <a href="#datetime">DateTime</a>! |  |
+| `changeset` | <a href="#organizationchangeset">OrganizationChangeset</a> |  |
+| `finishedAt` | <a href="#datetime">DateTime</a>! |  |
 
 ---
 
@@ -1590,8 +1590,8 @@ DevCenter run was canceled before completion.
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `edges` | [[DevCenterRunEdge](#devcenterrunedge)!]! |  |
-| `pageInfo` | [PageInfo](#pageinfo)! |  |
+| `edges` | [<a href="#devcenterrunedge">DevCenterRunEdge</a>!]! |  |
+| `pageInfo` | <a href="#pageinfo">PageInfo</a>! |  |
 | `count` | Int! |  |
 
 ---
@@ -1602,56 +1602,56 @@ DevCenter run was canceled before completion.
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `node` | [DevCenterRun](#devcenterrun)! |  |
+| `node` | <a href="#devcenterrun">DevCenterRun</a>! |  |
 | `cursor` | String! |  |
 
 ---
 
 #### `DevCenterRunError`
 
-**Service:** changesetreader | **Implements:** [DevCenterRun](#devcenterrun)
+**Service:** changesetreader | **Implements:** <a href="#devcenterrun">DevCenterRun</a>
 
 DevCenter run failed with an error.
 
 | Field | Type | Description |
 |-------|------|-------------|
 | `id` | ID! |  |
-| `startedAt` | [DateTime](#datetime)! |  |
-| `changeset` | [OrganizationChangeset](#organizationchangeset) |  |
-| `finishedAt` | [DateTime](#datetime)! |  |
+| `startedAt` | <a href="#datetime">DateTime</a>! |  |
+| `changeset` | <a href="#organizationchangeset">OrganizationChangeset</a> |  |
+| `finishedAt` | <a href="#datetime">DateTime</a>! |  |
 | `message` | String! | Human-readable error message. |
 
 ---
 
 #### `DevCenterRunFinished`
 
-**Service:** changesetreader | **Implements:** [DevCenterRun](#devcenterrun)
+**Service:** changesetreader | **Implements:** <a href="#devcenterrun">DevCenterRun</a>
 
 DevCenter run completed successfully with summarized results.
 
 | Field | Type | Description |
 |-------|------|-------------|
 | `id` | ID! |  |
-| `startedAt` | [DateTime](#datetime)! |  |
-| `changeset` | [OrganizationChangeset](#organizationchangeset) |  |
-| `finishedAt` | [DateTime](#datetime)! |  |
-| `organization` | [DevCenterOrganization](#devcenterorganization)! |  |
-| `upgradesAndMigrations` | [[DevCenterCard](#devcentercard)!]! | Upgrade and migration opportunities found (from UpgradesAndMigrations data table). |
-| `security` | [DevCenterCard](#devcentercard) | Security vulnerabilities found (from SecurityIssues data table). |
+| `startedAt` | <a href="#datetime">DateTime</a>! |  |
+| `changeset` | <a href="#organizationchangeset">OrganizationChangeset</a> |  |
+| `finishedAt` | <a href="#datetime">DateTime</a>! |  |
+| `organization` | <a href="#devcenterorganization">DevCenterOrganization</a>! |  |
+| `upgradesAndMigrations` | [<a href="#devcentercard">DevCenterCard</a>!]! | Upgrade and migration opportunities found (from UpgradesAndMigrations data table). |
+| `security` | <a href="#devcentercard">DevCenterCard</a> | Security vulnerabilities found (from SecurityIssues data table). |
 
 ---
 
 #### `DevCenterRunRunning`
 
-**Service:** changesetreader | **Implements:** [DevCenterRun](#devcenterrun)
+**Service:** changesetreader | **Implements:** <a href="#devcenterrun">DevCenterRun</a>
 
 DevCenter recipe is currently running across repositories.
 
 | Field | Type | Description |
 |-------|------|-------------|
 | `id` | ID! |  |
-| `startedAt` | [DateTime](#datetime)! |  |
-| `changeset` | [OrganizationChangeset](#organizationchangeset) |  |
+| `startedAt` | <a href="#datetime">DateTime</a>! |  |
+| `changeset` | <a href="#organizationchangeset">OrganizationChangeset</a> |  |
 
 ---
 
@@ -1670,28 +1670,28 @@ Aggregate line-level diff statistics.
 
 #### `DirectCommitSucceeded`
 
-**Service:** changesetcommitter | **Implements:** [RepositoryCommitSucceeded](#repositorycommitsucceeded), [RepositoryCommit](#repositorycommit)
+**Service:** changesetcommitter | **Implements:** <a href="#repositorycommitsucceeded">RepositoryCommitSucceeded</a>, <a href="#repositorycommit">RepositoryCommit</a>
 
 Direct commit to repository completed successfully.
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `repository` | [Repository](#repository)! |  |
-| `startedAt` | [DateTime](#datetime)! |  |
-| `finishedAt` | [DateTime](#datetime)! |  |
+| `repository` | <a href="#repository">Repository</a>! |  |
+| `startedAt` | <a href="#datetime">DateTime</a>! |  |
+| `finishedAt` | <a href="#datetime">DateTime</a>! |  |
 | `resultLink` | String |  |
 
 ---
 
 #### `ErrorMessage`
 
-**Service:** moddy | **Implements:** [Message](#message)
+**Service:** moddy | **Implements:** <a href="#message">Message</a>
 
 | Field | Type | Description |
 |-------|------|-------------|
 | `id` | ID! |  |
-| `user` | [User](#user)! |  |
-| `content` | [Markdown](#markdown)! |  |
+| `user` | <a href="#user">User</a>! |  |
+| `content` | <a href="#markdown">Markdown</a>! |  |
 | `code` | String | Stable error code that clients may switch on for UI copy. The full
 taxonomy (split into API-call errors vs in-conversation errors) is
 maintained in `doc/moddy-polling-ui-handoff.md`. As of now:
@@ -1713,8 +1713,8 @@ maintained in `doc/moddy-polling-ui-handoff.md`. As of now:
 API-call errors (returned in GraphQL `errors[]`, not as messages):
 INVALID_CURSOR, FORBIDDEN, CONVERSATION_BUSY, MESSAGE_TOO_LONG,
 CONVERSATION_NOT_FOUND, TOO_MANY_REQUESTS. |
-| `state` | [MessageState](#messagestate)! |  |
-| `lastUpdatedAt` | [DateTime](#datetime)! |  |
+| `state` | <a href="#messagestate">MessageState</a>! |  |
+| `lastUpdatedAt` | <a href="#datetime">DateTime</a>! |  |
 
 ---
 
@@ -1739,8 +1739,8 @@ Connection for file changes with aggregate statistics.
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `edges` | [[FileChangeEdge](#filechangeedge)!]! |  |
-| `pageInfo` | [PageInfo](#pageinfo)! |  |
+| `edges` | [<a href="#filechangeedge">FileChangeEdge</a>!]! |  |
+| `pageInfo` | <a href="#pageinfo">PageInfo</a>! |  |
 | `count` | Int! |  |
 | `searched` | Int! | Total files searched. |
 | `changed` | Int! | Files with committable changes. |
@@ -1754,30 +1754,30 @@ Connection for file changes with aggregate statistics.
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `node` | [FileChange](#filechange)! |  |
+| `node` | <a href="#filechange">FileChange</a>! |  |
 | `cursor` | String! |  |
 
 ---
 
 #### `ForkAndPullRequestCommitSucceeded`
 
-**Service:** changesetcommitter | **Implements:** [RepositoryCommitSucceeded](#repositorycommitsucceeded), [RepositoryCommit](#repositorycommit)
+**Service:** changesetcommitter | **Implements:** <a href="#repositorycommitsucceeded">RepositoryCommitSucceeded</a>, <a href="#repositorycommit">RepositoryCommit</a>
 
 Fork and pull request commit completed successfully.
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `repository` | [Repository](#repository)! |  |
-| `startedAt` | [DateTime](#datetime)! |  |
-| `finishedAt` | [DateTime](#datetime)! |  |
+| `repository` | <a href="#repository">Repository</a>! |  |
+| `startedAt` | <a href="#datetime">DateTime</a>! |  |
+| `finishedAt` | <a href="#datetime">DateTime</a>! |  |
 | `resultLink` | String |  |
-| `pullRequestStatus` | [PullRequestStatus](#pullrequeststatus)! | Pull request status. |
+| `pullRequestStatus` | <a href="#pullrequeststatus">PullRequestStatus</a>! | Pull request status. |
 
 ---
 
 #### `ForkCommitOptions`
 
-**Service:** changesetcommitter | **Implements:** [CommitOptions](#commitoptions)
+**Service:** changesetcommitter | **Implements:** <a href="#commitoptions">CommitOptions</a>
 
 | Field | Type | Description |
 |-------|------|-------------|
@@ -1790,22 +1790,22 @@ personal account. |
 
 #### `ForkCommitSucceeded`
 
-**Service:** changesetcommitter | **Implements:** [RepositoryCommitSucceeded](#repositorycommitsucceeded), [RepositoryCommit](#repositorycommit)
+**Service:** changesetcommitter | **Implements:** <a href="#repositorycommitsucceeded">RepositoryCommitSucceeded</a>, <a href="#repositorycommit">RepositoryCommit</a>
 
 Fork commit completed successfully.
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `repository` | [Repository](#repository)! |  |
-| `startedAt` | [DateTime](#datetime)! |  |
-| `finishedAt` | [DateTime](#datetime)! |  |
+| `repository` | <a href="#repository">Repository</a>! |  |
+| `startedAt` | <a href="#datetime">DateTime</a>! |  |
+| `finishedAt` | <a href="#datetime">DateTime</a>! |  |
 | `resultLink` | String |  |
 
 ---
 
 #### `ForkPullRequestOptions`
 
-**Service:** changesetcommitter | **Implements:** [CommitOptions](#commitoptions)
+**Service:** changesetcommitter | **Implements:** <a href="#commitoptions">CommitOptions</a>
 
 | Field | Type | Description |
 |-------|------|-------------|
@@ -1814,10 +1814,10 @@ Fork commit completed successfully.
 personal account. |
 | `prefixOrganization` | Boolean! |  |
 | `pullRequestTitle` | String | If unset, the commit message will be used as the pull request title. |
-| `pullRequestBody` | [Base64](#base64) |  |
+| `pullRequestBody` | <a href="#base64">Base64</a> |  |
 | `draft` | Boolean! |  |
 | `maintainerCanModify` | Boolean! | GitHub only flag to allow maintainers to edit a pull request. |
-| `autoMergeMethod` | [MergeMethod](#mergemethod) | If allowed by the repository, set the pull request to automatically merge after all checks pass using the defined strategy. |
+| `autoMergeMethod` | <a href="#mergemethod">MergeMethod</a> | If allowed by the repository, set the pull request to automatically merge after all checks pass using the defined strategy. |
 | `canRecreateClosedPullRequest` | Boolean! | Recreate a pull request if it was already closed. |
 
 ---
@@ -1831,7 +1831,7 @@ personal account. |
 | `resourceId` | String! |  |
 | `skipSsl` | Boolean! |  |
 | `skipValidateConnectivity` | Boolean! |  |
-| `connectivity` | [HttpToolConnectivity](#httptoolconnectivity)! |  |
+| `connectivity` | <a href="#httptoolconnectivity">HttpToolConnectivity</a>! |  |
 
 ---
 
@@ -1844,20 +1844,20 @@ personal account. |
 | `resourceId` | String! |  |
 | `skipSsl` | Boolean! |  |
 | `skipValidateConnectivity` | Boolean! |  |
-| `connectivity` | [HttpToolConnectivity](#httptoolconnectivity)! |  |
-| `oauth` | [GitLabOauth](#gitlaboauth) |  |
+| `connectivity` | <a href="#httptoolconnectivity">HttpToolConnectivity</a>! |  |
+| `oauth` | <a href="#gitlaboauth">GitLabOauth</a> |  |
 
 ---
 
 #### `GitLabConnection`
 
-**Service:** authz | **Implements:** [ScmConnection](#scmconnection)
+**Service:** authz | **Implements:** <a href="#scmconnection">ScmConnection</a>
 
 | Field | Type | Description |
 |-------|------|-------------|
 | `resourceId` | String! |  |
 | `isAuthorized` | Boolean! |  |
-| `tokens` | [[ScmTokenInfo](#scmtokeninfo)!]! |  |
+| `tokens` | [<a href="#scmtokeninfo">ScmTokenInfo</a>!]! |  |
 
 ---
 
@@ -1881,20 +1881,20 @@ personal account. |
 | `skipSsl` | Boolean! |  |
 | `skipValidateConnectivity` | Boolean! |  |
 | `allowableOrganizations` | [String!]! |  |
-| `connectivity` | [HttpToolConnectivity](#httptoolconnectivity)! |  |
-| `oauth` | [GithubOauth](#githuboauth) |  |
+| `connectivity` | <a href="#httptoolconnectivity">HttpToolConnectivity</a>! |  |
+| `oauth` | <a href="#githuboauth">GithubOauth</a> |  |
 
 ---
 
 #### `GithubConnection`
 
-**Service:** authz | **Implements:** [ScmConnection](#scmconnection)
+**Service:** authz | **Implements:** <a href="#scmconnection">ScmConnection</a>
 
 | Field | Type | Description |
 |-------|------|-------------|
 | `resourceId` | String! |  |
 | `isAuthorized` | Boolean! |  |
-| `tokens` | [[ScmTokenInfo](#scmtokeninfo)!]! |  |
+| `tokens` | [<a href="#scmtokeninfo">ScmTokenInfo</a>!]! |  |
 
 ---
 
@@ -1911,7 +1911,7 @@ personal account. |
 
 #### `GoRecipeBundle`
 
-**Service:** changesetreader | **Implements:** [RecipeBundle](#recipebundle)
+**Service:** changesetreader | **Implements:** <a href="#recipebundle">RecipeBundle</a>
 
 | Field | Type | Description |
 |-------|------|-------------|
@@ -1929,7 +1929,7 @@ personal account. |
 | Field | Type | Description |
 |-------|------|-------------|
 | `connected` | Boolean! |  |
-| `latency` | [Duration](#duration) |  |
+| `latency` | <a href="#duration">Duration</a> |  |
 
 ---
 
@@ -1952,8 +1952,8 @@ personal account. |
 | `resourceId` | String! |  |
 | `skipSsl` | Boolean! |  |
 | `skipValidateConnectivity` | Boolean! |  |
-| `connectivity` | [HttpToolConnectivity](#httptoolconnectivity)! |  |
-| `llmProvider` | [LlmProvider](#llmprovider)! |  |
+| `connectivity` | <a href="#httptoolconnectivity">HttpToolConnectivity</a>! |  |
+| `llmProvider` | <a href="#llmprovider">LlmProvider</a>! |  |
 
 ---
 
@@ -1968,7 +1968,7 @@ that recipe runs consume. Every repository has a conceptual artifact;
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `published` | [DateTime](#datetime) | When `mod publish` produced an artifact into the customer's LST artifact
+| `published` | <a href="#datetime">DateTime</a> | When `mod publish` produced an artifact into the customer's LST artifact
 repository, or null if no artifact has been published. For a tenant
 configured for encrypted LSTs, a non-null `published` does NOT mean the
 encrypted artifact has been received by the tenant - that signal lives
@@ -1984,12 +1984,12 @@ non-empty `publishUri`, which we assume is reachable from `mod publish`. |
 
 #### `Markup`
 
-**Service:** corechangeset | **Implements:** [Marker](#marker)
+**Service:** corechangeset | **Implements:** <a href="#marker">Marker</a>
 
 | Field | Type | Description |
 |-------|------|-------------|
 | `id` | ID! |  |
-| `level` | [MarkupLevel](#markuplevel)! |  |
+| `level` | <a href="#markuplevel">MarkupLevel</a>! |  |
 | `message` | String |  |
 | `detail` | String |  |
 
@@ -2004,15 +2004,15 @@ non-empty `publishUri`, which we assume is reachable from `mod publish`. |
 | `resourceId` | String! |  |
 | `skipSsl` | Boolean! |  |
 | `skipValidateConnectivity` | Boolean! |  |
-| `connectivity` | [HttpToolConnectivity](#httptoolconnectivity)! |  |
+| `connectivity` | <a href="#httptoolconnectivity">HttpToolConnectivity</a>! |  |
 | `localRepository` | String |  |
-| `lastIngestedAt` | [DateTime](#datetime) |  |
+| `lastIngestedAt` | <a href="#datetime">DateTime</a> |  |
 
 ---
 
 #### `MavenRecipeBundle`
 
-**Service:** changesetreader | **Implements:** [RecipeBundle](#recipebundle)
+**Service:** changesetreader | **Implements:** <a href="#recipebundle">RecipeBundle</a>
 
 | Field | Type | Description |
 |-------|------|-------------|
@@ -2032,7 +2032,7 @@ non-empty `publishUri`, which we assume is reachable from `mod publish`. |
 | Field | Type | Description |
 |-------|------|-------------|
 | `deleteSourceBranch` | Boolean! |  |
-| `mergeMethod` | [MergeMethod](#mergemethod)! |  |
+| `mergeMethod` | <a href="#mergemethod">MergeMethod</a>! |  |
 
 ---
 
@@ -2042,8 +2042,8 @@ non-empty `publishUri`, which we assume is reachable from `mod publish`. |
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `edges` | [[MessageEdge](#messageedge)!]! |  |
-| `pageInfo` | [PageInfo](#pageinfo)! |  |
+| `edges` | [<a href="#messageedge">MessageEdge</a>!]! |  |
+| `pageInfo` | <a href="#pageinfo">PageInfo</a>! |  |
 
 ---
 
@@ -2053,7 +2053,7 @@ non-empty `publishUri`, which we assume is reachable from `mod publish`. |
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `node` | [Message](#message)! |  |
+| `node` | <a href="#message">Message</a>! |  |
 | `cursor` | String! |  |
 
 ---
@@ -2064,12 +2064,12 @@ non-empty `publishUri`, which we assume is reachable from `mod publish`. |
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `systemPrompt` | [Prompt](#prompt)! | The effective system prompt for this context.
+| `systemPrompt` | <a href="#prompt">Prompt</a>! | The effective system prompt for this context.
 Cascades: user > organization > universal > built-in default. |
 | `adminOnly` | Boolean! | When true, only administrators can create conversations or send messages.
 Install-level policy flag; the UI uses this together with the viewer's admin
 status to gate the Moddy menu entry. |
-| `conversations` | (first: Int = 50, after: String, where: [ConversationWhereInput](#conversationwhereinput), orderBy: [[ConversationOrderByInput](#conversationorderbyinput)!]): [ConversationConnection](#conversationconnection)! |  |
+| `conversations` | (first: Int = 50, after: String, where: <a href="#conversationwhereinput">ConversationWhereInput</a>, orderBy: [<a href="#conversationorderbyinput">ConversationOrderByInput</a>!]): <a href="#conversationconnection">ConversationConnection</a>! |  |
 | `providerName` | String | Human-readable provider name (e.g. "Anthropic", "OpenAI"). Null when
 no LLM provider is configured (in which case `capabilities.moddy` is
 also false — clients should gate the chat composer on the capability,
@@ -2100,13 +2100,13 @@ model override. |
 | `resourceId` | String! |  |
 | `skipSsl` | Boolean! |  |
 | `skipValidateConnectivity` | Boolean! |  |
-| `connectivity` | [HttpToolConnectivity](#httptoolconnectivity)! |  |
+| `connectivity` | <a href="#httptoolconnectivity">HttpToolConnectivity</a>! |  |
 
 ---
 
 #### `NpmRecipeBundle`
 
-**Service:** changesetreader | **Implements:** [RecipeBundle](#recipebundle)
+**Service:** changesetreader | **Implements:** <a href="#recipebundle">RecipeBundle</a>
 
 | Field | Type | Description |
 |-------|------|-------------|
@@ -2126,13 +2126,13 @@ model override. |
 | `resourceId` | String! |  |
 | `skipSsl` | Boolean! |  |
 | `skipValidateConnectivity` | Boolean! |  |
-| `connectivity` | [HttpToolConnectivity](#httptoolconnectivity)! |  |
+| `connectivity` | <a href="#httptoolconnectivity">HttpToolConnectivity</a>! |  |
 
 ---
 
 #### `NugetRecipeBundle`
 
-**Service:** changesetreader | **Implements:** [RecipeBundle](#recipebundle)
+**Service:** changesetreader | **Implements:** <a href="#recipebundle">RecipeBundle</a>
 
 | Field | Type | Description |
 |-------|------|-------------|
@@ -2163,7 +2163,7 @@ as it will be needed to call exchangeAuthorizationCode after the callback.
 The redirect URI does not contain the authorization ID. |
 | `callbackParameters` | [String!]! | Query parameters the UI should extract from the OAuth callback URL
 and pass to exchangeAuthorizationCode (e.g., ["code"]). |
-| `expiresAt` | [DateTime](#datetime)! | When this authorization expires. UI should treat expired authorizations as stale. |
+| `expiresAt` | <a href="#datetime">DateTime</a>! | When this authorization expires. UI should treat expired authorizations as stale. |
 
 ---
 
@@ -2178,7 +2178,7 @@ so we can resolve the recipe that was used at the time of the run (not the curre
 | Field | Type | Description |
 |-------|------|-------------|
 | `name` | String! |  |
-| `value` | [Object](#object) |  |
+| `value` | <a href="#object">Object</a> |  |
 | `type` | String! |  |
 | `displayName` | String! |  |
 | `description` | String! |  |
@@ -2195,20 +2195,20 @@ so we can resolve the recipe that was used at the time of the run (not the curre
 | Field | Type | Description |
 |-------|------|-------------|
 | `id` | ID! |  |
-| `changelog` | (first: Int = 50, after: String, where: [ChangelogEntryWhereInput](#changelogentrywhereinput), orderBy: [[ChangelogEntryOrderByInput](#changelogentryorderbyinput)!]): [ChangelogEntryConnection](#changelogentryconnection)! | PR and commit activity feed for repositories in this organization. |
-| `participants` | (first: Int = 50, after: String, where: [ChangelogParticipantWhereInput](#changelogparticipantwhereinput), orderBy: [[ChangelogParticipantOrderByInput](#changelogparticipantorderbyinput)!]): [ChangelogParticipantConnection](#changelogparticipantconnection)! | All unique participants across the changelog for this organization,
+| `changelog` | (first: Int = 50, after: String, where: <a href="#changelogentrywhereinput">ChangelogEntryWhereInput</a>, orderBy: [<a href="#changelogentryorderbyinput">ChangelogEntryOrderByInput</a>!]): <a href="#changelogentryconnection">ChangelogEntryConnection</a>! | PR and commit activity feed for repositories in this organization. |
+| `participants` | (first: Int = 50, after: String, where: <a href="#changelogparticipantwhereinput">ChangelogParticipantWhereInput</a>, orderBy: [<a href="#changelogparticipantorderbyinput">ChangelogParticipantOrderByInput</a>!]): <a href="#changelogparticipantconnection">ChangelogParticipantConnection</a>! | All unique participants across the changelog for this organization,
 aggregated from authors, assignees, closers, and reviewers. |
-| `commitOptions` | [[CommitOption](#commitoption)!]! | Available commit options for this organization. |
-| `changesets` | (first: Int = 50, after: String, where: [OrganizationChangesetWhereInput](#organizationchangesetwhereinput), orderBy: [[OrganizationChangesetOrderByInput](#organizationchangesetorderbyinput)!]): [OrganizationChangesetConnection](#organizationchangesetconnection)! |  |
-| `devCenter` | [DevCenter](#devcenter) | DevCenter provides organization-wide campaign progress tracking. |
-| `moddy` | [Moddy](#moddy)! |  |
+| `commitOptions` | [<a href="#commitoption">CommitOption</a>!]! | Available commit options for this organization. |
+| `changesets` | (first: Int = 50, after: String, where: <a href="#organizationchangesetwhereinput">OrganizationChangesetWhereInput</a>, orderBy: [<a href="#organizationchangesetorderbyinput">OrganizationChangesetOrderByInput</a>!]): <a href="#organizationchangesetconnection">OrganizationChangesetConnection</a>! |  |
+| `devCenter` | <a href="#devcenter">DevCenter</a> | DevCenter provides organization-wide campaign progress tracking. |
+| `moddy` | <a href="#moddy">Moddy</a>! |  |
 | `name` | String! |  |
-| `parents` | [[Organization](#organization)!]! | The ancestor organizations of this organization, ordered from immediate parent towards root.
+| `parents` | [<a href="#organization">Organization</a>!]! | The ancestor organizations of this organization, ordered from immediate parent towards root.
 Does not include the epsilon root. Empty for the root organization and direct children of root. |
-| `user` | [User](#user) | The user who owns this organization. Null for global organizations,
+| `user` | <a href="#user">User</a> | The user who owns this organization. Null for global organizations,
 non-null for user-defined organizations. |
-| `repositories` | (first: Int = 100, after: String, where: [RepositoryWhereInput](#repositorywhereinput), orderBy: [[RepositoryOrderByInput](#repositoryorderbyinput)!]): [RepositoryConnection](#repositoryconnection)! |  |
-| `children` | (first: Int = 100, after: String, where: [OrganizationWhereInput](#organizationwhereinput), orderBy: [[OrganizationOrderByInput](#organizationorderbyinput)!]): [OrganizationConnection](#organizationconnection)! | Direct children of this organization in the tree, paginated.
+| `repositories` | (first: Int = 100, after: String, where: <a href="#repositorywhereinput">RepositoryWhereInput</a>, orderBy: [<a href="#repositoryorderbyinput">RepositoryOrderByInput</a>!]): <a href="#repositoryconnection">RepositoryConnection</a>! |  |
+| `children` | (first: Int = 100, after: String, where: <a href="#organizationwhereinput">OrganizationWhereInput</a>, orderBy: [<a href="#organizationorderbyinput">OrganizationOrderByInput</a>!]): <a href="#organizationconnection">OrganizationConnection</a>! | Direct children of this organization in the tree, paginated.
 Useful for lazy-loading the org tree level by level — e.g. an org
 selector that fetches the root, then the children of each folder
 only when the user expands it.
@@ -2219,7 +2219,7 @@ all-or-nothing. Use `where.name` and the boolean composers
 (`_and`, `_or`, `_not`) for meaningful filtering.
 
 `orderBy` defaults to NAME ascending when unspecified. |
-| `marketplace` | [RecipeMarketplace](#recipemarketplace) |  |
+| `marketplace` | <a href="#recipemarketplace">RecipeMarketplace</a> |  |
 
 ---
 
@@ -2230,20 +2230,20 @@ all-or-nothing. Use `where.name` and the boolean composers
 | Field | Type | Description |
 |-------|------|-------------|
 | `id` | ID! |  |
-| `bulkPullRequestActions` | (first: Int = 50, after: String, where: [BulkPullRequestActionWhereInput](#bulkpullrequestactionwhereinput), orderBy: [[BulkPullRequestActionOrderByInput](#bulkpullrequestactionorderbyinput)!]): [BulkPullRequestActionConnection](#bulkpullrequestactionconnection)! | Bulk pull request actions (approve, merge, close) initiated against pull
+| `bulkPullRequestActions` | (first: Int = 50, after: String, where: <a href="#bulkpullrequestactionwhereinput">BulkPullRequestActionWhereInput</a>, orderBy: [<a href="#bulkpullrequestactionorderbyinput">BulkPullRequestActionOrderByInput</a>!]): <a href="#bulkpullrequestactionconnection">BulkPullRequestActionConnection</a>! | Bulk pull request actions (approve, merge, close) initiated against pull
 requests that belong to this changeset.
 
 Default sort: STARTED_AT DESC with QUEUED entries (no startedAt) appearing
 last so polling clients still see in-flight actions. |
-| `commits` | (first: Int = 50, after: String, where: [OrganizationCommitWhereInput](#organizationcommitwhereinput), orderBy: [[OrganizationCommitOrderByInput](#organizationcommitorderbyinput)!]): [OrganizationCommitConnection](#organizationcommitconnection) | Commit operations initiated from this changeset. |
-| `user` | [User](#user)! |  |
-| `createdAt` | [DateTime](#datetime)! |  |
-| `parent` | [OrganizationChangeset](#organizationchangeset) |  |
-| `repositories` | (first: Int = 100, after: String, where: [RepositoryChangesetWhereInput](#repositorychangesetwhereinput), orderBy: [[RepositoryChangesetOrderByInput](#repositorychangesetorderbyinput)!]): [RepositoryChangesetConnection](#repositorychangesetconnection)! |  |
-| `dataTables` | (first: Int = 50, after: String, where: [DataTableWhereInput](#datatablewhereinput), orderBy: [[DataTableOrderByInput](#datatableorderbyinput)!]): [DataTableConnection](#datatableconnection)! | Data tables produced by this recipe run.
+| `commits` | (first: Int = 50, after: String, where: <a href="#organizationcommitwhereinput">OrganizationCommitWhereInput</a>, orderBy: [<a href="#organizationcommitorderbyinput">OrganizationCommitOrderByInput</a>!]): <a href="#organizationcommitconnection">OrganizationCommitConnection</a> | Commit operations initiated from this changeset. |
+| `user` | <a href="#user">User</a>! |  |
+| `createdAt` | <a href="#datetime">DateTime</a>! |  |
+| `parent` | <a href="#organizationchangeset">OrganizationChangeset</a> |  |
+| `repositories` | (first: Int = 100, after: String, where: <a href="#repositorychangesetwhereinput">RepositoryChangesetWhereInput</a>, orderBy: [<a href="#repositorychangesetorderbyinput">RepositoryChangesetOrderByInput</a>!]): <a href="#repositorychangesetconnection">RepositoryChangesetConnection</a>! |  |
+| `dataTables` | (first: Int = 50, after: String, where: <a href="#datatablewhereinput">DataTableWhereInput</a>, orderBy: [<a href="#datatableorderbyinput">DataTableOrderByInput</a>!]): <a href="#datatableconnection">DataTableConnection</a>! | Data tables produced by this recipe run.
 Each data table starts as Available and transitions to Processing/Finished/Error
 when downloadDataTable mutation is called. |
-| `visualizations` | (first: Int = 50, after: String, where: [VisualizationWhereInput](#visualizationwhereinput), orderBy: [[VisualizationOrderByInput](#visualizationorderbyinput)!]): [VisualizationConnection](#visualizationconnection)! | Visualizations produced by this changeset.
+| `visualizations` | (first: Int = 50, after: String, where: <a href="#visualizationwhereinput">VisualizationWhereInput</a>, orderBy: [<a href="#visualizationorderbyinput">VisualizationOrderByInput</a>!]): <a href="#visualizationconnection">VisualizationConnection</a>! | Visualizations produced by this changeset.
 Each visualization starts as Available and transitions to Processing/Finished/Error
 when runVisualization mutation is called. |
 
@@ -2255,8 +2255,8 @@ when runVisualization mutation is called. |
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `edges` | [[OrganizationChangesetEdge](#organizationchangesetedge)!]! |  |
-| `pageInfo` | [PageInfo](#pageinfo)! |  |
+| `edges` | [<a href="#organizationchangesetedge">OrganizationChangesetEdge</a>!]! |  |
+| `pageInfo` | <a href="#pageinfo">PageInfo</a>! |  |
 | `count` | Int! |  |
 
 ---
@@ -2267,9 +2267,9 @@ when runVisualization mutation is called. |
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `node` | [OrganizationChangeset](#organizationchangeset)! |  |
+| `node` | <a href="#organizationchangeset">OrganizationChangeset</a>! |  |
 | `cursor` | String! |  |
-| `organization` | [Organization](#organization) | The organization this changeset was run against.
+| `organization` | <a href="#organization">Organization</a> | The organization this changeset was run against.
 May differ from the queried organization when the changeset belongs to a suborganization.
 Null if the organization has been deleted or is temporarily unavailable. |
 
@@ -2277,21 +2277,21 @@ Null if the organization has been deleted or is temporarily unavailable. |
 
 #### `OrganizationCommitCanceled`
 
-**Service:** changesetcommitter | **Implements:** [OrganizationCommit](#organizationcommit)
+**Service:** changesetcommitter | **Implements:** <a href="#organizationcommit">OrganizationCommit</a>
 
 Commit was canceled before completion.
 
 | Field | Type | Description |
 |-------|------|-------------|
 | `id` | ID! |  |
-| `user` | [User](#user)! |  |
-| `options` | [CommitOptions](#commitoptions)! |  |
+| `user` | <a href="#user">User</a>! |  |
+| `options` | <a href="#commitoptions">CommitOptions</a>! |  |
 | `message` | String! |  |
-| `extendedMessage` | [Base64](#base64) |  |
-| `startedAt` | [DateTime](#datetime) |  |
-| `finishedAt` | [DateTime](#datetime)! |  |
-| `canceledBy` | [User](#user)! | Who or what initiated the cancellation. |
-| `repositories` | (first: Int = 50, after: String, where: [RepositoryCommitWhereInput](#repositorycommitwhereinput), orderBy: [[RepositoryCommitOrderByInput](#repositorycommitorderbyinput)!]): [RepositoryCommitConnection](#repositorycommitconnection)! | Paginated results per repository (partial). |
+| `extendedMessage` | <a href="#base64">Base64</a> |  |
+| `startedAt` | <a href="#datetime">DateTime</a> |  |
+| `finishedAt` | <a href="#datetime">DateTime</a>! |  |
+| `canceledBy` | <a href="#user">User</a>! | Who or what initiated the cancellation. |
+| `repositories` | (first: Int = 50, after: String, where: <a href="#repositorycommitwhereinput">RepositoryCommitWhereInput</a>, orderBy: [<a href="#repositorycommitorderbyinput">RepositoryCommitOrderByInput</a>!]): <a href="#repositorycommitconnection">RepositoryCommitConnection</a>! | Paginated results per repository (partial). |
 
 ---
 
@@ -2301,8 +2301,8 @@ Commit was canceled before completion.
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `edges` | [[OrganizationCommitEdge](#organizationcommitedge)!]! |  |
-| `pageInfo` | [PageInfo](#pageinfo)! |  |
+| `edges` | [<a href="#organizationcommitedge">OrganizationCommitEdge</a>!]! |  |
+| `pageInfo` | <a href="#pageinfo">PageInfo</a>! |  |
 | `count` | Int! |  |
 
 ---
@@ -2313,83 +2313,83 @@ Commit was canceled before completion.
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `node` | [OrganizationCommit](#organizationcommit)! |  |
+| `node` | <a href="#organizationcommit">OrganizationCommit</a>! |  |
 | `cursor` | String! |  |
 
 ---
 
 #### `OrganizationCommitError`
 
-**Service:** changesetcommitter | **Implements:** [OrganizationCommit](#organizationcommit)
+**Service:** changesetcommitter | **Implements:** <a href="#organizationcommit">OrganizationCommit</a>
 
 Commit failed with an error.
 
 | Field | Type | Description |
 |-------|------|-------------|
 | `id` | ID! |  |
-| `user` | [User](#user)! |  |
-| `options` | [CommitOptions](#commitoptions)! |  |
+| `user` | <a href="#user">User</a>! |  |
+| `options` | <a href="#commitoptions">CommitOptions</a>! |  |
 | `message` | String! |  |
-| `extendedMessage` | [Base64](#base64) |  |
-| `startedAt` | [DateTime](#datetime) |  |
-| `finishedAt` | [DateTime](#datetime)! |  |
+| `extendedMessage` | <a href="#base64">Base64</a> |  |
+| `startedAt` | <a href="#datetime">DateTime</a> |  |
+| `finishedAt` | <a href="#datetime">DateTime</a>! |  |
 | `errorMessage` | String! | Human-readable error message. |
-| `repositories` | (first: Int = 50, after: String, where: [RepositoryCommitWhereInput](#repositorycommitwhereinput), orderBy: [[RepositoryCommitOrderByInput](#repositorycommitorderbyinput)!]): [RepositoryCommitConnection](#repositorycommitconnection)! | Paginated results per repository (partial). |
+| `repositories` | (first: Int = 50, after: String, where: <a href="#repositorycommitwhereinput">RepositoryCommitWhereInput</a>, orderBy: [<a href="#repositorycommitorderbyinput">RepositoryCommitOrderByInput</a>!]): <a href="#repositorycommitconnection">RepositoryCommitConnection</a>! | Paginated results per repository (partial). |
 
 ---
 
 #### `OrganizationCommitFinished`
 
-**Service:** changesetcommitter | **Implements:** [OrganizationCommit](#organizationcommit)
+**Service:** changesetcommitter | **Implements:** <a href="#organizationcommit">OrganizationCommit</a>
 
 Commit completed successfully (all or partial success).
 
 | Field | Type | Description |
 |-------|------|-------------|
 | `id` | ID! |  |
-| `user` | [User](#user)! |  |
-| `options` | [CommitOptions](#commitoptions)! |  |
+| `user` | <a href="#user">User</a>! |  |
+| `options` | <a href="#commitoptions">CommitOptions</a>! |  |
 | `message` | String! |  |
-| `extendedMessage` | [Base64](#base64) |  |
-| `startedAt` | [DateTime](#datetime)! |  |
-| `finishedAt` | [DateTime](#datetime)! |  |
-| `repositories` | (first: Int = 50, after: String, where: [RepositoryCommitWhereInput](#repositorycommitwhereinput), orderBy: [[RepositoryCommitOrderByInput](#repositorycommitorderbyinput)!]): [RepositoryCommitConnection](#repositorycommitconnection)! | Paginated results per repository. |
+| `extendedMessage` | <a href="#base64">Base64</a> |  |
+| `startedAt` | <a href="#datetime">DateTime</a>! |  |
+| `finishedAt` | <a href="#datetime">DateTime</a>! |  |
+| `repositories` | (first: Int = 50, after: String, where: <a href="#repositorycommitwhereinput">RepositoryCommitWhereInput</a>, orderBy: [<a href="#repositorycommitorderbyinput">RepositoryCommitOrderByInput</a>!]): <a href="#repositorycommitconnection">RepositoryCommitConnection</a>! | Paginated results per repository. |
 
 ---
 
 #### `OrganizationCommitQueued`
 
-**Service:** changesetcommitter | **Implements:** [OrganizationCommit](#organizationcommit)
+**Service:** changesetcommitter | **Implements:** <a href="#organizationcommit">OrganizationCommit</a>
 
 Commit is queued and waiting to be processed.
 
 | Field | Type | Description |
 |-------|------|-------------|
 | `id` | ID! |  |
-| `user` | [User](#user)! |  |
-| `options` | [CommitOptions](#commitoptions)! |  |
+| `user` | <a href="#user">User</a>! |  |
+| `options` | <a href="#commitoptions">CommitOptions</a>! |  |
 | `message` | String! |  |
-| `extendedMessage` | [Base64](#base64) |  |
-| `startedAt` | [DateTime](#datetime)! |  |
-| `repositories` | (first: Int = 50, after: String, where: [RepositoryCommitWhereInput](#repositorycommitwhereinput), orderBy: [[RepositoryCommitOrderByInput](#repositorycommitorderbyinput)!]): [RepositoryCommitConnection](#repositorycommitconnection)! | Paginated results per repository. |
+| `extendedMessage` | <a href="#base64">Base64</a> |  |
+| `startedAt` | <a href="#datetime">DateTime</a>! |  |
+| `repositories` | (first: Int = 50, after: String, where: <a href="#repositorycommitwhereinput">RepositoryCommitWhereInput</a>, orderBy: [<a href="#repositorycommitorderbyinput">RepositoryCommitOrderByInput</a>!]): <a href="#repositorycommitconnection">RepositoryCommitConnection</a>! | Paginated results per repository. |
 
 ---
 
 #### `OrganizationCommitRunning`
 
-**Service:** changesetcommitter | **Implements:** [OrganizationCommit](#organizationcommit)
+**Service:** changesetcommitter | **Implements:** <a href="#organizationcommit">OrganizationCommit</a>
 
 Commit is actively being processed across repositories.
 
 | Field | Type | Description |
 |-------|------|-------------|
 | `id` | ID! |  |
-| `user` | [User](#user)! |  |
-| `options` | [CommitOptions](#commitoptions)! |  |
+| `user` | <a href="#user">User</a>! |  |
+| `options` | <a href="#commitoptions">CommitOptions</a>! |  |
 | `message` | String! |  |
-| `extendedMessage` | [Base64](#base64) |  |
-| `startedAt` | [DateTime](#datetime)! |  |
-| `repositories` | (first: Int = 50, after: String, where: [RepositoryCommitWhereInput](#repositorycommitwhereinput), orderBy: [[RepositoryCommitOrderByInput](#repositorycommitorderbyinput)!]): [RepositoryCommitConnection](#repositorycommitconnection)! | Paginated results per repository. |
+| `extendedMessage` | <a href="#base64">Base64</a> |  |
+| `startedAt` | <a href="#datetime">DateTime</a>! |  |
+| `repositories` | (first: Int = 50, after: String, where: <a href="#repositorycommitwhereinput">RepositoryCommitWhereInput</a>, orderBy: [<a href="#repositorycommitorderbyinput">RepositoryCommitOrderByInput</a>!]): <a href="#repositorycommitconnection">RepositoryCommitConnection</a>! | Paginated results per repository. |
 
 ---
 
@@ -2402,7 +2402,7 @@ Commit is actively being processed across repositories.
 | `resourceId` | String! |  |
 | `skipSsl` | Boolean! |  |
 | `skipValidateConnectivity` | Boolean! |  |
-| `connectivity` | [HttpToolConnectivity](#httptoolconnectivity)! |  |
+| `connectivity` | <a href="#httptoolconnectivity">HttpToolConnectivity</a>! |  |
 
 ---
 
@@ -2412,8 +2412,8 @@ Commit is actively being processed across repositories.
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `edges` | [[OrganizationEdge](#organizationedge)!]! |  |
-| `pageInfo` | [PageInfo](#pageinfo)! |  |
+| `edges` | [<a href="#organizationedge">OrganizationEdge</a>!]! |  |
+| `pageInfo` | <a href="#pageinfo">PageInfo</a>! |  |
 | `count` | Int! |  |
 
 ---
@@ -2424,7 +2424,7 @@ Commit is actively being processed across repositories.
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `node` | [Organization](#organization)! |  |
+| `node` | <a href="#organization">Organization</a>! |  |
 | `cursor` | String! |  |
 
 ---
@@ -2436,51 +2436,51 @@ Commit is actively being processed across repositories.
 | Field | Type | Description |
 |-------|------|-------------|
 | `id` | ID! |  |
-| `bulkPullRequestActions` | (first: Int = 50, after: String, where: [BulkPullRequestActionWhereInput](#bulkpullrequestactionwhereinput), orderBy: [[BulkPullRequestActionOrderByInput](#bulkpullrequestactionorderbyinput)!]): [BulkPullRequestActionConnection](#bulkpullrequestactionconnection)! | Bulk pull request actions for recipe-run changesets. |
-| `commits` | (first: Int = 50, after: String, where: [OrganizationCommitWhereInput](#organizationcommitwhereinput), orderBy: [[OrganizationCommitOrderByInput](#organizationcommitorderbyinput)!]): [OrganizationCommitConnection](#organizationcommitconnection) | Commit operations initiated from this recipe run. |
-| `recipe` | [RecipeDescriptor](#recipedescriptor) |  |
-| `user` | [User](#user)! |  |
-| `options` | [[RecipeOptionValue](#recipeoptionvalue)!]! |  |
-| `createdAt` | [DateTime](#datetime)! |  |
-| `lastUpdatedAt` | [DateTime](#datetime)! | Monotonic high-water mark advanced by every state writer (sync monitor,
+| `bulkPullRequestActions` | (first: Int = 50, after: String, where: <a href="#bulkpullrequestactionwhereinput">BulkPullRequestActionWhereInput</a>, orderBy: [<a href="#bulkpullrequestactionorderbyinput">BulkPullRequestActionOrderByInput</a>!]): <a href="#bulkpullrequestactionconnection">BulkPullRequestActionConnection</a>! | Bulk pull request actions for recipe-run changesets. |
+| `commits` | (first: Int = 50, after: String, where: <a href="#organizationcommitwhereinput">OrganizationCommitWhereInput</a>, orderBy: [<a href="#organizationcommitorderbyinput">OrganizationCommitOrderByInput</a>!]): <a href="#organizationcommitconnection">OrganizationCommitConnection</a> | Commit operations initiated from this recipe run. |
+| `recipe` | <a href="#recipedescriptor">RecipeDescriptor</a> |  |
+| `user` | <a href="#user">User</a>! |  |
+| `options` | [<a href="#recipeoptionvalue">RecipeOptionValue</a>!]! |  |
+| `createdAt` | <a href="#datetime">DateTime</a>! |  |
+| `lastUpdatedAt` | <a href="#datetime">DateTime</a>! | Monotonic high-water mark advanced by every state writer (sync monitor,
 run monitor, processor). Treat as a content version: poll a tiny query
 selecting `__typename` + `lastUpdatedAt` cheaply and only refetch the
 heavy `repositories`/`totals` selections when this value changes. |
-| `priority` | [RecipeRunPriority](#reciperunpriority)! |  |
-| `parent` | [OrganizationChangeset](#organizationchangeset) |  |
-| `repositories` | (first: Int = 100, after: String, where: [RepositoryChangesetWhereInput](#repositorychangesetwhereinput), orderBy: [[RepositoryChangesetOrderByInput](#repositorychangesetorderbyinput)!]): [RepositoryChangesetConnection](#repositorychangesetconnection)! |  |
-| `dataTables` | (first: Int = 50, after: String, where: [DataTableWhereInput](#datatablewhereinput), orderBy: [[DataTableOrderByInput](#datatableorderbyinput)!]): [DataTableConnection](#datatableconnection)! | Data tables produced by this recipe run.
+| `priority` | <a href="#reciperunpriority">RecipeRunPriority</a>! |  |
+| `parent` | <a href="#organizationchangeset">OrganizationChangeset</a> |  |
+| `repositories` | (first: Int = 100, after: String, where: <a href="#repositorychangesetwhereinput">RepositoryChangesetWhereInput</a>, orderBy: [<a href="#repositorychangesetorderbyinput">RepositoryChangesetOrderByInput</a>!]): <a href="#repositorychangesetconnection">RepositoryChangesetConnection</a>! |  |
+| `dataTables` | (first: Int = 50, after: String, where: <a href="#datatablewhereinput">DataTableWhereInput</a>, orderBy: [<a href="#datatableorderbyinput">DataTableOrderByInput</a>!]): <a href="#datatableconnection">DataTableConnection</a>! | Data tables produced by this recipe run.
 Each data table starts as Available and transitions to Processing/Finished/Error
 when downloadDataTable mutation is called. |
-| `visualizations` | (first: Int = 50, after: String, where: [VisualizationWhereInput](#visualizationwhereinput), orderBy: [[VisualizationOrderByInput](#visualizationorderbyinput)!]): [VisualizationConnection](#visualizationconnection)! | Visualizations produced by this recipe run. |
+| `visualizations` | (first: Int = 50, after: String, where: <a href="#visualizationwhereinput">VisualizationWhereInput</a>, orderBy: [<a href="#visualizationorderbyinput">VisualizationOrderByInput</a>!]): <a href="#visualizationconnection">VisualizationConnection</a>! | Visualizations produced by this recipe run. |
 
 ---
 
 #### `OrganizationRecipeRunCanceled`
 
-**Service:** changesetreader | **Implements:** [OrganizationChangeset](#organizationchangeset), [OrganizationRecipeRun](#organizationreciperun)
+**Service:** changesetreader | **Implements:** <a href="#organizationchangeset">OrganizationChangeset</a>, <a href="#organizationreciperun">OrganizationRecipeRun</a>
 
 | Field | Type | Description |
 |-------|------|-------------|
 | `id` | ID! |  |
-| `recipe` | [RecipeDescriptor](#recipedescriptor) |  |
-| `user` | [User](#user)! |  |
-| `options` | [[RecipeOptionValue](#recipeoptionvalue)!]! |  |
-| `createdAt` | [DateTime](#datetime)! |  |
-| `lastUpdatedAt` | [DateTime](#datetime)! | Monotonic high-water mark advanced by every state writer (sync monitor,
+| `recipe` | <a href="#recipedescriptor">RecipeDescriptor</a> |  |
+| `user` | <a href="#user">User</a>! |  |
+| `options` | [<a href="#recipeoptionvalue">RecipeOptionValue</a>!]! |  |
+| `createdAt` | <a href="#datetime">DateTime</a>! |  |
+| `lastUpdatedAt` | <a href="#datetime">DateTime</a>! | Monotonic high-water mark advanced by every state writer (sync monitor,
 run monitor, processor). Treat as a content version: poll a tiny query
 selecting `__typename` + `lastUpdatedAt` cheaply and only refetch the
 heavy `repositories`/`totals` selections when this value changes. |
-| `priority` | [RecipeRunPriority](#reciperunpriority)! |  |
-| `parent` | [OrganizationChangeset](#organizationchangeset) |  |
-| `startedAt` | [DateTime](#datetime) |  |
-| `finishedAt` | [DateTime](#datetime)! |  |
-| `canceledAt` | [DateTime](#datetime)! | Alias for finishedAt - when the run was canceled |
-| `repositories` | (first: Int = 100, after: String, where: [RepositoryChangesetWhereInput](#repositorychangesetwhereinput), orderBy: [[RepositoryChangesetOrderByInput](#repositorychangesetorderbyinput)!]): [RepositoryChangesetConnection](#repositorychangesetconnection)! |  |
-| `dataTables` | (first: Int = 50, after: String, where: [DataTableWhereInput](#datatablewhereinput), orderBy: [[DataTableOrderByInput](#datatableorderbyinput)!]): [DataTableConnection](#datatableconnection)! | Data tables produced by this recipe run.
+| `priority` | <a href="#reciperunpriority">RecipeRunPriority</a>! |  |
+| `parent` | <a href="#organizationchangeset">OrganizationChangeset</a> |  |
+| `startedAt` | <a href="#datetime">DateTime</a> |  |
+| `finishedAt` | <a href="#datetime">DateTime</a>! |  |
+| `canceledAt` | <a href="#datetime">DateTime</a>! | Alias for finishedAt - when the run was canceled |
+| `repositories` | (first: Int = 100, after: String, where: <a href="#repositorychangesetwhereinput">RepositoryChangesetWhereInput</a>, orderBy: [<a href="#repositorychangesetorderbyinput">RepositoryChangesetOrderByInput</a>!]): <a href="#repositorychangesetconnection">RepositoryChangesetConnection</a>! |  |
+| `dataTables` | (first: Int = 50, after: String, where: <a href="#datatablewhereinput">DataTableWhereInput</a>, orderBy: [<a href="#datatableorderbyinput">DataTableOrderByInput</a>!]): <a href="#datatableconnection">DataTableConnection</a>! | Data tables produced by this recipe run.
 Each data table starts as Available and transitions to Processing/Finished/Error
 when downloadDataTable mutation is called. |
-| `visualizations` | (first: Int = 50, after: String, where: [VisualizationWhereInput](#visualizationwhereinput), orderBy: [[VisualizationOrderByInput](#visualizationorderbyinput)!]): [VisualizationConnection](#visualizationconnection)! | Visualizations produced by this recipe run. |
+| `visualizations` | (first: Int = 50, after: String, where: <a href="#visualizationwhereinput">VisualizationWhereInput</a>, orderBy: [<a href="#visualizationorderbyinput">VisualizationOrderByInput</a>!]): <a href="#visualizationconnection">VisualizationConnection</a>! | Visualizations produced by this recipe run. |
 
 ---
 
@@ -2490,8 +2490,8 @@ when downloadDataTable mutation is called. |
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `edges` | [[OrganizationRecipeRunEdge](#organizationreciperunedge)!]! |  |
-| `pageInfo` | [PageInfo](#pageinfo)! |  |
+| `edges` | [<a href="#organizationreciperunedge">OrganizationRecipeRunEdge</a>!]! |  |
+| `pageInfo` | <a href="#pageinfo">PageInfo</a>! |  |
 | `count` | Int! |  |
 
 ---
@@ -2502,144 +2502,144 @@ when downloadDataTable mutation is called. |
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `node` | [OrganizationRecipeRun](#organizationreciperun)! |  |
+| `node` | <a href="#organizationreciperun">OrganizationRecipeRun</a>! |  |
 | `cursor` | String! |  |
 
 ---
 
 #### `OrganizationRecipeRunError`
 
-**Service:** changesetreader | **Implements:** [OrganizationChangeset](#organizationchangeset), [OrganizationRecipeRun](#organizationreciperun)
+**Service:** changesetreader | **Implements:** <a href="#organizationchangeset">OrganizationChangeset</a>, <a href="#organizationreciperun">OrganizationRecipeRun</a>
 
 | Field | Type | Description |
 |-------|------|-------------|
 | `id` | ID! |  |
-| `recipe` | [RecipeDescriptor](#recipedescriptor) |  |
-| `user` | [User](#user)! |  |
-| `options` | [[RecipeOptionValue](#recipeoptionvalue)!]! |  |
-| `createdAt` | [DateTime](#datetime)! |  |
-| `lastUpdatedAt` | [DateTime](#datetime)! | Monotonic high-water mark advanced by every state writer (sync monitor,
+| `recipe` | <a href="#recipedescriptor">RecipeDescriptor</a> |  |
+| `user` | <a href="#user">User</a>! |  |
+| `options` | [<a href="#recipeoptionvalue">RecipeOptionValue</a>!]! |  |
+| `createdAt` | <a href="#datetime">DateTime</a>! |  |
+| `lastUpdatedAt` | <a href="#datetime">DateTime</a>! | Monotonic high-water mark advanced by every state writer (sync monitor,
 run monitor, processor). Treat as a content version: poll a tiny query
 selecting `__typename` + `lastUpdatedAt` cheaply and only refetch the
 heavy `repositories`/`totals` selections when this value changes. |
-| `priority` | [RecipeRunPriority](#reciperunpriority)! |  |
-| `parent` | [OrganizationChangeset](#organizationchangeset) |  |
-| `startedAt` | [DateTime](#datetime) |  |
-| `finishedAt` | [DateTime](#datetime)! |  |
+| `priority` | <a href="#reciperunpriority">RecipeRunPriority</a>! |  |
+| `parent` | <a href="#organizationchangeset">OrganizationChangeset</a> |  |
+| `startedAt` | <a href="#datetime">DateTime</a> |  |
+| `finishedAt` | <a href="#datetime">DateTime</a>! |  |
 | `errorMessage` | String |  |
-| `repositories` | (first: Int = 100, after: String, where: [RepositoryChangesetWhereInput](#repositorychangesetwhereinput), orderBy: [[RepositoryChangesetOrderByInput](#repositorychangesetorderbyinput)!]): [RepositoryChangesetConnection](#repositorychangesetconnection)! |  |
-| `dataTables` | (first: Int = 50, after: String, where: [DataTableWhereInput](#datatablewhereinput), orderBy: [[DataTableOrderByInput](#datatableorderbyinput)!]): [DataTableConnection](#datatableconnection)! | Data tables produced by this recipe run.
+| `repositories` | (first: Int = 100, after: String, where: <a href="#repositorychangesetwhereinput">RepositoryChangesetWhereInput</a>, orderBy: [<a href="#repositorychangesetorderbyinput">RepositoryChangesetOrderByInput</a>!]): <a href="#repositorychangesetconnection">RepositoryChangesetConnection</a>! |  |
+| `dataTables` | (first: Int = 50, after: String, where: <a href="#datatablewhereinput">DataTableWhereInput</a>, orderBy: [<a href="#datatableorderbyinput">DataTableOrderByInput</a>!]): <a href="#datatableconnection">DataTableConnection</a>! | Data tables produced by this recipe run.
 Each data table starts as Available and transitions to Processing/Finished/Error
 when downloadDataTable mutation is called. |
-| `visualizations` | (first: Int = 50, after: String, where: [VisualizationWhereInput](#visualizationwhereinput), orderBy: [[VisualizationOrderByInput](#visualizationorderbyinput)!]): [VisualizationConnection](#visualizationconnection)! | Visualizations produced by this recipe run. |
+| `visualizations` | (first: Int = 50, after: String, where: <a href="#visualizationwhereinput">VisualizationWhereInput</a>, orderBy: [<a href="#visualizationorderbyinput">VisualizationOrderByInput</a>!]): <a href="#visualizationconnection">VisualizationConnection</a>! | Visualizations produced by this recipe run. |
 
 ---
 
 #### `OrganizationRecipeRunFinished`
 
-**Service:** changesetreader | **Implements:** [OrganizationChangeset](#organizationchangeset), [OrganizationRecipeRun](#organizationreciperun)
+**Service:** changesetreader | **Implements:** <a href="#organizationchangeset">OrganizationChangeset</a>, <a href="#organizationreciperun">OrganizationRecipeRun</a>
 
 | Field | Type | Description |
 |-------|------|-------------|
 | `id` | ID! |  |
-| `recipe` | [RecipeDescriptor](#recipedescriptor) |  |
-| `user` | [User](#user)! |  |
-| `options` | [[RecipeOptionValue](#recipeoptionvalue)!]! |  |
-| `createdAt` | [DateTime](#datetime)! |  |
-| `lastUpdatedAt` | [DateTime](#datetime)! | Monotonic high-water mark advanced by every state writer (sync monitor,
+| `recipe` | <a href="#recipedescriptor">RecipeDescriptor</a> |  |
+| `user` | <a href="#user">User</a>! |  |
+| `options` | [<a href="#recipeoptionvalue">RecipeOptionValue</a>!]! |  |
+| `createdAt` | <a href="#datetime">DateTime</a>! |  |
+| `lastUpdatedAt` | <a href="#datetime">DateTime</a>! | Monotonic high-water mark advanced by every state writer (sync monitor,
 run monitor, processor). Treat as a content version: poll a tiny query
 selecting `__typename` + `lastUpdatedAt` cheaply and only refetch the
 heavy `repositories`/`totals` selections when this value changes. |
-| `priority` | [RecipeRunPriority](#reciperunpriority)! |  |
-| `parent` | [OrganizationChangeset](#organizationchangeset) |  |
-| `startedAt` | [DateTime](#datetime)! |  |
-| `finishedAt` | [DateTime](#datetime)! |  |
-| `duration` | [Duration](#duration) |  |
-| `totals` | [RecipeRunTotals](#reciperuntotals)! |  |
-| `repositories` | (first: Int = 100, after: String, where: [RepositoryChangesetWhereInput](#repositorychangesetwhereinput), orderBy: [[RepositoryChangesetOrderByInput](#repositorychangesetorderbyinput)!]): [RepositoryChangesetConnection](#repositorychangesetconnection)! |  |
-| `dataTables` | (first: Int = 50, after: String, where: [DataTableWhereInput](#datatablewhereinput), orderBy: [[DataTableOrderByInput](#datatableorderbyinput)!]): [DataTableConnection](#datatableconnection)! | Data tables produced by this recipe run.
+| `priority` | <a href="#reciperunpriority">RecipeRunPriority</a>! |  |
+| `parent` | <a href="#organizationchangeset">OrganizationChangeset</a> |  |
+| `startedAt` | <a href="#datetime">DateTime</a>! |  |
+| `finishedAt` | <a href="#datetime">DateTime</a>! |  |
+| `duration` | <a href="#duration">Duration</a> |  |
+| `totals` | <a href="#reciperuntotals">RecipeRunTotals</a>! |  |
+| `repositories` | (first: Int = 100, after: String, where: <a href="#repositorychangesetwhereinput">RepositoryChangesetWhereInput</a>, orderBy: [<a href="#repositorychangesetorderbyinput">RepositoryChangesetOrderByInput</a>!]): <a href="#repositorychangesetconnection">RepositoryChangesetConnection</a>! |  |
+| `dataTables` | (first: Int = 50, after: String, where: <a href="#datatablewhereinput">DataTableWhereInput</a>, orderBy: [<a href="#datatableorderbyinput">DataTableOrderByInput</a>!]): <a href="#datatableconnection">DataTableConnection</a>! | Data tables produced by this recipe run.
 Each data table starts as Available and transitions to Processing/Finished/Error
 when downloadDataTable mutation is called. |
-| `visualizations` | (first: Int = 50, after: String, where: [VisualizationWhereInput](#visualizationwhereinput), orderBy: [[VisualizationOrderByInput](#visualizationorderbyinput)!]): [VisualizationConnection](#visualizationconnection)! | Visualizations produced by this recipe run. |
+| `visualizations` | (first: Int = 50, after: String, where: <a href="#visualizationwhereinput">VisualizationWhereInput</a>, orderBy: [<a href="#visualizationorderbyinput">VisualizationOrderByInput</a>!]): <a href="#visualizationconnection">VisualizationConnection</a>! | Visualizations produced by this recipe run. |
 
 ---
 
 #### `OrganizationRecipeRunQueued`
 
-**Service:** changesetreader | **Implements:** [OrganizationChangeset](#organizationchangeset), [OrganizationRecipeRun](#organizationreciperun)
+**Service:** changesetreader | **Implements:** <a href="#organizationchangeset">OrganizationChangeset</a>, <a href="#organizationreciperun">OrganizationRecipeRun</a>
 
 | Field | Type | Description |
 |-------|------|-------------|
 | `id` | ID! |  |
-| `recipe` | [RecipeDescriptor](#recipedescriptor) |  |
-| `user` | [User](#user)! |  |
-| `options` | [[RecipeOptionValue](#recipeoptionvalue)!]! |  |
-| `createdAt` | [DateTime](#datetime)! |  |
-| `lastUpdatedAt` | [DateTime](#datetime)! | Monotonic high-water mark advanced by every state writer (sync monitor,
+| `recipe` | <a href="#recipedescriptor">RecipeDescriptor</a> |  |
+| `user` | <a href="#user">User</a>! |  |
+| `options` | [<a href="#recipeoptionvalue">RecipeOptionValue</a>!]! |  |
+| `createdAt` | <a href="#datetime">DateTime</a>! |  |
+| `lastUpdatedAt` | <a href="#datetime">DateTime</a>! | Monotonic high-water mark advanced by every state writer (sync monitor,
 run monitor, processor). Treat as a content version: poll a tiny query
 selecting `__typename` + `lastUpdatedAt` cheaply and only refetch the
 heavy `repositories`/`totals` selections when this value changes. |
-| `priority` | [RecipeRunPriority](#reciperunpriority)! |  |
-| `parent` | [OrganizationChangeset](#organizationchangeset) |  |
-| `queuedAt` | [DateTime](#datetime)! |  |
-| `repositories` | (first: Int = 100, after: String, where: [RepositoryChangesetWhereInput](#repositorychangesetwhereinput), orderBy: [[RepositoryChangesetOrderByInput](#repositorychangesetorderbyinput)!]): [RepositoryChangesetConnection](#repositorychangesetconnection)! |  |
-| `dataTables` | (first: Int = 50, after: String, where: [DataTableWhereInput](#datatablewhereinput), orderBy: [[DataTableOrderByInput](#datatableorderbyinput)!]): [DataTableConnection](#datatableconnection)! | Data tables produced by this recipe run.
+| `priority` | <a href="#reciperunpriority">RecipeRunPriority</a>! |  |
+| `parent` | <a href="#organizationchangeset">OrganizationChangeset</a> |  |
+| `queuedAt` | <a href="#datetime">DateTime</a>! |  |
+| `repositories` | (first: Int = 100, after: String, where: <a href="#repositorychangesetwhereinput">RepositoryChangesetWhereInput</a>, orderBy: [<a href="#repositorychangesetorderbyinput">RepositoryChangesetOrderByInput</a>!]): <a href="#repositorychangesetconnection">RepositoryChangesetConnection</a>! |  |
+| `dataTables` | (first: Int = 50, after: String, where: <a href="#datatablewhereinput">DataTableWhereInput</a>, orderBy: [<a href="#datatableorderbyinput">DataTableOrderByInput</a>!]): <a href="#datatableconnection">DataTableConnection</a>! | Data tables produced by this recipe run.
 Each data table starts as Available and transitions to Processing/Finished/Error
 when downloadDataTable mutation is called. |
-| `visualizations` | (first: Int = 50, after: String, where: [VisualizationWhereInput](#visualizationwhereinput), orderBy: [[VisualizationOrderByInput](#visualizationorderbyinput)!]): [VisualizationConnection](#visualizationconnection)! | Visualizations produced by this recipe run. |
+| `visualizations` | (first: Int = 50, after: String, where: <a href="#visualizationwhereinput">VisualizationWhereInput</a>, orderBy: [<a href="#visualizationorderbyinput">VisualizationOrderByInput</a>!]): <a href="#visualizationconnection">VisualizationConnection</a>! | Visualizations produced by this recipe run. |
 
 ---
 
 #### `OrganizationRecipeRunRunning`
 
-**Service:** changesetreader | **Implements:** [OrganizationChangeset](#organizationchangeset), [OrganizationRecipeRun](#organizationreciperun)
+**Service:** changesetreader | **Implements:** <a href="#organizationchangeset">OrganizationChangeset</a>, <a href="#organizationreciperun">OrganizationRecipeRun</a>
 
 | Field | Type | Description |
 |-------|------|-------------|
 | `id` | ID! |  |
-| `recipe` | [RecipeDescriptor](#recipedescriptor) |  |
-| `user` | [User](#user)! |  |
-| `options` | [[RecipeOptionValue](#recipeoptionvalue)!]! |  |
-| `createdAt` | [DateTime](#datetime)! |  |
-| `lastUpdatedAt` | [DateTime](#datetime)! | Monotonic high-water mark advanced by every state writer (sync monitor,
+| `recipe` | <a href="#recipedescriptor">RecipeDescriptor</a> |  |
+| `user` | <a href="#user">User</a>! |  |
+| `options` | [<a href="#recipeoptionvalue">RecipeOptionValue</a>!]! |  |
+| `createdAt` | <a href="#datetime">DateTime</a>! |  |
+| `lastUpdatedAt` | <a href="#datetime">DateTime</a>! | Monotonic high-water mark advanced by every state writer (sync monitor,
 run monitor, processor). Treat as a content version: poll a tiny query
 selecting `__typename` + `lastUpdatedAt` cheaply and only refetch the
 heavy `repositories`/`totals` selections when this value changes. |
-| `priority` | [RecipeRunPriority](#reciperunpriority)! |  |
-| `parent` | [OrganizationChangeset](#organizationchangeset) |  |
-| `startedAt` | [DateTime](#datetime)! |  |
-| `totals` | [RecipeRunTotals](#reciperuntotals) |  |
-| `repositories` | (first: Int = 100, after: String, where: [RepositoryChangesetWhereInput](#repositorychangesetwhereinput), orderBy: [[RepositoryChangesetOrderByInput](#repositorychangesetorderbyinput)!]): [RepositoryChangesetConnection](#repositorychangesetconnection)! |  |
-| `dataTables` | (first: Int = 50, after: String, where: [DataTableWhereInput](#datatablewhereinput), orderBy: [[DataTableOrderByInput](#datatableorderbyinput)!]): [DataTableConnection](#datatableconnection)! | Data tables produced by this recipe run.
+| `priority` | <a href="#reciperunpriority">RecipeRunPriority</a>! |  |
+| `parent` | <a href="#organizationchangeset">OrganizationChangeset</a> |  |
+| `startedAt` | <a href="#datetime">DateTime</a>! |  |
+| `totals` | <a href="#reciperuntotals">RecipeRunTotals</a> |  |
+| `repositories` | (first: Int = 100, after: String, where: <a href="#repositorychangesetwhereinput">RepositoryChangesetWhereInput</a>, orderBy: [<a href="#repositorychangesetorderbyinput">RepositoryChangesetOrderByInput</a>!]): <a href="#repositorychangesetconnection">RepositoryChangesetConnection</a>! |  |
+| `dataTables` | (first: Int = 50, after: String, where: <a href="#datatablewhereinput">DataTableWhereInput</a>, orderBy: [<a href="#datatableorderbyinput">DataTableOrderByInput</a>!]): <a href="#datatableconnection">DataTableConnection</a>! | Data tables produced by this recipe run.
 Each data table starts as Available and transitions to Processing/Finished/Error
 when downloadDataTable mutation is called. |
-| `visualizations` | (first: Int = 50, after: String, where: [VisualizationWhereInput](#visualizationwhereinput), orderBy: [[VisualizationOrderByInput](#visualizationorderbyinput)!]): [VisualizationConnection](#visualizationconnection)! | Visualizations produced by this recipe run. |
+| `visualizations` | (first: Int = 50, after: String, where: <a href="#visualizationwhereinput">VisualizationWhereInput</a>, orderBy: [<a href="#visualizationorderbyinput">VisualizationOrderByInput</a>!]): <a href="#visualizationconnection">VisualizationConnection</a>! | Visualizations produced by this recipe run. |
 
 ---
 
 #### `OrganizationRecipeRunSyncing`
 
-**Service:** changesetreader | **Implements:** [OrganizationChangeset](#organizationchangeset), [OrganizationRecipeRun](#organizationreciperun)
+**Service:** changesetreader | **Implements:** <a href="#organizationchangeset">OrganizationChangeset</a>, <a href="#organizationreciperun">OrganizationRecipeRun</a>
 
 | Field | Type | Description |
 |-------|------|-------------|
 | `id` | ID! |  |
-| `recipe` | [RecipeDescriptor](#recipedescriptor) |  |
-| `user` | [User](#user)! |  |
-| `options` | [[RecipeOptionValue](#recipeoptionvalue)!]! |  |
-| `createdAt` | [DateTime](#datetime)! |  |
-| `lastUpdatedAt` | [DateTime](#datetime)! | Monotonic high-water mark advanced by every state writer (sync monitor,
+| `recipe` | <a href="#recipedescriptor">RecipeDescriptor</a> |  |
+| `user` | <a href="#user">User</a>! |  |
+| `options` | [<a href="#recipeoptionvalue">RecipeOptionValue</a>!]! |  |
+| `createdAt` | <a href="#datetime">DateTime</a>! |  |
+| `lastUpdatedAt` | <a href="#datetime">DateTime</a>! | Monotonic high-water mark advanced by every state writer (sync monitor,
 run monitor, processor). Treat as a content version: poll a tiny query
 selecting `__typename` + `lastUpdatedAt` cheaply and only refetch the
 heavy `repositories`/`totals` selections when this value changes. |
-| `priority` | [RecipeRunPriority](#reciperunpriority)! |  |
-| `parent` | [OrganizationChangeset](#organizationchangeset) |  |
-| `startedAt` | [DateTime](#datetime)! |  |
-| `repositories` | (first: Int = 100, after: String, where: [RepositoryChangesetWhereInput](#repositorychangesetwhereinput), orderBy: [[RepositoryChangesetOrderByInput](#repositorychangesetorderbyinput)!]): [RepositoryChangesetConnection](#repositorychangesetconnection)! |  |
-| `dataTables` | (first: Int = 50, after: String, where: [DataTableWhereInput](#datatablewhereinput), orderBy: [[DataTableOrderByInput](#datatableorderbyinput)!]): [DataTableConnection](#datatableconnection)! | Data tables produced by this recipe run.
+| `priority` | <a href="#reciperunpriority">RecipeRunPriority</a>! |  |
+| `parent` | <a href="#organizationchangeset">OrganizationChangeset</a> |  |
+| `startedAt` | <a href="#datetime">DateTime</a>! |  |
+| `repositories` | (first: Int = 100, after: String, where: <a href="#repositorychangesetwhereinput">RepositoryChangesetWhereInput</a>, orderBy: [<a href="#repositorychangesetorderbyinput">RepositoryChangesetOrderByInput</a>!]): <a href="#repositorychangesetconnection">RepositoryChangesetConnection</a>! |  |
+| `dataTables` | (first: Int = 50, after: String, where: <a href="#datatablewhereinput">DataTableWhereInput</a>, orderBy: [<a href="#datatableorderbyinput">DataTableOrderByInput</a>!]): <a href="#datatableconnection">DataTableConnection</a>! | Data tables produced by this recipe run.
 Each data table starts as Available and transitions to Processing/Finished/Error
 when downloadDataTable mutation is called. |
-| `visualizations` | (first: Int = 50, after: String, where: [VisualizationWhereInput](#visualizationwhereinput), orderBy: [[VisualizationOrderByInput](#visualizationorderbyinput)!]): [VisualizationConnection](#visualizationconnection)! | Visualizations produced by this recipe run. |
+| `visualizations` | (first: Int = 50, after: String, where: <a href="#visualizationwhereinput">VisualizationWhereInput</a>, orderBy: [<a href="#visualizationorderbyinput">VisualizationOrderByInput</a>!]): <a href="#visualizationconnection">VisualizationConnection</a>! | Visualizations produced by this recipe run. |
 
 ---
 
@@ -2665,7 +2665,7 @@ when downloadDataTable mutation is called. |
 | `diff` | String! | Sanitized diff (does not include markers) |
 | `fencedMarkerDiff` | String! | A diff with search and markup markers included in fenced
 \{\{UUID}} wrappers that correspond to ids in the markers list. |
-| `markers` | [[Marker](#marker)!]! |  |
+| `markers` | [<a href="#marker">Marker</a>!]! |  |
 
 ---
 
@@ -2681,7 +2681,7 @@ when downloadDataTable mutation is called. |
 
 #### `PipRecipeBundle`
 
-**Service:** changesetreader | **Implements:** [RecipeBundle](#recipebundle)
+**Service:** changesetreader | **Implements:** <a href="#recipebundle">RecipeBundle</a>
 
 | Field | Type | Description |
 |-------|------|-------------|
@@ -2704,7 +2704,7 @@ when downloadDataTable mutation is called. |
 | `codeSearch` | Boolean! |  |
 | `connector` | Boolean! |  |
 | `moddy` | Boolean! |  |
-| `profiling` | [Profiling](#profiling)! |  |
+| `profiling` | <a href="#profiling">Profiling</a>! |  |
 
 ---
 
@@ -2715,7 +2715,7 @@ when downloadDataTable mutation is called. |
 | Field | Type | Description |
 |-------|------|-------------|
 | `deployed` | Boolean! | Whether the per-tenant Pyroscope ASG, S3 bucket, and IAM are provisioned. |
-| `session` | [ProfilingSession](#profilingsession) | The currently active profiling session, or null when profiling is off. Flipped by setProfiling. |
+| `session` | <a href="#profilingsession">ProfilingSession</a> | The currently active profiling session, or null when profiling is off. Flipped by setProfiling. |
 
 ---
 
@@ -2725,9 +2725,9 @@ when downloadDataTable mutation is called. |
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `user` | [User](#user)! | The user who turned profiling on. |
-| `startedAt` | [DateTime](#datetime)! | When profiling was turned on. |
-| `event` | [ProfilingEvent](#profilingevent)! | The primary profiling event the in-process agent is sampling. |
+| `user` | <a href="#user">User</a>! | The user who turned profiling on. |
+| `startedAt` | <a href="#datetime">DateTime</a>! | When profiling was turned on. |
+| `event` | <a href="#profilingevent">ProfilingEvent</a>! | The primary profiling event the in-process agent is sampling. |
 
 ---
 
@@ -2737,20 +2737,20 @@ when downloadDataTable mutation is called. |
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `content` | [Markdown](#markdown)! |  |
-| `lastUpdatedAt` | [DateTime](#datetime)! |  |
-| `lastUpdatedBy` | [User](#user)! |  |
+| `content` | <a href="#markdown">Markdown</a>! |  |
+| `lastUpdatedAt` | <a href="#datetime">DateTime</a>! |  |
+| `lastUpdatedBy` | <a href="#user">User</a>! |  |
 
 ---
 
 #### `PullRequestActionCanceled`
 
-**Service:** changelogreader | **Implements:** [PullRequestAction](#pullrequestaction)
+**Service:** changelogreader | **Implements:** <a href="#pullrequestaction">PullRequestAction</a>
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `pullRequest` | [PullRequestRef](#pullrequestref)! |  |
-| `canceledBy` | [User](#user)! |  |
+| `pullRequest` | <a href="#pullrequestref">PullRequestRef</a>! |  |
+| `canceledBy` | <a href="#user">User</a>! |  |
 
 ---
 
@@ -2760,8 +2760,8 @@ when downloadDataTable mutation is called. |
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `edges` | [[PullRequestActionEdge](#pullrequestactionedge)!]! |  |
-| `pageInfo` | [PageInfo](#pageinfo)! |  |
+| `edges` | [<a href="#pullrequestactionedge">PullRequestActionEdge</a>!]! |  |
+| `pageInfo` | <a href="#pageinfo">PageInfo</a>! |  |
 | `count` | Int! |  |
 
 ---
@@ -2772,84 +2772,84 @@ when downloadDataTable mutation is called. |
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `node` | [PullRequestAction](#pullrequestaction)! |  |
+| `node` | <a href="#pullrequestaction">PullRequestAction</a>! |  |
 | `cursor` | String! |  |
 
 ---
 
 #### `PullRequestActionFailed`
 
-**Service:** changelogreader | **Implements:** [PullRequestAction](#pullrequestaction)
+**Service:** changelogreader | **Implements:** <a href="#pullrequestaction">PullRequestAction</a>
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `pullRequest` | [PullRequestRef](#pullrequestref)! |  |
-| `startedAt` | [DateTime](#datetime) |  |
-| `finishedAt` | [DateTime](#datetime)! |  |
+| `pullRequest` | <a href="#pullrequestref">PullRequestRef</a>! |  |
+| `startedAt` | <a href="#datetime">DateTime</a> |  |
+| `finishedAt` | <a href="#datetime">DateTime</a>! |  |
 | `errorMessage` | String! |  |
 
 ---
 
 #### `PullRequestActionQueued`
 
-**Service:** changelogreader | **Implements:** [PullRequestAction](#pullrequestaction)
+**Service:** changelogreader | **Implements:** <a href="#pullrequestaction">PullRequestAction</a>
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `pullRequest` | [PullRequestRef](#pullrequestref)! |  |
+| `pullRequest` | <a href="#pullrequestref">PullRequestRef</a>! |  |
 
 ---
 
 #### `PullRequestActionRunning`
 
-**Service:** changelogreader | **Implements:** [PullRequestAction](#pullrequestaction)
+**Service:** changelogreader | **Implements:** <a href="#pullrequestaction">PullRequestAction</a>
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `pullRequest` | [PullRequestRef](#pullrequestref)! |  |
-| `startedAt` | [DateTime](#datetime)! |  |
+| `pullRequest` | <a href="#pullrequestref">PullRequestRef</a>! |  |
+| `startedAt` | <a href="#datetime">DateTime</a>! |  |
 
 ---
 
 #### `PullRequestActionSucceeded`
 
-**Service:** changelogreader | **Implements:** [PullRequestAction](#pullrequestaction)
+**Service:** changelogreader | **Implements:** <a href="#pullrequestaction">PullRequestAction</a>
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `pullRequest` | [PullRequestRef](#pullrequestref)! |  |
-| `startedAt` | [DateTime](#datetime)! |  |
-| `finishedAt` | [DateTime](#datetime)! |  |
+| `pullRequest` | <a href="#pullrequestref">PullRequestRef</a>! |  |
+| `startedAt` | <a href="#datetime">DateTime</a>! |  |
+| `finishedAt` | <a href="#datetime">DateTime</a>! |  |
 
 ---
 
 #### `PullRequestCommitSucceeded`
 
-**Service:** changesetcommitter | **Implements:** [RepositoryCommitSucceeded](#repositorycommitsucceeded), [RepositoryCommit](#repositorycommit)
+**Service:** changesetcommitter | **Implements:** <a href="#repositorycommitsucceeded">RepositoryCommitSucceeded</a>, <a href="#repositorycommit">RepositoryCommit</a>
 
 Pull request commit completed successfully.
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `repository` | [Repository](#repository)! |  |
-| `startedAt` | [DateTime](#datetime)! |  |
-| `finishedAt` | [DateTime](#datetime)! |  |
+| `repository` | <a href="#repository">Repository</a>! |  |
+| `startedAt` | <a href="#datetime">DateTime</a>! |  |
+| `finishedAt` | <a href="#datetime">DateTime</a>! |  |
 | `resultLink` | String |  |
-| `pullRequestStatus` | [PullRequestStatus](#pullrequeststatus)! | Pull request status. |
+| `pullRequestStatus` | <a href="#pullrequeststatus">PullRequestStatus</a>! | Pull request status. |
 
 ---
 
 #### `PullRequestOptions`
 
-**Service:** changesetcommitter | **Implements:** [CommitOptions](#commitoptions)
+**Service:** changesetcommitter | **Implements:** <a href="#commitoptions">CommitOptions</a>
 
 | Field | Type | Description |
 |-------|------|-------------|
 | `branchName` | String |  |
 | `pullRequestTitle` | String | If unset, the commit message will be used as the pull request title. |
-| `pullRequestBody` | [Base64](#base64) |  |
+| `pullRequestBody` | <a href="#base64">Base64</a> |  |
 | `draft` | Boolean! |  |
-| `autoMergeMethod` | [MergeMethod](#mergemethod) | If allowed by the repository, set the pull request to automatically merge after all checks pass using the defined strategy. |
+| `autoMergeMethod` | <a href="#mergemethod">MergeMethod</a> | If allowed by the repository, set the pull request to automatically merge after all checks pass using the defined strategy. |
 | `canRecreateClosedPullRequest` | Boolean! | Recreate a pull request if it was already closed. |
 
 ---
@@ -2873,10 +2873,10 @@ Pull request commit completed successfully.
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `mergeable` | [Mergeable](#mergeable)! | Can this pull request be merged or not |
-| `state` | [PullRequestState](#pullrequeststate)! |  |
-| `review` | [ReviewStatus](#reviewstatus)! |  |
-| `buildState` | [BuildState](#buildstate) |  |
+| `mergeable` | <a href="#mergeable">Mergeable</a>! | Can this pull request be merged or not |
+| `state` | <a href="#pullrequeststate">PullRequestState</a>! |  |
+| `review` | <a href="#reviewstatus">ReviewStatus</a>! |  |
+| `buildState` | <a href="#buildstate">BuildState</a> |  |
 | `otherBlockingReasons` | [String!]! | Additional status flags that block this pull request. Can depend on the SCM service provider. |
 
 ---
@@ -2890,7 +2890,7 @@ Pull request commit completed successfully.
 | `resourceId` | String! |  |
 | `skipSsl` | Boolean! |  |
 | `skipValidateConnectivity` | Boolean! |  |
-| `connectivity` | [HttpToolConnectivity](#httptoolconnectivity)! |  |
+| `connectivity` | <a href="#httptoolconnectivity">HttpToolConnectivity</a>! |  |
 
 ---
 
@@ -2900,8 +2900,8 @@ Pull request commit completed successfully.
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `edges` | [[RecipeBundleEdge](#recipebundleedge)!]! |  |
-| `pageInfo` | [PageInfo](#pageinfo)! |  |
+| `edges` | [<a href="#recipebundleedge">RecipeBundleEdge</a>!]! |  |
+| `pageInfo` | <a href="#pageinfo">PageInfo</a>! |  |
 | `count` | Int! |  |
 
 ---
@@ -2912,7 +2912,7 @@ Pull request commit completed successfully.
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `node` | [RecipeBundle](#recipebundle)! |  |
+| `node` | <a href="#recipebundle">RecipeBundle</a>! |  |
 | `cursor` | String! |  |
 
 ---
@@ -2924,12 +2924,12 @@ Pull request commit completed successfully.
 | Field | Type | Description |
 |-------|------|-------------|
 | `id` | ID! |  |
-| `displayName` | [Markdown](#markdown)! |  |
-| `description` | [Markdown](#markdown)! |  |
+| `displayName` | <a href="#markdown">Markdown</a>! |  |
+| `description` | <a href="#markdown">Markdown</a>! |  |
 | `recipeCount` | Int! | Total number of unique recipes in this category, including all subcategories recursively. |
-| `parents` | [[RecipeCategory](#recipecategory)!]! |  |
-| `recipes` | (first: Int = 100, after: String, where: [RecipeWhereInput](#recipewhereinput), orderBy: [[RecipeOrderByInput](#recipeorderbyinput)!]): [RecipeDescriptorConnection](#recipedescriptorconnection)! |  |
-| `categories` | (first: Int = 100, after: String, where: [RecipeCategoryWhereInput](#recipecategorywhereinput), orderBy: [[RecipeCategoryOrderByInput](#recipecategoryorderbyinput)!]): [RecipeCategoryConnection](#recipecategoryconnection)! |  |
+| `parents` | [<a href="#recipecategory">RecipeCategory</a>!]! |  |
+| `recipes` | (first: Int = 100, after: String, where: <a href="#recipewhereinput">RecipeWhereInput</a>, orderBy: [<a href="#recipeorderbyinput">RecipeOrderByInput</a>!]): <a href="#recipedescriptorconnection">RecipeDescriptorConnection</a>! |  |
+| `categories` | (first: Int = 100, after: String, where: <a href="#recipecategorywhereinput">RecipeCategoryWhereInput</a>, orderBy: [<a href="#recipecategoryorderbyinput">RecipeCategoryOrderByInput</a>!]): <a href="#recipecategoryconnection">RecipeCategoryConnection</a>! |  |
 
 ---
 
@@ -2939,8 +2939,8 @@ Pull request commit completed successfully.
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `edges` | [[RecipeCategoryEdge](#recipecategoryedge)!]! |  |
-| `pageInfo` | [PageInfo](#pageinfo)! |  |
+| `edges` | [<a href="#recipecategoryedge">RecipeCategoryEdge</a>!]! |  |
+| `pageInfo` | <a href="#pageinfo">PageInfo</a>! |  |
 | `count` | Int! |  |
 
 ---
@@ -2951,7 +2951,7 @@ Pull request commit completed successfully.
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `node` | [RecipeCategory](#recipecategory)! |  |
+| `node` | <a href="#recipecategory">RecipeCategory</a>! |  |
 | `cursor` | String! |  |
 
 ---
@@ -2964,14 +2964,14 @@ Pull request commit completed successfully.
 |-------|------|-------------|
 | `id` | ID! |  |
 | `instanceName` | String |  |
-| `displayName` | [Markdown](#markdown)! |  |
-| `description` | [Markdown](#markdown)! |  |
+| `displayName` | <a href="#markdown">Markdown</a>! |  |
+| `description` | <a href="#markdown">Markdown</a>! |  |
 | `recipeCount` | Int |  |
-| `bundle` | [RecipeBundle](#recipebundle)! |  |
-| `options` | [[Option](#option)!]! |  |
-| `dataTables` | [[DataTableDescriptor](#datatabledescriptor)!]! |  |
-| `devCenterCards` | [[DevCenterCardDescriptor](#devcentercarddescriptor)!] | DevCenter card descriptors for this recipe, or null if not a DevCenter recipe. |
-| `detail` | [RecipeDetail](#recipedetail)! | Expensive recipe detail fields that require resolving the full recipe bundle.
+| `bundle` | <a href="#recipebundle">RecipeBundle</a>! |  |
+| `options` | [<a href="#option">Option</a>!]! |  |
+| `dataTables` | [<a href="#datatabledescriptor">DataTableDescriptor</a>!]! |  |
+| `devCenterCards` | [<a href="#devcentercarddescriptor">DevCenterCardDescriptor</a>!] | DevCenter card descriptors for this recipe, or null if not a DevCenter recipe. |
+| `detail` | <a href="#recipedetail">RecipeDetail</a>! | Expensive recipe detail fields that require resolving the full recipe bundle.
 Returns a state machine: query once to trigger resolution, poll until Finished. |
 
 ---
@@ -2982,8 +2982,8 @@ Returns a state machine: query once to trigger resolution, poll until Finished. 
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `edges` | [[RecipeDescriptorEdge](#recipedescriptoredge)!]! |  |
-| `pageInfo` | [PageInfo](#pageinfo)! |  |
+| `edges` | [<a href="#recipedescriptoredge">RecipeDescriptorEdge</a>!]! |  |
+| `pageInfo` | <a href="#pageinfo">PageInfo</a>! |  |
 | `count` | Int! |  |
 
 ---
@@ -2994,7 +2994,7 @@ Returns a state machine: query once to trigger resolution, poll until Finished. 
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `node` | [RecipeDescriptor](#recipedescriptor)! |  |
+| `node` | <a href="#recipedescriptor">RecipeDescriptor</a>! |  |
 | `cursor` | String! |  |
 | `relevance` | Float! | Relevance score for this recipe in the context of a search query.
 For semantic search, this represents the search relevance (0.0 to 1.0).
@@ -3004,29 +3004,29 @@ For filter-based queries, this is always 1.0. |
 
 #### `RecipeDetailError`
 
-**Service:** recipemarketplace | **Implements:** [RecipeDetail](#recipedetail)
+**Service:** recipemarketplace | **Implements:** <a href="#recipedetail">RecipeDetail</a>
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `startedAt` | [DateTime](#datetime)! |  |
-| `finishedAt` | [DateTime](#datetime)! |  |
+| `startedAt` | <a href="#datetime">DateTime</a>! |  |
+| `finishedAt` | <a href="#datetime">DateTime</a>! |  |
 | `message` | String! |  |
 
 ---
 
 #### `RecipeDetailFinished`
 
-**Service:** recipemarketplace | **Implements:** [RecipeDetail](#recipedetail)
+**Service:** recipemarketplace | **Implements:** <a href="#recipedetail">RecipeDetail</a>
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `startedAt` | [DateTime](#datetime)! |  |
-| `finishedAt` | [DateTime](#datetime)! |  |
-| `recipeList` | (first: Int = 100, after: String): [RecipeDescriptorConnection](#recipedescriptorconnection)! | The list of recipes that make up this composite recipe.
+| `startedAt` | <a href="#datetime">DateTime</a>! |  |
+| `finishedAt` | <a href="#datetime">DateTime</a>! |  |
+| `recipeList` | (first: Int = 100, after: String): <a href="#recipedescriptorconnection">RecipeDescriptorConnection</a>! | The list of recipes that make up this composite recipe.
 Returns an empty connection for non-composite (leaf) recipes. |
 | `tags` | [String!]! | Tags associated with this recipe for categorization and filtering. |
-| `preconditions` | [[RecipeDescriptor](#recipedescriptor)!]! |  |
-| `graph` | [RecipeGraph](#recipegraph)! | Flat vertices-and-edges representation of this composite recipe tree with
+| `preconditions` | [<a href="#recipedescriptor">RecipeDescriptor</a>!]! |  |
+| `graph` | <a href="#recipegraph">RecipeGraph</a>! | Flat vertices-and-edges representation of this composite recipe tree with
 Singleton deduplication pre-applied. Used by the Builder UI to visualize
 a composite recipe in a single round trip regardless of tree depth.
 Atomic (leaf) recipes return a single-vertex graph. |
@@ -3035,11 +3035,11 @@ Atomic (leaf) recipes return a single-vertex graph. |
 
 #### `RecipeDetailLoading`
 
-**Service:** recipemarketplace | **Implements:** [RecipeDetail](#recipedetail)
+**Service:** recipemarketplace | **Implements:** <a href="#recipedetail">RecipeDetail</a>
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `startedAt` | [DateTime](#datetime)! |  |
+| `startedAt` | <a href="#datetime">DateTime</a>! |  |
 
 ---
 
@@ -3054,8 +3054,8 @@ marketplace backend and served to visualization clients in one round trip.
 | Field | Type | Description |
 |-------|------|-------------|
 | `rootVertexId` | Int! | ID of the root (entry-point) vertex in the graph. |
-| `vertices` | [[RecipeGraphVertex](#recipegraphvertex)!]! |  |
-| `edges` | [[RecipeGraphEdge](#recipegraphedge)!]! |  |
+| `vertices` | [<a href="#recipegraphvertex">RecipeGraphVertex</a>!]! |  |
+| `edges` | [<a href="#recipegraphedge">RecipeGraphEdge</a>!]! |  |
 
 ---
 
@@ -3067,7 +3067,7 @@ marketplace backend and served to visualization clients in one round trip.
 |-------|------|-------------|
 | `from` | Int! |  |
 | `to` | Int! |  |
-| `type` | [RecipeGraphEdgeType](#recipegraphedgetype)! |  |
+| `type` | <a href="#recipegraphedgetype">RecipeGraphEdgeType</a>! |  |
 
 ---
 
@@ -3083,7 +3083,7 @@ pointing back to the first occurrence rather than as separate vertices.
 | Field | Type | Description |
 |-------|------|-------------|
 | `id` | Int! |  |
-| `descriptor` | [RecipeDescriptor](#recipedescriptor)! | The recipe this vertex represents. Carries recipe name (as `id`),
+| `descriptor` | <a href="#recipedescriptor">RecipeDescriptor</a>! | The recipe this vertex represents. Carries recipe name (as `id`),
 displayName, instanceName, options, bundle, dataTables, etc. — reuse
 the existing RecipeDescriptor type rather than duplicating fields here. |
 | `isSingleton` | Boolean! | True if this recipe declares `org.openrewrite.Singleton` as a precondition,
@@ -3098,8 +3098,8 @@ pointing back to this vertex. |
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `edges` | [[RecipeInstallationEdge](#recipeinstallationedge)!]! |  |
-| `pageInfo` | [PageInfo](#pageinfo)! |  |
+| `edges` | [<a href="#recipeinstallationedge">RecipeInstallationEdge</a>!]! |  |
+| `pageInfo` | <a href="#pageinfo">PageInfo</a>! |  |
 | `count` | Int! |  |
 
 ---
@@ -3110,74 +3110,74 @@ pointing back to this vertex. |
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `node` | [RecipeInstallation](#recipeinstallation)! |  |
+| `node` | <a href="#recipeinstallation">RecipeInstallation</a>! |  |
 | `cursor` | String! |  |
-| `requestedBy` | [User](#user)! | The user who initiated this installation |
-| `user` | [User](#user) | The user whose marketplace this installation was made to. If the installation is a
+| `requestedBy` | <a href="#user">User</a>! | The user who initiated this installation |
+| `user` | <a href="#user">User</a> | The user whose marketplace this installation was made to. If the installation is a
 universal or organization installation, this field will be null. |
-| `organization` | [Organization](#organization) | The organization to which this installation was made. If the installation is a universal
+| `organization` | <a href="#organization">Organization</a> | The organization to which this installation was made. If the installation is a universal
 or user installation, this field will be null. |
 
 ---
 
 #### `RecipeInstallationError`
 
-**Service:** recipemarketplace | **Implements:** [RecipeInstallation](#recipeinstallation)
+**Service:** recipemarketplace | **Implements:** <a href="#recipeinstallation">RecipeInstallation</a>
 
 Installation failed with an error.
 
 | Field | Type | Description |
 |-------|------|-------------|
 | `id` | ID! |  |
-| `bundle` | [RecipeBundle](#recipebundle)! |  |
-| `startedAt` | [DateTime](#datetime)! |  |
-| `finishedAt` | [DateTime](#datetime)! |  |
+| `bundle` | <a href="#recipebundle">RecipeBundle</a>! |  |
+| `startedAt` | <a href="#datetime">DateTime</a>! |  |
+| `finishedAt` | <a href="#datetime">DateTime</a>! |  |
 | `message` | String! | Human-readable error message. |
 
 ---
 
 #### `RecipeInstallationFinished`
 
-**Service:** recipemarketplace | **Implements:** [RecipeInstallation](#recipeinstallation)
+**Service:** recipemarketplace | **Implements:** <a href="#recipeinstallation">RecipeInstallation</a>
 
 Installation completed successfully.
 
 | Field | Type | Description |
 |-------|------|-------------|
 | `id` | ID! |  |
-| `bundle` | [RecipeBundle](#recipebundle)! |  |
-| `startedAt` | [DateTime](#datetime)! |  |
-| `finishedAt` | [DateTime](#datetime)! |  |
-| `recipes` | [[RecipeDescriptor](#recipedescriptor)!]! | The recipes that were installed. |
+| `bundle` | <a href="#recipebundle">RecipeBundle</a>! |  |
+| `startedAt` | <a href="#datetime">DateTime</a>! |  |
+| `finishedAt` | <a href="#datetime">DateTime</a>! |  |
+| `recipes` | [<a href="#recipedescriptor">RecipeDescriptor</a>!]! | The recipes that were installed. |
 
 ---
 
 #### `RecipeInstallationProcessing`
 
-**Service:** recipemarketplace | **Implements:** [RecipeInstallation](#recipeinstallation)
+**Service:** recipemarketplace | **Implements:** <a href="#recipeinstallation">RecipeInstallation</a>
 
 Installation is actively loading and resolving the recipe bundle.
 
 | Field | Type | Description |
 |-------|------|-------------|
 | `id` | ID! |  |
-| `bundle` | [RecipeBundle](#recipebundle)! |  |
-| `startedAt` | [DateTime](#datetime)! |  |
+| `bundle` | <a href="#recipebundle">RecipeBundle</a>! |  |
+| `startedAt` | <a href="#datetime">DateTime</a>! |  |
 | `progress` | Float | Progress from 0.0 to 1.0, if available. |
 
 ---
 
 #### `RecipeInstallationQueued`
 
-**Service:** recipemarketplace | **Implements:** [RecipeInstallation](#recipeinstallation)
+**Service:** recipemarketplace | **Implements:** <a href="#recipeinstallation">RecipeInstallation</a>
 
 Installation is queued and waiting to be processed.
 
 | Field | Type | Description |
 |-------|------|-------------|
 | `id` | ID! |  |
-| `bundle` | [RecipeBundle](#recipebundle)! |  |
-| `startedAt` | [DateTime](#datetime)! |  |
+| `bundle` | <a href="#recipebundle">RecipeBundle</a>! |  |
+| `startedAt` | <a href="#datetime">DateTime</a>! |  |
 
 ---
 
@@ -3187,9 +3187,9 @@ Installation is queued and waiting to be processed.
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `categories` | (first: Int = 100, after: String, where: [RecipeCategoryWhereInput](#recipecategorywhereinput), orderBy: [[RecipeCategoryOrderByInput](#recipecategoryorderbyinput)!]): [RecipeCategoryConnection](#recipecategoryconnection)! |  |
-| `recipes` | (first: Int = 100, after: String, where: [RecipeWhereInput](#recipewhereinput), orderBy: [[RecipeOrderByInput](#recipeorderbyinput)!]): [RecipeDescriptorConnection](#recipedescriptorconnection)! |  |
-| `installations` | (first: Int = 50, after: String, where: [RecipeInstallationWhereInput](#recipeinstallationwhereinput), orderBy: [[RecipeInstallationOrderByInput](#recipeinstallationorderbyinput)!]): [RecipeInstallationConnection](#recipeinstallationconnection)! |  |
+| `categories` | (first: Int = 100, after: String, where: <a href="#recipecategorywhereinput">RecipeCategoryWhereInput</a>, orderBy: [<a href="#recipecategoryorderbyinput">RecipeCategoryOrderByInput</a>!]): <a href="#recipecategoryconnection">RecipeCategoryConnection</a>! |  |
+| `recipes` | (first: Int = 100, after: String, where: <a href="#recipewhereinput">RecipeWhereInput</a>, orderBy: [<a href="#recipeorderbyinput">RecipeOrderByInput</a>!]): <a href="#recipedescriptorconnection">RecipeDescriptorConnection</a>! |  |
+| `installations` | (first: Int = 50, after: String, where: <a href="#recipeinstallationwhereinput">RecipeInstallationWhereInput</a>, orderBy: [<a href="#recipeinstallationorderbyinput">RecipeInstallationOrderByInput</a>!]): <a href="#recipeinstallationconnection">RecipeInstallationConnection</a>! |  |
 
 ---
 
@@ -3200,35 +3200,35 @@ Installation is queued and waiting to be processed.
 | Field | Type | Description |
 |-------|------|-------------|
 | `name` | String! |  |
-| `value` | [Object](#object)! |  |
+| `value` | <a href="#object">Object</a>! |  |
 
 ---
 
 #### `RecipeOptionsMessage`
 
-**Service:** moddy | **Implements:** [Message](#message)
+**Service:** moddy | **Implements:** <a href="#message">Message</a>
 
 | Field | Type | Description |
 |-------|------|-------------|
 | `id` | ID! |  |
-| `user` | [User](#user)! |  |
-| `options` | [[Option](#option)!]! |  |
-| `state` | [MessageState](#messagestate)! |  |
-| `lastUpdatedAt` | [DateTime](#datetime)! |  |
+| `user` | <a href="#user">User</a>! |  |
+| `options` | [<a href="#option">Option</a>!]! |  |
+| `state` | <a href="#messagestate">MessageState</a>! |  |
+| `lastUpdatedAt` | <a href="#datetime">DateTime</a>! |  |
 
 ---
 
 #### `RecipeRunFileChange`
 
-**Service:** changesetreader | **Implements:** [FileChange](#filechange)
+**Service:** changesetreader | **Implements:** <a href="#filechange">FileChange</a>
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `path` | [Path](#path)! |  |
-| `beforeSourcePath` | [Path](#path) |  |
-| `afterSourcePath` | [Path](#path) |  |
-| `diff` | (markupLevel: [MarkupLevel](#markuplevel) = ERROR, showWhitespaceOnlyChanges: Boolean = true): [Patch](#patch) |  |
-| `recipesThatMadeChanges` | [[[RecipeDescriptor](#recipedescriptor)!]!]! | Recipe chains that contributed changes to this file. Each inner list is one
+| `path` | <a href="#path">Path</a>! |  |
+| `beforeSourcePath` | <a href="#path">Path</a> |  |
+| `afterSourcePath` | <a href="#path">Path</a> |  |
+| `diff` | (markupLevel: <a href="#markuplevel">MarkupLevel</a> = ERROR, showWhitespaceOnlyChanges: Boolean = true): <a href="#patch">Patch</a> |  |
+| `recipesThatMadeChanges` | [[<a href="#recipedescriptor">RecipeDescriptor</a>!]!]! | Recipe chains that contributed changes to this file. Each inner list is one
 mutation event's call stack, ordered root composite first to leaf recipe last
 (the leaf is the narrowest recipe that actually performed the change). |
 
@@ -3236,7 +3236,7 @@ mutation event's call stack, ordered root composite first to leaf recipe last
 
 #### `RecipeRunMessage`
 
-**Service:** moddy | **Implements:** [Message](#message)
+**Service:** moddy | **Implements:** <a href="#message">Message</a>
 
 Long-running recipe execution started by the LLM. Carries a typed
 progress envelope while IN_PROGRESS — clients should read `progress`
@@ -3246,11 +3246,11 @@ terminal state, `recipeRun` resolves via federation.
 | Field | Type | Description |
 |-------|------|-------------|
 | `id` | ID! |  |
-| `user` | [User](#user)! |  |
-| `recipeRun` | [OrganizationRecipeRun](#organizationreciperun) |  |
-| `progress` | [RecipeRunProgress](#reciperunprogress) | Typed progress snapshot while the run is IN_PROGRESS. |
-| `state` | [MessageState](#messagestate)! |  |
-| `lastUpdatedAt` | [DateTime](#datetime)! |  |
+| `user` | <a href="#user">User</a>! |  |
+| `recipeRun` | <a href="#organizationreciperun">OrganizationRecipeRun</a> |  |
+| `progress` | <a href="#reciperunprogress">RecipeRunProgress</a> | Typed progress snapshot while the run is IN_PROGRESS. |
+| `state` | <a href="#messagestate">MessageState</a>! |  |
+| `lastUpdatedAt` | <a href="#datetime">DateTime</a>! |  |
 
 ---
 
@@ -3276,7 +3276,7 @@ Typed progress envelope for an in-flight recipe run.
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `timeSavings` | [Duration](#duration) |  |
+| `timeSavings` | <a href="#duration">Duration</a> |  |
 | `filesSearched` | Int! |  |
 | `filesChanged` | Int! |  |
 | `filesWithResults` | Int! |  |
@@ -3291,15 +3291,15 @@ Typed progress envelope for an in-flight recipe run.
 
 #### `RecipeSearchMessage`
 
-**Service:** moddy | **Implements:** [Message](#message)
+**Service:** moddy | **Implements:** <a href="#message">Message</a>
 
 | Field | Type | Description |
 |-------|------|-------------|
 | `id` | ID! |  |
-| `user` | [User](#user)! |  |
-| `searchResults` | [[RecipeDescriptor](#recipedescriptor)!]! |  |
-| `state` | [MessageState](#messagestate)! |  |
-| `lastUpdatedAt` | [DateTime](#datetime)! |  |
+| `user` | <a href="#user">User</a>! |  |
+| `searchResults` | [<a href="#recipedescriptor">RecipeDescriptor</a>!]! |  |
+| `state` | <a href="#messagestate">MessageState</a>! |  |
+| `lastUpdatedAt` | <a href="#datetime">DateTime</a>! |  |
 
 ---
 
@@ -3322,7 +3322,7 @@ Result of an uninstall operation.
 | Field | Type | Description |
 |-------|------|-------------|
 | `resetCount` | Int! | Number of repository cursors that were reset. |
-| `since` | [DateTime](#datetime)! | The timestamp cursors were rewound to. |
+| `since` | <a href="#datetime">DateTime</a>! | The timestamp cursors were rewound to. |
 
 ---
 
@@ -3336,7 +3336,7 @@ Result of an uninstall operation.
 | `path` | String! |  |
 | `branch` | String! |  |
 | `changeset` | String |  |
-| `lstArtifact` | [LstArtifact](#lstartifact)! |  |
+| `lstArtifact` | <a href="#lstartifact">LstArtifact</a>! |  |
 
 ---
 
@@ -3356,13 +3356,13 @@ Resolved by the changeset reader using a batch check against the authorization s
 
 #### `RepositoryBatchChange`
 
-**Service:** changesetreader | **Implements:** [RepositoryChangeset](#repositorychangeset)
+**Service:** changesetreader | **Implements:** <a href="#repositorychangeset">RepositoryChangeset</a>
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `repository` | [Repository](#repository)! |  |
-| `authorization` | [RepositoryAuthorization](#repositoryauthorization)! |  |
-| `results` | (first: Int = 100, after: String, where: [FileChangeWhereInput](#filechangewhereinput), orderBy: [[FileChangeOrderByInput](#filechangeorderbyinput)!]): [FileChangeConnection](#filechangeconnection)! |  |
+| `repository` | <a href="#repository">Repository</a>! |  |
+| `authorization` | <a href="#repositoryauthorization">RepositoryAuthorization</a>! |  |
+| `results` | (first: Int = 100, after: String, where: <a href="#filechangewhereinput">FileChangeWhereInput</a>, orderBy: [<a href="#filechangeorderbyinput">FileChangeOrderByInput</a>!]): <a href="#filechangeconnection">FileChangeConnection</a>! |  |
 
 ---
 
@@ -3383,8 +3383,8 @@ track repository sync progress during the SYNCING phase. Their sum equals `count
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `edges` | [[RepositoryChangesetEdge](#repositorychangesetedge)!]! |  |
-| `pageInfo` | [PageInfo](#pageinfo)! |  |
+| `edges` | [<a href="#repositorychangesetedge">RepositoryChangesetEdge</a>!]! |  |
+| `pageInfo` | <a href="#pageinfo">PageInfo</a>! |  |
 | `completed` | Int! |  |
 | `count` | Int! |  |
 | `syncPending` | Int! | Repositories not yet synced. |
@@ -3401,24 +3401,24 @@ track repository sync progress during the SYNCING phase. Their sum equals `count
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `node` | [RepositoryChangeset](#repositorychangeset)! |  |
+| `node` | <a href="#repositorychangeset">RepositoryChangeset</a>! |  |
 | `cursor` | String! |  |
 
 ---
 
 #### `RepositoryCommitCanceled`
 
-**Service:** changesetcommitter | **Implements:** [RepositoryCommit](#repositorycommit)
+**Service:** changesetcommitter | **Implements:** <a href="#repositorycommit">RepositoryCommit</a>
 
 Repository commit was canceled.
 Use `options.__typename` to determine the specific commit type.
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `repository` | [Repository](#repository)! |  |
-| `startedAt` | [DateTime](#datetime) |  |
-| `finishedAt` | [DateTime](#datetime)! |  |
-| `options` | [CommitOptions](#commitoptions)! | The commit options. Use `__typename` to determine commit type. |
+| `repository` | <a href="#repository">Repository</a>! |  |
+| `startedAt` | <a href="#datetime">DateTime</a> |  |
+| `finishedAt` | <a href="#datetime">DateTime</a>! |  |
+| `options` | <a href="#commitoptions">CommitOptions</a>! | The commit options. Use `__typename` to determine commit type. |
 
 ---
 
@@ -3428,8 +3428,8 @@ Use `options.__typename` to determine the specific commit type.
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `edges` | [[RepositoryCommitEdge](#repositorycommitedge)!]! |  |
-| `pageInfo` | [PageInfo](#pageinfo)! |  |
+| `edges` | [<a href="#repositorycommitedge">RepositoryCommitEdge</a>!]! |  |
+| `pageInfo` | <a href="#pageinfo">PageInfo</a>! |  |
 | `count` | Int! |  |
 | `completedCount` | Int! | Count of repository commits that have reached a terminal state
 (succeeded, failed, canceled, or no changes). Pair with `count`
@@ -3443,32 +3443,32 @@ to show progress: "Completed X / Y". |
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `node` | [RepositoryCommit](#repositorycommit)! |  |
+| `node` | <a href="#repositorycommit">RepositoryCommit</a>! |  |
 | `cursor` | String! |  |
 
 ---
 
 #### `RepositoryCommitFailed`
 
-**Service:** changesetcommitter | **Implements:** [RepositoryCommit](#repositorycommit)
+**Service:** changesetcommitter | **Implements:** <a href="#repositorycommit">RepositoryCommit</a>
 
 Repository commit failed with an error.
 Use `options.__typename` to determine the specific commit type.
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `repository` | [Repository](#repository)! |  |
-| `startedAt` | [DateTime](#datetime) |  |
-| `finishedAt` | [DateTime](#datetime)! |  |
+| `repository` | <a href="#repository">Repository</a>! |  |
+| `startedAt` | <a href="#datetime">DateTime</a> |  |
+| `finishedAt` | <a href="#datetime">DateTime</a>! |  |
 | `errorMessage` | String! | Human-readable error message. |
 | `retryCount` | Int | Number of retry attempts made. |
-| `options` | [CommitOptions](#commitoptions)! | The commit options. Use `__typename` to determine commit type. |
+| `options` | <a href="#commitoptions">CommitOptions</a>! | The commit options. Use `__typename` to determine commit type. |
 
 ---
 
 #### `RepositoryCommitNoChanges`
 
-**Service:** changesetcommitter | **Implements:** [RepositoryCommit](#repositorycommit)
+**Service:** changesetcommitter | **Implements:** <a href="#repositorycommit">RepositoryCommit</a>
 
 Repository commit completed but yielded no changes.
 Generally occurs when applying a patch does not produce any changes to commit.
@@ -3476,41 +3476,41 @@ Use `options.__typename` to determine the specific commit type.
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `repository` | [Repository](#repository)! |  |
-| `startedAt` | [DateTime](#datetime)! |  |
-| `finishedAt` | [DateTime](#datetime)! |  |
-| `options` | [CommitOptions](#commitoptions)! | The commit options. Use `__typename` to determine commit type. |
+| `repository` | <a href="#repository">Repository</a>! |  |
+| `startedAt` | <a href="#datetime">DateTime</a>! |  |
+| `finishedAt` | <a href="#datetime">DateTime</a>! |  |
+| `options` | <a href="#commitoptions">CommitOptions</a>! | The commit options. Use `__typename` to determine commit type. |
 
 ---
 
 #### `RepositoryCommitQueued`
 
-**Service:** changesetcommitter | **Implements:** [RepositoryCommit](#repositorycommit)
+**Service:** changesetcommitter | **Implements:** <a href="#repositorycommit">RepositoryCommit</a>
 
 Repository commit is queued and waiting to be processed.
 Use `options.__typename` to determine the specific commit type.
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `repository` | [Repository](#repository)! |  |
-| `startedAt` | [DateTime](#datetime) |  |
-| `rateLimitReset` | [DateTime](#datetime) | Time when rate limit expires (if rate limited). |
-| `options` | [CommitOptions](#commitoptions)! | The commit options. Use `__typename` to determine commit type. |
+| `repository` | <a href="#repository">Repository</a>! |  |
+| `startedAt` | <a href="#datetime">DateTime</a> |  |
+| `rateLimitReset` | <a href="#datetime">DateTime</a> | Time when rate limit expires (if rate limited). |
+| `options` | <a href="#commitoptions">CommitOptions</a>! | The commit options. Use `__typename` to determine commit type. |
 
 ---
 
 #### `RepositoryCommitRunning`
 
-**Service:** changesetcommitter | **Implements:** [RepositoryCommit](#repositorycommit)
+**Service:** changesetcommitter | **Implements:** <a href="#repositorycommit">RepositoryCommit</a>
 
 Repository commit is actively being processed.
 Use `options.__typename` to determine the specific commit type.
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `repository` | [Repository](#repository)! |  |
-| `startedAt` | [DateTime](#datetime)! |  |
-| `options` | [CommitOptions](#commitoptions)! | The commit options. Use `__typename` to determine commit type. |
+| `repository` | <a href="#repository">Repository</a>! |  |
+| `startedAt` | <a href="#datetime">DateTime</a>! |  |
+| `options` | <a href="#commitoptions">CommitOptions</a>! | The commit options. Use `__typename` to determine commit type. |
 
 ---
 
@@ -3520,8 +3520,8 @@ Use `options.__typename` to determine the specific commit type.
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `edges` | [[RepositoryEdge](#repositoryedge)!]! |  |
-| `pageInfo` | [PageInfo](#pageinfo)! |  |
+| `edges` | [<a href="#repositoryedge">RepositoryEdge</a>!]! |  |
+| `pageInfo` | <a href="#pageinfo">PageInfo</a>! |  |
 | `count` | Int! |  |
 
 ---
@@ -3532,21 +3532,21 @@ Use `options.__typename` to determine the specific commit type.
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `node` | [Repository](#repository)! |  |
+| `node` | <a href="#repository">Repository</a>! |  |
 | `cursor` | String! |  |
 
 ---
 
 #### `RepositoryRecipeRunCanceled`
 
-**Service:** changesetreader | **Implements:** [RepositoryRecipeRun](#repositoryreciperun), [RepositoryChangeset](#repositorychangeset)
+**Service:** changesetreader | **Implements:** <a href="#repositoryreciperun">RepositoryRecipeRun</a>, <a href="#repositorychangeset">RepositoryChangeset</a>
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `repository` | [Repository](#repository)! |  |
-| `authorization` | [RepositoryAuthorization](#repositoryauthorization)! |  |
-| `syncStatus` | [RepositorySyncStatus](#repositorysyncstatus) |  |
-| `results` | (first: Int = 100, after: String, where: [FileChangeWhereInput](#filechangewhereinput), orderBy: [[FileChangeOrderByInput](#filechangeorderbyinput)!]): [FileChangeConnection](#filechangeconnection)! |  |
+| `repository` | <a href="#repository">Repository</a>! |  |
+| `authorization` | <a href="#repositoryauthorization">RepositoryAuthorization</a>! |  |
+| `syncStatus` | <a href="#repositorysyncstatus">RepositorySyncStatus</a> |  |
+| `results` | (first: Int = 100, after: String, where: <a href="#filechangewhereinput">FileChangeWhereInput</a>, orderBy: [<a href="#filechangeorderbyinput">FileChangeOrderByInput</a>!]): <a href="#filechangeconnection">FileChangeConnection</a>! |  |
 
 ---
 
@@ -3556,8 +3556,8 @@ Use `options.__typename` to determine the specific commit type.
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `edges` | [[RepositoryRecipeRunEdge](#repositoryreciperunedge)!]! |  |
-| `pageInfo` | [PageInfo](#pageinfo)! |  |
+| `edges` | [<a href="#repositoryreciperunedge">RepositoryRecipeRunEdge</a>!]! |  |
+| `pageInfo` | <a href="#pageinfo">PageInfo</a>! |  |
 | `count` | Int! |  |
 
 ---
@@ -3568,82 +3568,82 @@ Use `options.__typename` to determine the specific commit type.
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `node` | [RepositoryRecipeRun](#repositoryreciperun)! |  |
+| `node` | <a href="#repositoryreciperun">RepositoryRecipeRun</a>! |  |
 | `cursor` | String! |  |
 
 ---
 
 #### `RepositoryRecipeRunError`
 
-**Service:** changesetreader | **Implements:** [RepositoryRecipeRun](#repositoryreciperun), [RepositoryChangeset](#repositorychangeset)
+**Service:** changesetreader | **Implements:** <a href="#repositoryreciperun">RepositoryRecipeRun</a>, <a href="#repositorychangeset">RepositoryChangeset</a>
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `repository` | [Repository](#repository)! |  |
-| `authorization` | [RepositoryAuthorization](#repositoryauthorization)! |  |
-| `syncStatus` | [RepositorySyncStatus](#repositorysyncstatus) |  |
-| `results` | (first: Int = 100, after: String, where: [FileChangeWhereInput](#filechangewhereinput), orderBy: [[FileChangeOrderByInput](#filechangeorderbyinput)!]): [FileChangeConnection](#filechangeconnection)! |  |
-| `startedAt` | [DateTime](#datetime) |  |
-| `finishedAt` | [DateTime](#datetime) |  |
-| `errorReason` | [RepositoryErrorReason](#repositoryerrorreason) |  |
+| `repository` | <a href="#repository">Repository</a>! |  |
+| `authorization` | <a href="#repositoryauthorization">RepositoryAuthorization</a>! |  |
+| `syncStatus` | <a href="#repositorysyncstatus">RepositorySyncStatus</a> |  |
+| `results` | (first: Int = 100, after: String, where: <a href="#filechangewhereinput">FileChangeWhereInput</a>, orderBy: [<a href="#filechangeorderbyinput">FileChangeOrderByInput</a>!]): <a href="#filechangeconnection">FileChangeConnection</a>! |  |
+| `startedAt` | <a href="#datetime">DateTime</a> |  |
+| `finishedAt` | <a href="#datetime">DateTime</a> |  |
+| `errorReason` | <a href="#repositoryerrorreason">RepositoryErrorReason</a> |  |
 | `message` | String |  |
 
 ---
 
 #### `RepositoryRecipeRunFinished`
 
-**Service:** changesetreader | **Implements:** [RepositoryRecipeRun](#repositoryreciperun), [RepositoryChangeset](#repositorychangeset)
+**Service:** changesetreader | **Implements:** <a href="#repositoryreciperun">RepositoryRecipeRun</a>, <a href="#repositorychangeset">RepositoryChangeset</a>
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `repository` | [Repository](#repository)! |  |
-| `authorization` | [RepositoryAuthorization](#repositoryauthorization)! |  |
-| `syncStatus` | [RepositorySyncStatus](#repositorysyncstatus) |  |
-| `results` | (first: Int = 100, after: String, where: [FileChangeWhereInput](#filechangewhereinput), orderBy: [[FileChangeOrderByInput](#filechangeorderbyinput)!]): [FileChangeConnection](#filechangeconnection)! |  |
-| `startedAt` | [DateTime](#datetime) |  |
-| `finishedAt` | [DateTime](#datetime) |  |
-| `timeSavings` | [Duration](#duration) |  |
+| `repository` | <a href="#repository">Repository</a>! |  |
+| `authorization` | <a href="#repositoryauthorization">RepositoryAuthorization</a>! |  |
+| `syncStatus` | <a href="#repositorysyncstatus">RepositorySyncStatus</a> |  |
+| `results` | (first: Int = 100, after: String, where: <a href="#filechangewhereinput">FileChangeWhereInput</a>, orderBy: [<a href="#filechangeorderbyinput">FileChangeOrderByInput</a>!]): <a href="#filechangeconnection">FileChangeConnection</a>! |  |
+| `startedAt` | <a href="#datetime">DateTime</a> |  |
+| `finishedAt` | <a href="#datetime">DateTime</a> |  |
+| `timeSavings` | <a href="#duration">Duration</a> |  |
 
 ---
 
 #### `RepositoryRecipeRunNoLst`
 
-**Service:** changesetreader | **Implements:** [RepositoryRecipeRun](#repositoryreciperun), [RepositoryChangeset](#repositorychangeset)
+**Service:** changesetreader | **Implements:** <a href="#repositoryreciperun">RepositoryRecipeRun</a>, <a href="#repositorychangeset">RepositoryChangeset</a>
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `repository` | [Repository](#repository)! |  |
-| `authorization` | [RepositoryAuthorization](#repositoryauthorization)! |  |
-| `syncStatus` | [RepositorySyncStatus](#repositorysyncstatus) |  |
-| `results` | (first: Int = 100, after: String, where: [FileChangeWhereInput](#filechangewhereinput), orderBy: [[FileChangeOrderByInput](#filechangeorderbyinput)!]): [FileChangeConnection](#filechangeconnection)! |  |
+| `repository` | <a href="#repository">Repository</a>! |  |
+| `authorization` | <a href="#repositoryauthorization">RepositoryAuthorization</a>! |  |
+| `syncStatus` | <a href="#repositorysyncstatus">RepositorySyncStatus</a> |  |
+| `results` | (first: Int = 100, after: String, where: <a href="#filechangewhereinput">FileChangeWhereInput</a>, orderBy: [<a href="#filechangeorderbyinput">FileChangeOrderByInput</a>!]): <a href="#filechangeconnection">FileChangeConnection</a>! |  |
 
 ---
 
 #### `RepositoryRecipeRunQueued`
 
-**Service:** changesetreader | **Implements:** [RepositoryRecipeRun](#repositoryreciperun), [RepositoryChangeset](#repositorychangeset)
+**Service:** changesetreader | **Implements:** <a href="#repositoryreciperun">RepositoryRecipeRun</a>, <a href="#repositorychangeset">RepositoryChangeset</a>
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `repository` | [Repository](#repository)! |  |
-| `authorization` | [RepositoryAuthorization](#repositoryauthorization)! |  |
-| `syncStatus` | [RepositorySyncStatus](#repositorysyncstatus) |  |
-| `results` | (first: Int = 100, after: String, where: [FileChangeWhereInput](#filechangewhereinput), orderBy: [[FileChangeOrderByInput](#filechangeorderbyinput)!]): [FileChangeConnection](#filechangeconnection)! |  |
-| `queuedAt` | [DateTime](#datetime) |  |
+| `repository` | <a href="#repository">Repository</a>! |  |
+| `authorization` | <a href="#repositoryauthorization">RepositoryAuthorization</a>! |  |
+| `syncStatus` | <a href="#repositorysyncstatus">RepositorySyncStatus</a> |  |
+| `results` | (first: Int = 100, after: String, where: <a href="#filechangewhereinput">FileChangeWhereInput</a>, orderBy: [<a href="#filechangeorderbyinput">FileChangeOrderByInput</a>!]): <a href="#filechangeconnection">FileChangeConnection</a>! |  |
+| `queuedAt` | <a href="#datetime">DateTime</a> |  |
 
 ---
 
 #### `RepositoryRecipeRunRunning`
 
-**Service:** changesetreader | **Implements:** [RepositoryRecipeRun](#repositoryreciperun), [RepositoryChangeset](#repositorychangeset)
+**Service:** changesetreader | **Implements:** <a href="#repositoryreciperun">RepositoryRecipeRun</a>, <a href="#repositorychangeset">RepositoryChangeset</a>
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `repository` | [Repository](#repository)! |  |
-| `authorization` | [RepositoryAuthorization](#repositoryauthorization)! |  |
-| `syncStatus` | [RepositorySyncStatus](#repositorysyncstatus) |  |
-| `results` | (first: Int = 100, after: String, where: [FileChangeWhereInput](#filechangewhereinput), orderBy: [[FileChangeOrderByInput](#filechangeorderbyinput)!]): [FileChangeConnection](#filechangeconnection)! |  |
-| `startedAt` | [DateTime](#datetime) |  |
+| `repository` | <a href="#repository">Repository</a>! |  |
+| `authorization` | <a href="#repositoryauthorization">RepositoryAuthorization</a>! |  |
+| `syncStatus` | <a href="#repositorysyncstatus">RepositorySyncStatus</a> |  |
+| `results` | (first: Int = 100, after: String, where: <a href="#filechangewhereinput">FileChangeWhereInput</a>, orderBy: [<a href="#filechangeorderbyinput">FileChangeOrderByInput</a>!]): <a href="#filechangeconnection">FileChangeConnection</a>! |  |
+| `startedAt` | <a href="#datetime">DateTime</a> |  |
 
 ---
 
@@ -3654,7 +3654,7 @@ Use `options.__typename` to determine the specific commit type.
 | Field | Type | Description |
 |-------|------|-------------|
 | `approvedBy` | [String!] |  |
-| `reviewDecision` | [ReviewDecision](#reviewdecision)! |  |
+| `reviewDecision` | <a href="#reviewdecision">ReviewDecision</a>! |  |
 
 ---
 
@@ -3680,7 +3680,7 @@ Result of revoking an SCM OAuth token.
 | `resourceId` | String! |  |
 | `skipSsl` | Boolean! |  |
 | `skipValidateConnectivity` | Boolean! |  |
-| `connectivity` | [HttpToolConnectivity](#httptoolconnectivity)! |  |
+| `connectivity` | <a href="#httptoolconnectivity">HttpToolConnectivity</a>! |  |
 | `region` | String |  |
 | `endpointUrl` | String |  |
 
@@ -3692,14 +3692,14 @@ Result of revoking an SCM OAuth token.
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `created` | [DateTime](#datetime)! |  |
-| `expiresAt` | [DateTime](#datetime) |  |
+| `created` | <a href="#datetime">DateTime</a>! |  |
+| `expiresAt` | <a href="#datetime">DateTime</a> |  |
 
 ---
 
 #### `SearchResult`
 
-**Service:** corechangeset | **Implements:** [Marker](#marker)
+**Service:** corechangeset | **Implements:** <a href="#marker">Marker</a>
 
 | Field | Type | Description |
 |-------|------|-------------|
@@ -3719,15 +3719,15 @@ poll `conversation.messages(after: initialCursor)` using
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `conversation` | [Conversation](#conversation)! |  |
+| `conversation` | <a href="#conversation">Conversation</a>! |  |
 | `initialCursor` | String! |  |
-| `turnState` | [ConversationTurnState](#conversationturnstate)! |  |
+| `turnState` | <a href="#conversationturnstate">ConversationTurnState</a>! |  |
 
 ---
 
 #### `TextMessage`
 
-**Service:** moddy | **Implements:** [Message](#message)
+**Service:** moddy | **Implements:** <a href="#message">Message</a>
 
 A text message from either the human user or the chatbot.
 Check the `user` field to distinguish sender.
@@ -3735,11 +3735,11 @@ Check the `user` field to distinguish sender.
 | Field | Type | Description |
 |-------|------|-------------|
 | `id` | ID! |  |
-| `user` | [User](#user)! |  |
-| `content` | [Markdown](#markdown)! |  |
+| `user` | <a href="#user">User</a>! |  |
+| `content` | <a href="#markdown">Markdown</a>! |  |
 | `truncated` | Boolean! | True when the LLM response was cut off by the token limit. |
-| `state` | [MessageState](#messagestate)! |  |
-| `lastUpdatedAt` | [DateTime](#datetime)! |  |
+| `state` | <a href="#messagestate">MessageState</a>! |  |
+| `lastUpdatedAt` | <a href="#datetime">DateTime</a>! |  |
 
 ---
 
@@ -3761,10 +3761,10 @@ Check the `user` field to distinguish sender.
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `moreHelp` | [[MoreHelpLink](#morehelplink)!] |  |
+| `moreHelp` | [<a href="#morehelplink">MoreHelpLink</a>!] |  |
 | `loginText` | String |  |
-| `loginLinks` | [[MoreHelpLink](#morehelplink)!] |  |
-| `cliDownloadInstructions` | [CliDownloadInstructionLink](#clidownloadinstructionlink) |  |
+| `loginLinks` | [<a href="#morehelplink">MoreHelpLink</a>!] |  |
+| `cliDownloadInstructions` | <a href="#clidownloadinstructionlink">CliDownloadInstructionLink</a> |  |
 
 ---
 
@@ -3775,11 +3775,11 @@ Check the `user` field to distinguish sender.
 | Field | Type | Description |
 |-------|------|-------------|
 | `username` | String |  |
-| `role` | [UserRole](#userrole) |  |
-| `lastActive` | [DateTime](#datetime) |  |
-| `tokens` | (first: Int = 100, after: String, where: [AccessTokenWhereInput](#accesstokenwhereinput), orderBy: [[AccessTokenOrderByInput](#accesstokenorderbyinput)!]): [AccessTokenConnection](#accesstokenconnection)! |  |
+| `role` | <a href="#userrole">UserRole</a> |  |
+| `lastActive` | <a href="#datetime">DateTime</a> |  |
+| `tokens` | (first: Int = 100, after: String, where: <a href="#accesstokenwhereinput">AccessTokenWhereInput</a>, orderBy: [<a href="#accesstokenorderbyinput">AccessTokenOrderByInput</a>!]): <a href="#accesstokenconnection">AccessTokenConnection</a>! |  |
 | `email` | String! |  |
-| `moddy` | [Moddy](#moddy)! |  |
+| `moddy` | <a href="#moddy">Moddy</a>! |  |
 
 ---
 
@@ -3789,8 +3789,8 @@ Check the `user` field to distinguish sender.
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `edges` | [[UsersEdge](#usersedge)!]! |  |
-| `pageInfo` | [PageInfo](#pageinfo)! |  |
+| `edges` | [<a href="#usersedge">UsersEdge</a>!]! |  |
+| `pageInfo` | <a href="#pageinfo">PageInfo</a>! |  |
 | `count` | Int! |  |
 
 ---
@@ -3801,19 +3801,19 @@ Check the `user` field to distinguish sender.
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `node` | [User](#user)! |  |
+| `node` | <a href="#user">User</a>! |  |
 | `cursor` | String! |  |
 
 ---
 
 #### `VisualizationAvailable`
 
-**Service:** changesetreader | **Implements:** [Visualization](#visualization)
+**Service:** changesetreader | **Implements:** <a href="#visualization">Visualization</a>
 
 | Field | Type | Description |
 |-------|------|-------------|
 | `id` | ID! |  |
-| `descriptor` | [VisualizationDescriptor](#visualizationdescriptor)! |  |
+| `descriptor` | <a href="#visualizationdescriptor">VisualizationDescriptor</a>! |  |
 | `changesetId` | ID! | The changeset (recipe run or batch change) this visualization is available for. |
 
 ---
@@ -3824,8 +3824,8 @@ Check the `user` field to distinguish sender.
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `edges` | [[VisualizationEdge](#visualizationedge)!]! |  |
-| `pageInfo` | [PageInfo](#pageinfo)! |  |
+| `edges` | [<a href="#visualizationedge">VisualizationEdge</a>!]! |  |
+| `pageInfo` | <a href="#pageinfo">PageInfo</a>! |  |
 | `count` | Int! |  |
 
 ---
@@ -3836,11 +3836,11 @@ Check the `user` field to distinguish sender.
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `options` | [[VisualizationOption](#visualizationoption)!]! |  |
+| `options` | [<a href="#visualizationoption">VisualizationOption</a>!]! |  |
 | `name` | String! |  |
-| `displayName` | [Markdown](#markdown)! |  |
-| `description` | [Markdown](#markdown)! |  |
-| `image` | [Base64](#base64)! |  |
+| `displayName` | <a href="#markdown">Markdown</a>! |  |
+| `description` | <a href="#markdown">Markdown</a>! |  |
+| `image` | <a href="#base64">Base64</a>! |  |
 
 ---
 
@@ -3850,52 +3850,52 @@ Check the `user` field to distinguish sender.
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `node` | [Visualization](#visualization)! |  |
+| `node` | <a href="#visualization">Visualization</a>! |  |
 | `cursor` | String! |  |
 
 ---
 
 #### `VisualizationError`
 
-**Service:** changesetreader | **Implements:** [Visualization](#visualization)
+**Service:** changesetreader | **Implements:** <a href="#visualization">Visualization</a>
 
 | Field | Type | Description |
 |-------|------|-------------|
 | `id` | ID! |  |
-| `descriptor` | [VisualizationDescriptor](#visualizationdescriptor)! |  |
+| `descriptor` | <a href="#visualizationdescriptor">VisualizationDescriptor</a>! |  |
 | `changesetId` | ID! |  |
-| `startedAt` | [DateTime](#datetime)! |  |
-| `finishedAt` | [DateTime](#datetime)! |  |
+| `startedAt` | <a href="#datetime">DateTime</a>! |  |
+| `finishedAt` | <a href="#datetime">DateTime</a>! |  |
 | `message` | String! |  |
-| `repositories` | (first: Int = 100, after: String): [VisualizationRepositoryConnection](#visualizationrepositoryconnection)! |  |
+| `repositories` | (first: Int = 100, after: String): <a href="#visualizationrepositoryconnection">VisualizationRepositoryConnection</a>! |  |
 
 ---
 
 #### `VisualizationFinished`
 
-**Service:** changesetreader | **Implements:** [Visualization](#visualization)
+**Service:** changesetreader | **Implements:** <a href="#visualization">Visualization</a>
 
 | Field | Type | Description |
 |-------|------|-------------|
 | `id` | ID! |  |
-| `descriptor` | [VisualizationDescriptor](#visualizationdescriptor)! |  |
+| `descriptor` | <a href="#visualizationdescriptor">VisualizationDescriptor</a>! |  |
 | `changesetId` | ID! |  |
-| `startedAt` | [DateTime](#datetime)! |  |
-| `finishedAt` | [DateTime](#datetime)! |  |
-| `duration` | [Duration](#duration) |  |
-| `output` | [VisualizationOutput](#visualizationoutput)! |  |
-| `repositories` | (first: Int = 100, after: String): [VisualizationRepositoryConnection](#visualizationrepositoryconnection)! |  |
+| `startedAt` | <a href="#datetime">DateTime</a>! |  |
+| `finishedAt` | <a href="#datetime">DateTime</a>! |  |
+| `duration` | <a href="#duration">Duration</a> |  |
+| `output` | <a href="#visualizationoutput">VisualizationOutput</a>! |  |
+| `repositories` | (first: Int = 100, after: String): <a href="#visualizationrepositoryconnection">VisualizationRepositoryConnection</a>! |  |
 
 ---
 
 #### `VisualizationImageOutput`
 
-**Service:** changesetreader | **Implements:** [VisualizationOutput](#visualizationoutput)
+**Service:** changesetreader | **Implements:** <a href="#visualizationoutput">VisualizationOutput</a>
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `format` | [ImageFormat](#imageformat)! |  |
-| `data` | [Base64](#base64)! |  |
+| `format` | <a href="#imageformat">ImageFormat</a>! |  |
+| `data` | <a href="#base64">Base64</a>! |  |
 
 ---
 
@@ -3906,7 +3906,7 @@ Check the `user` field to distinguish sender.
 | Field | Type | Description |
 |-------|------|-------------|
 | `name` | String! |  |
-| `value` | [Object](#object) |  |
+| `value` | <a href="#object">Object</a> |  |
 | `type` | String! |  |
 | `displayName` | String! |  |
 | `description` | String! |  |
@@ -3918,25 +3918,25 @@ Check the `user` field to distinguish sender.
 
 #### `VisualizationPlotlyOutput`
 
-**Service:** changesetreader | **Implements:** [VisualizationOutput](#visualizationoutput)
+**Service:** changesetreader | **Implements:** <a href="#visualizationoutput">VisualizationOutput</a>
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `data` | [Base64](#base64)! | Plotly JSON data (MIME type: application/vnd.plotly.v1+json) |
+| `data` | <a href="#base64">Base64</a>! | Plotly JSON data (MIME type: application/vnd.plotly.v1+json) |
 
 ---
 
 #### `VisualizationProcessing`
 
-**Service:** changesetreader | **Implements:** [Visualization](#visualization)
+**Service:** changesetreader | **Implements:** <a href="#visualization">Visualization</a>
 
 | Field | Type | Description |
 |-------|------|-------------|
 | `id` | ID! |  |
-| `descriptor` | [VisualizationDescriptor](#visualizationdescriptor)! |  |
+| `descriptor` | <a href="#visualizationdescriptor">VisualizationDescriptor</a>! |  |
 | `changesetId` | ID! |  |
-| `startedAt` | [DateTime](#datetime)! |  |
-| `repositories` | (first: Int = 100, after: String): [VisualizationRepositoryConnection](#visualizationrepositoryconnection)! |  |
+| `startedAt` | <a href="#datetime">DateTime</a>! |  |
+| `repositories` | (first: Int = 100, after: String): <a href="#visualizationrepositoryconnection">VisualizationRepositoryConnection</a>! |  |
 
 ---
 
@@ -3946,9 +3946,9 @@ Check the `user` field to distinguish sender.
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `state` | [VisualizationRepositoryRunState](#visualizationrepositoryrunstate)! |  |
+| `state` | <a href="#visualizationrepositoryrunstate">VisualizationRepositoryRunState</a>! |  |
 | `stateMessage` | String |  |
-| `repository` | [Repository](#repository)! |  |
+| `repository` | <a href="#repository">Repository</a>! |  |
 
 ---
 
@@ -3958,8 +3958,8 @@ Check the `user` field to distinguish sender.
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `edges` | [[VisualizationRepositoryEdge](#visualizationrepositoryedge)!]! |  |
-| `pageInfo` | [PageInfo](#pageinfo)! |  |
+| `edges` | [<a href="#visualizationrepositoryedge">VisualizationRepositoryEdge</a>!]! |  |
+| `pageInfo` | <a href="#pageinfo">PageInfo</a>! |  |
 | `count` | Int! |  |
 
 ---
@@ -3970,22 +3970,22 @@ Check the `user` field to distinguish sender.
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `node` | [VisualizationRepository](#visualizationrepository)! |  |
+| `node` | <a href="#visualizationrepository">VisualizationRepository</a>! |  |
 | `cursor` | String! |  |
 
 ---
 
 #### `YamlRecipeBundle`
 
-**Service:** changesetreader | **Implements:** [RecipeBundle](#recipebundle)
+**Service:** changesetreader | **Implements:** <a href="#recipebundle">RecipeBundle</a>
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `yaml` | [Base64](#base64)! |  |
+| `yaml` | <a href="#base64">Base64</a>! |  |
 | `requestedVersion` | String |  |
 | `version` | String |  |
 | `recipeCount` | Int |  |
-| `primary` | [RecipeDescriptor](#recipedescriptor) | The primary recipe in this bundle. When specified, only this recipe
+| `primary` | <a href="#recipedescriptor">RecipeDescriptor</a> | The primary recipe in this bundle. When specified, only this recipe
 is shown in marketplace categories, hiding other recipes from this bundle. |
 
 ---
@@ -4015,9 +4015,9 @@ representing the state of each repository targeted by the bulk operation.
 | Field | Type | Description |
 |-------|------|-------------|
 | `id` | ID! |  |
-| `actionType` | [PullRequestActionType](#pullrequestactiontype)! |  |
-| `user` | [User](#user)! |  |
-| `results` | (first: Int = 50, after: String, where: [PullRequestActionWhereInput](#pullrequestactionwhereinput), orderBy: [[PullRequestActionOrderByInput](#pullrequestactionorderbyinput)!]): [PullRequestActionConnection](#pullrequestactionconnection)! |  |
+| `actionType` | <a href="#pullrequestactiontype">PullRequestActionType</a>! |  |
+| `user` | <a href="#user">User</a>! |  |
+| `results` | (first: Int = 50, after: String, where: <a href="#pullrequestactionwhereinput">PullRequestActionWhereInput</a>, orderBy: [<a href="#pullrequestactionorderbyinput">PullRequestActionOrderByInput</a>!]): <a href="#pullrequestactionconnection">PullRequestActionConnection</a>! |  |
 
 ---
 
@@ -4032,16 +4032,16 @@ Use `__typename` to distinguish between `ChangelogCommit` and `ChangelogPullRequ
 |-------|------|-------------|
 | `id` | ID! |  |
 | `title` | String! | Commit message (for commits) or PR title (for pull requests). |
-| `author` | [ChangeParticipant](#changeparticipant)! | The author of the commit or PR. |
-| `repository` | [Repository](#repository)! | The repository this entry belongs to. |
+| `author` | <a href="#changeparticipant">ChangeParticipant</a>! | The author of the commit or PR. |
+| `repository` | <a href="#repository">Repository</a>! | The repository this entry belongs to. |
 | `url` | String! | URL to the commit or PR in the VCS provider. |
 | `branch` | String! | The target branch (for PRs) or the branch committed to (for commits). |
-| `updatedAt` | [DateTime](#datetime)! | When this entry was last updated in the VCS provider. |
-| `createdAt` | [DateTime](#datetime)! | When this entry was created in the VCS provider. |
-| `changeset` | [OrganizationChangeset](#organizationchangeset) | If this activity was originated by Moderne, the changeset it belongs to. |
-| `buildState` | [BuildState](#buildstate) | CI status (e.g. from GitHub Actions, GitLab pipelines).
+| `updatedAt` | <a href="#datetime">DateTime</a>! | When this entry was last updated in the VCS provider. |
+| `createdAt` | <a href="#datetime">DateTime</a>! | When this entry was created in the VCS provider. |
+| `changeset` | <a href="#organizationchangeset">OrganizationChangeset</a> | If this activity was originated by Moderne, the changeset it belongs to. |
+| `buildState` | <a href="#buildstate">BuildState</a> | CI status (e.g. from GitHub Actions, GitLab pipelines).
 Null if no CI is configured or status has not been fetched yet. |
-| `diffstat` | [DiffStat](#diffstat)! | Lines added and removed. |
+| `diffstat` | <a href="#diffstat">DiffStat</a>! | Lines added and removed. |
 
 ---
 
@@ -4062,7 +4062,7 @@ Null if no CI is configured or status has not been fetched yet. |
 | Field | Type | Description |
 |-------|------|-------------|
 | `id` | ID! |  |
-| `dataTable` | [DataTableDescriptor](#datatabledescriptor)! |  |
+| `dataTable` | <a href="#datatabledescriptor">DataTableDescriptor</a>! |  |
 | `instanceName` | String! | A human-readable name for this data table instance, describing what it contains.
 For example, "Method calls matching \`java.util.List add(..)\`".
 Defaults to the data table's display name when not explicitly set. |
@@ -4081,8 +4081,8 @@ Use `__typename` to determine the current state.
 | Field | Type | Description |
 |-------|------|-------------|
 | `id` | ID! |  |
-| `startedAt` | [DateTime](#datetime)! | When this DevCenter run started. |
-| `changeset` | [OrganizationChangeset](#organizationchangeset) | The underlying recipe run changeset. |
+| `startedAt` | <a href="#datetime">DateTime</a>! | When this DevCenter run started. |
+| `changeset` | <a href="#organizationchangeset">OrganizationChangeset</a> | The underlying recipe run changeset. |
 
 ---
 
@@ -4094,12 +4094,12 @@ A change to a single file within a repository changeset.
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `path` | [Path](#path)! | Path to the file relative to repository root. |
-| `beforeSourcePath` | [Path](#path) | The source path before the change (from the diff's `--- a/...` line).
+| `path` | <a href="#path">Path</a>! | Path to the file relative to repository root. |
+| `beforeSourcePath` | <a href="#path">Path</a> | The source path before the change (from the diff's `--- a/...` line).
 Null for newly created files. |
-| `afterSourcePath` | [Path](#path) | The source path after the change (from the diff's `+++ b/...` line).
+| `afterSourcePath` | <a href="#path">Path</a> | The source path after the change (from the diff's `+++ b/...` line).
 Null for deleted files. |
-| `diff` | (markupLevel: [MarkupLevel](#markuplevel) = ERROR, showWhitespaceOnlyChanges: Boolean = true): [Patch](#patch) | Get the diff for this file. |
+| `diff` | (markupLevel: <a href="#markuplevel">MarkupLevel</a> = ERROR, showWhitespaceOnlyChanges: Boolean = true): <a href="#patch">Patch</a> | Get the diff for this file. |
 
 ---
 
@@ -4120,9 +4120,9 @@ Null for deleted files. |
 | Field | Type | Description |
 |-------|------|-------------|
 | `id` | ID! |  |
-| `user` | [User](#user)! |  |
-| `state` | [MessageState](#messagestate)! |  |
-| `lastUpdatedAt` | [DateTime](#datetime)! |  |
+| `user` | <a href="#user">User</a>! |  |
+| `state` | <a href="#messagestate">MessageState</a>! |  |
+| `lastUpdatedAt` | <a href="#datetime">DateTime</a>! |  |
 
 ---
 
@@ -4136,11 +4136,11 @@ repositories. Use `__typename` to determine the current state.
 | Field | Type | Description |
 |-------|------|-------------|
 | `id` | ID! |  |
-| `user` | [User](#user)! | The user who initiated the commit. |
-| `options` | [CommitOptions](#commitoptions)! | The commit options (branch, PR settings, etc.). |
+| `user` | <a href="#user">User</a>! | The user who initiated the commit. |
+| `options` | <a href="#commitoptions">CommitOptions</a>! | The commit options (branch, PR settings, etc.). |
 | `message` | String! | The commit message. |
-| `extendedMessage` | [Base64](#base64) | Extended commit message (Base64 encoded). |
-| `repositories` | (first: Int = 50, after: String, where: [RepositoryCommitWhereInput](#repositorycommitwhereinput), orderBy: [[RepositoryCommitOrderByInput](#repositorycommitorderbyinput)!]): [RepositoryCommitConnection](#repositorycommitconnection)! | Paginated results per repository. |
+| `extendedMessage` | <a href="#base64">Base64</a> | Extended commit message (Base64 encoded). |
+| `repositories` | (first: Int = 50, after: String, where: <a href="#repositorycommitwhereinput">RepositoryCommitWhereInput</a>, orderBy: [<a href="#repositorycommitorderbyinput">RepositoryCommitOrderByInput</a>!]): <a href="#repositorycommitconnection">RepositoryCommitConnection</a>! | Paginated results per repository. |
 
 ---
 
@@ -4153,7 +4153,7 @@ Use `__typename` to determine the current state.
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `pullRequest` | [PullRequestRef](#pullrequestref)! |  |
+| `pullRequest` | <a href="#pullrequestref">PullRequestRef</a>! |  |
 
 ---
 
@@ -4181,7 +4181,7 @@ Poll until `__typename` is `RecipeDetailFinished`.
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `startedAt` | [DateTime](#datetime)! |  |
+| `startedAt` | <a href="#datetime">DateTime</a>! |  |
 
 ---
 
@@ -4195,8 +4195,8 @@ Use `__typename` to determine the current state.
 | Field | Type | Description |
 |-------|------|-------------|
 | `id` | ID! |  |
-| `bundle` | [RecipeBundle](#recipebundle)! |  |
-| `startedAt` | [DateTime](#datetime)! |  |
+| `bundle` | <a href="#recipebundle">RecipeBundle</a>! |  |
+| `startedAt` | <a href="#datetime">DateTime</a>! |  |
 
 ---
 
@@ -4206,10 +4206,10 @@ Use `__typename` to determine the current state.
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `repository` | [Repository](#repository)! |  |
-| `authorization` | [RepositoryAuthorization](#repositoryauthorization)! | Authorization status for accessing this repository's content.
+| `repository` | <a href="#repository">Repository</a>! |  |
+| `authorization` | <a href="#repositoryauthorization">RepositoryAuthorization</a>! | Authorization status for accessing this repository's content.
 Check this before accessing file results. |
-| `results` | (first: Int = 100, after: String, where: [FileChangeWhereInput](#filechangewhereinput), orderBy: [[FileChangeOrderByInput](#filechangeorderbyinput)!]): [FileChangeConnection](#filechangeconnection)! | File-level changes within this repository. |
+| `results` | (first: Int = 100, after: String, where: <a href="#filechangewhereinput">FileChangeWhereInput</a>, orderBy: [<a href="#filechangeorderbyinput">FileChangeOrderByInput</a>!]): <a href="#filechangeconnection">FileChangeConnection</a>! | File-level changes within this repository. |
 
 ---
 
@@ -4222,7 +4222,7 @@ Use `__typename` to determine the current state.
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `repository` | [Repository](#repository)! |  |
+| `repository` | <a href="#repository">Repository</a>! |  |
 
 ---
 
@@ -4235,9 +4235,9 @@ Use `__typename` to determine the specific commit type.
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `repository` | [Repository](#repository)! |  |
-| `startedAt` | [DateTime](#datetime)! |  |
-| `finishedAt` | [DateTime](#datetime)! |  |
+| `repository` | <a href="#repository">Repository</a>! |  |
+| `startedAt` | <a href="#datetime">DateTime</a>! |  |
+| `finishedAt` | <a href="#datetime">DateTime</a>! |  |
 | `resultLink` | String | Link to the commit or pull request result. |
 
 ---
@@ -4248,10 +4248,10 @@ Use `__typename` to determine the specific commit type.
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `repository` | [Repository](#repository)! |  |
-| `authorization` | [RepositoryAuthorization](#repositoryauthorization)! |  |
-| `syncStatus` | [RepositorySyncStatus](#repositorysyncstatus) |  |
-| `results` | (first: Int = 100, after: String, where: [FileChangeWhereInput](#filechangewhereinput), orderBy: [[FileChangeOrderByInput](#filechangeorderbyinput)!]): [FileChangeConnection](#filechangeconnection)! |  |
+| `repository` | <a href="#repository">Repository</a>! |  |
+| `authorization` | <a href="#repositoryauthorization">RepositoryAuthorization</a>! |  |
+| `syncStatus` | <a href="#repositorysyncstatus">RepositorySyncStatus</a> |  |
+| `results` | (first: Int = 100, after: String, where: <a href="#filechangewhereinput">FileChangeWhereInput</a>, orderBy: [<a href="#filechangeorderbyinput">FileChangeOrderByInput</a>!]): <a href="#filechangeconnection">FileChangeConnection</a>! |  |
 
 ---
 
@@ -4263,7 +4263,7 @@ Use `__typename` to determine the specific commit type.
 |-------|------|-------------|
 | `resourceId` | String! |  |
 | `isAuthorized` | Boolean! |  |
-| `tokens` | [[ScmTokenInfo](#scmtokeninfo)!]! |  |
+| `tokens` | [<a href="#scmtokeninfo">ScmTokenInfo</a>!]! |  |
 
 ---
 
@@ -4274,7 +4274,7 @@ Use `__typename` to determine the specific commit type.
 | Field | Type | Description |
 |-------|------|-------------|
 | `id` | ID! |  |
-| `descriptor` | [VisualizationDescriptor](#visualizationdescriptor)! |  |
+| `descriptor` | <a href="#visualizationdescriptor">VisualizationDescriptor</a>! |  |
 
 ---
 
@@ -4284,7 +4284,7 @@ Use `__typename` to determine the specific commit type.
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `data` | [Base64](#base64)! |  |
+| `data` | <a href="#base64">Base64</a>! |  |
 
 ---
 
@@ -4990,8 +4990,8 @@ sync completed).
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `field` | [AccessTokenOrderByField](#accesstokenorderbyfield)! |  |
-| `direction` | [SortOrder](#sortorder)! |  |
+| `field` | <a href="#accesstokenorderbyfield">AccessTokenOrderByField</a>! |  |
+| `direction` | <a href="#sortorder">SortOrder</a>! |  |
 
 ---
 
@@ -5001,12 +5001,12 @@ sync completed).
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `description` | [StringFilter](#stringfilter) |  |
-| `created` | [DateTimeFilter](#datetimefilter) |  |
-| `expiresAt` | [DateTimeFilter](#datetimefilter) |  |
-| `_and` | [[AccessTokenWhereInput](#accesstokenwhereinput)!] |  |
-| `_or` | [[AccessTokenWhereInput](#accesstokenwhereinput)!] |  |
-| `_not` | [AccessTokenWhereInput](#accesstokenwhereinput) |  |
+| `description` | <a href="#stringfilter">StringFilter</a> |  |
+| `created` | <a href="#datetimefilter">DateTimeFilter</a> |  |
+| `expiresAt` | <a href="#datetimefilter">DateTimeFilter</a> |  |
+| `_and` | [<a href="#accesstokenwhereinput">AccessTokenWhereInput</a>!] |  |
+| `_or` | [<a href="#accesstokenwhereinput">AccessTokenWhereInput</a>!] |  |
+| `_not` | <a href="#accesstokenwhereinput">AccessTokenWhereInput</a> |  |
 
 ---
 
@@ -5016,10 +5016,10 @@ sync completed).
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `_eq` | [AuditActionType](#auditactiontype) |  |
-| `_neq` | [AuditActionType](#auditactiontype) |  |
-| `_in` | [[AuditActionType](#auditactiontype)!] |  |
-| `_nin` | [[AuditActionType](#auditactiontype)!] |  |
+| `_eq` | <a href="#auditactiontype">AuditActionType</a> |  |
+| `_neq` | <a href="#auditactiontype">AuditActionType</a> |  |
+| `_in` | [<a href="#auditactiontype">AuditActionType</a>!] |  |
+| `_nin` | [<a href="#auditactiontype">AuditActionType</a>!] |  |
 
 ---
 
@@ -5029,10 +5029,10 @@ sync completed).
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `_eq` | [AuditLogExportFormat](#auditlogexportformat) |  |
-| `_neq` | [AuditLogExportFormat](#auditlogexportformat) |  |
-| `_in` | [[AuditLogExportFormat](#auditlogexportformat)!] |  |
-| `_nin` | [[AuditLogExportFormat](#auditlogexportformat)!] |  |
+| `_eq` | <a href="#auditlogexportformat">AuditLogExportFormat</a> |  |
+| `_neq` | <a href="#auditlogexportformat">AuditLogExportFormat</a> |  |
+| `_in` | [<a href="#auditlogexportformat">AuditLogExportFormat</a>!] |  |
+| `_nin` | [<a href="#auditlogexportformat">AuditLogExportFormat</a>!] |  |
 
 ---
 
@@ -5042,8 +5042,8 @@ sync completed).
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `field` | [AuditLogOrderByField](#auditlogorderbyfield)! |  |
-| `direction` | [SortOrder](#sortorder)! |  |
+| `field` | <a href="#auditlogorderbyfield">AuditLogOrderByField</a>! |  |
+| `direction` | <a href="#sortorder">SortOrder</a>! |  |
 
 ---
 
@@ -5053,16 +5053,16 @@ sync completed).
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `user` | [UserWhereInput](#userwhereinput) |  |
-| `target` | [StringFilter](#stringfilter) |  |
-| `action` | [StringFilter](#stringfilter) |  |
-| `actionType` | [AuditActionTypeFilter](#auditactiontypefilter) |  |
-| `outcome` | [AuditOutcomeFilter](#auditoutcomefilter) |  |
-| `description` | [StringFilter](#stringfilter) |  |
-| `timestamp` | [DateTimeFilter](#datetimefilter) |  |
-| `_and` | [[AuditLogWhereInput](#auditlogwhereinput)!] |  |
-| `_or` | [[AuditLogWhereInput](#auditlogwhereinput)!] |  |
-| `_not` | [AuditLogWhereInput](#auditlogwhereinput) |  |
+| `user` | <a href="#userwhereinput">UserWhereInput</a> |  |
+| `target` | <a href="#stringfilter">StringFilter</a> |  |
+| `action` | <a href="#stringfilter">StringFilter</a> |  |
+| `actionType` | <a href="#auditactiontypefilter">AuditActionTypeFilter</a> |  |
+| `outcome` | <a href="#auditoutcomefilter">AuditOutcomeFilter</a> |  |
+| `description` | <a href="#stringfilter">StringFilter</a> |  |
+| `timestamp` | <a href="#datetimefilter">DateTimeFilter</a> |  |
+| `_and` | [<a href="#auditlogwhereinput">AuditLogWhereInput</a>!] |  |
+| `_or` | [<a href="#auditlogwhereinput">AuditLogWhereInput</a>!] |  |
+| `_not` | <a href="#auditlogwhereinput">AuditLogWhereInput</a> |  |
 
 ---
 
@@ -5072,8 +5072,8 @@ sync completed).
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `field` | [AuditLogsDownloadOrderByField](#auditlogsdownloadorderbyfield)! |  |
-| `direction` | [SortOrder](#sortorder)! |  |
+| `field` | <a href="#auditlogsdownloadorderbyfield">AuditLogsDownloadOrderByField</a>! |  |
+| `direction` | <a href="#sortorder">SortOrder</a>! |  |
 
 ---
 
@@ -5083,11 +5083,11 @@ sync completed).
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `id` | [IDFilter](#idfilter) |  |
-| `format` | [AuditLogExportFormatFilter](#auditlogexportformatfilter) |  |
-| `_and` | [[AuditLogsDownloadWhereInput](#auditlogsdownloadwhereinput)!] |  |
-| `_or` | [[AuditLogsDownloadWhereInput](#auditlogsdownloadwhereinput)!] |  |
-| `_not` | [AuditLogsDownloadWhereInput](#auditlogsdownloadwhereinput) |  |
+| `id` | <a href="#idfilter">IDFilter</a> |  |
+| `format` | <a href="#auditlogexportformatfilter">AuditLogExportFormatFilter</a> |  |
+| `_and` | [<a href="#auditlogsdownloadwhereinput">AuditLogsDownloadWhereInput</a>!] |  |
+| `_or` | [<a href="#auditlogsdownloadwhereinput">AuditLogsDownloadWhereInput</a>!] |  |
+| `_not` | <a href="#auditlogsdownloadwhereinput">AuditLogsDownloadWhereInput</a> |  |
 
 ---
 
@@ -5097,8 +5097,8 @@ sync completed).
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `_eq` | [AuditOutcome](#auditoutcome) |  |
-| `_neq` | [AuditOutcome](#auditoutcome) |  |
+| `_eq` | <a href="#auditoutcome">AuditOutcome</a> |  |
+| `_neq` | <a href="#auditoutcome">AuditOutcome</a> |  |
 
 ---
 
@@ -5119,10 +5119,10 @@ sync completed).
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `_eq` | [BuildState](#buildstate) |  |
-| `_neq` | [BuildState](#buildstate) |  |
-| `_in` | [[BuildState](#buildstate)!] |  |
-| `_nin` | [[BuildState](#buildstate)!] |  |
+| `_eq` | <a href="#buildstate">BuildState</a> |  |
+| `_neq` | <a href="#buildstate">BuildState</a> |  |
+| `_in` | [<a href="#buildstate">BuildState</a>!] |  |
+| `_nin` | [<a href="#buildstate">BuildState</a>!] |  |
 
 ---
 
@@ -5132,8 +5132,8 @@ sync completed).
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `field` | [BulkPullRequestActionOrderByField](#bulkpullrequestactionorderbyfield)! |  |
-| `direction` | [SortOrder](#sortorder)! |  |
+| `field` | <a href="#bulkpullrequestactionorderbyfield">BulkPullRequestActionOrderByField</a>! |  |
+| `direction` | <a href="#sortorder">SortOrder</a>! |  |
 
 ---
 
@@ -5143,10 +5143,10 @@ sync completed).
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `_eq` | [BulkPullRequestActionState](#bulkpullrequestactionstate) |  |
-| `_neq` | [BulkPullRequestActionState](#bulkpullrequestactionstate) |  |
-| `_in` | [[BulkPullRequestActionState](#bulkpullrequestactionstate)!] |  |
-| `_nin` | [[BulkPullRequestActionState](#bulkpullrequestactionstate)!] |  |
+| `_eq` | <a href="#bulkpullrequestactionstate">BulkPullRequestActionState</a> |  |
+| `_neq` | <a href="#bulkpullrequestactionstate">BulkPullRequestActionState</a> |  |
+| `_in` | [<a href="#bulkpullrequestactionstate">BulkPullRequestActionState</a>!] |  |
+| `_nin` | [<a href="#bulkpullrequestactionstate">BulkPullRequestActionState</a>!] |  |
 
 ---
 
@@ -5156,15 +5156,15 @@ sync completed).
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `actionType` | [PullRequestActionTypeFilter](#pullrequestactiontypefilter) |  |
-| `state` | [BulkPullRequestActionStateFilter](#bulkpullrequestactionstatefilter) |  |
-| `startedAt` | [DateTimeFilter](#datetimefilter) | Filter by `startedAt`. Matches RUNNING/FINISHED/ERROR/CANCELED states that
+| `actionType` | <a href="#pullrequestactiontypefilter">PullRequestActionTypeFilter</a> |  |
+| `state` | <a href="#bulkpullrequestactionstatefilter">BulkPullRequestActionStateFilter</a> |  |
+| `startedAt` | <a href="#datetimefilter">DateTimeFilter</a> | Filter by `startedAt`. Matches RUNNING/FINISHED/ERROR/CANCELED states that
 have a startedAt value; QUEUED entries (no startedAt) are excluded when a
 bound is supplied. |
-| `user` | [UserWhereInput](#userwhereinput) |  |
-| `_and` | [[BulkPullRequestActionWhereInput](#bulkpullrequestactionwhereinput)!] |  |
-| `_or` | [[BulkPullRequestActionWhereInput](#bulkpullrequestactionwhereinput)!] |  |
-| `_not` | [BulkPullRequestActionWhereInput](#bulkpullrequestactionwhereinput) |  |
+| `user` | <a href="#userwhereinput">UserWhereInput</a> |  |
+| `_and` | [<a href="#bulkpullrequestactionwhereinput">BulkPullRequestActionWhereInput</a>!] |  |
+| `_or` | [<a href="#bulkpullrequestactionwhereinput">BulkPullRequestActionWhereInput</a>!] |  |
+| `_not` | <a href="#bulkpullrequestactionwhereinput">BulkPullRequestActionWhereInput</a> |  |
 
 ---
 
@@ -5176,13 +5176,13 @@ Filter by changelog author.
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `name` | [StringFilter](#stringfilter) |  |
-| `email` | [StringFilter](#stringfilter) |  |
-| `username` | [StringFilter](#stringfilter) |  |
-| `role` | [ContributorRole](#contributorrole) | The role of the contributor to filter on. |
-| `_and` | [[ChangelogAuthorWhereInput](#changelogauthorwhereinput)!] |  |
-| `_or` | [[ChangelogAuthorWhereInput](#changelogauthorwhereinput)!] |  |
-| `_not` | [ChangelogAuthorWhereInput](#changelogauthorwhereinput) |  |
+| `name` | <a href="#stringfilter">StringFilter</a> |  |
+| `email` | <a href="#stringfilter">StringFilter</a> |  |
+| `username` | <a href="#stringfilter">StringFilter</a> |  |
+| `role` | <a href="#contributorrole">ContributorRole</a> | The role of the contributor to filter on. |
+| `_and` | [<a href="#changelogauthorwhereinput">ChangelogAuthorWhereInput</a>!] |  |
+| `_or` | [<a href="#changelogauthorwhereinput">ChangelogAuthorWhereInput</a>!] |  |
+| `_not` | <a href="#changelogauthorwhereinput">ChangelogAuthorWhereInput</a> |  |
 
 ---
 
@@ -5192,8 +5192,8 @@ Filter by changelog author.
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `field` | [ChangelogEntryOrderByField](#changelogentryorderbyfield)! |  |
-| `direction` | [SortOrder](#sortorder)! |  |
+| `field` | <a href="#changelogentryorderbyfield">ChangelogEntryOrderByField</a>! |  |
+| `direction` | <a href="#sortorder">SortOrder</a>! |  |
 
 ---
 
@@ -5203,10 +5203,10 @@ Filter by changelog author.
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `_eq` | [ChangelogEntryType](#changelogentrytype) |  |
-| `_neq` | [ChangelogEntryType](#changelogentrytype) |  |
-| `_in` | [[ChangelogEntryType](#changelogentrytype)!] |  |
-| `_nin` | [[ChangelogEntryType](#changelogentrytype)!] |  |
+| `_eq` | <a href="#changelogentrytype">ChangelogEntryType</a> |  |
+| `_neq` | <a href="#changelogentrytype">ChangelogEntryType</a> |  |
+| `_in` | [<a href="#changelogentrytype">ChangelogEntryType</a>!] |  |
+| `_nin` | [<a href="#changelogentrytype">ChangelogEntryType</a>!] |  |
 
 ---
 
@@ -5218,20 +5218,20 @@ Filter input for changelog entries.
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `entryType` | [ChangelogEntryTypeFilter](#changelogentrytypefilter) | Filter by entry type (COMMIT or PULL_REQUEST). |
-| `title` | [StringFilter](#stringfilter) | Full-text search on title. |
-| `author` | [ChangelogAuthorWhereInput](#changelogauthorwhereinput) | Filter by author. |
-| `repositoryPath` | [StringFilter](#stringfilter) | Filter by repository path. |
-| `repositoryOrigin` | [StringFilter](#stringfilter) | Filter by repository origin. |
-| `updatedAt` | [DateTimeFilter](#datetimefilter) | Filter by last updated time. |
-| `createdAt` | [DateTimeFilter](#datetimefilter) | Filter by creation time. |
-| `pullRequestState` | [PullRequestStateFilter](#pullrequeststatefilter) | Filter by pull request state (only applies to PRs). |
-| `buildState` | [BuildStateFilter](#buildstatefilter) | Filter by CI state. |
-| `reviewDecision` | [ReviewDecisionFilter](#reviewdecisionfilter) | Filter by review decision. |
-| `changesetId` | [StringFilter](#stringfilter) | Filter by changeset ID. |
-| `_and` | [[ChangelogEntryWhereInput](#changelogentrywhereinput)!] |  |
-| `_or` | [[ChangelogEntryWhereInput](#changelogentrywhereinput)!] |  |
-| `_not` | [ChangelogEntryWhereInput](#changelogentrywhereinput) |  |
+| `entryType` | <a href="#changelogentrytypefilter">ChangelogEntryTypeFilter</a> | Filter by entry type (COMMIT or PULL_REQUEST). |
+| `title` | <a href="#stringfilter">StringFilter</a> | Full-text search on title. |
+| `author` | <a href="#changelogauthorwhereinput">ChangelogAuthorWhereInput</a> | Filter by author. |
+| `repositoryPath` | <a href="#stringfilter">StringFilter</a> | Filter by repository path. |
+| `repositoryOrigin` | <a href="#stringfilter">StringFilter</a> | Filter by repository origin. |
+| `updatedAt` | <a href="#datetimefilter">DateTimeFilter</a> | Filter by last updated time. |
+| `createdAt` | <a href="#datetimefilter">DateTimeFilter</a> | Filter by creation time. |
+| `pullRequestState` | <a href="#pullrequeststatefilter">PullRequestStateFilter</a> | Filter by pull request state (only applies to PRs). |
+| `buildState` | <a href="#buildstatefilter">BuildStateFilter</a> | Filter by CI state. |
+| `reviewDecision` | <a href="#reviewdecisionfilter">ReviewDecisionFilter</a> | Filter by review decision. |
+| `changesetId` | <a href="#stringfilter">StringFilter</a> | Filter by changeset ID. |
+| `_and` | [<a href="#changelogentrywhereinput">ChangelogEntryWhereInput</a>!] |  |
+| `_or` | [<a href="#changelogentrywhereinput">ChangelogEntryWhereInput</a>!] |  |
+| `_not` | <a href="#changelogentrywhereinput">ChangelogEntryWhereInput</a> |  |
 
 ---
 
@@ -5241,8 +5241,8 @@ Filter input for changelog entries.
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `field` | [ChangelogParticipantOrderByField](#changelogparticipantorderbyfield)! |  |
-| `direction` | [SortOrder](#sortorder)! |  |
+| `field` | <a href="#changelogparticipantorderbyfield">ChangelogParticipantOrderByField</a>! |  |
+| `direction` | <a href="#sortorder">SortOrder</a>! |  |
 
 ---
 
@@ -5254,15 +5254,15 @@ Filter input for participants.
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `name` | [StringFilter](#stringfilter) |  |
-| `email` | [StringFilter](#stringfilter) |  |
-| `username` | [StringFilter](#stringfilter) |  |
-| `role` | [ContributorRole](#contributorrole) | Filter participants by role. |
-| `updatedAt` | [DateTimeFilter](#datetimefilter) | Scopes participant aggregation to entries updated within this window.
+| `name` | <a href="#stringfilter">StringFilter</a> |  |
+| `email` | <a href="#stringfilter">StringFilter</a> |  |
+| `username` | <a href="#stringfilter">StringFilter</a> |  |
+| `role` | <a href="#contributorrole">ContributorRole</a> | Filter participants by role. |
+| `updatedAt` | <a href="#datetimefilter">DateTimeFilter</a> | Scopes participant aggregation to entries updated within this window.
 Defaults to last 30 days if not specified. |
-| `_and` | [[ChangelogParticipantWhereInput](#changelogparticipantwhereinput)!] |  |
-| `_or` | [[ChangelogParticipantWhereInput](#changelogparticipantwhereinput)!] |  |
-| `_not` | [ChangelogParticipantWhereInput](#changelogparticipantwhereinput) |  |
+| `_and` | [<a href="#changelogparticipantwhereinput">ChangelogParticipantWhereInput</a>!] |  |
+| `_or` | [<a href="#changelogparticipantwhereinput">ChangelogParticipantWhereInput</a>!] |  |
+| `_not` | <a href="#changelogparticipantwhereinput">ChangelogParticipantWhereInput</a> |  |
 
 ---
 
@@ -5277,19 +5277,19 @@ Input for creating a commit from a changeset.
 | `organizationId` | ID | Organization ID for determining available commit options. |
 | `changesetId` | ID! | Changeset ID (e.g., recipe run ID, batch changeset ID).
 Resolved via federation to an OrganizationChangeset. |
-| `repositories` | [[RepositoryChangesetWhereInput](#repositorychangesetwhereinput)!] | Filter which repositories and files to include.
+| `repositories` | [<a href="#repositorychangesetwhereinput">RepositoryChangesetWhereInput</a>!] | Filter which repositories and files to include.
 Evaluated in order - first matching rule wins for each repository.
 Put repo-specific rules first, global fallback rules last.
 If empty or not provided, all repositories and files in the changeset are included. |
 | `branchName` | String | If unset, commit to the branch that the LST was generated from. |
 | `message` | String! | Commit message. |
-| `extendedMessage` | [Base64](#base64) | Extended commit message (Base64 encoded). |
-| `gpgKey` | [GpgInput](#gpginput) | GPG key for signing commits. |
+| `extendedMessage` | <a href="#base64">Base64</a> | Extended commit message (Base64 encoded). |
+| `gpgKey` | <a href="#gpginput">GpgInput</a> | GPG key for signing commits. |
 | `email` | String | Email to author commit with. Verified against your emails (public and private)
 that are verified in your SCM provider. If left blank, your first email will be used. |
-| `scmAccessTokens` | [[ScmAccessToken](#scmaccesstoken)!] | Optional SCM access tokens keyed by origin. When provided, these are used
+| `scmAccessTokens` | [<a href="#scmaccesstoken">ScmAccessToken</a>!] | Optional SCM access tokens keyed by origin. When provided, these are used
 instead of stored OAuth tokens for the matching origin. |
-| `strategy` | [CommitStrategyInput](#commitstrategyinput)! | How to deliver the commit. Choose one strategy. |
+| `strategy` | <a href="#commitstrategyinput">CommitStrategyInput</a>! | How to deliver the commit. Choose one strategy. |
 
 ---
 
@@ -5301,10 +5301,10 @@ Commit delivery strategy. Choose one option.
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `direct` | [DirectCommitInput](#directcommitinput) | Push directly to the origin remote. |
-| `fork` | [ForkCommitInput](#forkcommitinput) | Push to a fork of the origin repository. |
-| `pullRequest` | [PullRequestCommitInput](#pullrequestcommitinput) | Create a pull request from a branch on the origin remote. |
-| `forkAndPullRequest` | [ForkAndPullRequestCommitInput](#forkandpullrequestcommitinput) | Create a pull request from a branch on a fork. |
+| `direct` | <a href="#directcommitinput">DirectCommitInput</a> | Push directly to the origin remote. |
+| `fork` | <a href="#forkcommitinput">ForkCommitInput</a> | Push to a fork of the origin repository. |
+| `pullRequest` | <a href="#pullrequestcommitinput">PullRequestCommitInput</a> | Create a pull request from a branch on the origin remote. |
+| `forkAndPullRequest` | <a href="#forkandpullrequestcommitinput">ForkAndPullRequestCommitInput</a> | Create a pull request from a branch on a fork. |
 
 ---
 
@@ -5314,8 +5314,8 @@ Commit delivery strategy. Choose one option.
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `field` | [ConnectorOrderByField](#connectororderbyfield)! |  |
-| `direction` | [SortOrder](#sortorder)! |  |
+| `field` | <a href="#connectororderbyfield">ConnectorOrderByField</a>! |  |
+| `direction` | <a href="#sortorder">SortOrder</a>! |  |
 
 ---
 
@@ -5325,8 +5325,8 @@ Commit delivery strategy. Choose one option.
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `_eq` | [ConnectorToolType](#connectortooltype) |  |
-| `_in` | [[ConnectorToolType](#connectortooltype)!] |  |
+| `_eq` | <a href="#connectortooltype">ConnectorToolType</a> |  |
+| `_in` | [<a href="#connectortooltype">ConnectorToolType</a>!] |  |
 
 ---
 
@@ -5336,13 +5336,13 @@ Commit delivery strategy. Choose one option.
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `id` | [IDFilter](#idfilter) |  |
-| `nickname` | [StringFilter](#stringfilter) |  |
-| `version` | [StringFilter](#stringfilter) |  |
-| `toolType` | [ConnectorToolTypeFilter](#connectortooltypefilter) |  |
-| `_and` | [[ConnectorWhereInput](#connectorwhereinput)!] |  |
-| `_or` | [[ConnectorWhereInput](#connectorwhereinput)!] |  |
-| `_not` | [ConnectorWhereInput](#connectorwhereinput) |  |
+| `id` | <a href="#idfilter">IDFilter</a> |  |
+| `nickname` | <a href="#stringfilter">StringFilter</a> |  |
+| `version` | <a href="#stringfilter">StringFilter</a> |  |
+| `toolType` | <a href="#connectortooltypefilter">ConnectorToolTypeFilter</a> |  |
+| `_and` | [<a href="#connectorwhereinput">ConnectorWhereInput</a>!] |  |
+| `_or` | [<a href="#connectorwhereinput">ConnectorWhereInput</a>!] |  |
+| `_not` | <a href="#connectorwhereinput">ConnectorWhereInput</a> |  |
 
 ---
 
@@ -5352,8 +5352,8 @@ Commit delivery strategy. Choose one option.
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `field` | [ConversationOrderByField](#conversationorderbyfield)! |  |
-| `direction` | [SortOrder](#sortorder)! |  |
+| `field` | <a href="#conversationorderbyfield">ConversationOrderByField</a>! |  |
+| `direction` | <a href="#sortorder">SortOrder</a>! |  |
 
 ---
 
@@ -5363,13 +5363,13 @@ Commit delivery strategy. Choose one option.
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `id` | [IDFilter](#idfilter) |  |
-| `user` | [StringFilter](#stringfilter) |  |
-| `startedAt` | [DateTimeFilter](#datetimefilter) |  |
-| `lastUpdatedAt` | [DateTimeFilter](#datetimefilter) |  |
-| `_and` | [[ConversationWhereInput](#conversationwhereinput)!] |  |
-| `_or` | [[ConversationWhereInput](#conversationwhereinput)!] |  |
-| `_not` | [ConversationWhereInput](#conversationwhereinput) |  |
+| `id` | <a href="#idfilter">IDFilter</a> |  |
+| `user` | <a href="#stringfilter">StringFilter</a> |  |
+| `startedAt` | <a href="#datetimefilter">DateTimeFilter</a> |  |
+| `lastUpdatedAt` | <a href="#datetimefilter">DateTimeFilter</a> |  |
+| `_and` | [<a href="#conversationwhereinput">ConversationWhereInput</a>!] |  |
+| `_or` | [<a href="#conversationwhereinput">ConversationWhereInput</a>!] |  |
+| `_not` | <a href="#conversationwhereinput">ConversationWhereInput</a> |  |
 
 ---
 
@@ -5391,7 +5391,7 @@ Commit delivery strategy. Choose one option.
 | Field | Type | Description |
 |-------|------|-------------|
 | `name` | String! | The name of the organization. |
-| `repositories` | [[RepositoryInput](#repositoryinput)!] | Repositories to include in the organization. |
+| `repositories` | [<a href="#repositoryinput">RepositoryInput</a>!] | Repositories to include in the organization. |
 
 ---
 
@@ -5401,10 +5401,10 @@ Commit delivery strategy. Choose one option.
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `_eq` | [DataTableFormat](#datatableformat) |  |
-| `_neq` | [DataTableFormat](#datatableformat) |  |
-| `_in` | [[DataTableFormat](#datatableformat)!] |  |
-| `_nin` | [[DataTableFormat](#datatableformat)!] |  |
+| `_eq` | <a href="#datatableformat">DataTableFormat</a> |  |
+| `_neq` | <a href="#datatableformat">DataTableFormat</a> |  |
+| `_in` | [<a href="#datatableformat">DataTableFormat</a>!] |  |
+| `_nin` | [<a href="#datatableformat">DataTableFormat</a>!] |  |
 
 ---
 
@@ -5414,8 +5414,8 @@ Commit delivery strategy. Choose one option.
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `field` | [DataTableOrderByField](#datatableorderbyfield)! |  |
-| `direction` | [SortOrder](#sortorder)! |  |
+| `field` | <a href="#datatableorderbyfield">DataTableOrderByField</a>! |  |
+| `direction` | <a href="#sortorder">SortOrder</a>! |  |
 
 ---
 
@@ -5425,13 +5425,13 @@ Commit delivery strategy. Choose one option.
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `id` | [IDFilter](#idfilter) |  |
-| `dataTable` | [StringFilter](#stringfilter) |  |
-| `group` | [StringFilter](#stringfilter) |  |
-| `format` | [DataTableFormatFilter](#datatableformatfilter) |  |
-| `_and` | [[DataTableWhereInput](#datatablewhereinput)!] |  |
-| `_or` | [[DataTableWhereInput](#datatablewhereinput)!] |  |
-| `_not` | [DataTableWhereInput](#datatablewhereinput) |  |
+| `id` | <a href="#idfilter">IDFilter</a> |  |
+| `dataTable` | <a href="#stringfilter">StringFilter</a> |  |
+| `group` | <a href="#stringfilter">StringFilter</a> |  |
+| `format` | <a href="#datatableformatfilter">DataTableFormatFilter</a> |  |
+| `_and` | [<a href="#datatablewhereinput">DataTableWhereInput</a>!] |  |
+| `_or` | [<a href="#datatablewhereinput">DataTableWhereInput</a>!] |  |
+| `_not` | <a href="#datatablewhereinput">DataTableWhereInput</a> |  |
 
 ---
 
@@ -5441,12 +5441,12 @@ Commit delivery strategy. Choose one option.
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `_eq` | [DateTime](#datetime) |  |
-| `_neq` | [DateTime](#datetime) |  |
-| `_gt` | [DateTime](#datetime) |  |
-| `_gte` | [DateTime](#datetime) |  |
-| `_lt` | [DateTime](#datetime) |  |
-| `_lte` | [DateTime](#datetime) |  |
+| `_eq` | <a href="#datetime">DateTime</a> |  |
+| `_neq` | <a href="#datetime">DateTime</a> |  |
+| `_gt` | <a href="#datetime">DateTime</a> |  |
+| `_gte` | <a href="#datetime">DateTime</a> |  |
+| `_lt` | <a href="#datetime">DateTime</a> |  |
+| `_lte` | <a href="#datetime">DateTime</a> |  |
 
 ---
 
@@ -5456,8 +5456,8 @@ Commit delivery strategy. Choose one option.
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `field` | [DevCenterRunOrderByField](#devcenterrunorderbyfield)! |  |
-| `direction` | [SortOrder](#sortorder)! |  |
+| `field` | <a href="#devcenterrunorderbyfield">DevCenterRunOrderByField</a>! |  |
+| `direction` | <a href="#sortorder">SortOrder</a>! |  |
 
 ---
 
@@ -5467,10 +5467,10 @@ Commit delivery strategy. Choose one option.
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `_eq` | [DevCenterRunState](#devcenterrunstate) |  |
-| `_neq` | [DevCenterRunState](#devcenterrunstate) |  |
-| `_in` | [[DevCenterRunState](#devcenterrunstate)!] |  |
-| `_nin` | [[DevCenterRunState](#devcenterrunstate)!] |  |
+| `_eq` | <a href="#devcenterrunstate">DevCenterRunState</a> |  |
+| `_neq` | <a href="#devcenterrunstate">DevCenterRunState</a> |  |
+| `_in` | [<a href="#devcenterrunstate">DevCenterRunState</a>!] |  |
+| `_nin` | [<a href="#devcenterrunstate">DevCenterRunState</a>!] |  |
 
 ---
 
@@ -5482,12 +5482,12 @@ Filter input for DevCenter run queries.
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `id` | [IDFilter](#idfilter) | Filter by run ID. Use `where: \{ id: \{ _eq: "run-id" } }` to get a specific run. |
-| `state` | [DevCenterRunStateFilter](#devcenterrunstatefilter) | Filter by run state. |
-| `startedAt` | [DateTimeFilter](#datetimefilter) | Filter by start time. |
-| `_and` | [[DevCenterRunWhereInput](#devcenterrunwhereinput)!] | Logical AND - all conditions must match. |
-| `_or` | [[DevCenterRunWhereInput](#devcenterrunwhereinput)!] | Logical OR - at least one condition must match. |
-| `_not` | [DevCenterRunWhereInput](#devcenterrunwhereinput) | Logical NOT - negates the condition. |
+| `id` | <a href="#idfilter">IDFilter</a> | Filter by run ID. Use `where: \{ id: \{ _eq: "run-id" } }` to get a specific run. |
+| `state` | <a href="#devcenterrunstatefilter">DevCenterRunStateFilter</a> | Filter by run state. |
+| `startedAt` | <a href="#datetimefilter">DateTimeFilter</a> | Filter by start time. |
+| `_and` | [<a href="#devcenterrunwhereinput">DevCenterRunWhereInput</a>!] | Logical AND - all conditions must match. |
+| `_or` | [<a href="#devcenterrunwhereinput">DevCenterRunWhereInput</a>!] | Logical OR - at least one condition must match. |
+| `_not` | <a href="#devcenterrunwhereinput">DevCenterRunWhereInput</a> | Logical NOT - negates the condition. |
 
 ---
 
@@ -5523,8 +5523,8 @@ from the authorization to ensure an exact match. |
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `field` | [FileChangeOrderByField](#filechangeorderbyfield)! |  |
-| `direction` | [SortOrder](#sortorder)! |  |
+| `field` | <a href="#filechangeorderbyfield">FileChangeOrderByField</a>! |  |
+| `direction` | <a href="#sortorder">SortOrder</a>! |  |
 
 ---
 
@@ -5536,10 +5536,10 @@ Filter for file changes.
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `path` | [PathFilter](#pathfilter) | Filter by file path using glob patterns. |
-| `_and` | [[FileChangeWhereInput](#filechangewhereinput)!] | Logical AND - all conditions must match. |
-| `_or` | [[FileChangeWhereInput](#filechangewhereinput)!] | Logical OR - at least one condition must match. |
-| `_not` | [FileChangeWhereInput](#filechangewhereinput) | Logical NOT - negates the condition. |
+| `path` | <a href="#pathfilter">PathFilter</a> | Filter by file path using glob patterns. |
+| `_and` | [<a href="#filechangewhereinput">FileChangeWhereInput</a>!] | Logical AND - all conditions must match. |
+| `_or` | [<a href="#filechangewhereinput">FileChangeWhereInput</a>!] | Logical OR - at least one condition must match. |
+| `_not` | <a href="#filechangewhereinput">FileChangeWhereInput</a> | Logical NOT - negates the condition. |
 
 ---
 
@@ -5554,10 +5554,10 @@ Create a pull request from a branch on a fork.
 | `organization` | String | Organization to create the fork in. If unset, creates in user's personal account. |
 | `prefixOrganizationName` | Boolean | Prefix the fork name with the origin organization to avoid name collisions. |
 | `title` | String | Pull request title. If unset, uses the commit message. |
-| `body` | [Base64](#base64) | Pull request body (Base64 encoded). |
+| `body` | <a href="#base64">Base64</a> | Pull request body (Base64 encoded). |
 | `draft` | Boolean | Create as a draft pull request. |
 | `maintainerCanModify` | Boolean | GitHub only: allow maintainers to edit the pull request. |
-| `autoMergeMethod` | [MergeMethod](#mergemethod) | Auto-merge method after checks pass. Null means no auto-merge.
+| `autoMergeMethod` | <a href="#mergemethod">MergeMethod</a> | Auto-merge method after checks pass. Null means no auto-merge.
 Best effort - silently ignored if not supported by the repository. |
 | `recreateClosedPullRequest` | Boolean | Recreate pull request if it was previously closed. |
 
@@ -5646,11 +5646,11 @@ Must match an allowed redirect URI in the OAuth app configuration. |
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `published` | [DateTimeFilter](#datetimefilter) |  |
-| `available` | [BooleanFilter](#booleanfilter) |  |
-| `_and` | [[LstArtifactWhereInput](#lstartifactwhereinput)!] |  |
-| `_or` | [[LstArtifactWhereInput](#lstartifactwhereinput)!] |  |
-| `_not` | [LstArtifactWhereInput](#lstartifactwhereinput) |  |
+| `published` | <a href="#datetimefilter">DateTimeFilter</a> |  |
+| `available` | <a href="#booleanfilter">BooleanFilter</a> |  |
+| `_and` | [<a href="#lstartifactwhereinput">LstArtifactWhereInput</a>!] |  |
+| `_or` | [<a href="#lstartifactwhereinput">LstArtifactWhereInput</a>!] |  |
+| `_not` | <a href="#lstartifactwhereinput">LstArtifactWhereInput</a> |  |
 
 ---
 
@@ -5694,8 +5694,8 @@ Must match an allowed redirect URI in the OAuth app configuration. |
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `field` | [OrganizationChangesetOrderByField](#organizationchangesetorderbyfield)! |  |
-| `direction` | [SortOrder](#sortorder)! |  |
+| `field` | <a href="#organizationchangesetorderbyfield">OrganizationChangesetOrderByField</a>! |  |
+| `direction` | <a href="#sortorder">SortOrder</a>! |  |
 
 ---
 
@@ -5705,10 +5705,10 @@ Must match an allowed redirect URI in the OAuth app configuration. |
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `_eq` | [OrganizationChangesetType](#organizationchangesettype) |  |
-| `_neq` | [OrganizationChangesetType](#organizationchangesettype) |  |
-| `_in` | [[OrganizationChangesetType](#organizationchangesettype)!] |  |
-| `_nin` | [[OrganizationChangesetType](#organizationchangesettype)!] |  |
+| `_eq` | <a href="#organizationchangesettype">OrganizationChangesetType</a> |  |
+| `_neq` | <a href="#organizationchangesettype">OrganizationChangesetType</a> |  |
+| `_in` | [<a href="#organizationchangesettype">OrganizationChangesetType</a>!] |  |
+| `_nin` | [<a href="#organizationchangesettype">OrganizationChangesetType</a>!] |  |
 
 ---
 
@@ -5718,13 +5718,13 @@ Must match an allowed redirect URI in the OAuth app configuration. |
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `id` | [IDFilter](#idfilter) |  |
-| `type` | [OrganizationChangesetTypeFilter](#organizationchangesettypefilter) |  |
-| `createdAt` | [DateTimeFilter](#datetimefilter) |  |
-| `user` | [StringFilter](#stringfilter) |  |
-| `_and` | [[OrganizationChangesetWhereInput](#organizationchangesetwhereinput)!] |  |
-| `_or` | [[OrganizationChangesetWhereInput](#organizationchangesetwhereinput)!] |  |
-| `_not` | [OrganizationChangesetWhereInput](#organizationchangesetwhereinput) |  |
+| `id` | <a href="#idfilter">IDFilter</a> |  |
+| `type` | <a href="#organizationchangesettypefilter">OrganizationChangesetTypeFilter</a> |  |
+| `createdAt` | <a href="#datetimefilter">DateTimeFilter</a> |  |
+| `user` | <a href="#stringfilter">StringFilter</a> |  |
+| `_and` | [<a href="#organizationchangesetwhereinput">OrganizationChangesetWhereInput</a>!] |  |
+| `_or` | [<a href="#organizationchangesetwhereinput">OrganizationChangesetWhereInput</a>!] |  |
+| `_not` | <a href="#organizationchangesetwhereinput">OrganizationChangesetWhereInput</a> |  |
 
 ---
 
@@ -5734,8 +5734,8 @@ Must match an allowed redirect URI in the OAuth app configuration. |
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `field` | [OrganizationCommitOrderByField](#organizationcommitorderbyfield)! |  |
-| `direction` | [SortOrder](#sortorder)! |  |
+| `field` | <a href="#organizationcommitorderbyfield">OrganizationCommitOrderByField</a>! |  |
+| `direction` | <a href="#sortorder">SortOrder</a>! |  |
 
 ---
 
@@ -5747,11 +5747,11 @@ Filter input for organization-level commit queries.
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `id` | [IDFilter](#idfilter) | Filter by commit ID. |
-| `startedAt` | [DateTimeFilter](#datetimefilter) | Filter by when the commit started. |
-| `_and` | [[OrganizationCommitWhereInput](#organizationcommitwhereinput)!] | Logical AND - all conditions must match. |
-| `_or` | [[OrganizationCommitWhereInput](#organizationcommitwhereinput)!] | Logical OR - at least one condition must match. |
-| `_not` | [OrganizationCommitWhereInput](#organizationcommitwhereinput) | Logical NOT - negates the condition. |
+| `id` | <a href="#idfilter">IDFilter</a> | Filter by commit ID. |
+| `startedAt` | <a href="#datetimefilter">DateTimeFilter</a> | Filter by when the commit started. |
+| `_and` | [<a href="#organizationcommitwhereinput">OrganizationCommitWhereInput</a>!] | Logical AND - all conditions must match. |
+| `_or` | [<a href="#organizationcommitwhereinput">OrganizationCommitWhereInput</a>!] | Logical OR - at least one condition must match. |
+| `_not` | <a href="#organizationcommitwhereinput">OrganizationCommitWhereInput</a> | Logical NOT - negates the condition. |
 
 ---
 
@@ -5761,8 +5761,8 @@ Filter input for organization-level commit queries.
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `field` | [OrganizationOrderByField](#organizationorderbyfield)! |  |
-| `direction` | [SortOrder](#sortorder)! |  |
+| `field` | <a href="#organizationorderbyfield">OrganizationOrderByField</a>! |  |
+| `direction` | <a href="#sortorder">SortOrder</a>! |  |
 
 ---
 
@@ -5772,8 +5772,8 @@ Filter input for organization-level commit queries.
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `field` | [OrganizationRecipeRunOrderByField](#organizationreciperunorderbyfield)! |  |
-| `direction` | [SortOrder](#sortorder)! |  |
+| `field` | <a href="#organizationreciperunorderbyfield">OrganizationRecipeRunOrderByField</a>! |  |
+| `direction` | <a href="#sortorder">SortOrder</a>! |  |
 
 ---
 
@@ -5783,10 +5783,10 @@ Filter input for organization-level commit queries.
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `_eq` | [OrganizationRecipeRunState](#organizationreciperunstate) |  |
-| `_neq` | [OrganizationRecipeRunState](#organizationreciperunstate) |  |
-| `_in` | [[OrganizationRecipeRunState](#organizationreciperunstate)!] |  |
-| `_nin` | [[OrganizationRecipeRunState](#organizationreciperunstate)!] |  |
+| `_eq` | <a href="#organizationreciperunstate">OrganizationRecipeRunState</a> |  |
+| `_neq` | <a href="#organizationreciperunstate">OrganizationRecipeRunState</a> |  |
+| `_in` | [<a href="#organizationreciperunstate">OrganizationRecipeRunState</a>!] |  |
+| `_nin` | [<a href="#organizationreciperunstate">OrganizationRecipeRunState</a>!] |  |
 
 ---
 
@@ -5796,13 +5796,13 @@ Filter input for organization-level commit queries.
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `id` | [IDFilter](#idfilter) |  |
-| `state` | [OrganizationRecipeRunStateFilter](#organizationreciperunstatefilter) |  |
-| `startedAt` | [DateTimeFilter](#datetimefilter) |  |
-| `user` | [StringFilter](#stringfilter) |  |
-| `_and` | [[OrganizationRecipeRunWhereInput](#organizationreciperunwhereinput)!] |  |
-| `_or` | [[OrganizationRecipeRunWhereInput](#organizationreciperunwhereinput)!] |  |
-| `_not` | [OrganizationRecipeRunWhereInput](#organizationreciperunwhereinput) |  |
+| `id` | <a href="#idfilter">IDFilter</a> |  |
+| `state` | <a href="#organizationreciperunstatefilter">OrganizationRecipeRunStateFilter</a> |  |
+| `startedAt` | <a href="#datetimefilter">DateTimeFilter</a> |  |
+| `user` | <a href="#stringfilter">StringFilter</a> |  |
+| `_and` | [<a href="#organizationreciperunwhereinput">OrganizationRecipeRunWhereInput</a>!] |  |
+| `_or` | [<a href="#organizationreciperunwhereinput">OrganizationRecipeRunWhereInput</a>!] |  |
+| `_not` | <a href="#organizationreciperunwhereinput">OrganizationRecipeRunWhereInput</a> |  |
 
 ---
 
@@ -5812,12 +5812,12 @@ Filter input for organization-level commit queries.
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `name` | [StringFilter](#stringfilter) |  |
-| `depth` | [IntFilter](#intfilter) | Filter by depth in the organization hierarchy.
+| `name` | <a href="#stringfilter">StringFilter</a> |  |
+| `depth` | <a href="#intfilter">IntFilter</a> | Filter by depth in the organization hierarchy.
 The root organization ("_root") is depth 0, its direct children are depth 1, etc. |
-| `_and` | [[OrganizationWhereInput](#organizationwhereinput)!] |  |
-| `_or` | [[OrganizationWhereInput](#organizationwhereinput)!] |  |
-| `_not` | [OrganizationWhereInput](#organizationwhereinput) |  |
+| `_and` | [<a href="#organizationwhereinput">OrganizationWhereInput</a>!] |  |
+| `_or` | [<a href="#organizationwhereinput">OrganizationWhereInput</a>!] |  |
+| `_not` | <a href="#organizationwhereinput">OrganizationWhereInput</a> |  |
 
 ---
 
@@ -5829,9 +5829,9 @@ Filter for file paths using glob patterns.
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `_eq` | [Path](#path) | Exact path match. |
-| `_in` | [[Path](#path)!] | Match any of the exact paths. |
-| `_nin` | [[Path](#path)!] | Exclude any of the exact paths. |
+| `_eq` | <a href="#path">Path</a> | Exact path match. |
+| `_in` | [<a href="#path">Path</a>!] | Match any of the exact paths. |
+| `_nin` | [<a href="#path">Path</a>!] | Exclude any of the exact paths. |
 | `_glob` | String | Glob pattern match. Examples: **\/*.java, src/main/** |
 
 ---
@@ -5853,8 +5853,8 @@ Filter for file paths using glob patterns.
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `field` | [PullRequestActionOrderByField](#pullrequestactionorderbyfield)! |  |
-| `direction` | [SortOrder](#sortorder)! |  |
+| `field` | <a href="#pullrequestactionorderbyfield">PullRequestActionOrderByField</a>! |  |
+| `direction` | <a href="#sortorder">SortOrder</a>! |  |
 
 ---
 
@@ -5864,10 +5864,10 @@ Filter for file paths using glob patterns.
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `_eq` | [PullRequestActionState](#pullrequestactionstate) |  |
-| `_neq` | [PullRequestActionState](#pullrequestactionstate) |  |
-| `_in` | [[PullRequestActionState](#pullrequestactionstate)!] |  |
-| `_nin` | [[PullRequestActionState](#pullrequestactionstate)!] |  |
+| `_eq` | <a href="#pullrequestactionstate">PullRequestActionState</a> |  |
+| `_neq` | <a href="#pullrequestactionstate">PullRequestActionState</a> |  |
+| `_in` | [<a href="#pullrequestactionstate">PullRequestActionState</a>!] |  |
+| `_nin` | [<a href="#pullrequestactionstate">PullRequestActionState</a>!] |  |
 
 ---
 
@@ -5877,10 +5877,10 @@ Filter for file paths using glob patterns.
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `_eq` | [PullRequestActionType](#pullrequestactiontype) |  |
-| `_neq` | [PullRequestActionType](#pullrequestactiontype) |  |
-| `_in` | [[PullRequestActionType](#pullrequestactiontype)!] |  |
-| `_nin` | [[PullRequestActionType](#pullrequestactiontype)!] |  |
+| `_eq` | <a href="#pullrequestactiontype">PullRequestActionType</a> |  |
+| `_neq` | <a href="#pullrequestactiontype">PullRequestActionType</a> |  |
+| `_in` | [<a href="#pullrequestactiontype">PullRequestActionType</a>!] |  |
+| `_nin` | [<a href="#pullrequestactiontype">PullRequestActionType</a>!] |  |
 
 ---
 
@@ -5890,10 +5890,10 @@ Filter for file paths using glob patterns.
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `state` | [PullRequestActionStateFilter](#pullrequestactionstatefilter) |  |
-| `_and` | [[PullRequestActionWhereInput](#pullrequestactionwhereinput)!] |  |
-| `_or` | [[PullRequestActionWhereInput](#pullrequestactionwhereinput)!] |  |
-| `_not` | [PullRequestActionWhereInput](#pullrequestactionwhereinput) |  |
+| `state` | <a href="#pullrequestactionstatefilter">PullRequestActionStateFilter</a> |  |
+| `_and` | [<a href="#pullrequestactionwhereinput">PullRequestActionWhereInput</a>!] |  |
+| `_or` | [<a href="#pullrequestactionwhereinput">PullRequestActionWhereInput</a>!] |  |
+| `_not` | <a href="#pullrequestactionwhereinput">PullRequestActionWhereInput</a> |  |
 
 ---
 
@@ -5906,9 +5906,9 @@ Create a pull request from a branch on the origin remote.
 | Field | Type | Description |
 |-------|------|-------------|
 | `title` | String | Pull request title. If unset, uses the commit message. |
-| `body` | [Base64](#base64) | Pull request body (Base64 encoded). |
+| `body` | <a href="#base64">Base64</a> | Pull request body (Base64 encoded). |
 | `draft` | Boolean | Create as a draft pull request. |
-| `autoMergeMethod` | [MergeMethod](#mergemethod) | Auto-merge method after checks pass. Null means no auto-merge.
+| `autoMergeMethod` | <a href="#mergemethod">MergeMethod</a> | Auto-merge method after checks pass. Null means no auto-merge.
 Best effort - silently ignored if not supported by the repository. |
 | `recreateClosedPullRequest` | Boolean | Recreate pull request if it was previously closed. |
 
@@ -5920,7 +5920,7 @@ Best effort - silently ignored if not supported by the repository. |
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `repository` | [RepositoryInput](#repositoryinput)! |  |
+| `repository` | <a href="#repositoryinput">RepositoryInput</a>! |  |
 | `number` | Int! | Pull request number. |
 
 ---
@@ -5942,8 +5942,8 @@ Examples:
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `where` | [ChangelogEntryWhereInput](#changelogentrywhereinput) | Filter for the base set of PRs. Omit to start with an empty set. |
-| `pullRequests` | [PullRequestSelectionModifier](#pullrequestselectionmodifier) | Modify the base set by including or excluding specific PRs. |
+| `where` | <a href="#changelogentrywhereinput">ChangelogEntryWhereInput</a> | Filter for the base set of PRs. Omit to start with an empty set. |
+| `pullRequests` | <a href="#pullrequestselectionmodifier">PullRequestSelectionModifier</a> | Modify the base set by including or excluding specific PRs. |
 
 ---
 
@@ -5956,8 +5956,8 @@ Exactly one field must be set.
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `include` | [[PullRequestInput](#pullrequestinput)!] | Add these PRs to the base set. |
-| `exclude` | [[PullRequestInput](#pullrequestinput)!] | Remove these PRs from the base set. |
+| `include` | [<a href="#pullrequestinput">PullRequestInput</a>!] | Add these PRs to the base set. |
+| `exclude` | [<a href="#pullrequestinput">PullRequestInput</a>!] | Remove these PRs from the base set. |
 
 ---
 
@@ -5967,10 +5967,10 @@ Exactly one field must be set.
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `_eq` | [PullRequestState](#pullrequeststate) |  |
-| `_neq` | [PullRequestState](#pullrequeststate) |  |
-| `_in` | [[PullRequestState](#pullrequeststate)!] |  |
-| `_nin` | [[PullRequestState](#pullrequeststate)!] |  |
+| `_eq` | <a href="#pullrequeststate">PullRequestState</a> |  |
+| `_neq` | <a href="#pullrequeststate">PullRequestState</a> |  |
+| `_in` | [<a href="#pullrequeststate">PullRequestState</a>!] |  |
+| `_nin` | [<a href="#pullrequeststate">PullRequestState</a>!] |  |
 
 ---
 
@@ -5980,12 +5980,12 @@ Exactly one field must be set.
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `maven` | [MavenRecipeBundleInput](#mavenrecipebundleinput) |  |
-| `npm` | [NpmRecipeBundleInput](#npmrecipebundleinput) |  |
-| `nuget` | [NugetRecipeBundleInput](#nugetrecipebundleinput) |  |
-| `yaml` | [YamlRecipeBundleInput](#yamlrecipebundleinput) |  |
-| `pip` | [PipRecipeBundleInput](#piprecipebundleinput) |  |
-| `go` | [GoRecipeBundleInput](#gorecipebundleinput) |  |
+| `maven` | <a href="#mavenrecipebundleinput">MavenRecipeBundleInput</a> |  |
+| `npm` | <a href="#npmrecipebundleinput">NpmRecipeBundleInput</a> |  |
+| `nuget` | <a href="#nugetrecipebundleinput">NugetRecipeBundleInput</a> |  |
+| `yaml` | <a href="#yamlrecipebundleinput">YamlRecipeBundleInput</a> |  |
+| `pip` | <a href="#piprecipebundleinput">PipRecipeBundleInput</a> |  |
+| `go` | <a href="#gorecipebundleinput">GoRecipeBundleInput</a> |  |
 
 ---
 
@@ -5995,8 +5995,8 @@ Exactly one field must be set.
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `field` | [RecipeBundleOrderByField](#recipebundleorderbyfield)! |  |
-| `direction` | [SortOrder](#sortorder)! |  |
+| `field` | <a href="#recipebundleorderbyfield">RecipeBundleOrderByField</a>! |  |
+| `direction` | <a href="#sortorder">SortOrder</a>! |  |
 
 ---
 
@@ -6008,13 +6008,13 @@ Filter input for RecipeBundle queries.
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `packageName` | [StringFilter](#stringfilter) | Filter by package name (e.g., "org.openrewrite:rewrite-java"). |
-| `version` | [StringFilter](#stringfilter) | Filter by resolved version. |
-| `requestedVersion` | [StringFilter](#stringfilter) | Filter by requested version (the version requested before resolution). |
-| `ecosystem` | [RecipeEcosystemFilter](#recipeecosystemfilter) | Filter by ecosystem. |
-| `_and` | [[RecipeBundleWhereInput](#recipebundlewhereinput)!] |  |
-| `_or` | [[RecipeBundleWhereInput](#recipebundlewhereinput)!] |  |
-| `_not` | [RecipeBundleWhereInput](#recipebundlewhereinput) |  |
+| `packageName` | <a href="#stringfilter">StringFilter</a> | Filter by package name (e.g., "org.openrewrite:rewrite-java"). |
+| `version` | <a href="#stringfilter">StringFilter</a> | Filter by resolved version. |
+| `requestedVersion` | <a href="#stringfilter">StringFilter</a> | Filter by requested version (the version requested before resolution). |
+| `ecosystem` | <a href="#recipeecosystemfilter">RecipeEcosystemFilter</a> | Filter by ecosystem. |
+| `_and` | [<a href="#recipebundlewhereinput">RecipeBundleWhereInput</a>!] |  |
+| `_or` | [<a href="#recipebundlewhereinput">RecipeBundleWhereInput</a>!] |  |
+| `_not` | <a href="#recipebundlewhereinput">RecipeBundleWhereInput</a> |  |
 
 ---
 
@@ -6024,8 +6024,8 @@ Filter input for RecipeBundle queries.
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `field` | [RecipeCategoryOrderByField](#recipecategoryorderbyfield)! |  |
-| `direction` | [SortOrder](#sortorder)! |  |
+| `field` | <a href="#recipecategoryorderbyfield">RecipeCategoryOrderByField</a>! |  |
+| `direction` | <a href="#sortorder">SortOrder</a>! |  |
 
 ---
 
@@ -6037,12 +6037,12 @@ Filter input for RecipeCategory queries.
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `id` | [IDFilter](#idfilter) | Filter by category ID. |
-| `parentId` | [IDFilter](#idfilter) | Filter by parent category ID. Use null to find root categories. |
-| `displayName` | [StringFilter](#stringfilter) | Filter by display name. |
-| `_and` | [[RecipeCategoryWhereInput](#recipecategorywhereinput)!] |  |
-| `_or` | [[RecipeCategoryWhereInput](#recipecategorywhereinput)!] |  |
-| `_not` | [RecipeCategoryWhereInput](#recipecategorywhereinput) |  |
+| `id` | <a href="#idfilter">IDFilter</a> | Filter by category ID. |
+| `parentId` | <a href="#idfilter">IDFilter</a> | Filter by parent category ID. Use null to find root categories. |
+| `displayName` | <a href="#stringfilter">StringFilter</a> | Filter by display name. |
+| `_and` | [<a href="#recipecategorywhereinput">RecipeCategoryWhereInput</a>!] |  |
+| `_or` | [<a href="#recipecategorywhereinput">RecipeCategoryWhereInput</a>!] |  |
+| `_not` | <a href="#recipecategorywhereinput">RecipeCategoryWhereInput</a> |  |
 
 ---
 
@@ -6052,10 +6052,10 @@ Filter input for RecipeCategory queries.
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `_eq` | [RecipeEcosystem](#recipeecosystem) |  |
-| `_neq` | [RecipeEcosystem](#recipeecosystem) |  |
-| `_in` | [[RecipeEcosystem](#recipeecosystem)!] |  |
-| `_nin` | [[RecipeEcosystem](#recipeecosystem)!] |  |
+| `_eq` | <a href="#recipeecosystem">RecipeEcosystem</a> |  |
+| `_neq` | <a href="#recipeecosystem">RecipeEcosystem</a> |  |
+| `_in` | [<a href="#recipeecosystem">RecipeEcosystem</a>!] |  |
+| `_nin` | [<a href="#recipeecosystem">RecipeEcosystem</a>!] |  |
 
 ---
 
@@ -6067,7 +6067,7 @@ Filter input for RecipeCategory queries.
 |-------|------|-------------|
 | `id` | ID! | Fully-qualified recipe ID.
 Example: `org.openrewrite.java.search.FindMethods` |
-| `options` | [[RecipeOptionInput](#recipeoptioninput)!] |  |
+| `options` | [<a href="#recipeoptioninput">RecipeOptionInput</a>!] |  |
 
 ---
 
@@ -6077,8 +6077,8 @@ Example: `org.openrewrite.java.search.FindMethods` |
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `field` | [RecipeInstallationOrderByField](#recipeinstallationorderbyfield)! |  |
-| `direction` | [SortOrder](#sortorder)! |  |
+| `field` | <a href="#recipeinstallationorderbyfield">RecipeInstallationOrderByField</a>! |  |
+| `direction` | <a href="#sortorder">SortOrder</a>! |  |
 
 ---
 
@@ -6088,10 +6088,10 @@ Example: `org.openrewrite.java.search.FindMethods` |
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `_eq` | [RecipeInstallationStatus](#recipeinstallationstatus) |  |
-| `_neq` | [RecipeInstallationStatus](#recipeinstallationstatus) |  |
-| `_in` | [[RecipeInstallationStatus](#recipeinstallationstatus)!] |  |
-| `_nin` | [[RecipeInstallationStatus](#recipeinstallationstatus)!] |  |
+| `_eq` | <a href="#recipeinstallationstatus">RecipeInstallationStatus</a> |  |
+| `_neq` | <a href="#recipeinstallationstatus">RecipeInstallationStatus</a> |  |
+| `_in` | [<a href="#recipeinstallationstatus">RecipeInstallationStatus</a>!] |  |
+| `_nin` | [<a href="#recipeinstallationstatus">RecipeInstallationStatus</a>!] |  |
 
 ---
 
@@ -6101,15 +6101,15 @@ Example: `org.openrewrite.java.search.FindMethods` |
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `id` | [IDFilter](#idfilter) |  |
-| `status` | [RecipeInstallationStatusFilter](#recipeinstallationstatusfilter) |  |
-| `startedAt` | [DateTimeFilter](#datetimefilter) |  |
-| `user` | [UserWhereInput](#userwhereinput) |  |
-| `organization` | [IDFilter](#idfilter) |  |
-| `bundle` | [RecipeBundleWhereInput](#recipebundlewhereinput) | Filter by bundle properties (packageName, ecosystem, version, etc.). |
-| `_and` | [[RecipeInstallationWhereInput](#recipeinstallationwhereinput)!] |  |
-| `_or` | [[RecipeInstallationWhereInput](#recipeinstallationwhereinput)!] |  |
-| `_not` | [RecipeInstallationWhereInput](#recipeinstallationwhereinput) |  |
+| `id` | <a href="#idfilter">IDFilter</a> |  |
+| `status` | <a href="#recipeinstallationstatusfilter">RecipeInstallationStatusFilter</a> |  |
+| `startedAt` | <a href="#datetimefilter">DateTimeFilter</a> |  |
+| `user` | <a href="#userwhereinput">UserWhereInput</a> |  |
+| `organization` | <a href="#idfilter">IDFilter</a> |  |
+| `bundle` | <a href="#recipebundlewhereinput">RecipeBundleWhereInput</a> | Filter by bundle properties (packageName, ecosystem, version, etc.). |
+| `_and` | [<a href="#recipeinstallationwhereinput">RecipeInstallationWhereInput</a>!] |  |
+| `_or` | [<a href="#recipeinstallationwhereinput">RecipeInstallationWhereInput</a>!] |  |
+| `_not` | <a href="#recipeinstallationwhereinput">RecipeInstallationWhereInput</a> |  |
 
 ---
 
@@ -6120,7 +6120,7 @@ Example: `org.openrewrite.java.search.FindMethods` |
 | Field | Type | Description |
 |-------|------|-------------|
 | `name` | String! | Option name. Example: `methodPattern` |
-| `value` | [Object](#object)! | Option value. Example: `java.util.List add(..)` |
+| `value` | <a href="#object">Object</a>! | Option value. Example: `java.util.List add(..)` |
 
 ---
 
@@ -6130,8 +6130,8 @@ Example: `org.openrewrite.java.search.FindMethods` |
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `field` | [RecipeOrderByField](#recipeorderbyfield)! |  |
-| `direction` | [SortOrder](#sortorder)! |  |
+| `field` | <a href="#recipeorderbyfield">RecipeOrderByField</a>! |  |
+| `direction` | <a href="#sortorder">SortOrder</a>! |  |
 
 ---
 
@@ -6145,11 +6145,11 @@ Use `query` for semantic search, or use field filters for exact matching.
 | Field | Type | Description |
 |-------|------|-------------|
 | `query` | String | Semantic search query - searches recipe names, descriptions, and content. |
-| `id` | [StringFilter](#stringfilter) | Filter by recipe ID (fully qualified recipe name). |
-| `displayName` | [StringFilter](#stringfilter) | Filter by display name. |
-| `_and` | [[RecipeWhereInput](#recipewhereinput)!] |  |
-| `_or` | [[RecipeWhereInput](#recipewhereinput)!] |  |
-| `_not` | [RecipeWhereInput](#recipewhereinput) |  |
+| `id` | <a href="#stringfilter">StringFilter</a> | Filter by recipe ID (fully qualified recipe name). |
+| `displayName` | <a href="#stringfilter">StringFilter</a> | Filter by display name. |
+| `_and` | [<a href="#recipewhereinput">RecipeWhereInput</a>!] |  |
+| `_or` | [<a href="#recipewhereinput">RecipeWhereInput</a>!] |  |
+| `_not` | <a href="#recipewhereinput">RecipeWhereInput</a> |  |
 
 ---
 
@@ -6159,8 +6159,8 @@ Use `query` for semantic search, or use field filters for exact matching.
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `field` | [RepositoryChangesetOrderByField](#repositorychangesetorderbyfield)! |  |
-| `direction` | [SortOrder](#sortorder)! |  |
+| `field` | <a href="#repositorychangesetorderbyfield">RepositoryChangesetOrderByField</a>! |  |
+| `direction` | <a href="#sortorder">SortOrder</a>! |  |
 
 ---
 
@@ -6170,10 +6170,10 @@ Use `query` for semantic search, or use field filters for exact matching.
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `_eq` | [RepositoryChangesetState](#repositorychangesetstate) |  |
-| `_neq` | [RepositoryChangesetState](#repositorychangesetstate) |  |
-| `_in` | [[RepositoryChangesetState](#repositorychangesetstate)!] |  |
-| `_nin` | [[RepositoryChangesetState](#repositorychangesetstate)!] |  |
+| `_eq` | <a href="#repositorychangesetstate">RepositoryChangesetState</a> |  |
+| `_neq` | <a href="#repositorychangesetstate">RepositoryChangesetState</a> |  |
+| `_in` | [<a href="#repositorychangesetstate">RepositoryChangesetState</a>!] |  |
+| `_nin` | [<a href="#repositorychangesetstate">RepositoryChangesetState</a>!] |  |
 
 ---
 
@@ -6185,16 +6185,16 @@ Filter for repository changesets.
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `path` | [StringFilter](#stringfilter) | Filter by repository path. |
-| `origin` | [StringFilter](#stringfilter) | Filter by repository origin. |
-| `branch` | [StringFilter](#stringfilter) | Filter by repository branch. |
-| `files` | [FileChangeWhereInput](#filechangewhereinput) | Filter files within matching repositories.
+| `path` | <a href="#stringfilter">StringFilter</a> | Filter by repository path. |
+| `origin` | <a href="#stringfilter">StringFilter</a> | Filter by repository origin. |
+| `branch` | <a href="#stringfilter">StringFilter</a> | Filter by repository branch. |
+| `files` | <a href="#filechangewhereinput">FileChangeWhereInput</a> | Filter files within matching repositories.
 Useful for filtering to specific file patterns (e.g., all build.gradle.kts files). |
 | `onlyWithResults` | Boolean | Only return repositories with results (filesWithResults > 0). |
-| `state` | [RepositoryChangesetStateFilter](#repositorychangesetstatefilter) | Filter by repository result state. |
-| `_and` | [[RepositoryChangesetWhereInput](#repositorychangesetwhereinput)!] | Logical AND - all conditions must match. |
-| `_or` | [[RepositoryChangesetWhereInput](#repositorychangesetwhereinput)!] | Logical OR - at least one condition must match. |
-| `_not` | [RepositoryChangesetWhereInput](#repositorychangesetwhereinput) | Logical NOT - negates the condition. |
+| `state` | <a href="#repositorychangesetstatefilter">RepositoryChangesetStateFilter</a> | Filter by repository result state. |
+| `_and` | [<a href="#repositorychangesetwhereinput">RepositoryChangesetWhereInput</a>!] | Logical AND - all conditions must match. |
+| `_or` | [<a href="#repositorychangesetwhereinput">RepositoryChangesetWhereInput</a>!] | Logical OR - at least one condition must match. |
+| `_not` | <a href="#repositorychangesetwhereinput">RepositoryChangesetWhereInput</a> | Logical NOT - negates the condition. |
 
 ---
 
@@ -6204,8 +6204,8 @@ Useful for filtering to specific file patterns (e.g., all build.gradle.kts files
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `field` | [RepositoryCommitOrderByField](#repositorycommitorderbyfield)! |  |
-| `direction` | [SortOrder](#sortorder)! |  |
+| `field` | <a href="#repositorycommitorderbyfield">RepositoryCommitOrderByField</a>! |  |
+| `direction` | <a href="#sortorder">SortOrder</a>! |  |
 
 ---
 
@@ -6217,9 +6217,9 @@ Filter input for repository-level commit queries.
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `_and` | [[RepositoryCommitWhereInput](#repositorycommitwhereinput)!] |  |
-| `_or` | [[RepositoryCommitWhereInput](#repositorycommitwhereinput)!] |  |
-| `_not` | [RepositoryCommitWhereInput](#repositorycommitwhereinput) |  |
+| `_and` | [<a href="#repositorycommitwhereinput">RepositoryCommitWhereInput</a>!] |  |
+| `_or` | [<a href="#repositorycommitwhereinput">RepositoryCommitWhereInput</a>!] |  |
+| `_not` | <a href="#repositorycommitwhereinput">RepositoryCommitWhereInput</a> |  |
 
 ---
 
@@ -6241,8 +6241,8 @@ Filter input for repository-level commit queries.
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `field` | [RepositoryOrderByField](#repositoryorderbyfield)! |  |
-| `direction` | [SortOrder](#sortorder)! |  |
+| `field` | <a href="#repositoryorderbyfield">RepositoryOrderByField</a>! |  |
+| `direction` | <a href="#sortorder">SortOrder</a>! |  |
 
 ---
 
@@ -6252,8 +6252,8 @@ Filter input for repository-level commit queries.
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `field` | [RepositoryRecipeRunOrderByField](#repositoryreciperunorderbyfield)! |  |
-| `direction` | [SortOrder](#sortorder)! |  |
+| `field` | <a href="#repositoryreciperunorderbyfield">RepositoryRecipeRunOrderByField</a>! |  |
+| `direction` | <a href="#sortorder">SortOrder</a>! |  |
 
 ---
 
@@ -6263,11 +6263,11 @@ Filter input for repository-level commit queries.
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `path` | [StringFilter](#stringfilter) |  |
-| `origin` | [StringFilter](#stringfilter) |  |
-| `_and` | [[RepositoryRecipeRunWhereInput](#repositoryreciperunwhereinput)!] |  |
-| `_or` | [[RepositoryRecipeRunWhereInput](#repositoryreciperunwhereinput)!] |  |
-| `_not` | [RepositoryRecipeRunWhereInput](#repositoryreciperunwhereinput) |  |
+| `path` | <a href="#stringfilter">StringFilter</a> |  |
+| `origin` | <a href="#stringfilter">StringFilter</a> |  |
+| `_and` | [<a href="#repositoryreciperunwhereinput">RepositoryRecipeRunWhereInput</a>!] |  |
+| `_or` | [<a href="#repositoryreciperunwhereinput">RepositoryRecipeRunWhereInput</a>!] |  |
+| `_not` | <a href="#repositoryreciperunwhereinput">RepositoryRecipeRunWhereInput</a> |  |
 
 ---
 
@@ -6279,14 +6279,14 @@ Filter input for Repository queries using typed field filters.
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `origin` | [StringFilter](#stringfilter) |  |
-| `path` | [StringFilter](#stringfilter) |  |
-| `branch` | [StringFilter](#stringfilter) |  |
-| `changeset` | [StringFilter](#stringfilter) |  |
-| `lstArtifact` | [LstArtifactWhereInput](#lstartifactwhereinput) |  |
-| `_and` | [[RepositoryWhereInput](#repositorywhereinput)!] | Logical AND - all conditions must match |
-| `_or` | [[RepositoryWhereInput](#repositorywhereinput)!] | Logical OR - at least one condition must match |
-| `_not` | [RepositoryWhereInput](#repositorywhereinput) | Logical NOT - negates the condition |
+| `origin` | <a href="#stringfilter">StringFilter</a> |  |
+| `path` | <a href="#stringfilter">StringFilter</a> |  |
+| `branch` | <a href="#stringfilter">StringFilter</a> |  |
+| `changeset` | <a href="#stringfilter">StringFilter</a> |  |
+| `lstArtifact` | <a href="#lstartifactwhereinput">LstArtifactWhereInput</a> |  |
+| `_and` | [<a href="#repositorywhereinput">RepositoryWhereInput</a>!] | Logical AND - all conditions must match |
+| `_or` | [<a href="#repositorywhereinput">RepositoryWhereInput</a>!] | Logical OR - at least one condition must match |
+| `_not` | <a href="#repositorywhereinput">RepositoryWhereInput</a> | Logical NOT - negates the condition |
 
 ---
 
@@ -6296,10 +6296,10 @@ Filter input for Repository queries using typed field filters.
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `_eq` | [ReviewDecision](#reviewdecision) |  |
-| `_neq` | [ReviewDecision](#reviewdecision) |  |
-| `_in` | [[ReviewDecision](#reviewdecision)!] |  |
-| `_nin` | [[ReviewDecision](#reviewdecision)!] |  |
+| `_eq` | <a href="#reviewdecision">ReviewDecision</a> |  |
+| `_neq` | <a href="#reviewdecision">ReviewDecision</a> |  |
+| `_in` | [<a href="#reviewdecision">ReviewDecision</a>!] |  |
+| `_nin` | [<a href="#reviewdecision">ReviewDecision</a>!] |  |
 
 ---
 
@@ -6330,7 +6330,7 @@ Filter input for Repository queries using typed field filters.
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `recipe` | [RecipeInput](#recipeinput)! | The recipe to run with any configured options. |
+| `recipe` | <a href="#recipeinput">RecipeInput</a>! | The recipe to run with any configured options. |
 | `organizationId` | ID! | Run against all repositories in this organization. |
 | `parentId` | ID | Optional parent changeset ID this recipe run is derived from. |
 | `excludeFiles` | [String!] | Exclude files matching these patterns. |
@@ -6377,7 +6377,7 @@ these tokens are preferred over stored OAuth tokens.
 |-------|------|-------------|
 | `id` | ID! | The ID of the organization to update. |
 | `name` | String | The new name for the organization. |
-| `repositories` | [[RepositoryInput](#repositoryinput)!] | Repositories to include in the organization. If provided, replaces the current list. |
+| `repositories` | [<a href="#repositoryinput">RepositoryInput</a>!] | Repositories to include in the organization. If provided, replaces the current list. |
 
 ---
 
@@ -6387,8 +6387,8 @@ these tokens are preferred over stored OAuth tokens.
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `field` | [UserOrderByField](#userorderbyfield)! |  |
-| `direction` | [SortOrder](#sortorder)! |  |
+| `field` | <a href="#userorderbyfield">UserOrderByField</a>! |  |
+| `direction` | <a href="#sortorder">SortOrder</a>! |  |
 
 ---
 
@@ -6398,10 +6398,10 @@ these tokens are preferred over stored OAuth tokens.
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `email` | [StringFilter](#stringfilter) |  |
-| `_and` | [[UserWhereInput](#userwhereinput)!] |  |
-| `_or` | [[UserWhereInput](#userwhereinput)!] |  |
-| `_not` | [UserWhereInput](#userwhereinput) |  |
+| `email` | <a href="#stringfilter">StringFilter</a> |  |
+| `_and` | [<a href="#userwhereinput">UserWhereInput</a>!] |  |
+| `_or` | [<a href="#userwhereinput">UserWhereInput</a>!] |  |
+| `_not` | <a href="#userwhereinput">UserWhereInput</a> |  |
 
 ---
 
@@ -6412,7 +6412,7 @@ these tokens are preferred over stored OAuth tokens.
 | Field | Type | Description |
 |-------|------|-------------|
 | `name` | String! |  |
-| `value` | [Object](#object)! |  |
+| `value` | <a href="#object">Object</a>! |  |
 
 ---
 
@@ -6422,8 +6422,8 @@ these tokens are preferred over stored OAuth tokens.
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `field` | [VisualizationOrderByField](#visualizationorderbyfield)! |  |
-| `direction` | [SortOrder](#sortorder)! |  |
+| `field` | <a href="#visualizationorderbyfield">VisualizationOrderByField</a>! |  |
+| `direction` | <a href="#sortorder">SortOrder</a>! |  |
 
 ---
 
@@ -6433,11 +6433,11 @@ these tokens are preferred over stored OAuth tokens.
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `id` | [IDFilter](#idfilter) |  |
-| `visualization` | [StringFilter](#stringfilter) |  |
-| `_and` | [[VisualizationWhereInput](#visualizationwhereinput)!] |  |
-| `_or` | [[VisualizationWhereInput](#visualizationwhereinput)!] |  |
-| `_not` | [VisualizationWhereInput](#visualizationwhereinput) |  |
+| `id` | <a href="#idfilter">IDFilter</a> |  |
+| `visualization` | <a href="#stringfilter">StringFilter</a> |  |
+| `_and` | [<a href="#visualizationwhereinput">VisualizationWhereInput</a>!] |  |
+| `_or` | [<a href="#visualizationwhereinput">VisualizationWhereInput</a>!] |  |
+| `_not` | <a href="#visualizationwhereinput">VisualizationWhereInput</a> |  |
 
 ---
 
@@ -6447,7 +6447,7 @@ these tokens are preferred over stored OAuth tokens.
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `yaml` | [Base64](#base64)! |  |
+| `yaml` | <a href="#base64">Base64</a>! |  |
 | `primary` | ID | The ID of the primary recipe in this bundle. When specified, only this recipe
 will be shown in the marketplace categories, hiding other recipes from this bundle.
 This is used for the Moderne Builder feature where users build complex composite
@@ -6461,7 +6461,7 @@ recipes and we don't want to expose intermediate recipes in the marketplace. |
 
 **Service:** gateway
 
-= [GithubConfiguration](#githubconfiguration) | [GitLabConfiguration](#gitlabconfiguration) | [BitbucketConfiguration](#bitbucketconfiguration) | [BitbucketCloudConfiguration](#bitbucketcloudconfiguration) | [AzureDevOpsConfiguration](#azuredevopsconfiguration) | [ArtifactoryConfiguration](#artifactoryconfiguration) | [MavenConfiguration](#mavenconfiguration) | [PypiConfiguration](#pypiconfiguration) | [NpmConfiguration](#npmconfiguration) | [NugetConfiguration](#nugetconfiguration) | [GenericHttpToolConfiguration](#generichttptoolconfiguration) | [OrganizationConfiguration](#organizationconfiguration) | [LlmConfiguration](#llmconfiguration) | [S3Configuration](#s3configuration)
+= <a href="#githubconfiguration">GithubConfiguration</a> | <a href="#gitlabconfiguration">GitLabConfiguration</a> | <a href="#bitbucketconfiguration">BitbucketConfiguration</a> | <a href="#bitbucketcloudconfiguration">BitbucketCloudConfiguration</a> | <a href="#azuredevopsconfiguration">AzureDevOpsConfiguration</a> | <a href="#artifactoryconfiguration">ArtifactoryConfiguration</a> | <a href="#mavenconfiguration">MavenConfiguration</a> | <a href="#pypiconfiguration">PypiConfiguration</a> | <a href="#npmconfiguration">NpmConfiguration</a> | <a href="#nugetconfiguration">NugetConfiguration</a> | <a href="#generichttptoolconfiguration">GenericHttpToolConfiguration</a> | <a href="#organizationconfiguration">OrganizationConfiguration</a> | <a href="#llmconfiguration">LlmConfiguration</a> | <a href="#s3configuration">S3Configuration</a>
 
 ---
 
