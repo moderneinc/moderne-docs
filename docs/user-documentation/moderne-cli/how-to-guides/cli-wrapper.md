@@ -282,13 +282,13 @@ Setting `javax.net.ssl.trustStore` and friends inside the CLI process (via `Syst
 
 ### Migrating to the wrapper
 
-If you are currently running the JAR directly, you don't need to change everything at once:
+If you're currently running the JAR directly, you don't need to change everything at once:
 
-1. **Start with developer machines** — have developers install via `curl https://app.moderne.io/cli | bash` while CI continues using the JAR directly.
-2. **Point the wrapper at your internal mirror** — set `distributionUrl` in `moderne-wrapper.properties` to your Artifactory URL so the wrapper downloads from there instead of Maven Central. See [authenticated artifact repositories](#authenticated-artifact-repositories) for details.
-3. **Adopt the project wrapper for CI** — commit `modw` to your repository and have CI run `./modw` instead of `java -jar`. This ensures CI and developers use the same version.
+1. **Start with developer machines** — have developers install via `curl https://app.moderne.io/cli | bash` while CI continues using the JAR directly
+2. **Point the wrapper at your internal mirror** — set `distributionUrl` in `moderne-wrapper.properties` to your Artifactory URL so the wrapper downloads from there instead of Maven Central
+3. **Adopt the project wrapper for CI** — commit `modw` to your repository and have CI run `./modw` instead of `java -jar`. This ensures CI and developers use the same version
 
-Your existing tooling for environment setup (for example, scripts that configure Java versions, populate `.moderne/moderne.yml`, or set repository-specific environment variables) can continue to work alongside the wrapper.
+Your existing tooling for environment setup (e.g., scripts that configure Java versions, populate `.moderne/moderne.yml`, or set repository-specific environment variables) can continue to work alongside the wrapper.
 
 ## Checking your configuration
 
