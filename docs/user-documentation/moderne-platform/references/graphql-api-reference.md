@@ -222,9 +222,9 @@ only rows that actually persisted are rebuilt — partially-executed
 tool batches are reconstructed from whichever tool-origin rows made
 it to the log.
 
-Returns {@code true} when a running turn was actually interrupted,
-{@code false} when the conversation was already idle (no-op, not an
-error). {@code messageId} is accepted for client compatibility but
+Returns `true` when a running turn was actually interrupted,
+`false` when the conversation was already idle (no-op, not an
+error). `messageId` is accepted for client compatibility but
 only the conversation's active turn is cancellable — there is never
 more than one turn in flight.
 
