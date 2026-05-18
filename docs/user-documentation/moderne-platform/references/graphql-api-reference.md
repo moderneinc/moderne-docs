@@ -28,7 +28,7 @@ Query audit log events with pagination and filtering.
 `auditLogsDownloads`(first: Int = 50, after: String, where: [AuditLogsDownloadWhereInput](#auditlogsdownloadwhereinput), orderBy: [[AuditLogsDownloadOrderByInput](#auditlogsdownloadorderbyinput)!]): [AuditLogsDownloadConnection](#auditlogsdownloadconnection)!
 
 Query audit log downloads with pagination and filtering.
-Use where: { id: { _eq: "..." } } to poll a specific download.
+Use where: \{ id: \{ _eq: "..." } } to poll a specific download.
 
 ---
 
@@ -2664,7 +2664,7 @@ when downloadDataTable mutation is called. |
 |-------|------|-------------|
 | `diff` | String! | Sanitized diff (does not include markers) |
 | `fencedMarkerDiff` | String! | A diff with search and markup markers included in fenced
-{{UUID}} wrappers that correspond to ids in the markers list. |
+\{\{UUID}} wrappers that correspond to ids in the markers list. |
 | `markers` | [[Marker](#marker)!]! |  |
 
 ---
@@ -5482,7 +5482,7 @@ Filter input for DevCenter run queries.
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `id` | [IDFilter](#idfilter) | Filter by run ID. Use `where: { id: { _eq: "run-id" } }` to get a specific run. |
+| `id` | [IDFilter](#idfilter) | Filter by run ID. Use `where: \{ id: \{ _eq: "run-id" } }` to get a specific run. |
 | `state` | [DevCenterRunStateFilter](#devcenterrunstatefilter) | Filter by run state. |
 | `startedAt` | [DateTimeFilter](#datetimefilter) | Filter by start time. |
 | `_and` | [[DevCenterRunWhereInput](#devcenterrunwhereinput)!] | Logical AND - all conditions must match. |
@@ -5935,10 +5935,10 @@ The `where` filter defines a base set of matching PRs. The optional `pullRequest
 modifier can include or exclude specific PRs from that base set.
 
 Examples:
-- Filter-only: `{ where: { ... } }` — all matching PRs
-- Explicit: `{ pullRequests: { include: [...] } }` — exactly those PRs
-- Filter + exclusions: `{ where: { ... }, pullRequests: { exclude: [...] } }` — matching minus excluded
-- Filter + additions: `{ where: { ... }, pullRequests: { include: [...] } }` — matching plus included
+- Filter-only: `\{ where: \{ ... } }` — all matching PRs
+- Explicit: `\{ pullRequests: \{ include: [...] } }` — exactly those PRs
+- Filter + exclusions: `\{ where: \{ ... }, pullRequests: \{ exclude: [...] } }` — matching minus excluded
+- Filter + additions: `\{ where: \{ ... }, pullRequests: \{ include: [...] } }` — matching plus included
 
 | Field | Type | Description |
 |-------|------|-------------|
