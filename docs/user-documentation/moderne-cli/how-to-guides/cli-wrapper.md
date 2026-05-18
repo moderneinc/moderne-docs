@@ -20,7 +20,7 @@ The standard installation methods place `modw` in `~/.moderne/cli/bin/` and add 
 1. **Ensures the CLI is installed** — downloads and extracts the platform-specific CLI installer (JAR + bundled JRE) if needed
 2. **Finds a JDK** — locates a compatible Java runtime
 3. **Finds the CLI JAR** — resolves which JAR to launch
-4. **Applies startup JVM arguments**: reads persisted settings from `moderne.yml` (currently SSL/trust-store, key-store, and HTTP proxy) and translates them into JVM `-D` flags on the `java` command line, so the CLI and any JVM agents see them before the main JVM boots
+4. **Applies startup JVM arguments** - reads persisted settings from `moderne.yml` (currently SSL/trust-store, key-store, and HTTP proxy) and translates them into JVM `-D` flags on the `java` command line, so the CLI and any JVM agents see them before the main JVM boots
 5. **Optimizes startup** — manages an ahead-of-time (AOT) compilation cache for faster startup
 
 On first run after installation or an update, you may notice a brief delay while the wrapper downloads the distribution and builds the AOT cache. Subsequent runs reuse the cached artifacts and start quickly.
