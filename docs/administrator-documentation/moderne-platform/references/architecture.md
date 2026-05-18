@@ -27,43 +27,10 @@ Once the artifact is published (typically through [mass ingestion](../how-to-gui
 
 Below is a high-level architecture diagram that shows the flow of data between Moderne and a typical customer environment. Arrows indicate communication between components. The details of each component can be found in the following sections.
 
-```mermaid
-graph TB
-    subgraph Clients
-        UI[Web UI]
-        CLI[Moderne CLI]
-        API[API Consumers]
-    end
-
-    subgraph Moderne["Moderne Platform"]
-        GW[API Gateway]
-
-        subgraph Services["Moderne Services"]
-            ORG[Organization Management]
-            RECIPE[Recipe Marketplace + Worker]
-            CHANGESET[Changeset Services]
-            AUTH[Authorization]
-            MODDY[Moddy - AI Assistant]
-            AUDIT[Audit Service]
-            CHANGELOG[Changelog Services]
-            TRIGREP[Moderne Trigrep]
-        end
-
-        KC[Keycloak]
-    end
-
-    subgraph Customer["Customer Environment"]
-        CONN[Moderne Connector]
-        SCM[SCM Providers]
-        ARTS[Artifact Repositories]
-    end
-
-    UI & CLI & API --> GW
-    GW --> Services
-    CONN -->|RSocket - outbound only| GW
-    CONN --> SCM & ARTS
-    GW -->|tunneled via Connector| SCM
-```
+<figure>
+  ![Moderne architecture diagram](./assets/moderne-architecture-v2.png)
+  <figcaption>_Moderne architecture diagram_</figcaption>
+</figure>
 
 ## Key components
 
