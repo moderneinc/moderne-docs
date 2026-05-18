@@ -3,212 +3,210 @@ sidebar_label: GraphQL API reference
 description: Complete reference for the Moderne GraphQL API, including all queries, mutations, subscriptions, and types.
 ---
 
-# GraphQL API reference
+<h1>GraphQL API reference</h1>
 
-:::info
-This page is auto-generated from the Moderne GraphQL schema. Do not edit manually.
-:::
+<p><em>This page is auto-generated from the Moderne GraphQL schema. Do not edit manually.</em></p>
 
-## Queries
+<h2>Queries</h2>
 
-### `auditLogs`
+<h3 id="auditLogs"><code>auditLogs</code></h3>
 
-**Service:** auditreader
+<p><strong>Service:</strong> auditreader</p>
 
-`auditLogs`(first: Int = 100, after: String, where: <a href="#auditlogwhereinput">AuditLogWhereInput</a>, orderBy: [<a href="#auditlogorderbyinput">AuditLogOrderByInput</a>!]): <a href="#auditlogconnection">AuditLogConnection</a>!
+<p><code>auditLogs</code>(first: Int = 100, after: String, where: <a href="#auditlogwhereinput">AuditLogWhereInput</a>, orderBy: [<a href="#auditlogorderbyinput">AuditLogOrderByInput</a>!]): <a href="#auditlogconnection">AuditLogConnection</a>!</p>
 
-Query audit log events with pagination and filtering.
+<p>Query audit log events with pagination and filtering.</p>
 
----
+<hr/>
 
-### `auditLogsDownloads`
+<h3 id="auditLogsDownloads"><code>auditLogsDownloads</code></h3>
 
-**Service:** auditreader
+<p><strong>Service:</strong> auditreader</p>
 
-`auditLogsDownloads`(first: Int = 50, after: String, where: <a href="#auditlogsdownloadwhereinput">AuditLogsDownloadWhereInput</a>, orderBy: [<a href="#auditlogsdownloadorderbyinput">AuditLogsDownloadOrderByInput</a>!]): <a href="#auditlogsdownloadconnection">AuditLogsDownloadConnection</a>!
+<p><code>auditLogsDownloads</code>(first: Int = 50, after: String, where: <a href="#auditlogsdownloadwhereinput">AuditLogsDownloadWhereInput</a>, orderBy: [<a href="#auditlogsdownloadorderbyinput">AuditLogsDownloadOrderByInput</a>!]): <a href="#auditlogsdownloadconnection">AuditLogsDownloadConnection</a>!</p>
 
-Query audit log downloads with pagination and filtering.
-Use where: \{ id: \{ _eq: "..." } } to poll a specific download.
+<p>Query audit log downloads with pagination and filtering.
+Use where: &#123; id: &#123; _eq: "..." &#125; &#125; to poll a specific download.</p>
 
----
+<hr/>
 
-### `bulkPullRequestAction`
+<h3 id="bulkPullRequestAction"><code>bulkPullRequestAction</code></h3>
 
-**Service:** changelogreader
+<p><strong>Service:</strong> changelogreader</p>
 
-`bulkPullRequestAction`(id: ID!): <a href="#bulkpullrequestaction">BulkPullRequestAction</a>
+<p><code>bulkPullRequestAction</code>(id: ID!): <a href="#bulkpullrequestaction">BulkPullRequestAction</a></p>
 
-Get a bulk pull request action by ID to poll for progress.
+<p>Get a bulk pull request action by ID to poll for progress.</p>
 
----
+<hr/>
 
-### `capabilities`
+<h3 id="capabilities"><code>capabilities</code></h3>
 
-**Service:** gateway
+<p><strong>Service:</strong> gateway</p>
 
-`capabilities`: <a href="#platformcapabilities">PlatformCapabilities</a>!
+<p><code>capabilities</code>: <a href="#platformcapabilities">PlatformCapabilities</a>!</p>
 
-Returns which optional platform features are enabled in this deployment.
+<p>Returns which optional platform features are enabled in this deployment.
 Each field defaults to false and is overridden to true by the corresponding
-optional service when it is present in the supergraph composition.
+optional service when it is present in the supergraph composition.</p>
 
----
+<hr/>
 
-### `codeSearch`
+<h3 id="codeSearch"><code>codeSearch</code></h3>
 
-**Service:** code-search
+<p><strong>Service:</strong> code-search</p>
 
-`codeSearch`(repositoryId: String!, query: String!, first: Int = 100, after: String): <a href="#codesearchresultconnection">CodeSearchResultConnection</a>!
+<p><code>codeSearch</code>(repositoryId: String!, query: String!, first: Int = 100, after: String): <a href="#codesearchresultconnection">CodeSearchResultConnection</a>!</p>
 
-Search source code across artifact repositories.
+<p>Search source code across artifact repositories.
 Searches the given repository and all its descendants in the hierarchy.
-Results are grouped by artifact (groupId:artifactId) with file-level matches.
+Results are grouped by artifact (groupId:artifactId) with file-level matches.</p>
 
----
+<hr/>
 
-### `connectors`
+<h3 id="connectors"><code>connectors</code></h3>
 
-**Service:** gateway
+<p><strong>Service:</strong> gateway</p>
 
-`connectors`(first: Int = 100, after: String, where: <a href="#connectorwhereinput">ConnectorWhereInput</a>, orderBy: [<a href="#connectororderbyinput">ConnectorOrderByInput</a>!]): <a href="#connectorconnection">ConnectorConnection</a>!
+<p><code>connectors</code>(first: Int = 100, after: String, where: <a href="#connectorwhereinput">ConnectorWhereInput</a>, orderBy: [<a href="#connectororderbyinput">ConnectorOrderByInput</a>!]): <a href="#connectorconnection">ConnectorConnection</a>!</p>
 
----
+<hr/>
 
-### `conversation`
+<h3 id="conversation"><code>conversation</code></h3>
 
-**Service:** moddy
+<p><strong>Service:</strong> moddy</p>
 
-`conversation`(conversationId: ID!): <a href="#conversation">Conversation</a>
+<p><code>conversation</code>(conversationId: ID!): <a href="#conversation">Conversation</a></p>
 
-Look up a single conversation by id. Returns null when no conversation
+<p>Look up a single conversation by id. Returns null when no conversation
 matches or the caller does not have access. Restores the v1 query the
-moderne-ui client already references.
+moderne-ui client already references.</p>
 
----
+<hr/>
 
-### `currentUser`
+<h3 id="currentUser"><code>currentUser</code></h3>
 
-**Service:** authz
+<p><strong>Service:</strong> authz</p>
 
-`currentUser`: <a href="#user">User</a>!
+<p><code>currentUser</code>: <a href="#user">User</a>!</p>
 
-Returns the currently authenticated user.
+<p>Returns the currently authenticated user.</p>
 
----
+<hr/>
 
-### `devCenterRecipes`
+<h3 id="devCenterRecipes"><code>devCenterRecipes</code></h3>
 
-**Service:** recipemarketplace
+<p><strong>Service:</strong> recipemarketplace</p>
 
-`devCenterRecipes`: [<a href="#recipedescriptor">RecipeDescriptor</a>!]!
+<p><code>devCenterRecipes</code>: [<a href="#recipedescriptor">RecipeDescriptor</a>!]!</p>
 
-Get available DevCenter recipes for configuration.
+<p>Get available DevCenter recipes for configuration.</p>
 
----
+<hr/>
 
-### `license`
+<h3 id="license"><code>license</code></h3>
 
-**Service:** authz
+<p><strong>Service:</strong> authz</p>
 
-`license`: <a href="#license">License</a>!
+<p><code>license</code>: <a href="#license">License</a>!</p>
 
-Request a new license lease key
+<p>Request a new license lease key</p>
 
----
+<hr/>
 
-### `organization`
+<h3 id="organization"><code>organization</code></h3>
 
-**Service:** organization
+<p><strong>Service:</strong> organization</p>
 
-`organization`(id: ID!): <a href="#organization">Organization</a>!
+<p><code>organization</code>(id: ID!): <a href="#organization">Organization</a>!</p>
 
----
+<hr/>
 
-### `organizations`
+<h3 id="organizations"><code>organizations</code></h3>
 
-**Service:** organization
+<p><strong>Service:</strong> organization</p>
 
-`organizations`(first: Int = 100, after: String, where: <a href="#organizationwhereinput">OrganizationWhereInput</a>, orderBy: [<a href="#organizationorderbyinput">OrganizationOrderByInput</a>!]): <a href="#organizationconnection">OrganizationConnection</a>!
+<p><code>organizations</code>(first: Int = 100, after: String, where: <a href="#organizationwhereinput">OrganizationWhereInput</a>, orderBy: [<a href="#organizationorderbyinput">OrganizationOrderByInput</a>!]): <a href="#organizationconnection">OrganizationConnection</a>!</p>
 
----
+<hr/>
 
-### `scmConnections`
+<h3 id="scmConnections"><code>scmConnections</code></h3>
 
-**Service:** authz
+<p><strong>Service:</strong> authz</p>
 
-`scmConnections`: [<a href="#scmconnection">ScmConnection</a>!]!
+<p><code>scmConnections</code>: [<a href="#scmconnection">ScmConnection</a>!]!</p>
 
-Returns connections for all SCM providers.
+<p>Returns connections for all SCM providers.</p>
 
----
+<hr/>
 
-### `users`
+<h3 id="users"><code>users</code></h3>
 
-**Service:** authz
+<p><strong>Service:</strong> authz</p>
 
-`users`(first: Int = 100, after: String, where: <a href="#userwhereinput">UserWhereInput</a>, orderBy: [<a href="#userorderbyinput">UserOrderByInput</a>!]): <a href="#userconnection">UserConnection</a>!
+<p><code>users</code>(first: Int = 100, after: String, where: <a href="#userwhereinput">UserWhereInput</a>, orderBy: [<a href="#userorderbyinput">UserOrderByInput</a>!]): <a href="#userconnection">UserConnection</a>!</p>
 
-Returns users with option to filter by role.
+<p>Returns users with option to filter by role.</p>
 
----
+<hr/>
 
-### `verifyToken`
+<h3 id="verifyToken"><code>verifyToken</code></h3>
 
-**Service:** changesetcommitter
+<p><strong>Service:</strong> changesetcommitter</p>
 
-`verifyToken`(origin: String!, scmType: <a href="#scmtype">ScmType</a>!): String
+<p><code>verifyToken</code>(origin: String!, scmType: <a href="#scmtype">ScmType</a>!): String</p>
 
----
+<hr/>
 
-## Mutations
+<h2>Mutations</h2>
 
-### `approvePullRequests`
+<h3 id="approvePullRequests"><code>approvePullRequests</code></h3>
 
-**Service:** changelogreader
+<p><strong>Service:</strong> changelogreader</p>
 
-`approvePullRequests`(organizationId: ID!, selection: <a href="#pullrequestselectioninput">PullRequestSelectionInput</a>!): <a href="#bulkpullrequestactionqueued">BulkPullRequestActionQueued</a>!
+<p><code>approvePullRequests</code>(organizationId: ID!, selection: <a href="#pullrequestselectioninput">PullRequestSelectionInput</a>!): <a href="#bulkpullrequestactionqueued">BulkPullRequestActionQueued</a>!</p>
 
-Approve pull requests in bulk. Returns the queued action for polling.
+<p>Approve pull requests in bulk. Returns the queued action for polling.</p>
 
----
+<hr/>
 
-### `cancelBulkPullRequestAction`
+<h3 id="cancelBulkPullRequestAction"><code>cancelBulkPullRequestAction</code></h3>
 
-**Service:** changelogreader
+<p><strong>Service:</strong> changelogreader</p>
 
-`cancelBulkPullRequestAction`(id: ID!): <a href="#bulkpullrequestactioncanceled">BulkPullRequestActionCanceled</a>!
+<p><code>cancelBulkPullRequestAction</code>(id: ID!): <a href="#bulkpullrequestactioncanceled">BulkPullRequestActionCanceled</a>!</p>
 
-Cancel a pending bulk pull request action.
+<p>Cancel a pending bulk pull request action.</p>
 
----
+<hr/>
 
-### `cancelCommit`
+<h3 id="cancelCommit"><code>cancelCommit</code></h3>
 
-**Service:** changesetcommitter
+<p><strong>Service:</strong> changesetcommitter</p>
 
-`cancelCommit`(id: ID!): <a href="#organizationcommitcanceled">OrganizationCommitCanceled</a>!
+<p><code>cancelCommit</code>(id: ID!): <a href="#organizationcommitcanceled">OrganizationCommitCanceled</a>!</p>
 
-Cancel a running commit operation.
+<p>Cancel a running commit operation.</p>
 
----
+<hr/>
 
-### `cancelDevCenterRun`
+<h3 id="cancelDevCenterRun"><code>cancelDevCenterRun</code></h3>
 
-**Service:** recipeworker
+<p><strong>Service:</strong> recipeworker</p>
 
-`cancelDevCenterRun`(id: ID!): ID!
+<p><code>cancelDevCenterRun</code>(id: ID!): ID!</p>
 
-Cancel a DevCenter run. Cancellation is best-effort and asynchronous.
+<p>Cancel a DevCenter run. Cancellation is best-effort and asynchronous.</p>
 
----
+<hr/>
 
-### `cancelMessage`
+<h3 id="cancelMessage"><code>cancelMessage</code></h3>
 
-**Service:** moddy
+<p><strong>Service:</strong> moddy</p>
 
-`cancelMessage`(conversationId: ID!, messageId: ID): Boolean!
+<p><code>cancelMessage</code>(conversationId: ID!, messageId: ID): Boolean!</p>
 
-Interrupt the currently-running turn for a conversation. The virtual
+<p>Interrupt the currently-running turn for a conversation. The virtual
 thread driving the turn is interrupted — a blocking LLM stream unwinds
 immediately, and long-running downstream work (recipe runs) receives
 a best-effort cancel via `cancelRecipeRun` on recipe-worker. Cheap
@@ -222,165 +220,165 @@ only rows that actually persisted are rebuilt — partially-executed
 tool batches are reconstructed from whichever tool-origin rows made
 it to the log.
 
-Returns `true` when a running turn was actually interrupted,
-`false` when the conversation was already idle (no-op, not an
-error). `messageId` is accepted for client compatibility but
+Returns <code>true</code> when a running turn was actually interrupted,
+<code>false</code> when the conversation was already idle (no-op, not an
+error). <code>messageId</code> is accepted for client compatibility but
 only the conversation's active turn is cancellable — there is never
-more than one turn in flight.
+more than one turn in flight.</p>
 
----
+<hr/>
 
-### `cancelRecipeRun`
+<h3 id="cancelRecipeRun"><code>cancelRecipeRun</code></h3>
 
-**Service:** recipeworker
+<p><strong>Service:</strong> recipeworker</p>
 
-`cancelRecipeRun`(id: ID!): ID!
+<p><code>cancelRecipeRun</code>(id: ID!): ID!</p>
 
-Cancel a recipe run. Cancellation is best-effort and asynchronous.
+<p>Cancel a recipe run. Cancellation is best-effort and asynchronous.</p>
 
----
+<hr/>
 
-### `clearOrganizationPrompt`
+<h3 id="clearOrganizationPrompt"><code>clearOrganizationPrompt</code></h3>
 
-**Service:** moddy
+<p><strong>Service:</strong> moddy</p>
 
-`clearOrganizationPrompt`(organizationId: ID!): Boolean!
+<p><code>clearOrganizationPrompt</code>(organizationId: ID!): Boolean!</p>
 
-Clear the organization-level prompt override, falling back to universal.
+<p>Clear the organization-level prompt override, falling back to universal.</p>
 
----
+<hr/>
 
-### `clearUserPrompt`
+<h3 id="clearUserPrompt"><code>clearUserPrompt</code></h3>
 
-**Service:** moddy
+<p><strong>Service:</strong> moddy</p>
 
-`clearUserPrompt`: Boolean!
+<p><code>clearUserPrompt</code>: Boolean!</p>
 
-Clear the current user's prompt override, falling back to organization or universal.
+<p>Clear the current user's prompt override, falling back to organization or universal.</p>
 
----
+<hr/>
 
-### `closePullRequests`
+<h3 id="closePullRequests"><code>closePullRequests</code></h3>
 
-**Service:** changelogreader
+<p><strong>Service:</strong> changelogreader</p>
 
-`closePullRequests`(organizationId: ID!, selection: <a href="#pullrequestselectioninput">PullRequestSelectionInput</a>!): <a href="#bulkpullrequestactionqueued">BulkPullRequestActionQueued</a>!
+<p><code>closePullRequests</code>(organizationId: ID!, selection: <a href="#pullrequestselectioninput">PullRequestSelectionInput</a>!): <a href="#bulkpullrequestactionqueued">BulkPullRequestActionQueued</a>!</p>
 
-Close pull requests in bulk. Returns the queued action for polling.
+<p>Close pull requests in bulk. Returns the queued action for polling.</p>
 
----
+<hr/>
 
-### `commit`
+<h3 id="commit"><code>commit</code></h3>
 
-**Service:** changesetcommitter
+<p><strong>Service:</strong> changesetcommitter</p>
 
-`commit`(input: <a href="#commitinput">CommitInput</a>!): <a href="#organizationcommitqueued">OrganizationCommitQueued</a>!
+<p><code>commit</code>(input: <a href="#commitinput">CommitInput</a>!): <a href="#organizationcommitqueued">OrganizationCommitQueued</a>!</p>
 
-Create commits from a changeset (recipe run, batch change, etc.).
+<p>Create commits from a changeset (recipe run, batch change, etc.).</p>
 
----
+<hr/>
 
-### `createAccessToken`
+<h3 id="createAccessToken"><code>createAccessToken</code></h3>
 
-**Service:** authz
+<p><strong>Service:</strong> authz</p>
 
-`createAccessToken`(description: String, expiresAt: <a href="#datetime">DateTime</a>): <a href="#createaccesstokenresult">CreateAccessTokenResult</a>!
+<p><code>createAccessToken</code>(description: String, expiresAt: <a href="#datetime">DateTime</a>): <a href="#createaccesstokenresult">CreateAccessTokenResult</a>!</p>
 
-Creates a new Moderne Personal Access Token for the current user.
-Returns the token value only once - it cannot be retrieved again.
+<p>Creates a new Moderne Personal Access Token for the current user.
+Returns the token value only once - it cannot be retrieved again.</p>
 
----
+<hr/>
 
-### `createConversation`
+<h3 id="createConversation"><code>createConversation</code></h3>
 
-**Service:** moddy
+<p><strong>Service:</strong> moddy</p>
 
-`createConversation`(input: <a href="#createconversationinput">CreateConversationInput</a>!, waitForCompletion: Boolean = false): <a href="#sendmessageresult">SendMessageResult</a>!
+<p><code>createConversation</code>(input: <a href="#createconversationinput">CreateConversationInput</a>!, waitForCompletion: Boolean = false): <a href="#sendmessageresult">SendMessageResult</a>!</p>
 
-Create a new conversation and send the first message. Uses the
+<p>Create a new conversation and send the first message. Uses the
 effective prompt for the organization context. `waitForCompletion`
-has the same semantics as on `sendMessage`.
+has the same semantics as on `sendMessage`.</p>
 
----
+<hr/>
 
-### `createUserOrganization`
+<h3 id="createUserOrganization"><code>createUserOrganization</code></h3>
 
-**Service:** organization
+<p><strong>Service:</strong> organization</p>
 
-`createUserOrganization`(input: <a href="#createuserorganizationinput">CreateUserOrganizationInput</a>!): <a href="#organization">Organization</a>!
+<p><code>createUserOrganization</code>(input: <a href="#createuserorganizationinput">CreateUserOrganizationInput</a>!): <a href="#organization">Organization</a>!</p>
 
-Create a new user-defined organization visible only to the current user.
+<p>Create a new user-defined organization visible only to the current user.</p>
 
----
+<hr/>
 
-### `deleteUser`
+<h3 id="deleteUser"><code>deleteUser</code></h3>
 
-**Service:** authz
+<p><strong>Service:</strong> authz</p>
 
-`deleteUser`(email: String!): Boolean!
+<p><code>deleteUser</code>(email: String!): Boolean!</p>
 
-Deletes a user and all associated access tokens.
-Returns true if the user was found and deleted.
+<p>Deletes a user and all associated access tokens.
+Returns true if the user was found and deleted.</p>
 
----
+<hr/>
 
-### `deleteUserOrganization`
+<h3 id="deleteUserOrganization"><code>deleteUserOrganization</code></h3>
 
-**Service:** organization
+<p><strong>Service:</strong> organization</p>
 
-`deleteUserOrganization`(id: ID!): Boolean!
+<p><code>deleteUserOrganization</code>(id: ID!): Boolean!</p>
 
-Delete a user-defined organization.
+<p>Delete a user-defined organization.</p>
 
----
+<hr/>
 
-### `downloadAuditLogs`
+<h3 id="downloadAuditLogs"><code>downloadAuditLogs</code></h3>
 
-**Service:** auditreader
+<p><strong>Service:</strong> auditreader</p>
 
-`downloadAuditLogs`(first: Int, since: <a href="#datetime">DateTime</a>, until: <a href="#datetime">DateTime</a>, format: <a href="#auditlogexportformat">AuditLogExportFormat</a>!): <a href="#auditlogsdownload">AuditLogsDownload</a>!
+<p><code>downloadAuditLogs</code>(first: Int, since: <a href="#datetime">DateTime</a>, until: <a href="#datetime">DateTime</a>, format: <a href="#auditlogexportformat">AuditLogExportFormat</a>!): <a href="#auditlogsdownload">AuditLogsDownload</a>!</p>
 
-Start an asynchronous export of audit logs. Returns a task whose state
-can be polled via auditLogsDownloads.
+<p>Start an asynchronous export of audit logs. Returns a task whose state
+can be polled via auditLogsDownloads.</p>
 
----
+<hr/>
 
-### `downloadDataTable`
+<h3 id="downloadDataTable"><code>downloadDataTable</code></h3>
 
-**Service:** changesetreader
+<p><strong>Service:</strong> changesetreader</p>
 
-`downloadDataTable`(changesetId: ID!, dataTable: String!, group: String, format: <a href="#datatableformat">DataTableFormat</a>!): <a href="#datatable">DataTable</a>!
+<p><code>downloadDataTable</code>(changesetId: ID!, dataTable: String!, group: String, format: <a href="#datatableformat">DataTableFormat</a>!): <a href="#datatable">DataTable</a>!</p>
 
-Start or retrieve a data table download.
+<p>Start or retrieve a data table download.
 If the same data table + group + format combination was already requested,
-returns the existing download state.
+returns the existing download state.</p>
 
----
+<hr/>
 
-### `exchangeAuthorizationCode`
+<h3 id="exchangeAuthorizationCode"><code>exchangeAuthorizationCode</code></h3>
 
-**Service:** authz
+<p><strong>Service:</strong> authz</p>
 
-`exchangeAuthorizationCode`(input: <a href="#exchangeauthorizationcodeinput">ExchangeAuthorizationCodeInput</a>!): <a href="#exchangeauthorizationresult">ExchangeAuthorizationResult</a>!
+<p><code>exchangeAuthorizationCode</code>(input: <a href="#exchangeauthorizationcodeinput">ExchangeAuthorizationCodeInput</a>!): <a href="#exchangeauthorizationresult">ExchangeAuthorizationResult</a>!</p>
 
-Exchange an OAuth authorization code for an access token.
+<p>Exchange an OAuth authorization code for an access token.
 
 This unified mutation handles all OAuth 2.0 VCS providers.
 The backend uses the authorizationId to look up:
 - The origin and VCS type
 - PKCE code_verifier (GitLab)
 
-On success, the token is stored and future requests will be authenticated.
+On success, the token is stored and future requests will be authenticated.</p>
 
----
+<hr/>
 
-### `initiateAuthorization`
+<h3 id="initiateAuthorization"><code>initiateAuthorization</code></h3>
 
-**Service:** authz
+<p><strong>Service:</strong> authz</p>
 
-`initiateAuthorization`(input: <a href="#initiateauthorizationinput">InitiateAuthorizationInput</a>!): <a href="#oauthauthorization">OAuthAuthorization</a>!
+<p><code>initiateAuthorization</code>(input: <a href="#initiateauthorizationinput">InitiateAuthorizationInput</a>!): <a href="#oauthauthorization">OAuthAuthorization</a>!</p>
 
-Initiate OAuth authorization for a VCS origin.
+<p>Initiate OAuth authorization for a VCS origin.
 Returns an authorization URL to redirect the user to.
 
 The backend constructs the full OAuth URL including:
@@ -389,138 +387,138 @@ The backend constructs the full OAuth URL including:
 - State parameter for CSRF protection
 
 The authorization ID should be passed to exchangeAuthorizationCode
-after the user completes OAuth.
+after the user completes OAuth.</p>
 
----
+<hr/>
 
-### `installRecipesForCurrentUser`
+<h3 id="installRecipesForCurrentUser"><code>installRecipesForCurrentUser</code></h3>
 
-**Service:** recipemarketplace
+<p><strong>Service:</strong> recipemarketplace</p>
 
-`installRecipesForCurrentUser`(bundle: <a href="#recipebundleinput">RecipeBundleInput</a>!): <a href="#recipeinstallation">RecipeInstallation</a>!
+<p><code>installRecipesForCurrentUser</code>(bundle: <a href="#recipebundleinput">RecipeBundleInput</a>!): <a href="#recipeinstallation">RecipeInstallation</a>!</p>
 
-Install a recipe bundle to the current user's personal marketplace.
+<p>Install a recipe bundle to the current user's personal marketplace.</p>
 
----
+<hr/>
 
-### `installRecipesForOrganization`
+<h3 id="installRecipesForOrganization"><code>installRecipesForOrganization</code></h3>
 
-**Service:** recipemarketplace
+<p><strong>Service:</strong> recipemarketplace</p>
 
-`installRecipesForOrganization`(organizationId: ID!, bundle: <a href="#recipebundleinput">RecipeBundleInput</a>!): <a href="#recipeinstallation">RecipeInstallation</a>!
+<p><code>installRecipesForOrganization</code>(organizationId: ID!, bundle: <a href="#recipebundleinput">RecipeBundleInput</a>!): <a href="#recipeinstallation">RecipeInstallation</a>!</p>
 
-Install a recipe bundle to a specific organization's marketplace.
-Requires the `admin` role.
+<p>Install a recipe bundle to a specific organization's marketplace.
+Requires the `admin` role.</p>
 
----
+<hr/>
 
-### `installRecipesUniversal`
+<h3 id="installRecipesUniversal"><code>installRecipesUniversal</code></h3>
 
-**Service:** recipemarketplace
+<p><strong>Service:</strong> recipemarketplace</p>
 
-`installRecipesUniversal`(bundle: <a href="#recipebundleinput">RecipeBundleInput</a>!): <a href="#recipeinstallation">RecipeInstallation</a>!
+<p><code>installRecipesUniversal</code>(bundle: <a href="#recipebundleinput">RecipeBundleInput</a>!): <a href="#recipeinstallation">RecipeInstallation</a>!</p>
 
-Install a recipe bundle to the universal marketplace (visible to all).
-Requires the `admin` role.
+<p>Install a recipe bundle to the universal marketplace (visible to all).
+Requires the `admin` role.</p>
 
----
+<hr/>
 
-### `mergePullRequests`
+<h3 id="mergePullRequests"><code>mergePullRequests</code></h3>
 
-**Service:** changelogreader
+<p><strong>Service:</strong> changelogreader</p>
 
-`mergePullRequests`(organizationId: ID!, selection: <a href="#pullrequestselectioninput">PullRequestSelectionInput</a>!, mergeMethod: <a href="#mergemethod">MergeMethod</a>!, deleteSourceBranch: Boolean! = false): <a href="#bulkpullrequestactionqueued">BulkPullRequestActionQueued</a>!
+<p><code>mergePullRequests</code>(organizationId: ID!, selection: <a href="#pullrequestselectioninput">PullRequestSelectionInput</a>!, mergeMethod: <a href="#mergemethod">MergeMethod</a>!, deleteSourceBranch: Boolean! = false): <a href="#bulkpullrequestactionqueued">BulkPullRequestActionQueued</a>!</p>
 
-Merge pull requests in bulk. Returns the queued action for polling.
+<p>Merge pull requests in bulk. Returns the queued action for polling.</p>
 
----
+<hr/>
 
-### `reindexChangelog`
+<h3 id="reindexChangelog"><code>reindexChangelog</code></h3>
 
-**Service:** changelogwriter
+<p><strong>Service:</strong> changelogwriter</p>
 
-`reindexChangelog`(since: <a href="#datetime">DateTime</a>!, origin: String): <a href="#reindexresult">ReindexResult</a>!
+<p><code>reindexChangelog</code>(since: <a href="#datetime">DateTime</a>!, origin: String): <a href="#reindexresult">ReindexResult</a>!</p>
 
-Reset poll cursors so the next poll cycle re-fetches and re-enriches
+<p>Reset poll cursors so the next poll cycle re-fetches and re-enriches
 changelog entries from the given timestamp forward. Use this to backfill
-data after deploying enrichment improvements.
+data after deploying enrichment improvements.</p>
 
----
+<hr/>
 
-### `revokeAccessToken`
+<h3 id="revokeAccessToken"><code>revokeAccessToken</code></h3>
 
-**Service:** authz
+<p><strong>Service:</strong> authz</p>
 
-`revokeAccessToken`(id: ID!): Boolean!
+<p><code>revokeAccessToken</code>(id: ID!): Boolean!</p>
 
-Revokes an access token by ID.
-Returns true if the token was revoked, false if not found.
+<p>Revokes an access token by ID.
+Returns true if the token was revoked, false if not found.</p>
 
----
+<hr/>
 
-### `revokeAllAccessTokens`
+<h3 id="revokeAllAccessTokens"><code>revokeAllAccessTokens</code></h3>
 
-**Service:** authz
+<p><strong>Service:</strong> authz</p>
 
-`revokeAllAccessTokens`(email: String!): Boolean!
+<p><code>revokeAllAccessTokens</code>(email: String!): Boolean!</p>
 
-Revokes all access tokens for a given user.
-Returns true if all token were revoked, otherwise false.
+<p>Revokes all access tokens for a given user.
+Returns true if all token were revoked, otherwise false.</p>
 
----
+<hr/>
 
-### `revokeScmToken`
+<h3 id="revokeScmToken"><code>revokeScmToken</code></h3>
 
-**Service:** authz
+<p><strong>Service:</strong> authz</p>
 
-`revokeScmToken`(input: <a href="#revokescmtokeninput">RevokeScmTokenInput</a>!): <a href="#revoketokenresult">RevokeTokenResult</a>!
+<p><code>revokeScmToken</code>(input: <a href="#revokescmtokeninput">RevokeScmTokenInput</a>!): <a href="#revoketokenresult">RevokeTokenResult</a>!</p>
 
-Revoke an SCM OAuth token for the current user and a specific origin.
-This removes the stored token, disconnecting the user from the VCS.
+<p>Revoke an SCM OAuth token for the current user and a specific origin.
+This removes the stored token, disconnecting the user from the VCS.</p>
 
----
+<hr/>
 
-### `runDevCenter`
+<h3 id="runDevCenter"><code>runDevCenter</code></h3>
 
-**Service:** recipeworker
+<p><strong>Service:</strong> recipeworker</p>
 
-`runDevCenter`(input: <a href="#rundevcenterinput">RunDevCenterInput</a>!): <a href="#devcenterrunrunning">DevCenterRunRunning</a>!
+<p><code>runDevCenter</code>(input: <a href="#rundevcenterinput">RunDevCenterInput</a>!): <a href="#devcenterrunrunning">DevCenterRunRunning</a>!</p>
 
-Start a DevCenter run for an organization.
-Returns immediately with running status.
+<p>Start a DevCenter run for an organization.
+Returns immediately with running status.</p>
 
----
+<hr/>
 
-### `runRecipe`
+<h3 id="runRecipe"><code>runRecipe</code></h3>
 
-**Service:** recipeworker
+<p><strong>Service:</strong> recipeworker</p>
 
-`runRecipe`(input: <a href="#runrecipeinput">RunRecipeInput</a>!): <a href="#organizationreciperunqueued">OrganizationRecipeRunQueued</a>!
+<p><code>runRecipe</code>(input: <a href="#runrecipeinput">RunRecipeInput</a>!): <a href="#organizationreciperunqueued">OrganizationRecipeRunQueued</a>!</p>
 
-Run a recipe against repositories.
-Returns the recipe run in its initial queued state.
+<p>Run a recipe against repositories.
+Returns the recipe run in its initial queued state.</p>
 
----
+<hr/>
 
-### `runVisualization`
+<h3 id="runVisualization"><code>runVisualization</code></h3>
 
-**Service:** changesetvisualizer
+<p><strong>Service:</strong> changesetvisualizer</p>
 
-`runVisualization`(organizationId: ID!, visualizationId: ID!, options: [<a href="#visualizationoptioninput">VisualizationOptionInput</a>!]): <a href="#visualization">Visualization</a>!
+<p><code>runVisualization</code>(organizationId: ID!, visualizationId: ID!, options: [<a href="#visualizationoptioninput">VisualizationOptionInput</a>!]): <a href="#visualization">Visualization</a>!</p>
 
-Request a visualization to be generated based on the provided descriptor.
+<p>Request a visualization to be generated based on the provided descriptor.
 Returns the existing visualization if already run with the same options,
-otherwise queues a new visualization run.
+otherwise queues a new visualization run.</p>
 
----
+<hr/>
 
-### `sendMessage`
+<h3 id="sendMessage"><code>sendMessage</code></h3>
 
-**Service:** moddy
+<p><strong>Service:</strong> moddy</p>
 
-`sendMessage`(conversationId: ID!, message: String!, waitForCompletion: Boolean = false): <a href="#sendmessageresult">SendMessageResult</a>!
+<p><code>sendMessage</code>(conversationId: ID!, message: String!, waitForCompletion: Boolean = false): <a href="#sendmessageresult">SendMessageResult</a>!</p>
 
-Send a message to an existing conversation. Returns a handle for
+<p>Send a message to an existing conversation. Returns a handle for
 polling — `initialCursor` is the cursor to pass to the next
 `messages(after:)` query, and `turnState` carries the server-
 recommended poll cadence.
@@ -528,1171 +526,1397 @@ recommended poll cadence.
 When `waitForCompletion: true`, the mutation blocks until the turn
 completes (or the server cap of 4 minutes is reached, whichever comes
 first). On cap, the mutation returns the current turn state rather
-than erroring so the caller can continue polling.
+than erroring so the caller can continue polling.</p>
 
----
+<hr/>
 
-### `setOrganizationPrompt`
+<h3 id="setOrganizationPrompt"><code>setOrganizationPrompt</code></h3>
 
-**Service:** moddy
+<p><strong>Service:</strong> moddy</p>
 
-`setOrganizationPrompt`(organizationId: ID!, content: <a href="#markdown">Markdown</a>!): <a href="#prompt">Prompt</a>!
+<p><code>setOrganizationPrompt</code>(organizationId: ID!, content: <a href="#markdown">Markdown</a>!): <a href="#prompt">Prompt</a>!</p>
 
-Set the system prompt for a specific organization (overrides universal).
+<p>Set the system prompt for a specific organization (overrides universal).</p>
 
----
+<hr/>
 
-### `setProfiling`
+<h3 id="setProfiling"><code>setProfiling</code></h3>
 
-**Service:** gateway
+<p><strong>Service:</strong> gateway</p>
 
-`setProfiling`(enabled: Boolean!, event: <a href="#profilingevent">ProfilingEvent</a> = CPU): Boolean!
+<p><code>setProfiling</code>(enabled: Boolean!, event: <a href="#profilingevent">ProfilingEvent</a> = CPU): Boolean!</p>
 
-Turn continuous profiling on or off for this tenant. When enabled,
+<p>Turn continuous profiling on or off for this tenant. When enabled,
 Pyroscope profiles for every service start landing in the Pyroscope UI
 within seconds. The primary event the agent samples on is selected by
 `event` (defaults to CPU); calling the mutation again with a different
 event while profiling is already on rotates the agent to the new event.
 Fails when the profiling capability is not enabled for the tenant.
-Admin role required.
+Admin role required.</p>
 
----
+<hr/>
 
-### `setUniversalPrompt`
+<h3 id="setUniversalPrompt"><code>setUniversalPrompt</code></h3>
 
-**Service:** moddy
+<p><strong>Service:</strong> moddy</p>
 
-`setUniversalPrompt`(content: <a href="#markdown">Markdown</a>!): <a href="#prompt">Prompt</a>!
+<p><code>setUniversalPrompt</code>(content: <a href="#markdown">Markdown</a>!): <a href="#prompt">Prompt</a>!</p>
 
-Set the universal (default) system prompt.
+<p>Set the universal (default) system prompt.</p>
 
----
+<hr/>
 
-### `setUserPrompt`
+<h3 id="setUserPrompt"><code>setUserPrompt</code></h3>
 
-**Service:** moddy
+<p><strong>Service:</strong> moddy</p>
 
-`setUserPrompt`(content: <a href="#markdown">Markdown</a>!): <a href="#prompt">Prompt</a>!
+<p><code>setUserPrompt</code>(content: <a href="#markdown">Markdown</a>!): <a href="#prompt">Prompt</a>!</p>
 
-Set the system prompt for the current user (overrides organization and universal).
+<p>Set the system prompt for the current user (overrides organization and universal).</p>
 
----
+<hr/>
 
-### `uninstallRecipesFromCurrentUser`
+<h3 id="uninstallRecipesFromCurrentUser"><code>uninstallRecipesFromCurrentUser</code></h3>
 
-**Service:** recipemarketplace
+<p><strong>Service:</strong> recipemarketplace</p>
 
-`uninstallRecipesFromCurrentUser`(packageName: String!): <a href="#recipeuninstallation">RecipeUninstallation</a>!
+<p><code>uninstallRecipesFromCurrentUser</code>(packageName: String!): <a href="#recipeuninstallation">RecipeUninstallation</a>!</p>
 
-Uninstall a recipe bundle from the current user's personal marketplace.
+<p>Uninstall a recipe bundle from the current user's personal marketplace.
+Returns the number of recipes that were removed.</p>
+
+<hr/>
+
+<h3 id="uninstallRecipesFromOrganization"><code>uninstallRecipesFromOrganization</code></h3>
+
+<p><strong>Service:</strong> recipemarketplace</p>
+
+<p><code>uninstallRecipesFromOrganization</code>(organizationId: ID!, packageName: String!): <a href="#recipeuninstallation">RecipeUninstallation</a>!</p>
+
+<p>Uninstall a recipe bundle from a specific organization's marketplace.
 Returns the number of recipes that were removed.
+Requires the `admin` role.</p>
 
----
+<hr/>
 
-### `uninstallRecipesFromOrganization`
+<h3 id="uninstallRecipesUniversal"><code>uninstallRecipesUniversal</code></h3>
 
-**Service:** recipemarketplace
+<p><strong>Service:</strong> recipemarketplace</p>
 
-`uninstallRecipesFromOrganization`(organizationId: ID!, packageName: String!): <a href="#recipeuninstallation">RecipeUninstallation</a>!
+<p><code>uninstallRecipesUniversal</code>(packageName: String!): <a href="#recipeuninstallation">RecipeUninstallation</a>!</p>
 
-Uninstall a recipe bundle from a specific organization's marketplace.
+<p>Uninstall a recipe bundle from the universal marketplace.
 Returns the number of recipes that were removed.
-Requires the `admin` role.
+Requires the `admin` role.</p>
 
----
+<hr/>
 
-### `uninstallRecipesUniversal`
+<h3 id="updateUserOrganization"><code>updateUserOrganization</code></h3>
 
-**Service:** recipemarketplace
+<p><strong>Service:</strong> organization</p>
 
-`uninstallRecipesUniversal`(packageName: String!): <a href="#recipeuninstallation">RecipeUninstallation</a>!
+<p><code>updateUserOrganization</code>(input: <a href="#updateuserorganizationinput">UpdateUserOrganizationInput</a>!): <a href="#organization">Organization</a>!</p>
 
-Uninstall a recipe bundle from the universal marketplace.
-Returns the number of recipes that were removed.
-Requires the `admin` role.
+<p>Update an existing user-defined organization.</p>
 
----
+<hr/>
 
-### `updateUserOrganization`
+<h2>Types</h2>
 
-**Service:** organization
+<h3>Object types</h3>
 
-`updateUserOrganization`(input: <a href="#updateuserorganizationinput">UpdateUserOrganizationInput</a>!): <a href="#organization">Organization</a>!
+<h4 id="accesstoken"><code>AccessToken</code></h4>
 
-Update an existing user-defined organization.
+<p><strong>Service:</strong> authz</p>
 
----
+<p>Moderne Personal Access Tokens</p>
 
-## Types
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>id</code></td><td>ID!</td><td>The unique identifier for the access token.
+This is not the same as the token itself.</td></tr>
+    <tr><td><code>description</code></td><td>String</td><td>Optional description of the token.
 
-### Object types
+Useful for distinguishing between multiple tokens.</td></tr>
+    <tr><td><code>created</code></td><td><a href="#datetime">DateTime</a>!</td><td>The date and time the token was created.</td></tr>
+    <tr><td><code>expiresAt</code></td><td><a href="#datetime">DateTime</a></td><td>The date and time the token will expire.</td></tr>
+  </tbody>
+</table>
 
-#### `AccessToken`
+<hr/>
 
-**Service:** authz
+<h4 id="accesstokenconnection"><code>AccessTokenConnection</code></h4>
 
-Moderne Personal Access Tokens
+<p><strong>Service:</strong> authz</p>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `id` | ID! | The unique identifier for the access token.
-This is not the same as the token itself. |
-| `description` | String | Optional description of the token.
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>edges</code></td><td>[<a href="#accesstokenedge">AccessTokenEdge</a>!]!</td><td></td></tr>
+    <tr><td><code>pageInfo</code></td><td><a href="#pageinfo">PageInfo</a>!</td><td></td></tr>
+    <tr><td><code>count</code></td><td>Int!</td><td></td></tr>
+  </tbody>
+</table>
 
-Useful for distinguishing between multiple tokens. |
-| `created` | <a href="#datetime">DateTime</a>! | The date and time the token was created. |
-| `expiresAt` | <a href="#datetime">DateTime</a> | The date and time the token will expire. |
+<hr/>
 
----
+<h4 id="accesstokenedge"><code>AccessTokenEdge</code></h4>
 
-#### `AccessTokenConnection`
+<p><strong>Service:</strong> authz</p>
 
-**Service:** authz
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>node</code></td><td><a href="#accesstoken">AccessToken</a>!</td><td></td></tr>
+    <tr><td><code>cursor</code></td><td>String!</td><td></td></tr>
+  </tbody>
+</table>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `edges` | [<a href="#accesstokenedge">AccessTokenEdge</a>!]! |  |
-| `pageInfo` | <a href="#pageinfo">PageInfo</a>! |  |
-| `count` | Int! |  |
+<hr/>
 
----
+<h4 id="artifactoryconfiguration"><code>ArtifactoryConfiguration</code></h4>
 
-#### `AccessTokenEdge`
+<p><strong>Service:</strong> gateway</p>
 
-**Service:** authz
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>resourceId</code></td><td>String!</td><td></td></tr>
+    <tr><td><code>skipSsl</code></td><td>Boolean!</td><td></td></tr>
+    <tr><td><code>skipValidateConnectivity</code></td><td>Boolean!</td><td></td></tr>
+    <tr><td><code>connectivity</code></td><td><a href="#httptoolconnectivity">HttpToolConnectivity</a>!</td><td></td></tr>
+    <tr><td><code>lstQuery</code></td><td>[String!]</td><td></td></tr>
+    <tr><td><code>lastIngestedAt</code></td><td><a href="#datetime">DateTime</a></td><td></td></tr>
+  </tbody>
+</table>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `node` | <a href="#accesstoken">AccessToken</a>! |  |
-| `cursor` | String! |  |
+<hr/>
 
----
+<h4 id="auditlog"><code>AuditLog</code></h4>
 
-#### `ArtifactoryConfiguration`
+<p><strong>Service:</strong> auditreader</p>
 
-**Service:** gateway
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>id</code></td><td>ID!</td><td></td></tr>
+    <tr><td><code>user</code></td><td><a href="#user">User</a>!</td><td>The user who performed the action.</td></tr>
+    <tr><td><code>target</code></td><td>String!</td><td>The resource type that was acted upon (e.g., "access.tokens", "organizations").</td></tr>
+    <tr><td><code>action</code></td><td>String!</td><td>The specific action that was performed (e.g., "create.token", "delete.organization").</td></tr>
+    <tr><td><code>actionType</code></td><td><a href="#auditactiontype">AuditActionType</a>!</td><td>The CRUD classification of the action.</td></tr>
+    <tr><td><code>outcome</code></td><td><a href="#auditoutcome">AuditOutcome</a>!</td><td>Whether the action succeeded or failed.</td></tr>
+    <tr><td><code>description</code></td><td>String</td><td>Human-readable description of what happened.</td></tr>
+    <tr><td><code>timestamp</code></td><td><a href="#datetime">DateTime</a>!</td><td>When the action occurred.</td></tr>
+  </tbody>
+</table>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `resourceId` | String! |  |
-| `skipSsl` | Boolean! |  |
-| `skipValidateConnectivity` | Boolean! |  |
-| `connectivity` | <a href="#httptoolconnectivity">HttpToolConnectivity</a>! |  |
-| `lstQuery` | [String!] |  |
-| `lastIngestedAt` | <a href="#datetime">DateTime</a> |  |
+<hr/>
 
----
+<h4 id="auditlogconnection"><code>AuditLogConnection</code></h4>
 
-#### `AuditLog`
+<p><strong>Service:</strong> auditreader</p>
 
-**Service:** auditreader
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>edges</code></td><td>[<a href="#auditlogedge">AuditLogEdge</a>!]!</td><td></td></tr>
+    <tr><td><code>pageInfo</code></td><td><a href="#pageinfo">PageInfo</a>!</td><td></td></tr>
+    <tr><td><code>count</code></td><td>Int!</td><td></td></tr>
+  </tbody>
+</table>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `id` | ID! |  |
-| `user` | <a href="#user">User</a>! | The user who performed the action. |
-| `target` | String! | The resource type that was acted upon (e.g., "access.tokens", "organizations"). |
-| `action` | String! | The specific action that was performed (e.g., "create.token", "delete.organization"). |
-| `actionType` | <a href="#auditactiontype">AuditActionType</a>! | The CRUD classification of the action. |
-| `outcome` | <a href="#auditoutcome">AuditOutcome</a>! | Whether the action succeeded or failed. |
-| `description` | String | Human-readable description of what happened. |
-| `timestamp` | <a href="#datetime">DateTime</a>! | When the action occurred. |
+<hr/>
 
----
+<h4 id="auditlogedge"><code>AuditLogEdge</code></h4>
 
-#### `AuditLogConnection`
+<p><strong>Service:</strong> auditreader</p>
 
-**Service:** auditreader
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>node</code></td><td><a href="#auditlog">AuditLog</a>!</td><td></td></tr>
+    <tr><td><code>cursor</code></td><td>String!</td><td></td></tr>
+  </tbody>
+</table>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `edges` | [<a href="#auditlogedge">AuditLogEdge</a>!]! |  |
-| `pageInfo` | <a href="#pageinfo">PageInfo</a>! |  |
-| `count` | Int! |  |
+<hr/>
 
----
+<h4 id="auditlogsdownloadconnection"><code>AuditLogsDownloadConnection</code></h4>
 
-#### `AuditLogEdge`
+<p><strong>Service:</strong> auditreader</p>
 
-**Service:** auditreader
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>edges</code></td><td>[<a href="#auditlogsdownloadedge">AuditLogsDownloadEdge</a>!]!</td><td></td></tr>
+    <tr><td><code>pageInfo</code></td><td><a href="#pageinfo">PageInfo</a>!</td><td></td></tr>
+    <tr><td><code>count</code></td><td>Int!</td><td></td></tr>
+  </tbody>
+</table>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `node` | <a href="#auditlog">AuditLog</a>! |  |
-| `cursor` | String! |  |
+<hr/>
 
----
+<h4 id="auditlogsdownloadedge"><code>AuditLogsDownloadEdge</code></h4>
 
-#### `AuditLogsDownloadConnection`
+<p><strong>Service:</strong> auditreader</p>
 
-**Service:** auditreader
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>node</code></td><td><a href="#auditlogsdownload">AuditLogsDownload</a>!</td><td></td></tr>
+    <tr><td><code>cursor</code></td><td>String!</td><td></td></tr>
+  </tbody>
+</table>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `edges` | [<a href="#auditlogsdownloadedge">AuditLogsDownloadEdge</a>!]! |  |
-| `pageInfo` | <a href="#pageinfo">PageInfo</a>! |  |
-| `count` | Int! |  |
+<hr/>
 
----
+<h4 id="auditlogsdownloaderror"><code>AuditLogsDownloadError</code></h4>
 
-#### `AuditLogsDownloadEdge`
+<p><strong>Service:</strong> auditreader | <strong>Implements:</strong> <a href="#auditlogsdownload">AuditLogsDownload</a></p>
 
-**Service:** auditreader
+<p>An audit log download failed.</p>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `node` | <a href="#auditlogsdownload">AuditLogsDownload</a>! |  |
-| `cursor` | String! |  |
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>id</code></td><td>ID!</td><td></td></tr>
+    <tr><td><code>startedAt</code></td><td><a href="#datetime">DateTime</a>!</td><td></td></tr>
+    <tr><td><code>finishedAt</code></td><td><a href="#datetime">DateTime</a>!</td><td></td></tr>
+    <tr><td><code>message</code></td><td>String!</td><td></td></tr>
+  </tbody>
+</table>
 
----
+<hr/>
 
-#### `AuditLogsDownloadError`
+<h4 id="auditlogsdownloadfinished"><code>AuditLogsDownloadFinished</code></h4>
 
-**Service:** auditreader | **Implements:** <a href="#auditlogsdownload">AuditLogsDownload</a>
+<p><strong>Service:</strong> auditreader | <strong>Implements:</strong> <a href="#auditlogsdownload">AuditLogsDownload</a></p>
 
-An audit log download failed.
+<p>An audit log download has completed successfully.</p>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `id` | ID! |  |
-| `startedAt` | <a href="#datetime">DateTime</a>! |  |
-| `finishedAt` | <a href="#datetime">DateTime</a>! |  |
-| `message` | String! |  |
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>id</code></td><td>ID!</td><td></td></tr>
+    <tr><td><code>format</code></td><td><a href="#auditlogexportformat">AuditLogExportFormat</a>!</td><td></td></tr>
+    <tr><td><code>startedAt</code></td><td><a href="#datetime">DateTime</a>!</td><td></td></tr>
+    <tr><td><code>finishedAt</code></td><td><a href="#datetime">DateTime</a>!</td><td></td></tr>
+    <tr><td><code>downloadUrl</code></td><td>String!</td><td>URL path to download the file (relative to the service base URL).</td></tr>
+  </tbody>
+</table>
 
----
+<hr/>
 
-#### `AuditLogsDownloadFinished`
+<h4 id="auditlogsdownloadprocessing"><code>AuditLogsDownloadProcessing</code></h4>
 
-**Service:** auditreader | **Implements:** <a href="#auditlogsdownload">AuditLogsDownload</a>
+<p><strong>Service:</strong> auditreader | <strong>Implements:</strong> <a href="#auditlogsdownload">AuditLogsDownload</a></p>
 
-An audit log download has completed successfully.
+<p>An audit log download is being processed.</p>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `id` | ID! |  |
-| `format` | <a href="#auditlogexportformat">AuditLogExportFormat</a>! |  |
-| `startedAt` | <a href="#datetime">DateTime</a>! |  |
-| `finishedAt` | <a href="#datetime">DateTime</a>! |  |
-| `downloadUrl` | String! | URL path to download the file (relative to the service base URL). |
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>id</code></td><td>ID!</td><td></td></tr>
+    <tr><td><code>format</code></td><td><a href="#auditlogexportformat">AuditLogExportFormat</a>!</td><td></td></tr>
+    <tr><td><code>startedAt</code></td><td><a href="#datetime">DateTime</a>!</td><td></td></tr>
+  </tbody>
+</table>
 
----
+<hr/>
 
-#### `AuditLogsDownloadProcessing`
+<h4 id="azuredevopsconfiguration"><code>AzureDevOpsConfiguration</code></h4>
 
-**Service:** auditreader | **Implements:** <a href="#auditlogsdownload">AuditLogsDownload</a>
+<p><strong>Service:</strong> gateway</p>
 
-An audit log download is being processed.
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>resourceId</code></td><td>String!</td><td></td></tr>
+    <tr><td><code>skipSsl</code></td><td>Boolean!</td><td></td></tr>
+    <tr><td><code>skipValidateConnectivity</code></td><td>Boolean!</td><td></td></tr>
+    <tr><td><code>connectivity</code></td><td><a href="#httptoolconnectivity">HttpToolConnectivity</a>!</td><td></td></tr>
+    <tr><td><code>oauth</code></td><td><a href="#azuredevopsoauth">AzureDevOpsOauth</a></td><td></td></tr>
+  </tbody>
+</table>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `id` | ID! |  |
-| `format` | <a href="#auditlogexportformat">AuditLogExportFormat</a>! |  |
-| `startedAt` | <a href="#datetime">DateTime</a>! |  |
+<hr/>
 
----
+<h4 id="azuredevopsconnection"><code>AzureDevOpsConnection</code></h4>
 
-#### `AzureDevOpsConfiguration`
+<p><strong>Service:</strong> authz | <strong>Implements:</strong> <a href="#scmconnection">ScmConnection</a></p>
 
-**Service:** gateway
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>resourceId</code></td><td>String!</td><td></td></tr>
+    <tr><td><code>isAuthorized</code></td><td>Boolean!</td><td></td></tr>
+    <tr><td><code>tokens</code></td><td>[<a href="#scmtokeninfo">ScmTokenInfo</a>!]!</td><td></td></tr>
+  </tbody>
+</table>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `resourceId` | String! |  |
-| `skipSsl` | Boolean! |  |
-| `skipValidateConnectivity` | Boolean! |  |
-| `connectivity` | <a href="#httptoolconnectivity">HttpToolConnectivity</a>! |  |
-| `oauth` | <a href="#azuredevopsoauth">AzureDevOpsOauth</a> |  |
+<hr/>
 
----
+<h4 id="azuredevopsoauth"><code>AzureDevOpsOauth</code></h4>
 
-#### `AzureDevOpsConnection`
+<p><strong>Service:</strong> gateway</p>
 
-**Service:** authz | **Implements:** <a href="#scmconnection">ScmConnection</a>
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>clientId</code></td><td>String!</td><td></td></tr>
+    <tr><td><code>tenantId</code></td><td>String!</td><td></td></tr>
+  </tbody>
+</table>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `resourceId` | String! |  |
-| `isAuthorized` | Boolean! |  |
-| `tokens` | [<a href="#scmtokeninfo">ScmTokenInfo</a>!]! |  |
+<hr/>
 
----
+<h4 id="batchchange"><code>BatchChange</code></h4>
 
-#### `AzureDevOpsOauth`
+<p><strong>Service:</strong> changesetreader | <strong>Implements:</strong> <a href="#organizationchangeset">OrganizationChangeset</a></p>
 
-**Service:** gateway
-
-| Field | Type | Description |
-|-------|------|-------------|
-| `clientId` | String! |  |
-| `tenantId` | String! |  |
-
----
-
-#### `BatchChange`
-
-**Service:** changesetreader | **Implements:** <a href="#organizationchangeset">OrganizationChangeset</a>
-
-| Field | Type | Description |
-|-------|------|-------------|
-| `id` | ID! |  |
-| `user` | <a href="#user">User</a>! |  |
-| `createdAt` | <a href="#datetime">DateTime</a>! |  |
-| `parent` | <a href="#organizationchangeset">OrganizationChangeset</a> |  |
-| `repositories` | (first: Int = 100, after: String, where: <a href="#repositorychangesetwhereinput">RepositoryChangesetWhereInput</a>, orderBy: [<a href="#repositorychangesetorderbyinput">RepositoryChangesetOrderByInput</a>!]): <a href="#repositorychangesetconnection">RepositoryChangesetConnection</a>! |  |
-| `name` | String |  |
-| `description` | String |  |
-| `sourceTool` | <a href="#toolinfo">ToolInfo</a> |  |
-| `diffTool` | <a href="#toolinfo">ToolInfo</a> |  |
-| `dataTables` | (first: Int = 50, after: String, where: <a href="#datatablewhereinput">DataTableWhereInput</a>, orderBy: [<a href="#datatableorderbyinput">DataTableOrderByInput</a>!]): <a href="#datatableconnection">DataTableConnection</a>! | Data tables produced by this batch change.
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>id</code></td><td>ID!</td><td></td></tr>
+    <tr><td><code>user</code></td><td><a href="#user">User</a>!</td><td></td></tr>
+    <tr><td><code>createdAt</code></td><td><a href="#datetime">DateTime</a>!</td><td></td></tr>
+    <tr><td><code>parent</code></td><td><a href="#organizationchangeset">OrganizationChangeset</a></td><td></td></tr>
+    <tr><td><code>repositories</code></td><td>(first: Int = 100, after: String, where: <a href="#repositorychangesetwhereinput">RepositoryChangesetWhereInput</a>, orderBy: [<a href="#repositorychangesetorderbyinput">RepositoryChangesetOrderByInput</a>!]): <a href="#repositorychangesetconnection">RepositoryChangesetConnection</a>!</td><td></td></tr>
+    <tr><td><code>name</code></td><td>String</td><td></td></tr>
+    <tr><td><code>description</code></td><td>String</td><td></td></tr>
+    <tr><td><code>sourceTool</code></td><td><a href="#toolinfo">ToolInfo</a></td><td></td></tr>
+    <tr><td><code>diffTool</code></td><td><a href="#toolinfo">ToolInfo</a></td><td></td></tr>
+    <tr><td><code>dataTables</code></td><td>(first: Int = 50, after: String, where: <a href="#datatablewhereinput">DataTableWhereInput</a>, orderBy: [<a href="#datatableorderbyinput">DataTableOrderByInput</a>!]): <a href="#datatableconnection">DataTableConnection</a>!</td><td>Data tables produced by this batch change.
 Each data table starts as Available and transitions to Processing/Finished/Error
-when downloadDataTable mutation is called. |
-| `visualizations` | (first: Int = 50, after: String, where: <a href="#visualizationwhereinput">VisualizationWhereInput</a>, orderBy: [<a href="#visualizationorderbyinput">VisualizationOrderByInput</a>!]): <a href="#visualizationconnection">VisualizationConnection</a>! | Visualizations produced by this batch change. |
+when downloadDataTable mutation is called.</td></tr>
+    <tr><td><code>visualizations</code></td><td>(first: Int = 50, after: String, where: <a href="#visualizationwhereinput">VisualizationWhereInput</a>, orderBy: [<a href="#visualizationorderbyinput">VisualizationOrderByInput</a>!]): <a href="#visualizationconnection">VisualizationConnection</a>!</td><td>Visualizations produced by this batch change.</td></tr>
+  </tbody>
+</table>
 
----
+<hr/>
 
-#### `BatchChangeFileChange`
+<h4 id="batchchangefilechange"><code>BatchChangeFileChange</code></h4>
 
-**Service:** changesetreader | **Implements:** <a href="#filechange">FileChange</a>
+<p><strong>Service:</strong> changesetreader | <strong>Implements:</strong> <a href="#filechange">FileChange</a></p>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `path` | <a href="#path">Path</a>! |  |
-| `beforeSourcePath` | <a href="#path">Path</a> |  |
-| `afterSourcePath` | <a href="#path">Path</a> |  |
-| `diff` | (markupLevel: <a href="#markuplevel">MarkupLevel</a> = ERROR, showWhitespaceOnlyChanges: Boolean = true): <a href="#patch">Patch</a> |  |
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>path</code></td><td><a href="#path">Path</a>!</td><td></td></tr>
+    <tr><td><code>beforeSourcePath</code></td><td><a href="#path">Path</a></td><td></td></tr>
+    <tr><td><code>afterSourcePath</code></td><td><a href="#path">Path</a></td><td></td></tr>
+    <tr><td><code>diff</code></td><td>(markupLevel: <a href="#markuplevel">MarkupLevel</a> = ERROR, showWhitespaceOnlyChanges: Boolean = true): <a href="#patch">Patch</a></td><td></td></tr>
+  </tbody>
+</table>
 
----
+<hr/>
 
-#### `BitbucketCloudConfiguration`
+<h4 id="bitbucketcloudconfiguration"><code>BitbucketCloudConfiguration</code></h4>
 
-**Service:** gateway
+<p><strong>Service:</strong> gateway</p>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `resourceId` | String! |  |
-| `skipSsl` | Boolean! |  |
-| `skipValidateConnectivity` | Boolean! |  |
-| `connectivity` | <a href="#httptoolconnectivity">HttpToolConnectivity</a>! |  |
-| `oauth` | <a href="#bitbucketcloudoauth">BitbucketCloudOauth</a> |  |
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>resourceId</code></td><td>String!</td><td></td></tr>
+    <tr><td><code>skipSsl</code></td><td>Boolean!</td><td></td></tr>
+    <tr><td><code>skipValidateConnectivity</code></td><td>Boolean!</td><td></td></tr>
+    <tr><td><code>connectivity</code></td><td><a href="#httptoolconnectivity">HttpToolConnectivity</a>!</td><td></td></tr>
+    <tr><td><code>oauth</code></td><td><a href="#bitbucketcloudoauth">BitbucketCloudOauth</a></td><td></td></tr>
+  </tbody>
+</table>
 
----
+<hr/>
 
-#### `BitbucketCloudConnection`
+<h4 id="bitbucketcloudconnection"><code>BitbucketCloudConnection</code></h4>
 
-**Service:** authz | **Implements:** <a href="#scmconnection">ScmConnection</a>
+<p><strong>Service:</strong> authz | <strong>Implements:</strong> <a href="#scmconnection">ScmConnection</a></p>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `resourceId` | String! |  |
-| `isAuthorized` | Boolean! |  |
-| `tokens` | [<a href="#scmtokeninfo">ScmTokenInfo</a>!]! |  |
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>resourceId</code></td><td>String!</td><td></td></tr>
+    <tr><td><code>isAuthorized</code></td><td>Boolean!</td><td></td></tr>
+    <tr><td><code>tokens</code></td><td>[<a href="#scmtokeninfo">ScmTokenInfo</a>!]!</td><td></td></tr>
+  </tbody>
+</table>
 
----
+<hr/>
 
-#### `BitbucketCloudOauth`
+<h4 id="bitbucketcloudoauth"><code>BitbucketCloudOauth</code></h4>
 
-**Service:** gateway
+<p><strong>Service:</strong> gateway</p>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `clientId` | String! |  |
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>clientId</code></td><td>String!</td><td></td></tr>
+  </tbody>
+</table>
 
----
+<hr/>
 
-#### `BitbucketConfiguration`
+<h4 id="bitbucketconfiguration"><code>BitbucketConfiguration</code></h4>
 
-**Service:** gateway
+<p><strong>Service:</strong> gateway</p>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `resourceId` | String! |  |
-| `skipSsl` | Boolean! |  |
-| `skipValidateConnectivity` | Boolean! |  |
-| `connectivity` | <a href="#httptoolconnectivity">HttpToolConnectivity</a>! |  |
-| `oauth` | <a href="#bitbucketoauth">BitbucketOauth</a> |  |
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>resourceId</code></td><td>String!</td><td></td></tr>
+    <tr><td><code>skipSsl</code></td><td>Boolean!</td><td></td></tr>
+    <tr><td><code>skipValidateConnectivity</code></td><td>Boolean!</td><td></td></tr>
+    <tr><td><code>connectivity</code></td><td><a href="#httptoolconnectivity">HttpToolConnectivity</a>!</td><td></td></tr>
+    <tr><td><code>oauth</code></td><td><a href="#bitbucketoauth">BitbucketOauth</a></td><td></td></tr>
+  </tbody>
+</table>
 
----
+<hr/>
 
-#### `BitbucketConnection`
+<h4 id="bitbucketconnection"><code>BitbucketConnection</code></h4>
 
-**Service:** authz | **Implements:** <a href="#scmconnection">ScmConnection</a>
+<p><strong>Service:</strong> authz | <strong>Implements:</strong> <a href="#scmconnection">ScmConnection</a></p>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `resourceId` | String! |  |
-| `isAuthorized` | Boolean! |  |
-| `tokens` | [<a href="#scmtokeninfo">ScmTokenInfo</a>!]! |  |
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>resourceId</code></td><td>String!</td><td></td></tr>
+    <tr><td><code>isAuthorized</code></td><td>Boolean!</td><td></td></tr>
+    <tr><td><code>tokens</code></td><td>[<a href="#scmtokeninfo">ScmTokenInfo</a>!]!</td><td></td></tr>
+  </tbody>
+</table>
 
----
+<hr/>
 
-#### `BitbucketOauth`
+<h4 id="bitbucketoauth"><code>BitbucketOauth</code></h4>
 
-**Service:** gateway
+<p><strong>Service:</strong> gateway</p>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `clientId` | String! |  |
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>clientId</code></td><td>String!</td><td></td></tr>
+  </tbody>
+</table>
 
----
+<hr/>
 
-#### `BranchCommitOptions`
+<h4 id="branchcommitoptions"><code>BranchCommitOptions</code></h4>
 
-**Service:** changesetcommitter | **Implements:** <a href="#commitoptions">CommitOptions</a>
+<p><strong>Service:</strong> changesetcommitter | <strong>Implements:</strong> <a href="#commitoptions">CommitOptions</a></p>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `branchName` | String |  |
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>branchName</code></td><td>String</td><td></td></tr>
+  </tbody>
+</table>
 
----
+<hr/>
 
-#### `BulkPullRequestActionCanceled`
+<h4 id="bulkpullrequestactioncanceled"><code>BulkPullRequestActionCanceled</code></h4>
 
-**Service:** changelogreader | **Implements:** <a href="#bulkpullrequestaction">BulkPullRequestAction</a>
+<p><strong>Service:</strong> changelogreader | <strong>Implements:</strong> <a href="#bulkpullrequestaction">BulkPullRequestAction</a></p>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `id` | ID! |  |
-| `actionType` | <a href="#pullrequestactiontype">PullRequestActionType</a>! |  |
-| `user` | <a href="#user">User</a>! |  |
-| `canceledBy` | <a href="#user">User</a>! |  |
-| `results` | (first: Int = 50, after: String, where: <a href="#pullrequestactionwhereinput">PullRequestActionWhereInput</a>, orderBy: [<a href="#pullrequestactionorderbyinput">PullRequestActionOrderByInput</a>!]): <a href="#pullrequestactionconnection">PullRequestActionConnection</a>! |  |
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>id</code></td><td>ID!</td><td></td></tr>
+    <tr><td><code>actionType</code></td><td><a href="#pullrequestactiontype">PullRequestActionType</a>!</td><td></td></tr>
+    <tr><td><code>user</code></td><td><a href="#user">User</a>!</td><td></td></tr>
+    <tr><td><code>canceledBy</code></td><td><a href="#user">User</a>!</td><td></td></tr>
+    <tr><td><code>results</code></td><td>(first: Int = 50, after: String, where: <a href="#pullrequestactionwhereinput">PullRequestActionWhereInput</a>, orderBy: [<a href="#pullrequestactionorderbyinput">PullRequestActionOrderByInput</a>!]): <a href="#pullrequestactionconnection">PullRequestActionConnection</a>!</td><td></td></tr>
+  </tbody>
+</table>
 
----
+<hr/>
 
-#### `BulkPullRequestActionConnection`
+<h4 id="bulkpullrequestactionconnection"><code>BulkPullRequestActionConnection</code></h4>
 
-**Service:** changelogreader
+<p><strong>Service:</strong> changelogreader</p>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `edges` | [<a href="#bulkpullrequestactionedge">BulkPullRequestActionEdge</a>!]! |  |
-| `pageInfo` | <a href="#pageinfo">PageInfo</a>! |  |
-| `count` | Int! |  |
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>edges</code></td><td>[<a href="#bulkpullrequestactionedge">BulkPullRequestActionEdge</a>!]!</td><td></td></tr>
+    <tr><td><code>pageInfo</code></td><td><a href="#pageinfo">PageInfo</a>!</td><td></td></tr>
+    <tr><td><code>count</code></td><td>Int!</td><td></td></tr>
+  </tbody>
+</table>
 
----
+<hr/>
+
+<h4 id="bulkpullrequestactionedge"><code>BulkPullRequestActionEdge</code></h4>
 
-#### `BulkPullRequestActionEdge`
+<p><strong>Service:</strong> changelogreader</p>
 
-**Service:** changelogreader
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>node</code></td><td><a href="#bulkpullrequestaction">BulkPullRequestAction</a>!</td><td></td></tr>
+    <tr><td><code>cursor</code></td><td>String!</td><td></td></tr>
+  </tbody>
+</table>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `node` | <a href="#bulkpullrequestaction">BulkPullRequestAction</a>! |  |
-| `cursor` | String! |  |
+<hr/>
 
----
+<h4 id="bulkpullrequestactionerror"><code>BulkPullRequestActionError</code></h4>
 
-#### `BulkPullRequestActionError`
+<p><strong>Service:</strong> changelogreader | <strong>Implements:</strong> <a href="#bulkpullrequestaction">BulkPullRequestAction</a></p>
 
-**Service:** changelogreader | **Implements:** <a href="#bulkpullrequestaction">BulkPullRequestAction</a>
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>id</code></td><td>ID!</td><td></td></tr>
+    <tr><td><code>actionType</code></td><td><a href="#pullrequestactiontype">PullRequestActionType</a>!</td><td></td></tr>
+    <tr><td><code>user</code></td><td><a href="#user">User</a>!</td><td></td></tr>
+    <tr><td><code>errorMessage</code></td><td>String!</td><td></td></tr>
+    <tr><td><code>results</code></td><td>(first: Int = 50, after: String, where: <a href="#pullrequestactionwhereinput">PullRequestActionWhereInput</a>, orderBy: [<a href="#pullrequestactionorderbyinput">PullRequestActionOrderByInput</a>!]): <a href="#pullrequestactionconnection">PullRequestActionConnection</a>!</td><td></td></tr>
+  </tbody>
+</table>
+
+<hr/>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `id` | ID! |  |
-| `actionType` | <a href="#pullrequestactiontype">PullRequestActionType</a>! |  |
-| `user` | <a href="#user">User</a>! |  |
-| `errorMessage` | String! |  |
-| `results` | (first: Int = 50, after: String, where: <a href="#pullrequestactionwhereinput">PullRequestActionWhereInput</a>, orderBy: [<a href="#pullrequestactionorderbyinput">PullRequestActionOrderByInput</a>!]): <a href="#pullrequestactionconnection">PullRequestActionConnection</a>! |  |
+<h4 id="bulkpullrequestactionfinished"><code>BulkPullRequestActionFinished</code></h4>
 
----
+<p><strong>Service:</strong> changelogreader | <strong>Implements:</strong> <a href="#bulkpullrequestaction">BulkPullRequestAction</a></p>
 
-#### `BulkPullRequestActionFinished`
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>id</code></td><td>ID!</td><td></td></tr>
+    <tr><td><code>actionType</code></td><td><a href="#pullrequestactiontype">PullRequestActionType</a>!</td><td></td></tr>
+    <tr><td><code>user</code></td><td><a href="#user">User</a>!</td><td></td></tr>
+    <tr><td><code>startedAt</code></td><td><a href="#datetime">DateTime</a>!</td><td></td></tr>
+    <tr><td><code>finishedAt</code></td><td><a href="#datetime">DateTime</a>!</td><td></td></tr>
+    <tr><td><code>results</code></td><td>(first: Int = 50, after: String, where: <a href="#pullrequestactionwhereinput">PullRequestActionWhereInput</a>, orderBy: [<a href="#pullrequestactionorderbyinput">PullRequestActionOrderByInput</a>!]): <a href="#pullrequestactionconnection">PullRequestActionConnection</a>!</td><td></td></tr>
+  </tbody>
+</table>
 
-**Service:** changelogreader | **Implements:** <a href="#bulkpullrequestaction">BulkPullRequestAction</a>
+<hr/>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `id` | ID! |  |
-| `actionType` | <a href="#pullrequestactiontype">PullRequestActionType</a>! |  |
-| `user` | <a href="#user">User</a>! |  |
-| `startedAt` | <a href="#datetime">DateTime</a>! |  |
-| `finishedAt` | <a href="#datetime">DateTime</a>! |  |
-| `results` | (first: Int = 50, after: String, where: <a href="#pullrequestactionwhereinput">PullRequestActionWhereInput</a>, orderBy: [<a href="#pullrequestactionorderbyinput">PullRequestActionOrderByInput</a>!]): <a href="#pullrequestactionconnection">PullRequestActionConnection</a>! |  |
+<h4 id="bulkpullrequestactionqueued"><code>BulkPullRequestActionQueued</code></h4>
 
----
+<p><strong>Service:</strong> changelogreader | <strong>Implements:</strong> <a href="#bulkpullrequestaction">BulkPullRequestAction</a></p>
+
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>id</code></td><td>ID!</td><td></td></tr>
+    <tr><td><code>actionType</code></td><td><a href="#pullrequestactiontype">PullRequestActionType</a>!</td><td></td></tr>
+    <tr><td><code>user</code></td><td><a href="#user">User</a>!</td><td></td></tr>
+    <tr><td><code>queuedAt</code></td><td><a href="#datetime">DateTime</a>!</td><td></td></tr>
+    <tr><td><code>results</code></td><td>(first: Int = 50, after: String, where: <a href="#pullrequestactionwhereinput">PullRequestActionWhereInput</a>, orderBy: [<a href="#pullrequestactionorderbyinput">PullRequestActionOrderByInput</a>!]): <a href="#pullrequestactionconnection">PullRequestActionConnection</a>!</td><td></td></tr>
+  </tbody>
+</table>
 
-#### `BulkPullRequestActionQueued`
+<hr/>
 
-**Service:** changelogreader | **Implements:** <a href="#bulkpullrequestaction">BulkPullRequestAction</a>
+<h4 id="bulkpullrequestactionrunning"><code>BulkPullRequestActionRunning</code></h4>
+
+<p><strong>Service:</strong> changelogreader | <strong>Implements:</strong> <a href="#bulkpullrequestaction">BulkPullRequestAction</a></p>
+
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>id</code></td><td>ID!</td><td></td></tr>
+    <tr><td><code>actionType</code></td><td><a href="#pullrequestactiontype">PullRequestActionType</a>!</td><td></td></tr>
+    <tr><td><code>user</code></td><td><a href="#user">User</a>!</td><td></td></tr>
+    <tr><td><code>startedAt</code></td><td><a href="#datetime">DateTime</a>!</td><td></td></tr>
+    <tr><td><code>results</code></td><td>(first: Int = 50, after: String, where: <a href="#pullrequestactionwhereinput">PullRequestActionWhereInput</a>, orderBy: [<a href="#pullrequestactionorderbyinput">PullRequestActionOrderByInput</a>!]): <a href="#pullrequestactionconnection">PullRequestActionConnection</a>!</td><td></td></tr>
+  </tbody>
+</table>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `id` | ID! |  |
-| `actionType` | <a href="#pullrequestactiontype">PullRequestActionType</a>! |  |
-| `user` | <a href="#user">User</a>! |  |
-| `queuedAt` | <a href="#datetime">DateTime</a>! |  |
-| `results` | (first: Int = 50, after: String, where: <a href="#pullrequestactionwhereinput">PullRequestActionWhereInput</a>, orderBy: [<a href="#pullrequestactionorderbyinput">PullRequestActionOrderByInput</a>!]): <a href="#pullrequestactionconnection">PullRequestActionConnection</a>! |  |
+<hr/>
 
----
+<h4 id="changeparticipant"><code>ChangeParticipant</code></h4>
 
-#### `BulkPullRequestActionRunning`
+<p><strong>Service:</strong> changelogreader</p>
 
-**Service:** changelogreader | **Implements:** <a href="#bulkpullrequestaction">BulkPullRequestAction</a>
+<p>A participant identity from the VCS provider. Not necessarily a Moderne user.</p>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `id` | ID! |  |
-| `actionType` | <a href="#pullrequestactiontype">PullRequestActionType</a>! |  |
-| `user` | <a href="#user">User</a>! |  |
-| `startedAt` | <a href="#datetime">DateTime</a>! |  |
-| `results` | (first: Int = 50, after: String, where: <a href="#pullrequestactionwhereinput">PullRequestActionWhereInput</a>, orderBy: [<a href="#pullrequestactionorderbyinput">PullRequestActionOrderByInput</a>!]): <a href="#pullrequestactionconnection">PullRequestActionConnection</a>! |  |
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>name</code></td><td>String</td><td>Display name.</td></tr>
+    <tr><td><code>email</code></td><td>String</td><td>Email address.</td></tr>
+    <tr><td><code>username</code></td><td>String</td><td>Username/login on the VCS provider.</td></tr>
+    <tr><td><code>avatarUrl</code></td><td>String</td><td>Avatar URL from the VCS provider.</td></tr>
+    <tr><td><code>roles</code></td><td>[<a href="#contributorrole">ContributorRole</a>!]!</td><td>The roles this participant has across changelog entries.</td></tr>
+  </tbody>
+</table>
 
----
+<hr/>
 
-#### `ChangeParticipant`
-
-**Service:** changelogreader
-
-A participant identity from the VCS provider. Not necessarily a Moderne user.
-
-| Field | Type | Description |
-|-------|------|-------------|
-| `name` | String | Display name. |
-| `email` | String | Email address. |
-| `username` | String | Username/login on the VCS provider. |
-| `avatarUrl` | String | Avatar URL from the VCS provider. |
-| `roles` | [<a href="#contributorrole">ContributorRole</a>!]! | The roles this participant has across changelog entries. |
-
----
-
-#### `ChangelogCommit`
-
-**Service:** changelogreader | **Implements:** <a href="#changelogentry">ChangelogEntry</a>
-
-A direct commit to a branch.
-
-| Field | Type | Description |
-|-------|------|-------------|
-| `id` | ID! |  |
-| `title` | String! |  |
-| `author` | <a href="#changeparticipant">ChangeParticipant</a>! |  |
-| `repository` | <a href="#repository">Repository</a>! |  |
-| `url` | String! |  |
-| `branch` | String! |  |
-| `sha` | String! | The commit SHA. |
-| `updatedAt` | <a href="#datetime">DateTime</a>! |  |
-| `createdAt` | <a href="#datetime">DateTime</a>! |  |
-| `changeset` | <a href="#organizationchangeset">OrganizationChangeset</a> |  |
-| `buildState` | <a href="#buildstate">BuildState</a> |  |
-| `diffstat` | <a href="#diffstat">DiffStat</a>! |  |
-
----
-
-#### `ChangelogEntryConnection`
-
-**Service:** changelogreader
-
-| Field | Type | Description |
-|-------|------|-------------|
-| `edges` | [<a href="#changelogentryedge">ChangelogEntryEdge</a>!]! |  |
-| `pageInfo` | <a href="#pageinfo">PageInfo</a>! |  |
-| `count` | Int! |  |
-
----
-
-#### `ChangelogEntryEdge`
-
-**Service:** changelogreader
-
-| Field | Type | Description |
-|-------|------|-------------|
-| `node` | <a href="#changelogentry">ChangelogEntry</a>! |  |
-| `cursor` | String! |  |
-
----
-
-#### `ChangelogParticipantConnection`
-
-**Service:** changelogreader
-
-| Field | Type | Description |
-|-------|------|-------------|
-| `edges` | [<a href="#changelogparticipantedge">ChangelogParticipantEdge</a>!]! |  |
-| `pageInfo` | <a href="#pageinfo">PageInfo</a>! |  |
-| `count` | Int! |  |
-
----
-
-#### `ChangelogParticipantEdge`
-
-**Service:** changelogreader
-
-| Field | Type | Description |
-|-------|------|-------------|
-| `node` | <a href="#changeparticipant">ChangeParticipant</a>! |  |
-| `cursor` | String! |  |
-
----
-
-#### `ChangelogPullRequest`
-
-**Service:** changelogreader | **Implements:** <a href="#changelogentry">ChangelogEntry</a>
-
-A pull request (open, draft, merged, or closed).
-
-| Field | Type | Description |
-|-------|------|-------------|
-| `id` | ID! |  |
-| `title` | String! |  |
-| `author` | <a href="#changeparticipant">ChangeParticipant</a>! |  |
-| `repository` | <a href="#repository">Repository</a>! |  |
-| `url` | String! |  |
-| `branch` | String! |  |
-| `number` | Int! | The PR number. |
-| `sourceBranch` | String! | The source branch of the pull request. |
-| `state` | <a href="#pullrequeststate">PullRequestState</a>! | Current state of the pull request. |
-| `draft` | Boolean! | Whether this is a draft pull request. |
-| `updatedAt` | <a href="#datetime">DateTime</a>! |  |
-| `createdAt` | <a href="#datetime">DateTime</a>! |  |
-| `buildState` | <a href="#buildstate">BuildState</a> |  |
-| `reviewDecision` | <a href="#reviewdecision">ReviewDecision</a> | Review decision for the pull request. |
-| `approvedBy` | [<a href="#changeparticipant">ChangeParticipant</a>!] | Reviewers who approved this pull request. |
-| `requestedReviewers` | [<a href="#changeparticipant">ChangeParticipant</a>!] | Reviewers assigned/requested on this pull request. |
-| `additions` | Int | Lines added. |
-| `deletions` | Int | Lines removed. |
-| `changeset` | <a href="#organizationchangeset">OrganizationChangeset</a> |  |
-| `diffstat` | <a href="#diffstat">DiffStat</a>! |  |
-| `actions` | (first: Int = 50, after: String, where: <a href="#pullrequestactionwhereinput">PullRequestActionWhereInput</a>, orderBy: [<a href="#pullrequestactionorderbyinput">PullRequestActionOrderByInput</a>!]): <a href="#pullrequestactionconnection">PullRequestActionConnection</a>! | Actions (approve, merge, close) that have been applied to this pull request.
-Default sort order is descending by startedAt. |
-
----
-
-#### `CliDownloadInstructionLink`
-
-**Service:** gateway
-
-| Field | Type | Description |
-|-------|------|-------------|
-| `label` | String! |  |
-| `uri` | String! |  |
-
----
-
-#### `CodeSearchResult`
-
-**Service:** code-search
-
-| Field | Type | Description |
-|-------|------|-------------|
-| `groupId` | String! |  |
-| `artifactId` | String! |  |
-| `fileChanges` | (first: Int = 100, after: String): <a href="#filechangeconnection">FileChangeConnection</a>! |  |
-
----
-
-#### `CodeSearchResultConnection`
-
-**Service:** code-search
-
-| Field | Type | Description |
-|-------|------|-------------|
-| `edges` | [<a href="#codesearchresultedge">CodeSearchResultEdge</a>!]! |  |
-| `pageInfo` | <a href="#pageinfo">PageInfo</a>! |  |
-| `count` | Int! |  |
-| `searchDurationMs` | <a href="#long">Long</a>! |  |
-
----
-
-#### `CodeSearchResultEdge`
-
-**Service:** code-search
-
-| Field | Type | Description |
-|-------|------|-------------|
-| `node` | <a href="#codesearchresult">CodeSearchResult</a>! |  |
-| `cursor` | String! |  |
-
----
-
-#### `Column`
-
-**Service:** corechangeset
-
-| Field | Type | Description |
-|-------|------|-------------|
-| `name` | String! |  |
-| `displayName` | String! |  |
-| `description` | String! |  |
-| `type` | String! |  |
-
----
-
-#### `Connector`
-
-**Service:** gateway
-
-| Field | Type | Description |
-|-------|------|-------------|
-| `id` | ID! |  |
-| `nickname` | String |  |
-| `version` | String! |  |
-| `tools` | [<a href="#connectortool">ConnectorTool</a>!]! |  |
-| `uiConfiguration` | <a href="#uiconfiguration">UiConfiguration</a> |  |
-| `personalAccessTokenConfiguration` | <a href="#personalaccesstokenconfiguration">PersonalAccessTokenConfiguration</a> |  |
-
----
-
-#### `ConnectorConnection`
-
-**Service:** gateway
-
-| Field | Type | Description |
-|-------|------|-------------|
-| `edges` | [<a href="#connectoredge">ConnectorEdge</a>!]! |  |
-| `pageInfo` | <a href="#pageinfo">PageInfo</a>! |  |
-| `count` | Int! |  |
-
----
-
-#### `ConnectorEdge`
-
-**Service:** gateway
-
-| Field | Type | Description |
-|-------|------|-------------|
-| `node` | <a href="#connector">Connector</a>! |  |
-| `cursor` | String! |  |
-
----
-
-#### `Conversation`
-
-**Service:** moddy
-
-| Field | Type | Description |
-|-------|------|-------------|
-| `id` | ID! |  |
-| `organization` | <a href="#organization">Organization</a>! |  |
-| `user` | <a href="#user">User</a>! |  |
-| `messages` | (first: Int = 100, after: String): <a href="#messageconnection">MessageConnection</a>! |  |
-| `turnState` | <a href="#conversationturnstate">ConversationTurnState</a>! | Current turn state for this conversation. Carries the server-
+<h4 id="changelogcommit"><code>ChangelogCommit</code></h4>
+
+<p><strong>Service:</strong> changelogreader | <strong>Implements:</strong> <a href="#changelogentry">ChangelogEntry</a></p>
+
+<p>A direct commit to a branch.</p>
+
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>id</code></td><td>ID!</td><td></td></tr>
+    <tr><td><code>title</code></td><td>String!</td><td></td></tr>
+    <tr><td><code>author</code></td><td><a href="#changeparticipant">ChangeParticipant</a>!</td><td></td></tr>
+    <tr><td><code>repository</code></td><td><a href="#repository">Repository</a>!</td><td></td></tr>
+    <tr><td><code>url</code></td><td>String!</td><td></td></tr>
+    <tr><td><code>branch</code></td><td>String!</td><td></td></tr>
+    <tr><td><code>sha</code></td><td>String!</td><td>The commit SHA.</td></tr>
+    <tr><td><code>updatedAt</code></td><td><a href="#datetime">DateTime</a>!</td><td></td></tr>
+    <tr><td><code>createdAt</code></td><td><a href="#datetime">DateTime</a>!</td><td></td></tr>
+    <tr><td><code>changeset</code></td><td><a href="#organizationchangeset">OrganizationChangeset</a></td><td></td></tr>
+    <tr><td><code>buildState</code></td><td><a href="#buildstate">BuildState</a></td><td></td></tr>
+    <tr><td><code>diffstat</code></td><td><a href="#diffstat">DiffStat</a>!</td><td></td></tr>
+  </tbody>
+</table>
+
+<hr/>
+
+<h4 id="changelogentryconnection"><code>ChangelogEntryConnection</code></h4>
+
+<p><strong>Service:</strong> changelogreader</p>
+
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>edges</code></td><td>[<a href="#changelogentryedge">ChangelogEntryEdge</a>!]!</td><td></td></tr>
+    <tr><td><code>pageInfo</code></td><td><a href="#pageinfo">PageInfo</a>!</td><td></td></tr>
+    <tr><td><code>count</code></td><td>Int!</td><td></td></tr>
+  </tbody>
+</table>
+
+<hr/>
+
+<h4 id="changelogentryedge"><code>ChangelogEntryEdge</code></h4>
+
+<p><strong>Service:</strong> changelogreader</p>
+
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>node</code></td><td><a href="#changelogentry">ChangelogEntry</a>!</td><td></td></tr>
+    <tr><td><code>cursor</code></td><td>String!</td><td></td></tr>
+  </tbody>
+</table>
+
+<hr/>
+
+<h4 id="changelogparticipantconnection"><code>ChangelogParticipantConnection</code></h4>
+
+<p><strong>Service:</strong> changelogreader</p>
+
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>edges</code></td><td>[<a href="#changelogparticipantedge">ChangelogParticipantEdge</a>!]!</td><td></td></tr>
+    <tr><td><code>pageInfo</code></td><td><a href="#pageinfo">PageInfo</a>!</td><td></td></tr>
+    <tr><td><code>count</code></td><td>Int!</td><td></td></tr>
+  </tbody>
+</table>
+
+<hr/>
+
+<h4 id="changelogparticipantedge"><code>ChangelogParticipantEdge</code></h4>
+
+<p><strong>Service:</strong> changelogreader</p>
+
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>node</code></td><td><a href="#changeparticipant">ChangeParticipant</a>!</td><td></td></tr>
+    <tr><td><code>cursor</code></td><td>String!</td><td></td></tr>
+  </tbody>
+</table>
+
+<hr/>
+
+<h4 id="changelogpullrequest"><code>ChangelogPullRequest</code></h4>
+
+<p><strong>Service:</strong> changelogreader | <strong>Implements:</strong> <a href="#changelogentry">ChangelogEntry</a></p>
+
+<p>A pull request (open, draft, merged, or closed).</p>
+
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>id</code></td><td>ID!</td><td></td></tr>
+    <tr><td><code>title</code></td><td>String!</td><td></td></tr>
+    <tr><td><code>author</code></td><td><a href="#changeparticipant">ChangeParticipant</a>!</td><td></td></tr>
+    <tr><td><code>repository</code></td><td><a href="#repository">Repository</a>!</td><td></td></tr>
+    <tr><td><code>url</code></td><td>String!</td><td></td></tr>
+    <tr><td><code>branch</code></td><td>String!</td><td></td></tr>
+    <tr><td><code>number</code></td><td>Int!</td><td>The PR number.</td></tr>
+    <tr><td><code>sourceBranch</code></td><td>String!</td><td>The source branch of the pull request.</td></tr>
+    <tr><td><code>state</code></td><td><a href="#pullrequeststate">PullRequestState</a>!</td><td>Current state of the pull request.</td></tr>
+    <tr><td><code>draft</code></td><td>Boolean!</td><td>Whether this is a draft pull request.</td></tr>
+    <tr><td><code>updatedAt</code></td><td><a href="#datetime">DateTime</a>!</td><td></td></tr>
+    <tr><td><code>createdAt</code></td><td><a href="#datetime">DateTime</a>!</td><td></td></tr>
+    <tr><td><code>buildState</code></td><td><a href="#buildstate">BuildState</a></td><td></td></tr>
+    <tr><td><code>reviewDecision</code></td><td><a href="#reviewdecision">ReviewDecision</a></td><td>Review decision for the pull request.</td></tr>
+    <tr><td><code>approvedBy</code></td><td>[<a href="#changeparticipant">ChangeParticipant</a>!]</td><td>Reviewers who approved this pull request.</td></tr>
+    <tr><td><code>requestedReviewers</code></td><td>[<a href="#changeparticipant">ChangeParticipant</a>!]</td><td>Reviewers assigned/requested on this pull request.</td></tr>
+    <tr><td><code>additions</code></td><td>Int</td><td>Lines added.</td></tr>
+    <tr><td><code>deletions</code></td><td>Int</td><td>Lines removed.</td></tr>
+    <tr><td><code>changeset</code></td><td><a href="#organizationchangeset">OrganizationChangeset</a></td><td></td></tr>
+    <tr><td><code>diffstat</code></td><td><a href="#diffstat">DiffStat</a>!</td><td></td></tr>
+    <tr><td><code>actions</code></td><td>(first: Int = 50, after: String, where: <a href="#pullrequestactionwhereinput">PullRequestActionWhereInput</a>, orderBy: [<a href="#pullrequestactionorderbyinput">PullRequestActionOrderByInput</a>!]): <a href="#pullrequestactionconnection">PullRequestActionConnection</a>!</td><td>Actions (approve, merge, close) that have been applied to this pull request.
+Default sort order is descending by startedAt.</td></tr>
+  </tbody>
+</table>
+
+<hr/>
+
+<h4 id="clidownloadinstructionlink"><code>CliDownloadInstructionLink</code></h4>
+
+<p><strong>Service:</strong> gateway</p>
+
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>label</code></td><td>String!</td><td></td></tr>
+    <tr><td><code>uri</code></td><td>String!</td><td></td></tr>
+  </tbody>
+</table>
+
+<hr/>
+
+<h4 id="codesearchresult"><code>CodeSearchResult</code></h4>
+
+<p><strong>Service:</strong> code-search</p>
+
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>groupId</code></td><td>String!</td><td></td></tr>
+    <tr><td><code>artifactId</code></td><td>String!</td><td></td></tr>
+    <tr><td><code>fileChanges</code></td><td>(first: Int = 100, after: String): <a href="#filechangeconnection">FileChangeConnection</a>!</td><td></td></tr>
+  </tbody>
+</table>
+
+<hr/>
+
+<h4 id="codesearchresultconnection"><code>CodeSearchResultConnection</code></h4>
+
+<p><strong>Service:</strong> code-search</p>
+
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>edges</code></td><td>[<a href="#codesearchresultedge">CodeSearchResultEdge</a>!]!</td><td></td></tr>
+    <tr><td><code>pageInfo</code></td><td><a href="#pageinfo">PageInfo</a>!</td><td></td></tr>
+    <tr><td><code>count</code></td><td>Int!</td><td></td></tr>
+    <tr><td><code>searchDurationMs</code></td><td><a href="#long">Long</a>!</td><td></td></tr>
+  </tbody>
+</table>
+
+<hr/>
+
+<h4 id="codesearchresultedge"><code>CodeSearchResultEdge</code></h4>
+
+<p><strong>Service:</strong> code-search</p>
+
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>node</code></td><td><a href="#codesearchresult">CodeSearchResult</a>!</td><td></td></tr>
+    <tr><td><code>cursor</code></td><td>String!</td><td></td></tr>
+  </tbody>
+</table>
+
+<hr/>
+
+<h4 id="column"><code>Column</code></h4>
+
+<p><strong>Service:</strong> corechangeset</p>
+
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>name</code></td><td>String!</td><td></td></tr>
+    <tr><td><code>displayName</code></td><td>String!</td><td></td></tr>
+    <tr><td><code>description</code></td><td>String!</td><td></td></tr>
+    <tr><td><code>type</code></td><td>String!</td><td></td></tr>
+  </tbody>
+</table>
+
+<hr/>
+
+<h4 id="connector"><code>Connector</code></h4>
+
+<p><strong>Service:</strong> gateway</p>
+
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>id</code></td><td>ID!</td><td></td></tr>
+    <tr><td><code>nickname</code></td><td>String</td><td></td></tr>
+    <tr><td><code>version</code></td><td>String!</td><td></td></tr>
+    <tr><td><code>tools</code></td><td>[<a href="#connectortool">ConnectorTool</a>!]!</td><td></td></tr>
+    <tr><td><code>uiConfiguration</code></td><td><a href="#uiconfiguration">UiConfiguration</a></td><td></td></tr>
+    <tr><td><code>personalAccessTokenConfiguration</code></td><td><a href="#personalaccesstokenconfiguration">PersonalAccessTokenConfiguration</a></td><td></td></tr>
+  </tbody>
+</table>
+
+<hr/>
+
+<h4 id="connectorconnection"><code>ConnectorConnection</code></h4>
+
+<p><strong>Service:</strong> gateway</p>
+
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>edges</code></td><td>[<a href="#connectoredge">ConnectorEdge</a>!]!</td><td></td></tr>
+    <tr><td><code>pageInfo</code></td><td><a href="#pageinfo">PageInfo</a>!</td><td></td></tr>
+    <tr><td><code>count</code></td><td>Int!</td><td></td></tr>
+  </tbody>
+</table>
+
+<hr/>
+
+<h4 id="connectoredge"><code>ConnectorEdge</code></h4>
+
+<p><strong>Service:</strong> gateway</p>
+
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>node</code></td><td><a href="#connector">Connector</a>!</td><td></td></tr>
+    <tr><td><code>cursor</code></td><td>String!</td><td></td></tr>
+  </tbody>
+</table>
+
+<hr/>
+
+<h4 id="conversation"><code>Conversation</code></h4>
+
+<p><strong>Service:</strong> moddy</p>
+
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>id</code></td><td>ID!</td><td></td></tr>
+    <tr><td><code>organization</code></td><td><a href="#organization">Organization</a>!</td><td></td></tr>
+    <tr><td><code>user</code></td><td><a href="#user">User</a>!</td><td></td></tr>
+    <tr><td><code>messages</code></td><td>(first: Int = 100, after: String): <a href="#messageconnection">MessageConnection</a>!</td><td></td></tr>
+    <tr><td><code>turnState</code></td><td><a href="#conversationturnstate">ConversationTurnState</a>!</td><td>Current turn state for this conversation. Carries the server-
 recommended poll cadence — clients should respect this rather than
-hardcoding an interval. |
-| `startedAt` | <a href="#datetime">DateTime</a>! |  |
-| `lastUpdatedAt` | <a href="#datetime">DateTime</a>! |  |
+hardcoding an interval.</td></tr>
+    <tr><td><code>startedAt</code></td><td><a href="#datetime">DateTime</a>!</td><td></td></tr>
+    <tr><td><code>lastUpdatedAt</code></td><td><a href="#datetime">DateTime</a>!</td><td></td></tr>
+  </tbody>
+</table>
 
----
+<hr/>
 
-#### `ConversationConnection`
+<h4 id="conversationconnection"><code>ConversationConnection</code></h4>
 
-**Service:** moddy
+<p><strong>Service:</strong> moddy</p>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `edges` | [<a href="#conversationedge">ConversationEdge</a>!]! |  |
-| `pageInfo` | <a href="#pageinfo">PageInfo</a>! |  |
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>edges</code></td><td>[<a href="#conversationedge">ConversationEdge</a>!]!</td><td></td></tr>
+    <tr><td><code>pageInfo</code></td><td><a href="#pageinfo">PageInfo</a>!</td><td></td></tr>
+  </tbody>
+</table>
 
----
+<hr/>
 
-#### `ConversationEdge`
+<h4 id="conversationedge"><code>ConversationEdge</code></h4>
 
-**Service:** moddy
+<p><strong>Service:</strong> moddy</p>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `node` | <a href="#conversation">Conversation</a>! |  |
-| `cursor` | String! |  |
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>node</code></td><td><a href="#conversation">Conversation</a>!</td><td></td></tr>
+    <tr><td><code>cursor</code></td><td>String!</td><td></td></tr>
+  </tbody>
+</table>
 
----
+<hr/>
 
-#### `ConversationTurnState`
+<h4 id="conversationturnstate"><code>ConversationTurnState</code></h4>
 
-**Service:** moddy
+<p><strong>Service:</strong> moddy</p>
 
-Represents the current phase of the conversation's active turn (if any).
-Drives client poll cadence.
+<p>Represents the current phase of the conversation's active turn (if any).
+Drives client poll cadence.</p>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `phase` | <a href="#conversationphase">ConversationPhase</a>! |  |
-| `recommendedPollIntervalMs` | Int! | Server-recommended poll interval in milliseconds. |
-| `activeTurnStartedAt` | <a href="#datetime">DateTime</a> | When the currently-active turn started, if any. |
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>phase</code></td><td><a href="#conversationphase">ConversationPhase</a>!</td><td></td></tr>
+    <tr><td><code>recommendedPollIntervalMs</code></td><td>Int!</td><td>Server-recommended poll interval in milliseconds.</td></tr>
+    <tr><td><code>activeTurnStartedAt</code></td><td><a href="#datetime">DateTime</a></td><td>When the currently-active turn started, if any.</td></tr>
+  </tbody>
+</table>
 
----
+<hr/>
 
-#### `CreateAccessTokenResult`
+<h4 id="createaccesstokenresult"><code>CreateAccessTokenResult</code></h4>
 
-**Service:** authz
+<p><strong>Service:</strong> authz</p>
 
-Result of creating a new access token.
-The token value is only available in this response.
+<p>Result of creating a new access token.
+The token value is only available in this response.</p>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `id` | ID! | The unique identifier for the token. Use this ID for revocation. |
-| `token` | String! | The actual token value. Store this securely - it cannot be retrieved again. |
-| `description` | String | The description provided when creating the token. |
-| `created` | <a href="#datetime">DateTime</a>! | When the token was created. |
-| `expiresAt` | <a href="#datetime">DateTime</a> | When the token will expire, or null if it never expires. |
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>id</code></td><td>ID!</td><td>The unique identifier for the token. Use this ID for revocation.</td></tr>
+    <tr><td><code>token</code></td><td>String!</td><td>The actual token value. Store this securely - it cannot be retrieved again.</td></tr>
+    <tr><td><code>description</code></td><td>String</td><td>The description provided when creating the token.</td></tr>
+    <tr><td><code>created</code></td><td><a href="#datetime">DateTime</a>!</td><td>When the token was created.</td></tr>
+    <tr><td><code>expiresAt</code></td><td><a href="#datetime">DateTime</a></td><td>When the token will expire, or null if it never expires.</td></tr>
+  </tbody>
+</table>
 
----
+<hr/>
 
-#### `DataTableAvailable`
+<h4 id="datatableavailable"><code>DataTableAvailable</code></h4>
 
-**Service:** changesetreader | **Implements:** <a href="#datatable">DataTable</a>
+<p><strong>Service:</strong> changesetreader | <strong>Implements:</strong> <a href="#datatable">DataTable</a></p>
 
-A data table is available for download but no download has been initiated yet.
+<p>A data table is available for download but no download has been initiated yet.</p>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `id` | ID! |  |
-| `dataTable` | <a href="#datatabledescriptor">DataTableDescriptor</a>! |  |
-| `instanceName` | String! |  |
-| `group` | String |  |
-| `changesetId` | ID! |  |
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>id</code></td><td>ID!</td><td></td></tr>
+    <tr><td><code>dataTable</code></td><td><a href="#datatabledescriptor">DataTableDescriptor</a>!</td><td></td></tr>
+    <tr><td><code>instanceName</code></td><td>String!</td><td></td></tr>
+    <tr><td><code>group</code></td><td>String</td><td></td></tr>
+    <tr><td><code>changesetId</code></td><td>ID!</td><td></td></tr>
+  </tbody>
+</table>
 
----
+<hr/>
 
-#### `DataTableConnection`
+<h4 id="datatableconnection"><code>DataTableConnection</code></h4>
 
-**Service:** corechangeset
+<p><strong>Service:</strong> corechangeset</p>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `edges` | [<a href="#datatableedge">DataTableEdge</a>!]! |  |
-| `pageInfo` | <a href="#pageinfo">PageInfo</a>! |  |
-| `count` | Int! |  |
-
----
-
-#### `DataTableDescriptor`
-
-**Service:** corechangeset
-
-| Field | Type | Description |
-|-------|------|-------------|
-| `name` | String! |  |
-| `displayName` | String! |  |
-| `description` | String! |  |
-| `columns` | [<a href="#column">Column</a>!]! |  |
-
----
-
-#### `DataTableEdge`
-
-**Service:** corechangeset
-
-| Field | Type | Description |
-|-------|------|-------------|
-| `node` | <a href="#datatable">DataTable</a>! |  |
-| `cursor` | String! |  |
-
----
-
-#### `DataTableError`
-
-**Service:** changesetreader | **Implements:** <a href="#datatable">DataTable</a>
-
-A data table download failed.
-
-| Field | Type | Description |
-|-------|------|-------------|
-| `id` | ID! |  |
-| `dataTable` | <a href="#datatabledescriptor">DataTableDescriptor</a>! |  |
-| `instanceName` | String! |  |
-| `group` | String |  |
-| `changesetId` | ID! |  |
-| `startedAt` | <a href="#datetime">DateTime</a>! |  |
-| `finishedAt` | <a href="#datetime">DateTime</a>! |  |
-| `message` | String! |  |
-
----
-
-#### `DataTableFinished`
-
-**Service:** changesetreader | **Implements:** <a href="#datatable">DataTable</a>
-
-A data table download has completed successfully.
-
-| Field | Type | Description |
-|-------|------|-------------|
-| `id` | ID! |  |
-| `dataTable` | <a href="#datatabledescriptor">DataTableDescriptor</a>! |  |
-| `instanceName` | String! |  |
-| `group` | String |  |
-| `format` | <a href="#datatableformat">DataTableFormat</a>! |  |
-| `changesetId` | ID! |  |
-| `startedAt` | <a href="#datetime">DateTime</a>! |  |
-| `finishedAt` | <a href="#datetime">DateTime</a>! |  |
-| `duration` | <a href="#duration">Duration</a> |  |
-| `downloadUrl` | String! | URL path to download the file (relative to the service base URL). |
-
----
-
-#### `DataTableProcessing`
-
-**Service:** changesetreader | **Implements:** <a href="#datatable">DataTable</a>
-
-A data table download is being processed.
-
-| Field | Type | Description |
-|-------|------|-------------|
-| `id` | ID! |  |
-| `dataTable` | <a href="#datatabledescriptor">DataTableDescriptor</a>! |  |
-| `instanceName` | String! |  |
-| `group` | String |  |
-| `format` | <a href="#datatableformat">DataTableFormat</a>! |  |
-| `changesetId` | ID! |  |
-| `startedAt` | <a href="#datetime">DateTime</a>! |  |
-
----
-
-#### `DataTableSqlMessage`
-
-**Service:** moddy | **Implements:** <a href="#message">Message</a>
-
-| Field | Type | Description |
-|-------|------|-------------|
-| `id` | ID! |  |
-| `user` | <a href="#user">User</a>! |  |
-| `sqlQuery` | String! |  |
-| `state` | <a href="#messagestate">MessageState</a>! |  |
-| `lastUpdatedAt` | <a href="#datetime">DateTime</a>! |  |
-
----
-
-#### `DataTablesMessage`
-
-**Service:** moddy | **Implements:** <a href="#message">Message</a>
-
-| Field | Type | Description |
-|-------|------|-------------|
-| `id` | ID! |  |
-| `user` | <a href="#user">User</a>! |  |
-| `dataTables` | [<a href="#datatabledescriptor">DataTableDescriptor</a>!]! |  |
-| `state` | <a href="#messagestate">MessageState</a>! |  |
-| `lastUpdatedAt` | <a href="#datetime">DateTime</a>! |  |
-
----
-
-#### `DevCenter`
-
-**Service:** changesetreader
-
-| Field | Type | Description |
-|-------|------|-------------|
-| `recipe` | <a href="#recipedescriptor">RecipeDescriptor</a> | The currently configured DevCenter recipe for this organization. |
-| `runs` | (first: Int = 10, after: String, where: <a href="#devcenterrunwhereinput">DevCenterRunWhereInput</a>, orderBy: [<a href="#devcenterrunorderbyinput">DevCenterRunOrderByInput</a>!]): <a href="#devcenterrunconnection">DevCenterRunConnection</a>! | DevCenter runs for this organization, ordered by start time descending. |
-
----
-
-#### `DevCenterCard`
-
-**Service:** changesetreader
-
-A DevCenter card represents a category of work (e.g., "Spring Boot 3", "Java 21", "Security").
-Cards contain measures that track progress toward completion.
-
-| Field | Type | Description |
-|-------|------|-------------|
-| `displayName` | <a href="#markdown">Markdown</a>! | Display name of the card. |
-| `description` | <a href="#markdown">Markdown</a> | Description of what this card tracks. |
-| `fixRecipe` | <a href="#recipedescriptor">RecipeDescriptor</a> | Recipe that can fix/complete the work tracked by this card. |
-| `aggregation` | <a href="#devcenteraggregation">DevCenterAggregation</a>! | How results are aggregated for this card. |
-| `measures` | [<a href="#devcentermeasure">DevCenterMeasure</a>!]! | Measures within this card, ordered by ordinal. |
-| `repositoriesNotApplicable` | Int! | Repositories where this card is not applicable. |
-
----
-
-#### `DevCenterCardDescriptor`
-
-**Service:** recipemarketplace
-
-| Field | Type | Description |
-|-------|------|-------------|
-| `displayName` | <a href="#markdown">Markdown</a>! |  |
-| `description` | <a href="#markdown">Markdown</a> |  |
-| `fixRecipe` | <a href="#recipedescriptor">RecipeDescriptor</a> |  |
-| `aggregation` | <a href="#devcenteraggregation">DevCenterAggregation</a>! |  |
-| `measures` | [<a href="#devcentermeasuredescriptor">DevCenterMeasureDescriptor</a>!]! |  |
-
----
-
-#### `DevCenterMeasure`
-
-**Service:** changesetreader
-
-A measure within a DevCenter card representing a specific state or finding,
-with a count from the run results.
-
-| Field | Type | Description |
-|-------|------|-------------|
-| `displayName` | <a href="#markdown">Markdown</a>! | Display name of the measure. |
-| `description` | <a href="#markdown">Markdown</a> | Description of what this measure represents. |
-| `ordinal` | Int! | Sort order relative to other measures in the card. |
-| `count` | Int! | Count of repositories or occurrences for this measure.
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>edges</code></td><td>[<a href="#datatableedge">DataTableEdge</a>!]!</td><td></td></tr>
+    <tr><td><code>pageInfo</code></td><td><a href="#pageinfo">PageInfo</a>!</td><td></td></tr>
+    <tr><td><code>count</code></td><td>Int!</td><td></td></tr>
+  </tbody>
+</table>
+
+<hr/>
+
+<h4 id="datatabledescriptor"><code>DataTableDescriptor</code></h4>
+
+<p><strong>Service:</strong> corechangeset</p>
+
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>name</code></td><td>String!</td><td></td></tr>
+    <tr><td><code>displayName</code></td><td>String!</td><td></td></tr>
+    <tr><td><code>description</code></td><td>String!</td><td></td></tr>
+    <tr><td><code>columns</code></td><td>[<a href="#column">Column</a>!]!</td><td></td></tr>
+  </tbody>
+</table>
+
+<hr/>
+
+<h4 id="datatableedge"><code>DataTableEdge</code></h4>
+
+<p><strong>Service:</strong> corechangeset</p>
+
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>node</code></td><td><a href="#datatable">DataTable</a>!</td><td></td></tr>
+    <tr><td><code>cursor</code></td><td>String!</td><td></td></tr>
+  </tbody>
+</table>
+
+<hr/>
+
+<h4 id="datatableerror"><code>DataTableError</code></h4>
+
+<p><strong>Service:</strong> changesetreader | <strong>Implements:</strong> <a href="#datatable">DataTable</a></p>
+
+<p>A data table download failed.</p>
+
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>id</code></td><td>ID!</td><td></td></tr>
+    <tr><td><code>dataTable</code></td><td><a href="#datatabledescriptor">DataTableDescriptor</a>!</td><td></td></tr>
+    <tr><td><code>instanceName</code></td><td>String!</td><td></td></tr>
+    <tr><td><code>group</code></td><td>String</td><td></td></tr>
+    <tr><td><code>changesetId</code></td><td>ID!</td><td></td></tr>
+    <tr><td><code>startedAt</code></td><td><a href="#datetime">DateTime</a>!</td><td></td></tr>
+    <tr><td><code>finishedAt</code></td><td><a href="#datetime">DateTime</a>!</td><td></td></tr>
+    <tr><td><code>message</code></td><td>String!</td><td></td></tr>
+  </tbody>
+</table>
+
+<hr/>
+
+<h4 id="datatablefinished"><code>DataTableFinished</code></h4>
+
+<p><strong>Service:</strong> changesetreader | <strong>Implements:</strong> <a href="#datatable">DataTable</a></p>
+
+<p>A data table download has completed successfully.</p>
+
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>id</code></td><td>ID!</td><td></td></tr>
+    <tr><td><code>dataTable</code></td><td><a href="#datatabledescriptor">DataTableDescriptor</a>!</td><td></td></tr>
+    <tr><td><code>instanceName</code></td><td>String!</td><td></td></tr>
+    <tr><td><code>group</code></td><td>String</td><td></td></tr>
+    <tr><td><code>format</code></td><td><a href="#datatableformat">DataTableFormat</a>!</td><td></td></tr>
+    <tr><td><code>changesetId</code></td><td>ID!</td><td></td></tr>
+    <tr><td><code>startedAt</code></td><td><a href="#datetime">DateTime</a>!</td><td></td></tr>
+    <tr><td><code>finishedAt</code></td><td><a href="#datetime">DateTime</a>!</td><td></td></tr>
+    <tr><td><code>duration</code></td><td><a href="#duration">Duration</a></td><td></td></tr>
+    <tr><td><code>downloadUrl</code></td><td>String!</td><td>URL path to download the file (relative to the service base URL).</td></tr>
+  </tbody>
+</table>
+
+<hr/>
+
+<h4 id="datatableprocessing"><code>DataTableProcessing</code></h4>
+
+<p><strong>Service:</strong> changesetreader | <strong>Implements:</strong> <a href="#datatable">DataTable</a></p>
+
+<p>A data table download is being processed.</p>
+
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>id</code></td><td>ID!</td><td></td></tr>
+    <tr><td><code>dataTable</code></td><td><a href="#datatabledescriptor">DataTableDescriptor</a>!</td><td></td></tr>
+    <tr><td><code>instanceName</code></td><td>String!</td><td></td></tr>
+    <tr><td><code>group</code></td><td>String</td><td></td></tr>
+    <tr><td><code>format</code></td><td><a href="#datatableformat">DataTableFormat</a>!</td><td></td></tr>
+    <tr><td><code>changesetId</code></td><td>ID!</td><td></td></tr>
+    <tr><td><code>startedAt</code></td><td><a href="#datetime">DateTime</a>!</td><td></td></tr>
+  </tbody>
+</table>
+
+<hr/>
+
+<h4 id="datatablesqlmessage"><code>DataTableSqlMessage</code></h4>
+
+<p><strong>Service:</strong> moddy | <strong>Implements:</strong> <a href="#message">Message</a></p>
+
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>id</code></td><td>ID!</td><td></td></tr>
+    <tr><td><code>user</code></td><td><a href="#user">User</a>!</td><td></td></tr>
+    <tr><td><code>sqlQuery</code></td><td>String!</td><td></td></tr>
+    <tr><td><code>state</code></td><td><a href="#messagestate">MessageState</a>!</td><td></td></tr>
+    <tr><td><code>lastUpdatedAt</code></td><td><a href="#datetime">DateTime</a>!</td><td></td></tr>
+  </tbody>
+</table>
+
+<hr/>
+
+<h4 id="datatablesmessage"><code>DataTablesMessage</code></h4>
+
+<p><strong>Service:</strong> moddy | <strong>Implements:</strong> <a href="#message">Message</a></p>
+
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>id</code></td><td>ID!</td><td></td></tr>
+    <tr><td><code>user</code></td><td><a href="#user">User</a>!</td><td></td></tr>
+    <tr><td><code>dataTables</code></td><td>[<a href="#datatabledescriptor">DataTableDescriptor</a>!]!</td><td></td></tr>
+    <tr><td><code>state</code></td><td><a href="#messagestate">MessageState</a>!</td><td></td></tr>
+    <tr><td><code>lastUpdatedAt</code></td><td><a href="#datetime">DateTime</a>!</td><td></td></tr>
+  </tbody>
+</table>
+
+<hr/>
+
+<h4 id="devcenter"><code>DevCenter</code></h4>
+
+<p><strong>Service:</strong> changesetreader</p>
+
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>recipe</code></td><td><a href="#recipedescriptor">RecipeDescriptor</a></td><td>The currently configured DevCenter recipe for this organization.</td></tr>
+    <tr><td><code>runs</code></td><td>(first: Int = 10, after: String, where: <a href="#devcenterrunwhereinput">DevCenterRunWhereInput</a>, orderBy: [<a href="#devcenterrunorderbyinput">DevCenterRunOrderByInput</a>!]): <a href="#devcenterrunconnection">DevCenterRunConnection</a>!</td><td>DevCenter runs for this organization, ordered by start time descending.</td></tr>
+  </tbody>
+</table>
+
+<hr/>
+
+<h4 id="devcentercard"><code>DevCenterCard</code></h4>
+
+<p><strong>Service:</strong> changesetreader</p>
+
+<p>A DevCenter card represents a category of work (e.g., "Spring Boot 3", "Java 21", "Security").
+Cards contain measures that track progress toward completion.</p>
+
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>displayName</code></td><td><a href="#markdown">Markdown</a>!</td><td>Display name of the card.</td></tr>
+    <tr><td><code>description</code></td><td><a href="#markdown">Markdown</a></td><td>Description of what this card tracks.</td></tr>
+    <tr><td><code>fixRecipe</code></td><td><a href="#recipedescriptor">RecipeDescriptor</a></td><td>Recipe that can fix/complete the work tracked by this card.</td></tr>
+    <tr><td><code>aggregation</code></td><td><a href="#devcenteraggregation">DevCenterAggregation</a>!</td><td>How results are aggregated for this card.</td></tr>
+    <tr><td><code>measures</code></td><td>[<a href="#devcentermeasure">DevCenterMeasure</a>!]!</td><td>Measures within this card, ordered by ordinal.</td></tr>
+    <tr><td><code>repositoriesNotApplicable</code></td><td>Int!</td><td>Repositories where this card is not applicable.</td></tr>
+  </tbody>
+</table>
+
+<hr/>
+
+<h4 id="devcentercarddescriptor"><code>DevCenterCardDescriptor</code></h4>
+
+<p><strong>Service:</strong> recipemarketplace</p>
+
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>displayName</code></td><td><a href="#markdown">Markdown</a>!</td><td></td></tr>
+    <tr><td><code>description</code></td><td><a href="#markdown">Markdown</a></td><td></td></tr>
+    <tr><td><code>fixRecipe</code></td><td><a href="#recipedescriptor">RecipeDescriptor</a></td><td></td></tr>
+    <tr><td><code>aggregation</code></td><td><a href="#devcenteraggregation">DevCenterAggregation</a>!</td><td></td></tr>
+    <tr><td><code>measures</code></td><td>[<a href="#devcentermeasuredescriptor">DevCenterMeasureDescriptor</a>!]!</td><td></td></tr>
+  </tbody>
+</table>
+
+<hr/>
+
+<h4 id="devcentermeasure"><code>DevCenterMeasure</code></h4>
+
+<p><strong>Service:</strong> changesetreader</p>
+
+<p>A measure within a DevCenter card representing a specific state or finding,
+with a count from the run results.</p>
+
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>displayName</code></td><td><a href="#markdown">Markdown</a>!</td><td>Display name of the measure.</td></tr>
+    <tr><td><code>description</code></td><td><a href="#markdown">Markdown</a></td><td>Description of what this measure represents.</td></tr>
+    <tr><td><code>ordinal</code></td><td>Int!</td><td>Sort order relative to other measures in the card.</td></tr>
+    <tr><td><code>count</code></td><td>Int!</td><td>Count of repositories or occurrences for this measure.
 For PER_REPOSITORY: number of repositories in this state.
-For PER_OCCURRENCE: total count of occurrences. |
+For PER_OCCURRENCE: total count of occurrences.</td></tr>
+  </tbody>
+</table>
 
----
+<hr/>
 
-#### `DevCenterMeasureDescriptor`
+<h4 id="devcentermeasuredescriptor"><code>DevCenterMeasureDescriptor</code></h4>
 
-**Service:** recipemarketplace
+<p><strong>Service:</strong> recipemarketplace</p>
 
-A measure descriptor within a DevCenter card, representing metadata about
+<p>A measure descriptor within a DevCenter card, representing metadata about
 a specific state or finding. See DevCenterMeasure in changeset:reader
-for the runtime version with counts.
+for the runtime version with counts.</p>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `displayName` | <a href="#markdown">Markdown</a>! |  |
-| `description` | <a href="#markdown">Markdown</a> |  |
-| `ordinal` | Int! |  |
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>displayName</code></td><td><a href="#markdown">Markdown</a>!</td><td></td></tr>
+    <tr><td><code>description</code></td><td><a href="#markdown">Markdown</a></td><td></td></tr>
+    <tr><td><code>ordinal</code></td><td>Int!</td><td></td></tr>
+  </tbody>
+</table>
 
----
+<hr/>
 
-#### `DevCenterOrganization`
+<h4 id="devcenterorganization"><code>DevCenterOrganization</code></h4>
 
-**Service:** changesetreader
+<p><strong>Service:</strong> changesetreader</p>
 
-Organization-level context from a DevCenter run.
+<p>Organization-level context from a DevCenter run.</p>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `repositories` | <a href="#devcenterrepositories">DevCenterRepositories</a>! | Repository counts at the time of the run. |
-| `contributingDevelopers` | Int! | Number of unique contributing developers (last 90 days). |
-| `linesOfCode` | <a href="#long">Long</a>! | Total lines of code across all repositories on platform. |
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>repositories</code></td><td><a href="#devcenterrepositories">DevCenterRepositories</a>!</td><td>Repository counts at the time of the run.</td></tr>
+    <tr><td><code>contributingDevelopers</code></td><td>Int!</td><td>Number of unique contributing developers (last 90 days).</td></tr>
+    <tr><td><code>linesOfCode</code></td><td><a href="#long">Long</a>!</td><td>Total lines of code across all repositories on platform.</td></tr>
+  </tbody>
+</table>
 
----
+<hr/>
 
-#### `DevCenterRepositories`
+<h4 id="devcenterrepositories"><code>DevCenterRepositories</code></h4>
 
-**Service:** changesetreader
+<p><strong>Service:</strong> changesetreader</p>
 
-Repository counts from a DevCenter run.
+<p>Repository counts from a DevCenter run.</p>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `total` | Int! | Total repositories defined in the organization at the time of the run. |
-| `repositoriesWithoutLst` | Int! | Repositories with no LST ingested at the time of the run. |
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>total</code></td><td>Int!</td><td>Total repositories defined in the organization at the time of the run.</td></tr>
+    <tr><td><code>repositoriesWithoutLst</code></td><td>Int!</td><td>Repositories with no LST ingested at the time of the run.</td></tr>
+  </tbody>
+</table>
 
----
+<hr/>
 
-#### `DevCenterRunCanceled`
+<h4 id="devcenterruncanceled"><code>DevCenterRunCanceled</code></h4>
 
-**Service:** changesetreader | **Implements:** <a href="#devcenterrun">DevCenterRun</a>
+<p><strong>Service:</strong> changesetreader | <strong>Implements:</strong> <a href="#devcenterrun">DevCenterRun</a></p>
 
-DevCenter run was canceled before completion.
+<p>DevCenter run was canceled before completion.</p>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `id` | ID! |  |
-| `startedAt` | <a href="#datetime">DateTime</a>! |  |
-| `changeset` | <a href="#organizationchangeset">OrganizationChangeset</a> |  |
-| `finishedAt` | <a href="#datetime">DateTime</a>! |  |
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>id</code></td><td>ID!</td><td></td></tr>
+    <tr><td><code>startedAt</code></td><td><a href="#datetime">DateTime</a>!</td><td></td></tr>
+    <tr><td><code>changeset</code></td><td><a href="#organizationchangeset">OrganizationChangeset</a></td><td></td></tr>
+    <tr><td><code>finishedAt</code></td><td><a href="#datetime">DateTime</a>!</td><td></td></tr>
+  </tbody>
+</table>
 
----
+<hr/>
 
-#### `DevCenterRunConnection`
+<h4 id="devcenterrunconnection"><code>DevCenterRunConnection</code></h4>
 
-**Service:** changesetreader
+<p><strong>Service:</strong> changesetreader</p>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `edges` | [<a href="#devcenterrunedge">DevCenterRunEdge</a>!]! |  |
-| `pageInfo` | <a href="#pageinfo">PageInfo</a>! |  |
-| `count` | Int! |  |
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>edges</code></td><td>[<a href="#devcenterrunedge">DevCenterRunEdge</a>!]!</td><td></td></tr>
+    <tr><td><code>pageInfo</code></td><td><a href="#pageinfo">PageInfo</a>!</td><td></td></tr>
+    <tr><td><code>count</code></td><td>Int!</td><td></td></tr>
+  </tbody>
+</table>
 
----
+<hr/>
 
-#### `DevCenterRunEdge`
+<h4 id="devcenterrunedge"><code>DevCenterRunEdge</code></h4>
 
-**Service:** changesetreader
+<p><strong>Service:</strong> changesetreader</p>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `node` | <a href="#devcenterrun">DevCenterRun</a>! |  |
-| `cursor` | String! |  |
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>node</code></td><td><a href="#devcenterrun">DevCenterRun</a>!</td><td></td></tr>
+    <tr><td><code>cursor</code></td><td>String!</td><td></td></tr>
+  </tbody>
+</table>
 
----
+<hr/>
 
-#### `DevCenterRunError`
+<h4 id="devcenterrunerror"><code>DevCenterRunError</code></h4>
 
-**Service:** changesetreader | **Implements:** <a href="#devcenterrun">DevCenterRun</a>
+<p><strong>Service:</strong> changesetreader | <strong>Implements:</strong> <a href="#devcenterrun">DevCenterRun</a></p>
 
-DevCenter run failed with an error.
+<p>DevCenter run failed with an error.</p>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `id` | ID! |  |
-| `startedAt` | <a href="#datetime">DateTime</a>! |  |
-| `changeset` | <a href="#organizationchangeset">OrganizationChangeset</a> |  |
-| `finishedAt` | <a href="#datetime">DateTime</a>! |  |
-| `message` | String! | Human-readable error message. |
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>id</code></td><td>ID!</td><td></td></tr>
+    <tr><td><code>startedAt</code></td><td><a href="#datetime">DateTime</a>!</td><td></td></tr>
+    <tr><td><code>changeset</code></td><td><a href="#organizationchangeset">OrganizationChangeset</a></td><td></td></tr>
+    <tr><td><code>finishedAt</code></td><td><a href="#datetime">DateTime</a>!</td><td></td></tr>
+    <tr><td><code>message</code></td><td>String!</td><td>Human-readable error message.</td></tr>
+  </tbody>
+</table>
 
----
+<hr/>
 
-#### `DevCenterRunFinished`
+<h4 id="devcenterrunfinished"><code>DevCenterRunFinished</code></h4>
 
-**Service:** changesetreader | **Implements:** <a href="#devcenterrun">DevCenterRun</a>
+<p><strong>Service:</strong> changesetreader | <strong>Implements:</strong> <a href="#devcenterrun">DevCenterRun</a></p>
 
-DevCenter run completed successfully with summarized results.
+<p>DevCenter run completed successfully with summarized results.</p>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `id` | ID! |  |
-| `startedAt` | <a href="#datetime">DateTime</a>! |  |
-| `changeset` | <a href="#organizationchangeset">OrganizationChangeset</a> |  |
-| `finishedAt` | <a href="#datetime">DateTime</a>! |  |
-| `organization` | <a href="#devcenterorganization">DevCenterOrganization</a>! |  |
-| `upgradesAndMigrations` | [<a href="#devcentercard">DevCenterCard</a>!]! | Upgrade and migration opportunities found (from UpgradesAndMigrations data table). |
-| `security` | <a href="#devcentercard">DevCenterCard</a> | Security vulnerabilities found (from SecurityIssues data table). |
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>id</code></td><td>ID!</td><td></td></tr>
+    <tr><td><code>startedAt</code></td><td><a href="#datetime">DateTime</a>!</td><td></td></tr>
+    <tr><td><code>changeset</code></td><td><a href="#organizationchangeset">OrganizationChangeset</a></td><td></td></tr>
+    <tr><td><code>finishedAt</code></td><td><a href="#datetime">DateTime</a>!</td><td></td></tr>
+    <tr><td><code>organization</code></td><td><a href="#devcenterorganization">DevCenterOrganization</a>!</td><td></td></tr>
+    <tr><td><code>upgradesAndMigrations</code></td><td>[<a href="#devcentercard">DevCenterCard</a>!]!</td><td>Upgrade and migration opportunities found (from UpgradesAndMigrations data table).</td></tr>
+    <tr><td><code>security</code></td><td><a href="#devcentercard">DevCenterCard</a></td><td>Security vulnerabilities found (from SecurityIssues data table).</td></tr>
+  </tbody>
+</table>
 
----
+<hr/>
 
-#### `DevCenterRunRunning`
+<h4 id="devcenterrunrunning"><code>DevCenterRunRunning</code></h4>
 
-**Service:** changesetreader | **Implements:** <a href="#devcenterrun">DevCenterRun</a>
+<p><strong>Service:</strong> changesetreader | <strong>Implements:</strong> <a href="#devcenterrun">DevCenterRun</a></p>
 
-DevCenter recipe is currently running across repositories.
+<p>DevCenter recipe is currently running across repositories.</p>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `id` | ID! |  |
-| `startedAt` | <a href="#datetime">DateTime</a>! |  |
-| `changeset` | <a href="#organizationchangeset">OrganizationChangeset</a> |  |
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>id</code></td><td>ID!</td><td></td></tr>
+    <tr><td><code>startedAt</code></td><td><a href="#datetime">DateTime</a>!</td><td></td></tr>
+    <tr><td><code>changeset</code></td><td><a href="#organizationchangeset">OrganizationChangeset</a></td><td></td></tr>
+  </tbody>
+</table>
 
----
+<hr/>
 
-#### `DiffStat`
+<h4 id="diffstat"><code>DiffStat</code></h4>
 
-**Service:** changelogreader
+<p><strong>Service:</strong> changelogreader</p>
 
-Aggregate line-level diff statistics.
+<p>Aggregate line-level diff statistics.</p>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `additions` | Int! | Total lines added. |
-| `deletions` | Int! | Total lines removed. |
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>additions</code></td><td>Int!</td><td>Total lines added.</td></tr>
+    <tr><td><code>deletions</code></td><td>Int!</td><td>Total lines removed.</td></tr>
+  </tbody>
+</table>
 
----
+<hr/>
 
-#### `DirectCommitSucceeded`
+<h4 id="directcommitsucceeded"><code>DirectCommitSucceeded</code></h4>
 
-**Service:** changesetcommitter | **Implements:** <a href="#repositorycommitsucceeded">RepositoryCommitSucceeded</a>, <a href="#repositorycommit">RepositoryCommit</a>
+<p><strong>Service:</strong> changesetcommitter | <strong>Implements:</strong> <a href="#repositorycommitsucceeded">RepositoryCommitSucceeded</a>, <a href="#repositorycommit">RepositoryCommit</a></p>
 
-Direct commit to repository completed successfully.
+<p>Direct commit to repository completed successfully.</p>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `repository` | <a href="#repository">Repository</a>! |  |
-| `startedAt` | <a href="#datetime">DateTime</a>! |  |
-| `finishedAt` | <a href="#datetime">DateTime</a>! |  |
-| `resultLink` | String |  |
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>repository</code></td><td><a href="#repository">Repository</a>!</td><td></td></tr>
+    <tr><td><code>startedAt</code></td><td><a href="#datetime">DateTime</a>!</td><td></td></tr>
+    <tr><td><code>finishedAt</code></td><td><a href="#datetime">DateTime</a>!</td><td></td></tr>
+    <tr><td><code>resultLink</code></td><td>String</td><td></td></tr>
+  </tbody>
+</table>
 
----
+<hr/>
 
-#### `ErrorMessage`
+<h4 id="errormessage"><code>ErrorMessage</code></h4>
 
-**Service:** moddy | **Implements:** <a href="#message">Message</a>
+<p><strong>Service:</strong> moddy | <strong>Implements:</strong> <a href="#message">Message</a></p>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `id` | ID! |  |
-| `user` | <a href="#user">User</a>! |  |
-| `content` | <a href="#markdown">Markdown</a>! |  |
-| `code` | String | Stable error code that clients may switch on for UI copy. The full
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>id</code></td><td>ID!</td><td></td></tr>
+    <tr><td><code>user</code></td><td><a href="#user">User</a>!</td><td></td></tr>
+    <tr><td><code>content</code></td><td><a href="#markdown">Markdown</a>!</td><td></td></tr>
+    <tr><td><code>code</code></td><td>String</td><td>Stable error code that clients may switch on for UI copy. The full
 taxonomy (split into API-call errors vs in-conversation errors) is
 maintained in `doc/moddy-polling-ui-handoff.md`. As of now:
 
@@ -1712,503 +1936,605 @@ maintained in `doc/moddy-polling-ui-handoff.md`. As of now:
 
 API-call errors (returned in GraphQL `errors[]`, not as messages):
 INVALID_CURSOR, FORBIDDEN, CONVERSATION_BUSY, MESSAGE_TOO_LONG,
-CONVERSATION_NOT_FOUND, TOO_MANY_REQUESTS. |
-| `state` | <a href="#messagestate">MessageState</a>! |  |
-| `lastUpdatedAt` | <a href="#datetime">DateTime</a>! |  |
+CONVERSATION_NOT_FOUND, TOO_MANY_REQUESTS.</td></tr>
+    <tr><td><code>state</code></td><td><a href="#messagestate">MessageState</a>!</td><td></td></tr>
+    <tr><td><code>lastUpdatedAt</code></td><td><a href="#datetime">DateTime</a>!</td><td></td></tr>
+  </tbody>
+</table>
 
----
+<hr/>
 
-#### `ExchangeAuthorizationResult`
+<h4 id="exchangeauthorizationresult"><code>ExchangeAuthorizationResult</code></h4>
 
-**Service:** authz
+<p><strong>Service:</strong> authz</p>
 
-Result of exchanging an authorization code.
+<p>Result of exchanging an authorization code.</p>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `success` | Boolean! | True if the exchange was successful and token was stored. |
-| `error` | String | Error message if exchange failed. |
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>success</code></td><td>Boolean!</td><td>True if the exchange was successful and token was stored.</td></tr>
+    <tr><td><code>error</code></td><td>String</td><td>Error message if exchange failed.</td></tr>
+  </tbody>
+</table>
 
----
+<hr/>
 
-#### `FileChangeConnection`
+<h4 id="filechangeconnection"><code>FileChangeConnection</code></h4>
 
-**Service:** corechangeset
+<p><strong>Service:</strong> corechangeset</p>
 
-Connection for file changes with aggregate statistics.
+<p>Connection for file changes with aggregate statistics.</p>
+
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>edges</code></td><td>[<a href="#filechangeedge">FileChangeEdge</a>!]!</td><td></td></tr>
+    <tr><td><code>pageInfo</code></td><td><a href="#pageinfo">PageInfo</a>!</td><td></td></tr>
+    <tr><td><code>count</code></td><td>Int!</td><td></td></tr>
+    <tr><td><code>searched</code></td><td>Int!</td><td>Total files searched.</td></tr>
+    <tr><td><code>changed</code></td><td>Int!</td><td>Files with committable changes.</td></tr>
+    <tr><td><code>errors</code></td><td>Int!</td><td>Files with errors.</td></tr>
+  </tbody>
+</table>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `edges` | [<a href="#filechangeedge">FileChangeEdge</a>!]! |  |
-| `pageInfo` | <a href="#pageinfo">PageInfo</a>! |  |
-| `count` | Int! |  |
-| `searched` | Int! | Total files searched. |
-| `changed` | Int! | Files with committable changes. |
-| `errors` | Int! | Files with errors. |
+<hr/>
 
----
+<h4 id="filechangeedge"><code>FileChangeEdge</code></h4>
+
+<p><strong>Service:</strong> corechangeset</p>
 
-#### `FileChangeEdge`
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>node</code></td><td><a href="#filechange">FileChange</a>!</td><td></td></tr>
+    <tr><td><code>cursor</code></td><td>String!</td><td></td></tr>
+  </tbody>
+</table>
 
-**Service:** corechangeset
+<hr/>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `node` | <a href="#filechange">FileChange</a>! |  |
-| `cursor` | String! |  |
+<h4 id="forkandpullrequestcommitsucceeded"><code>ForkAndPullRequestCommitSucceeded</code></h4>
 
----
+<p><strong>Service:</strong> changesetcommitter | <strong>Implements:</strong> <a href="#repositorycommitsucceeded">RepositoryCommitSucceeded</a>, <a href="#repositorycommit">RepositoryCommit</a></p>
+
+<p>Fork and pull request commit completed successfully.</p>
+
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>repository</code></td><td><a href="#repository">Repository</a>!</td><td></td></tr>
+    <tr><td><code>startedAt</code></td><td><a href="#datetime">DateTime</a>!</td><td></td></tr>
+    <tr><td><code>finishedAt</code></td><td><a href="#datetime">DateTime</a>!</td><td></td></tr>
+    <tr><td><code>resultLink</code></td><td>String</td><td></td></tr>
+    <tr><td><code>pullRequestStatus</code></td><td><a href="#pullrequeststatus">PullRequestStatus</a>!</td><td>Pull request status.</td></tr>
+  </tbody>
+</table>
 
-#### `ForkAndPullRequestCommitSucceeded`
+<hr/>
 
-**Service:** changesetcommitter | **Implements:** <a href="#repositorycommitsucceeded">RepositoryCommitSucceeded</a>, <a href="#repositorycommit">RepositoryCommit</a>
+<h4 id="forkcommitoptions"><code>ForkCommitOptions</code></h4>
+
+<p><strong>Service:</strong> changesetcommitter | <strong>Implements:</strong> <a href="#commitoptions">CommitOptions</a></p>
 
-Fork and pull request commit completed successfully.
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>branchName</code></td><td>String</td><td></td></tr>
+    <tr><td><code>organization</code></td><td>String</td><td>If set, the fork will be created in this organization. Otherwise, the fork will be created in the user's
+personal account.</td></tr>
+    <tr><td><code>prefixOrganization</code></td><td>Boolean!</td><td></td></tr>
+  </tbody>
+</table>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `repository` | <a href="#repository">Repository</a>! |  |
-| `startedAt` | <a href="#datetime">DateTime</a>! |  |
-| `finishedAt` | <a href="#datetime">DateTime</a>! |  |
-| `resultLink` | String |  |
-| `pullRequestStatus` | <a href="#pullrequeststatus">PullRequestStatus</a>! | Pull request status. |
+<hr/>
 
----
+<h4 id="forkcommitsucceeded"><code>ForkCommitSucceeded</code></h4>
 
-#### `ForkCommitOptions`
+<p><strong>Service:</strong> changesetcommitter | <strong>Implements:</strong> <a href="#repositorycommitsucceeded">RepositoryCommitSucceeded</a>, <a href="#repositorycommit">RepositoryCommit</a></p>
 
-**Service:** changesetcommitter | **Implements:** <a href="#commitoptions">CommitOptions</a>
+<p>Fork commit completed successfully.</p>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `branchName` | String |  |
-| `organization` | String | If set, the fork will be created in this organization. Otherwise, the fork will be created in the user's
-personal account. |
-| `prefixOrganization` | Boolean! |  |
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>repository</code></td><td><a href="#repository">Repository</a>!</td><td></td></tr>
+    <tr><td><code>startedAt</code></td><td><a href="#datetime">DateTime</a>!</td><td></td></tr>
+    <tr><td><code>finishedAt</code></td><td><a href="#datetime">DateTime</a>!</td><td></td></tr>
+    <tr><td><code>resultLink</code></td><td>String</td><td></td></tr>
+  </tbody>
+</table>
+
+<hr/>
+
+<h4 id="forkpullrequestoptions"><code>ForkPullRequestOptions</code></h4>
+
+<p><strong>Service:</strong> changesetcommitter | <strong>Implements:</strong> <a href="#commitoptions">CommitOptions</a></p>
+
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>branchName</code></td><td>String</td><td></td></tr>
+    <tr><td><code>organization</code></td><td>String</td><td>If set, the fork will be created in this organization. Otherwise, the fork will be created in the user's
+personal account.</td></tr>
+    <tr><td><code>prefixOrganization</code></td><td>Boolean!</td><td></td></tr>
+    <tr><td><code>pullRequestTitle</code></td><td>String</td><td>If unset, the commit message will be used as the pull request title.</td></tr>
+    <tr><td><code>pullRequestBody</code></td><td><a href="#base64">Base64</a></td><td></td></tr>
+    <tr><td><code>draft</code></td><td>Boolean!</td><td></td></tr>
+    <tr><td><code>maintainerCanModify</code></td><td>Boolean!</td><td>GitHub only flag to allow maintainers to edit a pull request.</td></tr>
+    <tr><td><code>autoMergeMethod</code></td><td><a href="#mergemethod">MergeMethod</a></td><td>If allowed by the repository, set the pull request to automatically merge after all checks pass using the defined strategy.</td></tr>
+    <tr><td><code>canRecreateClosedPullRequest</code></td><td>Boolean!</td><td>Recreate a pull request if it was already closed.</td></tr>
+  </tbody>
+</table>
+
+<hr/>
+
+<h4 id="generichttptoolconfiguration"><code>GenericHttpToolConfiguration</code></h4>
+
+<p><strong>Service:</strong> gateway</p>
+
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>resourceId</code></td><td>String!</td><td></td></tr>
+    <tr><td><code>skipSsl</code></td><td>Boolean!</td><td></td></tr>
+    <tr><td><code>skipValidateConnectivity</code></td><td>Boolean!</td><td></td></tr>
+    <tr><td><code>connectivity</code></td><td><a href="#httptoolconnectivity">HttpToolConnectivity</a>!</td><td></td></tr>
+  </tbody>
+</table>
+
+<hr/>
+
+<h4 id="gitlabconfiguration"><code>GitLabConfiguration</code></h4>
+
+<p><strong>Service:</strong> gateway</p>
+
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>resourceId</code></td><td>String!</td><td></td></tr>
+    <tr><td><code>skipSsl</code></td><td>Boolean!</td><td></td></tr>
+    <tr><td><code>skipValidateConnectivity</code></td><td>Boolean!</td><td></td></tr>
+    <tr><td><code>connectivity</code></td><td><a href="#httptoolconnectivity">HttpToolConnectivity</a>!</td><td></td></tr>
+    <tr><td><code>oauth</code></td><td><a href="#gitlaboauth">GitLabOauth</a></td><td></td></tr>
+  </tbody>
+</table>
+
+<hr/>
+
+<h4 id="gitlabconnection"><code>GitLabConnection</code></h4>
+
+<p><strong>Service:</strong> authz | <strong>Implements:</strong> <a href="#scmconnection">ScmConnection</a></p>
+
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>resourceId</code></td><td>String!</td><td></td></tr>
+    <tr><td><code>isAuthorized</code></td><td>Boolean!</td><td></td></tr>
+    <tr><td><code>tokens</code></td><td>[<a href="#scmtokeninfo">ScmTokenInfo</a>!]!</td><td></td></tr>
+  </tbody>
+</table>
+
+<hr/>
+
+<h4 id="gitlaboauth"><code>GitLabOauth</code></h4>
+
+<p><strong>Service:</strong> gateway</p>
 
----
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>clientId</code></td><td>String!</td><td></td></tr>
+  </tbody>
+</table>
 
-#### `ForkCommitSucceeded`
+<hr/>
+
+<h4 id="githubconfiguration"><code>GithubConfiguration</code></h4>
+
+<p><strong>Service:</strong> gateway</p>
+
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>resourceId</code></td><td>String!</td><td></td></tr>
+    <tr><td><code>skipSsl</code></td><td>Boolean!</td><td></td></tr>
+    <tr><td><code>skipValidateConnectivity</code></td><td>Boolean!</td><td></td></tr>
+    <tr><td><code>allowableOrganizations</code></td><td>[String!]!</td><td></td></tr>
+    <tr><td><code>connectivity</code></td><td><a href="#httptoolconnectivity">HttpToolConnectivity</a>!</td><td></td></tr>
+    <tr><td><code>oauth</code></td><td><a href="#githuboauth">GithubOauth</a></td><td></td></tr>
+  </tbody>
+</table>
 
-**Service:** changesetcommitter | **Implements:** <a href="#repositorycommitsucceeded">RepositoryCommitSucceeded</a>, <a href="#repositorycommit">RepositoryCommit</a>
+<hr/>
 
-Fork commit completed successfully.
+<h4 id="githubconnection"><code>GithubConnection</code></h4>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `repository` | <a href="#repository">Repository</a>! |  |
-| `startedAt` | <a href="#datetime">DateTime</a>! |  |
-| `finishedAt` | <a href="#datetime">DateTime</a>! |  |
-| `resultLink` | String |  |
+<p><strong>Service:</strong> authz | <strong>Implements:</strong> <a href="#scmconnection">ScmConnection</a></p>
 
----
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>resourceId</code></td><td>String!</td><td></td></tr>
+    <tr><td><code>isAuthorized</code></td><td>Boolean!</td><td></td></tr>
+    <tr><td><code>tokens</code></td><td>[<a href="#scmtokeninfo">ScmTokenInfo</a>!]!</td><td></td></tr>
+  </tbody>
+</table>
 
-#### `ForkPullRequestOptions`
+<hr/>
 
-**Service:** changesetcommitter | **Implements:** <a href="#commitoptions">CommitOptions</a>
+<h4 id="githuboauth"><code>GithubOauth</code></h4>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `branchName` | String |  |
-| `organization` | String | If set, the fork will be created in this organization. Otherwise, the fork will be created in the user's
-personal account. |
-| `prefixOrganization` | Boolean! |  |
-| `pullRequestTitle` | String | If unset, the commit message will be used as the pull request title. |
-| `pullRequestBody` | <a href="#base64">Base64</a> |  |
-| `draft` | Boolean! |  |
-| `maintainerCanModify` | Boolean! | GitHub only flag to allow maintainers to edit a pull request. |
-| `autoMergeMethod` | <a href="#mergemethod">MergeMethod</a> | If allowed by the repository, set the pull request to automatically merge after all checks pass using the defined strategy. |
-| `canRecreateClosedPullRequest` | Boolean! | Recreate a pull request if it was already closed. |
+<p><strong>Service:</strong> gateway</p>
 
----
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>clientId</code></td><td>String!</td><td></td></tr>
+    <tr><td><code>includePrivateRepos</code></td><td>Boolean!</td><td></td></tr>
+  </tbody>
+</table>
 
-#### `GenericHttpToolConfiguration`
+<hr/>
 
-**Service:** gateway
+<h4 id="gorecipebundle"><code>GoRecipeBundle</code></h4>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `resourceId` | String! |  |
-| `skipSsl` | Boolean! |  |
-| `skipValidateConnectivity` | Boolean! |  |
-| `connectivity` | <a href="#httptoolconnectivity">HttpToolConnectivity</a>! |  |
+<p><strong>Service:</strong> changesetreader | <strong>Implements:</strong> <a href="#recipebundle">RecipeBundle</a></p>
 
----
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>packageName</code></td><td>String!</td><td></td></tr>
+    <tr><td><code>requestedVersion</code></td><td>String</td><td></td></tr>
+    <tr><td><code>version</code></td><td>String</td><td></td></tr>
+    <tr><td><code>recipeCount</code></td><td>Int</td><td></td></tr>
+  </tbody>
+</table>
 
-#### `GitLabConfiguration`
+<hr/>
 
-**Service:** gateway
+<h4 id="httptoolconnectivity"><code>HttpToolConnectivity</code></h4>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `resourceId` | String! |  |
-| `skipSsl` | Boolean! |  |
-| `skipValidateConnectivity` | Boolean! |  |
-| `connectivity` | <a href="#httptoolconnectivity">HttpToolConnectivity</a>! |  |
-| `oauth` | <a href="#gitlaboauth">GitLabOauth</a> |  |
+<p><strong>Service:</strong> gateway</p>
 
----
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>connected</code></td><td>Boolean!</td><td></td></tr>
+    <tr><td><code>latency</code></td><td><a href="#duration">Duration</a></td><td></td></tr>
+  </tbody>
+</table>
 
-#### `GitLabConnection`
+<hr/>
 
-**Service:** authz | **Implements:** <a href="#scmconnection">ScmConnection</a>
+<h4 id="license"><code>License</code></h4>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `resourceId` | String! |  |
-| `isAuthorized` | Boolean! |  |
-| `tokens` | [<a href="#scmtokeninfo">ScmTokenInfo</a>!]! |  |
+<p><strong>Service:</strong> authz</p>
 
----
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>key</code></td><td>String</td><td></td></tr>
+  </tbody>
+</table>
 
-#### `GitLabOauth`
+<hr/>
 
-**Service:** gateway
+<h4 id="llmconfiguration"><code>LlmConfiguration</code></h4>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `clientId` | String! |  |
+<p><strong>Service:</strong> gateway</p>
 
----
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>resourceId</code></td><td>String!</td><td></td></tr>
+    <tr><td><code>skipSsl</code></td><td>Boolean!</td><td></td></tr>
+    <tr><td><code>skipValidateConnectivity</code></td><td>Boolean!</td><td></td></tr>
+    <tr><td><code>connectivity</code></td><td><a href="#httptoolconnectivity">HttpToolConnectivity</a>!</td><td></td></tr>
+    <tr><td><code>llmProvider</code></td><td><a href="#llmprovider">LlmProvider</a>!</td><td></td></tr>
+  </tbody>
+</table>
 
-#### `GithubConfiguration`
+<hr/>
 
-**Service:** gateway
+<h4 id="lstartifact"><code>LstArtifact</code></h4>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `resourceId` | String! |  |
-| `skipSsl` | Boolean! |  |
-| `skipValidateConnectivity` | Boolean! |  |
-| `allowableOrganizations` | [String!]! |  |
-| `connectivity` | <a href="#httptoolconnectivity">HttpToolConnectivity</a>! |  |
-| `oauth` | <a href="#githuboauth">GithubOauth</a> |  |
+<p><strong>Service:</strong> organization</p>
 
----
-
-#### `GithubConnection`
-
-**Service:** authz | **Implements:** <a href="#scmconnection">ScmConnection</a>
-
-| Field | Type | Description |
-|-------|------|-------------|
-| `resourceId` | String! |  |
-| `isAuthorized` | Boolean! |  |
-| `tokens` | [<a href="#scmtokeninfo">ScmTokenInfo</a>!]! |  |
-
----
-
-#### `GithubOauth`
-
-**Service:** gateway
-
-| Field | Type | Description |
-|-------|------|-------------|
-| `clientId` | String! |  |
-| `includePrivateRepos` | Boolean! |  |
-
----
-
-#### `GoRecipeBundle`
-
-**Service:** changesetreader | **Implements:** <a href="#recipebundle">RecipeBundle</a>
-
-| Field | Type | Description |
-|-------|------|-------------|
-| `packageName` | String! |  |
-| `requestedVersion` | String |  |
-| `version` | String |  |
-| `recipeCount` | Int |  |
-
----
-
-#### `HttpToolConnectivity`
-
-**Service:** gateway
-
-| Field | Type | Description |
-|-------|------|-------------|
-| `connected` | Boolean! |  |
-| `latency` | <a href="#duration">Duration</a> |  |
-
----
-
-#### `License`
-
-**Service:** authz
-
-| Field | Type | Description |
-|-------|------|-------------|
-| `key` | String |  |
-
----
-
-#### `LlmConfiguration`
-
-**Service:** gateway
-
-| Field | Type | Description |
-|-------|------|-------------|
-| `resourceId` | String! |  |
-| `skipSsl` | Boolean! |  |
-| `skipValidateConnectivity` | Boolean! |  |
-| `connectivity` | <a href="#httptoolconnectivity">HttpToolConnectivity</a>! |  |
-| `llmProvider` | <a href="#llmprovider">LlmProvider</a>! |  |
-
----
-
-#### `LstArtifact`
-
-**Service:** organization
-
-The LST artifact for a repository - the precomputed Lossless Semantic Tree
+<p>The LST artifact for a repository - the precomputed Lossless Semantic Tree
 that recipe runs consume. Every repository has a conceptual artifact;
 `published` reflects the upstream `mod publish` timestamp, while
-`available` indicates whether the saas can route a recipe run to it yet.
+`available` indicates whether the saas can route a recipe run to it yet.</p>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `published` | <a href="#datetime">DateTime</a> | When `mod publish` produced an artifact into the customer's LST artifact
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>published</code></td><td><a href="#datetime">DateTime</a></td><td>When `mod publish` produced an artifact into the customer's LST artifact
 repository, or null if no artifact has been published. For a tenant
 configured for encrypted LSTs, a non-null `published` does NOT mean the
 encrypted artifact has been received by the tenant - that signal lives
-on `available`. |
-| `available` | Boolean! | Whether the artifact is reachable for a recipe run.
+on `available`.</td></tr>
+    <tr><td><code>available</code></td><td>Boolean!</td><td>Whether the artifact is reachable for a recipe run.
 For an organization source with encryption enabled, true once the
 connector has uploaded the encrypted artifact and the gateway has
 surfaced an `encrypted://` alternate publish URI. For a source without
 encryption (pass-through), true when the gateway-projected row has a
-non-empty `publishUri`, which we assume is reachable from `mod publish`. |
+non-empty `publishUri`, which we assume is reachable from `mod publish`.</td></tr>
+  </tbody>
+</table>
 
----
+<hr/>
 
-#### `Markup`
+<h4 id="markup"><code>Markup</code></h4>
 
-**Service:** corechangeset | **Implements:** <a href="#marker">Marker</a>
+<p><strong>Service:</strong> corechangeset | <strong>Implements:</strong> <a href="#marker">Marker</a></p>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `id` | ID! |  |
-| `level` | <a href="#markuplevel">MarkupLevel</a>! |  |
-| `message` | String |  |
-| `detail` | String |  |
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>id</code></td><td>ID!</td><td></td></tr>
+    <tr><td><code>level</code></td><td><a href="#markuplevel">MarkupLevel</a>!</td><td></td></tr>
+    <tr><td><code>message</code></td><td>String</td><td></td></tr>
+    <tr><td><code>detail</code></td><td>String</td><td></td></tr>
+  </tbody>
+</table>
 
----
+<hr/>
 
-#### `MavenConfiguration`
+<h4 id="mavenconfiguration"><code>MavenConfiguration</code></h4>
 
-**Service:** gateway
+<p><strong>Service:</strong> gateway</p>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `resourceId` | String! |  |
-| `skipSsl` | Boolean! |  |
-| `skipValidateConnectivity` | Boolean! |  |
-| `connectivity` | <a href="#httptoolconnectivity">HttpToolConnectivity</a>! |  |
-| `localRepository` | String |  |
-| `lastIngestedAt` | <a href="#datetime">DateTime</a> |  |
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>resourceId</code></td><td>String!</td><td></td></tr>
+    <tr><td><code>skipSsl</code></td><td>Boolean!</td><td></td></tr>
+    <tr><td><code>skipValidateConnectivity</code></td><td>Boolean!</td><td></td></tr>
+    <tr><td><code>connectivity</code></td><td><a href="#httptoolconnectivity">HttpToolConnectivity</a>!</td><td></td></tr>
+    <tr><td><code>localRepository</code></td><td>String</td><td></td></tr>
+    <tr><td><code>lastIngestedAt</code></td><td><a href="#datetime">DateTime</a></td><td></td></tr>
+  </tbody>
+</table>
 
----
+<hr/>
 
-#### `MavenRecipeBundle`
+<h4 id="mavenrecipebundle"><code>MavenRecipeBundle</code></h4>
 
-**Service:** changesetreader | **Implements:** <a href="#recipebundle">RecipeBundle</a>
+<p><strong>Service:</strong> changesetreader | <strong>Implements:</strong> <a href="#recipebundle">RecipeBundle</a></p>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `packageName` | String! |  |
-| `groupId` | String! |  |
-| `artifactId` | String! |  |
-| `requestedVersion` | String |  |
-| `version` | String |  |
-| `recipeCount` | Int |  |
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>packageName</code></td><td>String!</td><td></td></tr>
+    <tr><td><code>groupId</code></td><td>String!</td><td></td></tr>
+    <tr><td><code>artifactId</code></td><td>String!</td><td></td></tr>
+    <tr><td><code>requestedVersion</code></td><td>String</td><td></td></tr>
+    <tr><td><code>version</code></td><td>String</td><td></td></tr>
+    <tr><td><code>recipeCount</code></td><td>Int</td><td></td></tr>
+  </tbody>
+</table>
 
----
+<hr/>
 
-#### `MergeOptions`
+<h4 id="mergeoptions"><code>MergeOptions</code></h4>
 
-**Service:** changesetcommitter
+<p><strong>Service:</strong> changesetcommitter</p>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `deleteSourceBranch` | Boolean! |  |
-| `mergeMethod` | <a href="#mergemethod">MergeMethod</a>! |  |
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>deleteSourceBranch</code></td><td>Boolean!</td><td></td></tr>
+    <tr><td><code>mergeMethod</code></td><td><a href="#mergemethod">MergeMethod</a>!</td><td></td></tr>
+  </tbody>
+</table>
 
----
+<hr/>
 
-#### `MessageConnection`
+<h4 id="messageconnection"><code>MessageConnection</code></h4>
 
-**Service:** moddy
+<p><strong>Service:</strong> moddy</p>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `edges` | [<a href="#messageedge">MessageEdge</a>!]! |  |
-| `pageInfo` | <a href="#pageinfo">PageInfo</a>! |  |
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>edges</code></td><td>[<a href="#messageedge">MessageEdge</a>!]!</td><td></td></tr>
+    <tr><td><code>pageInfo</code></td><td><a href="#pageinfo">PageInfo</a>!</td><td></td></tr>
+  </tbody>
+</table>
 
----
+<hr/>
 
-#### `MessageEdge`
+<h4 id="messageedge"><code>MessageEdge</code></h4>
 
-**Service:** moddy
+<p><strong>Service:</strong> moddy</p>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `node` | <a href="#message">Message</a>! |  |
-| `cursor` | String! |  |
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>node</code></td><td><a href="#message">Message</a>!</td><td></td></tr>
+    <tr><td><code>cursor</code></td><td>String!</td><td></td></tr>
+  </tbody>
+</table>
 
----
+<hr/>
 
-#### `Moddy`
+<h4 id="moddy"><code>Moddy</code></h4>
 
-**Service:** moddy
+<p><strong>Service:</strong> moddy</p>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `systemPrompt` | <a href="#prompt">Prompt</a>! | The effective system prompt for this context.
-Cascades: user > organization > universal > built-in default. |
-| `adminOnly` | Boolean! | When true, only administrators can create conversations or send messages.
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>systemPrompt</code></td><td><a href="#prompt">Prompt</a>!</td><td>The effective system prompt for this context.
+Cascades: user > organization > universal > built-in default.</td></tr>
+    <tr><td><code>adminOnly</code></td><td>Boolean!</td><td>When true, only administrators can create conversations or send messages.
 Install-level policy flag; the UI uses this together with the viewer's admin
-status to gate the Moddy menu entry. |
-| `conversations` | (first: Int = 50, after: String, where: <a href="#conversationwhereinput">ConversationWhereInput</a>, orderBy: [<a href="#conversationorderbyinput">ConversationOrderByInput</a>!]): <a href="#conversationconnection">ConversationConnection</a>! |  |
-| `providerName` | String | Human-readable provider name (e.g. "Anthropic", "OpenAI"). Null when
+status to gate the Moddy menu entry.</td></tr>
+    <tr><td><code>conversations</code></td><td>(first: Int = 50, after: String, where: <a href="#conversationwhereinput">ConversationWhereInput</a>, orderBy: [<a href="#conversationorderbyinput">ConversationOrderByInput</a>!]): <a href="#conversationconnection">ConversationConnection</a>!</td><td></td></tr>
+    <tr><td><code>providerName</code></td><td>String</td><td>Human-readable provider name (e.g. "Anthropic", "OpenAI"). Null when
 no LLM provider is configured (in which case `capabilities.moddy` is
 also false — clients should gate the chat composer on the capability,
-not on this field). |
-| `model` | String | Configured model identifier (e.g. "claude-3-5-sonnet-20241022"). Null
+not on this field).</td></tr>
+    <tr><td><code>model</code></td><td>String</td><td>Configured model identifier (e.g. "claude-3-5-sonnet-20241022"). Null
 when no provider is configured or the provider is configured without a
-model override. |
+model override.</td></tr>
+  </tbody>
+</table>
 
----
+<hr/>
 
-#### `MoreHelpLink`
+<h4 id="morehelplink"><code>MoreHelpLink</code></h4>
 
-**Service:** gateway
+<p><strong>Service:</strong> gateway</p>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `label` | String! |  |
-| `uri` | String! |  |
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>label</code></td><td>String!</td><td></td></tr>
+    <tr><td><code>uri</code></td><td>String!</td><td></td></tr>
+  </tbody>
+</table>
 
----
+<hr/>
 
-#### `NpmConfiguration`
+<h4 id="npmconfiguration"><code>NpmConfiguration</code></h4>
 
-**Service:** gateway
+<p><strong>Service:</strong> gateway</p>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `resourceId` | String! |  |
-| `skipSsl` | Boolean! |  |
-| `skipValidateConnectivity` | Boolean! |  |
-| `connectivity` | <a href="#httptoolconnectivity">HttpToolConnectivity</a>! |  |
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>resourceId</code></td><td>String!</td><td></td></tr>
+    <tr><td><code>skipSsl</code></td><td>Boolean!</td><td></td></tr>
+    <tr><td><code>skipValidateConnectivity</code></td><td>Boolean!</td><td></td></tr>
+    <tr><td><code>connectivity</code></td><td><a href="#httptoolconnectivity">HttpToolConnectivity</a>!</td><td></td></tr>
+  </tbody>
+</table>
 
----
+<hr/>
 
-#### `NpmRecipeBundle`
+<h4 id="npmrecipebundle"><code>NpmRecipeBundle</code></h4>
 
-**Service:** changesetreader | **Implements:** <a href="#recipebundle">RecipeBundle</a>
+<p><strong>Service:</strong> changesetreader | <strong>Implements:</strong> <a href="#recipebundle">RecipeBundle</a></p>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `packageName` | String! |  |
-| `requestedVersion` | String |  |
-| `version` | String |  |
-| `recipeCount` | Int |  |
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>packageName</code></td><td>String!</td><td></td></tr>
+    <tr><td><code>requestedVersion</code></td><td>String</td><td></td></tr>
+    <tr><td><code>version</code></td><td>String</td><td></td></tr>
+    <tr><td><code>recipeCount</code></td><td>Int</td><td></td></tr>
+  </tbody>
+</table>
 
----
+<hr/>
 
-#### `NugetConfiguration`
+<h4 id="nugetconfiguration"><code>NugetConfiguration</code></h4>
 
-**Service:** gateway
+<p><strong>Service:</strong> gateway</p>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `resourceId` | String! |  |
-| `skipSsl` | Boolean! |  |
-| `skipValidateConnectivity` | Boolean! |  |
-| `connectivity` | <a href="#httptoolconnectivity">HttpToolConnectivity</a>! |  |
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>resourceId</code></td><td>String!</td><td></td></tr>
+    <tr><td><code>skipSsl</code></td><td>Boolean!</td><td></td></tr>
+    <tr><td><code>skipValidateConnectivity</code></td><td>Boolean!</td><td></td></tr>
+    <tr><td><code>connectivity</code></td><td><a href="#httptoolconnectivity">HttpToolConnectivity</a>!</td><td></td></tr>
+  </tbody>
+</table>
 
----
+<hr/>
 
-#### `NugetRecipeBundle`
+<h4 id="nugetrecipebundle"><code>NugetRecipeBundle</code></h4>
 
-**Service:** changesetreader | **Implements:** <a href="#recipebundle">RecipeBundle</a>
+<p><strong>Service:</strong> changesetreader | <strong>Implements:</strong> <a href="#recipebundle">RecipeBundle</a></p>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `packageName` | String! |  |
-| `requestedVersion` | String |  |
-| `version` | String |  |
-| `recipeCount` | Int |  |
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>packageName</code></td><td>String!</td><td></td></tr>
+    <tr><td><code>requestedVersion</code></td><td>String</td><td></td></tr>
+    <tr><td><code>version</code></td><td>String</td><td></td></tr>
+    <tr><td><code>recipeCount</code></td><td>Int</td><td></td></tr>
+  </tbody>
+</table>
 
----
+<hr/>
 
-#### `OAuthAuthorization`
+<h4 id="oauthauthorization"><code>OAuthAuthorization</code></h4>
 
-**Service:** authz
+<p><strong>Service:</strong> authz</p>
 
-Represents a pending OAuth authorization.
+<p>Represents a pending OAuth authorization.
 The UI should redirect to authorizationUrl, then call exchangeAuthorizationCode
-with the id and extracted callback parameters.
+with the id and extracted callback parameters.</p>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `id` | ID! | Unique ID for this authorization attempt.
-Used to look up stored PKCE state at exchange time. |
-| `authorizationUrl` | String! | The fully-constructed OAuth authorization URL.
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>id</code></td><td>ID!</td><td>Unique ID for this authorization attempt.
+Used to look up stored PKCE state at exchange time.</td></tr>
+    <tr><td><code>authorizationUrl</code></td><td>String!</td><td>The fully-constructed OAuth authorization URL.
 UI should redirect the user to this URL.
 
 IMPORTANT: The UI must store the authorization ID before redirecting,
 as it will be needed to call exchangeAuthorizationCode after the callback.
-The redirect URI does not contain the authorization ID. |
-| `callbackParameters` | [String!]! | Query parameters the UI should extract from the OAuth callback URL
-and pass to exchangeAuthorizationCode (e.g., ["code"]). |
-| `expiresAt` | <a href="#datetime">DateTime</a>! | When this authorization expires. UI should treat expired authorizations as stale. |
+The redirect URI does not contain the authorization ID.</td></tr>
+    <tr><td><code>callbackParameters</code></td><td>[String!]!</td><td>Query parameters the UI should extract from the OAuth callback URL
+and pass to exchangeAuthorizationCode (e.g., ["code"]).</td></tr>
+    <tr><td><code>expiresAt</code></td><td><a href="#datetime">DateTime</a>!</td><td>When this authorization expires. UI should treat expired authorizations as stale.</td></tr>
+  </tbody>
+</table>
 
----
+<hr/>
 
-#### `Option`
+<h4 id="option"><code>Option</code></h4>
 
-**Service:** changesetreader
+<p><strong>Service:</strong> changesetreader</p>
 
-RecipeDescriptor resolved from changeset-specific recipes.csv.
+<p>RecipeDescriptor resolved from changeset-specific recipes.csv.
 When a recipe run is created, the recipes.csv is copied to the changeset directory,
-so we can resolve the recipe that was used at the time of the run (not the current global state).
+so we can resolve the recipe that was used at the time of the run (not the current global state).</p>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `name` | String! |  |
-| `value` | <a href="#object">Object</a> |  |
-| `type` | String! |  |
-| `displayName` | String! |  |
-| `description` | String! |  |
-| `example` | String |  |
-| `valid` | [String] |  |
-| `required` | Boolean! |  |
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>name</code></td><td>String!</td><td></td></tr>
+    <tr><td><code>value</code></td><td><a href="#object">Object</a></td><td></td></tr>
+    <tr><td><code>type</code></td><td>String!</td><td></td></tr>
+    <tr><td><code>displayName</code></td><td>String!</td><td></td></tr>
+    <tr><td><code>description</code></td><td>String!</td><td></td></tr>
+    <tr><td><code>example</code></td><td>String</td><td></td></tr>
+    <tr><td><code>valid</code></td><td>[String]</td><td></td></tr>
+    <tr><td><code>required</code></td><td>Boolean!</td><td></td></tr>
+  </tbody>
+</table>
 
----
+<hr/>
 
-#### `Organization`
+<h4 id="organization"><code>Organization</code></h4>
 
-**Service:** changelogreader
+<p><strong>Service:</strong> changelogreader</p>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `id` | ID! |  |
-| `changelog` | (first: Int = 50, after: String, where: <a href="#changelogentrywhereinput">ChangelogEntryWhereInput</a>, orderBy: [<a href="#changelogentryorderbyinput">ChangelogEntryOrderByInput</a>!]): <a href="#changelogentryconnection">ChangelogEntryConnection</a>! | PR and commit activity feed for repositories in this organization. |
-| `participants` | (first: Int = 50, after: String, where: <a href="#changelogparticipantwhereinput">ChangelogParticipantWhereInput</a>, orderBy: [<a href="#changelogparticipantorderbyinput">ChangelogParticipantOrderByInput</a>!]): <a href="#changelogparticipantconnection">ChangelogParticipantConnection</a>! | All unique participants across the changelog for this organization,
-aggregated from authors, assignees, closers, and reviewers. |
-| `commitOptions` | [<a href="#commitoption">CommitOption</a>!]! | Available commit options for this organization. |
-| `changesets` | (first: Int = 50, after: String, where: <a href="#organizationchangesetwhereinput">OrganizationChangesetWhereInput</a>, orderBy: [<a href="#organizationchangesetorderbyinput">OrganizationChangesetOrderByInput</a>!]): <a href="#organizationchangesetconnection">OrganizationChangesetConnection</a>! |  |
-| `devCenter` | <a href="#devcenter">DevCenter</a> | DevCenter provides organization-wide campaign progress tracking. |
-| `moddy` | <a href="#moddy">Moddy</a>! |  |
-| `name` | String! |  |
-| `parents` | [<a href="#organization">Organization</a>!]! | The ancestor organizations of this organization, ordered from immediate parent towards root.
-Does not include the epsilon root. Empty for the root organization and direct children of root. |
-| `user` | <a href="#user">User</a> | The user who owns this organization. Null for global organizations,
-non-null for user-defined organizations. |
-| `repositories` | (first: Int = 100, after: String, where: <a href="#repositorywhereinput">RepositoryWhereInput</a>, orderBy: [<a href="#repositoryorderbyinput">RepositoryOrderByInput</a>!]): <a href="#repositoryconnection">RepositoryConnection</a>! |  |
-| `children` | (first: Int = 100, after: String, where: <a href="#organizationwhereinput">OrganizationWhereInput</a>, orderBy: [<a href="#organizationorderbyinput">OrganizationOrderByInput</a>!]): <a href="#organizationconnection">OrganizationConnection</a>! | Direct children of this organization in the tree, paginated.
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>id</code></td><td>ID!</td><td></td></tr>
+    <tr><td><code>changelog</code></td><td>(first: Int = 50, after: String, where: <a href="#changelogentrywhereinput">ChangelogEntryWhereInput</a>, orderBy: [<a href="#changelogentryorderbyinput">ChangelogEntryOrderByInput</a>!]): <a href="#changelogentryconnection">ChangelogEntryConnection</a>!</td><td>PR and commit activity feed for repositories in this organization.</td></tr>
+    <tr><td><code>participants</code></td><td>(first: Int = 50, after: String, where: <a href="#changelogparticipantwhereinput">ChangelogParticipantWhereInput</a>, orderBy: [<a href="#changelogparticipantorderbyinput">ChangelogParticipantOrderByInput</a>!]): <a href="#changelogparticipantconnection">ChangelogParticipantConnection</a>!</td><td>All unique participants across the changelog for this organization,
+aggregated from authors, assignees, closers, and reviewers.</td></tr>
+    <tr><td><code>commitOptions</code></td><td>[<a href="#commitoption">CommitOption</a>!]!</td><td>Available commit options for this organization.</td></tr>
+    <tr><td><code>changesets</code></td><td>(first: Int = 50, after: String, where: <a href="#organizationchangesetwhereinput">OrganizationChangesetWhereInput</a>, orderBy: [<a href="#organizationchangesetorderbyinput">OrganizationChangesetOrderByInput</a>!]): <a href="#organizationchangesetconnection">OrganizationChangesetConnection</a>!</td><td></td></tr>
+    <tr><td><code>devCenter</code></td><td><a href="#devcenter">DevCenter</a></td><td>DevCenter provides organization-wide campaign progress tracking.</td></tr>
+    <tr><td><code>moddy</code></td><td><a href="#moddy">Moddy</a>!</td><td></td></tr>
+    <tr><td><code>name</code></td><td>String!</td><td></td></tr>
+    <tr><td><code>parents</code></td><td>[<a href="#organization">Organization</a>!]!</td><td>The ancestor organizations of this organization, ordered from immediate parent towards root.
+Does not include the epsilon root. Empty for the root organization and direct children of root.</td></tr>
+    <tr><td><code>user</code></td><td><a href="#user">User</a></td><td>The user who owns this organization. Null for global organizations,
+non-null for user-defined organizations.</td></tr>
+    <tr><td><code>repositories</code></td><td>(first: Int = 100, after: String, where: <a href="#repositorywhereinput">RepositoryWhereInput</a>, orderBy: [<a href="#repositoryorderbyinput">RepositoryOrderByInput</a>!]): <a href="#repositoryconnection">RepositoryConnection</a>!</td><td></td></tr>
+    <tr><td><code>children</code></td><td>(first: Int = 100, after: String, where: <a href="#organizationwhereinput">OrganizationWhereInput</a>, orderBy: [<a href="#organizationorderbyinput">OrganizationOrderByInput</a>!]): <a href="#organizationconnection">OrganizationConnection</a>!</td><td>Direct children of this organization in the tree, paginated.
 Useful for lazy-loading the org tree level by level — e.g. an org
 selector that fetches the root, then the children of each folder
 only when the user expands it.
@@ -2218,1159 +2544,1386 @@ given parent has the same depth, so the filter would be either
 all-or-nothing. Use `where.name` and the boolean composers
 (`_and`, `_or`, `_not`) for meaningful filtering.
 
-`orderBy` defaults to NAME ascending when unspecified. |
-| `marketplace` | <a href="#recipemarketplace">RecipeMarketplace</a> |  |
+`orderBy` defaults to NAME ascending when unspecified.</td></tr>
+    <tr><td><code>marketplace</code></td><td><a href="#recipemarketplace">RecipeMarketplace</a></td><td></td></tr>
+  </tbody>
+</table>
 
----
+<hr/>
 
-#### `OrganizationChangeset`
+<h4 id="organizationchangeset"><code>OrganizationChangeset</code></h4>
 
-**Service:** changelogreader
+<p><strong>Service:</strong> changelogreader</p>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `id` | ID! |  |
-| `bulkPullRequestActions` | (first: Int = 50, after: String, where: <a href="#bulkpullrequestactionwhereinput">BulkPullRequestActionWhereInput</a>, orderBy: [<a href="#bulkpullrequestactionorderbyinput">BulkPullRequestActionOrderByInput</a>!]): <a href="#bulkpullrequestactionconnection">BulkPullRequestActionConnection</a>! | Bulk pull request actions (approve, merge, close) initiated against pull
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>id</code></td><td>ID!</td><td></td></tr>
+    <tr><td><code>bulkPullRequestActions</code></td><td>(first: Int = 50, after: String, where: <a href="#bulkpullrequestactionwhereinput">BulkPullRequestActionWhereInput</a>, orderBy: [<a href="#bulkpullrequestactionorderbyinput">BulkPullRequestActionOrderByInput</a>!]): <a href="#bulkpullrequestactionconnection">BulkPullRequestActionConnection</a>!</td><td>Bulk pull request actions (approve, merge, close) initiated against pull
 requests that belong to this changeset.
 
 Default sort: STARTED_AT DESC with QUEUED entries (no startedAt) appearing
-last so polling clients still see in-flight actions. |
-| `commits` | (first: Int = 50, after: String, where: <a href="#organizationcommitwhereinput">OrganizationCommitWhereInput</a>, orderBy: [<a href="#organizationcommitorderbyinput">OrganizationCommitOrderByInput</a>!]): <a href="#organizationcommitconnection">OrganizationCommitConnection</a> | Commit operations initiated from this changeset. |
-| `user` | <a href="#user">User</a>! |  |
-| `createdAt` | <a href="#datetime">DateTime</a>! |  |
-| `parent` | <a href="#organizationchangeset">OrganizationChangeset</a> |  |
-| `repositories` | (first: Int = 100, after: String, where: <a href="#repositorychangesetwhereinput">RepositoryChangesetWhereInput</a>, orderBy: [<a href="#repositorychangesetorderbyinput">RepositoryChangesetOrderByInput</a>!]): <a href="#repositorychangesetconnection">RepositoryChangesetConnection</a>! |  |
-| `dataTables` | (first: Int = 50, after: String, where: <a href="#datatablewhereinput">DataTableWhereInput</a>, orderBy: [<a href="#datatableorderbyinput">DataTableOrderByInput</a>!]): <a href="#datatableconnection">DataTableConnection</a>! | Data tables produced by this recipe run.
+last so polling clients still see in-flight actions.</td></tr>
+    <tr><td><code>commits</code></td><td>(first: Int = 50, after: String, where: <a href="#organizationcommitwhereinput">OrganizationCommitWhereInput</a>, orderBy: [<a href="#organizationcommitorderbyinput">OrganizationCommitOrderByInput</a>!]): <a href="#organizationcommitconnection">OrganizationCommitConnection</a></td><td>Commit operations initiated from this changeset.</td></tr>
+    <tr><td><code>user</code></td><td><a href="#user">User</a>!</td><td></td></tr>
+    <tr><td><code>createdAt</code></td><td><a href="#datetime">DateTime</a>!</td><td></td></tr>
+    <tr><td><code>parent</code></td><td><a href="#organizationchangeset">OrganizationChangeset</a></td><td></td></tr>
+    <tr><td><code>repositories</code></td><td>(first: Int = 100, after: String, where: <a href="#repositorychangesetwhereinput">RepositoryChangesetWhereInput</a>, orderBy: [<a href="#repositorychangesetorderbyinput">RepositoryChangesetOrderByInput</a>!]): <a href="#repositorychangesetconnection">RepositoryChangesetConnection</a>!</td><td></td></tr>
+    <tr><td><code>dataTables</code></td><td>(first: Int = 50, after: String, where: <a href="#datatablewhereinput">DataTableWhereInput</a>, orderBy: [<a href="#datatableorderbyinput">DataTableOrderByInput</a>!]): <a href="#datatableconnection">DataTableConnection</a>!</td><td>Data tables produced by this recipe run.
 Each data table starts as Available and transitions to Processing/Finished/Error
-when downloadDataTable mutation is called. |
-| `visualizations` | (first: Int = 50, after: String, where: <a href="#visualizationwhereinput">VisualizationWhereInput</a>, orderBy: [<a href="#visualizationorderbyinput">VisualizationOrderByInput</a>!]): <a href="#visualizationconnection">VisualizationConnection</a>! | Visualizations produced by this changeset.
+when downloadDataTable mutation is called.</td></tr>
+    <tr><td><code>visualizations</code></td><td>(first: Int = 50, after: String, where: <a href="#visualizationwhereinput">VisualizationWhereInput</a>, orderBy: [<a href="#visualizationorderbyinput">VisualizationOrderByInput</a>!]): <a href="#visualizationconnection">VisualizationConnection</a>!</td><td>Visualizations produced by this changeset.
 Each visualization starts as Available and transitions to Processing/Finished/Error
-when runVisualization mutation is called. |
+when runVisualization mutation is called.</td></tr>
+  </tbody>
+</table>
 
----
+<hr/>
 
-#### `OrganizationChangesetConnection`
+<h4 id="organizationchangesetconnection"><code>OrganizationChangesetConnection</code></h4>
 
-**Service:** corechangeset
+<p><strong>Service:</strong> corechangeset</p>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `edges` | [<a href="#organizationchangesetedge">OrganizationChangesetEdge</a>!]! |  |
-| `pageInfo` | <a href="#pageinfo">PageInfo</a>! |  |
-| `count` | Int! |  |
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>edges</code></td><td>[<a href="#organizationchangesetedge">OrganizationChangesetEdge</a>!]!</td><td></td></tr>
+    <tr><td><code>pageInfo</code></td><td><a href="#pageinfo">PageInfo</a>!</td><td></td></tr>
+    <tr><td><code>count</code></td><td>Int!</td><td></td></tr>
+  </tbody>
+</table>
 
----
+<hr/>
 
-#### `OrganizationChangesetEdge`
+<h4 id="organizationchangesetedge"><code>OrganizationChangesetEdge</code></h4>
 
-**Service:** corechangeset
+<p><strong>Service:</strong> corechangeset</p>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `node` | <a href="#organizationchangeset">OrganizationChangeset</a>! |  |
-| `cursor` | String! |  |
-| `organization` | <a href="#organization">Organization</a> | The organization this changeset was run against.
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>node</code></td><td><a href="#organizationchangeset">OrganizationChangeset</a>!</td><td></td></tr>
+    <tr><td><code>cursor</code></td><td>String!</td><td></td></tr>
+    <tr><td><code>organization</code></td><td><a href="#organization">Organization</a></td><td>The organization this changeset was run against.
 May differ from the queried organization when the changeset belongs to a suborganization.
-Null if the organization has been deleted or is temporarily unavailable. |
+Null if the organization has been deleted or is temporarily unavailable.</td></tr>
+  </tbody>
+</table>
 
----
+<hr/>
 
-#### `OrganizationCommitCanceled`
+<h4 id="organizationcommitcanceled"><code>OrganizationCommitCanceled</code></h4>
 
-**Service:** changesetcommitter | **Implements:** <a href="#organizationcommit">OrganizationCommit</a>
+<p><strong>Service:</strong> changesetcommitter | <strong>Implements:</strong> <a href="#organizationcommit">OrganizationCommit</a></p>
 
-Commit was canceled before completion.
+<p>Commit was canceled before completion.</p>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `id` | ID! |  |
-| `user` | <a href="#user">User</a>! |  |
-| `options` | <a href="#commitoptions">CommitOptions</a>! |  |
-| `message` | String! |  |
-| `extendedMessage` | <a href="#base64">Base64</a> |  |
-| `startedAt` | <a href="#datetime">DateTime</a> |  |
-| `finishedAt` | <a href="#datetime">DateTime</a>! |  |
-| `canceledBy` | <a href="#user">User</a>! | Who or what initiated the cancellation. |
-| `repositories` | (first: Int = 50, after: String, where: <a href="#repositorycommitwhereinput">RepositoryCommitWhereInput</a>, orderBy: [<a href="#repositorycommitorderbyinput">RepositoryCommitOrderByInput</a>!]): <a href="#repositorycommitconnection">RepositoryCommitConnection</a>! | Paginated results per repository (partial). |
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>id</code></td><td>ID!</td><td></td></tr>
+    <tr><td><code>user</code></td><td><a href="#user">User</a>!</td><td></td></tr>
+    <tr><td><code>options</code></td><td><a href="#commitoptions">CommitOptions</a>!</td><td></td></tr>
+    <tr><td><code>message</code></td><td>String!</td><td></td></tr>
+    <tr><td><code>extendedMessage</code></td><td><a href="#base64">Base64</a></td><td></td></tr>
+    <tr><td><code>startedAt</code></td><td><a href="#datetime">DateTime</a></td><td></td></tr>
+    <tr><td><code>finishedAt</code></td><td><a href="#datetime">DateTime</a>!</td><td></td></tr>
+    <tr><td><code>canceledBy</code></td><td><a href="#user">User</a>!</td><td>Who or what initiated the cancellation.</td></tr>
+    <tr><td><code>repositories</code></td><td>(first: Int = 50, after: String, where: <a href="#repositorycommitwhereinput">RepositoryCommitWhereInput</a>, orderBy: [<a href="#repositorycommitorderbyinput">RepositoryCommitOrderByInput</a>!]): <a href="#repositorycommitconnection">RepositoryCommitConnection</a>!</td><td>Paginated results per repository (partial).</td></tr>
+  </tbody>
+</table>
 
----
+<hr/>
 
-#### `OrganizationCommitConnection`
+<h4 id="organizationcommitconnection"><code>OrganizationCommitConnection</code></h4>
 
-**Service:** changesetcommitter
+<p><strong>Service:</strong> changesetcommitter</p>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `edges` | [<a href="#organizationcommitedge">OrganizationCommitEdge</a>!]! |  |
-| `pageInfo` | <a href="#pageinfo">PageInfo</a>! |  |
-| `count` | Int! |  |
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>edges</code></td><td>[<a href="#organizationcommitedge">OrganizationCommitEdge</a>!]!</td><td></td></tr>
+    <tr><td><code>pageInfo</code></td><td><a href="#pageinfo">PageInfo</a>!</td><td></td></tr>
+    <tr><td><code>count</code></td><td>Int!</td><td></td></tr>
+  </tbody>
+</table>
 
----
+<hr/>
 
-#### `OrganizationCommitEdge`
+<h4 id="organizationcommitedge"><code>OrganizationCommitEdge</code></h4>
 
-**Service:** changesetcommitter
+<p><strong>Service:</strong> changesetcommitter</p>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `node` | <a href="#organizationcommit">OrganizationCommit</a>! |  |
-| `cursor` | String! |  |
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>node</code></td><td><a href="#organizationcommit">OrganizationCommit</a>!</td><td></td></tr>
+    <tr><td><code>cursor</code></td><td>String!</td><td></td></tr>
+  </tbody>
+</table>
 
----
+<hr/>
 
-#### `OrganizationCommitError`
+<h4 id="organizationcommiterror"><code>OrganizationCommitError</code></h4>
 
-**Service:** changesetcommitter | **Implements:** <a href="#organizationcommit">OrganizationCommit</a>
+<p><strong>Service:</strong> changesetcommitter | <strong>Implements:</strong> <a href="#organizationcommit">OrganizationCommit</a></p>
 
-Commit failed with an error.
+<p>Commit failed with an error.</p>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `id` | ID! |  |
-| `user` | <a href="#user">User</a>! |  |
-| `options` | <a href="#commitoptions">CommitOptions</a>! |  |
-| `message` | String! |  |
-| `extendedMessage` | <a href="#base64">Base64</a> |  |
-| `startedAt` | <a href="#datetime">DateTime</a> |  |
-| `finishedAt` | <a href="#datetime">DateTime</a>! |  |
-| `errorMessage` | String! | Human-readable error message. |
-| `repositories` | (first: Int = 50, after: String, where: <a href="#repositorycommitwhereinput">RepositoryCommitWhereInput</a>, orderBy: [<a href="#repositorycommitorderbyinput">RepositoryCommitOrderByInput</a>!]): <a href="#repositorycommitconnection">RepositoryCommitConnection</a>! | Paginated results per repository (partial). |
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>id</code></td><td>ID!</td><td></td></tr>
+    <tr><td><code>user</code></td><td><a href="#user">User</a>!</td><td></td></tr>
+    <tr><td><code>options</code></td><td><a href="#commitoptions">CommitOptions</a>!</td><td></td></tr>
+    <tr><td><code>message</code></td><td>String!</td><td></td></tr>
+    <tr><td><code>extendedMessage</code></td><td><a href="#base64">Base64</a></td><td></td></tr>
+    <tr><td><code>startedAt</code></td><td><a href="#datetime">DateTime</a></td><td></td></tr>
+    <tr><td><code>finishedAt</code></td><td><a href="#datetime">DateTime</a>!</td><td></td></tr>
+    <tr><td><code>errorMessage</code></td><td>String!</td><td>Human-readable error message.</td></tr>
+    <tr><td><code>repositories</code></td><td>(first: Int = 50, after: String, where: <a href="#repositorycommitwhereinput">RepositoryCommitWhereInput</a>, orderBy: [<a href="#repositorycommitorderbyinput">RepositoryCommitOrderByInput</a>!]): <a href="#repositorycommitconnection">RepositoryCommitConnection</a>!</td><td>Paginated results per repository (partial).</td></tr>
+  </tbody>
+</table>
 
----
+<hr/>
 
-#### `OrganizationCommitFinished`
+<h4 id="organizationcommitfinished"><code>OrganizationCommitFinished</code></h4>
 
-**Service:** changesetcommitter | **Implements:** <a href="#organizationcommit">OrganizationCommit</a>
+<p><strong>Service:</strong> changesetcommitter | <strong>Implements:</strong> <a href="#organizationcommit">OrganizationCommit</a></p>
 
-Commit completed successfully (all or partial success).
+<p>Commit completed successfully (all or partial success).</p>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `id` | ID! |  |
-| `user` | <a href="#user">User</a>! |  |
-| `options` | <a href="#commitoptions">CommitOptions</a>! |  |
-| `message` | String! |  |
-| `extendedMessage` | <a href="#base64">Base64</a> |  |
-| `startedAt` | <a href="#datetime">DateTime</a>! |  |
-| `finishedAt` | <a href="#datetime">DateTime</a>! |  |
-| `repositories` | (first: Int = 50, after: String, where: <a href="#repositorycommitwhereinput">RepositoryCommitWhereInput</a>, orderBy: [<a href="#repositorycommitorderbyinput">RepositoryCommitOrderByInput</a>!]): <a href="#repositorycommitconnection">RepositoryCommitConnection</a>! | Paginated results per repository. |
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>id</code></td><td>ID!</td><td></td></tr>
+    <tr><td><code>user</code></td><td><a href="#user">User</a>!</td><td></td></tr>
+    <tr><td><code>options</code></td><td><a href="#commitoptions">CommitOptions</a>!</td><td></td></tr>
+    <tr><td><code>message</code></td><td>String!</td><td></td></tr>
+    <tr><td><code>extendedMessage</code></td><td><a href="#base64">Base64</a></td><td></td></tr>
+    <tr><td><code>startedAt</code></td><td><a href="#datetime">DateTime</a>!</td><td></td></tr>
+    <tr><td><code>finishedAt</code></td><td><a href="#datetime">DateTime</a>!</td><td></td></tr>
+    <tr><td><code>repositories</code></td><td>(first: Int = 50, after: String, where: <a href="#repositorycommitwhereinput">RepositoryCommitWhereInput</a>, orderBy: [<a href="#repositorycommitorderbyinput">RepositoryCommitOrderByInput</a>!]): <a href="#repositorycommitconnection">RepositoryCommitConnection</a>!</td><td>Paginated results per repository.</td></tr>
+  </tbody>
+</table>
 
----
+<hr/>
 
-#### `OrganizationCommitQueued`
+<h4 id="organizationcommitqueued"><code>OrganizationCommitQueued</code></h4>
 
-**Service:** changesetcommitter | **Implements:** <a href="#organizationcommit">OrganizationCommit</a>
+<p><strong>Service:</strong> changesetcommitter | <strong>Implements:</strong> <a href="#organizationcommit">OrganizationCommit</a></p>
 
-Commit is queued and waiting to be processed.
+<p>Commit is queued and waiting to be processed.</p>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `id` | ID! |  |
-| `user` | <a href="#user">User</a>! |  |
-| `options` | <a href="#commitoptions">CommitOptions</a>! |  |
-| `message` | String! |  |
-| `extendedMessage` | <a href="#base64">Base64</a> |  |
-| `startedAt` | <a href="#datetime">DateTime</a>! |  |
-| `repositories` | (first: Int = 50, after: String, where: <a href="#repositorycommitwhereinput">RepositoryCommitWhereInput</a>, orderBy: [<a href="#repositorycommitorderbyinput">RepositoryCommitOrderByInput</a>!]): <a href="#repositorycommitconnection">RepositoryCommitConnection</a>! | Paginated results per repository. |
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>id</code></td><td>ID!</td><td></td></tr>
+    <tr><td><code>user</code></td><td><a href="#user">User</a>!</td><td></td></tr>
+    <tr><td><code>options</code></td><td><a href="#commitoptions">CommitOptions</a>!</td><td></td></tr>
+    <tr><td><code>message</code></td><td>String!</td><td></td></tr>
+    <tr><td><code>extendedMessage</code></td><td><a href="#base64">Base64</a></td><td></td></tr>
+    <tr><td><code>startedAt</code></td><td><a href="#datetime">DateTime</a>!</td><td></td></tr>
+    <tr><td><code>repositories</code></td><td>(first: Int = 50, after: String, where: <a href="#repositorycommitwhereinput">RepositoryCommitWhereInput</a>, orderBy: [<a href="#repositorycommitorderbyinput">RepositoryCommitOrderByInput</a>!]): <a href="#repositorycommitconnection">RepositoryCommitConnection</a>!</td><td>Paginated results per repository.</td></tr>
+  </tbody>
+</table>
 
----
+<hr/>
 
-#### `OrganizationCommitRunning`
+<h4 id="organizationcommitrunning"><code>OrganizationCommitRunning</code></h4>
 
-**Service:** changesetcommitter | **Implements:** <a href="#organizationcommit">OrganizationCommit</a>
+<p><strong>Service:</strong> changesetcommitter | <strong>Implements:</strong> <a href="#organizationcommit">OrganizationCommit</a></p>
 
-Commit is actively being processed across repositories.
+<p>Commit is actively being processed across repositories.</p>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `id` | ID! |  |
-| `user` | <a href="#user">User</a>! |  |
-| `options` | <a href="#commitoptions">CommitOptions</a>! |  |
-| `message` | String! |  |
-| `extendedMessage` | <a href="#base64">Base64</a> |  |
-| `startedAt` | <a href="#datetime">DateTime</a>! |  |
-| `repositories` | (first: Int = 50, after: String, where: <a href="#repositorycommitwhereinput">RepositoryCommitWhereInput</a>, orderBy: [<a href="#repositorycommitorderbyinput">RepositoryCommitOrderByInput</a>!]): <a href="#repositorycommitconnection">RepositoryCommitConnection</a>! | Paginated results per repository. |
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>id</code></td><td>ID!</td><td></td></tr>
+    <tr><td><code>user</code></td><td><a href="#user">User</a>!</td><td></td></tr>
+    <tr><td><code>options</code></td><td><a href="#commitoptions">CommitOptions</a>!</td><td></td></tr>
+    <tr><td><code>message</code></td><td>String!</td><td></td></tr>
+    <tr><td><code>extendedMessage</code></td><td><a href="#base64">Base64</a></td><td></td></tr>
+    <tr><td><code>startedAt</code></td><td><a href="#datetime">DateTime</a>!</td><td></td></tr>
+    <tr><td><code>repositories</code></td><td>(first: Int = 50, after: String, where: <a href="#repositorycommitwhereinput">RepositoryCommitWhereInput</a>, orderBy: [<a href="#repositorycommitorderbyinput">RepositoryCommitOrderByInput</a>!]): <a href="#repositorycommitconnection">RepositoryCommitConnection</a>!</td><td>Paginated results per repository.</td></tr>
+  </tbody>
+</table>
 
----
+<hr/>
 
-#### `OrganizationConfiguration`
+<h4 id="organizationconfiguration"><code>OrganizationConfiguration</code></h4>
 
-**Service:** gateway
+<p><strong>Service:</strong> gateway</p>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `resourceId` | String! |  |
-| `skipSsl` | Boolean! |  |
-| `skipValidateConnectivity` | Boolean! |  |
-| `connectivity` | <a href="#httptoolconnectivity">HttpToolConnectivity</a>! |  |
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>resourceId</code></td><td>String!</td><td></td></tr>
+    <tr><td><code>skipSsl</code></td><td>Boolean!</td><td></td></tr>
+    <tr><td><code>skipValidateConnectivity</code></td><td>Boolean!</td><td></td></tr>
+    <tr><td><code>connectivity</code></td><td><a href="#httptoolconnectivity">HttpToolConnectivity</a>!</td><td></td></tr>
+  </tbody>
+</table>
 
----
+<hr/>
 
-#### `OrganizationConnection`
+<h4 id="organizationconnection"><code>OrganizationConnection</code></h4>
 
-**Service:** organization
+<p><strong>Service:</strong> organization</p>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `edges` | [<a href="#organizationedge">OrganizationEdge</a>!]! |  |
-| `pageInfo` | <a href="#pageinfo">PageInfo</a>! |  |
-| `count` | Int! |  |
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>edges</code></td><td>[<a href="#organizationedge">OrganizationEdge</a>!]!</td><td></td></tr>
+    <tr><td><code>pageInfo</code></td><td><a href="#pageinfo">PageInfo</a>!</td><td></td></tr>
+    <tr><td><code>count</code></td><td>Int!</td><td></td></tr>
+  </tbody>
+</table>
 
----
+<hr/>
 
-#### `OrganizationEdge`
+<h4 id="organizationedge"><code>OrganizationEdge</code></h4>
 
-**Service:** organization
+<p><strong>Service:</strong> organization</p>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `node` | <a href="#organization">Organization</a>! |  |
-| `cursor` | String! |  |
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>node</code></td><td><a href="#organization">Organization</a>!</td><td></td></tr>
+    <tr><td><code>cursor</code></td><td>String!</td><td></td></tr>
+  </tbody>
+</table>
 
----
+<hr/>
 
-#### `OrganizationRecipeRun`
+<h4 id="organizationreciperun"><code>OrganizationRecipeRun</code></h4>
 
-**Service:** changelogreader
+<p><strong>Service:</strong> changelogreader</p>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `id` | ID! |  |
-| `bulkPullRequestActions` | (first: Int = 50, after: String, where: <a href="#bulkpullrequestactionwhereinput">BulkPullRequestActionWhereInput</a>, orderBy: [<a href="#bulkpullrequestactionorderbyinput">BulkPullRequestActionOrderByInput</a>!]): <a href="#bulkpullrequestactionconnection">BulkPullRequestActionConnection</a>! | Bulk pull request actions for recipe-run changesets. |
-| `commits` | (first: Int = 50, after: String, where: <a href="#organizationcommitwhereinput">OrganizationCommitWhereInput</a>, orderBy: [<a href="#organizationcommitorderbyinput">OrganizationCommitOrderByInput</a>!]): <a href="#organizationcommitconnection">OrganizationCommitConnection</a> | Commit operations initiated from this recipe run. |
-| `recipe` | <a href="#recipedescriptor">RecipeDescriptor</a> |  |
-| `user` | <a href="#user">User</a>! |  |
-| `options` | [<a href="#recipeoptionvalue">RecipeOptionValue</a>!]! |  |
-| `createdAt` | <a href="#datetime">DateTime</a>! |  |
-| `lastUpdatedAt` | <a href="#datetime">DateTime</a>! | Monotonic high-water mark advanced by every state writer (sync monitor,
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>id</code></td><td>ID!</td><td></td></tr>
+    <tr><td><code>bulkPullRequestActions</code></td><td>(first: Int = 50, after: String, where: <a href="#bulkpullrequestactionwhereinput">BulkPullRequestActionWhereInput</a>, orderBy: [<a href="#bulkpullrequestactionorderbyinput">BulkPullRequestActionOrderByInput</a>!]): <a href="#bulkpullrequestactionconnection">BulkPullRequestActionConnection</a>!</td><td>Bulk pull request actions for recipe-run changesets.</td></tr>
+    <tr><td><code>commits</code></td><td>(first: Int = 50, after: String, where: <a href="#organizationcommitwhereinput">OrganizationCommitWhereInput</a>, orderBy: [<a href="#organizationcommitorderbyinput">OrganizationCommitOrderByInput</a>!]): <a href="#organizationcommitconnection">OrganizationCommitConnection</a></td><td>Commit operations initiated from this recipe run.</td></tr>
+    <tr><td><code>recipe</code></td><td><a href="#recipedescriptor">RecipeDescriptor</a></td><td></td></tr>
+    <tr><td><code>user</code></td><td><a href="#user">User</a>!</td><td></td></tr>
+    <tr><td><code>options</code></td><td>[<a href="#recipeoptionvalue">RecipeOptionValue</a>!]!</td><td></td></tr>
+    <tr><td><code>createdAt</code></td><td><a href="#datetime">DateTime</a>!</td><td></td></tr>
+    <tr><td><code>lastUpdatedAt</code></td><td><a href="#datetime">DateTime</a>!</td><td>Monotonic high-water mark advanced by every state writer (sync monitor,
 run monitor, processor). Treat as a content version: poll a tiny query
 selecting `__typename` + `lastUpdatedAt` cheaply and only refetch the
-heavy `repositories`/`totals` selections when this value changes. |
-| `priority` | <a href="#reciperunpriority">RecipeRunPriority</a>! |  |
-| `parent` | <a href="#organizationchangeset">OrganizationChangeset</a> |  |
-| `repositories` | (first: Int = 100, after: String, where: <a href="#repositorychangesetwhereinput">RepositoryChangesetWhereInput</a>, orderBy: [<a href="#repositorychangesetorderbyinput">RepositoryChangesetOrderByInput</a>!]): <a href="#repositorychangesetconnection">RepositoryChangesetConnection</a>! |  |
-| `dataTables` | (first: Int = 50, after: String, where: <a href="#datatablewhereinput">DataTableWhereInput</a>, orderBy: [<a href="#datatableorderbyinput">DataTableOrderByInput</a>!]): <a href="#datatableconnection">DataTableConnection</a>! | Data tables produced by this recipe run.
+heavy `repositories`/`totals` selections when this value changes.</td></tr>
+    <tr><td><code>priority</code></td><td><a href="#reciperunpriority">RecipeRunPriority</a>!</td><td></td></tr>
+    <tr><td><code>parent</code></td><td><a href="#organizationchangeset">OrganizationChangeset</a></td><td></td></tr>
+    <tr><td><code>repositories</code></td><td>(first: Int = 100, after: String, where: <a href="#repositorychangesetwhereinput">RepositoryChangesetWhereInput</a>, orderBy: [<a href="#repositorychangesetorderbyinput">RepositoryChangesetOrderByInput</a>!]): <a href="#repositorychangesetconnection">RepositoryChangesetConnection</a>!</td><td></td></tr>
+    <tr><td><code>dataTables</code></td><td>(first: Int = 50, after: String, where: <a href="#datatablewhereinput">DataTableWhereInput</a>, orderBy: [<a href="#datatableorderbyinput">DataTableOrderByInput</a>!]): <a href="#datatableconnection">DataTableConnection</a>!</td><td>Data tables produced by this recipe run.
 Each data table starts as Available and transitions to Processing/Finished/Error
-when downloadDataTable mutation is called. |
-| `visualizations` | (first: Int = 50, after: String, where: <a href="#visualizationwhereinput">VisualizationWhereInput</a>, orderBy: [<a href="#visualizationorderbyinput">VisualizationOrderByInput</a>!]): <a href="#visualizationconnection">VisualizationConnection</a>! | Visualizations produced by this recipe run. |
+when downloadDataTable mutation is called.</td></tr>
+    <tr><td><code>visualizations</code></td><td>(first: Int = 50, after: String, where: <a href="#visualizationwhereinput">VisualizationWhereInput</a>, orderBy: [<a href="#visualizationorderbyinput">VisualizationOrderByInput</a>!]): <a href="#visualizationconnection">VisualizationConnection</a>!</td><td>Visualizations produced by this recipe run.</td></tr>
+  </tbody>
+</table>
 
----
+<hr/>
 
-#### `OrganizationRecipeRunCanceled`
+<h4 id="organizationreciperuncanceled"><code>OrganizationRecipeRunCanceled</code></h4>
 
-**Service:** changesetreader | **Implements:** <a href="#organizationchangeset">OrganizationChangeset</a>, <a href="#organizationreciperun">OrganizationRecipeRun</a>
+<p><strong>Service:</strong> changesetreader | <strong>Implements:</strong> <a href="#organizationchangeset">OrganizationChangeset</a>, <a href="#organizationreciperun">OrganizationRecipeRun</a></p>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `id` | ID! |  |
-| `recipe` | <a href="#recipedescriptor">RecipeDescriptor</a> |  |
-| `user` | <a href="#user">User</a>! |  |
-| `options` | [<a href="#recipeoptionvalue">RecipeOptionValue</a>!]! |  |
-| `createdAt` | <a href="#datetime">DateTime</a>! |  |
-| `lastUpdatedAt` | <a href="#datetime">DateTime</a>! | Monotonic high-water mark advanced by every state writer (sync monitor,
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>id</code></td><td>ID!</td><td></td></tr>
+    <tr><td><code>recipe</code></td><td><a href="#recipedescriptor">RecipeDescriptor</a></td><td></td></tr>
+    <tr><td><code>user</code></td><td><a href="#user">User</a>!</td><td></td></tr>
+    <tr><td><code>options</code></td><td>[<a href="#recipeoptionvalue">RecipeOptionValue</a>!]!</td><td></td></tr>
+    <tr><td><code>createdAt</code></td><td><a href="#datetime">DateTime</a>!</td><td></td></tr>
+    <tr><td><code>lastUpdatedAt</code></td><td><a href="#datetime">DateTime</a>!</td><td>Monotonic high-water mark advanced by every state writer (sync monitor,
 run monitor, processor). Treat as a content version: poll a tiny query
 selecting `__typename` + `lastUpdatedAt` cheaply and only refetch the
-heavy `repositories`/`totals` selections when this value changes. |
-| `priority` | <a href="#reciperunpriority">RecipeRunPriority</a>! |  |
-| `parent` | <a href="#organizationchangeset">OrganizationChangeset</a> |  |
-| `startedAt` | <a href="#datetime">DateTime</a> |  |
-| `finishedAt` | <a href="#datetime">DateTime</a>! |  |
-| `canceledAt` | <a href="#datetime">DateTime</a>! | Alias for finishedAt - when the run was canceled |
-| `repositories` | (first: Int = 100, after: String, where: <a href="#repositorychangesetwhereinput">RepositoryChangesetWhereInput</a>, orderBy: [<a href="#repositorychangesetorderbyinput">RepositoryChangesetOrderByInput</a>!]): <a href="#repositorychangesetconnection">RepositoryChangesetConnection</a>! |  |
-| `dataTables` | (first: Int = 50, after: String, where: <a href="#datatablewhereinput">DataTableWhereInput</a>, orderBy: [<a href="#datatableorderbyinput">DataTableOrderByInput</a>!]): <a href="#datatableconnection">DataTableConnection</a>! | Data tables produced by this recipe run.
+heavy `repositories`/`totals` selections when this value changes.</td></tr>
+    <tr><td><code>priority</code></td><td><a href="#reciperunpriority">RecipeRunPriority</a>!</td><td></td></tr>
+    <tr><td><code>parent</code></td><td><a href="#organizationchangeset">OrganizationChangeset</a></td><td></td></tr>
+    <tr><td><code>startedAt</code></td><td><a href="#datetime">DateTime</a></td><td></td></tr>
+    <tr><td><code>finishedAt</code></td><td><a href="#datetime">DateTime</a>!</td><td></td></tr>
+    <tr><td><code>canceledAt</code></td><td><a href="#datetime">DateTime</a>!</td><td>Alias for finishedAt - when the run was canceled</td></tr>
+    <tr><td><code>repositories</code></td><td>(first: Int = 100, after: String, where: <a href="#repositorychangesetwhereinput">RepositoryChangesetWhereInput</a>, orderBy: [<a href="#repositorychangesetorderbyinput">RepositoryChangesetOrderByInput</a>!]): <a href="#repositorychangesetconnection">RepositoryChangesetConnection</a>!</td><td></td></tr>
+    <tr><td><code>dataTables</code></td><td>(first: Int = 50, after: String, where: <a href="#datatablewhereinput">DataTableWhereInput</a>, orderBy: [<a href="#datatableorderbyinput">DataTableOrderByInput</a>!]): <a href="#datatableconnection">DataTableConnection</a>!</td><td>Data tables produced by this recipe run.
 Each data table starts as Available and transitions to Processing/Finished/Error
-when downloadDataTable mutation is called. |
-| `visualizations` | (first: Int = 50, after: String, where: <a href="#visualizationwhereinput">VisualizationWhereInput</a>, orderBy: [<a href="#visualizationorderbyinput">VisualizationOrderByInput</a>!]): <a href="#visualizationconnection">VisualizationConnection</a>! | Visualizations produced by this recipe run. |
+when downloadDataTable mutation is called.</td></tr>
+    <tr><td><code>visualizations</code></td><td>(first: Int = 50, after: String, where: <a href="#visualizationwhereinput">VisualizationWhereInput</a>, orderBy: [<a href="#visualizationorderbyinput">VisualizationOrderByInput</a>!]): <a href="#visualizationconnection">VisualizationConnection</a>!</td><td>Visualizations produced by this recipe run.</td></tr>
+  </tbody>
+</table>
 
----
+<hr/>
 
-#### `OrganizationRecipeRunConnection`
+<h4 id="organizationreciperunconnection"><code>OrganizationRecipeRunConnection</code></h4>
 
-**Service:** changesetreader
+<p><strong>Service:</strong> changesetreader</p>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `edges` | [<a href="#organizationreciperunedge">OrganizationRecipeRunEdge</a>!]! |  |
-| `pageInfo` | <a href="#pageinfo">PageInfo</a>! |  |
-| `count` | Int! |  |
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>edges</code></td><td>[<a href="#organizationreciperunedge">OrganizationRecipeRunEdge</a>!]!</td><td></td></tr>
+    <tr><td><code>pageInfo</code></td><td><a href="#pageinfo">PageInfo</a>!</td><td></td></tr>
+    <tr><td><code>count</code></td><td>Int!</td><td></td></tr>
+  </tbody>
+</table>
 
----
+<hr/>
 
-#### `OrganizationRecipeRunEdge`
+<h4 id="organizationreciperunedge"><code>OrganizationRecipeRunEdge</code></h4>
 
-**Service:** changesetreader
+<p><strong>Service:</strong> changesetreader</p>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `node` | <a href="#organizationreciperun">OrganizationRecipeRun</a>! |  |
-| `cursor` | String! |  |
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>node</code></td><td><a href="#organizationreciperun">OrganizationRecipeRun</a>!</td><td></td></tr>
+    <tr><td><code>cursor</code></td><td>String!</td><td></td></tr>
+  </tbody>
+</table>
 
----
+<hr/>
 
-#### `OrganizationRecipeRunError`
+<h4 id="organizationreciperunerror"><code>OrganizationRecipeRunError</code></h4>
 
-**Service:** changesetreader | **Implements:** <a href="#organizationchangeset">OrganizationChangeset</a>, <a href="#organizationreciperun">OrganizationRecipeRun</a>
+<p><strong>Service:</strong> changesetreader | <strong>Implements:</strong> <a href="#organizationchangeset">OrganizationChangeset</a>, <a href="#organizationreciperun">OrganizationRecipeRun</a></p>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `id` | ID! |  |
-| `recipe` | <a href="#recipedescriptor">RecipeDescriptor</a> |  |
-| `user` | <a href="#user">User</a>! |  |
-| `options` | [<a href="#recipeoptionvalue">RecipeOptionValue</a>!]! |  |
-| `createdAt` | <a href="#datetime">DateTime</a>! |  |
-| `lastUpdatedAt` | <a href="#datetime">DateTime</a>! | Monotonic high-water mark advanced by every state writer (sync monitor,
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>id</code></td><td>ID!</td><td></td></tr>
+    <tr><td><code>recipe</code></td><td><a href="#recipedescriptor">RecipeDescriptor</a></td><td></td></tr>
+    <tr><td><code>user</code></td><td><a href="#user">User</a>!</td><td></td></tr>
+    <tr><td><code>options</code></td><td>[<a href="#recipeoptionvalue">RecipeOptionValue</a>!]!</td><td></td></tr>
+    <tr><td><code>createdAt</code></td><td><a href="#datetime">DateTime</a>!</td><td></td></tr>
+    <tr><td><code>lastUpdatedAt</code></td><td><a href="#datetime">DateTime</a>!</td><td>Monotonic high-water mark advanced by every state writer (sync monitor,
 run monitor, processor). Treat as a content version: poll a tiny query
 selecting `__typename` + `lastUpdatedAt` cheaply and only refetch the
-heavy `repositories`/`totals` selections when this value changes. |
-| `priority` | <a href="#reciperunpriority">RecipeRunPriority</a>! |  |
-| `parent` | <a href="#organizationchangeset">OrganizationChangeset</a> |  |
-| `startedAt` | <a href="#datetime">DateTime</a> |  |
-| `finishedAt` | <a href="#datetime">DateTime</a>! |  |
-| `errorMessage` | String |  |
-| `repositories` | (first: Int = 100, after: String, where: <a href="#repositorychangesetwhereinput">RepositoryChangesetWhereInput</a>, orderBy: [<a href="#repositorychangesetorderbyinput">RepositoryChangesetOrderByInput</a>!]): <a href="#repositorychangesetconnection">RepositoryChangesetConnection</a>! |  |
-| `dataTables` | (first: Int = 50, after: String, where: <a href="#datatablewhereinput">DataTableWhereInput</a>, orderBy: [<a href="#datatableorderbyinput">DataTableOrderByInput</a>!]): <a href="#datatableconnection">DataTableConnection</a>! | Data tables produced by this recipe run.
+heavy `repositories`/`totals` selections when this value changes.</td></tr>
+    <tr><td><code>priority</code></td><td><a href="#reciperunpriority">RecipeRunPriority</a>!</td><td></td></tr>
+    <tr><td><code>parent</code></td><td><a href="#organizationchangeset">OrganizationChangeset</a></td><td></td></tr>
+    <tr><td><code>startedAt</code></td><td><a href="#datetime">DateTime</a></td><td></td></tr>
+    <tr><td><code>finishedAt</code></td><td><a href="#datetime">DateTime</a>!</td><td></td></tr>
+    <tr><td><code>errorMessage</code></td><td>String</td><td></td></tr>
+    <tr><td><code>repositories</code></td><td>(first: Int = 100, after: String, where: <a href="#repositorychangesetwhereinput">RepositoryChangesetWhereInput</a>, orderBy: [<a href="#repositorychangesetorderbyinput">RepositoryChangesetOrderByInput</a>!]): <a href="#repositorychangesetconnection">RepositoryChangesetConnection</a>!</td><td></td></tr>
+    <tr><td><code>dataTables</code></td><td>(first: Int = 50, after: String, where: <a href="#datatablewhereinput">DataTableWhereInput</a>, orderBy: [<a href="#datatableorderbyinput">DataTableOrderByInput</a>!]): <a href="#datatableconnection">DataTableConnection</a>!</td><td>Data tables produced by this recipe run.
 Each data table starts as Available and transitions to Processing/Finished/Error
-when downloadDataTable mutation is called. |
-| `visualizations` | (first: Int = 50, after: String, where: <a href="#visualizationwhereinput">VisualizationWhereInput</a>, orderBy: [<a href="#visualizationorderbyinput">VisualizationOrderByInput</a>!]): <a href="#visualizationconnection">VisualizationConnection</a>! | Visualizations produced by this recipe run. |
+when downloadDataTable mutation is called.</td></tr>
+    <tr><td><code>visualizations</code></td><td>(first: Int = 50, after: String, where: <a href="#visualizationwhereinput">VisualizationWhereInput</a>, orderBy: [<a href="#visualizationorderbyinput">VisualizationOrderByInput</a>!]): <a href="#visualizationconnection">VisualizationConnection</a>!</td><td>Visualizations produced by this recipe run.</td></tr>
+  </tbody>
+</table>
 
----
+<hr/>
 
-#### `OrganizationRecipeRunFinished`
+<h4 id="organizationreciperunfinished"><code>OrganizationRecipeRunFinished</code></h4>
 
-**Service:** changesetreader | **Implements:** <a href="#organizationchangeset">OrganizationChangeset</a>, <a href="#organizationreciperun">OrganizationRecipeRun</a>
+<p><strong>Service:</strong> changesetreader | <strong>Implements:</strong> <a href="#organizationchangeset">OrganizationChangeset</a>, <a href="#organizationreciperun">OrganizationRecipeRun</a></p>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `id` | ID! |  |
-| `recipe` | <a href="#recipedescriptor">RecipeDescriptor</a> |  |
-| `user` | <a href="#user">User</a>! |  |
-| `options` | [<a href="#recipeoptionvalue">RecipeOptionValue</a>!]! |  |
-| `createdAt` | <a href="#datetime">DateTime</a>! |  |
-| `lastUpdatedAt` | <a href="#datetime">DateTime</a>! | Monotonic high-water mark advanced by every state writer (sync monitor,
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>id</code></td><td>ID!</td><td></td></tr>
+    <tr><td><code>recipe</code></td><td><a href="#recipedescriptor">RecipeDescriptor</a></td><td></td></tr>
+    <tr><td><code>user</code></td><td><a href="#user">User</a>!</td><td></td></tr>
+    <tr><td><code>options</code></td><td>[<a href="#recipeoptionvalue">RecipeOptionValue</a>!]!</td><td></td></tr>
+    <tr><td><code>createdAt</code></td><td><a href="#datetime">DateTime</a>!</td><td></td></tr>
+    <tr><td><code>lastUpdatedAt</code></td><td><a href="#datetime">DateTime</a>!</td><td>Monotonic high-water mark advanced by every state writer (sync monitor,
 run monitor, processor). Treat as a content version: poll a tiny query
 selecting `__typename` + `lastUpdatedAt` cheaply and only refetch the
-heavy `repositories`/`totals` selections when this value changes. |
-| `priority` | <a href="#reciperunpriority">RecipeRunPriority</a>! |  |
-| `parent` | <a href="#organizationchangeset">OrganizationChangeset</a> |  |
-| `startedAt` | <a href="#datetime">DateTime</a>! |  |
-| `finishedAt` | <a href="#datetime">DateTime</a>! |  |
-| `duration` | <a href="#duration">Duration</a> |  |
-| `totals` | <a href="#reciperuntotals">RecipeRunTotals</a>! |  |
-| `repositories` | (first: Int = 100, after: String, where: <a href="#repositorychangesetwhereinput">RepositoryChangesetWhereInput</a>, orderBy: [<a href="#repositorychangesetorderbyinput">RepositoryChangesetOrderByInput</a>!]): <a href="#repositorychangesetconnection">RepositoryChangesetConnection</a>! |  |
-| `dataTables` | (first: Int = 50, after: String, where: <a href="#datatablewhereinput">DataTableWhereInput</a>, orderBy: [<a href="#datatableorderbyinput">DataTableOrderByInput</a>!]): <a href="#datatableconnection">DataTableConnection</a>! | Data tables produced by this recipe run.
+heavy `repositories`/`totals` selections when this value changes.</td></tr>
+    <tr><td><code>priority</code></td><td><a href="#reciperunpriority">RecipeRunPriority</a>!</td><td></td></tr>
+    <tr><td><code>parent</code></td><td><a href="#organizationchangeset">OrganizationChangeset</a></td><td></td></tr>
+    <tr><td><code>startedAt</code></td><td><a href="#datetime">DateTime</a>!</td><td></td></tr>
+    <tr><td><code>finishedAt</code></td><td><a href="#datetime">DateTime</a>!</td><td></td></tr>
+    <tr><td><code>duration</code></td><td><a href="#duration">Duration</a></td><td></td></tr>
+    <tr><td><code>totals</code></td><td><a href="#reciperuntotals">RecipeRunTotals</a>!</td><td></td></tr>
+    <tr><td><code>repositories</code></td><td>(first: Int = 100, after: String, where: <a href="#repositorychangesetwhereinput">RepositoryChangesetWhereInput</a>, orderBy: [<a href="#repositorychangesetorderbyinput">RepositoryChangesetOrderByInput</a>!]): <a href="#repositorychangesetconnection">RepositoryChangesetConnection</a>!</td><td></td></tr>
+    <tr><td><code>dataTables</code></td><td>(first: Int = 50, after: String, where: <a href="#datatablewhereinput">DataTableWhereInput</a>, orderBy: [<a href="#datatableorderbyinput">DataTableOrderByInput</a>!]): <a href="#datatableconnection">DataTableConnection</a>!</td><td>Data tables produced by this recipe run.
 Each data table starts as Available and transitions to Processing/Finished/Error
-when downloadDataTable mutation is called. |
-| `visualizations` | (first: Int = 50, after: String, where: <a href="#visualizationwhereinput">VisualizationWhereInput</a>, orderBy: [<a href="#visualizationorderbyinput">VisualizationOrderByInput</a>!]): <a href="#visualizationconnection">VisualizationConnection</a>! | Visualizations produced by this recipe run. |
+when downloadDataTable mutation is called.</td></tr>
+    <tr><td><code>visualizations</code></td><td>(first: Int = 50, after: String, where: <a href="#visualizationwhereinput">VisualizationWhereInput</a>, orderBy: [<a href="#visualizationorderbyinput">VisualizationOrderByInput</a>!]): <a href="#visualizationconnection">VisualizationConnection</a>!</td><td>Visualizations produced by this recipe run.</td></tr>
+  </tbody>
+</table>
 
----
+<hr/>
 
-#### `OrganizationRecipeRunQueued`
+<h4 id="organizationreciperunqueued"><code>OrganizationRecipeRunQueued</code></h4>
 
-**Service:** changesetreader | **Implements:** <a href="#organizationchangeset">OrganizationChangeset</a>, <a href="#organizationreciperun">OrganizationRecipeRun</a>
+<p><strong>Service:</strong> changesetreader | <strong>Implements:</strong> <a href="#organizationchangeset">OrganizationChangeset</a>, <a href="#organizationreciperun">OrganizationRecipeRun</a></p>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `id` | ID! |  |
-| `recipe` | <a href="#recipedescriptor">RecipeDescriptor</a> |  |
-| `user` | <a href="#user">User</a>! |  |
-| `options` | [<a href="#recipeoptionvalue">RecipeOptionValue</a>!]! |  |
-| `createdAt` | <a href="#datetime">DateTime</a>! |  |
-| `lastUpdatedAt` | <a href="#datetime">DateTime</a>! | Monotonic high-water mark advanced by every state writer (sync monitor,
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>id</code></td><td>ID!</td><td></td></tr>
+    <tr><td><code>recipe</code></td><td><a href="#recipedescriptor">RecipeDescriptor</a></td><td></td></tr>
+    <tr><td><code>user</code></td><td><a href="#user">User</a>!</td><td></td></tr>
+    <tr><td><code>options</code></td><td>[<a href="#recipeoptionvalue">RecipeOptionValue</a>!]!</td><td></td></tr>
+    <tr><td><code>createdAt</code></td><td><a href="#datetime">DateTime</a>!</td><td></td></tr>
+    <tr><td><code>lastUpdatedAt</code></td><td><a href="#datetime">DateTime</a>!</td><td>Monotonic high-water mark advanced by every state writer (sync monitor,
 run monitor, processor). Treat as a content version: poll a tiny query
 selecting `__typename` + `lastUpdatedAt` cheaply and only refetch the
-heavy `repositories`/`totals` selections when this value changes. |
-| `priority` | <a href="#reciperunpriority">RecipeRunPriority</a>! |  |
-| `parent` | <a href="#organizationchangeset">OrganizationChangeset</a> |  |
-| `queuedAt` | <a href="#datetime">DateTime</a>! |  |
-| `repositories` | (first: Int = 100, after: String, where: <a href="#repositorychangesetwhereinput">RepositoryChangesetWhereInput</a>, orderBy: [<a href="#repositorychangesetorderbyinput">RepositoryChangesetOrderByInput</a>!]): <a href="#repositorychangesetconnection">RepositoryChangesetConnection</a>! |  |
-| `dataTables` | (first: Int = 50, after: String, where: <a href="#datatablewhereinput">DataTableWhereInput</a>, orderBy: [<a href="#datatableorderbyinput">DataTableOrderByInput</a>!]): <a href="#datatableconnection">DataTableConnection</a>! | Data tables produced by this recipe run.
+heavy `repositories`/`totals` selections when this value changes.</td></tr>
+    <tr><td><code>priority</code></td><td><a href="#reciperunpriority">RecipeRunPriority</a>!</td><td></td></tr>
+    <tr><td><code>parent</code></td><td><a href="#organizationchangeset">OrganizationChangeset</a></td><td></td></tr>
+    <tr><td><code>queuedAt</code></td><td><a href="#datetime">DateTime</a>!</td><td></td></tr>
+    <tr><td><code>repositories</code></td><td>(first: Int = 100, after: String, where: <a href="#repositorychangesetwhereinput">RepositoryChangesetWhereInput</a>, orderBy: [<a href="#repositorychangesetorderbyinput">RepositoryChangesetOrderByInput</a>!]): <a href="#repositorychangesetconnection">RepositoryChangesetConnection</a>!</td><td></td></tr>
+    <tr><td><code>dataTables</code></td><td>(first: Int = 50, after: String, where: <a href="#datatablewhereinput">DataTableWhereInput</a>, orderBy: [<a href="#datatableorderbyinput">DataTableOrderByInput</a>!]): <a href="#datatableconnection">DataTableConnection</a>!</td><td>Data tables produced by this recipe run.
 Each data table starts as Available and transitions to Processing/Finished/Error
-when downloadDataTable mutation is called. |
-| `visualizations` | (first: Int = 50, after: String, where: <a href="#visualizationwhereinput">VisualizationWhereInput</a>, orderBy: [<a href="#visualizationorderbyinput">VisualizationOrderByInput</a>!]): <a href="#visualizationconnection">VisualizationConnection</a>! | Visualizations produced by this recipe run. |
+when downloadDataTable mutation is called.</td></tr>
+    <tr><td><code>visualizations</code></td><td>(first: Int = 50, after: String, where: <a href="#visualizationwhereinput">VisualizationWhereInput</a>, orderBy: [<a href="#visualizationorderbyinput">VisualizationOrderByInput</a>!]): <a href="#visualizationconnection">VisualizationConnection</a>!</td><td>Visualizations produced by this recipe run.</td></tr>
+  </tbody>
+</table>
 
----
+<hr/>
 
-#### `OrganizationRecipeRunRunning`
+<h4 id="organizationreciperunrunning"><code>OrganizationRecipeRunRunning</code></h4>
 
-**Service:** changesetreader | **Implements:** <a href="#organizationchangeset">OrganizationChangeset</a>, <a href="#organizationreciperun">OrganizationRecipeRun</a>
+<p><strong>Service:</strong> changesetreader | <strong>Implements:</strong> <a href="#organizationchangeset">OrganizationChangeset</a>, <a href="#organizationreciperun">OrganizationRecipeRun</a></p>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `id` | ID! |  |
-| `recipe` | <a href="#recipedescriptor">RecipeDescriptor</a> |  |
-| `user` | <a href="#user">User</a>! |  |
-| `options` | [<a href="#recipeoptionvalue">RecipeOptionValue</a>!]! |  |
-| `createdAt` | <a href="#datetime">DateTime</a>! |  |
-| `lastUpdatedAt` | <a href="#datetime">DateTime</a>! | Monotonic high-water mark advanced by every state writer (sync monitor,
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>id</code></td><td>ID!</td><td></td></tr>
+    <tr><td><code>recipe</code></td><td><a href="#recipedescriptor">RecipeDescriptor</a></td><td></td></tr>
+    <tr><td><code>user</code></td><td><a href="#user">User</a>!</td><td></td></tr>
+    <tr><td><code>options</code></td><td>[<a href="#recipeoptionvalue">RecipeOptionValue</a>!]!</td><td></td></tr>
+    <tr><td><code>createdAt</code></td><td><a href="#datetime">DateTime</a>!</td><td></td></tr>
+    <tr><td><code>lastUpdatedAt</code></td><td><a href="#datetime">DateTime</a>!</td><td>Monotonic high-water mark advanced by every state writer (sync monitor,
 run monitor, processor). Treat as a content version: poll a tiny query
 selecting `__typename` + `lastUpdatedAt` cheaply and only refetch the
-heavy `repositories`/`totals` selections when this value changes. |
-| `priority` | <a href="#reciperunpriority">RecipeRunPriority</a>! |  |
-| `parent` | <a href="#organizationchangeset">OrganizationChangeset</a> |  |
-| `startedAt` | <a href="#datetime">DateTime</a>! |  |
-| `totals` | <a href="#reciperuntotals">RecipeRunTotals</a> |  |
-| `repositories` | (first: Int = 100, after: String, where: <a href="#repositorychangesetwhereinput">RepositoryChangesetWhereInput</a>, orderBy: [<a href="#repositorychangesetorderbyinput">RepositoryChangesetOrderByInput</a>!]): <a href="#repositorychangesetconnection">RepositoryChangesetConnection</a>! |  |
-| `dataTables` | (first: Int = 50, after: String, where: <a href="#datatablewhereinput">DataTableWhereInput</a>, orderBy: [<a href="#datatableorderbyinput">DataTableOrderByInput</a>!]): <a href="#datatableconnection">DataTableConnection</a>! | Data tables produced by this recipe run.
+heavy `repositories`/`totals` selections when this value changes.</td></tr>
+    <tr><td><code>priority</code></td><td><a href="#reciperunpriority">RecipeRunPriority</a>!</td><td></td></tr>
+    <tr><td><code>parent</code></td><td><a href="#organizationchangeset">OrganizationChangeset</a></td><td></td></tr>
+    <tr><td><code>startedAt</code></td><td><a href="#datetime">DateTime</a>!</td><td></td></tr>
+    <tr><td><code>totals</code></td><td><a href="#reciperuntotals">RecipeRunTotals</a></td><td></td></tr>
+    <tr><td><code>repositories</code></td><td>(first: Int = 100, after: String, where: <a href="#repositorychangesetwhereinput">RepositoryChangesetWhereInput</a>, orderBy: [<a href="#repositorychangesetorderbyinput">RepositoryChangesetOrderByInput</a>!]): <a href="#repositorychangesetconnection">RepositoryChangesetConnection</a>!</td><td></td></tr>
+    <tr><td><code>dataTables</code></td><td>(first: Int = 50, after: String, where: <a href="#datatablewhereinput">DataTableWhereInput</a>, orderBy: [<a href="#datatableorderbyinput">DataTableOrderByInput</a>!]): <a href="#datatableconnection">DataTableConnection</a>!</td><td>Data tables produced by this recipe run.
 Each data table starts as Available and transitions to Processing/Finished/Error
-when downloadDataTable mutation is called. |
-| `visualizations` | (first: Int = 50, after: String, where: <a href="#visualizationwhereinput">VisualizationWhereInput</a>, orderBy: [<a href="#visualizationorderbyinput">VisualizationOrderByInput</a>!]): <a href="#visualizationconnection">VisualizationConnection</a>! | Visualizations produced by this recipe run. |
+when downloadDataTable mutation is called.</td></tr>
+    <tr><td><code>visualizations</code></td><td>(first: Int = 50, after: String, where: <a href="#visualizationwhereinput">VisualizationWhereInput</a>, orderBy: [<a href="#visualizationorderbyinput">VisualizationOrderByInput</a>!]): <a href="#visualizationconnection">VisualizationConnection</a>!</td><td>Visualizations produced by this recipe run.</td></tr>
+  </tbody>
+</table>
 
----
+<hr/>
 
-#### `OrganizationRecipeRunSyncing`
+<h4 id="organizationreciperunsyncing"><code>OrganizationRecipeRunSyncing</code></h4>
 
-**Service:** changesetreader | **Implements:** <a href="#organizationchangeset">OrganizationChangeset</a>, <a href="#organizationreciperun">OrganizationRecipeRun</a>
+<p><strong>Service:</strong> changesetreader | <strong>Implements:</strong> <a href="#organizationchangeset">OrganizationChangeset</a>, <a href="#organizationreciperun">OrganizationRecipeRun</a></p>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `id` | ID! |  |
-| `recipe` | <a href="#recipedescriptor">RecipeDescriptor</a> |  |
-| `user` | <a href="#user">User</a>! |  |
-| `options` | [<a href="#recipeoptionvalue">RecipeOptionValue</a>!]! |  |
-| `createdAt` | <a href="#datetime">DateTime</a>! |  |
-| `lastUpdatedAt` | <a href="#datetime">DateTime</a>! | Monotonic high-water mark advanced by every state writer (sync monitor,
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>id</code></td><td>ID!</td><td></td></tr>
+    <tr><td><code>recipe</code></td><td><a href="#recipedescriptor">RecipeDescriptor</a></td><td></td></tr>
+    <tr><td><code>user</code></td><td><a href="#user">User</a>!</td><td></td></tr>
+    <tr><td><code>options</code></td><td>[<a href="#recipeoptionvalue">RecipeOptionValue</a>!]!</td><td></td></tr>
+    <tr><td><code>createdAt</code></td><td><a href="#datetime">DateTime</a>!</td><td></td></tr>
+    <tr><td><code>lastUpdatedAt</code></td><td><a href="#datetime">DateTime</a>!</td><td>Monotonic high-water mark advanced by every state writer (sync monitor,
 run monitor, processor). Treat as a content version: poll a tiny query
 selecting `__typename` + `lastUpdatedAt` cheaply and only refetch the
-heavy `repositories`/`totals` selections when this value changes. |
-| `priority` | <a href="#reciperunpriority">RecipeRunPriority</a>! |  |
-| `parent` | <a href="#organizationchangeset">OrganizationChangeset</a> |  |
-| `startedAt` | <a href="#datetime">DateTime</a>! |  |
-| `repositories` | (first: Int = 100, after: String, where: <a href="#repositorychangesetwhereinput">RepositoryChangesetWhereInput</a>, orderBy: [<a href="#repositorychangesetorderbyinput">RepositoryChangesetOrderByInput</a>!]): <a href="#repositorychangesetconnection">RepositoryChangesetConnection</a>! |  |
-| `dataTables` | (first: Int = 50, after: String, where: <a href="#datatablewhereinput">DataTableWhereInput</a>, orderBy: [<a href="#datatableorderbyinput">DataTableOrderByInput</a>!]): <a href="#datatableconnection">DataTableConnection</a>! | Data tables produced by this recipe run.
+heavy `repositories`/`totals` selections when this value changes.</td></tr>
+    <tr><td><code>priority</code></td><td><a href="#reciperunpriority">RecipeRunPriority</a>!</td><td></td></tr>
+    <tr><td><code>parent</code></td><td><a href="#organizationchangeset">OrganizationChangeset</a></td><td></td></tr>
+    <tr><td><code>startedAt</code></td><td><a href="#datetime">DateTime</a>!</td><td></td></tr>
+    <tr><td><code>repositories</code></td><td>(first: Int = 100, after: String, where: <a href="#repositorychangesetwhereinput">RepositoryChangesetWhereInput</a>, orderBy: [<a href="#repositorychangesetorderbyinput">RepositoryChangesetOrderByInput</a>!]): <a href="#repositorychangesetconnection">RepositoryChangesetConnection</a>!</td><td></td></tr>
+    <tr><td><code>dataTables</code></td><td>(first: Int = 50, after: String, where: <a href="#datatablewhereinput">DataTableWhereInput</a>, orderBy: [<a href="#datatableorderbyinput">DataTableOrderByInput</a>!]): <a href="#datatableconnection">DataTableConnection</a>!</td><td>Data tables produced by this recipe run.
 Each data table starts as Available and transitions to Processing/Finished/Error
-when downloadDataTable mutation is called. |
-| `visualizations` | (first: Int = 50, after: String, where: <a href="#visualizationwhereinput">VisualizationWhereInput</a>, orderBy: [<a href="#visualizationorderbyinput">VisualizationOrderByInput</a>!]): <a href="#visualizationconnection">VisualizationConnection</a>! | Visualizations produced by this recipe run. |
+when downloadDataTable mutation is called.</td></tr>
+    <tr><td><code>visualizations</code></td><td>(first: Int = 50, after: String, where: <a href="#visualizationwhereinput">VisualizationWhereInput</a>, orderBy: [<a href="#visualizationorderbyinput">VisualizationOrderByInput</a>!]): <a href="#visualizationconnection">VisualizationConnection</a>!</td><td>Visualizations produced by this recipe run.</td></tr>
+  </tbody>
+</table>
 
----
+<hr/>
 
-#### `PageInfo`
+<h4 id="pageinfo"><code>PageInfo</code></h4>
 
-**Service:** coregraphql
+<p><strong>Service:</strong> coregraphql</p>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `hasNextPage` | Boolean! |  |
-| `hasPreviousPage` | Boolean! |  |
-| `startCursor` | String |  |
-| `endCursor` | String |  |
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>hasNextPage</code></td><td>Boolean!</td><td></td></tr>
+    <tr><td><code>hasPreviousPage</code></td><td>Boolean!</td><td></td></tr>
+    <tr><td><code>startCursor</code></td><td>String</td><td></td></tr>
+    <tr><td><code>endCursor</code></td><td>String</td><td></td></tr>
+  </tbody>
+</table>
 
----
+<hr/>
 
-#### `Patch`
+<h4 id="patch"><code>Patch</code></h4>
 
-**Service:** corechangeset
+<p><strong>Service:</strong> corechangeset</p>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `diff` | String! | Sanitized diff (does not include markers) |
-| `fencedMarkerDiff` | String! | A diff with search and markup markers included in fenced
-\{\{UUID}} wrappers that correspond to ids in the markers list. |
-| `markers` | [<a href="#marker">Marker</a>!]! |  |
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>diff</code></td><td>String!</td><td>Sanitized diff (does not include markers)</td></tr>
+    <tr><td><code>fencedMarkerDiff</code></td><td>String!</td><td>A diff with search and markup markers included in fenced
+&#123;&#123;UUID&#125;&#125; wrappers that correspond to ids in the markers list.</td></tr>
+    <tr><td><code>markers</code></td><td>[<a href="#marker">Marker</a>!]!</td><td></td></tr>
+  </tbody>
+</table>
 
----
+<hr/>
 
-#### `PersonalAccessTokenConfiguration`
+<h4 id="personalaccesstokenconfiguration"><code>PersonalAccessTokenConfiguration</code></h4>
 
-**Service:** gateway
+<p><strong>Service:</strong> gateway</p>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `maxExpiryDays` | Int |  |
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>maxExpiryDays</code></td><td>Int</td><td></td></tr>
+  </tbody>
+</table>
 
----
+<hr/>
 
-#### `PipRecipeBundle`
+<h4 id="piprecipebundle"><code>PipRecipeBundle</code></h4>
 
-**Service:** changesetreader | **Implements:** <a href="#recipebundle">RecipeBundle</a>
+<p><strong>Service:</strong> changesetreader | <strong>Implements:</strong> <a href="#recipebundle">RecipeBundle</a></p>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `packageName` | String! |  |
-| `requestedVersion` | String |  |
-| `version` | String |  |
-| `recipeCount` | Int |  |
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>packageName</code></td><td>String!</td><td></td></tr>
+    <tr><td><code>requestedVersion</code></td><td>String</td><td></td></tr>
+    <tr><td><code>version</code></td><td>String</td><td></td></tr>
+    <tr><td><code>recipeCount</code></td><td>Int</td><td></td></tr>
+  </tbody>
+</table>
 
----
+<hr/>
 
-#### `PlatformCapabilities`
+<h4 id="platformcapabilities"><code>PlatformCapabilities</code></h4>
 
-**Service:** artifactsmaven
+<p><strong>Service:</strong> artifactsmaven</p>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `id` | ID! |  |
-| `artifacts` | Boolean! |  |
-| `changelog` | Boolean! |  |
-| `codeSearch` | Boolean! |  |
-| `connector` | Boolean! |  |
-| `moddy` | Boolean! |  |
-| `profiling` | <a href="#profiling">Profiling</a>! |  |
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>id</code></td><td>ID!</td><td></td></tr>
+    <tr><td><code>artifacts</code></td><td>Boolean!</td><td></td></tr>
+    <tr><td><code>changelog</code></td><td>Boolean!</td><td></td></tr>
+    <tr><td><code>codeSearch</code></td><td>Boolean!</td><td></td></tr>
+    <tr><td><code>connector</code></td><td>Boolean!</td><td></td></tr>
+    <tr><td><code>moddy</code></td><td>Boolean!</td><td></td></tr>
+    <tr><td><code>profiling</code></td><td><a href="#profiling">Profiling</a>!</td><td></td></tr>
+  </tbody>
+</table>
 
----
+<hr/>
 
-#### `Profiling`
+<h4 id="profiling"><code>Profiling</code></h4>
 
-**Service:** gateway
+<p><strong>Service:</strong> gateway</p>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `deployed` | Boolean! | Whether the per-tenant Pyroscope ASG, S3 bucket, and IAM are provisioned. |
-| `session` | <a href="#profilingsession">ProfilingSession</a> | The currently active profiling session, or null when profiling is off. Flipped by setProfiling. |
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>deployed</code></td><td>Boolean!</td><td>Whether the per-tenant Pyroscope ASG, S3 bucket, and IAM are provisioned.</td></tr>
+    <tr><td><code>session</code></td><td><a href="#profilingsession">ProfilingSession</a></td><td>The currently active profiling session, or null when profiling is off. Flipped by setProfiling.</td></tr>
+  </tbody>
+</table>
 
----
+<hr/>
 
-#### `ProfilingSession`
+<h4 id="profilingsession"><code>ProfilingSession</code></h4>
 
-**Service:** gateway
+<p><strong>Service:</strong> gateway</p>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `user` | <a href="#user">User</a>! | The user who turned profiling on. |
-| `startedAt` | <a href="#datetime">DateTime</a>! | When profiling was turned on. |
-| `event` | <a href="#profilingevent">ProfilingEvent</a>! | The primary profiling event the in-process agent is sampling. |
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>user</code></td><td><a href="#user">User</a>!</td><td>The user who turned profiling on.</td></tr>
+    <tr><td><code>startedAt</code></td><td><a href="#datetime">DateTime</a>!</td><td>When profiling was turned on.</td></tr>
+    <tr><td><code>event</code></td><td><a href="#profilingevent">ProfilingEvent</a>!</td><td>The primary profiling event the in-process agent is sampling.</td></tr>
+  </tbody>
+</table>
 
----
+<hr/>
 
-#### `Prompt`
+<h4 id="prompt"><code>Prompt</code></h4>
 
-**Service:** moddy
+<p><strong>Service:</strong> moddy</p>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `content` | <a href="#markdown">Markdown</a>! |  |
-| `lastUpdatedAt` | <a href="#datetime">DateTime</a>! |  |
-| `lastUpdatedBy` | <a href="#user">User</a>! |  |
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>content</code></td><td><a href="#markdown">Markdown</a>!</td><td></td></tr>
+    <tr><td><code>lastUpdatedAt</code></td><td><a href="#datetime">DateTime</a>!</td><td></td></tr>
+    <tr><td><code>lastUpdatedBy</code></td><td><a href="#user">User</a>!</td><td></td></tr>
+  </tbody>
+</table>
 
----
+<hr/>
 
-#### `PullRequestActionCanceled`
+<h4 id="pullrequestactioncanceled"><code>PullRequestActionCanceled</code></h4>
 
-**Service:** changelogreader | **Implements:** <a href="#pullrequestaction">PullRequestAction</a>
+<p><strong>Service:</strong> changelogreader | <strong>Implements:</strong> <a href="#pullrequestaction">PullRequestAction</a></p>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `pullRequest` | <a href="#pullrequestref">PullRequestRef</a>! |  |
-| `canceledBy` | <a href="#user">User</a>! |  |
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>pullRequest</code></td><td><a href="#pullrequestref">PullRequestRef</a>!</td><td></td></tr>
+    <tr><td><code>canceledBy</code></td><td><a href="#user">User</a>!</td><td></td></tr>
+  </tbody>
+</table>
 
----
+<hr/>
 
-#### `PullRequestActionConnection`
+<h4 id="pullrequestactionconnection"><code>PullRequestActionConnection</code></h4>
 
-**Service:** changelogreader
+<p><strong>Service:</strong> changelogreader</p>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `edges` | [<a href="#pullrequestactionedge">PullRequestActionEdge</a>!]! |  |
-| `pageInfo` | <a href="#pageinfo">PageInfo</a>! |  |
-| `count` | Int! |  |
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>edges</code></td><td>[<a href="#pullrequestactionedge">PullRequestActionEdge</a>!]!</td><td></td></tr>
+    <tr><td><code>pageInfo</code></td><td><a href="#pageinfo">PageInfo</a>!</td><td></td></tr>
+    <tr><td><code>count</code></td><td>Int!</td><td></td></tr>
+  </tbody>
+</table>
 
----
+<hr/>
 
-#### `PullRequestActionEdge`
+<h4 id="pullrequestactionedge"><code>PullRequestActionEdge</code></h4>
 
-**Service:** changelogreader
+<p><strong>Service:</strong> changelogreader</p>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `node` | <a href="#pullrequestaction">PullRequestAction</a>! |  |
-| `cursor` | String! |  |
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>node</code></td><td><a href="#pullrequestaction">PullRequestAction</a>!</td><td></td></tr>
+    <tr><td><code>cursor</code></td><td>String!</td><td></td></tr>
+  </tbody>
+</table>
 
----
+<hr/>
 
-#### `PullRequestActionFailed`
+<h4 id="pullrequestactionfailed"><code>PullRequestActionFailed</code></h4>
 
-**Service:** changelogreader | **Implements:** <a href="#pullrequestaction">PullRequestAction</a>
+<p><strong>Service:</strong> changelogreader | <strong>Implements:</strong> <a href="#pullrequestaction">PullRequestAction</a></p>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `pullRequest` | <a href="#pullrequestref">PullRequestRef</a>! |  |
-| `startedAt` | <a href="#datetime">DateTime</a> |  |
-| `finishedAt` | <a href="#datetime">DateTime</a>! |  |
-| `errorMessage` | String! |  |
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>pullRequest</code></td><td><a href="#pullrequestref">PullRequestRef</a>!</td><td></td></tr>
+    <tr><td><code>startedAt</code></td><td><a href="#datetime">DateTime</a></td><td></td></tr>
+    <tr><td><code>finishedAt</code></td><td><a href="#datetime">DateTime</a>!</td><td></td></tr>
+    <tr><td><code>errorMessage</code></td><td>String!</td><td></td></tr>
+  </tbody>
+</table>
 
----
+<hr/>
 
-#### `PullRequestActionQueued`
+<h4 id="pullrequestactionqueued"><code>PullRequestActionQueued</code></h4>
 
-**Service:** changelogreader | **Implements:** <a href="#pullrequestaction">PullRequestAction</a>
+<p><strong>Service:</strong> changelogreader | <strong>Implements:</strong> <a href="#pullrequestaction">PullRequestAction</a></p>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `pullRequest` | <a href="#pullrequestref">PullRequestRef</a>! |  |
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>pullRequest</code></td><td><a href="#pullrequestref">PullRequestRef</a>!</td><td></td></tr>
+  </tbody>
+</table>
 
----
+<hr/>
 
-#### `PullRequestActionRunning`
+<h4 id="pullrequestactionrunning"><code>PullRequestActionRunning</code></h4>
 
-**Service:** changelogreader | **Implements:** <a href="#pullrequestaction">PullRequestAction</a>
+<p><strong>Service:</strong> changelogreader | <strong>Implements:</strong> <a href="#pullrequestaction">PullRequestAction</a></p>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `pullRequest` | <a href="#pullrequestref">PullRequestRef</a>! |  |
-| `startedAt` | <a href="#datetime">DateTime</a>! |  |
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>pullRequest</code></td><td><a href="#pullrequestref">PullRequestRef</a>!</td><td></td></tr>
+    <tr><td><code>startedAt</code></td><td><a href="#datetime">DateTime</a>!</td><td></td></tr>
+  </tbody>
+</table>
 
----
+<hr/>
 
-#### `PullRequestActionSucceeded`
+<h4 id="pullrequestactionsucceeded"><code>PullRequestActionSucceeded</code></h4>
 
-**Service:** changelogreader | **Implements:** <a href="#pullrequestaction">PullRequestAction</a>
+<p><strong>Service:</strong> changelogreader | <strong>Implements:</strong> <a href="#pullrequestaction">PullRequestAction</a></p>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `pullRequest` | <a href="#pullrequestref">PullRequestRef</a>! |  |
-| `startedAt` | <a href="#datetime">DateTime</a>! |  |
-| `finishedAt` | <a href="#datetime">DateTime</a>! |  |
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>pullRequest</code></td><td><a href="#pullrequestref">PullRequestRef</a>!</td><td></td></tr>
+    <tr><td><code>startedAt</code></td><td><a href="#datetime">DateTime</a>!</td><td></td></tr>
+    <tr><td><code>finishedAt</code></td><td><a href="#datetime">DateTime</a>!</td><td></td></tr>
+  </tbody>
+</table>
 
----
+<hr/>
 
-#### `PullRequestCommitSucceeded`
+<h4 id="pullrequestcommitsucceeded"><code>PullRequestCommitSucceeded</code></h4>
 
-**Service:** changesetcommitter | **Implements:** <a href="#repositorycommitsucceeded">RepositoryCommitSucceeded</a>, <a href="#repositorycommit">RepositoryCommit</a>
+<p><strong>Service:</strong> changesetcommitter | <strong>Implements:</strong> <a href="#repositorycommitsucceeded">RepositoryCommitSucceeded</a>, <a href="#repositorycommit">RepositoryCommit</a></p>
 
-Pull request commit completed successfully.
+<p>Pull request commit completed successfully.</p>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `repository` | <a href="#repository">Repository</a>! |  |
-| `startedAt` | <a href="#datetime">DateTime</a>! |  |
-| `finishedAt` | <a href="#datetime">DateTime</a>! |  |
-| `resultLink` | String |  |
-| `pullRequestStatus` | <a href="#pullrequeststatus">PullRequestStatus</a>! | Pull request status. |
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>repository</code></td><td><a href="#repository">Repository</a>!</td><td></td></tr>
+    <tr><td><code>startedAt</code></td><td><a href="#datetime">DateTime</a>!</td><td></td></tr>
+    <tr><td><code>finishedAt</code></td><td><a href="#datetime">DateTime</a>!</td><td></td></tr>
+    <tr><td><code>resultLink</code></td><td>String</td><td></td></tr>
+    <tr><td><code>pullRequestStatus</code></td><td><a href="#pullrequeststatus">PullRequestStatus</a>!</td><td>Pull request status.</td></tr>
+  </tbody>
+</table>
 
----
+<hr/>
 
-#### `PullRequestOptions`
+<h4 id="pullrequestoptions"><code>PullRequestOptions</code></h4>
 
-**Service:** changesetcommitter | **Implements:** <a href="#commitoptions">CommitOptions</a>
+<p><strong>Service:</strong> changesetcommitter | <strong>Implements:</strong> <a href="#commitoptions">CommitOptions</a></p>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `branchName` | String |  |
-| `pullRequestTitle` | String | If unset, the commit message will be used as the pull request title. |
-| `pullRequestBody` | <a href="#base64">Base64</a> |  |
-| `draft` | Boolean! |  |
-| `autoMergeMethod` | <a href="#mergemethod">MergeMethod</a> | If allowed by the repository, set the pull request to automatically merge after all checks pass using the defined strategy. |
-| `canRecreateClosedPullRequest` | Boolean! | Recreate a pull request if it was already closed. |
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>branchName</code></td><td>String</td><td></td></tr>
+    <tr><td><code>pullRequestTitle</code></td><td>String</td><td>If unset, the commit message will be used as the pull request title.</td></tr>
+    <tr><td><code>pullRequestBody</code></td><td><a href="#base64">Base64</a></td><td></td></tr>
+    <tr><td><code>draft</code></td><td>Boolean!</td><td></td></tr>
+    <tr><td><code>autoMergeMethod</code></td><td><a href="#mergemethod">MergeMethod</a></td><td>If allowed by the repository, set the pull request to automatically merge after all checks pass using the defined strategy.</td></tr>
+    <tr><td><code>canRecreateClosedPullRequest</code></td><td>Boolean!</td><td>Recreate a pull request if it was already closed.</td></tr>
+  </tbody>
+</table>
 
----
+<hr/>
 
-#### `PullRequestRef`
+<h4 id="pullrequestref"><code>PullRequestRef</code></h4>
 
-**Service:** changelogreader
+<p><strong>Service:</strong> changelogreader</p>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `origin` | String! |  |
-| `repositoryPath` | String! |  |
-| `branch` | String! |  |
-| `number` | Int! |  |
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>origin</code></td><td>String!</td><td></td></tr>
+    <tr><td><code>repositoryPath</code></td><td>String!</td><td></td></tr>
+    <tr><td><code>branch</code></td><td>String!</td><td></td></tr>
+    <tr><td><code>number</code></td><td>Int!</td><td></td></tr>
+  </tbody>
+</table>
 
----
+<hr/>
 
-#### `PullRequestStatus`
+<h4 id="pullrequeststatus"><code>PullRequestStatus</code></h4>
 
-**Service:** changesetcommitter
+<p><strong>Service:</strong> changesetcommitter</p>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `mergeable` | <a href="#mergeable">Mergeable</a>! | Can this pull request be merged or not |
-| `state` | <a href="#pullrequeststate">PullRequestState</a>! |  |
-| `review` | <a href="#reviewstatus">ReviewStatus</a>! |  |
-| `buildState` | <a href="#buildstate">BuildState</a> |  |
-| `otherBlockingReasons` | [String!]! | Additional status flags that block this pull request. Can depend on the SCM service provider. |
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>mergeable</code></td><td><a href="#mergeable">Mergeable</a>!</td><td>Can this pull request be merged or not</td></tr>
+    <tr><td><code>state</code></td><td><a href="#pullrequeststate">PullRequestState</a>!</td><td></td></tr>
+    <tr><td><code>review</code></td><td><a href="#reviewstatus">ReviewStatus</a>!</td><td></td></tr>
+    <tr><td><code>buildState</code></td><td><a href="#buildstate">BuildState</a></td><td></td></tr>
+    <tr><td><code>otherBlockingReasons</code></td><td>[String!]!</td><td>Additional status flags that block this pull request. Can depend on the SCM service provider.</td></tr>
+  </tbody>
+</table>
 
----
+<hr/>
 
-#### `PypiConfiguration`
+<h4 id="pypiconfiguration"><code>PypiConfiguration</code></h4>
 
-**Service:** gateway
+<p><strong>Service:</strong> gateway</p>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `resourceId` | String! |  |
-| `skipSsl` | Boolean! |  |
-| `skipValidateConnectivity` | Boolean! |  |
-| `connectivity` | <a href="#httptoolconnectivity">HttpToolConnectivity</a>! |  |
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>resourceId</code></td><td>String!</td><td></td></tr>
+    <tr><td><code>skipSsl</code></td><td>Boolean!</td><td></td></tr>
+    <tr><td><code>skipValidateConnectivity</code></td><td>Boolean!</td><td></td></tr>
+    <tr><td><code>connectivity</code></td><td><a href="#httptoolconnectivity">HttpToolConnectivity</a>!</td><td></td></tr>
+  </tbody>
+</table>
 
----
+<hr/>
 
-#### `RecipeBundleConnection`
+<h4 id="recipebundleconnection"><code>RecipeBundleConnection</code></h4>
 
-**Service:** recipemarketplace
+<p><strong>Service:</strong> recipemarketplace</p>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `edges` | [<a href="#recipebundleedge">RecipeBundleEdge</a>!]! |  |
-| `pageInfo` | <a href="#pageinfo">PageInfo</a>! |  |
-| `count` | Int! |  |
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>edges</code></td><td>[<a href="#recipebundleedge">RecipeBundleEdge</a>!]!</td><td></td></tr>
+    <tr><td><code>pageInfo</code></td><td><a href="#pageinfo">PageInfo</a>!</td><td></td></tr>
+    <tr><td><code>count</code></td><td>Int!</td><td></td></tr>
+  </tbody>
+</table>
 
----
+<hr/>
 
-#### `RecipeBundleEdge`
+<h4 id="recipebundleedge"><code>RecipeBundleEdge</code></h4>
 
-**Service:** recipemarketplace
+<p><strong>Service:</strong> recipemarketplace</p>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `node` | <a href="#recipebundle">RecipeBundle</a>! |  |
-| `cursor` | String! |  |
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>node</code></td><td><a href="#recipebundle">RecipeBundle</a>!</td><td></td></tr>
+    <tr><td><code>cursor</code></td><td>String!</td><td></td></tr>
+  </tbody>
+</table>
 
----
+<hr/>
 
-#### `RecipeCategory`
+<h4 id="recipecategory"><code>RecipeCategory</code></h4>
 
-**Service:** recipemarketplace
+<p><strong>Service:</strong> recipemarketplace</p>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `id` | ID! |  |
-| `displayName` | <a href="#markdown">Markdown</a>! |  |
-| `description` | <a href="#markdown">Markdown</a>! |  |
-| `recipeCount` | Int! | Total number of unique recipes in this category, including all subcategories recursively. |
-| `parents` | [<a href="#recipecategory">RecipeCategory</a>!]! |  |
-| `recipes` | (first: Int = 100, after: String, where: <a href="#recipewhereinput">RecipeWhereInput</a>, orderBy: [<a href="#recipeorderbyinput">RecipeOrderByInput</a>!]): <a href="#recipedescriptorconnection">RecipeDescriptorConnection</a>! |  |
-| `categories` | (first: Int = 100, after: String, where: <a href="#recipecategorywhereinput">RecipeCategoryWhereInput</a>, orderBy: [<a href="#recipecategoryorderbyinput">RecipeCategoryOrderByInput</a>!]): <a href="#recipecategoryconnection">RecipeCategoryConnection</a>! |  |
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>id</code></td><td>ID!</td><td></td></tr>
+    <tr><td><code>displayName</code></td><td><a href="#markdown">Markdown</a>!</td><td></td></tr>
+    <tr><td><code>description</code></td><td><a href="#markdown">Markdown</a>!</td><td></td></tr>
+    <tr><td><code>recipeCount</code></td><td>Int!</td><td>Total number of unique recipes in this category, including all subcategories recursively.</td></tr>
+    <tr><td><code>parents</code></td><td>[<a href="#recipecategory">RecipeCategory</a>!]!</td><td></td></tr>
+    <tr><td><code>recipes</code></td><td>(first: Int = 100, after: String, where: <a href="#recipewhereinput">RecipeWhereInput</a>, orderBy: [<a href="#recipeorderbyinput">RecipeOrderByInput</a>!]): <a href="#recipedescriptorconnection">RecipeDescriptorConnection</a>!</td><td></td></tr>
+    <tr><td><code>categories</code></td><td>(first: Int = 100, after: String, where: <a href="#recipecategorywhereinput">RecipeCategoryWhereInput</a>, orderBy: [<a href="#recipecategoryorderbyinput">RecipeCategoryOrderByInput</a>!]): <a href="#recipecategoryconnection">RecipeCategoryConnection</a>!</td><td></td></tr>
+  </tbody>
+</table>
 
----
+<hr/>
 
-#### `RecipeCategoryConnection`
+<h4 id="recipecategoryconnection"><code>RecipeCategoryConnection</code></h4>
 
-**Service:** recipemarketplace
+<p><strong>Service:</strong> recipemarketplace</p>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `edges` | [<a href="#recipecategoryedge">RecipeCategoryEdge</a>!]! |  |
-| `pageInfo` | <a href="#pageinfo">PageInfo</a>! |  |
-| `count` | Int! |  |
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>edges</code></td><td>[<a href="#recipecategoryedge">RecipeCategoryEdge</a>!]!</td><td></td></tr>
+    <tr><td><code>pageInfo</code></td><td><a href="#pageinfo">PageInfo</a>!</td><td></td></tr>
+    <tr><td><code>count</code></td><td>Int!</td><td></td></tr>
+  </tbody>
+</table>
 
----
+<hr/>
 
-#### `RecipeCategoryEdge`
+<h4 id="recipecategoryedge"><code>RecipeCategoryEdge</code></h4>
 
-**Service:** recipemarketplace
+<p><strong>Service:</strong> recipemarketplace</p>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `node` | <a href="#recipecategory">RecipeCategory</a>! |  |
-| `cursor` | String! |  |
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>node</code></td><td><a href="#recipecategory">RecipeCategory</a>!</td><td></td></tr>
+    <tr><td><code>cursor</code></td><td>String!</td><td></td></tr>
+  </tbody>
+</table>
 
----
+<hr/>
 
-#### `RecipeDescriptor`
+<h4 id="recipedescriptor"><code>RecipeDescriptor</code></h4>
 
-**Service:** changesetreader
+<p><strong>Service:</strong> changesetreader</p>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `id` | ID! |  |
-| `instanceName` | String |  |
-| `displayName` | <a href="#markdown">Markdown</a>! |  |
-| `description` | <a href="#markdown">Markdown</a>! |  |
-| `recipeCount` | Int |  |
-| `bundle` | <a href="#recipebundle">RecipeBundle</a>! |  |
-| `options` | [<a href="#option">Option</a>!]! |  |
-| `dataTables` | [<a href="#datatabledescriptor">DataTableDescriptor</a>!]! |  |
-| `devCenterCards` | [<a href="#devcentercarddescriptor">DevCenterCardDescriptor</a>!] | DevCenter card descriptors for this recipe, or null if not a DevCenter recipe. |
-| `detail` | <a href="#recipedetail">RecipeDetail</a>! | Expensive recipe detail fields that require resolving the full recipe bundle.
-Returns a state machine: query once to trigger resolution, poll until Finished. |
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>id</code></td><td>ID!</td><td></td></tr>
+    <tr><td><code>instanceName</code></td><td>String</td><td></td></tr>
+    <tr><td><code>displayName</code></td><td><a href="#markdown">Markdown</a>!</td><td></td></tr>
+    <tr><td><code>description</code></td><td><a href="#markdown">Markdown</a>!</td><td></td></tr>
+    <tr><td><code>recipeCount</code></td><td>Int</td><td></td></tr>
+    <tr><td><code>bundle</code></td><td><a href="#recipebundle">RecipeBundle</a>!</td><td></td></tr>
+    <tr><td><code>options</code></td><td>[<a href="#option">Option</a>!]!</td><td></td></tr>
+    <tr><td><code>dataTables</code></td><td>[<a href="#datatabledescriptor">DataTableDescriptor</a>!]!</td><td></td></tr>
+    <tr><td><code>devCenterCards</code></td><td>[<a href="#devcentercarddescriptor">DevCenterCardDescriptor</a>!]</td><td>DevCenter card descriptors for this recipe, or null if not a DevCenter recipe.</td></tr>
+    <tr><td><code>detail</code></td><td><a href="#recipedetail">RecipeDetail</a>!</td><td>Expensive recipe detail fields that require resolving the full recipe bundle.
+Returns a state machine: query once to trigger resolution, poll until Finished.</td></tr>
+  </tbody>
+</table>
 
----
+<hr/>
 
-#### `RecipeDescriptorConnection`
+<h4 id="recipedescriptorconnection"><code>RecipeDescriptorConnection</code></h4>
 
-**Service:** recipemarketplace
+<p><strong>Service:</strong> recipemarketplace</p>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `edges` | [<a href="#recipedescriptoredge">RecipeDescriptorEdge</a>!]! |  |
-| `pageInfo` | <a href="#pageinfo">PageInfo</a>! |  |
-| `count` | Int! |  |
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>edges</code></td><td>[<a href="#recipedescriptoredge">RecipeDescriptorEdge</a>!]!</td><td></td></tr>
+    <tr><td><code>pageInfo</code></td><td><a href="#pageinfo">PageInfo</a>!</td><td></td></tr>
+    <tr><td><code>count</code></td><td>Int!</td><td></td></tr>
+  </tbody>
+</table>
 
----
+<hr/>
 
-#### `RecipeDescriptorEdge`
+<h4 id="recipedescriptoredge"><code>RecipeDescriptorEdge</code></h4>
 
-**Service:** recipemarketplace
+<p><strong>Service:</strong> recipemarketplace</p>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `node` | <a href="#recipedescriptor">RecipeDescriptor</a>! |  |
-| `cursor` | String! |  |
-| `relevance` | Float! | Relevance score for this recipe in the context of a search query.
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>node</code></td><td><a href="#recipedescriptor">RecipeDescriptor</a>!</td><td></td></tr>
+    <tr><td><code>cursor</code></td><td>String!</td><td></td></tr>
+    <tr><td><code>relevance</code></td><td>Float!</td><td>Relevance score for this recipe in the context of a search query.
 For semantic search, this represents the search relevance (0.0 to 1.0).
-For filter-based queries, this is always 1.0. |
+For filter-based queries, this is always 1.0.</td></tr>
+  </tbody>
+</table>
 
----
+<hr/>
 
-#### `RecipeDetailError`
+<h4 id="recipedetailerror"><code>RecipeDetailError</code></h4>
 
-**Service:** recipemarketplace | **Implements:** <a href="#recipedetail">RecipeDetail</a>
+<p><strong>Service:</strong> recipemarketplace | <strong>Implements:</strong> <a href="#recipedetail">RecipeDetail</a></p>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `startedAt` | <a href="#datetime">DateTime</a>! |  |
-| `finishedAt` | <a href="#datetime">DateTime</a>! |  |
-| `message` | String! |  |
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>startedAt</code></td><td><a href="#datetime">DateTime</a>!</td><td></td></tr>
+    <tr><td><code>finishedAt</code></td><td><a href="#datetime">DateTime</a>!</td><td></td></tr>
+    <tr><td><code>message</code></td><td>String!</td><td></td></tr>
+  </tbody>
+</table>
 
----
+<hr/>
 
-#### `RecipeDetailFinished`
+<h4 id="recipedetailfinished"><code>RecipeDetailFinished</code></h4>
 
-**Service:** recipemarketplace | **Implements:** <a href="#recipedetail">RecipeDetail</a>
+<p><strong>Service:</strong> recipemarketplace | <strong>Implements:</strong> <a href="#recipedetail">RecipeDetail</a></p>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `startedAt` | <a href="#datetime">DateTime</a>! |  |
-| `finishedAt` | <a href="#datetime">DateTime</a>! |  |
-| `recipeList` | (first: Int = 100, after: String): <a href="#recipedescriptorconnection">RecipeDescriptorConnection</a>! | The list of recipes that make up this composite recipe.
-Returns an empty connection for non-composite (leaf) recipes. |
-| `tags` | [String!]! | Tags associated with this recipe for categorization and filtering. |
-| `preconditions` | [<a href="#recipedescriptor">RecipeDescriptor</a>!]! |  |
-| `graph` | <a href="#recipegraph">RecipeGraph</a>! | Flat vertices-and-edges representation of this composite recipe tree with
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>startedAt</code></td><td><a href="#datetime">DateTime</a>!</td><td></td></tr>
+    <tr><td><code>finishedAt</code></td><td><a href="#datetime">DateTime</a>!</td><td></td></tr>
+    <tr><td><code>recipeList</code></td><td>(first: Int = 100, after: String): <a href="#recipedescriptorconnection">RecipeDescriptorConnection</a>!</td><td>The list of recipes that make up this composite recipe.
+Returns an empty connection for non-composite (leaf) recipes.</td></tr>
+    <tr><td><code>tags</code></td><td>[String!]!</td><td>Tags associated with this recipe for categorization and filtering.</td></tr>
+    <tr><td><code>preconditions</code></td><td>[<a href="#recipedescriptor">RecipeDescriptor</a>!]!</td><td></td></tr>
+    <tr><td><code>graph</code></td><td><a href="#recipegraph">RecipeGraph</a>!</td><td>Flat vertices-and-edges representation of this composite recipe tree with
 Singleton deduplication pre-applied. Used by the Builder UI to visualize
 a composite recipe in a single round trip regardless of tree depth.
-Atomic (leaf) recipes return a single-vertex graph. |
+Atomic (leaf) recipes return a single-vertex graph.</td></tr>
+  </tbody>
+</table>
 
----
+<hr/>
 
-#### `RecipeDetailLoading`
+<h4 id="recipedetailloading"><code>RecipeDetailLoading</code></h4>
 
-**Service:** recipemarketplace | **Implements:** <a href="#recipedetail">RecipeDetail</a>
+<p><strong>Service:</strong> recipemarketplace | <strong>Implements:</strong> <a href="#recipedetail">RecipeDetail</a></p>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `startedAt` | <a href="#datetime">DateTime</a>! |  |
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>startedAt</code></td><td><a href="#datetime">DateTime</a>!</td><td></td></tr>
+  </tbody>
+</table>
 
----
+<hr/>
 
-#### `RecipeGraph`
+<h4 id="recipegraph"><code>RecipeGraph</code></h4>
 
-**Service:** recipemarketplace
+<p><strong>Service:</strong> recipemarketplace</p>
 
-Flat vertices-and-edges representation of a composite recipe with
+<p>Flat vertices-and-edges representation of a composite recipe with
 `org.openrewrite.Singleton` deduplication pre-applied. Produced by the
-marketplace backend and served to visualization clients in one round trip.
+marketplace backend and served to visualization clients in one round trip.</p>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `rootVertexId` | Int! | ID of the root (entry-point) vertex in the graph. |
-| `vertices` | [<a href="#recipegraphvertex">RecipeGraphVertex</a>!]! |  |
-| `edges` | [<a href="#recipegraphedge">RecipeGraphEdge</a>!]! |  |
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>rootVertexId</code></td><td>Int!</td><td>ID of the root (entry-point) vertex in the graph.</td></tr>
+    <tr><td><code>vertices</code></td><td>[<a href="#recipegraphvertex">RecipeGraphVertex</a>!]!</td><td></td></tr>
+    <tr><td><code>edges</code></td><td>[<a href="#recipegraphedge">RecipeGraphEdge</a>!]!</td><td></td></tr>
+  </tbody>
+</table>
 
----
+<hr/>
 
-#### `RecipeGraphEdge`
+<h4 id="recipegraphedge"><code>RecipeGraphEdge</code></h4>
 
-**Service:** recipemarketplace
+<p><strong>Service:</strong> recipemarketplace</p>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `from` | Int! |  |
-| `to` | Int! |  |
-| `type` | <a href="#recipegraphedgetype">RecipeGraphEdgeType</a>! |  |
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>from</code></td><td>Int!</td><td></td></tr>
+    <tr><td><code>to</code></td><td>Int!</td><td></td></tr>
+    <tr><td><code>type</code></td><td><a href="#recipegraphedgetype">RecipeGraphEdgeType</a>!</td><td></td></tr>
+  </tbody>
+</table>
 
----
+<hr/>
 
-#### `RecipeGraphVertex`
+<h4 id="recipegraphvertex"><code>RecipeGraphVertex</code></h4>
 
-**Service:** recipemarketplace
+<p><strong>Service:</strong> recipemarketplace</p>
 
-A vertex in a RecipeGraph: a full recipe occurrence with its configured
+<p>A vertex in a RecipeGraph: a full recipe occurrence with its configured
 options. Recipes that declare `org.openrewrite.Singleton` as a precondition
 are deduplicated — additional occurrences are expressed as REFERENCE edges
-pointing back to the first occurrence rather than as separate vertices.
+pointing back to the first occurrence rather than as separate vertices.</p>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `id` | Int! |  |
-| `descriptor` | <a href="#recipedescriptor">RecipeDescriptor</a>! | The recipe this vertex represents. Carries recipe name (as `id`),
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>id</code></td><td>Int!</td><td></td></tr>
+    <tr><td><code>descriptor</code></td><td><a href="#recipedescriptor">RecipeDescriptor</a>!</td><td>The recipe this vertex represents. Carries recipe name (as `id`),
 displayName, instanceName, options, bundle, dataTables, etc. — reuse
-the existing RecipeDescriptor type rather than duplicating fields here. |
-| `isSingleton` | Boolean! | True if this recipe declares `org.openrewrite.Singleton` as a precondition,
+the existing RecipeDescriptor type rather than duplicating fields here.</td></tr>
+    <tr><td><code>isSingleton</code></td><td>Boolean!</td><td>True if this recipe declares `org.openrewrite.Singleton` as a precondition,
 meaning additional occurrences in the graph appear as REFERENCE edges
-pointing back to this vertex. |
+pointing back to this vertex.</td></tr>
+  </tbody>
+</table>
 
----
+<hr/>
 
-#### `RecipeInstallationConnection`
+<h4 id="recipeinstallationconnection"><code>RecipeInstallationConnection</code></h4>
 
-**Service:** recipemarketplace
+<p><strong>Service:</strong> recipemarketplace</p>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `edges` | [<a href="#recipeinstallationedge">RecipeInstallationEdge</a>!]! |  |
-| `pageInfo` | <a href="#pageinfo">PageInfo</a>! |  |
-| `count` | Int! |  |
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>edges</code></td><td>[<a href="#recipeinstallationedge">RecipeInstallationEdge</a>!]!</td><td></td></tr>
+    <tr><td><code>pageInfo</code></td><td><a href="#pageinfo">PageInfo</a>!</td><td></td></tr>
+    <tr><td><code>count</code></td><td>Int!</td><td></td></tr>
+  </tbody>
+</table>
 
----
+<hr/>
 
-#### `RecipeInstallationEdge`
+<h4 id="recipeinstallationedge"><code>RecipeInstallationEdge</code></h4>
 
-**Service:** recipemarketplace
+<p><strong>Service:</strong> recipemarketplace</p>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `node` | <a href="#recipeinstallation">RecipeInstallation</a>! |  |
-| `cursor` | String! |  |
-| `requestedBy` | <a href="#user">User</a>! | The user who initiated this installation |
-| `user` | <a href="#user">User</a> | The user whose marketplace this installation was made to. If the installation is a
-universal or organization installation, this field will be null. |
-| `organization` | <a href="#organization">Organization</a> | The organization to which this installation was made. If the installation is a universal
-or user installation, this field will be null. |
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>node</code></td><td><a href="#recipeinstallation">RecipeInstallation</a>!</td><td></td></tr>
+    <tr><td><code>cursor</code></td><td>String!</td><td></td></tr>
+    <tr><td><code>requestedBy</code></td><td><a href="#user">User</a>!</td><td>The user who initiated this installation</td></tr>
+    <tr><td><code>user</code></td><td><a href="#user">User</a></td><td>The user whose marketplace this installation was made to. If the installation is a
+universal or organization installation, this field will be null.</td></tr>
+    <tr><td><code>organization</code></td><td><a href="#organization">Organization</a></td><td>The organization to which this installation was made. If the installation is a universal
+or user installation, this field will be null.</td></tr>
+  </tbody>
+</table>
 
----
+<hr/>
 
-#### `RecipeInstallationError`
+<h4 id="recipeinstallationerror"><code>RecipeInstallationError</code></h4>
 
-**Service:** recipemarketplace | **Implements:** <a href="#recipeinstallation">RecipeInstallation</a>
+<p><strong>Service:</strong> recipemarketplace | <strong>Implements:</strong> <a href="#recipeinstallation">RecipeInstallation</a></p>
 
-Installation failed with an error.
+<p>Installation failed with an error.</p>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `id` | ID! |  |
-| `bundle` | <a href="#recipebundle">RecipeBundle</a>! |  |
-| `startedAt` | <a href="#datetime">DateTime</a>! |  |
-| `finishedAt` | <a href="#datetime">DateTime</a>! |  |
-| `message` | String! | Human-readable error message. |
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>id</code></td><td>ID!</td><td></td></tr>
+    <tr><td><code>bundle</code></td><td><a href="#recipebundle">RecipeBundle</a>!</td><td></td></tr>
+    <tr><td><code>startedAt</code></td><td><a href="#datetime">DateTime</a>!</td><td></td></tr>
+    <tr><td><code>finishedAt</code></td><td><a href="#datetime">DateTime</a>!</td><td></td></tr>
+    <tr><td><code>message</code></td><td>String!</td><td>Human-readable error message.</td></tr>
+  </tbody>
+</table>
 
----
+<hr/>
 
-#### `RecipeInstallationFinished`
+<h4 id="recipeinstallationfinished"><code>RecipeInstallationFinished</code></h4>
 
-**Service:** recipemarketplace | **Implements:** <a href="#recipeinstallation">RecipeInstallation</a>
+<p><strong>Service:</strong> recipemarketplace | <strong>Implements:</strong> <a href="#recipeinstallation">RecipeInstallation</a></p>
 
-Installation completed successfully.
+<p>Installation completed successfully.</p>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `id` | ID! |  |
-| `bundle` | <a href="#recipebundle">RecipeBundle</a>! |  |
-| `startedAt` | <a href="#datetime">DateTime</a>! |  |
-| `finishedAt` | <a href="#datetime">DateTime</a>! |  |
-| `recipes` | [<a href="#recipedescriptor">RecipeDescriptor</a>!]! | The recipes that were installed. |
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>id</code></td><td>ID!</td><td></td></tr>
+    <tr><td><code>bundle</code></td><td><a href="#recipebundle">RecipeBundle</a>!</td><td></td></tr>
+    <tr><td><code>startedAt</code></td><td><a href="#datetime">DateTime</a>!</td><td></td></tr>
+    <tr><td><code>finishedAt</code></td><td><a href="#datetime">DateTime</a>!</td><td></td></tr>
+    <tr><td><code>recipes</code></td><td>[<a href="#recipedescriptor">RecipeDescriptor</a>!]!</td><td>The recipes that were installed.</td></tr>
+  </tbody>
+</table>
 
----
+<hr/>
 
-#### `RecipeInstallationProcessing`
+<h4 id="recipeinstallationprocessing"><code>RecipeInstallationProcessing</code></h4>
 
-**Service:** recipemarketplace | **Implements:** <a href="#recipeinstallation">RecipeInstallation</a>
+<p><strong>Service:</strong> recipemarketplace | <strong>Implements:</strong> <a href="#recipeinstallation">RecipeInstallation</a></p>
 
-Installation is actively loading and resolving the recipe bundle.
+<p>Installation is actively loading and resolving the recipe bundle.</p>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `id` | ID! |  |
-| `bundle` | <a href="#recipebundle">RecipeBundle</a>! |  |
-| `startedAt` | <a href="#datetime">DateTime</a>! |  |
-| `progress` | Float | Progress from 0.0 to 1.0, if available. |
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>id</code></td><td>ID!</td><td></td></tr>
+    <tr><td><code>bundle</code></td><td><a href="#recipebundle">RecipeBundle</a>!</td><td></td></tr>
+    <tr><td><code>startedAt</code></td><td><a href="#datetime">DateTime</a>!</td><td></td></tr>
+    <tr><td><code>progress</code></td><td>Float</td><td>Progress from 0.0 to 1.0, if available.</td></tr>
+  </tbody>
+</table>
 
----
+<hr/>
 
-#### `RecipeInstallationQueued`
+<h4 id="recipeinstallationqueued"><code>RecipeInstallationQueued</code></h4>
 
-**Service:** recipemarketplace | **Implements:** <a href="#recipeinstallation">RecipeInstallation</a>
+<p><strong>Service:</strong> recipemarketplace | <strong>Implements:</strong> <a href="#recipeinstallation">RecipeInstallation</a></p>
 
-Installation is queued and waiting to be processed.
+<p>Installation is queued and waiting to be processed.</p>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `id` | ID! |  |
-| `bundle` | <a href="#recipebundle">RecipeBundle</a>! |  |
-| `startedAt` | <a href="#datetime">DateTime</a>! |  |
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>id</code></td><td>ID!</td><td></td></tr>
+    <tr><td><code>bundle</code></td><td><a href="#recipebundle">RecipeBundle</a>!</td><td></td></tr>
+    <tr><td><code>startedAt</code></td><td><a href="#datetime">DateTime</a>!</td><td></td></tr>
+  </tbody>
+</table>
 
----
+<hr/>
 
-#### `RecipeMarketplace`
+<h4 id="recipemarketplace"><code>RecipeMarketplace</code></h4>
 
-**Service:** recipemarketplace
+<p><strong>Service:</strong> recipemarketplace</p>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `categories` | (first: Int = 100, after: String, where: <a href="#recipecategorywhereinput">RecipeCategoryWhereInput</a>, orderBy: [<a href="#recipecategoryorderbyinput">RecipeCategoryOrderByInput</a>!]): <a href="#recipecategoryconnection">RecipeCategoryConnection</a>! |  |
-| `recipes` | (first: Int = 100, after: String, where: <a href="#recipewhereinput">RecipeWhereInput</a>, orderBy: [<a href="#recipeorderbyinput">RecipeOrderByInput</a>!]): <a href="#recipedescriptorconnection">RecipeDescriptorConnection</a>! |  |
-| `installations` | (first: Int = 50, after: String, where: <a href="#recipeinstallationwhereinput">RecipeInstallationWhereInput</a>, orderBy: [<a href="#recipeinstallationorderbyinput">RecipeInstallationOrderByInput</a>!]): <a href="#recipeinstallationconnection">RecipeInstallationConnection</a>! |  |
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>categories</code></td><td>(first: Int = 100, after: String, where: <a href="#recipecategorywhereinput">RecipeCategoryWhereInput</a>, orderBy: [<a href="#recipecategoryorderbyinput">RecipeCategoryOrderByInput</a>!]): <a href="#recipecategoryconnection">RecipeCategoryConnection</a>!</td><td></td></tr>
+    <tr><td><code>recipes</code></td><td>(first: Int = 100, after: String, where: <a href="#recipewhereinput">RecipeWhereInput</a>, orderBy: [<a href="#recipeorderbyinput">RecipeOrderByInput</a>!]): <a href="#recipedescriptorconnection">RecipeDescriptorConnection</a>!</td><td></td></tr>
+    <tr><td><code>installations</code></td><td>(first: Int = 50, after: String, where: <a href="#recipeinstallationwhereinput">RecipeInstallationWhereInput</a>, orderBy: [<a href="#recipeinstallationorderbyinput">RecipeInstallationOrderByInput</a>!]): <a href="#recipeinstallationconnection">RecipeInstallationConnection</a>!</td><td></td></tr>
+  </tbody>
+</table>
 
----
+<hr/>
 
-#### `RecipeOptionValue`
+<h4 id="recipeoptionvalue"><code>RecipeOptionValue</code></h4>
 
-**Service:** changesetreader
+<p><strong>Service:</strong> changesetreader</p>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `name` | String! |  |
-| `value` | <a href="#object">Object</a>! |  |
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>name</code></td><td>String!</td><td></td></tr>
+    <tr><td><code>value</code></td><td><a href="#object">Object</a>!</td><td></td></tr>
+  </tbody>
+</table>
 
----
+<hr/>
 
-#### `RecipeOptionsMessage`
+<h4 id="recipeoptionsmessage"><code>RecipeOptionsMessage</code></h4>
 
-**Service:** moddy | **Implements:** <a href="#message">Message</a>
+<p><strong>Service:</strong> moddy | <strong>Implements:</strong> <a href="#message">Message</a></p>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `id` | ID! |  |
-| `user` | <a href="#user">User</a>! |  |
-| `options` | [<a href="#option">Option</a>!]! |  |
-| `state` | <a href="#messagestate">MessageState</a>! |  |
-| `lastUpdatedAt` | <a href="#datetime">DateTime</a>! |  |
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>id</code></td><td>ID!</td><td></td></tr>
+    <tr><td><code>user</code></td><td><a href="#user">User</a>!</td><td></td></tr>
+    <tr><td><code>options</code></td><td>[<a href="#option">Option</a>!]!</td><td></td></tr>
+    <tr><td><code>state</code></td><td><a href="#messagestate">MessageState</a>!</td><td></td></tr>
+    <tr><td><code>lastUpdatedAt</code></td><td><a href="#datetime">DateTime</a>!</td><td></td></tr>
+  </tbody>
+</table>
 
----
+<hr/>
 
-#### `RecipeRunFileChange`
+<h4 id="reciperunfilechange"><code>RecipeRunFileChange</code></h4>
 
-**Service:** changesetreader | **Implements:** <a href="#filechange">FileChange</a>
+<p><strong>Service:</strong> changesetreader | <strong>Implements:</strong> <a href="#filechange">FileChange</a></p>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `path` | <a href="#path">Path</a>! |  |
-| `beforeSourcePath` | <a href="#path">Path</a> |  |
-| `afterSourcePath` | <a href="#path">Path</a> |  |
-| `diff` | (markupLevel: <a href="#markuplevel">MarkupLevel</a> = ERROR, showWhitespaceOnlyChanges: Boolean = true): <a href="#patch">Patch</a> |  |
-| `recipesThatMadeChanges` | [[<a href="#recipedescriptor">RecipeDescriptor</a>!]!]! | Recipe chains that contributed changes to this file. Each inner list is one
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>path</code></td><td><a href="#path">Path</a>!</td><td></td></tr>
+    <tr><td><code>beforeSourcePath</code></td><td><a href="#path">Path</a></td><td></td></tr>
+    <tr><td><code>afterSourcePath</code></td><td><a href="#path">Path</a></td><td></td></tr>
+    <tr><td><code>diff</code></td><td>(markupLevel: <a href="#markuplevel">MarkupLevel</a> = ERROR, showWhitespaceOnlyChanges: Boolean = true): <a href="#patch">Patch</a></td><td></td></tr>
+    <tr><td><code>recipesThatMadeChanges</code></td><td>[[<a href="#recipedescriptor">RecipeDescriptor</a>!]!]!</td><td>Recipe chains that contributed changes to this file. Each inner list is one
 mutation event's call stack, ordered root composite first to leaf recipe last
-(the leaf is the narrowest recipe that actually performed the change). |
+(the leaf is the narrowest recipe that actually performed the change).</td></tr>
+  </tbody>
+</table>
 
----
+<hr/>
 
-#### `RecipeRunMessage`
+<h4 id="reciperunmessage"><code>RecipeRunMessage</code></h4>
 
-**Service:** moddy | **Implements:** <a href="#message">Message</a>
+<p><strong>Service:</strong> moddy | <strong>Implements:</strong> <a href="#message">Message</a></p>
 
-Long-running recipe execution started by the LLM. Carries a typed
+<p>Long-running recipe execution started by the LLM. Carries a typed
 progress envelope while IN_PROGRESS — clients should read `progress`
 rather than poking at a free-form payload. When the run reaches a
-terminal state, `recipeRun` resolves via federation.
+terminal state, `recipeRun` resolves via federation.</p>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `id` | ID! |  |
-| `user` | <a href="#user">User</a>! |  |
-| `recipeRun` | <a href="#organizationreciperun">OrganizationRecipeRun</a> |  |
-| `progress` | <a href="#reciperunprogress">RecipeRunProgress</a> | Typed progress snapshot while the run is IN_PROGRESS. |
-| `state` | <a href="#messagestate">MessageState</a>! |  |
-| `lastUpdatedAt` | <a href="#datetime">DateTime</a>! |  |
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>id</code></td><td>ID!</td><td></td></tr>
+    <tr><td><code>user</code></td><td><a href="#user">User</a>!</td><td></td></tr>
+    <tr><td><code>recipeRun</code></td><td><a href="#organizationreciperun">OrganizationRecipeRun</a></td><td></td></tr>
+    <tr><td><code>progress</code></td><td><a href="#reciperunprogress">RecipeRunProgress</a></td><td>Typed progress snapshot while the run is IN_PROGRESS.</td></tr>
+    <tr><td><code>state</code></td><td><a href="#messagestate">MessageState</a>!</td><td></td></tr>
+    <tr><td><code>lastUpdatedAt</code></td><td><a href="#datetime">DateTime</a>!</td><td></td></tr>
+  </tbody>
+</table>
 
----
+<hr/>
 
-#### `RecipeRunProgress`
+<h4 id="reciperunprogress"><code>RecipeRunProgress</code></h4>
 
-**Service:** moddy
+<p><strong>Service:</strong> moddy</p>
 
-Typed progress envelope for an in-flight recipe run.
+<p>Typed progress envelope for an in-flight recipe run.</p>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `recipeRunId` | ID |  |
-| `reposQueued` | Int |  |
-| `reposRunning` | Int |  |
-| `reposFinished` | Int |  |
-| `reposTotal` | Int |  |
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>recipeRunId</code></td><td>ID</td><td></td></tr>
+    <tr><td><code>reposQueued</code></td><td>Int</td><td></td></tr>
+    <tr><td><code>reposRunning</code></td><td>Int</td><td></td></tr>
+    <tr><td><code>reposFinished</code></td><td>Int</td><td></td></tr>
+    <tr><td><code>reposTotal</code></td><td>Int</td><td></td></tr>
+  </tbody>
+</table>
 
----
+<hr/>
 
-#### `RecipeRunTotals`
+<h4 id="reciperuntotals"><code>RecipeRunTotals</code></h4>
 
-**Service:** changesetreader
+<p><strong>Service:</strong> changesetreader</p>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `timeSavings` | <a href="#duration">Duration</a> |  |
-| `filesSearched` | Int! |  |
-| `filesChanged` | Int! |  |
-| `filesWithResults` | Int! |  |
-| `totalMarkers` | Int! |  |
-| `repositoriesWithResults` | Int! |  |
-| `repositoriesSuccessful` | Int! |  |
-| `repositoriesWithNoChanges` | Int! |  |
-| `repositoriesWithErrors` | Int! |  |
-| `repositoriesInProgress` | Int! |  |
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>timeSavings</code></td><td><a href="#duration">Duration</a></td><td></td></tr>
+    <tr><td><code>filesSearched</code></td><td>Int!</td><td></td></tr>
+    <tr><td><code>filesChanged</code></td><td>Int!</td><td></td></tr>
+    <tr><td><code>filesWithResults</code></td><td>Int!</td><td></td></tr>
+    <tr><td><code>totalMarkers</code></td><td>Int!</td><td></td></tr>
+    <tr><td><code>repositoriesWithResults</code></td><td>Int!</td><td></td></tr>
+    <tr><td><code>repositoriesSuccessful</code></td><td>Int!</td><td></td></tr>
+    <tr><td><code>repositoriesWithNoChanges</code></td><td>Int!</td><td></td></tr>
+    <tr><td><code>repositoriesWithErrors</code></td><td>Int!</td><td></td></tr>
+    <tr><td><code>repositoriesInProgress</code></td><td>Int!</td><td></td></tr>
+  </tbody>
+</table>
 
----
+<hr/>
 
-#### `RecipeSearchMessage`
+<h4 id="recipesearchmessage"><code>RecipeSearchMessage</code></h4>
 
-**Service:** moddy | **Implements:** <a href="#message">Message</a>
+<p><strong>Service:</strong> moddy | <strong>Implements:</strong> <a href="#message">Message</a></p>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `id` | ID! |  |
-| `user` | <a href="#user">User</a>! |  |
-| `searchResults` | [<a href="#recipedescriptor">RecipeDescriptor</a>!]! |  |
-| `state` | <a href="#messagestate">MessageState</a>! |  |
-| `lastUpdatedAt` | <a href="#datetime">DateTime</a>! |  |
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>id</code></td><td>ID!</td><td></td></tr>
+    <tr><td><code>user</code></td><td><a href="#user">User</a>!</td><td></td></tr>
+    <tr><td><code>searchResults</code></td><td>[<a href="#recipedescriptor">RecipeDescriptor</a>!]!</td><td></td></tr>
+    <tr><td><code>state</code></td><td><a href="#messagestate">MessageState</a>!</td><td></td></tr>
+    <tr><td><code>lastUpdatedAt</code></td><td><a href="#datetime">DateTime</a>!</td><td></td></tr>
+  </tbody>
+</table>
 
----
+<hr/>
 
-#### `RecipeUninstallation`
+<h4 id="recipeuninstallation"><code>RecipeUninstallation</code></h4>
 
-**Service:** recipemarketplace
+<p><strong>Service:</strong> recipemarketplace</p>
 
-Result of an uninstall operation.
+<p>Result of an uninstall operation.</p>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `removedCount` | Int! | The number of recipes that were removed. |
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>removedCount</code></td><td>Int!</td><td>The number of recipes that were removed.</td></tr>
+  </tbody>
+</table>
 
----
+<hr/>
 
-#### `ReindexResult`
+<h4 id="reindexresult"><code>ReindexResult</code></h4>
 
-**Service:** changelogwriter
+<p><strong>Service:</strong> changelogwriter</p>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `resetCount` | Int! | Number of repository cursors that were reset. |
-| `since` | <a href="#datetime">DateTime</a>! | The timestamp cursors were rewound to. |
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>resetCount</code></td><td>Int!</td><td>Number of repository cursors that were reset.</td></tr>
+    <tr><td><code>since</code></td><td><a href="#datetime">DateTime</a>!</td><td>The timestamp cursors were rewound to.</td></tr>
+  </tbody>
+</table>
 
----
+<hr/>
 
-#### `Repository`
+<h4 id="repository"><code>Repository</code></h4>
 
-**Service:** changelogreader
+<p><strong>Service:</strong> changelogreader</p>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `origin` | String! |  |
-| `path` | String! |  |
-| `branch` | String! |  |
-| `changeset` | String |  |
-| `lstArtifact` | <a href="#lstartifact">LstArtifact</a>! |  |
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>origin</code></td><td>String!</td><td></td></tr>
+    <tr><td><code>path</code></td><td>String!</td><td></td></tr>
+    <tr><td><code>branch</code></td><td>String!</td><td></td></tr>
+    <tr><td><code>changeset</code></td><td>String</td><td></td></tr>
+    <tr><td><code>lstArtifact</code></td><td><a href="#lstartifact">LstArtifact</a>!</td><td></td></tr>
+  </tbody>
+</table>
 
----
+<hr/>
 
-#### `RepositoryAuthorization`
+<h4 id="repositoryauthorization"><code>RepositoryAuthorization</code></h4>
 
-**Service:** corechangeset
+<p><strong>Service:</strong> corechangeset</p>
 
-Authorization status for accessing repository content.
-Resolved by the changeset reader using a batch check against the authorization service.
+<p>Authorization status for accessing repository content.
+Resolved by the changeset reader using a batch check against the authorization service.</p>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `origin` | String! | The VCS origin (e.g., github.com). |
-| `isAuthorized` | Boolean! | Whether the user has a valid OAuth token for this origin. |
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>origin</code></td><td>String!</td><td>The VCS origin (e.g., github.com).</td></tr>
+    <tr><td><code>isAuthorized</code></td><td>Boolean!</td><td>Whether the user has a valid OAuth token for this origin.</td></tr>
+  </tbody>
+</table>
 
----
+<hr/>
 
-#### `RepositoryBatchChange`
+<h4 id="repositorybatchchange"><code>RepositoryBatchChange</code></h4>
 
-**Service:** changesetreader | **Implements:** <a href="#repositorychangeset">RepositoryChangeset</a>
+<p><strong>Service:</strong> changesetreader | <strong>Implements:</strong> <a href="#repositorychangeset">RepositoryChangeset</a></p>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `repository` | <a href="#repository">Repository</a>! |  |
-| `authorization` | <a href="#repositoryauthorization">RepositoryAuthorization</a>! |  |
-| `results` | (first: Int = 100, after: String, where: <a href="#filechangewhereinput">FileChangeWhereInput</a>, orderBy: [<a href="#filechangeorderbyinput">FileChangeOrderByInput</a>!]): <a href="#filechangeconnection">FileChangeConnection</a>! |  |
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>repository</code></td><td><a href="#repository">Repository</a>!</td><td></td></tr>
+    <tr><td><code>authorization</code></td><td><a href="#repositoryauthorization">RepositoryAuthorization</a>!</td><td></td></tr>
+    <tr><td><code>results</code></td><td>(first: Int = 100, after: String, where: <a href="#filechangewhereinput">FileChangeWhereInput</a>, orderBy: [<a href="#filechangeorderbyinput">FileChangeOrderByInput</a>!]): <a href="#filechangeconnection">FileChangeConnection</a>!</td><td></td></tr>
+  </tbody>
+</table>
 
----
+<hr/>
 
-#### `RepositoryChangesetConnection`
+<h4 id="repositorychangesetconnection"><code>RepositoryChangesetConnection</code></h4>
 
-**Service:** corechangeset
+<p><strong>Service:</strong> corechangeset</p>
 
-Paginated connection for repository changesets.
+<p>Paginated connection for repository changesets.
 
 `completed` indicates how many repositories have finished processing:
 - For BatchChange: completed always equals count (all repositories are pre-processed).
@@ -3379,1517 +3932,1825 @@ Paginated connection for repository changesets.
   the completion status reached prior to cancellation.
 
 Sync totals (`syncPending`, `synced`, `syncFailed`, `syncCanceled`, `syncSkipped`)
-track repository sync progress during the SYNCING phase. Their sum equals `count`.
+track repository sync progress during the SYNCING phase. Their sum equals `count`.</p>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `edges` | [<a href="#repositorychangesetedge">RepositoryChangesetEdge</a>!]! |  |
-| `pageInfo` | <a href="#pageinfo">PageInfo</a>! |  |
-| `completed` | Int! |  |
-| `count` | Int! |  |
-| `syncPending` | Int! | Repositories not yet synced. |
-| `synced` | Int! | Repositories successfully synced. |
-| `syncFailed` | Int! | Repositories that failed to sync. |
-| `syncCanceled` | Int! | Repositories whose sync was canceled before completion. |
-| `syncSkipped` | Int! | Repositories the CLI skipped during sync (typically: no LST available). |
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>edges</code></td><td>[<a href="#repositorychangesetedge">RepositoryChangesetEdge</a>!]!</td><td></td></tr>
+    <tr><td><code>pageInfo</code></td><td><a href="#pageinfo">PageInfo</a>!</td><td></td></tr>
+    <tr><td><code>completed</code></td><td>Int!</td><td></td></tr>
+    <tr><td><code>count</code></td><td>Int!</td><td></td></tr>
+    <tr><td><code>syncPending</code></td><td>Int!</td><td>Repositories not yet synced.</td></tr>
+    <tr><td><code>synced</code></td><td>Int!</td><td>Repositories successfully synced.</td></tr>
+    <tr><td><code>syncFailed</code></td><td>Int!</td><td>Repositories that failed to sync.</td></tr>
+    <tr><td><code>syncCanceled</code></td><td>Int!</td><td>Repositories whose sync was canceled before completion.</td></tr>
+    <tr><td><code>syncSkipped</code></td><td>Int!</td><td>Repositories the CLI skipped during sync (typically: no LST available).</td></tr>
+  </tbody>
+</table>
 
----
+<hr/>
 
-#### `RepositoryChangesetEdge`
+<h4 id="repositorychangesetedge"><code>RepositoryChangesetEdge</code></h4>
 
-**Service:** corechangeset
+<p><strong>Service:</strong> corechangeset</p>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `node` | <a href="#repositorychangeset">RepositoryChangeset</a>! |  |
-| `cursor` | String! |  |
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>node</code></td><td><a href="#repositorychangeset">RepositoryChangeset</a>!</td><td></td></tr>
+    <tr><td><code>cursor</code></td><td>String!</td><td></td></tr>
+  </tbody>
+</table>
 
----
+<hr/>
 
-#### `RepositoryCommitCanceled`
+<h4 id="repositorycommitcanceled"><code>RepositoryCommitCanceled</code></h4>
 
-**Service:** changesetcommitter | **Implements:** <a href="#repositorycommit">RepositoryCommit</a>
+<p><strong>Service:</strong> changesetcommitter | <strong>Implements:</strong> <a href="#repositorycommit">RepositoryCommit</a></p>
 
-Repository commit was canceled.
-Use `options.__typename` to determine the specific commit type.
+<p>Repository commit was canceled.
+Use `options.__typename` to determine the specific commit type.</p>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `repository` | <a href="#repository">Repository</a>! |  |
-| `startedAt` | <a href="#datetime">DateTime</a> |  |
-| `finishedAt` | <a href="#datetime">DateTime</a>! |  |
-| `options` | <a href="#commitoptions">CommitOptions</a>! | The commit options. Use `__typename` to determine commit type. |
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>repository</code></td><td><a href="#repository">Repository</a>!</td><td></td></tr>
+    <tr><td><code>startedAt</code></td><td><a href="#datetime">DateTime</a></td><td></td></tr>
+    <tr><td><code>finishedAt</code></td><td><a href="#datetime">DateTime</a>!</td><td></td></tr>
+    <tr><td><code>options</code></td><td><a href="#commitoptions">CommitOptions</a>!</td><td>The commit options. Use `__typename` to determine commit type.</td></tr>
+  </tbody>
+</table>
 
----
+<hr/>
 
-#### `RepositoryCommitConnection`
+<h4 id="repositorycommitconnection"><code>RepositoryCommitConnection</code></h4>
 
-**Service:** changesetcommitter
+<p><strong>Service:</strong> changesetcommitter</p>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `edges` | [<a href="#repositorycommitedge">RepositoryCommitEdge</a>!]! |  |
-| `pageInfo` | <a href="#pageinfo">PageInfo</a>! |  |
-| `count` | Int! |  |
-| `completedCount` | Int! | Count of repository commits that have reached a terminal state
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>edges</code></td><td>[<a href="#repositorycommitedge">RepositoryCommitEdge</a>!]!</td><td></td></tr>
+    <tr><td><code>pageInfo</code></td><td><a href="#pageinfo">PageInfo</a>!</td><td></td></tr>
+    <tr><td><code>count</code></td><td>Int!</td><td></td></tr>
+    <tr><td><code>completedCount</code></td><td>Int!</td><td>Count of repository commits that have reached a terminal state
 (succeeded, failed, canceled, or no changes). Pair with `count`
-to show progress: "Completed X / Y". |
+to show progress: "Completed X / Y".</td></tr>
+  </tbody>
+</table>
 
----
+<hr/>
 
-#### `RepositoryCommitEdge`
+<h4 id="repositorycommitedge"><code>RepositoryCommitEdge</code></h4>
 
-**Service:** changesetcommitter
+<p><strong>Service:</strong> changesetcommitter</p>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `node` | <a href="#repositorycommit">RepositoryCommit</a>! |  |
-| `cursor` | String! |  |
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>node</code></td><td><a href="#repositorycommit">RepositoryCommit</a>!</td><td></td></tr>
+    <tr><td><code>cursor</code></td><td>String!</td><td></td></tr>
+  </tbody>
+</table>
 
----
+<hr/>
 
-#### `RepositoryCommitFailed`
+<h4 id="repositorycommitfailed"><code>RepositoryCommitFailed</code></h4>
 
-**Service:** changesetcommitter | **Implements:** <a href="#repositorycommit">RepositoryCommit</a>
+<p><strong>Service:</strong> changesetcommitter | <strong>Implements:</strong> <a href="#repositorycommit">RepositoryCommit</a></p>
 
-Repository commit failed with an error.
-Use `options.__typename` to determine the specific commit type.
+<p>Repository commit failed with an error.
+Use `options.__typename` to determine the specific commit type.</p>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `repository` | <a href="#repository">Repository</a>! |  |
-| `startedAt` | <a href="#datetime">DateTime</a> |  |
-| `finishedAt` | <a href="#datetime">DateTime</a>! |  |
-| `errorMessage` | String! | Human-readable error message. |
-| `retryCount` | Int | Number of retry attempts made. |
-| `options` | <a href="#commitoptions">CommitOptions</a>! | The commit options. Use `__typename` to determine commit type. |
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>repository</code></td><td><a href="#repository">Repository</a>!</td><td></td></tr>
+    <tr><td><code>startedAt</code></td><td><a href="#datetime">DateTime</a></td><td></td></tr>
+    <tr><td><code>finishedAt</code></td><td><a href="#datetime">DateTime</a>!</td><td></td></tr>
+    <tr><td><code>errorMessage</code></td><td>String!</td><td>Human-readable error message.</td></tr>
+    <tr><td><code>retryCount</code></td><td>Int</td><td>Number of retry attempts made.</td></tr>
+    <tr><td><code>options</code></td><td><a href="#commitoptions">CommitOptions</a>!</td><td>The commit options. Use `__typename` to determine commit type.</td></tr>
+  </tbody>
+</table>
 
----
+<hr/>
 
-#### `RepositoryCommitNoChanges`
+<h4 id="repositorycommitnochanges"><code>RepositoryCommitNoChanges</code></h4>
 
-**Service:** changesetcommitter | **Implements:** <a href="#repositorycommit">RepositoryCommit</a>
+<p><strong>Service:</strong> changesetcommitter | <strong>Implements:</strong> <a href="#repositorycommit">RepositoryCommit</a></p>
 
-Repository commit completed but yielded no changes.
+<p>Repository commit completed but yielded no changes.
 Generally occurs when applying a patch does not produce any changes to commit.
-Use `options.__typename` to determine the specific commit type.
+Use `options.__typename` to determine the specific commit type.</p>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `repository` | <a href="#repository">Repository</a>! |  |
-| `startedAt` | <a href="#datetime">DateTime</a>! |  |
-| `finishedAt` | <a href="#datetime">DateTime</a>! |  |
-| `options` | <a href="#commitoptions">CommitOptions</a>! | The commit options. Use `__typename` to determine commit type. |
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>repository</code></td><td><a href="#repository">Repository</a>!</td><td></td></tr>
+    <tr><td><code>startedAt</code></td><td><a href="#datetime">DateTime</a>!</td><td></td></tr>
+    <tr><td><code>finishedAt</code></td><td><a href="#datetime">DateTime</a>!</td><td></td></tr>
+    <tr><td><code>options</code></td><td><a href="#commitoptions">CommitOptions</a>!</td><td>The commit options. Use `__typename` to determine commit type.</td></tr>
+  </tbody>
+</table>
 
----
+<hr/>
 
-#### `RepositoryCommitQueued`
+<h4 id="repositorycommitqueued"><code>RepositoryCommitQueued</code></h4>
 
-**Service:** changesetcommitter | **Implements:** <a href="#repositorycommit">RepositoryCommit</a>
+<p><strong>Service:</strong> changesetcommitter | <strong>Implements:</strong> <a href="#repositorycommit">RepositoryCommit</a></p>
 
-Repository commit is queued and waiting to be processed.
-Use `options.__typename` to determine the specific commit type.
+<p>Repository commit is queued and waiting to be processed.
+Use `options.__typename` to determine the specific commit type.</p>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `repository` | <a href="#repository">Repository</a>! |  |
-| `startedAt` | <a href="#datetime">DateTime</a> |  |
-| `rateLimitReset` | <a href="#datetime">DateTime</a> | Time when rate limit expires (if rate limited). |
-| `options` | <a href="#commitoptions">CommitOptions</a>! | The commit options. Use `__typename` to determine commit type. |
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>repository</code></td><td><a href="#repository">Repository</a>!</td><td></td></tr>
+    <tr><td><code>startedAt</code></td><td><a href="#datetime">DateTime</a></td><td></td></tr>
+    <tr><td><code>rateLimitReset</code></td><td><a href="#datetime">DateTime</a></td><td>Time when rate limit expires (if rate limited).</td></tr>
+    <tr><td><code>options</code></td><td><a href="#commitoptions">CommitOptions</a>!</td><td>The commit options. Use `__typename` to determine commit type.</td></tr>
+  </tbody>
+</table>
 
----
+<hr/>
 
-#### `RepositoryCommitRunning`
+<h4 id="repositorycommitrunning"><code>RepositoryCommitRunning</code></h4>
 
-**Service:** changesetcommitter | **Implements:** <a href="#repositorycommit">RepositoryCommit</a>
+<p><strong>Service:</strong> changesetcommitter | <strong>Implements:</strong> <a href="#repositorycommit">RepositoryCommit</a></p>
 
-Repository commit is actively being processed.
-Use `options.__typename` to determine the specific commit type.
+<p>Repository commit is actively being processed.
+Use `options.__typename` to determine the specific commit type.</p>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `repository` | <a href="#repository">Repository</a>! |  |
-| `startedAt` | <a href="#datetime">DateTime</a>! |  |
-| `options` | <a href="#commitoptions">CommitOptions</a>! | The commit options. Use `__typename` to determine commit type. |
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>repository</code></td><td><a href="#repository">Repository</a>!</td><td></td></tr>
+    <tr><td><code>startedAt</code></td><td><a href="#datetime">DateTime</a>!</td><td></td></tr>
+    <tr><td><code>options</code></td><td><a href="#commitoptions">CommitOptions</a>!</td><td>The commit options. Use `__typename` to determine commit type.</td></tr>
+  </tbody>
+</table>
 
----
+<hr/>
 
-#### `RepositoryConnection`
+<h4 id="repositoryconnection"><code>RepositoryConnection</code></h4>
 
-**Service:** organization
+<p><strong>Service:</strong> organization</p>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `edges` | [<a href="#repositoryedge">RepositoryEdge</a>!]! |  |
-| `pageInfo` | <a href="#pageinfo">PageInfo</a>! |  |
-| `count` | Int! |  |
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>edges</code></td><td>[<a href="#repositoryedge">RepositoryEdge</a>!]!</td><td></td></tr>
+    <tr><td><code>pageInfo</code></td><td><a href="#pageinfo">PageInfo</a>!</td><td></td></tr>
+    <tr><td><code>count</code></td><td>Int!</td><td></td></tr>
+  </tbody>
+</table>
+
+<hr/>
+
+<h4 id="repositoryedge"><code>RepositoryEdge</code></h4>
 
----
+<p><strong>Service:</strong> organization</p>
 
-#### `RepositoryEdge`
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>node</code></td><td><a href="#repository">Repository</a>!</td><td></td></tr>
+    <tr><td><code>cursor</code></td><td>String!</td><td></td></tr>
+  </tbody>
+</table>
+
+<hr/>
+
+<h4 id="repositoryreciperuncanceled"><code>RepositoryRecipeRunCanceled</code></h4>
+
+<p><strong>Service:</strong> changesetreader | <strong>Implements:</strong> <a href="#repositoryreciperun">RepositoryRecipeRun</a>, <a href="#repositorychangeset">RepositoryChangeset</a></p>
 
-**Service:** organization
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>repository</code></td><td><a href="#repository">Repository</a>!</td><td></td></tr>
+    <tr><td><code>authorization</code></td><td><a href="#repositoryauthorization">RepositoryAuthorization</a>!</td><td></td></tr>
+    <tr><td><code>syncStatus</code></td><td><a href="#repositorysyncstatus">RepositorySyncStatus</a></td><td></td></tr>
+    <tr><td><code>results</code></td><td>(first: Int = 100, after: String, where: <a href="#filechangewhereinput">FileChangeWhereInput</a>, orderBy: [<a href="#filechangeorderbyinput">FileChangeOrderByInput</a>!]): <a href="#filechangeconnection">FileChangeConnection</a>!</td><td></td></tr>
+  </tbody>
+</table>
+
+<hr/>
+
+<h4 id="repositoryreciperunconnection"><code>RepositoryRecipeRunConnection</code></h4>
+
+<p><strong>Service:</strong> changesetreader</p>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `node` | <a href="#repository">Repository</a>! |  |
-| `cursor` | String! |  |
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>edges</code></td><td>[<a href="#repositoryreciperunedge">RepositoryRecipeRunEdge</a>!]!</td><td></td></tr>
+    <tr><td><code>pageInfo</code></td><td><a href="#pageinfo">PageInfo</a>!</td><td></td></tr>
+    <tr><td><code>count</code></td><td>Int!</td><td></td></tr>
+  </tbody>
+</table>
+
+<hr/>
+
+<h4 id="repositoryreciperunedge"><code>RepositoryRecipeRunEdge</code></h4>
+
+<p><strong>Service:</strong> changesetreader</p>
+
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>node</code></td><td><a href="#repositoryreciperun">RepositoryRecipeRun</a>!</td><td></td></tr>
+    <tr><td><code>cursor</code></td><td>String!</td><td></td></tr>
+  </tbody>
+</table>
+
+<hr/>
+
+<h4 id="repositoryreciperunerror"><code>RepositoryRecipeRunError</code></h4>
+
+<p><strong>Service:</strong> changesetreader | <strong>Implements:</strong> <a href="#repositoryreciperun">RepositoryRecipeRun</a>, <a href="#repositorychangeset">RepositoryChangeset</a></p>
+
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>repository</code></td><td><a href="#repository">Repository</a>!</td><td></td></tr>
+    <tr><td><code>authorization</code></td><td><a href="#repositoryauthorization">RepositoryAuthorization</a>!</td><td></td></tr>
+    <tr><td><code>syncStatus</code></td><td><a href="#repositorysyncstatus">RepositorySyncStatus</a></td><td></td></tr>
+    <tr><td><code>results</code></td><td>(first: Int = 100, after: String, where: <a href="#filechangewhereinput">FileChangeWhereInput</a>, orderBy: [<a href="#filechangeorderbyinput">FileChangeOrderByInput</a>!]): <a href="#filechangeconnection">FileChangeConnection</a>!</td><td></td></tr>
+    <tr><td><code>startedAt</code></td><td><a href="#datetime">DateTime</a></td><td></td></tr>
+    <tr><td><code>finishedAt</code></td><td><a href="#datetime">DateTime</a></td><td></td></tr>
+    <tr><td><code>errorReason</code></td><td><a href="#repositoryerrorreason">RepositoryErrorReason</a></td><td></td></tr>
+    <tr><td><code>message</code></td><td>String</td><td></td></tr>
+  </tbody>
+</table>
+
+<hr/>
+
+<h4 id="repositoryreciperunfinished"><code>RepositoryRecipeRunFinished</code></h4>
+
+<p><strong>Service:</strong> changesetreader | <strong>Implements:</strong> <a href="#repositoryreciperun">RepositoryRecipeRun</a>, <a href="#repositorychangeset">RepositoryChangeset</a></p>
 
----
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>repository</code></td><td><a href="#repository">Repository</a>!</td><td></td></tr>
+    <tr><td><code>authorization</code></td><td><a href="#repositoryauthorization">RepositoryAuthorization</a>!</td><td></td></tr>
+    <tr><td><code>syncStatus</code></td><td><a href="#repositorysyncstatus">RepositorySyncStatus</a></td><td></td></tr>
+    <tr><td><code>results</code></td><td>(first: Int = 100, after: String, where: <a href="#filechangewhereinput">FileChangeWhereInput</a>, orderBy: [<a href="#filechangeorderbyinput">FileChangeOrderByInput</a>!]): <a href="#filechangeconnection">FileChangeConnection</a>!</td><td></td></tr>
+    <tr><td><code>startedAt</code></td><td><a href="#datetime">DateTime</a></td><td></td></tr>
+    <tr><td><code>finishedAt</code></td><td><a href="#datetime">DateTime</a></td><td></td></tr>
+    <tr><td><code>timeSavings</code></td><td><a href="#duration">Duration</a></td><td></td></tr>
+  </tbody>
+</table>
+
+<hr/>
+
+<h4 id="repositoryreciperunnolst"><code>RepositoryRecipeRunNoLst</code></h4>
+
+<p><strong>Service:</strong> changesetreader | <strong>Implements:</strong> <a href="#repositoryreciperun">RepositoryRecipeRun</a>, <a href="#repositorychangeset">RepositoryChangeset</a></p>
+
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>repository</code></td><td><a href="#repository">Repository</a>!</td><td></td></tr>
+    <tr><td><code>authorization</code></td><td><a href="#repositoryauthorization">RepositoryAuthorization</a>!</td><td></td></tr>
+    <tr><td><code>syncStatus</code></td><td><a href="#repositorysyncstatus">RepositorySyncStatus</a></td><td></td></tr>
+    <tr><td><code>results</code></td><td>(first: Int = 100, after: String, where: <a href="#filechangewhereinput">FileChangeWhereInput</a>, orderBy: [<a href="#filechangeorderbyinput">FileChangeOrderByInput</a>!]): <a href="#filechangeconnection">FileChangeConnection</a>!</td><td></td></tr>
+  </tbody>
+</table>
+
+<hr/>
+
+<h4 id="repositoryreciperunqueued"><code>RepositoryRecipeRunQueued</code></h4>
+
+<p><strong>Service:</strong> changesetreader | <strong>Implements:</strong> <a href="#repositoryreciperun">RepositoryRecipeRun</a>, <a href="#repositorychangeset">RepositoryChangeset</a></p>
+
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>repository</code></td><td><a href="#repository">Repository</a>!</td><td></td></tr>
+    <tr><td><code>authorization</code></td><td><a href="#repositoryauthorization">RepositoryAuthorization</a>!</td><td></td></tr>
+    <tr><td><code>syncStatus</code></td><td><a href="#repositorysyncstatus">RepositorySyncStatus</a></td><td></td></tr>
+    <tr><td><code>results</code></td><td>(first: Int = 100, after: String, where: <a href="#filechangewhereinput">FileChangeWhereInput</a>, orderBy: [<a href="#filechangeorderbyinput">FileChangeOrderByInput</a>!]): <a href="#filechangeconnection">FileChangeConnection</a>!</td><td></td></tr>
+    <tr><td><code>queuedAt</code></td><td><a href="#datetime">DateTime</a></td><td></td></tr>
+  </tbody>
+</table>
+
+<hr/>
 
-#### `RepositoryRecipeRunCanceled`
+<h4 id="repositoryreciperunrunning"><code>RepositoryRecipeRunRunning</code></h4>
 
-**Service:** changesetreader | **Implements:** <a href="#repositoryreciperun">RepositoryRecipeRun</a>, <a href="#repositorychangeset">RepositoryChangeset</a>
+<p><strong>Service:</strong> changesetreader | <strong>Implements:</strong> <a href="#repositoryreciperun">RepositoryRecipeRun</a>, <a href="#repositorychangeset">RepositoryChangeset</a></p>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `repository` | <a href="#repository">Repository</a>! |  |
-| `authorization` | <a href="#repositoryauthorization">RepositoryAuthorization</a>! |  |
-| `syncStatus` | <a href="#repositorysyncstatus">RepositorySyncStatus</a> |  |
-| `results` | (first: Int = 100, after: String, where: <a href="#filechangewhereinput">FileChangeWhereInput</a>, orderBy: [<a href="#filechangeorderbyinput">FileChangeOrderByInput</a>!]): <a href="#filechangeconnection">FileChangeConnection</a>! |  |
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>repository</code></td><td><a href="#repository">Repository</a>!</td><td></td></tr>
+    <tr><td><code>authorization</code></td><td><a href="#repositoryauthorization">RepositoryAuthorization</a>!</td><td></td></tr>
+    <tr><td><code>syncStatus</code></td><td><a href="#repositorysyncstatus">RepositorySyncStatus</a></td><td></td></tr>
+    <tr><td><code>results</code></td><td>(first: Int = 100, after: String, where: <a href="#filechangewhereinput">FileChangeWhereInput</a>, orderBy: [<a href="#filechangeorderbyinput">FileChangeOrderByInput</a>!]): <a href="#filechangeconnection">FileChangeConnection</a>!</td><td></td></tr>
+    <tr><td><code>startedAt</code></td><td><a href="#datetime">DateTime</a></td><td></td></tr>
+  </tbody>
+</table>
 
----
+<hr/>
 
-#### `RepositoryRecipeRunConnection`
+<h4 id="reviewstatus"><code>ReviewStatus</code></h4>
 
-**Service:** changesetreader
+<p><strong>Service:</strong> changesetcommitter</p>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `edges` | [<a href="#repositoryreciperunedge">RepositoryRecipeRunEdge</a>!]! |  |
-| `pageInfo` | <a href="#pageinfo">PageInfo</a>! |  |
-| `count` | Int! |  |
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>approvedBy</code></td><td>[String!]</td><td></td></tr>
+    <tr><td><code>reviewDecision</code></td><td><a href="#reviewdecision">ReviewDecision</a>!</td><td></td></tr>
+  </tbody>
+</table>
 
----
+<hr/>
 
-#### `RepositoryRecipeRunEdge`
+<h4 id="revoketokenresult"><code>RevokeTokenResult</code></h4>
 
-**Service:** changesetreader
+<p><strong>Service:</strong> authz</p>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `node` | <a href="#repositoryreciperun">RepositoryRecipeRun</a>! |  |
-| `cursor` | String! |  |
+<p>Result of revoking an SCM OAuth token.</p>
 
----
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>success</code></td><td>Boolean!</td><td>True if the token was revoked (or didn't exist).</td></tr>
+    <tr><td><code>error</code></td><td>String</td><td>Error message if revocation failed.</td></tr>
+  </tbody>
+</table>
 
-#### `RepositoryRecipeRunError`
+<hr/>
 
-**Service:** changesetreader | **Implements:** <a href="#repositoryreciperun">RepositoryRecipeRun</a>, <a href="#repositorychangeset">RepositoryChangeset</a>
+<h4 id="s3configuration"><code>S3Configuration</code></h4>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `repository` | <a href="#repository">Repository</a>! |  |
-| `authorization` | <a href="#repositoryauthorization">RepositoryAuthorization</a>! |  |
-| `syncStatus` | <a href="#repositorysyncstatus">RepositorySyncStatus</a> |  |
-| `results` | (first: Int = 100, after: String, where: <a href="#filechangewhereinput">FileChangeWhereInput</a>, orderBy: [<a href="#filechangeorderbyinput">FileChangeOrderByInput</a>!]): <a href="#filechangeconnection">FileChangeConnection</a>! |  |
-| `startedAt` | <a href="#datetime">DateTime</a> |  |
-| `finishedAt` | <a href="#datetime">DateTime</a> |  |
-| `errorReason` | <a href="#repositoryerrorreason">RepositoryErrorReason</a> |  |
-| `message` | String |  |
+<p><strong>Service:</strong> gateway</p>
 
----
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>resourceId</code></td><td>String!</td><td></td></tr>
+    <tr><td><code>skipSsl</code></td><td>Boolean!</td><td></td></tr>
+    <tr><td><code>skipValidateConnectivity</code></td><td>Boolean!</td><td></td></tr>
+    <tr><td><code>connectivity</code></td><td><a href="#httptoolconnectivity">HttpToolConnectivity</a>!</td><td></td></tr>
+    <tr><td><code>region</code></td><td>String</td><td></td></tr>
+    <tr><td><code>endpointUrl</code></td><td>String</td><td></td></tr>
+  </tbody>
+</table>
 
-#### `RepositoryRecipeRunFinished`
+<hr/>
 
-**Service:** changesetreader | **Implements:** <a href="#repositoryreciperun">RepositoryRecipeRun</a>, <a href="#repositorychangeset">RepositoryChangeset</a>
+<h4 id="scmtokeninfo"><code>ScmTokenInfo</code></h4>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `repository` | <a href="#repository">Repository</a>! |  |
-| `authorization` | <a href="#repositoryauthorization">RepositoryAuthorization</a>! |  |
-| `syncStatus` | <a href="#repositorysyncstatus">RepositorySyncStatus</a> |  |
-| `results` | (first: Int = 100, after: String, where: <a href="#filechangewhereinput">FileChangeWhereInput</a>, orderBy: [<a href="#filechangeorderbyinput">FileChangeOrderByInput</a>!]): <a href="#filechangeconnection">FileChangeConnection</a>! |  |
-| `startedAt` | <a href="#datetime">DateTime</a> |  |
-| `finishedAt` | <a href="#datetime">DateTime</a> |  |
-| `timeSavings` | <a href="#duration">Duration</a> |  |
+<p><strong>Service:</strong> authz</p>
 
----
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>created</code></td><td><a href="#datetime">DateTime</a>!</td><td></td></tr>
+    <tr><td><code>expiresAt</code></td><td><a href="#datetime">DateTime</a></td><td></td></tr>
+  </tbody>
+</table>
 
-#### `RepositoryRecipeRunNoLst`
+<hr/>
 
-**Service:** changesetreader | **Implements:** <a href="#repositoryreciperun">RepositoryRecipeRun</a>, <a href="#repositorychangeset">RepositoryChangeset</a>
+<h4 id="searchresult"><code>SearchResult</code></h4>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `repository` | <a href="#repository">Repository</a>! |  |
-| `authorization` | <a href="#repositoryauthorization">RepositoryAuthorization</a>! |  |
-| `syncStatus` | <a href="#repositorysyncstatus">RepositorySyncStatus</a> |  |
-| `results` | (first: Int = 100, after: String, where: <a href="#filechangewhereinput">FileChangeWhereInput</a>, orderBy: [<a href="#filechangeorderbyinput">FileChangeOrderByInput</a>!]): <a href="#filechangeconnection">FileChangeConnection</a>! |  |
+<p><strong>Service:</strong> corechangeset | <strong>Implements:</strong> <a href="#marker">Marker</a></p>
 
----
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>id</code></td><td>ID!</td><td></td></tr>
+    <tr><td><code>type</code></td><td>String!</td><td></td></tr>
+    <tr><td><code>description</code></td><td>String</td><td></td></tr>
+  </tbody>
+</table>
 
-#### `RepositoryRecipeRunQueued`
+<hr/>
 
-**Service:** changesetreader | **Implements:** <a href="#repositoryreciperun">RepositoryRecipeRun</a>, <a href="#repositorychangeset">RepositoryChangeset</a>
+<h4 id="sendmessageresult"><code>SendMessageResult</code></h4>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `repository` | <a href="#repository">Repository</a>! |  |
-| `authorization` | <a href="#repositoryauthorization">RepositoryAuthorization</a>! |  |
-| `syncStatus` | <a href="#repositorysyncstatus">RepositorySyncStatus</a> |  |
-| `results` | (first: Int = 100, after: String, where: <a href="#filechangewhereinput">FileChangeWhereInput</a>, orderBy: [<a href="#filechangeorderbyinput">FileChangeOrderByInput</a>!]): <a href="#filechangeconnection">FileChangeConnection</a>! |  |
-| `queuedAt` | <a href="#datetime">DateTime</a> |  |
+<p><strong>Service:</strong> moddy</p>
 
----
-
-#### `RepositoryRecipeRunRunning`
-
-**Service:** changesetreader | **Implements:** <a href="#repositoryreciperun">RepositoryRecipeRun</a>, <a href="#repositorychangeset">RepositoryChangeset</a>
-
-| Field | Type | Description |
-|-------|------|-------------|
-| `repository` | <a href="#repository">Repository</a>! |  |
-| `authorization` | <a href="#repositoryauthorization">RepositoryAuthorization</a>! |  |
-| `syncStatus` | <a href="#repositorysyncstatus">RepositorySyncStatus</a> |  |
-| `results` | (first: Int = 100, after: String, where: <a href="#filechangewhereinput">FileChangeWhereInput</a>, orderBy: [<a href="#filechangeorderbyinput">FileChangeOrderByInput</a>!]): <a href="#filechangeconnection">FileChangeConnection</a>! |  |
-| `startedAt` | <a href="#datetime">DateTime</a> |  |
-
----
-
-#### `ReviewStatus`
-
-**Service:** changesetcommitter
-
-| Field | Type | Description |
-|-------|------|-------------|
-| `approvedBy` | [String!] |  |
-| `reviewDecision` | <a href="#reviewdecision">ReviewDecision</a>! |  |
-
----
-
-#### `RevokeTokenResult`
-
-**Service:** authz
-
-Result of revoking an SCM OAuth token.
-
-| Field | Type | Description |
-|-------|------|-------------|
-| `success` | Boolean! | True if the token was revoked (or didn't exist). |
-| `error` | String | Error message if revocation failed. |
-
----
-
-#### `S3Configuration`
-
-**Service:** gateway
-
-| Field | Type | Description |
-|-------|------|-------------|
-| `resourceId` | String! |  |
-| `skipSsl` | Boolean! |  |
-| `skipValidateConnectivity` | Boolean! |  |
-| `connectivity` | <a href="#httptoolconnectivity">HttpToolConnectivity</a>! |  |
-| `region` | String |  |
-| `endpointUrl` | String |  |
-
----
-
-#### `ScmTokenInfo`
-
-**Service:** authz
-
-| Field | Type | Description |
-|-------|------|-------------|
-| `created` | <a href="#datetime">DateTime</a>! |  |
-| `expiresAt` | <a href="#datetime">DateTime</a> |  |
-
----
-
-#### `SearchResult`
-
-**Service:** corechangeset | **Implements:** <a href="#marker">Marker</a>
-
-| Field | Type | Description |
-|-------|------|-------------|
-| `id` | ID! |  |
-| `type` | String! |  |
-| `description` | String |  |
-
----
-
-#### `SendMessageResult`
-
-**Service:** moddy
-
-Handle returned by `createConversation` / `sendMessage`. Clients should
+<p>Handle returned by `createConversation` / `sendMessage`. Clients should
 poll `conversation.messages(after: initialCursor)` using
-`turnState.recommendedPollIntervalMs` as the cadence hint.
+`turnState.recommendedPollIntervalMs` as the cadence hint.</p>
+
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>conversation</code></td><td><a href="#conversation">Conversation</a>!</td><td></td></tr>
+    <tr><td><code>initialCursor</code></td><td>String!</td><td></td></tr>
+    <tr><td><code>turnState</code></td><td><a href="#conversationturnstate">ConversationTurnState</a>!</td><td></td></tr>
+  </tbody>
+</table>
+
+<hr/>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `conversation` | <a href="#conversation">Conversation</a>! |  |
-| `initialCursor` | String! |  |
-| `turnState` | <a href="#conversationturnstate">ConversationTurnState</a>! |  |
+<h4 id="textmessage"><code>TextMessage</code></h4>
 
----
+<p><strong>Service:</strong> moddy | <strong>Implements:</strong> <a href="#message">Message</a></p>
 
-#### `TextMessage`
+<p>A text message from either the human user or the chatbot.
+Check the `user` field to distinguish sender.</p>
 
-**Service:** moddy | **Implements:** <a href="#message">Message</a>
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>id</code></td><td>ID!</td><td></td></tr>
+    <tr><td><code>user</code></td><td><a href="#user">User</a>!</td><td></td></tr>
+    <tr><td><code>content</code></td><td><a href="#markdown">Markdown</a>!</td><td></td></tr>
+    <tr><td><code>truncated</code></td><td>Boolean!</td><td>True when the LLM response was cut off by the token limit.</td></tr>
+    <tr><td><code>state</code></td><td><a href="#messagestate">MessageState</a>!</td><td></td></tr>
+    <tr><td><code>lastUpdatedAt</code></td><td><a href="#datetime">DateTime</a>!</td><td></td></tr>
+  </tbody>
+</table>
 
-A text message from either the human user or the chatbot.
-Check the `user` field to distinguish sender.
+<hr/>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `id` | ID! |  |
-| `user` | <a href="#user">User</a>! |  |
-| `content` | <a href="#markdown">Markdown</a>! |  |
-| `truncated` | Boolean! | True when the LLM response was cut off by the token limit. |
-| `state` | <a href="#messagestate">MessageState</a>! |  |
-| `lastUpdatedAt` | <a href="#datetime">DateTime</a>! |  |
+<h4 id="toolinfo"><code>ToolInfo</code></h4>
 
----
+<p><strong>Service:</strong> changesetreader</p>
+
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>name</code></td><td>String!</td><td></td></tr>
+    <tr><td><code>version</code></td><td>String</td><td></td></tr>
+    <tr><td><code>arguments</code></td><td>String</td><td></td></tr>
+  </tbody>
+</table>
 
-#### `ToolInfo`
+<hr/>
 
-**Service:** changesetreader
+<h4 id="uiconfiguration"><code>UiConfiguration</code></h4>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `name` | String! |  |
-| `version` | String |  |
-| `arguments` | String |  |
+<p><strong>Service:</strong> gateway</p>
 
----
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>moreHelp</code></td><td>[<a href="#morehelplink">MoreHelpLink</a>!]</td><td></td></tr>
+    <tr><td><code>loginText</code></td><td>String</td><td></td></tr>
+    <tr><td><code>loginLinks</code></td><td>[<a href="#morehelplink">MoreHelpLink</a>!]</td><td></td></tr>
+    <tr><td><code>cliDownloadInstructions</code></td><td><a href="#clidownloadinstructionlink">CliDownloadInstructionLink</a></td><td></td></tr>
+  </tbody>
+</table>
 
-#### `UiConfiguration`
+<hr/>
 
-**Service:** gateway
+<h4 id="user"><code>User</code></h4>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `moreHelp` | [<a href="#morehelplink">MoreHelpLink</a>!] |  |
-| `loginText` | String |  |
-| `loginLinks` | [<a href="#morehelplink">MoreHelpLink</a>!] |  |
-| `cliDownloadInstructions` | <a href="#clidownloadinstructionlink">CliDownloadInstructionLink</a> |  |
+<p><strong>Service:</strong> authz</p>
 
----
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>username</code></td><td>String</td><td></td></tr>
+    <tr><td><code>role</code></td><td><a href="#userrole">UserRole</a></td><td></td></tr>
+    <tr><td><code>lastActive</code></td><td><a href="#datetime">DateTime</a></td><td></td></tr>
+    <tr><td><code>tokens</code></td><td>(first: Int = 100, after: String, where: <a href="#accesstokenwhereinput">AccessTokenWhereInput</a>, orderBy: [<a href="#accesstokenorderbyinput">AccessTokenOrderByInput</a>!]): <a href="#accesstokenconnection">AccessTokenConnection</a>!</td><td></td></tr>
+    <tr><td><code>email</code></td><td>String!</td><td></td></tr>
+    <tr><td><code>moddy</code></td><td><a href="#moddy">Moddy</a>!</td><td></td></tr>
+  </tbody>
+</table>
 
-#### `User`
+<hr/>
 
-**Service:** authz
+<h4 id="userconnection"><code>UserConnection</code></h4>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `username` | String |  |
-| `role` | <a href="#userrole">UserRole</a> |  |
-| `lastActive` | <a href="#datetime">DateTime</a> |  |
-| `tokens` | (first: Int = 100, after: String, where: <a href="#accesstokenwhereinput">AccessTokenWhereInput</a>, orderBy: [<a href="#accesstokenorderbyinput">AccessTokenOrderByInput</a>!]): <a href="#accesstokenconnection">AccessTokenConnection</a>! |  |
-| `email` | String! |  |
-| `moddy` | <a href="#moddy">Moddy</a>! |  |
+<p><strong>Service:</strong> authz</p>
+
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>edges</code></td><td>[<a href="#usersedge">UsersEdge</a>!]!</td><td></td></tr>
+    <tr><td><code>pageInfo</code></td><td><a href="#pageinfo">PageInfo</a>!</td><td></td></tr>
+    <tr><td><code>count</code></td><td>Int!</td><td></td></tr>
+  </tbody>
+</table>
 
----
+<hr/>
 
-#### `UserConnection`
+<h4 id="usersedge"><code>UsersEdge</code></h4>
 
-**Service:** authz
+<p><strong>Service:</strong> authz</p>
+
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>node</code></td><td><a href="#user">User</a>!</td><td></td></tr>
+    <tr><td><code>cursor</code></td><td>String!</td><td></td></tr>
+  </tbody>
+</table>
+
+<hr/>
+
+<h4 id="visualizationavailable"><code>VisualizationAvailable</code></h4>
+
+<p><strong>Service:</strong> changesetreader | <strong>Implements:</strong> <a href="#visualization">Visualization</a></p>
+
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>id</code></td><td>ID!</td><td></td></tr>
+    <tr><td><code>descriptor</code></td><td><a href="#visualizationdescriptor">VisualizationDescriptor</a>!</td><td></td></tr>
+    <tr><td><code>changesetId</code></td><td>ID!</td><td>The changeset (recipe run or batch change) this visualization is available for.</td></tr>
+  </tbody>
+</table>
+
+<hr/>
+
+<h4 id="visualizationconnection"><code>VisualizationConnection</code></h4>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `edges` | [<a href="#usersedge">UsersEdge</a>!]! |  |
-| `pageInfo` | <a href="#pageinfo">PageInfo</a>! |  |
-| `count` | Int! |  |
+<p><strong>Service:</strong> corechangeset</p>
 
----
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>edges</code></td><td>[<a href="#visualizationedge">VisualizationEdge</a>!]!</td><td></td></tr>
+    <tr><td><code>pageInfo</code></td><td><a href="#pageinfo">PageInfo</a>!</td><td></td></tr>
+    <tr><td><code>count</code></td><td>Int!</td><td></td></tr>
+  </tbody>
+</table>
+
+<hr/>
+
+<h4 id="visualizationdescriptor"><code>VisualizationDescriptor</code></h4>
+
+<p><strong>Service:</strong> changesetvisualizer</p>
+
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>options</code></td><td>[<a href="#visualizationoption">VisualizationOption</a>!]!</td><td></td></tr>
+    <tr><td><code>name</code></td><td>String!</td><td></td></tr>
+    <tr><td><code>displayName</code></td><td><a href="#markdown">Markdown</a>!</td><td></td></tr>
+    <tr><td><code>description</code></td><td><a href="#markdown">Markdown</a>!</td><td></td></tr>
+    <tr><td><code>image</code></td><td><a href="#base64">Base64</a>!</td><td></td></tr>
+  </tbody>
+</table>
+
+<hr/>
+
+<h4 id="visualizationedge"><code>VisualizationEdge</code></h4>
+
+<p><strong>Service:</strong> corechangeset</p>
+
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>node</code></td><td><a href="#visualization">Visualization</a>!</td><td></td></tr>
+    <tr><td><code>cursor</code></td><td>String!</td><td></td></tr>
+  </tbody>
+</table>
+
+<hr/>
+
+<h4 id="visualizationerror"><code>VisualizationError</code></h4>
+
+<p><strong>Service:</strong> changesetreader | <strong>Implements:</strong> <a href="#visualization">Visualization</a></p>
+
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>id</code></td><td>ID!</td><td></td></tr>
+    <tr><td><code>descriptor</code></td><td><a href="#visualizationdescriptor">VisualizationDescriptor</a>!</td><td></td></tr>
+    <tr><td><code>changesetId</code></td><td>ID!</td><td></td></tr>
+    <tr><td><code>startedAt</code></td><td><a href="#datetime">DateTime</a>!</td><td></td></tr>
+    <tr><td><code>finishedAt</code></td><td><a href="#datetime">DateTime</a>!</td><td></td></tr>
+    <tr><td><code>message</code></td><td>String!</td><td></td></tr>
+    <tr><td><code>repositories</code></td><td>(first: Int = 100, after: String): <a href="#visualizationrepositoryconnection">VisualizationRepositoryConnection</a>!</td><td></td></tr>
+  </tbody>
+</table>
+
+<hr/>
+
+<h4 id="visualizationfinished"><code>VisualizationFinished</code></h4>
+
+<p><strong>Service:</strong> changesetreader | <strong>Implements:</strong> <a href="#visualization">Visualization</a></p>
 
-#### `UsersEdge`
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>id</code></td><td>ID!</td><td></td></tr>
+    <tr><td><code>descriptor</code></td><td><a href="#visualizationdescriptor">VisualizationDescriptor</a>!</td><td></td></tr>
+    <tr><td><code>changesetId</code></td><td>ID!</td><td></td></tr>
+    <tr><td><code>startedAt</code></td><td><a href="#datetime">DateTime</a>!</td><td></td></tr>
+    <tr><td><code>finishedAt</code></td><td><a href="#datetime">DateTime</a>!</td><td></td></tr>
+    <tr><td><code>duration</code></td><td><a href="#duration">Duration</a></td><td></td></tr>
+    <tr><td><code>output</code></td><td><a href="#visualizationoutput">VisualizationOutput</a>!</td><td></td></tr>
+    <tr><td><code>repositories</code></td><td>(first: Int = 100, after: String): <a href="#visualizationrepositoryconnection">VisualizationRepositoryConnection</a>!</td><td></td></tr>
+  </tbody>
+</table>
+
+<hr/>
 
-**Service:** authz
+<h4 id="visualizationimageoutput"><code>VisualizationImageOutput</code></h4>
+
+<p><strong>Service:</strong> changesetreader | <strong>Implements:</strong> <a href="#visualizationoutput">VisualizationOutput</a></p>
+
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>format</code></td><td><a href="#imageformat">ImageFormat</a>!</td><td></td></tr>
+    <tr><td><code>data</code></td><td><a href="#base64">Base64</a>!</td><td></td></tr>
+  </tbody>
+</table>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `node` | <a href="#user">User</a>! |  |
-| `cursor` | String! |  |
+<hr/>
 
----
+<h4 id="visualizationoption"><code>VisualizationOption</code></h4>
 
-#### `VisualizationAvailable`
+<p><strong>Service:</strong> changesetvisualizer</p>
+
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>name</code></td><td>String!</td><td></td></tr>
+    <tr><td><code>value</code></td><td><a href="#object">Object</a></td><td></td></tr>
+    <tr><td><code>type</code></td><td>String!</td><td></td></tr>
+    <tr><td><code>displayName</code></td><td>String!</td><td></td></tr>
+    <tr><td><code>description</code></td><td>String!</td><td></td></tr>
+    <tr><td><code>example</code></td><td>String</td><td></td></tr>
+    <tr><td><code>valid</code></td><td>[String]</td><td></td></tr>
+    <tr><td><code>required</code></td><td>Boolean!</td><td></td></tr>
+  </tbody>
+</table>
 
-**Service:** changesetreader | **Implements:** <a href="#visualization">Visualization</a>
+<hr/>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `id` | ID! |  |
-| `descriptor` | <a href="#visualizationdescriptor">VisualizationDescriptor</a>! |  |
-| `changesetId` | ID! | The changeset (recipe run or batch change) this visualization is available for. |
+<h4 id="visualizationplotlyoutput"><code>VisualizationPlotlyOutput</code></h4>
 
----
+<p><strong>Service:</strong> changesetreader | <strong>Implements:</strong> <a href="#visualizationoutput">VisualizationOutput</a></p>
+
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>data</code></td><td><a href="#base64">Base64</a>!</td><td>Plotly JSON data (MIME type: application/vnd.plotly.v1+json)</td></tr>
+  </tbody>
+</table>
 
-#### `VisualizationConnection`
+<hr/>
 
-**Service:** corechangeset
+<h4 id="visualizationprocessing"><code>VisualizationProcessing</code></h4>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `edges` | [<a href="#visualizationedge">VisualizationEdge</a>!]! |  |
-| `pageInfo` | <a href="#pageinfo">PageInfo</a>! |  |
-| `count` | Int! |  |
+<p><strong>Service:</strong> changesetreader | <strong>Implements:</strong> <a href="#visualization">Visualization</a></p>
 
----
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>id</code></td><td>ID!</td><td></td></tr>
+    <tr><td><code>descriptor</code></td><td><a href="#visualizationdescriptor">VisualizationDescriptor</a>!</td><td></td></tr>
+    <tr><td><code>changesetId</code></td><td>ID!</td><td></td></tr>
+    <tr><td><code>startedAt</code></td><td><a href="#datetime">DateTime</a>!</td><td></td></tr>
+    <tr><td><code>repositories</code></td><td>(first: Int = 100, after: String): <a href="#visualizationrepositoryconnection">VisualizationRepositoryConnection</a>!</td><td></td></tr>
+  </tbody>
+</table>
 
-#### `VisualizationDescriptor`
+<hr/>
 
-**Service:** changesetvisualizer
+<h4 id="visualizationrepository"><code>VisualizationRepository</code></h4>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `options` | [<a href="#visualizationoption">VisualizationOption</a>!]! |  |
-| `name` | String! |  |
-| `displayName` | <a href="#markdown">Markdown</a>! |  |
-| `description` | <a href="#markdown">Markdown</a>! |  |
-| `image` | <a href="#base64">Base64</a>! |  |
+<p><strong>Service:</strong> changesetreader</p>
 
----
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>state</code></td><td><a href="#visualizationrepositoryrunstate">VisualizationRepositoryRunState</a>!</td><td></td></tr>
+    <tr><td><code>stateMessage</code></td><td>String</td><td></td></tr>
+    <tr><td><code>repository</code></td><td><a href="#repository">Repository</a>!</td><td></td></tr>
+  </tbody>
+</table>
 
-#### `VisualizationEdge`
+<hr/>
 
-**Service:** corechangeset
+<h4 id="visualizationrepositoryconnection"><code>VisualizationRepositoryConnection</code></h4>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `node` | <a href="#visualization">Visualization</a>! |  |
-| `cursor` | String! |  |
+<p><strong>Service:</strong> changesetreader</p>
 
----
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>edges</code></td><td>[<a href="#visualizationrepositoryedge">VisualizationRepositoryEdge</a>!]!</td><td></td></tr>
+    <tr><td><code>pageInfo</code></td><td><a href="#pageinfo">PageInfo</a>!</td><td></td></tr>
+    <tr><td><code>count</code></td><td>Int!</td><td></td></tr>
+  </tbody>
+</table>
 
-#### `VisualizationError`
+<hr/>
 
-**Service:** changesetreader | **Implements:** <a href="#visualization">Visualization</a>
+<h4 id="visualizationrepositoryedge"><code>VisualizationRepositoryEdge</code></h4>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `id` | ID! |  |
-| `descriptor` | <a href="#visualizationdescriptor">VisualizationDescriptor</a>! |  |
-| `changesetId` | ID! |  |
-| `startedAt` | <a href="#datetime">DateTime</a>! |  |
-| `finishedAt` | <a href="#datetime">DateTime</a>! |  |
-| `message` | String! |  |
-| `repositories` | (first: Int = 100, after: String): <a href="#visualizationrepositoryconnection">VisualizationRepositoryConnection</a>! |  |
+<p><strong>Service:</strong> changesetreader</p>
 
----
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>node</code></td><td><a href="#visualizationrepository">VisualizationRepository</a>!</td><td></td></tr>
+    <tr><td><code>cursor</code></td><td>String!</td><td></td></tr>
+  </tbody>
+</table>
 
-#### `VisualizationFinished`
+<hr/>
 
-**Service:** changesetreader | **Implements:** <a href="#visualization">Visualization</a>
+<h4 id="yamlrecipebundle"><code>YamlRecipeBundle</code></h4>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `id` | ID! |  |
-| `descriptor` | <a href="#visualizationdescriptor">VisualizationDescriptor</a>! |  |
-| `changesetId` | ID! |  |
-| `startedAt` | <a href="#datetime">DateTime</a>! |  |
-| `finishedAt` | <a href="#datetime">DateTime</a>! |  |
-| `duration` | <a href="#duration">Duration</a> |  |
-| `output` | <a href="#visualizationoutput">VisualizationOutput</a>! |  |
-| `repositories` | (first: Int = 100, after: String): <a href="#visualizationrepositoryconnection">VisualizationRepositoryConnection</a>! |  |
+<p><strong>Service:</strong> changesetreader | <strong>Implements:</strong> <a href="#recipebundle">RecipeBundle</a></p>
 
----
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>yaml</code></td><td><a href="#base64">Base64</a>!</td><td></td></tr>
+    <tr><td><code>requestedVersion</code></td><td>String</td><td></td></tr>
+    <tr><td><code>version</code></td><td>String</td><td></td></tr>
+    <tr><td><code>recipeCount</code></td><td>Int</td><td></td></tr>
+    <tr><td><code>primary</code></td><td><a href="#recipedescriptor">RecipeDescriptor</a></td><td>The primary recipe in this bundle. When specified, only this recipe
+is shown in marketplace categories, hiding other recipes from this bundle.</td></tr>
+  </tbody>
+</table>
 
-#### `VisualizationImageOutput`
+<hr/>
 
-**Service:** changesetreader | **Implements:** <a href="#visualizationoutput">VisualizationOutput</a>
+<h3>Interfaces</h3>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `format` | <a href="#imageformat">ImageFormat</a>! |  |
-| `data` | <a href="#base64">Base64</a>! |  |
+<h4 id="auditlogsdownload"><code>AuditLogsDownload</code></h4>
 
----
+<p><strong>Service:</strong> auditreader</p>
 
-#### `VisualizationOption`
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>id</code></td><td>ID!</td><td></td></tr>
+  </tbody>
+</table>
 
-**Service:** changesetvisualizer
+<hr/>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `name` | String! |  |
-| `value` | <a href="#object">Object</a> |  |
-| `type` | String! |  |
-| `displayName` | String! |  |
-| `description` | String! |  |
-| `example` | String |  |
-| `valid` | [String] |  |
-| `required` | Boolean! |  |
+<h4 id="bulkpullrequestaction"><code>BulkPullRequestAction</code></h4>
 
----
+<p><strong>Service:</strong> changelogreader</p>
 
-#### `VisualizationPlotlyOutput`
-
-**Service:** changesetreader | **Implements:** <a href="#visualizationoutput">VisualizationOutput</a>
-
-| Field | Type | Description |
-|-------|------|-------------|
-| `data` | <a href="#base64">Base64</a>! | Plotly JSON data (MIME type: application/vnd.plotly.v1+json) |
-
----
-
-#### `VisualizationProcessing`
-
-**Service:** changesetreader | **Implements:** <a href="#visualization">Visualization</a>
-
-| Field | Type | Description |
-|-------|------|-------------|
-| `id` | ID! |  |
-| `descriptor` | <a href="#visualizationdescriptor">VisualizationDescriptor</a>! |  |
-| `changesetId` | ID! |  |
-| `startedAt` | <a href="#datetime">DateTime</a>! |  |
-| `repositories` | (first: Int = 100, after: String): <a href="#visualizationrepositoryconnection">VisualizationRepositoryConnection</a>! |  |
-
----
-
-#### `VisualizationRepository`
-
-**Service:** changesetreader
-
-| Field | Type | Description |
-|-------|------|-------------|
-| `state` | <a href="#visualizationrepositoryrunstate">VisualizationRepositoryRunState</a>! |  |
-| `stateMessage` | String |  |
-| `repository` | <a href="#repository">Repository</a>! |  |
-
----
-
-#### `VisualizationRepositoryConnection`
-
-**Service:** changesetreader
-
-| Field | Type | Description |
-|-------|------|-------------|
-| `edges` | [<a href="#visualizationrepositoryedge">VisualizationRepositoryEdge</a>!]! |  |
-| `pageInfo` | <a href="#pageinfo">PageInfo</a>! |  |
-| `count` | Int! |  |
-
----
-
-#### `VisualizationRepositoryEdge`
-
-**Service:** changesetreader
-
-| Field | Type | Description |
-|-------|------|-------------|
-| `node` | <a href="#visualizationrepository">VisualizationRepository</a>! |  |
-| `cursor` | String! |  |
-
----
-
-#### `YamlRecipeBundle`
-
-**Service:** changesetreader | **Implements:** <a href="#recipebundle">RecipeBundle</a>
-
-| Field | Type | Description |
-|-------|------|-------------|
-| `yaml` | <a href="#base64">Base64</a>! |  |
-| `requestedVersion` | String |  |
-| `version` | String |  |
-| `recipeCount` | Int |  |
-| `primary` | <a href="#recipedescriptor">RecipeDescriptor</a> | The primary recipe in this bundle. When specified, only this recipe
-is shown in marketplace categories, hiding other recipes from this bundle. |
-
----
-
-### Interfaces
-
-#### `AuditLogsDownload`
-
-**Service:** auditreader
-
-| Field | Type | Description |
-|-------|------|-------------|
-| `id` | ID! |  |
-
----
-
-#### `BulkPullRequestAction`
-
-**Service:** changelogreader
-
-A bulk pull request action (approve, merge, close) that operates on potentially
+<p>A bulk pull request action (approve, merge, close) that operates on potentially
 multiple repositories. Use `__typename` to determine the current state.
 
 Each `BulkPullRequestAction` contains individual `PullRequestAction` entries
-representing the state of each repository targeted by the bulk operation.
+representing the state of each repository targeted by the bulk operation.</p>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `id` | ID! |  |
-| `actionType` | <a href="#pullrequestactiontype">PullRequestActionType</a>! |  |
-| `user` | <a href="#user">User</a>! |  |
-| `results` | (first: Int = 50, after: String, where: <a href="#pullrequestactionwhereinput">PullRequestActionWhereInput</a>, orderBy: [<a href="#pullrequestactionorderbyinput">PullRequestActionOrderByInput</a>!]): <a href="#pullrequestactionconnection">PullRequestActionConnection</a>! |  |
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>id</code></td><td>ID!</td><td></td></tr>
+    <tr><td><code>actionType</code></td><td><a href="#pullrequestactiontype">PullRequestActionType</a>!</td><td></td></tr>
+    <tr><td><code>user</code></td><td><a href="#user">User</a>!</td><td></td></tr>
+    <tr><td><code>results</code></td><td>(first: Int = 50, after: String, where: <a href="#pullrequestactionwhereinput">PullRequestActionWhereInput</a>, orderBy: [<a href="#pullrequestactionorderbyinput">PullRequestActionOrderByInput</a>!]): <a href="#pullrequestactionconnection">PullRequestActionConnection</a>!</td><td></td></tr>
+  </tbody>
+</table>
 
----
+<hr/>
 
-#### `ChangelogEntry`
+<h4 id="changelogentry"><code>ChangelogEntry</code></h4>
 
-**Service:** changelogreader
+<p><strong>Service:</strong> changelogreader</p>
 
-A single entry in the changelog — either a commit or a pull request.
-Use `__typename` to distinguish between `ChangelogCommit` and `ChangelogPullRequest`.
+<p>A single entry in the changelog — either a commit or a pull request.
+Use `__typename` to distinguish between `ChangelogCommit` and `ChangelogPullRequest`.</p>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `id` | ID! |  |
-| `title` | String! | Commit message (for commits) or PR title (for pull requests). |
-| `author` | <a href="#changeparticipant">ChangeParticipant</a>! | The author of the commit or PR. |
-| `repository` | <a href="#repository">Repository</a>! | The repository this entry belongs to. |
-| `url` | String! | URL to the commit or PR in the VCS provider. |
-| `branch` | String! | The target branch (for PRs) or the branch committed to (for commits). |
-| `updatedAt` | <a href="#datetime">DateTime</a>! | When this entry was last updated in the VCS provider. |
-| `createdAt` | <a href="#datetime">DateTime</a>! | When this entry was created in the VCS provider. |
-| `changeset` | <a href="#organizationchangeset">OrganizationChangeset</a> | If this activity was originated by Moderne, the changeset it belongs to. |
-| `buildState` | <a href="#buildstate">BuildState</a> | CI status (e.g. from GitHub Actions, GitLab pipelines).
-Null if no CI is configured or status has not been fetched yet. |
-| `diffstat` | <a href="#diffstat">DiffStat</a>! | Lines added and removed. |
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>id</code></td><td>ID!</td><td></td></tr>
+    <tr><td><code>title</code></td><td>String!</td><td>Commit message (for commits) or PR title (for pull requests).</td></tr>
+    <tr><td><code>author</code></td><td><a href="#changeparticipant">ChangeParticipant</a>!</td><td>The author of the commit or PR.</td></tr>
+    <tr><td><code>repository</code></td><td><a href="#repository">Repository</a>!</td><td>The repository this entry belongs to.</td></tr>
+    <tr><td><code>url</code></td><td>String!</td><td>URL to the commit or PR in the VCS provider.</td></tr>
+    <tr><td><code>branch</code></td><td>String!</td><td>The target branch (for PRs) or the branch committed to (for commits).</td></tr>
+    <tr><td><code>updatedAt</code></td><td><a href="#datetime">DateTime</a>!</td><td>When this entry was last updated in the VCS provider.</td></tr>
+    <tr><td><code>createdAt</code></td><td><a href="#datetime">DateTime</a>!</td><td>When this entry was created in the VCS provider.</td></tr>
+    <tr><td><code>changeset</code></td><td><a href="#organizationchangeset">OrganizationChangeset</a></td><td>If this activity was originated by Moderne, the changeset it belongs to.</td></tr>
+    <tr><td><code>buildState</code></td><td><a href="#buildstate">BuildState</a></td><td>CI status (e.g. from GitHub Actions, GitLab pipelines).
+Null if no CI is configured or status has not been fetched yet.</td></tr>
+    <tr><td><code>diffstat</code></td><td><a href="#diffstat">DiffStat</a>!</td><td>Lines added and removed.</td></tr>
+  </tbody>
+</table>
 
----
+<hr/>
 
-#### `CommitOptions`
+<h4 id="commitoptions"><code>CommitOptions</code></h4>
 
-**Service:** changesetcommitter
+<p><strong>Service:</strong> changesetcommitter</p>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `branchName` | String |  |
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>branchName</code></td><td>String</td><td></td></tr>
+  </tbody>
+</table>
 
----
+<hr/>
 
-#### `DataTable`
+<h4 id="datatable"><code>DataTable</code></h4>
 
-**Service:** corechangeset
+<p><strong>Service:</strong> corechangeset</p>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `id` | ID! |  |
-| `dataTable` | <a href="#datatabledescriptor">DataTableDescriptor</a>! |  |
-| `instanceName` | String! | A human-readable name for this data table instance, describing what it contains.
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>id</code></td><td>ID!</td><td></td></tr>
+    <tr><td><code>dataTable</code></td><td><a href="#datatabledescriptor">DataTableDescriptor</a>!</td><td></td></tr>
+    <tr><td><code>instanceName</code></td><td>String!</td><td>A human-readable name for this data table instance, describing what it contains.
 For example, "Method calls matching \`java.util.List add(..)\`".
-Defaults to the data table's display name when not explicitly set. |
-| `group` | String | The group identifying this data table bucket. For community tables this is
-the group name (e.g., "architecture"). Null for ungrouped/private tables. |
+Defaults to the data table's display name when not explicitly set.</td></tr>
+    <tr><td><code>group</code></td><td>String</td><td>The group identifying this data table bucket. For community tables this is
+the group name (e.g., "architecture"). Null for ungrouped/private tables.</td></tr>
+  </tbody>
+</table>
 
----
+<hr/>
 
-#### `DevCenterRun`
+<h4 id="devcenterrun"><code>DevCenterRun</code></h4>
 
-**Service:** changesetreader
+<p><strong>Service:</strong> changesetreader</p>
 
-A DevCenter run represents the execution of a DevCenter recipe.
-Use `__typename` to determine the current state.
+<p>A DevCenter run represents the execution of a DevCenter recipe.
+Use `__typename` to determine the current state.</p>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `id` | ID! |  |
-| `startedAt` | <a href="#datetime">DateTime</a>! | When this DevCenter run started. |
-| `changeset` | <a href="#organizationchangeset">OrganizationChangeset</a> | The underlying recipe run changeset. |
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>id</code></td><td>ID!</td><td></td></tr>
+    <tr><td><code>startedAt</code></td><td><a href="#datetime">DateTime</a>!</td><td>When this DevCenter run started.</td></tr>
+    <tr><td><code>changeset</code></td><td><a href="#organizationchangeset">OrganizationChangeset</a></td><td>The underlying recipe run changeset.</td></tr>
+  </tbody>
+</table>
 
----
+<hr/>
 
-#### `FileChange`
+<h4 id="filechange"><code>FileChange</code></h4>
 
-**Service:** corechangeset
+<p><strong>Service:</strong> corechangeset</p>
 
-A change to a single file within a repository changeset.
+<p>A change to a single file within a repository changeset.</p>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `path` | <a href="#path">Path</a>! | Path to the file relative to repository root. |
-| `beforeSourcePath` | <a href="#path">Path</a> | The source path before the change (from the diff's `--- a/...` line).
-Null for newly created files. |
-| `afterSourcePath` | <a href="#path">Path</a> | The source path after the change (from the diff's `+++ b/...` line).
-Null for deleted files. |
-| `diff` | (markupLevel: <a href="#markuplevel">MarkupLevel</a> = ERROR, showWhitespaceOnlyChanges: Boolean = true): <a href="#patch">Patch</a> | Get the diff for this file. |
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>path</code></td><td><a href="#path">Path</a>!</td><td>Path to the file relative to repository root.</td></tr>
+    <tr><td><code>beforeSourcePath</code></td><td><a href="#path">Path</a></td><td>The source path before the change (from the diff's `--- a/...` line).
+Null for newly created files.</td></tr>
+    <tr><td><code>afterSourcePath</code></td><td><a href="#path">Path</a></td><td>The source path after the change (from the diff's `+++ b/...` line).
+Null for deleted files.</td></tr>
+    <tr><td><code>diff</code></td><td>(markupLevel: <a href="#markuplevel">MarkupLevel</a> = ERROR, showWhitespaceOnlyChanges: Boolean = true): <a href="#patch">Patch</a></td><td>Get the diff for this file.</td></tr>
+  </tbody>
+</table>
 
----
+<hr/>
 
-#### `Marker`
+<h4 id="marker"><code>Marker</code></h4>
 
-**Service:** corechangeset
+<p><strong>Service:</strong> corechangeset</p>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `id` | ID! |  |
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>id</code></td><td>ID!</td><td></td></tr>
+  </tbody>
+</table>
 
----
+<hr/>
 
-#### `Message`
+<h4 id="message"><code>Message</code></h4>
 
-**Service:** moddy
+<p><strong>Service:</strong> moddy</p>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `id` | ID! |  |
-| `user` | <a href="#user">User</a>! |  |
-| `state` | <a href="#messagestate">MessageState</a>! |  |
-| `lastUpdatedAt` | <a href="#datetime">DateTime</a>! |  |
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>id</code></td><td>ID!</td><td></td></tr>
+    <tr><td><code>user</code></td><td><a href="#user">User</a>!</td><td></td></tr>
+    <tr><td><code>state</code></td><td><a href="#messagestate">MessageState</a>!</td><td></td></tr>
+    <tr><td><code>lastUpdatedAt</code></td><td><a href="#datetime">DateTime</a>!</td><td></td></tr>
+  </tbody>
+</table>
 
----
+<hr/>
 
-#### `OrganizationCommit`
+<h4 id="organizationcommit"><code>OrganizationCommit</code></h4>
 
-**Service:** changesetcommitter
+<p><strong>Service:</strong> changesetcommitter</p>
 
-An organization-level commit operation represents applying changes across multiple
-repositories. Use `__typename` to determine the current state.
+<p>An organization-level commit operation represents applying changes across multiple
+repositories. Use `__typename` to determine the current state.</p>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `id` | ID! |  |
-| `user` | <a href="#user">User</a>! | The user who initiated the commit. |
-| `options` | <a href="#commitoptions">CommitOptions</a>! | The commit options (branch, PR settings, etc.). |
-| `message` | String! | The commit message. |
-| `extendedMessage` | <a href="#base64">Base64</a> | Extended commit message (Base64 encoded). |
-| `repositories` | (first: Int = 50, after: String, where: <a href="#repositorycommitwhereinput">RepositoryCommitWhereInput</a>, orderBy: [<a href="#repositorycommitorderbyinput">RepositoryCommitOrderByInput</a>!]): <a href="#repositorycommitconnection">RepositoryCommitConnection</a>! | Paginated results per repository. |
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>id</code></td><td>ID!</td><td></td></tr>
+    <tr><td><code>user</code></td><td><a href="#user">User</a>!</td><td>The user who initiated the commit.</td></tr>
+    <tr><td><code>options</code></td><td><a href="#commitoptions">CommitOptions</a>!</td><td>The commit options (branch, PR settings, etc.).</td></tr>
+    <tr><td><code>message</code></td><td>String!</td><td>The commit message.</td></tr>
+    <tr><td><code>extendedMessage</code></td><td><a href="#base64">Base64</a></td><td>Extended commit message (Base64 encoded).</td></tr>
+    <tr><td><code>repositories</code></td><td>(first: Int = 50, after: String, where: <a href="#repositorycommitwhereinput">RepositoryCommitWhereInput</a>, orderBy: [<a href="#repositorycommitorderbyinput">RepositoryCommitOrderByInput</a>!]): <a href="#repositorycommitconnection">RepositoryCommitConnection</a>!</td><td>Paginated results per repository.</td></tr>
+  </tbody>
+</table>
 
----
+<hr/>
 
-#### `PullRequestAction`
+<h4 id="pullrequestaction"><code>PullRequestAction</code></h4>
 
-**Service:** changelogreader
+<p><strong>Service:</strong> changelogreader</p>
 
-The state of an individual repository within a `BulkPullRequestAction`.
-Use `__typename` to determine the current state.
+<p>The state of an individual repository within a `BulkPullRequestAction`.
+Use `__typename` to determine the current state.</p>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `pullRequest` | <a href="#pullrequestref">PullRequestRef</a>! |  |
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>pullRequest</code></td><td><a href="#pullrequestref">PullRequestRef</a>!</td><td></td></tr>
+  </tbody>
+</table>
 
----
+<hr/>
 
-#### `RecipeBundle`
+<h4 id="recipebundle"><code>RecipeBundle</code></h4>
 
-**Service:** changesetreader
+<p><strong>Service:</strong> changesetreader</p>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `requestedVersion` | String |  |
-| `version` | String |  |
-| `recipeCount` | Int | Number of top-level recipes contributed by this bundle's package.
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>requestedVersion</code></td><td>String</td><td></td></tr>
+    <tr><td><code>version</code></td><td>String</td><td></td></tr>
+    <tr><td><code>recipeCount</code></td><td>Int</td><td>Number of top-level recipes contributed by this bundle's package.
 Null when the bundle has not yet been resolved into the marketplace
-(e.g. an installation still in progress). |
+(e.g. an installation still in progress).</td></tr>
+  </tbody>
+</table>
 
----
+<hr/>
 
-#### `RecipeDetail`
+<h4 id="recipedetail"><code>RecipeDetail</code></h4>
 
-**Service:** recipemarketplace
+<p><strong>Service:</strong> recipemarketplace</p>
 
-State machine for recipe detail resolution. Querying the `detail` field on a
+<p>State machine for recipe detail resolution. Querying the `detail` field on a
 RecipeDescriptor triggers background resolution of the full recipe bundle.
-Poll until `__typename` is `RecipeDetailFinished`.
+Poll until `__typename` is `RecipeDetailFinished`.</p>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `startedAt` | <a href="#datetime">DateTime</a>! |  |
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>startedAt</code></td><td><a href="#datetime">DateTime</a>!</td><td></td></tr>
+  </tbody>
+</table>
 
----
+<hr/>
 
-#### `RecipeInstallation`
+<h4 id="recipeinstallation"><code>RecipeInstallation</code></h4>
 
-**Service:** recipemarketplace
+<p><strong>Service:</strong> recipemarketplace</p>
 
-Common fields for all recipe installation states.
-Use `__typename` to determine the current state.
+<p>Common fields for all recipe installation states.
+Use `__typename` to determine the current state.</p>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `id` | ID! |  |
-| `bundle` | <a href="#recipebundle">RecipeBundle</a>! |  |
-| `startedAt` | <a href="#datetime">DateTime</a>! |  |
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>id</code></td><td>ID!</td><td></td></tr>
+    <tr><td><code>bundle</code></td><td><a href="#recipebundle">RecipeBundle</a>!</td><td></td></tr>
+    <tr><td><code>startedAt</code></td><td><a href="#datetime">DateTime</a>!</td><td></td></tr>
+  </tbody>
+</table>
 
----
+<hr/>
 
-#### `RepositoryChangeset`
+<h4 id="repositorychangeset"><code>RepositoryChangeset</code></h4>
 
-**Service:** corechangeset
+<p><strong>Service:</strong> corechangeset</p>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `repository` | <a href="#repository">Repository</a>! |  |
-| `authorization` | <a href="#repositoryauthorization">RepositoryAuthorization</a>! | Authorization status for accessing this repository's content.
-Check this before accessing file results. |
-| `results` | (first: Int = 100, after: String, where: <a href="#filechangewhereinput">FileChangeWhereInput</a>, orderBy: [<a href="#filechangeorderbyinput">FileChangeOrderByInput</a>!]): <a href="#filechangeconnection">FileChangeConnection</a>! | File-level changes within this repository. |
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>repository</code></td><td><a href="#repository">Repository</a>!</td><td></td></tr>
+    <tr><td><code>authorization</code></td><td><a href="#repositoryauthorization">RepositoryAuthorization</a>!</td><td>Authorization status for accessing this repository's content.
+Check this before accessing file results.</td></tr>
+    <tr><td><code>results</code></td><td>(first: Int = 100, after: String, where: <a href="#filechangewhereinput">FileChangeWhereInput</a>, orderBy: [<a href="#filechangeorderbyinput">FileChangeOrderByInput</a>!]): <a href="#filechangeconnection">FileChangeConnection</a>!</td><td>File-level changes within this repository.</td></tr>
+  </tbody>
+</table>
 
----
+<hr/>
 
-#### `RepositoryCommit`
+<h4 id="repositorycommit"><code>RepositoryCommit</code></h4>
 
-**Service:** changesetcommitter
+<p><strong>Service:</strong> changesetcommitter</p>
 
-A commit result for a single repository within an organization-level commit operation.
-Use `__typename` to determine the current state.
+<p>A commit result for a single repository within an organization-level commit operation.
+Use `__typename` to determine the current state.</p>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `repository` | <a href="#repository">Repository</a>! |  |
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>repository</code></td><td><a href="#repository">Repository</a>!</td><td></td></tr>
+  </tbody>
+</table>
 
----
+<hr/>
 
-#### `RepositoryCommitSucceeded`
+<h4 id="repositorycommitsucceeded"><code>RepositoryCommitSucceeded</code></h4>
 
-**Service:** changesetcommitter
+<p><strong>Service:</strong> changesetcommitter</p>
 
-Repository commit completed successfully.
-Use `__typename` to determine the specific commit type.
+<p>Repository commit completed successfully.
+Use `__typename` to determine the specific commit type.</p>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `repository` | <a href="#repository">Repository</a>! |  |
-| `startedAt` | <a href="#datetime">DateTime</a>! |  |
-| `finishedAt` | <a href="#datetime">DateTime</a>! |  |
-| `resultLink` | String | Link to the commit or pull request result. |
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>repository</code></td><td><a href="#repository">Repository</a>!</td><td></td></tr>
+    <tr><td><code>startedAt</code></td><td><a href="#datetime">DateTime</a>!</td><td></td></tr>
+    <tr><td><code>finishedAt</code></td><td><a href="#datetime">DateTime</a>!</td><td></td></tr>
+    <tr><td><code>resultLink</code></td><td>String</td><td>Link to the commit or pull request result.</td></tr>
+  </tbody>
+</table>
 
----
+<hr/>
 
-#### `RepositoryRecipeRun`
+<h4 id="repositoryreciperun"><code>RepositoryRecipeRun</code></h4>
 
-**Service:** changesetreader
+<p><strong>Service:</strong> changesetreader</p>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `repository` | <a href="#repository">Repository</a>! |  |
-| `authorization` | <a href="#repositoryauthorization">RepositoryAuthorization</a>! |  |
-| `syncStatus` | <a href="#repositorysyncstatus">RepositorySyncStatus</a> |  |
-| `results` | (first: Int = 100, after: String, where: <a href="#filechangewhereinput">FileChangeWhereInput</a>, orderBy: [<a href="#filechangeorderbyinput">FileChangeOrderByInput</a>!]): <a href="#filechangeconnection">FileChangeConnection</a>! |  |
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>repository</code></td><td><a href="#repository">Repository</a>!</td><td></td></tr>
+    <tr><td><code>authorization</code></td><td><a href="#repositoryauthorization">RepositoryAuthorization</a>!</td><td></td></tr>
+    <tr><td><code>syncStatus</code></td><td><a href="#repositorysyncstatus">RepositorySyncStatus</a></td><td></td></tr>
+    <tr><td><code>results</code></td><td>(first: Int = 100, after: String, where: <a href="#filechangewhereinput">FileChangeWhereInput</a>, orderBy: [<a href="#filechangeorderbyinput">FileChangeOrderByInput</a>!]): <a href="#filechangeconnection">FileChangeConnection</a>!</td><td></td></tr>
+  </tbody>
+</table>
 
----
+<hr/>
 
-#### `ScmConnection`
+<h4 id="scmconnection"><code>ScmConnection</code></h4>
 
-**Service:** authz
+<p><strong>Service:</strong> authz</p>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `resourceId` | String! |  |
-| `isAuthorized` | Boolean! |  |
-| `tokens` | [<a href="#scmtokeninfo">ScmTokenInfo</a>!]! |  |
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>resourceId</code></td><td>String!</td><td></td></tr>
+    <tr><td><code>isAuthorized</code></td><td>Boolean!</td><td></td></tr>
+    <tr><td><code>tokens</code></td><td>[<a href="#scmtokeninfo">ScmTokenInfo</a>!]!</td><td></td></tr>
+  </tbody>
+</table>
 
----
+<hr/>
 
-#### `Visualization`
+<h4 id="visualization"><code>Visualization</code></h4>
 
-**Service:** corechangeset
+<p><strong>Service:</strong> corechangeset</p>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `id` | ID! |  |
-| `descriptor` | <a href="#visualizationdescriptor">VisualizationDescriptor</a>! |  |
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>id</code></td><td>ID!</td><td></td></tr>
+    <tr><td><code>descriptor</code></td><td><a href="#visualizationdescriptor">VisualizationDescriptor</a>!</td><td></td></tr>
+  </tbody>
+</table>
 
----
+<hr/>
 
-#### `VisualizationOutput`
+<h4 id="visualizationoutput"><code>VisualizationOutput</code></h4>
 
-**Service:** changesetreader
+<p><strong>Service:</strong> changesetreader</p>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `data` | <a href="#base64">Base64</a>! |  |
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>data</code></td><td><a href="#base64">Base64</a>!</td><td></td></tr>
+  </tbody>
+</table>
 
----
+<hr/>
 
-### Enums
+<h3>Enums</h3>
 
-#### `AccessTokenOrderByField`
+<h4 id="accesstokenorderbyfield"><code>AccessTokenOrderByField</code></h4>
 
-**Service:** authz
+<p><strong>Service:</strong> authz</p>
 
-* `CREATED`
-* `EXPIRES_AT`
+<ul>
+  <li><code>CREATED</code></li>
+  <li><code>EXPIRES_AT</code></li>
+</ul>
 
----
+<hr/>
 
-#### `AuditActionType`
+<h4 id="auditactiontype"><code>AuditActionType</code></h4>
 
-**Service:** auditreader
+<p><strong>Service:</strong> auditreader</p>
 
-* `CREATE`
-* `READ`
-* `UPDATE`
-* `DELETE`
+<ul>
+  <li><code>CREATE</code></li>
+  <li><code>READ</code></li>
+  <li><code>UPDATE</code></li>
+  <li><code>DELETE</code></li>
+</ul>
 
----
+<hr/>
 
-#### `AuditLogExportFormat`
+<h4 id="auditlogexportformat"><code>AuditLogExportFormat</code></h4>
 
-**Service:** auditreader
+<p><strong>Service:</strong> auditreader</p>
 
-* `CEF`
-* `CSV`
+<ul>
+  <li><code>CEF</code></li>
+  <li><code>CSV</code></li>
+</ul>
 
----
+<hr/>
 
-#### `AuditLogOrderByField`
+<h4 id="auditlogorderbyfield"><code>AuditLogOrderByField</code></h4>
 
-**Service:** auditreader
+<p><strong>Service:</strong> auditreader</p>
 
-* `TIMESTAMP`
-* `USER_ID`
-* `TARGET`
-* `ACTION`
+<ul>
+  <li><code>TIMESTAMP</code></li>
+  <li><code>USER_ID</code></li>
+  <li><code>TARGET</code></li>
+  <li><code>ACTION</code></li>
+</ul>
 
----
+<hr/>
 
-#### `AuditLogsDownloadOrderByField`
+<h4 id="auditlogsdownloadorderbyfield"><code>AuditLogsDownloadOrderByField</code></h4>
 
-**Service:** auditreader
+<p><strong>Service:</strong> auditreader</p>
 
-* `STARTED_AT`
+<ul>
+  <li><code>STARTED_AT</code></li>
+</ul>
 
----
+<hr/>
 
-#### `AuditOutcome`
+<h4 id="auditoutcome"><code>AuditOutcome</code></h4>
 
-**Service:** auditreader
+<p><strong>Service:</strong> auditreader</p>
 
-* `SUCCESS`
-* `FAILURE`
+<ul>
+  <li><code>SUCCESS</code></li>
+  <li><code>FAILURE</code></li>
+</ul>
 
----
+<hr/>
 
-#### `BuildState`
+<h4 id="buildstate"><code>BuildState</code></h4>
 
-**Service:** changelogreader
+<p><strong>Service:</strong> changelogreader</p>
 
-* `PENDING`
-* `IN_PROGRESS`
-* `FAILED`
-* `SKIPPED`
-* `SUCCESSFUL`
-* `NOT_REQUIRED`
+<ul>
+  <li><code>PENDING</code></li>
+  <li><code>IN_PROGRESS</code></li>
+  <li><code>FAILED</code></li>
+  <li><code>SKIPPED</code></li>
+  <li><code>SUCCESSFUL</code></li>
+  <li><code>NOT_REQUIRED</code></li>
+</ul>
 
----
+<hr/>
 
-#### `BulkPullRequestActionOrderByField`
+<h4 id="bulkpullrequestactionorderbyfield"><code>BulkPullRequestActionOrderByField</code></h4>
 
-**Service:** changelogreader
+<p><strong>Service:</strong> changelogreader</p>
 
-* `CREATED_AT`
-* `STARTED_AT`
-* `FINISHED_AT`
+<ul>
+  <li><code>CREATED_AT</code></li>
+  <li><code>STARTED_AT</code></li>
+  <li><code>FINISHED_AT</code></li>
+</ul>
 
----
+<hr/>
 
-#### `BulkPullRequestActionState`
+<h4 id="bulkpullrequestactionstate"><code>BulkPullRequestActionState</code></h4>
 
-**Service:** changelogreader
+<p><strong>Service:</strong> changelogreader</p>
 
-The lifecycle state of a `BulkPullRequestAction`. Matches the `__typename`
-of the concrete state types (Queued, Running, Finished, Canceled, Error).
+<p>The lifecycle state of a `BulkPullRequestAction`. Matches the `__typename`
+of the concrete state types (Queued, Running, Finished, Canceled, Error).</p>
 
-* `QUEUED`
-* `RUNNING`
-* `FINISHED`
-* `CANCELED`
-* `ERROR`
+<ul>
+  <li><code>QUEUED</code></li>
+  <li><code>RUNNING</code></li>
+  <li><code>FINISHED</code></li>
+  <li><code>CANCELED</code></li>
+  <li><code>ERROR</code></li>
+</ul>
 
----
+<hr/>
 
-#### `ChangelogEntryOrderByField`
+<h4 id="changelogentryorderbyfield"><code>ChangelogEntryOrderByField</code></h4>
 
-**Service:** changelogreader
+<p><strong>Service:</strong> changelogreader</p>
 
-* `UPDATED_AT`
-* `CREATED_AT`
-* `TITLE`
-* `REPOSITORY_PATH`
+<ul>
+  <li><code>UPDATED_AT</code></li>
+  <li><code>CREATED_AT</code></li>
+  <li><code>TITLE</code></li>
+  <li><code>REPOSITORY_PATH</code></li>
+</ul>
 
----
+<hr/>
 
-#### `ChangelogEntryType`
+<h4 id="changelogentrytype"><code>ChangelogEntryType</code></h4>
 
-**Service:** changelogreader
+<p><strong>Service:</strong> changelogreader</p>
 
-Discriminator for filtering by entry type.
+<p>Discriminator for filtering by entry type.</p>
 
-* `COMMIT`
-* `PULL_REQUEST`
+<ul>
+  <li><code>COMMIT</code></li>
+  <li><code>PULL_REQUEST</code></li>
+</ul>
 
----
+<hr/>
 
-#### `ChangelogParticipantOrderByField`
+<h4 id="changelogparticipantorderbyfield"><code>ChangelogParticipantOrderByField</code></h4>
 
-**Service:** changelogreader
+<p><strong>Service:</strong> changelogreader</p>
 
-* `USERNAME`
-* `EMAIL`
-* `NAME`
+<ul>
+  <li><code>USERNAME</code></li>
+  <li><code>EMAIL</code></li>
+  <li><code>NAME</code></li>
+</ul>
 
----
+<hr/>
 
-#### `CommitOption`
+<h4 id="commitoption"><code>CommitOption</code></h4>
 
-**Service:** changesetcommitter
+<p><strong>Service:</strong> changesetcommitter</p>
 
-* `DIRECT`
-* `BRANCH`
-* `FORK`
-* `PULL_REQUEST`
-* `FORK_AND_PULL_REQUEST`
-* `NONE`
+<ul>
+  <li><code>DIRECT</code></li>
+  <li><code>BRANCH</code></li>
+  <li><code>FORK</code></li>
+  <li><code>PULL_REQUEST</code></li>
+  <li><code>FORK_AND_PULL_REQUEST</code></li>
+  <li><code>NONE</code></li>
+</ul>
 
----
+<hr/>
 
-#### `ConnectorOrderByField`
+<h4 id="connectororderbyfield"><code>ConnectorOrderByField</code></h4>
 
-**Service:** gateway
+<p><strong>Service:</strong> gateway</p>
 
-* `NICKNAME`
-* `VERSION`
+<ul>
+  <li><code>NICKNAME</code></li>
+  <li><code>VERSION</code></li>
+</ul>
 
----
+<hr/>
 
-#### `ConnectorToolType`
+<h4 id="connectortooltype"><code>ConnectorToolType</code></h4>
 
-**Service:** gateway
+<p><strong>Service:</strong> gateway</p>
 
-* `GITHUB`
-* `GITLAB`
-* `BITBUCKET`
-* `BITBUCKET_CLOUD`
-* `AZURE_DEVOPS`
-* `ARTIFACTORY`
-* `MAVEN`
-* `PYPI`
-* `NPM`
-* `NUGET`
-* `HTTP_TOOL`
-* `ORGANIZATION`
-* `LLM`
-* `S3`
+<ul>
+  <li><code>GITHUB</code></li>
+  <li><code>GITLAB</code></li>
+  <li><code>BITBUCKET</code></li>
+  <li><code>BITBUCKET_CLOUD</code></li>
+  <li><code>AZURE_DEVOPS</code></li>
+  <li><code>ARTIFACTORY</code></li>
+  <li><code>MAVEN</code></li>
+  <li><code>PYPI</code></li>
+  <li><code>NPM</code></li>
+  <li><code>NUGET</code></li>
+  <li><code>HTTP_TOOL</code></li>
+  <li><code>ORGANIZATION</code></li>
+  <li><code>LLM</code></li>
+  <li><code>S3</code></li>
+</ul>
 
----
+<hr/>
 
-#### `ContributorRole`
+<h4 id="contributorrole"><code>ContributorRole</code></h4>
 
-**Service:** changelogreader
+<p><strong>Service:</strong> changelogreader</p>
 
-The participant's role for filtering.
+<p>The participant's role for filtering.</p>
 
-* `AUTHOR`
-* `ASSIGNEE`
-* `CLOSED_BY`
-* `REVIEWER`
+<ul>
+  <li><code>AUTHOR</code></li>
+  <li><code>ASSIGNEE</code></li>
+  <li><code>CLOSED_BY</code></li>
+  <li><code>REVIEWER</code></li>
+</ul>
 
----
+<hr/>
 
-#### `ConversationOrderByField`
+<h4 id="conversationorderbyfield"><code>ConversationOrderByField</code></h4>
 
-**Service:** moddy
+<p><strong>Service:</strong> moddy</p>
 
-* `STARTED_AT`
-* `LAST_UPDATED_AT`
+<ul>
+  <li><code>STARTED_AT</code></li>
+  <li><code>LAST_UPDATED_AT</code></li>
+</ul>
 
----
+<hr/>
 
-#### `ConversationPhase`
+<h4 id="conversationphase"><code>ConversationPhase</code></h4>
 
-**Service:** moddy
+<p><strong>Service:</strong> moddy</p>
 
-* `IDLE`
-* `AWAITING_LLM`
-* `STREAMING_TEXT`
-* `TOOL_RUNNING`
-* `ERRORED`
+<ul>
+  <li><code>IDLE</code></li>
+  <li><code>AWAITING_LLM</code></li>
+  <li><code>STREAMING_TEXT</code></li>
+  <li><code>TOOL_RUNNING</code></li>
+  <li><code>ERRORED</code></li>
+</ul>
 
----
+<hr/>
 
-#### `DataTableFormat`
+<h4 id="datatableformat"><code>DataTableFormat</code></h4>
 
-**Service:** corechangeset
+<p><strong>Service:</strong> corechangeset</p>
 
-* `CSV`
-* `XLSX`
+<ul>
+  <li><code>CSV</code></li>
+  <li><code>XLSX</code></li>
+</ul>
 
----
+<hr/>
 
-#### `DataTableOrderByField`
+<h4 id="datatableorderbyfield"><code>DataTableOrderByField</code></h4>
 
-**Service:** corechangeset
+<p><strong>Service:</strong> corechangeset</p>
 
-* `DATA_TABLE`
-* `STARTED_AT`
+<ul>
+  <li><code>DATA_TABLE</code></li>
+  <li><code>STARTED_AT</code></li>
+</ul>
 
----
+<hr/>
 
-#### `DevCenterAggregation`
+<h4 id="devcenteraggregation"><code>DevCenterAggregation</code></h4>
 
-**Service:** changesetreader
+<p><strong>Service:</strong> changesetreader</p>
 
-How DevCenter card results are aggregated across repositories.
+<p>How DevCenter card results are aggregated across repositories.</p>
 
-* `PER_REPOSITORY`
-* `PER_OCCURRENCE`
+<ul>
+  <li><code>PER_REPOSITORY</code></li>
+  <li><code>PER_OCCURRENCE</code></li>
+</ul>
 
----
+<hr/>
 
-#### `DevCenterRunOrderByField`
+<h4 id="devcenterrunorderbyfield"><code>DevCenterRunOrderByField</code></h4>
 
-**Service:** changesetreader
+<p><strong>Service:</strong> changesetreader</p>
 
-* `STARTED_AT`
-* `STATE`
+<ul>
+  <li><code>STARTED_AT</code></li>
+  <li><code>STATE</code></li>
+</ul>
 
----
+<hr/>
 
-#### `DevCenterRunState`
+<h4 id="devcenterrunstate"><code>DevCenterRunState</code></h4>
 
-**Service:** changesetreader
+<p><strong>Service:</strong> changesetreader</p>
 
-Execution state of a DevCenter run.
+<p>Execution state of a DevCenter run.</p>
 
-* `RUNNING`
-* `FINISHED`
-* `CANCELED`
-* `ERROR`
+<ul>
+  <li><code>RUNNING</code></li>
+  <li><code>FINISHED</code></li>
+  <li><code>CANCELED</code></li>
+  <li><code>ERROR</code></li>
+</ul>
 
----
+<hr/>
 
-#### `FileChangeOrderByField`
+<h4 id="filechangeorderbyfield"><code>FileChangeOrderByField</code></h4>
 
-**Service:** corechangeset
+<p><strong>Service:</strong> corechangeset</p>
 
-* `PATH`
+<ul>
+  <li><code>PATH</code></li>
+</ul>
 
----
+<hr/>
 
-#### `ImageFormat`
+<h4 id="imageformat"><code>ImageFormat</code></h4>
 
-**Service:** changesetreader
+<p><strong>Service:</strong> changesetreader</p>
 
-* `SVG`
-* `GIF`
-* `JPEG`
-* `PNG`
+<ul>
+  <li><code>SVG</code></li>
+  <li><code>GIF</code></li>
+  <li><code>JPEG</code></li>
+  <li><code>PNG</code></li>
+</ul>
 
----
+<hr/>
 
-#### `LlmProvider`
+<h4 id="llmprovider"><code>LlmProvider</code></h4>
 
-**Service:** gateway
+<p><strong>Service:</strong> gateway</p>
 
-* `ANTHROPIC`
-* `GEMINI`
-* `MISTRAL`
-* `OPEN_AI`
+<ul>
+  <li><code>ANTHROPIC</code></li>
+  <li><code>GEMINI</code></li>
+  <li><code>MISTRAL</code></li>
+  <li><code>OPEN_AI</code></li>
+</ul>
 
----
+<hr/>
 
-#### `MarkupLevel`
+<h4 id="markuplevel"><code>MarkupLevel</code></h4>
 
-**Service:** corechangeset
+<p><strong>Service:</strong> corechangeset</p>
 
-* `DEBUG`
-* `INFO`
-* `WARNING`
-* `ERROR`
-* `NONE`
+<ul>
+  <li><code>DEBUG</code></li>
+  <li><code>INFO</code></li>
+  <li><code>WARNING</code></li>
+  <li><code>ERROR</code></li>
+  <li><code>NONE</code></li>
+</ul>
 
----
+<hr/>
 
-#### `MergeMethod`
+<h4 id="mergemethod"><code>MergeMethod</code></h4>
 
-**Service:** changelogreader
+<p><strong>Service:</strong> changelogreader</p>
 
-* `MERGE`
-* `SQUASH`
-* `REBASE`
+<ul>
+  <li><code>MERGE</code></li>
+  <li><code>SQUASH</code></li>
+  <li><code>REBASE</code></li>
+</ul>
 
----
+<hr/>
 
-#### `Mergeable`
+<h4 id="mergeable"><code>Mergeable</code></h4>
 
-**Service:** changesetcommitter
+<p><strong>Service:</strong> changesetcommitter</p>
 
-* `MERGEABLE`
-* `BLOCKED`
-* `UNKNOWN`
+<ul>
+  <li><code>MERGEABLE</code></li>
+  <li><code>BLOCKED</code></li>
+  <li><code>UNKNOWN</code></li>
+</ul>
 
----
+<hr/>
 
-#### `MessageState`
+<h4 id="messagestate"><code>MessageState</code></h4>
 
-**Service:** moddy
+<p><strong>Service:</strong> moddy</p>
 
-* `IN_PROGRESS`
-* `COMPLETED`
+<ul>
+  <li><code>IN_PROGRESS</code></li>
+  <li><code>COMPLETED</code></li>
+</ul>
 
----
+<hr/>
 
-#### `OrganizationChangesetOrderByField`
+<h4 id="organizationchangesetorderbyfield"><code>OrganizationChangesetOrderByField</code></h4>
 
-**Service:** corechangeset
+<p><strong>Service:</strong> corechangeset</p>
 
-* `CREATED_AT`
-* `TYPE`
-* `USER`
+<ul>
+  <li><code>CREATED_AT</code></li>
+  <li><code>TYPE</code></li>
+  <li><code>USER</code></li>
+</ul>
 
----
+<hr/>
 
-#### `OrganizationChangesetType`
+<h4 id="organizationchangesettype"><code>OrganizationChangesetType</code></h4>
 
-**Service:** corechangeset
+<p><strong>Service:</strong> corechangeset</p>
 
-* `RECIPE_RUN`
-* `BATCH_CHANGE`
+<ul>
+  <li><code>RECIPE_RUN</code></li>
+  <li><code>BATCH_CHANGE</code></li>
+</ul>
 
----
+<hr/>
 
-#### `OrganizationCommitOrderByField`
+<h4 id="organizationcommitorderbyfield"><code>OrganizationCommitOrderByField</code></h4>
 
-**Service:** changesetcommitter
+<p><strong>Service:</strong> changesetcommitter</p>
 
-* `STARTED_AT`
+<ul>
+  <li><code>STARTED_AT</code></li>
+</ul>
 
----
+<hr/>
 
-#### `OrganizationOrderByField`
+<h4 id="organizationorderbyfield"><code>OrganizationOrderByField</code></h4>
 
-**Service:** organization
+<p><strong>Service:</strong> organization</p>
 
-* `NAME`
+<ul>
+  <li><code>NAME</code></li>
+</ul>
 
----
+<hr/>
 
-#### `OrganizationRecipeRunOrderByField`
+<h4 id="organizationreciperunorderbyfield"><code>OrganizationRecipeRunOrderByField</code></h4>
 
-**Service:** changesetreader
+<p><strong>Service:</strong> changesetreader</p>
 
-* `STARTED_AT`
-* `ENDED_AT`
-* `STATE`
-* `USER`
+<ul>
+  <li><code>STARTED_AT</code></li>
+  <li><code>ENDED_AT</code></li>
+  <li><code>STATE</code></li>
+  <li><code>USER</code></li>
+</ul>
 
----
+<hr/>
 
-#### `OrganizationRecipeRunState`
+<h4 id="organizationreciperunstate"><code>OrganizationRecipeRunState</code></h4>
 
-**Service:** changesetreader
+<p><strong>Service:</strong> changesetreader</p>
 
-* `QUEUED`
-* `SYNCING`
-* `RUNNING`
-* `FINISHED`
-* `CANCELED`
-* `ERROR`
+<ul>
+  <li><code>QUEUED</code></li>
+  <li><code>SYNCING</code></li>
+  <li><code>RUNNING</code></li>
+  <li><code>FINISHED</code></li>
+  <li><code>CANCELED</code></li>
+  <li><code>ERROR</code></li>
+</ul>
 
----
+<hr/>
 
-#### `ProfilingEvent`
+<h4 id="profilingevent"><code>ProfilingEvent</code></h4>
 
-**Service:** gateway
+<p><strong>Service:</strong> gateway</p>
 
-The primary event the Pyroscope agent samples on. async-profiler can only
+<p>The primary event the Pyroscope agent samples on. async-profiler can only
 collect one of these at a time as the primary event; alloc and lock
-sampling run on separate channels and are always on.
+sampling run on separate channels and are always on.</p>
 
-* `CPU`
-* `WALL`
+<ul>
+  <li><code>CPU</code></li>
+  <li><code>WALL</code></li>
+</ul>
 
----
+<hr/>
 
-#### `PullRequestActionOrderByField`
+<h4 id="pullrequestactionorderbyfield"><code>PullRequestActionOrderByField</code></h4>
 
-**Service:** changelogreader
+<p><strong>Service:</strong> changelogreader</p>
 
-* `REPOSITORY_PATH`
-* `STATE`
-* `STARTED_AT`
+<ul>
+  <li><code>REPOSITORY_PATH</code></li>
+  <li><code>STATE</code></li>
+  <li><code>STARTED_AT</code></li>
+</ul>
 
----
+<hr/>
 
-#### `PullRequestActionState`
+<h4 id="pullrequestactionstate"><code>PullRequestActionState</code></h4>
 
-**Service:** changelogreader
+<p><strong>Service:</strong> changelogreader</p>
 
-* `QUEUED`
-* `IN_PROGRESS`
-* `SUCCESSFUL`
-* `FAILED`
-* `CANCELED`
+<ul>
+  <li><code>QUEUED</code></li>
+  <li><code>IN_PROGRESS</code></li>
+  <li><code>SUCCESSFUL</code></li>
+  <li><code>FAILED</code></li>
+  <li><code>CANCELED</code></li>
+</ul>
 
----
+<hr/>
 
-#### `PullRequestActionType`
+<h4 id="pullrequestactiontype"><code>PullRequestActionType</code></h4>
 
-**Service:** changelogreader
+<p><strong>Service:</strong> changelogreader</p>
 
-* `APPROVE`
-* `MERGE`
-* `CLOSE`
+<ul>
+  <li><code>APPROVE</code></li>
+  <li><code>MERGE</code></li>
+  <li><code>CLOSE</code></li>
+</ul>
 
----
+<hr/>
 
-#### `PullRequestState`
+<h4 id="pullrequeststate"><code>PullRequestState</code></h4>
 
-**Service:** changelogreader
+<p><strong>Service:</strong> changelogreader</p>
 
-* `OPEN`
-* `DRAFT`
-* `CLOSED`
-* `MERGED`
+<ul>
+  <li><code>OPEN</code></li>
+  <li><code>DRAFT</code></li>
+  <li><code>CLOSED</code></li>
+  <li><code>MERGED</code></li>
+</ul>
 
----
+<hr/>
 
-#### `RecipeBundleOrderByField`
+<h4 id="recipebundleorderbyfield"><code>RecipeBundleOrderByField</code></h4>
 
-**Service:** recipemarketplace
+<p><strong>Service:</strong> recipemarketplace</p>
 
-* `PACKAGE_NAME`
-* `VERSION`
-* `REQUESTED_VERSION`
-* `ECOSYSTEM`
+<ul>
+  <li><code>PACKAGE_NAME</code></li>
+  <li><code>VERSION</code></li>
+  <li><code>REQUESTED_VERSION</code></li>
+  <li><code>ECOSYSTEM</code></li>
+</ul>
 
----
+<hr/>
 
-#### `RecipeCategoryOrderByField`
+<h4 id="recipecategoryorderbyfield"><code>RecipeCategoryOrderByField</code></h4>
 
-**Service:** recipemarketplace
+<p><strong>Service:</strong> recipemarketplace</p>
 
-* `DISPLAY_NAME`
-* `RECIPE_COUNT`
+<ul>
+  <li><code>DISPLAY_NAME</code></li>
+  <li><code>RECIPE_COUNT</code></li>
+</ul>
 
----
+<hr/>
 
-#### `RecipeEcosystem`
+<h4 id="recipeecosystem"><code>RecipeEcosystem</code></h4>
 
-**Service:** recipemarketplace
+<p><strong>Service:</strong> recipemarketplace</p>
 
-* `Maven`
-* `NPM`
-* `YAML`
-* `Pip`
-* `Nuget`
-* `Go`
+<ul>
+  <li><code>Maven</code></li>
+  <li><code>NPM</code></li>
+  <li><code>YAML</code></li>
+  <li><code>Pip</code></li>
+  <li><code>Nuget</code></li>
+  <li><code>Go</code></li>
+</ul>
 
----
+<hr/>
 
-#### `RecipeGraphEdgeType`
+<h4 id="recipegraphedgetype"><code>RecipeGraphEdgeType</code></h4>
 
-**Service:** recipemarketplace
+<p><strong>Service:</strong> recipemarketplace</p>
 
-* `RECIPE`
-* `PRECONDITION`
-* `REFERENCE`
+<ul>
+  <li><code>RECIPE</code></li>
+  <li><code>PRECONDITION</code></li>
+  <li><code>REFERENCE</code></li>
+</ul>
 
----
+<hr/>
 
-#### `RecipeInstallationOrderByField`
+<h4 id="recipeinstallationorderbyfield"><code>RecipeInstallationOrderByField</code></h4>
 
-**Service:** recipemarketplace
+<p><strong>Service:</strong> recipemarketplace</p>
 
-* `STARTED_AT`
-* `STATUS`
+<ul>
+  <li><code>STARTED_AT</code></li>
+  <li><code>STATUS</code></li>
+</ul>
 
----
+<hr/>
 
-#### `RecipeInstallationStatus`
+<h4 id="recipeinstallationstatus"><code>RecipeInstallationStatus</code></h4>
 
-**Service:** recipemarketplace
+<p><strong>Service:</strong> recipemarketplace</p>
 
-* `QUEUED`
-* `PROCESSING`
-* `FINISHED`
-* `ERROR`
+<ul>
+  <li><code>QUEUED</code></li>
+  <li><code>PROCESSING</code></li>
+  <li><code>FINISHED</code></li>
+  <li><code>ERROR</code></li>
+</ul>
 
----
+<hr/>
 
-#### `RecipeOrderByField`
+<h4 id="recipeorderbyfield"><code>RecipeOrderByField</code></h4>
 
-**Service:** recipemarketplace
+<p><strong>Service:</strong> recipemarketplace</p>
 
-* `ID`
-* `DISPLAY_NAME`
-* `RECIPE_COUNT`
-* `RELEVANCE`
+<ul>
+  <li><code>ID</code></li>
+  <li><code>DISPLAY_NAME</code></li>
+  <li><code>RECIPE_COUNT</code></li>
+  <li><code>RELEVANCE</code></li>
+</ul>
 
----
+<hr/>
 
-#### `RecipeRunPriority`
+<h4 id="reciperunpriority"><code>RecipeRunPriority</code></h4>
 
-**Service:** changesetreader
+<p><strong>Service:</strong> changesetreader</p>
 
-Priority level for recipe runs.
+<p>Priority level for recipe runs.
 HIGH priority runs target small organizations (≤100 repositories).
-LOW priority runs target large organizations (>100 repositories).
+LOW priority runs target large organizations (>100 repositories).</p>
 
-* `HIGH`
-* `LOW`
+<ul>
+  <li><code>HIGH</code></li>
+  <li><code>LOW</code></li>
+</ul>
 
----
+<hr/>
 
-#### `RepositoryChangesetOrderByField`
+<h4 id="repositorychangesetorderbyfield"><code>RepositoryChangesetOrderByField</code></h4>
 
-**Service:** corechangeset
+<p><strong>Service:</strong> corechangeset</p>
 
-* `PATH`
-* `ORIGIN`
-* `FILES_CHANGED`
-* `SYNC_STATUS`
+<ul>
+  <li><code>PATH</code></li>
+  <li><code>ORIGIN</code></li>
+  <li><code>FILES_CHANGED</code></li>
+  <li><code>SYNC_STATUS</code></li>
+</ul>
 
----
+<hr/>
 
-#### `RepositoryChangesetState`
+<h4 id="repositorychangesetstate"><code>RepositoryChangesetState</code></h4>
 
-**Service:** changesetcommitter
+<p><strong>Service:</strong> changesetcommitter</p>
 
-Result state of a repository within a changeset.
+<p>Result state of a repository within a changeset.</p>
 
-* `QUEUED`
-* `RUNNING`
-* `SUCCESS`
-* `ERROR`
-* `NO_LST`
-* `CANCELED`
+<ul>
+  <li><code>QUEUED</code></li>
+  <li><code>RUNNING</code></li>
+  <li><code>SUCCESS</code></li>
+  <li><code>ERROR</code></li>
+  <li><code>NO_LST</code></li>
+  <li><code>CANCELED</code></li>
+</ul>
 
----
+<hr/>
 
-#### `RepositoryCommitOrderByField`
+<h4 id="repositorycommitorderbyfield"><code>RepositoryCommitOrderByField</code></h4>
 
-**Service:** changesetcommitter
+<p><strong>Service:</strong> changesetcommitter</p>
 
-* `STARTED_AT`
+<ul>
+  <li><code>STARTED_AT</code></li>
+</ul>
 
----
+<hr/>
 
-#### `RepositoryErrorReason`
+<h4 id="repositoryerrorreason"><code>RepositoryErrorReason</code></h4>
 
-**Service:** changesetreader
+<p><strong>Service:</strong> changesetreader</p>
 
-* `FAILED_LOAD_AST`
-* `FAILED_LOAD_RECIPE`
-* `TIMEOUT`
-* `RECIPE_ERROR`
+<ul>
+  <li><code>FAILED_LOAD_AST</code></li>
+  <li><code>FAILED_LOAD_RECIPE</code></li>
+  <li><code>TIMEOUT</code></li>
+  <li><code>RECIPE_ERROR</code></li>
+</ul>
 
----
+<hr/>
 
-#### `RepositoryOrderByField`
+<h4 id="repositoryorderbyfield"><code>RepositoryOrderByField</code></h4>
 
-**Service:** organization
+<p><strong>Service:</strong> organization</p>
 
-* `ORIGIN`
-* `PATH`
-* `BRANCH`
-* `CHANGESET`
-* `LST_ARTIFACT_PUBLISHED`
+<ul>
+  <li><code>ORIGIN</code></li>
+  <li><code>PATH</code></li>
+  <li><code>BRANCH</code></li>
+  <li><code>CHANGESET</code></li>
+  <li><code>LST_ARTIFACT_PUBLISHED</code></li>
+</ul>
 
----
+<hr/>
 
-#### `RepositoryRecipeRunOrderByField`
+<h4 id="repositoryreciperunorderbyfield"><code>RepositoryRecipeRunOrderByField</code></h4>
 
-**Service:** changesetreader
+<p><strong>Service:</strong> changesetreader</p>
 
-* `PATH`
-* `ORIGIN`
-* `STATE`
+<ul>
+  <li><code>PATH</code></li>
+  <li><code>ORIGIN</code></li>
+  <li><code>STATE</code></li>
+</ul>
 
----
+<hr/>
 
-#### `RepositorySyncStatus`
+<h4 id="repositorysyncstatus"><code>RepositorySyncStatus</code></h4>
 
-**Service:** corechangeset
+<p><strong>Service:</strong> corechangeset</p>
 
-Sync status of a repository within a recipe run.
+<p>Sync status of a repository within a recipe run.
 Tracks whether the repository has been synced (cloned + LST downloaded)
 before the recipe execution phase begins.
 
@@ -4897,1634 +5758,1974 @@ before the recipe execution phase begins.
 because there is no LST available to fetch — and is distinct from `FAILED`,
 which indicates an actual error during the sync attempt. `CANCELED` is set
 when sync was interrupted (e.g., the run was canceled before the repository's
-sync completed).
+sync completed).</p>
 
-* `PENDING`
-* `SYNCED`
-* `FAILED`
-* `CANCELED`
-* `SKIPPED`
+<ul>
+  <li><code>PENDING</code></li>
+  <li><code>SYNCED</code></li>
+  <li><code>FAILED</code></li>
+  <li><code>CANCELED</code></li>
+  <li><code>SKIPPED</code></li>
+</ul>
 
----
+<hr/>
 
-#### `ReviewDecision`
+<h4 id="reviewdecision"><code>ReviewDecision</code></h4>
 
-**Service:** changelogreader
+<p><strong>Service:</strong> changelogreader</p>
 
-* `APPROVED`
-* `CHANGES_REQUESTED`
-* `REVIEW_REQUIRED`
-* `REVIEW_NOT_REQUIRED`
-* `UNKNOWN`
+<ul>
+  <li><code>APPROVED</code></li>
+  <li><code>CHANGES_REQUESTED</code></li>
+  <li><code>REVIEW_REQUIRED</code></li>
+  <li><code>REVIEW_NOT_REQUIRED</code></li>
+  <li><code>UNKNOWN</code></li>
+</ul>
 
----
+<hr/>
 
-#### `ScmType`
+<h4 id="scmtype"><code>ScmType</code></h4>
 
-**Service:** authz
+<p><strong>Service:</strong> authz</p>
 
-* `GITHUB`
-* `BITBUCKET`
-* `BITBUCKET_CLOUD`
-* `GITLAB`
-* `AZURE_DEVOPS`
+<ul>
+  <li><code>GITHUB</code></li>
+  <li><code>BITBUCKET</code></li>
+  <li><code>BITBUCKET_CLOUD</code></li>
+  <li><code>GITLAB</code></li>
+  <li><code>AZURE_DEVOPS</code></li>
+</ul>
 
----
+<hr/>
 
-#### `SortOrder`
+<h4 id="sortorder"><code>SortOrder</code></h4>
 
-**Service:** coregraphql
+<p><strong>Service:</strong> coregraphql</p>
 
-* `ASC`
-* `DESC`
+<ul>
+  <li><code>ASC</code></li>
+  <li><code>DESC</code></li>
+</ul>
 
----
+<hr/>
 
-#### `UserOrderByField`
+<h4 id="userorderbyfield"><code>UserOrderByField</code></h4>
 
-**Service:** authz
+<p><strong>Service:</strong> authz</p>
 
-* `EMAIL`
-* `USERNAME`
-* `ROLE`
-* `LAST_ACTIVE`
+<ul>
+  <li><code>EMAIL</code></li>
+  <li><code>USERNAME</code></li>
+  <li><code>ROLE</code></li>
+  <li><code>LAST_ACTIVE</code></li>
+</ul>
 
----
+<hr/>
 
-#### `UserRole`
+<h4 id="userrole"><code>UserRole</code></h4>
 
-**Service:** authz
+<p><strong>Service:</strong> authz</p>
 
-* `ADMIN`
-* `USER`
+<ul>
+  <li><code>ADMIN</code></li>
+  <li><code>USER</code></li>
+</ul>
 
----
+<hr/>
 
-#### `VisualizationOrderByField`
+<h4 id="visualizationorderbyfield"><code>VisualizationOrderByField</code></h4>
 
-**Service:** corechangeset
+<p><strong>Service:</strong> corechangeset</p>
 
-* `VISUALIZATION`
-* `STARTED_AT`
+<ul>
+  <li><code>VISUALIZATION</code></li>
+  <li><code>STARTED_AT</code></li>
+</ul>
 
----
+<hr/>
 
-#### `VisualizationRepositoryRunState`
+<h4 id="visualizationrepositoryrunstate"><code>VisualizationRepositoryRunState</code></h4>
 
-**Service:** changesetreader
+<p><strong>Service:</strong> changesetreader</p>
 
-* `QUEUED`
-* `PROCESSING`
-* `FINISHED`
-* `FINISHED_EMPTY`
-* `NO_LST`
-* `ERROR`
+<ul>
+  <li><code>QUEUED</code></li>
+  <li><code>PROCESSING</code></li>
+  <li><code>FINISHED</code></li>
+  <li><code>FINISHED_EMPTY</code></li>
+  <li><code>NO_LST</code></li>
+  <li><code>ERROR</code></li>
+</ul>
 
----
+<hr/>
 
-### Input types
+<h3>Input types</h3>
+
+<h4 id="accesstokenorderbyinput"><code>AccessTokenOrderByInput</code></h4>
 
-#### `AccessTokenOrderByInput`
+<p><strong>Service:</strong> authz</p>
 
-**Service:** authz
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>field</code></td><td><a href="#accesstokenorderbyfield">AccessTokenOrderByField</a>!</td><td></td></tr>
+    <tr><td><code>direction</code></td><td><a href="#sortorder">SortOrder</a>!</td><td></td></tr>
+  </tbody>
+</table>
+
+<hr/>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `field` | <a href="#accesstokenorderbyfield">AccessTokenOrderByField</a>! |  |
-| `direction` | <a href="#sortorder">SortOrder</a>! |  |
+<h4 id="accesstokenwhereinput"><code>AccessTokenWhereInput</code></h4>
 
----
+<p><strong>Service:</strong> authz</p>
 
-#### `AccessTokenWhereInput`
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>description</code></td><td><a href="#stringfilter">StringFilter</a></td><td></td></tr>
+    <tr><td><code>created</code></td><td><a href="#datetimefilter">DateTimeFilter</a></td><td></td></tr>
+    <tr><td><code>expiresAt</code></td><td><a href="#datetimefilter">DateTimeFilter</a></td><td></td></tr>
+    <tr><td><code>_and</code></td><td>[<a href="#accesstokenwhereinput">AccessTokenWhereInput</a>!]</td><td></td></tr>
+    <tr><td><code>_or</code></td><td>[<a href="#accesstokenwhereinput">AccessTokenWhereInput</a>!]</td><td></td></tr>
+    <tr><td><code>_not</code></td><td><a href="#accesstokenwhereinput">AccessTokenWhereInput</a></td><td></td></tr>
+  </tbody>
+</table>
 
-**Service:** authz
+<hr/>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `description` | <a href="#stringfilter">StringFilter</a> |  |
-| `created` | <a href="#datetimefilter">DateTimeFilter</a> |  |
-| `expiresAt` | <a href="#datetimefilter">DateTimeFilter</a> |  |
-| `_and` | [<a href="#accesstokenwhereinput">AccessTokenWhereInput</a>!] |  |
-| `_or` | [<a href="#accesstokenwhereinput">AccessTokenWhereInput</a>!] |  |
-| `_not` | <a href="#accesstokenwhereinput">AccessTokenWhereInput</a> |  |
+<h4 id="auditactiontypefilter"><code>AuditActionTypeFilter</code></h4>
 
----
+<p><strong>Service:</strong> auditreader</p>
 
-#### `AuditActionTypeFilter`
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>_eq</code></td><td><a href="#auditactiontype">AuditActionType</a></td><td></td></tr>
+    <tr><td><code>_neq</code></td><td><a href="#auditactiontype">AuditActionType</a></td><td></td></tr>
+    <tr><td><code>_in</code></td><td>[<a href="#auditactiontype">AuditActionType</a>!]</td><td></td></tr>
+    <tr><td><code>_nin</code></td><td>[<a href="#auditactiontype">AuditActionType</a>!]</td><td></td></tr>
+  </tbody>
+</table>
 
-**Service:** auditreader
+<hr/>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `_eq` | <a href="#auditactiontype">AuditActionType</a> |  |
-| `_neq` | <a href="#auditactiontype">AuditActionType</a> |  |
-| `_in` | [<a href="#auditactiontype">AuditActionType</a>!] |  |
-| `_nin` | [<a href="#auditactiontype">AuditActionType</a>!] |  |
+<h4 id="auditlogexportformatfilter"><code>AuditLogExportFormatFilter</code></h4>
 
----
+<p><strong>Service:</strong> auditreader</p>
 
-#### `AuditLogExportFormatFilter`
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>_eq</code></td><td><a href="#auditlogexportformat">AuditLogExportFormat</a></td><td></td></tr>
+    <tr><td><code>_neq</code></td><td><a href="#auditlogexportformat">AuditLogExportFormat</a></td><td></td></tr>
+    <tr><td><code>_in</code></td><td>[<a href="#auditlogexportformat">AuditLogExportFormat</a>!]</td><td></td></tr>
+    <tr><td><code>_nin</code></td><td>[<a href="#auditlogexportformat">AuditLogExportFormat</a>!]</td><td></td></tr>
+  </tbody>
+</table>
 
-**Service:** auditreader
+<hr/>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `_eq` | <a href="#auditlogexportformat">AuditLogExportFormat</a> |  |
-| `_neq` | <a href="#auditlogexportformat">AuditLogExportFormat</a> |  |
-| `_in` | [<a href="#auditlogexportformat">AuditLogExportFormat</a>!] |  |
-| `_nin` | [<a href="#auditlogexportformat">AuditLogExportFormat</a>!] |  |
+<h4 id="auditlogorderbyinput"><code>AuditLogOrderByInput</code></h4>
 
----
+<p><strong>Service:</strong> auditreader</p>
 
-#### `AuditLogOrderByInput`
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>field</code></td><td><a href="#auditlogorderbyfield">AuditLogOrderByField</a>!</td><td></td></tr>
+    <tr><td><code>direction</code></td><td><a href="#sortorder">SortOrder</a>!</td><td></td></tr>
+  </tbody>
+</table>
 
-**Service:** auditreader
+<hr/>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `field` | <a href="#auditlogorderbyfield">AuditLogOrderByField</a>! |  |
-| `direction` | <a href="#sortorder">SortOrder</a>! |  |
+<h4 id="auditlogwhereinput"><code>AuditLogWhereInput</code></h4>
 
----
+<p><strong>Service:</strong> auditreader</p>
 
-#### `AuditLogWhereInput`
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>user</code></td><td><a href="#userwhereinput">UserWhereInput</a></td><td></td></tr>
+    <tr><td><code>target</code></td><td><a href="#stringfilter">StringFilter</a></td><td></td></tr>
+    <tr><td><code>action</code></td><td><a href="#stringfilter">StringFilter</a></td><td></td></tr>
+    <tr><td><code>actionType</code></td><td><a href="#auditactiontypefilter">AuditActionTypeFilter</a></td><td></td></tr>
+    <tr><td><code>outcome</code></td><td><a href="#auditoutcomefilter">AuditOutcomeFilter</a></td><td></td></tr>
+    <tr><td><code>description</code></td><td><a href="#stringfilter">StringFilter</a></td><td></td></tr>
+    <tr><td><code>timestamp</code></td><td><a href="#datetimefilter">DateTimeFilter</a></td><td></td></tr>
+    <tr><td><code>_and</code></td><td>[<a href="#auditlogwhereinput">AuditLogWhereInput</a>!]</td><td></td></tr>
+    <tr><td><code>_or</code></td><td>[<a href="#auditlogwhereinput">AuditLogWhereInput</a>!]</td><td></td></tr>
+    <tr><td><code>_not</code></td><td><a href="#auditlogwhereinput">AuditLogWhereInput</a></td><td></td></tr>
+  </tbody>
+</table>
 
-**Service:** auditreader
+<hr/>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `user` | <a href="#userwhereinput">UserWhereInput</a> |  |
-| `target` | <a href="#stringfilter">StringFilter</a> |  |
-| `action` | <a href="#stringfilter">StringFilter</a> |  |
-| `actionType` | <a href="#auditactiontypefilter">AuditActionTypeFilter</a> |  |
-| `outcome` | <a href="#auditoutcomefilter">AuditOutcomeFilter</a> |  |
-| `description` | <a href="#stringfilter">StringFilter</a> |  |
-| `timestamp` | <a href="#datetimefilter">DateTimeFilter</a> |  |
-| `_and` | [<a href="#auditlogwhereinput">AuditLogWhereInput</a>!] |  |
-| `_or` | [<a href="#auditlogwhereinput">AuditLogWhereInput</a>!] |  |
-| `_not` | <a href="#auditlogwhereinput">AuditLogWhereInput</a> |  |
+<h4 id="auditlogsdownloadorderbyinput"><code>AuditLogsDownloadOrderByInput</code></h4>
 
----
+<p><strong>Service:</strong> auditreader</p>
 
-#### `AuditLogsDownloadOrderByInput`
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>field</code></td><td><a href="#auditlogsdownloadorderbyfield">AuditLogsDownloadOrderByField</a>!</td><td></td></tr>
+    <tr><td><code>direction</code></td><td><a href="#sortorder">SortOrder</a>!</td><td></td></tr>
+  </tbody>
+</table>
 
-**Service:** auditreader
+<hr/>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `field` | <a href="#auditlogsdownloadorderbyfield">AuditLogsDownloadOrderByField</a>! |  |
-| `direction` | <a href="#sortorder">SortOrder</a>! |  |
+<h4 id="auditlogsdownloadwhereinput"><code>AuditLogsDownloadWhereInput</code></h4>
 
----
+<p><strong>Service:</strong> auditreader</p>
 
-#### `AuditLogsDownloadWhereInput`
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>id</code></td><td><a href="#idfilter">IDFilter</a></td><td></td></tr>
+    <tr><td><code>format</code></td><td><a href="#auditlogexportformatfilter">AuditLogExportFormatFilter</a></td><td></td></tr>
+    <tr><td><code>_and</code></td><td>[<a href="#auditlogsdownloadwhereinput">AuditLogsDownloadWhereInput</a>!]</td><td></td></tr>
+    <tr><td><code>_or</code></td><td>[<a href="#auditlogsdownloadwhereinput">AuditLogsDownloadWhereInput</a>!]</td><td></td></tr>
+    <tr><td><code>_not</code></td><td><a href="#auditlogsdownloadwhereinput">AuditLogsDownloadWhereInput</a></td><td></td></tr>
+  </tbody>
+</table>
 
-**Service:** auditreader
+<hr/>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `id` | <a href="#idfilter">IDFilter</a> |  |
-| `format` | <a href="#auditlogexportformatfilter">AuditLogExportFormatFilter</a> |  |
-| `_and` | [<a href="#auditlogsdownloadwhereinput">AuditLogsDownloadWhereInput</a>!] |  |
-| `_or` | [<a href="#auditlogsdownloadwhereinput">AuditLogsDownloadWhereInput</a>!] |  |
-| `_not` | <a href="#auditlogsdownloadwhereinput">AuditLogsDownloadWhereInput</a> |  |
+<h4 id="auditoutcomefilter"><code>AuditOutcomeFilter</code></h4>
 
----
+<p><strong>Service:</strong> auditreader</p>
 
-#### `AuditOutcomeFilter`
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>_eq</code></td><td><a href="#auditoutcome">AuditOutcome</a></td><td></td></tr>
+    <tr><td><code>_neq</code></td><td><a href="#auditoutcome">AuditOutcome</a></td><td></td></tr>
+  </tbody>
+</table>
 
-**Service:** auditreader
+<hr/>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `_eq` | <a href="#auditoutcome">AuditOutcome</a> |  |
-| `_neq` | <a href="#auditoutcome">AuditOutcome</a> |  |
+<h4 id="booleanfilter"><code>BooleanFilter</code></h4>
 
----
+<p><strong>Service:</strong> coregraphql</p>
 
-#### `BooleanFilter`
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>_eq</code></td><td>Boolean</td><td></td></tr>
+    <tr><td><code>_neq</code></td><td>Boolean</td><td></td></tr>
+  </tbody>
+</table>
 
-**Service:** coregraphql
+<hr/>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `_eq` | Boolean |  |
-| `_neq` | Boolean |  |
+<h4 id="buildstatefilter"><code>BuildStateFilter</code></h4>
 
----
+<p><strong>Service:</strong> changelogreader</p>
 
-#### `BuildStateFilter`
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>_eq</code></td><td><a href="#buildstate">BuildState</a></td><td></td></tr>
+    <tr><td><code>_neq</code></td><td><a href="#buildstate">BuildState</a></td><td></td></tr>
+    <tr><td><code>_in</code></td><td>[<a href="#buildstate">BuildState</a>!]</td><td></td></tr>
+    <tr><td><code>_nin</code></td><td>[<a href="#buildstate">BuildState</a>!]</td><td></td></tr>
+  </tbody>
+</table>
 
-**Service:** changelogreader
+<hr/>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `_eq` | <a href="#buildstate">BuildState</a> |  |
-| `_neq` | <a href="#buildstate">BuildState</a> |  |
-| `_in` | [<a href="#buildstate">BuildState</a>!] |  |
-| `_nin` | [<a href="#buildstate">BuildState</a>!] |  |
+<h4 id="bulkpullrequestactionorderbyinput"><code>BulkPullRequestActionOrderByInput</code></h4>
 
----
+<p><strong>Service:</strong> changelogreader</p>
 
-#### `BulkPullRequestActionOrderByInput`
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>field</code></td><td><a href="#bulkpullrequestactionorderbyfield">BulkPullRequestActionOrderByField</a>!</td><td></td></tr>
+    <tr><td><code>direction</code></td><td><a href="#sortorder">SortOrder</a>!</td><td></td></tr>
+  </tbody>
+</table>
 
-**Service:** changelogreader
+<hr/>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `field` | <a href="#bulkpullrequestactionorderbyfield">BulkPullRequestActionOrderByField</a>! |  |
-| `direction` | <a href="#sortorder">SortOrder</a>! |  |
+<h4 id="bulkpullrequestactionstatefilter"><code>BulkPullRequestActionStateFilter</code></h4>
 
----
+<p><strong>Service:</strong> changelogreader</p>
 
-#### `BulkPullRequestActionStateFilter`
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>_eq</code></td><td><a href="#bulkpullrequestactionstate">BulkPullRequestActionState</a></td><td></td></tr>
+    <tr><td><code>_neq</code></td><td><a href="#bulkpullrequestactionstate">BulkPullRequestActionState</a></td><td></td></tr>
+    <tr><td><code>_in</code></td><td>[<a href="#bulkpullrequestactionstate">BulkPullRequestActionState</a>!]</td><td></td></tr>
+    <tr><td><code>_nin</code></td><td>[<a href="#bulkpullrequestactionstate">BulkPullRequestActionState</a>!]</td><td></td></tr>
+  </tbody>
+</table>
 
-**Service:** changelogreader
+<hr/>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `_eq` | <a href="#bulkpullrequestactionstate">BulkPullRequestActionState</a> |  |
-| `_neq` | <a href="#bulkpullrequestactionstate">BulkPullRequestActionState</a> |  |
-| `_in` | [<a href="#bulkpullrequestactionstate">BulkPullRequestActionState</a>!] |  |
-| `_nin` | [<a href="#bulkpullrequestactionstate">BulkPullRequestActionState</a>!] |  |
+<h4 id="bulkpullrequestactionwhereinput"><code>BulkPullRequestActionWhereInput</code></h4>
 
----
+<p><strong>Service:</strong> changelogreader</p>
 
-#### `BulkPullRequestActionWhereInput`
-
-**Service:** changelogreader
-
-| Field | Type | Description |
-|-------|------|-------------|
-| `actionType` | <a href="#pullrequestactiontypefilter">PullRequestActionTypeFilter</a> |  |
-| `state` | <a href="#bulkpullrequestactionstatefilter">BulkPullRequestActionStateFilter</a> |  |
-| `startedAt` | <a href="#datetimefilter">DateTimeFilter</a> | Filter by `startedAt`. Matches RUNNING/FINISHED/ERROR/CANCELED states that
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>actionType</code></td><td><a href="#pullrequestactiontypefilter">PullRequestActionTypeFilter</a></td><td></td></tr>
+    <tr><td><code>state</code></td><td><a href="#bulkpullrequestactionstatefilter">BulkPullRequestActionStateFilter</a></td><td></td></tr>
+    <tr><td><code>startedAt</code></td><td><a href="#datetimefilter">DateTimeFilter</a></td><td>Filter by `startedAt`. Matches RUNNING/FINISHED/ERROR/CANCELED states that
 have a startedAt value; QUEUED entries (no startedAt) are excluded when a
-bound is supplied. |
-| `user` | <a href="#userwhereinput">UserWhereInput</a> |  |
-| `_and` | [<a href="#bulkpullrequestactionwhereinput">BulkPullRequestActionWhereInput</a>!] |  |
-| `_or` | [<a href="#bulkpullrequestactionwhereinput">BulkPullRequestActionWhereInput</a>!] |  |
-| `_not` | <a href="#bulkpullrequestactionwhereinput">BulkPullRequestActionWhereInput</a> |  |
+bound is supplied.</td></tr>
+    <tr><td><code>user</code></td><td><a href="#userwhereinput">UserWhereInput</a></td><td></td></tr>
+    <tr><td><code>_and</code></td><td>[<a href="#bulkpullrequestactionwhereinput">BulkPullRequestActionWhereInput</a>!]</td><td></td></tr>
+    <tr><td><code>_or</code></td><td>[<a href="#bulkpullrequestactionwhereinput">BulkPullRequestActionWhereInput</a>!]</td><td></td></tr>
+    <tr><td><code>_not</code></td><td><a href="#bulkpullrequestactionwhereinput">BulkPullRequestActionWhereInput</a></td><td></td></tr>
+  </tbody>
+</table>
 
----
+<hr/>
 
-#### `ChangelogAuthorWhereInput`
+<h4 id="changelogauthorwhereinput"><code>ChangelogAuthorWhereInput</code></h4>
 
-**Service:** changelogreader
+<p><strong>Service:</strong> changelogreader</p>
 
-Filter by changelog author.
+<p>Filter by changelog author.</p>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `name` | <a href="#stringfilter">StringFilter</a> |  |
-| `email` | <a href="#stringfilter">StringFilter</a> |  |
-| `username` | <a href="#stringfilter">StringFilter</a> |  |
-| `role` | <a href="#contributorrole">ContributorRole</a> | The role of the contributor to filter on. |
-| `_and` | [<a href="#changelogauthorwhereinput">ChangelogAuthorWhereInput</a>!] |  |
-| `_or` | [<a href="#changelogauthorwhereinput">ChangelogAuthorWhereInput</a>!] |  |
-| `_not` | <a href="#changelogauthorwhereinput">ChangelogAuthorWhereInput</a> |  |
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>name</code></td><td><a href="#stringfilter">StringFilter</a></td><td></td></tr>
+    <tr><td><code>email</code></td><td><a href="#stringfilter">StringFilter</a></td><td></td></tr>
+    <tr><td><code>username</code></td><td><a href="#stringfilter">StringFilter</a></td><td></td></tr>
+    <tr><td><code>role</code></td><td><a href="#contributorrole">ContributorRole</a></td><td>The role of the contributor to filter on.</td></tr>
+    <tr><td><code>_and</code></td><td>[<a href="#changelogauthorwhereinput">ChangelogAuthorWhereInput</a>!]</td><td></td></tr>
+    <tr><td><code>_or</code></td><td>[<a href="#changelogauthorwhereinput">ChangelogAuthorWhereInput</a>!]</td><td></td></tr>
+    <tr><td><code>_not</code></td><td><a href="#changelogauthorwhereinput">ChangelogAuthorWhereInput</a></td><td></td></tr>
+  </tbody>
+</table>
 
----
+<hr/>
 
-#### `ChangelogEntryOrderByInput`
+<h4 id="changelogentryorderbyinput"><code>ChangelogEntryOrderByInput</code></h4>
 
-**Service:** changelogreader
+<p><strong>Service:</strong> changelogreader</p>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `field` | <a href="#changelogentryorderbyfield">ChangelogEntryOrderByField</a>! |  |
-| `direction` | <a href="#sortorder">SortOrder</a>! |  |
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>field</code></td><td><a href="#changelogentryorderbyfield">ChangelogEntryOrderByField</a>!</td><td></td></tr>
+    <tr><td><code>direction</code></td><td><a href="#sortorder">SortOrder</a>!</td><td></td></tr>
+  </tbody>
+</table>
 
----
+<hr/>
 
-#### `ChangelogEntryTypeFilter`
+<h4 id="changelogentrytypefilter"><code>ChangelogEntryTypeFilter</code></h4>
 
-**Service:** changelogreader
+<p><strong>Service:</strong> changelogreader</p>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `_eq` | <a href="#changelogentrytype">ChangelogEntryType</a> |  |
-| `_neq` | <a href="#changelogentrytype">ChangelogEntryType</a> |  |
-| `_in` | [<a href="#changelogentrytype">ChangelogEntryType</a>!] |  |
-| `_nin` | [<a href="#changelogentrytype">ChangelogEntryType</a>!] |  |
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>_eq</code></td><td><a href="#changelogentrytype">ChangelogEntryType</a></td><td></td></tr>
+    <tr><td><code>_neq</code></td><td><a href="#changelogentrytype">ChangelogEntryType</a></td><td></td></tr>
+    <tr><td><code>_in</code></td><td>[<a href="#changelogentrytype">ChangelogEntryType</a>!]</td><td></td></tr>
+    <tr><td><code>_nin</code></td><td>[<a href="#changelogentrytype">ChangelogEntryType</a>!]</td><td></td></tr>
+  </tbody>
+</table>
 
----
+<hr/>
 
-#### `ChangelogEntryWhereInput`
+<h4 id="changelogentrywhereinput"><code>ChangelogEntryWhereInput</code></h4>
 
-**Service:** changelogreader
+<p><strong>Service:</strong> changelogreader</p>
 
-Filter input for changelog entries.
+<p>Filter input for changelog entries.</p>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `entryType` | <a href="#changelogentrytypefilter">ChangelogEntryTypeFilter</a> | Filter by entry type (COMMIT or PULL_REQUEST). |
-| `title` | <a href="#stringfilter">StringFilter</a> | Full-text search on title. |
-| `author` | <a href="#changelogauthorwhereinput">ChangelogAuthorWhereInput</a> | Filter by author. |
-| `repositoryPath` | <a href="#stringfilter">StringFilter</a> | Filter by repository path. |
-| `repositoryOrigin` | <a href="#stringfilter">StringFilter</a> | Filter by repository origin. |
-| `updatedAt` | <a href="#datetimefilter">DateTimeFilter</a> | Filter by last updated time. |
-| `createdAt` | <a href="#datetimefilter">DateTimeFilter</a> | Filter by creation time. |
-| `pullRequestState` | <a href="#pullrequeststatefilter">PullRequestStateFilter</a> | Filter by pull request state (only applies to PRs). |
-| `buildState` | <a href="#buildstatefilter">BuildStateFilter</a> | Filter by CI state. |
-| `reviewDecision` | <a href="#reviewdecisionfilter">ReviewDecisionFilter</a> | Filter by review decision. |
-| `changesetId` | <a href="#stringfilter">StringFilter</a> | Filter by changeset ID. |
-| `_and` | [<a href="#changelogentrywhereinput">ChangelogEntryWhereInput</a>!] |  |
-| `_or` | [<a href="#changelogentrywhereinput">ChangelogEntryWhereInput</a>!] |  |
-| `_not` | <a href="#changelogentrywhereinput">ChangelogEntryWhereInput</a> |  |
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>entryType</code></td><td><a href="#changelogentrytypefilter">ChangelogEntryTypeFilter</a></td><td>Filter by entry type (COMMIT or PULL_REQUEST).</td></tr>
+    <tr><td><code>title</code></td><td><a href="#stringfilter">StringFilter</a></td><td>Full-text search on title.</td></tr>
+    <tr><td><code>author</code></td><td><a href="#changelogauthorwhereinput">ChangelogAuthorWhereInput</a></td><td>Filter by author.</td></tr>
+    <tr><td><code>repositoryPath</code></td><td><a href="#stringfilter">StringFilter</a></td><td>Filter by repository path.</td></tr>
+    <tr><td><code>repositoryOrigin</code></td><td><a href="#stringfilter">StringFilter</a></td><td>Filter by repository origin.</td></tr>
+    <tr><td><code>updatedAt</code></td><td><a href="#datetimefilter">DateTimeFilter</a></td><td>Filter by last updated time.</td></tr>
+    <tr><td><code>createdAt</code></td><td><a href="#datetimefilter">DateTimeFilter</a></td><td>Filter by creation time.</td></tr>
+    <tr><td><code>pullRequestState</code></td><td><a href="#pullrequeststatefilter">PullRequestStateFilter</a></td><td>Filter by pull request state (only applies to PRs).</td></tr>
+    <tr><td><code>buildState</code></td><td><a href="#buildstatefilter">BuildStateFilter</a></td><td>Filter by CI state.</td></tr>
+    <tr><td><code>reviewDecision</code></td><td><a href="#reviewdecisionfilter">ReviewDecisionFilter</a></td><td>Filter by review decision.</td></tr>
+    <tr><td><code>changesetId</code></td><td><a href="#stringfilter">StringFilter</a></td><td>Filter by changeset ID.</td></tr>
+    <tr><td><code>_and</code></td><td>[<a href="#changelogentrywhereinput">ChangelogEntryWhereInput</a>!]</td><td></td></tr>
+    <tr><td><code>_or</code></td><td>[<a href="#changelogentrywhereinput">ChangelogEntryWhereInput</a>!]</td><td></td></tr>
+    <tr><td><code>_not</code></td><td><a href="#changelogentrywhereinput">ChangelogEntryWhereInput</a></td><td></td></tr>
+  </tbody>
+</table>
 
----
+<hr/>
 
-#### `ChangelogParticipantOrderByInput`
+<h4 id="changelogparticipantorderbyinput"><code>ChangelogParticipantOrderByInput</code></h4>
 
-**Service:** changelogreader
+<p><strong>Service:</strong> changelogreader</p>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `field` | <a href="#changelogparticipantorderbyfield">ChangelogParticipantOrderByField</a>! |  |
-| `direction` | <a href="#sortorder">SortOrder</a>! |  |
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>field</code></td><td><a href="#changelogparticipantorderbyfield">ChangelogParticipantOrderByField</a>!</td><td></td></tr>
+    <tr><td><code>direction</code></td><td><a href="#sortorder">SortOrder</a>!</td><td></td></tr>
+  </tbody>
+</table>
 
----
+<hr/>
 
-#### `ChangelogParticipantWhereInput`
+<h4 id="changelogparticipantwhereinput"><code>ChangelogParticipantWhereInput</code></h4>
 
-**Service:** changelogreader
+<p><strong>Service:</strong> changelogreader</p>
 
-Filter input for participants.
+<p>Filter input for participants.</p>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `name` | <a href="#stringfilter">StringFilter</a> |  |
-| `email` | <a href="#stringfilter">StringFilter</a> |  |
-| `username` | <a href="#stringfilter">StringFilter</a> |  |
-| `role` | <a href="#contributorrole">ContributorRole</a> | Filter participants by role. |
-| `updatedAt` | <a href="#datetimefilter">DateTimeFilter</a> | Scopes participant aggregation to entries updated within this window.
-Defaults to last 30 days if not specified. |
-| `_and` | [<a href="#changelogparticipantwhereinput">ChangelogParticipantWhereInput</a>!] |  |
-| `_or` | [<a href="#changelogparticipantwhereinput">ChangelogParticipantWhereInput</a>!] |  |
-| `_not` | <a href="#changelogparticipantwhereinput">ChangelogParticipantWhereInput</a> |  |
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>name</code></td><td><a href="#stringfilter">StringFilter</a></td><td></td></tr>
+    <tr><td><code>email</code></td><td><a href="#stringfilter">StringFilter</a></td><td></td></tr>
+    <tr><td><code>username</code></td><td><a href="#stringfilter">StringFilter</a></td><td></td></tr>
+    <tr><td><code>role</code></td><td><a href="#contributorrole">ContributorRole</a></td><td>Filter participants by role.</td></tr>
+    <tr><td><code>updatedAt</code></td><td><a href="#datetimefilter">DateTimeFilter</a></td><td>Scopes participant aggregation to entries updated within this window.
+Defaults to last 30 days if not specified.</td></tr>
+    <tr><td><code>_and</code></td><td>[<a href="#changelogparticipantwhereinput">ChangelogParticipantWhereInput</a>!]</td><td></td></tr>
+    <tr><td><code>_or</code></td><td>[<a href="#changelogparticipantwhereinput">ChangelogParticipantWhereInput</a>!]</td><td></td></tr>
+    <tr><td><code>_not</code></td><td><a href="#changelogparticipantwhereinput">ChangelogParticipantWhereInput</a></td><td></td></tr>
+  </tbody>
+</table>
 
----
+<hr/>
 
-#### `CommitInput`
+<h4 id="commitinput"><code>CommitInput</code></h4>
 
-**Service:** changesetcommitter
+<p><strong>Service:</strong> changesetcommitter</p>
 
-Input for creating a commit from a changeset.
+<p>Input for creating a commit from a changeset.</p>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `organizationId` | ID | Organization ID for determining available commit options. |
-| `changesetId` | ID! | Changeset ID (e.g., recipe run ID, batch changeset ID).
-Resolved via federation to an OrganizationChangeset. |
-| `repositories` | [<a href="#repositorychangesetwhereinput">RepositoryChangesetWhereInput</a>!] | Filter which repositories and files to include.
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>organizationId</code></td><td>ID</td><td>Organization ID for determining available commit options.</td></tr>
+    <tr><td><code>changesetId</code></td><td>ID!</td><td>Changeset ID (e.g., recipe run ID, batch changeset ID).
+Resolved via federation to an OrganizationChangeset.</td></tr>
+    <tr><td><code>repositories</code></td><td>[<a href="#repositorychangesetwhereinput">RepositoryChangesetWhereInput</a>!]</td><td>Filter which repositories and files to include.
 Evaluated in order - first matching rule wins for each repository.
 Put repo-specific rules first, global fallback rules last.
-If empty or not provided, all repositories and files in the changeset are included. |
-| `branchName` | String | If unset, commit to the branch that the LST was generated from. |
-| `message` | String! | Commit message. |
-| `extendedMessage` | <a href="#base64">Base64</a> | Extended commit message (Base64 encoded). |
-| `gpgKey` | <a href="#gpginput">GpgInput</a> | GPG key for signing commits. |
-| `email` | String | Email to author commit with. Verified against your emails (public and private)
-that are verified in your SCM provider. If left blank, your first email will be used. |
-| `scmAccessTokens` | [<a href="#scmaccesstoken">ScmAccessToken</a>!] | Optional SCM access tokens keyed by origin. When provided, these are used
-instead of stored OAuth tokens for the matching origin. |
-| `strategy` | <a href="#commitstrategyinput">CommitStrategyInput</a>! | How to deliver the commit. Choose one strategy. |
+If empty or not provided, all repositories and files in the changeset are included.</td></tr>
+    <tr><td><code>branchName</code></td><td>String</td><td>If unset, commit to the branch that the LST was generated from.</td></tr>
+    <tr><td><code>message</code></td><td>String!</td><td>Commit message.</td></tr>
+    <tr><td><code>extendedMessage</code></td><td><a href="#base64">Base64</a></td><td>Extended commit message (Base64 encoded).</td></tr>
+    <tr><td><code>gpgKey</code></td><td><a href="#gpginput">GpgInput</a></td><td>GPG key for signing commits.</td></tr>
+    <tr><td><code>email</code></td><td>String</td><td>Email to author commit with. Verified against your emails (public and private)
+that are verified in your SCM provider. If left blank, your first email will be used.</td></tr>
+    <tr><td><code>scmAccessTokens</code></td><td>[<a href="#scmaccesstoken">ScmAccessToken</a>!]</td><td>Optional SCM access tokens keyed by origin. When provided, these are used
+instead of stored OAuth tokens for the matching origin.</td></tr>
+    <tr><td><code>strategy</code></td><td><a href="#commitstrategyinput">CommitStrategyInput</a>!</td><td>How to deliver the commit. Choose one strategy.</td></tr>
+  </tbody>
+</table>
+
+<hr/>
+
+<h4 id="commitstrategyinput"><code>CommitStrategyInput</code></h4>
+
+<p><strong>Service:</strong> changesetcommitter</p>
+
+<p>Commit delivery strategy. Choose one option.</p>
+
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>direct</code></td><td><a href="#directcommitinput">DirectCommitInput</a></td><td>Push directly to the origin remote.</td></tr>
+    <tr><td><code>fork</code></td><td><a href="#forkcommitinput">ForkCommitInput</a></td><td>Push to a fork of the origin repository.</td></tr>
+    <tr><td><code>pullRequest</code></td><td><a href="#pullrequestcommitinput">PullRequestCommitInput</a></td><td>Create a pull request from a branch on the origin remote.</td></tr>
+    <tr><td><code>forkAndPullRequest</code></td><td><a href="#forkandpullrequestcommitinput">ForkAndPullRequestCommitInput</a></td><td>Create a pull request from a branch on a fork.</td></tr>
+  </tbody>
+</table>
+
+<hr/>
 
----
+<h4 id="connectororderbyinput"><code>ConnectorOrderByInput</code></h4>
+
+<p><strong>Service:</strong> gateway</p>
+
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>field</code></td><td><a href="#connectororderbyfield">ConnectorOrderByField</a>!</td><td></td></tr>
+    <tr><td><code>direction</code></td><td><a href="#sortorder">SortOrder</a>!</td><td></td></tr>
+  </tbody>
+</table>
 
-#### `CommitStrategyInput`
+<hr/>
 
-**Service:** changesetcommitter
+<h4 id="connectortooltypefilter"><code>ConnectorToolTypeFilter</code></h4>
 
-Commit delivery strategy. Choose one option.
+<p><strong>Service:</strong> gateway</p>
+
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>_eq</code></td><td><a href="#connectortooltype">ConnectorToolType</a></td><td></td></tr>
+    <tr><td><code>_in</code></td><td>[<a href="#connectortooltype">ConnectorToolType</a>!]</td><td></td></tr>
+  </tbody>
+</table>
+
+<hr/>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `direct` | <a href="#directcommitinput">DirectCommitInput</a> | Push directly to the origin remote. |
-| `fork` | <a href="#forkcommitinput">ForkCommitInput</a> | Push to a fork of the origin repository. |
-| `pullRequest` | <a href="#pullrequestcommitinput">PullRequestCommitInput</a> | Create a pull request from a branch on the origin remote. |
-| `forkAndPullRequest` | <a href="#forkandpullrequestcommitinput">ForkAndPullRequestCommitInput</a> | Create a pull request from a branch on a fork. |
+<h4 id="connectorwhereinput"><code>ConnectorWhereInput</code></h4>
 
----
+<p><strong>Service:</strong> gateway</p>
 
-#### `ConnectorOrderByInput`
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>id</code></td><td><a href="#idfilter">IDFilter</a></td><td></td></tr>
+    <tr><td><code>nickname</code></td><td><a href="#stringfilter">StringFilter</a></td><td></td></tr>
+    <tr><td><code>version</code></td><td><a href="#stringfilter">StringFilter</a></td><td></td></tr>
+    <tr><td><code>toolType</code></td><td><a href="#connectortooltypefilter">ConnectorToolTypeFilter</a></td><td></td></tr>
+    <tr><td><code>_and</code></td><td>[<a href="#connectorwhereinput">ConnectorWhereInput</a>!]</td><td></td></tr>
+    <tr><td><code>_or</code></td><td>[<a href="#connectorwhereinput">ConnectorWhereInput</a>!]</td><td></td></tr>
+    <tr><td><code>_not</code></td><td><a href="#connectorwhereinput">ConnectorWhereInput</a></td><td></td></tr>
+  </tbody>
+</table>
 
-**Service:** gateway
+<hr/>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `field` | <a href="#connectororderbyfield">ConnectorOrderByField</a>! |  |
-| `direction` | <a href="#sortorder">SortOrder</a>! |  |
+<h4 id="conversationorderbyinput"><code>ConversationOrderByInput</code></h4>
+
+<p><strong>Service:</strong> moddy</p>
+
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>field</code></td><td><a href="#conversationorderbyfield">ConversationOrderByField</a>!</td><td></td></tr>
+    <tr><td><code>direction</code></td><td><a href="#sortorder">SortOrder</a>!</td><td></td></tr>
+  </tbody>
+</table>
+
+<hr/>
+
+<h4 id="conversationwhereinput"><code>ConversationWhereInput</code></h4>
 
----
+<p><strong>Service:</strong> moddy</p>
+
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>id</code></td><td><a href="#idfilter">IDFilter</a></td><td></td></tr>
+    <tr><td><code>user</code></td><td><a href="#stringfilter">StringFilter</a></td><td></td></tr>
+    <tr><td><code>startedAt</code></td><td><a href="#datetimefilter">DateTimeFilter</a></td><td></td></tr>
+    <tr><td><code>lastUpdatedAt</code></td><td><a href="#datetimefilter">DateTimeFilter</a></td><td></td></tr>
+    <tr><td><code>_and</code></td><td>[<a href="#conversationwhereinput">ConversationWhereInput</a>!]</td><td></td></tr>
+    <tr><td><code>_or</code></td><td>[<a href="#conversationwhereinput">ConversationWhereInput</a>!]</td><td></td></tr>
+    <tr><td><code>_not</code></td><td><a href="#conversationwhereinput">ConversationWhereInput</a></td><td></td></tr>
+  </tbody>
+</table>
+
+<hr/>
 
-#### `ConnectorToolTypeFilter`
+<h4 id="createconversationinput"><code>CreateConversationInput</code></h4>
+
+<p><strong>Service:</strong> moddy</p>
+
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>message</code></td><td>String!</td><td></td></tr>
+    <tr><td><code>organizationId</code></td><td>ID!</td><td></td></tr>
+  </tbody>
+</table>
 
-**Service:** gateway
+<hr/>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `_eq` | <a href="#connectortooltype">ConnectorToolType</a> |  |
-| `_in` | [<a href="#connectortooltype">ConnectorToolType</a>!] |  |
+<h4 id="createuserorganizationinput"><code>CreateUserOrganizationInput</code></h4>
 
----
+<p><strong>Service:</strong> organization</p>
+
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>name</code></td><td>String!</td><td>The name of the organization.</td></tr>
+    <tr><td><code>repositories</code></td><td>[<a href="#repositoryinput">RepositoryInput</a>!]</td><td>Repositories to include in the organization.</td></tr>
+  </tbody>
+</table>
+
+<hr/>
 
-#### `ConnectorWhereInput`
+<h4 id="datatableformatfilter"><code>DataTableFormatFilter</code></h4>
 
-**Service:** gateway
+<p><strong>Service:</strong> corechangeset</p>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `id` | <a href="#idfilter">IDFilter</a> |  |
-| `nickname` | <a href="#stringfilter">StringFilter</a> |  |
-| `version` | <a href="#stringfilter">StringFilter</a> |  |
-| `toolType` | <a href="#connectortooltypefilter">ConnectorToolTypeFilter</a> |  |
-| `_and` | [<a href="#connectorwhereinput">ConnectorWhereInput</a>!] |  |
-| `_or` | [<a href="#connectorwhereinput">ConnectorWhereInput</a>!] |  |
-| `_not` | <a href="#connectorwhereinput">ConnectorWhereInput</a> |  |
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>_eq</code></td><td><a href="#datatableformat">DataTableFormat</a></td><td></td></tr>
+    <tr><td><code>_neq</code></td><td><a href="#datatableformat">DataTableFormat</a></td><td></td></tr>
+    <tr><td><code>_in</code></td><td>[<a href="#datatableformat">DataTableFormat</a>!]</td><td></td></tr>
+    <tr><td><code>_nin</code></td><td>[<a href="#datatableformat">DataTableFormat</a>!]</td><td></td></tr>
+  </tbody>
+</table>
+
+<hr/>
+
+<h4 id="datatableorderbyinput"><code>DataTableOrderByInput</code></h4>
+
+<p><strong>Service:</strong> corechangeset</p>
 
----
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>field</code></td><td><a href="#datatableorderbyfield">DataTableOrderByField</a>!</td><td></td></tr>
+    <tr><td><code>direction</code></td><td><a href="#sortorder">SortOrder</a>!</td><td></td></tr>
+  </tbody>
+</table>
 
-#### `ConversationOrderByInput`
+<hr/>
+
+<h4 id="datatablewhereinput"><code>DataTableWhereInput</code></h4>
 
-**Service:** moddy
+<p><strong>Service:</strong> corechangeset</p>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `field` | <a href="#conversationorderbyfield">ConversationOrderByField</a>! |  |
-| `direction` | <a href="#sortorder">SortOrder</a>! |  |
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>id</code></td><td><a href="#idfilter">IDFilter</a></td><td></td></tr>
+    <tr><td><code>dataTable</code></td><td><a href="#stringfilter">StringFilter</a></td><td></td></tr>
+    <tr><td><code>group</code></td><td><a href="#stringfilter">StringFilter</a></td><td></td></tr>
+    <tr><td><code>format</code></td><td><a href="#datatableformatfilter">DataTableFormatFilter</a></td><td></td></tr>
+    <tr><td><code>_and</code></td><td>[<a href="#datatablewhereinput">DataTableWhereInput</a>!]</td><td></td></tr>
+    <tr><td><code>_or</code></td><td>[<a href="#datatablewhereinput">DataTableWhereInput</a>!]</td><td></td></tr>
+    <tr><td><code>_not</code></td><td><a href="#datatablewhereinput">DataTableWhereInput</a></td><td></td></tr>
+  </tbody>
+</table>
 
----
+<hr/>
 
-#### `ConversationWhereInput`
+<h4 id="datetimefilter"><code>DateTimeFilter</code></h4>
 
-**Service:** moddy
+<p><strong>Service:</strong> coregraphql</p>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `id` | <a href="#idfilter">IDFilter</a> |  |
-| `user` | <a href="#stringfilter">StringFilter</a> |  |
-| `startedAt` | <a href="#datetimefilter">DateTimeFilter</a> |  |
-| `lastUpdatedAt` | <a href="#datetimefilter">DateTimeFilter</a> |  |
-| `_and` | [<a href="#conversationwhereinput">ConversationWhereInput</a>!] |  |
-| `_or` | [<a href="#conversationwhereinput">ConversationWhereInput</a>!] |  |
-| `_not` | <a href="#conversationwhereinput">ConversationWhereInput</a> |  |
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>_eq</code></td><td><a href="#datetime">DateTime</a></td><td></td></tr>
+    <tr><td><code>_neq</code></td><td><a href="#datetime">DateTime</a></td><td></td></tr>
+    <tr><td><code>_gt</code></td><td><a href="#datetime">DateTime</a></td><td></td></tr>
+    <tr><td><code>_gte</code></td><td><a href="#datetime">DateTime</a></td><td></td></tr>
+    <tr><td><code>_lt</code></td><td><a href="#datetime">DateTime</a></td><td></td></tr>
+    <tr><td><code>_lte</code></td><td><a href="#datetime">DateTime</a></td><td></td></tr>
+  </tbody>
+</table>
 
----
+<hr/>
 
-#### `CreateConversationInput`
+<h4 id="devcenterrunorderbyinput"><code>DevCenterRunOrderByInput</code></h4>
 
-**Service:** moddy
+<p><strong>Service:</strong> changesetreader</p>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `message` | String! |  |
-| `organizationId` | ID! |  |
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>field</code></td><td><a href="#devcenterrunorderbyfield">DevCenterRunOrderByField</a>!</td><td></td></tr>
+    <tr><td><code>direction</code></td><td><a href="#sortorder">SortOrder</a>!</td><td></td></tr>
+  </tbody>
+</table>
 
----
+<hr/>
 
-#### `CreateUserOrganizationInput`
+<h4 id="devcenterrunstatefilter"><code>DevCenterRunStateFilter</code></h4>
 
-**Service:** organization
+<p><strong>Service:</strong> changesetreader</p>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `name` | String! | The name of the organization. |
-| `repositories` | [<a href="#repositoryinput">RepositoryInput</a>!] | Repositories to include in the organization. |
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>_eq</code></td><td><a href="#devcenterrunstate">DevCenterRunState</a></td><td></td></tr>
+    <tr><td><code>_neq</code></td><td><a href="#devcenterrunstate">DevCenterRunState</a></td><td></td></tr>
+    <tr><td><code>_in</code></td><td>[<a href="#devcenterrunstate">DevCenterRunState</a>!]</td><td></td></tr>
+    <tr><td><code>_nin</code></td><td>[<a href="#devcenterrunstate">DevCenterRunState</a>!]</td><td></td></tr>
+  </tbody>
+</table>
 
----
+<hr/>
 
-#### `DataTableFormatFilter`
+<h4 id="devcenterrunwhereinput"><code>DevCenterRunWhereInput</code></h4>
 
-**Service:** corechangeset
+<p><strong>Service:</strong> changesetreader</p>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `_eq` | <a href="#datatableformat">DataTableFormat</a> |  |
-| `_neq` | <a href="#datatableformat">DataTableFormat</a> |  |
-| `_in` | [<a href="#datatableformat">DataTableFormat</a>!] |  |
-| `_nin` | [<a href="#datatableformat">DataTableFormat</a>!] |  |
+<p>Filter input for DevCenter run queries.</p>
 
----
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>id</code></td><td><a href="#idfilter">IDFilter</a></td><td>Filter by run ID. Use `where: &#123; id: &#123; _eq: "run-id" &#125; &#125;` to get a specific run.</td></tr>
+    <tr><td><code>state</code></td><td><a href="#devcenterrunstatefilter">DevCenterRunStateFilter</a></td><td>Filter by run state.</td></tr>
+    <tr><td><code>startedAt</code></td><td><a href="#datetimefilter">DateTimeFilter</a></td><td>Filter by start time.</td></tr>
+    <tr><td><code>_and</code></td><td>[<a href="#devcenterrunwhereinput">DevCenterRunWhereInput</a>!]</td><td>Logical AND - all conditions must match.</td></tr>
+    <tr><td><code>_or</code></td><td>[<a href="#devcenterrunwhereinput">DevCenterRunWhereInput</a>!]</td><td>Logical OR - at least one condition must match.</td></tr>
+    <tr><td><code>_not</code></td><td><a href="#devcenterrunwhereinput">DevCenterRunWhereInput</a></td><td>Logical NOT - negates the condition.</td></tr>
+  </tbody>
+</table>
 
-#### `DataTableOrderByInput`
+<hr/>
 
-**Service:** corechangeset
+<h4 id="directcommitinput"><code>DirectCommitInput</code></h4>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `field` | <a href="#datatableorderbyfield">DataTableOrderByField</a>! |  |
-| `direction` | <a href="#sortorder">SortOrder</a>! |  |
+<p><strong>Service:</strong> changesetcommitter</p>
 
----
+<p>Direct commit to origin. No additional options required.</p>
 
-#### `DataTableWhereInput`
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>_empty</code></td><td>Boolean</td><td>Placeholder field. Direct commits require no additional configuration.</td></tr>
+  </tbody>
+</table>
 
-**Service:** corechangeset
+<hr/>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `id` | <a href="#idfilter">IDFilter</a> |  |
-| `dataTable` | <a href="#stringfilter">StringFilter</a> |  |
-| `group` | <a href="#stringfilter">StringFilter</a> |  |
-| `format` | <a href="#datatableformatfilter">DataTableFormatFilter</a> |  |
-| `_and` | [<a href="#datatablewhereinput">DataTableWhereInput</a>!] |  |
-| `_or` | [<a href="#datatablewhereinput">DataTableWhereInput</a>!] |  |
-| `_not` | <a href="#datatablewhereinput">DataTableWhereInput</a> |  |
+<h4 id="exchangeauthorizationcodeinput"><code>ExchangeAuthorizationCodeInput</code></h4>
 
----
+<p><strong>Service:</strong> authz</p>
 
-#### `DateTimeFilter`
-
-**Service:** coregraphql
-
-| Field | Type | Description |
-|-------|------|-------------|
-| `_eq` | <a href="#datetime">DateTime</a> |  |
-| `_neq` | <a href="#datetime">DateTime</a> |  |
-| `_gt` | <a href="#datetime">DateTime</a> |  |
-| `_gte` | <a href="#datetime">DateTime</a> |  |
-| `_lt` | <a href="#datetime">DateTime</a> |  |
-| `_lte` | <a href="#datetime">DateTime</a> |  |
-
----
-
-#### `DevCenterRunOrderByInput`
-
-**Service:** changesetreader
-
-| Field | Type | Description |
-|-------|------|-------------|
-| `field` | <a href="#devcenterrunorderbyfield">DevCenterRunOrderByField</a>! |  |
-| `direction` | <a href="#sortorder">SortOrder</a>! |  |
-
----
-
-#### `DevCenterRunStateFilter`
-
-**Service:** changesetreader
-
-| Field | Type | Description |
-|-------|------|-------------|
-| `_eq` | <a href="#devcenterrunstate">DevCenterRunState</a> |  |
-| `_neq` | <a href="#devcenterrunstate">DevCenterRunState</a> |  |
-| `_in` | [<a href="#devcenterrunstate">DevCenterRunState</a>!] |  |
-| `_nin` | [<a href="#devcenterrunstate">DevCenterRunState</a>!] |  |
-
----
-
-#### `DevCenterRunWhereInput`
-
-**Service:** changesetreader
-
-Filter input for DevCenter run queries.
-
-| Field | Type | Description |
-|-------|------|-------------|
-| `id` | <a href="#idfilter">IDFilter</a> | Filter by run ID. Use `where: \{ id: \{ _eq: "run-id" } }` to get a specific run. |
-| `state` | <a href="#devcenterrunstatefilter">DevCenterRunStateFilter</a> | Filter by run state. |
-| `startedAt` | <a href="#datetimefilter">DateTimeFilter</a> | Filter by start time. |
-| `_and` | [<a href="#devcenterrunwhereinput">DevCenterRunWhereInput</a>!] | Logical AND - all conditions must match. |
-| `_or` | [<a href="#devcenterrunwhereinput">DevCenterRunWhereInput</a>!] | Logical OR - at least one condition must match. |
-| `_not` | <a href="#devcenterrunwhereinput">DevCenterRunWhereInput</a> | Logical NOT - negates the condition. |
-
----
-
-#### `DirectCommitInput`
-
-**Service:** changesetcommitter
-
-Direct commit to origin. No additional options required.
-
-| Field | Type | Description |
-|-------|------|-------------|
-| `_empty` | Boolean | Placeholder field. Direct commits require no additional configuration. |
-
----
-
-#### `ExchangeAuthorizationCodeInput`
-
-**Service:** authz
-
-| Field | Type | Description |
-|-------|------|-------------|
-| `authorizationId` | ID! | The authorization ID returned from initiateAuthorization or from NeedsAuthorization. |
-| `code` | String! | Authorization code from the OAuth callback. |
-| `redirectUri` | String! | The redirect URI used in the authorization request.
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>authorizationId</code></td><td>ID!</td><td>The authorization ID returned from initiateAuthorization or from NeedsAuthorization.</td></tr>
+    <tr><td><code>code</code></td><td>String!</td><td>Authorization code from the OAuth callback.</td></tr>
+    <tr><td><code>redirectUri</code></td><td>String!</td><td>The redirect URI used in the authorization request.
 Note: This field is deprecated - the server uses the stored redirect URI
-from the authorization to ensure an exact match. |
+from the authorization to ensure an exact match.</td></tr>
+  </tbody>
+</table>
 
----
+<hr/>
 
-#### `FileChangeOrderByInput`
+<h4 id="filechangeorderbyinput"><code>FileChangeOrderByInput</code></h4>
 
-**Service:** corechangeset
+<p><strong>Service:</strong> corechangeset</p>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `field` | <a href="#filechangeorderbyfield">FileChangeOrderByField</a>! |  |
-| `direction` | <a href="#sortorder">SortOrder</a>! |  |
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>field</code></td><td><a href="#filechangeorderbyfield">FileChangeOrderByField</a>!</td><td></td></tr>
+    <tr><td><code>direction</code></td><td><a href="#sortorder">SortOrder</a>!</td><td></td></tr>
+  </tbody>
+</table>
 
----
+<hr/>
 
-#### `FileChangeWhereInput`
+<h4 id="filechangewhereinput"><code>FileChangeWhereInput</code></h4>
 
-**Service:** changesetcommitter
+<p><strong>Service:</strong> changesetcommitter</p>
 
-Filter for file changes.
+<p>Filter for file changes.</p>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `path` | <a href="#pathfilter">PathFilter</a> | Filter by file path using glob patterns. |
-| `_and` | [<a href="#filechangewhereinput">FileChangeWhereInput</a>!] | Logical AND - all conditions must match. |
-| `_or` | [<a href="#filechangewhereinput">FileChangeWhereInput</a>!] | Logical OR - at least one condition must match. |
-| `_not` | <a href="#filechangewhereinput">FileChangeWhereInput</a> | Logical NOT - negates the condition. |
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>path</code></td><td><a href="#pathfilter">PathFilter</a></td><td>Filter by file path using glob patterns.</td></tr>
+    <tr><td><code>_and</code></td><td>[<a href="#filechangewhereinput">FileChangeWhereInput</a>!]</td><td>Logical AND - all conditions must match.</td></tr>
+    <tr><td><code>_or</code></td><td>[<a href="#filechangewhereinput">FileChangeWhereInput</a>!]</td><td>Logical OR - at least one condition must match.</td></tr>
+    <tr><td><code>_not</code></td><td><a href="#filechangewhereinput">FileChangeWhereInput</a></td><td>Logical NOT - negates the condition.</td></tr>
+  </tbody>
+</table>
 
----
+<hr/>
 
-#### `ForkAndPullRequestCommitInput`
+<h4 id="forkandpullrequestcommitinput"><code>ForkAndPullRequestCommitInput</code></h4>
 
-**Service:** changesetcommitter
+<p><strong>Service:</strong> changesetcommitter</p>
 
-Create a pull request from a branch on a fork.
+<p>Create a pull request from a branch on a fork.</p>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `organization` | String | Organization to create the fork in. If unset, creates in user's personal account. |
-| `prefixOrganizationName` | Boolean | Prefix the fork name with the origin organization to avoid name collisions. |
-| `title` | String | Pull request title. If unset, uses the commit message. |
-| `body` | <a href="#base64">Base64</a> | Pull request body (Base64 encoded). |
-| `draft` | Boolean | Create as a draft pull request. |
-| `maintainerCanModify` | Boolean | GitHub only: allow maintainers to edit the pull request. |
-| `autoMergeMethod` | <a href="#mergemethod">MergeMethod</a> | Auto-merge method after checks pass. Null means no auto-merge.
-Best effort - silently ignored if not supported by the repository. |
-| `recreateClosedPullRequest` | Boolean | Recreate pull request if it was previously closed. |
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>organization</code></td><td>String</td><td>Organization to create the fork in. If unset, creates in user's personal account.</td></tr>
+    <tr><td><code>prefixOrganizationName</code></td><td>Boolean</td><td>Prefix the fork name with the origin organization to avoid name collisions.</td></tr>
+    <tr><td><code>title</code></td><td>String</td><td>Pull request title. If unset, uses the commit message.</td></tr>
+    <tr><td><code>body</code></td><td><a href="#base64">Base64</a></td><td>Pull request body (Base64 encoded).</td></tr>
+    <tr><td><code>draft</code></td><td>Boolean</td><td>Create as a draft pull request.</td></tr>
+    <tr><td><code>maintainerCanModify</code></td><td>Boolean</td><td>GitHub only: allow maintainers to edit the pull request.</td></tr>
+    <tr><td><code>autoMergeMethod</code></td><td><a href="#mergemethod">MergeMethod</a></td><td>Auto-merge method after checks pass. Null means no auto-merge.
+Best effort - silently ignored if not supported by the repository.</td></tr>
+    <tr><td><code>recreateClosedPullRequest</code></td><td>Boolean</td><td>Recreate pull request if it was previously closed.</td></tr>
+  </tbody>
+</table>
 
----
+<hr/>
 
-#### `ForkCommitInput`
+<h4 id="forkcommitinput"><code>ForkCommitInput</code></h4>
 
-**Service:** changesetcommitter
+<p><strong>Service:</strong> changesetcommitter</p>
 
-Commit to a fork of the origin repository.
+<p>Commit to a fork of the origin repository.</p>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `organization` | String | Organization to create the fork in. If unset, creates in user's personal account. |
-| `prefixOrganizationName` | Boolean | Prefix the fork name with the origin organization to avoid name collisions.
-Example: openrewrite/rewrite -> myuser/openrewrite__rewrite |
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>organization</code></td><td>String</td><td>Organization to create the fork in. If unset, creates in user's personal account.</td></tr>
+    <tr><td><code>prefixOrganizationName</code></td><td>Boolean</td><td>Prefix the fork name with the origin organization to avoid name collisions.
+Example: openrewrite/rewrite -> myuser/openrewrite__rewrite</td></tr>
+  </tbody>
+</table>
 
----
+<hr/>
 
-#### `GoRecipeBundleInput`
+<h4 id="gorecipebundleinput"><code>GoRecipeBundleInput</code></h4>
 
-**Service:** recipemarketplace
+<p><strong>Service:</strong> recipemarketplace</p>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `packageName` | String! |  |
-| `version` | String |  |
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>packageName</code></td><td>String!</td><td></td></tr>
+    <tr><td><code>version</code></td><td>String</td><td></td></tr>
+  </tbody>
+</table>
 
----
+<hr/>
 
-#### `GpgInput`
+<h4 id="gpginput"><code>GpgInput</code></h4>
 
-**Service:** changesetcommitter
+<p><strong>Service:</strong> changesetcommitter</p>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `privateKey` | String! |  |
-| `publicKey` | String! |  |
-| `passphrase` | String |  |
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>privateKey</code></td><td>String!</td><td></td></tr>
+    <tr><td><code>publicKey</code></td><td>String!</td><td></td></tr>
+    <tr><td><code>passphrase</code></td><td>String</td><td></td></tr>
+  </tbody>
+</table>
 
----
+<hr/>
 
-#### `IDFilter`
+<h4 id="idfilter"><code>IDFilter</code></h4>
 
-**Service:** coregraphql
+<p><strong>Service:</strong> coregraphql</p>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `_eq` | ID |  |
-| `_neq` | ID |  |
-| `_in` | [ID!] |  |
-| `_nin` | [ID!] |  |
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>_eq</code></td><td>ID</td><td></td></tr>
+    <tr><td><code>_neq</code></td><td>ID</td><td></td></tr>
+    <tr><td><code>_in</code></td><td>[ID!]</td><td></td></tr>
+    <tr><td><code>_nin</code></td><td>[ID!]</td><td></td></tr>
+  </tbody>
+</table>
 
----
+<hr/>
 
-#### `InitiateAuthorizationInput`
+<h4 id="initiateauthorizationinput"><code>InitiateAuthorizationInput</code></h4>
 
-**Service:** authz
+<p><strong>Service:</strong> authz</p>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `origin` | String! | The VCS origin to authorize (e.g., github.com, gitlab.com). |
-| `redirectUri` | String! | The redirect URI where the VCS will send the callback.
-Must match an allowed redirect URI in the OAuth app configuration. |
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>origin</code></td><td>String!</td><td>The VCS origin to authorize (e.g., github.com, gitlab.com).</td></tr>
+    <tr><td><code>redirectUri</code></td><td>String!</td><td>The redirect URI where the VCS will send the callback.
+Must match an allowed redirect URI in the OAuth app configuration.</td></tr>
+  </tbody>
+</table>
 
----
+<hr/>
 
-#### `IntFilter`
+<h4 id="intfilter"><code>IntFilter</code></h4>
 
-**Service:** coregraphql
+<p><strong>Service:</strong> coregraphql</p>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `_eq` | Int |  |
-| `_neq` | Int |  |
-| `_gt` | Int |  |
-| `_gte` | Int |  |
-| `_lt` | Int |  |
-| `_lte` | Int |  |
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>_eq</code></td><td>Int</td><td></td></tr>
+    <tr><td><code>_neq</code></td><td>Int</td><td></td></tr>
+    <tr><td><code>_gt</code></td><td>Int</td><td></td></tr>
+    <tr><td><code>_gte</code></td><td>Int</td><td></td></tr>
+    <tr><td><code>_lt</code></td><td>Int</td><td></td></tr>
+    <tr><td><code>_lte</code></td><td>Int</td><td></td></tr>
+  </tbody>
+</table>
 
----
+<hr/>
 
-#### `LstArtifactWhereInput`
+<h4 id="lstartifactwhereinput"><code>LstArtifactWhereInput</code></h4>
 
-**Service:** organization
+<p><strong>Service:</strong> organization</p>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `published` | <a href="#datetimefilter">DateTimeFilter</a> |  |
-| `available` | <a href="#booleanfilter">BooleanFilter</a> |  |
-| `_and` | [<a href="#lstartifactwhereinput">LstArtifactWhereInput</a>!] |  |
-| `_or` | [<a href="#lstartifactwhereinput">LstArtifactWhereInput</a>!] |  |
-| `_not` | <a href="#lstartifactwhereinput">LstArtifactWhereInput</a> |  |
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>published</code></td><td><a href="#datetimefilter">DateTimeFilter</a></td><td></td></tr>
+    <tr><td><code>available</code></td><td><a href="#booleanfilter">BooleanFilter</a></td><td></td></tr>
+    <tr><td><code>_and</code></td><td>[<a href="#lstartifactwhereinput">LstArtifactWhereInput</a>!]</td><td></td></tr>
+    <tr><td><code>_or</code></td><td>[<a href="#lstartifactwhereinput">LstArtifactWhereInput</a>!]</td><td></td></tr>
+    <tr><td><code>_not</code></td><td><a href="#lstartifactwhereinput">LstArtifactWhereInput</a></td><td></td></tr>
+  </tbody>
+</table>
 
----
+<hr/>
 
-#### `MavenRecipeBundleInput`
+<h4 id="mavenrecipebundleinput"><code>MavenRecipeBundleInput</code></h4>
 
-**Service:** recipemarketplace
+<p><strong>Service:</strong> recipemarketplace</p>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `groupId` | String! |  |
-| `artifactId` | String! |  |
-| `version` | String! |  |
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>groupId</code></td><td>String!</td><td></td></tr>
+    <tr><td><code>artifactId</code></td><td>String!</td><td></td></tr>
+    <tr><td><code>version</code></td><td>String!</td><td></td></tr>
+  </tbody>
+</table>
 
----
+<hr/>
 
-#### `NpmRecipeBundleInput`
+<h4 id="npmrecipebundleinput"><code>NpmRecipeBundleInput</code></h4>
 
-**Service:** recipemarketplace
+<p><strong>Service:</strong> recipemarketplace</p>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `packageName` | String! |  |
-| `version` | String! |  |
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>packageName</code></td><td>String!</td><td></td></tr>
+    <tr><td><code>version</code></td><td>String!</td><td></td></tr>
+  </tbody>
+</table>
 
----
+<hr/>
 
-#### `NugetRecipeBundleInput`
+<h4 id="nugetrecipebundleinput"><code>NugetRecipeBundleInput</code></h4>
 
-**Service:** recipemarketplace
+<p><strong>Service:</strong> recipemarketplace</p>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `packageName` | String! |  |
-| `version` | String! |  |
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>packageName</code></td><td>String!</td><td></td></tr>
+    <tr><td><code>version</code></td><td>String!</td><td></td></tr>
+  </tbody>
+</table>
 
----
+<hr/>
 
-#### `OrganizationChangesetOrderByInput`
+<h4 id="organizationchangesetorderbyinput"><code>OrganizationChangesetOrderByInput</code></h4>
 
-**Service:** corechangeset
+<p><strong>Service:</strong> corechangeset</p>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `field` | <a href="#organizationchangesetorderbyfield">OrganizationChangesetOrderByField</a>! |  |
-| `direction` | <a href="#sortorder">SortOrder</a>! |  |
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>field</code></td><td><a href="#organizationchangesetorderbyfield">OrganizationChangesetOrderByField</a>!</td><td></td></tr>
+    <tr><td><code>direction</code></td><td><a href="#sortorder">SortOrder</a>!</td><td></td></tr>
+  </tbody>
+</table>
 
----
+<hr/>
 
-#### `OrganizationChangesetTypeFilter`
+<h4 id="organizationchangesettypefilter"><code>OrganizationChangesetTypeFilter</code></h4>
 
-**Service:** corechangeset
+<p><strong>Service:</strong> corechangeset</p>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `_eq` | <a href="#organizationchangesettype">OrganizationChangesetType</a> |  |
-| `_neq` | <a href="#organizationchangesettype">OrganizationChangesetType</a> |  |
-| `_in` | [<a href="#organizationchangesettype">OrganizationChangesetType</a>!] |  |
-| `_nin` | [<a href="#organizationchangesettype">OrganizationChangesetType</a>!] |  |
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>_eq</code></td><td><a href="#organizationchangesettype">OrganizationChangesetType</a></td><td></td></tr>
+    <tr><td><code>_neq</code></td><td><a href="#organizationchangesettype">OrganizationChangesetType</a></td><td></td></tr>
+    <tr><td><code>_in</code></td><td>[<a href="#organizationchangesettype">OrganizationChangesetType</a>!]</td><td></td></tr>
+    <tr><td><code>_nin</code></td><td>[<a href="#organizationchangesettype">OrganizationChangesetType</a>!]</td><td></td></tr>
+  </tbody>
+</table>
 
----
+<hr/>
 
-#### `OrganizationChangesetWhereInput`
+<h4 id="organizationchangesetwhereinput"><code>OrganizationChangesetWhereInput</code></h4>
 
-**Service:** corechangeset
+<p><strong>Service:</strong> corechangeset</p>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `id` | <a href="#idfilter">IDFilter</a> |  |
-| `type` | <a href="#organizationchangesettypefilter">OrganizationChangesetTypeFilter</a> |  |
-| `createdAt` | <a href="#datetimefilter">DateTimeFilter</a> |  |
-| `user` | <a href="#stringfilter">StringFilter</a> |  |
-| `_and` | [<a href="#organizationchangesetwhereinput">OrganizationChangesetWhereInput</a>!] |  |
-| `_or` | [<a href="#organizationchangesetwhereinput">OrganizationChangesetWhereInput</a>!] |  |
-| `_not` | <a href="#organizationchangesetwhereinput">OrganizationChangesetWhereInput</a> |  |
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>id</code></td><td><a href="#idfilter">IDFilter</a></td><td></td></tr>
+    <tr><td><code>type</code></td><td><a href="#organizationchangesettypefilter">OrganizationChangesetTypeFilter</a></td><td></td></tr>
+    <tr><td><code>createdAt</code></td><td><a href="#datetimefilter">DateTimeFilter</a></td><td></td></tr>
+    <tr><td><code>user</code></td><td><a href="#stringfilter">StringFilter</a></td><td></td></tr>
+    <tr><td><code>_and</code></td><td>[<a href="#organizationchangesetwhereinput">OrganizationChangesetWhereInput</a>!]</td><td></td></tr>
+    <tr><td><code>_or</code></td><td>[<a href="#organizationchangesetwhereinput">OrganizationChangesetWhereInput</a>!]</td><td></td></tr>
+    <tr><td><code>_not</code></td><td><a href="#organizationchangesetwhereinput">OrganizationChangesetWhereInput</a></td><td></td></tr>
+  </tbody>
+</table>
 
----
+<hr/>
 
-#### `OrganizationCommitOrderByInput`
+<h4 id="organizationcommitorderbyinput"><code>OrganizationCommitOrderByInput</code></h4>
 
-**Service:** changesetcommitter
+<p><strong>Service:</strong> changesetcommitter</p>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `field` | <a href="#organizationcommitorderbyfield">OrganizationCommitOrderByField</a>! |  |
-| `direction` | <a href="#sortorder">SortOrder</a>! |  |
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>field</code></td><td><a href="#organizationcommitorderbyfield">OrganizationCommitOrderByField</a>!</td><td></td></tr>
+    <tr><td><code>direction</code></td><td><a href="#sortorder">SortOrder</a>!</td><td></td></tr>
+  </tbody>
+</table>
 
----
+<hr/>
 
-#### `OrganizationCommitWhereInput`
+<h4 id="organizationcommitwhereinput"><code>OrganizationCommitWhereInput</code></h4>
 
-**Service:** changesetcommitter
+<p><strong>Service:</strong> changesetcommitter</p>
 
-Filter input for organization-level commit queries.
+<p>Filter input for organization-level commit queries.</p>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `id` | <a href="#idfilter">IDFilter</a> | Filter by commit ID. |
-| `startedAt` | <a href="#datetimefilter">DateTimeFilter</a> | Filter by when the commit started. |
-| `_and` | [<a href="#organizationcommitwhereinput">OrganizationCommitWhereInput</a>!] | Logical AND - all conditions must match. |
-| `_or` | [<a href="#organizationcommitwhereinput">OrganizationCommitWhereInput</a>!] | Logical OR - at least one condition must match. |
-| `_not` | <a href="#organizationcommitwhereinput">OrganizationCommitWhereInput</a> | Logical NOT - negates the condition. |
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>id</code></td><td><a href="#idfilter">IDFilter</a></td><td>Filter by commit ID.</td></tr>
+    <tr><td><code>startedAt</code></td><td><a href="#datetimefilter">DateTimeFilter</a></td><td>Filter by when the commit started.</td></tr>
+    <tr><td><code>_and</code></td><td>[<a href="#organizationcommitwhereinput">OrganizationCommitWhereInput</a>!]</td><td>Logical AND - all conditions must match.</td></tr>
+    <tr><td><code>_or</code></td><td>[<a href="#organizationcommitwhereinput">OrganizationCommitWhereInput</a>!]</td><td>Logical OR - at least one condition must match.</td></tr>
+    <tr><td><code>_not</code></td><td><a href="#organizationcommitwhereinput">OrganizationCommitWhereInput</a></td><td>Logical NOT - negates the condition.</td></tr>
+  </tbody>
+</table>
 
----
+<hr/>
 
-#### `OrganizationOrderByInput`
+<h4 id="organizationorderbyinput"><code>OrganizationOrderByInput</code></h4>
 
-**Service:** organization
+<p><strong>Service:</strong> organization</p>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `field` | <a href="#organizationorderbyfield">OrganizationOrderByField</a>! |  |
-| `direction` | <a href="#sortorder">SortOrder</a>! |  |
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>field</code></td><td><a href="#organizationorderbyfield">OrganizationOrderByField</a>!</td><td></td></tr>
+    <tr><td><code>direction</code></td><td><a href="#sortorder">SortOrder</a>!</td><td></td></tr>
+  </tbody>
+</table>
 
----
+<hr/>
 
-#### `OrganizationRecipeRunOrderByInput`
+<h4 id="organizationreciperunorderbyinput"><code>OrganizationRecipeRunOrderByInput</code></h4>
 
-**Service:** changesetreader
+<p><strong>Service:</strong> changesetreader</p>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `field` | <a href="#organizationreciperunorderbyfield">OrganizationRecipeRunOrderByField</a>! |  |
-| `direction` | <a href="#sortorder">SortOrder</a>! |  |
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>field</code></td><td><a href="#organizationreciperunorderbyfield">OrganizationRecipeRunOrderByField</a>!</td><td></td></tr>
+    <tr><td><code>direction</code></td><td><a href="#sortorder">SortOrder</a>!</td><td></td></tr>
+  </tbody>
+</table>
 
----
+<hr/>
 
-#### `OrganizationRecipeRunStateFilter`
+<h4 id="organizationreciperunstatefilter"><code>OrganizationRecipeRunStateFilter</code></h4>
 
-**Service:** changesetreader
+<p><strong>Service:</strong> changesetreader</p>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `_eq` | <a href="#organizationreciperunstate">OrganizationRecipeRunState</a> |  |
-| `_neq` | <a href="#organizationreciperunstate">OrganizationRecipeRunState</a> |  |
-| `_in` | [<a href="#organizationreciperunstate">OrganizationRecipeRunState</a>!] |  |
-| `_nin` | [<a href="#organizationreciperunstate">OrganizationRecipeRunState</a>!] |  |
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>_eq</code></td><td><a href="#organizationreciperunstate">OrganizationRecipeRunState</a></td><td></td></tr>
+    <tr><td><code>_neq</code></td><td><a href="#organizationreciperunstate">OrganizationRecipeRunState</a></td><td></td></tr>
+    <tr><td><code>_in</code></td><td>[<a href="#organizationreciperunstate">OrganizationRecipeRunState</a>!]</td><td></td></tr>
+    <tr><td><code>_nin</code></td><td>[<a href="#organizationreciperunstate">OrganizationRecipeRunState</a>!]</td><td></td></tr>
+  </tbody>
+</table>
 
----
+<hr/>
 
-#### `OrganizationRecipeRunWhereInput`
+<h4 id="organizationreciperunwhereinput"><code>OrganizationRecipeRunWhereInput</code></h4>
 
-**Service:** changesetreader
+<p><strong>Service:</strong> changesetreader</p>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `id` | <a href="#idfilter">IDFilter</a> |  |
-| `state` | <a href="#organizationreciperunstatefilter">OrganizationRecipeRunStateFilter</a> |  |
-| `startedAt` | <a href="#datetimefilter">DateTimeFilter</a> |  |
-| `user` | <a href="#stringfilter">StringFilter</a> |  |
-| `_and` | [<a href="#organizationreciperunwhereinput">OrganizationRecipeRunWhereInput</a>!] |  |
-| `_or` | [<a href="#organizationreciperunwhereinput">OrganizationRecipeRunWhereInput</a>!] |  |
-| `_not` | <a href="#organizationreciperunwhereinput">OrganizationRecipeRunWhereInput</a> |  |
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>id</code></td><td><a href="#idfilter">IDFilter</a></td><td></td></tr>
+    <tr><td><code>state</code></td><td><a href="#organizationreciperunstatefilter">OrganizationRecipeRunStateFilter</a></td><td></td></tr>
+    <tr><td><code>startedAt</code></td><td><a href="#datetimefilter">DateTimeFilter</a></td><td></td></tr>
+    <tr><td><code>user</code></td><td><a href="#stringfilter">StringFilter</a></td><td></td></tr>
+    <tr><td><code>_and</code></td><td>[<a href="#organizationreciperunwhereinput">OrganizationRecipeRunWhereInput</a>!]</td><td></td></tr>
+    <tr><td><code>_or</code></td><td>[<a href="#organizationreciperunwhereinput">OrganizationRecipeRunWhereInput</a>!]</td><td></td></tr>
+    <tr><td><code>_not</code></td><td><a href="#organizationreciperunwhereinput">OrganizationRecipeRunWhereInput</a></td><td></td></tr>
+  </tbody>
+</table>
 
----
+<hr/>
 
-#### `OrganizationWhereInput`
+<h4 id="organizationwhereinput"><code>OrganizationWhereInput</code></h4>
 
-**Service:** organization
+<p><strong>Service:</strong> organization</p>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `name` | <a href="#stringfilter">StringFilter</a> |  |
-| `depth` | <a href="#intfilter">IntFilter</a> | Filter by depth in the organization hierarchy.
-The root organization ("_root") is depth 0, its direct children are depth 1, etc. |
-| `_and` | [<a href="#organizationwhereinput">OrganizationWhereInput</a>!] |  |
-| `_or` | [<a href="#organizationwhereinput">OrganizationWhereInput</a>!] |  |
-| `_not` | <a href="#organizationwhereinput">OrganizationWhereInput</a> |  |
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>name</code></td><td><a href="#stringfilter">StringFilter</a></td><td></td></tr>
+    <tr><td><code>depth</code></td><td><a href="#intfilter">IntFilter</a></td><td>Filter by depth in the organization hierarchy.
+The root organization ("_root") is depth 0, its direct children are depth 1, etc.</td></tr>
+    <tr><td><code>_and</code></td><td>[<a href="#organizationwhereinput">OrganizationWhereInput</a>!]</td><td></td></tr>
+    <tr><td><code>_or</code></td><td>[<a href="#organizationwhereinput">OrganizationWhereInput</a>!]</td><td></td></tr>
+    <tr><td><code>_not</code></td><td><a href="#organizationwhereinput">OrganizationWhereInput</a></td><td></td></tr>
+  </tbody>
+</table>
 
----
+<hr/>
 
-#### `PathFilter`
+<h4 id="pathfilter"><code>PathFilter</code></h4>
 
-**Service:** coregraphql
+<p><strong>Service:</strong> coregraphql</p>
 
-Filter for file paths using glob patterns.
+<p>Filter for file paths using glob patterns.</p>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `_eq` | <a href="#path">Path</a> | Exact path match. |
-| `_in` | [<a href="#path">Path</a>!] | Match any of the exact paths. |
-| `_nin` | [<a href="#path">Path</a>!] | Exclude any of the exact paths. |
-| `_glob` | String | Glob pattern match. Examples: **\/*.java, src/main/** |
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>_eq</code></td><td><a href="#path">Path</a></td><td>Exact path match.</td></tr>
+    <tr><td><code>_in</code></td><td>[<a href="#path">Path</a>!]</td><td>Match any of the exact paths.</td></tr>
+    <tr><td><code>_nin</code></td><td>[<a href="#path">Path</a>!]</td><td>Exclude any of the exact paths.</td></tr>
+    <tr><td><code>_glob</code></td><td>String</td><td>Glob pattern match. Examples: **\/*.java, src/main/**</td></tr>
+  </tbody>
+</table>
 
----
+<hr/>
 
-#### `PipRecipeBundleInput`
+<h4 id="piprecipebundleinput"><code>PipRecipeBundleInput</code></h4>
 
-**Service:** recipemarketplace
+<p><strong>Service:</strong> recipemarketplace</p>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `packageName` | String! |  |
-| `version` | String |  |
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>packageName</code></td><td>String!</td><td></td></tr>
+    <tr><td><code>version</code></td><td>String</td><td></td></tr>
+  </tbody>
+</table>
 
----
+<hr/>
 
-#### `PullRequestActionOrderByInput`
+<h4 id="pullrequestactionorderbyinput"><code>PullRequestActionOrderByInput</code></h4>
 
-**Service:** changelogreader
+<p><strong>Service:</strong> changelogreader</p>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `field` | <a href="#pullrequestactionorderbyfield">PullRequestActionOrderByField</a>! |  |
-| `direction` | <a href="#sortorder">SortOrder</a>! |  |
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>field</code></td><td><a href="#pullrequestactionorderbyfield">PullRequestActionOrderByField</a>!</td><td></td></tr>
+    <tr><td><code>direction</code></td><td><a href="#sortorder">SortOrder</a>!</td><td></td></tr>
+  </tbody>
+</table>
 
----
+<hr/>
 
-#### `PullRequestActionStateFilter`
+<h4 id="pullrequestactionstatefilter"><code>PullRequestActionStateFilter</code></h4>
 
-**Service:** changelogreader
+<p><strong>Service:</strong> changelogreader</p>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `_eq` | <a href="#pullrequestactionstate">PullRequestActionState</a> |  |
-| `_neq` | <a href="#pullrequestactionstate">PullRequestActionState</a> |  |
-| `_in` | [<a href="#pullrequestactionstate">PullRequestActionState</a>!] |  |
-| `_nin` | [<a href="#pullrequestactionstate">PullRequestActionState</a>!] |  |
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>_eq</code></td><td><a href="#pullrequestactionstate">PullRequestActionState</a></td><td></td></tr>
+    <tr><td><code>_neq</code></td><td><a href="#pullrequestactionstate">PullRequestActionState</a></td><td></td></tr>
+    <tr><td><code>_in</code></td><td>[<a href="#pullrequestactionstate">PullRequestActionState</a>!]</td><td></td></tr>
+    <tr><td><code>_nin</code></td><td>[<a href="#pullrequestactionstate">PullRequestActionState</a>!]</td><td></td></tr>
+  </tbody>
+</table>
 
----
+<hr/>
 
-#### `PullRequestActionTypeFilter`
+<h4 id="pullrequestactiontypefilter"><code>PullRequestActionTypeFilter</code></h4>
 
-**Service:** changelogreader
+<p><strong>Service:</strong> changelogreader</p>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `_eq` | <a href="#pullrequestactiontype">PullRequestActionType</a> |  |
-| `_neq` | <a href="#pullrequestactiontype">PullRequestActionType</a> |  |
-| `_in` | [<a href="#pullrequestactiontype">PullRequestActionType</a>!] |  |
-| `_nin` | [<a href="#pullrequestactiontype">PullRequestActionType</a>!] |  |
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>_eq</code></td><td><a href="#pullrequestactiontype">PullRequestActionType</a></td><td></td></tr>
+    <tr><td><code>_neq</code></td><td><a href="#pullrequestactiontype">PullRequestActionType</a></td><td></td></tr>
+    <tr><td><code>_in</code></td><td>[<a href="#pullrequestactiontype">PullRequestActionType</a>!]</td><td></td></tr>
+    <tr><td><code>_nin</code></td><td>[<a href="#pullrequestactiontype">PullRequestActionType</a>!]</td><td></td></tr>
+  </tbody>
+</table>
 
----
+<hr/>
 
-#### `PullRequestActionWhereInput`
+<h4 id="pullrequestactionwhereinput"><code>PullRequestActionWhereInput</code></h4>
 
-**Service:** changelogreader
+<p><strong>Service:</strong> changelogreader</p>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `state` | <a href="#pullrequestactionstatefilter">PullRequestActionStateFilter</a> |  |
-| `_and` | [<a href="#pullrequestactionwhereinput">PullRequestActionWhereInput</a>!] |  |
-| `_or` | [<a href="#pullrequestactionwhereinput">PullRequestActionWhereInput</a>!] |  |
-| `_not` | <a href="#pullrequestactionwhereinput">PullRequestActionWhereInput</a> |  |
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>state</code></td><td><a href="#pullrequestactionstatefilter">PullRequestActionStateFilter</a></td><td></td></tr>
+    <tr><td><code>_and</code></td><td>[<a href="#pullrequestactionwhereinput">PullRequestActionWhereInput</a>!]</td><td></td></tr>
+    <tr><td><code>_or</code></td><td>[<a href="#pullrequestactionwhereinput">PullRequestActionWhereInput</a>!]</td><td></td></tr>
+    <tr><td><code>_not</code></td><td><a href="#pullrequestactionwhereinput">PullRequestActionWhereInput</a></td><td></td></tr>
+  </tbody>
+</table>
 
----
+<hr/>
 
-#### `PullRequestCommitInput`
+<h4 id="pullrequestcommitinput"><code>PullRequestCommitInput</code></h4>
 
-**Service:** changesetcommitter
+<p><strong>Service:</strong> changesetcommitter</p>
 
-Create a pull request from a branch on the origin remote.
+<p>Create a pull request from a branch on the origin remote.</p>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `title` | String | Pull request title. If unset, uses the commit message. |
-| `body` | <a href="#base64">Base64</a> | Pull request body (Base64 encoded). |
-| `draft` | Boolean | Create as a draft pull request. |
-| `autoMergeMethod` | <a href="#mergemethod">MergeMethod</a> | Auto-merge method after checks pass. Null means no auto-merge.
-Best effort - silently ignored if not supported by the repository. |
-| `recreateClosedPullRequest` | Boolean | Recreate pull request if it was previously closed. |
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>title</code></td><td>String</td><td>Pull request title. If unset, uses the commit message.</td></tr>
+    <tr><td><code>body</code></td><td><a href="#base64">Base64</a></td><td>Pull request body (Base64 encoded).</td></tr>
+    <tr><td><code>draft</code></td><td>Boolean</td><td>Create as a draft pull request.</td></tr>
+    <tr><td><code>autoMergeMethod</code></td><td><a href="#mergemethod">MergeMethod</a></td><td>Auto-merge method after checks pass. Null means no auto-merge.
+Best effort - silently ignored if not supported by the repository.</td></tr>
+    <tr><td><code>recreateClosedPullRequest</code></td><td>Boolean</td><td>Recreate pull request if it was previously closed.</td></tr>
+  </tbody>
+</table>
 
----
+<hr/>
 
-#### `PullRequestInput`
+<h4 id="pullrequestinput"><code>PullRequestInput</code></h4>
 
-**Service:** changelogreader
+<p><strong>Service:</strong> changelogreader</p>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `repository` | <a href="#repositoryinput">RepositoryInput</a>! |  |
-| `number` | Int! | Pull request number. |
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>repository</code></td><td><a href="#repositoryinput">RepositoryInput</a>!</td><td></td></tr>
+    <tr><td><code>number</code></td><td>Int!</td><td>Pull request number.</td></tr>
+  </tbody>
+</table>
 
----
+<hr/>
 
-#### `PullRequestSelectionInput`
+<h4 id="pullrequestselectioninput"><code>PullRequestSelectionInput</code></h4>
 
-**Service:** changelogreader
+<p><strong>Service:</strong> changelogreader</p>
 
-Selects pull requests for a bulk action.
+<p>Selects pull requests for a bulk action.
 
 The `where` filter defines a base set of matching PRs. The optional `pullRequests`
 modifier can include or exclude specific PRs from that base set.
 
 Examples:
-- Filter-only: `\{ where: \{ ... } }` — all matching PRs
-- Explicit: `\{ pullRequests: \{ include: [...] } }` — exactly those PRs
-- Filter + exclusions: `\{ where: \{ ... }, pullRequests: \{ exclude: [...] } }` — matching minus excluded
-- Filter + additions: `\{ where: \{ ... }, pullRequests: \{ include: [...] } }` — matching plus included
+- Filter-only: `&#123; where: &#123; ... &#125; &#125;` — all matching PRs
+- Explicit: `&#123; pullRequests: &#123; include: [...] &#125; &#125;` — exactly those PRs
+- Filter + exclusions: `&#123; where: &#123; ... &#125;, pullRequests: &#123; exclude: [...] &#125; &#125;` — matching minus excluded
+- Filter + additions: `&#123; where: &#123; ... &#125;, pullRequests: &#123; include: [...] &#125; &#125;` — matching plus included</p>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `where` | <a href="#changelogentrywhereinput">ChangelogEntryWhereInput</a> | Filter for the base set of PRs. Omit to start with an empty set. |
-| `pullRequests` | <a href="#pullrequestselectionmodifier">PullRequestSelectionModifier</a> | Modify the base set by including or excluding specific PRs. |
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>where</code></td><td><a href="#changelogentrywhereinput">ChangelogEntryWhereInput</a></td><td>Filter for the base set of PRs. Omit to start with an empty set.</td></tr>
+    <tr><td><code>pullRequests</code></td><td><a href="#pullrequestselectionmodifier">PullRequestSelectionModifier</a></td><td>Modify the base set by including or excluding specific PRs.</td></tr>
+  </tbody>
+</table>
+
+<hr/>
+
+<h4 id="pullrequestselectionmodifier"><code>PullRequestSelectionModifier</code></h4>
 
----
+<p><strong>Service:</strong> changelogreader</p>
 
-#### `PullRequestSelectionModifier`
+<p>Modifies a PR selection by either including or excluding specific PRs.
+Exactly one field must be set.</p>
 
-**Service:** changelogreader
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>include</code></td><td>[<a href="#pullrequestinput">PullRequestInput</a>!]</td><td>Add these PRs to the base set.</td></tr>
+    <tr><td><code>exclude</code></td><td>[<a href="#pullrequestinput">PullRequestInput</a>!]</td><td>Remove these PRs from the base set.</td></tr>
+  </tbody>
+</table>
+
+<hr/>
+
+<h4 id="pullrequeststatefilter"><code>PullRequestStateFilter</code></h4>
+
+<p><strong>Service:</strong> changelogreader</p>
 
-Modifies a PR selection by either including or excluding specific PRs.
-Exactly one field must be set.
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>_eq</code></td><td><a href="#pullrequeststate">PullRequestState</a></td><td></td></tr>
+    <tr><td><code>_neq</code></td><td><a href="#pullrequeststate">PullRequestState</a></td><td></td></tr>
+    <tr><td><code>_in</code></td><td>[<a href="#pullrequeststate">PullRequestState</a>!]</td><td></td></tr>
+    <tr><td><code>_nin</code></td><td>[<a href="#pullrequeststate">PullRequestState</a>!]</td><td></td></tr>
+  </tbody>
+</table>
+
+<hr/>
+
+<h4 id="recipebundleinput"><code>RecipeBundleInput</code></h4>
+
+<p><strong>Service:</strong> recipemarketplace</p>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `include` | [<a href="#pullrequestinput">PullRequestInput</a>!] | Add these PRs to the base set. |
-| `exclude` | [<a href="#pullrequestinput">PullRequestInput</a>!] | Remove these PRs from the base set. |
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>maven</code></td><td><a href="#mavenrecipebundleinput">MavenRecipeBundleInput</a></td><td></td></tr>
+    <tr><td><code>npm</code></td><td><a href="#npmrecipebundleinput">NpmRecipeBundleInput</a></td><td></td></tr>
+    <tr><td><code>nuget</code></td><td><a href="#nugetrecipebundleinput">NugetRecipeBundleInput</a></td><td></td></tr>
+    <tr><td><code>yaml</code></td><td><a href="#yamlrecipebundleinput">YamlRecipeBundleInput</a></td><td></td></tr>
+    <tr><td><code>pip</code></td><td><a href="#piprecipebundleinput">PipRecipeBundleInput</a></td><td></td></tr>
+    <tr><td><code>go</code></td><td><a href="#gorecipebundleinput">GoRecipeBundleInput</a></td><td></td></tr>
+  </tbody>
+</table>
+
+<hr/>
+
+<h4 id="recipebundleorderbyinput"><code>RecipeBundleOrderByInput</code></h4>
 
----
+<p><strong>Service:</strong> recipemarketplace</p>
 
-#### `PullRequestStateFilter`
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>field</code></td><td><a href="#recipebundleorderbyfield">RecipeBundleOrderByField</a>!</td><td></td></tr>
+    <tr><td><code>direction</code></td><td><a href="#sortorder">SortOrder</a>!</td><td></td></tr>
+  </tbody>
+</table>
+
+<hr/>
 
-**Service:** changelogreader
+<h4 id="recipebundlewhereinput"><code>RecipeBundleWhereInput</code></h4>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `_eq` | <a href="#pullrequeststate">PullRequestState</a> |  |
-| `_neq` | <a href="#pullrequeststate">PullRequestState</a> |  |
-| `_in` | [<a href="#pullrequeststate">PullRequestState</a>!] |  |
-| `_nin` | [<a href="#pullrequeststate">PullRequestState</a>!] |  |
+<p><strong>Service:</strong> recipemarketplace</p>
 
----
+<p>Filter input for RecipeBundle queries.</p>
 
-#### `RecipeBundleInput`
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>packageName</code></td><td><a href="#stringfilter">StringFilter</a></td><td>Filter by package name (e.g., "org.openrewrite:rewrite-java").</td></tr>
+    <tr><td><code>version</code></td><td><a href="#stringfilter">StringFilter</a></td><td>Filter by resolved version.</td></tr>
+    <tr><td><code>requestedVersion</code></td><td><a href="#stringfilter">StringFilter</a></td><td>Filter by requested version (the version requested before resolution).</td></tr>
+    <tr><td><code>ecosystem</code></td><td><a href="#recipeecosystemfilter">RecipeEcosystemFilter</a></td><td>Filter by ecosystem.</td></tr>
+    <tr><td><code>_and</code></td><td>[<a href="#recipebundlewhereinput">RecipeBundleWhereInput</a>!]</td><td></td></tr>
+    <tr><td><code>_or</code></td><td>[<a href="#recipebundlewhereinput">RecipeBundleWhereInput</a>!]</td><td></td></tr>
+    <tr><td><code>_not</code></td><td><a href="#recipebundlewhereinput">RecipeBundleWhereInput</a></td><td></td></tr>
+  </tbody>
+</table>
 
-**Service:** recipemarketplace
+<hr/>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `maven` | <a href="#mavenrecipebundleinput">MavenRecipeBundleInput</a> |  |
-| `npm` | <a href="#npmrecipebundleinput">NpmRecipeBundleInput</a> |  |
-| `nuget` | <a href="#nugetrecipebundleinput">NugetRecipeBundleInput</a> |  |
-| `yaml` | <a href="#yamlrecipebundleinput">YamlRecipeBundleInput</a> |  |
-| `pip` | <a href="#piprecipebundleinput">PipRecipeBundleInput</a> |  |
-| `go` | <a href="#gorecipebundleinput">GoRecipeBundleInput</a> |  |
+<h4 id="recipecategoryorderbyinput"><code>RecipeCategoryOrderByInput</code></h4>
 
----
+<p><strong>Service:</strong> recipemarketplace</p>
 
-#### `RecipeBundleOrderByInput`
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>field</code></td><td><a href="#recipecategoryorderbyfield">RecipeCategoryOrderByField</a>!</td><td></td></tr>
+    <tr><td><code>direction</code></td><td><a href="#sortorder">SortOrder</a>!</td><td></td></tr>
+  </tbody>
+</table>
 
-**Service:** recipemarketplace
+<hr/>
+
+<h4 id="recipecategorywhereinput"><code>RecipeCategoryWhereInput</code></h4>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `field` | <a href="#recipebundleorderbyfield">RecipeBundleOrderByField</a>! |  |
-| `direction` | <a href="#sortorder">SortOrder</a>! |  |
+<p><strong>Service:</strong> recipemarketplace</p>
 
----
+<p>Filter input for RecipeCategory queries.</p>
 
-#### `RecipeBundleWhereInput`
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>id</code></td><td><a href="#idfilter">IDFilter</a></td><td>Filter by category ID.</td></tr>
+    <tr><td><code>parentId</code></td><td><a href="#idfilter">IDFilter</a></td><td>Filter by parent category ID. Use null to find root categories.</td></tr>
+    <tr><td><code>displayName</code></td><td><a href="#stringfilter">StringFilter</a></td><td>Filter by display name.</td></tr>
+    <tr><td><code>_and</code></td><td>[<a href="#recipecategorywhereinput">RecipeCategoryWhereInput</a>!]</td><td></td></tr>
+    <tr><td><code>_or</code></td><td>[<a href="#recipecategorywhereinput">RecipeCategoryWhereInput</a>!]</td><td></td></tr>
+    <tr><td><code>_not</code></td><td><a href="#recipecategorywhereinput">RecipeCategoryWhereInput</a></td><td></td></tr>
+  </tbody>
+</table>
 
-**Service:** recipemarketplace
+<hr/>
 
-Filter input for RecipeBundle queries.
+<h4 id="recipeecosystemfilter"><code>RecipeEcosystemFilter</code></h4>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `packageName` | <a href="#stringfilter">StringFilter</a> | Filter by package name (e.g., "org.openrewrite:rewrite-java"). |
-| `version` | <a href="#stringfilter">StringFilter</a> | Filter by resolved version. |
-| `requestedVersion` | <a href="#stringfilter">StringFilter</a> | Filter by requested version (the version requested before resolution). |
-| `ecosystem` | <a href="#recipeecosystemfilter">RecipeEcosystemFilter</a> | Filter by ecosystem. |
-| `_and` | [<a href="#recipebundlewhereinput">RecipeBundleWhereInput</a>!] |  |
-| `_or` | [<a href="#recipebundlewhereinput">RecipeBundleWhereInput</a>!] |  |
-| `_not` | <a href="#recipebundlewhereinput">RecipeBundleWhereInput</a> |  |
+<p><strong>Service:</strong> recipemarketplace</p>
 
----
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>_eq</code></td><td><a href="#recipeecosystem">RecipeEcosystem</a></td><td></td></tr>
+    <tr><td><code>_neq</code></td><td><a href="#recipeecosystem">RecipeEcosystem</a></td><td></td></tr>
+    <tr><td><code>_in</code></td><td>[<a href="#recipeecosystem">RecipeEcosystem</a>!]</td><td></td></tr>
+    <tr><td><code>_nin</code></td><td>[<a href="#recipeecosystem">RecipeEcosystem</a>!]</td><td></td></tr>
+  </tbody>
+</table>
 
-#### `RecipeCategoryOrderByInput`
+<hr/>
 
-**Service:** recipemarketplace
+<h4 id="recipeinput"><code>RecipeInput</code></h4>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `field` | <a href="#recipecategoryorderbyfield">RecipeCategoryOrderByField</a>! |  |
-| `direction` | <a href="#sortorder">SortOrder</a>! |  |
+<p><strong>Service:</strong> recipeworker</p>
 
----
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>id</code></td><td>ID!</td><td>Fully-qualified recipe ID.
+Example: `org.openrewrite.java.search.FindMethods`</td></tr>
+    <tr><td><code>options</code></td><td>[<a href="#recipeoptioninput">RecipeOptionInput</a>!]</td><td></td></tr>
+  </tbody>
+</table>
 
-#### `RecipeCategoryWhereInput`
+<hr/>
 
-**Service:** recipemarketplace
+<h4 id="recipeinstallationorderbyinput"><code>RecipeInstallationOrderByInput</code></h4>
 
-Filter input for RecipeCategory queries.
+<p><strong>Service:</strong> recipemarketplace</p>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `id` | <a href="#idfilter">IDFilter</a> | Filter by category ID. |
-| `parentId` | <a href="#idfilter">IDFilter</a> | Filter by parent category ID. Use null to find root categories. |
-| `displayName` | <a href="#stringfilter">StringFilter</a> | Filter by display name. |
-| `_and` | [<a href="#recipecategorywhereinput">RecipeCategoryWhereInput</a>!] |  |
-| `_or` | [<a href="#recipecategorywhereinput">RecipeCategoryWhereInput</a>!] |  |
-| `_not` | <a href="#recipecategorywhereinput">RecipeCategoryWhereInput</a> |  |
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>field</code></td><td><a href="#recipeinstallationorderbyfield">RecipeInstallationOrderByField</a>!</td><td></td></tr>
+    <tr><td><code>direction</code></td><td><a href="#sortorder">SortOrder</a>!</td><td></td></tr>
+  </tbody>
+</table>
 
----
+<hr/>
 
-#### `RecipeEcosystemFilter`
+<h4 id="recipeinstallationstatusfilter"><code>RecipeInstallationStatusFilter</code></h4>
 
-**Service:** recipemarketplace
+<p><strong>Service:</strong> recipemarketplace</p>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `_eq` | <a href="#recipeecosystem">RecipeEcosystem</a> |  |
-| `_neq` | <a href="#recipeecosystem">RecipeEcosystem</a> |  |
-| `_in` | [<a href="#recipeecosystem">RecipeEcosystem</a>!] |  |
-| `_nin` | [<a href="#recipeecosystem">RecipeEcosystem</a>!] |  |
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>_eq</code></td><td><a href="#recipeinstallationstatus">RecipeInstallationStatus</a></td><td></td></tr>
+    <tr><td><code>_neq</code></td><td><a href="#recipeinstallationstatus">RecipeInstallationStatus</a></td><td></td></tr>
+    <tr><td><code>_in</code></td><td>[<a href="#recipeinstallationstatus">RecipeInstallationStatus</a>!]</td><td></td></tr>
+    <tr><td><code>_nin</code></td><td>[<a href="#recipeinstallationstatus">RecipeInstallationStatus</a>!]</td><td></td></tr>
+  </tbody>
+</table>
 
----
+<hr/>
 
-#### `RecipeInput`
+<h4 id="recipeinstallationwhereinput"><code>RecipeInstallationWhereInput</code></h4>
 
-**Service:** recipeworker
+<p><strong>Service:</strong> recipemarketplace</p>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `id` | ID! | Fully-qualified recipe ID.
-Example: `org.openrewrite.java.search.FindMethods` |
-| `options` | [<a href="#recipeoptioninput">RecipeOptionInput</a>!] |  |
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>id</code></td><td><a href="#idfilter">IDFilter</a></td><td></td></tr>
+    <tr><td><code>status</code></td><td><a href="#recipeinstallationstatusfilter">RecipeInstallationStatusFilter</a></td><td></td></tr>
+    <tr><td><code>startedAt</code></td><td><a href="#datetimefilter">DateTimeFilter</a></td><td></td></tr>
+    <tr><td><code>user</code></td><td><a href="#userwhereinput">UserWhereInput</a></td><td></td></tr>
+    <tr><td><code>organization</code></td><td><a href="#idfilter">IDFilter</a></td><td></td></tr>
+    <tr><td><code>bundle</code></td><td><a href="#recipebundlewhereinput">RecipeBundleWhereInput</a></td><td>Filter by bundle properties (packageName, ecosystem, version, etc.).</td></tr>
+    <tr><td><code>_and</code></td><td>[<a href="#recipeinstallationwhereinput">RecipeInstallationWhereInput</a>!]</td><td></td></tr>
+    <tr><td><code>_or</code></td><td>[<a href="#recipeinstallationwhereinput">RecipeInstallationWhereInput</a>!]</td><td></td></tr>
+    <tr><td><code>_not</code></td><td><a href="#recipeinstallationwhereinput">RecipeInstallationWhereInput</a></td><td></td></tr>
+  </tbody>
+</table>
 
----
+<hr/>
 
-#### `RecipeInstallationOrderByInput`
+<h4 id="recipeoptioninput"><code>RecipeOptionInput</code></h4>
 
-**Service:** recipemarketplace
+<p><strong>Service:</strong> recipeworker</p>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `field` | <a href="#recipeinstallationorderbyfield">RecipeInstallationOrderByField</a>! |  |
-| `direction` | <a href="#sortorder">SortOrder</a>! |  |
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>name</code></td><td>String!</td><td>Option name. Example: `methodPattern`</td></tr>
+    <tr><td><code>value</code></td><td><a href="#object">Object</a>!</td><td>Option value. Example: `java.util.List add(..)`</td></tr>
+  </tbody>
+</table>
 
----
+<hr/>
 
-#### `RecipeInstallationStatusFilter`
+<h4 id="recipeorderbyinput"><code>RecipeOrderByInput</code></h4>
 
-**Service:** recipemarketplace
+<p><strong>Service:</strong> recipemarketplace</p>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `_eq` | <a href="#recipeinstallationstatus">RecipeInstallationStatus</a> |  |
-| `_neq` | <a href="#recipeinstallationstatus">RecipeInstallationStatus</a> |  |
-| `_in` | [<a href="#recipeinstallationstatus">RecipeInstallationStatus</a>!] |  |
-| `_nin` | [<a href="#recipeinstallationstatus">RecipeInstallationStatus</a>!] |  |
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>field</code></td><td><a href="#recipeorderbyfield">RecipeOrderByField</a>!</td><td></td></tr>
+    <tr><td><code>direction</code></td><td><a href="#sortorder">SortOrder</a>!</td><td></td></tr>
+  </tbody>
+</table>
 
----
+<hr/>
 
-#### `RecipeInstallationWhereInput`
+<h4 id="recipewhereinput"><code>RecipeWhereInput</code></h4>
 
-**Service:** recipemarketplace
+<p><strong>Service:</strong> recipemarketplace</p>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `id` | <a href="#idfilter">IDFilter</a> |  |
-| `status` | <a href="#recipeinstallationstatusfilter">RecipeInstallationStatusFilter</a> |  |
-| `startedAt` | <a href="#datetimefilter">DateTimeFilter</a> |  |
-| `user` | <a href="#userwhereinput">UserWhereInput</a> |  |
-| `organization` | <a href="#idfilter">IDFilter</a> |  |
-| `bundle` | <a href="#recipebundlewhereinput">RecipeBundleWhereInput</a> | Filter by bundle properties (packageName, ecosystem, version, etc.). |
-| `_and` | [<a href="#recipeinstallationwhereinput">RecipeInstallationWhereInput</a>!] |  |
-| `_or` | [<a href="#recipeinstallationwhereinput">RecipeInstallationWhereInput</a>!] |  |
-| `_not` | <a href="#recipeinstallationwhereinput">RecipeInstallationWhereInput</a> |  |
+<p>Filter input for Recipe queries.
+Use `query` for semantic search, or use field filters for exact matching.</p>
 
----
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>query</code></td><td>String</td><td>Semantic search query - searches recipe names, descriptions, and content.</td></tr>
+    <tr><td><code>id</code></td><td><a href="#stringfilter">StringFilter</a></td><td>Filter by recipe ID (fully qualified recipe name).</td></tr>
+    <tr><td><code>displayName</code></td><td><a href="#stringfilter">StringFilter</a></td><td>Filter by display name.</td></tr>
+    <tr><td><code>_and</code></td><td>[<a href="#recipewhereinput">RecipeWhereInput</a>!]</td><td></td></tr>
+    <tr><td><code>_or</code></td><td>[<a href="#recipewhereinput">RecipeWhereInput</a>!]</td><td></td></tr>
+    <tr><td><code>_not</code></td><td><a href="#recipewhereinput">RecipeWhereInput</a></td><td></td></tr>
+  </tbody>
+</table>
 
-#### `RecipeOptionInput`
+<hr/>
 
-**Service:** recipeworker
+<h4 id="repositorychangesetorderbyinput"><code>RepositoryChangesetOrderByInput</code></h4>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `name` | String! | Option name. Example: `methodPattern` |
-| `value` | <a href="#object">Object</a>! | Option value. Example: `java.util.List add(..)` |
+<p><strong>Service:</strong> corechangeset</p>
 
----
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>field</code></td><td><a href="#repositorychangesetorderbyfield">RepositoryChangesetOrderByField</a>!</td><td></td></tr>
+    <tr><td><code>direction</code></td><td><a href="#sortorder">SortOrder</a>!</td><td></td></tr>
+  </tbody>
+</table>
 
-#### `RecipeOrderByInput`
+<hr/>
 
-**Service:** recipemarketplace
+<h4 id="repositorychangesetstatefilter"><code>RepositoryChangesetStateFilter</code></h4>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `field` | <a href="#recipeorderbyfield">RecipeOrderByField</a>! |  |
-| `direction` | <a href="#sortorder">SortOrder</a>! |  |
+<p><strong>Service:</strong> changesetcommitter</p>
 
----
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>_eq</code></td><td><a href="#repositorychangesetstate">RepositoryChangesetState</a></td><td></td></tr>
+    <tr><td><code>_neq</code></td><td><a href="#repositorychangesetstate">RepositoryChangesetState</a></td><td></td></tr>
+    <tr><td><code>_in</code></td><td>[<a href="#repositorychangesetstate">RepositoryChangesetState</a>!]</td><td></td></tr>
+    <tr><td><code>_nin</code></td><td>[<a href="#repositorychangesetstate">RepositoryChangesetState</a>!]</td><td></td></tr>
+  </tbody>
+</table>
 
-#### `RecipeWhereInput`
+<hr/>
 
-**Service:** recipemarketplace
+<h4 id="repositorychangesetwhereinput"><code>RepositoryChangesetWhereInput</code></h4>
 
-Filter input for Recipe queries.
-Use `query` for semantic search, or use field filters for exact matching.
+<p><strong>Service:</strong> changesetcommitter</p>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `query` | String | Semantic search query - searches recipe names, descriptions, and content. |
-| `id` | <a href="#stringfilter">StringFilter</a> | Filter by recipe ID (fully qualified recipe name). |
-| `displayName` | <a href="#stringfilter">StringFilter</a> | Filter by display name. |
-| `_and` | [<a href="#recipewhereinput">RecipeWhereInput</a>!] |  |
-| `_or` | [<a href="#recipewhereinput">RecipeWhereInput</a>!] |  |
-| `_not` | <a href="#recipewhereinput">RecipeWhereInput</a> |  |
+<p>Filter for repository changesets.</p>
 
----
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>path</code></td><td><a href="#stringfilter">StringFilter</a></td><td>Filter by repository path.</td></tr>
+    <tr><td><code>origin</code></td><td><a href="#stringfilter">StringFilter</a></td><td>Filter by repository origin.</td></tr>
+    <tr><td><code>branch</code></td><td><a href="#stringfilter">StringFilter</a></td><td>Filter by repository branch.</td></tr>
+    <tr><td><code>files</code></td><td><a href="#filechangewhereinput">FileChangeWhereInput</a></td><td>Filter files within matching repositories.
+Useful for filtering to specific file patterns (e.g., all build.gradle.kts files).</td></tr>
+    <tr><td><code>onlyWithResults</code></td><td>Boolean</td><td>Only return repositories with results (filesWithResults > 0).</td></tr>
+    <tr><td><code>state</code></td><td><a href="#repositorychangesetstatefilter">RepositoryChangesetStateFilter</a></td><td>Filter by repository result state.</td></tr>
+    <tr><td><code>_and</code></td><td>[<a href="#repositorychangesetwhereinput">RepositoryChangesetWhereInput</a>!]</td><td>Logical AND - all conditions must match.</td></tr>
+    <tr><td><code>_or</code></td><td>[<a href="#repositorychangesetwhereinput">RepositoryChangesetWhereInput</a>!]</td><td>Logical OR - at least one condition must match.</td></tr>
+    <tr><td><code>_not</code></td><td><a href="#repositorychangesetwhereinput">RepositoryChangesetWhereInput</a></td><td>Logical NOT - negates the condition.</td></tr>
+  </tbody>
+</table>
 
-#### `RepositoryChangesetOrderByInput`
+<hr/>
 
-**Service:** corechangeset
+<h4 id="repositorycommitorderbyinput"><code>RepositoryCommitOrderByInput</code></h4>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `field` | <a href="#repositorychangesetorderbyfield">RepositoryChangesetOrderByField</a>! |  |
-| `direction` | <a href="#sortorder">SortOrder</a>! |  |
+<p><strong>Service:</strong> changesetcommitter</p>
 
----
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>field</code></td><td><a href="#repositorycommitorderbyfield">RepositoryCommitOrderByField</a>!</td><td></td></tr>
+    <tr><td><code>direction</code></td><td><a href="#sortorder">SortOrder</a>!</td><td></td></tr>
+  </tbody>
+</table>
 
-#### `RepositoryChangesetStateFilter`
+<hr/>
 
-**Service:** changesetcommitter
+<h4 id="repositorycommitwhereinput"><code>RepositoryCommitWhereInput</code></h4>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `_eq` | <a href="#repositorychangesetstate">RepositoryChangesetState</a> |  |
-| `_neq` | <a href="#repositorychangesetstate">RepositoryChangesetState</a> |  |
-| `_in` | [<a href="#repositorychangesetstate">RepositoryChangesetState</a>!] |  |
-| `_nin` | [<a href="#repositorychangesetstate">RepositoryChangesetState</a>!] |  |
+<p><strong>Service:</strong> changesetcommitter</p>
 
----
+<p>Filter input for repository-level commit queries.</p>
 
-#### `RepositoryChangesetWhereInput`
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>_and</code></td><td>[<a href="#repositorycommitwhereinput">RepositoryCommitWhereInput</a>!]</td><td></td></tr>
+    <tr><td><code>_or</code></td><td>[<a href="#repositorycommitwhereinput">RepositoryCommitWhereInput</a>!]</td><td></td></tr>
+    <tr><td><code>_not</code></td><td><a href="#repositorycommitwhereinput">RepositoryCommitWhereInput</a></td><td></td></tr>
+  </tbody>
+</table>
 
-**Service:** changesetcommitter
+<hr/>
 
-Filter for repository changesets.
+<h4 id="repositoryinput"><code>RepositoryInput</code></h4>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `path` | <a href="#stringfilter">StringFilter</a> | Filter by repository path. |
-| `origin` | <a href="#stringfilter">StringFilter</a> | Filter by repository origin. |
-| `branch` | <a href="#stringfilter">StringFilter</a> | Filter by repository branch. |
-| `files` | <a href="#filechangewhereinput">FileChangeWhereInput</a> | Filter files within matching repositories.
-Useful for filtering to specific file patterns (e.g., all build.gradle.kts files). |
-| `onlyWithResults` | Boolean | Only return repositories with results (filesWithResults > 0). |
-| `state` | <a href="#repositorychangesetstatefilter">RepositoryChangesetStateFilter</a> | Filter by repository result state. |
-| `_and` | [<a href="#repositorychangesetwhereinput">RepositoryChangesetWhereInput</a>!] | Logical AND - all conditions must match. |
-| `_or` | [<a href="#repositorychangesetwhereinput">RepositoryChangesetWhereInput</a>!] | Logical OR - at least one condition must match. |
-| `_not` | <a href="#repositorychangesetwhereinput">RepositoryChangesetWhereInput</a> | Logical NOT - negates the condition. |
+<p><strong>Service:</strong> corecommitter</p>
 
----
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>origin</code></td><td>String!</td><td></td></tr>
+    <tr><td><code>path</code></td><td>String!</td><td></td></tr>
+    <tr><td><code>branch</code></td><td>String!</td><td></td></tr>
+  </tbody>
+</table>
 
-#### `RepositoryCommitOrderByInput`
+<hr/>
 
-**Service:** changesetcommitter
+<h4 id="repositoryorderbyinput"><code>RepositoryOrderByInput</code></h4>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `field` | <a href="#repositorycommitorderbyfield">RepositoryCommitOrderByField</a>! |  |
-| `direction` | <a href="#sortorder">SortOrder</a>! |  |
+<p><strong>Service:</strong> organization</p>
 
----
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>field</code></td><td><a href="#repositoryorderbyfield">RepositoryOrderByField</a>!</td><td></td></tr>
+    <tr><td><code>direction</code></td><td><a href="#sortorder">SortOrder</a>!</td><td></td></tr>
+  </tbody>
+</table>
 
-#### `RepositoryCommitWhereInput`
+<hr/>
 
-**Service:** changesetcommitter
+<h4 id="repositoryreciperunorderbyinput"><code>RepositoryRecipeRunOrderByInput</code></h4>
 
-Filter input for repository-level commit queries.
+<p><strong>Service:</strong> changesetreader</p>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `_and` | [<a href="#repositorycommitwhereinput">RepositoryCommitWhereInput</a>!] |  |
-| `_or` | [<a href="#repositorycommitwhereinput">RepositoryCommitWhereInput</a>!] |  |
-| `_not` | <a href="#repositorycommitwhereinput">RepositoryCommitWhereInput</a> |  |
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>field</code></td><td><a href="#repositoryreciperunorderbyfield">RepositoryRecipeRunOrderByField</a>!</td><td></td></tr>
+    <tr><td><code>direction</code></td><td><a href="#sortorder">SortOrder</a>!</td><td></td></tr>
+  </tbody>
+</table>
 
----
+<hr/>
 
-#### `RepositoryInput`
+<h4 id="repositoryreciperunwhereinput"><code>RepositoryRecipeRunWhereInput</code></h4>
 
-**Service:** corecommitter
+<p><strong>Service:</strong> changesetreader</p>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `origin` | String! |  |
-| `path` | String! |  |
-| `branch` | String! |  |
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>path</code></td><td><a href="#stringfilter">StringFilter</a></td><td></td></tr>
+    <tr><td><code>origin</code></td><td><a href="#stringfilter">StringFilter</a></td><td></td></tr>
+    <tr><td><code>_and</code></td><td>[<a href="#repositoryreciperunwhereinput">RepositoryRecipeRunWhereInput</a>!]</td><td></td></tr>
+    <tr><td><code>_or</code></td><td>[<a href="#repositoryreciperunwhereinput">RepositoryRecipeRunWhereInput</a>!]</td><td></td></tr>
+    <tr><td><code>_not</code></td><td><a href="#repositoryreciperunwhereinput">RepositoryRecipeRunWhereInput</a></td><td></td></tr>
+  </tbody>
+</table>
 
----
+<hr/>
 
-#### `RepositoryOrderByInput`
+<h4 id="repositorywhereinput"><code>RepositoryWhereInput</code></h4>
 
-**Service:** organization
+<p><strong>Service:</strong> organization</p>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `field` | <a href="#repositoryorderbyfield">RepositoryOrderByField</a>! |  |
-| `direction` | <a href="#sortorder">SortOrder</a>! |  |
+<p>Filter input for Repository queries using typed field filters.</p>
 
----
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>origin</code></td><td><a href="#stringfilter">StringFilter</a></td><td></td></tr>
+    <tr><td><code>path</code></td><td><a href="#stringfilter">StringFilter</a></td><td></td></tr>
+    <tr><td><code>branch</code></td><td><a href="#stringfilter">StringFilter</a></td><td></td></tr>
+    <tr><td><code>changeset</code></td><td><a href="#stringfilter">StringFilter</a></td><td></td></tr>
+    <tr><td><code>lstArtifact</code></td><td><a href="#lstartifactwhereinput">LstArtifactWhereInput</a></td><td></td></tr>
+    <tr><td><code>_and</code></td><td>[<a href="#repositorywhereinput">RepositoryWhereInput</a>!]</td><td>Logical AND - all conditions must match</td></tr>
+    <tr><td><code>_or</code></td><td>[<a href="#repositorywhereinput">RepositoryWhereInput</a>!]</td><td>Logical OR - at least one condition must match</td></tr>
+    <tr><td><code>_not</code></td><td><a href="#repositorywhereinput">RepositoryWhereInput</a></td><td>Logical NOT - negates the condition</td></tr>
+  </tbody>
+</table>
 
-#### `RepositoryRecipeRunOrderByInput`
+<hr/>
 
-**Service:** changesetreader
+<h4 id="reviewdecisionfilter"><code>ReviewDecisionFilter</code></h4>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `field` | <a href="#repositoryreciperunorderbyfield">RepositoryRecipeRunOrderByField</a>! |  |
-| `direction` | <a href="#sortorder">SortOrder</a>! |  |
+<p><strong>Service:</strong> changelogreader</p>
 
----
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>_eq</code></td><td><a href="#reviewdecision">ReviewDecision</a></td><td></td></tr>
+    <tr><td><code>_neq</code></td><td><a href="#reviewdecision">ReviewDecision</a></td><td></td></tr>
+    <tr><td><code>_in</code></td><td>[<a href="#reviewdecision">ReviewDecision</a>!]</td><td></td></tr>
+    <tr><td><code>_nin</code></td><td>[<a href="#reviewdecision">ReviewDecision</a>!]</td><td></td></tr>
+  </tbody>
+</table>
 
-#### `RepositoryRecipeRunWhereInput`
+<hr/>
 
-**Service:** changesetreader
+<h4 id="revokescmtokeninput"><code>RevokeScmTokenInput</code></h4>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `path` | <a href="#stringfilter">StringFilter</a> |  |
-| `origin` | <a href="#stringfilter">StringFilter</a> |  |
-| `_and` | [<a href="#repositoryreciperunwhereinput">RepositoryRecipeRunWhereInput</a>!] |  |
-| `_or` | [<a href="#repositoryreciperunwhereinput">RepositoryRecipeRunWhereInput</a>!] |  |
-| `_not` | <a href="#repositoryreciperunwhereinput">RepositoryRecipeRunWhereInput</a> |  |
+<p><strong>Service:</strong> authz</p>
 
----
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>origin</code></td><td>String!</td><td>The VCS origin to revoke the token for (e.g., github.com, gitlab.com).</td></tr>
+  </tbody>
+</table>
 
-#### `RepositoryWhereInput`
+<hr/>
 
-**Service:** organization
+<h4 id="rundevcenterinput"><code>RunDevCenterInput</code></h4>
 
-Filter input for Repository queries using typed field filters.
+<p><strong>Service:</strong> recipeworker</p>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `origin` | <a href="#stringfilter">StringFilter</a> |  |
-| `path` | <a href="#stringfilter">StringFilter</a> |  |
-| `branch` | <a href="#stringfilter">StringFilter</a> |  |
-| `changeset` | <a href="#stringfilter">StringFilter</a> |  |
-| `lstArtifact` | <a href="#lstartifactwhereinput">LstArtifactWhereInput</a> |  |
-| `_and` | [<a href="#repositorywhereinput">RepositoryWhereInput</a>!] | Logical AND - all conditions must match |
-| `_or` | [<a href="#repositorywhereinput">RepositoryWhereInput</a>!] | Logical OR - at least one condition must match |
-| `_not` | <a href="#repositorywhereinput">RepositoryWhereInput</a> | Logical NOT - negates the condition |
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>organizationId</code></td><td>ID!</td><td>The organization to run DevCenter for.</td></tr>
+    <tr><td><code>recipeId</code></td><td>ID!</td><td>The DevCenter recipe to run.</td></tr>
+  </tbody>
+</table>
 
----
+<hr/>
 
-#### `ReviewDecisionFilter`
+<h4 id="runrecipeinput"><code>RunRecipeInput</code></h4>
 
-**Service:** changelogreader
+<p><strong>Service:</strong> recipeworker</p>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `_eq` | <a href="#reviewdecision">ReviewDecision</a> |  |
-| `_neq` | <a href="#reviewdecision">ReviewDecision</a> |  |
-| `_in` | [<a href="#reviewdecision">ReviewDecision</a>!] |  |
-| `_nin` | [<a href="#reviewdecision">ReviewDecision</a>!] |  |
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>recipe</code></td><td><a href="#recipeinput">RecipeInput</a>!</td><td>The recipe to run with any configured options.</td></tr>
+    <tr><td><code>organizationId</code></td><td>ID!</td><td>Run against all repositories in this organization.</td></tr>
+    <tr><td><code>parentId</code></td><td>ID</td><td>Optional parent changeset ID this recipe run is derived from.</td></tr>
+    <tr><td><code>excludeFiles</code></td><td>[String!]</td><td>Exclude files matching these patterns.</td></tr>
+  </tbody>
+</table>
 
----
+<hr/>
 
-#### `RevokeScmTokenInput`
+<h4 id="scmaccesstoken"><code>ScmAccessToken</code></h4>
 
-**Service:** authz
+<p><strong>Service:</strong> changesetcommitter</p>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `origin` | String! | The VCS origin to revoke the token for (e.g., github.com, gitlab.com). |
+<p>An access token for a specific SCM origin. When provided on a commit mutation,
+these tokens are preferred over stored OAuth tokens.</p>
 
----
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>value</code></td><td>String!</td><td></td></tr>
+    <tr><td><code>origin</code></td><td>String!</td><td></td></tr>
+  </tbody>
+</table>
 
-#### `RunDevCenterInput`
+<hr/>
 
-**Service:** recipeworker
+<h4 id="stringfilter"><code>StringFilter</code></h4>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `organizationId` | ID! | The organization to run DevCenter for. |
-| `recipeId` | ID! | The DevCenter recipe to run. |
+<p><strong>Service:</strong> coregraphql</p>
 
----
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>_eq</code></td><td>String</td><td></td></tr>
+    <tr><td><code>_neq</code></td><td>String</td><td></td></tr>
+    <tr><td><code>_in</code></td><td>[String!]</td><td></td></tr>
+    <tr><td><code>_nin</code></td><td>[String!]</td><td></td></tr>
+    <tr><td><code>_contains</code></td><td>String</td><td></td></tr>
+    <tr><td><code>_startsWith</code></td><td>String</td><td></td></tr>
+    <tr><td><code>_endsWith</code></td><td>String</td><td></td></tr>
+    <tr><td><code>_icontains</code></td><td>String</td><td>Case-insensitive contains</td></tr>
+    <tr><td><code>_isNull</code></td><td>Boolean</td><td>True to match null values, false to match non-null values</td></tr>
+  </tbody>
+</table>
 
-#### `RunRecipeInput`
+<hr/>
 
-**Service:** recipeworker
+<h4 id="updateuserorganizationinput"><code>UpdateUserOrganizationInput</code></h4>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `recipe` | <a href="#recipeinput">RecipeInput</a>! | The recipe to run with any configured options. |
-| `organizationId` | ID! | Run against all repositories in this organization. |
-| `parentId` | ID | Optional parent changeset ID this recipe run is derived from. |
-| `excludeFiles` | [String!] | Exclude files matching these patterns. |
+<p><strong>Service:</strong> organization</p>
 
----
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>id</code></td><td>ID!</td><td>The ID of the organization to update.</td></tr>
+    <tr><td><code>name</code></td><td>String</td><td>The new name for the organization.</td></tr>
+    <tr><td><code>repositories</code></td><td>[<a href="#repositoryinput">RepositoryInput</a>!]</td><td>Repositories to include in the organization. If provided, replaces the current list.</td></tr>
+  </tbody>
+</table>
 
-#### `ScmAccessToken`
+<hr/>
 
-**Service:** changesetcommitter
+<h4 id="userorderbyinput"><code>UserOrderByInput</code></h4>
 
-An access token for a specific SCM origin. When provided on a commit mutation,
-these tokens are preferred over stored OAuth tokens.
+<p><strong>Service:</strong> authz</p>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `value` | String! |  |
-| `origin` | String! |  |
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>field</code></td><td><a href="#userorderbyfield">UserOrderByField</a>!</td><td></td></tr>
+    <tr><td><code>direction</code></td><td><a href="#sortorder">SortOrder</a>!</td><td></td></tr>
+  </tbody>
+</table>
 
----
+<hr/>
 
-#### `StringFilter`
+<h4 id="userwhereinput"><code>UserWhereInput</code></h4>
 
-**Service:** coregraphql
+<p><strong>Service:</strong> coregraphql</p>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `_eq` | String |  |
-| `_neq` | String |  |
-| `_in` | [String!] |  |
-| `_nin` | [String!] |  |
-| `_contains` | String |  |
-| `_startsWith` | String |  |
-| `_endsWith` | String |  |
-| `_icontains` | String | Case-insensitive contains |
-| `_isNull` | Boolean | True to match null values, false to match non-null values |
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>email</code></td><td><a href="#stringfilter">StringFilter</a></td><td></td></tr>
+    <tr><td><code>_and</code></td><td>[<a href="#userwhereinput">UserWhereInput</a>!]</td><td></td></tr>
+    <tr><td><code>_or</code></td><td>[<a href="#userwhereinput">UserWhereInput</a>!]</td><td></td></tr>
+    <tr><td><code>_not</code></td><td><a href="#userwhereinput">UserWhereInput</a></td><td></td></tr>
+  </tbody>
+</table>
 
----
+<hr/>
 
-#### `UpdateUserOrganizationInput`
+<h4 id="visualizationoptioninput"><code>VisualizationOptionInput</code></h4>
 
-**Service:** organization
+<p><strong>Service:</strong> changesetvisualizer</p>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `id` | ID! | The ID of the organization to update. |
-| `name` | String | The new name for the organization. |
-| `repositories` | [<a href="#repositoryinput">RepositoryInput</a>!] | Repositories to include in the organization. If provided, replaces the current list. |
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>name</code></td><td>String!</td><td></td></tr>
+    <tr><td><code>value</code></td><td><a href="#object">Object</a>!</td><td></td></tr>
+  </tbody>
+</table>
 
----
+<hr/>
 
-#### `UserOrderByInput`
+<h4 id="visualizationorderbyinput"><code>VisualizationOrderByInput</code></h4>
 
-**Service:** authz
+<p><strong>Service:</strong> corechangeset</p>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `field` | <a href="#userorderbyfield">UserOrderByField</a>! |  |
-| `direction` | <a href="#sortorder">SortOrder</a>! |  |
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>field</code></td><td><a href="#visualizationorderbyfield">VisualizationOrderByField</a>!</td><td></td></tr>
+    <tr><td><code>direction</code></td><td><a href="#sortorder">SortOrder</a>!</td><td></td></tr>
+  </tbody>
+</table>
 
----
+<hr/>
 
-#### `UserWhereInput`
+<h4 id="visualizationwhereinput"><code>VisualizationWhereInput</code></h4>
 
-**Service:** coregraphql
+<p><strong>Service:</strong> corechangeset</p>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `email` | <a href="#stringfilter">StringFilter</a> |  |
-| `_and` | [<a href="#userwhereinput">UserWhereInput</a>!] |  |
-| `_or` | [<a href="#userwhereinput">UserWhereInput</a>!] |  |
-| `_not` | <a href="#userwhereinput">UserWhereInput</a> |  |
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>id</code></td><td><a href="#idfilter">IDFilter</a></td><td></td></tr>
+    <tr><td><code>visualization</code></td><td><a href="#stringfilter">StringFilter</a></td><td></td></tr>
+    <tr><td><code>_and</code></td><td>[<a href="#visualizationwhereinput">VisualizationWhereInput</a>!]</td><td></td></tr>
+    <tr><td><code>_or</code></td><td>[<a href="#visualizationwhereinput">VisualizationWhereInput</a>!]</td><td></td></tr>
+    <tr><td><code>_not</code></td><td><a href="#visualizationwhereinput">VisualizationWhereInput</a></td><td></td></tr>
+  </tbody>
+</table>
 
----
+<hr/>
 
-#### `VisualizationOptionInput`
+<h4 id="yamlrecipebundleinput"><code>YamlRecipeBundleInput</code></h4>
 
-**Service:** changesetvisualizer
+<p><strong>Service:</strong> recipemarketplace</p>
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `name` | String! |  |
-| `value` | <a href="#object">Object</a>! |  |
-
----
-
-#### `VisualizationOrderByInput`
-
-**Service:** corechangeset
-
-| Field | Type | Description |
-|-------|------|-------------|
-| `field` | <a href="#visualizationorderbyfield">VisualizationOrderByField</a>! |  |
-| `direction` | <a href="#sortorder">SortOrder</a>! |  |
-
----
-
-#### `VisualizationWhereInput`
-
-**Service:** corechangeset
-
-| Field | Type | Description |
-|-------|------|-------------|
-| `id` | <a href="#idfilter">IDFilter</a> |  |
-| `visualization` | <a href="#stringfilter">StringFilter</a> |  |
-| `_and` | [<a href="#visualizationwhereinput">VisualizationWhereInput</a>!] |  |
-| `_or` | [<a href="#visualizationwhereinput">VisualizationWhereInput</a>!] |  |
-| `_not` | <a href="#visualizationwhereinput">VisualizationWhereInput</a> |  |
-
----
-
-#### `YamlRecipeBundleInput`
-
-**Service:** recipemarketplace
-
-| Field | Type | Description |
-|-------|------|-------------|
-| `yaml` | <a href="#base64">Base64</a>! |  |
-| `primary` | ID | The ID of the primary recipe in this bundle. When specified, only this recipe
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>yaml</code></td><td><a href="#base64">Base64</a>!</td><td></td></tr>
+    <tr><td><code>primary</code></td><td>ID</td><td>The ID of the primary recipe in this bundle. When specified, only this recipe
 will be shown in the marketplace categories, hiding other recipes from this bundle.
 This is used for the Moderne Builder feature where users build complex composite
-recipes and we don't want to expose intermediate recipes in the marketplace. |
+recipes and we don't want to expose intermediate recipes in the marketplace.</td></tr>
+  </tbody>
+</table>
 
----
+<hr/>
 
-### Unions
+<h3>Unions</h3>
 
-#### `ConnectorTool`
+<h4 id="connectortool"><code>ConnectorTool</code></h4>
 
-**Service:** gateway
+<p><strong>Service:</strong> gateway</p>
 
-= <a href="#githubconfiguration">GithubConfiguration</a> | <a href="#gitlabconfiguration">GitLabConfiguration</a> | <a href="#bitbucketconfiguration">BitbucketConfiguration</a> | <a href="#bitbucketcloudconfiguration">BitbucketCloudConfiguration</a> | <a href="#azuredevopsconfiguration">AzureDevOpsConfiguration</a> | <a href="#artifactoryconfiguration">ArtifactoryConfiguration</a> | <a href="#mavenconfiguration">MavenConfiguration</a> | <a href="#pypiconfiguration">PypiConfiguration</a> | <a href="#npmconfiguration">NpmConfiguration</a> | <a href="#nugetconfiguration">NugetConfiguration</a> | <a href="#generichttptoolconfiguration">GenericHttpToolConfiguration</a> | <a href="#organizationconfiguration">OrganizationConfiguration</a> | <a href="#llmconfiguration">LlmConfiguration</a> | <a href="#s3configuration">S3Configuration</a>
+<p>= <a href="#githubconfiguration">GithubConfiguration</a> | <a href="#gitlabconfiguration">GitLabConfiguration</a> | <a href="#bitbucketconfiguration">BitbucketConfiguration</a> | <a href="#bitbucketcloudconfiguration">BitbucketCloudConfiguration</a> | <a href="#azuredevopsconfiguration">AzureDevOpsConfiguration</a> | <a href="#artifactoryconfiguration">ArtifactoryConfiguration</a> | <a href="#mavenconfiguration">MavenConfiguration</a> | <a href="#pypiconfiguration">PypiConfiguration</a> | <a href="#npmconfiguration">NpmConfiguration</a> | <a href="#nugetconfiguration">NugetConfiguration</a> | <a href="#generichttptoolconfiguration">GenericHttpToolConfiguration</a> | <a href="#organizationconfiguration">OrganizationConfiguration</a> | <a href="#llmconfiguration">LlmConfiguration</a> | <a href="#s3configuration">S3Configuration</a></p>
 
----
+<hr/>
 
-### Scalars
+<h3>Scalars</h3>
 
-#### `Base64`
+<h4 id="base64"><code>Base64</code></h4>
 
-**Service:** coregraphql
+<p><strong>Service:</strong> coregraphql</p>
 
-`Base64` represents a base64 encoded string.
-In the browser, `btoa` encodes ASCII strings to Base64.
+<p>`Base64` represents a base64 encoded string.
+In the browser, `btoa` encodes ASCII strings to Base64.</p>
 
----
+<hr/>
 
-#### `Date`
+<h4 id="date"><code>Date</code></h4>
 
-**Service:** coregraphql
+<p><strong>Service:</strong> coregraphql</p>
 
----
+<hr/>
 
-#### `DateTime`
+<h4 id="datetime"><code>DateTime</code></h4>
 
-**Service:** coregraphql
+<p><strong>Service:</strong> coregraphql</p>
 
----
+<hr/>
 
-#### `Duration`
+<h4 id="duration"><code>Duration</code></h4>
 
-**Service:** coregraphql
+<p><strong>Service:</strong> coregraphql</p>
 
----
+<hr/>
 
-#### `JSON`
+<h4 id="json"><code>JSON</code></h4>
 
-**Service:** coregraphql
+<p><strong>Service:</strong> coregraphql</p>
 
----
+<hr/>
 
-#### `Long`
+<h4 id="long"><code>Long</code></h4>
 
-**Service:** coregraphql
+<p><strong>Service:</strong> coregraphql</p>
 
----
+<hr/>
 
-#### `Markdown`
+<h4 id="markdown"><code>Markdown</code></h4>
 
-**Service:** coregraphql
+<p><strong>Service:</strong> coregraphql</p>
 
-Contents may contain Markdown, HTML, or other text and should be passed through a Markdown parser by consumers
+<p>Contents may contain Markdown, HTML, or other text and should be passed through a Markdown parser by consumers</p>
 
----
+<hr/>
 
-#### `Object`
+<h4 id="object"><code>Object</code></h4>
 
-**Service:** coregraphql
+<p><strong>Service:</strong> coregraphql</p>
 
----
+<hr/>
 
-#### `Path`
+<h4 id="path"><code>Path</code></h4>
 
-**Service:** coregraphql
+<p><strong>Service:</strong> coregraphql</p>
 
-A file path relative to repository root (e.g., "src/main/java/Foo.java").
+<p>A file path relative to repository root (e.g., "src/main/java/Foo.java").</p>
 
----
+<hr/>
 
