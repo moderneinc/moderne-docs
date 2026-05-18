@@ -211,16 +211,14 @@ thread driving the turn is interrupted — a blocking LLM stream unwinds
 immediately, and long-running downstream work (recipe runs) receives
 a best-effort cancel via `cancelRecipeRun` on recipe-worker. Cheap
 tool calls finish naturally. A terminal CANCELLED `ErrorMessage` is
-appended to the log regardless.
-
-LLM-memory consistency on the next turn is preserved by the JSONL
+appended to the log regardless.</p>
+<p>LLM-memory consistency on the next turn is preserved by the JSONL
 collapse: `buildChatMessages` pairs every tool-origin row into an
 `AiMessage(toolRequests)` + `ToolExecutionResultMessage` batch, and
 only rows that actually persisted are rebuilt — partially-executed
 tool batches are reconstructed from whichever tool-origin rows made
-it to the log.
-
-Returns <code>true</code> when a running turn was actually interrupted,
+it to the log.</p>
+<p>Returns <code>true</code> when a running turn was actually interrupted,
 <code>false</code> when the conversation was already idle (no-op, not an
 error). <code>messageId</code> is accepted for client compatibility but
 only the conversation's active turn is cancellable — there is never
@@ -361,14 +359,12 @@ returns the existing download state.</p>
 
 <p><code>exchangeAuthorizationCode</code>(input: <a href="#exchangeauthorizationcodeinput">ExchangeAuthorizationCodeInput</a>!): <a href="#exchangeauthorizationresult">ExchangeAuthorizationResult</a>!</p>
 
-<p>Exchange an OAuth authorization code for an access token.
-
-This unified mutation handles all OAuth 2.0 VCS providers.
+<p>Exchange an OAuth authorization code for an access token.</p>
+<p>This unified mutation handles all OAuth 2.0 VCS providers.
 The backend uses the authorizationId to look up:
 - The origin and VCS type
-- PKCE code_verifier (GitLab)
-
-On success, the token is stored and future requests will be authenticated.</p>
+- PKCE code_verifier (GitLab)</p>
+<p>On success, the token is stored and future requests will be authenticated.</p>
 
 <hr/>
 
@@ -379,14 +375,12 @@ On success, the token is stored and future requests will be authenticated.</p>
 <p><code>initiateAuthorization</code>(input: <a href="#initiateauthorizationinput">InitiateAuthorizationInput</a>!): <a href="#oauthauthorization">OAuthAuthorization</a>!</p>
 
 <p>Initiate OAuth authorization for a VCS origin.
-Returns an authorization URL to redirect the user to.
-
-The backend constructs the full OAuth URL including:
+Returns an authorization URL to redirect the user to.</p>
+<p>The backend constructs the full OAuth URL including:
 - PKCE code_challenge for GitLab
 - Correct scopes for each VCS type
-- State parameter for CSRF protection
-
-The authorization ID should be passed to exchangeAuthorizationCode
+- State parameter for CSRF protection</p>
+<p>The authorization ID should be passed to exchangeAuthorizationCode
 after the user completes OAuth.</p>
 
 <hr/>
@@ -521,9 +515,8 @@ otherwise queues a new visualization run.</p>
 <p>Send a message to an existing conversation. Returns a handle for
 polling — `initialCursor` is the cursor to pass to the next
 `messages(after:)` query, and `turnState` carries the server-
-recommended poll cadence.
-
-When `waitForCompletion: true`, the mutation blocks until the turn
+recommended poll cadence.</p>
+<p>When `waitForCompletion: true`, the mutation blocks until the turn
 completes (or the server cap of 4 minutes is reached, whichever comes
 first). On cap, the mutation returns the current turn state rather
 than erroring so the caller can continue polling.</p>
@@ -634,11 +627,8 @@ Requires the `admin` role.</p>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
-    <tr><td><code>id</code></td><td>ID!</td><td>The unique identifier for the access token.
-This is not the same as the token itself.</td></tr>
-    <tr><td><code>description</code></td><td>String</td><td>Optional description of the token.
-
-Useful for distinguishing between multiple tokens.</td></tr>
+    <tr><td><code>id</code></td><td>ID!</td><td>The unique identifier for the access token. This is not the same as the token itself.</td></tr>
+    <tr><td><code>description</code></td><td>String</td><td>Optional description of the token.  Useful for distinguishing between multiple tokens.</td></tr>
     <tr><td><code>created</code></td><td><a href="#datetime">DateTime</a>!</td><td>The date and time the token was created.</td></tr>
     <tr><td><code>expiresAt</code></td><td><a href="#datetime">DateTime</a></td><td>The date and time the token will expire.</td></tr>
   </tbody>
@@ -887,9 +877,7 @@ Useful for distinguishing between multiple tokens.</td></tr>
     <tr><td><code>description</code></td><td>String</td><td></td></tr>
     <tr><td><code>sourceTool</code></td><td><a href="#toolinfo">ToolInfo</a></td><td></td></tr>
     <tr><td><code>diffTool</code></td><td><a href="#toolinfo">ToolInfo</a></td><td></td></tr>
-    <tr><td><code>dataTables</code></td><td>(first: Int = 50, after: String, where: <a href="#datatablewhereinput">DataTableWhereInput</a>, orderBy: [<a href="#datatableorderbyinput">DataTableOrderByInput</a>!]): <a href="#datatableconnection">DataTableConnection</a>!</td><td>Data tables produced by this batch change.
-Each data table starts as Available and transitions to Processing/Finished/Error
-when downloadDataTable mutation is called.</td></tr>
+    <tr><td><code>dataTables</code></td><td>(first: Int = 50, after: String, where: <a href="#datatablewhereinput">DataTableWhereInput</a>, orderBy: [<a href="#datatableorderbyinput">DataTableOrderByInput</a>!]): <a href="#datatableconnection">DataTableConnection</a>!</td><td>Data tables produced by this batch change. Each data table starts as Available and transitions to Processing/Finished/Error when downloadDataTable mutation is called.</td></tr>
     <tr><td><code>visualizations</code></td><td>(first: Int = 50, after: String, where: <a href="#visualizationwhereinput">VisualizationWhereInput</a>, orderBy: [<a href="#visualizationorderbyinput">VisualizationOrderByInput</a>!]): <a href="#visualizationconnection">VisualizationConnection</a>!</td><td>Visualizations produced by this batch change.</td></tr>
   </tbody>
 </table>
@@ -1262,8 +1250,7 @@ when downloadDataTable mutation is called.</td></tr>
     <tr><td><code>deletions</code></td><td>Int</td><td>Lines removed.</td></tr>
     <tr><td><code>changeset</code></td><td><a href="#organizationchangeset">OrganizationChangeset</a></td><td></td></tr>
     <tr><td><code>diffstat</code></td><td><a href="#diffstat">DiffStat</a>!</td><td></td></tr>
-    <tr><td><code>actions</code></td><td>(first: Int = 50, after: String, where: <a href="#pullrequestactionwhereinput">PullRequestActionWhereInput</a>, orderBy: [<a href="#pullrequestactionorderbyinput">PullRequestActionOrderByInput</a>!]): <a href="#pullrequestactionconnection">PullRequestActionConnection</a>!</td><td>Actions (approve, merge, close) that have been applied to this pull request.
-Default sort order is descending by startedAt.</td></tr>
+    <tr><td><code>actions</code></td><td>(first: Int = 50, after: String, where: <a href="#pullrequestactionwhereinput">PullRequestActionWhereInput</a>, orderBy: [<a href="#pullrequestactionorderbyinput">PullRequestActionOrderByInput</a>!]): <a href="#pullrequestactionconnection">PullRequestActionConnection</a>!</td><td>Actions (approve, merge, close) that have been applied to this pull request. Default sort order is descending by startedAt.</td></tr>
   </tbody>
 </table>
 
@@ -1402,9 +1389,7 @@ Default sort order is descending by startedAt.</td></tr>
     <tr><td><code>organization</code></td><td><a href="#organization">Organization</a>!</td><td></td></tr>
     <tr><td><code>user</code></td><td><a href="#user">User</a>!</td><td></td></tr>
     <tr><td><code>messages</code></td><td>(first: Int = 100, after: String): <a href="#messageconnection">MessageConnection</a>!</td><td></td></tr>
-    <tr><td><code>turnState</code></td><td><a href="#conversationturnstate">ConversationTurnState</a>!</td><td>Current turn state for this conversation. Carries the server-
-recommended poll cadence — clients should respect this rather than
-hardcoding an interval.</td></tr>
+    <tr><td><code>turnState</code></td><td><a href="#conversationturnstate">ConversationTurnState</a>!</td><td>Current turn state for this conversation. Carries the server- recommended poll cadence — clients should respect this rather than hardcoding an interval.</td></tr>
     <tr><td><code>startedAt</code></td><td><a href="#datetime">DateTime</a>!</td><td></td></tr>
     <tr><td><code>lastUpdatedAt</code></td><td><a href="#datetime">DateTime</a>!</td><td></td></tr>
   </tbody>
@@ -1708,9 +1693,7 @@ with a count from the run results.</p>
     <tr><td><code>displayName</code></td><td><a href="#markdown">Markdown</a>!</td><td>Display name of the measure.</td></tr>
     <tr><td><code>description</code></td><td><a href="#markdown">Markdown</a></td><td>Description of what this measure represents.</td></tr>
     <tr><td><code>ordinal</code></td><td>Int!</td><td>Sort order relative to other measures in the card.</td></tr>
-    <tr><td><code>count</code></td><td>Int!</td><td>Count of repositories or occurrences for this measure.
-For PER_REPOSITORY: number of repositories in this state.
-For PER_OCCURRENCE: total count of occurrences.</td></tr>
+    <tr><td><code>count</code></td><td>Int!</td><td>Count of repositories or occurrences for this measure. For PER_REPOSITORY: number of repositories in this state. For PER_OCCURRENCE: total count of occurrences.</td></tr>
   </tbody>
 </table>
 
@@ -1916,27 +1899,7 @@ for the runtime version with counts.</p>
     <tr><td><code>id</code></td><td>ID!</td><td></td></tr>
     <tr><td><code>user</code></td><td><a href="#user">User</a>!</td><td></td></tr>
     <tr><td><code>content</code></td><td><a href="#markdown">Markdown</a>!</td><td></td></tr>
-    <tr><td><code>code</code></td><td>String</td><td>Stable error code that clients may switch on for UI copy. The full
-taxonomy (split into API-call errors vs in-conversation errors) is
-maintained in `doc/moddy-polling-ui-handoff.md`. As of now:
-
-  Configuration / LLM provider:
-    LLM_UNAVAILABLE, LLM_OVERLOADED, LLM_RATE_LIMITED, LLM_AUTH_FAILED,
-    LLM_CONTEXT_TOO_LONG, LLM_TIMED_OUT, LLM_QUOTA_EXCEEDED,
-    LLM_UNREACHABLE, LLM_EMPTY_RESPONSE, LLM_FAILED
-
-  Tool execution:
-    TOOL_UNKNOWN, TOOL_FAILED
-
-  Turn lifecycle:
-    TURN_LIMIT_EXCEEDED, CANCELLED
-
-  Fallback:
-    INTERNAL
-
-API-call errors (returned in GraphQL `errors[]`, not as messages):
-INVALID_CURSOR, FORBIDDEN, CONVERSATION_BUSY, MESSAGE_TOO_LONG,
-CONVERSATION_NOT_FOUND, TOO_MANY_REQUESTS.</td></tr>
+    <tr><td><code>code</code></td><td>String</td><td>Stable error code that clients may switch on for UI copy. The full taxonomy (split into API-call errors vs in-conversation errors) is maintained in `doc/moddy-polling-ui-handoff.md`. As of now:    Configuration / LLM provider:     LLM_UNAVAILABLE, LLM_OVERLOADED, LLM_RATE_LIMITED, LLM_AUTH_FAILED,     LLM_CONTEXT_TOO_LONG, LLM_TIMED_OUT, LLM_QUOTA_EXCEEDED,     LLM_UNREACHABLE, LLM_EMPTY_RESPONSE, LLM_FAILED    Tool execution:     TOOL_UNKNOWN, TOOL_FAILED    Turn lifecycle:     TURN_LIMIT_EXCEEDED, CANCELLED    Fallback:     INTERNAL  API-call errors (returned in GraphQL `errors[]`, not as messages): INVALID_CURSOR, FORBIDDEN, CONVERSATION_BUSY, MESSAGE_TOO_LONG, CONVERSATION_NOT_FOUND, TOO_MANY_REQUESTS.</td></tr>
     <tr><td><code>state</code></td><td><a href="#messagestate">MessageState</a>!</td><td></td></tr>
     <tr><td><code>lastUpdatedAt</code></td><td><a href="#datetime">DateTime</a>!</td><td></td></tr>
   </tbody>
@@ -2021,8 +1984,7 @@ CONVERSATION_NOT_FOUND, TOO_MANY_REQUESTS.</td></tr>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
     <tr><td><code>branchName</code></td><td>String</td><td></td></tr>
-    <tr><td><code>organization</code></td><td>String</td><td>If set, the fork will be created in this organization. Otherwise, the fork will be created in the user's
-personal account.</td></tr>
+    <tr><td><code>organization</code></td><td>String</td><td>If set, the fork will be created in this organization. Otherwise, the fork will be created in the user's personal account.</td></tr>
     <tr><td><code>prefixOrganization</code></td><td>Boolean!</td><td></td></tr>
   </tbody>
 </table>
@@ -2055,8 +2017,7 @@ personal account.</td></tr>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
     <tr><td><code>branchName</code></td><td>String</td><td></td></tr>
-    <tr><td><code>organization</code></td><td>String</td><td>If set, the fork will be created in this organization. Otherwise, the fork will be created in the user's
-personal account.</td></tr>
+    <tr><td><code>organization</code></td><td>String</td><td>If set, the fork will be created in this organization. Otherwise, the fork will be created in the user's personal account.</td></tr>
     <tr><td><code>prefixOrganization</code></td><td>Boolean!</td><td></td></tr>
     <tr><td><code>pullRequestTitle</code></td><td>String</td><td>If unset, the commit message will be used as the pull request title.</td></tr>
     <tr><td><code>pullRequestBody</code></td><td><a href="#base64">Base64</a></td><td></td></tr>
@@ -2249,17 +2210,8 @@ that recipe runs consume. Every repository has a conceptual artifact;
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
-    <tr><td><code>published</code></td><td><a href="#datetime">DateTime</a></td><td>When `mod publish` produced an artifact into the customer's LST artifact
-repository, or null if no artifact has been published. For a tenant
-configured for encrypted LSTs, a non-null `published` does NOT mean the
-encrypted artifact has been received by the tenant - that signal lives
-on `available`.</td></tr>
-    <tr><td><code>available</code></td><td>Boolean!</td><td>Whether the artifact is reachable for a recipe run.
-For an organization source with encryption enabled, true once the
-connector has uploaded the encrypted artifact and the gateway has
-surfaced an `encrypted://` alternate publish URI. For a source without
-encryption (pass-through), true when the gateway-projected row has a
-non-empty `publishUri`, which we assume is reachable from `mod publish`.</td></tr>
+    <tr><td><code>published</code></td><td><a href="#datetime">DateTime</a></td><td>When `mod publish` produced an artifact into the customer's LST artifact repository, or null if no artifact has been published. For a tenant configured for encrypted LSTs, a non-null `published` does NOT mean the encrypted artifact has been received by the tenant - that signal lives on `available`.</td></tr>
+    <tr><td><code>available</code></td><td>Boolean!</td><td>Whether the artifact is reachable for a recipe run. For an organization source with encryption enabled, true once the connector has uploaded the encrypted artifact and the gateway has surfaced an `encrypted://` alternate publish URI. For a source without encryption (pass-through), true when the gateway-projected row has a non-empty `publishUri`, which we assume is reachable from `mod publish`.</td></tr>
   </tbody>
 </table>
 
@@ -2366,19 +2318,11 @@ non-empty `publishUri`, which we assume is reachable from `mod publish`.</td></t
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
-    <tr><td><code>systemPrompt</code></td><td><a href="#prompt">Prompt</a>!</td><td>The effective system prompt for this context.
-Cascades: user > organization > universal > built-in default.</td></tr>
-    <tr><td><code>adminOnly</code></td><td>Boolean!</td><td>When true, only administrators can create conversations or send messages.
-Install-level policy flag; the UI uses this together with the viewer's admin
-status to gate the Moddy menu entry.</td></tr>
+    <tr><td><code>systemPrompt</code></td><td><a href="#prompt">Prompt</a>!</td><td>The effective system prompt for this context. Cascades: user > organization > universal > built-in default.</td></tr>
+    <tr><td><code>adminOnly</code></td><td>Boolean!</td><td>When true, only administrators can create conversations or send messages. Install-level policy flag; the UI uses this together with the viewer's admin status to gate the Moddy menu entry.</td></tr>
     <tr><td><code>conversations</code></td><td>(first: Int = 50, after: String, where: <a href="#conversationwhereinput">ConversationWhereInput</a>, orderBy: [<a href="#conversationorderbyinput">ConversationOrderByInput</a>!]): <a href="#conversationconnection">ConversationConnection</a>!</td><td></td></tr>
-    <tr><td><code>providerName</code></td><td>String</td><td>Human-readable provider name (e.g. "Anthropic", "OpenAI"). Null when
-no LLM provider is configured (in which case `capabilities.moddy` is
-also false — clients should gate the chat composer on the capability,
-not on this field).</td></tr>
-    <tr><td><code>model</code></td><td>String</td><td>Configured model identifier (e.g. "claude-3-5-sonnet-20241022"). Null
-when no provider is configured or the provider is configured without a
-model override.</td></tr>
+    <tr><td><code>providerName</code></td><td>String</td><td>Human-readable provider name (e.g. "Anthropic", "OpenAI"). Null when no LLM provider is configured (in which case `capabilities.moddy` is also false — clients should gate the chat composer on the capability, not on this field).</td></tr>
+    <tr><td><code>model</code></td><td>String</td><td>Configured model identifier (e.g. "claude-3-5-sonnet-20241022"). Null when no provider is configured or the provider is configured without a model override.</td></tr>
   </tbody>
 </table>
 
@@ -2473,16 +2417,9 @@ with the id and extracted callback parameters.</p>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
-    <tr><td><code>id</code></td><td>ID!</td><td>Unique ID for this authorization attempt.
-Used to look up stored PKCE state at exchange time.</td></tr>
-    <tr><td><code>authorizationUrl</code></td><td>String!</td><td>The fully-constructed OAuth authorization URL.
-UI should redirect the user to this URL.
-
-IMPORTANT: The UI must store the authorization ID before redirecting,
-as it will be needed to call exchangeAuthorizationCode after the callback.
-The redirect URI does not contain the authorization ID.</td></tr>
-    <tr><td><code>callbackParameters</code></td><td>[String!]!</td><td>Query parameters the UI should extract from the OAuth callback URL
-and pass to exchangeAuthorizationCode (e.g., ["code"]).</td></tr>
+    <tr><td><code>id</code></td><td>ID!</td><td>Unique ID for this authorization attempt. Used to look up stored PKCE state at exchange time.</td></tr>
+    <tr><td><code>authorizationUrl</code></td><td>String!</td><td>The fully-constructed OAuth authorization URL. UI should redirect the user to this URL.  IMPORTANT: The UI must store the authorization ID before redirecting, as it will be needed to call exchangeAuthorizationCode after the callback. The redirect URI does not contain the authorization ID.</td></tr>
+    <tr><td><code>callbackParameters</code></td><td>[String!]!</td><td>Query parameters the UI should extract from the OAuth callback URL and pass to exchangeAuthorizationCode (e.g., ["code"]).</td></tr>
     <tr><td><code>expiresAt</code></td><td><a href="#datetime">DateTime</a>!</td><td>When this authorization expires. UI should treat expired authorizations as stale.</td></tr>
   </tbody>
 </table>
@@ -2522,29 +2459,16 @@ so we can resolve the recipe that was used at the time of the run (not the curre
   <tbody>
     <tr><td><code>id</code></td><td>ID!</td><td></td></tr>
     <tr><td><code>changelog</code></td><td>(first: Int = 50, after: String, where: <a href="#changelogentrywhereinput">ChangelogEntryWhereInput</a>, orderBy: [<a href="#changelogentryorderbyinput">ChangelogEntryOrderByInput</a>!]): <a href="#changelogentryconnection">ChangelogEntryConnection</a>!</td><td>PR and commit activity feed for repositories in this organization.</td></tr>
-    <tr><td><code>participants</code></td><td>(first: Int = 50, after: String, where: <a href="#changelogparticipantwhereinput">ChangelogParticipantWhereInput</a>, orderBy: [<a href="#changelogparticipantorderbyinput">ChangelogParticipantOrderByInput</a>!]): <a href="#changelogparticipantconnection">ChangelogParticipantConnection</a>!</td><td>All unique participants across the changelog for this organization,
-aggregated from authors, assignees, closers, and reviewers.</td></tr>
+    <tr><td><code>participants</code></td><td>(first: Int = 50, after: String, where: <a href="#changelogparticipantwhereinput">ChangelogParticipantWhereInput</a>, orderBy: [<a href="#changelogparticipantorderbyinput">ChangelogParticipantOrderByInput</a>!]): <a href="#changelogparticipantconnection">ChangelogParticipantConnection</a>!</td><td>All unique participants across the changelog for this organization, aggregated from authors, assignees, closers, and reviewers.</td></tr>
     <tr><td><code>commitOptions</code></td><td>[<a href="#commitoption">CommitOption</a>!]!</td><td>Available commit options for this organization.</td></tr>
     <tr><td><code>changesets</code></td><td>(first: Int = 50, after: String, where: <a href="#organizationchangesetwhereinput">OrganizationChangesetWhereInput</a>, orderBy: [<a href="#organizationchangesetorderbyinput">OrganizationChangesetOrderByInput</a>!]): <a href="#organizationchangesetconnection">OrganizationChangesetConnection</a>!</td><td></td></tr>
     <tr><td><code>devCenter</code></td><td><a href="#devcenter">DevCenter</a></td><td>DevCenter provides organization-wide campaign progress tracking.</td></tr>
     <tr><td><code>moddy</code></td><td><a href="#moddy">Moddy</a>!</td><td></td></tr>
     <tr><td><code>name</code></td><td>String!</td><td></td></tr>
-    <tr><td><code>parents</code></td><td>[<a href="#organization">Organization</a>!]!</td><td>The ancestor organizations of this organization, ordered from immediate parent towards root.
-Does not include the epsilon root. Empty for the root organization and direct children of root.</td></tr>
-    <tr><td><code>user</code></td><td><a href="#user">User</a></td><td>The user who owns this organization. Null for global organizations,
-non-null for user-defined organizations.</td></tr>
+    <tr><td><code>parents</code></td><td>[<a href="#organization">Organization</a>!]!</td><td>The ancestor organizations of this organization, ordered from immediate parent towards root. Does not include the epsilon root. Empty for the root organization and direct children of root.</td></tr>
+    <tr><td><code>user</code></td><td><a href="#user">User</a></td><td>The user who owns this organization. Null for global organizations, non-null for user-defined organizations.</td></tr>
     <tr><td><code>repositories</code></td><td>(first: Int = 100, after: String, where: <a href="#repositorywhereinput">RepositoryWhereInput</a>, orderBy: [<a href="#repositoryorderbyinput">RepositoryOrderByInput</a>!]): <a href="#repositoryconnection">RepositoryConnection</a>!</td><td></td></tr>
-    <tr><td><code>children</code></td><td>(first: Int = 100, after: String, where: <a href="#organizationwhereinput">OrganizationWhereInput</a>, orderBy: [<a href="#organizationorderbyinput">OrganizationOrderByInput</a>!]): <a href="#organizationconnection">OrganizationConnection</a>!</td><td>Direct children of this organization in the tree, paginated.
-Useful for lazy-loading the org tree level by level — e.g. an org
-selector that fetches the root, then the children of each folder
-only when the user expands it.
-
-`where.depth` is ignored on this field — every direct child of a
-given parent has the same depth, so the filter would be either
-all-or-nothing. Use `where.name` and the boolean composers
-(`_and`, `_or`, `_not`) for meaningful filtering.
-
-`orderBy` defaults to NAME ascending when unspecified.</td></tr>
+    <tr><td><code>children</code></td><td>(first: Int = 100, after: String, where: <a href="#organizationwhereinput">OrganizationWhereInput</a>, orderBy: [<a href="#organizationorderbyinput">OrganizationOrderByInput</a>!]): <a href="#organizationconnection">OrganizationConnection</a>!</td><td>Direct children of this organization in the tree, paginated. Useful for lazy-loading the org tree level by level — e.g. an org selector that fetches the root, then the children of each folder only when the user expands it.  `where.depth` is ignored on this field — every direct child of a given parent has the same depth, so the filter would be either all-or-nothing. Use `where.name` and the boolean composers (`_and`, `_or`, `_not`) for meaningful filtering.  `orderBy` defaults to NAME ascending when unspecified.</td></tr>
     <tr><td><code>marketplace</code></td><td><a href="#recipemarketplace">RecipeMarketplace</a></td><td></td></tr>
   </tbody>
 </table>
@@ -2559,22 +2483,14 @@ all-or-nothing. Use `where.name` and the boolean composers
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
     <tr><td><code>id</code></td><td>ID!</td><td></td></tr>
-    <tr><td><code>bulkPullRequestActions</code></td><td>(first: Int = 50, after: String, where: <a href="#bulkpullrequestactionwhereinput">BulkPullRequestActionWhereInput</a>, orderBy: [<a href="#bulkpullrequestactionorderbyinput">BulkPullRequestActionOrderByInput</a>!]): <a href="#bulkpullrequestactionconnection">BulkPullRequestActionConnection</a>!</td><td>Bulk pull request actions (approve, merge, close) initiated against pull
-requests that belong to this changeset.
-
-Default sort: STARTED_AT DESC with QUEUED entries (no startedAt) appearing
-last so polling clients still see in-flight actions.</td></tr>
+    <tr><td><code>bulkPullRequestActions</code></td><td>(first: Int = 50, after: String, where: <a href="#bulkpullrequestactionwhereinput">BulkPullRequestActionWhereInput</a>, orderBy: [<a href="#bulkpullrequestactionorderbyinput">BulkPullRequestActionOrderByInput</a>!]): <a href="#bulkpullrequestactionconnection">BulkPullRequestActionConnection</a>!</td><td>Bulk pull request actions (approve, merge, close) initiated against pull requests that belong to this changeset.  Default sort: STARTED_AT DESC with QUEUED entries (no startedAt) appearing last so polling clients still see in-flight actions.</td></tr>
     <tr><td><code>commits</code></td><td>(first: Int = 50, after: String, where: <a href="#organizationcommitwhereinput">OrganizationCommitWhereInput</a>, orderBy: [<a href="#organizationcommitorderbyinput">OrganizationCommitOrderByInput</a>!]): <a href="#organizationcommitconnection">OrganizationCommitConnection</a></td><td>Commit operations initiated from this changeset.</td></tr>
     <tr><td><code>user</code></td><td><a href="#user">User</a>!</td><td></td></tr>
     <tr><td><code>createdAt</code></td><td><a href="#datetime">DateTime</a>!</td><td></td></tr>
     <tr><td><code>parent</code></td><td><a href="#organizationchangeset">OrganizationChangeset</a></td><td></td></tr>
     <tr><td><code>repositories</code></td><td>(first: Int = 100, after: String, where: <a href="#repositorychangesetwhereinput">RepositoryChangesetWhereInput</a>, orderBy: [<a href="#repositorychangesetorderbyinput">RepositoryChangesetOrderByInput</a>!]): <a href="#repositorychangesetconnection">RepositoryChangesetConnection</a>!</td><td></td></tr>
-    <tr><td><code>dataTables</code></td><td>(first: Int = 50, after: String, where: <a href="#datatablewhereinput">DataTableWhereInput</a>, orderBy: [<a href="#datatableorderbyinput">DataTableOrderByInput</a>!]): <a href="#datatableconnection">DataTableConnection</a>!</td><td>Data tables produced by this recipe run.
-Each data table starts as Available and transitions to Processing/Finished/Error
-when downloadDataTable mutation is called.</td></tr>
-    <tr><td><code>visualizations</code></td><td>(first: Int = 50, after: String, where: <a href="#visualizationwhereinput">VisualizationWhereInput</a>, orderBy: [<a href="#visualizationorderbyinput">VisualizationOrderByInput</a>!]): <a href="#visualizationconnection">VisualizationConnection</a>!</td><td>Visualizations produced by this changeset.
-Each visualization starts as Available and transitions to Processing/Finished/Error
-when runVisualization mutation is called.</td></tr>
+    <tr><td><code>dataTables</code></td><td>(first: Int = 50, after: String, where: <a href="#datatablewhereinput">DataTableWhereInput</a>, orderBy: [<a href="#datatableorderbyinput">DataTableOrderByInput</a>!]): <a href="#datatableconnection">DataTableConnection</a>!</td><td>Data tables produced by this recipe run. Each data table starts as Available and transitions to Processing/Finished/Error when downloadDataTable mutation is called.</td></tr>
+    <tr><td><code>visualizations</code></td><td>(first: Int = 50, after: String, where: <a href="#visualizationwhereinput">VisualizationWhereInput</a>, orderBy: [<a href="#visualizationorderbyinput">VisualizationOrderByInput</a>!]): <a href="#visualizationconnection">VisualizationConnection</a>!</td><td>Visualizations produced by this changeset. Each visualization starts as Available and transitions to Processing/Finished/Error when runVisualization mutation is called.</td></tr>
   </tbody>
 </table>
 
@@ -2604,9 +2520,7 @@ when runVisualization mutation is called.</td></tr>
   <tbody>
     <tr><td><code>node</code></td><td><a href="#organizationchangeset">OrganizationChangeset</a>!</td><td></td></tr>
     <tr><td><code>cursor</code></td><td>String!</td><td></td></tr>
-    <tr><td><code>organization</code></td><td><a href="#organization">Organization</a></td><td>The organization this changeset was run against.
-May differ from the queried organization when the changeset belongs to a suborganization.
-Null if the organization has been deleted or is temporarily unavailable.</td></tr>
+    <tr><td><code>organization</code></td><td><a href="#organization">Organization</a></td><td>The organization this changeset was run against. May differ from the queried organization when the changeset belongs to a suborganization. Null if the organization has been deleted or is temporarily unavailable.</td></tr>
   </tbody>
 </table>
 
@@ -2810,16 +2724,11 @@ Null if the organization has been deleted or is temporarily unavailable.</td></t
     <tr><td><code>user</code></td><td><a href="#user">User</a>!</td><td></td></tr>
     <tr><td><code>options</code></td><td>[<a href="#recipeoptionvalue">RecipeOptionValue</a>!]!</td><td></td></tr>
     <tr><td><code>createdAt</code></td><td><a href="#datetime">DateTime</a>!</td><td></td></tr>
-    <tr><td><code>lastUpdatedAt</code></td><td><a href="#datetime">DateTime</a>!</td><td>Monotonic high-water mark advanced by every state writer (sync monitor,
-run monitor, processor). Treat as a content version: poll a tiny query
-selecting `__typename` + `lastUpdatedAt` cheaply and only refetch the
-heavy `repositories`/`totals` selections when this value changes.</td></tr>
+    <tr><td><code>lastUpdatedAt</code></td><td><a href="#datetime">DateTime</a>!</td><td>Monotonic high-water mark advanced by every state writer (sync monitor, run monitor, processor). Treat as a content version: poll a tiny query selecting `__typename` + `lastUpdatedAt` cheaply and only refetch the heavy `repositories`/`totals` selections when this value changes.</td></tr>
     <tr><td><code>priority</code></td><td><a href="#reciperunpriority">RecipeRunPriority</a>!</td><td></td></tr>
     <tr><td><code>parent</code></td><td><a href="#organizationchangeset">OrganizationChangeset</a></td><td></td></tr>
     <tr><td><code>repositories</code></td><td>(first: Int = 100, after: String, where: <a href="#repositorychangesetwhereinput">RepositoryChangesetWhereInput</a>, orderBy: [<a href="#repositorychangesetorderbyinput">RepositoryChangesetOrderByInput</a>!]): <a href="#repositorychangesetconnection">RepositoryChangesetConnection</a>!</td><td></td></tr>
-    <tr><td><code>dataTables</code></td><td>(first: Int = 50, after: String, where: <a href="#datatablewhereinput">DataTableWhereInput</a>, orderBy: [<a href="#datatableorderbyinput">DataTableOrderByInput</a>!]): <a href="#datatableconnection">DataTableConnection</a>!</td><td>Data tables produced by this recipe run.
-Each data table starts as Available and transitions to Processing/Finished/Error
-when downloadDataTable mutation is called.</td></tr>
+    <tr><td><code>dataTables</code></td><td>(first: Int = 50, after: String, where: <a href="#datatablewhereinput">DataTableWhereInput</a>, orderBy: [<a href="#datatableorderbyinput">DataTableOrderByInput</a>!]): <a href="#datatableconnection">DataTableConnection</a>!</td><td>Data tables produced by this recipe run. Each data table starts as Available and transitions to Processing/Finished/Error when downloadDataTable mutation is called.</td></tr>
     <tr><td><code>visualizations</code></td><td>(first: Int = 50, after: String, where: <a href="#visualizationwhereinput">VisualizationWhereInput</a>, orderBy: [<a href="#visualizationorderbyinput">VisualizationOrderByInput</a>!]): <a href="#visualizationconnection">VisualizationConnection</a>!</td><td>Visualizations produced by this recipe run.</td></tr>
   </tbody>
 </table>
@@ -2838,19 +2747,14 @@ when downloadDataTable mutation is called.</td></tr>
     <tr><td><code>user</code></td><td><a href="#user">User</a>!</td><td></td></tr>
     <tr><td><code>options</code></td><td>[<a href="#recipeoptionvalue">RecipeOptionValue</a>!]!</td><td></td></tr>
     <tr><td><code>createdAt</code></td><td><a href="#datetime">DateTime</a>!</td><td></td></tr>
-    <tr><td><code>lastUpdatedAt</code></td><td><a href="#datetime">DateTime</a>!</td><td>Monotonic high-water mark advanced by every state writer (sync monitor,
-run monitor, processor). Treat as a content version: poll a tiny query
-selecting `__typename` + `lastUpdatedAt` cheaply and only refetch the
-heavy `repositories`/`totals` selections when this value changes.</td></tr>
+    <tr><td><code>lastUpdatedAt</code></td><td><a href="#datetime">DateTime</a>!</td><td>Monotonic high-water mark advanced by every state writer (sync monitor, run monitor, processor). Treat as a content version: poll a tiny query selecting `__typename` + `lastUpdatedAt` cheaply and only refetch the heavy `repositories`/`totals` selections when this value changes.</td></tr>
     <tr><td><code>priority</code></td><td><a href="#reciperunpriority">RecipeRunPriority</a>!</td><td></td></tr>
     <tr><td><code>parent</code></td><td><a href="#organizationchangeset">OrganizationChangeset</a></td><td></td></tr>
     <tr><td><code>startedAt</code></td><td><a href="#datetime">DateTime</a></td><td></td></tr>
     <tr><td><code>finishedAt</code></td><td><a href="#datetime">DateTime</a>!</td><td></td></tr>
     <tr><td><code>canceledAt</code></td><td><a href="#datetime">DateTime</a>!</td><td>Alias for finishedAt - when the run was canceled</td></tr>
     <tr><td><code>repositories</code></td><td>(first: Int = 100, after: String, where: <a href="#repositorychangesetwhereinput">RepositoryChangesetWhereInput</a>, orderBy: [<a href="#repositorychangesetorderbyinput">RepositoryChangesetOrderByInput</a>!]): <a href="#repositorychangesetconnection">RepositoryChangesetConnection</a>!</td><td></td></tr>
-    <tr><td><code>dataTables</code></td><td>(first: Int = 50, after: String, where: <a href="#datatablewhereinput">DataTableWhereInput</a>, orderBy: [<a href="#datatableorderbyinput">DataTableOrderByInput</a>!]): <a href="#datatableconnection">DataTableConnection</a>!</td><td>Data tables produced by this recipe run.
-Each data table starts as Available and transitions to Processing/Finished/Error
-when downloadDataTable mutation is called.</td></tr>
+    <tr><td><code>dataTables</code></td><td>(first: Int = 50, after: String, where: <a href="#datatablewhereinput">DataTableWhereInput</a>, orderBy: [<a href="#datatableorderbyinput">DataTableOrderByInput</a>!]): <a href="#datatableconnection">DataTableConnection</a>!</td><td>Data tables produced by this recipe run. Each data table starts as Available and transitions to Processing/Finished/Error when downloadDataTable mutation is called.</td></tr>
     <tr><td><code>visualizations</code></td><td>(first: Int = 50, after: String, where: <a href="#visualizationwhereinput">VisualizationWhereInput</a>, orderBy: [<a href="#visualizationorderbyinput">VisualizationOrderByInput</a>!]): <a href="#visualizationconnection">VisualizationConnection</a>!</td><td>Visualizations produced by this recipe run.</td></tr>
   </tbody>
 </table>
@@ -2898,19 +2802,14 @@ when downloadDataTable mutation is called.</td></tr>
     <tr><td><code>user</code></td><td><a href="#user">User</a>!</td><td></td></tr>
     <tr><td><code>options</code></td><td>[<a href="#recipeoptionvalue">RecipeOptionValue</a>!]!</td><td></td></tr>
     <tr><td><code>createdAt</code></td><td><a href="#datetime">DateTime</a>!</td><td></td></tr>
-    <tr><td><code>lastUpdatedAt</code></td><td><a href="#datetime">DateTime</a>!</td><td>Monotonic high-water mark advanced by every state writer (sync monitor,
-run monitor, processor). Treat as a content version: poll a tiny query
-selecting `__typename` + `lastUpdatedAt` cheaply and only refetch the
-heavy `repositories`/`totals` selections when this value changes.</td></tr>
+    <tr><td><code>lastUpdatedAt</code></td><td><a href="#datetime">DateTime</a>!</td><td>Monotonic high-water mark advanced by every state writer (sync monitor, run monitor, processor). Treat as a content version: poll a tiny query selecting `__typename` + `lastUpdatedAt` cheaply and only refetch the heavy `repositories`/`totals` selections when this value changes.</td></tr>
     <tr><td><code>priority</code></td><td><a href="#reciperunpriority">RecipeRunPriority</a>!</td><td></td></tr>
     <tr><td><code>parent</code></td><td><a href="#organizationchangeset">OrganizationChangeset</a></td><td></td></tr>
     <tr><td><code>startedAt</code></td><td><a href="#datetime">DateTime</a></td><td></td></tr>
     <tr><td><code>finishedAt</code></td><td><a href="#datetime">DateTime</a>!</td><td></td></tr>
     <tr><td><code>errorMessage</code></td><td>String</td><td></td></tr>
     <tr><td><code>repositories</code></td><td>(first: Int = 100, after: String, where: <a href="#repositorychangesetwhereinput">RepositoryChangesetWhereInput</a>, orderBy: [<a href="#repositorychangesetorderbyinput">RepositoryChangesetOrderByInput</a>!]): <a href="#repositorychangesetconnection">RepositoryChangesetConnection</a>!</td><td></td></tr>
-    <tr><td><code>dataTables</code></td><td>(first: Int = 50, after: String, where: <a href="#datatablewhereinput">DataTableWhereInput</a>, orderBy: [<a href="#datatableorderbyinput">DataTableOrderByInput</a>!]): <a href="#datatableconnection">DataTableConnection</a>!</td><td>Data tables produced by this recipe run.
-Each data table starts as Available and transitions to Processing/Finished/Error
-when downloadDataTable mutation is called.</td></tr>
+    <tr><td><code>dataTables</code></td><td>(first: Int = 50, after: String, where: <a href="#datatablewhereinput">DataTableWhereInput</a>, orderBy: [<a href="#datatableorderbyinput">DataTableOrderByInput</a>!]): <a href="#datatableconnection">DataTableConnection</a>!</td><td>Data tables produced by this recipe run. Each data table starts as Available and transitions to Processing/Finished/Error when downloadDataTable mutation is called.</td></tr>
     <tr><td><code>visualizations</code></td><td>(first: Int = 50, after: String, where: <a href="#visualizationwhereinput">VisualizationWhereInput</a>, orderBy: [<a href="#visualizationorderbyinput">VisualizationOrderByInput</a>!]): <a href="#visualizationconnection">VisualizationConnection</a>!</td><td>Visualizations produced by this recipe run.</td></tr>
   </tbody>
 </table>
@@ -2929,10 +2828,7 @@ when downloadDataTable mutation is called.</td></tr>
     <tr><td><code>user</code></td><td><a href="#user">User</a>!</td><td></td></tr>
     <tr><td><code>options</code></td><td>[<a href="#recipeoptionvalue">RecipeOptionValue</a>!]!</td><td></td></tr>
     <tr><td><code>createdAt</code></td><td><a href="#datetime">DateTime</a>!</td><td></td></tr>
-    <tr><td><code>lastUpdatedAt</code></td><td><a href="#datetime">DateTime</a>!</td><td>Monotonic high-water mark advanced by every state writer (sync monitor,
-run monitor, processor). Treat as a content version: poll a tiny query
-selecting `__typename` + `lastUpdatedAt` cheaply and only refetch the
-heavy `repositories`/`totals` selections when this value changes.</td></tr>
+    <tr><td><code>lastUpdatedAt</code></td><td><a href="#datetime">DateTime</a>!</td><td>Monotonic high-water mark advanced by every state writer (sync monitor, run monitor, processor). Treat as a content version: poll a tiny query selecting `__typename` + `lastUpdatedAt` cheaply and only refetch the heavy `repositories`/`totals` selections when this value changes.</td></tr>
     <tr><td><code>priority</code></td><td><a href="#reciperunpriority">RecipeRunPriority</a>!</td><td></td></tr>
     <tr><td><code>parent</code></td><td><a href="#organizationchangeset">OrganizationChangeset</a></td><td></td></tr>
     <tr><td><code>startedAt</code></td><td><a href="#datetime">DateTime</a>!</td><td></td></tr>
@@ -2940,9 +2836,7 @@ heavy `repositories`/`totals` selections when this value changes.</td></tr>
     <tr><td><code>duration</code></td><td><a href="#duration">Duration</a></td><td></td></tr>
     <tr><td><code>totals</code></td><td><a href="#reciperuntotals">RecipeRunTotals</a>!</td><td></td></tr>
     <tr><td><code>repositories</code></td><td>(first: Int = 100, after: String, where: <a href="#repositorychangesetwhereinput">RepositoryChangesetWhereInput</a>, orderBy: [<a href="#repositorychangesetorderbyinput">RepositoryChangesetOrderByInput</a>!]): <a href="#repositorychangesetconnection">RepositoryChangesetConnection</a>!</td><td></td></tr>
-    <tr><td><code>dataTables</code></td><td>(first: Int = 50, after: String, where: <a href="#datatablewhereinput">DataTableWhereInput</a>, orderBy: [<a href="#datatableorderbyinput">DataTableOrderByInput</a>!]): <a href="#datatableconnection">DataTableConnection</a>!</td><td>Data tables produced by this recipe run.
-Each data table starts as Available and transitions to Processing/Finished/Error
-when downloadDataTable mutation is called.</td></tr>
+    <tr><td><code>dataTables</code></td><td>(first: Int = 50, after: String, where: <a href="#datatablewhereinput">DataTableWhereInput</a>, orderBy: [<a href="#datatableorderbyinput">DataTableOrderByInput</a>!]): <a href="#datatableconnection">DataTableConnection</a>!</td><td>Data tables produced by this recipe run. Each data table starts as Available and transitions to Processing/Finished/Error when downloadDataTable mutation is called.</td></tr>
     <tr><td><code>visualizations</code></td><td>(first: Int = 50, after: String, where: <a href="#visualizationwhereinput">VisualizationWhereInput</a>, orderBy: [<a href="#visualizationorderbyinput">VisualizationOrderByInput</a>!]): <a href="#visualizationconnection">VisualizationConnection</a>!</td><td>Visualizations produced by this recipe run.</td></tr>
   </tbody>
 </table>
@@ -2961,17 +2855,12 @@ when downloadDataTable mutation is called.</td></tr>
     <tr><td><code>user</code></td><td><a href="#user">User</a>!</td><td></td></tr>
     <tr><td><code>options</code></td><td>[<a href="#recipeoptionvalue">RecipeOptionValue</a>!]!</td><td></td></tr>
     <tr><td><code>createdAt</code></td><td><a href="#datetime">DateTime</a>!</td><td></td></tr>
-    <tr><td><code>lastUpdatedAt</code></td><td><a href="#datetime">DateTime</a>!</td><td>Monotonic high-water mark advanced by every state writer (sync monitor,
-run monitor, processor). Treat as a content version: poll a tiny query
-selecting `__typename` + `lastUpdatedAt` cheaply and only refetch the
-heavy `repositories`/`totals` selections when this value changes.</td></tr>
+    <tr><td><code>lastUpdatedAt</code></td><td><a href="#datetime">DateTime</a>!</td><td>Monotonic high-water mark advanced by every state writer (sync monitor, run monitor, processor). Treat as a content version: poll a tiny query selecting `__typename` + `lastUpdatedAt` cheaply and only refetch the heavy `repositories`/`totals` selections when this value changes.</td></tr>
     <tr><td><code>priority</code></td><td><a href="#reciperunpriority">RecipeRunPriority</a>!</td><td></td></tr>
     <tr><td><code>parent</code></td><td><a href="#organizationchangeset">OrganizationChangeset</a></td><td></td></tr>
     <tr><td><code>queuedAt</code></td><td><a href="#datetime">DateTime</a>!</td><td></td></tr>
     <tr><td><code>repositories</code></td><td>(first: Int = 100, after: String, where: <a href="#repositorychangesetwhereinput">RepositoryChangesetWhereInput</a>, orderBy: [<a href="#repositorychangesetorderbyinput">RepositoryChangesetOrderByInput</a>!]): <a href="#repositorychangesetconnection">RepositoryChangesetConnection</a>!</td><td></td></tr>
-    <tr><td><code>dataTables</code></td><td>(first: Int = 50, after: String, where: <a href="#datatablewhereinput">DataTableWhereInput</a>, orderBy: [<a href="#datatableorderbyinput">DataTableOrderByInput</a>!]): <a href="#datatableconnection">DataTableConnection</a>!</td><td>Data tables produced by this recipe run.
-Each data table starts as Available and transitions to Processing/Finished/Error
-when downloadDataTable mutation is called.</td></tr>
+    <tr><td><code>dataTables</code></td><td>(first: Int = 50, after: String, where: <a href="#datatablewhereinput">DataTableWhereInput</a>, orderBy: [<a href="#datatableorderbyinput">DataTableOrderByInput</a>!]): <a href="#datatableconnection">DataTableConnection</a>!</td><td>Data tables produced by this recipe run. Each data table starts as Available and transitions to Processing/Finished/Error when downloadDataTable mutation is called.</td></tr>
     <tr><td><code>visualizations</code></td><td>(first: Int = 50, after: String, where: <a href="#visualizationwhereinput">VisualizationWhereInput</a>, orderBy: [<a href="#visualizationorderbyinput">VisualizationOrderByInput</a>!]): <a href="#visualizationconnection">VisualizationConnection</a>!</td><td>Visualizations produced by this recipe run.</td></tr>
   </tbody>
 </table>
@@ -2990,18 +2879,13 @@ when downloadDataTable mutation is called.</td></tr>
     <tr><td><code>user</code></td><td><a href="#user">User</a>!</td><td></td></tr>
     <tr><td><code>options</code></td><td>[<a href="#recipeoptionvalue">RecipeOptionValue</a>!]!</td><td></td></tr>
     <tr><td><code>createdAt</code></td><td><a href="#datetime">DateTime</a>!</td><td></td></tr>
-    <tr><td><code>lastUpdatedAt</code></td><td><a href="#datetime">DateTime</a>!</td><td>Monotonic high-water mark advanced by every state writer (sync monitor,
-run monitor, processor). Treat as a content version: poll a tiny query
-selecting `__typename` + `lastUpdatedAt` cheaply and only refetch the
-heavy `repositories`/`totals` selections when this value changes.</td></tr>
+    <tr><td><code>lastUpdatedAt</code></td><td><a href="#datetime">DateTime</a>!</td><td>Monotonic high-water mark advanced by every state writer (sync monitor, run monitor, processor). Treat as a content version: poll a tiny query selecting `__typename` + `lastUpdatedAt` cheaply and only refetch the heavy `repositories`/`totals` selections when this value changes.</td></tr>
     <tr><td><code>priority</code></td><td><a href="#reciperunpriority">RecipeRunPriority</a>!</td><td></td></tr>
     <tr><td><code>parent</code></td><td><a href="#organizationchangeset">OrganizationChangeset</a></td><td></td></tr>
     <tr><td><code>startedAt</code></td><td><a href="#datetime">DateTime</a>!</td><td></td></tr>
     <tr><td><code>totals</code></td><td><a href="#reciperuntotals">RecipeRunTotals</a></td><td></td></tr>
     <tr><td><code>repositories</code></td><td>(first: Int = 100, after: String, where: <a href="#repositorychangesetwhereinput">RepositoryChangesetWhereInput</a>, orderBy: [<a href="#repositorychangesetorderbyinput">RepositoryChangesetOrderByInput</a>!]): <a href="#repositorychangesetconnection">RepositoryChangesetConnection</a>!</td><td></td></tr>
-    <tr><td><code>dataTables</code></td><td>(first: Int = 50, after: String, where: <a href="#datatablewhereinput">DataTableWhereInput</a>, orderBy: [<a href="#datatableorderbyinput">DataTableOrderByInput</a>!]): <a href="#datatableconnection">DataTableConnection</a>!</td><td>Data tables produced by this recipe run.
-Each data table starts as Available and transitions to Processing/Finished/Error
-when downloadDataTable mutation is called.</td></tr>
+    <tr><td><code>dataTables</code></td><td>(first: Int = 50, after: String, where: <a href="#datatablewhereinput">DataTableWhereInput</a>, orderBy: [<a href="#datatableorderbyinput">DataTableOrderByInput</a>!]): <a href="#datatableconnection">DataTableConnection</a>!</td><td>Data tables produced by this recipe run. Each data table starts as Available and transitions to Processing/Finished/Error when downloadDataTable mutation is called.</td></tr>
     <tr><td><code>visualizations</code></td><td>(first: Int = 50, after: String, where: <a href="#visualizationwhereinput">VisualizationWhereInput</a>, orderBy: [<a href="#visualizationorderbyinput">VisualizationOrderByInput</a>!]): <a href="#visualizationconnection">VisualizationConnection</a>!</td><td>Visualizations produced by this recipe run.</td></tr>
   </tbody>
 </table>
@@ -3020,17 +2904,12 @@ when downloadDataTable mutation is called.</td></tr>
     <tr><td><code>user</code></td><td><a href="#user">User</a>!</td><td></td></tr>
     <tr><td><code>options</code></td><td>[<a href="#recipeoptionvalue">RecipeOptionValue</a>!]!</td><td></td></tr>
     <tr><td><code>createdAt</code></td><td><a href="#datetime">DateTime</a>!</td><td></td></tr>
-    <tr><td><code>lastUpdatedAt</code></td><td><a href="#datetime">DateTime</a>!</td><td>Monotonic high-water mark advanced by every state writer (sync monitor,
-run monitor, processor). Treat as a content version: poll a tiny query
-selecting `__typename` + `lastUpdatedAt` cheaply and only refetch the
-heavy `repositories`/`totals` selections when this value changes.</td></tr>
+    <tr><td><code>lastUpdatedAt</code></td><td><a href="#datetime">DateTime</a>!</td><td>Monotonic high-water mark advanced by every state writer (sync monitor, run monitor, processor). Treat as a content version: poll a tiny query selecting `__typename` + `lastUpdatedAt` cheaply and only refetch the heavy `repositories`/`totals` selections when this value changes.</td></tr>
     <tr><td><code>priority</code></td><td><a href="#reciperunpriority">RecipeRunPriority</a>!</td><td></td></tr>
     <tr><td><code>parent</code></td><td><a href="#organizationchangeset">OrganizationChangeset</a></td><td></td></tr>
     <tr><td><code>startedAt</code></td><td><a href="#datetime">DateTime</a>!</td><td></td></tr>
     <tr><td><code>repositories</code></td><td>(first: Int = 100, after: String, where: <a href="#repositorychangesetwhereinput">RepositoryChangesetWhereInput</a>, orderBy: [<a href="#repositorychangesetorderbyinput">RepositoryChangesetOrderByInput</a>!]): <a href="#repositorychangesetconnection">RepositoryChangesetConnection</a>!</td><td></td></tr>
-    <tr><td><code>dataTables</code></td><td>(first: Int = 50, after: String, where: <a href="#datatablewhereinput">DataTableWhereInput</a>, orderBy: [<a href="#datatableorderbyinput">DataTableOrderByInput</a>!]): <a href="#datatableconnection">DataTableConnection</a>!</td><td>Data tables produced by this recipe run.
-Each data table starts as Available and transitions to Processing/Finished/Error
-when downloadDataTable mutation is called.</td></tr>
+    <tr><td><code>dataTables</code></td><td>(first: Int = 50, after: String, where: <a href="#datatablewhereinput">DataTableWhereInput</a>, orderBy: [<a href="#datatableorderbyinput">DataTableOrderByInput</a>!]): <a href="#datatableconnection">DataTableConnection</a>!</td><td>Data tables produced by this recipe run. Each data table starts as Available and transitions to Processing/Finished/Error when downloadDataTable mutation is called.</td></tr>
     <tr><td><code>visualizations</code></td><td>(first: Int = 50, after: String, where: <a href="#visualizationwhereinput">VisualizationWhereInput</a>, orderBy: [<a href="#visualizationorderbyinput">VisualizationOrderByInput</a>!]): <a href="#visualizationconnection">VisualizationConnection</a>!</td><td>Visualizations produced by this recipe run.</td></tr>
   </tbody>
 </table>
@@ -3061,8 +2940,7 @@ when downloadDataTable mutation is called.</td></tr>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
     <tr><td><code>diff</code></td><td>String!</td><td>Sanitized diff (does not include markers)</td></tr>
-    <tr><td><code>fencedMarkerDiff</code></td><td>String!</td><td>A diff with search and markup markers included in fenced
-&#123;&#123;UUID&#125;&#125; wrappers that correspond to ids in the markers list.</td></tr>
+    <tr><td><code>fencedMarkerDiff</code></td><td>String!</td><td>A diff with search and markup markers included in fenced &#123;&#123;UUID&#125;&#125; wrappers that correspond to ids in the markers list.</td></tr>
     <tr><td><code>markers</code></td><td>[<a href="#marker">Marker</a>!]!</td><td></td></tr>
   </tbody>
 </table>
@@ -3441,8 +3319,7 @@ when downloadDataTable mutation is called.</td></tr>
     <tr><td><code>options</code></td><td>[<a href="#option">Option</a>!]!</td><td></td></tr>
     <tr><td><code>dataTables</code></td><td>[<a href="#datatabledescriptor">DataTableDescriptor</a>!]!</td><td></td></tr>
     <tr><td><code>devCenterCards</code></td><td>[<a href="#devcentercarddescriptor">DevCenterCardDescriptor</a>!]</td><td>DevCenter card descriptors for this recipe, or null if not a DevCenter recipe.</td></tr>
-    <tr><td><code>detail</code></td><td><a href="#recipedetail">RecipeDetail</a>!</td><td>Expensive recipe detail fields that require resolving the full recipe bundle.
-Returns a state machine: query once to trigger resolution, poll until Finished.</td></tr>
+    <tr><td><code>detail</code></td><td><a href="#recipedetail">RecipeDetail</a>!</td><td>Expensive recipe detail fields that require resolving the full recipe bundle. Returns a state machine: query once to trigger resolution, poll until Finished.</td></tr>
   </tbody>
 </table>
 
@@ -3472,9 +3349,7 @@ Returns a state machine: query once to trigger resolution, poll until Finished.<
   <tbody>
     <tr><td><code>node</code></td><td><a href="#recipedescriptor">RecipeDescriptor</a>!</td><td></td></tr>
     <tr><td><code>cursor</code></td><td>String!</td><td></td></tr>
-    <tr><td><code>relevance</code></td><td>Float!</td><td>Relevance score for this recipe in the context of a search query.
-For semantic search, this represents the search relevance (0.0 to 1.0).
-For filter-based queries, this is always 1.0.</td></tr>
+    <tr><td><code>relevance</code></td><td>Float!</td><td>Relevance score for this recipe in the context of a search query. For semantic search, this represents the search relevance (0.0 to 1.0). For filter-based queries, this is always 1.0.</td></tr>
   </tbody>
 </table>
 
@@ -3504,14 +3379,10 @@ For filter-based queries, this is always 1.0.</td></tr>
   <tbody>
     <tr><td><code>startedAt</code></td><td><a href="#datetime">DateTime</a>!</td><td></td></tr>
     <tr><td><code>finishedAt</code></td><td><a href="#datetime">DateTime</a>!</td><td></td></tr>
-    <tr><td><code>recipeList</code></td><td>(first: Int = 100, after: String): <a href="#recipedescriptorconnection">RecipeDescriptorConnection</a>!</td><td>The list of recipes that make up this composite recipe.
-Returns an empty connection for non-composite (leaf) recipes.</td></tr>
+    <tr><td><code>recipeList</code></td><td>(first: Int = 100, after: String): <a href="#recipedescriptorconnection">RecipeDescriptorConnection</a>!</td><td>The list of recipes that make up this composite recipe. Returns an empty connection for non-composite (leaf) recipes.</td></tr>
     <tr><td><code>tags</code></td><td>[String!]!</td><td>Tags associated with this recipe for categorization and filtering.</td></tr>
     <tr><td><code>preconditions</code></td><td>[<a href="#recipedescriptor">RecipeDescriptor</a>!]!</td><td></td></tr>
-    <tr><td><code>graph</code></td><td><a href="#recipegraph">RecipeGraph</a>!</td><td>Flat vertices-and-edges representation of this composite recipe tree with
-Singleton deduplication pre-applied. Used by the Builder UI to visualize
-a composite recipe in a single round trip regardless of tree depth.
-Atomic (leaf) recipes return a single-vertex graph.</td></tr>
+    <tr><td><code>graph</code></td><td><a href="#recipegraph">RecipeGraph</a>!</td><td>Flat vertices-and-edges representation of this composite recipe tree with Singleton deduplication pre-applied. Used by the Builder UI to visualize a composite recipe in a single round trip regardless of tree depth. Atomic (leaf) recipes return a single-vertex graph.</td></tr>
   </tbody>
 </table>
 
@@ -3577,12 +3448,8 @@ pointing back to the first occurrence rather than as separate vertices.</p>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
     <tr><td><code>id</code></td><td>Int!</td><td></td></tr>
-    <tr><td><code>descriptor</code></td><td><a href="#recipedescriptor">RecipeDescriptor</a>!</td><td>The recipe this vertex represents. Carries recipe name (as `id`),
-displayName, instanceName, options, bundle, dataTables, etc. — reuse
-the existing RecipeDescriptor type rather than duplicating fields here.</td></tr>
-    <tr><td><code>isSingleton</code></td><td>Boolean!</td><td>True if this recipe declares `org.openrewrite.Singleton` as a precondition,
-meaning additional occurrences in the graph appear as REFERENCE edges
-pointing back to this vertex.</td></tr>
+    <tr><td><code>descriptor</code></td><td><a href="#recipedescriptor">RecipeDescriptor</a>!</td><td>The recipe this vertex represents. Carries recipe name (as `id`), displayName, instanceName, options, bundle, dataTables, etc. — reuse the existing RecipeDescriptor type rather than duplicating fields here.</td></tr>
+    <tr><td><code>isSingleton</code></td><td>Boolean!</td><td>True if this recipe declares `org.openrewrite.Singleton` as a precondition, meaning additional occurrences in the graph appear as REFERENCE edges pointing back to this vertex.</td></tr>
   </tbody>
 </table>
 
@@ -3613,10 +3480,8 @@ pointing back to this vertex.</td></tr>
     <tr><td><code>node</code></td><td><a href="#recipeinstallation">RecipeInstallation</a>!</td><td></td></tr>
     <tr><td><code>cursor</code></td><td>String!</td><td></td></tr>
     <tr><td><code>requestedBy</code></td><td><a href="#user">User</a>!</td><td>The user who initiated this installation</td></tr>
-    <tr><td><code>user</code></td><td><a href="#user">User</a></td><td>The user whose marketplace this installation was made to. If the installation is a
-universal or organization installation, this field will be null.</td></tr>
-    <tr><td><code>organization</code></td><td><a href="#organization">Organization</a></td><td>The organization to which this installation was made. If the installation is a universal
-or user installation, this field will be null.</td></tr>
+    <tr><td><code>user</code></td><td><a href="#user">User</a></td><td>The user whose marketplace this installation was made to. If the installation is a universal or organization installation, this field will be null.</td></tr>
+    <tr><td><code>organization</code></td><td><a href="#organization">Organization</a></td><td>The organization to which this installation was made. If the installation is a universal or user installation, this field will be null.</td></tr>
   </tbody>
 </table>
 
@@ -3752,9 +3617,7 @@ or user installation, this field will be null.</td></tr>
     <tr><td><code>beforeSourcePath</code></td><td><a href="#path">Path</a></td><td></td></tr>
     <tr><td><code>afterSourcePath</code></td><td><a href="#path">Path</a></td><td></td></tr>
     <tr><td><code>diff</code></td><td>(markupLevel: <a href="#markuplevel">MarkupLevel</a> = ERROR, showWhitespaceOnlyChanges: Boolean = true): <a href="#patch">Patch</a></td><td></td></tr>
-    <tr><td><code>recipesThatMadeChanges</code></td><td>[[<a href="#recipedescriptor">RecipeDescriptor</a>!]!]!</td><td>Recipe chains that contributed changes to this file. Each inner list is one
-mutation event's call stack, ordered root composite first to leaf recipe last
-(the leaf is the narrowest recipe that actually performed the change).</td></tr>
+    <tr><td><code>recipesThatMadeChanges</code></td><td>[[<a href="#recipedescriptor">RecipeDescriptor</a>!]!]!</td><td>Recipe chains that contributed changes to this file. Each inner list is one mutation event's call stack, ordered root composite first to leaf recipe last (the leaf is the narrowest recipe that actually performed the change).</td></tr>
   </tbody>
 </table>
 
@@ -3923,15 +3786,13 @@ Resolved by the changeset reader using a batch check against the authorization s
 
 <p><strong>Service:</strong> corechangeset</p>
 
-<p>Paginated connection for repository changesets.
-
-`completed` indicates how many repositories have finished processing:
+<p>Paginated connection for repository changesets.</p>
+<p>`completed` indicates how many repositories have finished processing:
 - For BatchChange: completed always equals count (all repositories are pre-processed).
 - For OrganizationRecipeRun: completed counts repository runs in a terminal state
   (regardless of success/failure), excluding canceled runs. A canceled run shows
-  the completion status reached prior to cancellation.
-
-Sync totals (`syncPending`, `synced`, `syncFailed`, `syncCanceled`, `syncSkipped`)
+  the completion status reached prior to cancellation.</p>
+<p>Sync totals (`syncPending`, `synced`, `syncFailed`, `syncCanceled`, `syncSkipped`)
 track repository sync progress during the SYNCING phase. Their sum equals `count`.</p>
 
 <table>
@@ -3994,9 +3855,7 @@ Use `options.__typename` to determine the specific commit type.</p>
     <tr><td><code>edges</code></td><td>[<a href="#repositorycommitedge">RepositoryCommitEdge</a>!]!</td><td></td></tr>
     <tr><td><code>pageInfo</code></td><td><a href="#pageinfo">PageInfo</a>!</td><td></td></tr>
     <tr><td><code>count</code></td><td>Int!</td><td></td></tr>
-    <tr><td><code>completedCount</code></td><td>Int!</td><td>Count of repository commits that have reached a terminal state
-(succeeded, failed, canceled, or no changes). Pair with `count`
-to show progress: "Completed X / Y".</td></tr>
+    <tr><td><code>completedCount</code></td><td>Int!</td><td>Count of repository commits that have reached a terminal state (succeeded, failed, canceled, or no changes). Pair with `count` to show progress: "Completed X / Y".</td></tr>
   </tbody>
 </table>
 
@@ -4671,8 +4530,7 @@ Check the `user` field to distinguish sender.</p>
     <tr><td><code>requestedVersion</code></td><td>String</td><td></td></tr>
     <tr><td><code>version</code></td><td>String</td><td></td></tr>
     <tr><td><code>recipeCount</code></td><td>Int</td><td></td></tr>
-    <tr><td><code>primary</code></td><td><a href="#recipedescriptor">RecipeDescriptor</a></td><td>The primary recipe in this bundle. When specified, only this recipe
-is shown in marketplace categories, hiding other recipes from this bundle.</td></tr>
+    <tr><td><code>primary</code></td><td><a href="#recipedescriptor">RecipeDescriptor</a></td><td>The primary recipe in this bundle. When specified, only this recipe is shown in marketplace categories, hiding other recipes from this bundle.</td></tr>
   </tbody>
 </table>
 
@@ -4698,9 +4556,8 @@ is shown in marketplace categories, hiding other recipes from this bundle.</td><
 <p><strong>Service:</strong> changelogreader</p>
 
 <p>A bulk pull request action (approve, merge, close) that operates on potentially
-multiple repositories. Use `__typename` to determine the current state.
-
-Each `BulkPullRequestAction` contains individual `PullRequestAction` entries
+multiple repositories. Use `__typename` to determine the current state.</p>
+<p>Each `BulkPullRequestAction` contains individual `PullRequestAction` entries
 representing the state of each repository targeted by the bulk operation.</p>
 
 <table>
@@ -4734,8 +4591,7 @@ Use `__typename` to distinguish between `ChangelogCommit` and `ChangelogPullRequ
     <tr><td><code>updatedAt</code></td><td><a href="#datetime">DateTime</a>!</td><td>When this entry was last updated in the VCS provider.</td></tr>
     <tr><td><code>createdAt</code></td><td><a href="#datetime">DateTime</a>!</td><td>When this entry was created in the VCS provider.</td></tr>
     <tr><td><code>changeset</code></td><td><a href="#organizationchangeset">OrganizationChangeset</a></td><td>If this activity was originated by Moderne, the changeset it belongs to.</td></tr>
-    <tr><td><code>buildState</code></td><td><a href="#buildstate">BuildState</a></td><td>CI status (e.g. from GitHub Actions, GitLab pipelines).
-Null if no CI is configured or status has not been fetched yet.</td></tr>
+    <tr><td><code>buildState</code></td><td><a href="#buildstate">BuildState</a></td><td>CI status (e.g. from GitHub Actions, GitLab pipelines). Null if no CI is configured or status has not been fetched yet.</td></tr>
     <tr><td><code>diffstat</code></td><td><a href="#diffstat">DiffStat</a>!</td><td>Lines added and removed.</td></tr>
   </tbody>
 </table>
@@ -4764,11 +4620,8 @@ Null if no CI is configured or status has not been fetched yet.</td></tr>
   <tbody>
     <tr><td><code>id</code></td><td>ID!</td><td></td></tr>
     <tr><td><code>dataTable</code></td><td><a href="#datatabledescriptor">DataTableDescriptor</a>!</td><td></td></tr>
-    <tr><td><code>instanceName</code></td><td>String!</td><td>A human-readable name for this data table instance, describing what it contains.
-For example, "Method calls matching \`java.util.List add(..)\`".
-Defaults to the data table's display name when not explicitly set.</td></tr>
-    <tr><td><code>group</code></td><td>String</td><td>The group identifying this data table bucket. For community tables this is
-the group name (e.g., "architecture"). Null for ungrouped/private tables.</td></tr>
+    <tr><td><code>instanceName</code></td><td>String!</td><td>A human-readable name for this data table instance, describing what it contains. For example, "Method calls matching \`java.util.List add(..)\`". Defaults to the data table's display name when not explicitly set.</td></tr>
+    <tr><td><code>group</code></td><td>String</td><td>The group identifying this data table bucket. For community tables this is the group name (e.g., "architecture"). Null for ungrouped/private tables.</td></tr>
   </tbody>
 </table>
 
@@ -4802,10 +4655,8 @@ Use `__typename` to determine the current state.</p>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
     <tr><td><code>path</code></td><td><a href="#path">Path</a>!</td><td>Path to the file relative to repository root.</td></tr>
-    <tr><td><code>beforeSourcePath</code></td><td><a href="#path">Path</a></td><td>The source path before the change (from the diff's `--- a/...` line).
-Null for newly created files.</td></tr>
-    <tr><td><code>afterSourcePath</code></td><td><a href="#path">Path</a></td><td>The source path after the change (from the diff's `+++ b/...` line).
-Null for deleted files.</td></tr>
+    <tr><td><code>beforeSourcePath</code></td><td><a href="#path">Path</a></td><td>The source path before the change (from the diff's `--- a/...` line). Null for newly created files.</td></tr>
+    <tr><td><code>afterSourcePath</code></td><td><a href="#path">Path</a></td><td>The source path after the change (from the diff's `+++ b/...` line). Null for deleted files.</td></tr>
     <tr><td><code>diff</code></td><td>(markupLevel: <a href="#markuplevel">MarkupLevel</a> = ERROR, showWhitespaceOnlyChanges: Boolean = true): <a href="#patch">Patch</a></td><td>Get the diff for this file.</td></tr>
   </tbody>
 </table>
@@ -4887,9 +4738,7 @@ Use `__typename` to determine the current state.</p>
   <tbody>
     <tr><td><code>requestedVersion</code></td><td>String</td><td></td></tr>
     <tr><td><code>version</code></td><td>String</td><td></td></tr>
-    <tr><td><code>recipeCount</code></td><td>Int</td><td>Number of top-level recipes contributed by this bundle's package.
-Null when the bundle has not yet been resolved into the marketplace
-(e.g. an installation still in progress).</td></tr>
+    <tr><td><code>recipeCount</code></td><td>Int</td><td>Number of top-level recipes contributed by this bundle's package. Null when the bundle has not yet been resolved into the marketplace (e.g. an installation still in progress).</td></tr>
   </tbody>
 </table>
 
@@ -4938,8 +4787,7 @@ Use `__typename` to determine the current state.</p>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
     <tr><td><code>repository</code></td><td><a href="#repository">Repository</a>!</td><td></td></tr>
-    <tr><td><code>authorization</code></td><td><a href="#repositoryauthorization">RepositoryAuthorization</a>!</td><td>Authorization status for accessing this repository's content.
-Check this before accessing file results.</td></tr>
+    <tr><td><code>authorization</code></td><td><a href="#repositoryauthorization">RepositoryAuthorization</a>!</td><td>Authorization status for accessing this repository's content. Check this before accessing file results.</td></tr>
     <tr><td><code>results</code></td><td>(first: Int = 100, after: String, where: <a href="#filechangewhereinput">FileChangeWhereInput</a>, orderBy: [<a href="#filechangeorderbyinput">FileChangeOrderByInput</a>!]): <a href="#filechangeconnection">FileChangeConnection</a>!</td><td>File-level changes within this repository.</td></tr>
   </tbody>
 </table>
@@ -5752,9 +5600,8 @@ LOW priority runs target large organizations (>100 repositories).</p>
 
 <p>Sync status of a repository within a recipe run.
 Tracks whether the repository has been synced (cloned + LST downloaded)
-before the recipe execution phase begins.
-
-`SKIPPED` indicates the CLI elected not to sync the repository — typically
+before the recipe execution phase begins.</p>
+<p>`SKIPPED` indicates the CLI elected not to sync the repository — typically
 because there is no LST available to fetch — and is distinct from `FAILED`,
 which indicates an actual error during the sync attempt. `CANCELED` is set
 when sync was interrupted (e.g., the run was canceled before the repository's
@@ -6075,9 +5922,7 @@ sync completed).</p>
   <tbody>
     <tr><td><code>actionType</code></td><td><a href="#pullrequestactiontypefilter">PullRequestActionTypeFilter</a></td><td></td></tr>
     <tr><td><code>state</code></td><td><a href="#bulkpullrequestactionstatefilter">BulkPullRequestActionStateFilter</a></td><td></td></tr>
-    <tr><td><code>startedAt</code></td><td><a href="#datetimefilter">DateTimeFilter</a></td><td>Filter by `startedAt`. Matches RUNNING/FINISHED/ERROR/CANCELED states that
-have a startedAt value; QUEUED entries (no startedAt) are excluded when a
-bound is supplied.</td></tr>
+    <tr><td><code>startedAt</code></td><td><a href="#datetimefilter">DateTimeFilter</a></td><td>Filter by `startedAt`. Matches RUNNING/FINISHED/ERROR/CANCELED states that have a startedAt value; QUEUED entries (no startedAt) are excluded when a bound is supplied.</td></tr>
     <tr><td><code>user</code></td><td><a href="#userwhereinput">UserWhereInput</a></td><td></td></tr>
     <tr><td><code>_and</code></td><td>[<a href="#bulkpullrequestactionwhereinput">BulkPullRequestActionWhereInput</a>!]</td><td></td></tr>
     <tr><td><code>_or</code></td><td>[<a href="#bulkpullrequestactionwhereinput">BulkPullRequestActionWhereInput</a>!]</td><td></td></tr>
@@ -6193,8 +6038,7 @@ bound is supplied.</td></tr>
     <tr><td><code>email</code></td><td><a href="#stringfilter">StringFilter</a></td><td></td></tr>
     <tr><td><code>username</code></td><td><a href="#stringfilter">StringFilter</a></td><td></td></tr>
     <tr><td><code>role</code></td><td><a href="#contributorrole">ContributorRole</a></td><td>Filter participants by role.</td></tr>
-    <tr><td><code>updatedAt</code></td><td><a href="#datetimefilter">DateTimeFilter</a></td><td>Scopes participant aggregation to entries updated within this window.
-Defaults to last 30 days if not specified.</td></tr>
+    <tr><td><code>updatedAt</code></td><td><a href="#datetimefilter">DateTimeFilter</a></td><td>Scopes participant aggregation to entries updated within this window. Defaults to last 30 days if not specified.</td></tr>
     <tr><td><code>_and</code></td><td>[<a href="#changelogparticipantwhereinput">ChangelogParticipantWhereInput</a>!]</td><td></td></tr>
     <tr><td><code>_or</code></td><td>[<a href="#changelogparticipantwhereinput">ChangelogParticipantWhereInput</a>!]</td><td></td></tr>
     <tr><td><code>_not</code></td><td><a href="#changelogparticipantwhereinput">ChangelogParticipantWhereInput</a></td><td></td></tr>
@@ -6213,20 +6057,14 @@ Defaults to last 30 days if not specified.</td></tr>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
     <tr><td><code>organizationId</code></td><td>ID</td><td>Organization ID for determining available commit options.</td></tr>
-    <tr><td><code>changesetId</code></td><td>ID!</td><td>Changeset ID (e.g., recipe run ID, batch changeset ID).
-Resolved via federation to an OrganizationChangeset.</td></tr>
-    <tr><td><code>repositories</code></td><td>[<a href="#repositorychangesetwhereinput">RepositoryChangesetWhereInput</a>!]</td><td>Filter which repositories and files to include.
-Evaluated in order - first matching rule wins for each repository.
-Put repo-specific rules first, global fallback rules last.
-If empty or not provided, all repositories and files in the changeset are included.</td></tr>
+    <tr><td><code>changesetId</code></td><td>ID!</td><td>Changeset ID (e.g., recipe run ID, batch changeset ID). Resolved via federation to an OrganizationChangeset.</td></tr>
+    <tr><td><code>repositories</code></td><td>[<a href="#repositorychangesetwhereinput">RepositoryChangesetWhereInput</a>!]</td><td>Filter which repositories and files to include. Evaluated in order - first matching rule wins for each repository. Put repo-specific rules first, global fallback rules last. If empty or not provided, all repositories and files in the changeset are included.</td></tr>
     <tr><td><code>branchName</code></td><td>String</td><td>If unset, commit to the branch that the LST was generated from.</td></tr>
     <tr><td><code>message</code></td><td>String!</td><td>Commit message.</td></tr>
     <tr><td><code>extendedMessage</code></td><td><a href="#base64">Base64</a></td><td>Extended commit message (Base64 encoded).</td></tr>
     <tr><td><code>gpgKey</code></td><td><a href="#gpginput">GpgInput</a></td><td>GPG key for signing commits.</td></tr>
-    <tr><td><code>email</code></td><td>String</td><td>Email to author commit with. Verified against your emails (public and private)
-that are verified in your SCM provider. If left blank, your first email will be used.</td></tr>
-    <tr><td><code>scmAccessTokens</code></td><td>[<a href="#scmaccesstoken">ScmAccessToken</a>!]</td><td>Optional SCM access tokens keyed by origin. When provided, these are used
-instead of stored OAuth tokens for the matching origin.</td></tr>
+    <tr><td><code>email</code></td><td>String</td><td>Email to author commit with. Verified against your emails (public and private) that are verified in your SCM provider. If left blank, your first email will be used.</td></tr>
+    <tr><td><code>scmAccessTokens</code></td><td>[<a href="#scmaccesstoken">ScmAccessToken</a>!]</td><td>Optional SCM access tokens keyed by origin. When provided, these are used instead of stored OAuth tokens for the matching origin.</td></tr>
     <tr><td><code>strategy</code></td><td><a href="#commitstrategyinput">CommitStrategyInput</a>!</td><td>How to deliver the commit. Choose one strategy.</td></tr>
   </tbody>
 </table>
@@ -6500,9 +6338,7 @@ instead of stored OAuth tokens for the matching origin.</td></tr>
   <tbody>
     <tr><td><code>authorizationId</code></td><td>ID!</td><td>The authorization ID returned from initiateAuthorization or from NeedsAuthorization.</td></tr>
     <tr><td><code>code</code></td><td>String!</td><td>Authorization code from the OAuth callback.</td></tr>
-    <tr><td><code>redirectUri</code></td><td>String!</td><td>The redirect URI used in the authorization request.
-Note: This field is deprecated - the server uses the stored redirect URI
-from the authorization to ensure an exact match.</td></tr>
+    <tr><td><code>redirectUri</code></td><td>String!</td><td>The redirect URI used in the authorization request. Note: This field is deprecated - the server uses the stored redirect URI from the authorization to ensure an exact match.</td></tr>
   </tbody>
 </table>
 
@@ -6555,8 +6391,7 @@ from the authorization to ensure an exact match.</td></tr>
     <tr><td><code>body</code></td><td><a href="#base64">Base64</a></td><td>Pull request body (Base64 encoded).</td></tr>
     <tr><td><code>draft</code></td><td>Boolean</td><td>Create as a draft pull request.</td></tr>
     <tr><td><code>maintainerCanModify</code></td><td>Boolean</td><td>GitHub only: allow maintainers to edit the pull request.</td></tr>
-    <tr><td><code>autoMergeMethod</code></td><td><a href="#mergemethod">MergeMethod</a></td><td>Auto-merge method after checks pass. Null means no auto-merge.
-Best effort - silently ignored if not supported by the repository.</td></tr>
+    <tr><td><code>autoMergeMethod</code></td><td><a href="#mergemethod">MergeMethod</a></td><td>Auto-merge method after checks pass. Null means no auto-merge. Best effort - silently ignored if not supported by the repository.</td></tr>
     <tr><td><code>recreateClosedPullRequest</code></td><td>Boolean</td><td>Recreate pull request if it was previously closed.</td></tr>
   </tbody>
 </table>
@@ -6573,8 +6408,7 @@ Best effort - silently ignored if not supported by the repository.</td></tr>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
     <tr><td><code>organization</code></td><td>String</td><td>Organization to create the fork in. If unset, creates in user's personal account.</td></tr>
-    <tr><td><code>prefixOrganizationName</code></td><td>Boolean</td><td>Prefix the fork name with the origin organization to avoid name collisions.
-Example: openrewrite/rewrite -> myuser/openrewrite__rewrite</td></tr>
+    <tr><td><code>prefixOrganizationName</code></td><td>Boolean</td><td>Prefix the fork name with the origin organization to avoid name collisions. Example: openrewrite/rewrite -> myuser/openrewrite__rewrite</td></tr>
   </tbody>
 </table>
 
@@ -6633,8 +6467,7 @@ Example: openrewrite/rewrite -> myuser/openrewrite__rewrite</td></tr>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
     <tr><td><code>origin</code></td><td>String!</td><td>The VCS origin to authorize (e.g., github.com, gitlab.com).</td></tr>
-    <tr><td><code>redirectUri</code></td><td>String!</td><td>The redirect URI where the VCS will send the callback.
-Must match an allowed redirect URI in the OAuth app configuration.</td></tr>
+    <tr><td><code>redirectUri</code></td><td>String!</td><td>The redirect URI where the VCS will send the callback. Must match an allowed redirect URI in the OAuth app configuration.</td></tr>
   </tbody>
 </table>
 
@@ -6871,8 +6704,7 @@ Must match an allowed redirect URI in the OAuth app configuration.</td></tr>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
     <tr><td><code>name</code></td><td><a href="#stringfilter">StringFilter</a></td><td></td></tr>
-    <tr><td><code>depth</code></td><td><a href="#intfilter">IntFilter</a></td><td>Filter by depth in the organization hierarchy.
-The root organization ("_root") is depth 0, its direct children are depth 1, etc.</td></tr>
+    <tr><td><code>depth</code></td><td><a href="#intfilter">IntFilter</a></td><td>Filter by depth in the organization hierarchy. The root organization ("_root") is depth 0, its direct children are depth 1, etc.</td></tr>
     <tr><td><code>_and</code></td><td>[<a href="#organizationwhereinput">OrganizationWhereInput</a>!]</td><td></td></tr>
     <tr><td><code>_or</code></td><td>[<a href="#organizationwhereinput">OrganizationWhereInput</a>!]</td><td></td></tr>
     <tr><td><code>_not</code></td><td><a href="#organizationwhereinput">OrganizationWhereInput</a></td><td></td></tr>
@@ -6987,8 +6819,7 @@ The root organization ("_root") is depth 0, its direct children are depth 1, etc
     <tr><td><code>title</code></td><td>String</td><td>Pull request title. If unset, uses the commit message.</td></tr>
     <tr><td><code>body</code></td><td><a href="#base64">Base64</a></td><td>Pull request body (Base64 encoded).</td></tr>
     <tr><td><code>draft</code></td><td>Boolean</td><td>Create as a draft pull request.</td></tr>
-    <tr><td><code>autoMergeMethod</code></td><td><a href="#mergemethod">MergeMethod</a></td><td>Auto-merge method after checks pass. Null means no auto-merge.
-Best effort - silently ignored if not supported by the repository.</td></tr>
+    <tr><td><code>autoMergeMethod</code></td><td><a href="#mergemethod">MergeMethod</a></td><td>Auto-merge method after checks pass. Null means no auto-merge. Best effort - silently ignored if not supported by the repository.</td></tr>
     <tr><td><code>recreateClosedPullRequest</code></td><td>Boolean</td><td>Recreate pull request if it was previously closed.</td></tr>
   </tbody>
 </table>
@@ -7013,12 +6844,10 @@ Best effort - silently ignored if not supported by the repository.</td></tr>
 
 <p><strong>Service:</strong> changelogreader</p>
 
-<p>Selects pull requests for a bulk action.
-
-The `where` filter defines a base set of matching PRs. The optional `pullRequests`
-modifier can include or exclude specific PRs from that base set.
-
-Examples:
+<p>Selects pull requests for a bulk action.</p>
+<p>The `where` filter defines a base set of matching PRs. The optional `pullRequests`
+modifier can include or exclude specific PRs from that base set.</p>
+<p>Examples:
 - Filter-only: `&#123; where: &#123; ... &#125; &#125;` — all matching PRs
 - Explicit: `&#123; pullRequests: &#123; include: [...] &#125; &#125;` — exactly those PRs
 - Filter + exclusions: `&#123; where: &#123; ... &#125;, pullRequests: &#123; exclude: [...] &#125; &#125;` — matching minus excluded
@@ -7177,8 +7006,7 @@ Exactly one field must be set.</p>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
-    <tr><td><code>id</code></td><td>ID!</td><td>Fully-qualified recipe ID.
-Example: `org.openrewrite.java.search.FindMethods`</td></tr>
+    <tr><td><code>id</code></td><td>ID!</td><td>Fully-qualified recipe ID. Example: `org.openrewrite.java.search.FindMethods`</td></tr>
     <tr><td><code>options</code></td><td>[<a href="#recipeoptioninput">RecipeOptionInput</a>!]</td><td></td></tr>
   </tbody>
 </table>
@@ -7327,8 +7155,7 @@ Use `query` for semantic search, or use field filters for exact matching.</p>
     <tr><td><code>path</code></td><td><a href="#stringfilter">StringFilter</a></td><td>Filter by repository path.</td></tr>
     <tr><td><code>origin</code></td><td><a href="#stringfilter">StringFilter</a></td><td>Filter by repository origin.</td></tr>
     <tr><td><code>branch</code></td><td><a href="#stringfilter">StringFilter</a></td><td>Filter by repository branch.</td></tr>
-    <tr><td><code>files</code></td><td><a href="#filechangewhereinput">FileChangeWhereInput</a></td><td>Filter files within matching repositories.
-Useful for filtering to specific file patterns (e.g., all build.gradle.kts files).</td></tr>
+    <tr><td><code>files</code></td><td><a href="#filechangewhereinput">FileChangeWhereInput</a></td><td>Filter files within matching repositories. Useful for filtering to specific file patterns (e.g., all build.gradle.kts files).</td></tr>
     <tr><td><code>onlyWithResults</code></td><td>Boolean</td><td>Only return repositories with results (filesWithResults > 0).</td></tr>
     <tr><td><code>state</code></td><td><a href="#repositorychangesetstatefilter">RepositoryChangesetStateFilter</a></td><td>Filter by repository result state.</td></tr>
     <tr><td><code>_and</code></td><td>[<a href="#repositorychangesetwhereinput">RepositoryChangesetWhereInput</a>!]</td><td>Logical AND - all conditions must match.</td></tr>
@@ -7647,10 +7474,7 @@ these tokens are preferred over stored OAuth tokens.</p>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
     <tr><td><code>yaml</code></td><td><a href="#base64">Base64</a>!</td><td></td></tr>
-    <tr><td><code>primary</code></td><td>ID</td><td>The ID of the primary recipe in this bundle. When specified, only this recipe
-will be shown in the marketplace categories, hiding other recipes from this bundle.
-This is used for the Moderne Builder feature where users build complex composite
-recipes and we don't want to expose intermediate recipes in the marketplace.</td></tr>
+    <tr><td><code>primary</code></td><td>ID</td><td>The ID of the primary recipe in this bundle. When specified, only this recipe will be shown in the marketplace categories, hiding other recipes from this bundle. This is used for the Moderne Builder feature where users build complex composite recipes and we don't want to expose intermediate recipes in the marketplace.</td></tr>
   </tbody>
 </table>
 
