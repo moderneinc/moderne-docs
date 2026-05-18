@@ -10,548 +10,548 @@ hide_title: true
 
 <h2>Queries</h2>
 
-<div id="auditLogs" style="border:1px solid #e2e8f0;border-left:3px solid #10b981;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">auditLogs</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;font-weight:700;padding:2px 7px;border-radius:20px;background:#d1fae5;color:#065f46;">query</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">auditreader</span>
+<div id="auditLogs" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #10b981', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>auditLogs</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', fontWeight: '700', padding: '2px 7px', borderRadius: '20px', background: '#d1fae5', color: '#065f46'}}>query</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>auditreader</span>
 </div>
-<div style="font-family:monospace;font-size:12px;color:#94a3b8;margin:0 0 6px;">(first: Int = 100, after: String, where: <a href="#auditlogwhereinput">AuditLogWhereInput</a>, orderBy: [<a href="#auditlogorderbyinput">AuditLogOrderByInput</a>!]): <a href="#auditlogconnection">AuditLogConnection</a>!</div>
+<div style={{fontFamily: 'monospace', fontSize: '12px', color: '#94a3b8', margin: '0 0 6px'}}>(first: Int = 100, after: String, where: <a href="#auditlogwhereinput">AuditLogWhereInput</a>, orderBy: [<a href="#auditlogorderbyinput">AuditLogOrderByInput</a>!]): <a href="#auditlogconnection">AuditLogConnection</a>!</div>
 <p>Query audit log events with pagination and filtering.</p>
 </div>
 
-<div id="auditLogsDownloads" style="border:1px solid #e2e8f0;border-left:3px solid #10b981;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">auditLogsDownloads</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;font-weight:700;padding:2px 7px;border-radius:20px;background:#d1fae5;color:#065f46;">query</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">auditreader</span>
+<div id="auditLogsDownloads" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #10b981', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>auditLogsDownloads</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', fontWeight: '700', padding: '2px 7px', borderRadius: '20px', background: '#d1fae5', color: '#065f46'}}>query</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>auditreader</span>
 </div>
-<div style="font-family:monospace;font-size:12px;color:#94a3b8;margin:0 0 6px;">(first: Int = 50, after: String, where: <a href="#auditlogsdownloadwhereinput">AuditLogsDownloadWhereInput</a>, orderBy: [<a href="#auditlogsdownloadorderbyinput">AuditLogsDownloadOrderByInput</a>!]): <a href="#auditlogsdownloadconnection">AuditLogsDownloadConnection</a>!</div>
+<div style={{fontFamily: 'monospace', fontSize: '12px', color: '#94a3b8', margin: '0 0 6px'}}>(first: Int = 50, after: String, where: <a href="#auditlogsdownloadwhereinput">AuditLogsDownloadWhereInput</a>, orderBy: [<a href="#auditlogsdownloadorderbyinput">AuditLogsDownloadOrderByInput</a>!]): <a href="#auditlogsdownloadconnection">AuditLogsDownloadConnection</a>!</div>
 <p>Query audit log downloads with pagination and filtering. Use where: &#123; id: &#123; _eq: "..." &#125; &#125; to poll a specific download.</p>
 </div>
 
-<div id="bulkPullRequestAction" style="border:1px solid #e2e8f0;border-left:3px solid #10b981;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">bulkPullRequestAction</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;font-weight:700;padding:2px 7px;border-radius:20px;background:#d1fae5;color:#065f46;">query</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changelogreader</span>
+<div id="bulkPullRequestAction" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #10b981', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>bulkPullRequestAction</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', fontWeight: '700', padding: '2px 7px', borderRadius: '20px', background: '#d1fae5', color: '#065f46'}}>query</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changelogreader</span>
 </div>
-<div style="font-family:monospace;font-size:12px;color:#94a3b8;margin:0 0 6px;">(id: ID!): <a href="#bulkpullrequestaction">BulkPullRequestAction</a></div>
+<div style={{fontFamily: 'monospace', fontSize: '12px', color: '#94a3b8', margin: '0 0 6px'}}>(id: ID!): <a href="#bulkpullrequestaction">BulkPullRequestAction</a></div>
 <p>Get a bulk pull request action by ID to poll for progress.</p>
 </div>
 
-<div id="capabilities" style="border:1px solid #e2e8f0;border-left:3px solid #10b981;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">capabilities</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;font-weight:700;padding:2px 7px;border-radius:20px;background:#d1fae5;color:#065f46;">query</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">gateway</span>
+<div id="capabilities" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #10b981', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>capabilities</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', fontWeight: '700', padding: '2px 7px', borderRadius: '20px', background: '#d1fae5', color: '#065f46'}}>query</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>gateway</span>
 </div>
-<div style="font-family:monospace;font-size:12px;color:#94a3b8;margin:0 0 6px;">: <a href="#platformcapabilities">PlatformCapabilities</a>!</div>
+<div style={{fontFamily: 'monospace', fontSize: '12px', color: '#94a3b8', margin: '0 0 6px'}}>: <a href="#platformcapabilities">PlatformCapabilities</a>!</div>
 <p>Returns which optional platform features are enabled in this deployment. Each field defaults to false and is overridden to true by the corresponding optional service when it is present in the supergraph composition.</p>
 </div>
 
-<div id="codeSearch" style="border:1px solid #e2e8f0;border-left:3px solid #10b981;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">codeSearch</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;font-weight:700;padding:2px 7px;border-radius:20px;background:#d1fae5;color:#065f46;">query</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">code-search</span>
+<div id="codeSearch" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #10b981', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>codeSearch</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', fontWeight: '700', padding: '2px 7px', borderRadius: '20px', background: '#d1fae5', color: '#065f46'}}>query</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>code-search</span>
 </div>
-<div style="font-family:monospace;font-size:12px;color:#94a3b8;margin:0 0 6px;">(repositoryId: String!, query: String!, first: Int = 100, after: String): <a href="#codesearchresultconnection">CodeSearchResultConnection</a>!</div>
+<div style={{fontFamily: 'monospace', fontSize: '12px', color: '#94a3b8', margin: '0 0 6px'}}>(repositoryId: String!, query: String!, first: Int = 100, after: String): <a href="#codesearchresultconnection">CodeSearchResultConnection</a>!</div>
 <p>Search source code across artifact repositories. Searches the given repository and all its descendants in the hierarchy. Results are grouped by artifact (groupId:artifactId) with file-level matches.</p>
 </div>
 
-<div id="connectors" style="border:1px solid #e2e8f0;border-left:3px solid #10b981;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">connectors</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;font-weight:700;padding:2px 7px;border-radius:20px;background:#d1fae5;color:#065f46;">query</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">gateway</span>
+<div id="connectors" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #10b981', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>connectors</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', fontWeight: '700', padding: '2px 7px', borderRadius: '20px', background: '#d1fae5', color: '#065f46'}}>query</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>gateway</span>
 </div>
-<div style="font-family:monospace;font-size:12px;color:#94a3b8;margin:0 0 6px;">(first: Int = 100, after: String, where: <a href="#connectorwhereinput">ConnectorWhereInput</a>, orderBy: [<a href="#connectororderbyinput">ConnectorOrderByInput</a>!]): <a href="#connectorconnection">ConnectorConnection</a>!</div>
+<div style={{fontFamily: 'monospace', fontSize: '12px', color: '#94a3b8', margin: '0 0 6px'}}>(first: Int = 100, after: String, where: <a href="#connectorwhereinput">ConnectorWhereInput</a>, orderBy: [<a href="#connectororderbyinput">ConnectorOrderByInput</a>!]): <a href="#connectorconnection">ConnectorConnection</a>!</div>
 </div>
 
-<div id="conversation" style="border:1px solid #e2e8f0;border-left:3px solid #10b981;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">conversation</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;font-weight:700;padding:2px 7px;border-radius:20px;background:#d1fae5;color:#065f46;">query</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">moddy</span>
+<div id="conversation" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #10b981', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>conversation</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', fontWeight: '700', padding: '2px 7px', borderRadius: '20px', background: '#d1fae5', color: '#065f46'}}>query</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>moddy</span>
 </div>
-<div style="font-family:monospace;font-size:12px;color:#94a3b8;margin:0 0 6px;">(conversationId: ID!): <a href="#conversation">Conversation</a></div>
+<div style={{fontFamily: 'monospace', fontSize: '12px', color: '#94a3b8', margin: '0 0 6px'}}>(conversationId: ID!): <a href="#conversation">Conversation</a></div>
 <p>Look up a single conversation by id. Returns null when no conversation matches or the caller does not have access. Restores the v1 query the moderne-ui client already references.</p>
 </div>
 
-<div id="currentUser" style="border:1px solid #e2e8f0;border-left:3px solid #10b981;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">currentUser</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;font-weight:700;padding:2px 7px;border-radius:20px;background:#d1fae5;color:#065f46;">query</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">authz</span>
+<div id="currentUser" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #10b981', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>currentUser</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', fontWeight: '700', padding: '2px 7px', borderRadius: '20px', background: '#d1fae5', color: '#065f46'}}>query</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>authz</span>
 </div>
-<div style="font-family:monospace;font-size:12px;color:#94a3b8;margin:0 0 6px;">: <a href="#user">User</a>!</div>
+<div style={{fontFamily: 'monospace', fontSize: '12px', color: '#94a3b8', margin: '0 0 6px'}}>: <a href="#user">User</a>!</div>
 <p>Returns the currently authenticated user.</p>
 </div>
 
-<div id="devCenterRecipes" style="border:1px solid #e2e8f0;border-left:3px solid #10b981;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">devCenterRecipes</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;font-weight:700;padding:2px 7px;border-radius:20px;background:#d1fae5;color:#065f46;">query</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">recipemarketplace</span>
+<div id="devCenterRecipes" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #10b981', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>devCenterRecipes</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', fontWeight: '700', padding: '2px 7px', borderRadius: '20px', background: '#d1fae5', color: '#065f46'}}>query</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>recipemarketplace</span>
 </div>
-<div style="font-family:monospace;font-size:12px;color:#94a3b8;margin:0 0 6px;">: [<a href="#recipedescriptor">RecipeDescriptor</a>!]!</div>
+<div style={{fontFamily: 'monospace', fontSize: '12px', color: '#94a3b8', margin: '0 0 6px'}}>: [<a href="#recipedescriptor">RecipeDescriptor</a>!]!</div>
 <p>Get available DevCenter recipes for configuration.</p>
 </div>
 
-<div id="license" style="border:1px solid #e2e8f0;border-left:3px solid #10b981;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">license</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;font-weight:700;padding:2px 7px;border-radius:20px;background:#d1fae5;color:#065f46;">query</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">authz</span>
+<div id="license" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #10b981', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>license</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', fontWeight: '700', padding: '2px 7px', borderRadius: '20px', background: '#d1fae5', color: '#065f46'}}>query</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>authz</span>
 </div>
-<div style="font-family:monospace;font-size:12px;color:#94a3b8;margin:0 0 6px;">: <a href="#license">License</a>!</div>
+<div style={{fontFamily: 'monospace', fontSize: '12px', color: '#94a3b8', margin: '0 0 6px'}}>: <a href="#license">License</a>!</div>
 <p>Request a new license lease key</p>
 </div>
 
-<div id="organization" style="border:1px solid #e2e8f0;border-left:3px solid #10b981;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">organization</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;font-weight:700;padding:2px 7px;border-radius:20px;background:#d1fae5;color:#065f46;">query</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">organization</span>
+<div id="organization" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #10b981', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>organization</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', fontWeight: '700', padding: '2px 7px', borderRadius: '20px', background: '#d1fae5', color: '#065f46'}}>query</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>organization</span>
 </div>
-<div style="font-family:monospace;font-size:12px;color:#94a3b8;margin:0 0 6px;">(id: ID!): <a href="#organization">Organization</a>!</div>
-</div>
-
-<div id="organizations" style="border:1px solid #e2e8f0;border-left:3px solid #10b981;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">organizations</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;font-weight:700;padding:2px 7px;border-radius:20px;background:#d1fae5;color:#065f46;">query</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">organization</span>
-</div>
-<div style="font-family:monospace;font-size:12px;color:#94a3b8;margin:0 0 6px;">(first: Int = 100, after: String, where: <a href="#organizationwhereinput">OrganizationWhereInput</a>, orderBy: [<a href="#organizationorderbyinput">OrganizationOrderByInput</a>!]): <a href="#organizationconnection">OrganizationConnection</a>!</div>
+<div style={{fontFamily: 'monospace', fontSize: '12px', color: '#94a3b8', margin: '0 0 6px'}}>(id: ID!): <a href="#organization">Organization</a>!</div>
 </div>
 
-<div id="scmConnections" style="border:1px solid #e2e8f0;border-left:3px solid #10b981;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">scmConnections</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;font-weight:700;padding:2px 7px;border-radius:20px;background:#d1fae5;color:#065f46;">query</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">authz</span>
+<div id="organizations" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #10b981', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>organizations</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', fontWeight: '700', padding: '2px 7px', borderRadius: '20px', background: '#d1fae5', color: '#065f46'}}>query</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>organization</span>
 </div>
-<div style="font-family:monospace;font-size:12px;color:#94a3b8;margin:0 0 6px;">: [<a href="#scmconnection">ScmConnection</a>!]!</div>
+<div style={{fontFamily: 'monospace', fontSize: '12px', color: '#94a3b8', margin: '0 0 6px'}}>(first: Int = 100, after: String, where: <a href="#organizationwhereinput">OrganizationWhereInput</a>, orderBy: [<a href="#organizationorderbyinput">OrganizationOrderByInput</a>!]): <a href="#organizationconnection">OrganizationConnection</a>!</div>
+</div>
+
+<div id="scmConnections" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #10b981', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>scmConnections</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', fontWeight: '700', padding: '2px 7px', borderRadius: '20px', background: '#d1fae5', color: '#065f46'}}>query</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>authz</span>
+</div>
+<div style={{fontFamily: 'monospace', fontSize: '12px', color: '#94a3b8', margin: '0 0 6px'}}>: [<a href="#scmconnection">ScmConnection</a>!]!</div>
 <p>Returns connections for all SCM providers.</p>
 </div>
 
-<div id="users" style="border:1px solid #e2e8f0;border-left:3px solid #10b981;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">users</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;font-weight:700;padding:2px 7px;border-radius:20px;background:#d1fae5;color:#065f46;">query</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">authz</span>
+<div id="users" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #10b981', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>users</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', fontWeight: '700', padding: '2px 7px', borderRadius: '20px', background: '#d1fae5', color: '#065f46'}}>query</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>authz</span>
 </div>
-<div style="font-family:monospace;font-size:12px;color:#94a3b8;margin:0 0 6px;">(first: Int = 100, after: String, where: <a href="#userwhereinput">UserWhereInput</a>, orderBy: [<a href="#userorderbyinput">UserOrderByInput</a>!]): <a href="#userconnection">UserConnection</a>!</div>
+<div style={{fontFamily: 'monospace', fontSize: '12px', color: '#94a3b8', margin: '0 0 6px'}}>(first: Int = 100, after: String, where: <a href="#userwhereinput">UserWhereInput</a>, orderBy: [<a href="#userorderbyinput">UserOrderByInput</a>!]): <a href="#userconnection">UserConnection</a>!</div>
 <p>Returns users with option to filter by role.</p>
 </div>
 
-<div id="verifyToken" style="border:1px solid #e2e8f0;border-left:3px solid #10b981;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">verifyToken</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;font-weight:700;padding:2px 7px;border-radius:20px;background:#d1fae5;color:#065f46;">query</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changesetcommitter</span>
+<div id="verifyToken" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #10b981', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>verifyToken</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', fontWeight: '700', padding: '2px 7px', borderRadius: '20px', background: '#d1fae5', color: '#065f46'}}>query</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetcommitter</span>
 </div>
-<div style="font-family:monospace;font-size:12px;color:#94a3b8;margin:0 0 6px;">(origin: String!, scmType: <a href="#scmtype">ScmType</a>!): String</div>
+<div style={{fontFamily: 'monospace', fontSize: '12px', color: '#94a3b8', margin: '0 0 6px'}}>(origin: String!, scmType: <a href="#scmtype">ScmType</a>!): String</div>
 </div>
 
 <h2>Mutations</h2>
 
-<div id="approvePullRequests" style="border:1px solid #e2e8f0;border-left:3px solid #f59e0b;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">approvePullRequests</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;font-weight:700;padding:2px 7px;border-radius:20px;background:#fef3c7;color:#92400e;">mutation</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changelogreader</span>
+<div id="approvePullRequests" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #f59e0b', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>approvePullRequests</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', fontWeight: '700', padding: '2px 7px', borderRadius: '20px', background: '#fef3c7', color: '#92400e'}}>mutation</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changelogreader</span>
 </div>
-<div style="font-family:monospace;font-size:12px;color:#94a3b8;margin:0 0 6px;">(organizationId: ID!, selection: <a href="#pullrequestselectioninput">PullRequestSelectionInput</a>!): <a href="#bulkpullrequestactionqueued">BulkPullRequestActionQueued</a>!</div>
+<div style={{fontFamily: 'monospace', fontSize: '12px', color: '#94a3b8', margin: '0 0 6px'}}>(organizationId: ID!, selection: <a href="#pullrequestselectioninput">PullRequestSelectionInput</a>!): <a href="#bulkpullrequestactionqueued">BulkPullRequestActionQueued</a>!</div>
 <p>Approve pull requests in bulk. Returns the queued action for polling.</p>
 </div>
 
-<div id="cancelBulkPullRequestAction" style="border:1px solid #e2e8f0;border-left:3px solid #f59e0b;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">cancelBulkPullRequestAction</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;font-weight:700;padding:2px 7px;border-radius:20px;background:#fef3c7;color:#92400e;">mutation</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changelogreader</span>
+<div id="cancelBulkPullRequestAction" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #f59e0b', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>cancelBulkPullRequestAction</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', fontWeight: '700', padding: '2px 7px', borderRadius: '20px', background: '#fef3c7', color: '#92400e'}}>mutation</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changelogreader</span>
 </div>
-<div style="font-family:monospace;font-size:12px;color:#94a3b8;margin:0 0 6px;">(id: ID!): <a href="#bulkpullrequestactioncanceled">BulkPullRequestActionCanceled</a>!</div>
+<div style={{fontFamily: 'monospace', fontSize: '12px', color: '#94a3b8', margin: '0 0 6px'}}>(id: ID!): <a href="#bulkpullrequestactioncanceled">BulkPullRequestActionCanceled</a>!</div>
 <p>Cancel a pending bulk pull request action.</p>
 </div>
 
-<div id="cancelCommit" style="border:1px solid #e2e8f0;border-left:3px solid #f59e0b;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">cancelCommit</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;font-weight:700;padding:2px 7px;border-radius:20px;background:#fef3c7;color:#92400e;">mutation</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changesetcommitter</span>
+<div id="cancelCommit" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #f59e0b', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>cancelCommit</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', fontWeight: '700', padding: '2px 7px', borderRadius: '20px', background: '#fef3c7', color: '#92400e'}}>mutation</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetcommitter</span>
 </div>
-<div style="font-family:monospace;font-size:12px;color:#94a3b8;margin:0 0 6px;">(id: ID!): <a href="#organizationcommitcanceled">OrganizationCommitCanceled</a>!</div>
+<div style={{fontFamily: 'monospace', fontSize: '12px', color: '#94a3b8', margin: '0 0 6px'}}>(id: ID!): <a href="#organizationcommitcanceled">OrganizationCommitCanceled</a>!</div>
 <p>Cancel a running commit operation.</p>
 </div>
 
-<div id="cancelDevCenterRun" style="border:1px solid #e2e8f0;border-left:3px solid #f59e0b;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">cancelDevCenterRun</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;font-weight:700;padding:2px 7px;border-radius:20px;background:#fef3c7;color:#92400e;">mutation</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">recipeworker</span>
+<div id="cancelDevCenterRun" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #f59e0b', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>cancelDevCenterRun</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', fontWeight: '700', padding: '2px 7px', borderRadius: '20px', background: '#fef3c7', color: '#92400e'}}>mutation</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>recipeworker</span>
 </div>
-<div style="font-family:monospace;font-size:12px;color:#94a3b8;margin:0 0 6px;">(id: ID!): ID!</div>
+<div style={{fontFamily: 'monospace', fontSize: '12px', color: '#94a3b8', margin: '0 0 6px'}}>(id: ID!): ID!</div>
 <p>Cancel a DevCenter run. Cancellation is best-effort and asynchronous.</p>
 </div>
 
-<div id="cancelMessage" style="border:1px solid #e2e8f0;border-left:3px solid #f59e0b;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">cancelMessage</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;font-weight:700;padding:2px 7px;border-radius:20px;background:#fef3c7;color:#92400e;">mutation</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">moddy</span>
+<div id="cancelMessage" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #f59e0b', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>cancelMessage</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', fontWeight: '700', padding: '2px 7px', borderRadius: '20px', background: '#fef3c7', color: '#92400e'}}>mutation</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>moddy</span>
 </div>
-<div style="font-family:monospace;font-size:12px;color:#94a3b8;margin:0 0 6px;">(conversationId: ID!, messageId: ID): Boolean!</div>
+<div style={{fontFamily: 'monospace', fontSize: '12px', color: '#94a3b8', margin: '0 0 6px'}}>(conversationId: ID!, messageId: ID): Boolean!</div>
 <p>Interrupt the currently-running turn for a conversation. The virtual thread driving the turn is interrupted — a blocking LLM stream unwinds immediately, and long-running downstream work (recipe runs) receives a best-effort cancel via `cancelRecipeRun` on recipe-worker. Cheap tool calls finish naturally. A terminal CANCELLED `ErrorMessage` is appended to the log regardless.</p>
 <p>LLM-memory consistency on the next turn is preserved by the JSONL collapse: `buildChatMessages` pairs every tool-origin row into an `AiMessage(toolRequests)` + `ToolExecutionResultMessage` batch, and only rows that actually persisted are rebuilt — partially-executed tool batches are reconstructed from whichever tool-origin rows made it to the log.</p>
 <p>Returns <code>true</code> when a running turn was actually interrupted, <code>false</code> when the conversation was already idle (no-op, not an error). <code>messageId</code> is accepted for client compatibility but only the conversation's active turn is cancellable — there is never more than one turn in flight.</p>
 </div>
 
-<div id="cancelRecipeRun" style="border:1px solid #e2e8f0;border-left:3px solid #f59e0b;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">cancelRecipeRun</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;font-weight:700;padding:2px 7px;border-radius:20px;background:#fef3c7;color:#92400e;">mutation</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">recipeworker</span>
+<div id="cancelRecipeRun" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #f59e0b', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>cancelRecipeRun</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', fontWeight: '700', padding: '2px 7px', borderRadius: '20px', background: '#fef3c7', color: '#92400e'}}>mutation</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>recipeworker</span>
 </div>
-<div style="font-family:monospace;font-size:12px;color:#94a3b8;margin:0 0 6px;">(id: ID!): ID!</div>
+<div style={{fontFamily: 'monospace', fontSize: '12px', color: '#94a3b8', margin: '0 0 6px'}}>(id: ID!): ID!</div>
 <p>Cancel a recipe run. Cancellation is best-effort and asynchronous.</p>
 </div>
 
-<div id="clearOrganizationPrompt" style="border:1px solid #e2e8f0;border-left:3px solid #f59e0b;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">clearOrganizationPrompt</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;font-weight:700;padding:2px 7px;border-radius:20px;background:#fef3c7;color:#92400e;">mutation</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">moddy</span>
+<div id="clearOrganizationPrompt" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #f59e0b', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>clearOrganizationPrompt</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', fontWeight: '700', padding: '2px 7px', borderRadius: '20px', background: '#fef3c7', color: '#92400e'}}>mutation</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>moddy</span>
 </div>
-<div style="font-family:monospace;font-size:12px;color:#94a3b8;margin:0 0 6px;">(organizationId: ID!): Boolean!</div>
+<div style={{fontFamily: 'monospace', fontSize: '12px', color: '#94a3b8', margin: '0 0 6px'}}>(organizationId: ID!): Boolean!</div>
 <p>Clear the organization-level prompt override, falling back to universal.</p>
 </div>
 
-<div id="clearUserPrompt" style="border:1px solid #e2e8f0;border-left:3px solid #f59e0b;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">clearUserPrompt</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;font-weight:700;padding:2px 7px;border-radius:20px;background:#fef3c7;color:#92400e;">mutation</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">moddy</span>
+<div id="clearUserPrompt" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #f59e0b', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>clearUserPrompt</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', fontWeight: '700', padding: '2px 7px', borderRadius: '20px', background: '#fef3c7', color: '#92400e'}}>mutation</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>moddy</span>
 </div>
-<div style="font-family:monospace;font-size:12px;color:#94a3b8;margin:0 0 6px;">: Boolean!</div>
+<div style={{fontFamily: 'monospace', fontSize: '12px', color: '#94a3b8', margin: '0 0 6px'}}>: Boolean!</div>
 <p>Clear the current user's prompt override, falling back to organization or universal.</p>
 </div>
 
-<div id="closePullRequests" style="border:1px solid #e2e8f0;border-left:3px solid #f59e0b;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">closePullRequests</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;font-weight:700;padding:2px 7px;border-radius:20px;background:#fef3c7;color:#92400e;">mutation</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changelogreader</span>
+<div id="closePullRequests" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #f59e0b', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>closePullRequests</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', fontWeight: '700', padding: '2px 7px', borderRadius: '20px', background: '#fef3c7', color: '#92400e'}}>mutation</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changelogreader</span>
 </div>
-<div style="font-family:monospace;font-size:12px;color:#94a3b8;margin:0 0 6px;">(organizationId: ID!, selection: <a href="#pullrequestselectioninput">PullRequestSelectionInput</a>!): <a href="#bulkpullrequestactionqueued">BulkPullRequestActionQueued</a>!</div>
+<div style={{fontFamily: 'monospace', fontSize: '12px', color: '#94a3b8', margin: '0 0 6px'}}>(organizationId: ID!, selection: <a href="#pullrequestselectioninput">PullRequestSelectionInput</a>!): <a href="#bulkpullrequestactionqueued">BulkPullRequestActionQueued</a>!</div>
 <p>Close pull requests in bulk. Returns the queued action for polling.</p>
 </div>
 
-<div id="commit" style="border:1px solid #e2e8f0;border-left:3px solid #f59e0b;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">commit</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;font-weight:700;padding:2px 7px;border-radius:20px;background:#fef3c7;color:#92400e;">mutation</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changesetcommitter</span>
+<div id="commit" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #f59e0b', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>commit</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', fontWeight: '700', padding: '2px 7px', borderRadius: '20px', background: '#fef3c7', color: '#92400e'}}>mutation</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetcommitter</span>
 </div>
-<div style="font-family:monospace;font-size:12px;color:#94a3b8;margin:0 0 6px;">(input: <a href="#commitinput">CommitInput</a>!): <a href="#organizationcommitqueued">OrganizationCommitQueued</a>!</div>
+<div style={{fontFamily: 'monospace', fontSize: '12px', color: '#94a3b8', margin: '0 0 6px'}}>(input: <a href="#commitinput">CommitInput</a>!): <a href="#organizationcommitqueued">OrganizationCommitQueued</a>!</div>
 <p>Create commits from a changeset (recipe run, batch change, etc.).</p>
 </div>
 
-<div id="createAccessToken" style="border:1px solid #e2e8f0;border-left:3px solid #f59e0b;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">createAccessToken</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;font-weight:700;padding:2px 7px;border-radius:20px;background:#fef3c7;color:#92400e;">mutation</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">authz</span>
+<div id="createAccessToken" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #f59e0b', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>createAccessToken</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', fontWeight: '700', padding: '2px 7px', borderRadius: '20px', background: '#fef3c7', color: '#92400e'}}>mutation</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>authz</span>
 </div>
-<div style="font-family:monospace;font-size:12px;color:#94a3b8;margin:0 0 6px;">(description: String, expiresAt: <a href="#datetime">DateTime</a>): <a href="#createaccesstokenresult">CreateAccessTokenResult</a>!</div>
+<div style={{fontFamily: 'monospace', fontSize: '12px', color: '#94a3b8', margin: '0 0 6px'}}>(description: String, expiresAt: <a href="#datetime">DateTime</a>): <a href="#createaccesstokenresult">CreateAccessTokenResult</a>!</div>
 <p>Creates a new Moderne Personal Access Token for the current user. Returns the token value only once - it cannot be retrieved again.</p>
 </div>
 
-<div id="createConversation" style="border:1px solid #e2e8f0;border-left:3px solid #f59e0b;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">createConversation</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;font-weight:700;padding:2px 7px;border-radius:20px;background:#fef3c7;color:#92400e;">mutation</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">moddy</span>
+<div id="createConversation" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #f59e0b', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>createConversation</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', fontWeight: '700', padding: '2px 7px', borderRadius: '20px', background: '#fef3c7', color: '#92400e'}}>mutation</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>moddy</span>
 </div>
-<div style="font-family:monospace;font-size:12px;color:#94a3b8;margin:0 0 6px;">(input: <a href="#createconversationinput">CreateConversationInput</a>!, waitForCompletion: Boolean = false): <a href="#sendmessageresult">SendMessageResult</a>!</div>
+<div style={{fontFamily: 'monospace', fontSize: '12px', color: '#94a3b8', margin: '0 0 6px'}}>(input: <a href="#createconversationinput">CreateConversationInput</a>!, waitForCompletion: Boolean = false): <a href="#sendmessageresult">SendMessageResult</a>!</div>
 <p>Create a new conversation and send the first message. Uses the effective prompt for the organization context. `waitForCompletion` has the same semantics as on `sendMessage`.</p>
 </div>
 
-<div id="createUserOrganization" style="border:1px solid #e2e8f0;border-left:3px solid #f59e0b;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">createUserOrganization</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;font-weight:700;padding:2px 7px;border-radius:20px;background:#fef3c7;color:#92400e;">mutation</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">organization</span>
+<div id="createUserOrganization" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #f59e0b', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>createUserOrganization</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', fontWeight: '700', padding: '2px 7px', borderRadius: '20px', background: '#fef3c7', color: '#92400e'}}>mutation</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>organization</span>
 </div>
-<div style="font-family:monospace;font-size:12px;color:#94a3b8;margin:0 0 6px;">(input: <a href="#createuserorganizationinput">CreateUserOrganizationInput</a>!): <a href="#organization">Organization</a>!</div>
+<div style={{fontFamily: 'monospace', fontSize: '12px', color: '#94a3b8', margin: '0 0 6px'}}>(input: <a href="#createuserorganizationinput">CreateUserOrganizationInput</a>!): <a href="#organization">Organization</a>!</div>
 <p>Create a new user-defined organization visible only to the current user.</p>
 </div>
 
-<div id="deleteUser" style="border:1px solid #e2e8f0;border-left:3px solid #f59e0b;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">deleteUser</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;font-weight:700;padding:2px 7px;border-radius:20px;background:#fef3c7;color:#92400e;">mutation</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">authz</span>
+<div id="deleteUser" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #f59e0b', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>deleteUser</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', fontWeight: '700', padding: '2px 7px', borderRadius: '20px', background: '#fef3c7', color: '#92400e'}}>mutation</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>authz</span>
 </div>
-<div style="font-family:monospace;font-size:12px;color:#94a3b8;margin:0 0 6px;">(email: String!): Boolean!</div>
+<div style={{fontFamily: 'monospace', fontSize: '12px', color: '#94a3b8', margin: '0 0 6px'}}>(email: String!): Boolean!</div>
 <p>Deletes a user and all associated access tokens. Returns true if the user was found and deleted.</p>
 </div>
 
-<div id="deleteUserOrganization" style="border:1px solid #e2e8f0;border-left:3px solid #f59e0b;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">deleteUserOrganization</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;font-weight:700;padding:2px 7px;border-radius:20px;background:#fef3c7;color:#92400e;">mutation</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">organization</span>
+<div id="deleteUserOrganization" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #f59e0b', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>deleteUserOrganization</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', fontWeight: '700', padding: '2px 7px', borderRadius: '20px', background: '#fef3c7', color: '#92400e'}}>mutation</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>organization</span>
 </div>
-<div style="font-family:monospace;font-size:12px;color:#94a3b8;margin:0 0 6px;">(id: ID!): Boolean!</div>
+<div style={{fontFamily: 'monospace', fontSize: '12px', color: '#94a3b8', margin: '0 0 6px'}}>(id: ID!): Boolean!</div>
 <p>Delete a user-defined organization.</p>
 </div>
 
-<div id="downloadAuditLogs" style="border:1px solid #e2e8f0;border-left:3px solid #f59e0b;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">downloadAuditLogs</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;font-weight:700;padding:2px 7px;border-radius:20px;background:#fef3c7;color:#92400e;">mutation</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">auditreader</span>
+<div id="downloadAuditLogs" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #f59e0b', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>downloadAuditLogs</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', fontWeight: '700', padding: '2px 7px', borderRadius: '20px', background: '#fef3c7', color: '#92400e'}}>mutation</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>auditreader</span>
 </div>
-<div style="font-family:monospace;font-size:12px;color:#94a3b8;margin:0 0 6px;">(first: Int, since: <a href="#datetime">DateTime</a>, until: <a href="#datetime">DateTime</a>, format: <a href="#auditlogexportformat">AuditLogExportFormat</a>!): <a href="#auditlogsdownload">AuditLogsDownload</a>!</div>
+<div style={{fontFamily: 'monospace', fontSize: '12px', color: '#94a3b8', margin: '0 0 6px'}}>(first: Int, since: <a href="#datetime">DateTime</a>, until: <a href="#datetime">DateTime</a>, format: <a href="#auditlogexportformat">AuditLogExportFormat</a>!): <a href="#auditlogsdownload">AuditLogsDownload</a>!</div>
 <p>Start an asynchronous export of audit logs. Returns a task whose state can be polled via auditLogsDownloads.</p>
 </div>
 
-<div id="downloadDataTable" style="border:1px solid #e2e8f0;border-left:3px solid #f59e0b;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">downloadDataTable</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;font-weight:700;padding:2px 7px;border-radius:20px;background:#fef3c7;color:#92400e;">mutation</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changesetreader</span>
+<div id="downloadDataTable" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #f59e0b', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>downloadDataTable</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', fontWeight: '700', padding: '2px 7px', borderRadius: '20px', background: '#fef3c7', color: '#92400e'}}>mutation</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetreader</span>
 </div>
-<div style="font-family:monospace;font-size:12px;color:#94a3b8;margin:0 0 6px;">(changesetId: ID!, dataTable: String!, group: String, format: <a href="#datatableformat">DataTableFormat</a>!): <a href="#datatable">DataTable</a>!</div>
+<div style={{fontFamily: 'monospace', fontSize: '12px', color: '#94a3b8', margin: '0 0 6px'}}>(changesetId: ID!, dataTable: String!, group: String, format: <a href="#datatableformat">DataTableFormat</a>!): <a href="#datatable">DataTable</a>!</div>
 <p>Start or retrieve a data table download. If the same data table + group + format combination was already requested, returns the existing download state.</p>
 </div>
 
-<div id="exchangeAuthorizationCode" style="border:1px solid #e2e8f0;border-left:3px solid #f59e0b;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">exchangeAuthorizationCode</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;font-weight:700;padding:2px 7px;border-radius:20px;background:#fef3c7;color:#92400e;">mutation</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">authz</span>
+<div id="exchangeAuthorizationCode" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #f59e0b', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>exchangeAuthorizationCode</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', fontWeight: '700', padding: '2px 7px', borderRadius: '20px', background: '#fef3c7', color: '#92400e'}}>mutation</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>authz</span>
 </div>
-<div style="font-family:monospace;font-size:12px;color:#94a3b8;margin:0 0 6px;">(input: <a href="#exchangeauthorizationcodeinput">ExchangeAuthorizationCodeInput</a>!): <a href="#exchangeauthorizationresult">ExchangeAuthorizationResult</a>!</div>
+<div style={{fontFamily: 'monospace', fontSize: '12px', color: '#94a3b8', margin: '0 0 6px'}}>(input: <a href="#exchangeauthorizationcodeinput">ExchangeAuthorizationCodeInput</a>!): <a href="#exchangeauthorizationresult">ExchangeAuthorizationResult</a>!</div>
 <p>Exchange an OAuth authorization code for an access token.</p>
 <p>This unified mutation handles all OAuth 2.0 VCS providers. The backend uses the authorizationId to look up: - The origin and VCS type - PKCE code_verifier (GitLab)</p>
 <p>On success, the token is stored and future requests will be authenticated.</p>
 </div>
 
-<div id="initiateAuthorization" style="border:1px solid #e2e8f0;border-left:3px solid #f59e0b;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">initiateAuthorization</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;font-weight:700;padding:2px 7px;border-radius:20px;background:#fef3c7;color:#92400e;">mutation</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">authz</span>
+<div id="initiateAuthorization" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #f59e0b', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>initiateAuthorization</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', fontWeight: '700', padding: '2px 7px', borderRadius: '20px', background: '#fef3c7', color: '#92400e'}}>mutation</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>authz</span>
 </div>
-<div style="font-family:monospace;font-size:12px;color:#94a3b8;margin:0 0 6px;">(input: <a href="#initiateauthorizationinput">InitiateAuthorizationInput</a>!): <a href="#oauthauthorization">OAuthAuthorization</a>!</div>
+<div style={{fontFamily: 'monospace', fontSize: '12px', color: '#94a3b8', margin: '0 0 6px'}}>(input: <a href="#initiateauthorizationinput">InitiateAuthorizationInput</a>!): <a href="#oauthauthorization">OAuthAuthorization</a>!</div>
 <p>Initiate OAuth authorization for a VCS origin. Returns an authorization URL to redirect the user to.</p>
 <p>The backend constructs the full OAuth URL including: - PKCE code_challenge for GitLab - Correct scopes for each VCS type - State parameter for CSRF protection</p>
 <p>The authorization ID should be passed to exchangeAuthorizationCode after the user completes OAuth.</p>
 </div>
 
-<div id="installRecipesForCurrentUser" style="border:1px solid #e2e8f0;border-left:3px solid #f59e0b;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">installRecipesForCurrentUser</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;font-weight:700;padding:2px 7px;border-radius:20px;background:#fef3c7;color:#92400e;">mutation</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">recipemarketplace</span>
+<div id="installRecipesForCurrentUser" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #f59e0b', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>installRecipesForCurrentUser</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', fontWeight: '700', padding: '2px 7px', borderRadius: '20px', background: '#fef3c7', color: '#92400e'}}>mutation</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>recipemarketplace</span>
 </div>
-<div style="font-family:monospace;font-size:12px;color:#94a3b8;margin:0 0 6px;">(bundle: <a href="#recipebundleinput">RecipeBundleInput</a>!): <a href="#recipeinstallation">RecipeInstallation</a>!</div>
+<div style={{fontFamily: 'monospace', fontSize: '12px', color: '#94a3b8', margin: '0 0 6px'}}>(bundle: <a href="#recipebundleinput">RecipeBundleInput</a>!): <a href="#recipeinstallation">RecipeInstallation</a>!</div>
 <p>Install a recipe bundle to the current user's personal marketplace.</p>
 </div>
 
-<div id="installRecipesForOrganization" style="border:1px solid #e2e8f0;border-left:3px solid #f59e0b;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">installRecipesForOrganization</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;font-weight:700;padding:2px 7px;border-radius:20px;background:#fef3c7;color:#92400e;">mutation</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">recipemarketplace</span>
+<div id="installRecipesForOrganization" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #f59e0b', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>installRecipesForOrganization</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', fontWeight: '700', padding: '2px 7px', borderRadius: '20px', background: '#fef3c7', color: '#92400e'}}>mutation</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>recipemarketplace</span>
 </div>
-<div style="font-family:monospace;font-size:12px;color:#94a3b8;margin:0 0 6px;">(organizationId: ID!, bundle: <a href="#recipebundleinput">RecipeBundleInput</a>!): <a href="#recipeinstallation">RecipeInstallation</a>!</div>
+<div style={{fontFamily: 'monospace', fontSize: '12px', color: '#94a3b8', margin: '0 0 6px'}}>(organizationId: ID!, bundle: <a href="#recipebundleinput">RecipeBundleInput</a>!): <a href="#recipeinstallation">RecipeInstallation</a>!</div>
 <p>Install a recipe bundle to a specific organization's marketplace. Requires the `admin` role.</p>
 </div>
 
-<div id="installRecipesUniversal" style="border:1px solid #e2e8f0;border-left:3px solid #f59e0b;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">installRecipesUniversal</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;font-weight:700;padding:2px 7px;border-radius:20px;background:#fef3c7;color:#92400e;">mutation</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">recipemarketplace</span>
+<div id="installRecipesUniversal" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #f59e0b', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>installRecipesUniversal</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', fontWeight: '700', padding: '2px 7px', borderRadius: '20px', background: '#fef3c7', color: '#92400e'}}>mutation</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>recipemarketplace</span>
 </div>
-<div style="font-family:monospace;font-size:12px;color:#94a3b8;margin:0 0 6px;">(bundle: <a href="#recipebundleinput">RecipeBundleInput</a>!): <a href="#recipeinstallation">RecipeInstallation</a>!</div>
+<div style={{fontFamily: 'monospace', fontSize: '12px', color: '#94a3b8', margin: '0 0 6px'}}>(bundle: <a href="#recipebundleinput">RecipeBundleInput</a>!): <a href="#recipeinstallation">RecipeInstallation</a>!</div>
 <p>Install a recipe bundle to the universal marketplace (visible to all). Requires the `admin` role.</p>
 </div>
 
-<div id="mergePullRequests" style="border:1px solid #e2e8f0;border-left:3px solid #f59e0b;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">mergePullRequests</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;font-weight:700;padding:2px 7px;border-radius:20px;background:#fef3c7;color:#92400e;">mutation</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changelogreader</span>
+<div id="mergePullRequests" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #f59e0b', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>mergePullRequests</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', fontWeight: '700', padding: '2px 7px', borderRadius: '20px', background: '#fef3c7', color: '#92400e'}}>mutation</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changelogreader</span>
 </div>
-<div style="font-family:monospace;font-size:12px;color:#94a3b8;margin:0 0 6px;">(organizationId: ID!, selection: <a href="#pullrequestselectioninput">PullRequestSelectionInput</a>!, mergeMethod: <a href="#mergemethod">MergeMethod</a>!, deleteSourceBranch: Boolean! = false): <a href="#bulkpullrequestactionqueued">BulkPullRequestActionQueued</a>!</div>
+<div style={{fontFamily: 'monospace', fontSize: '12px', color: '#94a3b8', margin: '0 0 6px'}}>(organizationId: ID!, selection: <a href="#pullrequestselectioninput">PullRequestSelectionInput</a>!, mergeMethod: <a href="#mergemethod">MergeMethod</a>!, deleteSourceBranch: Boolean! = false): <a href="#bulkpullrequestactionqueued">BulkPullRequestActionQueued</a>!</div>
 <p>Merge pull requests in bulk. Returns the queued action for polling.</p>
 </div>
 
-<div id="reindexChangelog" style="border:1px solid #e2e8f0;border-left:3px solid #f59e0b;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">reindexChangelog</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;font-weight:700;padding:2px 7px;border-radius:20px;background:#fef3c7;color:#92400e;">mutation</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changelogwriter</span>
+<div id="reindexChangelog" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #f59e0b', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>reindexChangelog</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', fontWeight: '700', padding: '2px 7px', borderRadius: '20px', background: '#fef3c7', color: '#92400e'}}>mutation</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changelogwriter</span>
 </div>
-<div style="font-family:monospace;font-size:12px;color:#94a3b8;margin:0 0 6px;">(since: <a href="#datetime">DateTime</a>!, origin: String): <a href="#reindexresult">ReindexResult</a>!</div>
+<div style={{fontFamily: 'monospace', fontSize: '12px', color: '#94a3b8', margin: '0 0 6px'}}>(since: <a href="#datetime">DateTime</a>!, origin: String): <a href="#reindexresult">ReindexResult</a>!</div>
 <p>Reset poll cursors so the next poll cycle re-fetches and re-enriches changelog entries from the given timestamp forward. Use this to backfill data after deploying enrichment improvements.</p>
 </div>
 
-<div id="revokeAccessToken" style="border:1px solid #e2e8f0;border-left:3px solid #f59e0b;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">revokeAccessToken</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;font-weight:700;padding:2px 7px;border-radius:20px;background:#fef3c7;color:#92400e;">mutation</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">authz</span>
+<div id="revokeAccessToken" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #f59e0b', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>revokeAccessToken</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', fontWeight: '700', padding: '2px 7px', borderRadius: '20px', background: '#fef3c7', color: '#92400e'}}>mutation</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>authz</span>
 </div>
-<div style="font-family:monospace;font-size:12px;color:#94a3b8;margin:0 0 6px;">(id: ID!): Boolean!</div>
+<div style={{fontFamily: 'monospace', fontSize: '12px', color: '#94a3b8', margin: '0 0 6px'}}>(id: ID!): Boolean!</div>
 <p>Revokes an access token by ID. Returns true if the token was revoked, false if not found.</p>
 </div>
 
-<div id="revokeAllAccessTokens" style="border:1px solid #e2e8f0;border-left:3px solid #f59e0b;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">revokeAllAccessTokens</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;font-weight:700;padding:2px 7px;border-radius:20px;background:#fef3c7;color:#92400e;">mutation</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">authz</span>
+<div id="revokeAllAccessTokens" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #f59e0b', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>revokeAllAccessTokens</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', fontWeight: '700', padding: '2px 7px', borderRadius: '20px', background: '#fef3c7', color: '#92400e'}}>mutation</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>authz</span>
 </div>
-<div style="font-family:monospace;font-size:12px;color:#94a3b8;margin:0 0 6px;">(email: String!): Boolean!</div>
+<div style={{fontFamily: 'monospace', fontSize: '12px', color: '#94a3b8', margin: '0 0 6px'}}>(email: String!): Boolean!</div>
 <p>Revokes all access tokens for a given user. Returns true if all token were revoked, otherwise false.</p>
 </div>
 
-<div id="revokeScmToken" style="border:1px solid #e2e8f0;border-left:3px solid #f59e0b;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">revokeScmToken</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;font-weight:700;padding:2px 7px;border-radius:20px;background:#fef3c7;color:#92400e;">mutation</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">authz</span>
+<div id="revokeScmToken" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #f59e0b', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>revokeScmToken</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', fontWeight: '700', padding: '2px 7px', borderRadius: '20px', background: '#fef3c7', color: '#92400e'}}>mutation</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>authz</span>
 </div>
-<div style="font-family:monospace;font-size:12px;color:#94a3b8;margin:0 0 6px;">(input: <a href="#revokescmtokeninput">RevokeScmTokenInput</a>!): <a href="#revoketokenresult">RevokeTokenResult</a>!</div>
+<div style={{fontFamily: 'monospace', fontSize: '12px', color: '#94a3b8', margin: '0 0 6px'}}>(input: <a href="#revokescmtokeninput">RevokeScmTokenInput</a>!): <a href="#revoketokenresult">RevokeTokenResult</a>!</div>
 <p>Revoke an SCM OAuth token for the current user and a specific origin. This removes the stored token, disconnecting the user from the VCS.</p>
 </div>
 
-<div id="runDevCenter" style="border:1px solid #e2e8f0;border-left:3px solid #f59e0b;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">runDevCenter</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;font-weight:700;padding:2px 7px;border-radius:20px;background:#fef3c7;color:#92400e;">mutation</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">recipeworker</span>
+<div id="runDevCenter" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #f59e0b', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>runDevCenter</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', fontWeight: '700', padding: '2px 7px', borderRadius: '20px', background: '#fef3c7', color: '#92400e'}}>mutation</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>recipeworker</span>
 </div>
-<div style="font-family:monospace;font-size:12px;color:#94a3b8;margin:0 0 6px;">(input: <a href="#rundevcenterinput">RunDevCenterInput</a>!): <a href="#devcenterrunrunning">DevCenterRunRunning</a>!</div>
+<div style={{fontFamily: 'monospace', fontSize: '12px', color: '#94a3b8', margin: '0 0 6px'}}>(input: <a href="#rundevcenterinput">RunDevCenterInput</a>!): <a href="#devcenterrunrunning">DevCenterRunRunning</a>!</div>
 <p>Start a DevCenter run for an organization. Returns immediately with running status.</p>
 </div>
 
-<div id="runRecipe" style="border:1px solid #e2e8f0;border-left:3px solid #f59e0b;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">runRecipe</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;font-weight:700;padding:2px 7px;border-radius:20px;background:#fef3c7;color:#92400e;">mutation</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">recipeworker</span>
+<div id="runRecipe" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #f59e0b', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>runRecipe</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', fontWeight: '700', padding: '2px 7px', borderRadius: '20px', background: '#fef3c7', color: '#92400e'}}>mutation</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>recipeworker</span>
 </div>
-<div style="font-family:monospace;font-size:12px;color:#94a3b8;margin:0 0 6px;">(input: <a href="#runrecipeinput">RunRecipeInput</a>!): <a href="#organizationreciperunqueued">OrganizationRecipeRunQueued</a>!</div>
+<div style={{fontFamily: 'monospace', fontSize: '12px', color: '#94a3b8', margin: '0 0 6px'}}>(input: <a href="#runrecipeinput">RunRecipeInput</a>!): <a href="#organizationreciperunqueued">OrganizationRecipeRunQueued</a>!</div>
 <p>Run a recipe against repositories. Returns the recipe run in its initial queued state.</p>
 </div>
 
-<div id="runVisualization" style="border:1px solid #e2e8f0;border-left:3px solid #f59e0b;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">runVisualization</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;font-weight:700;padding:2px 7px;border-radius:20px;background:#fef3c7;color:#92400e;">mutation</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changesetvisualizer</span>
+<div id="runVisualization" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #f59e0b', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>runVisualization</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', fontWeight: '700', padding: '2px 7px', borderRadius: '20px', background: '#fef3c7', color: '#92400e'}}>mutation</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetvisualizer</span>
 </div>
-<div style="font-family:monospace;font-size:12px;color:#94a3b8;margin:0 0 6px;">(organizationId: ID!, visualizationId: ID!, options: [<a href="#visualizationoptioninput">VisualizationOptionInput</a>!]): <a href="#visualization">Visualization</a>!</div>
+<div style={{fontFamily: 'monospace', fontSize: '12px', color: '#94a3b8', margin: '0 0 6px'}}>(organizationId: ID!, visualizationId: ID!, options: [<a href="#visualizationoptioninput">VisualizationOptionInput</a>!]): <a href="#visualization">Visualization</a>!</div>
 <p>Request a visualization to be generated based on the provided descriptor. Returns the existing visualization if already run with the same options, otherwise queues a new visualization run.</p>
 </div>
 
-<div id="sendMessage" style="border:1px solid #e2e8f0;border-left:3px solid #f59e0b;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">sendMessage</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;font-weight:700;padding:2px 7px;border-radius:20px;background:#fef3c7;color:#92400e;">mutation</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">moddy</span>
+<div id="sendMessage" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #f59e0b', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>sendMessage</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', fontWeight: '700', padding: '2px 7px', borderRadius: '20px', background: '#fef3c7', color: '#92400e'}}>mutation</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>moddy</span>
 </div>
-<div style="font-family:monospace;font-size:12px;color:#94a3b8;margin:0 0 6px;">(conversationId: ID!, message: String!, waitForCompletion: Boolean = false): <a href="#sendmessageresult">SendMessageResult</a>!</div>
+<div style={{fontFamily: 'monospace', fontSize: '12px', color: '#94a3b8', margin: '0 0 6px'}}>(conversationId: ID!, message: String!, waitForCompletion: Boolean = false): <a href="#sendmessageresult">SendMessageResult</a>!</div>
 <p>Send a message to an existing conversation. Returns a handle for polling — `initialCursor` is the cursor to pass to the next `messages(after:)` query, and `turnState` carries the server- recommended poll cadence.</p>
 <p>When `waitForCompletion: true`, the mutation blocks until the turn completes (or the server cap of 4 minutes is reached, whichever comes first). On cap, the mutation returns the current turn state rather than erroring so the caller can continue polling.</p>
 </div>
 
-<div id="setOrganizationPrompt" style="border:1px solid #e2e8f0;border-left:3px solid #f59e0b;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">setOrganizationPrompt</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;font-weight:700;padding:2px 7px;border-radius:20px;background:#fef3c7;color:#92400e;">mutation</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">moddy</span>
+<div id="setOrganizationPrompt" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #f59e0b', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>setOrganizationPrompt</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', fontWeight: '700', padding: '2px 7px', borderRadius: '20px', background: '#fef3c7', color: '#92400e'}}>mutation</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>moddy</span>
 </div>
-<div style="font-family:monospace;font-size:12px;color:#94a3b8;margin:0 0 6px;">(organizationId: ID!, content: <a href="#markdown">Markdown</a>!): <a href="#prompt">Prompt</a>!</div>
+<div style={{fontFamily: 'monospace', fontSize: '12px', color: '#94a3b8', margin: '0 0 6px'}}>(organizationId: ID!, content: <a href="#markdown">Markdown</a>!): <a href="#prompt">Prompt</a>!</div>
 <p>Set the system prompt for a specific organization (overrides universal).</p>
 </div>
 
-<div id="setProfiling" style="border:1px solid #e2e8f0;border-left:3px solid #f59e0b;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">setProfiling</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;font-weight:700;padding:2px 7px;border-radius:20px;background:#fef3c7;color:#92400e;">mutation</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">gateway</span>
+<div id="setProfiling" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #f59e0b', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>setProfiling</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', fontWeight: '700', padding: '2px 7px', borderRadius: '20px', background: '#fef3c7', color: '#92400e'}}>mutation</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>gateway</span>
 </div>
-<div style="font-family:monospace;font-size:12px;color:#94a3b8;margin:0 0 6px;">(enabled: Boolean!, event: <a href="#profilingevent">ProfilingEvent</a> = CPU): Boolean!</div>
+<div style={{fontFamily: 'monospace', fontSize: '12px', color: '#94a3b8', margin: '0 0 6px'}}>(enabled: Boolean!, event: <a href="#profilingevent">ProfilingEvent</a> = CPU): Boolean!</div>
 <p>Turn continuous profiling on or off for this tenant. When enabled, Pyroscope profiles for every service start landing in the Pyroscope UI within seconds. The primary event the agent samples on is selected by `event` (defaults to CPU); calling the mutation again with a different event while profiling is already on rotates the agent to the new event. Fails when the profiling capability is not enabled for the tenant. Admin role required.</p>
 </div>
 
-<div id="setUniversalPrompt" style="border:1px solid #e2e8f0;border-left:3px solid #f59e0b;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">setUniversalPrompt</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;font-weight:700;padding:2px 7px;border-radius:20px;background:#fef3c7;color:#92400e;">mutation</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">moddy</span>
+<div id="setUniversalPrompt" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #f59e0b', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>setUniversalPrompt</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', fontWeight: '700', padding: '2px 7px', borderRadius: '20px', background: '#fef3c7', color: '#92400e'}}>mutation</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>moddy</span>
 </div>
-<div style="font-family:monospace;font-size:12px;color:#94a3b8;margin:0 0 6px;">(content: <a href="#markdown">Markdown</a>!): <a href="#prompt">Prompt</a>!</div>
+<div style={{fontFamily: 'monospace', fontSize: '12px', color: '#94a3b8', margin: '0 0 6px'}}>(content: <a href="#markdown">Markdown</a>!): <a href="#prompt">Prompt</a>!</div>
 <p>Set the universal (default) system prompt.</p>
 </div>
 
-<div id="setUserPrompt" style="border:1px solid #e2e8f0;border-left:3px solid #f59e0b;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">setUserPrompt</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;font-weight:700;padding:2px 7px;border-radius:20px;background:#fef3c7;color:#92400e;">mutation</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">moddy</span>
+<div id="setUserPrompt" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #f59e0b', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>setUserPrompt</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', fontWeight: '700', padding: '2px 7px', borderRadius: '20px', background: '#fef3c7', color: '#92400e'}}>mutation</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>moddy</span>
 </div>
-<div style="font-family:monospace;font-size:12px;color:#94a3b8;margin:0 0 6px;">(content: <a href="#markdown">Markdown</a>!): <a href="#prompt">Prompt</a>!</div>
+<div style={{fontFamily: 'monospace', fontSize: '12px', color: '#94a3b8', margin: '0 0 6px'}}>(content: <a href="#markdown">Markdown</a>!): <a href="#prompt">Prompt</a>!</div>
 <p>Set the system prompt for the current user (overrides organization and universal).</p>
 </div>
 
-<div id="uninstallRecipesFromCurrentUser" style="border:1px solid #e2e8f0;border-left:3px solid #f59e0b;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">uninstallRecipesFromCurrentUser</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;font-weight:700;padding:2px 7px;border-radius:20px;background:#fef3c7;color:#92400e;">mutation</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">recipemarketplace</span>
+<div id="uninstallRecipesFromCurrentUser" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #f59e0b', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>uninstallRecipesFromCurrentUser</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', fontWeight: '700', padding: '2px 7px', borderRadius: '20px', background: '#fef3c7', color: '#92400e'}}>mutation</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>recipemarketplace</span>
 </div>
-<div style="font-family:monospace;font-size:12px;color:#94a3b8;margin:0 0 6px;">(packageName: String!): <a href="#recipeuninstallation">RecipeUninstallation</a>!</div>
+<div style={{fontFamily: 'monospace', fontSize: '12px', color: '#94a3b8', margin: '0 0 6px'}}>(packageName: String!): <a href="#recipeuninstallation">RecipeUninstallation</a>!</div>
 <p>Uninstall a recipe bundle from the current user's personal marketplace. Returns the number of recipes that were removed.</p>
 </div>
 
-<div id="uninstallRecipesFromOrganization" style="border:1px solid #e2e8f0;border-left:3px solid #f59e0b;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">uninstallRecipesFromOrganization</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;font-weight:700;padding:2px 7px;border-radius:20px;background:#fef3c7;color:#92400e;">mutation</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">recipemarketplace</span>
+<div id="uninstallRecipesFromOrganization" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #f59e0b', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>uninstallRecipesFromOrganization</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', fontWeight: '700', padding: '2px 7px', borderRadius: '20px', background: '#fef3c7', color: '#92400e'}}>mutation</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>recipemarketplace</span>
 </div>
-<div style="font-family:monospace;font-size:12px;color:#94a3b8;margin:0 0 6px;">(organizationId: ID!, packageName: String!): <a href="#recipeuninstallation">RecipeUninstallation</a>!</div>
+<div style={{fontFamily: 'monospace', fontSize: '12px', color: '#94a3b8', margin: '0 0 6px'}}>(organizationId: ID!, packageName: String!): <a href="#recipeuninstallation">RecipeUninstallation</a>!</div>
 <p>Uninstall a recipe bundle from a specific organization's marketplace. Returns the number of recipes that were removed. Requires the `admin` role.</p>
 </div>
 
-<div id="uninstallRecipesUniversal" style="border:1px solid #e2e8f0;border-left:3px solid #f59e0b;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">uninstallRecipesUniversal</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;font-weight:700;padding:2px 7px;border-radius:20px;background:#fef3c7;color:#92400e;">mutation</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">recipemarketplace</span>
+<div id="uninstallRecipesUniversal" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #f59e0b', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>uninstallRecipesUniversal</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', fontWeight: '700', padding: '2px 7px', borderRadius: '20px', background: '#fef3c7', color: '#92400e'}}>mutation</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>recipemarketplace</span>
 </div>
-<div style="font-family:monospace;font-size:12px;color:#94a3b8;margin:0 0 6px;">(packageName: String!): <a href="#recipeuninstallation">RecipeUninstallation</a>!</div>
+<div style={{fontFamily: 'monospace', fontSize: '12px', color: '#94a3b8', margin: '0 0 6px'}}>(packageName: String!): <a href="#recipeuninstallation">RecipeUninstallation</a>!</div>
 <p>Uninstall a recipe bundle from the universal marketplace. Returns the number of recipes that were removed. Requires the `admin` role.</p>
 </div>
 
-<div id="updateUserOrganization" style="border:1px solid #e2e8f0;border-left:3px solid #f59e0b;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">updateUserOrganization</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;font-weight:700;padding:2px 7px;border-radius:20px;background:#fef3c7;color:#92400e;">mutation</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">organization</span>
+<div id="updateUserOrganization" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #f59e0b', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>updateUserOrganization</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', fontWeight: '700', padding: '2px 7px', borderRadius: '20px', background: '#fef3c7', color: '#92400e'}}>mutation</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>organization</span>
 </div>
-<div style="font-family:monospace;font-size:12px;color:#94a3b8;margin:0 0 6px;">(input: <a href="#updateuserorganizationinput">UpdateUserOrganizationInput</a>!): <a href="#organization">Organization</a>!</div>
+<div style={{fontFamily: 'monospace', fontSize: '12px', color: '#94a3b8', margin: '0 0 6px'}}>(input: <a href="#updateuserorganizationinput">UpdateUserOrganizationInput</a>!): <a href="#organization">Organization</a>!</div>
 <p>Update an existing user-defined organization.</p>
 </div>
 
@@ -559,10 +559,10 @@ hide_title: true
 
 <h3>Object types</h3>
 
-<div id="accesstoken" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">AccessToken</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">authz</span>
+<div id="accesstoken" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>AccessToken</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>authz</span>
 </div>
 <p>Moderne Personal Access Tokens</p>
 <table>
@@ -576,10 +576,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="accesstokenconnection" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">AccessTokenConnection</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">authz</span>
+<div id="accesstokenconnection" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>AccessTokenConnection</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>authz</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -591,10 +591,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="accesstokenedge" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">AccessTokenEdge</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">authz</span>
+<div id="accesstokenedge" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>AccessTokenEdge</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>authz</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -605,10 +605,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="artifactoryconfiguration" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">ArtifactoryConfiguration</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">gateway</span>
+<div id="artifactoryconfiguration" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>ArtifactoryConfiguration</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>gateway</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -623,10 +623,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="auditlog" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">AuditLog</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">auditreader</span>
+<div id="auditlog" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>AuditLog</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>auditreader</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -643,10 +643,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="auditlogconnection" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">AuditLogConnection</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">auditreader</span>
+<div id="auditlogconnection" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>AuditLogConnection</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>auditreader</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -658,10 +658,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="auditlogedge" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">AuditLogEdge</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">auditreader</span>
+<div id="auditlogedge" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>AuditLogEdge</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>auditreader</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -672,10 +672,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="auditlogsdownloadconnection" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">AuditLogsDownloadConnection</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">auditreader</span>
+<div id="auditlogsdownloadconnection" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>AuditLogsDownloadConnection</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>auditreader</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -687,10 +687,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="auditlogsdownloadedge" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">AuditLogsDownloadEdge</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">auditreader</span>
+<div id="auditlogsdownloadedge" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>AuditLogsDownloadEdge</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>auditreader</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -701,11 +701,11 @@ hide_title: true
 </table>
 </div>
 
-<div id="auditlogsdownloaderror" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">AuditLogsDownloadError</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">auditreader</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#ede9fe;color:#4338ca;border:1px solid #c7d2fe;">implements <a href="#auditlogsdownload">AuditLogsDownload</a></span>
+<div id="auditlogsdownloaderror" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>AuditLogsDownloadError</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>auditreader</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#ede9fe', color: '#4338ca', border: '1px solid #c7d2fe'}}>implements <a href="#auditlogsdownload">AuditLogsDownload</a></span>
 </div>
 <p>An audit log download failed.</p>
 <table>
@@ -719,11 +719,11 @@ hide_title: true
 </table>
 </div>
 
-<div id="auditlogsdownloadfinished" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">AuditLogsDownloadFinished</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">auditreader</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#ede9fe;color:#4338ca;border:1px solid #c7d2fe;">implements <a href="#auditlogsdownload">AuditLogsDownload</a></span>
+<div id="auditlogsdownloadfinished" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>AuditLogsDownloadFinished</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>auditreader</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#ede9fe', color: '#4338ca', border: '1px solid #c7d2fe'}}>implements <a href="#auditlogsdownload">AuditLogsDownload</a></span>
 </div>
 <p>An audit log download has completed successfully.</p>
 <table>
@@ -738,11 +738,11 @@ hide_title: true
 </table>
 </div>
 
-<div id="auditlogsdownloadprocessing" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">AuditLogsDownloadProcessing</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">auditreader</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#ede9fe;color:#4338ca;border:1px solid #c7d2fe;">implements <a href="#auditlogsdownload">AuditLogsDownload</a></span>
+<div id="auditlogsdownloadprocessing" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>AuditLogsDownloadProcessing</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>auditreader</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#ede9fe', color: '#4338ca', border: '1px solid #c7d2fe'}}>implements <a href="#auditlogsdownload">AuditLogsDownload</a></span>
 </div>
 <p>An audit log download is being processed.</p>
 <table>
@@ -755,10 +755,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="azuredevopsconfiguration" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">AzureDevOpsConfiguration</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">gateway</span>
+<div id="azuredevopsconfiguration" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>AzureDevOpsConfiguration</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>gateway</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -772,11 +772,11 @@ hide_title: true
 </table>
 </div>
 
-<div id="azuredevopsconnection" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">AzureDevOpsConnection</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">authz</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#ede9fe;color:#4338ca;border:1px solid #c7d2fe;">implements <a href="#scmconnection">ScmConnection</a></span>
+<div id="azuredevopsconnection" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>AzureDevOpsConnection</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>authz</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#ede9fe', color: '#4338ca', border: '1px solid #c7d2fe'}}>implements <a href="#scmconnection">ScmConnection</a></span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -788,10 +788,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="azuredevopsoauth" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">AzureDevOpsOauth</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">gateway</span>
+<div id="azuredevopsoauth" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>AzureDevOpsOauth</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>gateway</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -802,11 +802,11 @@ hide_title: true
 </table>
 </div>
 
-<div id="batchchange" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">BatchChange</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changesetreader</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#ede9fe;color:#4338ca;border:1px solid #c7d2fe;">implements <a href="#organizationchangeset">OrganizationChangeset</a></span>
+<div id="batchchange" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>BatchChange</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetreader</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#ede9fe', color: '#4338ca', border: '1px solid #c7d2fe'}}>implements <a href="#organizationchangeset">OrganizationChangeset</a></span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -826,11 +826,11 @@ hide_title: true
 </table>
 </div>
 
-<div id="batchchangefilechange" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">BatchChangeFileChange</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changesetreader</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#ede9fe;color:#4338ca;border:1px solid #c7d2fe;">implements <a href="#filechange">FileChange</a></span>
+<div id="batchchangefilechange" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>BatchChangeFileChange</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetreader</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#ede9fe', color: '#4338ca', border: '1px solid #c7d2fe'}}>implements <a href="#filechange">FileChange</a></span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -843,10 +843,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="bitbucketcloudconfiguration" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">BitbucketCloudConfiguration</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">gateway</span>
+<div id="bitbucketcloudconfiguration" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>BitbucketCloudConfiguration</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>gateway</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -860,11 +860,11 @@ hide_title: true
 </table>
 </div>
 
-<div id="bitbucketcloudconnection" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">BitbucketCloudConnection</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">authz</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#ede9fe;color:#4338ca;border:1px solid #c7d2fe;">implements <a href="#scmconnection">ScmConnection</a></span>
+<div id="bitbucketcloudconnection" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>BitbucketCloudConnection</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>authz</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#ede9fe', color: '#4338ca', border: '1px solid #c7d2fe'}}>implements <a href="#scmconnection">ScmConnection</a></span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -876,10 +876,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="bitbucketcloudoauth" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">BitbucketCloudOauth</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">gateway</span>
+<div id="bitbucketcloudoauth" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>BitbucketCloudOauth</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>gateway</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -889,10 +889,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="bitbucketconfiguration" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">BitbucketConfiguration</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">gateway</span>
+<div id="bitbucketconfiguration" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>BitbucketConfiguration</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>gateway</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -906,11 +906,11 @@ hide_title: true
 </table>
 </div>
 
-<div id="bitbucketconnection" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">BitbucketConnection</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">authz</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#ede9fe;color:#4338ca;border:1px solid #c7d2fe;">implements <a href="#scmconnection">ScmConnection</a></span>
+<div id="bitbucketconnection" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>BitbucketConnection</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>authz</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#ede9fe', color: '#4338ca', border: '1px solid #c7d2fe'}}>implements <a href="#scmconnection">ScmConnection</a></span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -922,10 +922,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="bitbucketoauth" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">BitbucketOauth</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">gateway</span>
+<div id="bitbucketoauth" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>BitbucketOauth</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>gateway</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -935,11 +935,11 @@ hide_title: true
 </table>
 </div>
 
-<div id="branchcommitoptions" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">BranchCommitOptions</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changesetcommitter</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#ede9fe;color:#4338ca;border:1px solid #c7d2fe;">implements <a href="#commitoptions">CommitOptions</a></span>
+<div id="branchcommitoptions" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>BranchCommitOptions</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetcommitter</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#ede9fe', color: '#4338ca', border: '1px solid #c7d2fe'}}>implements <a href="#commitoptions">CommitOptions</a></span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -949,11 +949,11 @@ hide_title: true
 </table>
 </div>
 
-<div id="bulkpullrequestactioncanceled" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">BulkPullRequestActionCanceled</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changelogreader</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#ede9fe;color:#4338ca;border:1px solid #c7d2fe;">implements <a href="#bulkpullrequestaction">BulkPullRequestAction</a></span>
+<div id="bulkpullrequestactioncanceled" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>BulkPullRequestActionCanceled</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changelogreader</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#ede9fe', color: '#4338ca', border: '1px solid #c7d2fe'}}>implements <a href="#bulkpullrequestaction">BulkPullRequestAction</a></span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -967,10 +967,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="bulkpullrequestactionconnection" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">BulkPullRequestActionConnection</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changelogreader</span>
+<div id="bulkpullrequestactionconnection" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>BulkPullRequestActionConnection</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changelogreader</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -982,10 +982,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="bulkpullrequestactionedge" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">BulkPullRequestActionEdge</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changelogreader</span>
+<div id="bulkpullrequestactionedge" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>BulkPullRequestActionEdge</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changelogreader</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -996,11 +996,11 @@ hide_title: true
 </table>
 </div>
 
-<div id="bulkpullrequestactionerror" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">BulkPullRequestActionError</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changelogreader</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#ede9fe;color:#4338ca;border:1px solid #c7d2fe;">implements <a href="#bulkpullrequestaction">BulkPullRequestAction</a></span>
+<div id="bulkpullrequestactionerror" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>BulkPullRequestActionError</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changelogreader</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#ede9fe', color: '#4338ca', border: '1px solid #c7d2fe'}}>implements <a href="#bulkpullrequestaction">BulkPullRequestAction</a></span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -1014,11 +1014,11 @@ hide_title: true
 </table>
 </div>
 
-<div id="bulkpullrequestactionfinished" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">BulkPullRequestActionFinished</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changelogreader</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#ede9fe;color:#4338ca;border:1px solid #c7d2fe;">implements <a href="#bulkpullrequestaction">BulkPullRequestAction</a></span>
+<div id="bulkpullrequestactionfinished" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>BulkPullRequestActionFinished</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changelogreader</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#ede9fe', color: '#4338ca', border: '1px solid #c7d2fe'}}>implements <a href="#bulkpullrequestaction">BulkPullRequestAction</a></span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -1033,11 +1033,11 @@ hide_title: true
 </table>
 </div>
 
-<div id="bulkpullrequestactionqueued" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">BulkPullRequestActionQueued</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changelogreader</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#ede9fe;color:#4338ca;border:1px solid #c7d2fe;">implements <a href="#bulkpullrequestaction">BulkPullRequestAction</a></span>
+<div id="bulkpullrequestactionqueued" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>BulkPullRequestActionQueued</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changelogreader</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#ede9fe', color: '#4338ca', border: '1px solid #c7d2fe'}}>implements <a href="#bulkpullrequestaction">BulkPullRequestAction</a></span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -1051,11 +1051,11 @@ hide_title: true
 </table>
 </div>
 
-<div id="bulkpullrequestactionrunning" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">BulkPullRequestActionRunning</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changelogreader</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#ede9fe;color:#4338ca;border:1px solid #c7d2fe;">implements <a href="#bulkpullrequestaction">BulkPullRequestAction</a></span>
+<div id="bulkpullrequestactionrunning" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>BulkPullRequestActionRunning</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changelogreader</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#ede9fe', color: '#4338ca', border: '1px solid #c7d2fe'}}>implements <a href="#bulkpullrequestaction">BulkPullRequestAction</a></span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -1069,10 +1069,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="changeparticipant" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">ChangeParticipant</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changelogreader</span>
+<div id="changeparticipant" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>ChangeParticipant</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changelogreader</span>
 </div>
 <p>A participant identity from the VCS provider. Not necessarily a Moderne user.</p>
 <table>
@@ -1087,11 +1087,11 @@ hide_title: true
 </table>
 </div>
 
-<div id="changelogcommit" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">ChangelogCommit</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changelogreader</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#ede9fe;color:#4338ca;border:1px solid #c7d2fe;">implements <a href="#changelogentry">ChangelogEntry</a></span>
+<div id="changelogcommit" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>ChangelogCommit</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changelogreader</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#ede9fe', color: '#4338ca', border: '1px solid #c7d2fe'}}>implements <a href="#changelogentry">ChangelogEntry</a></span>
 </div>
 <p>A direct commit to a branch.</p>
 <table>
@@ -1113,10 +1113,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="changelogentryconnection" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">ChangelogEntryConnection</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changelogreader</span>
+<div id="changelogentryconnection" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>ChangelogEntryConnection</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changelogreader</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -1128,10 +1128,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="changelogentryedge" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">ChangelogEntryEdge</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changelogreader</span>
+<div id="changelogentryedge" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>ChangelogEntryEdge</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changelogreader</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -1142,10 +1142,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="changelogparticipantconnection" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">ChangelogParticipantConnection</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changelogreader</span>
+<div id="changelogparticipantconnection" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>ChangelogParticipantConnection</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changelogreader</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -1157,10 +1157,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="changelogparticipantedge" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">ChangelogParticipantEdge</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changelogreader</span>
+<div id="changelogparticipantedge" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>ChangelogParticipantEdge</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changelogreader</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -1171,11 +1171,11 @@ hide_title: true
 </table>
 </div>
 
-<div id="changelogpullrequest" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">ChangelogPullRequest</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changelogreader</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#ede9fe;color:#4338ca;border:1px solid #c7d2fe;">implements <a href="#changelogentry">ChangelogEntry</a></span>
+<div id="changelogpullrequest" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>ChangelogPullRequest</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changelogreader</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#ede9fe', color: '#4338ca', border: '1px solid #c7d2fe'}}>implements <a href="#changelogentry">ChangelogEntry</a></span>
 </div>
 <p>A pull request (open, draft, merged, or closed).</p>
 <table>
@@ -1206,10 +1206,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="clidownloadinstructionlink" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">CliDownloadInstructionLink</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">gateway</span>
+<div id="clidownloadinstructionlink" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>CliDownloadInstructionLink</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>gateway</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -1220,10 +1220,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="codesearchresult" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">CodeSearchResult</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">code-search</span>
+<div id="codesearchresult" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>CodeSearchResult</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>code-search</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -1235,10 +1235,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="codesearchresultconnection" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">CodeSearchResultConnection</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">code-search</span>
+<div id="codesearchresultconnection" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>CodeSearchResultConnection</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>code-search</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -1251,10 +1251,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="codesearchresultedge" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">CodeSearchResultEdge</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">code-search</span>
+<div id="codesearchresultedge" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>CodeSearchResultEdge</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>code-search</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -1265,10 +1265,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="column" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">Column</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">corechangeset</span>
+<div id="column" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>Column</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>corechangeset</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -1281,10 +1281,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="connector" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">Connector</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">gateway</span>
+<div id="connector" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>Connector</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>gateway</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -1299,10 +1299,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="connectorconnection" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">ConnectorConnection</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">gateway</span>
+<div id="connectorconnection" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>ConnectorConnection</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>gateway</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -1314,10 +1314,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="connectoredge" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">ConnectorEdge</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">gateway</span>
+<div id="connectoredge" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>ConnectorEdge</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>gateway</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -1328,10 +1328,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="conversation" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">Conversation</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">moddy</span>
+<div id="conversation" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>Conversation</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>moddy</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -1347,10 +1347,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="conversationconnection" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">ConversationConnection</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">moddy</span>
+<div id="conversationconnection" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>ConversationConnection</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>moddy</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -1361,10 +1361,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="conversationedge" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">ConversationEdge</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">moddy</span>
+<div id="conversationedge" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>ConversationEdge</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>moddy</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -1375,10 +1375,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="conversationturnstate" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">ConversationTurnState</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">moddy</span>
+<div id="conversationturnstate" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>ConversationTurnState</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>moddy</span>
 </div>
 <p>Represents the current phase of the conversation's active turn (if any). Drives client poll cadence.</p>
 <table>
@@ -1391,10 +1391,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="createaccesstokenresult" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">CreateAccessTokenResult</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">authz</span>
+<div id="createaccesstokenresult" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>CreateAccessTokenResult</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>authz</span>
 </div>
 <p>Result of creating a new access token. The token value is only available in this response.</p>
 <table>
@@ -1409,11 +1409,11 @@ hide_title: true
 </table>
 </div>
 
-<div id="datatableavailable" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">DataTableAvailable</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changesetreader</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#ede9fe;color:#4338ca;border:1px solid #c7d2fe;">implements <a href="#datatable">DataTable</a></span>
+<div id="datatableavailable" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>DataTableAvailable</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetreader</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#ede9fe', color: '#4338ca', border: '1px solid #c7d2fe'}}>implements <a href="#datatable">DataTable</a></span>
 </div>
 <p>A data table is available for download but no download has been initiated yet.</p>
 <table>
@@ -1428,10 +1428,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="datatableconnection" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">DataTableConnection</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">corechangeset</span>
+<div id="datatableconnection" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>DataTableConnection</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>corechangeset</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -1443,10 +1443,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="datatabledescriptor" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">DataTableDescriptor</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">corechangeset</span>
+<div id="datatabledescriptor" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>DataTableDescriptor</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>corechangeset</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -1459,10 +1459,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="datatableedge" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">DataTableEdge</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">corechangeset</span>
+<div id="datatableedge" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>DataTableEdge</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>corechangeset</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -1473,11 +1473,11 @@ hide_title: true
 </table>
 </div>
 
-<div id="datatableerror" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">DataTableError</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changesetreader</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#ede9fe;color:#4338ca;border:1px solid #c7d2fe;">implements <a href="#datatable">DataTable</a></span>
+<div id="datatableerror" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>DataTableError</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetreader</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#ede9fe', color: '#4338ca', border: '1px solid #c7d2fe'}}>implements <a href="#datatable">DataTable</a></span>
 </div>
 <p>A data table download failed.</p>
 <table>
@@ -1495,11 +1495,11 @@ hide_title: true
 </table>
 </div>
 
-<div id="datatablefinished" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">DataTableFinished</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changesetreader</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#ede9fe;color:#4338ca;border:1px solid #c7d2fe;">implements <a href="#datatable">DataTable</a></span>
+<div id="datatablefinished" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>DataTableFinished</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetreader</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#ede9fe', color: '#4338ca', border: '1px solid #c7d2fe'}}>implements <a href="#datatable">DataTable</a></span>
 </div>
 <p>A data table download has completed successfully.</p>
 <table>
@@ -1519,11 +1519,11 @@ hide_title: true
 </table>
 </div>
 
-<div id="datatableprocessing" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">DataTableProcessing</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changesetreader</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#ede9fe;color:#4338ca;border:1px solid #c7d2fe;">implements <a href="#datatable">DataTable</a></span>
+<div id="datatableprocessing" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>DataTableProcessing</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetreader</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#ede9fe', color: '#4338ca', border: '1px solid #c7d2fe'}}>implements <a href="#datatable">DataTable</a></span>
 </div>
 <p>A data table download is being processed.</p>
 <table>
@@ -1540,11 +1540,11 @@ hide_title: true
 </table>
 </div>
 
-<div id="datatablesqlmessage" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">DataTableSqlMessage</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">moddy</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#ede9fe;color:#4338ca;border:1px solid #c7d2fe;">implements <a href="#message">Message</a></span>
+<div id="datatablesqlmessage" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>DataTableSqlMessage</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>moddy</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#ede9fe', color: '#4338ca', border: '1px solid #c7d2fe'}}>implements <a href="#message">Message</a></span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -1558,11 +1558,11 @@ hide_title: true
 </table>
 </div>
 
-<div id="datatablesmessage" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">DataTablesMessage</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">moddy</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#ede9fe;color:#4338ca;border:1px solid #c7d2fe;">implements <a href="#message">Message</a></span>
+<div id="datatablesmessage" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>DataTablesMessage</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>moddy</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#ede9fe', color: '#4338ca', border: '1px solid #c7d2fe'}}>implements <a href="#message">Message</a></span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -1576,10 +1576,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="devcenter" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">DevCenter</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changesetreader</span>
+<div id="devcenter" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>DevCenter</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetreader</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -1590,10 +1590,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="devcentercard" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">DevCenterCard</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changesetreader</span>
+<div id="devcentercard" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>DevCenterCard</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetreader</span>
 </div>
 <p>A DevCenter card represents a category of work (e.g., "Spring Boot 3", "Java 21", "Security"). Cards contain measures that track progress toward completion.</p>
 <table>
@@ -1609,10 +1609,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="devcentercarddescriptor" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">DevCenterCardDescriptor</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">recipemarketplace</span>
+<div id="devcentercarddescriptor" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>DevCenterCardDescriptor</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>recipemarketplace</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -1626,10 +1626,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="devcentermeasure" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">DevCenterMeasure</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changesetreader</span>
+<div id="devcentermeasure" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>DevCenterMeasure</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetreader</span>
 </div>
 <p>A measure within a DevCenter card representing a specific state or finding, with a count from the run results.</p>
 <table>
@@ -1643,10 +1643,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="devcentermeasuredescriptor" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">DevCenterMeasureDescriptor</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">recipemarketplace</span>
+<div id="devcentermeasuredescriptor" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>DevCenterMeasureDescriptor</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>recipemarketplace</span>
 </div>
 <p>A measure descriptor within a DevCenter card, representing metadata about a specific state or finding. See DevCenterMeasure in changeset:reader for the runtime version with counts.</p>
 <table>
@@ -1659,10 +1659,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="devcenterorganization" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">DevCenterOrganization</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changesetreader</span>
+<div id="devcenterorganization" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>DevCenterOrganization</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetreader</span>
 </div>
 <p>Organization-level context from a DevCenter run.</p>
 <table>
@@ -1675,10 +1675,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="devcenterrepositories" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">DevCenterRepositories</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changesetreader</span>
+<div id="devcenterrepositories" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>DevCenterRepositories</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetreader</span>
 </div>
 <p>Repository counts from a DevCenter run.</p>
 <table>
@@ -1690,11 +1690,11 @@ hide_title: true
 </table>
 </div>
 
-<div id="devcenterruncanceled" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">DevCenterRunCanceled</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changesetreader</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#ede9fe;color:#4338ca;border:1px solid #c7d2fe;">implements <a href="#devcenterrun">DevCenterRun</a></span>
+<div id="devcenterruncanceled" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>DevCenterRunCanceled</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetreader</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#ede9fe', color: '#4338ca', border: '1px solid #c7d2fe'}}>implements <a href="#devcenterrun">DevCenterRun</a></span>
 </div>
 <p>DevCenter run was canceled before completion.</p>
 <table>
@@ -1708,10 +1708,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="devcenterrunconnection" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">DevCenterRunConnection</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changesetreader</span>
+<div id="devcenterrunconnection" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>DevCenterRunConnection</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetreader</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -1723,10 +1723,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="devcenterrunedge" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">DevCenterRunEdge</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changesetreader</span>
+<div id="devcenterrunedge" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>DevCenterRunEdge</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetreader</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -1737,11 +1737,11 @@ hide_title: true
 </table>
 </div>
 
-<div id="devcenterrunerror" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">DevCenterRunError</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changesetreader</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#ede9fe;color:#4338ca;border:1px solid #c7d2fe;">implements <a href="#devcenterrun">DevCenterRun</a></span>
+<div id="devcenterrunerror" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>DevCenterRunError</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetreader</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#ede9fe', color: '#4338ca', border: '1px solid #c7d2fe'}}>implements <a href="#devcenterrun">DevCenterRun</a></span>
 </div>
 <p>DevCenter run failed with an error.</p>
 <table>
@@ -1756,11 +1756,11 @@ hide_title: true
 </table>
 </div>
 
-<div id="devcenterrunfinished" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">DevCenterRunFinished</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changesetreader</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#ede9fe;color:#4338ca;border:1px solid #c7d2fe;">implements <a href="#devcenterrun">DevCenterRun</a></span>
+<div id="devcenterrunfinished" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>DevCenterRunFinished</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetreader</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#ede9fe', color: '#4338ca', border: '1px solid #c7d2fe'}}>implements <a href="#devcenterrun">DevCenterRun</a></span>
 </div>
 <p>DevCenter run completed successfully with summarized results.</p>
 <table>
@@ -1777,11 +1777,11 @@ hide_title: true
 </table>
 </div>
 
-<div id="devcenterrunrunning" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">DevCenterRunRunning</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changesetreader</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#ede9fe;color:#4338ca;border:1px solid #c7d2fe;">implements <a href="#devcenterrun">DevCenterRun</a></span>
+<div id="devcenterrunrunning" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>DevCenterRunRunning</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetreader</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#ede9fe', color: '#4338ca', border: '1px solid #c7d2fe'}}>implements <a href="#devcenterrun">DevCenterRun</a></span>
 </div>
 <p>DevCenter recipe is currently running across repositories.</p>
 <table>
@@ -1794,10 +1794,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="diffstat" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">DiffStat</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changelogreader</span>
+<div id="diffstat" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>DiffStat</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changelogreader</span>
 </div>
 <p>Aggregate line-level diff statistics.</p>
 <table>
@@ -1809,12 +1809,12 @@ hide_title: true
 </table>
 </div>
 
-<div id="directcommitsucceeded" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">DirectCommitSucceeded</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changesetcommitter</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#ede9fe;color:#4338ca;border:1px solid #c7d2fe;">implements <a href="#repositorycommitsucceeded">RepositoryCommitSucceeded</a></span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#ede9fe;color:#4338ca;border:1px solid #c7d2fe;">implements <a href="#repositorycommit">RepositoryCommit</a></span>
+<div id="directcommitsucceeded" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>DirectCommitSucceeded</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetcommitter</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#ede9fe', color: '#4338ca', border: '1px solid #c7d2fe'}}>implements <a href="#repositorycommitsucceeded">RepositoryCommitSucceeded</a></span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#ede9fe', color: '#4338ca', border: '1px solid #c7d2fe'}}>implements <a href="#repositorycommit">RepositoryCommit</a></span>
 </div>
 <p>Direct commit to repository completed successfully.</p>
 <table>
@@ -1828,11 +1828,11 @@ hide_title: true
 </table>
 </div>
 
-<div id="errormessage" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">ErrorMessage</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">moddy</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#ede9fe;color:#4338ca;border:1px solid #c7d2fe;">implements <a href="#message">Message</a></span>
+<div id="errormessage" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>ErrorMessage</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>moddy</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#ede9fe', color: '#4338ca', border: '1px solid #c7d2fe'}}>implements <a href="#message">Message</a></span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -1847,10 +1847,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="exchangeauthorizationresult" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">ExchangeAuthorizationResult</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">authz</span>
+<div id="exchangeauthorizationresult" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>ExchangeAuthorizationResult</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>authz</span>
 </div>
 <p>Result of exchanging an authorization code.</p>
 <table>
@@ -1862,10 +1862,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="filechangeconnection" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">FileChangeConnection</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">corechangeset</span>
+<div id="filechangeconnection" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>FileChangeConnection</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>corechangeset</span>
 </div>
 <p>Connection for file changes with aggregate statistics.</p>
 <table>
@@ -1881,10 +1881,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="filechangeedge" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">FileChangeEdge</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">corechangeset</span>
+<div id="filechangeedge" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>FileChangeEdge</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>corechangeset</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -1895,12 +1895,12 @@ hide_title: true
 </table>
 </div>
 
-<div id="forkandpullrequestcommitsucceeded" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">ForkAndPullRequestCommitSucceeded</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changesetcommitter</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#ede9fe;color:#4338ca;border:1px solid #c7d2fe;">implements <a href="#repositorycommitsucceeded">RepositoryCommitSucceeded</a></span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#ede9fe;color:#4338ca;border:1px solid #c7d2fe;">implements <a href="#repositorycommit">RepositoryCommit</a></span>
+<div id="forkandpullrequestcommitsucceeded" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>ForkAndPullRequestCommitSucceeded</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetcommitter</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#ede9fe', color: '#4338ca', border: '1px solid #c7d2fe'}}>implements <a href="#repositorycommitsucceeded">RepositoryCommitSucceeded</a></span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#ede9fe', color: '#4338ca', border: '1px solid #c7d2fe'}}>implements <a href="#repositorycommit">RepositoryCommit</a></span>
 </div>
 <p>Fork and pull request commit completed successfully.</p>
 <table>
@@ -1915,11 +1915,11 @@ hide_title: true
 </table>
 </div>
 
-<div id="forkcommitoptions" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">ForkCommitOptions</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changesetcommitter</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#ede9fe;color:#4338ca;border:1px solid #c7d2fe;">implements <a href="#commitoptions">CommitOptions</a></span>
+<div id="forkcommitoptions" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>ForkCommitOptions</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetcommitter</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#ede9fe', color: '#4338ca', border: '1px solid #c7d2fe'}}>implements <a href="#commitoptions">CommitOptions</a></span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -1931,12 +1931,12 @@ hide_title: true
 </table>
 </div>
 
-<div id="forkcommitsucceeded" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">ForkCommitSucceeded</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changesetcommitter</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#ede9fe;color:#4338ca;border:1px solid #c7d2fe;">implements <a href="#repositorycommitsucceeded">RepositoryCommitSucceeded</a></span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#ede9fe;color:#4338ca;border:1px solid #c7d2fe;">implements <a href="#repositorycommit">RepositoryCommit</a></span>
+<div id="forkcommitsucceeded" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>ForkCommitSucceeded</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetcommitter</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#ede9fe', color: '#4338ca', border: '1px solid #c7d2fe'}}>implements <a href="#repositorycommitsucceeded">RepositoryCommitSucceeded</a></span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#ede9fe', color: '#4338ca', border: '1px solid #c7d2fe'}}>implements <a href="#repositorycommit">RepositoryCommit</a></span>
 </div>
 <p>Fork commit completed successfully.</p>
 <table>
@@ -1950,11 +1950,11 @@ hide_title: true
 </table>
 </div>
 
-<div id="forkpullrequestoptions" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">ForkPullRequestOptions</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changesetcommitter</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#ede9fe;color:#4338ca;border:1px solid #c7d2fe;">implements <a href="#commitoptions">CommitOptions</a></span>
+<div id="forkpullrequestoptions" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>ForkPullRequestOptions</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetcommitter</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#ede9fe', color: '#4338ca', border: '1px solid #c7d2fe'}}>implements <a href="#commitoptions">CommitOptions</a></span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -1972,10 +1972,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="generichttptoolconfiguration" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">GenericHttpToolConfiguration</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">gateway</span>
+<div id="generichttptoolconfiguration" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>GenericHttpToolConfiguration</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>gateway</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -1988,10 +1988,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="gitlabconfiguration" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">GitLabConfiguration</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">gateway</span>
+<div id="gitlabconfiguration" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>GitLabConfiguration</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>gateway</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -2005,11 +2005,11 @@ hide_title: true
 </table>
 </div>
 
-<div id="gitlabconnection" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">GitLabConnection</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">authz</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#ede9fe;color:#4338ca;border:1px solid #c7d2fe;">implements <a href="#scmconnection">ScmConnection</a></span>
+<div id="gitlabconnection" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>GitLabConnection</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>authz</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#ede9fe', color: '#4338ca', border: '1px solid #c7d2fe'}}>implements <a href="#scmconnection">ScmConnection</a></span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -2021,10 +2021,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="gitlaboauth" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">GitLabOauth</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">gateway</span>
+<div id="gitlaboauth" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>GitLabOauth</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>gateway</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -2034,10 +2034,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="githubconfiguration" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">GithubConfiguration</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">gateway</span>
+<div id="githubconfiguration" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>GithubConfiguration</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>gateway</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -2052,11 +2052,11 @@ hide_title: true
 </table>
 </div>
 
-<div id="githubconnection" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">GithubConnection</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">authz</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#ede9fe;color:#4338ca;border:1px solid #c7d2fe;">implements <a href="#scmconnection">ScmConnection</a></span>
+<div id="githubconnection" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>GithubConnection</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>authz</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#ede9fe', color: '#4338ca', border: '1px solid #c7d2fe'}}>implements <a href="#scmconnection">ScmConnection</a></span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -2068,10 +2068,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="githuboauth" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">GithubOauth</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">gateway</span>
+<div id="githuboauth" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>GithubOauth</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>gateway</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -2082,11 +2082,11 @@ hide_title: true
 </table>
 </div>
 
-<div id="gorecipebundle" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">GoRecipeBundle</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changesetreader</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#ede9fe;color:#4338ca;border:1px solid #c7d2fe;">implements <a href="#recipebundle">RecipeBundle</a></span>
+<div id="gorecipebundle" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>GoRecipeBundle</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetreader</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#ede9fe', color: '#4338ca', border: '1px solid #c7d2fe'}}>implements <a href="#recipebundle">RecipeBundle</a></span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -2099,10 +2099,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="httptoolconnectivity" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">HttpToolConnectivity</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">gateway</span>
+<div id="httptoolconnectivity" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>HttpToolConnectivity</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>gateway</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -2113,10 +2113,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="license" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">License</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">authz</span>
+<div id="license" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>License</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>authz</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -2126,10 +2126,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="llmconfiguration" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">LlmConfiguration</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">gateway</span>
+<div id="llmconfiguration" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>LlmConfiguration</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>gateway</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -2143,10 +2143,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="lstartifact" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">LstArtifact</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">organization</span>
+<div id="lstartifact" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>LstArtifact</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>organization</span>
 </div>
 <p>The LST artifact for a repository - the precomputed Lossless Semantic Tree that recipe runs consume. Every repository has a conceptual artifact; `published` reflects the upstream `mod publish` timestamp, while `available` indicates whether the saas can route a recipe run to it yet.</p>
 <table>
@@ -2158,11 +2158,11 @@ hide_title: true
 </table>
 </div>
 
-<div id="markup" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">Markup</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">corechangeset</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#ede9fe;color:#4338ca;border:1px solid #c7d2fe;">implements <a href="#marker">Marker</a></span>
+<div id="markup" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>Markup</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>corechangeset</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#ede9fe', color: '#4338ca', border: '1px solid #c7d2fe'}}>implements <a href="#marker">Marker</a></span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -2175,10 +2175,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="mavenconfiguration" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">MavenConfiguration</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">gateway</span>
+<div id="mavenconfiguration" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>MavenConfiguration</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>gateway</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -2193,11 +2193,11 @@ hide_title: true
 </table>
 </div>
 
-<div id="mavenrecipebundle" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">MavenRecipeBundle</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changesetreader</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#ede9fe;color:#4338ca;border:1px solid #c7d2fe;">implements <a href="#recipebundle">RecipeBundle</a></span>
+<div id="mavenrecipebundle" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>MavenRecipeBundle</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetreader</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#ede9fe', color: '#4338ca', border: '1px solid #c7d2fe'}}>implements <a href="#recipebundle">RecipeBundle</a></span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -2212,10 +2212,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="mergeoptions" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">MergeOptions</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changesetcommitter</span>
+<div id="mergeoptions" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>MergeOptions</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetcommitter</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -2226,10 +2226,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="messageconnection" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">MessageConnection</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">moddy</span>
+<div id="messageconnection" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>MessageConnection</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>moddy</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -2240,10 +2240,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="messageedge" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">MessageEdge</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">moddy</span>
+<div id="messageedge" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>MessageEdge</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>moddy</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -2254,10 +2254,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="moddy" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">Moddy</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">moddy</span>
+<div id="moddy" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>Moddy</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>moddy</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -2271,10 +2271,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="morehelplink" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">MoreHelpLink</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">gateway</span>
+<div id="morehelplink" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>MoreHelpLink</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>gateway</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -2285,10 +2285,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="npmconfiguration" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">NpmConfiguration</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">gateway</span>
+<div id="npmconfiguration" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>NpmConfiguration</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>gateway</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -2301,11 +2301,11 @@ hide_title: true
 </table>
 </div>
 
-<div id="npmrecipebundle" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">NpmRecipeBundle</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changesetreader</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#ede9fe;color:#4338ca;border:1px solid #c7d2fe;">implements <a href="#recipebundle">RecipeBundle</a></span>
+<div id="npmrecipebundle" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>NpmRecipeBundle</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetreader</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#ede9fe', color: '#4338ca', border: '1px solid #c7d2fe'}}>implements <a href="#recipebundle">RecipeBundle</a></span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -2318,10 +2318,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="nugetconfiguration" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">NugetConfiguration</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">gateway</span>
+<div id="nugetconfiguration" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>NugetConfiguration</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>gateway</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -2334,11 +2334,11 @@ hide_title: true
 </table>
 </div>
 
-<div id="nugetrecipebundle" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">NugetRecipeBundle</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changesetreader</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#ede9fe;color:#4338ca;border:1px solid #c7d2fe;">implements <a href="#recipebundle">RecipeBundle</a></span>
+<div id="nugetrecipebundle" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>NugetRecipeBundle</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetreader</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#ede9fe', color: '#4338ca', border: '1px solid #c7d2fe'}}>implements <a href="#recipebundle">RecipeBundle</a></span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -2351,10 +2351,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="oauthauthorization" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">OAuthAuthorization</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">authz</span>
+<div id="oauthauthorization" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>OAuthAuthorization</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>authz</span>
 </div>
 <p>Represents a pending OAuth authorization. The UI should redirect to authorizationUrl, then call exchangeAuthorizationCode with the id and extracted callback parameters.</p>
 <table>
@@ -2368,10 +2368,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="option" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">Option</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changesetreader</span>
+<div id="option" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>Option</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetreader</span>
 </div>
 <p>RecipeDescriptor resolved from changeset-specific recipes.csv. When a recipe run is created, the recipes.csv is copied to the changeset directory, so we can resolve the recipe that was used at the time of the run (not the current global state).</p>
 <table>
@@ -2389,10 +2389,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="organization" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">Organization</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changelogreader</span>
+<div id="organization" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>Organization</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changelogreader</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -2414,10 +2414,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="organizationchangeset" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">OrganizationChangeset</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changelogreader</span>
+<div id="organizationchangeset" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>OrganizationChangeset</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changelogreader</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -2435,10 +2435,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="organizationchangesetconnection" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">OrganizationChangesetConnection</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">corechangeset</span>
+<div id="organizationchangesetconnection" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>OrganizationChangesetConnection</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>corechangeset</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -2450,10 +2450,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="organizationchangesetedge" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">OrganizationChangesetEdge</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">corechangeset</span>
+<div id="organizationchangesetedge" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>OrganizationChangesetEdge</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>corechangeset</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -2465,11 +2465,11 @@ hide_title: true
 </table>
 </div>
 
-<div id="organizationcommitcanceled" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">OrganizationCommitCanceled</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changesetcommitter</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#ede9fe;color:#4338ca;border:1px solid #c7d2fe;">implements <a href="#organizationcommit">OrganizationCommit</a></span>
+<div id="organizationcommitcanceled" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>OrganizationCommitCanceled</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetcommitter</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#ede9fe', color: '#4338ca', border: '1px solid #c7d2fe'}}>implements <a href="#organizationcommit">OrganizationCommit</a></span>
 </div>
 <p>Commit was canceled before completion.</p>
 <table>
@@ -2488,10 +2488,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="organizationcommitconnection" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">OrganizationCommitConnection</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changesetcommitter</span>
+<div id="organizationcommitconnection" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>OrganizationCommitConnection</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetcommitter</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -2503,10 +2503,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="organizationcommitedge" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">OrganizationCommitEdge</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changesetcommitter</span>
+<div id="organizationcommitedge" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>OrganizationCommitEdge</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetcommitter</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -2517,11 +2517,11 @@ hide_title: true
 </table>
 </div>
 
-<div id="organizationcommiterror" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">OrganizationCommitError</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changesetcommitter</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#ede9fe;color:#4338ca;border:1px solid #c7d2fe;">implements <a href="#organizationcommit">OrganizationCommit</a></span>
+<div id="organizationcommiterror" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>OrganizationCommitError</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetcommitter</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#ede9fe', color: '#4338ca', border: '1px solid #c7d2fe'}}>implements <a href="#organizationcommit">OrganizationCommit</a></span>
 </div>
 <p>Commit failed with an error.</p>
 <table>
@@ -2540,11 +2540,11 @@ hide_title: true
 </table>
 </div>
 
-<div id="organizationcommitfinished" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">OrganizationCommitFinished</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changesetcommitter</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#ede9fe;color:#4338ca;border:1px solid #c7d2fe;">implements <a href="#organizationcommit">OrganizationCommit</a></span>
+<div id="organizationcommitfinished" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>OrganizationCommitFinished</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetcommitter</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#ede9fe', color: '#4338ca', border: '1px solid #c7d2fe'}}>implements <a href="#organizationcommit">OrganizationCommit</a></span>
 </div>
 <p>Commit completed successfully (all or partial success).</p>
 <table>
@@ -2562,11 +2562,11 @@ hide_title: true
 </table>
 </div>
 
-<div id="organizationcommitqueued" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">OrganizationCommitQueued</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changesetcommitter</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#ede9fe;color:#4338ca;border:1px solid #c7d2fe;">implements <a href="#organizationcommit">OrganizationCommit</a></span>
+<div id="organizationcommitqueued" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>OrganizationCommitQueued</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetcommitter</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#ede9fe', color: '#4338ca', border: '1px solid #c7d2fe'}}>implements <a href="#organizationcommit">OrganizationCommit</a></span>
 </div>
 <p>Commit is queued and waiting to be processed.</p>
 <table>
@@ -2583,11 +2583,11 @@ hide_title: true
 </table>
 </div>
 
-<div id="organizationcommitrunning" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">OrganizationCommitRunning</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changesetcommitter</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#ede9fe;color:#4338ca;border:1px solid #c7d2fe;">implements <a href="#organizationcommit">OrganizationCommit</a></span>
+<div id="organizationcommitrunning" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>OrganizationCommitRunning</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetcommitter</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#ede9fe', color: '#4338ca', border: '1px solid #c7d2fe'}}>implements <a href="#organizationcommit">OrganizationCommit</a></span>
 </div>
 <p>Commit is actively being processed across repositories.</p>
 <table>
@@ -2604,10 +2604,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="organizationconfiguration" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">OrganizationConfiguration</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">gateway</span>
+<div id="organizationconfiguration" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>OrganizationConfiguration</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>gateway</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -2620,10 +2620,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="organizationconnection" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">OrganizationConnection</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">organization</span>
+<div id="organizationconnection" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>OrganizationConnection</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>organization</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -2635,10 +2635,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="organizationedge" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">OrganizationEdge</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">organization</span>
+<div id="organizationedge" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>OrganizationEdge</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>organization</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -2649,10 +2649,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="organizationreciperun" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">OrganizationRecipeRun</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changelogreader</span>
+<div id="organizationreciperun" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>OrganizationRecipeRun</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changelogreader</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -2674,12 +2674,12 @@ hide_title: true
 </table>
 </div>
 
-<div id="organizationreciperuncanceled" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">OrganizationRecipeRunCanceled</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changesetreader</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#ede9fe;color:#4338ca;border:1px solid #c7d2fe;">implements <a href="#organizationchangeset">OrganizationChangeset</a></span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#ede9fe;color:#4338ca;border:1px solid #c7d2fe;">implements <a href="#organizationreciperun">OrganizationRecipeRun</a></span>
+<div id="organizationreciperuncanceled" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>OrganizationRecipeRunCanceled</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetreader</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#ede9fe', color: '#4338ca', border: '1px solid #c7d2fe'}}>implements <a href="#organizationchangeset">OrganizationChangeset</a></span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#ede9fe', color: '#4338ca', border: '1px solid #c7d2fe'}}>implements <a href="#organizationreciperun">OrganizationRecipeRun</a></span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -2702,10 +2702,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="organizationreciperunconnection" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">OrganizationRecipeRunConnection</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changesetreader</span>
+<div id="organizationreciperunconnection" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>OrganizationRecipeRunConnection</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetreader</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -2717,10 +2717,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="organizationreciperunedge" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">OrganizationRecipeRunEdge</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changesetreader</span>
+<div id="organizationreciperunedge" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>OrganizationRecipeRunEdge</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetreader</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -2731,12 +2731,12 @@ hide_title: true
 </table>
 </div>
 
-<div id="organizationreciperunerror" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">OrganizationRecipeRunError</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changesetreader</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#ede9fe;color:#4338ca;border:1px solid #c7d2fe;">implements <a href="#organizationchangeset">OrganizationChangeset</a></span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#ede9fe;color:#4338ca;border:1px solid #c7d2fe;">implements <a href="#organizationreciperun">OrganizationRecipeRun</a></span>
+<div id="organizationreciperunerror" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>OrganizationRecipeRunError</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetreader</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#ede9fe', color: '#4338ca', border: '1px solid #c7d2fe'}}>implements <a href="#organizationchangeset">OrganizationChangeset</a></span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#ede9fe', color: '#4338ca', border: '1px solid #c7d2fe'}}>implements <a href="#organizationreciperun">OrganizationRecipeRun</a></span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -2759,12 +2759,12 @@ hide_title: true
 </table>
 </div>
 
-<div id="organizationreciperunfinished" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">OrganizationRecipeRunFinished</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changesetreader</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#ede9fe;color:#4338ca;border:1px solid #c7d2fe;">implements <a href="#organizationchangeset">OrganizationChangeset</a></span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#ede9fe;color:#4338ca;border:1px solid #c7d2fe;">implements <a href="#organizationreciperun">OrganizationRecipeRun</a></span>
+<div id="organizationreciperunfinished" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>OrganizationRecipeRunFinished</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetreader</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#ede9fe', color: '#4338ca', border: '1px solid #c7d2fe'}}>implements <a href="#organizationchangeset">OrganizationChangeset</a></span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#ede9fe', color: '#4338ca', border: '1px solid #c7d2fe'}}>implements <a href="#organizationreciperun">OrganizationRecipeRun</a></span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -2788,12 +2788,12 @@ hide_title: true
 </table>
 </div>
 
-<div id="organizationreciperunqueued" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">OrganizationRecipeRunQueued</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changesetreader</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#ede9fe;color:#4338ca;border:1px solid #c7d2fe;">implements <a href="#organizationchangeset">OrganizationChangeset</a></span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#ede9fe;color:#4338ca;border:1px solid #c7d2fe;">implements <a href="#organizationreciperun">OrganizationRecipeRun</a></span>
+<div id="organizationreciperunqueued" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>OrganizationRecipeRunQueued</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetreader</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#ede9fe', color: '#4338ca', border: '1px solid #c7d2fe'}}>implements <a href="#organizationchangeset">OrganizationChangeset</a></span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#ede9fe', color: '#4338ca', border: '1px solid #c7d2fe'}}>implements <a href="#organizationreciperun">OrganizationRecipeRun</a></span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -2814,12 +2814,12 @@ hide_title: true
 </table>
 </div>
 
-<div id="organizationreciperunrunning" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">OrganizationRecipeRunRunning</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changesetreader</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#ede9fe;color:#4338ca;border:1px solid #c7d2fe;">implements <a href="#organizationchangeset">OrganizationChangeset</a></span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#ede9fe;color:#4338ca;border:1px solid #c7d2fe;">implements <a href="#organizationreciperun">OrganizationRecipeRun</a></span>
+<div id="organizationreciperunrunning" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>OrganizationRecipeRunRunning</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetreader</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#ede9fe', color: '#4338ca', border: '1px solid #c7d2fe'}}>implements <a href="#organizationchangeset">OrganizationChangeset</a></span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#ede9fe', color: '#4338ca', border: '1px solid #c7d2fe'}}>implements <a href="#organizationreciperun">OrganizationRecipeRun</a></span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -2841,12 +2841,12 @@ hide_title: true
 </table>
 </div>
 
-<div id="organizationreciperunsyncing" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">OrganizationRecipeRunSyncing</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changesetreader</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#ede9fe;color:#4338ca;border:1px solid #c7d2fe;">implements <a href="#organizationchangeset">OrganizationChangeset</a></span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#ede9fe;color:#4338ca;border:1px solid #c7d2fe;">implements <a href="#organizationreciperun">OrganizationRecipeRun</a></span>
+<div id="organizationreciperunsyncing" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>OrganizationRecipeRunSyncing</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetreader</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#ede9fe', color: '#4338ca', border: '1px solid #c7d2fe'}}>implements <a href="#organizationchangeset">OrganizationChangeset</a></span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#ede9fe', color: '#4338ca', border: '1px solid #c7d2fe'}}>implements <a href="#organizationreciperun">OrganizationRecipeRun</a></span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -2867,10 +2867,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="pageinfo" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">PageInfo</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">coregraphql</span>
+<div id="pageinfo" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>PageInfo</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>coregraphql</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -2883,10 +2883,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="patch" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">Patch</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">corechangeset</span>
+<div id="patch" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>Patch</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>corechangeset</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -2898,10 +2898,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="personalaccesstokenconfiguration" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">PersonalAccessTokenConfiguration</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">gateway</span>
+<div id="personalaccesstokenconfiguration" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>PersonalAccessTokenConfiguration</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>gateway</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -2911,11 +2911,11 @@ hide_title: true
 </table>
 </div>
 
-<div id="piprecipebundle" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">PipRecipeBundle</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changesetreader</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#ede9fe;color:#4338ca;border:1px solid #c7d2fe;">implements <a href="#recipebundle">RecipeBundle</a></span>
+<div id="piprecipebundle" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>PipRecipeBundle</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetreader</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#ede9fe', color: '#4338ca', border: '1px solid #c7d2fe'}}>implements <a href="#recipebundle">RecipeBundle</a></span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -2928,10 +2928,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="platformcapabilities" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">PlatformCapabilities</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">artifactsmaven</span>
+<div id="platformcapabilities" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>PlatformCapabilities</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>artifactsmaven</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -2947,10 +2947,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="profiling" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">Profiling</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">gateway</span>
+<div id="profiling" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>Profiling</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>gateway</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -2961,10 +2961,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="profilingsession" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">ProfilingSession</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">gateway</span>
+<div id="profilingsession" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>ProfilingSession</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>gateway</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -2976,10 +2976,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="prompt" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">Prompt</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">moddy</span>
+<div id="prompt" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>Prompt</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>moddy</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -2991,11 +2991,11 @@ hide_title: true
 </table>
 </div>
 
-<div id="pullrequestactioncanceled" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">PullRequestActionCanceled</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changelogreader</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#ede9fe;color:#4338ca;border:1px solid #c7d2fe;">implements <a href="#pullrequestaction">PullRequestAction</a></span>
+<div id="pullrequestactioncanceled" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>PullRequestActionCanceled</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changelogreader</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#ede9fe', color: '#4338ca', border: '1px solid #c7d2fe'}}>implements <a href="#pullrequestaction">PullRequestAction</a></span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -3006,10 +3006,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="pullrequestactionconnection" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">PullRequestActionConnection</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changelogreader</span>
+<div id="pullrequestactionconnection" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>PullRequestActionConnection</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changelogreader</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -3021,10 +3021,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="pullrequestactionedge" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">PullRequestActionEdge</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changelogreader</span>
+<div id="pullrequestactionedge" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>PullRequestActionEdge</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changelogreader</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -3035,11 +3035,11 @@ hide_title: true
 </table>
 </div>
 
-<div id="pullrequestactionfailed" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">PullRequestActionFailed</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changelogreader</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#ede9fe;color:#4338ca;border:1px solid #c7d2fe;">implements <a href="#pullrequestaction">PullRequestAction</a></span>
+<div id="pullrequestactionfailed" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>PullRequestActionFailed</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changelogreader</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#ede9fe', color: '#4338ca', border: '1px solid #c7d2fe'}}>implements <a href="#pullrequestaction">PullRequestAction</a></span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -3052,11 +3052,11 @@ hide_title: true
 </table>
 </div>
 
-<div id="pullrequestactionqueued" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">PullRequestActionQueued</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changelogreader</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#ede9fe;color:#4338ca;border:1px solid #c7d2fe;">implements <a href="#pullrequestaction">PullRequestAction</a></span>
+<div id="pullrequestactionqueued" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>PullRequestActionQueued</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changelogreader</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#ede9fe', color: '#4338ca', border: '1px solid #c7d2fe'}}>implements <a href="#pullrequestaction">PullRequestAction</a></span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -3066,11 +3066,11 @@ hide_title: true
 </table>
 </div>
 
-<div id="pullrequestactionrunning" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">PullRequestActionRunning</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changelogreader</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#ede9fe;color:#4338ca;border:1px solid #c7d2fe;">implements <a href="#pullrequestaction">PullRequestAction</a></span>
+<div id="pullrequestactionrunning" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>PullRequestActionRunning</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changelogreader</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#ede9fe', color: '#4338ca', border: '1px solid #c7d2fe'}}>implements <a href="#pullrequestaction">PullRequestAction</a></span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -3081,11 +3081,11 @@ hide_title: true
 </table>
 </div>
 
-<div id="pullrequestactionsucceeded" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">PullRequestActionSucceeded</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changelogreader</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#ede9fe;color:#4338ca;border:1px solid #c7d2fe;">implements <a href="#pullrequestaction">PullRequestAction</a></span>
+<div id="pullrequestactionsucceeded" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>PullRequestActionSucceeded</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changelogreader</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#ede9fe', color: '#4338ca', border: '1px solid #c7d2fe'}}>implements <a href="#pullrequestaction">PullRequestAction</a></span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -3097,12 +3097,12 @@ hide_title: true
 </table>
 </div>
 
-<div id="pullrequestcommitsucceeded" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">PullRequestCommitSucceeded</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changesetcommitter</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#ede9fe;color:#4338ca;border:1px solid #c7d2fe;">implements <a href="#repositorycommitsucceeded">RepositoryCommitSucceeded</a></span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#ede9fe;color:#4338ca;border:1px solid #c7d2fe;">implements <a href="#repositorycommit">RepositoryCommit</a></span>
+<div id="pullrequestcommitsucceeded" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>PullRequestCommitSucceeded</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetcommitter</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#ede9fe', color: '#4338ca', border: '1px solid #c7d2fe'}}>implements <a href="#repositorycommitsucceeded">RepositoryCommitSucceeded</a></span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#ede9fe', color: '#4338ca', border: '1px solid #c7d2fe'}}>implements <a href="#repositorycommit">RepositoryCommit</a></span>
 </div>
 <p>Pull request commit completed successfully.</p>
 <table>
@@ -3117,11 +3117,11 @@ hide_title: true
 </table>
 </div>
 
-<div id="pullrequestoptions" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">PullRequestOptions</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changesetcommitter</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#ede9fe;color:#4338ca;border:1px solid #c7d2fe;">implements <a href="#commitoptions">CommitOptions</a></span>
+<div id="pullrequestoptions" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>PullRequestOptions</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetcommitter</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#ede9fe', color: '#4338ca', border: '1px solid #c7d2fe'}}>implements <a href="#commitoptions">CommitOptions</a></span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -3136,10 +3136,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="pullrequestref" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">PullRequestRef</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changelogreader</span>
+<div id="pullrequestref" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>PullRequestRef</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changelogreader</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -3152,10 +3152,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="pullrequeststatus" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">PullRequestStatus</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changesetcommitter</span>
+<div id="pullrequeststatus" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>PullRequestStatus</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetcommitter</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -3169,10 +3169,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="pypiconfiguration" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">PypiConfiguration</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">gateway</span>
+<div id="pypiconfiguration" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>PypiConfiguration</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>gateway</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -3185,10 +3185,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="recipebundleconnection" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">RecipeBundleConnection</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">recipemarketplace</span>
+<div id="recipebundleconnection" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RecipeBundleConnection</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>recipemarketplace</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -3200,10 +3200,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="recipebundleedge" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">RecipeBundleEdge</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">recipemarketplace</span>
+<div id="recipebundleedge" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RecipeBundleEdge</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>recipemarketplace</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -3214,10 +3214,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="recipecategory" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">RecipeCategory</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">recipemarketplace</span>
+<div id="recipecategory" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RecipeCategory</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>recipemarketplace</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -3233,10 +3233,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="recipecategoryconnection" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">RecipeCategoryConnection</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">recipemarketplace</span>
+<div id="recipecategoryconnection" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RecipeCategoryConnection</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>recipemarketplace</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -3248,10 +3248,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="recipecategoryedge" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">RecipeCategoryEdge</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">recipemarketplace</span>
+<div id="recipecategoryedge" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RecipeCategoryEdge</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>recipemarketplace</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -3262,10 +3262,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="recipedescriptor" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">RecipeDescriptor</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changesetreader</span>
+<div id="recipedescriptor" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RecipeDescriptor</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetreader</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -3284,10 +3284,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="recipedescriptorconnection" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">RecipeDescriptorConnection</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">recipemarketplace</span>
+<div id="recipedescriptorconnection" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RecipeDescriptorConnection</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>recipemarketplace</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -3299,10 +3299,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="recipedescriptoredge" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">RecipeDescriptorEdge</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">recipemarketplace</span>
+<div id="recipedescriptoredge" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RecipeDescriptorEdge</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>recipemarketplace</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -3314,11 +3314,11 @@ hide_title: true
 </table>
 </div>
 
-<div id="recipedetailerror" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">RecipeDetailError</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">recipemarketplace</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#ede9fe;color:#4338ca;border:1px solid #c7d2fe;">implements <a href="#recipedetail">RecipeDetail</a></span>
+<div id="recipedetailerror" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RecipeDetailError</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>recipemarketplace</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#ede9fe', color: '#4338ca', border: '1px solid #c7d2fe'}}>implements <a href="#recipedetail">RecipeDetail</a></span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -3330,11 +3330,11 @@ hide_title: true
 </table>
 </div>
 
-<div id="recipedetailfinished" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">RecipeDetailFinished</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">recipemarketplace</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#ede9fe;color:#4338ca;border:1px solid #c7d2fe;">implements <a href="#recipedetail">RecipeDetail</a></span>
+<div id="recipedetailfinished" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RecipeDetailFinished</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>recipemarketplace</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#ede9fe', color: '#4338ca', border: '1px solid #c7d2fe'}}>implements <a href="#recipedetail">RecipeDetail</a></span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -3349,11 +3349,11 @@ hide_title: true
 </table>
 </div>
 
-<div id="recipedetailloading" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">RecipeDetailLoading</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">recipemarketplace</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#ede9fe;color:#4338ca;border:1px solid #c7d2fe;">implements <a href="#recipedetail">RecipeDetail</a></span>
+<div id="recipedetailloading" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RecipeDetailLoading</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>recipemarketplace</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#ede9fe', color: '#4338ca', border: '1px solid #c7d2fe'}}>implements <a href="#recipedetail">RecipeDetail</a></span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -3363,10 +3363,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="recipegraph" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">RecipeGraph</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">recipemarketplace</span>
+<div id="recipegraph" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RecipeGraph</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>recipemarketplace</span>
 </div>
 <p>Flat vertices-and-edges representation of a composite recipe with `org.openrewrite.Singleton` deduplication pre-applied. Produced by the marketplace backend and served to visualization clients in one round trip.</p>
 <table>
@@ -3379,10 +3379,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="recipegraphedge" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">RecipeGraphEdge</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">recipemarketplace</span>
+<div id="recipegraphedge" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RecipeGraphEdge</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>recipemarketplace</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -3394,10 +3394,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="recipegraphvertex" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">RecipeGraphVertex</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">recipemarketplace</span>
+<div id="recipegraphvertex" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RecipeGraphVertex</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>recipemarketplace</span>
 </div>
 <p>A vertex in a RecipeGraph: a full recipe occurrence with its configured options. Recipes that declare `org.openrewrite.Singleton` as a precondition are deduplicated — additional occurrences are expressed as REFERENCE edges pointing back to the first occurrence rather than as separate vertices.</p>
 <table>
@@ -3410,10 +3410,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="recipeinstallationconnection" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">RecipeInstallationConnection</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">recipemarketplace</span>
+<div id="recipeinstallationconnection" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RecipeInstallationConnection</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>recipemarketplace</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -3425,10 +3425,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="recipeinstallationedge" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">RecipeInstallationEdge</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">recipemarketplace</span>
+<div id="recipeinstallationedge" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RecipeInstallationEdge</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>recipemarketplace</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -3442,11 +3442,11 @@ hide_title: true
 </table>
 </div>
 
-<div id="recipeinstallationerror" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">RecipeInstallationError</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">recipemarketplace</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#ede9fe;color:#4338ca;border:1px solid #c7d2fe;">implements <a href="#recipeinstallation">RecipeInstallation</a></span>
+<div id="recipeinstallationerror" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RecipeInstallationError</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>recipemarketplace</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#ede9fe', color: '#4338ca', border: '1px solid #c7d2fe'}}>implements <a href="#recipeinstallation">RecipeInstallation</a></span>
 </div>
 <p>Installation failed with an error.</p>
 <table>
@@ -3461,11 +3461,11 @@ hide_title: true
 </table>
 </div>
 
-<div id="recipeinstallationfinished" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">RecipeInstallationFinished</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">recipemarketplace</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#ede9fe;color:#4338ca;border:1px solid #c7d2fe;">implements <a href="#recipeinstallation">RecipeInstallation</a></span>
+<div id="recipeinstallationfinished" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RecipeInstallationFinished</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>recipemarketplace</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#ede9fe', color: '#4338ca', border: '1px solid #c7d2fe'}}>implements <a href="#recipeinstallation">RecipeInstallation</a></span>
 </div>
 <p>Installation completed successfully.</p>
 <table>
@@ -3480,11 +3480,11 @@ hide_title: true
 </table>
 </div>
 
-<div id="recipeinstallationprocessing" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">RecipeInstallationProcessing</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">recipemarketplace</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#ede9fe;color:#4338ca;border:1px solid #c7d2fe;">implements <a href="#recipeinstallation">RecipeInstallation</a></span>
+<div id="recipeinstallationprocessing" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RecipeInstallationProcessing</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>recipemarketplace</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#ede9fe', color: '#4338ca', border: '1px solid #c7d2fe'}}>implements <a href="#recipeinstallation">RecipeInstallation</a></span>
 </div>
 <p>Installation is actively loading and resolving the recipe bundle.</p>
 <table>
@@ -3498,11 +3498,11 @@ hide_title: true
 </table>
 </div>
 
-<div id="recipeinstallationqueued" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">RecipeInstallationQueued</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">recipemarketplace</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#ede9fe;color:#4338ca;border:1px solid #c7d2fe;">implements <a href="#recipeinstallation">RecipeInstallation</a></span>
+<div id="recipeinstallationqueued" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RecipeInstallationQueued</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>recipemarketplace</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#ede9fe', color: '#4338ca', border: '1px solid #c7d2fe'}}>implements <a href="#recipeinstallation">RecipeInstallation</a></span>
 </div>
 <p>Installation is queued and waiting to be processed.</p>
 <table>
@@ -3515,10 +3515,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="recipemarketplace" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">RecipeMarketplace</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">recipemarketplace</span>
+<div id="recipemarketplace" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RecipeMarketplace</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>recipemarketplace</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -3530,10 +3530,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="recipeoptionvalue" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">RecipeOptionValue</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changesetreader</span>
+<div id="recipeoptionvalue" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RecipeOptionValue</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetreader</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -3544,11 +3544,11 @@ hide_title: true
 </table>
 </div>
 
-<div id="recipeoptionsmessage" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">RecipeOptionsMessage</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">moddy</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#ede9fe;color:#4338ca;border:1px solid #c7d2fe;">implements <a href="#message">Message</a></span>
+<div id="recipeoptionsmessage" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RecipeOptionsMessage</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>moddy</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#ede9fe', color: '#4338ca', border: '1px solid #c7d2fe'}}>implements <a href="#message">Message</a></span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -3562,11 +3562,11 @@ hide_title: true
 </table>
 </div>
 
-<div id="reciperunfilechange" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">RecipeRunFileChange</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changesetreader</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#ede9fe;color:#4338ca;border:1px solid #c7d2fe;">implements <a href="#filechange">FileChange</a></span>
+<div id="reciperunfilechange" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RecipeRunFileChange</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetreader</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#ede9fe', color: '#4338ca', border: '1px solid #c7d2fe'}}>implements <a href="#filechange">FileChange</a></span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -3580,11 +3580,11 @@ hide_title: true
 </table>
 </div>
 
-<div id="reciperunmessage" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">RecipeRunMessage</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">moddy</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#ede9fe;color:#4338ca;border:1px solid #c7d2fe;">implements <a href="#message">Message</a></span>
+<div id="reciperunmessage" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RecipeRunMessage</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>moddy</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#ede9fe', color: '#4338ca', border: '1px solid #c7d2fe'}}>implements <a href="#message">Message</a></span>
 </div>
 <p>Long-running recipe execution started by the LLM. Carries a typed progress envelope while IN_PROGRESS — clients should read `progress` rather than poking at a free-form payload. When the run reaches a terminal state, `recipeRun` resolves via federation.</p>
 <table>
@@ -3600,10 +3600,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="reciperunprogress" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">RecipeRunProgress</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">moddy</span>
+<div id="reciperunprogress" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RecipeRunProgress</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>moddy</span>
 </div>
 <p>Typed progress envelope for an in-flight recipe run.</p>
 <table>
@@ -3618,10 +3618,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="reciperuntotals" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">RecipeRunTotals</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changesetreader</span>
+<div id="reciperuntotals" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RecipeRunTotals</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetreader</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -3640,11 +3640,11 @@ hide_title: true
 </table>
 </div>
 
-<div id="recipesearchmessage" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">RecipeSearchMessage</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">moddy</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#ede9fe;color:#4338ca;border:1px solid #c7d2fe;">implements <a href="#message">Message</a></span>
+<div id="recipesearchmessage" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RecipeSearchMessage</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>moddy</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#ede9fe', color: '#4338ca', border: '1px solid #c7d2fe'}}>implements <a href="#message">Message</a></span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -3658,10 +3658,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="recipeuninstallation" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">RecipeUninstallation</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">recipemarketplace</span>
+<div id="recipeuninstallation" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RecipeUninstallation</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>recipemarketplace</span>
 </div>
 <p>Result of an uninstall operation.</p>
 <table>
@@ -3672,10 +3672,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="reindexresult" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">ReindexResult</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changelogwriter</span>
+<div id="reindexresult" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>ReindexResult</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changelogwriter</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -3686,10 +3686,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="repository" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">Repository</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changelogreader</span>
+<div id="repository" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>Repository</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changelogreader</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -3703,10 +3703,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="repositoryauthorization" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">RepositoryAuthorization</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">corechangeset</span>
+<div id="repositoryauthorization" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RepositoryAuthorization</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>corechangeset</span>
 </div>
 <p>Authorization status for accessing repository content. Resolved by the changeset reader using a batch check against the authorization service.</p>
 <table>
@@ -3718,11 +3718,11 @@ hide_title: true
 </table>
 </div>
 
-<div id="repositorybatchchange" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">RepositoryBatchChange</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changesetreader</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#ede9fe;color:#4338ca;border:1px solid #c7d2fe;">implements <a href="#repositorychangeset">RepositoryChangeset</a></span>
+<div id="repositorybatchchange" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RepositoryBatchChange</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetreader</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#ede9fe', color: '#4338ca', border: '1px solid #c7d2fe'}}>implements <a href="#repositorychangeset">RepositoryChangeset</a></span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -3734,10 +3734,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="repositorychangesetconnection" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">RepositoryChangesetConnection</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">corechangeset</span>
+<div id="repositorychangesetconnection" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RepositoryChangesetConnection</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>corechangeset</span>
 </div>
 <p>Paginated connection for repository changesets.</p>
 <p>`completed` indicates how many repositories have finished processing: - For BatchChange: completed always equals count (all repositories are pre-processed). - For OrganizationRecipeRun: completed counts repository runs in a terminal state   (regardless of success/failure), excluding canceled runs. A canceled run shows   the completion status reached prior to cancellation.</p>
@@ -3758,10 +3758,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="repositorychangesetedge" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">RepositoryChangesetEdge</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">corechangeset</span>
+<div id="repositorychangesetedge" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RepositoryChangesetEdge</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>corechangeset</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -3772,11 +3772,11 @@ hide_title: true
 </table>
 </div>
 
-<div id="repositorycommitcanceled" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">RepositoryCommitCanceled</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changesetcommitter</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#ede9fe;color:#4338ca;border:1px solid #c7d2fe;">implements <a href="#repositorycommit">RepositoryCommit</a></span>
+<div id="repositorycommitcanceled" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RepositoryCommitCanceled</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetcommitter</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#ede9fe', color: '#4338ca', border: '1px solid #c7d2fe'}}>implements <a href="#repositorycommit">RepositoryCommit</a></span>
 </div>
 <p>Repository commit was canceled. Use `options.__typename` to determine the specific commit type.</p>
 <table>
@@ -3790,10 +3790,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="repositorycommitconnection" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">RepositoryCommitConnection</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changesetcommitter</span>
+<div id="repositorycommitconnection" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RepositoryCommitConnection</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetcommitter</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -3806,10 +3806,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="repositorycommitedge" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">RepositoryCommitEdge</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changesetcommitter</span>
+<div id="repositorycommitedge" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RepositoryCommitEdge</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetcommitter</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -3820,11 +3820,11 @@ hide_title: true
 </table>
 </div>
 
-<div id="repositorycommitfailed" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">RepositoryCommitFailed</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changesetcommitter</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#ede9fe;color:#4338ca;border:1px solid #c7d2fe;">implements <a href="#repositorycommit">RepositoryCommit</a></span>
+<div id="repositorycommitfailed" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RepositoryCommitFailed</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetcommitter</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#ede9fe', color: '#4338ca', border: '1px solid #c7d2fe'}}>implements <a href="#repositorycommit">RepositoryCommit</a></span>
 </div>
 <p>Repository commit failed with an error. Use `options.__typename` to determine the specific commit type.</p>
 <table>
@@ -3840,11 +3840,11 @@ hide_title: true
 </table>
 </div>
 
-<div id="repositorycommitnochanges" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">RepositoryCommitNoChanges</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changesetcommitter</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#ede9fe;color:#4338ca;border:1px solid #c7d2fe;">implements <a href="#repositorycommit">RepositoryCommit</a></span>
+<div id="repositorycommitnochanges" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RepositoryCommitNoChanges</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetcommitter</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#ede9fe', color: '#4338ca', border: '1px solid #c7d2fe'}}>implements <a href="#repositorycommit">RepositoryCommit</a></span>
 </div>
 <p>Repository commit completed but yielded no changes. Generally occurs when applying a patch does not produce any changes to commit. Use `options.__typename` to determine the specific commit type.</p>
 <table>
@@ -3858,11 +3858,11 @@ hide_title: true
 </table>
 </div>
 
-<div id="repositorycommitqueued" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">RepositoryCommitQueued</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changesetcommitter</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#ede9fe;color:#4338ca;border:1px solid #c7d2fe;">implements <a href="#repositorycommit">RepositoryCommit</a></span>
+<div id="repositorycommitqueued" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RepositoryCommitQueued</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetcommitter</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#ede9fe', color: '#4338ca', border: '1px solid #c7d2fe'}}>implements <a href="#repositorycommit">RepositoryCommit</a></span>
 </div>
 <p>Repository commit is queued and waiting to be processed. Use `options.__typename` to determine the specific commit type.</p>
 <table>
@@ -3876,11 +3876,11 @@ hide_title: true
 </table>
 </div>
 
-<div id="repositorycommitrunning" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">RepositoryCommitRunning</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changesetcommitter</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#ede9fe;color:#4338ca;border:1px solid #c7d2fe;">implements <a href="#repositorycommit">RepositoryCommit</a></span>
+<div id="repositorycommitrunning" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RepositoryCommitRunning</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetcommitter</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#ede9fe', color: '#4338ca', border: '1px solid #c7d2fe'}}>implements <a href="#repositorycommit">RepositoryCommit</a></span>
 </div>
 <p>Repository commit is actively being processed. Use `options.__typename` to determine the specific commit type.</p>
 <table>
@@ -3893,10 +3893,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="repositoryconnection" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">RepositoryConnection</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">organization</span>
+<div id="repositoryconnection" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RepositoryConnection</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>organization</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -3908,10 +3908,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="repositoryedge" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">RepositoryEdge</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">organization</span>
+<div id="repositoryedge" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RepositoryEdge</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>organization</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -3922,12 +3922,12 @@ hide_title: true
 </table>
 </div>
 
-<div id="repositoryreciperuncanceled" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">RepositoryRecipeRunCanceled</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changesetreader</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#ede9fe;color:#4338ca;border:1px solid #c7d2fe;">implements <a href="#repositoryreciperun">RepositoryRecipeRun</a></span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#ede9fe;color:#4338ca;border:1px solid #c7d2fe;">implements <a href="#repositorychangeset">RepositoryChangeset</a></span>
+<div id="repositoryreciperuncanceled" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RepositoryRecipeRunCanceled</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetreader</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#ede9fe', color: '#4338ca', border: '1px solid #c7d2fe'}}>implements <a href="#repositoryreciperun">RepositoryRecipeRun</a></span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#ede9fe', color: '#4338ca', border: '1px solid #c7d2fe'}}>implements <a href="#repositorychangeset">RepositoryChangeset</a></span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -3940,10 +3940,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="repositoryreciperunconnection" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">RepositoryRecipeRunConnection</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changesetreader</span>
+<div id="repositoryreciperunconnection" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RepositoryRecipeRunConnection</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetreader</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -3955,10 +3955,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="repositoryreciperunedge" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">RepositoryRecipeRunEdge</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changesetreader</span>
+<div id="repositoryreciperunedge" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RepositoryRecipeRunEdge</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetreader</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -3969,12 +3969,12 @@ hide_title: true
 </table>
 </div>
 
-<div id="repositoryreciperunerror" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">RepositoryRecipeRunError</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changesetreader</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#ede9fe;color:#4338ca;border:1px solid #c7d2fe;">implements <a href="#repositoryreciperun">RepositoryRecipeRun</a></span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#ede9fe;color:#4338ca;border:1px solid #c7d2fe;">implements <a href="#repositorychangeset">RepositoryChangeset</a></span>
+<div id="repositoryreciperunerror" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RepositoryRecipeRunError</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetreader</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#ede9fe', color: '#4338ca', border: '1px solid #c7d2fe'}}>implements <a href="#repositoryreciperun">RepositoryRecipeRun</a></span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#ede9fe', color: '#4338ca', border: '1px solid #c7d2fe'}}>implements <a href="#repositorychangeset">RepositoryChangeset</a></span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -3991,12 +3991,12 @@ hide_title: true
 </table>
 </div>
 
-<div id="repositoryreciperunfinished" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">RepositoryRecipeRunFinished</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changesetreader</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#ede9fe;color:#4338ca;border:1px solid #c7d2fe;">implements <a href="#repositoryreciperun">RepositoryRecipeRun</a></span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#ede9fe;color:#4338ca;border:1px solid #c7d2fe;">implements <a href="#repositorychangeset">RepositoryChangeset</a></span>
+<div id="repositoryreciperunfinished" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RepositoryRecipeRunFinished</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetreader</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#ede9fe', color: '#4338ca', border: '1px solid #c7d2fe'}}>implements <a href="#repositoryreciperun">RepositoryRecipeRun</a></span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#ede9fe', color: '#4338ca', border: '1px solid #c7d2fe'}}>implements <a href="#repositorychangeset">RepositoryChangeset</a></span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -4012,12 +4012,12 @@ hide_title: true
 </table>
 </div>
 
-<div id="repositoryreciperunnolst" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">RepositoryRecipeRunNoLst</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changesetreader</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#ede9fe;color:#4338ca;border:1px solid #c7d2fe;">implements <a href="#repositoryreciperun">RepositoryRecipeRun</a></span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#ede9fe;color:#4338ca;border:1px solid #c7d2fe;">implements <a href="#repositorychangeset">RepositoryChangeset</a></span>
+<div id="repositoryreciperunnolst" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RepositoryRecipeRunNoLst</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetreader</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#ede9fe', color: '#4338ca', border: '1px solid #c7d2fe'}}>implements <a href="#repositoryreciperun">RepositoryRecipeRun</a></span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#ede9fe', color: '#4338ca', border: '1px solid #c7d2fe'}}>implements <a href="#repositorychangeset">RepositoryChangeset</a></span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -4030,12 +4030,12 @@ hide_title: true
 </table>
 </div>
 
-<div id="repositoryreciperunqueued" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">RepositoryRecipeRunQueued</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changesetreader</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#ede9fe;color:#4338ca;border:1px solid #c7d2fe;">implements <a href="#repositoryreciperun">RepositoryRecipeRun</a></span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#ede9fe;color:#4338ca;border:1px solid #c7d2fe;">implements <a href="#repositorychangeset">RepositoryChangeset</a></span>
+<div id="repositoryreciperunqueued" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RepositoryRecipeRunQueued</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetreader</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#ede9fe', color: '#4338ca', border: '1px solid #c7d2fe'}}>implements <a href="#repositoryreciperun">RepositoryRecipeRun</a></span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#ede9fe', color: '#4338ca', border: '1px solid #c7d2fe'}}>implements <a href="#repositorychangeset">RepositoryChangeset</a></span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -4049,12 +4049,12 @@ hide_title: true
 </table>
 </div>
 
-<div id="repositoryreciperunrunning" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">RepositoryRecipeRunRunning</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changesetreader</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#ede9fe;color:#4338ca;border:1px solid #c7d2fe;">implements <a href="#repositoryreciperun">RepositoryRecipeRun</a></span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#ede9fe;color:#4338ca;border:1px solid #c7d2fe;">implements <a href="#repositorychangeset">RepositoryChangeset</a></span>
+<div id="repositoryreciperunrunning" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RepositoryRecipeRunRunning</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetreader</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#ede9fe', color: '#4338ca', border: '1px solid #c7d2fe'}}>implements <a href="#repositoryreciperun">RepositoryRecipeRun</a></span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#ede9fe', color: '#4338ca', border: '1px solid #c7d2fe'}}>implements <a href="#repositorychangeset">RepositoryChangeset</a></span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -4068,10 +4068,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="reviewstatus" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">ReviewStatus</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changesetcommitter</span>
+<div id="reviewstatus" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>ReviewStatus</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetcommitter</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -4082,10 +4082,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="revoketokenresult" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">RevokeTokenResult</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">authz</span>
+<div id="revoketokenresult" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RevokeTokenResult</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>authz</span>
 </div>
 <p>Result of revoking an SCM OAuth token.</p>
 <table>
@@ -4097,10 +4097,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="s3configuration" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">S3Configuration</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">gateway</span>
+<div id="s3configuration" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>S3Configuration</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>gateway</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -4115,10 +4115,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="scmtokeninfo" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">ScmTokenInfo</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">authz</span>
+<div id="scmtokeninfo" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>ScmTokenInfo</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>authz</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -4129,11 +4129,11 @@ hide_title: true
 </table>
 </div>
 
-<div id="searchresult" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">SearchResult</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">corechangeset</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#ede9fe;color:#4338ca;border:1px solid #c7d2fe;">implements <a href="#marker">Marker</a></span>
+<div id="searchresult" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>SearchResult</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>corechangeset</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#ede9fe', color: '#4338ca', border: '1px solid #c7d2fe'}}>implements <a href="#marker">Marker</a></span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -4145,10 +4145,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="sendmessageresult" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">SendMessageResult</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">moddy</span>
+<div id="sendmessageresult" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>SendMessageResult</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>moddy</span>
 </div>
 <p>Handle returned by `createConversation` / `sendMessage`. Clients should poll `conversation.messages(after: initialCursor)` using `turnState.recommendedPollIntervalMs` as the cadence hint.</p>
 <table>
@@ -4161,11 +4161,11 @@ hide_title: true
 </table>
 </div>
 
-<div id="textmessage" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">TextMessage</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">moddy</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#ede9fe;color:#4338ca;border:1px solid #c7d2fe;">implements <a href="#message">Message</a></span>
+<div id="textmessage" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>TextMessage</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>moddy</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#ede9fe', color: '#4338ca', border: '1px solid #c7d2fe'}}>implements <a href="#message">Message</a></span>
 </div>
 <p>A text message from either the human user or the chatbot. Check the `user` field to distinguish sender.</p>
 <table>
@@ -4181,10 +4181,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="toolinfo" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">ToolInfo</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changesetreader</span>
+<div id="toolinfo" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>ToolInfo</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetreader</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -4196,10 +4196,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="uiconfiguration" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">UiConfiguration</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">gateway</span>
+<div id="uiconfiguration" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>UiConfiguration</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>gateway</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -4212,10 +4212,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="user" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">User</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">authz</span>
+<div id="user" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>User</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>authz</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -4230,10 +4230,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="userconnection" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">UserConnection</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">authz</span>
+<div id="userconnection" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>UserConnection</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>authz</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -4245,10 +4245,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="usersedge" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">UsersEdge</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">authz</span>
+<div id="usersedge" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>UsersEdge</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>authz</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -4259,11 +4259,11 @@ hide_title: true
 </table>
 </div>
 
-<div id="visualizationavailable" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">VisualizationAvailable</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changesetreader</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#ede9fe;color:#4338ca;border:1px solid #c7d2fe;">implements <a href="#visualization">Visualization</a></span>
+<div id="visualizationavailable" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>VisualizationAvailable</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetreader</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#ede9fe', color: '#4338ca', border: '1px solid #c7d2fe'}}>implements <a href="#visualization">Visualization</a></span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -4275,10 +4275,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="visualizationconnection" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">VisualizationConnection</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">corechangeset</span>
+<div id="visualizationconnection" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>VisualizationConnection</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>corechangeset</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -4290,10 +4290,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="visualizationdescriptor" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">VisualizationDescriptor</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changesetvisualizer</span>
+<div id="visualizationdescriptor" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>VisualizationDescriptor</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetvisualizer</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -4307,10 +4307,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="visualizationedge" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">VisualizationEdge</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">corechangeset</span>
+<div id="visualizationedge" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>VisualizationEdge</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>corechangeset</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -4321,11 +4321,11 @@ hide_title: true
 </table>
 </div>
 
-<div id="visualizationerror" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">VisualizationError</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changesetreader</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#ede9fe;color:#4338ca;border:1px solid #c7d2fe;">implements <a href="#visualization">Visualization</a></span>
+<div id="visualizationerror" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>VisualizationError</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetreader</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#ede9fe', color: '#4338ca', border: '1px solid #c7d2fe'}}>implements <a href="#visualization">Visualization</a></span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -4341,11 +4341,11 @@ hide_title: true
 </table>
 </div>
 
-<div id="visualizationfinished" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">VisualizationFinished</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changesetreader</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#ede9fe;color:#4338ca;border:1px solid #c7d2fe;">implements <a href="#visualization">Visualization</a></span>
+<div id="visualizationfinished" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>VisualizationFinished</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetreader</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#ede9fe', color: '#4338ca', border: '1px solid #c7d2fe'}}>implements <a href="#visualization">Visualization</a></span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -4362,11 +4362,11 @@ hide_title: true
 </table>
 </div>
 
-<div id="visualizationimageoutput" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">VisualizationImageOutput</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changesetreader</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#ede9fe;color:#4338ca;border:1px solid #c7d2fe;">implements <a href="#visualizationoutput">VisualizationOutput</a></span>
+<div id="visualizationimageoutput" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>VisualizationImageOutput</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetreader</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#ede9fe', color: '#4338ca', border: '1px solid #c7d2fe'}}>implements <a href="#visualizationoutput">VisualizationOutput</a></span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -4377,10 +4377,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="visualizationoption" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">VisualizationOption</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changesetvisualizer</span>
+<div id="visualizationoption" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>VisualizationOption</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetvisualizer</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -4397,11 +4397,11 @@ hide_title: true
 </table>
 </div>
 
-<div id="visualizationplotlyoutput" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">VisualizationPlotlyOutput</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changesetreader</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#ede9fe;color:#4338ca;border:1px solid #c7d2fe;">implements <a href="#visualizationoutput">VisualizationOutput</a></span>
+<div id="visualizationplotlyoutput" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>VisualizationPlotlyOutput</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetreader</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#ede9fe', color: '#4338ca', border: '1px solid #c7d2fe'}}>implements <a href="#visualizationoutput">VisualizationOutput</a></span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -4411,11 +4411,11 @@ hide_title: true
 </table>
 </div>
 
-<div id="visualizationprocessing" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">VisualizationProcessing</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changesetreader</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#ede9fe;color:#4338ca;border:1px solid #c7d2fe;">implements <a href="#visualization">Visualization</a></span>
+<div id="visualizationprocessing" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>VisualizationProcessing</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetreader</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#ede9fe', color: '#4338ca', border: '1px solid #c7d2fe'}}>implements <a href="#visualization">Visualization</a></span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -4429,10 +4429,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="visualizationrepository" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">VisualizationRepository</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changesetreader</span>
+<div id="visualizationrepository" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>VisualizationRepository</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetreader</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -4444,10 +4444,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="visualizationrepositoryconnection" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">VisualizationRepositoryConnection</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changesetreader</span>
+<div id="visualizationrepositoryconnection" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>VisualizationRepositoryConnection</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetreader</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -4459,10 +4459,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="visualizationrepositoryedge" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">VisualizationRepositoryEdge</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changesetreader</span>
+<div id="visualizationrepositoryedge" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>VisualizationRepositoryEdge</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetreader</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -4473,11 +4473,11 @@ hide_title: true
 </table>
 </div>
 
-<div id="yamlrecipebundle" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">YamlRecipeBundle</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changesetreader</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#ede9fe;color:#4338ca;border:1px solid #c7d2fe;">implements <a href="#recipebundle">RecipeBundle</a></span>
+<div id="yamlrecipebundle" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>YamlRecipeBundle</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetreader</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#ede9fe', color: '#4338ca', border: '1px solid #c7d2fe'}}>implements <a href="#recipebundle">RecipeBundle</a></span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -4493,10 +4493,10 @@ hide_title: true
 
 <h3>Interfaces</h3>
 
-<div id="auditlogsdownload" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">AuditLogsDownload</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">auditreader</span>
+<div id="auditlogsdownload" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>AuditLogsDownload</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>auditreader</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -4506,10 +4506,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="bulkpullrequestaction" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">BulkPullRequestAction</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changelogreader</span>
+<div id="bulkpullrequestaction" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>BulkPullRequestAction</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changelogreader</span>
 </div>
 <p>A bulk pull request action (approve, merge, close) that operates on potentially multiple repositories. Use `__typename` to determine the current state.</p>
 <p>Each `BulkPullRequestAction` contains individual `PullRequestAction` entries representing the state of each repository targeted by the bulk operation.</p>
@@ -4524,10 +4524,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="changelogentry" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">ChangelogEntry</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changelogreader</span>
+<div id="changelogentry" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>ChangelogEntry</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changelogreader</span>
 </div>
 <p>A single entry in the changelog — either a commit or a pull request. Use `__typename` to distinguish between `ChangelogCommit` and `ChangelogPullRequest`.</p>
 <table>
@@ -4548,10 +4548,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="commitoptions" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">CommitOptions</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changesetcommitter</span>
+<div id="commitoptions" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>CommitOptions</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetcommitter</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -4561,10 +4561,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="datatable" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">DataTable</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">corechangeset</span>
+<div id="datatable" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>DataTable</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>corechangeset</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -4577,10 +4577,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="devcenterrun" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">DevCenterRun</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changesetreader</span>
+<div id="devcenterrun" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>DevCenterRun</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetreader</span>
 </div>
 <p>A DevCenter run represents the execution of a DevCenter recipe. Use `__typename` to determine the current state.</p>
 <table>
@@ -4593,10 +4593,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="filechange" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">FileChange</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">corechangeset</span>
+<div id="filechange" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>FileChange</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>corechangeset</span>
 </div>
 <p>A change to a single file within a repository changeset.</p>
 <table>
@@ -4610,10 +4610,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="marker" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">Marker</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">corechangeset</span>
+<div id="marker" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>Marker</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>corechangeset</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -4623,10 +4623,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="message" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">Message</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">moddy</span>
+<div id="message" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>Message</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>moddy</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -4639,10 +4639,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="organizationcommit" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">OrganizationCommit</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changesetcommitter</span>
+<div id="organizationcommit" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>OrganizationCommit</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetcommitter</span>
 </div>
 <p>An organization-level commit operation represents applying changes across multiple repositories. Use `__typename` to determine the current state.</p>
 <table>
@@ -4658,10 +4658,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="pullrequestaction" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">PullRequestAction</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changelogreader</span>
+<div id="pullrequestaction" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>PullRequestAction</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changelogreader</span>
 </div>
 <p>The state of an individual repository within a `BulkPullRequestAction`. Use `__typename` to determine the current state.</p>
 <table>
@@ -4672,10 +4672,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="recipebundle" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">RecipeBundle</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changesetreader</span>
+<div id="recipebundle" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RecipeBundle</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetreader</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -4687,10 +4687,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="recipedetail" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">RecipeDetail</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">recipemarketplace</span>
+<div id="recipedetail" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RecipeDetail</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>recipemarketplace</span>
 </div>
 <p>State machine for recipe detail resolution. Querying the `detail` field on a RecipeDescriptor triggers background resolution of the full recipe bundle. Poll until `__typename` is `RecipeDetailFinished`.</p>
 <table>
@@ -4701,10 +4701,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="recipeinstallation" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">RecipeInstallation</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">recipemarketplace</span>
+<div id="recipeinstallation" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RecipeInstallation</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>recipemarketplace</span>
 </div>
 <p>Common fields for all recipe installation states. Use `__typename` to determine the current state.</p>
 <table>
@@ -4717,10 +4717,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="repositorychangeset" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">RepositoryChangeset</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">corechangeset</span>
+<div id="repositorychangeset" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RepositoryChangeset</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>corechangeset</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -4732,10 +4732,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="repositorycommit" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">RepositoryCommit</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changesetcommitter</span>
+<div id="repositorycommit" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RepositoryCommit</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetcommitter</span>
 </div>
 <p>A commit result for a single repository within an organization-level commit operation. Use `__typename` to determine the current state.</p>
 <table>
@@ -4746,10 +4746,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="repositorycommitsucceeded" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">RepositoryCommitSucceeded</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changesetcommitter</span>
+<div id="repositorycommitsucceeded" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RepositoryCommitSucceeded</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetcommitter</span>
 </div>
 <p>Repository commit completed successfully. Use `__typename` to determine the specific commit type.</p>
 <table>
@@ -4763,10 +4763,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="repositoryreciperun" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">RepositoryRecipeRun</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changesetreader</span>
+<div id="repositoryreciperun" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RepositoryRecipeRun</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetreader</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -4779,10 +4779,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="scmconnection" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">ScmConnection</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">authz</span>
+<div id="scmconnection" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>ScmConnection</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>authz</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -4794,10 +4794,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="visualization" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">Visualization</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">corechangeset</span>
+<div id="visualization" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>Visualization</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>corechangeset</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -4808,10 +4808,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="visualizationoutput" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">VisualizationOutput</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changesetreader</span>
+<div id="visualizationoutput" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>VisualizationOutput</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetreader</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -4823,10 +4823,10 @@ hide_title: true
 
 <h3>Enums</h3>
 
-<div id="accesstokenorderbyfield" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">AccessTokenOrderByField</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">authz</span>
+<div id="accesstokenorderbyfield" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>AccessTokenOrderByField</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>authz</span>
 </div>
 <ul>
   <li><code>CREATED</code></li>
@@ -4834,10 +4834,10 @@ hide_title: true
 </ul>
 </div>
 
-<div id="auditactiontype" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">AuditActionType</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">auditreader</span>
+<div id="auditactiontype" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>AuditActionType</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>auditreader</span>
 </div>
 <ul>
   <li><code>CREATE</code></li>
@@ -4847,10 +4847,10 @@ hide_title: true
 </ul>
 </div>
 
-<div id="auditlogexportformat" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">AuditLogExportFormat</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">auditreader</span>
+<div id="auditlogexportformat" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>AuditLogExportFormat</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>auditreader</span>
 </div>
 <ul>
   <li><code>CEF</code></li>
@@ -4858,10 +4858,10 @@ hide_title: true
 </ul>
 </div>
 
-<div id="auditlogorderbyfield" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">AuditLogOrderByField</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">auditreader</span>
+<div id="auditlogorderbyfield" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>AuditLogOrderByField</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>auditreader</span>
 </div>
 <ul>
   <li><code>TIMESTAMP</code></li>
@@ -4871,20 +4871,20 @@ hide_title: true
 </ul>
 </div>
 
-<div id="auditlogsdownloadorderbyfield" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">AuditLogsDownloadOrderByField</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">auditreader</span>
+<div id="auditlogsdownloadorderbyfield" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>AuditLogsDownloadOrderByField</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>auditreader</span>
 </div>
 <ul>
   <li><code>STARTED_AT</code></li>
 </ul>
 </div>
 
-<div id="auditoutcome" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">AuditOutcome</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">auditreader</span>
+<div id="auditoutcome" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>AuditOutcome</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>auditreader</span>
 </div>
 <ul>
   <li><code>SUCCESS</code></li>
@@ -4892,10 +4892,10 @@ hide_title: true
 </ul>
 </div>
 
-<div id="buildstate" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">BuildState</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changelogreader</span>
+<div id="buildstate" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>BuildState</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changelogreader</span>
 </div>
 <ul>
   <li><code>PENDING</code></li>
@@ -4907,10 +4907,10 @@ hide_title: true
 </ul>
 </div>
 
-<div id="bulkpullrequestactionorderbyfield" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">BulkPullRequestActionOrderByField</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changelogreader</span>
+<div id="bulkpullrequestactionorderbyfield" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>BulkPullRequestActionOrderByField</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changelogreader</span>
 </div>
 <ul>
   <li><code>CREATED_AT</code></li>
@@ -4919,10 +4919,10 @@ hide_title: true
 </ul>
 </div>
 
-<div id="bulkpullrequestactionstate" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">BulkPullRequestActionState</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changelogreader</span>
+<div id="bulkpullrequestactionstate" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>BulkPullRequestActionState</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changelogreader</span>
 </div>
 <p>The lifecycle state of a `BulkPullRequestAction`. Matches the `__typename` of the concrete state types (Queued, Running, Finished, Canceled, Error).</p>
 <ul>
@@ -4934,10 +4934,10 @@ hide_title: true
 </ul>
 </div>
 
-<div id="changelogentryorderbyfield" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">ChangelogEntryOrderByField</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changelogreader</span>
+<div id="changelogentryorderbyfield" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>ChangelogEntryOrderByField</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changelogreader</span>
 </div>
 <ul>
   <li><code>UPDATED_AT</code></li>
@@ -4947,10 +4947,10 @@ hide_title: true
 </ul>
 </div>
 
-<div id="changelogentrytype" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">ChangelogEntryType</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changelogreader</span>
+<div id="changelogentrytype" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>ChangelogEntryType</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changelogreader</span>
 </div>
 <p>Discriminator for filtering by entry type.</p>
 <ul>
@@ -4959,10 +4959,10 @@ hide_title: true
 </ul>
 </div>
 
-<div id="changelogparticipantorderbyfield" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">ChangelogParticipantOrderByField</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changelogreader</span>
+<div id="changelogparticipantorderbyfield" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>ChangelogParticipantOrderByField</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changelogreader</span>
 </div>
 <ul>
   <li><code>USERNAME</code></li>
@@ -4971,10 +4971,10 @@ hide_title: true
 </ul>
 </div>
 
-<div id="commitoption" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">CommitOption</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changesetcommitter</span>
+<div id="commitoption" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>CommitOption</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetcommitter</span>
 </div>
 <ul>
   <li><code>DIRECT</code></li>
@@ -4986,10 +4986,10 @@ hide_title: true
 </ul>
 </div>
 
-<div id="connectororderbyfield" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">ConnectorOrderByField</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">gateway</span>
+<div id="connectororderbyfield" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>ConnectorOrderByField</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>gateway</span>
 </div>
 <ul>
   <li><code>NICKNAME</code></li>
@@ -4997,10 +4997,10 @@ hide_title: true
 </ul>
 </div>
 
-<div id="connectortooltype" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">ConnectorToolType</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">gateway</span>
+<div id="connectortooltype" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>ConnectorToolType</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>gateway</span>
 </div>
 <ul>
   <li><code>GITHUB</code></li>
@@ -5020,10 +5020,10 @@ hide_title: true
 </ul>
 </div>
 
-<div id="contributorrole" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">ContributorRole</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changelogreader</span>
+<div id="contributorrole" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>ContributorRole</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changelogreader</span>
 </div>
 <p>The participant's role for filtering.</p>
 <ul>
@@ -5034,10 +5034,10 @@ hide_title: true
 </ul>
 </div>
 
-<div id="conversationorderbyfield" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">ConversationOrderByField</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">moddy</span>
+<div id="conversationorderbyfield" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>ConversationOrderByField</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>moddy</span>
 </div>
 <ul>
   <li><code>STARTED_AT</code></li>
@@ -5045,10 +5045,10 @@ hide_title: true
 </ul>
 </div>
 
-<div id="conversationphase" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">ConversationPhase</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">moddy</span>
+<div id="conversationphase" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>ConversationPhase</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>moddy</span>
 </div>
 <ul>
   <li><code>IDLE</code></li>
@@ -5059,10 +5059,10 @@ hide_title: true
 </ul>
 </div>
 
-<div id="datatableformat" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">DataTableFormat</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">corechangeset</span>
+<div id="datatableformat" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>DataTableFormat</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>corechangeset</span>
 </div>
 <ul>
   <li><code>CSV</code></li>
@@ -5070,10 +5070,10 @@ hide_title: true
 </ul>
 </div>
 
-<div id="datatableorderbyfield" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">DataTableOrderByField</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">corechangeset</span>
+<div id="datatableorderbyfield" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>DataTableOrderByField</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>corechangeset</span>
 </div>
 <ul>
   <li><code>DATA_TABLE</code></li>
@@ -5081,10 +5081,10 @@ hide_title: true
 </ul>
 </div>
 
-<div id="devcenteraggregation" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">DevCenterAggregation</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changesetreader</span>
+<div id="devcenteraggregation" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>DevCenterAggregation</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetreader</span>
 </div>
 <p>How DevCenter card results are aggregated across repositories.</p>
 <ul>
@@ -5093,10 +5093,10 @@ hide_title: true
 </ul>
 </div>
 
-<div id="devcenterrunorderbyfield" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">DevCenterRunOrderByField</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changesetreader</span>
+<div id="devcenterrunorderbyfield" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>DevCenterRunOrderByField</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetreader</span>
 </div>
 <ul>
   <li><code>STARTED_AT</code></li>
@@ -5104,10 +5104,10 @@ hide_title: true
 </ul>
 </div>
 
-<div id="devcenterrunstate" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">DevCenterRunState</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changesetreader</span>
+<div id="devcenterrunstate" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>DevCenterRunState</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetreader</span>
 </div>
 <p>Execution state of a DevCenter run.</p>
 <ul>
@@ -5118,20 +5118,20 @@ hide_title: true
 </ul>
 </div>
 
-<div id="filechangeorderbyfield" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">FileChangeOrderByField</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">corechangeset</span>
+<div id="filechangeorderbyfield" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>FileChangeOrderByField</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>corechangeset</span>
 </div>
 <ul>
   <li><code>PATH</code></li>
 </ul>
 </div>
 
-<div id="imageformat" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">ImageFormat</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changesetreader</span>
+<div id="imageformat" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>ImageFormat</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetreader</span>
 </div>
 <ul>
   <li><code>SVG</code></li>
@@ -5141,10 +5141,10 @@ hide_title: true
 </ul>
 </div>
 
-<div id="llmprovider" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">LlmProvider</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">gateway</span>
+<div id="llmprovider" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>LlmProvider</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>gateway</span>
 </div>
 <ul>
   <li><code>ANTHROPIC</code></li>
@@ -5154,10 +5154,10 @@ hide_title: true
 </ul>
 </div>
 
-<div id="markuplevel" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">MarkupLevel</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">corechangeset</span>
+<div id="markuplevel" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>MarkupLevel</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>corechangeset</span>
 </div>
 <ul>
   <li><code>DEBUG</code></li>
@@ -5168,10 +5168,10 @@ hide_title: true
 </ul>
 </div>
 
-<div id="mergemethod" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">MergeMethod</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changelogreader</span>
+<div id="mergemethod" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>MergeMethod</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changelogreader</span>
 </div>
 <ul>
   <li><code>MERGE</code></li>
@@ -5180,10 +5180,10 @@ hide_title: true
 </ul>
 </div>
 
-<div id="mergeable" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">Mergeable</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changesetcommitter</span>
+<div id="mergeable" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>Mergeable</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetcommitter</span>
 </div>
 <ul>
   <li><code>MERGEABLE</code></li>
@@ -5192,10 +5192,10 @@ hide_title: true
 </ul>
 </div>
 
-<div id="messagestate" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">MessageState</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">moddy</span>
+<div id="messagestate" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>MessageState</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>moddy</span>
 </div>
 <ul>
   <li><code>IN_PROGRESS</code></li>
@@ -5203,10 +5203,10 @@ hide_title: true
 </ul>
 </div>
 
-<div id="organizationchangesetorderbyfield" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">OrganizationChangesetOrderByField</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">corechangeset</span>
+<div id="organizationchangesetorderbyfield" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>OrganizationChangesetOrderByField</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>corechangeset</span>
 </div>
 <ul>
   <li><code>CREATED_AT</code></li>
@@ -5215,10 +5215,10 @@ hide_title: true
 </ul>
 </div>
 
-<div id="organizationchangesettype" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">OrganizationChangesetType</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">corechangeset</span>
+<div id="organizationchangesettype" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>OrganizationChangesetType</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>corechangeset</span>
 </div>
 <ul>
   <li><code>RECIPE_RUN</code></li>
@@ -5226,30 +5226,30 @@ hide_title: true
 </ul>
 </div>
 
-<div id="organizationcommitorderbyfield" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">OrganizationCommitOrderByField</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changesetcommitter</span>
+<div id="organizationcommitorderbyfield" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>OrganizationCommitOrderByField</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetcommitter</span>
 </div>
 <ul>
   <li><code>STARTED_AT</code></li>
 </ul>
 </div>
 
-<div id="organizationorderbyfield" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">OrganizationOrderByField</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">organization</span>
+<div id="organizationorderbyfield" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>OrganizationOrderByField</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>organization</span>
 </div>
 <ul>
   <li><code>NAME</code></li>
 </ul>
 </div>
 
-<div id="organizationreciperunorderbyfield" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">OrganizationRecipeRunOrderByField</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changesetreader</span>
+<div id="organizationreciperunorderbyfield" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>OrganizationRecipeRunOrderByField</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetreader</span>
 </div>
 <ul>
   <li><code>STARTED_AT</code></li>
@@ -5259,10 +5259,10 @@ hide_title: true
 </ul>
 </div>
 
-<div id="organizationreciperunstate" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">OrganizationRecipeRunState</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changesetreader</span>
+<div id="organizationreciperunstate" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>OrganizationRecipeRunState</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetreader</span>
 </div>
 <ul>
   <li><code>QUEUED</code></li>
@@ -5274,10 +5274,10 @@ hide_title: true
 </ul>
 </div>
 
-<div id="profilingevent" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">ProfilingEvent</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">gateway</span>
+<div id="profilingevent" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>ProfilingEvent</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>gateway</span>
 </div>
 <p>The primary event the Pyroscope agent samples on. async-profiler can only collect one of these at a time as the primary event; alloc and lock sampling run on separate channels and are always on.</p>
 <ul>
@@ -5286,10 +5286,10 @@ hide_title: true
 </ul>
 </div>
 
-<div id="pullrequestactionorderbyfield" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">PullRequestActionOrderByField</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changelogreader</span>
+<div id="pullrequestactionorderbyfield" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>PullRequestActionOrderByField</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changelogreader</span>
 </div>
 <ul>
   <li><code>REPOSITORY_PATH</code></li>
@@ -5298,10 +5298,10 @@ hide_title: true
 </ul>
 </div>
 
-<div id="pullrequestactionstate" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">PullRequestActionState</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changelogreader</span>
+<div id="pullrequestactionstate" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>PullRequestActionState</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changelogreader</span>
 </div>
 <ul>
   <li><code>QUEUED</code></li>
@@ -5312,10 +5312,10 @@ hide_title: true
 </ul>
 </div>
 
-<div id="pullrequestactiontype" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">PullRequestActionType</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changelogreader</span>
+<div id="pullrequestactiontype" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>PullRequestActionType</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changelogreader</span>
 </div>
 <ul>
   <li><code>APPROVE</code></li>
@@ -5324,10 +5324,10 @@ hide_title: true
 </ul>
 </div>
 
-<div id="pullrequeststate" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">PullRequestState</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changelogreader</span>
+<div id="pullrequeststate" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>PullRequestState</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changelogreader</span>
 </div>
 <ul>
   <li><code>OPEN</code></li>
@@ -5337,10 +5337,10 @@ hide_title: true
 </ul>
 </div>
 
-<div id="recipebundleorderbyfield" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">RecipeBundleOrderByField</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">recipemarketplace</span>
+<div id="recipebundleorderbyfield" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RecipeBundleOrderByField</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>recipemarketplace</span>
 </div>
 <ul>
   <li><code>PACKAGE_NAME</code></li>
@@ -5350,10 +5350,10 @@ hide_title: true
 </ul>
 </div>
 
-<div id="recipecategoryorderbyfield" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">RecipeCategoryOrderByField</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">recipemarketplace</span>
+<div id="recipecategoryorderbyfield" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RecipeCategoryOrderByField</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>recipemarketplace</span>
 </div>
 <ul>
   <li><code>DISPLAY_NAME</code></li>
@@ -5361,10 +5361,10 @@ hide_title: true
 </ul>
 </div>
 
-<div id="recipeecosystem" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">RecipeEcosystem</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">recipemarketplace</span>
+<div id="recipeecosystem" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RecipeEcosystem</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>recipemarketplace</span>
 </div>
 <ul>
   <li><code>Maven</code></li>
@@ -5376,10 +5376,10 @@ hide_title: true
 </ul>
 </div>
 
-<div id="recipegraphedgetype" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">RecipeGraphEdgeType</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">recipemarketplace</span>
+<div id="recipegraphedgetype" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RecipeGraphEdgeType</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>recipemarketplace</span>
 </div>
 <ul>
   <li><code>RECIPE</code></li>
@@ -5388,10 +5388,10 @@ hide_title: true
 </ul>
 </div>
 
-<div id="recipeinstallationorderbyfield" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">RecipeInstallationOrderByField</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">recipemarketplace</span>
+<div id="recipeinstallationorderbyfield" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RecipeInstallationOrderByField</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>recipemarketplace</span>
 </div>
 <ul>
   <li><code>STARTED_AT</code></li>
@@ -5399,10 +5399,10 @@ hide_title: true
 </ul>
 </div>
 
-<div id="recipeinstallationstatus" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">RecipeInstallationStatus</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">recipemarketplace</span>
+<div id="recipeinstallationstatus" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RecipeInstallationStatus</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>recipemarketplace</span>
 </div>
 <ul>
   <li><code>QUEUED</code></li>
@@ -5412,10 +5412,10 @@ hide_title: true
 </ul>
 </div>
 
-<div id="recipeorderbyfield" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">RecipeOrderByField</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">recipemarketplace</span>
+<div id="recipeorderbyfield" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RecipeOrderByField</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>recipemarketplace</span>
 </div>
 <ul>
   <li><code>ID</code></li>
@@ -5425,10 +5425,10 @@ hide_title: true
 </ul>
 </div>
 
-<div id="reciperunpriority" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">RecipeRunPriority</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changesetreader</span>
+<div id="reciperunpriority" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RecipeRunPriority</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetreader</span>
 </div>
 <p>Priority level for recipe runs. HIGH priority runs target small organizations (≤100 repositories). LOW priority runs target large organizations (>100 repositories).</p>
 <ul>
@@ -5437,10 +5437,10 @@ hide_title: true
 </ul>
 </div>
 
-<div id="repositorychangesetorderbyfield" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">RepositoryChangesetOrderByField</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">corechangeset</span>
+<div id="repositorychangesetorderbyfield" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RepositoryChangesetOrderByField</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>corechangeset</span>
 </div>
 <ul>
   <li><code>PATH</code></li>
@@ -5450,10 +5450,10 @@ hide_title: true
 </ul>
 </div>
 
-<div id="repositorychangesetstate" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">RepositoryChangesetState</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changesetcommitter</span>
+<div id="repositorychangesetstate" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RepositoryChangesetState</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetcommitter</span>
 </div>
 <p>Result state of a repository within a changeset.</p>
 <ul>
@@ -5466,20 +5466,20 @@ hide_title: true
 </ul>
 </div>
 
-<div id="repositorycommitorderbyfield" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">RepositoryCommitOrderByField</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changesetcommitter</span>
+<div id="repositorycommitorderbyfield" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RepositoryCommitOrderByField</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetcommitter</span>
 </div>
 <ul>
   <li><code>STARTED_AT</code></li>
 </ul>
 </div>
 
-<div id="repositoryerrorreason" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">RepositoryErrorReason</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changesetreader</span>
+<div id="repositoryerrorreason" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RepositoryErrorReason</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetreader</span>
 </div>
 <ul>
   <li><code>FAILED_LOAD_AST</code></li>
@@ -5489,10 +5489,10 @@ hide_title: true
 </ul>
 </div>
 
-<div id="repositoryorderbyfield" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">RepositoryOrderByField</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">organization</span>
+<div id="repositoryorderbyfield" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RepositoryOrderByField</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>organization</span>
 </div>
 <ul>
   <li><code>ORIGIN</code></li>
@@ -5503,10 +5503,10 @@ hide_title: true
 </ul>
 </div>
 
-<div id="repositoryreciperunorderbyfield" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">RepositoryRecipeRunOrderByField</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changesetreader</span>
+<div id="repositoryreciperunorderbyfield" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RepositoryRecipeRunOrderByField</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetreader</span>
 </div>
 <ul>
   <li><code>PATH</code></li>
@@ -5515,10 +5515,10 @@ hide_title: true
 </ul>
 </div>
 
-<div id="repositorysyncstatus" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">RepositorySyncStatus</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">corechangeset</span>
+<div id="repositorysyncstatus" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RepositorySyncStatus</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>corechangeset</span>
 </div>
 <p>Sync status of a repository within a recipe run. Tracks whether the repository has been synced (cloned + LST downloaded) before the recipe execution phase begins.</p>
 <p>`SKIPPED` indicates the CLI elected not to sync the repository — typically because there is no LST available to fetch — and is distinct from `FAILED`, which indicates an actual error during the sync attempt. `CANCELED` is set when sync was interrupted (e.g., the run was canceled before the repository's sync completed).</p>
@@ -5531,10 +5531,10 @@ hide_title: true
 </ul>
 </div>
 
-<div id="reviewdecision" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">ReviewDecision</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changelogreader</span>
+<div id="reviewdecision" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>ReviewDecision</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changelogreader</span>
 </div>
 <ul>
   <li><code>APPROVED</code></li>
@@ -5545,10 +5545,10 @@ hide_title: true
 </ul>
 </div>
 
-<div id="scmtype" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">ScmType</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">authz</span>
+<div id="scmtype" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>ScmType</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>authz</span>
 </div>
 <ul>
   <li><code>GITHUB</code></li>
@@ -5559,10 +5559,10 @@ hide_title: true
 </ul>
 </div>
 
-<div id="sortorder" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">SortOrder</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">coregraphql</span>
+<div id="sortorder" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>SortOrder</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>coregraphql</span>
 </div>
 <ul>
   <li><code>ASC</code></li>
@@ -5570,10 +5570,10 @@ hide_title: true
 </ul>
 </div>
 
-<div id="userorderbyfield" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">UserOrderByField</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">authz</span>
+<div id="userorderbyfield" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>UserOrderByField</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>authz</span>
 </div>
 <ul>
   <li><code>EMAIL</code></li>
@@ -5583,10 +5583,10 @@ hide_title: true
 </ul>
 </div>
 
-<div id="userrole" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">UserRole</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">authz</span>
+<div id="userrole" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>UserRole</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>authz</span>
 </div>
 <ul>
   <li><code>ADMIN</code></li>
@@ -5594,10 +5594,10 @@ hide_title: true
 </ul>
 </div>
 
-<div id="visualizationorderbyfield" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">VisualizationOrderByField</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">corechangeset</span>
+<div id="visualizationorderbyfield" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>VisualizationOrderByField</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>corechangeset</span>
 </div>
 <ul>
   <li><code>VISUALIZATION</code></li>
@@ -5605,10 +5605,10 @@ hide_title: true
 </ul>
 </div>
 
-<div id="visualizationrepositoryrunstate" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">VisualizationRepositoryRunState</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changesetreader</span>
+<div id="visualizationrepositoryrunstate" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>VisualizationRepositoryRunState</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetreader</span>
 </div>
 <ul>
   <li><code>QUEUED</code></li>
@@ -5622,10 +5622,10 @@ hide_title: true
 
 <h3>Input types</h3>
 
-<div id="accesstokenorderbyinput" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">AccessTokenOrderByInput</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">authz</span>
+<div id="accesstokenorderbyinput" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>AccessTokenOrderByInput</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>authz</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -5636,10 +5636,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="accesstokenwhereinput" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">AccessTokenWhereInput</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">authz</span>
+<div id="accesstokenwhereinput" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>AccessTokenWhereInput</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>authz</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -5654,10 +5654,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="auditactiontypefilter" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">AuditActionTypeFilter</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">auditreader</span>
+<div id="auditactiontypefilter" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>AuditActionTypeFilter</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>auditreader</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -5670,10 +5670,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="auditlogexportformatfilter" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">AuditLogExportFormatFilter</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">auditreader</span>
+<div id="auditlogexportformatfilter" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>AuditLogExportFormatFilter</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>auditreader</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -5686,10 +5686,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="auditlogorderbyinput" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">AuditLogOrderByInput</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">auditreader</span>
+<div id="auditlogorderbyinput" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>AuditLogOrderByInput</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>auditreader</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -5700,10 +5700,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="auditlogwhereinput" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">AuditLogWhereInput</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">auditreader</span>
+<div id="auditlogwhereinput" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>AuditLogWhereInput</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>auditreader</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -5722,10 +5722,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="auditlogsdownloadorderbyinput" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">AuditLogsDownloadOrderByInput</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">auditreader</span>
+<div id="auditlogsdownloadorderbyinput" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>AuditLogsDownloadOrderByInput</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>auditreader</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -5736,10 +5736,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="auditlogsdownloadwhereinput" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">AuditLogsDownloadWhereInput</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">auditreader</span>
+<div id="auditlogsdownloadwhereinput" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>AuditLogsDownloadWhereInput</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>auditreader</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -5753,10 +5753,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="auditoutcomefilter" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">AuditOutcomeFilter</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">auditreader</span>
+<div id="auditoutcomefilter" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>AuditOutcomeFilter</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>auditreader</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -5767,10 +5767,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="booleanfilter" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">BooleanFilter</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">coregraphql</span>
+<div id="booleanfilter" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>BooleanFilter</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>coregraphql</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -5781,10 +5781,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="buildstatefilter" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">BuildStateFilter</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changelogreader</span>
+<div id="buildstatefilter" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>BuildStateFilter</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changelogreader</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -5797,10 +5797,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="bulkpullrequestactionorderbyinput" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">BulkPullRequestActionOrderByInput</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changelogreader</span>
+<div id="bulkpullrequestactionorderbyinput" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>BulkPullRequestActionOrderByInput</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changelogreader</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -5811,10 +5811,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="bulkpullrequestactionstatefilter" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">BulkPullRequestActionStateFilter</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changelogreader</span>
+<div id="bulkpullrequestactionstatefilter" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>BulkPullRequestActionStateFilter</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changelogreader</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -5827,10 +5827,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="bulkpullrequestactionwhereinput" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">BulkPullRequestActionWhereInput</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changelogreader</span>
+<div id="bulkpullrequestactionwhereinput" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>BulkPullRequestActionWhereInput</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changelogreader</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -5846,10 +5846,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="changelogauthorwhereinput" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">ChangelogAuthorWhereInput</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changelogreader</span>
+<div id="changelogauthorwhereinput" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>ChangelogAuthorWhereInput</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changelogreader</span>
 </div>
 <p>Filter by changelog author.</p>
 <table>
@@ -5866,10 +5866,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="changelogentryorderbyinput" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">ChangelogEntryOrderByInput</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changelogreader</span>
+<div id="changelogentryorderbyinput" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>ChangelogEntryOrderByInput</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changelogreader</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -5880,10 +5880,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="changelogentrytypefilter" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">ChangelogEntryTypeFilter</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changelogreader</span>
+<div id="changelogentrytypefilter" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>ChangelogEntryTypeFilter</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changelogreader</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -5896,10 +5896,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="changelogentrywhereinput" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">ChangelogEntryWhereInput</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changelogreader</span>
+<div id="changelogentrywhereinput" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>ChangelogEntryWhereInput</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changelogreader</span>
 </div>
 <p>Filter input for changelog entries.</p>
 <table>
@@ -5923,10 +5923,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="changelogparticipantorderbyinput" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">ChangelogParticipantOrderByInput</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changelogreader</span>
+<div id="changelogparticipantorderbyinput" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>ChangelogParticipantOrderByInput</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changelogreader</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -5937,10 +5937,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="changelogparticipantwhereinput" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">ChangelogParticipantWhereInput</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changelogreader</span>
+<div id="changelogparticipantwhereinput" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>ChangelogParticipantWhereInput</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changelogreader</span>
 </div>
 <p>Filter input for participants.</p>
 <table>
@@ -5958,10 +5958,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="commitinput" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">CommitInput</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changesetcommitter</span>
+<div id="commitinput" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>CommitInput</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetcommitter</span>
 </div>
 <p>Input for creating a commit from a changeset.</p>
 <table>
@@ -5981,10 +5981,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="commitstrategyinput" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">CommitStrategyInput</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changesetcommitter</span>
+<div id="commitstrategyinput" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>CommitStrategyInput</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetcommitter</span>
 </div>
 <p>Commit delivery strategy. Choose one option.</p>
 <table>
@@ -5998,10 +5998,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="connectororderbyinput" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">ConnectorOrderByInput</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">gateway</span>
+<div id="connectororderbyinput" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>ConnectorOrderByInput</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>gateway</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -6012,10 +6012,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="connectortooltypefilter" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">ConnectorToolTypeFilter</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">gateway</span>
+<div id="connectortooltypefilter" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>ConnectorToolTypeFilter</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>gateway</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -6026,10 +6026,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="connectorwhereinput" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">ConnectorWhereInput</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">gateway</span>
+<div id="connectorwhereinput" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>ConnectorWhereInput</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>gateway</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -6045,10 +6045,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="conversationorderbyinput" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">ConversationOrderByInput</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">moddy</span>
+<div id="conversationorderbyinput" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>ConversationOrderByInput</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>moddy</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -6059,10 +6059,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="conversationwhereinput" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">ConversationWhereInput</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">moddy</span>
+<div id="conversationwhereinput" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>ConversationWhereInput</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>moddy</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -6078,10 +6078,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="createconversationinput" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">CreateConversationInput</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">moddy</span>
+<div id="createconversationinput" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>CreateConversationInput</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>moddy</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -6092,10 +6092,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="createuserorganizationinput" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">CreateUserOrganizationInput</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">organization</span>
+<div id="createuserorganizationinput" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>CreateUserOrganizationInput</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>organization</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -6106,10 +6106,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="datatableformatfilter" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">DataTableFormatFilter</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">corechangeset</span>
+<div id="datatableformatfilter" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>DataTableFormatFilter</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>corechangeset</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -6122,10 +6122,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="datatableorderbyinput" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">DataTableOrderByInput</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">corechangeset</span>
+<div id="datatableorderbyinput" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>DataTableOrderByInput</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>corechangeset</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -6136,10 +6136,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="datatablewhereinput" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">DataTableWhereInput</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">corechangeset</span>
+<div id="datatablewhereinput" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>DataTableWhereInput</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>corechangeset</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -6155,10 +6155,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="datetimefilter" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">DateTimeFilter</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">coregraphql</span>
+<div id="datetimefilter" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>DateTimeFilter</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>coregraphql</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -6173,10 +6173,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="devcenterrunorderbyinput" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">DevCenterRunOrderByInput</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changesetreader</span>
+<div id="devcenterrunorderbyinput" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>DevCenterRunOrderByInput</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetreader</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -6187,10 +6187,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="devcenterrunstatefilter" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">DevCenterRunStateFilter</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changesetreader</span>
+<div id="devcenterrunstatefilter" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>DevCenterRunStateFilter</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetreader</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -6203,10 +6203,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="devcenterrunwhereinput" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">DevCenterRunWhereInput</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changesetreader</span>
+<div id="devcenterrunwhereinput" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>DevCenterRunWhereInput</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetreader</span>
 </div>
 <p>Filter input for DevCenter run queries.</p>
 <table>
@@ -6222,10 +6222,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="directcommitinput" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">DirectCommitInput</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changesetcommitter</span>
+<div id="directcommitinput" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>DirectCommitInput</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetcommitter</span>
 </div>
 <p>Direct commit to origin. No additional options required.</p>
 <table>
@@ -6236,10 +6236,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="exchangeauthorizationcodeinput" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">ExchangeAuthorizationCodeInput</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">authz</span>
+<div id="exchangeauthorizationcodeinput" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>ExchangeAuthorizationCodeInput</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>authz</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -6251,10 +6251,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="filechangeorderbyinput" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">FileChangeOrderByInput</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">corechangeset</span>
+<div id="filechangeorderbyinput" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>FileChangeOrderByInput</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>corechangeset</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -6265,10 +6265,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="filechangewhereinput" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">FileChangeWhereInput</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changesetcommitter</span>
+<div id="filechangewhereinput" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>FileChangeWhereInput</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetcommitter</span>
 </div>
 <p>Filter for file changes.</p>
 <table>
@@ -6282,10 +6282,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="forkandpullrequestcommitinput" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">ForkAndPullRequestCommitInput</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changesetcommitter</span>
+<div id="forkandpullrequestcommitinput" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>ForkAndPullRequestCommitInput</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetcommitter</span>
 </div>
 <p>Create a pull request from a branch on a fork.</p>
 <table>
@@ -6303,10 +6303,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="forkcommitinput" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">ForkCommitInput</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changesetcommitter</span>
+<div id="forkcommitinput" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>ForkCommitInput</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetcommitter</span>
 </div>
 <p>Commit to a fork of the origin repository.</p>
 <table>
@@ -6318,10 +6318,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="gorecipebundleinput" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">GoRecipeBundleInput</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">recipemarketplace</span>
+<div id="gorecipebundleinput" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>GoRecipeBundleInput</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>recipemarketplace</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -6332,10 +6332,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="gpginput" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">GpgInput</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changesetcommitter</span>
+<div id="gpginput" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>GpgInput</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetcommitter</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -6347,10 +6347,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="idfilter" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">IDFilter</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">coregraphql</span>
+<div id="idfilter" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>IDFilter</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>coregraphql</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -6363,10 +6363,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="initiateauthorizationinput" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">InitiateAuthorizationInput</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">authz</span>
+<div id="initiateauthorizationinput" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>InitiateAuthorizationInput</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>authz</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -6377,10 +6377,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="intfilter" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">IntFilter</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">coregraphql</span>
+<div id="intfilter" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>IntFilter</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>coregraphql</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -6395,10 +6395,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="lstartifactwhereinput" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">LstArtifactWhereInput</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">organization</span>
+<div id="lstartifactwhereinput" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>LstArtifactWhereInput</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>organization</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -6412,10 +6412,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="mavenrecipebundleinput" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">MavenRecipeBundleInput</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">recipemarketplace</span>
+<div id="mavenrecipebundleinput" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>MavenRecipeBundleInput</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>recipemarketplace</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -6427,10 +6427,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="npmrecipebundleinput" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">NpmRecipeBundleInput</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">recipemarketplace</span>
+<div id="npmrecipebundleinput" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>NpmRecipeBundleInput</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>recipemarketplace</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -6441,10 +6441,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="nugetrecipebundleinput" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">NugetRecipeBundleInput</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">recipemarketplace</span>
+<div id="nugetrecipebundleinput" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>NugetRecipeBundleInput</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>recipemarketplace</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -6455,10 +6455,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="organizationchangesetorderbyinput" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">OrganizationChangesetOrderByInput</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">corechangeset</span>
+<div id="organizationchangesetorderbyinput" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>OrganizationChangesetOrderByInput</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>corechangeset</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -6469,10 +6469,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="organizationchangesettypefilter" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">OrganizationChangesetTypeFilter</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">corechangeset</span>
+<div id="organizationchangesettypefilter" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>OrganizationChangesetTypeFilter</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>corechangeset</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -6485,10 +6485,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="organizationchangesetwhereinput" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">OrganizationChangesetWhereInput</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">corechangeset</span>
+<div id="organizationchangesetwhereinput" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>OrganizationChangesetWhereInput</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>corechangeset</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -6504,10 +6504,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="organizationcommitorderbyinput" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">OrganizationCommitOrderByInput</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changesetcommitter</span>
+<div id="organizationcommitorderbyinput" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>OrganizationCommitOrderByInput</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetcommitter</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -6518,10 +6518,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="organizationcommitwhereinput" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">OrganizationCommitWhereInput</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changesetcommitter</span>
+<div id="organizationcommitwhereinput" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>OrganizationCommitWhereInput</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetcommitter</span>
 </div>
 <p>Filter input for organization-level commit queries.</p>
 <table>
@@ -6536,10 +6536,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="organizationorderbyinput" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">OrganizationOrderByInput</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">organization</span>
+<div id="organizationorderbyinput" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>OrganizationOrderByInput</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>organization</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -6550,10 +6550,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="organizationreciperunorderbyinput" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">OrganizationRecipeRunOrderByInput</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changesetreader</span>
+<div id="organizationreciperunorderbyinput" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>OrganizationRecipeRunOrderByInput</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetreader</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -6564,10 +6564,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="organizationreciperunstatefilter" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">OrganizationRecipeRunStateFilter</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changesetreader</span>
+<div id="organizationreciperunstatefilter" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>OrganizationRecipeRunStateFilter</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetreader</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -6580,10 +6580,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="organizationreciperunwhereinput" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">OrganizationRecipeRunWhereInput</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changesetreader</span>
+<div id="organizationreciperunwhereinput" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>OrganizationRecipeRunWhereInput</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetreader</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -6599,10 +6599,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="organizationwhereinput" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">OrganizationWhereInput</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">organization</span>
+<div id="organizationwhereinput" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>OrganizationWhereInput</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>organization</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -6616,10 +6616,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="pathfilter" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">PathFilter</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">coregraphql</span>
+<div id="pathfilter" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>PathFilter</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>coregraphql</span>
 </div>
 <p>Filter for file paths using glob patterns.</p>
 <table>
@@ -6633,10 +6633,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="piprecipebundleinput" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">PipRecipeBundleInput</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">recipemarketplace</span>
+<div id="piprecipebundleinput" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>PipRecipeBundleInput</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>recipemarketplace</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -6647,10 +6647,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="pullrequestactionorderbyinput" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">PullRequestActionOrderByInput</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changelogreader</span>
+<div id="pullrequestactionorderbyinput" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>PullRequestActionOrderByInput</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changelogreader</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -6661,10 +6661,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="pullrequestactionstatefilter" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">PullRequestActionStateFilter</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changelogreader</span>
+<div id="pullrequestactionstatefilter" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>PullRequestActionStateFilter</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changelogreader</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -6677,10 +6677,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="pullrequestactiontypefilter" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">PullRequestActionTypeFilter</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changelogreader</span>
+<div id="pullrequestactiontypefilter" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>PullRequestActionTypeFilter</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changelogreader</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -6693,10 +6693,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="pullrequestactionwhereinput" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">PullRequestActionWhereInput</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changelogreader</span>
+<div id="pullrequestactionwhereinput" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>PullRequestActionWhereInput</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changelogreader</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -6709,10 +6709,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="pullrequestcommitinput" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">PullRequestCommitInput</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changesetcommitter</span>
+<div id="pullrequestcommitinput" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>PullRequestCommitInput</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetcommitter</span>
 </div>
 <p>Create a pull request from a branch on the origin remote.</p>
 <table>
@@ -6727,10 +6727,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="pullrequestinput" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">PullRequestInput</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changelogreader</span>
+<div id="pullrequestinput" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>PullRequestInput</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changelogreader</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -6741,10 +6741,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="pullrequestselectioninput" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">PullRequestSelectionInput</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changelogreader</span>
+<div id="pullrequestselectioninput" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>PullRequestSelectionInput</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changelogreader</span>
 </div>
 <p>Selects pull requests for a bulk action.</p>
 <p>The `where` filter defines a base set of matching PRs. The optional `pullRequests` modifier can include or exclude specific PRs from that base set.</p>
@@ -6758,10 +6758,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="pullrequestselectionmodifier" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">PullRequestSelectionModifier</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changelogreader</span>
+<div id="pullrequestselectionmodifier" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>PullRequestSelectionModifier</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changelogreader</span>
 </div>
 <p>Modifies a PR selection by either including or excluding specific PRs. Exactly one field must be set.</p>
 <table>
@@ -6773,10 +6773,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="pullrequeststatefilter" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">PullRequestStateFilter</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changelogreader</span>
+<div id="pullrequeststatefilter" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>PullRequestStateFilter</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changelogreader</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -6789,10 +6789,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="recipebundleinput" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">RecipeBundleInput</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">recipemarketplace</span>
+<div id="recipebundleinput" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RecipeBundleInput</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>recipemarketplace</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -6807,10 +6807,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="recipebundleorderbyinput" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">RecipeBundleOrderByInput</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">recipemarketplace</span>
+<div id="recipebundleorderbyinput" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RecipeBundleOrderByInput</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>recipemarketplace</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -6821,10 +6821,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="recipebundlewhereinput" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">RecipeBundleWhereInput</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">recipemarketplace</span>
+<div id="recipebundlewhereinput" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RecipeBundleWhereInput</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>recipemarketplace</span>
 </div>
 <p>Filter input for RecipeBundle queries.</p>
 <table>
@@ -6841,10 +6841,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="recipecategoryorderbyinput" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">RecipeCategoryOrderByInput</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">recipemarketplace</span>
+<div id="recipecategoryorderbyinput" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RecipeCategoryOrderByInput</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>recipemarketplace</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -6855,10 +6855,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="recipecategorywhereinput" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">RecipeCategoryWhereInput</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">recipemarketplace</span>
+<div id="recipecategorywhereinput" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RecipeCategoryWhereInput</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>recipemarketplace</span>
 </div>
 <p>Filter input for RecipeCategory queries.</p>
 <table>
@@ -6874,10 +6874,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="recipeecosystemfilter" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">RecipeEcosystemFilter</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">recipemarketplace</span>
+<div id="recipeecosystemfilter" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RecipeEcosystemFilter</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>recipemarketplace</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -6890,10 +6890,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="recipeinput" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">RecipeInput</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">recipeworker</span>
+<div id="recipeinput" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RecipeInput</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>recipeworker</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -6904,10 +6904,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="recipeinstallationorderbyinput" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">RecipeInstallationOrderByInput</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">recipemarketplace</span>
+<div id="recipeinstallationorderbyinput" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RecipeInstallationOrderByInput</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>recipemarketplace</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -6918,10 +6918,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="recipeinstallationstatusfilter" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">RecipeInstallationStatusFilter</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">recipemarketplace</span>
+<div id="recipeinstallationstatusfilter" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RecipeInstallationStatusFilter</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>recipemarketplace</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -6934,10 +6934,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="recipeinstallationwhereinput" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">RecipeInstallationWhereInput</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">recipemarketplace</span>
+<div id="recipeinstallationwhereinput" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RecipeInstallationWhereInput</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>recipemarketplace</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -6955,10 +6955,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="recipeoptioninput" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">RecipeOptionInput</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">recipeworker</span>
+<div id="recipeoptioninput" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RecipeOptionInput</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>recipeworker</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -6969,10 +6969,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="recipeorderbyinput" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">RecipeOrderByInput</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">recipemarketplace</span>
+<div id="recipeorderbyinput" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RecipeOrderByInput</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>recipemarketplace</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -6983,10 +6983,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="recipewhereinput" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">RecipeWhereInput</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">recipemarketplace</span>
+<div id="recipewhereinput" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RecipeWhereInput</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>recipemarketplace</span>
 </div>
 <p>Filter input for Recipe queries. Use `query` for semantic search, or use field filters for exact matching.</p>
 <table>
@@ -7002,10 +7002,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="repositorychangesetorderbyinput" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">RepositoryChangesetOrderByInput</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">corechangeset</span>
+<div id="repositorychangesetorderbyinput" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RepositoryChangesetOrderByInput</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>corechangeset</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -7016,10 +7016,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="repositorychangesetstatefilter" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">RepositoryChangesetStateFilter</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changesetcommitter</span>
+<div id="repositorychangesetstatefilter" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RepositoryChangesetStateFilter</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetcommitter</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -7032,10 +7032,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="repositorychangesetwhereinput" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">RepositoryChangesetWhereInput</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changesetcommitter</span>
+<div id="repositorychangesetwhereinput" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RepositoryChangesetWhereInput</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetcommitter</span>
 </div>
 <p>Filter for repository changesets.</p>
 <table>
@@ -7054,10 +7054,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="repositorycommitorderbyinput" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">RepositoryCommitOrderByInput</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changesetcommitter</span>
+<div id="repositorycommitorderbyinput" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RepositoryCommitOrderByInput</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetcommitter</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -7068,10 +7068,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="repositorycommitwhereinput" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">RepositoryCommitWhereInput</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changesetcommitter</span>
+<div id="repositorycommitwhereinput" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RepositoryCommitWhereInput</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetcommitter</span>
 </div>
 <p>Filter input for repository-level commit queries.</p>
 <table>
@@ -7084,10 +7084,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="repositoryinput" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">RepositoryInput</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">corecommitter</span>
+<div id="repositoryinput" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RepositoryInput</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>corecommitter</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -7099,10 +7099,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="repositoryorderbyinput" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">RepositoryOrderByInput</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">organization</span>
+<div id="repositoryorderbyinput" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RepositoryOrderByInput</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>organization</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -7113,10 +7113,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="repositoryreciperunorderbyinput" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">RepositoryRecipeRunOrderByInput</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changesetreader</span>
+<div id="repositoryreciperunorderbyinput" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RepositoryRecipeRunOrderByInput</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetreader</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -7127,10 +7127,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="repositoryreciperunwhereinput" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">RepositoryRecipeRunWhereInput</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changesetreader</span>
+<div id="repositoryreciperunwhereinput" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RepositoryRecipeRunWhereInput</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetreader</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -7144,10 +7144,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="repositorywhereinput" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">RepositoryWhereInput</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">organization</span>
+<div id="repositorywhereinput" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RepositoryWhereInput</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>organization</span>
 </div>
 <p>Filter input for Repository queries using typed field filters.</p>
 <table>
@@ -7165,10 +7165,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="reviewdecisionfilter" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">ReviewDecisionFilter</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changelogreader</span>
+<div id="reviewdecisionfilter" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>ReviewDecisionFilter</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changelogreader</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -7181,10 +7181,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="revokescmtokeninput" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">RevokeScmTokenInput</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">authz</span>
+<div id="revokescmtokeninput" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RevokeScmTokenInput</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>authz</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -7194,10 +7194,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="rundevcenterinput" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">RunDevCenterInput</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">recipeworker</span>
+<div id="rundevcenterinput" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RunDevCenterInput</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>recipeworker</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -7208,10 +7208,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="runrecipeinput" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">RunRecipeInput</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">recipeworker</span>
+<div id="runrecipeinput" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>RunRecipeInput</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>recipeworker</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -7224,10 +7224,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="scmaccesstoken" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">ScmAccessToken</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changesetcommitter</span>
+<div id="scmaccesstoken" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>ScmAccessToken</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetcommitter</span>
 </div>
 <p>An access token for a specific SCM origin. When provided on a commit mutation, these tokens are preferred over stored OAuth tokens.</p>
 <table>
@@ -7239,10 +7239,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="stringfilter" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">StringFilter</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">coregraphql</span>
+<div id="stringfilter" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>StringFilter</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>coregraphql</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -7260,10 +7260,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="updateuserorganizationinput" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">UpdateUserOrganizationInput</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">organization</span>
+<div id="updateuserorganizationinput" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>UpdateUserOrganizationInput</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>organization</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -7275,10 +7275,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="userorderbyinput" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">UserOrderByInput</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">authz</span>
+<div id="userorderbyinput" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>UserOrderByInput</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>authz</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -7289,10 +7289,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="userwhereinput" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">UserWhereInput</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">coregraphql</span>
+<div id="userwhereinput" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>UserWhereInput</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>coregraphql</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -7305,10 +7305,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="visualizationoptioninput" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">VisualizationOptionInput</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changesetvisualizer</span>
+<div id="visualizationoptioninput" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>VisualizationOptionInput</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>changesetvisualizer</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -7319,10 +7319,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="visualizationorderbyinput" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">VisualizationOrderByInput</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">corechangeset</span>
+<div id="visualizationorderbyinput" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>VisualizationOrderByInput</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>corechangeset</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -7333,10 +7333,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="visualizationwhereinput" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">VisualizationWhereInput</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">corechangeset</span>
+<div id="visualizationwhereinput" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>VisualizationWhereInput</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>corechangeset</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -7350,10 +7350,10 @@ hide_title: true
 </table>
 </div>
 
-<div id="yamlrecipebundleinput" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">YamlRecipeBundleInput</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">recipemarketplace</span>
+<div id="yamlrecipebundleinput" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>YamlRecipeBundleInput</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>recipemarketplace</span>
 </div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
@@ -7366,78 +7366,78 @@ hide_title: true
 
 <h3>Unions</h3>
 
-<div id="connectortool" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">ConnectorTool</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">gateway</span>
+<div id="connectortool" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>ConnectorTool</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>gateway</span>
 </div>
 <p>= <a href="#githubconfiguration">GithubConfiguration</a> | <a href="#gitlabconfiguration">GitLabConfiguration</a> | <a href="#bitbucketconfiguration">BitbucketConfiguration</a> | <a href="#bitbucketcloudconfiguration">BitbucketCloudConfiguration</a> | <a href="#azuredevopsconfiguration">AzureDevOpsConfiguration</a> | <a href="#artifactoryconfiguration">ArtifactoryConfiguration</a> | <a href="#mavenconfiguration">MavenConfiguration</a> | <a href="#pypiconfiguration">PypiConfiguration</a> | <a href="#npmconfiguration">NpmConfiguration</a> | <a href="#nugetconfiguration">NugetConfiguration</a> | <a href="#generichttptoolconfiguration">GenericHttpToolConfiguration</a> | <a href="#organizationconfiguration">OrganizationConfiguration</a> | <a href="#llmconfiguration">LlmConfiguration</a> | <a href="#s3configuration">S3Configuration</a></p>
 </div>
 
 <h3>Scalars</h3>
 
-<div id="base64" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">Base64</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">coregraphql</span>
+<div id="base64" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>Base64</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>coregraphql</span>
 </div>
 <p>`Base64` represents a base64 encoded string. In the browser, `btoa` encodes ASCII strings to Base64.</p>
 </div>
 
-<div id="date" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">Date</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">coregraphql</span>
+<div id="date" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>Date</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>coregraphql</span>
 </div>
 </div>
 
-<div id="datetime" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">DateTime</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">coregraphql</span>
+<div id="datetime" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>DateTime</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>coregraphql</span>
 </div>
 </div>
 
-<div id="duration" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">Duration</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">coregraphql</span>
+<div id="duration" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>Duration</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>coregraphql</span>
 </div>
 </div>
 
-<div id="json" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">JSON</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">coregraphql</span>
+<div id="json" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>JSON</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>coregraphql</span>
 </div>
 </div>
 
-<div id="long" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">Long</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">coregraphql</span>
+<div id="long" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>Long</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>coregraphql</span>
 </div>
 </div>
 
-<div id="markdown" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">Markdown</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">coregraphql</span>
+<div id="markdown" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>Markdown</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>coregraphql</span>
 </div>
 <p>Contents may contain Markdown, HTML, or other text and should be passed through a Markdown parser by consumers</p>
 </div>
 
-<div id="object" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">Object</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">coregraphql</span>
+<div id="object" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>Object</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>coregraphql</span>
 </div>
 </div>
 
-<div id="path" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">Path</span>
-<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">coregraphql</span>
+<div id="path" style={{border: '1px solid #e2e8f0', borderLeft: '3px solid #6366f1', borderRadius: '0 6px 6px 0', padding: '12px 14px', marginBottom: '12px', background: '#fafafa'}}>
+<div style={{display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px'}}>
+<span style={{fontFamily: 'monospace', fontSize: '15px', fontWeight: '700', color: '#1e293b'}}>Path</span>
+<span style={{fontFamily: '-apple-system,sans-serif', fontSize: '11px', padding: '2px 7px', borderRadius: '20px', background: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0'}}>coregraphql</span>
 </div>
 <p>A file path relative to repository root (e.g., "src/main/java/Foo.java").</p>
 </div>
