@@ -1,6 +1,7 @@
 ---
 sidebar_label: GraphQL API reference
 description: Complete reference for the Moderne GraphQL API, including all queries, mutations, subscriptions, and types.
+hide_title: true
 ---
 
 <h1>GraphQL API reference</h1>
@@ -9,557 +10,561 @@ description: Complete reference for the Moderne GraphQL API, including all queri
 
 <h2>Queries</h2>
 
-<h3 id="auditLogs"><code>auditLogs</code></h3>
-
-<p><strong>Service:</strong> auditreader</p>
-
-<p><code>auditLogs</code>(first: Int = 100, after: String, where: <a href="#auditlogwhereinput">AuditLogWhereInput</a>, orderBy: [<a href="#auditlogorderbyinput">AuditLogOrderByInput</a>!]): <a href="#auditlogconnection">AuditLogConnection</a>!</p>
-
+<div id="auditLogs" style="border:1px solid #e2e8f0;border-left:3px solid #10b981;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">auditLogs</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;font-weight:700;padding:2px 7px;border-radius:20px;background:#d1fae5;color:#065f46;">query</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">auditreader</span>
+</div>
+<div style="font-family:monospace;font-size:12px;color:#94a3b8;margin:0 0 6px;">(first: Int = 100, after: String, where: <a href="#auditlogwhereinput">AuditLogWhereInput</a>, orderBy: [<a href="#auditlogorderbyinput">AuditLogOrderByInput</a>!]): <a href="#auditlogconnection">AuditLogConnection</a>!</div>
 <p>Query audit log events with pagination and filtering.</p>
+</div>
 
-<hr/>
-
-<h3 id="auditLogsDownloads"><code>auditLogsDownloads</code></h3>
-
-<p><strong>Service:</strong> auditreader</p>
-
-<p><code>auditLogsDownloads</code>(first: Int = 50, after: String, where: <a href="#auditlogsdownloadwhereinput">AuditLogsDownloadWhereInput</a>, orderBy: [<a href="#auditlogsdownloadorderbyinput">AuditLogsDownloadOrderByInput</a>!]): <a href="#auditlogsdownloadconnection">AuditLogsDownloadConnection</a>!</p>
-
+<div id="auditLogsDownloads" style="border:1px solid #e2e8f0;border-left:3px solid #10b981;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">auditLogsDownloads</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;font-weight:700;padding:2px 7px;border-radius:20px;background:#d1fae5;color:#065f46;">query</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">auditreader</span>
+</div>
+<div style="font-family:monospace;font-size:12px;color:#94a3b8;margin:0 0 6px;">(first: Int = 50, after: String, where: <a href="#auditlogsdownloadwhereinput">AuditLogsDownloadWhereInput</a>, orderBy: [<a href="#auditlogsdownloadorderbyinput">AuditLogsDownloadOrderByInput</a>!]): <a href="#auditlogsdownloadconnection">AuditLogsDownloadConnection</a>!</div>
 <p>Query audit log downloads with pagination and filtering. Use where: &#123; id: &#123; _eq: "..." &#125; &#125; to poll a specific download.</p>
+</div>
 
-<hr/>
-
-<h3 id="bulkPullRequestAction"><code>bulkPullRequestAction</code></h3>
-
-<p><strong>Service:</strong> changelogreader</p>
-
-<p><code>bulkPullRequestAction</code>(id: ID!): <a href="#bulkpullrequestaction">BulkPullRequestAction</a></p>
-
+<div id="bulkPullRequestAction" style="border:1px solid #e2e8f0;border-left:3px solid #10b981;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">bulkPullRequestAction</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;font-weight:700;padding:2px 7px;border-radius:20px;background:#d1fae5;color:#065f46;">query</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changelogreader</span>
+</div>
+<div style="font-family:monospace;font-size:12px;color:#94a3b8;margin:0 0 6px;">(id: ID!): <a href="#bulkpullrequestaction">BulkPullRequestAction</a></div>
 <p>Get a bulk pull request action by ID to poll for progress.</p>
+</div>
 
-<hr/>
-
-<h3 id="capabilities"><code>capabilities</code></h3>
-
-<p><strong>Service:</strong> gateway</p>
-
-<p><code>capabilities</code>: <a href="#platformcapabilities">PlatformCapabilities</a>!</p>
-
+<div id="capabilities" style="border:1px solid #e2e8f0;border-left:3px solid #10b981;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">capabilities</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;font-weight:700;padding:2px 7px;border-radius:20px;background:#d1fae5;color:#065f46;">query</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">gateway</span>
+</div>
+<div style="font-family:monospace;font-size:12px;color:#94a3b8;margin:0 0 6px;">: <a href="#platformcapabilities">PlatformCapabilities</a>!</div>
 <p>Returns which optional platform features are enabled in this deployment. Each field defaults to false and is overridden to true by the corresponding optional service when it is present in the supergraph composition.</p>
+</div>
 
-<hr/>
-
-<h3 id="codeSearch"><code>codeSearch</code></h3>
-
-<p><strong>Service:</strong> code-search</p>
-
-<p><code>codeSearch</code>(repositoryId: String!, query: String!, first: Int = 100, after: String): <a href="#codesearchresultconnection">CodeSearchResultConnection</a>!</p>
-
+<div id="codeSearch" style="border:1px solid #e2e8f0;border-left:3px solid #10b981;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">codeSearch</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;font-weight:700;padding:2px 7px;border-radius:20px;background:#d1fae5;color:#065f46;">query</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">code-search</span>
+</div>
+<div style="font-family:monospace;font-size:12px;color:#94a3b8;margin:0 0 6px;">(repositoryId: String!, query: String!, first: Int = 100, after: String): <a href="#codesearchresultconnection">CodeSearchResultConnection</a>!</div>
 <p>Search source code across artifact repositories. Searches the given repository and all its descendants in the hierarchy. Results are grouped by artifact (groupId:artifactId) with file-level matches.</p>
+</div>
 
-<hr/>
+<div id="connectors" style="border:1px solid #e2e8f0;border-left:3px solid #10b981;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">connectors</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;font-weight:700;padding:2px 7px;border-radius:20px;background:#d1fae5;color:#065f46;">query</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">gateway</span>
+</div>
+<div style="font-family:monospace;font-size:12px;color:#94a3b8;margin:0 0 6px;">(first: Int = 100, after: String, where: <a href="#connectorwhereinput">ConnectorWhereInput</a>, orderBy: [<a href="#connectororderbyinput">ConnectorOrderByInput</a>!]): <a href="#connectorconnection">ConnectorConnection</a>!</div>
+</div>
 
-<h3 id="connectors"><code>connectors</code></h3>
-
-<p><strong>Service:</strong> gateway</p>
-
-<p><code>connectors</code>(first: Int = 100, after: String, where: <a href="#connectorwhereinput">ConnectorWhereInput</a>, orderBy: [<a href="#connectororderbyinput">ConnectorOrderByInput</a>!]): <a href="#connectorconnection">ConnectorConnection</a>!</p>
-
-<hr/>
-
-<h3 id="conversation"><code>conversation</code></h3>
-
-<p><strong>Service:</strong> moddy</p>
-
-<p><code>conversation</code>(conversationId: ID!): <a href="#conversation">Conversation</a></p>
-
+<div id="conversation" style="border:1px solid #e2e8f0;border-left:3px solid #10b981;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">conversation</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;font-weight:700;padding:2px 7px;border-radius:20px;background:#d1fae5;color:#065f46;">query</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">moddy</span>
+</div>
+<div style="font-family:monospace;font-size:12px;color:#94a3b8;margin:0 0 6px;">(conversationId: ID!): <a href="#conversation">Conversation</a></div>
 <p>Look up a single conversation by id. Returns null when no conversation matches or the caller does not have access. Restores the v1 query the moderne-ui client already references.</p>
+</div>
 
-<hr/>
-
-<h3 id="currentUser"><code>currentUser</code></h3>
-
-<p><strong>Service:</strong> authz</p>
-
-<p><code>currentUser</code>: <a href="#user">User</a>!</p>
-
+<div id="currentUser" style="border:1px solid #e2e8f0;border-left:3px solid #10b981;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">currentUser</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;font-weight:700;padding:2px 7px;border-radius:20px;background:#d1fae5;color:#065f46;">query</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">authz</span>
+</div>
+<div style="font-family:monospace;font-size:12px;color:#94a3b8;margin:0 0 6px;">: <a href="#user">User</a>!</div>
 <p>Returns the currently authenticated user.</p>
+</div>
 
-<hr/>
-
-<h3 id="devCenterRecipes"><code>devCenterRecipes</code></h3>
-
-<p><strong>Service:</strong> recipemarketplace</p>
-
-<p><code>devCenterRecipes</code>: [<a href="#recipedescriptor">RecipeDescriptor</a>!]!</p>
-
+<div id="devCenterRecipes" style="border:1px solid #e2e8f0;border-left:3px solid #10b981;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">devCenterRecipes</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;font-weight:700;padding:2px 7px;border-radius:20px;background:#d1fae5;color:#065f46;">query</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">recipemarketplace</span>
+</div>
+<div style="font-family:monospace;font-size:12px;color:#94a3b8;margin:0 0 6px;">: [<a href="#recipedescriptor">RecipeDescriptor</a>!]!</div>
 <p>Get available DevCenter recipes for configuration.</p>
+</div>
 
-<hr/>
-
-<h3 id="license"><code>license</code></h3>
-
-<p><strong>Service:</strong> authz</p>
-
-<p><code>license</code>: <a href="#license">License</a>!</p>
-
+<div id="license" style="border:1px solid #e2e8f0;border-left:3px solid #10b981;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">license</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;font-weight:700;padding:2px 7px;border-radius:20px;background:#d1fae5;color:#065f46;">query</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">authz</span>
+</div>
+<div style="font-family:monospace;font-size:12px;color:#94a3b8;margin:0 0 6px;">: <a href="#license">License</a>!</div>
 <p>Request a new license lease key</p>
+</div>
 
-<hr/>
+<div id="organization" style="border:1px solid #e2e8f0;border-left:3px solid #10b981;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">organization</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;font-weight:700;padding:2px 7px;border-radius:20px;background:#d1fae5;color:#065f46;">query</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">organization</span>
+</div>
+<div style="font-family:monospace;font-size:12px;color:#94a3b8;margin:0 0 6px;">(id: ID!): <a href="#organization">Organization</a>!</div>
+</div>
 
-<h3 id="organization"><code>organization</code></h3>
+<div id="organizations" style="border:1px solid #e2e8f0;border-left:3px solid #10b981;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">organizations</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;font-weight:700;padding:2px 7px;border-radius:20px;background:#d1fae5;color:#065f46;">query</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">organization</span>
+</div>
+<div style="font-family:monospace;font-size:12px;color:#94a3b8;margin:0 0 6px;">(first: Int = 100, after: String, where: <a href="#organizationwhereinput">OrganizationWhereInput</a>, orderBy: [<a href="#organizationorderbyinput">OrganizationOrderByInput</a>!]): <a href="#organizationconnection">OrganizationConnection</a>!</div>
+</div>
 
-<p><strong>Service:</strong> organization</p>
-
-<p><code>organization</code>(id: ID!): <a href="#organization">Organization</a>!</p>
-
-<hr/>
-
-<h3 id="organizations"><code>organizations</code></h3>
-
-<p><strong>Service:</strong> organization</p>
-
-<p><code>organizations</code>(first: Int = 100, after: String, where: <a href="#organizationwhereinput">OrganizationWhereInput</a>, orderBy: [<a href="#organizationorderbyinput">OrganizationOrderByInput</a>!]): <a href="#organizationconnection">OrganizationConnection</a>!</p>
-
-<hr/>
-
-<h3 id="scmConnections"><code>scmConnections</code></h3>
-
-<p><strong>Service:</strong> authz</p>
-
-<p><code>scmConnections</code>: [<a href="#scmconnection">ScmConnection</a>!]!</p>
-
+<div id="scmConnections" style="border:1px solid #e2e8f0;border-left:3px solid #10b981;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">scmConnections</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;font-weight:700;padding:2px 7px;border-radius:20px;background:#d1fae5;color:#065f46;">query</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">authz</span>
+</div>
+<div style="font-family:monospace;font-size:12px;color:#94a3b8;margin:0 0 6px;">: [<a href="#scmconnection">ScmConnection</a>!]!</div>
 <p>Returns connections for all SCM providers.</p>
+</div>
 
-<hr/>
-
-<h3 id="users"><code>users</code></h3>
-
-<p><strong>Service:</strong> authz</p>
-
-<p><code>users</code>(first: Int = 100, after: String, where: <a href="#userwhereinput">UserWhereInput</a>, orderBy: [<a href="#userorderbyinput">UserOrderByInput</a>!]): <a href="#userconnection">UserConnection</a>!</p>
-
+<div id="users" style="border:1px solid #e2e8f0;border-left:3px solid #10b981;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">users</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;font-weight:700;padding:2px 7px;border-radius:20px;background:#d1fae5;color:#065f46;">query</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">authz</span>
+</div>
+<div style="font-family:monospace;font-size:12px;color:#94a3b8;margin:0 0 6px;">(first: Int = 100, after: String, where: <a href="#userwhereinput">UserWhereInput</a>, orderBy: [<a href="#userorderbyinput">UserOrderByInput</a>!]): <a href="#userconnection">UserConnection</a>!</div>
 <p>Returns users with option to filter by role.</p>
+</div>
 
-<hr/>
-
-<h3 id="verifyToken"><code>verifyToken</code></h3>
-
-<p><strong>Service:</strong> changesetcommitter</p>
-
-<p><code>verifyToken</code>(origin: String!, scmType: <a href="#scmtype">ScmType</a>!): String</p>
-
-<hr/>
+<div id="verifyToken" style="border:1px solid #e2e8f0;border-left:3px solid #10b981;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">verifyToken</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;font-weight:700;padding:2px 7px;border-radius:20px;background:#d1fae5;color:#065f46;">query</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changesetcommitter</span>
+</div>
+<div style="font-family:monospace;font-size:12px;color:#94a3b8;margin:0 0 6px;">(origin: String!, scmType: <a href="#scmtype">ScmType</a>!): String</div>
+</div>
 
 <h2>Mutations</h2>
 
-<h3 id="approvePullRequests"><code>approvePullRequests</code></h3>
-
-<p><strong>Service:</strong> changelogreader</p>
-
-<p><code>approvePullRequests</code>(organizationId: ID!, selection: <a href="#pullrequestselectioninput">PullRequestSelectionInput</a>!): <a href="#bulkpullrequestactionqueued">BulkPullRequestActionQueued</a>!</p>
-
+<div id="approvePullRequests" style="border:1px solid #e2e8f0;border-left:3px solid #f59e0b;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">approvePullRequests</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;font-weight:700;padding:2px 7px;border-radius:20px;background:#fef3c7;color:#92400e;">mutation</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changelogreader</span>
+</div>
+<div style="font-family:monospace;font-size:12px;color:#94a3b8;margin:0 0 6px;">(organizationId: ID!, selection: <a href="#pullrequestselectioninput">PullRequestSelectionInput</a>!): <a href="#bulkpullrequestactionqueued">BulkPullRequestActionQueued</a>!</div>
 <p>Approve pull requests in bulk. Returns the queued action for polling.</p>
+</div>
 
-<hr/>
-
-<h3 id="cancelBulkPullRequestAction"><code>cancelBulkPullRequestAction</code></h3>
-
-<p><strong>Service:</strong> changelogreader</p>
-
-<p><code>cancelBulkPullRequestAction</code>(id: ID!): <a href="#bulkpullrequestactioncanceled">BulkPullRequestActionCanceled</a>!</p>
-
+<div id="cancelBulkPullRequestAction" style="border:1px solid #e2e8f0;border-left:3px solid #f59e0b;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">cancelBulkPullRequestAction</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;font-weight:700;padding:2px 7px;border-radius:20px;background:#fef3c7;color:#92400e;">mutation</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changelogreader</span>
+</div>
+<div style="font-family:monospace;font-size:12px;color:#94a3b8;margin:0 0 6px;">(id: ID!): <a href="#bulkpullrequestactioncanceled">BulkPullRequestActionCanceled</a>!</div>
 <p>Cancel a pending bulk pull request action.</p>
+</div>
 
-<hr/>
-
-<h3 id="cancelCommit"><code>cancelCommit</code></h3>
-
-<p><strong>Service:</strong> changesetcommitter</p>
-
-<p><code>cancelCommit</code>(id: ID!): <a href="#organizationcommitcanceled">OrganizationCommitCanceled</a>!</p>
-
+<div id="cancelCommit" style="border:1px solid #e2e8f0;border-left:3px solid #f59e0b;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">cancelCommit</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;font-weight:700;padding:2px 7px;border-radius:20px;background:#fef3c7;color:#92400e;">mutation</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changesetcommitter</span>
+</div>
+<div style="font-family:monospace;font-size:12px;color:#94a3b8;margin:0 0 6px;">(id: ID!): <a href="#organizationcommitcanceled">OrganizationCommitCanceled</a>!</div>
 <p>Cancel a running commit operation.</p>
+</div>
 
-<hr/>
-
-<h3 id="cancelDevCenterRun"><code>cancelDevCenterRun</code></h3>
-
-<p><strong>Service:</strong> recipeworker</p>
-
-<p><code>cancelDevCenterRun</code>(id: ID!): ID!</p>
-
+<div id="cancelDevCenterRun" style="border:1px solid #e2e8f0;border-left:3px solid #f59e0b;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">cancelDevCenterRun</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;font-weight:700;padding:2px 7px;border-radius:20px;background:#fef3c7;color:#92400e;">mutation</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">recipeworker</span>
+</div>
+<div style="font-family:monospace;font-size:12px;color:#94a3b8;margin:0 0 6px;">(id: ID!): ID!</div>
 <p>Cancel a DevCenter run. Cancellation is best-effort and asynchronous.</p>
+</div>
 
-<hr/>
-
-<h3 id="cancelMessage"><code>cancelMessage</code></h3>
-
-<p><strong>Service:</strong> moddy</p>
-
-<p><code>cancelMessage</code>(conversationId: ID!, messageId: ID): Boolean!</p>
-
+<div id="cancelMessage" style="border:1px solid #e2e8f0;border-left:3px solid #f59e0b;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">cancelMessage</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;font-weight:700;padding:2px 7px;border-radius:20px;background:#fef3c7;color:#92400e;">mutation</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">moddy</span>
+</div>
+<div style="font-family:monospace;font-size:12px;color:#94a3b8;margin:0 0 6px;">(conversationId: ID!, messageId: ID): Boolean!</div>
 <p>Interrupt the currently-running turn for a conversation. The virtual thread driving the turn is interrupted — a blocking LLM stream unwinds immediately, and long-running downstream work (recipe runs) receives a best-effort cancel via `cancelRecipeRun` on recipe-worker. Cheap tool calls finish naturally. A terminal CANCELLED `ErrorMessage` is appended to the log regardless.</p>
 <p>LLM-memory consistency on the next turn is preserved by the JSONL collapse: `buildChatMessages` pairs every tool-origin row into an `AiMessage(toolRequests)` + `ToolExecutionResultMessage` batch, and only rows that actually persisted are rebuilt — partially-executed tool batches are reconstructed from whichever tool-origin rows made it to the log.</p>
 <p>Returns <code>true</code> when a running turn was actually interrupted, <code>false</code> when the conversation was already idle (no-op, not an error). <code>messageId</code> is accepted for client compatibility but only the conversation's active turn is cancellable — there is never more than one turn in flight.</p>
+</div>
 
-<hr/>
-
-<h3 id="cancelRecipeRun"><code>cancelRecipeRun</code></h3>
-
-<p><strong>Service:</strong> recipeworker</p>
-
-<p><code>cancelRecipeRun</code>(id: ID!): ID!</p>
-
+<div id="cancelRecipeRun" style="border:1px solid #e2e8f0;border-left:3px solid #f59e0b;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">cancelRecipeRun</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;font-weight:700;padding:2px 7px;border-radius:20px;background:#fef3c7;color:#92400e;">mutation</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">recipeworker</span>
+</div>
+<div style="font-family:monospace;font-size:12px;color:#94a3b8;margin:0 0 6px;">(id: ID!): ID!</div>
 <p>Cancel a recipe run. Cancellation is best-effort and asynchronous.</p>
+</div>
 
-<hr/>
-
-<h3 id="clearOrganizationPrompt"><code>clearOrganizationPrompt</code></h3>
-
-<p><strong>Service:</strong> moddy</p>
-
-<p><code>clearOrganizationPrompt</code>(organizationId: ID!): Boolean!</p>
-
+<div id="clearOrganizationPrompt" style="border:1px solid #e2e8f0;border-left:3px solid #f59e0b;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">clearOrganizationPrompt</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;font-weight:700;padding:2px 7px;border-radius:20px;background:#fef3c7;color:#92400e;">mutation</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">moddy</span>
+</div>
+<div style="font-family:monospace;font-size:12px;color:#94a3b8;margin:0 0 6px;">(organizationId: ID!): Boolean!</div>
 <p>Clear the organization-level prompt override, falling back to universal.</p>
+</div>
 
-<hr/>
-
-<h3 id="clearUserPrompt"><code>clearUserPrompt</code></h3>
-
-<p><strong>Service:</strong> moddy</p>
-
-<p><code>clearUserPrompt</code>: Boolean!</p>
-
+<div id="clearUserPrompt" style="border:1px solid #e2e8f0;border-left:3px solid #f59e0b;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">clearUserPrompt</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;font-weight:700;padding:2px 7px;border-radius:20px;background:#fef3c7;color:#92400e;">mutation</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">moddy</span>
+</div>
+<div style="font-family:monospace;font-size:12px;color:#94a3b8;margin:0 0 6px;">: Boolean!</div>
 <p>Clear the current user's prompt override, falling back to organization or universal.</p>
+</div>
 
-<hr/>
-
-<h3 id="closePullRequests"><code>closePullRequests</code></h3>
-
-<p><strong>Service:</strong> changelogreader</p>
-
-<p><code>closePullRequests</code>(organizationId: ID!, selection: <a href="#pullrequestselectioninput">PullRequestSelectionInput</a>!): <a href="#bulkpullrequestactionqueued">BulkPullRequestActionQueued</a>!</p>
-
+<div id="closePullRequests" style="border:1px solid #e2e8f0;border-left:3px solid #f59e0b;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">closePullRequests</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;font-weight:700;padding:2px 7px;border-radius:20px;background:#fef3c7;color:#92400e;">mutation</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changelogreader</span>
+</div>
+<div style="font-family:monospace;font-size:12px;color:#94a3b8;margin:0 0 6px;">(organizationId: ID!, selection: <a href="#pullrequestselectioninput">PullRequestSelectionInput</a>!): <a href="#bulkpullrequestactionqueued">BulkPullRequestActionQueued</a>!</div>
 <p>Close pull requests in bulk. Returns the queued action for polling.</p>
+</div>
 
-<hr/>
-
-<h3 id="commit"><code>commit</code></h3>
-
-<p><strong>Service:</strong> changesetcommitter</p>
-
-<p><code>commit</code>(input: <a href="#commitinput">CommitInput</a>!): <a href="#organizationcommitqueued">OrganizationCommitQueued</a>!</p>
-
+<div id="commit" style="border:1px solid #e2e8f0;border-left:3px solid #f59e0b;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">commit</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;font-weight:700;padding:2px 7px;border-radius:20px;background:#fef3c7;color:#92400e;">mutation</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changesetcommitter</span>
+</div>
+<div style="font-family:monospace;font-size:12px;color:#94a3b8;margin:0 0 6px;">(input: <a href="#commitinput">CommitInput</a>!): <a href="#organizationcommitqueued">OrganizationCommitQueued</a>!</div>
 <p>Create commits from a changeset (recipe run, batch change, etc.).</p>
+</div>
 
-<hr/>
-
-<h3 id="createAccessToken"><code>createAccessToken</code></h3>
-
-<p><strong>Service:</strong> authz</p>
-
-<p><code>createAccessToken</code>(description: String, expiresAt: <a href="#datetime">DateTime</a>): <a href="#createaccesstokenresult">CreateAccessTokenResult</a>!</p>
-
+<div id="createAccessToken" style="border:1px solid #e2e8f0;border-left:3px solid #f59e0b;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">createAccessToken</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;font-weight:700;padding:2px 7px;border-radius:20px;background:#fef3c7;color:#92400e;">mutation</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">authz</span>
+</div>
+<div style="font-family:monospace;font-size:12px;color:#94a3b8;margin:0 0 6px;">(description: String, expiresAt: <a href="#datetime">DateTime</a>): <a href="#createaccesstokenresult">CreateAccessTokenResult</a>!</div>
 <p>Creates a new Moderne Personal Access Token for the current user. Returns the token value only once - it cannot be retrieved again.</p>
+</div>
 
-<hr/>
-
-<h3 id="createConversation"><code>createConversation</code></h3>
-
-<p><strong>Service:</strong> moddy</p>
-
-<p><code>createConversation</code>(input: <a href="#createconversationinput">CreateConversationInput</a>!, waitForCompletion: Boolean = false): <a href="#sendmessageresult">SendMessageResult</a>!</p>
-
+<div id="createConversation" style="border:1px solid #e2e8f0;border-left:3px solid #f59e0b;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">createConversation</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;font-weight:700;padding:2px 7px;border-radius:20px;background:#fef3c7;color:#92400e;">mutation</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">moddy</span>
+</div>
+<div style="font-family:monospace;font-size:12px;color:#94a3b8;margin:0 0 6px;">(input: <a href="#createconversationinput">CreateConversationInput</a>!, waitForCompletion: Boolean = false): <a href="#sendmessageresult">SendMessageResult</a>!</div>
 <p>Create a new conversation and send the first message. Uses the effective prompt for the organization context. `waitForCompletion` has the same semantics as on `sendMessage`.</p>
+</div>
 
-<hr/>
-
-<h3 id="createUserOrganization"><code>createUserOrganization</code></h3>
-
-<p><strong>Service:</strong> organization</p>
-
-<p><code>createUserOrganization</code>(input: <a href="#createuserorganizationinput">CreateUserOrganizationInput</a>!): <a href="#organization">Organization</a>!</p>
-
+<div id="createUserOrganization" style="border:1px solid #e2e8f0;border-left:3px solid #f59e0b;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">createUserOrganization</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;font-weight:700;padding:2px 7px;border-radius:20px;background:#fef3c7;color:#92400e;">mutation</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">organization</span>
+</div>
+<div style="font-family:monospace;font-size:12px;color:#94a3b8;margin:0 0 6px;">(input: <a href="#createuserorganizationinput">CreateUserOrganizationInput</a>!): <a href="#organization">Organization</a>!</div>
 <p>Create a new user-defined organization visible only to the current user.</p>
+</div>
 
-<hr/>
-
-<h3 id="deleteUser"><code>deleteUser</code></h3>
-
-<p><strong>Service:</strong> authz</p>
-
-<p><code>deleteUser</code>(email: String!): Boolean!</p>
-
+<div id="deleteUser" style="border:1px solid #e2e8f0;border-left:3px solid #f59e0b;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">deleteUser</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;font-weight:700;padding:2px 7px;border-radius:20px;background:#fef3c7;color:#92400e;">mutation</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">authz</span>
+</div>
+<div style="font-family:monospace;font-size:12px;color:#94a3b8;margin:0 0 6px;">(email: String!): Boolean!</div>
 <p>Deletes a user and all associated access tokens. Returns true if the user was found and deleted.</p>
+</div>
 
-<hr/>
-
-<h3 id="deleteUserOrganization"><code>deleteUserOrganization</code></h3>
-
-<p><strong>Service:</strong> organization</p>
-
-<p><code>deleteUserOrganization</code>(id: ID!): Boolean!</p>
-
+<div id="deleteUserOrganization" style="border:1px solid #e2e8f0;border-left:3px solid #f59e0b;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">deleteUserOrganization</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;font-weight:700;padding:2px 7px;border-radius:20px;background:#fef3c7;color:#92400e;">mutation</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">organization</span>
+</div>
+<div style="font-family:monospace;font-size:12px;color:#94a3b8;margin:0 0 6px;">(id: ID!): Boolean!</div>
 <p>Delete a user-defined organization.</p>
+</div>
 
-<hr/>
-
-<h3 id="downloadAuditLogs"><code>downloadAuditLogs</code></h3>
-
-<p><strong>Service:</strong> auditreader</p>
-
-<p><code>downloadAuditLogs</code>(first: Int, since: <a href="#datetime">DateTime</a>, until: <a href="#datetime">DateTime</a>, format: <a href="#auditlogexportformat">AuditLogExportFormat</a>!): <a href="#auditlogsdownload">AuditLogsDownload</a>!</p>
-
+<div id="downloadAuditLogs" style="border:1px solid #e2e8f0;border-left:3px solid #f59e0b;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">downloadAuditLogs</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;font-weight:700;padding:2px 7px;border-radius:20px;background:#fef3c7;color:#92400e;">mutation</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">auditreader</span>
+</div>
+<div style="font-family:monospace;font-size:12px;color:#94a3b8;margin:0 0 6px;">(first: Int, since: <a href="#datetime">DateTime</a>, until: <a href="#datetime">DateTime</a>, format: <a href="#auditlogexportformat">AuditLogExportFormat</a>!): <a href="#auditlogsdownload">AuditLogsDownload</a>!</div>
 <p>Start an asynchronous export of audit logs. Returns a task whose state can be polled via auditLogsDownloads.</p>
+</div>
 
-<hr/>
-
-<h3 id="downloadDataTable"><code>downloadDataTable</code></h3>
-
-<p><strong>Service:</strong> changesetreader</p>
-
-<p><code>downloadDataTable</code>(changesetId: ID!, dataTable: String!, group: String, format: <a href="#datatableformat">DataTableFormat</a>!): <a href="#datatable">DataTable</a>!</p>
-
+<div id="downloadDataTable" style="border:1px solid #e2e8f0;border-left:3px solid #f59e0b;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">downloadDataTable</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;font-weight:700;padding:2px 7px;border-radius:20px;background:#fef3c7;color:#92400e;">mutation</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changesetreader</span>
+</div>
+<div style="font-family:monospace;font-size:12px;color:#94a3b8;margin:0 0 6px;">(changesetId: ID!, dataTable: String!, group: String, format: <a href="#datatableformat">DataTableFormat</a>!): <a href="#datatable">DataTable</a>!</div>
 <p>Start or retrieve a data table download. If the same data table + group + format combination was already requested, returns the existing download state.</p>
+</div>
 
-<hr/>
-
-<h3 id="exchangeAuthorizationCode"><code>exchangeAuthorizationCode</code></h3>
-
-<p><strong>Service:</strong> authz</p>
-
-<p><code>exchangeAuthorizationCode</code>(input: <a href="#exchangeauthorizationcodeinput">ExchangeAuthorizationCodeInput</a>!): <a href="#exchangeauthorizationresult">ExchangeAuthorizationResult</a>!</p>
-
+<div id="exchangeAuthorizationCode" style="border:1px solid #e2e8f0;border-left:3px solid #f59e0b;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">exchangeAuthorizationCode</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;font-weight:700;padding:2px 7px;border-radius:20px;background:#fef3c7;color:#92400e;">mutation</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">authz</span>
+</div>
+<div style="font-family:monospace;font-size:12px;color:#94a3b8;margin:0 0 6px;">(input: <a href="#exchangeauthorizationcodeinput">ExchangeAuthorizationCodeInput</a>!): <a href="#exchangeauthorizationresult">ExchangeAuthorizationResult</a>!</div>
 <p>Exchange an OAuth authorization code for an access token.</p>
 <p>This unified mutation handles all OAuth 2.0 VCS providers. The backend uses the authorizationId to look up: - The origin and VCS type - PKCE code_verifier (GitLab)</p>
 <p>On success, the token is stored and future requests will be authenticated.</p>
+</div>
 
-<hr/>
-
-<h3 id="initiateAuthorization"><code>initiateAuthorization</code></h3>
-
-<p><strong>Service:</strong> authz</p>
-
-<p><code>initiateAuthorization</code>(input: <a href="#initiateauthorizationinput">InitiateAuthorizationInput</a>!): <a href="#oauthauthorization">OAuthAuthorization</a>!</p>
-
+<div id="initiateAuthorization" style="border:1px solid #e2e8f0;border-left:3px solid #f59e0b;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">initiateAuthorization</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;font-weight:700;padding:2px 7px;border-radius:20px;background:#fef3c7;color:#92400e;">mutation</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">authz</span>
+</div>
+<div style="font-family:monospace;font-size:12px;color:#94a3b8;margin:0 0 6px;">(input: <a href="#initiateauthorizationinput">InitiateAuthorizationInput</a>!): <a href="#oauthauthorization">OAuthAuthorization</a>!</div>
 <p>Initiate OAuth authorization for a VCS origin. Returns an authorization URL to redirect the user to.</p>
 <p>The backend constructs the full OAuth URL including: - PKCE code_challenge for GitLab - Correct scopes for each VCS type - State parameter for CSRF protection</p>
 <p>The authorization ID should be passed to exchangeAuthorizationCode after the user completes OAuth.</p>
+</div>
 
-<hr/>
-
-<h3 id="installRecipesForCurrentUser"><code>installRecipesForCurrentUser</code></h3>
-
-<p><strong>Service:</strong> recipemarketplace</p>
-
-<p><code>installRecipesForCurrentUser</code>(bundle: <a href="#recipebundleinput">RecipeBundleInput</a>!): <a href="#recipeinstallation">RecipeInstallation</a>!</p>
-
+<div id="installRecipesForCurrentUser" style="border:1px solid #e2e8f0;border-left:3px solid #f59e0b;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">installRecipesForCurrentUser</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;font-weight:700;padding:2px 7px;border-radius:20px;background:#fef3c7;color:#92400e;">mutation</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">recipemarketplace</span>
+</div>
+<div style="font-family:monospace;font-size:12px;color:#94a3b8;margin:0 0 6px;">(bundle: <a href="#recipebundleinput">RecipeBundleInput</a>!): <a href="#recipeinstallation">RecipeInstallation</a>!</div>
 <p>Install a recipe bundle to the current user's personal marketplace.</p>
+</div>
 
-<hr/>
-
-<h3 id="installRecipesForOrganization"><code>installRecipesForOrganization</code></h3>
-
-<p><strong>Service:</strong> recipemarketplace</p>
-
-<p><code>installRecipesForOrganization</code>(organizationId: ID!, bundle: <a href="#recipebundleinput">RecipeBundleInput</a>!): <a href="#recipeinstallation">RecipeInstallation</a>!</p>
-
+<div id="installRecipesForOrganization" style="border:1px solid #e2e8f0;border-left:3px solid #f59e0b;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">installRecipesForOrganization</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;font-weight:700;padding:2px 7px;border-radius:20px;background:#fef3c7;color:#92400e;">mutation</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">recipemarketplace</span>
+</div>
+<div style="font-family:monospace;font-size:12px;color:#94a3b8;margin:0 0 6px;">(organizationId: ID!, bundle: <a href="#recipebundleinput">RecipeBundleInput</a>!): <a href="#recipeinstallation">RecipeInstallation</a>!</div>
 <p>Install a recipe bundle to a specific organization's marketplace. Requires the `admin` role.</p>
+</div>
 
-<hr/>
-
-<h3 id="installRecipesUniversal"><code>installRecipesUniversal</code></h3>
-
-<p><strong>Service:</strong> recipemarketplace</p>
-
-<p><code>installRecipesUniversal</code>(bundle: <a href="#recipebundleinput">RecipeBundleInput</a>!): <a href="#recipeinstallation">RecipeInstallation</a>!</p>
-
+<div id="installRecipesUniversal" style="border:1px solid #e2e8f0;border-left:3px solid #f59e0b;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">installRecipesUniversal</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;font-weight:700;padding:2px 7px;border-radius:20px;background:#fef3c7;color:#92400e;">mutation</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">recipemarketplace</span>
+</div>
+<div style="font-family:monospace;font-size:12px;color:#94a3b8;margin:0 0 6px;">(bundle: <a href="#recipebundleinput">RecipeBundleInput</a>!): <a href="#recipeinstallation">RecipeInstallation</a>!</div>
 <p>Install a recipe bundle to the universal marketplace (visible to all). Requires the `admin` role.</p>
+</div>
 
-<hr/>
-
-<h3 id="mergePullRequests"><code>mergePullRequests</code></h3>
-
-<p><strong>Service:</strong> changelogreader</p>
-
-<p><code>mergePullRequests</code>(organizationId: ID!, selection: <a href="#pullrequestselectioninput">PullRequestSelectionInput</a>!, mergeMethod: <a href="#mergemethod">MergeMethod</a>!, deleteSourceBranch: Boolean! = false): <a href="#bulkpullrequestactionqueued">BulkPullRequestActionQueued</a>!</p>
-
+<div id="mergePullRequests" style="border:1px solid #e2e8f0;border-left:3px solid #f59e0b;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">mergePullRequests</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;font-weight:700;padding:2px 7px;border-radius:20px;background:#fef3c7;color:#92400e;">mutation</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changelogreader</span>
+</div>
+<div style="font-family:monospace;font-size:12px;color:#94a3b8;margin:0 0 6px;">(organizationId: ID!, selection: <a href="#pullrequestselectioninput">PullRequestSelectionInput</a>!, mergeMethod: <a href="#mergemethod">MergeMethod</a>!, deleteSourceBranch: Boolean! = false): <a href="#bulkpullrequestactionqueued">BulkPullRequestActionQueued</a>!</div>
 <p>Merge pull requests in bulk. Returns the queued action for polling.</p>
+</div>
 
-<hr/>
-
-<h3 id="reindexChangelog"><code>reindexChangelog</code></h3>
-
-<p><strong>Service:</strong> changelogwriter</p>
-
-<p><code>reindexChangelog</code>(since: <a href="#datetime">DateTime</a>!, origin: String): <a href="#reindexresult">ReindexResult</a>!</p>
-
+<div id="reindexChangelog" style="border:1px solid #e2e8f0;border-left:3px solid #f59e0b;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">reindexChangelog</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;font-weight:700;padding:2px 7px;border-radius:20px;background:#fef3c7;color:#92400e;">mutation</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changelogwriter</span>
+</div>
+<div style="font-family:monospace;font-size:12px;color:#94a3b8;margin:0 0 6px;">(since: <a href="#datetime">DateTime</a>!, origin: String): <a href="#reindexresult">ReindexResult</a>!</div>
 <p>Reset poll cursors so the next poll cycle re-fetches and re-enriches changelog entries from the given timestamp forward. Use this to backfill data after deploying enrichment improvements.</p>
+</div>
 
-<hr/>
-
-<h3 id="revokeAccessToken"><code>revokeAccessToken</code></h3>
-
-<p><strong>Service:</strong> authz</p>
-
-<p><code>revokeAccessToken</code>(id: ID!): Boolean!</p>
-
+<div id="revokeAccessToken" style="border:1px solid #e2e8f0;border-left:3px solid #f59e0b;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">revokeAccessToken</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;font-weight:700;padding:2px 7px;border-radius:20px;background:#fef3c7;color:#92400e;">mutation</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">authz</span>
+</div>
+<div style="font-family:monospace;font-size:12px;color:#94a3b8;margin:0 0 6px;">(id: ID!): Boolean!</div>
 <p>Revokes an access token by ID. Returns true if the token was revoked, false if not found.</p>
+</div>
 
-<hr/>
-
-<h3 id="revokeAllAccessTokens"><code>revokeAllAccessTokens</code></h3>
-
-<p><strong>Service:</strong> authz</p>
-
-<p><code>revokeAllAccessTokens</code>(email: String!): Boolean!</p>
-
+<div id="revokeAllAccessTokens" style="border:1px solid #e2e8f0;border-left:3px solid #f59e0b;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">revokeAllAccessTokens</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;font-weight:700;padding:2px 7px;border-radius:20px;background:#fef3c7;color:#92400e;">mutation</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">authz</span>
+</div>
+<div style="font-family:monospace;font-size:12px;color:#94a3b8;margin:0 0 6px;">(email: String!): Boolean!</div>
 <p>Revokes all access tokens for a given user. Returns true if all token were revoked, otherwise false.</p>
+</div>
 
-<hr/>
-
-<h3 id="revokeScmToken"><code>revokeScmToken</code></h3>
-
-<p><strong>Service:</strong> authz</p>
-
-<p><code>revokeScmToken</code>(input: <a href="#revokescmtokeninput">RevokeScmTokenInput</a>!): <a href="#revoketokenresult">RevokeTokenResult</a>!</p>
-
+<div id="revokeScmToken" style="border:1px solid #e2e8f0;border-left:3px solid #f59e0b;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">revokeScmToken</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;font-weight:700;padding:2px 7px;border-radius:20px;background:#fef3c7;color:#92400e;">mutation</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">authz</span>
+</div>
+<div style="font-family:monospace;font-size:12px;color:#94a3b8;margin:0 0 6px;">(input: <a href="#revokescmtokeninput">RevokeScmTokenInput</a>!): <a href="#revoketokenresult">RevokeTokenResult</a>!</div>
 <p>Revoke an SCM OAuth token for the current user and a specific origin. This removes the stored token, disconnecting the user from the VCS.</p>
+</div>
 
-<hr/>
-
-<h3 id="runDevCenter"><code>runDevCenter</code></h3>
-
-<p><strong>Service:</strong> recipeworker</p>
-
-<p><code>runDevCenter</code>(input: <a href="#rundevcenterinput">RunDevCenterInput</a>!): <a href="#devcenterrunrunning">DevCenterRunRunning</a>!</p>
-
+<div id="runDevCenter" style="border:1px solid #e2e8f0;border-left:3px solid #f59e0b;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">runDevCenter</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;font-weight:700;padding:2px 7px;border-radius:20px;background:#fef3c7;color:#92400e;">mutation</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">recipeworker</span>
+</div>
+<div style="font-family:monospace;font-size:12px;color:#94a3b8;margin:0 0 6px;">(input: <a href="#rundevcenterinput">RunDevCenterInput</a>!): <a href="#devcenterrunrunning">DevCenterRunRunning</a>!</div>
 <p>Start a DevCenter run for an organization. Returns immediately with running status.</p>
+</div>
 
-<hr/>
-
-<h3 id="runRecipe"><code>runRecipe</code></h3>
-
-<p><strong>Service:</strong> recipeworker</p>
-
-<p><code>runRecipe</code>(input: <a href="#runrecipeinput">RunRecipeInput</a>!): <a href="#organizationreciperunqueued">OrganizationRecipeRunQueued</a>!</p>
-
+<div id="runRecipe" style="border:1px solid #e2e8f0;border-left:3px solid #f59e0b;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">runRecipe</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;font-weight:700;padding:2px 7px;border-radius:20px;background:#fef3c7;color:#92400e;">mutation</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">recipeworker</span>
+</div>
+<div style="font-family:monospace;font-size:12px;color:#94a3b8;margin:0 0 6px;">(input: <a href="#runrecipeinput">RunRecipeInput</a>!): <a href="#organizationreciperunqueued">OrganizationRecipeRunQueued</a>!</div>
 <p>Run a recipe against repositories. Returns the recipe run in its initial queued state.</p>
+</div>
 
-<hr/>
-
-<h3 id="runVisualization"><code>runVisualization</code></h3>
-
-<p><strong>Service:</strong> changesetvisualizer</p>
-
-<p><code>runVisualization</code>(organizationId: ID!, visualizationId: ID!, options: [<a href="#visualizationoptioninput">VisualizationOptionInput</a>!]): <a href="#visualization">Visualization</a>!</p>
-
+<div id="runVisualization" style="border:1px solid #e2e8f0;border-left:3px solid #f59e0b;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">runVisualization</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;font-weight:700;padding:2px 7px;border-radius:20px;background:#fef3c7;color:#92400e;">mutation</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changesetvisualizer</span>
+</div>
+<div style="font-family:monospace;font-size:12px;color:#94a3b8;margin:0 0 6px;">(organizationId: ID!, visualizationId: ID!, options: [<a href="#visualizationoptioninput">VisualizationOptionInput</a>!]): <a href="#visualization">Visualization</a>!</div>
 <p>Request a visualization to be generated based on the provided descriptor. Returns the existing visualization if already run with the same options, otherwise queues a new visualization run.</p>
+</div>
 
-<hr/>
-
-<h3 id="sendMessage"><code>sendMessage</code></h3>
-
-<p><strong>Service:</strong> moddy</p>
-
-<p><code>sendMessage</code>(conversationId: ID!, message: String!, waitForCompletion: Boolean = false): <a href="#sendmessageresult">SendMessageResult</a>!</p>
-
+<div id="sendMessage" style="border:1px solid #e2e8f0;border-left:3px solid #f59e0b;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">sendMessage</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;font-weight:700;padding:2px 7px;border-radius:20px;background:#fef3c7;color:#92400e;">mutation</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">moddy</span>
+</div>
+<div style="font-family:monospace;font-size:12px;color:#94a3b8;margin:0 0 6px;">(conversationId: ID!, message: String!, waitForCompletion: Boolean = false): <a href="#sendmessageresult">SendMessageResult</a>!</div>
 <p>Send a message to an existing conversation. Returns a handle for polling — `initialCursor` is the cursor to pass to the next `messages(after:)` query, and `turnState` carries the server- recommended poll cadence.</p>
 <p>When `waitForCompletion: true`, the mutation blocks until the turn completes (or the server cap of 4 minutes is reached, whichever comes first). On cap, the mutation returns the current turn state rather than erroring so the caller can continue polling.</p>
+</div>
 
-<hr/>
-
-<h3 id="setOrganizationPrompt"><code>setOrganizationPrompt</code></h3>
-
-<p><strong>Service:</strong> moddy</p>
-
-<p><code>setOrganizationPrompt</code>(organizationId: ID!, content: <a href="#markdown">Markdown</a>!): <a href="#prompt">Prompt</a>!</p>
-
+<div id="setOrganizationPrompt" style="border:1px solid #e2e8f0;border-left:3px solid #f59e0b;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">setOrganizationPrompt</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;font-weight:700;padding:2px 7px;border-radius:20px;background:#fef3c7;color:#92400e;">mutation</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">moddy</span>
+</div>
+<div style="font-family:monospace;font-size:12px;color:#94a3b8;margin:0 0 6px;">(organizationId: ID!, content: <a href="#markdown">Markdown</a>!): <a href="#prompt">Prompt</a>!</div>
 <p>Set the system prompt for a specific organization (overrides universal).</p>
+</div>
 
-<hr/>
-
-<h3 id="setProfiling"><code>setProfiling</code></h3>
-
-<p><strong>Service:</strong> gateway</p>
-
-<p><code>setProfiling</code>(enabled: Boolean!, event: <a href="#profilingevent">ProfilingEvent</a> = CPU): Boolean!</p>
-
+<div id="setProfiling" style="border:1px solid #e2e8f0;border-left:3px solid #f59e0b;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">setProfiling</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;font-weight:700;padding:2px 7px;border-radius:20px;background:#fef3c7;color:#92400e;">mutation</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">gateway</span>
+</div>
+<div style="font-family:monospace;font-size:12px;color:#94a3b8;margin:0 0 6px;">(enabled: Boolean!, event: <a href="#profilingevent">ProfilingEvent</a> = CPU): Boolean!</div>
 <p>Turn continuous profiling on or off for this tenant. When enabled, Pyroscope profiles for every service start landing in the Pyroscope UI within seconds. The primary event the agent samples on is selected by `event` (defaults to CPU); calling the mutation again with a different event while profiling is already on rotates the agent to the new event. Fails when the profiling capability is not enabled for the tenant. Admin role required.</p>
+</div>
 
-<hr/>
-
-<h3 id="setUniversalPrompt"><code>setUniversalPrompt</code></h3>
-
-<p><strong>Service:</strong> moddy</p>
-
-<p><code>setUniversalPrompt</code>(content: <a href="#markdown">Markdown</a>!): <a href="#prompt">Prompt</a>!</p>
-
+<div id="setUniversalPrompt" style="border:1px solid #e2e8f0;border-left:3px solid #f59e0b;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">setUniversalPrompt</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;font-weight:700;padding:2px 7px;border-radius:20px;background:#fef3c7;color:#92400e;">mutation</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">moddy</span>
+</div>
+<div style="font-family:monospace;font-size:12px;color:#94a3b8;margin:0 0 6px;">(content: <a href="#markdown">Markdown</a>!): <a href="#prompt">Prompt</a>!</div>
 <p>Set the universal (default) system prompt.</p>
+</div>
 
-<hr/>
-
-<h3 id="setUserPrompt"><code>setUserPrompt</code></h3>
-
-<p><strong>Service:</strong> moddy</p>
-
-<p><code>setUserPrompt</code>(content: <a href="#markdown">Markdown</a>!): <a href="#prompt">Prompt</a>!</p>
-
+<div id="setUserPrompt" style="border:1px solid #e2e8f0;border-left:3px solid #f59e0b;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">setUserPrompt</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;font-weight:700;padding:2px 7px;border-radius:20px;background:#fef3c7;color:#92400e;">mutation</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">moddy</span>
+</div>
+<div style="font-family:monospace;font-size:12px;color:#94a3b8;margin:0 0 6px;">(content: <a href="#markdown">Markdown</a>!): <a href="#prompt">Prompt</a>!</div>
 <p>Set the system prompt for the current user (overrides organization and universal).</p>
+</div>
 
-<hr/>
-
-<h3 id="uninstallRecipesFromCurrentUser"><code>uninstallRecipesFromCurrentUser</code></h3>
-
-<p><strong>Service:</strong> recipemarketplace</p>
-
-<p><code>uninstallRecipesFromCurrentUser</code>(packageName: String!): <a href="#recipeuninstallation">RecipeUninstallation</a>!</p>
-
+<div id="uninstallRecipesFromCurrentUser" style="border:1px solid #e2e8f0;border-left:3px solid #f59e0b;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">uninstallRecipesFromCurrentUser</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;font-weight:700;padding:2px 7px;border-radius:20px;background:#fef3c7;color:#92400e;">mutation</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">recipemarketplace</span>
+</div>
+<div style="font-family:monospace;font-size:12px;color:#94a3b8;margin:0 0 6px;">(packageName: String!): <a href="#recipeuninstallation">RecipeUninstallation</a>!</div>
 <p>Uninstall a recipe bundle from the current user's personal marketplace. Returns the number of recipes that were removed.</p>
+</div>
 
-<hr/>
-
-<h3 id="uninstallRecipesFromOrganization"><code>uninstallRecipesFromOrganization</code></h3>
-
-<p><strong>Service:</strong> recipemarketplace</p>
-
-<p><code>uninstallRecipesFromOrganization</code>(organizationId: ID!, packageName: String!): <a href="#recipeuninstallation">RecipeUninstallation</a>!</p>
-
+<div id="uninstallRecipesFromOrganization" style="border:1px solid #e2e8f0;border-left:3px solid #f59e0b;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">uninstallRecipesFromOrganization</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;font-weight:700;padding:2px 7px;border-radius:20px;background:#fef3c7;color:#92400e;">mutation</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">recipemarketplace</span>
+</div>
+<div style="font-family:monospace;font-size:12px;color:#94a3b8;margin:0 0 6px;">(organizationId: ID!, packageName: String!): <a href="#recipeuninstallation">RecipeUninstallation</a>!</div>
 <p>Uninstall a recipe bundle from a specific organization's marketplace. Returns the number of recipes that were removed. Requires the `admin` role.</p>
+</div>
 
-<hr/>
-
-<h3 id="uninstallRecipesUniversal"><code>uninstallRecipesUniversal</code></h3>
-
-<p><strong>Service:</strong> recipemarketplace</p>
-
-<p><code>uninstallRecipesUniversal</code>(packageName: String!): <a href="#recipeuninstallation">RecipeUninstallation</a>!</p>
-
+<div id="uninstallRecipesUniversal" style="border:1px solid #e2e8f0;border-left:3px solid #f59e0b;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">uninstallRecipesUniversal</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;font-weight:700;padding:2px 7px;border-radius:20px;background:#fef3c7;color:#92400e;">mutation</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">recipemarketplace</span>
+</div>
+<div style="font-family:monospace;font-size:12px;color:#94a3b8;margin:0 0 6px;">(packageName: String!): <a href="#recipeuninstallation">RecipeUninstallation</a>!</div>
 <p>Uninstall a recipe bundle from the universal marketplace. Returns the number of recipes that were removed. Requires the `admin` role.</p>
+</div>
 
-<hr/>
-
-<h3 id="updateUserOrganization"><code>updateUserOrganization</code></h3>
-
-<p><strong>Service:</strong> organization</p>
-
-<p><code>updateUserOrganization</code>(input: <a href="#updateuserorganizationinput">UpdateUserOrganizationInput</a>!): <a href="#organization">Organization</a>!</p>
-
+<div id="updateUserOrganization" style="border:1px solid #e2e8f0;border-left:3px solid #f59e0b;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">updateUserOrganization</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;font-weight:700;padding:2px 7px;border-radius:20px;background:#fef3c7;color:#92400e;">mutation</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">organization</span>
+</div>
+<div style="font-family:monospace;font-size:12px;color:#94a3b8;margin:0 0 6px;">(input: <a href="#updateuserorganizationinput">UpdateUserOrganizationInput</a>!): <a href="#organization">Organization</a>!</div>
 <p>Update an existing user-defined organization.</p>
-
-<hr/>
+</div>
 
 <h2>Types</h2>
 
 <h3>Object types</h3>
 
-<h4 id="accesstoken"><code>AccessToken</code></h4>
-
-<p><strong>Service:</strong> authz</p>
-
+<div id="accesstoken" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">AccessToken</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">authz</span>
+</div>
 <p>Moderne Personal Access Tokens</p>
-
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -569,13 +574,13 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>expiresAt</code></td><td><a href="#datetime">DateTime</a></td><td>The date and time the token will expire.</td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="accesstokenconnection"><code>AccessTokenConnection</code></h4>
-
-<p><strong>Service:</strong> authz</p>
-
+<div id="accesstokenconnection" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">AccessTokenConnection</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">authz</span>
+</div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -584,13 +589,13 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>count</code></td><td>Int!</td><td></td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="accesstokenedge"><code>AccessTokenEdge</code></h4>
-
-<p><strong>Service:</strong> authz</p>
-
+<div id="accesstokenedge" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">AccessTokenEdge</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">authz</span>
+</div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -598,13 +603,13 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>cursor</code></td><td>String!</td><td></td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="artifactoryconfiguration"><code>ArtifactoryConfiguration</code></h4>
-
-<p><strong>Service:</strong> gateway</p>
-
+<div id="artifactoryconfiguration" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">ArtifactoryConfiguration</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">gateway</span>
+</div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -616,13 +621,13 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>lastIngestedAt</code></td><td><a href="#datetime">DateTime</a></td><td></td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="auditlog"><code>AuditLog</code></h4>
-
-<p><strong>Service:</strong> auditreader</p>
-
+<div id="auditlog" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">AuditLog</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">auditreader</span>
+</div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -636,13 +641,13 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>timestamp</code></td><td><a href="#datetime">DateTime</a>!</td><td>When the action occurred.</td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="auditlogconnection"><code>AuditLogConnection</code></h4>
-
-<p><strong>Service:</strong> auditreader</p>
-
+<div id="auditlogconnection" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">AuditLogConnection</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">auditreader</span>
+</div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -651,13 +656,13 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>count</code></td><td>Int!</td><td></td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="auditlogedge"><code>AuditLogEdge</code></h4>
-
-<p><strong>Service:</strong> auditreader</p>
-
+<div id="auditlogedge" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">AuditLogEdge</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">auditreader</span>
+</div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -665,13 +670,13 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>cursor</code></td><td>String!</td><td></td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="auditlogsdownloadconnection"><code>AuditLogsDownloadConnection</code></h4>
-
-<p><strong>Service:</strong> auditreader</p>
-
+<div id="auditlogsdownloadconnection" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">AuditLogsDownloadConnection</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">auditreader</span>
+</div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -680,13 +685,13 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>count</code></td><td>Int!</td><td></td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="auditlogsdownloadedge"><code>AuditLogsDownloadEdge</code></h4>
-
-<p><strong>Service:</strong> auditreader</p>
-
+<div id="auditlogsdownloadedge" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">AuditLogsDownloadEdge</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">auditreader</span>
+</div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -694,15 +699,15 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>cursor</code></td><td>String!</td><td></td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="auditlogsdownloaderror"><code>AuditLogsDownloadError</code></h4>
-
-<p><strong>Service:</strong> auditreader | <strong>Implements:</strong> <a href="#auditlogsdownload">AuditLogsDownload</a></p>
-
+<div id="auditlogsdownloaderror" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">AuditLogsDownloadError</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">auditreader</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#ede9fe;color:#4338ca;border:1px solid #c7d2fe;">implements <a href="#auditlogsdownload">AuditLogsDownload</a></span>
+</div>
 <p>An audit log download failed.</p>
-
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -712,15 +717,15 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>message</code></td><td>String!</td><td></td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="auditlogsdownloadfinished"><code>AuditLogsDownloadFinished</code></h4>
-
-<p><strong>Service:</strong> auditreader | <strong>Implements:</strong> <a href="#auditlogsdownload">AuditLogsDownload</a></p>
-
+<div id="auditlogsdownloadfinished" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">AuditLogsDownloadFinished</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">auditreader</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#ede9fe;color:#4338ca;border:1px solid #c7d2fe;">implements <a href="#auditlogsdownload">AuditLogsDownload</a></span>
+</div>
 <p>An audit log download has completed successfully.</p>
-
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -731,15 +736,15 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>downloadUrl</code></td><td>String!</td><td>URL path to download the file (relative to the service base URL).</td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="auditlogsdownloadprocessing"><code>AuditLogsDownloadProcessing</code></h4>
-
-<p><strong>Service:</strong> auditreader | <strong>Implements:</strong> <a href="#auditlogsdownload">AuditLogsDownload</a></p>
-
+<div id="auditlogsdownloadprocessing" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">AuditLogsDownloadProcessing</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">auditreader</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#ede9fe;color:#4338ca;border:1px solid #c7d2fe;">implements <a href="#auditlogsdownload">AuditLogsDownload</a></span>
+</div>
 <p>An audit log download is being processed.</p>
-
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -748,13 +753,13 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>startedAt</code></td><td><a href="#datetime">DateTime</a>!</td><td></td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="azuredevopsconfiguration"><code>AzureDevOpsConfiguration</code></h4>
-
-<p><strong>Service:</strong> gateway</p>
-
+<div id="azuredevopsconfiguration" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">AzureDevOpsConfiguration</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">gateway</span>
+</div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -765,13 +770,14 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>oauth</code></td><td><a href="#azuredevopsoauth">AzureDevOpsOauth</a></td><td></td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="azuredevopsconnection"><code>AzureDevOpsConnection</code></h4>
-
-<p><strong>Service:</strong> authz | <strong>Implements:</strong> <a href="#scmconnection">ScmConnection</a></p>
-
+<div id="azuredevopsconnection" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">AzureDevOpsConnection</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">authz</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#ede9fe;color:#4338ca;border:1px solid #c7d2fe;">implements <a href="#scmconnection">ScmConnection</a></span>
+</div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -780,13 +786,13 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>tokens</code></td><td>[<a href="#scmtokeninfo">ScmTokenInfo</a>!]!</td><td></td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="azuredevopsoauth"><code>AzureDevOpsOauth</code></h4>
-
-<p><strong>Service:</strong> gateway</p>
-
+<div id="azuredevopsoauth" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">AzureDevOpsOauth</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">gateway</span>
+</div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -794,13 +800,14 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>tenantId</code></td><td>String!</td><td></td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="batchchange"><code>BatchChange</code></h4>
-
-<p><strong>Service:</strong> changesetreader | <strong>Implements:</strong> <a href="#organizationchangeset">OrganizationChangeset</a></p>
-
+<div id="batchchange" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">BatchChange</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changesetreader</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#ede9fe;color:#4338ca;border:1px solid #c7d2fe;">implements <a href="#organizationchangeset">OrganizationChangeset</a></span>
+</div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -817,13 +824,14 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>visualizations</code></td><td>(first: Int = 50, after: String, where: <a href="#visualizationwhereinput">VisualizationWhereInput</a>, orderBy: [<a href="#visualizationorderbyinput">VisualizationOrderByInput</a>!]): <a href="#visualizationconnection">VisualizationConnection</a>!</td><td>Visualizations produced by this batch change.</td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="batchchangefilechange"><code>BatchChangeFileChange</code></h4>
-
-<p><strong>Service:</strong> changesetreader | <strong>Implements:</strong> <a href="#filechange">FileChange</a></p>
-
+<div id="batchchangefilechange" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">BatchChangeFileChange</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changesetreader</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#ede9fe;color:#4338ca;border:1px solid #c7d2fe;">implements <a href="#filechange">FileChange</a></span>
+</div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -833,13 +841,13 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>diff</code></td><td>(markupLevel: <a href="#markuplevel">MarkupLevel</a> = ERROR, showWhitespaceOnlyChanges: Boolean = true): <a href="#patch">Patch</a></td><td></td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="bitbucketcloudconfiguration"><code>BitbucketCloudConfiguration</code></h4>
-
-<p><strong>Service:</strong> gateway</p>
-
+<div id="bitbucketcloudconfiguration" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">BitbucketCloudConfiguration</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">gateway</span>
+</div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -850,13 +858,14 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>oauth</code></td><td><a href="#bitbucketcloudoauth">BitbucketCloudOauth</a></td><td></td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="bitbucketcloudconnection"><code>BitbucketCloudConnection</code></h4>
-
-<p><strong>Service:</strong> authz | <strong>Implements:</strong> <a href="#scmconnection">ScmConnection</a></p>
-
+<div id="bitbucketcloudconnection" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">BitbucketCloudConnection</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">authz</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#ede9fe;color:#4338ca;border:1px solid #c7d2fe;">implements <a href="#scmconnection">ScmConnection</a></span>
+</div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -865,26 +874,26 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>tokens</code></td><td>[<a href="#scmtokeninfo">ScmTokenInfo</a>!]!</td><td></td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="bitbucketcloudoauth"><code>BitbucketCloudOauth</code></h4>
-
-<p><strong>Service:</strong> gateway</p>
-
+<div id="bitbucketcloudoauth" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">BitbucketCloudOauth</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">gateway</span>
+</div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
     <tr><td><code>clientId</code></td><td>String!</td><td></td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="bitbucketconfiguration"><code>BitbucketConfiguration</code></h4>
-
-<p><strong>Service:</strong> gateway</p>
-
+<div id="bitbucketconfiguration" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">BitbucketConfiguration</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">gateway</span>
+</div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -895,13 +904,14 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>oauth</code></td><td><a href="#bitbucketoauth">BitbucketOauth</a></td><td></td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="bitbucketconnection"><code>BitbucketConnection</code></h4>
-
-<p><strong>Service:</strong> authz | <strong>Implements:</strong> <a href="#scmconnection">ScmConnection</a></p>
-
+<div id="bitbucketconnection" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">BitbucketConnection</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">authz</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#ede9fe;color:#4338ca;border:1px solid #c7d2fe;">implements <a href="#scmconnection">ScmConnection</a></span>
+</div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -910,39 +920,41 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>tokens</code></td><td>[<a href="#scmtokeninfo">ScmTokenInfo</a>!]!</td><td></td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="bitbucketoauth"><code>BitbucketOauth</code></h4>
-
-<p><strong>Service:</strong> gateway</p>
-
+<div id="bitbucketoauth" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">BitbucketOauth</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">gateway</span>
+</div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
     <tr><td><code>clientId</code></td><td>String!</td><td></td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="branchcommitoptions"><code>BranchCommitOptions</code></h4>
-
-<p><strong>Service:</strong> changesetcommitter | <strong>Implements:</strong> <a href="#commitoptions">CommitOptions</a></p>
-
+<div id="branchcommitoptions" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">BranchCommitOptions</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changesetcommitter</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#ede9fe;color:#4338ca;border:1px solid #c7d2fe;">implements <a href="#commitoptions">CommitOptions</a></span>
+</div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
     <tr><td><code>branchName</code></td><td>String</td><td></td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="bulkpullrequestactioncanceled"><code>BulkPullRequestActionCanceled</code></h4>
-
-<p><strong>Service:</strong> changelogreader | <strong>Implements:</strong> <a href="#bulkpullrequestaction">BulkPullRequestAction</a></p>
-
+<div id="bulkpullrequestactioncanceled" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">BulkPullRequestActionCanceled</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changelogreader</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#ede9fe;color:#4338ca;border:1px solid #c7d2fe;">implements <a href="#bulkpullrequestaction">BulkPullRequestAction</a></span>
+</div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -953,13 +965,13 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>results</code></td><td>(first: Int = 50, after: String, where: <a href="#pullrequestactionwhereinput">PullRequestActionWhereInput</a>, orderBy: [<a href="#pullrequestactionorderbyinput">PullRequestActionOrderByInput</a>!]): <a href="#pullrequestactionconnection">PullRequestActionConnection</a>!</td><td></td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="bulkpullrequestactionconnection"><code>BulkPullRequestActionConnection</code></h4>
-
-<p><strong>Service:</strong> changelogreader</p>
-
+<div id="bulkpullrequestactionconnection" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">BulkPullRequestActionConnection</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changelogreader</span>
+</div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -968,13 +980,13 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>count</code></td><td>Int!</td><td></td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="bulkpullrequestactionedge"><code>BulkPullRequestActionEdge</code></h4>
-
-<p><strong>Service:</strong> changelogreader</p>
-
+<div id="bulkpullrequestactionedge" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">BulkPullRequestActionEdge</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changelogreader</span>
+</div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -982,13 +994,14 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>cursor</code></td><td>String!</td><td></td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="bulkpullrequestactionerror"><code>BulkPullRequestActionError</code></h4>
-
-<p><strong>Service:</strong> changelogreader | <strong>Implements:</strong> <a href="#bulkpullrequestaction">BulkPullRequestAction</a></p>
-
+<div id="bulkpullrequestactionerror" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">BulkPullRequestActionError</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changelogreader</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#ede9fe;color:#4338ca;border:1px solid #c7d2fe;">implements <a href="#bulkpullrequestaction">BulkPullRequestAction</a></span>
+</div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -999,13 +1012,14 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>results</code></td><td>(first: Int = 50, after: String, where: <a href="#pullrequestactionwhereinput">PullRequestActionWhereInput</a>, orderBy: [<a href="#pullrequestactionorderbyinput">PullRequestActionOrderByInput</a>!]): <a href="#pullrequestactionconnection">PullRequestActionConnection</a>!</td><td></td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="bulkpullrequestactionfinished"><code>BulkPullRequestActionFinished</code></h4>
-
-<p><strong>Service:</strong> changelogreader | <strong>Implements:</strong> <a href="#bulkpullrequestaction">BulkPullRequestAction</a></p>
-
+<div id="bulkpullrequestactionfinished" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">BulkPullRequestActionFinished</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changelogreader</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#ede9fe;color:#4338ca;border:1px solid #c7d2fe;">implements <a href="#bulkpullrequestaction">BulkPullRequestAction</a></span>
+</div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -1017,13 +1031,14 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>results</code></td><td>(first: Int = 50, after: String, where: <a href="#pullrequestactionwhereinput">PullRequestActionWhereInput</a>, orderBy: [<a href="#pullrequestactionorderbyinput">PullRequestActionOrderByInput</a>!]): <a href="#pullrequestactionconnection">PullRequestActionConnection</a>!</td><td></td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="bulkpullrequestactionqueued"><code>BulkPullRequestActionQueued</code></h4>
-
-<p><strong>Service:</strong> changelogreader | <strong>Implements:</strong> <a href="#bulkpullrequestaction">BulkPullRequestAction</a></p>
-
+<div id="bulkpullrequestactionqueued" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">BulkPullRequestActionQueued</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changelogreader</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#ede9fe;color:#4338ca;border:1px solid #c7d2fe;">implements <a href="#bulkpullrequestaction">BulkPullRequestAction</a></span>
+</div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -1034,13 +1049,14 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>results</code></td><td>(first: Int = 50, after: String, where: <a href="#pullrequestactionwhereinput">PullRequestActionWhereInput</a>, orderBy: [<a href="#pullrequestactionorderbyinput">PullRequestActionOrderByInput</a>!]): <a href="#pullrequestactionconnection">PullRequestActionConnection</a>!</td><td></td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="bulkpullrequestactionrunning"><code>BulkPullRequestActionRunning</code></h4>
-
-<p><strong>Service:</strong> changelogreader | <strong>Implements:</strong> <a href="#bulkpullrequestaction">BulkPullRequestAction</a></p>
-
+<div id="bulkpullrequestactionrunning" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">BulkPullRequestActionRunning</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changelogreader</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#ede9fe;color:#4338ca;border:1px solid #c7d2fe;">implements <a href="#bulkpullrequestaction">BulkPullRequestAction</a></span>
+</div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -1051,15 +1067,14 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>results</code></td><td>(first: Int = 50, after: String, where: <a href="#pullrequestactionwhereinput">PullRequestActionWhereInput</a>, orderBy: [<a href="#pullrequestactionorderbyinput">PullRequestActionOrderByInput</a>!]): <a href="#pullrequestactionconnection">PullRequestActionConnection</a>!</td><td></td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="changeparticipant"><code>ChangeParticipant</code></h4>
-
-<p><strong>Service:</strong> changelogreader</p>
-
+<div id="changeparticipant" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">ChangeParticipant</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changelogreader</span>
+</div>
 <p>A participant identity from the VCS provider. Not necessarily a Moderne user.</p>
-
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -1070,15 +1085,15 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>roles</code></td><td>[<a href="#contributorrole">ContributorRole</a>!]!</td><td>The roles this participant has across changelog entries.</td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="changelogcommit"><code>ChangelogCommit</code></h4>
-
-<p><strong>Service:</strong> changelogreader | <strong>Implements:</strong> <a href="#changelogentry">ChangelogEntry</a></p>
-
+<div id="changelogcommit" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">ChangelogCommit</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changelogreader</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#ede9fe;color:#4338ca;border:1px solid #c7d2fe;">implements <a href="#changelogentry">ChangelogEntry</a></span>
+</div>
 <p>A direct commit to a branch.</p>
-
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -1096,13 +1111,13 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>diffstat</code></td><td><a href="#diffstat">DiffStat</a>!</td><td></td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="changelogentryconnection"><code>ChangelogEntryConnection</code></h4>
-
-<p><strong>Service:</strong> changelogreader</p>
-
+<div id="changelogentryconnection" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">ChangelogEntryConnection</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changelogreader</span>
+</div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -1111,13 +1126,13 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>count</code></td><td>Int!</td><td></td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="changelogentryedge"><code>ChangelogEntryEdge</code></h4>
-
-<p><strong>Service:</strong> changelogreader</p>
-
+<div id="changelogentryedge" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">ChangelogEntryEdge</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changelogreader</span>
+</div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -1125,13 +1140,13 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>cursor</code></td><td>String!</td><td></td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="changelogparticipantconnection"><code>ChangelogParticipantConnection</code></h4>
-
-<p><strong>Service:</strong> changelogreader</p>
-
+<div id="changelogparticipantconnection" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">ChangelogParticipantConnection</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changelogreader</span>
+</div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -1140,13 +1155,13 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>count</code></td><td>Int!</td><td></td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="changelogparticipantedge"><code>ChangelogParticipantEdge</code></h4>
-
-<p><strong>Service:</strong> changelogreader</p>
-
+<div id="changelogparticipantedge" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">ChangelogParticipantEdge</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changelogreader</span>
+</div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -1154,15 +1169,15 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>cursor</code></td><td>String!</td><td></td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="changelogpullrequest"><code>ChangelogPullRequest</code></h4>
-
-<p><strong>Service:</strong> changelogreader | <strong>Implements:</strong> <a href="#changelogentry">ChangelogEntry</a></p>
-
+<div id="changelogpullrequest" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">ChangelogPullRequest</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changelogreader</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#ede9fe;color:#4338ca;border:1px solid #c7d2fe;">implements <a href="#changelogentry">ChangelogEntry</a></span>
+</div>
 <p>A pull request (open, draft, merged, or closed).</p>
-
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -1189,13 +1204,13 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>actions</code></td><td>(first: Int = 50, after: String, where: <a href="#pullrequestactionwhereinput">PullRequestActionWhereInput</a>, orderBy: [<a href="#pullrequestactionorderbyinput">PullRequestActionOrderByInput</a>!]): <a href="#pullrequestactionconnection">PullRequestActionConnection</a>!</td><td>Actions (approve, merge, close) that have been applied to this pull request. Default sort order is descending by startedAt.</td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="clidownloadinstructionlink"><code>CliDownloadInstructionLink</code></h4>
-
-<p><strong>Service:</strong> gateway</p>
-
+<div id="clidownloadinstructionlink" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">CliDownloadInstructionLink</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">gateway</span>
+</div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -1203,13 +1218,13 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>uri</code></td><td>String!</td><td></td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="codesearchresult"><code>CodeSearchResult</code></h4>
-
-<p><strong>Service:</strong> code-search</p>
-
+<div id="codesearchresult" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">CodeSearchResult</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">code-search</span>
+</div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -1218,13 +1233,13 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>fileChanges</code></td><td>(first: Int = 100, after: String): <a href="#filechangeconnection">FileChangeConnection</a>!</td><td></td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="codesearchresultconnection"><code>CodeSearchResultConnection</code></h4>
-
-<p><strong>Service:</strong> code-search</p>
-
+<div id="codesearchresultconnection" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">CodeSearchResultConnection</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">code-search</span>
+</div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -1234,13 +1249,13 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>searchDurationMs</code></td><td><a href="#long">Long</a>!</td><td></td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="codesearchresultedge"><code>CodeSearchResultEdge</code></h4>
-
-<p><strong>Service:</strong> code-search</p>
-
+<div id="codesearchresultedge" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">CodeSearchResultEdge</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">code-search</span>
+</div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -1248,13 +1263,13 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>cursor</code></td><td>String!</td><td></td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="column"><code>Column</code></h4>
-
-<p><strong>Service:</strong> corechangeset</p>
-
+<div id="column" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">Column</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">corechangeset</span>
+</div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -1264,13 +1279,13 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>type</code></td><td>String!</td><td></td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="connector"><code>Connector</code></h4>
-
-<p><strong>Service:</strong> gateway</p>
-
+<div id="connector" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">Connector</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">gateway</span>
+</div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -1282,13 +1297,13 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>personalAccessTokenConfiguration</code></td><td><a href="#personalaccesstokenconfiguration">PersonalAccessTokenConfiguration</a></td><td></td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="connectorconnection"><code>ConnectorConnection</code></h4>
-
-<p><strong>Service:</strong> gateway</p>
-
+<div id="connectorconnection" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">ConnectorConnection</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">gateway</span>
+</div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -1297,13 +1312,13 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>count</code></td><td>Int!</td><td></td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="connectoredge"><code>ConnectorEdge</code></h4>
-
-<p><strong>Service:</strong> gateway</p>
-
+<div id="connectoredge" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">ConnectorEdge</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">gateway</span>
+</div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -1311,13 +1326,13 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>cursor</code></td><td>String!</td><td></td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="conversation"><code>Conversation</code></h4>
-
-<p><strong>Service:</strong> moddy</p>
-
+<div id="conversation" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">Conversation</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">moddy</span>
+</div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -1330,13 +1345,13 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>lastUpdatedAt</code></td><td><a href="#datetime">DateTime</a>!</td><td></td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="conversationconnection"><code>ConversationConnection</code></h4>
-
-<p><strong>Service:</strong> moddy</p>
-
+<div id="conversationconnection" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">ConversationConnection</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">moddy</span>
+</div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -1344,13 +1359,13 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>pageInfo</code></td><td><a href="#pageinfo">PageInfo</a>!</td><td></td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="conversationedge"><code>ConversationEdge</code></h4>
-
-<p><strong>Service:</strong> moddy</p>
-
+<div id="conversationedge" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">ConversationEdge</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">moddy</span>
+</div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -1358,15 +1373,14 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>cursor</code></td><td>String!</td><td></td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="conversationturnstate"><code>ConversationTurnState</code></h4>
-
-<p><strong>Service:</strong> moddy</p>
-
+<div id="conversationturnstate" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">ConversationTurnState</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">moddy</span>
+</div>
 <p>Represents the current phase of the conversation's active turn (if any). Drives client poll cadence.</p>
-
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -1375,15 +1389,14 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>activeTurnStartedAt</code></td><td><a href="#datetime">DateTime</a></td><td>When the currently-active turn started, if any.</td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="createaccesstokenresult"><code>CreateAccessTokenResult</code></h4>
-
-<p><strong>Service:</strong> authz</p>
-
+<div id="createaccesstokenresult" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">CreateAccessTokenResult</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">authz</span>
+</div>
 <p>Result of creating a new access token. The token value is only available in this response.</p>
-
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -1394,15 +1407,15 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>expiresAt</code></td><td><a href="#datetime">DateTime</a></td><td>When the token will expire, or null if it never expires.</td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="datatableavailable"><code>DataTableAvailable</code></h4>
-
-<p><strong>Service:</strong> changesetreader | <strong>Implements:</strong> <a href="#datatable">DataTable</a></p>
-
+<div id="datatableavailable" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">DataTableAvailable</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changesetreader</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#ede9fe;color:#4338ca;border:1px solid #c7d2fe;">implements <a href="#datatable">DataTable</a></span>
+</div>
 <p>A data table is available for download but no download has been initiated yet.</p>
-
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -1413,13 +1426,13 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>changesetId</code></td><td>ID!</td><td></td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="datatableconnection"><code>DataTableConnection</code></h4>
-
-<p><strong>Service:</strong> corechangeset</p>
-
+<div id="datatableconnection" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">DataTableConnection</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">corechangeset</span>
+</div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -1428,13 +1441,13 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>count</code></td><td>Int!</td><td></td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="datatabledescriptor"><code>DataTableDescriptor</code></h4>
-
-<p><strong>Service:</strong> corechangeset</p>
-
+<div id="datatabledescriptor" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">DataTableDescriptor</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">corechangeset</span>
+</div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -1444,13 +1457,13 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>columns</code></td><td>[<a href="#column">Column</a>!]!</td><td></td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="datatableedge"><code>DataTableEdge</code></h4>
-
-<p><strong>Service:</strong> corechangeset</p>
-
+<div id="datatableedge" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">DataTableEdge</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">corechangeset</span>
+</div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -1458,15 +1471,15 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>cursor</code></td><td>String!</td><td></td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="datatableerror"><code>DataTableError</code></h4>
-
-<p><strong>Service:</strong> changesetreader | <strong>Implements:</strong> <a href="#datatable">DataTable</a></p>
-
+<div id="datatableerror" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">DataTableError</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changesetreader</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#ede9fe;color:#4338ca;border:1px solid #c7d2fe;">implements <a href="#datatable">DataTable</a></span>
+</div>
 <p>A data table download failed.</p>
-
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -1480,15 +1493,15 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>message</code></td><td>String!</td><td></td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="datatablefinished"><code>DataTableFinished</code></h4>
-
-<p><strong>Service:</strong> changesetreader | <strong>Implements:</strong> <a href="#datatable">DataTable</a></p>
-
+<div id="datatablefinished" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">DataTableFinished</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changesetreader</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#ede9fe;color:#4338ca;border:1px solid #c7d2fe;">implements <a href="#datatable">DataTable</a></span>
+</div>
 <p>A data table download has completed successfully.</p>
-
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -1504,15 +1517,15 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>downloadUrl</code></td><td>String!</td><td>URL path to download the file (relative to the service base URL).</td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="datatableprocessing"><code>DataTableProcessing</code></h4>
-
-<p><strong>Service:</strong> changesetreader | <strong>Implements:</strong> <a href="#datatable">DataTable</a></p>
-
+<div id="datatableprocessing" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">DataTableProcessing</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changesetreader</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#ede9fe;color:#4338ca;border:1px solid #c7d2fe;">implements <a href="#datatable">DataTable</a></span>
+</div>
 <p>A data table download is being processed.</p>
-
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -1525,13 +1538,14 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>startedAt</code></td><td><a href="#datetime">DateTime</a>!</td><td></td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="datatablesqlmessage"><code>DataTableSqlMessage</code></h4>
-
-<p><strong>Service:</strong> moddy | <strong>Implements:</strong> <a href="#message">Message</a></p>
-
+<div id="datatablesqlmessage" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">DataTableSqlMessage</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">moddy</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#ede9fe;color:#4338ca;border:1px solid #c7d2fe;">implements <a href="#message">Message</a></span>
+</div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -1542,13 +1556,14 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>lastUpdatedAt</code></td><td><a href="#datetime">DateTime</a>!</td><td></td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="datatablesmessage"><code>DataTablesMessage</code></h4>
-
-<p><strong>Service:</strong> moddy | <strong>Implements:</strong> <a href="#message">Message</a></p>
-
+<div id="datatablesmessage" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">DataTablesMessage</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">moddy</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#ede9fe;color:#4338ca;border:1px solid #c7d2fe;">implements <a href="#message">Message</a></span>
+</div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -1559,13 +1574,13 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>lastUpdatedAt</code></td><td><a href="#datetime">DateTime</a>!</td><td></td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="devcenter"><code>DevCenter</code></h4>
-
-<p><strong>Service:</strong> changesetreader</p>
-
+<div id="devcenter" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">DevCenter</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changesetreader</span>
+</div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -1573,15 +1588,14 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>runs</code></td><td>(first: Int = 10, after: String, where: <a href="#devcenterrunwhereinput">DevCenterRunWhereInput</a>, orderBy: [<a href="#devcenterrunorderbyinput">DevCenterRunOrderByInput</a>!]): <a href="#devcenterrunconnection">DevCenterRunConnection</a>!</td><td>DevCenter runs for this organization, ordered by start time descending.</td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="devcentercard"><code>DevCenterCard</code></h4>
-
-<p><strong>Service:</strong> changesetreader</p>
-
+<div id="devcentercard" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">DevCenterCard</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changesetreader</span>
+</div>
 <p>A DevCenter card represents a category of work (e.g., "Spring Boot 3", "Java 21", "Security"). Cards contain measures that track progress toward completion.</p>
-
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -1593,13 +1607,13 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>repositoriesNotApplicable</code></td><td>Int!</td><td>Repositories where this card is not applicable.</td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="devcentercarddescriptor"><code>DevCenterCardDescriptor</code></h4>
-
-<p><strong>Service:</strong> recipemarketplace</p>
-
+<div id="devcentercarddescriptor" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">DevCenterCardDescriptor</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">recipemarketplace</span>
+</div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -1610,15 +1624,14 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>measures</code></td><td>[<a href="#devcentermeasuredescriptor">DevCenterMeasureDescriptor</a>!]!</td><td></td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="devcentermeasure"><code>DevCenterMeasure</code></h4>
-
-<p><strong>Service:</strong> changesetreader</p>
-
+<div id="devcentermeasure" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">DevCenterMeasure</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changesetreader</span>
+</div>
 <p>A measure within a DevCenter card representing a specific state or finding, with a count from the run results.</p>
-
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -1628,15 +1641,14 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>count</code></td><td>Int!</td><td>Count of repositories or occurrences for this measure. For PER_REPOSITORY: number of repositories in this state. For PER_OCCURRENCE: total count of occurrences.</td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="devcentermeasuredescriptor"><code>DevCenterMeasureDescriptor</code></h4>
-
-<p><strong>Service:</strong> recipemarketplace</p>
-
+<div id="devcentermeasuredescriptor" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">DevCenterMeasureDescriptor</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">recipemarketplace</span>
+</div>
 <p>A measure descriptor within a DevCenter card, representing metadata about a specific state or finding. See DevCenterMeasure in changeset:reader for the runtime version with counts.</p>
-
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -1645,15 +1657,14 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>ordinal</code></td><td>Int!</td><td></td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="devcenterorganization"><code>DevCenterOrganization</code></h4>
-
-<p><strong>Service:</strong> changesetreader</p>
-
+<div id="devcenterorganization" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">DevCenterOrganization</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changesetreader</span>
+</div>
 <p>Organization-level context from a DevCenter run.</p>
-
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -1662,15 +1673,14 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>linesOfCode</code></td><td><a href="#long">Long</a>!</td><td>Total lines of code across all repositories on platform.</td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="devcenterrepositories"><code>DevCenterRepositories</code></h4>
-
-<p><strong>Service:</strong> changesetreader</p>
-
+<div id="devcenterrepositories" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">DevCenterRepositories</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changesetreader</span>
+</div>
 <p>Repository counts from a DevCenter run.</p>
-
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -1678,15 +1688,15 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>repositoriesWithoutLst</code></td><td>Int!</td><td>Repositories with no LST ingested at the time of the run.</td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="devcenterruncanceled"><code>DevCenterRunCanceled</code></h4>
-
-<p><strong>Service:</strong> changesetreader | <strong>Implements:</strong> <a href="#devcenterrun">DevCenterRun</a></p>
-
+<div id="devcenterruncanceled" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">DevCenterRunCanceled</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changesetreader</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#ede9fe;color:#4338ca;border:1px solid #c7d2fe;">implements <a href="#devcenterrun">DevCenterRun</a></span>
+</div>
 <p>DevCenter run was canceled before completion.</p>
-
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -1696,13 +1706,13 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>finishedAt</code></td><td><a href="#datetime">DateTime</a>!</td><td></td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="devcenterrunconnection"><code>DevCenterRunConnection</code></h4>
-
-<p><strong>Service:</strong> changesetreader</p>
-
+<div id="devcenterrunconnection" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">DevCenterRunConnection</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changesetreader</span>
+</div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -1711,13 +1721,13 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>count</code></td><td>Int!</td><td></td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="devcenterrunedge"><code>DevCenterRunEdge</code></h4>
-
-<p><strong>Service:</strong> changesetreader</p>
-
+<div id="devcenterrunedge" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">DevCenterRunEdge</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changesetreader</span>
+</div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -1725,15 +1735,15 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>cursor</code></td><td>String!</td><td></td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="devcenterrunerror"><code>DevCenterRunError</code></h4>
-
-<p><strong>Service:</strong> changesetreader | <strong>Implements:</strong> <a href="#devcenterrun">DevCenterRun</a></p>
-
+<div id="devcenterrunerror" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">DevCenterRunError</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changesetreader</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#ede9fe;color:#4338ca;border:1px solid #c7d2fe;">implements <a href="#devcenterrun">DevCenterRun</a></span>
+</div>
 <p>DevCenter run failed with an error.</p>
-
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -1744,15 +1754,15 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>message</code></td><td>String!</td><td>Human-readable error message.</td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="devcenterrunfinished"><code>DevCenterRunFinished</code></h4>
-
-<p><strong>Service:</strong> changesetreader | <strong>Implements:</strong> <a href="#devcenterrun">DevCenterRun</a></p>
-
+<div id="devcenterrunfinished" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">DevCenterRunFinished</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changesetreader</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#ede9fe;color:#4338ca;border:1px solid #c7d2fe;">implements <a href="#devcenterrun">DevCenterRun</a></span>
+</div>
 <p>DevCenter run completed successfully with summarized results.</p>
-
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -1765,15 +1775,15 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>security</code></td><td><a href="#devcentercard">DevCenterCard</a></td><td>Security vulnerabilities found (from SecurityIssues data table).</td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="devcenterrunrunning"><code>DevCenterRunRunning</code></h4>
-
-<p><strong>Service:</strong> changesetreader | <strong>Implements:</strong> <a href="#devcenterrun">DevCenterRun</a></p>
-
+<div id="devcenterrunrunning" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">DevCenterRunRunning</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changesetreader</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#ede9fe;color:#4338ca;border:1px solid #c7d2fe;">implements <a href="#devcenterrun">DevCenterRun</a></span>
+</div>
 <p>DevCenter recipe is currently running across repositories.</p>
-
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -1782,15 +1792,14 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>changeset</code></td><td><a href="#organizationchangeset">OrganizationChangeset</a></td><td></td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="diffstat"><code>DiffStat</code></h4>
-
-<p><strong>Service:</strong> changelogreader</p>
-
+<div id="diffstat" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">DiffStat</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changelogreader</span>
+</div>
 <p>Aggregate line-level diff statistics.</p>
-
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -1798,15 +1807,16 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>deletions</code></td><td>Int!</td><td>Total lines removed.</td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="directcommitsucceeded"><code>DirectCommitSucceeded</code></h4>
-
-<p><strong>Service:</strong> changesetcommitter | <strong>Implements:</strong> <a href="#repositorycommitsucceeded">RepositoryCommitSucceeded</a>, <a href="#repositorycommit">RepositoryCommit</a></p>
-
+<div id="directcommitsucceeded" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">DirectCommitSucceeded</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changesetcommitter</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#ede9fe;color:#4338ca;border:1px solid #c7d2fe;">implements <a href="#repositorycommitsucceeded">RepositoryCommitSucceeded</a></span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#ede9fe;color:#4338ca;border:1px solid #c7d2fe;">implements <a href="#repositorycommit">RepositoryCommit</a></span>
+</div>
 <p>Direct commit to repository completed successfully.</p>
-
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -1816,13 +1826,14 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>resultLink</code></td><td>String</td><td></td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="errormessage"><code>ErrorMessage</code></h4>
-
-<p><strong>Service:</strong> moddy | <strong>Implements:</strong> <a href="#message">Message</a></p>
-
+<div id="errormessage" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">ErrorMessage</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">moddy</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#ede9fe;color:#4338ca;border:1px solid #c7d2fe;">implements <a href="#message">Message</a></span>
+</div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -1834,15 +1845,14 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>lastUpdatedAt</code></td><td><a href="#datetime">DateTime</a>!</td><td></td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="exchangeauthorizationresult"><code>ExchangeAuthorizationResult</code></h4>
-
-<p><strong>Service:</strong> authz</p>
-
+<div id="exchangeauthorizationresult" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">ExchangeAuthorizationResult</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">authz</span>
+</div>
 <p>Result of exchanging an authorization code.</p>
-
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -1850,15 +1860,14 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>error</code></td><td>String</td><td>Error message if exchange failed.</td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="filechangeconnection"><code>FileChangeConnection</code></h4>
-
-<p><strong>Service:</strong> corechangeset</p>
-
+<div id="filechangeconnection" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">FileChangeConnection</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">corechangeset</span>
+</div>
 <p>Connection for file changes with aggregate statistics.</p>
-
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -1870,13 +1879,13 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>errors</code></td><td>Int!</td><td>Files with errors.</td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="filechangeedge"><code>FileChangeEdge</code></h4>
-
-<p><strong>Service:</strong> corechangeset</p>
-
+<div id="filechangeedge" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">FileChangeEdge</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">corechangeset</span>
+</div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -1884,15 +1893,16 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>cursor</code></td><td>String!</td><td></td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="forkandpullrequestcommitsucceeded"><code>ForkAndPullRequestCommitSucceeded</code></h4>
-
-<p><strong>Service:</strong> changesetcommitter | <strong>Implements:</strong> <a href="#repositorycommitsucceeded">RepositoryCommitSucceeded</a>, <a href="#repositorycommit">RepositoryCommit</a></p>
-
+<div id="forkandpullrequestcommitsucceeded" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">ForkAndPullRequestCommitSucceeded</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changesetcommitter</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#ede9fe;color:#4338ca;border:1px solid #c7d2fe;">implements <a href="#repositorycommitsucceeded">RepositoryCommitSucceeded</a></span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#ede9fe;color:#4338ca;border:1px solid #c7d2fe;">implements <a href="#repositorycommit">RepositoryCommit</a></span>
+</div>
 <p>Fork and pull request commit completed successfully.</p>
-
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -1903,13 +1913,14 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>pullRequestStatus</code></td><td><a href="#pullrequeststatus">PullRequestStatus</a>!</td><td>Pull request status.</td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="forkcommitoptions"><code>ForkCommitOptions</code></h4>
-
-<p><strong>Service:</strong> changesetcommitter | <strong>Implements:</strong> <a href="#commitoptions">CommitOptions</a></p>
-
+<div id="forkcommitoptions" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">ForkCommitOptions</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changesetcommitter</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#ede9fe;color:#4338ca;border:1px solid #c7d2fe;">implements <a href="#commitoptions">CommitOptions</a></span>
+</div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -1918,15 +1929,16 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>prefixOrganization</code></td><td>Boolean!</td><td></td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="forkcommitsucceeded"><code>ForkCommitSucceeded</code></h4>
-
-<p><strong>Service:</strong> changesetcommitter | <strong>Implements:</strong> <a href="#repositorycommitsucceeded">RepositoryCommitSucceeded</a>, <a href="#repositorycommit">RepositoryCommit</a></p>
-
+<div id="forkcommitsucceeded" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">ForkCommitSucceeded</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changesetcommitter</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#ede9fe;color:#4338ca;border:1px solid #c7d2fe;">implements <a href="#repositorycommitsucceeded">RepositoryCommitSucceeded</a></span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#ede9fe;color:#4338ca;border:1px solid #c7d2fe;">implements <a href="#repositorycommit">RepositoryCommit</a></span>
+</div>
 <p>Fork commit completed successfully.</p>
-
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -1936,13 +1948,14 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>resultLink</code></td><td>String</td><td></td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="forkpullrequestoptions"><code>ForkPullRequestOptions</code></h4>
-
-<p><strong>Service:</strong> changesetcommitter | <strong>Implements:</strong> <a href="#commitoptions">CommitOptions</a></p>
-
+<div id="forkpullrequestoptions" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">ForkPullRequestOptions</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changesetcommitter</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#ede9fe;color:#4338ca;border:1px solid #c7d2fe;">implements <a href="#commitoptions">CommitOptions</a></span>
+</div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -1957,13 +1970,13 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>canRecreateClosedPullRequest</code></td><td>Boolean!</td><td>Recreate a pull request if it was already closed.</td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="generichttptoolconfiguration"><code>GenericHttpToolConfiguration</code></h4>
-
-<p><strong>Service:</strong> gateway</p>
-
+<div id="generichttptoolconfiguration" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">GenericHttpToolConfiguration</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">gateway</span>
+</div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -1973,13 +1986,13 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>connectivity</code></td><td><a href="#httptoolconnectivity">HttpToolConnectivity</a>!</td><td></td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="gitlabconfiguration"><code>GitLabConfiguration</code></h4>
-
-<p><strong>Service:</strong> gateway</p>
-
+<div id="gitlabconfiguration" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">GitLabConfiguration</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">gateway</span>
+</div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -1990,13 +2003,14 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>oauth</code></td><td><a href="#gitlaboauth">GitLabOauth</a></td><td></td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="gitlabconnection"><code>GitLabConnection</code></h4>
-
-<p><strong>Service:</strong> authz | <strong>Implements:</strong> <a href="#scmconnection">ScmConnection</a></p>
-
+<div id="gitlabconnection" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">GitLabConnection</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">authz</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#ede9fe;color:#4338ca;border:1px solid #c7d2fe;">implements <a href="#scmconnection">ScmConnection</a></span>
+</div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -2005,26 +2019,26 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>tokens</code></td><td>[<a href="#scmtokeninfo">ScmTokenInfo</a>!]!</td><td></td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="gitlaboauth"><code>GitLabOauth</code></h4>
-
-<p><strong>Service:</strong> gateway</p>
-
+<div id="gitlaboauth" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">GitLabOauth</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">gateway</span>
+</div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
     <tr><td><code>clientId</code></td><td>String!</td><td></td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="githubconfiguration"><code>GithubConfiguration</code></h4>
-
-<p><strong>Service:</strong> gateway</p>
-
+<div id="githubconfiguration" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">GithubConfiguration</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">gateway</span>
+</div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -2036,13 +2050,14 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>oauth</code></td><td><a href="#githuboauth">GithubOauth</a></td><td></td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="githubconnection"><code>GithubConnection</code></h4>
-
-<p><strong>Service:</strong> authz | <strong>Implements:</strong> <a href="#scmconnection">ScmConnection</a></p>
-
+<div id="githubconnection" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">GithubConnection</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">authz</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#ede9fe;color:#4338ca;border:1px solid #c7d2fe;">implements <a href="#scmconnection">ScmConnection</a></span>
+</div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -2051,13 +2066,13 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>tokens</code></td><td>[<a href="#scmtokeninfo">ScmTokenInfo</a>!]!</td><td></td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="githuboauth"><code>GithubOauth</code></h4>
-
-<p><strong>Service:</strong> gateway</p>
-
+<div id="githuboauth" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">GithubOauth</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">gateway</span>
+</div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -2065,13 +2080,14 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>includePrivateRepos</code></td><td>Boolean!</td><td></td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="gorecipebundle"><code>GoRecipeBundle</code></h4>
-
-<p><strong>Service:</strong> changesetreader | <strong>Implements:</strong> <a href="#recipebundle">RecipeBundle</a></p>
-
+<div id="gorecipebundle" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">GoRecipeBundle</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changesetreader</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#ede9fe;color:#4338ca;border:1px solid #c7d2fe;">implements <a href="#recipebundle">RecipeBundle</a></span>
+</div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -2081,13 +2097,13 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>recipeCount</code></td><td>Int</td><td></td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="httptoolconnectivity"><code>HttpToolConnectivity</code></h4>
-
-<p><strong>Service:</strong> gateway</p>
-
+<div id="httptoolconnectivity" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">HttpToolConnectivity</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">gateway</span>
+</div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -2095,26 +2111,26 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>latency</code></td><td><a href="#duration">Duration</a></td><td></td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="license"><code>License</code></h4>
-
-<p><strong>Service:</strong> authz</p>
-
+<div id="license" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">License</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">authz</span>
+</div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
     <tr><td><code>key</code></td><td>String</td><td></td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="llmconfiguration"><code>LlmConfiguration</code></h4>
-
-<p><strong>Service:</strong> gateway</p>
-
+<div id="llmconfiguration" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">LlmConfiguration</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">gateway</span>
+</div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -2125,15 +2141,14 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>llmProvider</code></td><td><a href="#llmprovider">LlmProvider</a>!</td><td></td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="lstartifact"><code>LstArtifact</code></h4>
-
-<p><strong>Service:</strong> organization</p>
-
+<div id="lstartifact" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">LstArtifact</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">organization</span>
+</div>
 <p>The LST artifact for a repository - the precomputed Lossless Semantic Tree that recipe runs consume. Every repository has a conceptual artifact; `published` reflects the upstream `mod publish` timestamp, while `available` indicates whether the saas can route a recipe run to it yet.</p>
-
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -2141,13 +2156,14 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>available</code></td><td>Boolean!</td><td>Whether the artifact is reachable for a recipe run. For an organization source with encryption enabled, true once the connector has uploaded the encrypted artifact and the gateway has surfaced an `encrypted://` alternate publish URI. For a source without encryption (pass-through), true when the gateway-projected row has a non-empty `publishUri`, which we assume is reachable from `mod publish`.</td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="markup"><code>Markup</code></h4>
-
-<p><strong>Service:</strong> corechangeset | <strong>Implements:</strong> <a href="#marker">Marker</a></p>
-
+<div id="markup" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">Markup</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">corechangeset</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#ede9fe;color:#4338ca;border:1px solid #c7d2fe;">implements <a href="#marker">Marker</a></span>
+</div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -2157,13 +2173,13 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>detail</code></td><td>String</td><td></td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="mavenconfiguration"><code>MavenConfiguration</code></h4>
-
-<p><strong>Service:</strong> gateway</p>
-
+<div id="mavenconfiguration" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">MavenConfiguration</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">gateway</span>
+</div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -2175,13 +2191,14 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>lastIngestedAt</code></td><td><a href="#datetime">DateTime</a></td><td></td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="mavenrecipebundle"><code>MavenRecipeBundle</code></h4>
-
-<p><strong>Service:</strong> changesetreader | <strong>Implements:</strong> <a href="#recipebundle">RecipeBundle</a></p>
-
+<div id="mavenrecipebundle" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">MavenRecipeBundle</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changesetreader</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#ede9fe;color:#4338ca;border:1px solid #c7d2fe;">implements <a href="#recipebundle">RecipeBundle</a></span>
+</div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -2193,13 +2210,13 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>recipeCount</code></td><td>Int</td><td></td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="mergeoptions"><code>MergeOptions</code></h4>
-
-<p><strong>Service:</strong> changesetcommitter</p>
-
+<div id="mergeoptions" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">MergeOptions</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changesetcommitter</span>
+</div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -2207,13 +2224,13 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>mergeMethod</code></td><td><a href="#mergemethod">MergeMethod</a>!</td><td></td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="messageconnection"><code>MessageConnection</code></h4>
-
-<p><strong>Service:</strong> moddy</p>
-
+<div id="messageconnection" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">MessageConnection</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">moddy</span>
+</div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -2221,13 +2238,13 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>pageInfo</code></td><td><a href="#pageinfo">PageInfo</a>!</td><td></td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="messageedge"><code>MessageEdge</code></h4>
-
-<p><strong>Service:</strong> moddy</p>
-
+<div id="messageedge" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">MessageEdge</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">moddy</span>
+</div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -2235,13 +2252,13 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>cursor</code></td><td>String!</td><td></td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="moddy"><code>Moddy</code></h4>
-
-<p><strong>Service:</strong> moddy</p>
-
+<div id="moddy" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">Moddy</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">moddy</span>
+</div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -2252,13 +2269,13 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>model</code></td><td>String</td><td>Configured model identifier (e.g. "claude-3-5-sonnet-20241022"). Null when no provider is configured or the provider is configured without a model override.</td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="morehelplink"><code>MoreHelpLink</code></h4>
-
-<p><strong>Service:</strong> gateway</p>
-
+<div id="morehelplink" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">MoreHelpLink</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">gateway</span>
+</div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -2266,13 +2283,13 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>uri</code></td><td>String!</td><td></td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="npmconfiguration"><code>NpmConfiguration</code></h4>
-
-<p><strong>Service:</strong> gateway</p>
-
+<div id="npmconfiguration" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">NpmConfiguration</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">gateway</span>
+</div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -2282,13 +2299,14 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>connectivity</code></td><td><a href="#httptoolconnectivity">HttpToolConnectivity</a>!</td><td></td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="npmrecipebundle"><code>NpmRecipeBundle</code></h4>
-
-<p><strong>Service:</strong> changesetreader | <strong>Implements:</strong> <a href="#recipebundle">RecipeBundle</a></p>
-
+<div id="npmrecipebundle" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">NpmRecipeBundle</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changesetreader</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#ede9fe;color:#4338ca;border:1px solid #c7d2fe;">implements <a href="#recipebundle">RecipeBundle</a></span>
+</div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -2298,13 +2316,13 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>recipeCount</code></td><td>Int</td><td></td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="nugetconfiguration"><code>NugetConfiguration</code></h4>
-
-<p><strong>Service:</strong> gateway</p>
-
+<div id="nugetconfiguration" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">NugetConfiguration</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">gateway</span>
+</div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -2314,13 +2332,14 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>connectivity</code></td><td><a href="#httptoolconnectivity">HttpToolConnectivity</a>!</td><td></td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="nugetrecipebundle"><code>NugetRecipeBundle</code></h4>
-
-<p><strong>Service:</strong> changesetreader | <strong>Implements:</strong> <a href="#recipebundle">RecipeBundle</a></p>
-
+<div id="nugetrecipebundle" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">NugetRecipeBundle</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changesetreader</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#ede9fe;color:#4338ca;border:1px solid #c7d2fe;">implements <a href="#recipebundle">RecipeBundle</a></span>
+</div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -2330,15 +2349,14 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>recipeCount</code></td><td>Int</td><td></td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="oauthauthorization"><code>OAuthAuthorization</code></h4>
-
-<p><strong>Service:</strong> authz</p>
-
+<div id="oauthauthorization" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">OAuthAuthorization</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">authz</span>
+</div>
 <p>Represents a pending OAuth authorization. The UI should redirect to authorizationUrl, then call exchangeAuthorizationCode with the id and extracted callback parameters.</p>
-
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -2348,15 +2366,14 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>expiresAt</code></td><td><a href="#datetime">DateTime</a>!</td><td>When this authorization expires. UI should treat expired authorizations as stale.</td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="option"><code>Option</code></h4>
-
-<p><strong>Service:</strong> changesetreader</p>
-
+<div id="option" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">Option</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changesetreader</span>
+</div>
 <p>RecipeDescriptor resolved from changeset-specific recipes.csv. When a recipe run is created, the recipes.csv is copied to the changeset directory, so we can resolve the recipe that was used at the time of the run (not the current global state).</p>
-
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -2370,13 +2387,13 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>required</code></td><td>Boolean!</td><td></td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="organization"><code>Organization</code></h4>
-
-<p><strong>Service:</strong> changelogreader</p>
-
+<div id="organization" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">Organization</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changelogreader</span>
+</div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -2395,13 +2412,13 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>marketplace</code></td><td><a href="#recipemarketplace">RecipeMarketplace</a></td><td></td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="organizationchangeset"><code>OrganizationChangeset</code></h4>
-
-<p><strong>Service:</strong> changelogreader</p>
-
+<div id="organizationchangeset" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">OrganizationChangeset</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changelogreader</span>
+</div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -2416,13 +2433,13 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>visualizations</code></td><td>(first: Int = 50, after: String, where: <a href="#visualizationwhereinput">VisualizationWhereInput</a>, orderBy: [<a href="#visualizationorderbyinput">VisualizationOrderByInput</a>!]): <a href="#visualizationconnection">VisualizationConnection</a>!</td><td>Visualizations produced by this changeset. Each visualization starts as Available and transitions to Processing/Finished/Error when runVisualization mutation is called.</td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="organizationchangesetconnection"><code>OrganizationChangesetConnection</code></h4>
-
-<p><strong>Service:</strong> corechangeset</p>
-
+<div id="organizationchangesetconnection" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">OrganizationChangesetConnection</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">corechangeset</span>
+</div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -2431,13 +2448,13 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>count</code></td><td>Int!</td><td></td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="organizationchangesetedge"><code>OrganizationChangesetEdge</code></h4>
-
-<p><strong>Service:</strong> corechangeset</p>
-
+<div id="organizationchangesetedge" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">OrganizationChangesetEdge</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">corechangeset</span>
+</div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -2446,15 +2463,15 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>organization</code></td><td><a href="#organization">Organization</a></td><td>The organization this changeset was run against. May differ from the queried organization when the changeset belongs to a suborganization. Null if the organization has been deleted or is temporarily unavailable.</td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="organizationcommitcanceled"><code>OrganizationCommitCanceled</code></h4>
-
-<p><strong>Service:</strong> changesetcommitter | <strong>Implements:</strong> <a href="#organizationcommit">OrganizationCommit</a></p>
-
+<div id="organizationcommitcanceled" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">OrganizationCommitCanceled</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changesetcommitter</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#ede9fe;color:#4338ca;border:1px solid #c7d2fe;">implements <a href="#organizationcommit">OrganizationCommit</a></span>
+</div>
 <p>Commit was canceled before completion.</p>
-
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -2469,13 +2486,13 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>repositories</code></td><td>(first: Int = 50, after: String, where: <a href="#repositorycommitwhereinput">RepositoryCommitWhereInput</a>, orderBy: [<a href="#repositorycommitorderbyinput">RepositoryCommitOrderByInput</a>!]): <a href="#repositorycommitconnection">RepositoryCommitConnection</a>!</td><td>Paginated results per repository (partial).</td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="organizationcommitconnection"><code>OrganizationCommitConnection</code></h4>
-
-<p><strong>Service:</strong> changesetcommitter</p>
-
+<div id="organizationcommitconnection" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">OrganizationCommitConnection</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changesetcommitter</span>
+</div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -2484,13 +2501,13 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>count</code></td><td>Int!</td><td></td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="organizationcommitedge"><code>OrganizationCommitEdge</code></h4>
-
-<p><strong>Service:</strong> changesetcommitter</p>
-
+<div id="organizationcommitedge" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">OrganizationCommitEdge</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changesetcommitter</span>
+</div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -2498,15 +2515,15 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>cursor</code></td><td>String!</td><td></td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="organizationcommiterror"><code>OrganizationCommitError</code></h4>
-
-<p><strong>Service:</strong> changesetcommitter | <strong>Implements:</strong> <a href="#organizationcommit">OrganizationCommit</a></p>
-
+<div id="organizationcommiterror" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">OrganizationCommitError</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changesetcommitter</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#ede9fe;color:#4338ca;border:1px solid #c7d2fe;">implements <a href="#organizationcommit">OrganizationCommit</a></span>
+</div>
 <p>Commit failed with an error.</p>
-
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -2521,15 +2538,15 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>repositories</code></td><td>(first: Int = 50, after: String, where: <a href="#repositorycommitwhereinput">RepositoryCommitWhereInput</a>, orderBy: [<a href="#repositorycommitorderbyinput">RepositoryCommitOrderByInput</a>!]): <a href="#repositorycommitconnection">RepositoryCommitConnection</a>!</td><td>Paginated results per repository (partial).</td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="organizationcommitfinished"><code>OrganizationCommitFinished</code></h4>
-
-<p><strong>Service:</strong> changesetcommitter | <strong>Implements:</strong> <a href="#organizationcommit">OrganizationCommit</a></p>
-
+<div id="organizationcommitfinished" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">OrganizationCommitFinished</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changesetcommitter</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#ede9fe;color:#4338ca;border:1px solid #c7d2fe;">implements <a href="#organizationcommit">OrganizationCommit</a></span>
+</div>
 <p>Commit completed successfully (all or partial success).</p>
-
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -2543,15 +2560,15 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>repositories</code></td><td>(first: Int = 50, after: String, where: <a href="#repositorycommitwhereinput">RepositoryCommitWhereInput</a>, orderBy: [<a href="#repositorycommitorderbyinput">RepositoryCommitOrderByInput</a>!]): <a href="#repositorycommitconnection">RepositoryCommitConnection</a>!</td><td>Paginated results per repository.</td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="organizationcommitqueued"><code>OrganizationCommitQueued</code></h4>
-
-<p><strong>Service:</strong> changesetcommitter | <strong>Implements:</strong> <a href="#organizationcommit">OrganizationCommit</a></p>
-
+<div id="organizationcommitqueued" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">OrganizationCommitQueued</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changesetcommitter</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#ede9fe;color:#4338ca;border:1px solid #c7d2fe;">implements <a href="#organizationcommit">OrganizationCommit</a></span>
+</div>
 <p>Commit is queued and waiting to be processed.</p>
-
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -2564,15 +2581,15 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>repositories</code></td><td>(first: Int = 50, after: String, where: <a href="#repositorycommitwhereinput">RepositoryCommitWhereInput</a>, orderBy: [<a href="#repositorycommitorderbyinput">RepositoryCommitOrderByInput</a>!]): <a href="#repositorycommitconnection">RepositoryCommitConnection</a>!</td><td>Paginated results per repository.</td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="organizationcommitrunning"><code>OrganizationCommitRunning</code></h4>
-
-<p><strong>Service:</strong> changesetcommitter | <strong>Implements:</strong> <a href="#organizationcommit">OrganizationCommit</a></p>
-
+<div id="organizationcommitrunning" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">OrganizationCommitRunning</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changesetcommitter</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#ede9fe;color:#4338ca;border:1px solid #c7d2fe;">implements <a href="#organizationcommit">OrganizationCommit</a></span>
+</div>
 <p>Commit is actively being processed across repositories.</p>
-
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -2585,13 +2602,13 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>repositories</code></td><td>(first: Int = 50, after: String, where: <a href="#repositorycommitwhereinput">RepositoryCommitWhereInput</a>, orderBy: [<a href="#repositorycommitorderbyinput">RepositoryCommitOrderByInput</a>!]): <a href="#repositorycommitconnection">RepositoryCommitConnection</a>!</td><td>Paginated results per repository.</td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="organizationconfiguration"><code>OrganizationConfiguration</code></h4>
-
-<p><strong>Service:</strong> gateway</p>
-
+<div id="organizationconfiguration" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">OrganizationConfiguration</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">gateway</span>
+</div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -2601,13 +2618,13 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>connectivity</code></td><td><a href="#httptoolconnectivity">HttpToolConnectivity</a>!</td><td></td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="organizationconnection"><code>OrganizationConnection</code></h4>
-
-<p><strong>Service:</strong> organization</p>
-
+<div id="organizationconnection" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">OrganizationConnection</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">organization</span>
+</div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -2616,13 +2633,13 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>count</code></td><td>Int!</td><td></td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="organizationedge"><code>OrganizationEdge</code></h4>
-
-<p><strong>Service:</strong> organization</p>
-
+<div id="organizationedge" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">OrganizationEdge</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">organization</span>
+</div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -2630,13 +2647,13 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>cursor</code></td><td>String!</td><td></td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="organizationreciperun"><code>OrganizationRecipeRun</code></h4>
-
-<p><strong>Service:</strong> changelogreader</p>
-
+<div id="organizationreciperun" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">OrganizationRecipeRun</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changelogreader</span>
+</div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -2655,13 +2672,15 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>visualizations</code></td><td>(first: Int = 50, after: String, where: <a href="#visualizationwhereinput">VisualizationWhereInput</a>, orderBy: [<a href="#visualizationorderbyinput">VisualizationOrderByInput</a>!]): <a href="#visualizationconnection">VisualizationConnection</a>!</td><td>Visualizations produced by this recipe run.</td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="organizationreciperuncanceled"><code>OrganizationRecipeRunCanceled</code></h4>
-
-<p><strong>Service:</strong> changesetreader | <strong>Implements:</strong> <a href="#organizationchangeset">OrganizationChangeset</a>, <a href="#organizationreciperun">OrganizationRecipeRun</a></p>
-
+<div id="organizationreciperuncanceled" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">OrganizationRecipeRunCanceled</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changesetreader</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#ede9fe;color:#4338ca;border:1px solid #c7d2fe;">implements <a href="#organizationchangeset">OrganizationChangeset</a></span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#ede9fe;color:#4338ca;border:1px solid #c7d2fe;">implements <a href="#organizationreciperun">OrganizationRecipeRun</a></span>
+</div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -2681,13 +2700,13 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>visualizations</code></td><td>(first: Int = 50, after: String, where: <a href="#visualizationwhereinput">VisualizationWhereInput</a>, orderBy: [<a href="#visualizationorderbyinput">VisualizationOrderByInput</a>!]): <a href="#visualizationconnection">VisualizationConnection</a>!</td><td>Visualizations produced by this recipe run.</td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="organizationreciperunconnection"><code>OrganizationRecipeRunConnection</code></h4>
-
-<p><strong>Service:</strong> changesetreader</p>
-
+<div id="organizationreciperunconnection" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">OrganizationRecipeRunConnection</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changesetreader</span>
+</div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -2696,13 +2715,13 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>count</code></td><td>Int!</td><td></td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="organizationreciperunedge"><code>OrganizationRecipeRunEdge</code></h4>
-
-<p><strong>Service:</strong> changesetreader</p>
-
+<div id="organizationreciperunedge" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">OrganizationRecipeRunEdge</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changesetreader</span>
+</div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -2710,13 +2729,15 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>cursor</code></td><td>String!</td><td></td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="organizationreciperunerror"><code>OrganizationRecipeRunError</code></h4>
-
-<p><strong>Service:</strong> changesetreader | <strong>Implements:</strong> <a href="#organizationchangeset">OrganizationChangeset</a>, <a href="#organizationreciperun">OrganizationRecipeRun</a></p>
-
+<div id="organizationreciperunerror" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">OrganizationRecipeRunError</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changesetreader</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#ede9fe;color:#4338ca;border:1px solid #c7d2fe;">implements <a href="#organizationchangeset">OrganizationChangeset</a></span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#ede9fe;color:#4338ca;border:1px solid #c7d2fe;">implements <a href="#organizationreciperun">OrganizationRecipeRun</a></span>
+</div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -2736,13 +2757,15 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>visualizations</code></td><td>(first: Int = 50, after: String, where: <a href="#visualizationwhereinput">VisualizationWhereInput</a>, orderBy: [<a href="#visualizationorderbyinput">VisualizationOrderByInput</a>!]): <a href="#visualizationconnection">VisualizationConnection</a>!</td><td>Visualizations produced by this recipe run.</td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="organizationreciperunfinished"><code>OrganizationRecipeRunFinished</code></h4>
-
-<p><strong>Service:</strong> changesetreader | <strong>Implements:</strong> <a href="#organizationchangeset">OrganizationChangeset</a>, <a href="#organizationreciperun">OrganizationRecipeRun</a></p>
-
+<div id="organizationreciperunfinished" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">OrganizationRecipeRunFinished</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changesetreader</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#ede9fe;color:#4338ca;border:1px solid #c7d2fe;">implements <a href="#organizationchangeset">OrganizationChangeset</a></span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#ede9fe;color:#4338ca;border:1px solid #c7d2fe;">implements <a href="#organizationreciperun">OrganizationRecipeRun</a></span>
+</div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -2763,13 +2786,15 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>visualizations</code></td><td>(first: Int = 50, after: String, where: <a href="#visualizationwhereinput">VisualizationWhereInput</a>, orderBy: [<a href="#visualizationorderbyinput">VisualizationOrderByInput</a>!]): <a href="#visualizationconnection">VisualizationConnection</a>!</td><td>Visualizations produced by this recipe run.</td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="organizationreciperunqueued"><code>OrganizationRecipeRunQueued</code></h4>
-
-<p><strong>Service:</strong> changesetreader | <strong>Implements:</strong> <a href="#organizationchangeset">OrganizationChangeset</a>, <a href="#organizationreciperun">OrganizationRecipeRun</a></p>
-
+<div id="organizationreciperunqueued" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">OrganizationRecipeRunQueued</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changesetreader</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#ede9fe;color:#4338ca;border:1px solid #c7d2fe;">implements <a href="#organizationchangeset">OrganizationChangeset</a></span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#ede9fe;color:#4338ca;border:1px solid #c7d2fe;">implements <a href="#organizationreciperun">OrganizationRecipeRun</a></span>
+</div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -2787,13 +2812,15 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>visualizations</code></td><td>(first: Int = 50, after: String, where: <a href="#visualizationwhereinput">VisualizationWhereInput</a>, orderBy: [<a href="#visualizationorderbyinput">VisualizationOrderByInput</a>!]): <a href="#visualizationconnection">VisualizationConnection</a>!</td><td>Visualizations produced by this recipe run.</td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="organizationreciperunrunning"><code>OrganizationRecipeRunRunning</code></h4>
-
-<p><strong>Service:</strong> changesetreader | <strong>Implements:</strong> <a href="#organizationchangeset">OrganizationChangeset</a>, <a href="#organizationreciperun">OrganizationRecipeRun</a></p>
-
+<div id="organizationreciperunrunning" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">OrganizationRecipeRunRunning</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changesetreader</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#ede9fe;color:#4338ca;border:1px solid #c7d2fe;">implements <a href="#organizationchangeset">OrganizationChangeset</a></span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#ede9fe;color:#4338ca;border:1px solid #c7d2fe;">implements <a href="#organizationreciperun">OrganizationRecipeRun</a></span>
+</div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -2812,13 +2839,15 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>visualizations</code></td><td>(first: Int = 50, after: String, where: <a href="#visualizationwhereinput">VisualizationWhereInput</a>, orderBy: [<a href="#visualizationorderbyinput">VisualizationOrderByInput</a>!]): <a href="#visualizationconnection">VisualizationConnection</a>!</td><td>Visualizations produced by this recipe run.</td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="organizationreciperunsyncing"><code>OrganizationRecipeRunSyncing</code></h4>
-
-<p><strong>Service:</strong> changesetreader | <strong>Implements:</strong> <a href="#organizationchangeset">OrganizationChangeset</a>, <a href="#organizationreciperun">OrganizationRecipeRun</a></p>
-
+<div id="organizationreciperunsyncing" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">OrganizationRecipeRunSyncing</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changesetreader</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#ede9fe;color:#4338ca;border:1px solid #c7d2fe;">implements <a href="#organizationchangeset">OrganizationChangeset</a></span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#ede9fe;color:#4338ca;border:1px solid #c7d2fe;">implements <a href="#organizationreciperun">OrganizationRecipeRun</a></span>
+</div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -2836,13 +2865,13 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>visualizations</code></td><td>(first: Int = 50, after: String, where: <a href="#visualizationwhereinput">VisualizationWhereInput</a>, orderBy: [<a href="#visualizationorderbyinput">VisualizationOrderByInput</a>!]): <a href="#visualizationconnection">VisualizationConnection</a>!</td><td>Visualizations produced by this recipe run.</td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="pageinfo"><code>PageInfo</code></h4>
-
-<p><strong>Service:</strong> coregraphql</p>
-
+<div id="pageinfo" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">PageInfo</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">coregraphql</span>
+</div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -2852,13 +2881,13 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>endCursor</code></td><td>String</td><td></td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="patch"><code>Patch</code></h4>
-
-<p><strong>Service:</strong> corechangeset</p>
-
+<div id="patch" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">Patch</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">corechangeset</span>
+</div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -2867,26 +2896,27 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>markers</code></td><td>[<a href="#marker">Marker</a>!]!</td><td></td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="personalaccesstokenconfiguration"><code>PersonalAccessTokenConfiguration</code></h4>
-
-<p><strong>Service:</strong> gateway</p>
-
+<div id="personalaccesstokenconfiguration" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">PersonalAccessTokenConfiguration</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">gateway</span>
+</div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
     <tr><td><code>maxExpiryDays</code></td><td>Int</td><td></td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="piprecipebundle"><code>PipRecipeBundle</code></h4>
-
-<p><strong>Service:</strong> changesetreader | <strong>Implements:</strong> <a href="#recipebundle">RecipeBundle</a></p>
-
+<div id="piprecipebundle" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">PipRecipeBundle</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changesetreader</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#ede9fe;color:#4338ca;border:1px solid #c7d2fe;">implements <a href="#recipebundle">RecipeBundle</a></span>
+</div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -2896,13 +2926,13 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>recipeCount</code></td><td>Int</td><td></td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="platformcapabilities"><code>PlatformCapabilities</code></h4>
-
-<p><strong>Service:</strong> artifactsmaven</p>
-
+<div id="platformcapabilities" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">PlatformCapabilities</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">artifactsmaven</span>
+</div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -2915,13 +2945,13 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>profiling</code></td><td><a href="#profiling">Profiling</a>!</td><td></td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="profiling"><code>Profiling</code></h4>
-
-<p><strong>Service:</strong> gateway</p>
-
+<div id="profiling" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">Profiling</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">gateway</span>
+</div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -2929,13 +2959,13 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>session</code></td><td><a href="#profilingsession">ProfilingSession</a></td><td>The currently active profiling session, or null when profiling is off. Flipped by setProfiling.</td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="profilingsession"><code>ProfilingSession</code></h4>
-
-<p><strong>Service:</strong> gateway</p>
-
+<div id="profilingsession" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">ProfilingSession</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">gateway</span>
+</div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -2944,13 +2974,13 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>event</code></td><td><a href="#profilingevent">ProfilingEvent</a>!</td><td>The primary profiling event the in-process agent is sampling.</td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="prompt"><code>Prompt</code></h4>
-
-<p><strong>Service:</strong> moddy</p>
-
+<div id="prompt" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">Prompt</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">moddy</span>
+</div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -2959,13 +2989,14 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>lastUpdatedBy</code></td><td><a href="#user">User</a>!</td><td></td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="pullrequestactioncanceled"><code>PullRequestActionCanceled</code></h4>
-
-<p><strong>Service:</strong> changelogreader | <strong>Implements:</strong> <a href="#pullrequestaction">PullRequestAction</a></p>
-
+<div id="pullrequestactioncanceled" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">PullRequestActionCanceled</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changelogreader</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#ede9fe;color:#4338ca;border:1px solid #c7d2fe;">implements <a href="#pullrequestaction">PullRequestAction</a></span>
+</div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -2973,13 +3004,13 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>canceledBy</code></td><td><a href="#user">User</a>!</td><td></td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="pullrequestactionconnection"><code>PullRequestActionConnection</code></h4>
-
-<p><strong>Service:</strong> changelogreader</p>
-
+<div id="pullrequestactionconnection" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">PullRequestActionConnection</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changelogreader</span>
+</div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -2988,13 +3019,13 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>count</code></td><td>Int!</td><td></td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="pullrequestactionedge"><code>PullRequestActionEdge</code></h4>
-
-<p><strong>Service:</strong> changelogreader</p>
-
+<div id="pullrequestactionedge" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">PullRequestActionEdge</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changelogreader</span>
+</div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -3002,13 +3033,14 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>cursor</code></td><td>String!</td><td></td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="pullrequestactionfailed"><code>PullRequestActionFailed</code></h4>
-
-<p><strong>Service:</strong> changelogreader | <strong>Implements:</strong> <a href="#pullrequestaction">PullRequestAction</a></p>
-
+<div id="pullrequestactionfailed" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">PullRequestActionFailed</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changelogreader</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#ede9fe;color:#4338ca;border:1px solid #c7d2fe;">implements <a href="#pullrequestaction">PullRequestAction</a></span>
+</div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -3018,26 +3050,28 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>errorMessage</code></td><td>String!</td><td></td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="pullrequestactionqueued"><code>PullRequestActionQueued</code></h4>
-
-<p><strong>Service:</strong> changelogreader | <strong>Implements:</strong> <a href="#pullrequestaction">PullRequestAction</a></p>
-
+<div id="pullrequestactionqueued" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">PullRequestActionQueued</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changelogreader</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#ede9fe;color:#4338ca;border:1px solid #c7d2fe;">implements <a href="#pullrequestaction">PullRequestAction</a></span>
+</div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
     <tr><td><code>pullRequest</code></td><td><a href="#pullrequestref">PullRequestRef</a>!</td><td></td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="pullrequestactionrunning"><code>PullRequestActionRunning</code></h4>
-
-<p><strong>Service:</strong> changelogreader | <strong>Implements:</strong> <a href="#pullrequestaction">PullRequestAction</a></p>
-
+<div id="pullrequestactionrunning" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">PullRequestActionRunning</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changelogreader</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#ede9fe;color:#4338ca;border:1px solid #c7d2fe;">implements <a href="#pullrequestaction">PullRequestAction</a></span>
+</div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -3045,13 +3079,14 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>startedAt</code></td><td><a href="#datetime">DateTime</a>!</td><td></td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="pullrequestactionsucceeded"><code>PullRequestActionSucceeded</code></h4>
-
-<p><strong>Service:</strong> changelogreader | <strong>Implements:</strong> <a href="#pullrequestaction">PullRequestAction</a></p>
-
+<div id="pullrequestactionsucceeded" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">PullRequestActionSucceeded</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changelogreader</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#ede9fe;color:#4338ca;border:1px solid #c7d2fe;">implements <a href="#pullrequestaction">PullRequestAction</a></span>
+</div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -3060,15 +3095,16 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>finishedAt</code></td><td><a href="#datetime">DateTime</a>!</td><td></td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="pullrequestcommitsucceeded"><code>PullRequestCommitSucceeded</code></h4>
-
-<p><strong>Service:</strong> changesetcommitter | <strong>Implements:</strong> <a href="#repositorycommitsucceeded">RepositoryCommitSucceeded</a>, <a href="#repositorycommit">RepositoryCommit</a></p>
-
+<div id="pullrequestcommitsucceeded" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">PullRequestCommitSucceeded</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changesetcommitter</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#ede9fe;color:#4338ca;border:1px solid #c7d2fe;">implements <a href="#repositorycommitsucceeded">RepositoryCommitSucceeded</a></span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#ede9fe;color:#4338ca;border:1px solid #c7d2fe;">implements <a href="#repositorycommit">RepositoryCommit</a></span>
+</div>
 <p>Pull request commit completed successfully.</p>
-
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -3079,13 +3115,14 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>pullRequestStatus</code></td><td><a href="#pullrequeststatus">PullRequestStatus</a>!</td><td>Pull request status.</td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="pullrequestoptions"><code>PullRequestOptions</code></h4>
-
-<p><strong>Service:</strong> changesetcommitter | <strong>Implements:</strong> <a href="#commitoptions">CommitOptions</a></p>
-
+<div id="pullrequestoptions" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">PullRequestOptions</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changesetcommitter</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#ede9fe;color:#4338ca;border:1px solid #c7d2fe;">implements <a href="#commitoptions">CommitOptions</a></span>
+</div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -3097,13 +3134,13 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>canRecreateClosedPullRequest</code></td><td>Boolean!</td><td>Recreate a pull request if it was already closed.</td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="pullrequestref"><code>PullRequestRef</code></h4>
-
-<p><strong>Service:</strong> changelogreader</p>
-
+<div id="pullrequestref" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">PullRequestRef</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changelogreader</span>
+</div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -3113,13 +3150,13 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>number</code></td><td>Int!</td><td></td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="pullrequeststatus"><code>PullRequestStatus</code></h4>
-
-<p><strong>Service:</strong> changesetcommitter</p>
-
+<div id="pullrequeststatus" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">PullRequestStatus</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changesetcommitter</span>
+</div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -3130,13 +3167,13 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>otherBlockingReasons</code></td><td>[String!]!</td><td>Additional status flags that block this pull request. Can depend on the SCM service provider.</td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="pypiconfiguration"><code>PypiConfiguration</code></h4>
-
-<p><strong>Service:</strong> gateway</p>
-
+<div id="pypiconfiguration" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">PypiConfiguration</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">gateway</span>
+</div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -3146,13 +3183,13 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>connectivity</code></td><td><a href="#httptoolconnectivity">HttpToolConnectivity</a>!</td><td></td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="recipebundleconnection"><code>RecipeBundleConnection</code></h4>
-
-<p><strong>Service:</strong> recipemarketplace</p>
-
+<div id="recipebundleconnection" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">RecipeBundleConnection</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">recipemarketplace</span>
+</div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -3161,13 +3198,13 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>count</code></td><td>Int!</td><td></td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="recipebundleedge"><code>RecipeBundleEdge</code></h4>
-
-<p><strong>Service:</strong> recipemarketplace</p>
-
+<div id="recipebundleedge" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">RecipeBundleEdge</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">recipemarketplace</span>
+</div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -3175,13 +3212,13 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>cursor</code></td><td>String!</td><td></td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="recipecategory"><code>RecipeCategory</code></h4>
-
-<p><strong>Service:</strong> recipemarketplace</p>
-
+<div id="recipecategory" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">RecipeCategory</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">recipemarketplace</span>
+</div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -3194,13 +3231,13 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>categories</code></td><td>(first: Int = 100, after: String, where: <a href="#recipecategorywhereinput">RecipeCategoryWhereInput</a>, orderBy: [<a href="#recipecategoryorderbyinput">RecipeCategoryOrderByInput</a>!]): <a href="#recipecategoryconnection">RecipeCategoryConnection</a>!</td><td></td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="recipecategoryconnection"><code>RecipeCategoryConnection</code></h4>
-
-<p><strong>Service:</strong> recipemarketplace</p>
-
+<div id="recipecategoryconnection" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">RecipeCategoryConnection</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">recipemarketplace</span>
+</div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -3209,13 +3246,13 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>count</code></td><td>Int!</td><td></td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="recipecategoryedge"><code>RecipeCategoryEdge</code></h4>
-
-<p><strong>Service:</strong> recipemarketplace</p>
-
+<div id="recipecategoryedge" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">RecipeCategoryEdge</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">recipemarketplace</span>
+</div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -3223,13 +3260,13 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>cursor</code></td><td>String!</td><td></td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="recipedescriptor"><code>RecipeDescriptor</code></h4>
-
-<p><strong>Service:</strong> changesetreader</p>
-
+<div id="recipedescriptor" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">RecipeDescriptor</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changesetreader</span>
+</div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -3245,13 +3282,13 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>detail</code></td><td><a href="#recipedetail">RecipeDetail</a>!</td><td>Expensive recipe detail fields that require resolving the full recipe bundle. Returns a state machine: query once to trigger resolution, poll until Finished.</td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="recipedescriptorconnection"><code>RecipeDescriptorConnection</code></h4>
-
-<p><strong>Service:</strong> recipemarketplace</p>
-
+<div id="recipedescriptorconnection" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">RecipeDescriptorConnection</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">recipemarketplace</span>
+</div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -3260,13 +3297,13 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>count</code></td><td>Int!</td><td></td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="recipedescriptoredge"><code>RecipeDescriptorEdge</code></h4>
-
-<p><strong>Service:</strong> recipemarketplace</p>
-
+<div id="recipedescriptoredge" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">RecipeDescriptorEdge</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">recipemarketplace</span>
+</div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -3275,13 +3312,14 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>relevance</code></td><td>Float!</td><td>Relevance score for this recipe in the context of a search query. For semantic search, this represents the search relevance (0.0 to 1.0). For filter-based queries, this is always 1.0.</td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="recipedetailerror"><code>RecipeDetailError</code></h4>
-
-<p><strong>Service:</strong> recipemarketplace | <strong>Implements:</strong> <a href="#recipedetail">RecipeDetail</a></p>
-
+<div id="recipedetailerror" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">RecipeDetailError</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">recipemarketplace</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#ede9fe;color:#4338ca;border:1px solid #c7d2fe;">implements <a href="#recipedetail">RecipeDetail</a></span>
+</div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -3290,13 +3328,14 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>message</code></td><td>String!</td><td></td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="recipedetailfinished"><code>RecipeDetailFinished</code></h4>
-
-<p><strong>Service:</strong> recipemarketplace | <strong>Implements:</strong> <a href="#recipedetail">RecipeDetail</a></p>
-
+<div id="recipedetailfinished" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">RecipeDetailFinished</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">recipemarketplace</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#ede9fe;color:#4338ca;border:1px solid #c7d2fe;">implements <a href="#recipedetail">RecipeDetail</a></span>
+</div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -3308,28 +3347,28 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>graph</code></td><td><a href="#recipegraph">RecipeGraph</a>!</td><td>Flat vertices-and-edges representation of this composite recipe tree with Singleton deduplication pre-applied. Used by the Builder UI to visualize a composite recipe in a single round trip regardless of tree depth. Atomic (leaf) recipes return a single-vertex graph.</td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="recipedetailloading"><code>RecipeDetailLoading</code></h4>
-
-<p><strong>Service:</strong> recipemarketplace | <strong>Implements:</strong> <a href="#recipedetail">RecipeDetail</a></p>
-
+<div id="recipedetailloading" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">RecipeDetailLoading</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">recipemarketplace</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#ede9fe;color:#4338ca;border:1px solid #c7d2fe;">implements <a href="#recipedetail">RecipeDetail</a></span>
+</div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
     <tr><td><code>startedAt</code></td><td><a href="#datetime">DateTime</a>!</td><td></td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="recipegraph"><code>RecipeGraph</code></h4>
-
-<p><strong>Service:</strong> recipemarketplace</p>
-
+<div id="recipegraph" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">RecipeGraph</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">recipemarketplace</span>
+</div>
 <p>Flat vertices-and-edges representation of a composite recipe with `org.openrewrite.Singleton` deduplication pre-applied. Produced by the marketplace backend and served to visualization clients in one round trip.</p>
-
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -3338,13 +3377,13 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>edges</code></td><td>[<a href="#recipegraphedge">RecipeGraphEdge</a>!]!</td><td></td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="recipegraphedge"><code>RecipeGraphEdge</code></h4>
-
-<p><strong>Service:</strong> recipemarketplace</p>
-
+<div id="recipegraphedge" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">RecipeGraphEdge</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">recipemarketplace</span>
+</div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -3353,15 +3392,14 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>type</code></td><td><a href="#recipegraphedgetype">RecipeGraphEdgeType</a>!</td><td></td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="recipegraphvertex"><code>RecipeGraphVertex</code></h4>
-
-<p><strong>Service:</strong> recipemarketplace</p>
-
+<div id="recipegraphvertex" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">RecipeGraphVertex</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">recipemarketplace</span>
+</div>
 <p>A vertex in a RecipeGraph: a full recipe occurrence with its configured options. Recipes that declare `org.openrewrite.Singleton` as a precondition are deduplicated — additional occurrences are expressed as REFERENCE edges pointing back to the first occurrence rather than as separate vertices.</p>
-
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -3370,13 +3408,13 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>isSingleton</code></td><td>Boolean!</td><td>True if this recipe declares `org.openrewrite.Singleton` as a precondition, meaning additional occurrences in the graph appear as REFERENCE edges pointing back to this vertex.</td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="recipeinstallationconnection"><code>RecipeInstallationConnection</code></h4>
-
-<p><strong>Service:</strong> recipemarketplace</p>
-
+<div id="recipeinstallationconnection" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">RecipeInstallationConnection</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">recipemarketplace</span>
+</div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -3385,13 +3423,13 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>count</code></td><td>Int!</td><td></td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="recipeinstallationedge"><code>RecipeInstallationEdge</code></h4>
-
-<p><strong>Service:</strong> recipemarketplace</p>
-
+<div id="recipeinstallationedge" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">RecipeInstallationEdge</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">recipemarketplace</span>
+</div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -3402,15 +3440,15 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>organization</code></td><td><a href="#organization">Organization</a></td><td>The organization to which this installation was made. If the installation is a universal or user installation, this field will be null.</td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="recipeinstallationerror"><code>RecipeInstallationError</code></h4>
-
-<p><strong>Service:</strong> recipemarketplace | <strong>Implements:</strong> <a href="#recipeinstallation">RecipeInstallation</a></p>
-
+<div id="recipeinstallationerror" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">RecipeInstallationError</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">recipemarketplace</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#ede9fe;color:#4338ca;border:1px solid #c7d2fe;">implements <a href="#recipeinstallation">RecipeInstallation</a></span>
+</div>
 <p>Installation failed with an error.</p>
-
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -3421,15 +3459,15 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>message</code></td><td>String!</td><td>Human-readable error message.</td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="recipeinstallationfinished"><code>RecipeInstallationFinished</code></h4>
-
-<p><strong>Service:</strong> recipemarketplace | <strong>Implements:</strong> <a href="#recipeinstallation">RecipeInstallation</a></p>
-
+<div id="recipeinstallationfinished" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">RecipeInstallationFinished</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">recipemarketplace</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#ede9fe;color:#4338ca;border:1px solid #c7d2fe;">implements <a href="#recipeinstallation">RecipeInstallation</a></span>
+</div>
 <p>Installation completed successfully.</p>
-
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -3440,15 +3478,15 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>recipes</code></td><td>[<a href="#recipedescriptor">RecipeDescriptor</a>!]!</td><td>The recipes that were installed.</td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="recipeinstallationprocessing"><code>RecipeInstallationProcessing</code></h4>
-
-<p><strong>Service:</strong> recipemarketplace | <strong>Implements:</strong> <a href="#recipeinstallation">RecipeInstallation</a></p>
-
+<div id="recipeinstallationprocessing" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">RecipeInstallationProcessing</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">recipemarketplace</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#ede9fe;color:#4338ca;border:1px solid #c7d2fe;">implements <a href="#recipeinstallation">RecipeInstallation</a></span>
+</div>
 <p>Installation is actively loading and resolving the recipe bundle.</p>
-
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -3458,15 +3496,15 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>progress</code></td><td>Float</td><td>Progress from 0.0 to 1.0, if available.</td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="recipeinstallationqueued"><code>RecipeInstallationQueued</code></h4>
-
-<p><strong>Service:</strong> recipemarketplace | <strong>Implements:</strong> <a href="#recipeinstallation">RecipeInstallation</a></p>
-
+<div id="recipeinstallationqueued" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">RecipeInstallationQueued</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">recipemarketplace</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#ede9fe;color:#4338ca;border:1px solid #c7d2fe;">implements <a href="#recipeinstallation">RecipeInstallation</a></span>
+</div>
 <p>Installation is queued and waiting to be processed.</p>
-
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -3475,13 +3513,13 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>startedAt</code></td><td><a href="#datetime">DateTime</a>!</td><td></td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="recipemarketplace"><code>RecipeMarketplace</code></h4>
-
-<p><strong>Service:</strong> recipemarketplace</p>
-
+<div id="recipemarketplace" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">RecipeMarketplace</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">recipemarketplace</span>
+</div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -3490,13 +3528,13 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>installations</code></td><td>(first: Int = 50, after: String, where: <a href="#recipeinstallationwhereinput">RecipeInstallationWhereInput</a>, orderBy: [<a href="#recipeinstallationorderbyinput">RecipeInstallationOrderByInput</a>!]): <a href="#recipeinstallationconnection">RecipeInstallationConnection</a>!</td><td></td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="recipeoptionvalue"><code>RecipeOptionValue</code></h4>
-
-<p><strong>Service:</strong> changesetreader</p>
-
+<div id="recipeoptionvalue" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">RecipeOptionValue</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changesetreader</span>
+</div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -3504,13 +3542,14 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>value</code></td><td><a href="#object">Object</a>!</td><td></td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="recipeoptionsmessage"><code>RecipeOptionsMessage</code></h4>
-
-<p><strong>Service:</strong> moddy | <strong>Implements:</strong> <a href="#message">Message</a></p>
-
+<div id="recipeoptionsmessage" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">RecipeOptionsMessage</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">moddy</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#ede9fe;color:#4338ca;border:1px solid #c7d2fe;">implements <a href="#message">Message</a></span>
+</div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -3521,13 +3560,14 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>lastUpdatedAt</code></td><td><a href="#datetime">DateTime</a>!</td><td></td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="reciperunfilechange"><code>RecipeRunFileChange</code></h4>
-
-<p><strong>Service:</strong> changesetreader | <strong>Implements:</strong> <a href="#filechange">FileChange</a></p>
-
+<div id="reciperunfilechange" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">RecipeRunFileChange</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changesetreader</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#ede9fe;color:#4338ca;border:1px solid #c7d2fe;">implements <a href="#filechange">FileChange</a></span>
+</div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -3538,15 +3578,15 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>recipesThatMadeChanges</code></td><td>[[<a href="#recipedescriptor">RecipeDescriptor</a>!]!]!</td><td>Recipe chains that contributed changes to this file. Each inner list is one mutation event's call stack, ordered root composite first to leaf recipe last (the leaf is the narrowest recipe that actually performed the change).</td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="reciperunmessage"><code>RecipeRunMessage</code></h4>
-
-<p><strong>Service:</strong> moddy | <strong>Implements:</strong> <a href="#message">Message</a></p>
-
+<div id="reciperunmessage" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">RecipeRunMessage</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">moddy</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#ede9fe;color:#4338ca;border:1px solid #c7d2fe;">implements <a href="#message">Message</a></span>
+</div>
 <p>Long-running recipe execution started by the LLM. Carries a typed progress envelope while IN_PROGRESS — clients should read `progress` rather than poking at a free-form payload. When the run reaches a terminal state, `recipeRun` resolves via federation.</p>
-
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -3558,15 +3598,14 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>lastUpdatedAt</code></td><td><a href="#datetime">DateTime</a>!</td><td></td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="reciperunprogress"><code>RecipeRunProgress</code></h4>
-
-<p><strong>Service:</strong> moddy</p>
-
+<div id="reciperunprogress" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">RecipeRunProgress</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">moddy</span>
+</div>
 <p>Typed progress envelope for an in-flight recipe run.</p>
-
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -3577,13 +3616,13 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>reposTotal</code></td><td>Int</td><td></td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="reciperuntotals"><code>RecipeRunTotals</code></h4>
-
-<p><strong>Service:</strong> changesetreader</p>
-
+<div id="reciperuntotals" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">RecipeRunTotals</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changesetreader</span>
+</div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -3599,13 +3638,14 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>repositoriesInProgress</code></td><td>Int!</td><td></td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="recipesearchmessage"><code>RecipeSearchMessage</code></h4>
-
-<p><strong>Service:</strong> moddy | <strong>Implements:</strong> <a href="#message">Message</a></p>
-
+<div id="recipesearchmessage" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">RecipeSearchMessage</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">moddy</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#ede9fe;color:#4338ca;border:1px solid #c7d2fe;">implements <a href="#message">Message</a></span>
+</div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -3616,28 +3656,27 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>lastUpdatedAt</code></td><td><a href="#datetime">DateTime</a>!</td><td></td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="recipeuninstallation"><code>RecipeUninstallation</code></h4>
-
-<p><strong>Service:</strong> recipemarketplace</p>
-
+<div id="recipeuninstallation" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">RecipeUninstallation</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">recipemarketplace</span>
+</div>
 <p>Result of an uninstall operation.</p>
-
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
     <tr><td><code>removedCount</code></td><td>Int!</td><td>The number of recipes that were removed.</td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="reindexresult"><code>ReindexResult</code></h4>
-
-<p><strong>Service:</strong> changelogwriter</p>
-
+<div id="reindexresult" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">ReindexResult</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changelogwriter</span>
+</div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -3645,13 +3684,13 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>since</code></td><td><a href="#datetime">DateTime</a>!</td><td>The timestamp cursors were rewound to.</td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="repository"><code>Repository</code></h4>
-
-<p><strong>Service:</strong> changelogreader</p>
-
+<div id="repository" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">Repository</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changelogreader</span>
+</div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -3662,15 +3701,14 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>lstArtifact</code></td><td><a href="#lstartifact">LstArtifact</a>!</td><td></td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="repositoryauthorization"><code>RepositoryAuthorization</code></h4>
-
-<p><strong>Service:</strong> corechangeset</p>
-
+<div id="repositoryauthorization" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">RepositoryAuthorization</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">corechangeset</span>
+</div>
 <p>Authorization status for accessing repository content. Resolved by the changeset reader using a batch check against the authorization service.</p>
-
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -3678,13 +3716,14 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>isAuthorized</code></td><td>Boolean!</td><td>Whether the user has a valid OAuth token for this origin.</td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="repositorybatchchange"><code>RepositoryBatchChange</code></h4>
-
-<p><strong>Service:</strong> changesetreader | <strong>Implements:</strong> <a href="#repositorychangeset">RepositoryChangeset</a></p>
-
+<div id="repositorybatchchange" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">RepositoryBatchChange</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changesetreader</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#ede9fe;color:#4338ca;border:1px solid #c7d2fe;">implements <a href="#repositorychangeset">RepositoryChangeset</a></span>
+</div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -3693,17 +3732,16 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>results</code></td><td>(first: Int = 100, after: String, where: <a href="#filechangewhereinput">FileChangeWhereInput</a>, orderBy: [<a href="#filechangeorderbyinput">FileChangeOrderByInput</a>!]): <a href="#filechangeconnection">FileChangeConnection</a>!</td><td></td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="repositorychangesetconnection"><code>RepositoryChangesetConnection</code></h4>
-
-<p><strong>Service:</strong> corechangeset</p>
-
+<div id="repositorychangesetconnection" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">RepositoryChangesetConnection</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">corechangeset</span>
+</div>
 <p>Paginated connection for repository changesets.</p>
 <p>`completed` indicates how many repositories have finished processing: - For BatchChange: completed always equals count (all repositories are pre-processed). - For OrganizationRecipeRun: completed counts repository runs in a terminal state   (regardless of success/failure), excluding canceled runs. A canceled run shows   the completion status reached prior to cancellation.</p>
 <p>Sync totals (`syncPending`, `synced`, `syncFailed`, `syncCanceled`, `syncSkipped`) track repository sync progress during the SYNCING phase. Their sum equals `count`.</p>
-
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -3718,13 +3756,13 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>syncSkipped</code></td><td>Int!</td><td>Repositories the CLI skipped during sync (typically: no LST available).</td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="repositorychangesetedge"><code>RepositoryChangesetEdge</code></h4>
-
-<p><strong>Service:</strong> corechangeset</p>
-
+<div id="repositorychangesetedge" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">RepositoryChangesetEdge</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">corechangeset</span>
+</div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -3732,15 +3770,15 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>cursor</code></td><td>String!</td><td></td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="repositorycommitcanceled"><code>RepositoryCommitCanceled</code></h4>
-
-<p><strong>Service:</strong> changesetcommitter | <strong>Implements:</strong> <a href="#repositorycommit">RepositoryCommit</a></p>
-
+<div id="repositorycommitcanceled" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">RepositoryCommitCanceled</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changesetcommitter</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#ede9fe;color:#4338ca;border:1px solid #c7d2fe;">implements <a href="#repositorycommit">RepositoryCommit</a></span>
+</div>
 <p>Repository commit was canceled. Use `options.__typename` to determine the specific commit type.</p>
-
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -3750,13 +3788,13 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>options</code></td><td><a href="#commitoptions">CommitOptions</a>!</td><td>The commit options. Use `__typename` to determine commit type.</td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="repositorycommitconnection"><code>RepositoryCommitConnection</code></h4>
-
-<p><strong>Service:</strong> changesetcommitter</p>
-
+<div id="repositorycommitconnection" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">RepositoryCommitConnection</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changesetcommitter</span>
+</div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -3766,13 +3804,13 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>completedCount</code></td><td>Int!</td><td>Count of repository commits that have reached a terminal state (succeeded, failed, canceled, or no changes). Pair with `count` to show progress: "Completed X / Y".</td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="repositorycommitedge"><code>RepositoryCommitEdge</code></h4>
-
-<p><strong>Service:</strong> changesetcommitter</p>
-
+<div id="repositorycommitedge" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">RepositoryCommitEdge</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changesetcommitter</span>
+</div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -3780,15 +3818,15 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>cursor</code></td><td>String!</td><td></td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="repositorycommitfailed"><code>RepositoryCommitFailed</code></h4>
-
-<p><strong>Service:</strong> changesetcommitter | <strong>Implements:</strong> <a href="#repositorycommit">RepositoryCommit</a></p>
-
+<div id="repositorycommitfailed" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">RepositoryCommitFailed</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changesetcommitter</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#ede9fe;color:#4338ca;border:1px solid #c7d2fe;">implements <a href="#repositorycommit">RepositoryCommit</a></span>
+</div>
 <p>Repository commit failed with an error. Use `options.__typename` to determine the specific commit type.</p>
-
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -3800,15 +3838,15 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>options</code></td><td><a href="#commitoptions">CommitOptions</a>!</td><td>The commit options. Use `__typename` to determine commit type.</td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="repositorycommitnochanges"><code>RepositoryCommitNoChanges</code></h4>
-
-<p><strong>Service:</strong> changesetcommitter | <strong>Implements:</strong> <a href="#repositorycommit">RepositoryCommit</a></p>
-
+<div id="repositorycommitnochanges" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">RepositoryCommitNoChanges</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changesetcommitter</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#ede9fe;color:#4338ca;border:1px solid #c7d2fe;">implements <a href="#repositorycommit">RepositoryCommit</a></span>
+</div>
 <p>Repository commit completed but yielded no changes. Generally occurs when applying a patch does not produce any changes to commit. Use `options.__typename` to determine the specific commit type.</p>
-
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -3818,15 +3856,15 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>options</code></td><td><a href="#commitoptions">CommitOptions</a>!</td><td>The commit options. Use `__typename` to determine commit type.</td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="repositorycommitqueued"><code>RepositoryCommitQueued</code></h4>
-
-<p><strong>Service:</strong> changesetcommitter | <strong>Implements:</strong> <a href="#repositorycommit">RepositoryCommit</a></p>
-
+<div id="repositorycommitqueued" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">RepositoryCommitQueued</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changesetcommitter</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#ede9fe;color:#4338ca;border:1px solid #c7d2fe;">implements <a href="#repositorycommit">RepositoryCommit</a></span>
+</div>
 <p>Repository commit is queued and waiting to be processed. Use `options.__typename` to determine the specific commit type.</p>
-
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -3836,15 +3874,15 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>options</code></td><td><a href="#commitoptions">CommitOptions</a>!</td><td>The commit options. Use `__typename` to determine commit type.</td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="repositorycommitrunning"><code>RepositoryCommitRunning</code></h4>
-
-<p><strong>Service:</strong> changesetcommitter | <strong>Implements:</strong> <a href="#repositorycommit">RepositoryCommit</a></p>
-
+<div id="repositorycommitrunning" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">RepositoryCommitRunning</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changesetcommitter</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#ede9fe;color:#4338ca;border:1px solid #c7d2fe;">implements <a href="#repositorycommit">RepositoryCommit</a></span>
+</div>
 <p>Repository commit is actively being processed. Use `options.__typename` to determine the specific commit type.</p>
-
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -3853,13 +3891,13 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>options</code></td><td><a href="#commitoptions">CommitOptions</a>!</td><td>The commit options. Use `__typename` to determine commit type.</td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="repositoryconnection"><code>RepositoryConnection</code></h4>
-
-<p><strong>Service:</strong> organization</p>
-
+<div id="repositoryconnection" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">RepositoryConnection</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">organization</span>
+</div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -3868,13 +3906,13 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>count</code></td><td>Int!</td><td></td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="repositoryedge"><code>RepositoryEdge</code></h4>
-
-<p><strong>Service:</strong> organization</p>
-
+<div id="repositoryedge" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">RepositoryEdge</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">organization</span>
+</div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -3882,13 +3920,15 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>cursor</code></td><td>String!</td><td></td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="repositoryreciperuncanceled"><code>RepositoryRecipeRunCanceled</code></h4>
-
-<p><strong>Service:</strong> changesetreader | <strong>Implements:</strong> <a href="#repositoryreciperun">RepositoryRecipeRun</a>, <a href="#repositorychangeset">RepositoryChangeset</a></p>
-
+<div id="repositoryreciperuncanceled" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">RepositoryRecipeRunCanceled</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changesetreader</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#ede9fe;color:#4338ca;border:1px solid #c7d2fe;">implements <a href="#repositoryreciperun">RepositoryRecipeRun</a></span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#ede9fe;color:#4338ca;border:1px solid #c7d2fe;">implements <a href="#repositorychangeset">RepositoryChangeset</a></span>
+</div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -3898,13 +3938,13 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>results</code></td><td>(first: Int = 100, after: String, where: <a href="#filechangewhereinput">FileChangeWhereInput</a>, orderBy: [<a href="#filechangeorderbyinput">FileChangeOrderByInput</a>!]): <a href="#filechangeconnection">FileChangeConnection</a>!</td><td></td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="repositoryreciperunconnection"><code>RepositoryRecipeRunConnection</code></h4>
-
-<p><strong>Service:</strong> changesetreader</p>
-
+<div id="repositoryreciperunconnection" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">RepositoryRecipeRunConnection</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changesetreader</span>
+</div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -3913,13 +3953,13 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>count</code></td><td>Int!</td><td></td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="repositoryreciperunedge"><code>RepositoryRecipeRunEdge</code></h4>
-
-<p><strong>Service:</strong> changesetreader</p>
-
+<div id="repositoryreciperunedge" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">RepositoryRecipeRunEdge</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changesetreader</span>
+</div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -3927,13 +3967,15 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>cursor</code></td><td>String!</td><td></td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="repositoryreciperunerror"><code>RepositoryRecipeRunError</code></h4>
-
-<p><strong>Service:</strong> changesetreader | <strong>Implements:</strong> <a href="#repositoryreciperun">RepositoryRecipeRun</a>, <a href="#repositorychangeset">RepositoryChangeset</a></p>
-
+<div id="repositoryreciperunerror" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">RepositoryRecipeRunError</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changesetreader</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#ede9fe;color:#4338ca;border:1px solid #c7d2fe;">implements <a href="#repositoryreciperun">RepositoryRecipeRun</a></span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#ede9fe;color:#4338ca;border:1px solid #c7d2fe;">implements <a href="#repositorychangeset">RepositoryChangeset</a></span>
+</div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -3947,13 +3989,15 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>message</code></td><td>String</td><td></td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="repositoryreciperunfinished"><code>RepositoryRecipeRunFinished</code></h4>
-
-<p><strong>Service:</strong> changesetreader | <strong>Implements:</strong> <a href="#repositoryreciperun">RepositoryRecipeRun</a>, <a href="#repositorychangeset">RepositoryChangeset</a></p>
-
+<div id="repositoryreciperunfinished" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">RepositoryRecipeRunFinished</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changesetreader</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#ede9fe;color:#4338ca;border:1px solid #c7d2fe;">implements <a href="#repositoryreciperun">RepositoryRecipeRun</a></span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#ede9fe;color:#4338ca;border:1px solid #c7d2fe;">implements <a href="#repositorychangeset">RepositoryChangeset</a></span>
+</div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -3966,13 +4010,15 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>timeSavings</code></td><td><a href="#duration">Duration</a></td><td></td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="repositoryreciperunnolst"><code>RepositoryRecipeRunNoLst</code></h4>
-
-<p><strong>Service:</strong> changesetreader | <strong>Implements:</strong> <a href="#repositoryreciperun">RepositoryRecipeRun</a>, <a href="#repositorychangeset">RepositoryChangeset</a></p>
-
+<div id="repositoryreciperunnolst" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">RepositoryRecipeRunNoLst</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changesetreader</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#ede9fe;color:#4338ca;border:1px solid #c7d2fe;">implements <a href="#repositoryreciperun">RepositoryRecipeRun</a></span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#ede9fe;color:#4338ca;border:1px solid #c7d2fe;">implements <a href="#repositorychangeset">RepositoryChangeset</a></span>
+</div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -3982,13 +4028,15 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>results</code></td><td>(first: Int = 100, after: String, where: <a href="#filechangewhereinput">FileChangeWhereInput</a>, orderBy: [<a href="#filechangeorderbyinput">FileChangeOrderByInput</a>!]): <a href="#filechangeconnection">FileChangeConnection</a>!</td><td></td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="repositoryreciperunqueued"><code>RepositoryRecipeRunQueued</code></h4>
-
-<p><strong>Service:</strong> changesetreader | <strong>Implements:</strong> <a href="#repositoryreciperun">RepositoryRecipeRun</a>, <a href="#repositorychangeset">RepositoryChangeset</a></p>
-
+<div id="repositoryreciperunqueued" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">RepositoryRecipeRunQueued</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changesetreader</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#ede9fe;color:#4338ca;border:1px solid #c7d2fe;">implements <a href="#repositoryreciperun">RepositoryRecipeRun</a></span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#ede9fe;color:#4338ca;border:1px solid #c7d2fe;">implements <a href="#repositorychangeset">RepositoryChangeset</a></span>
+</div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -3999,13 +4047,15 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>queuedAt</code></td><td><a href="#datetime">DateTime</a></td><td></td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="repositoryreciperunrunning"><code>RepositoryRecipeRunRunning</code></h4>
-
-<p><strong>Service:</strong> changesetreader | <strong>Implements:</strong> <a href="#repositoryreciperun">RepositoryRecipeRun</a>, <a href="#repositorychangeset">RepositoryChangeset</a></p>
-
+<div id="repositoryreciperunrunning" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">RepositoryRecipeRunRunning</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changesetreader</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#ede9fe;color:#4338ca;border:1px solid #c7d2fe;">implements <a href="#repositoryreciperun">RepositoryRecipeRun</a></span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#ede9fe;color:#4338ca;border:1px solid #c7d2fe;">implements <a href="#repositorychangeset">RepositoryChangeset</a></span>
+</div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -4016,13 +4066,13 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>startedAt</code></td><td><a href="#datetime">DateTime</a></td><td></td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="reviewstatus"><code>ReviewStatus</code></h4>
-
-<p><strong>Service:</strong> changesetcommitter</p>
-
+<div id="reviewstatus" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">ReviewStatus</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changesetcommitter</span>
+</div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -4030,15 +4080,14 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>reviewDecision</code></td><td><a href="#reviewdecision">ReviewDecision</a>!</td><td></td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="revoketokenresult"><code>RevokeTokenResult</code></h4>
-
-<p><strong>Service:</strong> authz</p>
-
+<div id="revoketokenresult" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">RevokeTokenResult</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">authz</span>
+</div>
 <p>Result of revoking an SCM OAuth token.</p>
-
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -4046,13 +4095,13 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>error</code></td><td>String</td><td>Error message if revocation failed.</td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="s3configuration"><code>S3Configuration</code></h4>
-
-<p><strong>Service:</strong> gateway</p>
-
+<div id="s3configuration" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">S3Configuration</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">gateway</span>
+</div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -4064,13 +4113,13 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>endpointUrl</code></td><td>String</td><td></td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="scmtokeninfo"><code>ScmTokenInfo</code></h4>
-
-<p><strong>Service:</strong> authz</p>
-
+<div id="scmtokeninfo" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">ScmTokenInfo</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">authz</span>
+</div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -4078,13 +4127,14 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>expiresAt</code></td><td><a href="#datetime">DateTime</a></td><td></td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="searchresult"><code>SearchResult</code></h4>
-
-<p><strong>Service:</strong> corechangeset | <strong>Implements:</strong> <a href="#marker">Marker</a></p>
-
+<div id="searchresult" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">SearchResult</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">corechangeset</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#ede9fe;color:#4338ca;border:1px solid #c7d2fe;">implements <a href="#marker">Marker</a></span>
+</div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -4093,15 +4143,14 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>description</code></td><td>String</td><td></td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="sendmessageresult"><code>SendMessageResult</code></h4>
-
-<p><strong>Service:</strong> moddy</p>
-
+<div id="sendmessageresult" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">SendMessageResult</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">moddy</span>
+</div>
 <p>Handle returned by `createConversation` / `sendMessage`. Clients should poll `conversation.messages(after: initialCursor)` using `turnState.recommendedPollIntervalMs` as the cadence hint.</p>
-
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -4110,15 +4159,15 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>turnState</code></td><td><a href="#conversationturnstate">ConversationTurnState</a>!</td><td></td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="textmessage"><code>TextMessage</code></h4>
-
-<p><strong>Service:</strong> moddy | <strong>Implements:</strong> <a href="#message">Message</a></p>
-
+<div id="textmessage" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">TextMessage</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">moddy</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#ede9fe;color:#4338ca;border:1px solid #c7d2fe;">implements <a href="#message">Message</a></span>
+</div>
 <p>A text message from either the human user or the chatbot. Check the `user` field to distinguish sender.</p>
-
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -4130,13 +4179,13 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>lastUpdatedAt</code></td><td><a href="#datetime">DateTime</a>!</td><td></td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="toolinfo"><code>ToolInfo</code></h4>
-
-<p><strong>Service:</strong> changesetreader</p>
-
+<div id="toolinfo" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">ToolInfo</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changesetreader</span>
+</div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -4145,13 +4194,13 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>arguments</code></td><td>String</td><td></td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="uiconfiguration"><code>UiConfiguration</code></h4>
-
-<p><strong>Service:</strong> gateway</p>
-
+<div id="uiconfiguration" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">UiConfiguration</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">gateway</span>
+</div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -4161,13 +4210,13 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>cliDownloadInstructions</code></td><td><a href="#clidownloadinstructionlink">CliDownloadInstructionLink</a></td><td></td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="user"><code>User</code></h4>
-
-<p><strong>Service:</strong> authz</p>
-
+<div id="user" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">User</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">authz</span>
+</div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -4179,13 +4228,13 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>moddy</code></td><td><a href="#moddy">Moddy</a>!</td><td></td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="userconnection"><code>UserConnection</code></h4>
-
-<p><strong>Service:</strong> authz</p>
-
+<div id="userconnection" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">UserConnection</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">authz</span>
+</div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -4194,13 +4243,13 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>count</code></td><td>Int!</td><td></td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="usersedge"><code>UsersEdge</code></h4>
-
-<p><strong>Service:</strong> authz</p>
-
+<div id="usersedge" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">UsersEdge</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">authz</span>
+</div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -4208,13 +4257,14 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>cursor</code></td><td>String!</td><td></td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="visualizationavailable"><code>VisualizationAvailable</code></h4>
-
-<p><strong>Service:</strong> changesetreader | <strong>Implements:</strong> <a href="#visualization">Visualization</a></p>
-
+<div id="visualizationavailable" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">VisualizationAvailable</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changesetreader</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#ede9fe;color:#4338ca;border:1px solid #c7d2fe;">implements <a href="#visualization">Visualization</a></span>
+</div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -4223,13 +4273,13 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>changesetId</code></td><td>ID!</td><td>The changeset (recipe run or batch change) this visualization is available for.</td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="visualizationconnection"><code>VisualizationConnection</code></h4>
-
-<p><strong>Service:</strong> corechangeset</p>
-
+<div id="visualizationconnection" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">VisualizationConnection</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">corechangeset</span>
+</div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -4238,13 +4288,13 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>count</code></td><td>Int!</td><td></td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="visualizationdescriptor"><code>VisualizationDescriptor</code></h4>
-
-<p><strong>Service:</strong> changesetvisualizer</p>
-
+<div id="visualizationdescriptor" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">VisualizationDescriptor</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changesetvisualizer</span>
+</div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -4255,13 +4305,13 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>image</code></td><td><a href="#base64">Base64</a>!</td><td></td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="visualizationedge"><code>VisualizationEdge</code></h4>
-
-<p><strong>Service:</strong> corechangeset</p>
-
+<div id="visualizationedge" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">VisualizationEdge</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">corechangeset</span>
+</div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -4269,13 +4319,14 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>cursor</code></td><td>String!</td><td></td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="visualizationerror"><code>VisualizationError</code></h4>
-
-<p><strong>Service:</strong> changesetreader | <strong>Implements:</strong> <a href="#visualization">Visualization</a></p>
-
+<div id="visualizationerror" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">VisualizationError</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changesetreader</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#ede9fe;color:#4338ca;border:1px solid #c7d2fe;">implements <a href="#visualization">Visualization</a></span>
+</div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -4288,13 +4339,14 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>repositories</code></td><td>(first: Int = 100, after: String): <a href="#visualizationrepositoryconnection">VisualizationRepositoryConnection</a>!</td><td></td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="visualizationfinished"><code>VisualizationFinished</code></h4>
-
-<p><strong>Service:</strong> changesetreader | <strong>Implements:</strong> <a href="#visualization">Visualization</a></p>
-
+<div id="visualizationfinished" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">VisualizationFinished</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changesetreader</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#ede9fe;color:#4338ca;border:1px solid #c7d2fe;">implements <a href="#visualization">Visualization</a></span>
+</div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -4308,13 +4360,14 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>repositories</code></td><td>(first: Int = 100, after: String): <a href="#visualizationrepositoryconnection">VisualizationRepositoryConnection</a>!</td><td></td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="visualizationimageoutput"><code>VisualizationImageOutput</code></h4>
-
-<p><strong>Service:</strong> changesetreader | <strong>Implements:</strong> <a href="#visualizationoutput">VisualizationOutput</a></p>
-
+<div id="visualizationimageoutput" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">VisualizationImageOutput</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changesetreader</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#ede9fe;color:#4338ca;border:1px solid #c7d2fe;">implements <a href="#visualizationoutput">VisualizationOutput</a></span>
+</div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -4322,13 +4375,13 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>data</code></td><td><a href="#base64">Base64</a>!</td><td></td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="visualizationoption"><code>VisualizationOption</code></h4>
-
-<p><strong>Service:</strong> changesetvisualizer</p>
-
+<div id="visualizationoption" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">VisualizationOption</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changesetvisualizer</span>
+</div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -4342,26 +4395,28 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>required</code></td><td>Boolean!</td><td></td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="visualizationplotlyoutput"><code>VisualizationPlotlyOutput</code></h4>
-
-<p><strong>Service:</strong> changesetreader | <strong>Implements:</strong> <a href="#visualizationoutput">VisualizationOutput</a></p>
-
+<div id="visualizationplotlyoutput" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">VisualizationPlotlyOutput</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changesetreader</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#ede9fe;color:#4338ca;border:1px solid #c7d2fe;">implements <a href="#visualizationoutput">VisualizationOutput</a></span>
+</div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
     <tr><td><code>data</code></td><td><a href="#base64">Base64</a>!</td><td>Plotly JSON data (MIME type: application/vnd.plotly.v1+json)</td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="visualizationprocessing"><code>VisualizationProcessing</code></h4>
-
-<p><strong>Service:</strong> changesetreader | <strong>Implements:</strong> <a href="#visualization">Visualization</a></p>
-
+<div id="visualizationprocessing" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">VisualizationProcessing</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changesetreader</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#ede9fe;color:#4338ca;border:1px solid #c7d2fe;">implements <a href="#visualization">Visualization</a></span>
+</div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -4372,13 +4427,13 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>repositories</code></td><td>(first: Int = 100, after: String): <a href="#visualizationrepositoryconnection">VisualizationRepositoryConnection</a>!</td><td></td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="visualizationrepository"><code>VisualizationRepository</code></h4>
-
-<p><strong>Service:</strong> changesetreader</p>
-
+<div id="visualizationrepository" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">VisualizationRepository</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changesetreader</span>
+</div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -4387,13 +4442,13 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>repository</code></td><td><a href="#repository">Repository</a>!</td><td></td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="visualizationrepositoryconnection"><code>VisualizationRepositoryConnection</code></h4>
-
-<p><strong>Service:</strong> changesetreader</p>
-
+<div id="visualizationrepositoryconnection" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">VisualizationRepositoryConnection</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changesetreader</span>
+</div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -4402,13 +4457,13 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>count</code></td><td>Int!</td><td></td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="visualizationrepositoryedge"><code>VisualizationRepositoryEdge</code></h4>
-
-<p><strong>Service:</strong> changesetreader</p>
-
+<div id="visualizationrepositoryedge" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">VisualizationRepositoryEdge</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changesetreader</span>
+</div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -4416,13 +4471,14 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>cursor</code></td><td>String!</td><td></td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="yamlrecipebundle"><code>YamlRecipeBundle</code></h4>
-
-<p><strong>Service:</strong> changesetreader | <strong>Implements:</strong> <a href="#recipebundle">RecipeBundle</a></p>
-
+<div id="yamlrecipebundle" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">YamlRecipeBundle</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changesetreader</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#ede9fe;color:#4338ca;border:1px solid #c7d2fe;">implements <a href="#recipebundle">RecipeBundle</a></span>
+</div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -4433,31 +4489,30 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>primary</code></td><td><a href="#recipedescriptor">RecipeDescriptor</a></td><td>The primary recipe in this bundle. When specified, only this recipe is shown in marketplace categories, hiding other recipes from this bundle.</td></tr>
   </tbody>
 </table>
-
-<hr/>
+</div>
 
 <h3>Interfaces</h3>
 
-<h4 id="auditlogsdownload"><code>AuditLogsDownload</code></h4>
-
-<p><strong>Service:</strong> auditreader</p>
-
+<div id="auditlogsdownload" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">AuditLogsDownload</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">auditreader</span>
+</div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
     <tr><td><code>id</code></td><td>ID!</td><td></td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="bulkpullrequestaction"><code>BulkPullRequestAction</code></h4>
-
-<p><strong>Service:</strong> changelogreader</p>
-
+<div id="bulkpullrequestaction" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">BulkPullRequestAction</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changelogreader</span>
+</div>
 <p>A bulk pull request action (approve, merge, close) that operates on potentially multiple repositories. Use `__typename` to determine the current state.</p>
 <p>Each `BulkPullRequestAction` contains individual `PullRequestAction` entries representing the state of each repository targeted by the bulk operation.</p>
-
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -4467,15 +4522,14 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>results</code></td><td>(first: Int = 50, after: String, where: <a href="#pullrequestactionwhereinput">PullRequestActionWhereInput</a>, orderBy: [<a href="#pullrequestactionorderbyinput">PullRequestActionOrderByInput</a>!]): <a href="#pullrequestactionconnection">PullRequestActionConnection</a>!</td><td></td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="changelogentry"><code>ChangelogEntry</code></h4>
-
-<p><strong>Service:</strong> changelogreader</p>
-
+<div id="changelogentry" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">ChangelogEntry</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changelogreader</span>
+</div>
 <p>A single entry in the changelog — either a commit or a pull request. Use `__typename` to distinguish between `ChangelogCommit` and `ChangelogPullRequest`.</p>
-
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -4492,26 +4546,26 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>diffstat</code></td><td><a href="#diffstat">DiffStat</a>!</td><td>Lines added and removed.</td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="commitoptions"><code>CommitOptions</code></h4>
-
-<p><strong>Service:</strong> changesetcommitter</p>
-
+<div id="commitoptions" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">CommitOptions</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changesetcommitter</span>
+</div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
     <tr><td><code>branchName</code></td><td>String</td><td></td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="datatable"><code>DataTable</code></h4>
-
-<p><strong>Service:</strong> corechangeset</p>
-
+<div id="datatable" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">DataTable</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">corechangeset</span>
+</div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -4521,15 +4575,14 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>group</code></td><td>String</td><td>The group identifying this data table bucket. For community tables this is the group name (e.g., "architecture"). Null for ungrouped/private tables.</td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="devcenterrun"><code>DevCenterRun</code></h4>
-
-<p><strong>Service:</strong> changesetreader</p>
-
+<div id="devcenterrun" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">DevCenterRun</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changesetreader</span>
+</div>
 <p>A DevCenter run represents the execution of a DevCenter recipe. Use `__typename` to determine the current state.</p>
-
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -4538,15 +4591,14 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>changeset</code></td><td><a href="#organizationchangeset">OrganizationChangeset</a></td><td>The underlying recipe run changeset.</td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="filechange"><code>FileChange</code></h4>
-
-<p><strong>Service:</strong> corechangeset</p>
-
+<div id="filechange" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">FileChange</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">corechangeset</span>
+</div>
 <p>A change to a single file within a repository changeset.</p>
-
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -4556,26 +4608,26 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>diff</code></td><td>(markupLevel: <a href="#markuplevel">MarkupLevel</a> = ERROR, showWhitespaceOnlyChanges: Boolean = true): <a href="#patch">Patch</a></td><td>Get the diff for this file.</td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="marker"><code>Marker</code></h4>
-
-<p><strong>Service:</strong> corechangeset</p>
-
+<div id="marker" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">Marker</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">corechangeset</span>
+</div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
     <tr><td><code>id</code></td><td>ID!</td><td></td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="message"><code>Message</code></h4>
-
-<p><strong>Service:</strong> moddy</p>
-
+<div id="message" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">Message</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">moddy</span>
+</div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -4585,15 +4637,14 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>lastUpdatedAt</code></td><td><a href="#datetime">DateTime</a>!</td><td></td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="organizationcommit"><code>OrganizationCommit</code></h4>
-
-<p><strong>Service:</strong> changesetcommitter</p>
-
+<div id="organizationcommit" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">OrganizationCommit</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changesetcommitter</span>
+</div>
 <p>An organization-level commit operation represents applying changes across multiple repositories. Use `__typename` to determine the current state.</p>
-
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -4605,28 +4656,27 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>repositories</code></td><td>(first: Int = 50, after: String, where: <a href="#repositorycommitwhereinput">RepositoryCommitWhereInput</a>, orderBy: [<a href="#repositorycommitorderbyinput">RepositoryCommitOrderByInput</a>!]): <a href="#repositorycommitconnection">RepositoryCommitConnection</a>!</td><td>Paginated results per repository.</td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="pullrequestaction"><code>PullRequestAction</code></h4>
-
-<p><strong>Service:</strong> changelogreader</p>
-
+<div id="pullrequestaction" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">PullRequestAction</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changelogreader</span>
+</div>
 <p>The state of an individual repository within a `BulkPullRequestAction`. Use `__typename` to determine the current state.</p>
-
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
     <tr><td><code>pullRequest</code></td><td><a href="#pullrequestref">PullRequestRef</a>!</td><td></td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="recipebundle"><code>RecipeBundle</code></h4>
-
-<p><strong>Service:</strong> changesetreader</p>
-
+<div id="recipebundle" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">RecipeBundle</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changesetreader</span>
+</div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -4635,30 +4685,28 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>recipeCount</code></td><td>Int</td><td>Number of top-level recipes contributed by this bundle's package. Null when the bundle has not yet been resolved into the marketplace (e.g. an installation still in progress).</td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="recipedetail"><code>RecipeDetail</code></h4>
-
-<p><strong>Service:</strong> recipemarketplace</p>
-
+<div id="recipedetail" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">RecipeDetail</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">recipemarketplace</span>
+</div>
 <p>State machine for recipe detail resolution. Querying the `detail` field on a RecipeDescriptor triggers background resolution of the full recipe bundle. Poll until `__typename` is `RecipeDetailFinished`.</p>
-
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
     <tr><td><code>startedAt</code></td><td><a href="#datetime">DateTime</a>!</td><td></td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="recipeinstallation"><code>RecipeInstallation</code></h4>
-
-<p><strong>Service:</strong> recipemarketplace</p>
-
+<div id="recipeinstallation" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">RecipeInstallation</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">recipemarketplace</span>
+</div>
 <p>Common fields for all recipe installation states. Use `__typename` to determine the current state.</p>
-
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -4667,13 +4715,13 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>startedAt</code></td><td><a href="#datetime">DateTime</a>!</td><td></td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="repositorychangeset"><code>RepositoryChangeset</code></h4>
-
-<p><strong>Service:</strong> corechangeset</p>
-
+<div id="repositorychangeset" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">RepositoryChangeset</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">corechangeset</span>
+</div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -4682,30 +4730,28 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>results</code></td><td>(first: Int = 100, after: String, where: <a href="#filechangewhereinput">FileChangeWhereInput</a>, orderBy: [<a href="#filechangeorderbyinput">FileChangeOrderByInput</a>!]): <a href="#filechangeconnection">FileChangeConnection</a>!</td><td>File-level changes within this repository.</td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="repositorycommit"><code>RepositoryCommit</code></h4>
-
-<p><strong>Service:</strong> changesetcommitter</p>
-
+<div id="repositorycommit" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">RepositoryCommit</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changesetcommitter</span>
+</div>
 <p>A commit result for a single repository within an organization-level commit operation. Use `__typename` to determine the current state.</p>
-
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
     <tr><td><code>repository</code></td><td><a href="#repository">Repository</a>!</td><td></td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="repositorycommitsucceeded"><code>RepositoryCommitSucceeded</code></h4>
-
-<p><strong>Service:</strong> changesetcommitter</p>
-
+<div id="repositorycommitsucceeded" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">RepositoryCommitSucceeded</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changesetcommitter</span>
+</div>
 <p>Repository commit completed successfully. Use `__typename` to determine the specific commit type.</p>
-
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -4715,13 +4761,13 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>resultLink</code></td><td>String</td><td>Link to the commit or pull request result.</td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="repositoryreciperun"><code>RepositoryRecipeRun</code></h4>
-
-<p><strong>Service:</strong> changesetreader</p>
-
+<div id="repositoryreciperun" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">RepositoryRecipeRun</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changesetreader</span>
+</div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -4731,13 +4777,13 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>results</code></td><td>(first: Int = 100, after: String, where: <a href="#filechangewhereinput">FileChangeWhereInput</a>, orderBy: [<a href="#filechangeorderbyinput">FileChangeOrderByInput</a>!]): <a href="#filechangeconnection">FileChangeConnection</a>!</td><td></td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="scmconnection"><code>ScmConnection</code></h4>
-
-<p><strong>Service:</strong> authz</p>
-
+<div id="scmconnection" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">ScmConnection</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">authz</span>
+</div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -4746,13 +4792,13 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>tokens</code></td><td>[<a href="#scmtokeninfo">ScmTokenInfo</a>!]!</td><td></td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="visualization"><code>Visualization</code></h4>
-
-<p><strong>Service:</strong> corechangeset</p>
-
+<div id="visualization" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">Visualization</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">corechangeset</span>
+</div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -4760,97 +4806,97 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>descriptor</code></td><td><a href="#visualizationdescriptor">VisualizationDescriptor</a>!</td><td></td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="visualizationoutput"><code>VisualizationOutput</code></h4>
-
-<p><strong>Service:</strong> changesetreader</p>
-
+<div id="visualizationoutput" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">VisualizationOutput</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changesetreader</span>
+</div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
     <tr><td><code>data</code></td><td><a href="#base64">Base64</a>!</td><td></td></tr>
   </tbody>
 </table>
-
-<hr/>
+</div>
 
 <h3>Enums</h3>
 
-<h4 id="accesstokenorderbyfield"><code>AccessTokenOrderByField</code></h4>
-
-<p><strong>Service:</strong> authz</p>
-
+<div id="accesstokenorderbyfield" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">AccessTokenOrderByField</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">authz</span>
+</div>
 <ul>
   <li><code>CREATED</code></li>
   <li><code>EXPIRES_AT</code></li>
 </ul>
+</div>
 
-<hr/>
-
-<h4 id="auditactiontype"><code>AuditActionType</code></h4>
-
-<p><strong>Service:</strong> auditreader</p>
-
+<div id="auditactiontype" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">AuditActionType</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">auditreader</span>
+</div>
 <ul>
   <li><code>CREATE</code></li>
   <li><code>READ</code></li>
   <li><code>UPDATE</code></li>
   <li><code>DELETE</code></li>
 </ul>
+</div>
 
-<hr/>
-
-<h4 id="auditlogexportformat"><code>AuditLogExportFormat</code></h4>
-
-<p><strong>Service:</strong> auditreader</p>
-
+<div id="auditlogexportformat" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">AuditLogExportFormat</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">auditreader</span>
+</div>
 <ul>
   <li><code>CEF</code></li>
   <li><code>CSV</code></li>
 </ul>
+</div>
 
-<hr/>
-
-<h4 id="auditlogorderbyfield"><code>AuditLogOrderByField</code></h4>
-
-<p><strong>Service:</strong> auditreader</p>
-
+<div id="auditlogorderbyfield" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">AuditLogOrderByField</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">auditreader</span>
+</div>
 <ul>
   <li><code>TIMESTAMP</code></li>
   <li><code>USER_ID</code></li>
   <li><code>TARGET</code></li>
   <li><code>ACTION</code></li>
 </ul>
+</div>
 
-<hr/>
-
-<h4 id="auditlogsdownloadorderbyfield"><code>AuditLogsDownloadOrderByField</code></h4>
-
-<p><strong>Service:</strong> auditreader</p>
-
+<div id="auditlogsdownloadorderbyfield" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">AuditLogsDownloadOrderByField</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">auditreader</span>
+</div>
 <ul>
   <li><code>STARTED_AT</code></li>
 </ul>
+</div>
 
-<hr/>
-
-<h4 id="auditoutcome"><code>AuditOutcome</code></h4>
-
-<p><strong>Service:</strong> auditreader</p>
-
+<div id="auditoutcome" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">AuditOutcome</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">auditreader</span>
+</div>
 <ul>
   <li><code>SUCCESS</code></li>
   <li><code>FAILURE</code></li>
 </ul>
+</div>
 
-<hr/>
-
-<h4 id="buildstate"><code>BuildState</code></h4>
-
-<p><strong>Service:</strong> changelogreader</p>
-
+<div id="buildstate" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">BuildState</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changelogreader</span>
+</div>
 <ul>
   <li><code>PENDING</code></li>
   <li><code>IN_PROGRESS</code></li>
@@ -4859,27 +4905,26 @@ description: Complete reference for the Moderne GraphQL API, including all queri
   <li><code>SUCCESSFUL</code></li>
   <li><code>NOT_REQUIRED</code></li>
 </ul>
+</div>
 
-<hr/>
-
-<h4 id="bulkpullrequestactionorderbyfield"><code>BulkPullRequestActionOrderByField</code></h4>
-
-<p><strong>Service:</strong> changelogreader</p>
-
+<div id="bulkpullrequestactionorderbyfield" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">BulkPullRequestActionOrderByField</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changelogreader</span>
+</div>
 <ul>
   <li><code>CREATED_AT</code></li>
   <li><code>STARTED_AT</code></li>
   <li><code>FINISHED_AT</code></li>
 </ul>
+</div>
 
-<hr/>
-
-<h4 id="bulkpullrequestactionstate"><code>BulkPullRequestActionState</code></h4>
-
-<p><strong>Service:</strong> changelogreader</p>
-
+<div id="bulkpullrequestactionstate" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">BulkPullRequestActionState</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changelogreader</span>
+</div>
 <p>The lifecycle state of a `BulkPullRequestAction`. Matches the `__typename` of the concrete state types (Queued, Running, Finished, Canceled, Error).</p>
-
 <ul>
   <li><code>QUEUED</code></li>
   <li><code>RUNNING</code></li>
@@ -4887,51 +4932,50 @@ description: Complete reference for the Moderne GraphQL API, including all queri
   <li><code>CANCELED</code></li>
   <li><code>ERROR</code></li>
 </ul>
+</div>
 
-<hr/>
-
-<h4 id="changelogentryorderbyfield"><code>ChangelogEntryOrderByField</code></h4>
-
-<p><strong>Service:</strong> changelogreader</p>
-
+<div id="changelogentryorderbyfield" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">ChangelogEntryOrderByField</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changelogreader</span>
+</div>
 <ul>
   <li><code>UPDATED_AT</code></li>
   <li><code>CREATED_AT</code></li>
   <li><code>TITLE</code></li>
   <li><code>REPOSITORY_PATH</code></li>
 </ul>
+</div>
 
-<hr/>
-
-<h4 id="changelogentrytype"><code>ChangelogEntryType</code></h4>
-
-<p><strong>Service:</strong> changelogreader</p>
-
+<div id="changelogentrytype" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">ChangelogEntryType</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changelogreader</span>
+</div>
 <p>Discriminator for filtering by entry type.</p>
-
 <ul>
   <li><code>COMMIT</code></li>
   <li><code>PULL_REQUEST</code></li>
 </ul>
+</div>
 
-<hr/>
-
-<h4 id="changelogparticipantorderbyfield"><code>ChangelogParticipantOrderByField</code></h4>
-
-<p><strong>Service:</strong> changelogreader</p>
-
+<div id="changelogparticipantorderbyfield" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">ChangelogParticipantOrderByField</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changelogreader</span>
+</div>
 <ul>
   <li><code>USERNAME</code></li>
   <li><code>EMAIL</code></li>
   <li><code>NAME</code></li>
 </ul>
+</div>
 
-<hr/>
-
-<h4 id="commitoption"><code>CommitOption</code></h4>
-
-<p><strong>Service:</strong> changesetcommitter</p>
-
+<div id="commitoption" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">CommitOption</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changesetcommitter</span>
+</div>
 <ul>
   <li><code>DIRECT</code></li>
   <li><code>BRANCH</code></li>
@@ -4940,24 +4984,24 @@ description: Complete reference for the Moderne GraphQL API, including all queri
   <li><code>FORK_AND_PULL_REQUEST</code></li>
   <li><code>NONE</code></li>
 </ul>
+</div>
 
-<hr/>
-
-<h4 id="connectororderbyfield"><code>ConnectorOrderByField</code></h4>
-
-<p><strong>Service:</strong> gateway</p>
-
+<div id="connectororderbyfield" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">ConnectorOrderByField</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">gateway</span>
+</div>
 <ul>
   <li><code>NICKNAME</code></li>
   <li><code>VERSION</code></li>
 </ul>
+</div>
 
-<hr/>
-
-<h4 id="connectortooltype"><code>ConnectorToolType</code></h4>
-
-<p><strong>Service:</strong> gateway</p>
-
+<div id="connectortooltype" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">ConnectorToolType</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">gateway</span>
+</div>
 <ul>
   <li><code>GITHUB</code></li>
   <li><code>GITLAB</code></li>
@@ -4974,39 +5018,38 @@ description: Complete reference for the Moderne GraphQL API, including all queri
   <li><code>LLM</code></li>
   <li><code>S3</code></li>
 </ul>
+</div>
 
-<hr/>
-
-<h4 id="contributorrole"><code>ContributorRole</code></h4>
-
-<p><strong>Service:</strong> changelogreader</p>
-
+<div id="contributorrole" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">ContributorRole</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changelogreader</span>
+</div>
 <p>The participant's role for filtering.</p>
-
 <ul>
   <li><code>AUTHOR</code></li>
   <li><code>ASSIGNEE</code></li>
   <li><code>CLOSED_BY</code></li>
   <li><code>REVIEWER</code></li>
 </ul>
+</div>
 
-<hr/>
-
-<h4 id="conversationorderbyfield"><code>ConversationOrderByField</code></h4>
-
-<p><strong>Service:</strong> moddy</p>
-
+<div id="conversationorderbyfield" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">ConversationOrderByField</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">moddy</span>
+</div>
 <ul>
   <li><code>STARTED_AT</code></li>
   <li><code>LAST_UPDATED_AT</code></li>
 </ul>
+</div>
 
-<hr/>
-
-<h4 id="conversationphase"><code>ConversationPhase</code></h4>
-
-<p><strong>Service:</strong> moddy</p>
-
+<div id="conversationphase" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">ConversationPhase</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">moddy</span>
+</div>
 <ul>
   <li><code>IDLE</code></li>
   <li><code>AWAITING_LLM</code></li>
@@ -5014,110 +5057,108 @@ description: Complete reference for the Moderne GraphQL API, including all queri
   <li><code>TOOL_RUNNING</code></li>
   <li><code>ERRORED</code></li>
 </ul>
+</div>
 
-<hr/>
-
-<h4 id="datatableformat"><code>DataTableFormat</code></h4>
-
-<p><strong>Service:</strong> corechangeset</p>
-
+<div id="datatableformat" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">DataTableFormat</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">corechangeset</span>
+</div>
 <ul>
   <li><code>CSV</code></li>
   <li><code>XLSX</code></li>
 </ul>
+</div>
 
-<hr/>
-
-<h4 id="datatableorderbyfield"><code>DataTableOrderByField</code></h4>
-
-<p><strong>Service:</strong> corechangeset</p>
-
+<div id="datatableorderbyfield" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">DataTableOrderByField</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">corechangeset</span>
+</div>
 <ul>
   <li><code>DATA_TABLE</code></li>
   <li><code>STARTED_AT</code></li>
 </ul>
+</div>
 
-<hr/>
-
-<h4 id="devcenteraggregation"><code>DevCenterAggregation</code></h4>
-
-<p><strong>Service:</strong> changesetreader</p>
-
+<div id="devcenteraggregation" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">DevCenterAggregation</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changesetreader</span>
+</div>
 <p>How DevCenter card results are aggregated across repositories.</p>
-
 <ul>
   <li><code>PER_REPOSITORY</code></li>
   <li><code>PER_OCCURRENCE</code></li>
 </ul>
+</div>
 
-<hr/>
-
-<h4 id="devcenterrunorderbyfield"><code>DevCenterRunOrderByField</code></h4>
-
-<p><strong>Service:</strong> changesetreader</p>
-
+<div id="devcenterrunorderbyfield" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">DevCenterRunOrderByField</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changesetreader</span>
+</div>
 <ul>
   <li><code>STARTED_AT</code></li>
   <li><code>STATE</code></li>
 </ul>
+</div>
 
-<hr/>
-
-<h4 id="devcenterrunstate"><code>DevCenterRunState</code></h4>
-
-<p><strong>Service:</strong> changesetreader</p>
-
+<div id="devcenterrunstate" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">DevCenterRunState</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changesetreader</span>
+</div>
 <p>Execution state of a DevCenter run.</p>
-
 <ul>
   <li><code>RUNNING</code></li>
   <li><code>FINISHED</code></li>
   <li><code>CANCELED</code></li>
   <li><code>ERROR</code></li>
 </ul>
+</div>
 
-<hr/>
-
-<h4 id="filechangeorderbyfield"><code>FileChangeOrderByField</code></h4>
-
-<p><strong>Service:</strong> corechangeset</p>
-
+<div id="filechangeorderbyfield" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">FileChangeOrderByField</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">corechangeset</span>
+</div>
 <ul>
   <li><code>PATH</code></li>
 </ul>
+</div>
 
-<hr/>
-
-<h4 id="imageformat"><code>ImageFormat</code></h4>
-
-<p><strong>Service:</strong> changesetreader</p>
-
+<div id="imageformat" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">ImageFormat</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changesetreader</span>
+</div>
 <ul>
   <li><code>SVG</code></li>
   <li><code>GIF</code></li>
   <li><code>JPEG</code></li>
   <li><code>PNG</code></li>
 </ul>
+</div>
 
-<hr/>
-
-<h4 id="llmprovider"><code>LlmProvider</code></h4>
-
-<p><strong>Service:</strong> gateway</p>
-
+<div id="llmprovider" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">LlmProvider</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">gateway</span>
+</div>
 <ul>
   <li><code>ANTHROPIC</code></li>
   <li><code>GEMINI</code></li>
   <li><code>MISTRAL</code></li>
   <li><code>OPEN_AI</code></li>
 </ul>
+</div>
 
-<hr/>
-
-<h4 id="markuplevel"><code>MarkupLevel</code></h4>
-
-<p><strong>Service:</strong> corechangeset</p>
-
+<div id="markuplevel" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">MarkupLevel</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">corechangeset</span>
+</div>
 <ul>
   <li><code>DEBUG</code></li>
   <li><code>INFO</code></li>
@@ -5125,104 +5166,104 @@ description: Complete reference for the Moderne GraphQL API, including all queri
   <li><code>ERROR</code></li>
   <li><code>NONE</code></li>
 </ul>
+</div>
 
-<hr/>
-
-<h4 id="mergemethod"><code>MergeMethod</code></h4>
-
-<p><strong>Service:</strong> changelogreader</p>
-
+<div id="mergemethod" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">MergeMethod</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changelogreader</span>
+</div>
 <ul>
   <li><code>MERGE</code></li>
   <li><code>SQUASH</code></li>
   <li><code>REBASE</code></li>
 </ul>
+</div>
 
-<hr/>
-
-<h4 id="mergeable"><code>Mergeable</code></h4>
-
-<p><strong>Service:</strong> changesetcommitter</p>
-
+<div id="mergeable" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">Mergeable</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changesetcommitter</span>
+</div>
 <ul>
   <li><code>MERGEABLE</code></li>
   <li><code>BLOCKED</code></li>
   <li><code>UNKNOWN</code></li>
 </ul>
+</div>
 
-<hr/>
-
-<h4 id="messagestate"><code>MessageState</code></h4>
-
-<p><strong>Service:</strong> moddy</p>
-
+<div id="messagestate" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">MessageState</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">moddy</span>
+</div>
 <ul>
   <li><code>IN_PROGRESS</code></li>
   <li><code>COMPLETED</code></li>
 </ul>
+</div>
 
-<hr/>
-
-<h4 id="organizationchangesetorderbyfield"><code>OrganizationChangesetOrderByField</code></h4>
-
-<p><strong>Service:</strong> corechangeset</p>
-
+<div id="organizationchangesetorderbyfield" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">OrganizationChangesetOrderByField</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">corechangeset</span>
+</div>
 <ul>
   <li><code>CREATED_AT</code></li>
   <li><code>TYPE</code></li>
   <li><code>USER</code></li>
 </ul>
+</div>
 
-<hr/>
-
-<h4 id="organizationchangesettype"><code>OrganizationChangesetType</code></h4>
-
-<p><strong>Service:</strong> corechangeset</p>
-
+<div id="organizationchangesettype" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">OrganizationChangesetType</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">corechangeset</span>
+</div>
 <ul>
   <li><code>RECIPE_RUN</code></li>
   <li><code>BATCH_CHANGE</code></li>
 </ul>
+</div>
 
-<hr/>
-
-<h4 id="organizationcommitorderbyfield"><code>OrganizationCommitOrderByField</code></h4>
-
-<p><strong>Service:</strong> changesetcommitter</p>
-
+<div id="organizationcommitorderbyfield" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">OrganizationCommitOrderByField</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changesetcommitter</span>
+</div>
 <ul>
   <li><code>STARTED_AT</code></li>
 </ul>
+</div>
 
-<hr/>
-
-<h4 id="organizationorderbyfield"><code>OrganizationOrderByField</code></h4>
-
-<p><strong>Service:</strong> organization</p>
-
+<div id="organizationorderbyfield" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">OrganizationOrderByField</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">organization</span>
+</div>
 <ul>
   <li><code>NAME</code></li>
 </ul>
+</div>
 
-<hr/>
-
-<h4 id="organizationreciperunorderbyfield"><code>OrganizationRecipeRunOrderByField</code></h4>
-
-<p><strong>Service:</strong> changesetreader</p>
-
+<div id="organizationreciperunorderbyfield" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">OrganizationRecipeRunOrderByField</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changesetreader</span>
+</div>
 <ul>
   <li><code>STARTED_AT</code></li>
   <li><code>ENDED_AT</code></li>
   <li><code>STATE</code></li>
   <li><code>USER</code></li>
 </ul>
+</div>
 
-<hr/>
-
-<h4 id="organizationreciperunstate"><code>OrganizationRecipeRunState</code></h4>
-
-<p><strong>Service:</strong> changesetreader</p>
-
+<div id="organizationreciperunstate" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">OrganizationRecipeRunState</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changesetreader</span>
+</div>
 <ul>
   <li><code>QUEUED</code></li>
   <li><code>SYNCING</code></li>
@@ -5231,38 +5272,37 @@ description: Complete reference for the Moderne GraphQL API, including all queri
   <li><code>CANCELED</code></li>
   <li><code>ERROR</code></li>
 </ul>
+</div>
 
-<hr/>
-
-<h4 id="profilingevent"><code>ProfilingEvent</code></h4>
-
-<p><strong>Service:</strong> gateway</p>
-
+<div id="profilingevent" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">ProfilingEvent</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">gateway</span>
+</div>
 <p>The primary event the Pyroscope agent samples on. async-profiler can only collect one of these at a time as the primary event; alloc and lock sampling run on separate channels and are always on.</p>
-
 <ul>
   <li><code>CPU</code></li>
   <li><code>WALL</code></li>
 </ul>
+</div>
 
-<hr/>
-
-<h4 id="pullrequestactionorderbyfield"><code>PullRequestActionOrderByField</code></h4>
-
-<p><strong>Service:</strong> changelogreader</p>
-
+<div id="pullrequestactionorderbyfield" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">PullRequestActionOrderByField</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changelogreader</span>
+</div>
 <ul>
   <li><code>REPOSITORY_PATH</code></li>
   <li><code>STATE</code></li>
   <li><code>STARTED_AT</code></li>
 </ul>
+</div>
 
-<hr/>
-
-<h4 id="pullrequestactionstate"><code>PullRequestActionState</code></h4>
-
-<p><strong>Service:</strong> changelogreader</p>
-
+<div id="pullrequestactionstate" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">PullRequestActionState</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changelogreader</span>
+</div>
 <ul>
   <li><code>QUEUED</code></li>
   <li><code>IN_PROGRESS</code></li>
@@ -5270,62 +5310,62 @@ description: Complete reference for the Moderne GraphQL API, including all queri
   <li><code>FAILED</code></li>
   <li><code>CANCELED</code></li>
 </ul>
+</div>
 
-<hr/>
-
-<h4 id="pullrequestactiontype"><code>PullRequestActionType</code></h4>
-
-<p><strong>Service:</strong> changelogreader</p>
-
+<div id="pullrequestactiontype" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">PullRequestActionType</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changelogreader</span>
+</div>
 <ul>
   <li><code>APPROVE</code></li>
   <li><code>MERGE</code></li>
   <li><code>CLOSE</code></li>
 </ul>
+</div>
 
-<hr/>
-
-<h4 id="pullrequeststate"><code>PullRequestState</code></h4>
-
-<p><strong>Service:</strong> changelogreader</p>
-
+<div id="pullrequeststate" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">PullRequestState</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changelogreader</span>
+</div>
 <ul>
   <li><code>OPEN</code></li>
   <li><code>DRAFT</code></li>
   <li><code>CLOSED</code></li>
   <li><code>MERGED</code></li>
 </ul>
+</div>
 
-<hr/>
-
-<h4 id="recipebundleorderbyfield"><code>RecipeBundleOrderByField</code></h4>
-
-<p><strong>Service:</strong> recipemarketplace</p>
-
+<div id="recipebundleorderbyfield" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">RecipeBundleOrderByField</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">recipemarketplace</span>
+</div>
 <ul>
   <li><code>PACKAGE_NAME</code></li>
   <li><code>VERSION</code></li>
   <li><code>REQUESTED_VERSION</code></li>
   <li><code>ECOSYSTEM</code></li>
 </ul>
+</div>
 
-<hr/>
-
-<h4 id="recipecategoryorderbyfield"><code>RecipeCategoryOrderByField</code></h4>
-
-<p><strong>Service:</strong> recipemarketplace</p>
-
+<div id="recipecategoryorderbyfield" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">RecipeCategoryOrderByField</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">recipemarketplace</span>
+</div>
 <ul>
   <li><code>DISPLAY_NAME</code></li>
   <li><code>RECIPE_COUNT</code></li>
 </ul>
+</div>
 
-<hr/>
-
-<h4 id="recipeecosystem"><code>RecipeEcosystem</code></h4>
-
-<p><strong>Service:</strong> recipemarketplace</p>
-
+<div id="recipeecosystem" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">RecipeEcosystem</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">recipemarketplace</span>
+</div>
 <ul>
   <li><code>Maven</code></li>
   <li><code>NPM</code></li>
@@ -5334,90 +5374,88 @@ description: Complete reference for the Moderne GraphQL API, including all queri
   <li><code>Nuget</code></li>
   <li><code>Go</code></li>
 </ul>
+</div>
 
-<hr/>
-
-<h4 id="recipegraphedgetype"><code>RecipeGraphEdgeType</code></h4>
-
-<p><strong>Service:</strong> recipemarketplace</p>
-
+<div id="recipegraphedgetype" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">RecipeGraphEdgeType</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">recipemarketplace</span>
+</div>
 <ul>
   <li><code>RECIPE</code></li>
   <li><code>PRECONDITION</code></li>
   <li><code>REFERENCE</code></li>
 </ul>
+</div>
 
-<hr/>
-
-<h4 id="recipeinstallationorderbyfield"><code>RecipeInstallationOrderByField</code></h4>
-
-<p><strong>Service:</strong> recipemarketplace</p>
-
+<div id="recipeinstallationorderbyfield" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">RecipeInstallationOrderByField</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">recipemarketplace</span>
+</div>
 <ul>
   <li><code>STARTED_AT</code></li>
   <li><code>STATUS</code></li>
 </ul>
+</div>
 
-<hr/>
-
-<h4 id="recipeinstallationstatus"><code>RecipeInstallationStatus</code></h4>
-
-<p><strong>Service:</strong> recipemarketplace</p>
-
+<div id="recipeinstallationstatus" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">RecipeInstallationStatus</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">recipemarketplace</span>
+</div>
 <ul>
   <li><code>QUEUED</code></li>
   <li><code>PROCESSING</code></li>
   <li><code>FINISHED</code></li>
   <li><code>ERROR</code></li>
 </ul>
+</div>
 
-<hr/>
-
-<h4 id="recipeorderbyfield"><code>RecipeOrderByField</code></h4>
-
-<p><strong>Service:</strong> recipemarketplace</p>
-
+<div id="recipeorderbyfield" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">RecipeOrderByField</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">recipemarketplace</span>
+</div>
 <ul>
   <li><code>ID</code></li>
   <li><code>DISPLAY_NAME</code></li>
   <li><code>RECIPE_COUNT</code></li>
   <li><code>RELEVANCE</code></li>
 </ul>
+</div>
 
-<hr/>
-
-<h4 id="reciperunpriority"><code>RecipeRunPriority</code></h4>
-
-<p><strong>Service:</strong> changesetreader</p>
-
+<div id="reciperunpriority" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">RecipeRunPriority</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changesetreader</span>
+</div>
 <p>Priority level for recipe runs. HIGH priority runs target small organizations (≤100 repositories). LOW priority runs target large organizations (>100 repositories).</p>
-
 <ul>
   <li><code>HIGH</code></li>
   <li><code>LOW</code></li>
 </ul>
+</div>
 
-<hr/>
-
-<h4 id="repositorychangesetorderbyfield"><code>RepositoryChangesetOrderByField</code></h4>
-
-<p><strong>Service:</strong> corechangeset</p>
-
+<div id="repositorychangesetorderbyfield" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">RepositoryChangesetOrderByField</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">corechangeset</span>
+</div>
 <ul>
   <li><code>PATH</code></li>
   <li><code>ORIGIN</code></li>
   <li><code>FILES_CHANGED</code></li>
   <li><code>SYNC_STATUS</code></li>
 </ul>
+</div>
 
-<hr/>
-
-<h4 id="repositorychangesetstate"><code>RepositoryChangesetState</code></h4>
-
-<p><strong>Service:</strong> changesetcommitter</p>
-
+<div id="repositorychangesetstate" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">RepositoryChangesetState</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changesetcommitter</span>
+</div>
 <p>Result state of a repository within a changeset.</p>
-
 <ul>
   <li><code>QUEUED</code></li>
   <li><code>RUNNING</code></li>
@@ -5426,36 +5464,36 @@ description: Complete reference for the Moderne GraphQL API, including all queri
   <li><code>NO_LST</code></li>
   <li><code>CANCELED</code></li>
 </ul>
+</div>
 
-<hr/>
-
-<h4 id="repositorycommitorderbyfield"><code>RepositoryCommitOrderByField</code></h4>
-
-<p><strong>Service:</strong> changesetcommitter</p>
-
+<div id="repositorycommitorderbyfield" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">RepositoryCommitOrderByField</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changesetcommitter</span>
+</div>
 <ul>
   <li><code>STARTED_AT</code></li>
 </ul>
+</div>
 
-<hr/>
-
-<h4 id="repositoryerrorreason"><code>RepositoryErrorReason</code></h4>
-
-<p><strong>Service:</strong> changesetreader</p>
-
+<div id="repositoryerrorreason" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">RepositoryErrorReason</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changesetreader</span>
+</div>
 <ul>
   <li><code>FAILED_LOAD_AST</code></li>
   <li><code>FAILED_LOAD_RECIPE</code></li>
   <li><code>TIMEOUT</code></li>
   <li><code>RECIPE_ERROR</code></li>
 </ul>
+</div>
 
-<hr/>
-
-<h4 id="repositoryorderbyfield"><code>RepositoryOrderByField</code></h4>
-
-<p><strong>Service:</strong> organization</p>
-
+<div id="repositoryorderbyfield" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">RepositoryOrderByField</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">organization</span>
+</div>
 <ul>
   <li><code>ORIGIN</code></li>
   <li><code>PATH</code></li>
@@ -5463,28 +5501,27 @@ description: Complete reference for the Moderne GraphQL API, including all queri
   <li><code>CHANGESET</code></li>
   <li><code>LST_ARTIFACT_PUBLISHED</code></li>
 </ul>
+</div>
 
-<hr/>
-
-<h4 id="repositoryreciperunorderbyfield"><code>RepositoryRecipeRunOrderByField</code></h4>
-
-<p><strong>Service:</strong> changesetreader</p>
-
+<div id="repositoryreciperunorderbyfield" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">RepositoryRecipeRunOrderByField</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changesetreader</span>
+</div>
 <ul>
   <li><code>PATH</code></li>
   <li><code>ORIGIN</code></li>
   <li><code>STATE</code></li>
 </ul>
+</div>
 
-<hr/>
-
-<h4 id="repositorysyncstatus"><code>RepositorySyncStatus</code></h4>
-
-<p><strong>Service:</strong> corechangeset</p>
-
+<div id="repositorysyncstatus" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">RepositorySyncStatus</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">corechangeset</span>
+</div>
 <p>Sync status of a repository within a recipe run. Tracks whether the repository has been synced (cloned + LST downloaded) before the recipe execution phase begins.</p>
 <p>`SKIPPED` indicates the CLI elected not to sync the repository — typically because there is no LST available to fetch — and is distinct from `FAILED`, which indicates an actual error during the sync attempt. `CANCELED` is set when sync was interrupted (e.g., the run was canceled before the repository's sync completed).</p>
-
 <ul>
   <li><code>PENDING</code></li>
   <li><code>SYNCED</code></li>
@@ -5492,13 +5529,13 @@ description: Complete reference for the Moderne GraphQL API, including all queri
   <li><code>CANCELED</code></li>
   <li><code>SKIPPED</code></li>
 </ul>
+</div>
 
-<hr/>
-
-<h4 id="reviewdecision"><code>ReviewDecision</code></h4>
-
-<p><strong>Service:</strong> changelogreader</p>
-
+<div id="reviewdecision" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">ReviewDecision</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changelogreader</span>
+</div>
 <ul>
   <li><code>APPROVED</code></li>
   <li><code>CHANGES_REQUESTED</code></li>
@@ -5506,13 +5543,13 @@ description: Complete reference for the Moderne GraphQL API, including all queri
   <li><code>REVIEW_NOT_REQUIRED</code></li>
   <li><code>UNKNOWN</code></li>
 </ul>
+</div>
 
-<hr/>
-
-<h4 id="scmtype"><code>ScmType</code></h4>
-
-<p><strong>Service:</strong> authz</p>
-
+<div id="scmtype" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">ScmType</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">authz</span>
+</div>
 <ul>
   <li><code>GITHUB</code></li>
   <li><code>BITBUCKET</code></li>
@@ -5520,59 +5557,59 @@ description: Complete reference for the Moderne GraphQL API, including all queri
   <li><code>GITLAB</code></li>
   <li><code>AZURE_DEVOPS</code></li>
 </ul>
+</div>
 
-<hr/>
-
-<h4 id="sortorder"><code>SortOrder</code></h4>
-
-<p><strong>Service:</strong> coregraphql</p>
-
+<div id="sortorder" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">SortOrder</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">coregraphql</span>
+</div>
 <ul>
   <li><code>ASC</code></li>
   <li><code>DESC</code></li>
 </ul>
+</div>
 
-<hr/>
-
-<h4 id="userorderbyfield"><code>UserOrderByField</code></h4>
-
-<p><strong>Service:</strong> authz</p>
-
+<div id="userorderbyfield" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">UserOrderByField</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">authz</span>
+</div>
 <ul>
   <li><code>EMAIL</code></li>
   <li><code>USERNAME</code></li>
   <li><code>ROLE</code></li>
   <li><code>LAST_ACTIVE</code></li>
 </ul>
+</div>
 
-<hr/>
-
-<h4 id="userrole"><code>UserRole</code></h4>
-
-<p><strong>Service:</strong> authz</p>
-
+<div id="userrole" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">UserRole</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">authz</span>
+</div>
 <ul>
   <li><code>ADMIN</code></li>
   <li><code>USER</code></li>
 </ul>
+</div>
 
-<hr/>
-
-<h4 id="visualizationorderbyfield"><code>VisualizationOrderByField</code></h4>
-
-<p><strong>Service:</strong> corechangeset</p>
-
+<div id="visualizationorderbyfield" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">VisualizationOrderByField</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">corechangeset</span>
+</div>
 <ul>
   <li><code>VISUALIZATION</code></li>
   <li><code>STARTED_AT</code></li>
 </ul>
+</div>
 
-<hr/>
-
-<h4 id="visualizationrepositoryrunstate"><code>VisualizationRepositoryRunState</code></h4>
-
-<p><strong>Service:</strong> changesetreader</p>
-
+<div id="visualizationrepositoryrunstate" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">VisualizationRepositoryRunState</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changesetreader</span>
+</div>
 <ul>
   <li><code>QUEUED</code></li>
   <li><code>PROCESSING</code></li>
@@ -5581,15 +5618,15 @@ description: Complete reference for the Moderne GraphQL API, including all queri
   <li><code>NO_LST</code></li>
   <li><code>ERROR</code></li>
 </ul>
-
-<hr/>
+</div>
 
 <h3>Input types</h3>
 
-<h4 id="accesstokenorderbyinput"><code>AccessTokenOrderByInput</code></h4>
-
-<p><strong>Service:</strong> authz</p>
-
+<div id="accesstokenorderbyinput" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">AccessTokenOrderByInput</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">authz</span>
+</div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -5597,13 +5634,13 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>direction</code></td><td><a href="#sortorder">SortOrder</a>!</td><td></td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="accesstokenwhereinput"><code>AccessTokenWhereInput</code></h4>
-
-<p><strong>Service:</strong> authz</p>
-
+<div id="accesstokenwhereinput" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">AccessTokenWhereInput</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">authz</span>
+</div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -5615,13 +5652,13 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>_not</code></td><td><a href="#accesstokenwhereinput">AccessTokenWhereInput</a></td><td></td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="auditactiontypefilter"><code>AuditActionTypeFilter</code></h4>
-
-<p><strong>Service:</strong> auditreader</p>
-
+<div id="auditactiontypefilter" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">AuditActionTypeFilter</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">auditreader</span>
+</div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -5631,13 +5668,13 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>_nin</code></td><td>[<a href="#auditactiontype">AuditActionType</a>!]</td><td></td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="auditlogexportformatfilter"><code>AuditLogExportFormatFilter</code></h4>
-
-<p><strong>Service:</strong> auditreader</p>
-
+<div id="auditlogexportformatfilter" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">AuditLogExportFormatFilter</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">auditreader</span>
+</div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -5647,13 +5684,13 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>_nin</code></td><td>[<a href="#auditlogexportformat">AuditLogExportFormat</a>!]</td><td></td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="auditlogorderbyinput"><code>AuditLogOrderByInput</code></h4>
-
-<p><strong>Service:</strong> auditreader</p>
-
+<div id="auditlogorderbyinput" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">AuditLogOrderByInput</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">auditreader</span>
+</div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -5661,13 +5698,13 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>direction</code></td><td><a href="#sortorder">SortOrder</a>!</td><td></td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="auditlogwhereinput"><code>AuditLogWhereInput</code></h4>
-
-<p><strong>Service:</strong> auditreader</p>
-
+<div id="auditlogwhereinput" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">AuditLogWhereInput</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">auditreader</span>
+</div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -5683,13 +5720,13 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>_not</code></td><td><a href="#auditlogwhereinput">AuditLogWhereInput</a></td><td></td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="auditlogsdownloadorderbyinput"><code>AuditLogsDownloadOrderByInput</code></h4>
-
-<p><strong>Service:</strong> auditreader</p>
-
+<div id="auditlogsdownloadorderbyinput" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">AuditLogsDownloadOrderByInput</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">auditreader</span>
+</div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -5697,13 +5734,13 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>direction</code></td><td><a href="#sortorder">SortOrder</a>!</td><td></td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="auditlogsdownloadwhereinput"><code>AuditLogsDownloadWhereInput</code></h4>
-
-<p><strong>Service:</strong> auditreader</p>
-
+<div id="auditlogsdownloadwhereinput" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">AuditLogsDownloadWhereInput</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">auditreader</span>
+</div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -5714,13 +5751,13 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>_not</code></td><td><a href="#auditlogsdownloadwhereinput">AuditLogsDownloadWhereInput</a></td><td></td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="auditoutcomefilter"><code>AuditOutcomeFilter</code></h4>
-
-<p><strong>Service:</strong> auditreader</p>
-
+<div id="auditoutcomefilter" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">AuditOutcomeFilter</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">auditreader</span>
+</div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -5728,13 +5765,13 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>_neq</code></td><td><a href="#auditoutcome">AuditOutcome</a></td><td></td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="booleanfilter"><code>BooleanFilter</code></h4>
-
-<p><strong>Service:</strong> coregraphql</p>
-
+<div id="booleanfilter" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">BooleanFilter</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">coregraphql</span>
+</div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -5742,13 +5779,13 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>_neq</code></td><td>Boolean</td><td></td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="buildstatefilter"><code>BuildStateFilter</code></h4>
-
-<p><strong>Service:</strong> changelogreader</p>
-
+<div id="buildstatefilter" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">BuildStateFilter</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changelogreader</span>
+</div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -5758,13 +5795,13 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>_nin</code></td><td>[<a href="#buildstate">BuildState</a>!]</td><td></td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="bulkpullrequestactionorderbyinput"><code>BulkPullRequestActionOrderByInput</code></h4>
-
-<p><strong>Service:</strong> changelogreader</p>
-
+<div id="bulkpullrequestactionorderbyinput" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">BulkPullRequestActionOrderByInput</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changelogreader</span>
+</div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -5772,13 +5809,13 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>direction</code></td><td><a href="#sortorder">SortOrder</a>!</td><td></td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="bulkpullrequestactionstatefilter"><code>BulkPullRequestActionStateFilter</code></h4>
-
-<p><strong>Service:</strong> changelogreader</p>
-
+<div id="bulkpullrequestactionstatefilter" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">BulkPullRequestActionStateFilter</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changelogreader</span>
+</div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -5788,13 +5825,13 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>_nin</code></td><td>[<a href="#bulkpullrequestactionstate">BulkPullRequestActionState</a>!]</td><td></td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="bulkpullrequestactionwhereinput"><code>BulkPullRequestActionWhereInput</code></h4>
-
-<p><strong>Service:</strong> changelogreader</p>
-
+<div id="bulkpullrequestactionwhereinput" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">BulkPullRequestActionWhereInput</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changelogreader</span>
+</div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -5807,15 +5844,14 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>_not</code></td><td><a href="#bulkpullrequestactionwhereinput">BulkPullRequestActionWhereInput</a></td><td></td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="changelogauthorwhereinput"><code>ChangelogAuthorWhereInput</code></h4>
-
-<p><strong>Service:</strong> changelogreader</p>
-
+<div id="changelogauthorwhereinput" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">ChangelogAuthorWhereInput</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changelogreader</span>
+</div>
 <p>Filter by changelog author.</p>
-
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -5828,13 +5864,13 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>_not</code></td><td><a href="#changelogauthorwhereinput">ChangelogAuthorWhereInput</a></td><td></td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="changelogentryorderbyinput"><code>ChangelogEntryOrderByInput</code></h4>
-
-<p><strong>Service:</strong> changelogreader</p>
-
+<div id="changelogentryorderbyinput" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">ChangelogEntryOrderByInput</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changelogreader</span>
+</div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -5842,13 +5878,13 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>direction</code></td><td><a href="#sortorder">SortOrder</a>!</td><td></td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="changelogentrytypefilter"><code>ChangelogEntryTypeFilter</code></h4>
-
-<p><strong>Service:</strong> changelogreader</p>
-
+<div id="changelogentrytypefilter" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">ChangelogEntryTypeFilter</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changelogreader</span>
+</div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -5858,15 +5894,14 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>_nin</code></td><td>[<a href="#changelogentrytype">ChangelogEntryType</a>!]</td><td></td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="changelogentrywhereinput"><code>ChangelogEntryWhereInput</code></h4>
-
-<p><strong>Service:</strong> changelogreader</p>
-
+<div id="changelogentrywhereinput" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">ChangelogEntryWhereInput</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changelogreader</span>
+</div>
 <p>Filter input for changelog entries.</p>
-
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -5886,13 +5921,13 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>_not</code></td><td><a href="#changelogentrywhereinput">ChangelogEntryWhereInput</a></td><td></td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="changelogparticipantorderbyinput"><code>ChangelogParticipantOrderByInput</code></h4>
-
-<p><strong>Service:</strong> changelogreader</p>
-
+<div id="changelogparticipantorderbyinput" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">ChangelogParticipantOrderByInput</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changelogreader</span>
+</div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -5900,15 +5935,14 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>direction</code></td><td><a href="#sortorder">SortOrder</a>!</td><td></td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="changelogparticipantwhereinput"><code>ChangelogParticipantWhereInput</code></h4>
-
-<p><strong>Service:</strong> changelogreader</p>
-
+<div id="changelogparticipantwhereinput" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">ChangelogParticipantWhereInput</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changelogreader</span>
+</div>
 <p>Filter input for participants.</p>
-
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -5922,15 +5956,14 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>_not</code></td><td><a href="#changelogparticipantwhereinput">ChangelogParticipantWhereInput</a></td><td></td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="commitinput"><code>CommitInput</code></h4>
-
-<p><strong>Service:</strong> changesetcommitter</p>
-
+<div id="commitinput" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">CommitInput</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changesetcommitter</span>
+</div>
 <p>Input for creating a commit from a changeset.</p>
-
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -5946,15 +5979,14 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>strategy</code></td><td><a href="#commitstrategyinput">CommitStrategyInput</a>!</td><td>How to deliver the commit. Choose one strategy.</td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="commitstrategyinput"><code>CommitStrategyInput</code></h4>
-
-<p><strong>Service:</strong> changesetcommitter</p>
-
+<div id="commitstrategyinput" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">CommitStrategyInput</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changesetcommitter</span>
+</div>
 <p>Commit delivery strategy. Choose one option.</p>
-
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -5964,13 +5996,13 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>forkAndPullRequest</code></td><td><a href="#forkandpullrequestcommitinput">ForkAndPullRequestCommitInput</a></td><td>Create a pull request from a branch on a fork.</td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="connectororderbyinput"><code>ConnectorOrderByInput</code></h4>
-
-<p><strong>Service:</strong> gateway</p>
-
+<div id="connectororderbyinput" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">ConnectorOrderByInput</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">gateway</span>
+</div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -5978,13 +6010,13 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>direction</code></td><td><a href="#sortorder">SortOrder</a>!</td><td></td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="connectortooltypefilter"><code>ConnectorToolTypeFilter</code></h4>
-
-<p><strong>Service:</strong> gateway</p>
-
+<div id="connectortooltypefilter" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">ConnectorToolTypeFilter</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">gateway</span>
+</div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -5992,13 +6024,13 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>_in</code></td><td>[<a href="#connectortooltype">ConnectorToolType</a>!]</td><td></td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="connectorwhereinput"><code>ConnectorWhereInput</code></h4>
-
-<p><strong>Service:</strong> gateway</p>
-
+<div id="connectorwhereinput" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">ConnectorWhereInput</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">gateway</span>
+</div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -6011,13 +6043,13 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>_not</code></td><td><a href="#connectorwhereinput">ConnectorWhereInput</a></td><td></td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="conversationorderbyinput"><code>ConversationOrderByInput</code></h4>
-
-<p><strong>Service:</strong> moddy</p>
-
+<div id="conversationorderbyinput" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">ConversationOrderByInput</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">moddy</span>
+</div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -6025,13 +6057,13 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>direction</code></td><td><a href="#sortorder">SortOrder</a>!</td><td></td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="conversationwhereinput"><code>ConversationWhereInput</code></h4>
-
-<p><strong>Service:</strong> moddy</p>
-
+<div id="conversationwhereinput" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">ConversationWhereInput</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">moddy</span>
+</div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -6044,13 +6076,13 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>_not</code></td><td><a href="#conversationwhereinput">ConversationWhereInput</a></td><td></td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="createconversationinput"><code>CreateConversationInput</code></h4>
-
-<p><strong>Service:</strong> moddy</p>
-
+<div id="createconversationinput" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">CreateConversationInput</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">moddy</span>
+</div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -6058,13 +6090,13 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>organizationId</code></td><td>ID!</td><td></td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="createuserorganizationinput"><code>CreateUserOrganizationInput</code></h4>
-
-<p><strong>Service:</strong> organization</p>
-
+<div id="createuserorganizationinput" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">CreateUserOrganizationInput</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">organization</span>
+</div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -6072,13 +6104,13 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>repositories</code></td><td>[<a href="#repositoryinput">RepositoryInput</a>!]</td><td>Repositories to include in the organization.</td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="datatableformatfilter"><code>DataTableFormatFilter</code></h4>
-
-<p><strong>Service:</strong> corechangeset</p>
-
+<div id="datatableformatfilter" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">DataTableFormatFilter</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">corechangeset</span>
+</div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -6088,13 +6120,13 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>_nin</code></td><td>[<a href="#datatableformat">DataTableFormat</a>!]</td><td></td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="datatableorderbyinput"><code>DataTableOrderByInput</code></h4>
-
-<p><strong>Service:</strong> corechangeset</p>
-
+<div id="datatableorderbyinput" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">DataTableOrderByInput</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">corechangeset</span>
+</div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -6102,13 +6134,13 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>direction</code></td><td><a href="#sortorder">SortOrder</a>!</td><td></td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="datatablewhereinput"><code>DataTableWhereInput</code></h4>
-
-<p><strong>Service:</strong> corechangeset</p>
-
+<div id="datatablewhereinput" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">DataTableWhereInput</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">corechangeset</span>
+</div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -6121,13 +6153,13 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>_not</code></td><td><a href="#datatablewhereinput">DataTableWhereInput</a></td><td></td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="datetimefilter"><code>DateTimeFilter</code></h4>
-
-<p><strong>Service:</strong> coregraphql</p>
-
+<div id="datetimefilter" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">DateTimeFilter</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">coregraphql</span>
+</div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -6139,13 +6171,13 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>_lte</code></td><td><a href="#datetime">DateTime</a></td><td></td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="devcenterrunorderbyinput"><code>DevCenterRunOrderByInput</code></h4>
-
-<p><strong>Service:</strong> changesetreader</p>
-
+<div id="devcenterrunorderbyinput" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">DevCenterRunOrderByInput</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changesetreader</span>
+</div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -6153,13 +6185,13 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>direction</code></td><td><a href="#sortorder">SortOrder</a>!</td><td></td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="devcenterrunstatefilter"><code>DevCenterRunStateFilter</code></h4>
-
-<p><strong>Service:</strong> changesetreader</p>
-
+<div id="devcenterrunstatefilter" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">DevCenterRunStateFilter</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changesetreader</span>
+</div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -6169,15 +6201,14 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>_nin</code></td><td>[<a href="#devcenterrunstate">DevCenterRunState</a>!]</td><td></td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="devcenterrunwhereinput"><code>DevCenterRunWhereInput</code></h4>
-
-<p><strong>Service:</strong> changesetreader</p>
-
+<div id="devcenterrunwhereinput" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">DevCenterRunWhereInput</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changesetreader</span>
+</div>
 <p>Filter input for DevCenter run queries.</p>
-
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -6189,28 +6220,27 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>_not</code></td><td><a href="#devcenterrunwhereinput">DevCenterRunWhereInput</a></td><td>Logical NOT - negates the condition.</td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="directcommitinput"><code>DirectCommitInput</code></h4>
-
-<p><strong>Service:</strong> changesetcommitter</p>
-
+<div id="directcommitinput" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">DirectCommitInput</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changesetcommitter</span>
+</div>
 <p>Direct commit to origin. No additional options required.</p>
-
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
     <tr><td><code>_empty</code></td><td>Boolean</td><td>Placeholder field. Direct commits require no additional configuration.</td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="exchangeauthorizationcodeinput"><code>ExchangeAuthorizationCodeInput</code></h4>
-
-<p><strong>Service:</strong> authz</p>
-
+<div id="exchangeauthorizationcodeinput" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">ExchangeAuthorizationCodeInput</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">authz</span>
+</div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -6219,13 +6249,13 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>redirectUri</code></td><td>String!</td><td>The redirect URI used in the authorization request. Note: This field is deprecated - the server uses the stored redirect URI from the authorization to ensure an exact match.</td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="filechangeorderbyinput"><code>FileChangeOrderByInput</code></h4>
-
-<p><strong>Service:</strong> corechangeset</p>
-
+<div id="filechangeorderbyinput" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">FileChangeOrderByInput</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">corechangeset</span>
+</div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -6233,15 +6263,14 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>direction</code></td><td><a href="#sortorder">SortOrder</a>!</td><td></td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="filechangewhereinput"><code>FileChangeWhereInput</code></h4>
-
-<p><strong>Service:</strong> changesetcommitter</p>
-
+<div id="filechangewhereinput" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">FileChangeWhereInput</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changesetcommitter</span>
+</div>
 <p>Filter for file changes.</p>
-
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -6251,15 +6280,14 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>_not</code></td><td><a href="#filechangewhereinput">FileChangeWhereInput</a></td><td>Logical NOT - negates the condition.</td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="forkandpullrequestcommitinput"><code>ForkAndPullRequestCommitInput</code></h4>
-
-<p><strong>Service:</strong> changesetcommitter</p>
-
+<div id="forkandpullrequestcommitinput" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">ForkAndPullRequestCommitInput</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changesetcommitter</span>
+</div>
 <p>Create a pull request from a branch on a fork.</p>
-
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -6273,15 +6301,14 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>recreateClosedPullRequest</code></td><td>Boolean</td><td>Recreate pull request if it was previously closed.</td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="forkcommitinput"><code>ForkCommitInput</code></h4>
-
-<p><strong>Service:</strong> changesetcommitter</p>
-
+<div id="forkcommitinput" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">ForkCommitInput</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changesetcommitter</span>
+</div>
 <p>Commit to a fork of the origin repository.</p>
-
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -6289,13 +6316,13 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>prefixOrganizationName</code></td><td>Boolean</td><td>Prefix the fork name with the origin organization to avoid name collisions. Example: openrewrite/rewrite -> myuser/openrewrite__rewrite</td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="gorecipebundleinput"><code>GoRecipeBundleInput</code></h4>
-
-<p><strong>Service:</strong> recipemarketplace</p>
-
+<div id="gorecipebundleinput" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">GoRecipeBundleInput</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">recipemarketplace</span>
+</div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -6303,13 +6330,13 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>version</code></td><td>String</td><td></td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="gpginput"><code>GpgInput</code></h4>
-
-<p><strong>Service:</strong> changesetcommitter</p>
-
+<div id="gpginput" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">GpgInput</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changesetcommitter</span>
+</div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -6318,13 +6345,13 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>passphrase</code></td><td>String</td><td></td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="idfilter"><code>IDFilter</code></h4>
-
-<p><strong>Service:</strong> coregraphql</p>
-
+<div id="idfilter" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">IDFilter</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">coregraphql</span>
+</div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -6334,13 +6361,13 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>_nin</code></td><td>[ID!]</td><td></td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="initiateauthorizationinput"><code>InitiateAuthorizationInput</code></h4>
-
-<p><strong>Service:</strong> authz</p>
-
+<div id="initiateauthorizationinput" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">InitiateAuthorizationInput</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">authz</span>
+</div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -6348,13 +6375,13 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>redirectUri</code></td><td>String!</td><td>The redirect URI where the VCS will send the callback. Must match an allowed redirect URI in the OAuth app configuration.</td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="intfilter"><code>IntFilter</code></h4>
-
-<p><strong>Service:</strong> coregraphql</p>
-
+<div id="intfilter" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">IntFilter</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">coregraphql</span>
+</div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -6366,13 +6393,13 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>_lte</code></td><td>Int</td><td></td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="lstartifactwhereinput"><code>LstArtifactWhereInput</code></h4>
-
-<p><strong>Service:</strong> organization</p>
-
+<div id="lstartifactwhereinput" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">LstArtifactWhereInput</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">organization</span>
+</div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -6383,13 +6410,13 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>_not</code></td><td><a href="#lstartifactwhereinput">LstArtifactWhereInput</a></td><td></td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="mavenrecipebundleinput"><code>MavenRecipeBundleInput</code></h4>
-
-<p><strong>Service:</strong> recipemarketplace</p>
-
+<div id="mavenrecipebundleinput" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">MavenRecipeBundleInput</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">recipemarketplace</span>
+</div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -6398,13 +6425,13 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>version</code></td><td>String!</td><td></td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="npmrecipebundleinput"><code>NpmRecipeBundleInput</code></h4>
-
-<p><strong>Service:</strong> recipemarketplace</p>
-
+<div id="npmrecipebundleinput" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">NpmRecipeBundleInput</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">recipemarketplace</span>
+</div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -6412,13 +6439,13 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>version</code></td><td>String!</td><td></td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="nugetrecipebundleinput"><code>NugetRecipeBundleInput</code></h4>
-
-<p><strong>Service:</strong> recipemarketplace</p>
-
+<div id="nugetrecipebundleinput" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">NugetRecipeBundleInput</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">recipemarketplace</span>
+</div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -6426,13 +6453,13 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>version</code></td><td>String!</td><td></td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="organizationchangesetorderbyinput"><code>OrganizationChangesetOrderByInput</code></h4>
-
-<p><strong>Service:</strong> corechangeset</p>
-
+<div id="organizationchangesetorderbyinput" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">OrganizationChangesetOrderByInput</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">corechangeset</span>
+</div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -6440,13 +6467,13 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>direction</code></td><td><a href="#sortorder">SortOrder</a>!</td><td></td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="organizationchangesettypefilter"><code>OrganizationChangesetTypeFilter</code></h4>
-
-<p><strong>Service:</strong> corechangeset</p>
-
+<div id="organizationchangesettypefilter" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">OrganizationChangesetTypeFilter</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">corechangeset</span>
+</div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -6456,13 +6483,13 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>_nin</code></td><td>[<a href="#organizationchangesettype">OrganizationChangesetType</a>!]</td><td></td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="organizationchangesetwhereinput"><code>OrganizationChangesetWhereInput</code></h4>
-
-<p><strong>Service:</strong> corechangeset</p>
-
+<div id="organizationchangesetwhereinput" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">OrganizationChangesetWhereInput</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">corechangeset</span>
+</div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -6475,13 +6502,13 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>_not</code></td><td><a href="#organizationchangesetwhereinput">OrganizationChangesetWhereInput</a></td><td></td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="organizationcommitorderbyinput"><code>OrganizationCommitOrderByInput</code></h4>
-
-<p><strong>Service:</strong> changesetcommitter</p>
-
+<div id="organizationcommitorderbyinput" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">OrganizationCommitOrderByInput</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changesetcommitter</span>
+</div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -6489,15 +6516,14 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>direction</code></td><td><a href="#sortorder">SortOrder</a>!</td><td></td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="organizationcommitwhereinput"><code>OrganizationCommitWhereInput</code></h4>
-
-<p><strong>Service:</strong> changesetcommitter</p>
-
+<div id="organizationcommitwhereinput" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">OrganizationCommitWhereInput</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changesetcommitter</span>
+</div>
 <p>Filter input for organization-level commit queries.</p>
-
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -6508,13 +6534,13 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>_not</code></td><td><a href="#organizationcommitwhereinput">OrganizationCommitWhereInput</a></td><td>Logical NOT - negates the condition.</td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="organizationorderbyinput"><code>OrganizationOrderByInput</code></h4>
-
-<p><strong>Service:</strong> organization</p>
-
+<div id="organizationorderbyinput" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">OrganizationOrderByInput</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">organization</span>
+</div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -6522,13 +6548,13 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>direction</code></td><td><a href="#sortorder">SortOrder</a>!</td><td></td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="organizationreciperunorderbyinput"><code>OrganizationRecipeRunOrderByInput</code></h4>
-
-<p><strong>Service:</strong> changesetreader</p>
-
+<div id="organizationreciperunorderbyinput" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">OrganizationRecipeRunOrderByInput</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changesetreader</span>
+</div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -6536,13 +6562,13 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>direction</code></td><td><a href="#sortorder">SortOrder</a>!</td><td></td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="organizationreciperunstatefilter"><code>OrganizationRecipeRunStateFilter</code></h4>
-
-<p><strong>Service:</strong> changesetreader</p>
-
+<div id="organizationreciperunstatefilter" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">OrganizationRecipeRunStateFilter</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changesetreader</span>
+</div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -6552,13 +6578,13 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>_nin</code></td><td>[<a href="#organizationreciperunstate">OrganizationRecipeRunState</a>!]</td><td></td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="organizationreciperunwhereinput"><code>OrganizationRecipeRunWhereInput</code></h4>
-
-<p><strong>Service:</strong> changesetreader</p>
-
+<div id="organizationreciperunwhereinput" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">OrganizationRecipeRunWhereInput</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changesetreader</span>
+</div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -6571,13 +6597,13 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>_not</code></td><td><a href="#organizationreciperunwhereinput">OrganizationRecipeRunWhereInput</a></td><td></td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="organizationwhereinput"><code>OrganizationWhereInput</code></h4>
-
-<p><strong>Service:</strong> organization</p>
-
+<div id="organizationwhereinput" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">OrganizationWhereInput</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">organization</span>
+</div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -6588,15 +6614,14 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>_not</code></td><td><a href="#organizationwhereinput">OrganizationWhereInput</a></td><td></td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="pathfilter"><code>PathFilter</code></h4>
-
-<p><strong>Service:</strong> coregraphql</p>
-
+<div id="pathfilter" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">PathFilter</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">coregraphql</span>
+</div>
 <p>Filter for file paths using glob patterns.</p>
-
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -6606,13 +6631,13 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>_glob</code></td><td>String</td><td>Glob pattern match. Examples: **\/*.java, src/main/**</td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="piprecipebundleinput"><code>PipRecipeBundleInput</code></h4>
-
-<p><strong>Service:</strong> recipemarketplace</p>
-
+<div id="piprecipebundleinput" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">PipRecipeBundleInput</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">recipemarketplace</span>
+</div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -6620,13 +6645,13 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>version</code></td><td>String</td><td></td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="pullrequestactionorderbyinput"><code>PullRequestActionOrderByInput</code></h4>
-
-<p><strong>Service:</strong> changelogreader</p>
-
+<div id="pullrequestactionorderbyinput" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">PullRequestActionOrderByInput</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changelogreader</span>
+</div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -6634,13 +6659,13 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>direction</code></td><td><a href="#sortorder">SortOrder</a>!</td><td></td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="pullrequestactionstatefilter"><code>PullRequestActionStateFilter</code></h4>
-
-<p><strong>Service:</strong> changelogreader</p>
-
+<div id="pullrequestactionstatefilter" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">PullRequestActionStateFilter</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changelogreader</span>
+</div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -6650,13 +6675,13 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>_nin</code></td><td>[<a href="#pullrequestactionstate">PullRequestActionState</a>!]</td><td></td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="pullrequestactiontypefilter"><code>PullRequestActionTypeFilter</code></h4>
-
-<p><strong>Service:</strong> changelogreader</p>
-
+<div id="pullrequestactiontypefilter" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">PullRequestActionTypeFilter</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changelogreader</span>
+</div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -6666,13 +6691,13 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>_nin</code></td><td>[<a href="#pullrequestactiontype">PullRequestActionType</a>!]</td><td></td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="pullrequestactionwhereinput"><code>PullRequestActionWhereInput</code></h4>
-
-<p><strong>Service:</strong> changelogreader</p>
-
+<div id="pullrequestactionwhereinput" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">PullRequestActionWhereInput</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changelogreader</span>
+</div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -6682,15 +6707,14 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>_not</code></td><td><a href="#pullrequestactionwhereinput">PullRequestActionWhereInput</a></td><td></td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="pullrequestcommitinput"><code>PullRequestCommitInput</code></h4>
-
-<p><strong>Service:</strong> changesetcommitter</p>
-
+<div id="pullrequestcommitinput" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">PullRequestCommitInput</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changesetcommitter</span>
+</div>
 <p>Create a pull request from a branch on the origin remote.</p>
-
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -6701,13 +6725,13 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>recreateClosedPullRequest</code></td><td>Boolean</td><td>Recreate pull request if it was previously closed.</td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="pullrequestinput"><code>PullRequestInput</code></h4>
-
-<p><strong>Service:</strong> changelogreader</p>
-
+<div id="pullrequestinput" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">PullRequestInput</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changelogreader</span>
+</div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -6715,17 +6739,16 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>number</code></td><td>Int!</td><td>Pull request number.</td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="pullrequestselectioninput"><code>PullRequestSelectionInput</code></h4>
-
-<p><strong>Service:</strong> changelogreader</p>
-
+<div id="pullrequestselectioninput" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">PullRequestSelectionInput</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changelogreader</span>
+</div>
 <p>Selects pull requests for a bulk action.</p>
 <p>The `where` filter defines a base set of matching PRs. The optional `pullRequests` modifier can include or exclude specific PRs from that base set.</p>
 <p>Examples: - Filter-only: `&#123; where: &#123; ... &#125; &#125;` — all matching PRs - Explicit: `&#123; pullRequests: &#123; include: [...] &#125; &#125;` — exactly those PRs - Filter + exclusions: `&#123; where: &#123; ... &#125;, pullRequests: &#123; exclude: [...] &#125; &#125;` — matching minus excluded - Filter + additions: `&#123; where: &#123; ... &#125;, pullRequests: &#123; include: [...] &#125; &#125;` — matching plus included</p>
-
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -6733,15 +6756,14 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>pullRequests</code></td><td><a href="#pullrequestselectionmodifier">PullRequestSelectionModifier</a></td><td>Modify the base set by including or excluding specific PRs.</td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="pullrequestselectionmodifier"><code>PullRequestSelectionModifier</code></h4>
-
-<p><strong>Service:</strong> changelogreader</p>
-
+<div id="pullrequestselectionmodifier" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">PullRequestSelectionModifier</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changelogreader</span>
+</div>
 <p>Modifies a PR selection by either including or excluding specific PRs. Exactly one field must be set.</p>
-
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -6749,13 +6771,13 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>exclude</code></td><td>[<a href="#pullrequestinput">PullRequestInput</a>!]</td><td>Remove these PRs from the base set.</td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="pullrequeststatefilter"><code>PullRequestStateFilter</code></h4>
-
-<p><strong>Service:</strong> changelogreader</p>
-
+<div id="pullrequeststatefilter" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">PullRequestStateFilter</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changelogreader</span>
+</div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -6765,13 +6787,13 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>_nin</code></td><td>[<a href="#pullrequeststate">PullRequestState</a>!]</td><td></td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="recipebundleinput"><code>RecipeBundleInput</code></h4>
-
-<p><strong>Service:</strong> recipemarketplace</p>
-
+<div id="recipebundleinput" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">RecipeBundleInput</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">recipemarketplace</span>
+</div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -6783,13 +6805,13 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>go</code></td><td><a href="#gorecipebundleinput">GoRecipeBundleInput</a></td><td></td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="recipebundleorderbyinput"><code>RecipeBundleOrderByInput</code></h4>
-
-<p><strong>Service:</strong> recipemarketplace</p>
-
+<div id="recipebundleorderbyinput" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">RecipeBundleOrderByInput</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">recipemarketplace</span>
+</div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -6797,15 +6819,14 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>direction</code></td><td><a href="#sortorder">SortOrder</a>!</td><td></td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="recipebundlewhereinput"><code>RecipeBundleWhereInput</code></h4>
-
-<p><strong>Service:</strong> recipemarketplace</p>
-
+<div id="recipebundlewhereinput" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">RecipeBundleWhereInput</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">recipemarketplace</span>
+</div>
 <p>Filter input for RecipeBundle queries.</p>
-
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -6818,13 +6839,13 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>_not</code></td><td><a href="#recipebundlewhereinput">RecipeBundleWhereInput</a></td><td></td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="recipecategoryorderbyinput"><code>RecipeCategoryOrderByInput</code></h4>
-
-<p><strong>Service:</strong> recipemarketplace</p>
-
+<div id="recipecategoryorderbyinput" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">RecipeCategoryOrderByInput</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">recipemarketplace</span>
+</div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -6832,15 +6853,14 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>direction</code></td><td><a href="#sortorder">SortOrder</a>!</td><td></td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="recipecategorywhereinput"><code>RecipeCategoryWhereInput</code></h4>
-
-<p><strong>Service:</strong> recipemarketplace</p>
-
+<div id="recipecategorywhereinput" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">RecipeCategoryWhereInput</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">recipemarketplace</span>
+</div>
 <p>Filter input for RecipeCategory queries.</p>
-
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -6852,13 +6872,13 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>_not</code></td><td><a href="#recipecategorywhereinput">RecipeCategoryWhereInput</a></td><td></td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="recipeecosystemfilter"><code>RecipeEcosystemFilter</code></h4>
-
-<p><strong>Service:</strong> recipemarketplace</p>
-
+<div id="recipeecosystemfilter" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">RecipeEcosystemFilter</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">recipemarketplace</span>
+</div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -6868,13 +6888,13 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>_nin</code></td><td>[<a href="#recipeecosystem">RecipeEcosystem</a>!]</td><td></td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="recipeinput"><code>RecipeInput</code></h4>
-
-<p><strong>Service:</strong> recipeworker</p>
-
+<div id="recipeinput" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">RecipeInput</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">recipeworker</span>
+</div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -6882,13 +6902,13 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>options</code></td><td>[<a href="#recipeoptioninput">RecipeOptionInput</a>!]</td><td></td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="recipeinstallationorderbyinput"><code>RecipeInstallationOrderByInput</code></h4>
-
-<p><strong>Service:</strong> recipemarketplace</p>
-
+<div id="recipeinstallationorderbyinput" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">RecipeInstallationOrderByInput</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">recipemarketplace</span>
+</div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -6896,13 +6916,13 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>direction</code></td><td><a href="#sortorder">SortOrder</a>!</td><td></td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="recipeinstallationstatusfilter"><code>RecipeInstallationStatusFilter</code></h4>
-
-<p><strong>Service:</strong> recipemarketplace</p>
-
+<div id="recipeinstallationstatusfilter" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">RecipeInstallationStatusFilter</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">recipemarketplace</span>
+</div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -6912,13 +6932,13 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>_nin</code></td><td>[<a href="#recipeinstallationstatus">RecipeInstallationStatus</a>!]</td><td></td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="recipeinstallationwhereinput"><code>RecipeInstallationWhereInput</code></h4>
-
-<p><strong>Service:</strong> recipemarketplace</p>
-
+<div id="recipeinstallationwhereinput" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">RecipeInstallationWhereInput</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">recipemarketplace</span>
+</div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -6933,13 +6953,13 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>_not</code></td><td><a href="#recipeinstallationwhereinput">RecipeInstallationWhereInput</a></td><td></td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="recipeoptioninput"><code>RecipeOptionInput</code></h4>
-
-<p><strong>Service:</strong> recipeworker</p>
-
+<div id="recipeoptioninput" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">RecipeOptionInput</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">recipeworker</span>
+</div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -6947,13 +6967,13 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>value</code></td><td><a href="#object">Object</a>!</td><td>Option value. Example: `java.util.List add(..)`</td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="recipeorderbyinput"><code>RecipeOrderByInput</code></h4>
-
-<p><strong>Service:</strong> recipemarketplace</p>
-
+<div id="recipeorderbyinput" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">RecipeOrderByInput</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">recipemarketplace</span>
+</div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -6961,15 +6981,14 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>direction</code></td><td><a href="#sortorder">SortOrder</a>!</td><td></td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="recipewhereinput"><code>RecipeWhereInput</code></h4>
-
-<p><strong>Service:</strong> recipemarketplace</p>
-
+<div id="recipewhereinput" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">RecipeWhereInput</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">recipemarketplace</span>
+</div>
 <p>Filter input for Recipe queries. Use `query` for semantic search, or use field filters for exact matching.</p>
-
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -6981,13 +7000,13 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>_not</code></td><td><a href="#recipewhereinput">RecipeWhereInput</a></td><td></td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="repositorychangesetorderbyinput"><code>RepositoryChangesetOrderByInput</code></h4>
-
-<p><strong>Service:</strong> corechangeset</p>
-
+<div id="repositorychangesetorderbyinput" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">RepositoryChangesetOrderByInput</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">corechangeset</span>
+</div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -6995,13 +7014,13 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>direction</code></td><td><a href="#sortorder">SortOrder</a>!</td><td></td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="repositorychangesetstatefilter"><code>RepositoryChangesetStateFilter</code></h4>
-
-<p><strong>Service:</strong> changesetcommitter</p>
-
+<div id="repositorychangesetstatefilter" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">RepositoryChangesetStateFilter</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changesetcommitter</span>
+</div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -7011,15 +7030,14 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>_nin</code></td><td>[<a href="#repositorychangesetstate">RepositoryChangesetState</a>!]</td><td></td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="repositorychangesetwhereinput"><code>RepositoryChangesetWhereInput</code></h4>
-
-<p><strong>Service:</strong> changesetcommitter</p>
-
+<div id="repositorychangesetwhereinput" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">RepositoryChangesetWhereInput</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changesetcommitter</span>
+</div>
 <p>Filter for repository changesets.</p>
-
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -7034,13 +7052,13 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>_not</code></td><td><a href="#repositorychangesetwhereinput">RepositoryChangesetWhereInput</a></td><td>Logical NOT - negates the condition.</td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="repositorycommitorderbyinput"><code>RepositoryCommitOrderByInput</code></h4>
-
-<p><strong>Service:</strong> changesetcommitter</p>
-
+<div id="repositorycommitorderbyinput" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">RepositoryCommitOrderByInput</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changesetcommitter</span>
+</div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -7048,15 +7066,14 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>direction</code></td><td><a href="#sortorder">SortOrder</a>!</td><td></td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="repositorycommitwhereinput"><code>RepositoryCommitWhereInput</code></h4>
-
-<p><strong>Service:</strong> changesetcommitter</p>
-
+<div id="repositorycommitwhereinput" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">RepositoryCommitWhereInput</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changesetcommitter</span>
+</div>
 <p>Filter input for repository-level commit queries.</p>
-
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -7065,13 +7082,13 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>_not</code></td><td><a href="#repositorycommitwhereinput">RepositoryCommitWhereInput</a></td><td></td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="repositoryinput"><code>RepositoryInput</code></h4>
-
-<p><strong>Service:</strong> corecommitter</p>
-
+<div id="repositoryinput" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">RepositoryInput</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">corecommitter</span>
+</div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -7080,13 +7097,13 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>branch</code></td><td>String!</td><td></td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="repositoryorderbyinput"><code>RepositoryOrderByInput</code></h4>
-
-<p><strong>Service:</strong> organization</p>
-
+<div id="repositoryorderbyinput" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">RepositoryOrderByInput</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">organization</span>
+</div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -7094,13 +7111,13 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>direction</code></td><td><a href="#sortorder">SortOrder</a>!</td><td></td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="repositoryreciperunorderbyinput"><code>RepositoryRecipeRunOrderByInput</code></h4>
-
-<p><strong>Service:</strong> changesetreader</p>
-
+<div id="repositoryreciperunorderbyinput" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">RepositoryRecipeRunOrderByInput</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changesetreader</span>
+</div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -7108,13 +7125,13 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>direction</code></td><td><a href="#sortorder">SortOrder</a>!</td><td></td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="repositoryreciperunwhereinput"><code>RepositoryRecipeRunWhereInput</code></h4>
-
-<p><strong>Service:</strong> changesetreader</p>
-
+<div id="repositoryreciperunwhereinput" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">RepositoryRecipeRunWhereInput</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changesetreader</span>
+</div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -7125,15 +7142,14 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>_not</code></td><td><a href="#repositoryreciperunwhereinput">RepositoryRecipeRunWhereInput</a></td><td></td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="repositorywhereinput"><code>RepositoryWhereInput</code></h4>
-
-<p><strong>Service:</strong> organization</p>
-
+<div id="repositorywhereinput" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">RepositoryWhereInput</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">organization</span>
+</div>
 <p>Filter input for Repository queries using typed field filters.</p>
-
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -7147,13 +7163,13 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>_not</code></td><td><a href="#repositorywhereinput">RepositoryWhereInput</a></td><td>Logical NOT - negates the condition</td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="reviewdecisionfilter"><code>ReviewDecisionFilter</code></h4>
-
-<p><strong>Service:</strong> changelogreader</p>
-
+<div id="reviewdecisionfilter" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">ReviewDecisionFilter</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changelogreader</span>
+</div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -7163,26 +7179,26 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>_nin</code></td><td>[<a href="#reviewdecision">ReviewDecision</a>!]</td><td></td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="revokescmtokeninput"><code>RevokeScmTokenInput</code></h4>
-
-<p><strong>Service:</strong> authz</p>
-
+<div id="revokescmtokeninput" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">RevokeScmTokenInput</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">authz</span>
+</div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
     <tr><td><code>origin</code></td><td>String!</td><td>The VCS origin to revoke the token for (e.g., github.com, gitlab.com).</td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="rundevcenterinput"><code>RunDevCenterInput</code></h4>
-
-<p><strong>Service:</strong> recipeworker</p>
-
+<div id="rundevcenterinput" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">RunDevCenterInput</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">recipeworker</span>
+</div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -7190,13 +7206,13 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>recipeId</code></td><td>ID!</td><td>The DevCenter recipe to run.</td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="runrecipeinput"><code>RunRecipeInput</code></h4>
-
-<p><strong>Service:</strong> recipeworker</p>
-
+<div id="runrecipeinput" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">RunRecipeInput</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">recipeworker</span>
+</div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -7206,15 +7222,14 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>excludeFiles</code></td><td>[String!]</td><td>Exclude files matching these patterns.</td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="scmaccesstoken"><code>ScmAccessToken</code></h4>
-
-<p><strong>Service:</strong> changesetcommitter</p>
-
+<div id="scmaccesstoken" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">ScmAccessToken</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changesetcommitter</span>
+</div>
 <p>An access token for a specific SCM origin. When provided on a commit mutation, these tokens are preferred over stored OAuth tokens.</p>
-
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -7222,13 +7237,13 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>origin</code></td><td>String!</td><td></td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="stringfilter"><code>StringFilter</code></h4>
-
-<p><strong>Service:</strong> coregraphql</p>
-
+<div id="stringfilter" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">StringFilter</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">coregraphql</span>
+</div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -7243,13 +7258,13 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>_isNull</code></td><td>Boolean</td><td>True to match null values, false to match non-null values</td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="updateuserorganizationinput"><code>UpdateUserOrganizationInput</code></h4>
-
-<p><strong>Service:</strong> organization</p>
-
+<div id="updateuserorganizationinput" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">UpdateUserOrganizationInput</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">organization</span>
+</div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -7258,13 +7273,13 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>repositories</code></td><td>[<a href="#repositoryinput">RepositoryInput</a>!]</td><td>Repositories to include in the organization. If provided, replaces the current list.</td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="userorderbyinput"><code>UserOrderByInput</code></h4>
-
-<p><strong>Service:</strong> authz</p>
-
+<div id="userorderbyinput" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">UserOrderByInput</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">authz</span>
+</div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -7272,13 +7287,13 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>direction</code></td><td><a href="#sortorder">SortOrder</a>!</td><td></td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="userwhereinput"><code>UserWhereInput</code></h4>
-
-<p><strong>Service:</strong> coregraphql</p>
-
+<div id="userwhereinput" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">UserWhereInput</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">coregraphql</span>
+</div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -7288,13 +7303,13 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>_not</code></td><td><a href="#userwhereinput">UserWhereInput</a></td><td></td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="visualizationoptioninput"><code>VisualizationOptionInput</code></h4>
-
-<p><strong>Service:</strong> changesetvisualizer</p>
-
+<div id="visualizationoptioninput" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">VisualizationOptionInput</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">changesetvisualizer</span>
+</div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -7302,13 +7317,13 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>value</code></td><td><a href="#object">Object</a>!</td><td></td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="visualizationorderbyinput"><code>VisualizationOrderByInput</code></h4>
-
-<p><strong>Service:</strong> corechangeset</p>
-
+<div id="visualizationorderbyinput" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">VisualizationOrderByInput</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">corechangeset</span>
+</div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -7316,13 +7331,13 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>direction</code></td><td><a href="#sortorder">SortOrder</a>!</td><td></td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="visualizationwhereinput"><code>VisualizationWhereInput</code></h4>
-
-<p><strong>Service:</strong> corechangeset</p>
-
+<div id="visualizationwhereinput" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">VisualizationWhereInput</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">corechangeset</span>
+</div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -7333,13 +7348,13 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>_not</code></td><td><a href="#visualizationwhereinput">VisualizationWhereInput</a></td><td></td></tr>
   </tbody>
 </table>
+</div>
 
-<hr/>
-
-<h4 id="yamlrecipebundleinput"><code>YamlRecipeBundleInput</code></h4>
-
-<p><strong>Service:</strong> recipemarketplace</p>
-
+<div id="yamlrecipebundleinput" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">YamlRecipeBundleInput</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">recipemarketplace</span>
+</div>
 <table>
   <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -7347,78 +7362,83 @@ description: Complete reference for the Moderne GraphQL API, including all queri
     <tr><td><code>primary</code></td><td>ID</td><td>The ID of the primary recipe in this bundle. When specified, only this recipe will be shown in the marketplace categories, hiding other recipes from this bundle. This is used for the Moderne Builder feature where users build complex composite recipes and we don't want to expose intermediate recipes in the marketplace.</td></tr>
   </tbody>
 </table>
-
-<hr/>
+</div>
 
 <h3>Unions</h3>
 
-<h4 id="connectortool"><code>ConnectorTool</code></h4>
-
-<p><strong>Service:</strong> gateway</p>
-
+<div id="connectortool" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">ConnectorTool</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">gateway</span>
+</div>
 <p>= <a href="#githubconfiguration">GithubConfiguration</a> | <a href="#gitlabconfiguration">GitLabConfiguration</a> | <a href="#bitbucketconfiguration">BitbucketConfiguration</a> | <a href="#bitbucketcloudconfiguration">BitbucketCloudConfiguration</a> | <a href="#azuredevopsconfiguration">AzureDevOpsConfiguration</a> | <a href="#artifactoryconfiguration">ArtifactoryConfiguration</a> | <a href="#mavenconfiguration">MavenConfiguration</a> | <a href="#pypiconfiguration">PypiConfiguration</a> | <a href="#npmconfiguration">NpmConfiguration</a> | <a href="#nugetconfiguration">NugetConfiguration</a> | <a href="#generichttptoolconfiguration">GenericHttpToolConfiguration</a> | <a href="#organizationconfiguration">OrganizationConfiguration</a> | <a href="#llmconfiguration">LlmConfiguration</a> | <a href="#s3configuration">S3Configuration</a></p>
-
-<hr/>
+</div>
 
 <h3>Scalars</h3>
 
-<h4 id="base64"><code>Base64</code></h4>
-
-<p><strong>Service:</strong> coregraphql</p>
-
+<div id="base64" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">Base64</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">coregraphql</span>
+</div>
 <p>`Base64` represents a base64 encoded string. In the browser, `btoa` encodes ASCII strings to Base64.</p>
+</div>
 
-<hr/>
+<div id="date" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">Date</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">coregraphql</span>
+</div>
+</div>
 
-<h4 id="date"><code>Date</code></h4>
+<div id="datetime" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">DateTime</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">coregraphql</span>
+</div>
+</div>
 
-<p><strong>Service:</strong> coregraphql</p>
+<div id="duration" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">Duration</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">coregraphql</span>
+</div>
+</div>
 
-<hr/>
+<div id="json" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">JSON</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">coregraphql</span>
+</div>
+</div>
 
-<h4 id="datetime"><code>DateTime</code></h4>
+<div id="long" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">Long</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">coregraphql</span>
+</div>
+</div>
 
-<p><strong>Service:</strong> coregraphql</p>
-
-<hr/>
-
-<h4 id="duration"><code>Duration</code></h4>
-
-<p><strong>Service:</strong> coregraphql</p>
-
-<hr/>
-
-<h4 id="json"><code>JSON</code></h4>
-
-<p><strong>Service:</strong> coregraphql</p>
-
-<hr/>
-
-<h4 id="long"><code>Long</code></h4>
-
-<p><strong>Service:</strong> coregraphql</p>
-
-<hr/>
-
-<h4 id="markdown"><code>Markdown</code></h4>
-
-<p><strong>Service:</strong> coregraphql</p>
-
+<div id="markdown" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">Markdown</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">coregraphql</span>
+</div>
 <p>Contents may contain Markdown, HTML, or other text and should be passed through a Markdown parser by consumers</p>
+</div>
 
-<hr/>
+<div id="object" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">Object</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">coregraphql</span>
+</div>
+</div>
 
-<h4 id="object"><code>Object</code></h4>
-
-<p><strong>Service:</strong> coregraphql</p>
-
-<hr/>
-
-<h4 id="path"><code>Path</code></h4>
-
-<p><strong>Service:</strong> coregraphql</p>
-
+<div id="path" style="border:1px solid #e2e8f0;border-left:3px solid #6366f1;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;background:#fafafa;">
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+<span style="font-family:monospace;font-size:15px;font-weight:700;color:#1e293b;">Path</span>
+<span style="font-family:-apple-system,sans-serif;font-size:11px;padding:2px 7px;border-radius:20px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;">coregraphql</span>
+</div>
 <p>A file path relative to repository root (e.g., "src/main/java/Foo.java").</p>
-
-<hr/>
+</div>
 
