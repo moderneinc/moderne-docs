@@ -1026,6 +1026,7 @@ const releases = {
     'releases/cli-releases',
     'releases/changelog',
     'releases/proprietary-recipe-changelog',
+    'releases/saas-v2-changes',
   ],
 };
 
