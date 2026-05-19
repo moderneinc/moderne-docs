@@ -1,0 +1,52 @@
+name: Update GraphQL API docs
+
+on:
+  schedule:
+    - cron: '0 1 * * *'
+  workflow_dispatch:
+
+concurrency:
+  group: update-graphql-docs
+  cancel-in-progress: true
+
+jobs:
+  update:
+    name: Fetch schema and regenerate docs
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v6
+
+      - uses: actions/setup-node@v6
+        with:
+          node-version: '20'
+          cache: yarn
+
+      - run: yarn install --frozen-lockfile
+
+      - name: Install Rover
+        run: |
+          curl -sSL https://rover.apollo.dev/nix/latest | sh
+          echo "$HOME/.rover/bin" >> $GITHUB_PATH
+
+      - name: Fetch supergraph schema
+        env:
+          APOLLO_KEY: ${{ secrets.APOLLO_KEY }}
+        run: rover graph fetch Moderne-SaaS-API@SaaS-v2 --format json > /tmp/schema.json
+
+      - name: Generate GraphQL API reference
+        run: |
+          node scripts/generate_graphql_docs.mjs /tmp/schema.json \
+            > docs/user-documentation/moderne-platform/references/graphql-api-reference.md
+
+      - name: Commit and push
+        run: |
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git config user.name "github-actions[bot]"
+          git add docs/user-documentation/moderne-platform/references/graphql-api-reference.md
+          git diff --cached --quiet && echo "No changes — skipping commit." && exit 0
+          git commit -m "[Auto] Update GraphQL API reference as of $(date +'%Y-%m-%dT%H%M')"
+          for attempt in 1 2 3; do
+            git pull --rebase origin main && git push && break
+            [ "$attempt" -lt 3 ] && sleep 5
+          done
