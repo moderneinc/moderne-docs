@@ -1,7 +1,6 @@
 ---
 sidebar_label: What's changed in SaaS v2
 description: An overview of new features, performance improvements, and functional changes in Moderne SaaS v2.
-unlisted: true
 ---
 
 # What's changed in SaaS v2
@@ -28,6 +27,13 @@ You can now view all code changes across your organization in one place. The Mod
   <figcaption>_Atlas status pages give you a clearer view into platform health and ongoing issues._</figcaption>
 </figure>
 
+You can access this page by clicking on **?** icon in the top-right of the SaaS and then selecting **Status**:
+
+<figure>
+  ![Status page link](./assets/saas-v2-status-link.png)
+  <figcaption>_Status page link._</figcaption>
+</figure>
+
 ### Continuous profiling across the platform
 
 SaaS v2 ships with [Pyroscope-based](https://grafana.com/oss/pyroscope/) continuous profiling for every microservice in the platform — authorization, organization, the recipe worker, Moddy, the marketplace, and more. You can inspect CPU usage, memory allocation, mutex contention, and blocking time as flamegraphs, making it much easier to track down performance regressions wherever they live in the stack. When a recipe is running slowly, profiling the `recipeworker` service can pinpoint exactly which code path is responsible.
@@ -35,6 +41,13 @@ SaaS v2 ships with [Pyroscope-based](https://grafana.com/oss/pyroscope/) continu
 <figure>
   ![A Pyroscope page showing CPU analysis of the recipe worker](./assets/saas-v2-recipe-profiling.png)
   <figcaption>_Pyroscope exposes CPU, memory, mutex, and blocking profiles for every microservice in SaaS v2._</figcaption>
+</figure>
+
+To enable profiling, you'll need to be an admin. Then click on the gear icon in the top-right and select **Settings**. You should then see a profiling enable button. Please note that performance may decrease while profiling is enabled.
+
+<figure>
+  ![Profiling enable button](./assets/saas-v2-profiling-button.png)
+  <figcaption>_You can turn profiling on/off in admin settings._</figcaption>
 </figure>
 
 ### Native recipes in more languages
