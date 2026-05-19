@@ -15,6 +15,8 @@ description: Complete reference for the Moderne GraphQL API, including all queri
 auditLogs(first: Int = 100, after: String, where: AuditLogWhereInput, orderBy: [AuditLogOrderByInput!]): AuditLogConnection!
 ```
 
+**Returns:** [AuditLogConnection](#type-auditlogconnection)!
+
 Query audit log events with pagination and filtering.
 
 #### `auditLogsDownloads`
@@ -22,6 +24,8 @@ Query audit log events with pagination and filtering.
 ```graphql
 auditLogsDownloads(first: Int = 50, after: String, where: AuditLogsDownloadWhereInput, orderBy: [AuditLogsDownloadOrderByInput!]): AuditLogsDownloadConnection!
 ```
+
+**Returns:** [AuditLogsDownloadConnection](#type-auditlogsdownloadconnection)!
 
 Query audit log downloads with pagination and filtering.
 Use where: \{ id: \{ _eq: "..." \} \} to poll a specific download.
@@ -32,6 +36,8 @@ Use where: \{ id: \{ _eq: "..." \} \} to poll a specific download.
 bulkPullRequestAction(id: ID!): BulkPullRequestAction
 ```
 
+**Returns:** [BulkPullRequestAction](#type-bulkpullrequestaction)
+
 Get a bulk pull request action by ID to poll for progress.
 
 #### `capabilities`
@@ -39,6 +45,8 @@ Get a bulk pull request action by ID to poll for progress.
 ```graphql
 capabilities: PlatformCapabilities!
 ```
+
+**Returns:** [PlatformCapabilities](#type-platformcapabilities)!
 
 Returns which optional platform features are enabled in this deployment.
 Each field defaults to false and is overridden to true by the corresponding
@@ -50,6 +58,8 @@ optional service when it is present in the supergraph composition.
 codeSearch(repositoryId: String!, query: String!, first: Int = 100, after: String): CodeSearchResultConnection!
 ```
 
+**Returns:** [CodeSearchResultConnection](#type-codesearchresultconnection)!
+
 Search source code across artifact repositories.
 Searches the given repository and all its descendants in the hierarchy.
 Results are grouped by artifact (groupId:artifactId) with file-level matches.
@@ -60,11 +70,15 @@ Results are grouped by artifact (groupId:artifactId) with file-level matches.
 connectors(first: Int = 100, after: String, where: ConnectorWhereInput, orderBy: [ConnectorOrderByInput!]): ConnectorConnection!
 ```
 
+**Returns:** [ConnectorConnection](#type-connectorconnection)!
+
 #### `conversation`
 
 ```graphql
 conversation(conversationId: ID!): Conversation
 ```
+
+**Returns:** [Conversation](#type-conversation)
 
 Look up a single conversation by id. Returns null when no conversation
 matches or the caller does not have access. Restores the v1 query the
@@ -76,6 +90,8 @@ moderne-ui client already references.
 currentUser: User!
 ```
 
+**Returns:** [User](#type-user)!
+
 Returns the currently authenticated user.
 
 #### `devCenterRecipes`
@@ -83,6 +99,8 @@ Returns the currently authenticated user.
 ```graphql
 devCenterRecipes: [RecipeDescriptor!]!
 ```
+
+**Returns:** [[RecipeDescriptor](#type-recipedescriptor)!]!
 
 Get available DevCenter recipes for configuration.
 
@@ -92,6 +110,8 @@ Get available DevCenter recipes for configuration.
 license: License!
 ```
 
+**Returns:** [License](#type-license)!
+
 Request a new license lease key
 
 #### `organization`
@@ -100,17 +120,23 @@ Request a new license lease key
 organization(id: ID!): Organization!
 ```
 
+**Returns:** [Organization](#type-organization)!
+
 #### `organizations`
 
 ```graphql
 organizations(first: Int = 100, after: String, where: OrganizationWhereInput, orderBy: [OrganizationOrderByInput!]): OrganizationConnection!
 ```
 
+**Returns:** [OrganizationConnection](#type-organizationconnection)!
+
 #### `scmConnections`
 
 ```graphql
 scmConnections: [ScmConnection!]!
 ```
+
+**Returns:** [[ScmConnection](#type-scmconnection)!]!
 
 Returns connections for all SCM providers.
 
@@ -120,6 +146,8 @@ Returns connections for all SCM providers.
 users(first: Int = 100, after: String, where: UserWhereInput, orderBy: [UserOrderByInput!]): UserConnection!
 ```
 
+**Returns:** [UserConnection](#type-userconnection)!
+
 Returns users with option to filter by role.
 
 #### `verifyToken`
@@ -127,6 +155,8 @@ Returns users with option to filter by role.
 ```graphql
 verifyToken(origin: String!, scmType: ScmType!): String
 ```
+
+**Returns:** String
 
 ## Mutations
 
@@ -136,6 +166,8 @@ verifyToken(origin: String!, scmType: ScmType!): String
 approvePullRequests(organizationId: ID!, selection: PullRequestSelectionInput!): BulkPullRequestActionQueued!
 ```
 
+**Returns:** [BulkPullRequestActionQueued](#type-bulkpullrequestactionqueued)!
+
 Approve pull requests in bulk. Returns the queued action for polling.
 
 #### `cancelBulkPullRequestAction`
@@ -143,6 +175,8 @@ Approve pull requests in bulk. Returns the queued action for polling.
 ```graphql
 cancelBulkPullRequestAction(id: ID!): BulkPullRequestActionCanceled!
 ```
+
+**Returns:** [BulkPullRequestActionCanceled](#type-bulkpullrequestactioncanceled)!
 
 Cancel a pending bulk pull request action.
 
@@ -152,6 +186,8 @@ Cancel a pending bulk pull request action.
 cancelCommit(id: ID!): OrganizationCommitCanceled!
 ```
 
+**Returns:** [OrganizationCommitCanceled](#type-organizationcommitcanceled)!
+
 Cancel a running commit operation.
 
 #### `cancelDevCenterRun`
@@ -160,6 +196,8 @@ Cancel a running commit operation.
 cancelDevCenterRun(id: ID!): ID!
 ```
 
+**Returns:** ID!
+
 Cancel a DevCenter run. Cancellation is best-effort and asynchronous.
 
 #### `cancelMessage`
@@ -167,6 +205,8 @@ Cancel a DevCenter run. Cancellation is best-effort and asynchronous.
 ```graphql
 cancelMessage(conversationId: ID!, messageId: ID): Boolean!
 ```
+
+**Returns:** Boolean!
 
 Interrupt the currently-running turn for a conversation. The virtual
 thread driving the turn is interrupted — a blocking LLM stream unwinds
@@ -194,6 +234,8 @@ more than one turn in flight.
 cancelRecipeRun(id: ID!): ID!
 ```
 
+**Returns:** ID!
+
 Cancel a recipe run. Cancellation is best-effort and asynchronous.
 
 #### `clearOrganizationPrompt`
@@ -201,6 +243,8 @@ Cancel a recipe run. Cancellation is best-effort and asynchronous.
 ```graphql
 clearOrganizationPrompt(organizationId: ID!): Boolean!
 ```
+
+**Returns:** Boolean!
 
 Clear the organization-level prompt override, falling back to universal.
 
@@ -210,6 +254,8 @@ Clear the organization-level prompt override, falling back to universal.
 clearUserPrompt: Boolean!
 ```
 
+**Returns:** Boolean!
+
 Clear the current user's prompt override, falling back to organization or universal.
 
 #### `closePullRequests`
@@ -217,6 +263,8 @@ Clear the current user's prompt override, falling back to organization or univer
 ```graphql
 closePullRequests(organizationId: ID!, selection: PullRequestSelectionInput!): BulkPullRequestActionQueued!
 ```
+
+**Returns:** [BulkPullRequestActionQueued](#type-bulkpullrequestactionqueued)!
 
 Close pull requests in bulk. Returns the queued action for polling.
 
@@ -226,6 +274,8 @@ Close pull requests in bulk. Returns the queued action for polling.
 commit(input: CommitInput!): OrganizationCommitQueued!
 ```
 
+**Returns:** [OrganizationCommitQueued](#type-organizationcommitqueued)!
+
 Create commits from a changeset (recipe run, batch change, etc.).
 
 #### `createAccessToken`
@@ -233,6 +283,8 @@ Create commits from a changeset (recipe run, batch change, etc.).
 ```graphql
 createAccessToken(description: String, expiresAt: DateTime): CreateAccessTokenResult!
 ```
+
+**Returns:** [CreateAccessTokenResult](#type-createaccesstokenresult)!
 
 Creates a new Moderne Personal Access Token for the current user.
 Returns the token value only once - it cannot be retrieved again.
@@ -242,6 +294,8 @@ Returns the token value only once - it cannot be retrieved again.
 ```graphql
 createConversation(input: CreateConversationInput!, waitForCompletion: Boolean = false): SendMessageResult!
 ```
+
+**Returns:** [SendMessageResult](#type-sendmessageresult)!
 
 Create a new conversation and send the first message. Uses the
 effective prompt for the organization context. `waitForCompletion`
@@ -253,6 +307,8 @@ has the same semantics as on `sendMessage`.
 createUserOrganization(input: CreateUserOrganizationInput!): Organization!
 ```
 
+**Returns:** [Organization](#type-organization)!
+
 Create a new user-defined organization visible only to the current user.
 
 #### `deleteUser`
@@ -260,6 +316,8 @@ Create a new user-defined organization visible only to the current user.
 ```graphql
 deleteUser(email: String!): Boolean!
 ```
+
+**Returns:** Boolean!
 
 Deletes a user and all associated access tokens.
 Returns true if the user was found and deleted.
@@ -270,6 +328,8 @@ Returns true if the user was found and deleted.
 deleteUserOrganization(id: ID!): Boolean!
 ```
 
+**Returns:** Boolean!
+
 Delete a user-defined organization.
 
 #### `downloadAuditLogs`
@@ -277,6 +337,8 @@ Delete a user-defined organization.
 ```graphql
 downloadAuditLogs(first: Int, since: DateTime, until: DateTime, format: AuditLogExportFormat!): AuditLogsDownload!
 ```
+
+**Returns:** [AuditLogsDownload](#type-auditlogsdownload)!
 
 Start an asynchronous export of audit logs. Returns a task whose state
 can be polled via auditLogsDownloads.
@@ -287,6 +349,8 @@ can be polled via auditLogsDownloads.
 downloadDataTable(changesetId: ID!, dataTable: String!, group: String, format: DataTableFormat!): DataTable!
 ```
 
+**Returns:** [DataTable](#type-datatable)!
+
 Start or retrieve a data table download.
 If the same data table + group + format combination was already requested,
 returns the existing download state.
@@ -296,6 +360,8 @@ returns the existing download state.
 ```graphql
 exchangeAuthorizationCode(input: ExchangeAuthorizationCodeInput!): ExchangeAuthorizationResult!
 ```
+
+**Returns:** [ExchangeAuthorizationResult](#type-exchangeauthorizationresult)!
 
 Exchange an OAuth authorization code for an access token.
 
@@ -311,6 +377,8 @@ On success, the token is stored and future requests will be authenticated.
 ```graphql
 initiateAuthorization(input: InitiateAuthorizationInput!): OAuthAuthorization!
 ```
+
+**Returns:** [OAuthAuthorization](#type-oauthauthorization)!
 
 Initiate OAuth authorization for a VCS origin.
 Returns an authorization URL to redirect the user to.
@@ -329,6 +397,8 @@ after the user completes OAuth.
 installRecipesForCurrentUser(bundle: RecipeBundleInput!): RecipeInstallation!
 ```
 
+**Returns:** [RecipeInstallation](#type-recipeinstallation)!
+
 Install a recipe bundle to the current user's personal marketplace.
 
 #### `installRecipesForOrganization`
@@ -336,6 +406,8 @@ Install a recipe bundle to the current user's personal marketplace.
 ```graphql
 installRecipesForOrganization(organizationId: ID!, bundle: RecipeBundleInput!): RecipeInstallation!
 ```
+
+**Returns:** [RecipeInstallation](#type-recipeinstallation)!
 
 Install a recipe bundle to a specific organization's marketplace.
 Requires the `admin` role.
@@ -346,6 +418,8 @@ Requires the `admin` role.
 installRecipesUniversal(bundle: RecipeBundleInput!): RecipeInstallation!
 ```
 
+**Returns:** [RecipeInstallation](#type-recipeinstallation)!
+
 Install a recipe bundle to the universal marketplace (visible to all).
 Requires the `admin` role.
 
@@ -355,6 +429,8 @@ Requires the `admin` role.
 mergePullRequests(organizationId: ID!, selection: PullRequestSelectionInput!, mergeMethod: MergeMethod!, deleteSourceBranch: Boolean! = false): BulkPullRequestActionQueued!
 ```
 
+**Returns:** [BulkPullRequestActionQueued](#type-bulkpullrequestactionqueued)!
+
 Merge pull requests in bulk. Returns the queued action for polling.
 
 #### `reindexChangelog`
@@ -362,6 +438,8 @@ Merge pull requests in bulk. Returns the queued action for polling.
 ```graphql
 reindexChangelog(since: DateTime!, origin: String): ReindexResult!
 ```
+
+**Returns:** [ReindexResult](#type-reindexresult)!
 
 Reset poll cursors so the next poll cycle re-fetches and re-enriches
 changelog entries from the given timestamp forward. Use this to backfill
@@ -373,6 +451,8 @@ data after deploying enrichment improvements.
 revokeAccessToken(id: ID!): Boolean!
 ```
 
+**Returns:** Boolean!
+
 Revokes an access token by ID.
 Returns true if the token was revoked, false if not found.
 
@@ -381,6 +461,8 @@ Returns true if the token was revoked, false if not found.
 ```graphql
 revokeAllAccessTokens(email: String!): Boolean!
 ```
+
+**Returns:** Boolean!
 
 Revokes all access tokens for a given user.
 Returns true if all token were revoked, otherwise false.
@@ -391,6 +473,8 @@ Returns true if all token were revoked, otherwise false.
 revokeScmToken(input: RevokeScmTokenInput!): RevokeTokenResult!
 ```
 
+**Returns:** [RevokeTokenResult](#type-revoketokenresult)!
+
 Revoke an SCM OAuth token for the current user and a specific origin.
 This removes the stored token, disconnecting the user from the VCS.
 
@@ -399,6 +483,8 @@ This removes the stored token, disconnecting the user from the VCS.
 ```graphql
 runDevCenter(input: RunDevCenterInput!): DevCenterRunRunning!
 ```
+
+**Returns:** [DevCenterRunRunning](#type-devcenterrunrunning)!
 
 Start a DevCenter run for an organization.
 Returns immediately with running status.
@@ -409,6 +495,8 @@ Returns immediately with running status.
 runRecipe(input: RunRecipeInput!): OrganizationRecipeRunQueued!
 ```
 
+**Returns:** [OrganizationRecipeRunQueued](#type-organizationreciperunqueued)!
+
 Run a recipe against repositories.
 Returns the recipe run in its initial queued state.
 
@@ -417,6 +505,8 @@ Returns the recipe run in its initial queued state.
 ```graphql
 runVisualization(organizationId: ID!, visualizationId: ID!, options: [VisualizationOptionInput!]): Visualization!
 ```
+
+**Returns:** [Visualization](#type-visualization)!
 
 Request a visualization to be generated based on the provided descriptor.
 Returns the existing visualization if already run with the same options,
@@ -427,6 +517,8 @@ otherwise queues a new visualization run.
 ```graphql
 sendMessage(conversationId: ID!, message: String!, waitForCompletion: Boolean = false): SendMessageResult!
 ```
+
+**Returns:** [SendMessageResult](#type-sendmessageresult)!
 
 Send a message to an existing conversation. Returns a handle for
 polling — `initialCursor` is the cursor to pass to the next
@@ -444,6 +536,8 @@ than erroring so the caller can continue polling.
 setOrganizationPrompt(organizationId: ID!, content: Markdown!): Prompt!
 ```
 
+**Returns:** [Prompt](#type-prompt)!
+
 Set the system prompt for a specific organization (overrides universal).
 
 #### `setProfiling`
@@ -451,6 +545,8 @@ Set the system prompt for a specific organization (overrides universal).
 ```graphql
 setProfiling(enabled: Boolean!, event: ProfilingEvent = CPU): Boolean!
 ```
+
+**Returns:** Boolean!
 
 Turn continuous profiling on or off for this tenant. When enabled,
 Pyroscope profiles for every service start landing in the Pyroscope UI
@@ -466,6 +562,8 @@ Admin role required.
 setUniversalPrompt(content: Markdown!): Prompt!
 ```
 
+**Returns:** [Prompt](#type-prompt)!
+
 Set the universal (default) system prompt.
 
 #### `setUserPrompt`
@@ -473,6 +571,8 @@ Set the universal (default) system prompt.
 ```graphql
 setUserPrompt(content: Markdown!): Prompt!
 ```
+
+**Returns:** [Prompt](#type-prompt)!
 
 Set the system prompt for the current user (overrides organization and universal).
 
@@ -482,6 +582,8 @@ Set the system prompt for the current user (overrides organization and universal
 uninstallRecipesFromCurrentUser(packageName: String!): RecipeUninstallation!
 ```
 
+**Returns:** [RecipeUninstallation](#type-recipeuninstallation)!
+
 Uninstall a recipe bundle from the current user's personal marketplace.
 Returns the number of recipes that were removed.
 
@@ -490,6 +592,8 @@ Returns the number of recipes that were removed.
 ```graphql
 uninstallRecipesFromOrganization(organizationId: ID!, packageName: String!): RecipeUninstallation!
 ```
+
+**Returns:** [RecipeUninstallation](#type-recipeuninstallation)!
 
 Uninstall a recipe bundle from a specific organization's marketplace.
 Returns the number of recipes that were removed.
@@ -501,6 +605,8 @@ Requires the `admin` role.
 uninstallRecipesUniversal(packageName: String!): RecipeUninstallation!
 ```
 
+**Returns:** [RecipeUninstallation](#type-recipeuninstallation)!
+
 Uninstall a recipe bundle from the universal marketplace.
 Returns the number of recipes that were removed.
 Requires the `admin` role.
@@ -510,6 +616,8 @@ Requires the `admin` role.
 ```graphql
 updateUserOrganization(input: UpdateUserOrganizationInput!): Organization!
 ```
+
+**Returns:** [Organization](#type-organization)!
 
 Update an existing user-defined organization.
 

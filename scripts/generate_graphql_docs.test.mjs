@@ -186,6 +186,16 @@ describe('generateMarkdown', () => {
     expect(md()).toContain('> **Deprecated:** Use users instead');
   });
 
+  it('renders Returns line with link for known type', () => {
+    expect(md()).toContain('**Returns:** [User](#type-user)');
+  });
+
+  it('renders Returns line with list type linkified', () => {
+    const out = md();
+    const usersSection = out.slice(out.indexOf('#### `users`'));
+    expect(usersSection).toContain('**Returns:** [[User](#type-user)!]!');
+  });
+
   it('has Types section with Object types subsection', () => {
     const out = md();
     expect(out).toContain('## Types');

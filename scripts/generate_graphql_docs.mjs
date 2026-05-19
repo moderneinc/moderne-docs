@@ -107,6 +107,7 @@ export function parseSchema(sdl) {
               kind: opKind,
               description: getDoc(f),
               signature: `${f.name.value}${args}: ${gqlPrint(f.type)}`,
+              returnType: gqlPrint(f.type),
               deprecated: getDeprecatedReason(f),
             });
           }
@@ -197,6 +198,7 @@ export function generateMarkdown(ops, types) {
       lines.push(`#### \`${op.name}\``, '');
       lines.push('```graphql', op.signature, '```', '');
       if (op.deprecated) lines.push(`> **Deprecated:** ${mdxEscape(op.deprecated)}`, '');
+      lines.push(`**Returns:** ${linkify(op.returnType, known)}`, '');
       if (op.description) lines.push(mdxEscape(op.description), '');
     }
   }
