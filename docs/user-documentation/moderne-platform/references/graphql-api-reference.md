@@ -1,7448 +1,6530 @@
 ---
 sidebar_label: GraphQL API reference
 description: Complete reference for the Moderne GraphQL API, including all queries, mutations, subscriptions, and types.
-hide_title: true
 ---
 
-<style>{`
-.gql-card{border:1px solid var(--ifm-color-emphasis-300);border-radius:6px;padding:12px 14px;margin-bottom:12px;background:var(--ifm-background-surface-color)}
-.gql-hdr{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px}
-.gql-name{font-family:var(--ifm-code-font-family);font-size:15px;font-weight:700;color:var(--ifm-color-content)}
-.gql-svc{font-size:11px;padding:2px 7px;border-radius:20px;background:var(--ifm-color-emphasis-200);color:var(--ifm-color-content-secondary);border:1px solid var(--ifm-color-emphasis-300)}
-.gql-ret{font-family:var(--ifm-code-font-family);font-size:13px;color:var(--ifm-color-content-secondary);margin:0 0 4px}
-.gql-args{font-family:var(--ifm-code-font-family);font-size:12px;color:var(--ifm-color-content-secondary);opacity:.7;margin:0 0 6px}
-.gql-impl{font-size:11px;padding:2px 7px;border-radius:20px;background:var(--ifm-color-emphasis-200);color:var(--ifm-color-primary);border:1px solid var(--ifm-color-emphasis-300)}
-`}</style>
+# GraphQL API reference
 
-<h1>GraphQL API reference</h1>
-
-<p><em>This page is auto-generated from the Moderne GraphQL schema. Do not edit manually.</em></p>
+:::info
+This page is auto-generated from the Moderne GraphQL schema. Do not edit manually.
+:::
 
 ## Queries
 
-<div id="auditLogs" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">auditLogs</span>
-<span className="gql-svc">auditreader</span>
-</div>
-<div className="gql-ret">: <a href="#auditlogconnection">AuditLogConnection</a>!</div>
-<div className="gql-args">(first: Int = 100, after: String, where: <a href="#auditlogwhereinput">AuditLogWhereInput</a>, orderBy: [<a href="#auditlogorderbyinput">AuditLogOrderByInput</a>!])</div>
-<p>Query audit log events with pagination and filtering.</p>
-</div>
+### `auditLogs`
 
-<div id="auditLogsDownloads" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">auditLogsDownloads</span>
-<span className="gql-svc">auditreader</span>
-</div>
-<div className="gql-ret">: <a href="#auditlogsdownloadconnection">AuditLogsDownloadConnection</a>!</div>
-<div className="gql-args">(first: Int = 50, after: String, where: <a href="#auditlogsdownloadwhereinput">AuditLogsDownloadWhereInput</a>, orderBy: [<a href="#auditlogsdownloadorderbyinput">AuditLogsDownloadOrderByInput</a>!])</div>
-<p>Query audit log downloads with pagination and filtering. Use where: &#123; id: &#123; _eq: "..." &#125; &#125; to poll a specific download.</p>
-</div>
+**Service:** auditreader
 
-<div id="bulkPullRequestAction" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">bulkPullRequestAction</span>
-<span className="gql-svc">changelogreader</span>
-</div>
-<div className="gql-ret">: <a href="#bulkpullrequestaction">BulkPullRequestAction</a></div>
-<div className="gql-args">(id: ID!)</div>
-<p>Get a bulk pull request action by ID to poll for progress.</p>
-</div>
+`auditLogs`(first: Int = 100, after: String, where: [AuditLogWhereInput](#auditlogwhereinput), orderBy: [[AuditLogOrderByInput](#auditlogorderbyinput)!]): [AuditLogConnection](#auditlogconnection)!
 
-<div id="capabilities" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">capabilities</span>
-<span className="gql-svc">gateway</span>
-</div>
-<div className="gql-ret">: <a href="#platformcapabilities">PlatformCapabilities</a>!</div>
-<p>Returns which optional platform features are enabled in this deployment. Each field defaults to false and is overridden to true by the corresponding optional service when it is present in the supergraph composition.</p>
-</div>
+Query audit log events with pagination and filtering.
 
-<div id="codeSearch" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">codeSearch</span>
-<span className="gql-svc">code-search</span>
-</div>
-<div className="gql-ret">: <a href="#codesearchresultconnection">CodeSearchResultConnection</a>!</div>
-<div className="gql-args">(repositoryId: String!, query: String!, first: Int = 100, after: String)</div>
-<p>Search source code across artifact repositories. Searches the given repository and all its descendants in the hierarchy. Results are grouped by artifact (groupId:artifactId) with file-level matches.</p>
-</div>
+---
 
-<div id="connectors" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">connectors</span>
-<span className="gql-svc">gateway</span>
-</div>
-<div className="gql-ret">: <a href="#connectorconnection">ConnectorConnection</a>!</div>
-<div className="gql-args">(first: Int = 100, after: String, where: <a href="#connectorwhereinput">ConnectorWhereInput</a>, orderBy: [<a href="#connectororderbyinput">ConnectorOrderByInput</a>!])</div>
-</div>
+### `auditLogsDownloads`
 
-<div id="conversation" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">conversation</span>
-<span className="gql-svc">moddy</span>
-</div>
-<div className="gql-ret">: <a href="#conversation">Conversation</a></div>
-<div className="gql-args">(conversationId: ID!)</div>
-<p>Look up a single conversation by id. Returns null when no conversation matches or the caller does not have access. Restores the v1 query the moderne-ui client already references.</p>
-</div>
+**Service:** auditreader
 
-<div id="currentUser" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">currentUser</span>
-<span className="gql-svc">authz</span>
-</div>
-<div className="gql-ret">: <a href="#user">User</a>!</div>
-<p>Returns the currently authenticated user.</p>
-</div>
+`auditLogsDownloads`(first: Int = 50, after: String, where: [AuditLogsDownloadWhereInput](#auditlogsdownloadwhereinput), orderBy: [[AuditLogsDownloadOrderByInput](#auditlogsdownloadorderbyinput)!]): [AuditLogsDownloadConnection](#auditlogsdownloadconnection)!
 
-<div id="devCenterRecipes" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">devCenterRecipes</span>
-<span className="gql-svc">recipemarketplace</span>
-</div>
-<div className="gql-ret">: [<a href="#recipedescriptor">RecipeDescriptor</a>!]!</div>
-<p>Get available DevCenter recipes for configuration.</p>
-</div>
+Query audit log downloads with pagination and filtering.
+Use where: { id: { _eq: "..." } } to poll a specific download.
 
-<div id="license" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">license</span>
-<span className="gql-svc">authz</span>
-</div>
-<div className="gql-ret">: <a href="#license">License</a>!</div>
-<p>Request a new license lease key</p>
-</div>
+---
 
-<div id="organization" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">organization</span>
-<span className="gql-svc">organization</span>
-</div>
-<div className="gql-ret">: <a href="#organization">Organization</a>!</div>
-<div className="gql-args">(id: ID!)</div>
-</div>
+### `bulkPullRequestAction`
 
-<div id="organizations" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">organizations</span>
-<span className="gql-svc">organization</span>
-</div>
-<div className="gql-ret">: <a href="#organizationconnection">OrganizationConnection</a>!</div>
-<div className="gql-args">(first: Int = 100, after: String, where: <a href="#organizationwhereinput">OrganizationWhereInput</a>, orderBy: [<a href="#organizationorderbyinput">OrganizationOrderByInput</a>!])</div>
-</div>
+**Service:** changelogreader
 
-<div id="scmConnections" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">scmConnections</span>
-<span className="gql-svc">authz</span>
-</div>
-<div className="gql-ret">: [<a href="#scmconnection">ScmConnection</a>!]!</div>
-<p>Returns connections for all SCM providers.</p>
-</div>
+`bulkPullRequestAction`(id: ID!): [BulkPullRequestAction](#bulkpullrequestaction)
 
-<div id="users" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">users</span>
-<span className="gql-svc">authz</span>
-</div>
-<div className="gql-ret">: <a href="#userconnection">UserConnection</a>!</div>
-<div className="gql-args">(first: Int = 100, after: String, where: <a href="#userwhereinput">UserWhereInput</a>, orderBy: [<a href="#userorderbyinput">UserOrderByInput</a>!])</div>
-<p>Returns users with option to filter by role.</p>
-</div>
+Get a bulk pull request action by ID to poll for progress.
 
-<div id="verifyToken" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">verifyToken</span>
-<span className="gql-svc">changesetcommitter</span>
-</div>
-<div className="gql-ret">: String</div>
-<div className="gql-args">(origin: String!, scmType: <a href="#scmtype">ScmType</a>!)</div>
-</div>
+---
+
+### `capabilities`
+
+**Service:** gateway
+
+`capabilities`: [PlatformCapabilities](#platformcapabilities)!
+
+Returns which optional platform features are enabled in this deployment.
+Each field defaults to false and is overridden to true by the corresponding
+optional service when it is present in the supergraph composition.
+
+---
+
+### `codeSearch`
+
+**Service:** code-search
+
+`codeSearch`(repositoryId: String!, query: String!, first: Int = 100, after: String): [CodeSearchResultConnection](#codesearchresultconnection)!
+
+Search source code across artifact repositories.
+Searches the given repository and all its descendants in the hierarchy.
+Results are grouped by artifact (groupId:artifactId) with file-level matches.
+
+---
+
+### `connectors`
+
+**Service:** gateway
+
+`connectors`(first: Int = 100, after: String, where: [ConnectorWhereInput](#connectorwhereinput), orderBy: [[ConnectorOrderByInput](#connectororderbyinput)!]): [ConnectorConnection](#connectorconnection)!
+
+---
+
+### `conversation`
+
+**Service:** moddy
+
+`conversation`(conversationId: ID!): [Conversation](#conversation)
+
+Look up a single conversation by id. Returns null when no conversation
+matches or the caller does not have access. Restores the v1 query the
+moderne-ui client already references.
+
+---
+
+### `currentUser`
+
+**Service:** authz
+
+`currentUser`: [User](#user)!
+
+Returns the currently authenticated user.
+
+---
+
+### `devCenterRecipes`
+
+**Service:** recipemarketplace
+
+`devCenterRecipes`: [[RecipeDescriptor](#recipedescriptor)!]!
+
+Get available DevCenter recipes for configuration.
+
+---
+
+### `license`
+
+**Service:** authz
+
+`license`: [License](#license)!
+
+Request a new license lease key
+
+---
+
+### `organization`
+
+**Service:** organization
+
+`organization`(id: ID!): [Organization](#organization)!
+
+---
+
+### `organizations`
+
+**Service:** organization
+
+`organizations`(first: Int = 100, after: String, where: [OrganizationWhereInput](#organizationwhereinput), orderBy: [[OrganizationOrderByInput](#organizationorderbyinput)!]): [OrganizationConnection](#organizationconnection)!
+
+---
+
+### `scmConnections`
+
+**Service:** authz
+
+`scmConnections`: [[ScmConnection](#scmconnection)!]!
+
+Returns connections for all SCM providers.
+
+---
+
+### `users`
+
+**Service:** authz
+
+`users`(first: Int = 100, after: String, where: [UserWhereInput](#userwhereinput), orderBy: [[UserOrderByInput](#userorderbyinput)!]): [UserConnection](#userconnection)!
+
+Returns users with option to filter by role.
+
+---
+
+### `verifyToken`
+
+**Service:** changesetcommitter
+
+`verifyToken`(origin: String!, scmType: [ScmType](#scmtype)!): String
+
+---
 
 ## Mutations
 
-<div id="approvePullRequests" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">approvePullRequests</span>
-<span className="gql-svc">changelogreader</span>
-</div>
-<div className="gql-ret">: <a href="#bulkpullrequestactionqueued">BulkPullRequestActionQueued</a>!</div>
-<div className="gql-args">(organizationId: ID!, selection: <a href="#pullrequestselectioninput">PullRequestSelectionInput</a>!)</div>
-<p>Approve pull requests in bulk. Returns the queued action for polling.</p>
-</div>
+### `approvePullRequests`
 
-<div id="cancelBulkPullRequestAction" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">cancelBulkPullRequestAction</span>
-<span className="gql-svc">changelogreader</span>
-</div>
-<div className="gql-ret">: <a href="#bulkpullrequestactioncanceled">BulkPullRequestActionCanceled</a>!</div>
-<div className="gql-args">(id: ID!)</div>
-<p>Cancel a pending bulk pull request action.</p>
-</div>
+**Service:** changelogreader
 
-<div id="cancelCommit" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">cancelCommit</span>
-<span className="gql-svc">changesetcommitter</span>
-</div>
-<div className="gql-ret">: <a href="#organizationcommitcanceled">OrganizationCommitCanceled</a>!</div>
-<div className="gql-args">(id: ID!)</div>
-<p>Cancel a running commit operation.</p>
-</div>
+`approvePullRequests`(organizationId: ID!, selection: [PullRequestSelectionInput](#pullrequestselectioninput)!): [BulkPullRequestActionQueued](#bulkpullrequestactionqueued)!
 
-<div id="cancelDevCenterRun" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">cancelDevCenterRun</span>
-<span className="gql-svc">recipeworker</span>
-</div>
-<div className="gql-ret">: ID!</div>
-<div className="gql-args">(id: ID!)</div>
-<p>Cancel a DevCenter run. Cancellation is best-effort and asynchronous.</p>
-</div>
+Approve pull requests in bulk. Returns the queued action for polling.
 
-<div id="cancelMessage" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">cancelMessage</span>
-<span className="gql-svc">moddy</span>
-</div>
-<div className="gql-ret">: Boolean!</div>
-<div className="gql-args">(conversationId: ID!, messageId: ID)</div>
-<p>Interrupt the currently-running turn for a conversation. The virtual thread driving the turn is interrupted — a blocking LLM stream unwinds immediately, and long-running downstream work (recipe runs) receives a best-effort cancel via `cancelRecipeRun` on recipe-worker. Cheap tool calls finish naturally. A terminal CANCELLED `ErrorMessage` is appended to the log regardless.</p>
-<p>LLM-memory consistency on the next turn is preserved by the JSONL collapse: `buildChatMessages` pairs every tool-origin row into an `AiMessage(toolRequests)` + `ToolExecutionResultMessage` batch, and only rows that actually persisted are rebuilt — partially-executed tool batches are reconstructed from whichever tool-origin rows made it to the log.</p>
-<p>Returns <code>true</code> when a running turn was actually interrupted, <code>false</code> when the conversation was already idle (no-op, not an error). <code>messageId</code> is accepted for client compatibility but only the conversation's active turn is cancellable — there is never more than one turn in flight.</p>
-</div>
+---
 
-<div id="cancelRecipeRun" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">cancelRecipeRun</span>
-<span className="gql-svc">recipeworker</span>
-</div>
-<div className="gql-ret">: ID!</div>
-<div className="gql-args">(id: ID!)</div>
-<p>Cancel a recipe run. Cancellation is best-effort and asynchronous.</p>
-</div>
+### `cancelBulkPullRequestAction`
 
-<div id="clearOrganizationPrompt" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">clearOrganizationPrompt</span>
-<span className="gql-svc">moddy</span>
-</div>
-<div className="gql-ret">: Boolean!</div>
-<div className="gql-args">(organizationId: ID!)</div>
-<p>Clear the organization-level prompt override, falling back to universal.</p>
-</div>
+**Service:** changelogreader
 
-<div id="clearUserPrompt" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">clearUserPrompt</span>
-<span className="gql-svc">moddy</span>
-</div>
-<div className="gql-ret">: Boolean!</div>
-<p>Clear the current user's prompt override, falling back to organization or universal.</p>
-</div>
+`cancelBulkPullRequestAction`(id: ID!): [BulkPullRequestActionCanceled](#bulkpullrequestactioncanceled)!
 
-<div id="closePullRequests" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">closePullRequests</span>
-<span className="gql-svc">changelogreader</span>
-</div>
-<div className="gql-ret">: <a href="#bulkpullrequestactionqueued">BulkPullRequestActionQueued</a>!</div>
-<div className="gql-args">(organizationId: ID!, selection: <a href="#pullrequestselectioninput">PullRequestSelectionInput</a>!)</div>
-<p>Close pull requests in bulk. Returns the queued action for polling.</p>
-</div>
+Cancel a pending bulk pull request action.
 
-<div id="commit" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">commit</span>
-<span className="gql-svc">changesetcommitter</span>
-</div>
-<div className="gql-ret">: <a href="#organizationcommitqueued">OrganizationCommitQueued</a>!</div>
-<div className="gql-args">(input: <a href="#commitinput">CommitInput</a>!)</div>
-<p>Create commits from a changeset (recipe run, batch change, etc.).</p>
-</div>
+---
 
-<div id="createAccessToken" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">createAccessToken</span>
-<span className="gql-svc">authz</span>
-</div>
-<div className="gql-ret">: <a href="#createaccesstokenresult">CreateAccessTokenResult</a>!</div>
-<div className="gql-args">(description: String, expiresAt: <a href="#datetime">DateTime</a>)</div>
-<p>Creates a new Moderne Personal Access Token for the current user. Returns the token value only once - it cannot be retrieved again.</p>
-</div>
+### `cancelCommit`
 
-<div id="createConversation" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">createConversation</span>
-<span className="gql-svc">moddy</span>
-</div>
-<div className="gql-ret">: <a href="#sendmessageresult">SendMessageResult</a>!</div>
-<div className="gql-args">(input: <a href="#createconversationinput">CreateConversationInput</a>!, waitForCompletion: Boolean = false)</div>
-<p>Create a new conversation and send the first message. Uses the effective prompt for the organization context. `waitForCompletion` has the same semantics as on `sendMessage`.</p>
-</div>
+**Service:** changesetcommitter
 
-<div id="createUserOrganization" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">createUserOrganization</span>
-<span className="gql-svc">organization</span>
-</div>
-<div className="gql-ret">: <a href="#organization">Organization</a>!</div>
-<div className="gql-args">(input: <a href="#createuserorganizationinput">CreateUserOrganizationInput</a>!)</div>
-<p>Create a new user-defined organization visible only to the current user.</p>
-</div>
+`cancelCommit`(id: ID!): [OrganizationCommitCanceled](#organizationcommitcanceled)!
 
-<div id="deleteUser" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">deleteUser</span>
-<span className="gql-svc">authz</span>
-</div>
-<div className="gql-ret">: Boolean!</div>
-<div className="gql-args">(email: String!)</div>
-<p>Deletes a user and all associated access tokens. Returns true if the user was found and deleted.</p>
-</div>
+Cancel a running commit operation.
 
-<div id="deleteUserOrganization" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">deleteUserOrganization</span>
-<span className="gql-svc">organization</span>
-</div>
-<div className="gql-ret">: Boolean!</div>
-<div className="gql-args">(id: ID!)</div>
-<p>Delete a user-defined organization.</p>
-</div>
+---
 
-<div id="downloadAuditLogs" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">downloadAuditLogs</span>
-<span className="gql-svc">auditreader</span>
-</div>
-<div className="gql-ret">: <a href="#auditlogsdownload">AuditLogsDownload</a>!</div>
-<div className="gql-args">(first: Int, since: <a href="#datetime">DateTime</a>, until: <a href="#datetime">DateTime</a>, format: <a href="#auditlogexportformat">AuditLogExportFormat</a>!)</div>
-<p>Start an asynchronous export of audit logs. Returns a task whose state can be polled via auditLogsDownloads.</p>
-</div>
+### `cancelDevCenterRun`
 
-<div id="downloadDataTable" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">downloadDataTable</span>
-<span className="gql-svc">changesetreader</span>
-</div>
-<div className="gql-ret">: <a href="#datatable">DataTable</a>!</div>
-<div className="gql-args">(changesetId: ID!, dataTable: String!, group: String, format: <a href="#datatableformat">DataTableFormat</a>!)</div>
-<p>Start or retrieve a data table download. If the same data table + group + format combination was already requested, returns the existing download state.</p>
-</div>
+**Service:** recipeworker
 
-<div id="exchangeAuthorizationCode" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">exchangeAuthorizationCode</span>
-<span className="gql-svc">authz</span>
-</div>
-<div className="gql-ret">: <a href="#exchangeauthorizationresult">ExchangeAuthorizationResult</a>!</div>
-<div className="gql-args">(input: <a href="#exchangeauthorizationcodeinput">ExchangeAuthorizationCodeInput</a>!)</div>
-<p>Exchange an OAuth authorization code for an access token.</p>
-<p>This unified mutation handles all OAuth 2.0 VCS providers. The backend uses the authorizationId to look up: - The origin and VCS type - PKCE code_verifier (GitLab)</p>
-<p>On success, the token is stored and future requests will be authenticated.</p>
-</div>
+`cancelDevCenterRun`(id: ID!): ID!
 
-<div id="initiateAuthorization" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">initiateAuthorization</span>
-<span className="gql-svc">authz</span>
-</div>
-<div className="gql-ret">: <a href="#oauthauthorization">OAuthAuthorization</a>!</div>
-<div className="gql-args">(input: <a href="#initiateauthorizationinput">InitiateAuthorizationInput</a>!)</div>
-<p>Initiate OAuth authorization for a VCS origin. Returns an authorization URL to redirect the user to.</p>
-<p>The backend constructs the full OAuth URL including: - PKCE code_challenge for GitLab - Correct scopes for each VCS type - State parameter for CSRF protection</p>
-<p>The authorization ID should be passed to exchangeAuthorizationCode after the user completes OAuth.</p>
-</div>
+Cancel a DevCenter run. Cancellation is best-effort and asynchronous.
 
-<div id="installRecipesForCurrentUser" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">installRecipesForCurrentUser</span>
-<span className="gql-svc">recipemarketplace</span>
-</div>
-<div className="gql-ret">: <a href="#recipeinstallation">RecipeInstallation</a>!</div>
-<div className="gql-args">(bundle: <a href="#recipebundleinput">RecipeBundleInput</a>!)</div>
-<p>Install a recipe bundle to the current user's personal marketplace.</p>
-</div>
+---
 
-<div id="installRecipesForOrganization" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">installRecipesForOrganization</span>
-<span className="gql-svc">recipemarketplace</span>
-</div>
-<div className="gql-ret">: <a href="#recipeinstallation">RecipeInstallation</a>!</div>
-<div className="gql-args">(organizationId: ID!, bundle: <a href="#recipebundleinput">RecipeBundleInput</a>!)</div>
-<p>Install a recipe bundle to a specific organization's marketplace. Requires the `admin` role.</p>
-</div>
+### `cancelMessage`
 
-<div id="installRecipesUniversal" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">installRecipesUniversal</span>
-<span className="gql-svc">recipemarketplace</span>
-</div>
-<div className="gql-ret">: <a href="#recipeinstallation">RecipeInstallation</a>!</div>
-<div className="gql-args">(bundle: <a href="#recipebundleinput">RecipeBundleInput</a>!)</div>
-<p>Install a recipe bundle to the universal marketplace (visible to all). Requires the `admin` role.</p>
-</div>
+**Service:** moddy
 
-<div id="mergePullRequests" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">mergePullRequests</span>
-<span className="gql-svc">changelogreader</span>
-</div>
-<div className="gql-ret">: <a href="#bulkpullrequestactionqueued">BulkPullRequestActionQueued</a>!</div>
-<div className="gql-args">(organizationId: ID!, selection: <a href="#pullrequestselectioninput">PullRequestSelectionInput</a>!, mergeMethod: <a href="#mergemethod">MergeMethod</a>!, deleteSourceBranch: Boolean! = false)</div>
-<p>Merge pull requests in bulk. Returns the queued action for polling.</p>
-</div>
+`cancelMessage`(conversationId: ID!, messageId: ID): Boolean!
 
-<div id="reindexChangelog" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">reindexChangelog</span>
-<span className="gql-svc">changelogwriter</span>
-</div>
-<div className="gql-ret">: <a href="#reindexresult">ReindexResult</a>!</div>
-<div className="gql-args">(since: <a href="#datetime">DateTime</a>!, origin: String)</div>
-<p>Reset poll cursors so the next poll cycle re-fetches and re-enriches changelog entries from the given timestamp forward. Use this to backfill data after deploying enrichment improvements.</p>
-</div>
+Interrupt the currently-running turn for a conversation. The virtual
+thread driving the turn is interrupted — a blocking LLM stream unwinds
+immediately, and long-running downstream work (recipe runs) receives
+a best-effort cancel via `cancelRecipeRun` on recipe-worker. Cheap
+tool calls finish naturally. A terminal CANCELLED `ErrorMessage` is
+appended to the log regardless.
 
-<div id="revokeAccessToken" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">revokeAccessToken</span>
-<span className="gql-svc">authz</span>
-</div>
-<div className="gql-ret">: Boolean!</div>
-<div className="gql-args">(id: ID!)</div>
-<p>Revokes an access token by ID. Returns true if the token was revoked, false if not found.</p>
-</div>
+LLM-memory consistency on the next turn is preserved by the JSONL
+collapse: `buildChatMessages` pairs every tool-origin row into an
+`AiMessage(toolRequests)` + `ToolExecutionResultMessage` batch, and
+only rows that actually persisted are rebuilt — partially-executed
+tool batches are reconstructed from whichever tool-origin rows made
+it to the log.
 
-<div id="revokeAllAccessTokens" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">revokeAllAccessTokens</span>
-<span className="gql-svc">authz</span>
-</div>
-<div className="gql-ret">: Boolean!</div>
-<div className="gql-args">(email: String!)</div>
-<p>Revokes all access tokens for a given user. Returns true if all token were revoked, otherwise false.</p>
-</div>
+Returns {@code true} when a running turn was actually interrupted,
+{@code false} when the conversation was already idle (no-op, not an
+error). {@code messageId} is accepted for client compatibility but
+only the conversation's active turn is cancellable — there is never
+more than one turn in flight.
 
-<div id="revokeScmToken" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">revokeScmToken</span>
-<span className="gql-svc">authz</span>
-</div>
-<div className="gql-ret">: <a href="#revoketokenresult">RevokeTokenResult</a>!</div>
-<div className="gql-args">(input: <a href="#revokescmtokeninput">RevokeScmTokenInput</a>!)</div>
-<p>Revoke an SCM OAuth token for the current user and a specific origin. This removes the stored token, disconnecting the user from the VCS.</p>
-</div>
+---
 
-<div id="runDevCenter" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">runDevCenter</span>
-<span className="gql-svc">recipeworker</span>
-</div>
-<div className="gql-ret">: <a href="#devcenterrunrunning">DevCenterRunRunning</a>!</div>
-<div className="gql-args">(input: <a href="#rundevcenterinput">RunDevCenterInput</a>!)</div>
-<p>Start a DevCenter run for an organization. Returns immediately with running status.</p>
-</div>
+### `cancelRecipeRun`
 
-<div id="runRecipe" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">runRecipe</span>
-<span className="gql-svc">recipeworker</span>
-</div>
-<div className="gql-ret">: <a href="#organizationreciperunqueued">OrganizationRecipeRunQueued</a>!</div>
-<div className="gql-args">(input: <a href="#runrecipeinput">RunRecipeInput</a>!)</div>
-<p>Run a recipe against repositories. Returns the recipe run in its initial queued state.</p>
-</div>
+**Service:** recipeworker
 
-<div id="runVisualization" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">runVisualization</span>
-<span className="gql-svc">changesetvisualizer</span>
-</div>
-<div className="gql-ret">: <a href="#visualization">Visualization</a>!</div>
-<div className="gql-args">(organizationId: ID!, visualizationId: ID!, options: [<a href="#visualizationoptioninput">VisualizationOptionInput</a>!])</div>
-<p>Request a visualization to be generated based on the provided descriptor. Returns the existing visualization if already run with the same options, otherwise queues a new visualization run.</p>
-</div>
+`cancelRecipeRun`(id: ID!): ID!
 
-<div id="sendMessage" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">sendMessage</span>
-<span className="gql-svc">moddy</span>
-</div>
-<div className="gql-ret">: <a href="#sendmessageresult">SendMessageResult</a>!</div>
-<div className="gql-args">(conversationId: ID!, message: String!, waitForCompletion: Boolean = false)</div>
-<p>Send a message to an existing conversation. Returns a handle for polling — `initialCursor` is the cursor to pass to the next `messages(after:)` query, and `turnState` carries the server- recommended poll cadence.</p>
-<p>When `waitForCompletion: true`, the mutation blocks until the turn completes (or the server cap of 4 minutes is reached, whichever comes first). On cap, the mutation returns the current turn state rather than erroring so the caller can continue polling.</p>
-</div>
+Cancel a recipe run. Cancellation is best-effort and asynchronous.
 
-<div id="setOrganizationPrompt" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">setOrganizationPrompt</span>
-<span className="gql-svc">moddy</span>
-</div>
-<div className="gql-ret">: <a href="#prompt">Prompt</a>!</div>
-<div className="gql-args">(organizationId: ID!, content: <a href="#markdown">Markdown</a>!)</div>
-<p>Set the system prompt for a specific organization (overrides universal).</p>
-</div>
+---
 
-<div id="setProfiling" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">setProfiling</span>
-<span className="gql-svc">gateway</span>
-</div>
-<div className="gql-ret">: Boolean!</div>
-<div className="gql-args">(enabled: Boolean!, event: <a href="#profilingevent">ProfilingEvent</a> = CPU)</div>
-<p>Turn continuous profiling on or off for this tenant. When enabled, Pyroscope profiles for every service start landing in the Pyroscope UI within seconds. The primary event the agent samples on is selected by `event` (defaults to CPU); calling the mutation again with a different event while profiling is already on rotates the agent to the new event. Fails when the profiling capability is not enabled for the tenant. Admin role required.</p>
-</div>
+### `clearOrganizationPrompt`
 
-<div id="setUniversalPrompt" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">setUniversalPrompt</span>
-<span className="gql-svc">moddy</span>
-</div>
-<div className="gql-ret">: <a href="#prompt">Prompt</a>!</div>
-<div className="gql-args">(content: <a href="#markdown">Markdown</a>!)</div>
-<p>Set the universal (default) system prompt.</p>
-</div>
+**Service:** moddy
 
-<div id="setUserPrompt" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">setUserPrompt</span>
-<span className="gql-svc">moddy</span>
-</div>
-<div className="gql-ret">: <a href="#prompt">Prompt</a>!</div>
-<div className="gql-args">(content: <a href="#markdown">Markdown</a>!)</div>
-<p>Set the system prompt for the current user (overrides organization and universal).</p>
-</div>
+`clearOrganizationPrompt`(organizationId: ID!): Boolean!
 
-<div id="uninstallRecipesFromCurrentUser" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">uninstallRecipesFromCurrentUser</span>
-<span className="gql-svc">recipemarketplace</span>
-</div>
-<div className="gql-ret">: <a href="#recipeuninstallation">RecipeUninstallation</a>!</div>
-<div className="gql-args">(packageName: String!)</div>
-<p>Uninstall a recipe bundle from the current user's personal marketplace. Returns the number of recipes that were removed.</p>
-</div>
+Clear the organization-level prompt override, falling back to universal.
 
-<div id="uninstallRecipesFromOrganization" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">uninstallRecipesFromOrganization</span>
-<span className="gql-svc">recipemarketplace</span>
-</div>
-<div className="gql-ret">: <a href="#recipeuninstallation">RecipeUninstallation</a>!</div>
-<div className="gql-args">(organizationId: ID!, packageName: String!)</div>
-<p>Uninstall a recipe bundle from a specific organization's marketplace. Returns the number of recipes that were removed. Requires the `admin` role.</p>
-</div>
+---
 
-<div id="uninstallRecipesUniversal" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">uninstallRecipesUniversal</span>
-<span className="gql-svc">recipemarketplace</span>
-</div>
-<div className="gql-ret">: <a href="#recipeuninstallation">RecipeUninstallation</a>!</div>
-<div className="gql-args">(packageName: String!)</div>
-<p>Uninstall a recipe bundle from the universal marketplace. Returns the number of recipes that were removed. Requires the `admin` role.</p>
-</div>
+### `clearUserPrompt`
 
-<div id="updateUserOrganization" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">updateUserOrganization</span>
-<span className="gql-svc">organization</span>
-</div>
-<div className="gql-ret">: <a href="#organization">Organization</a>!</div>
-<div className="gql-args">(input: <a href="#updateuserorganizationinput">UpdateUserOrganizationInput</a>!)</div>
-<p>Update an existing user-defined organization.</p>
-</div>
+**Service:** moddy
+
+`clearUserPrompt`: Boolean!
+
+Clear the current user's prompt override, falling back to organization or universal.
+
+---
+
+### `closePullRequests`
+
+**Service:** changelogreader
+
+`closePullRequests`(organizationId: ID!, selection: [PullRequestSelectionInput](#pullrequestselectioninput)!): [BulkPullRequestActionQueued](#bulkpullrequestactionqueued)!
+
+Close pull requests in bulk. Returns the queued action for polling.
+
+---
+
+### `commit`
+
+**Service:** changesetcommitter
+
+`commit`(input: [CommitInput](#commitinput)!): [OrganizationCommitQueued](#organizationcommitqueued)!
+
+Create commits from a changeset (recipe run, batch change, etc.).
+
+---
+
+### `createAccessToken`
+
+**Service:** authz
+
+`createAccessToken`(description: String, expiresAt: [DateTime](#datetime)): [CreateAccessTokenResult](#createaccesstokenresult)!
+
+Creates a new Moderne Personal Access Token for the current user.
+Returns the token value only once - it cannot be retrieved again.
+
+---
+
+### `createConversation`
+
+**Service:** moddy
+
+`createConversation`(input: [CreateConversationInput](#createconversationinput)!, waitForCompletion: Boolean = false): [SendMessageResult](#sendmessageresult)!
+
+Create a new conversation and send the first message. Uses the
+effective prompt for the organization context. `waitForCompletion`
+has the same semantics as on `sendMessage`.
+
+---
+
+### `createUserOrganization`
+
+**Service:** organization
+
+`createUserOrganization`(input: [CreateUserOrganizationInput](#createuserorganizationinput)!): [Organization](#organization)!
+
+Create a new user-defined organization visible only to the current user.
+
+---
+
+### `deleteUser`
+
+**Service:** authz
+
+`deleteUser`(email: String!): Boolean!
+
+Deletes a user and all associated access tokens.
+Returns true if the user was found and deleted.
+
+---
+
+### `deleteUserOrganization`
+
+**Service:** organization
+
+`deleteUserOrganization`(id: ID!): Boolean!
+
+Delete a user-defined organization.
+
+---
+
+### `downloadAuditLogs`
+
+**Service:** auditreader
+
+`downloadAuditLogs`(first: Int, since: [DateTime](#datetime), until: [DateTime](#datetime), format: [AuditLogExportFormat](#auditlogexportformat)!): [AuditLogsDownload](#auditlogsdownload)!
+
+Start an asynchronous export of audit logs. Returns a task whose state
+can be polled via auditLogsDownloads.
+
+---
+
+### `downloadDataTable`
+
+**Service:** changesetreader
+
+`downloadDataTable`(changesetId: ID!, dataTable: String!, group: String, format: [DataTableFormat](#datatableformat)!): [DataTable](#datatable)!
+
+Start or retrieve a data table download.
+If the same data table + group + format combination was already requested,
+returns the existing download state.
+
+---
+
+### `exchangeAuthorizationCode`
+
+**Service:** authz
+
+`exchangeAuthorizationCode`(input: [ExchangeAuthorizationCodeInput](#exchangeauthorizationcodeinput)!): [ExchangeAuthorizationResult](#exchangeauthorizationresult)!
+
+Exchange an OAuth authorization code for an access token.
+
+This unified mutation handles all OAuth 2.0 VCS providers.
+The backend uses the authorizationId to look up:
+- The origin and VCS type
+- PKCE code_verifier (GitLab)
+
+On success, the token is stored and future requests will be authenticated.
+
+---
+
+### `initiateAuthorization`
+
+**Service:** authz
+
+`initiateAuthorization`(input: [InitiateAuthorizationInput](#initiateauthorizationinput)!): [OAuthAuthorization](#oauthauthorization)!
+
+Initiate OAuth authorization for a VCS origin.
+Returns an authorization URL to redirect the user to.
+
+The backend constructs the full OAuth URL including:
+- PKCE code_challenge for GitLab
+- Correct scopes for each VCS type
+- State parameter for CSRF protection
+
+The authorization ID should be passed to exchangeAuthorizationCode
+after the user completes OAuth.
+
+---
+
+### `installRecipesForCurrentUser`
+
+**Service:** recipemarketplace
+
+`installRecipesForCurrentUser`(bundle: [RecipeBundleInput](#recipebundleinput)!): [RecipeInstallation](#recipeinstallation)!
+
+Install a recipe bundle to the current user's personal marketplace.
+
+---
+
+### `installRecipesForOrganization`
+
+**Service:** recipemarketplace
+
+`installRecipesForOrganization`(organizationId: ID!, bundle: [RecipeBundleInput](#recipebundleinput)!): [RecipeInstallation](#recipeinstallation)!
+
+Install a recipe bundle to a specific organization's marketplace.
+Requires the `admin` role.
+
+---
+
+### `installRecipesUniversal`
+
+**Service:** recipemarketplace
+
+`installRecipesUniversal`(bundle: [RecipeBundleInput](#recipebundleinput)!): [RecipeInstallation](#recipeinstallation)!
+
+Install a recipe bundle to the universal marketplace (visible to all).
+Requires the `admin` role.
+
+---
+
+### `mergePullRequests`
+
+**Service:** changelogreader
+
+`mergePullRequests`(organizationId: ID!, selection: [PullRequestSelectionInput](#pullrequestselectioninput)!, mergeMethod: [MergeMethod](#mergemethod)!, deleteSourceBranch: Boolean! = false): [BulkPullRequestActionQueued](#bulkpullrequestactionqueued)!
+
+Merge pull requests in bulk. Returns the queued action for polling.
+
+---
+
+### `reindexChangelog`
+
+**Service:** changelogwriter
+
+`reindexChangelog`(since: [DateTime](#datetime)!, origin: String): [ReindexResult](#reindexresult)!
+
+Reset poll cursors so the next poll cycle re-fetches and re-enriches
+changelog entries from the given timestamp forward. Use this to backfill
+data after deploying enrichment improvements.
+
+---
+
+### `revokeAccessToken`
+
+**Service:** authz
+
+`revokeAccessToken`(id: ID!): Boolean!
+
+Revokes an access token by ID.
+Returns true if the token was revoked, false if not found.
+
+---
+
+### `revokeAllAccessTokens`
+
+**Service:** authz
+
+`revokeAllAccessTokens`(email: String!): Boolean!
+
+Revokes all access tokens for a given user.
+Returns true if all token were revoked, otherwise false.
+
+---
+
+### `revokeScmToken`
+
+**Service:** authz
+
+`revokeScmToken`(input: [RevokeScmTokenInput](#revokescmtokeninput)!): [RevokeTokenResult](#revoketokenresult)!
+
+Revoke an SCM OAuth token for the current user and a specific origin.
+This removes the stored token, disconnecting the user from the VCS.
+
+---
+
+### `runDevCenter`
+
+**Service:** recipeworker
+
+`runDevCenter`(input: [RunDevCenterInput](#rundevcenterinput)!): [DevCenterRunRunning](#devcenterrunrunning)!
+
+Start a DevCenter run for an organization.
+Returns immediately with running status.
+
+---
+
+### `runRecipe`
+
+**Service:** recipeworker
+
+`runRecipe`(input: [RunRecipeInput](#runrecipeinput)!): [OrganizationRecipeRunQueued](#organizationreciperunqueued)!
+
+Run a recipe against repositories.
+Returns the recipe run in its initial queued state.
+
+---
+
+### `runVisualization`
+
+**Service:** changesetvisualizer
+
+`runVisualization`(organizationId: ID!, visualizationId: ID!, options: [[VisualizationOptionInput](#visualizationoptioninput)!]): [Visualization](#visualization)!
+
+Request a visualization to be generated based on the provided descriptor.
+Returns the existing visualization if already run with the same options,
+otherwise queues a new visualization run.
+
+---
+
+### `sendMessage`
+
+**Service:** moddy
+
+`sendMessage`(conversationId: ID!, message: String!, waitForCompletion: Boolean = false): [SendMessageResult](#sendmessageresult)!
+
+Send a message to an existing conversation. Returns a handle for
+polling — `initialCursor` is the cursor to pass to the next
+`messages(after:)` query, and `turnState` carries the server-
+recommended poll cadence.
+
+When `waitForCompletion: true`, the mutation blocks until the turn
+completes (or the server cap of 4 minutes is reached, whichever comes
+first). On cap, the mutation returns the current turn state rather
+than erroring so the caller can continue polling.
+
+---
+
+### `setOrganizationPrompt`
+
+**Service:** moddy
+
+`setOrganizationPrompt`(organizationId: ID!, content: [Markdown](#markdown)!): [Prompt](#prompt)!
+
+Set the system prompt for a specific organization (overrides universal).
+
+---
+
+### `setProfiling`
+
+**Service:** gateway
+
+`setProfiling`(enabled: Boolean!, event: [ProfilingEvent](#profilingevent) = CPU): Boolean!
+
+Turn continuous profiling on or off for this tenant. When enabled,
+Pyroscope profiles for every service start landing in the Pyroscope UI
+within seconds. The primary event the agent samples on is selected by
+`event` (defaults to CPU); calling the mutation again with a different
+event while profiling is already on rotates the agent to the new event.
+Fails when the profiling capability is not enabled for the tenant.
+Admin role required.
+
+---
+
+### `setUniversalPrompt`
+
+**Service:** moddy
+
+`setUniversalPrompt`(content: [Markdown](#markdown)!): [Prompt](#prompt)!
+
+Set the universal (default) system prompt.
+
+---
+
+### `setUserPrompt`
+
+**Service:** moddy
+
+`setUserPrompt`(content: [Markdown](#markdown)!): [Prompt](#prompt)!
+
+Set the system prompt for the current user (overrides organization and universal).
+
+---
+
+### `uninstallRecipesFromCurrentUser`
+
+**Service:** recipemarketplace
+
+`uninstallRecipesFromCurrentUser`(packageName: String!): [RecipeUninstallation](#recipeuninstallation)!
+
+Uninstall a recipe bundle from the current user's personal marketplace.
+Returns the number of recipes that were removed.
+
+---
+
+### `uninstallRecipesFromOrganization`
+
+**Service:** recipemarketplace
+
+`uninstallRecipesFromOrganization`(organizationId: ID!, packageName: String!): [RecipeUninstallation](#recipeuninstallation)!
+
+Uninstall a recipe bundle from a specific organization's marketplace.
+Returns the number of recipes that were removed.
+Requires the `admin` role.
+
+---
+
+### `uninstallRecipesUniversal`
+
+**Service:** recipemarketplace
+
+`uninstallRecipesUniversal`(packageName: String!): [RecipeUninstallation](#recipeuninstallation)!
+
+Uninstall a recipe bundle from the universal marketplace.
+Returns the number of recipes that were removed.
+Requires the `admin` role.
+
+---
+
+### `updateUserOrganization`
+
+**Service:** organization
+
+`updateUserOrganization`(input: [UpdateUserOrganizationInput](#updateuserorganizationinput)!): [Organization](#organization)!
+
+Update an existing user-defined organization.
+
+---
 
 ## Types
 
 ### Object types
 
-<div id="accesstoken" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">AccessToken</span>
-<span className="gql-svc">authz</span>
-</div>
-<p>Moderne Personal Access Tokens</p>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>id</code></td><td>ID!</td><td>The unique identifier for the access token. This is not the same as the token itself.</td></tr>
-    <tr><td><code>description</code></td><td>String</td><td>Optional description of the token.  Useful for distinguishing between multiple tokens.</td></tr>
-    <tr><td><code>created</code></td><td><a href="#datetime">DateTime</a>!</td><td>The date and time the token was created.</td></tr>
-    <tr><td><code>expiresAt</code></td><td><a href="#datetime">DateTime</a></td><td>The date and time the token will expire.</td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="accesstokenconnection" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">AccessTokenConnection</span>
-<span className="gql-svc">authz</span>
-</div>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>edges</code></td><td>[<a href="#accesstokenedge">AccessTokenEdge</a>!]!</td><td></td></tr>
-    <tr><td><code>pageInfo</code></td><td><a href="#pageinfo">PageInfo</a>!</td><td></td></tr>
-    <tr><td><code>count</code></td><td>Int!</td><td></td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="accesstokenedge" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">AccessTokenEdge</span>
-<span className="gql-svc">authz</span>
-</div>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>node</code></td><td><a href="#accesstoken">AccessToken</a>!</td><td></td></tr>
-    <tr><td><code>cursor</code></td><td>String!</td><td></td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="artifactoryconfiguration" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">ArtifactoryConfiguration</span>
-<span className="gql-svc">gateway</span>
-</div>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>resourceId</code></td><td>String!</td><td></td></tr>
-    <tr><td><code>skipSsl</code></td><td>Boolean!</td><td></td></tr>
-    <tr><td><code>skipValidateConnectivity</code></td><td>Boolean!</td><td></td></tr>
-    <tr><td><code>connectivity</code></td><td><a href="#httptoolconnectivity">HttpToolConnectivity</a>!</td><td></td></tr>
-    <tr><td><code>lstQuery</code></td><td>[String!]</td><td></td></tr>
-    <tr><td><code>lastIngestedAt</code></td><td><a href="#datetime">DateTime</a></td><td></td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="auditlog" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">AuditLog</span>
-<span className="gql-svc">auditreader</span>
-</div>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>id</code></td><td>ID!</td><td></td></tr>
-    <tr><td><code>user</code></td><td><a href="#user">User</a>!</td><td>The user who performed the action.</td></tr>
-    <tr><td><code>target</code></td><td>String!</td><td>The resource type that was acted upon (e.g., "access.tokens", "organizations").</td></tr>
-    <tr><td><code>action</code></td><td>String!</td><td>The specific action that was performed (e.g., "create.token", "delete.organization").</td></tr>
-    <tr><td><code>actionType</code></td><td><a href="#auditactiontype">AuditActionType</a>!</td><td>The CRUD classification of the action.</td></tr>
-    <tr><td><code>outcome</code></td><td><a href="#auditoutcome">AuditOutcome</a>!</td><td>Whether the action succeeded or failed.</td></tr>
-    <tr><td><code>description</code></td><td>String</td><td>Human-readable description of what happened.</td></tr>
-    <tr><td><code>timestamp</code></td><td><a href="#datetime">DateTime</a>!</td><td>When the action occurred.</td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="auditlogconnection" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">AuditLogConnection</span>
-<span className="gql-svc">auditreader</span>
-</div>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>edges</code></td><td>[<a href="#auditlogedge">AuditLogEdge</a>!]!</td><td></td></tr>
-    <tr><td><code>pageInfo</code></td><td><a href="#pageinfo">PageInfo</a>!</td><td></td></tr>
-    <tr><td><code>count</code></td><td>Int!</td><td></td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="auditlogedge" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">AuditLogEdge</span>
-<span className="gql-svc">auditreader</span>
-</div>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>node</code></td><td><a href="#auditlog">AuditLog</a>!</td><td></td></tr>
-    <tr><td><code>cursor</code></td><td>String!</td><td></td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="auditlogsdownloadconnection" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">AuditLogsDownloadConnection</span>
-<span className="gql-svc">auditreader</span>
-</div>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>edges</code></td><td>[<a href="#auditlogsdownloadedge">AuditLogsDownloadEdge</a>!]!</td><td></td></tr>
-    <tr><td><code>pageInfo</code></td><td><a href="#pageinfo">PageInfo</a>!</td><td></td></tr>
-    <tr><td><code>count</code></td><td>Int!</td><td></td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="auditlogsdownloadedge" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">AuditLogsDownloadEdge</span>
-<span className="gql-svc">auditreader</span>
-</div>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>node</code></td><td><a href="#auditlogsdownload">AuditLogsDownload</a>!</td><td></td></tr>
-    <tr><td><code>cursor</code></td><td>String!</td><td></td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="auditlogsdownloaderror" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">AuditLogsDownloadError</span>
-<span className="gql-svc">auditreader</span>
-<span className="gql-impl">implements <a href="#auditlogsdownload">AuditLogsDownload</a></span>
-</div>
-<p>An audit log download failed.</p>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>id</code></td><td>ID!</td><td></td></tr>
-    <tr><td><code>startedAt</code></td><td><a href="#datetime">DateTime</a>!</td><td></td></tr>
-    <tr><td><code>finishedAt</code></td><td><a href="#datetime">DateTime</a>!</td><td></td></tr>
-    <tr><td><code>message</code></td><td>String!</td><td></td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="auditlogsdownloadfinished" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">AuditLogsDownloadFinished</span>
-<span className="gql-svc">auditreader</span>
-<span className="gql-impl">implements <a href="#auditlogsdownload">AuditLogsDownload</a></span>
-</div>
-<p>An audit log download has completed successfully.</p>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>id</code></td><td>ID!</td><td></td></tr>
-    <tr><td><code>format</code></td><td><a href="#auditlogexportformat">AuditLogExportFormat</a>!</td><td></td></tr>
-    <tr><td><code>startedAt</code></td><td><a href="#datetime">DateTime</a>!</td><td></td></tr>
-    <tr><td><code>finishedAt</code></td><td><a href="#datetime">DateTime</a>!</td><td></td></tr>
-    <tr><td><code>downloadUrl</code></td><td>String!</td><td>URL path to download the file (relative to the service base URL).</td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="auditlogsdownloadprocessing" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">AuditLogsDownloadProcessing</span>
-<span className="gql-svc">auditreader</span>
-<span className="gql-impl">implements <a href="#auditlogsdownload">AuditLogsDownload</a></span>
-</div>
-<p>An audit log download is being processed.</p>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>id</code></td><td>ID!</td><td></td></tr>
-    <tr><td><code>format</code></td><td><a href="#auditlogexportformat">AuditLogExportFormat</a>!</td><td></td></tr>
-    <tr><td><code>startedAt</code></td><td><a href="#datetime">DateTime</a>!</td><td></td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="azuredevopsconfiguration" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">AzureDevOpsConfiguration</span>
-<span className="gql-svc">gateway</span>
-</div>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>resourceId</code></td><td>String!</td><td></td></tr>
-    <tr><td><code>skipSsl</code></td><td>Boolean!</td><td></td></tr>
-    <tr><td><code>skipValidateConnectivity</code></td><td>Boolean!</td><td></td></tr>
-    <tr><td><code>connectivity</code></td><td><a href="#httptoolconnectivity">HttpToolConnectivity</a>!</td><td></td></tr>
-    <tr><td><code>oauth</code></td><td><a href="#azuredevopsoauth">AzureDevOpsOauth</a></td><td></td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="azuredevopsconnection" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">AzureDevOpsConnection</span>
-<span className="gql-svc">authz</span>
-<span className="gql-impl">implements <a href="#scmconnection">ScmConnection</a></span>
-</div>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>resourceId</code></td><td>String!</td><td></td></tr>
-    <tr><td><code>isAuthorized</code></td><td>Boolean!</td><td></td></tr>
-    <tr><td><code>tokens</code></td><td>[<a href="#scmtokeninfo">ScmTokenInfo</a>!]!</td><td></td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="azuredevopsoauth" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">AzureDevOpsOauth</span>
-<span className="gql-svc">gateway</span>
-</div>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>clientId</code></td><td>String!</td><td></td></tr>
-    <tr><td><code>tenantId</code></td><td>String!</td><td></td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="batchchange" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">BatchChange</span>
-<span className="gql-svc">changesetreader</span>
-<span className="gql-impl">implements <a href="#organizationchangeset">OrganizationChangeset</a></span>
-</div>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>id</code></td><td>ID!</td><td></td></tr>
-    <tr><td><code>user</code></td><td><a href="#user">User</a>!</td><td></td></tr>
-    <tr><td><code>createdAt</code></td><td><a href="#datetime">DateTime</a>!</td><td></td></tr>
-    <tr><td><code>parent</code></td><td><a href="#organizationchangeset">OrganizationChangeset</a></td><td></td></tr>
-    <tr><td><code>repositories</code></td><td>(first: Int = 100, after: String, where: <a href="#repositorychangesetwhereinput">RepositoryChangesetWhereInput</a>, orderBy: [<a href="#repositorychangesetorderbyinput">RepositoryChangesetOrderByInput</a>!]): <a href="#repositorychangesetconnection">RepositoryChangesetConnection</a>!</td><td></td></tr>
-    <tr><td><code>name</code></td><td>String</td><td></td></tr>
-    <tr><td><code>description</code></td><td>String</td><td></td></tr>
-    <tr><td><code>sourceTool</code></td><td><a href="#toolinfo">ToolInfo</a></td><td></td></tr>
-    <tr><td><code>diffTool</code></td><td><a href="#toolinfo">ToolInfo</a></td><td></td></tr>
-    <tr><td><code>dataTables</code></td><td>(first: Int = 50, after: String, where: <a href="#datatablewhereinput">DataTableWhereInput</a>, orderBy: [<a href="#datatableorderbyinput">DataTableOrderByInput</a>!]): <a href="#datatableconnection">DataTableConnection</a>!</td><td>Data tables produced by this batch change. Each data table starts as Available and transitions to Processing/Finished/Error when downloadDataTable mutation is called.</td></tr>
-    <tr><td><code>visualizations</code></td><td>(first: Int = 50, after: String, where: <a href="#visualizationwhereinput">VisualizationWhereInput</a>, orderBy: [<a href="#visualizationorderbyinput">VisualizationOrderByInput</a>!]): <a href="#visualizationconnection">VisualizationConnection</a>!</td><td>Visualizations produced by this batch change.</td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="batchchangefilechange" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">BatchChangeFileChange</span>
-<span className="gql-svc">changesetreader</span>
-<span className="gql-impl">implements <a href="#filechange">FileChange</a></span>
-</div>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>path</code></td><td><a href="#path">Path</a>!</td><td></td></tr>
-    <tr><td><code>beforeSourcePath</code></td><td><a href="#path">Path</a></td><td></td></tr>
-    <tr><td><code>afterSourcePath</code></td><td><a href="#path">Path</a></td><td></td></tr>
-    <tr><td><code>diff</code></td><td>(markupLevel: <a href="#markuplevel">MarkupLevel</a> = ERROR, showWhitespaceOnlyChanges: Boolean = true): <a href="#patch">Patch</a></td><td></td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="bitbucketcloudconfiguration" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">BitbucketCloudConfiguration</span>
-<span className="gql-svc">gateway</span>
-</div>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>resourceId</code></td><td>String!</td><td></td></tr>
-    <tr><td><code>skipSsl</code></td><td>Boolean!</td><td></td></tr>
-    <tr><td><code>skipValidateConnectivity</code></td><td>Boolean!</td><td></td></tr>
-    <tr><td><code>connectivity</code></td><td><a href="#httptoolconnectivity">HttpToolConnectivity</a>!</td><td></td></tr>
-    <tr><td><code>oauth</code></td><td><a href="#bitbucketcloudoauth">BitbucketCloudOauth</a></td><td></td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="bitbucketcloudconnection" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">BitbucketCloudConnection</span>
-<span className="gql-svc">authz</span>
-<span className="gql-impl">implements <a href="#scmconnection">ScmConnection</a></span>
-</div>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>resourceId</code></td><td>String!</td><td></td></tr>
-    <tr><td><code>isAuthorized</code></td><td>Boolean!</td><td></td></tr>
-    <tr><td><code>tokens</code></td><td>[<a href="#scmtokeninfo">ScmTokenInfo</a>!]!</td><td></td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="bitbucketcloudoauth" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">BitbucketCloudOauth</span>
-<span className="gql-svc">gateway</span>
-</div>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>clientId</code></td><td>String!</td><td></td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="bitbucketconfiguration" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">BitbucketConfiguration</span>
-<span className="gql-svc">gateway</span>
-</div>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>resourceId</code></td><td>String!</td><td></td></tr>
-    <tr><td><code>skipSsl</code></td><td>Boolean!</td><td></td></tr>
-    <tr><td><code>skipValidateConnectivity</code></td><td>Boolean!</td><td></td></tr>
-    <tr><td><code>connectivity</code></td><td><a href="#httptoolconnectivity">HttpToolConnectivity</a>!</td><td></td></tr>
-    <tr><td><code>oauth</code></td><td><a href="#bitbucketoauth">BitbucketOauth</a></td><td></td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="bitbucketconnection" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">BitbucketConnection</span>
-<span className="gql-svc">authz</span>
-<span className="gql-impl">implements <a href="#scmconnection">ScmConnection</a></span>
-</div>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>resourceId</code></td><td>String!</td><td></td></tr>
-    <tr><td><code>isAuthorized</code></td><td>Boolean!</td><td></td></tr>
-    <tr><td><code>tokens</code></td><td>[<a href="#scmtokeninfo">ScmTokenInfo</a>!]!</td><td></td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="bitbucketoauth" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">BitbucketOauth</span>
-<span className="gql-svc">gateway</span>
-</div>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>clientId</code></td><td>String!</td><td></td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="branchcommitoptions" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">BranchCommitOptions</span>
-<span className="gql-svc">changesetcommitter</span>
-<span className="gql-impl">implements <a href="#commitoptions">CommitOptions</a></span>
-</div>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>branchName</code></td><td>String</td><td></td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="bulkpullrequestactioncanceled" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">BulkPullRequestActionCanceled</span>
-<span className="gql-svc">changelogreader</span>
-<span className="gql-impl">implements <a href="#bulkpullrequestaction">BulkPullRequestAction</a></span>
-</div>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>id</code></td><td>ID!</td><td></td></tr>
-    <tr><td><code>actionType</code></td><td><a href="#pullrequestactiontype">PullRequestActionType</a>!</td><td></td></tr>
-    <tr><td><code>user</code></td><td><a href="#user">User</a>!</td><td></td></tr>
-    <tr><td><code>canceledBy</code></td><td><a href="#user">User</a>!</td><td></td></tr>
-    <tr><td><code>results</code></td><td>(first: Int = 50, after: String, where: <a href="#pullrequestactionwhereinput">PullRequestActionWhereInput</a>, orderBy: [<a href="#pullrequestactionorderbyinput">PullRequestActionOrderByInput</a>!]): <a href="#pullrequestactionconnection">PullRequestActionConnection</a>!</td><td></td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="bulkpullrequestactionconnection" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">BulkPullRequestActionConnection</span>
-<span className="gql-svc">changelogreader</span>
-</div>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>edges</code></td><td>[<a href="#bulkpullrequestactionedge">BulkPullRequestActionEdge</a>!]!</td><td></td></tr>
-    <tr><td><code>pageInfo</code></td><td><a href="#pageinfo">PageInfo</a>!</td><td></td></tr>
-    <tr><td><code>count</code></td><td>Int!</td><td></td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="bulkpullrequestactionedge" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">BulkPullRequestActionEdge</span>
-<span className="gql-svc">changelogreader</span>
-</div>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>node</code></td><td><a href="#bulkpullrequestaction">BulkPullRequestAction</a>!</td><td></td></tr>
-    <tr><td><code>cursor</code></td><td>String!</td><td></td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="bulkpullrequestactionerror" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">BulkPullRequestActionError</span>
-<span className="gql-svc">changelogreader</span>
-<span className="gql-impl">implements <a href="#bulkpullrequestaction">BulkPullRequestAction</a></span>
-</div>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>id</code></td><td>ID!</td><td></td></tr>
-    <tr><td><code>actionType</code></td><td><a href="#pullrequestactiontype">PullRequestActionType</a>!</td><td></td></tr>
-    <tr><td><code>user</code></td><td><a href="#user">User</a>!</td><td></td></tr>
-    <tr><td><code>errorMessage</code></td><td>String!</td><td></td></tr>
-    <tr><td><code>results</code></td><td>(first: Int = 50, after: String, where: <a href="#pullrequestactionwhereinput">PullRequestActionWhereInput</a>, orderBy: [<a href="#pullrequestactionorderbyinput">PullRequestActionOrderByInput</a>!]): <a href="#pullrequestactionconnection">PullRequestActionConnection</a>!</td><td></td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="bulkpullrequestactionfinished" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">BulkPullRequestActionFinished</span>
-<span className="gql-svc">changelogreader</span>
-<span className="gql-impl">implements <a href="#bulkpullrequestaction">BulkPullRequestAction</a></span>
-</div>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>id</code></td><td>ID!</td><td></td></tr>
-    <tr><td><code>actionType</code></td><td><a href="#pullrequestactiontype">PullRequestActionType</a>!</td><td></td></tr>
-    <tr><td><code>user</code></td><td><a href="#user">User</a>!</td><td></td></tr>
-    <tr><td><code>startedAt</code></td><td><a href="#datetime">DateTime</a>!</td><td></td></tr>
-    <tr><td><code>finishedAt</code></td><td><a href="#datetime">DateTime</a>!</td><td></td></tr>
-    <tr><td><code>results</code></td><td>(first: Int = 50, after: String, where: <a href="#pullrequestactionwhereinput">PullRequestActionWhereInput</a>, orderBy: [<a href="#pullrequestactionorderbyinput">PullRequestActionOrderByInput</a>!]): <a href="#pullrequestactionconnection">PullRequestActionConnection</a>!</td><td></td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="bulkpullrequestactionqueued" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">BulkPullRequestActionQueued</span>
-<span className="gql-svc">changelogreader</span>
-<span className="gql-impl">implements <a href="#bulkpullrequestaction">BulkPullRequestAction</a></span>
-</div>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>id</code></td><td>ID!</td><td></td></tr>
-    <tr><td><code>actionType</code></td><td><a href="#pullrequestactiontype">PullRequestActionType</a>!</td><td></td></tr>
-    <tr><td><code>user</code></td><td><a href="#user">User</a>!</td><td></td></tr>
-    <tr><td><code>queuedAt</code></td><td><a href="#datetime">DateTime</a>!</td><td></td></tr>
-    <tr><td><code>results</code></td><td>(first: Int = 50, after: String, where: <a href="#pullrequestactionwhereinput">PullRequestActionWhereInput</a>, orderBy: [<a href="#pullrequestactionorderbyinput">PullRequestActionOrderByInput</a>!]): <a href="#pullrequestactionconnection">PullRequestActionConnection</a>!</td><td></td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="bulkpullrequestactionrunning" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">BulkPullRequestActionRunning</span>
-<span className="gql-svc">changelogreader</span>
-<span className="gql-impl">implements <a href="#bulkpullrequestaction">BulkPullRequestAction</a></span>
-</div>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>id</code></td><td>ID!</td><td></td></tr>
-    <tr><td><code>actionType</code></td><td><a href="#pullrequestactiontype">PullRequestActionType</a>!</td><td></td></tr>
-    <tr><td><code>user</code></td><td><a href="#user">User</a>!</td><td></td></tr>
-    <tr><td><code>startedAt</code></td><td><a href="#datetime">DateTime</a>!</td><td></td></tr>
-    <tr><td><code>results</code></td><td>(first: Int = 50, after: String, where: <a href="#pullrequestactionwhereinput">PullRequestActionWhereInput</a>, orderBy: [<a href="#pullrequestactionorderbyinput">PullRequestActionOrderByInput</a>!]): <a href="#pullrequestactionconnection">PullRequestActionConnection</a>!</td><td></td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="changeparticipant" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">ChangeParticipant</span>
-<span className="gql-svc">changelogreader</span>
-</div>
-<p>A participant identity from the VCS provider. Not necessarily a Moderne user.</p>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>name</code></td><td>String</td><td>Display name.</td></tr>
-    <tr><td><code>email</code></td><td>String</td><td>Email address.</td></tr>
-    <tr><td><code>username</code></td><td>String</td><td>Username/login on the VCS provider.</td></tr>
-    <tr><td><code>avatarUrl</code></td><td>String</td><td>Avatar URL from the VCS provider.</td></tr>
-    <tr><td><code>roles</code></td><td>[<a href="#contributorrole">ContributorRole</a>!]!</td><td>The roles this participant has across changelog entries.</td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="changelogcommit" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">ChangelogCommit</span>
-<span className="gql-svc">changelogreader</span>
-<span className="gql-impl">implements <a href="#changelogentry">ChangelogEntry</a></span>
-</div>
-<p>A direct commit to a branch.</p>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>id</code></td><td>ID!</td><td></td></tr>
-    <tr><td><code>title</code></td><td>String!</td><td></td></tr>
-    <tr><td><code>author</code></td><td><a href="#changeparticipant">ChangeParticipant</a>!</td><td></td></tr>
-    <tr><td><code>repository</code></td><td><a href="#repository">Repository</a>!</td><td></td></tr>
-    <tr><td><code>url</code></td><td>String!</td><td></td></tr>
-    <tr><td><code>branch</code></td><td>String!</td><td></td></tr>
-    <tr><td><code>sha</code></td><td>String!</td><td>The commit SHA.</td></tr>
-    <tr><td><code>updatedAt</code></td><td><a href="#datetime">DateTime</a>!</td><td></td></tr>
-    <tr><td><code>createdAt</code></td><td><a href="#datetime">DateTime</a>!</td><td></td></tr>
-    <tr><td><code>changeset</code></td><td><a href="#organizationchangeset">OrganizationChangeset</a></td><td></td></tr>
-    <tr><td><code>buildState</code></td><td><a href="#buildstate">BuildState</a></td><td></td></tr>
-    <tr><td><code>diffstat</code></td><td><a href="#diffstat">DiffStat</a>!</td><td></td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="changelogentryconnection" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">ChangelogEntryConnection</span>
-<span className="gql-svc">changelogreader</span>
-</div>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>edges</code></td><td>[<a href="#changelogentryedge">ChangelogEntryEdge</a>!]!</td><td></td></tr>
-    <tr><td><code>pageInfo</code></td><td><a href="#pageinfo">PageInfo</a>!</td><td></td></tr>
-    <tr><td><code>count</code></td><td>Int!</td><td></td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="changelogentryedge" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">ChangelogEntryEdge</span>
-<span className="gql-svc">changelogreader</span>
-</div>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>node</code></td><td><a href="#changelogentry">ChangelogEntry</a>!</td><td></td></tr>
-    <tr><td><code>cursor</code></td><td>String!</td><td></td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="changelogparticipantconnection" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">ChangelogParticipantConnection</span>
-<span className="gql-svc">changelogreader</span>
-</div>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>edges</code></td><td>[<a href="#changelogparticipantedge">ChangelogParticipantEdge</a>!]!</td><td></td></tr>
-    <tr><td><code>pageInfo</code></td><td><a href="#pageinfo">PageInfo</a>!</td><td></td></tr>
-    <tr><td><code>count</code></td><td>Int!</td><td></td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="changelogparticipantedge" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">ChangelogParticipantEdge</span>
-<span className="gql-svc">changelogreader</span>
-</div>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>node</code></td><td><a href="#changeparticipant">ChangeParticipant</a>!</td><td></td></tr>
-    <tr><td><code>cursor</code></td><td>String!</td><td></td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="changelogpullrequest" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">ChangelogPullRequest</span>
-<span className="gql-svc">changelogreader</span>
-<span className="gql-impl">implements <a href="#changelogentry">ChangelogEntry</a></span>
-</div>
-<p>A pull request (open, draft, merged, or closed).</p>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>id</code></td><td>ID!</td><td></td></tr>
-    <tr><td><code>title</code></td><td>String!</td><td></td></tr>
-    <tr><td><code>author</code></td><td><a href="#changeparticipant">ChangeParticipant</a>!</td><td></td></tr>
-    <tr><td><code>repository</code></td><td><a href="#repository">Repository</a>!</td><td></td></tr>
-    <tr><td><code>url</code></td><td>String!</td><td></td></tr>
-    <tr><td><code>branch</code></td><td>String!</td><td></td></tr>
-    <tr><td><code>number</code></td><td>Int!</td><td>The PR number.</td></tr>
-    <tr><td><code>sourceBranch</code></td><td>String!</td><td>The source branch of the pull request.</td></tr>
-    <tr><td><code>state</code></td><td><a href="#pullrequeststate">PullRequestState</a>!</td><td>Current state of the pull request.</td></tr>
-    <tr><td><code>draft</code></td><td>Boolean!</td><td>Whether this is a draft pull request.</td></tr>
-    <tr><td><code>updatedAt</code></td><td><a href="#datetime">DateTime</a>!</td><td></td></tr>
-    <tr><td><code>createdAt</code></td><td><a href="#datetime">DateTime</a>!</td><td></td></tr>
-    <tr><td><code>buildState</code></td><td><a href="#buildstate">BuildState</a></td><td></td></tr>
-    <tr><td><code>reviewDecision</code></td><td><a href="#reviewdecision">ReviewDecision</a></td><td>Review decision for the pull request.</td></tr>
-    <tr><td><code>approvedBy</code></td><td>[<a href="#changeparticipant">ChangeParticipant</a>!]</td><td>Reviewers who approved this pull request.</td></tr>
-    <tr><td><code>requestedReviewers</code></td><td>[<a href="#changeparticipant">ChangeParticipant</a>!]</td><td>Reviewers assigned/requested on this pull request.</td></tr>
-    <tr><td><code>additions</code></td><td>Int</td><td>Lines added.</td></tr>
-    <tr><td><code>deletions</code></td><td>Int</td><td>Lines removed.</td></tr>
-    <tr><td><code>changeset</code></td><td><a href="#organizationchangeset">OrganizationChangeset</a></td><td></td></tr>
-    <tr><td><code>diffstat</code></td><td><a href="#diffstat">DiffStat</a>!</td><td></td></tr>
-    <tr><td><code>actions</code></td><td>(first: Int = 50, after: String, where: <a href="#pullrequestactionwhereinput">PullRequestActionWhereInput</a>, orderBy: [<a href="#pullrequestactionorderbyinput">PullRequestActionOrderByInput</a>!]): <a href="#pullrequestactionconnection">PullRequestActionConnection</a>!</td><td>Actions (approve, merge, close) that have been applied to this pull request. Default sort order is descending by startedAt.</td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="clidownloadinstructionlink" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">CliDownloadInstructionLink</span>
-<span className="gql-svc">gateway</span>
-</div>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>label</code></td><td>String!</td><td></td></tr>
-    <tr><td><code>uri</code></td><td>String!</td><td></td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="codesearchresult" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">CodeSearchResult</span>
-<span className="gql-svc">code-search</span>
-</div>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>groupId</code></td><td>String!</td><td></td></tr>
-    <tr><td><code>artifactId</code></td><td>String!</td><td></td></tr>
-    <tr><td><code>fileChanges</code></td><td>(first: Int = 100, after: String): <a href="#filechangeconnection">FileChangeConnection</a>!</td><td></td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="codesearchresultconnection" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">CodeSearchResultConnection</span>
-<span className="gql-svc">code-search</span>
-</div>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>edges</code></td><td>[<a href="#codesearchresultedge">CodeSearchResultEdge</a>!]!</td><td></td></tr>
-    <tr><td><code>pageInfo</code></td><td><a href="#pageinfo">PageInfo</a>!</td><td></td></tr>
-    <tr><td><code>count</code></td><td>Int!</td><td></td></tr>
-    <tr><td><code>searchDurationMs</code></td><td><a href="#long">Long</a>!</td><td></td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="codesearchresultedge" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">CodeSearchResultEdge</span>
-<span className="gql-svc">code-search</span>
-</div>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>node</code></td><td><a href="#codesearchresult">CodeSearchResult</a>!</td><td></td></tr>
-    <tr><td><code>cursor</code></td><td>String!</td><td></td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="column" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">Column</span>
-<span className="gql-svc">corechangeset</span>
-</div>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>name</code></td><td>String!</td><td></td></tr>
-    <tr><td><code>displayName</code></td><td>String!</td><td></td></tr>
-    <tr><td><code>description</code></td><td>String!</td><td></td></tr>
-    <tr><td><code>type</code></td><td>String!</td><td></td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="connector" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">Connector</span>
-<span className="gql-svc">gateway</span>
-</div>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>id</code></td><td>ID!</td><td></td></tr>
-    <tr><td><code>nickname</code></td><td>String</td><td></td></tr>
-    <tr><td><code>version</code></td><td>String!</td><td></td></tr>
-    <tr><td><code>tools</code></td><td>[<a href="#connectortool">ConnectorTool</a>!]!</td><td></td></tr>
-    <tr><td><code>uiConfiguration</code></td><td><a href="#uiconfiguration">UiConfiguration</a></td><td></td></tr>
-    <tr><td><code>personalAccessTokenConfiguration</code></td><td><a href="#personalaccesstokenconfiguration">PersonalAccessTokenConfiguration</a></td><td></td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="connectorconnection" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">ConnectorConnection</span>
-<span className="gql-svc">gateway</span>
-</div>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>edges</code></td><td>[<a href="#connectoredge">ConnectorEdge</a>!]!</td><td></td></tr>
-    <tr><td><code>pageInfo</code></td><td><a href="#pageinfo">PageInfo</a>!</td><td></td></tr>
-    <tr><td><code>count</code></td><td>Int!</td><td></td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="connectoredge" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">ConnectorEdge</span>
-<span className="gql-svc">gateway</span>
-</div>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>node</code></td><td><a href="#connector">Connector</a>!</td><td></td></tr>
-    <tr><td><code>cursor</code></td><td>String!</td><td></td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="conversation" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">Conversation</span>
-<span className="gql-svc">moddy</span>
-</div>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>id</code></td><td>ID!</td><td></td></tr>
-    <tr><td><code>organization</code></td><td><a href="#organization">Organization</a>!</td><td></td></tr>
-    <tr><td><code>user</code></td><td><a href="#user">User</a>!</td><td></td></tr>
-    <tr><td><code>messages</code></td><td>(first: Int = 100, after: String): <a href="#messageconnection">MessageConnection</a>!</td><td></td></tr>
-    <tr><td><code>turnState</code></td><td><a href="#conversationturnstate">ConversationTurnState</a>!</td><td>Current turn state for this conversation. Carries the server- recommended poll cadence — clients should respect this rather than hardcoding an interval.</td></tr>
-    <tr><td><code>startedAt</code></td><td><a href="#datetime">DateTime</a>!</td><td></td></tr>
-    <tr><td><code>lastUpdatedAt</code></td><td><a href="#datetime">DateTime</a>!</td><td></td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="conversationconnection" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">ConversationConnection</span>
-<span className="gql-svc">moddy</span>
-</div>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>edges</code></td><td>[<a href="#conversationedge">ConversationEdge</a>!]!</td><td></td></tr>
-    <tr><td><code>pageInfo</code></td><td><a href="#pageinfo">PageInfo</a>!</td><td></td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="conversationedge" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">ConversationEdge</span>
-<span className="gql-svc">moddy</span>
-</div>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>node</code></td><td><a href="#conversation">Conversation</a>!</td><td></td></tr>
-    <tr><td><code>cursor</code></td><td>String!</td><td></td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="conversationturnstate" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">ConversationTurnState</span>
-<span className="gql-svc">moddy</span>
-</div>
-<p>Represents the current phase of the conversation's active turn (if any). Drives client poll cadence.</p>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>phase</code></td><td><a href="#conversationphase">ConversationPhase</a>!</td><td></td></tr>
-    <tr><td><code>recommendedPollIntervalMs</code></td><td>Int!</td><td>Server-recommended poll interval in milliseconds.</td></tr>
-    <tr><td><code>activeTurnStartedAt</code></td><td><a href="#datetime">DateTime</a></td><td>When the currently-active turn started, if any.</td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="createaccesstokenresult" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">CreateAccessTokenResult</span>
-<span className="gql-svc">authz</span>
-</div>
-<p>Result of creating a new access token. The token value is only available in this response.</p>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>id</code></td><td>ID!</td><td>The unique identifier for the token. Use this ID for revocation.</td></tr>
-    <tr><td><code>token</code></td><td>String!</td><td>The actual token value. Store this securely - it cannot be retrieved again.</td></tr>
-    <tr><td><code>description</code></td><td>String</td><td>The description provided when creating the token.</td></tr>
-    <tr><td><code>created</code></td><td><a href="#datetime">DateTime</a>!</td><td>When the token was created.</td></tr>
-    <tr><td><code>expiresAt</code></td><td><a href="#datetime">DateTime</a></td><td>When the token will expire, or null if it never expires.</td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="datatableavailable" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">DataTableAvailable</span>
-<span className="gql-svc">changesetreader</span>
-<span className="gql-impl">implements <a href="#datatable">DataTable</a></span>
-</div>
-<p>A data table is available for download but no download has been initiated yet.</p>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>id</code></td><td>ID!</td><td></td></tr>
-    <tr><td><code>dataTable</code></td><td><a href="#datatabledescriptor">DataTableDescriptor</a>!</td><td></td></tr>
-    <tr><td><code>instanceName</code></td><td>String!</td><td></td></tr>
-    <tr><td><code>group</code></td><td>String</td><td></td></tr>
-    <tr><td><code>changesetId</code></td><td>ID!</td><td></td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="datatableconnection" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">DataTableConnection</span>
-<span className="gql-svc">corechangeset</span>
-</div>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>edges</code></td><td>[<a href="#datatableedge">DataTableEdge</a>!]!</td><td></td></tr>
-    <tr><td><code>pageInfo</code></td><td><a href="#pageinfo">PageInfo</a>!</td><td></td></tr>
-    <tr><td><code>count</code></td><td>Int!</td><td></td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="datatabledescriptor" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">DataTableDescriptor</span>
-<span className="gql-svc">corechangeset</span>
-</div>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>name</code></td><td>String!</td><td></td></tr>
-    <tr><td><code>displayName</code></td><td>String!</td><td></td></tr>
-    <tr><td><code>description</code></td><td>String!</td><td></td></tr>
-    <tr><td><code>columns</code></td><td>[<a href="#column">Column</a>!]!</td><td></td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="datatableedge" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">DataTableEdge</span>
-<span className="gql-svc">corechangeset</span>
-</div>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>node</code></td><td><a href="#datatable">DataTable</a>!</td><td></td></tr>
-    <tr><td><code>cursor</code></td><td>String!</td><td></td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="datatableerror" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">DataTableError</span>
-<span className="gql-svc">changesetreader</span>
-<span className="gql-impl">implements <a href="#datatable">DataTable</a></span>
-</div>
-<p>A data table download failed.</p>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>id</code></td><td>ID!</td><td></td></tr>
-    <tr><td><code>dataTable</code></td><td><a href="#datatabledescriptor">DataTableDescriptor</a>!</td><td></td></tr>
-    <tr><td><code>instanceName</code></td><td>String!</td><td></td></tr>
-    <tr><td><code>group</code></td><td>String</td><td></td></tr>
-    <tr><td><code>changesetId</code></td><td>ID!</td><td></td></tr>
-    <tr><td><code>startedAt</code></td><td><a href="#datetime">DateTime</a>!</td><td></td></tr>
-    <tr><td><code>finishedAt</code></td><td><a href="#datetime">DateTime</a>!</td><td></td></tr>
-    <tr><td><code>message</code></td><td>String!</td><td></td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="datatablefinished" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">DataTableFinished</span>
-<span className="gql-svc">changesetreader</span>
-<span className="gql-impl">implements <a href="#datatable">DataTable</a></span>
-</div>
-<p>A data table download has completed successfully.</p>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>id</code></td><td>ID!</td><td></td></tr>
-    <tr><td><code>dataTable</code></td><td><a href="#datatabledescriptor">DataTableDescriptor</a>!</td><td></td></tr>
-    <tr><td><code>instanceName</code></td><td>String!</td><td></td></tr>
-    <tr><td><code>group</code></td><td>String</td><td></td></tr>
-    <tr><td><code>format</code></td><td><a href="#datatableformat">DataTableFormat</a>!</td><td></td></tr>
-    <tr><td><code>changesetId</code></td><td>ID!</td><td></td></tr>
-    <tr><td><code>startedAt</code></td><td><a href="#datetime">DateTime</a>!</td><td></td></tr>
-    <tr><td><code>finishedAt</code></td><td><a href="#datetime">DateTime</a>!</td><td></td></tr>
-    <tr><td><code>duration</code></td><td><a href="#duration">Duration</a></td><td></td></tr>
-    <tr><td><code>downloadUrl</code></td><td>String!</td><td>URL path to download the file (relative to the service base URL).</td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="datatableprocessing" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">DataTableProcessing</span>
-<span className="gql-svc">changesetreader</span>
-<span className="gql-impl">implements <a href="#datatable">DataTable</a></span>
-</div>
-<p>A data table download is being processed.</p>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>id</code></td><td>ID!</td><td></td></tr>
-    <tr><td><code>dataTable</code></td><td><a href="#datatabledescriptor">DataTableDescriptor</a>!</td><td></td></tr>
-    <tr><td><code>instanceName</code></td><td>String!</td><td></td></tr>
-    <tr><td><code>group</code></td><td>String</td><td></td></tr>
-    <tr><td><code>format</code></td><td><a href="#datatableformat">DataTableFormat</a>!</td><td></td></tr>
-    <tr><td><code>changesetId</code></td><td>ID!</td><td></td></tr>
-    <tr><td><code>startedAt</code></td><td><a href="#datetime">DateTime</a>!</td><td></td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="datatablesqlmessage" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">DataTableSqlMessage</span>
-<span className="gql-svc">moddy</span>
-<span className="gql-impl">implements <a href="#message">Message</a></span>
-</div>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>id</code></td><td>ID!</td><td></td></tr>
-    <tr><td><code>user</code></td><td><a href="#user">User</a>!</td><td></td></tr>
-    <tr><td><code>sqlQuery</code></td><td>String!</td><td></td></tr>
-    <tr><td><code>state</code></td><td><a href="#messagestate">MessageState</a>!</td><td></td></tr>
-    <tr><td><code>lastUpdatedAt</code></td><td><a href="#datetime">DateTime</a>!</td><td></td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="datatablesmessage" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">DataTablesMessage</span>
-<span className="gql-svc">moddy</span>
-<span className="gql-impl">implements <a href="#message">Message</a></span>
-</div>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>id</code></td><td>ID!</td><td></td></tr>
-    <tr><td><code>user</code></td><td><a href="#user">User</a>!</td><td></td></tr>
-    <tr><td><code>dataTables</code></td><td>[<a href="#datatabledescriptor">DataTableDescriptor</a>!]!</td><td></td></tr>
-    <tr><td><code>state</code></td><td><a href="#messagestate">MessageState</a>!</td><td></td></tr>
-    <tr><td><code>lastUpdatedAt</code></td><td><a href="#datetime">DateTime</a>!</td><td></td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="devcenter" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">DevCenter</span>
-<span className="gql-svc">changesetreader</span>
-</div>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>recipe</code></td><td><a href="#recipedescriptor">RecipeDescriptor</a></td><td>The currently configured DevCenter recipe for this organization.</td></tr>
-    <tr><td><code>runs</code></td><td>(first: Int = 10, after: String, where: <a href="#devcenterrunwhereinput">DevCenterRunWhereInput</a>, orderBy: [<a href="#devcenterrunorderbyinput">DevCenterRunOrderByInput</a>!]): <a href="#devcenterrunconnection">DevCenterRunConnection</a>!</td><td>DevCenter runs for this organization, ordered by start time descending.</td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="devcentercard" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">DevCenterCard</span>
-<span className="gql-svc">changesetreader</span>
-</div>
-<p>A DevCenter card represents a category of work (e.g., "Spring Boot 3", "Java 21", "Security"). Cards contain measures that track progress toward completion.</p>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>displayName</code></td><td><a href="#markdown">Markdown</a>!</td><td>Display name of the card.</td></tr>
-    <tr><td><code>description</code></td><td><a href="#markdown">Markdown</a></td><td>Description of what this card tracks.</td></tr>
-    <tr><td><code>fixRecipe</code></td><td><a href="#recipedescriptor">RecipeDescriptor</a></td><td>Recipe that can fix/complete the work tracked by this card.</td></tr>
-    <tr><td><code>aggregation</code></td><td><a href="#devcenteraggregation">DevCenterAggregation</a>!</td><td>How results are aggregated for this card.</td></tr>
-    <tr><td><code>measures</code></td><td>[<a href="#devcentermeasure">DevCenterMeasure</a>!]!</td><td>Measures within this card, ordered by ordinal.</td></tr>
-    <tr><td><code>repositoriesNotApplicable</code></td><td>Int!</td><td>Repositories where this card is not applicable.</td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="devcentercarddescriptor" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">DevCenterCardDescriptor</span>
-<span className="gql-svc">recipemarketplace</span>
-</div>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>displayName</code></td><td><a href="#markdown">Markdown</a>!</td><td></td></tr>
-    <tr><td><code>description</code></td><td><a href="#markdown">Markdown</a></td><td></td></tr>
-    <tr><td><code>fixRecipe</code></td><td><a href="#recipedescriptor">RecipeDescriptor</a></td><td></td></tr>
-    <tr><td><code>aggregation</code></td><td><a href="#devcenteraggregation">DevCenterAggregation</a>!</td><td></td></tr>
-    <tr><td><code>measures</code></td><td>[<a href="#devcentermeasuredescriptor">DevCenterMeasureDescriptor</a>!]!</td><td></td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="devcentermeasure" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">DevCenterMeasure</span>
-<span className="gql-svc">changesetreader</span>
-</div>
-<p>A measure within a DevCenter card representing a specific state or finding, with a count from the run results.</p>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>displayName</code></td><td><a href="#markdown">Markdown</a>!</td><td>Display name of the measure.</td></tr>
-    <tr><td><code>description</code></td><td><a href="#markdown">Markdown</a></td><td>Description of what this measure represents.</td></tr>
-    <tr><td><code>ordinal</code></td><td>Int!</td><td>Sort order relative to other measures in the card.</td></tr>
-    <tr><td><code>count</code></td><td>Int!</td><td>Count of repositories or occurrences for this measure. For PER_REPOSITORY: number of repositories in this state. For PER_OCCURRENCE: total count of occurrences.</td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="devcentermeasuredescriptor" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">DevCenterMeasureDescriptor</span>
-<span className="gql-svc">recipemarketplace</span>
-</div>
-<p>A measure descriptor within a DevCenter card, representing metadata about a specific state or finding. See DevCenterMeasure in changeset:reader for the runtime version with counts.</p>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>displayName</code></td><td><a href="#markdown">Markdown</a>!</td><td></td></tr>
-    <tr><td><code>description</code></td><td><a href="#markdown">Markdown</a></td><td></td></tr>
-    <tr><td><code>ordinal</code></td><td>Int!</td><td></td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="devcenterorganization" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">DevCenterOrganization</span>
-<span className="gql-svc">changesetreader</span>
-</div>
-<p>Organization-level context from a DevCenter run.</p>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>repositories</code></td><td><a href="#devcenterrepositories">DevCenterRepositories</a>!</td><td>Repository counts at the time of the run.</td></tr>
-    <tr><td><code>contributingDevelopers</code></td><td>Int!</td><td>Number of unique contributing developers (last 90 days).</td></tr>
-    <tr><td><code>linesOfCode</code></td><td><a href="#long">Long</a>!</td><td>Total lines of code across all repositories on platform.</td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="devcenterrepositories" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">DevCenterRepositories</span>
-<span className="gql-svc">changesetreader</span>
-</div>
-<p>Repository counts from a DevCenter run.</p>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>total</code></td><td>Int!</td><td>Total repositories defined in the organization at the time of the run.</td></tr>
-    <tr><td><code>repositoriesWithoutLst</code></td><td>Int!</td><td>Repositories with no LST ingested at the time of the run.</td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="devcenterruncanceled" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">DevCenterRunCanceled</span>
-<span className="gql-svc">changesetreader</span>
-<span className="gql-impl">implements <a href="#devcenterrun">DevCenterRun</a></span>
-</div>
-<p>DevCenter run was canceled before completion.</p>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>id</code></td><td>ID!</td><td></td></tr>
-    <tr><td><code>startedAt</code></td><td><a href="#datetime">DateTime</a>!</td><td></td></tr>
-    <tr><td><code>changeset</code></td><td><a href="#organizationchangeset">OrganizationChangeset</a></td><td></td></tr>
-    <tr><td><code>finishedAt</code></td><td><a href="#datetime">DateTime</a>!</td><td></td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="devcenterrunconnection" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">DevCenterRunConnection</span>
-<span className="gql-svc">changesetreader</span>
-</div>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>edges</code></td><td>[<a href="#devcenterrunedge">DevCenterRunEdge</a>!]!</td><td></td></tr>
-    <tr><td><code>pageInfo</code></td><td><a href="#pageinfo">PageInfo</a>!</td><td></td></tr>
-    <tr><td><code>count</code></td><td>Int!</td><td></td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="devcenterrunedge" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">DevCenterRunEdge</span>
-<span className="gql-svc">changesetreader</span>
-</div>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>node</code></td><td><a href="#devcenterrun">DevCenterRun</a>!</td><td></td></tr>
-    <tr><td><code>cursor</code></td><td>String!</td><td></td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="devcenterrunerror" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">DevCenterRunError</span>
-<span className="gql-svc">changesetreader</span>
-<span className="gql-impl">implements <a href="#devcenterrun">DevCenterRun</a></span>
-</div>
-<p>DevCenter run failed with an error.</p>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>id</code></td><td>ID!</td><td></td></tr>
-    <tr><td><code>startedAt</code></td><td><a href="#datetime">DateTime</a>!</td><td></td></tr>
-    <tr><td><code>changeset</code></td><td><a href="#organizationchangeset">OrganizationChangeset</a></td><td></td></tr>
-    <tr><td><code>finishedAt</code></td><td><a href="#datetime">DateTime</a>!</td><td></td></tr>
-    <tr><td><code>message</code></td><td>String!</td><td>Human-readable error message.</td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="devcenterrunfinished" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">DevCenterRunFinished</span>
-<span className="gql-svc">changesetreader</span>
-<span className="gql-impl">implements <a href="#devcenterrun">DevCenterRun</a></span>
-</div>
-<p>DevCenter run completed successfully with summarized results.</p>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>id</code></td><td>ID!</td><td></td></tr>
-    <tr><td><code>startedAt</code></td><td><a href="#datetime">DateTime</a>!</td><td></td></tr>
-    <tr><td><code>changeset</code></td><td><a href="#organizationchangeset">OrganizationChangeset</a></td><td></td></tr>
-    <tr><td><code>finishedAt</code></td><td><a href="#datetime">DateTime</a>!</td><td></td></tr>
-    <tr><td><code>organization</code></td><td><a href="#devcenterorganization">DevCenterOrganization</a>!</td><td></td></tr>
-    <tr><td><code>upgradesAndMigrations</code></td><td>[<a href="#devcentercard">DevCenterCard</a>!]!</td><td>Upgrade and migration opportunities found (from UpgradesAndMigrations data table).</td></tr>
-    <tr><td><code>security</code></td><td><a href="#devcentercard">DevCenterCard</a></td><td>Security vulnerabilities found (from SecurityIssues data table).</td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="devcenterrunrunning" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">DevCenterRunRunning</span>
-<span className="gql-svc">changesetreader</span>
-<span className="gql-impl">implements <a href="#devcenterrun">DevCenterRun</a></span>
-</div>
-<p>DevCenter recipe is currently running across repositories.</p>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>id</code></td><td>ID!</td><td></td></tr>
-    <tr><td><code>startedAt</code></td><td><a href="#datetime">DateTime</a>!</td><td></td></tr>
-    <tr><td><code>changeset</code></td><td><a href="#organizationchangeset">OrganizationChangeset</a></td><td></td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="diffstat" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">DiffStat</span>
-<span className="gql-svc">changelogreader</span>
-</div>
-<p>Aggregate line-level diff statistics.</p>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>additions</code></td><td>Int!</td><td>Total lines added.</td></tr>
-    <tr><td><code>deletions</code></td><td>Int!</td><td>Total lines removed.</td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="directcommitsucceeded" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">DirectCommitSucceeded</span>
-<span className="gql-svc">changesetcommitter</span>
-<span className="gql-impl">implements <a href="#repositorycommitsucceeded">RepositoryCommitSucceeded</a></span>
-<span className="gql-impl">implements <a href="#repositorycommit">RepositoryCommit</a></span>
-</div>
-<p>Direct commit to repository completed successfully.</p>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>repository</code></td><td><a href="#repository">Repository</a>!</td><td></td></tr>
-    <tr><td><code>startedAt</code></td><td><a href="#datetime">DateTime</a>!</td><td></td></tr>
-    <tr><td><code>finishedAt</code></td><td><a href="#datetime">DateTime</a>!</td><td></td></tr>
-    <tr><td><code>resultLink</code></td><td>String</td><td></td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="errormessage" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">ErrorMessage</span>
-<span className="gql-svc">moddy</span>
-<span className="gql-impl">implements <a href="#message">Message</a></span>
-</div>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>id</code></td><td>ID!</td><td></td></tr>
-    <tr><td><code>user</code></td><td><a href="#user">User</a>!</td><td></td></tr>
-    <tr><td><code>content</code></td><td><a href="#markdown">Markdown</a>!</td><td></td></tr>
-    <tr><td><code>code</code></td><td>String</td><td>Stable error code that clients may switch on for UI copy. The full taxonomy (split into API-call errors vs in-conversation errors) is maintained in `doc/moddy-polling-ui-handoff.md`. As of now:    Configuration / LLM provider:     LLM_UNAVAILABLE, LLM_OVERLOADED, LLM_RATE_LIMITED, LLM_AUTH_FAILED,     LLM_CONTEXT_TOO_LONG, LLM_TIMED_OUT, LLM_QUOTA_EXCEEDED,     LLM_UNREACHABLE, LLM_EMPTY_RESPONSE, LLM_FAILED    Tool execution:     TOOL_UNKNOWN, TOOL_FAILED    Turn lifecycle:     TURN_LIMIT_EXCEEDED, CANCELLED    Fallback:     INTERNAL  API-call errors (returned in GraphQL `errors[]`, not as messages): INVALID_CURSOR, FORBIDDEN, CONVERSATION_BUSY, MESSAGE_TOO_LONG, CONVERSATION_NOT_FOUND, TOO_MANY_REQUESTS.</td></tr>
-    <tr><td><code>state</code></td><td><a href="#messagestate">MessageState</a>!</td><td></td></tr>
-    <tr><td><code>lastUpdatedAt</code></td><td><a href="#datetime">DateTime</a>!</td><td></td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="exchangeauthorizationresult" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">ExchangeAuthorizationResult</span>
-<span className="gql-svc">authz</span>
-</div>
-<p>Result of exchanging an authorization code.</p>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>success</code></td><td>Boolean!</td><td>True if the exchange was successful and token was stored.</td></tr>
-    <tr><td><code>error</code></td><td>String</td><td>Error message if exchange failed.</td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="filechangeconnection" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">FileChangeConnection</span>
-<span className="gql-svc">corechangeset</span>
-</div>
-<p>Connection for file changes with aggregate statistics.</p>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>edges</code></td><td>[<a href="#filechangeedge">FileChangeEdge</a>!]!</td><td></td></tr>
-    <tr><td><code>pageInfo</code></td><td><a href="#pageinfo">PageInfo</a>!</td><td></td></tr>
-    <tr><td><code>count</code></td><td>Int!</td><td></td></tr>
-    <tr><td><code>searched</code></td><td>Int!</td><td>Total files searched.</td></tr>
-    <tr><td><code>changed</code></td><td>Int!</td><td>Files with committable changes.</td></tr>
-    <tr><td><code>errors</code></td><td>Int!</td><td>Files with errors.</td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="filechangeedge" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">FileChangeEdge</span>
-<span className="gql-svc">corechangeset</span>
-</div>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>node</code></td><td><a href="#filechange">FileChange</a>!</td><td></td></tr>
-    <tr><td><code>cursor</code></td><td>String!</td><td></td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="forkandpullrequestcommitsucceeded" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">ForkAndPullRequestCommitSucceeded</span>
-<span className="gql-svc">changesetcommitter</span>
-<span className="gql-impl">implements <a href="#repositorycommitsucceeded">RepositoryCommitSucceeded</a></span>
-<span className="gql-impl">implements <a href="#repositorycommit">RepositoryCommit</a></span>
-</div>
-<p>Fork and pull request commit completed successfully.</p>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>repository</code></td><td><a href="#repository">Repository</a>!</td><td></td></tr>
-    <tr><td><code>startedAt</code></td><td><a href="#datetime">DateTime</a>!</td><td></td></tr>
-    <tr><td><code>finishedAt</code></td><td><a href="#datetime">DateTime</a>!</td><td></td></tr>
-    <tr><td><code>resultLink</code></td><td>String</td><td></td></tr>
-    <tr><td><code>pullRequestStatus</code></td><td><a href="#pullrequeststatus">PullRequestStatus</a>!</td><td>Pull request status.</td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="forkcommitoptions" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">ForkCommitOptions</span>
-<span className="gql-svc">changesetcommitter</span>
-<span className="gql-impl">implements <a href="#commitoptions">CommitOptions</a></span>
-</div>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>branchName</code></td><td>String</td><td></td></tr>
-    <tr><td><code>organization</code></td><td>String</td><td>If set, the fork will be created in this organization. Otherwise, the fork will be created in the user's personal account.</td></tr>
-    <tr><td><code>prefixOrganization</code></td><td>Boolean!</td><td></td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="forkcommitsucceeded" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">ForkCommitSucceeded</span>
-<span className="gql-svc">changesetcommitter</span>
-<span className="gql-impl">implements <a href="#repositorycommitsucceeded">RepositoryCommitSucceeded</a></span>
-<span className="gql-impl">implements <a href="#repositorycommit">RepositoryCommit</a></span>
-</div>
-<p>Fork commit completed successfully.</p>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>repository</code></td><td><a href="#repository">Repository</a>!</td><td></td></tr>
-    <tr><td><code>startedAt</code></td><td><a href="#datetime">DateTime</a>!</td><td></td></tr>
-    <tr><td><code>finishedAt</code></td><td><a href="#datetime">DateTime</a>!</td><td></td></tr>
-    <tr><td><code>resultLink</code></td><td>String</td><td></td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="forkpullrequestoptions" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">ForkPullRequestOptions</span>
-<span className="gql-svc">changesetcommitter</span>
-<span className="gql-impl">implements <a href="#commitoptions">CommitOptions</a></span>
-</div>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>branchName</code></td><td>String</td><td></td></tr>
-    <tr><td><code>organization</code></td><td>String</td><td>If set, the fork will be created in this organization. Otherwise, the fork will be created in the user's personal account.</td></tr>
-    <tr><td><code>prefixOrganization</code></td><td>Boolean!</td><td></td></tr>
-    <tr><td><code>pullRequestTitle</code></td><td>String</td><td>If unset, the commit message will be used as the pull request title.</td></tr>
-    <tr><td><code>pullRequestBody</code></td><td><a href="#base64">Base64</a></td><td></td></tr>
-    <tr><td><code>draft</code></td><td>Boolean!</td><td></td></tr>
-    <tr><td><code>maintainerCanModify</code></td><td>Boolean!</td><td>GitHub only flag to allow maintainers to edit a pull request.</td></tr>
-    <tr><td><code>autoMergeMethod</code></td><td><a href="#mergemethod">MergeMethod</a></td><td>If allowed by the repository, set the pull request to automatically merge after all checks pass using the defined strategy.</td></tr>
-    <tr><td><code>canRecreateClosedPullRequest</code></td><td>Boolean!</td><td>Recreate a pull request if it was already closed.</td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="generichttptoolconfiguration" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">GenericHttpToolConfiguration</span>
-<span className="gql-svc">gateway</span>
-</div>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>resourceId</code></td><td>String!</td><td></td></tr>
-    <tr><td><code>skipSsl</code></td><td>Boolean!</td><td></td></tr>
-    <tr><td><code>skipValidateConnectivity</code></td><td>Boolean!</td><td></td></tr>
-    <tr><td><code>connectivity</code></td><td><a href="#httptoolconnectivity">HttpToolConnectivity</a>!</td><td></td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="gitlabconfiguration" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">GitLabConfiguration</span>
-<span className="gql-svc">gateway</span>
-</div>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>resourceId</code></td><td>String!</td><td></td></tr>
-    <tr><td><code>skipSsl</code></td><td>Boolean!</td><td></td></tr>
-    <tr><td><code>skipValidateConnectivity</code></td><td>Boolean!</td><td></td></tr>
-    <tr><td><code>connectivity</code></td><td><a href="#httptoolconnectivity">HttpToolConnectivity</a>!</td><td></td></tr>
-    <tr><td><code>oauth</code></td><td><a href="#gitlaboauth">GitLabOauth</a></td><td></td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="gitlabconnection" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">GitLabConnection</span>
-<span className="gql-svc">authz</span>
-<span className="gql-impl">implements <a href="#scmconnection">ScmConnection</a></span>
-</div>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>resourceId</code></td><td>String!</td><td></td></tr>
-    <tr><td><code>isAuthorized</code></td><td>Boolean!</td><td></td></tr>
-    <tr><td><code>tokens</code></td><td>[<a href="#scmtokeninfo">ScmTokenInfo</a>!]!</td><td></td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="gitlaboauth" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">GitLabOauth</span>
-<span className="gql-svc">gateway</span>
-</div>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>clientId</code></td><td>String!</td><td></td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="githubconfiguration" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">GithubConfiguration</span>
-<span className="gql-svc">gateway</span>
-</div>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>resourceId</code></td><td>String!</td><td></td></tr>
-    <tr><td><code>skipSsl</code></td><td>Boolean!</td><td></td></tr>
-    <tr><td><code>skipValidateConnectivity</code></td><td>Boolean!</td><td></td></tr>
-    <tr><td><code>allowableOrganizations</code></td><td>[String!]!</td><td></td></tr>
-    <tr><td><code>connectivity</code></td><td><a href="#httptoolconnectivity">HttpToolConnectivity</a>!</td><td></td></tr>
-    <tr><td><code>oauth</code></td><td><a href="#githuboauth">GithubOauth</a></td><td></td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="githubconnection" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">GithubConnection</span>
-<span className="gql-svc">authz</span>
-<span className="gql-impl">implements <a href="#scmconnection">ScmConnection</a></span>
-</div>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>resourceId</code></td><td>String!</td><td></td></tr>
-    <tr><td><code>isAuthorized</code></td><td>Boolean!</td><td></td></tr>
-    <tr><td><code>tokens</code></td><td>[<a href="#scmtokeninfo">ScmTokenInfo</a>!]!</td><td></td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="githuboauth" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">GithubOauth</span>
-<span className="gql-svc">gateway</span>
-</div>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>clientId</code></td><td>String!</td><td></td></tr>
-    <tr><td><code>includePrivateRepos</code></td><td>Boolean!</td><td></td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="gorecipebundle" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">GoRecipeBundle</span>
-<span className="gql-svc">changesetreader</span>
-<span className="gql-impl">implements <a href="#recipebundle">RecipeBundle</a></span>
-</div>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>packageName</code></td><td>String!</td><td></td></tr>
-    <tr><td><code>requestedVersion</code></td><td>String</td><td></td></tr>
-    <tr><td><code>version</code></td><td>String</td><td></td></tr>
-    <tr><td><code>recipeCount</code></td><td>Int</td><td></td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="httptoolconnectivity" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">HttpToolConnectivity</span>
-<span className="gql-svc">gateway</span>
-</div>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>connected</code></td><td>Boolean!</td><td></td></tr>
-    <tr><td><code>latency</code></td><td><a href="#duration">Duration</a></td><td></td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="license" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">License</span>
-<span className="gql-svc">authz</span>
-</div>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>key</code></td><td>String</td><td></td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="llmconfiguration" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">LlmConfiguration</span>
-<span className="gql-svc">gateway</span>
-</div>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>resourceId</code></td><td>String!</td><td></td></tr>
-    <tr><td><code>skipSsl</code></td><td>Boolean!</td><td></td></tr>
-    <tr><td><code>skipValidateConnectivity</code></td><td>Boolean!</td><td></td></tr>
-    <tr><td><code>connectivity</code></td><td><a href="#httptoolconnectivity">HttpToolConnectivity</a>!</td><td></td></tr>
-    <tr><td><code>llmProvider</code></td><td><a href="#llmprovider">LlmProvider</a>!</td><td></td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="lstartifact" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">LstArtifact</span>
-<span className="gql-svc">organization</span>
-</div>
-<p>The LST artifact for a repository - the precomputed Lossless Semantic Tree that recipe runs consume. Every repository has a conceptual artifact; `published` reflects the upstream `mod publish` timestamp, while `available` indicates whether the saas can route a recipe run to it yet.</p>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>published</code></td><td><a href="#datetime">DateTime</a></td><td>When `mod publish` produced an artifact into the customer's LST artifact repository, or null if no artifact has been published. For a tenant configured for encrypted LSTs, a non-null `published` does NOT mean the encrypted artifact has been received by the tenant - that signal lives on `available`.</td></tr>
-    <tr><td><code>available</code></td><td>Boolean!</td><td>Whether the artifact is reachable for a recipe run. For an organization source with encryption enabled, true once the connector has uploaded the encrypted artifact and the gateway has surfaced an `encrypted://` alternate publish URI. For a source without encryption (pass-through), true when the gateway-projected row has a non-empty `publishUri`, which we assume is reachable from `mod publish`.</td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="markup" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">Markup</span>
-<span className="gql-svc">corechangeset</span>
-<span className="gql-impl">implements <a href="#marker">Marker</a></span>
-</div>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>id</code></td><td>ID!</td><td></td></tr>
-    <tr><td><code>level</code></td><td><a href="#markuplevel">MarkupLevel</a>!</td><td></td></tr>
-    <tr><td><code>message</code></td><td>String</td><td></td></tr>
-    <tr><td><code>detail</code></td><td>String</td><td></td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="mavenconfiguration" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">MavenConfiguration</span>
-<span className="gql-svc">gateway</span>
-</div>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>resourceId</code></td><td>String!</td><td></td></tr>
-    <tr><td><code>skipSsl</code></td><td>Boolean!</td><td></td></tr>
-    <tr><td><code>skipValidateConnectivity</code></td><td>Boolean!</td><td></td></tr>
-    <tr><td><code>connectivity</code></td><td><a href="#httptoolconnectivity">HttpToolConnectivity</a>!</td><td></td></tr>
-    <tr><td><code>localRepository</code></td><td>String</td><td></td></tr>
-    <tr><td><code>lastIngestedAt</code></td><td><a href="#datetime">DateTime</a></td><td></td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="mavenrecipebundle" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">MavenRecipeBundle</span>
-<span className="gql-svc">changesetreader</span>
-<span className="gql-impl">implements <a href="#recipebundle">RecipeBundle</a></span>
-</div>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>packageName</code></td><td>String!</td><td></td></tr>
-    <tr><td><code>groupId</code></td><td>String!</td><td></td></tr>
-    <tr><td><code>artifactId</code></td><td>String!</td><td></td></tr>
-    <tr><td><code>requestedVersion</code></td><td>String</td><td></td></tr>
-    <tr><td><code>version</code></td><td>String</td><td></td></tr>
-    <tr><td><code>recipeCount</code></td><td>Int</td><td></td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="mergeoptions" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">MergeOptions</span>
-<span className="gql-svc">changesetcommitter</span>
-</div>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>deleteSourceBranch</code></td><td>Boolean!</td><td></td></tr>
-    <tr><td><code>mergeMethod</code></td><td><a href="#mergemethod">MergeMethod</a>!</td><td></td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="messageconnection" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">MessageConnection</span>
-<span className="gql-svc">moddy</span>
-</div>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>edges</code></td><td>[<a href="#messageedge">MessageEdge</a>!]!</td><td></td></tr>
-    <tr><td><code>pageInfo</code></td><td><a href="#pageinfo">PageInfo</a>!</td><td></td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="messageedge" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">MessageEdge</span>
-<span className="gql-svc">moddy</span>
-</div>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>node</code></td><td><a href="#message">Message</a>!</td><td></td></tr>
-    <tr><td><code>cursor</code></td><td>String!</td><td></td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="moddy" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">Moddy</span>
-<span className="gql-svc">moddy</span>
-</div>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>systemPrompt</code></td><td><a href="#prompt">Prompt</a>!</td><td>The effective system prompt for this context. Cascades: user > organization > universal > built-in default.</td></tr>
-    <tr><td><code>adminOnly</code></td><td>Boolean!</td><td>When true, only administrators can create conversations or send messages. Install-level policy flag; the UI uses this together with the viewer's admin status to gate the Moddy menu entry.</td></tr>
-    <tr><td><code>conversations</code></td><td>(first: Int = 50, after: String, where: <a href="#conversationwhereinput">ConversationWhereInput</a>, orderBy: [<a href="#conversationorderbyinput">ConversationOrderByInput</a>!]): <a href="#conversationconnection">ConversationConnection</a>!</td><td></td></tr>
-    <tr><td><code>providerName</code></td><td>String</td><td>Human-readable provider name (e.g. "Anthropic", "OpenAI"). Null when no LLM provider is configured (in which case `capabilities.moddy` is also false — clients should gate the chat composer on the capability, not on this field).</td></tr>
-    <tr><td><code>model</code></td><td>String</td><td>Configured model identifier (e.g. "claude-3-5-sonnet-20241022"). Null when no provider is configured or the provider is configured without a model override.</td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="morehelplink" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">MoreHelpLink</span>
-<span className="gql-svc">gateway</span>
-</div>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>label</code></td><td>String!</td><td></td></tr>
-    <tr><td><code>uri</code></td><td>String!</td><td></td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="npmconfiguration" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">NpmConfiguration</span>
-<span className="gql-svc">gateway</span>
-</div>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>resourceId</code></td><td>String!</td><td></td></tr>
-    <tr><td><code>skipSsl</code></td><td>Boolean!</td><td></td></tr>
-    <tr><td><code>skipValidateConnectivity</code></td><td>Boolean!</td><td></td></tr>
-    <tr><td><code>connectivity</code></td><td><a href="#httptoolconnectivity">HttpToolConnectivity</a>!</td><td></td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="npmrecipebundle" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">NpmRecipeBundle</span>
-<span className="gql-svc">changesetreader</span>
-<span className="gql-impl">implements <a href="#recipebundle">RecipeBundle</a></span>
-</div>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>packageName</code></td><td>String!</td><td></td></tr>
-    <tr><td><code>requestedVersion</code></td><td>String</td><td></td></tr>
-    <tr><td><code>version</code></td><td>String</td><td></td></tr>
-    <tr><td><code>recipeCount</code></td><td>Int</td><td></td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="nugetconfiguration" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">NugetConfiguration</span>
-<span className="gql-svc">gateway</span>
-</div>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>resourceId</code></td><td>String!</td><td></td></tr>
-    <tr><td><code>skipSsl</code></td><td>Boolean!</td><td></td></tr>
-    <tr><td><code>skipValidateConnectivity</code></td><td>Boolean!</td><td></td></tr>
-    <tr><td><code>connectivity</code></td><td><a href="#httptoolconnectivity">HttpToolConnectivity</a>!</td><td></td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="nugetrecipebundle" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">NugetRecipeBundle</span>
-<span className="gql-svc">changesetreader</span>
-<span className="gql-impl">implements <a href="#recipebundle">RecipeBundle</a></span>
-</div>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>packageName</code></td><td>String!</td><td></td></tr>
-    <tr><td><code>requestedVersion</code></td><td>String</td><td></td></tr>
-    <tr><td><code>version</code></td><td>String</td><td></td></tr>
-    <tr><td><code>recipeCount</code></td><td>Int</td><td></td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="oauthauthorization" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">OAuthAuthorization</span>
-<span className="gql-svc">authz</span>
-</div>
-<p>Represents a pending OAuth authorization. The UI should redirect to authorizationUrl, then call exchangeAuthorizationCode with the id and extracted callback parameters.</p>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>id</code></td><td>ID!</td><td>Unique ID for this authorization attempt. Used to look up stored PKCE state at exchange time.</td></tr>
-    <tr><td><code>authorizationUrl</code></td><td>String!</td><td>The fully-constructed OAuth authorization URL. UI should redirect the user to this URL.  IMPORTANT: The UI must store the authorization ID before redirecting, as it will be needed to call exchangeAuthorizationCode after the callback. The redirect URI does not contain the authorization ID.</td></tr>
-    <tr><td><code>callbackParameters</code></td><td>[String!]!</td><td>Query parameters the UI should extract from the OAuth callback URL and pass to exchangeAuthorizationCode (e.g., ["code"]).</td></tr>
-    <tr><td><code>expiresAt</code></td><td><a href="#datetime">DateTime</a>!</td><td>When this authorization expires. UI should treat expired authorizations as stale.</td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="option" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">Option</span>
-<span className="gql-svc">changesetreader</span>
-</div>
-<p>RecipeDescriptor resolved from changeset-specific recipes.csv. When a recipe run is created, the recipes.csv is copied to the changeset directory, so we can resolve the recipe that was used at the time of the run (not the current global state).</p>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>name</code></td><td>String!</td><td></td></tr>
-    <tr><td><code>value</code></td><td><a href="#object">Object</a></td><td></td></tr>
-    <tr><td><code>type</code></td><td>String!</td><td></td></tr>
-    <tr><td><code>displayName</code></td><td>String!</td><td></td></tr>
-    <tr><td><code>description</code></td><td>String!</td><td></td></tr>
-    <tr><td><code>example</code></td><td>String</td><td></td></tr>
-    <tr><td><code>valid</code></td><td>[String]</td><td></td></tr>
-    <tr><td><code>required</code></td><td>Boolean!</td><td></td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="organization" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">Organization</span>
-<span className="gql-svc">changelogreader</span>
-</div>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>id</code></td><td>ID!</td><td></td></tr>
-    <tr><td><code>changelog</code></td><td>(first: Int = 50, after: String, where: <a href="#changelogentrywhereinput">ChangelogEntryWhereInput</a>, orderBy: [<a href="#changelogentryorderbyinput">ChangelogEntryOrderByInput</a>!]): <a href="#changelogentryconnection">ChangelogEntryConnection</a>!</td><td>PR and commit activity feed for repositories in this organization.</td></tr>
-    <tr><td><code>participants</code></td><td>(first: Int = 50, after: String, where: <a href="#changelogparticipantwhereinput">ChangelogParticipantWhereInput</a>, orderBy: [<a href="#changelogparticipantorderbyinput">ChangelogParticipantOrderByInput</a>!]): <a href="#changelogparticipantconnection">ChangelogParticipantConnection</a>!</td><td>All unique participants across the changelog for this organization, aggregated from authors, assignees, closers, and reviewers.</td></tr>
-    <tr><td><code>commitOptions</code></td><td>[<a href="#commitoption">CommitOption</a>!]!</td><td>Available commit options for this organization.</td></tr>
-    <tr><td><code>changesets</code></td><td>(first: Int = 50, after: String, where: <a href="#organizationchangesetwhereinput">OrganizationChangesetWhereInput</a>, orderBy: [<a href="#organizationchangesetorderbyinput">OrganizationChangesetOrderByInput</a>!]): <a href="#organizationchangesetconnection">OrganizationChangesetConnection</a>!</td><td></td></tr>
-    <tr><td><code>devCenter</code></td><td><a href="#devcenter">DevCenter</a></td><td>DevCenter provides organization-wide campaign progress tracking.</td></tr>
-    <tr><td><code>moddy</code></td><td><a href="#moddy">Moddy</a>!</td><td></td></tr>
-    <tr><td><code>name</code></td><td>String!</td><td></td></tr>
-    <tr><td><code>parents</code></td><td>[<a href="#organization">Organization</a>!]!</td><td>The ancestor organizations of this organization, ordered from immediate parent towards root. Does not include the epsilon root. Empty for the root organization and direct children of root.</td></tr>
-    <tr><td><code>user</code></td><td><a href="#user">User</a></td><td>The user who owns this organization. Null for global organizations, non-null for user-defined organizations.</td></tr>
-    <tr><td><code>repositories</code></td><td>(first: Int = 100, after: String, where: <a href="#repositorywhereinput">RepositoryWhereInput</a>, orderBy: [<a href="#repositoryorderbyinput">RepositoryOrderByInput</a>!]): <a href="#repositoryconnection">RepositoryConnection</a>!</td><td></td></tr>
-    <tr><td><code>children</code></td><td>(first: Int = 100, after: String, where: <a href="#organizationwhereinput">OrganizationWhereInput</a>, orderBy: [<a href="#organizationorderbyinput">OrganizationOrderByInput</a>!]): <a href="#organizationconnection">OrganizationConnection</a>!</td><td>Direct children of this organization in the tree, paginated. Useful for lazy-loading the org tree level by level — e.g. an org selector that fetches the root, then the children of each folder only when the user expands it.  `where.depth` is ignored on this field — every direct child of a given parent has the same depth, so the filter would be either all-or-nothing. Use `where.name` and the boolean composers (`_and`, `_or`, `_not`) for meaningful filtering.  `orderBy` defaults to NAME ascending when unspecified.</td></tr>
-    <tr><td><code>marketplace</code></td><td><a href="#recipemarketplace">RecipeMarketplace</a></td><td></td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="organizationchangeset" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">OrganizationChangeset</span>
-<span className="gql-svc">changelogreader</span>
-</div>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>id</code></td><td>ID!</td><td></td></tr>
-    <tr><td><code>bulkPullRequestActions</code></td><td>(first: Int = 50, after: String, where: <a href="#bulkpullrequestactionwhereinput">BulkPullRequestActionWhereInput</a>, orderBy: [<a href="#bulkpullrequestactionorderbyinput">BulkPullRequestActionOrderByInput</a>!]): <a href="#bulkpullrequestactionconnection">BulkPullRequestActionConnection</a>!</td><td>Bulk pull request actions (approve, merge, close) initiated against pull requests that belong to this changeset.  Default sort: STARTED_AT DESC with QUEUED entries (no startedAt) appearing last so polling clients still see in-flight actions.</td></tr>
-    <tr><td><code>commits</code></td><td>(first: Int = 50, after: String, where: <a href="#organizationcommitwhereinput">OrganizationCommitWhereInput</a>, orderBy: [<a href="#organizationcommitorderbyinput">OrganizationCommitOrderByInput</a>!]): <a href="#organizationcommitconnection">OrganizationCommitConnection</a></td><td>Commit operations initiated from this changeset.</td></tr>
-    <tr><td><code>user</code></td><td><a href="#user">User</a>!</td><td></td></tr>
-    <tr><td><code>createdAt</code></td><td><a href="#datetime">DateTime</a>!</td><td></td></tr>
-    <tr><td><code>parent</code></td><td><a href="#organizationchangeset">OrganizationChangeset</a></td><td></td></tr>
-    <tr><td><code>repositories</code></td><td>(first: Int = 100, after: String, where: <a href="#repositorychangesetwhereinput">RepositoryChangesetWhereInput</a>, orderBy: [<a href="#repositorychangesetorderbyinput">RepositoryChangesetOrderByInput</a>!]): <a href="#repositorychangesetconnection">RepositoryChangesetConnection</a>!</td><td></td></tr>
-    <tr><td><code>dataTables</code></td><td>(first: Int = 50, after: String, where: <a href="#datatablewhereinput">DataTableWhereInput</a>, orderBy: [<a href="#datatableorderbyinput">DataTableOrderByInput</a>!]): <a href="#datatableconnection">DataTableConnection</a>!</td><td>Data tables produced by this recipe run. Each data table starts as Available and transitions to Processing/Finished/Error when downloadDataTable mutation is called.</td></tr>
-    <tr><td><code>visualizations</code></td><td>(first: Int = 50, after: String, where: <a href="#visualizationwhereinput">VisualizationWhereInput</a>, orderBy: [<a href="#visualizationorderbyinput">VisualizationOrderByInput</a>!]): <a href="#visualizationconnection">VisualizationConnection</a>!</td><td>Visualizations produced by this changeset. Each visualization starts as Available and transitions to Processing/Finished/Error when runVisualization mutation is called.</td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="organizationchangesetconnection" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">OrganizationChangesetConnection</span>
-<span className="gql-svc">corechangeset</span>
-</div>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>edges</code></td><td>[<a href="#organizationchangesetedge">OrganizationChangesetEdge</a>!]!</td><td></td></tr>
-    <tr><td><code>pageInfo</code></td><td><a href="#pageinfo">PageInfo</a>!</td><td></td></tr>
-    <tr><td><code>count</code></td><td>Int!</td><td></td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="organizationchangesetedge" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">OrganizationChangesetEdge</span>
-<span className="gql-svc">corechangeset</span>
-</div>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>node</code></td><td><a href="#organizationchangeset">OrganizationChangeset</a>!</td><td></td></tr>
-    <tr><td><code>cursor</code></td><td>String!</td><td></td></tr>
-    <tr><td><code>organization</code></td><td><a href="#organization">Organization</a></td><td>The organization this changeset was run against. May differ from the queried organization when the changeset belongs to a suborganization. Null if the organization has been deleted or is temporarily unavailable.</td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="organizationcommitcanceled" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">OrganizationCommitCanceled</span>
-<span className="gql-svc">changesetcommitter</span>
-<span className="gql-impl">implements <a href="#organizationcommit">OrganizationCommit</a></span>
-</div>
-<p>Commit was canceled before completion.</p>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>id</code></td><td>ID!</td><td></td></tr>
-    <tr><td><code>user</code></td><td><a href="#user">User</a>!</td><td></td></tr>
-    <tr><td><code>options</code></td><td><a href="#commitoptions">CommitOptions</a>!</td><td></td></tr>
-    <tr><td><code>message</code></td><td>String!</td><td></td></tr>
-    <tr><td><code>extendedMessage</code></td><td><a href="#base64">Base64</a></td><td></td></tr>
-    <tr><td><code>startedAt</code></td><td><a href="#datetime">DateTime</a></td><td></td></tr>
-    <tr><td><code>finishedAt</code></td><td><a href="#datetime">DateTime</a>!</td><td></td></tr>
-    <tr><td><code>canceledBy</code></td><td><a href="#user">User</a>!</td><td>Who or what initiated the cancellation.</td></tr>
-    <tr><td><code>repositories</code></td><td>(first: Int = 50, after: String, where: <a href="#repositorycommitwhereinput">RepositoryCommitWhereInput</a>, orderBy: [<a href="#repositorycommitorderbyinput">RepositoryCommitOrderByInput</a>!]): <a href="#repositorycommitconnection">RepositoryCommitConnection</a>!</td><td>Paginated results per repository (partial).</td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="organizationcommitconnection" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">OrganizationCommitConnection</span>
-<span className="gql-svc">changesetcommitter</span>
-</div>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>edges</code></td><td>[<a href="#organizationcommitedge">OrganizationCommitEdge</a>!]!</td><td></td></tr>
-    <tr><td><code>pageInfo</code></td><td><a href="#pageinfo">PageInfo</a>!</td><td></td></tr>
-    <tr><td><code>count</code></td><td>Int!</td><td></td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="organizationcommitedge" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">OrganizationCommitEdge</span>
-<span className="gql-svc">changesetcommitter</span>
-</div>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>node</code></td><td><a href="#organizationcommit">OrganizationCommit</a>!</td><td></td></tr>
-    <tr><td><code>cursor</code></td><td>String!</td><td></td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="organizationcommiterror" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">OrganizationCommitError</span>
-<span className="gql-svc">changesetcommitter</span>
-<span className="gql-impl">implements <a href="#organizationcommit">OrganizationCommit</a></span>
-</div>
-<p>Commit failed with an error.</p>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>id</code></td><td>ID!</td><td></td></tr>
-    <tr><td><code>user</code></td><td><a href="#user">User</a>!</td><td></td></tr>
-    <tr><td><code>options</code></td><td><a href="#commitoptions">CommitOptions</a>!</td><td></td></tr>
-    <tr><td><code>message</code></td><td>String!</td><td></td></tr>
-    <tr><td><code>extendedMessage</code></td><td><a href="#base64">Base64</a></td><td></td></tr>
-    <tr><td><code>startedAt</code></td><td><a href="#datetime">DateTime</a></td><td></td></tr>
-    <tr><td><code>finishedAt</code></td><td><a href="#datetime">DateTime</a>!</td><td></td></tr>
-    <tr><td><code>errorMessage</code></td><td>String!</td><td>Human-readable error message.</td></tr>
-    <tr><td><code>repositories</code></td><td>(first: Int = 50, after: String, where: <a href="#repositorycommitwhereinput">RepositoryCommitWhereInput</a>, orderBy: [<a href="#repositorycommitorderbyinput">RepositoryCommitOrderByInput</a>!]): <a href="#repositorycommitconnection">RepositoryCommitConnection</a>!</td><td>Paginated results per repository (partial).</td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="organizationcommitfinished" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">OrganizationCommitFinished</span>
-<span className="gql-svc">changesetcommitter</span>
-<span className="gql-impl">implements <a href="#organizationcommit">OrganizationCommit</a></span>
-</div>
-<p>Commit completed successfully (all or partial success).</p>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>id</code></td><td>ID!</td><td></td></tr>
-    <tr><td><code>user</code></td><td><a href="#user">User</a>!</td><td></td></tr>
-    <tr><td><code>options</code></td><td><a href="#commitoptions">CommitOptions</a>!</td><td></td></tr>
-    <tr><td><code>message</code></td><td>String!</td><td></td></tr>
-    <tr><td><code>extendedMessage</code></td><td><a href="#base64">Base64</a></td><td></td></tr>
-    <tr><td><code>startedAt</code></td><td><a href="#datetime">DateTime</a>!</td><td></td></tr>
-    <tr><td><code>finishedAt</code></td><td><a href="#datetime">DateTime</a>!</td><td></td></tr>
-    <tr><td><code>repositories</code></td><td>(first: Int = 50, after: String, where: <a href="#repositorycommitwhereinput">RepositoryCommitWhereInput</a>, orderBy: [<a href="#repositorycommitorderbyinput">RepositoryCommitOrderByInput</a>!]): <a href="#repositorycommitconnection">RepositoryCommitConnection</a>!</td><td>Paginated results per repository.</td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="organizationcommitqueued" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">OrganizationCommitQueued</span>
-<span className="gql-svc">changesetcommitter</span>
-<span className="gql-impl">implements <a href="#organizationcommit">OrganizationCommit</a></span>
-</div>
-<p>Commit is queued and waiting to be processed.</p>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>id</code></td><td>ID!</td><td></td></tr>
-    <tr><td><code>user</code></td><td><a href="#user">User</a>!</td><td></td></tr>
-    <tr><td><code>options</code></td><td><a href="#commitoptions">CommitOptions</a>!</td><td></td></tr>
-    <tr><td><code>message</code></td><td>String!</td><td></td></tr>
-    <tr><td><code>extendedMessage</code></td><td><a href="#base64">Base64</a></td><td></td></tr>
-    <tr><td><code>startedAt</code></td><td><a href="#datetime">DateTime</a>!</td><td></td></tr>
-    <tr><td><code>repositories</code></td><td>(first: Int = 50, after: String, where: <a href="#repositorycommitwhereinput">RepositoryCommitWhereInput</a>, orderBy: [<a href="#repositorycommitorderbyinput">RepositoryCommitOrderByInput</a>!]): <a href="#repositorycommitconnection">RepositoryCommitConnection</a>!</td><td>Paginated results per repository.</td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="organizationcommitrunning" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">OrganizationCommitRunning</span>
-<span className="gql-svc">changesetcommitter</span>
-<span className="gql-impl">implements <a href="#organizationcommit">OrganizationCommit</a></span>
-</div>
-<p>Commit is actively being processed across repositories.</p>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>id</code></td><td>ID!</td><td></td></tr>
-    <tr><td><code>user</code></td><td><a href="#user">User</a>!</td><td></td></tr>
-    <tr><td><code>options</code></td><td><a href="#commitoptions">CommitOptions</a>!</td><td></td></tr>
-    <tr><td><code>message</code></td><td>String!</td><td></td></tr>
-    <tr><td><code>extendedMessage</code></td><td><a href="#base64">Base64</a></td><td></td></tr>
-    <tr><td><code>startedAt</code></td><td><a href="#datetime">DateTime</a>!</td><td></td></tr>
-    <tr><td><code>repositories</code></td><td>(first: Int = 50, after: String, where: <a href="#repositorycommitwhereinput">RepositoryCommitWhereInput</a>, orderBy: [<a href="#repositorycommitorderbyinput">RepositoryCommitOrderByInput</a>!]): <a href="#repositorycommitconnection">RepositoryCommitConnection</a>!</td><td>Paginated results per repository.</td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="organizationconfiguration" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">OrganizationConfiguration</span>
-<span className="gql-svc">gateway</span>
-</div>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>resourceId</code></td><td>String!</td><td></td></tr>
-    <tr><td><code>skipSsl</code></td><td>Boolean!</td><td></td></tr>
-    <tr><td><code>skipValidateConnectivity</code></td><td>Boolean!</td><td></td></tr>
-    <tr><td><code>connectivity</code></td><td><a href="#httptoolconnectivity">HttpToolConnectivity</a>!</td><td></td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="organizationconnection" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">OrganizationConnection</span>
-<span className="gql-svc">organization</span>
-</div>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>edges</code></td><td>[<a href="#organizationedge">OrganizationEdge</a>!]!</td><td></td></tr>
-    <tr><td><code>pageInfo</code></td><td><a href="#pageinfo">PageInfo</a>!</td><td></td></tr>
-    <tr><td><code>count</code></td><td>Int!</td><td></td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="organizationedge" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">OrganizationEdge</span>
-<span className="gql-svc">organization</span>
-</div>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>node</code></td><td><a href="#organization">Organization</a>!</td><td></td></tr>
-    <tr><td><code>cursor</code></td><td>String!</td><td></td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="organizationreciperun" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">OrganizationRecipeRun</span>
-<span className="gql-svc">changelogreader</span>
-</div>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>id</code></td><td>ID!</td><td></td></tr>
-    <tr><td><code>bulkPullRequestActions</code></td><td>(first: Int = 50, after: String, where: <a href="#bulkpullrequestactionwhereinput">BulkPullRequestActionWhereInput</a>, orderBy: [<a href="#bulkpullrequestactionorderbyinput">BulkPullRequestActionOrderByInput</a>!]): <a href="#bulkpullrequestactionconnection">BulkPullRequestActionConnection</a>!</td><td>Bulk pull request actions for recipe-run changesets.</td></tr>
-    <tr><td><code>commits</code></td><td>(first: Int = 50, after: String, where: <a href="#organizationcommitwhereinput">OrganizationCommitWhereInput</a>, orderBy: [<a href="#organizationcommitorderbyinput">OrganizationCommitOrderByInput</a>!]): <a href="#organizationcommitconnection">OrganizationCommitConnection</a></td><td>Commit operations initiated from this recipe run.</td></tr>
-    <tr><td><code>recipe</code></td><td><a href="#recipedescriptor">RecipeDescriptor</a></td><td></td></tr>
-    <tr><td><code>user</code></td><td><a href="#user">User</a>!</td><td></td></tr>
-    <tr><td><code>options</code></td><td>[<a href="#recipeoptionvalue">RecipeOptionValue</a>!]!</td><td></td></tr>
-    <tr><td><code>createdAt</code></td><td><a href="#datetime">DateTime</a>!</td><td></td></tr>
-    <tr><td><code>lastUpdatedAt</code></td><td><a href="#datetime">DateTime</a>!</td><td>Monotonic high-water mark advanced by every state writer (sync monitor, run monitor, processor). Treat as a content version: poll a tiny query selecting `__typename` + `lastUpdatedAt` cheaply and only refetch the heavy `repositories`/`totals` selections when this value changes.</td></tr>
-    <tr><td><code>priority</code></td><td><a href="#reciperunpriority">RecipeRunPriority</a>!</td><td></td></tr>
-    <tr><td><code>parent</code></td><td><a href="#organizationchangeset">OrganizationChangeset</a></td><td></td></tr>
-    <tr><td><code>repositories</code></td><td>(first: Int = 100, after: String, where: <a href="#repositorychangesetwhereinput">RepositoryChangesetWhereInput</a>, orderBy: [<a href="#repositorychangesetorderbyinput">RepositoryChangesetOrderByInput</a>!]): <a href="#repositorychangesetconnection">RepositoryChangesetConnection</a>!</td><td></td></tr>
-    <tr><td><code>dataTables</code></td><td>(first: Int = 50, after: String, where: <a href="#datatablewhereinput">DataTableWhereInput</a>, orderBy: [<a href="#datatableorderbyinput">DataTableOrderByInput</a>!]): <a href="#datatableconnection">DataTableConnection</a>!</td><td>Data tables produced by this recipe run. Each data table starts as Available and transitions to Processing/Finished/Error when downloadDataTable mutation is called.</td></tr>
-    <tr><td><code>visualizations</code></td><td>(first: Int = 50, after: String, where: <a href="#visualizationwhereinput">VisualizationWhereInput</a>, orderBy: [<a href="#visualizationorderbyinput">VisualizationOrderByInput</a>!]): <a href="#visualizationconnection">VisualizationConnection</a>!</td><td>Visualizations produced by this recipe run.</td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="organizationreciperuncanceled" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">OrganizationRecipeRunCanceled</span>
-<span className="gql-svc">changesetreader</span>
-<span className="gql-impl">implements <a href="#organizationchangeset">OrganizationChangeset</a></span>
-<span className="gql-impl">implements <a href="#organizationreciperun">OrganizationRecipeRun</a></span>
-</div>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>id</code></td><td>ID!</td><td></td></tr>
-    <tr><td><code>recipe</code></td><td><a href="#recipedescriptor">RecipeDescriptor</a></td><td></td></tr>
-    <tr><td><code>user</code></td><td><a href="#user">User</a>!</td><td></td></tr>
-    <tr><td><code>options</code></td><td>[<a href="#recipeoptionvalue">RecipeOptionValue</a>!]!</td><td></td></tr>
-    <tr><td><code>createdAt</code></td><td><a href="#datetime">DateTime</a>!</td><td></td></tr>
-    <tr><td><code>lastUpdatedAt</code></td><td><a href="#datetime">DateTime</a>!</td><td>Monotonic high-water mark advanced by every state writer (sync monitor, run monitor, processor). Treat as a content version: poll a tiny query selecting `__typename` + `lastUpdatedAt` cheaply and only refetch the heavy `repositories`/`totals` selections when this value changes.</td></tr>
-    <tr><td><code>priority</code></td><td><a href="#reciperunpriority">RecipeRunPriority</a>!</td><td></td></tr>
-    <tr><td><code>parent</code></td><td><a href="#organizationchangeset">OrganizationChangeset</a></td><td></td></tr>
-    <tr><td><code>startedAt</code></td><td><a href="#datetime">DateTime</a></td><td></td></tr>
-    <tr><td><code>finishedAt</code></td><td><a href="#datetime">DateTime</a>!</td><td></td></tr>
-    <tr><td><code>canceledAt</code></td><td><a href="#datetime">DateTime</a>!</td><td>Alias for finishedAt - when the run was canceled</td></tr>
-    <tr><td><code>repositories</code></td><td>(first: Int = 100, after: String, where: <a href="#repositorychangesetwhereinput">RepositoryChangesetWhereInput</a>, orderBy: [<a href="#repositorychangesetorderbyinput">RepositoryChangesetOrderByInput</a>!]): <a href="#repositorychangesetconnection">RepositoryChangesetConnection</a>!</td><td></td></tr>
-    <tr><td><code>dataTables</code></td><td>(first: Int = 50, after: String, where: <a href="#datatablewhereinput">DataTableWhereInput</a>, orderBy: [<a href="#datatableorderbyinput">DataTableOrderByInput</a>!]): <a href="#datatableconnection">DataTableConnection</a>!</td><td>Data tables produced by this recipe run. Each data table starts as Available and transitions to Processing/Finished/Error when downloadDataTable mutation is called.</td></tr>
-    <tr><td><code>visualizations</code></td><td>(first: Int = 50, after: String, where: <a href="#visualizationwhereinput">VisualizationWhereInput</a>, orderBy: [<a href="#visualizationorderbyinput">VisualizationOrderByInput</a>!]): <a href="#visualizationconnection">VisualizationConnection</a>!</td><td>Visualizations produced by this recipe run.</td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="organizationreciperunconnection" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">OrganizationRecipeRunConnection</span>
-<span className="gql-svc">changesetreader</span>
-</div>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>edges</code></td><td>[<a href="#organizationreciperunedge">OrganizationRecipeRunEdge</a>!]!</td><td></td></tr>
-    <tr><td><code>pageInfo</code></td><td><a href="#pageinfo">PageInfo</a>!</td><td></td></tr>
-    <tr><td><code>count</code></td><td>Int!</td><td></td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="organizationreciperunedge" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">OrganizationRecipeRunEdge</span>
-<span className="gql-svc">changesetreader</span>
-</div>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>node</code></td><td><a href="#organizationreciperun">OrganizationRecipeRun</a>!</td><td></td></tr>
-    <tr><td><code>cursor</code></td><td>String!</td><td></td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="organizationreciperunerror" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">OrganizationRecipeRunError</span>
-<span className="gql-svc">changesetreader</span>
-<span className="gql-impl">implements <a href="#organizationchangeset">OrganizationChangeset</a></span>
-<span className="gql-impl">implements <a href="#organizationreciperun">OrganizationRecipeRun</a></span>
-</div>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>id</code></td><td>ID!</td><td></td></tr>
-    <tr><td><code>recipe</code></td><td><a href="#recipedescriptor">RecipeDescriptor</a></td><td></td></tr>
-    <tr><td><code>user</code></td><td><a href="#user">User</a>!</td><td></td></tr>
-    <tr><td><code>options</code></td><td>[<a href="#recipeoptionvalue">RecipeOptionValue</a>!]!</td><td></td></tr>
-    <tr><td><code>createdAt</code></td><td><a href="#datetime">DateTime</a>!</td><td></td></tr>
-    <tr><td><code>lastUpdatedAt</code></td><td><a href="#datetime">DateTime</a>!</td><td>Monotonic high-water mark advanced by every state writer (sync monitor, run monitor, processor). Treat as a content version: poll a tiny query selecting `__typename` + `lastUpdatedAt` cheaply and only refetch the heavy `repositories`/`totals` selections when this value changes.</td></tr>
-    <tr><td><code>priority</code></td><td><a href="#reciperunpriority">RecipeRunPriority</a>!</td><td></td></tr>
-    <tr><td><code>parent</code></td><td><a href="#organizationchangeset">OrganizationChangeset</a></td><td></td></tr>
-    <tr><td><code>startedAt</code></td><td><a href="#datetime">DateTime</a></td><td></td></tr>
-    <tr><td><code>finishedAt</code></td><td><a href="#datetime">DateTime</a>!</td><td></td></tr>
-    <tr><td><code>errorMessage</code></td><td>String</td><td></td></tr>
-    <tr><td><code>repositories</code></td><td>(first: Int = 100, after: String, where: <a href="#repositorychangesetwhereinput">RepositoryChangesetWhereInput</a>, orderBy: [<a href="#repositorychangesetorderbyinput">RepositoryChangesetOrderByInput</a>!]): <a href="#repositorychangesetconnection">RepositoryChangesetConnection</a>!</td><td></td></tr>
-    <tr><td><code>dataTables</code></td><td>(first: Int = 50, after: String, where: <a href="#datatablewhereinput">DataTableWhereInput</a>, orderBy: [<a href="#datatableorderbyinput">DataTableOrderByInput</a>!]): <a href="#datatableconnection">DataTableConnection</a>!</td><td>Data tables produced by this recipe run. Each data table starts as Available and transitions to Processing/Finished/Error when downloadDataTable mutation is called.</td></tr>
-    <tr><td><code>visualizations</code></td><td>(first: Int = 50, after: String, where: <a href="#visualizationwhereinput">VisualizationWhereInput</a>, orderBy: [<a href="#visualizationorderbyinput">VisualizationOrderByInput</a>!]): <a href="#visualizationconnection">VisualizationConnection</a>!</td><td>Visualizations produced by this recipe run.</td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="organizationreciperunfinished" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">OrganizationRecipeRunFinished</span>
-<span className="gql-svc">changesetreader</span>
-<span className="gql-impl">implements <a href="#organizationchangeset">OrganizationChangeset</a></span>
-<span className="gql-impl">implements <a href="#organizationreciperun">OrganizationRecipeRun</a></span>
-</div>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>id</code></td><td>ID!</td><td></td></tr>
-    <tr><td><code>recipe</code></td><td><a href="#recipedescriptor">RecipeDescriptor</a></td><td></td></tr>
-    <tr><td><code>user</code></td><td><a href="#user">User</a>!</td><td></td></tr>
-    <tr><td><code>options</code></td><td>[<a href="#recipeoptionvalue">RecipeOptionValue</a>!]!</td><td></td></tr>
-    <tr><td><code>createdAt</code></td><td><a href="#datetime">DateTime</a>!</td><td></td></tr>
-    <tr><td><code>lastUpdatedAt</code></td><td><a href="#datetime">DateTime</a>!</td><td>Monotonic high-water mark advanced by every state writer (sync monitor, run monitor, processor). Treat as a content version: poll a tiny query selecting `__typename` + `lastUpdatedAt` cheaply and only refetch the heavy `repositories`/`totals` selections when this value changes.</td></tr>
-    <tr><td><code>priority</code></td><td><a href="#reciperunpriority">RecipeRunPriority</a>!</td><td></td></tr>
-    <tr><td><code>parent</code></td><td><a href="#organizationchangeset">OrganizationChangeset</a></td><td></td></tr>
-    <tr><td><code>startedAt</code></td><td><a href="#datetime">DateTime</a>!</td><td></td></tr>
-    <tr><td><code>finishedAt</code></td><td><a href="#datetime">DateTime</a>!</td><td></td></tr>
-    <tr><td><code>duration</code></td><td><a href="#duration">Duration</a></td><td></td></tr>
-    <tr><td><code>totals</code></td><td><a href="#reciperuntotals">RecipeRunTotals</a>!</td><td></td></tr>
-    <tr><td><code>repositories</code></td><td>(first: Int = 100, after: String, where: <a href="#repositorychangesetwhereinput">RepositoryChangesetWhereInput</a>, orderBy: [<a href="#repositorychangesetorderbyinput">RepositoryChangesetOrderByInput</a>!]): <a href="#repositorychangesetconnection">RepositoryChangesetConnection</a>!</td><td></td></tr>
-    <tr><td><code>dataTables</code></td><td>(first: Int = 50, after: String, where: <a href="#datatablewhereinput">DataTableWhereInput</a>, orderBy: [<a href="#datatableorderbyinput">DataTableOrderByInput</a>!]): <a href="#datatableconnection">DataTableConnection</a>!</td><td>Data tables produced by this recipe run. Each data table starts as Available and transitions to Processing/Finished/Error when downloadDataTable mutation is called.</td></tr>
-    <tr><td><code>visualizations</code></td><td>(first: Int = 50, after: String, where: <a href="#visualizationwhereinput">VisualizationWhereInput</a>, orderBy: [<a href="#visualizationorderbyinput">VisualizationOrderByInput</a>!]): <a href="#visualizationconnection">VisualizationConnection</a>!</td><td>Visualizations produced by this recipe run.</td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="organizationreciperunqueued" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">OrganizationRecipeRunQueued</span>
-<span className="gql-svc">changesetreader</span>
-<span className="gql-impl">implements <a href="#organizationchangeset">OrganizationChangeset</a></span>
-<span className="gql-impl">implements <a href="#organizationreciperun">OrganizationRecipeRun</a></span>
-</div>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>id</code></td><td>ID!</td><td></td></tr>
-    <tr><td><code>recipe</code></td><td><a href="#recipedescriptor">RecipeDescriptor</a></td><td></td></tr>
-    <tr><td><code>user</code></td><td><a href="#user">User</a>!</td><td></td></tr>
-    <tr><td><code>options</code></td><td>[<a href="#recipeoptionvalue">RecipeOptionValue</a>!]!</td><td></td></tr>
-    <tr><td><code>createdAt</code></td><td><a href="#datetime">DateTime</a>!</td><td></td></tr>
-    <tr><td><code>lastUpdatedAt</code></td><td><a href="#datetime">DateTime</a>!</td><td>Monotonic high-water mark advanced by every state writer (sync monitor, run monitor, processor). Treat as a content version: poll a tiny query selecting `__typename` + `lastUpdatedAt` cheaply and only refetch the heavy `repositories`/`totals` selections when this value changes.</td></tr>
-    <tr><td><code>priority</code></td><td><a href="#reciperunpriority">RecipeRunPriority</a>!</td><td></td></tr>
-    <tr><td><code>parent</code></td><td><a href="#organizationchangeset">OrganizationChangeset</a></td><td></td></tr>
-    <tr><td><code>queuedAt</code></td><td><a href="#datetime">DateTime</a>!</td><td></td></tr>
-    <tr><td><code>repositories</code></td><td>(first: Int = 100, after: String, where: <a href="#repositorychangesetwhereinput">RepositoryChangesetWhereInput</a>, orderBy: [<a href="#repositorychangesetorderbyinput">RepositoryChangesetOrderByInput</a>!]): <a href="#repositorychangesetconnection">RepositoryChangesetConnection</a>!</td><td></td></tr>
-    <tr><td><code>dataTables</code></td><td>(first: Int = 50, after: String, where: <a href="#datatablewhereinput">DataTableWhereInput</a>, orderBy: [<a href="#datatableorderbyinput">DataTableOrderByInput</a>!]): <a href="#datatableconnection">DataTableConnection</a>!</td><td>Data tables produced by this recipe run. Each data table starts as Available and transitions to Processing/Finished/Error when downloadDataTable mutation is called.</td></tr>
-    <tr><td><code>visualizations</code></td><td>(first: Int = 50, after: String, where: <a href="#visualizationwhereinput">VisualizationWhereInput</a>, orderBy: [<a href="#visualizationorderbyinput">VisualizationOrderByInput</a>!]): <a href="#visualizationconnection">VisualizationConnection</a>!</td><td>Visualizations produced by this recipe run.</td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="organizationreciperunrunning" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">OrganizationRecipeRunRunning</span>
-<span className="gql-svc">changesetreader</span>
-<span className="gql-impl">implements <a href="#organizationchangeset">OrganizationChangeset</a></span>
-<span className="gql-impl">implements <a href="#organizationreciperun">OrganizationRecipeRun</a></span>
-</div>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>id</code></td><td>ID!</td><td></td></tr>
-    <tr><td><code>recipe</code></td><td><a href="#recipedescriptor">RecipeDescriptor</a></td><td></td></tr>
-    <tr><td><code>user</code></td><td><a href="#user">User</a>!</td><td></td></tr>
-    <tr><td><code>options</code></td><td>[<a href="#recipeoptionvalue">RecipeOptionValue</a>!]!</td><td></td></tr>
-    <tr><td><code>createdAt</code></td><td><a href="#datetime">DateTime</a>!</td><td></td></tr>
-    <tr><td><code>lastUpdatedAt</code></td><td><a href="#datetime">DateTime</a>!</td><td>Monotonic high-water mark advanced by every state writer (sync monitor, run monitor, processor). Treat as a content version: poll a tiny query selecting `__typename` + `lastUpdatedAt` cheaply and only refetch the heavy `repositories`/`totals` selections when this value changes.</td></tr>
-    <tr><td><code>priority</code></td><td><a href="#reciperunpriority">RecipeRunPriority</a>!</td><td></td></tr>
-    <tr><td><code>parent</code></td><td><a href="#organizationchangeset">OrganizationChangeset</a></td><td></td></tr>
-    <tr><td><code>startedAt</code></td><td><a href="#datetime">DateTime</a>!</td><td></td></tr>
-    <tr><td><code>totals</code></td><td><a href="#reciperuntotals">RecipeRunTotals</a></td><td></td></tr>
-    <tr><td><code>repositories</code></td><td>(first: Int = 100, after: String, where: <a href="#repositorychangesetwhereinput">RepositoryChangesetWhereInput</a>, orderBy: [<a href="#repositorychangesetorderbyinput">RepositoryChangesetOrderByInput</a>!]): <a href="#repositorychangesetconnection">RepositoryChangesetConnection</a>!</td><td></td></tr>
-    <tr><td><code>dataTables</code></td><td>(first: Int = 50, after: String, where: <a href="#datatablewhereinput">DataTableWhereInput</a>, orderBy: [<a href="#datatableorderbyinput">DataTableOrderByInput</a>!]): <a href="#datatableconnection">DataTableConnection</a>!</td><td>Data tables produced by this recipe run. Each data table starts as Available and transitions to Processing/Finished/Error when downloadDataTable mutation is called.</td></tr>
-    <tr><td><code>visualizations</code></td><td>(first: Int = 50, after: String, where: <a href="#visualizationwhereinput">VisualizationWhereInput</a>, orderBy: [<a href="#visualizationorderbyinput">VisualizationOrderByInput</a>!]): <a href="#visualizationconnection">VisualizationConnection</a>!</td><td>Visualizations produced by this recipe run.</td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="organizationreciperunsyncing" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">OrganizationRecipeRunSyncing</span>
-<span className="gql-svc">changesetreader</span>
-<span className="gql-impl">implements <a href="#organizationchangeset">OrganizationChangeset</a></span>
-<span className="gql-impl">implements <a href="#organizationreciperun">OrganizationRecipeRun</a></span>
-</div>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>id</code></td><td>ID!</td><td></td></tr>
-    <tr><td><code>recipe</code></td><td><a href="#recipedescriptor">RecipeDescriptor</a></td><td></td></tr>
-    <tr><td><code>user</code></td><td><a href="#user">User</a>!</td><td></td></tr>
-    <tr><td><code>options</code></td><td>[<a href="#recipeoptionvalue">RecipeOptionValue</a>!]!</td><td></td></tr>
-    <tr><td><code>createdAt</code></td><td><a href="#datetime">DateTime</a>!</td><td></td></tr>
-    <tr><td><code>lastUpdatedAt</code></td><td><a href="#datetime">DateTime</a>!</td><td>Monotonic high-water mark advanced by every state writer (sync monitor, run monitor, processor). Treat as a content version: poll a tiny query selecting `__typename` + `lastUpdatedAt` cheaply and only refetch the heavy `repositories`/`totals` selections when this value changes.</td></tr>
-    <tr><td><code>priority</code></td><td><a href="#reciperunpriority">RecipeRunPriority</a>!</td><td></td></tr>
-    <tr><td><code>parent</code></td><td><a href="#organizationchangeset">OrganizationChangeset</a></td><td></td></tr>
-    <tr><td><code>startedAt</code></td><td><a href="#datetime">DateTime</a>!</td><td></td></tr>
-    <tr><td><code>repositories</code></td><td>(first: Int = 100, after: String, where: <a href="#repositorychangesetwhereinput">RepositoryChangesetWhereInput</a>, orderBy: [<a href="#repositorychangesetorderbyinput">RepositoryChangesetOrderByInput</a>!]): <a href="#repositorychangesetconnection">RepositoryChangesetConnection</a>!</td><td></td></tr>
-    <tr><td><code>dataTables</code></td><td>(first: Int = 50, after: String, where: <a href="#datatablewhereinput">DataTableWhereInput</a>, orderBy: [<a href="#datatableorderbyinput">DataTableOrderByInput</a>!]): <a href="#datatableconnection">DataTableConnection</a>!</td><td>Data tables produced by this recipe run. Each data table starts as Available and transitions to Processing/Finished/Error when downloadDataTable mutation is called.</td></tr>
-    <tr><td><code>visualizations</code></td><td>(first: Int = 50, after: String, where: <a href="#visualizationwhereinput">VisualizationWhereInput</a>, orderBy: [<a href="#visualizationorderbyinput">VisualizationOrderByInput</a>!]): <a href="#visualizationconnection">VisualizationConnection</a>!</td><td>Visualizations produced by this recipe run.</td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="pageinfo" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">PageInfo</span>
-<span className="gql-svc">coregraphql</span>
-</div>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>hasNextPage</code></td><td>Boolean!</td><td></td></tr>
-    <tr><td><code>hasPreviousPage</code></td><td>Boolean!</td><td></td></tr>
-    <tr><td><code>startCursor</code></td><td>String</td><td></td></tr>
-    <tr><td><code>endCursor</code></td><td>String</td><td></td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="patch" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">Patch</span>
-<span className="gql-svc">corechangeset</span>
-</div>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>diff</code></td><td>String!</td><td>Sanitized diff (does not include markers)</td></tr>
-    <tr><td><code>fencedMarkerDiff</code></td><td>String!</td><td>A diff with search and markup markers included in fenced &#123;&#123;UUID&#125;&#125; wrappers that correspond to ids in the markers list.</td></tr>
-    <tr><td><code>markers</code></td><td>[<a href="#marker">Marker</a>!]!</td><td></td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="personalaccesstokenconfiguration" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">PersonalAccessTokenConfiguration</span>
-<span className="gql-svc">gateway</span>
-</div>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>maxExpiryDays</code></td><td>Int</td><td></td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="piprecipebundle" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">PipRecipeBundle</span>
-<span className="gql-svc">changesetreader</span>
-<span className="gql-impl">implements <a href="#recipebundle">RecipeBundle</a></span>
-</div>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>packageName</code></td><td>String!</td><td></td></tr>
-    <tr><td><code>requestedVersion</code></td><td>String</td><td></td></tr>
-    <tr><td><code>version</code></td><td>String</td><td></td></tr>
-    <tr><td><code>recipeCount</code></td><td>Int</td><td></td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="platformcapabilities" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">PlatformCapabilities</span>
-<span className="gql-svc">artifactsmaven</span>
-</div>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>id</code></td><td>ID!</td><td></td></tr>
-    <tr><td><code>artifacts</code></td><td>Boolean!</td><td></td></tr>
-    <tr><td><code>changelog</code></td><td>Boolean!</td><td></td></tr>
-    <tr><td><code>codeSearch</code></td><td>Boolean!</td><td></td></tr>
-    <tr><td><code>connector</code></td><td>Boolean!</td><td></td></tr>
-    <tr><td><code>moddy</code></td><td>Boolean!</td><td></td></tr>
-    <tr><td><code>profiling</code></td><td><a href="#profiling">Profiling</a>!</td><td></td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="profiling" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">Profiling</span>
-<span className="gql-svc">gateway</span>
-</div>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>deployed</code></td><td>Boolean!</td><td>Whether the per-tenant Pyroscope ASG, S3 bucket, and IAM are provisioned.</td></tr>
-    <tr><td><code>session</code></td><td><a href="#profilingsession">ProfilingSession</a></td><td>The currently active profiling session, or null when profiling is off. Flipped by setProfiling.</td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="profilingsession" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">ProfilingSession</span>
-<span className="gql-svc">gateway</span>
-</div>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>user</code></td><td><a href="#user">User</a>!</td><td>The user who turned profiling on.</td></tr>
-    <tr><td><code>startedAt</code></td><td><a href="#datetime">DateTime</a>!</td><td>When profiling was turned on.</td></tr>
-    <tr><td><code>event</code></td><td><a href="#profilingevent">ProfilingEvent</a>!</td><td>The primary profiling event the in-process agent is sampling.</td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="prompt" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">Prompt</span>
-<span className="gql-svc">moddy</span>
-</div>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>content</code></td><td><a href="#markdown">Markdown</a>!</td><td></td></tr>
-    <tr><td><code>lastUpdatedAt</code></td><td><a href="#datetime">DateTime</a>!</td><td></td></tr>
-    <tr><td><code>lastUpdatedBy</code></td><td><a href="#user">User</a>!</td><td></td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="pullrequestactioncanceled" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">PullRequestActionCanceled</span>
-<span className="gql-svc">changelogreader</span>
-<span className="gql-impl">implements <a href="#pullrequestaction">PullRequestAction</a></span>
-</div>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>pullRequest</code></td><td><a href="#pullrequestref">PullRequestRef</a>!</td><td></td></tr>
-    <tr><td><code>canceledBy</code></td><td><a href="#user">User</a>!</td><td></td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="pullrequestactionconnection" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">PullRequestActionConnection</span>
-<span className="gql-svc">changelogreader</span>
-</div>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>edges</code></td><td>[<a href="#pullrequestactionedge">PullRequestActionEdge</a>!]!</td><td></td></tr>
-    <tr><td><code>pageInfo</code></td><td><a href="#pageinfo">PageInfo</a>!</td><td></td></tr>
-    <tr><td><code>count</code></td><td>Int!</td><td></td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="pullrequestactionedge" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">PullRequestActionEdge</span>
-<span className="gql-svc">changelogreader</span>
-</div>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>node</code></td><td><a href="#pullrequestaction">PullRequestAction</a>!</td><td></td></tr>
-    <tr><td><code>cursor</code></td><td>String!</td><td></td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="pullrequestactionfailed" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">PullRequestActionFailed</span>
-<span className="gql-svc">changelogreader</span>
-<span className="gql-impl">implements <a href="#pullrequestaction">PullRequestAction</a></span>
-</div>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>pullRequest</code></td><td><a href="#pullrequestref">PullRequestRef</a>!</td><td></td></tr>
-    <tr><td><code>startedAt</code></td><td><a href="#datetime">DateTime</a></td><td></td></tr>
-    <tr><td><code>finishedAt</code></td><td><a href="#datetime">DateTime</a>!</td><td></td></tr>
-    <tr><td><code>errorMessage</code></td><td>String!</td><td></td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="pullrequestactionqueued" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">PullRequestActionQueued</span>
-<span className="gql-svc">changelogreader</span>
-<span className="gql-impl">implements <a href="#pullrequestaction">PullRequestAction</a></span>
-</div>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>pullRequest</code></td><td><a href="#pullrequestref">PullRequestRef</a>!</td><td></td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="pullrequestactionrunning" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">PullRequestActionRunning</span>
-<span className="gql-svc">changelogreader</span>
-<span className="gql-impl">implements <a href="#pullrequestaction">PullRequestAction</a></span>
-</div>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>pullRequest</code></td><td><a href="#pullrequestref">PullRequestRef</a>!</td><td></td></tr>
-    <tr><td><code>startedAt</code></td><td><a href="#datetime">DateTime</a>!</td><td></td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="pullrequestactionsucceeded" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">PullRequestActionSucceeded</span>
-<span className="gql-svc">changelogreader</span>
-<span className="gql-impl">implements <a href="#pullrequestaction">PullRequestAction</a></span>
-</div>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>pullRequest</code></td><td><a href="#pullrequestref">PullRequestRef</a>!</td><td></td></tr>
-    <tr><td><code>startedAt</code></td><td><a href="#datetime">DateTime</a>!</td><td></td></tr>
-    <tr><td><code>finishedAt</code></td><td><a href="#datetime">DateTime</a>!</td><td></td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="pullrequestcommitsucceeded" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">PullRequestCommitSucceeded</span>
-<span className="gql-svc">changesetcommitter</span>
-<span className="gql-impl">implements <a href="#repositorycommitsucceeded">RepositoryCommitSucceeded</a></span>
-<span className="gql-impl">implements <a href="#repositorycommit">RepositoryCommit</a></span>
-</div>
-<p>Pull request commit completed successfully.</p>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>repository</code></td><td><a href="#repository">Repository</a>!</td><td></td></tr>
-    <tr><td><code>startedAt</code></td><td><a href="#datetime">DateTime</a>!</td><td></td></tr>
-    <tr><td><code>finishedAt</code></td><td><a href="#datetime">DateTime</a>!</td><td></td></tr>
-    <tr><td><code>resultLink</code></td><td>String</td><td></td></tr>
-    <tr><td><code>pullRequestStatus</code></td><td><a href="#pullrequeststatus">PullRequestStatus</a>!</td><td>Pull request status.</td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="pullrequestoptions" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">PullRequestOptions</span>
-<span className="gql-svc">changesetcommitter</span>
-<span className="gql-impl">implements <a href="#commitoptions">CommitOptions</a></span>
-</div>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>branchName</code></td><td>String</td><td></td></tr>
-    <tr><td><code>pullRequestTitle</code></td><td>String</td><td>If unset, the commit message will be used as the pull request title.</td></tr>
-    <tr><td><code>pullRequestBody</code></td><td><a href="#base64">Base64</a></td><td></td></tr>
-    <tr><td><code>draft</code></td><td>Boolean!</td><td></td></tr>
-    <tr><td><code>autoMergeMethod</code></td><td><a href="#mergemethod">MergeMethod</a></td><td>If allowed by the repository, set the pull request to automatically merge after all checks pass using the defined strategy.</td></tr>
-    <tr><td><code>canRecreateClosedPullRequest</code></td><td>Boolean!</td><td>Recreate a pull request if it was already closed.</td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="pullrequestref" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">PullRequestRef</span>
-<span className="gql-svc">changelogreader</span>
-</div>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>origin</code></td><td>String!</td><td></td></tr>
-    <tr><td><code>repositoryPath</code></td><td>String!</td><td></td></tr>
-    <tr><td><code>branch</code></td><td>String!</td><td></td></tr>
-    <tr><td><code>number</code></td><td>Int!</td><td></td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="pullrequeststatus" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">PullRequestStatus</span>
-<span className="gql-svc">changesetcommitter</span>
-</div>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>mergeable</code></td><td><a href="#mergeable">Mergeable</a>!</td><td>Can this pull request be merged or not</td></tr>
-    <tr><td><code>state</code></td><td><a href="#pullrequeststate">PullRequestState</a>!</td><td></td></tr>
-    <tr><td><code>review</code></td><td><a href="#reviewstatus">ReviewStatus</a>!</td><td></td></tr>
-    <tr><td><code>buildState</code></td><td><a href="#buildstate">BuildState</a></td><td></td></tr>
-    <tr><td><code>otherBlockingReasons</code></td><td>[String!]!</td><td>Additional status flags that block this pull request. Can depend on the SCM service provider.</td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="pypiconfiguration" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">PypiConfiguration</span>
-<span className="gql-svc">gateway</span>
-</div>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>resourceId</code></td><td>String!</td><td></td></tr>
-    <tr><td><code>skipSsl</code></td><td>Boolean!</td><td></td></tr>
-    <tr><td><code>skipValidateConnectivity</code></td><td>Boolean!</td><td></td></tr>
-    <tr><td><code>connectivity</code></td><td><a href="#httptoolconnectivity">HttpToolConnectivity</a>!</td><td></td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="recipebundleconnection" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">RecipeBundleConnection</span>
-<span className="gql-svc">recipemarketplace</span>
-</div>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>edges</code></td><td>[<a href="#recipebundleedge">RecipeBundleEdge</a>!]!</td><td></td></tr>
-    <tr><td><code>pageInfo</code></td><td><a href="#pageinfo">PageInfo</a>!</td><td></td></tr>
-    <tr><td><code>count</code></td><td>Int!</td><td></td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="recipebundleedge" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">RecipeBundleEdge</span>
-<span className="gql-svc">recipemarketplace</span>
-</div>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>node</code></td><td><a href="#recipebundle">RecipeBundle</a>!</td><td></td></tr>
-    <tr><td><code>cursor</code></td><td>String!</td><td></td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="recipecategory" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">RecipeCategory</span>
-<span className="gql-svc">recipemarketplace</span>
-</div>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>id</code></td><td>ID!</td><td></td></tr>
-    <tr><td><code>displayName</code></td><td><a href="#markdown">Markdown</a>!</td><td></td></tr>
-    <tr><td><code>description</code></td><td><a href="#markdown">Markdown</a>!</td><td></td></tr>
-    <tr><td><code>recipeCount</code></td><td>Int!</td><td>Total number of unique recipes in this category, including all subcategories recursively.</td></tr>
-    <tr><td><code>parents</code></td><td>[<a href="#recipecategory">RecipeCategory</a>!]!</td><td></td></tr>
-    <tr><td><code>recipes</code></td><td>(first: Int = 100, after: String, where: <a href="#recipewhereinput">RecipeWhereInput</a>, orderBy: [<a href="#recipeorderbyinput">RecipeOrderByInput</a>!]): <a href="#recipedescriptorconnection">RecipeDescriptorConnection</a>!</td><td></td></tr>
-    <tr><td><code>categories</code></td><td>(first: Int = 100, after: String, where: <a href="#recipecategorywhereinput">RecipeCategoryWhereInput</a>, orderBy: [<a href="#recipecategoryorderbyinput">RecipeCategoryOrderByInput</a>!]): <a href="#recipecategoryconnection">RecipeCategoryConnection</a>!</td><td></td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="recipecategoryconnection" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">RecipeCategoryConnection</span>
-<span className="gql-svc">recipemarketplace</span>
-</div>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>edges</code></td><td>[<a href="#recipecategoryedge">RecipeCategoryEdge</a>!]!</td><td></td></tr>
-    <tr><td><code>pageInfo</code></td><td><a href="#pageinfo">PageInfo</a>!</td><td></td></tr>
-    <tr><td><code>count</code></td><td>Int!</td><td></td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="recipecategoryedge" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">RecipeCategoryEdge</span>
-<span className="gql-svc">recipemarketplace</span>
-</div>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>node</code></td><td><a href="#recipecategory">RecipeCategory</a>!</td><td></td></tr>
-    <tr><td><code>cursor</code></td><td>String!</td><td></td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="recipedescriptor" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">RecipeDescriptor</span>
-<span className="gql-svc">changesetreader</span>
-</div>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>id</code></td><td>ID!</td><td></td></tr>
-    <tr><td><code>instanceName</code></td><td>String</td><td></td></tr>
-    <tr><td><code>displayName</code></td><td><a href="#markdown">Markdown</a>!</td><td></td></tr>
-    <tr><td><code>description</code></td><td><a href="#markdown">Markdown</a>!</td><td></td></tr>
-    <tr><td><code>recipeCount</code></td><td>Int</td><td></td></tr>
-    <tr><td><code>bundle</code></td><td><a href="#recipebundle">RecipeBundle</a>!</td><td></td></tr>
-    <tr><td><code>options</code></td><td>[<a href="#option">Option</a>!]!</td><td></td></tr>
-    <tr><td><code>dataTables</code></td><td>[<a href="#datatabledescriptor">DataTableDescriptor</a>!]!</td><td></td></tr>
-    <tr><td><code>devCenterCards</code></td><td>[<a href="#devcentercarddescriptor">DevCenterCardDescriptor</a>!]</td><td>DevCenter card descriptors for this recipe, or null if not a DevCenter recipe.</td></tr>
-    <tr><td><code>detail</code></td><td><a href="#recipedetail">RecipeDetail</a>!</td><td>Expensive recipe detail fields that require resolving the full recipe bundle. Returns a state machine: query once to trigger resolution, poll until Finished.</td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="recipedescriptorconnection" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">RecipeDescriptorConnection</span>
-<span className="gql-svc">recipemarketplace</span>
-</div>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>edges</code></td><td>[<a href="#recipedescriptoredge">RecipeDescriptorEdge</a>!]!</td><td></td></tr>
-    <tr><td><code>pageInfo</code></td><td><a href="#pageinfo">PageInfo</a>!</td><td></td></tr>
-    <tr><td><code>count</code></td><td>Int!</td><td></td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="recipedescriptoredge" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">RecipeDescriptorEdge</span>
-<span className="gql-svc">recipemarketplace</span>
-</div>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>node</code></td><td><a href="#recipedescriptor">RecipeDescriptor</a>!</td><td></td></tr>
-    <tr><td><code>cursor</code></td><td>String!</td><td></td></tr>
-    <tr><td><code>relevance</code></td><td>Float!</td><td>Relevance score for this recipe in the context of a search query. For semantic search, this represents the search relevance (0.0 to 1.0). For filter-based queries, this is always 1.0.</td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="recipedetailerror" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">RecipeDetailError</span>
-<span className="gql-svc">recipemarketplace</span>
-<span className="gql-impl">implements <a href="#recipedetail">RecipeDetail</a></span>
-</div>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>startedAt</code></td><td><a href="#datetime">DateTime</a>!</td><td></td></tr>
-    <tr><td><code>finishedAt</code></td><td><a href="#datetime">DateTime</a>!</td><td></td></tr>
-    <tr><td><code>message</code></td><td>String!</td><td></td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="recipedetailfinished" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">RecipeDetailFinished</span>
-<span className="gql-svc">recipemarketplace</span>
-<span className="gql-impl">implements <a href="#recipedetail">RecipeDetail</a></span>
-</div>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>startedAt</code></td><td><a href="#datetime">DateTime</a>!</td><td></td></tr>
-    <tr><td><code>finishedAt</code></td><td><a href="#datetime">DateTime</a>!</td><td></td></tr>
-    <tr><td><code>recipeList</code></td><td>(first: Int = 100, after: String): <a href="#recipedescriptorconnection">RecipeDescriptorConnection</a>!</td><td>The list of recipes that make up this composite recipe. Returns an empty connection for non-composite (leaf) recipes.</td></tr>
-    <tr><td><code>tags</code></td><td>[String!]!</td><td>Tags associated with this recipe for categorization and filtering.</td></tr>
-    <tr><td><code>preconditions</code></td><td>[<a href="#recipedescriptor">RecipeDescriptor</a>!]!</td><td></td></tr>
-    <tr><td><code>graph</code></td><td><a href="#recipegraph">RecipeGraph</a>!</td><td>Flat vertices-and-edges representation of this composite recipe tree with Singleton deduplication pre-applied. Used by the Builder UI to visualize a composite recipe in a single round trip regardless of tree depth. Atomic (leaf) recipes return a single-vertex graph.</td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="recipedetailloading" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">RecipeDetailLoading</span>
-<span className="gql-svc">recipemarketplace</span>
-<span className="gql-impl">implements <a href="#recipedetail">RecipeDetail</a></span>
-</div>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>startedAt</code></td><td><a href="#datetime">DateTime</a>!</td><td></td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="recipegraph" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">RecipeGraph</span>
-<span className="gql-svc">recipemarketplace</span>
-</div>
-<p>Flat vertices-and-edges representation of a composite recipe with `org.openrewrite.Singleton` deduplication pre-applied. Produced by the marketplace backend and served to visualization clients in one round trip.</p>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>rootVertexId</code></td><td>Int!</td><td>ID of the root (entry-point) vertex in the graph.</td></tr>
-    <tr><td><code>vertices</code></td><td>[<a href="#recipegraphvertex">RecipeGraphVertex</a>!]!</td><td></td></tr>
-    <tr><td><code>edges</code></td><td>[<a href="#recipegraphedge">RecipeGraphEdge</a>!]!</td><td></td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="recipegraphedge" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">RecipeGraphEdge</span>
-<span className="gql-svc">recipemarketplace</span>
-</div>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>from</code></td><td>Int!</td><td></td></tr>
-    <tr><td><code>to</code></td><td>Int!</td><td></td></tr>
-    <tr><td><code>type</code></td><td><a href="#recipegraphedgetype">RecipeGraphEdgeType</a>!</td><td></td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="recipegraphvertex" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">RecipeGraphVertex</span>
-<span className="gql-svc">recipemarketplace</span>
-</div>
-<p>A vertex in a RecipeGraph: a full recipe occurrence with its configured options. Recipes that declare `org.openrewrite.Singleton` as a precondition are deduplicated — additional occurrences are expressed as REFERENCE edges pointing back to the first occurrence rather than as separate vertices.</p>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>id</code></td><td>Int!</td><td></td></tr>
-    <tr><td><code>descriptor</code></td><td><a href="#recipedescriptor">RecipeDescriptor</a>!</td><td>The recipe this vertex represents. Carries recipe name (as `id`), displayName, instanceName, options, bundle, dataTables, etc. — reuse the existing RecipeDescriptor type rather than duplicating fields here.</td></tr>
-    <tr><td><code>isSingleton</code></td><td>Boolean!</td><td>True if this recipe declares `org.openrewrite.Singleton` as a precondition, meaning additional occurrences in the graph appear as REFERENCE edges pointing back to this vertex.</td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="recipeinstallationconnection" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">RecipeInstallationConnection</span>
-<span className="gql-svc">recipemarketplace</span>
-</div>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>edges</code></td><td>[<a href="#recipeinstallationedge">RecipeInstallationEdge</a>!]!</td><td></td></tr>
-    <tr><td><code>pageInfo</code></td><td><a href="#pageinfo">PageInfo</a>!</td><td></td></tr>
-    <tr><td><code>count</code></td><td>Int!</td><td></td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="recipeinstallationedge" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">RecipeInstallationEdge</span>
-<span className="gql-svc">recipemarketplace</span>
-</div>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>node</code></td><td><a href="#recipeinstallation">RecipeInstallation</a>!</td><td></td></tr>
-    <tr><td><code>cursor</code></td><td>String!</td><td></td></tr>
-    <tr><td><code>requestedBy</code></td><td><a href="#user">User</a>!</td><td>The user who initiated this installation</td></tr>
-    <tr><td><code>user</code></td><td><a href="#user">User</a></td><td>The user whose marketplace this installation was made to. If the installation is a universal or organization installation, this field will be null.</td></tr>
-    <tr><td><code>organization</code></td><td><a href="#organization">Organization</a></td><td>The organization to which this installation was made. If the installation is a universal or user installation, this field will be null.</td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="recipeinstallationerror" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">RecipeInstallationError</span>
-<span className="gql-svc">recipemarketplace</span>
-<span className="gql-impl">implements <a href="#recipeinstallation">RecipeInstallation</a></span>
-</div>
-<p>Installation failed with an error.</p>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>id</code></td><td>ID!</td><td></td></tr>
-    <tr><td><code>bundle</code></td><td><a href="#recipebundle">RecipeBundle</a>!</td><td></td></tr>
-    <tr><td><code>startedAt</code></td><td><a href="#datetime">DateTime</a>!</td><td></td></tr>
-    <tr><td><code>finishedAt</code></td><td><a href="#datetime">DateTime</a>!</td><td></td></tr>
-    <tr><td><code>message</code></td><td>String!</td><td>Human-readable error message.</td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="recipeinstallationfinished" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">RecipeInstallationFinished</span>
-<span className="gql-svc">recipemarketplace</span>
-<span className="gql-impl">implements <a href="#recipeinstallation">RecipeInstallation</a></span>
-</div>
-<p>Installation completed successfully.</p>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>id</code></td><td>ID!</td><td></td></tr>
-    <tr><td><code>bundle</code></td><td><a href="#recipebundle">RecipeBundle</a>!</td><td></td></tr>
-    <tr><td><code>startedAt</code></td><td><a href="#datetime">DateTime</a>!</td><td></td></tr>
-    <tr><td><code>finishedAt</code></td><td><a href="#datetime">DateTime</a>!</td><td></td></tr>
-    <tr><td><code>recipes</code></td><td>[<a href="#recipedescriptor">RecipeDescriptor</a>!]!</td><td>The recipes that were installed.</td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="recipeinstallationprocessing" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">RecipeInstallationProcessing</span>
-<span className="gql-svc">recipemarketplace</span>
-<span className="gql-impl">implements <a href="#recipeinstallation">RecipeInstallation</a></span>
-</div>
-<p>Installation is actively loading and resolving the recipe bundle.</p>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>id</code></td><td>ID!</td><td></td></tr>
-    <tr><td><code>bundle</code></td><td><a href="#recipebundle">RecipeBundle</a>!</td><td></td></tr>
-    <tr><td><code>startedAt</code></td><td><a href="#datetime">DateTime</a>!</td><td></td></tr>
-    <tr><td><code>progress</code></td><td>Float</td><td>Progress from 0.0 to 1.0, if available.</td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="recipeinstallationqueued" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">RecipeInstallationQueued</span>
-<span className="gql-svc">recipemarketplace</span>
-<span className="gql-impl">implements <a href="#recipeinstallation">RecipeInstallation</a></span>
-</div>
-<p>Installation is queued and waiting to be processed.</p>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>id</code></td><td>ID!</td><td></td></tr>
-    <tr><td><code>bundle</code></td><td><a href="#recipebundle">RecipeBundle</a>!</td><td></td></tr>
-    <tr><td><code>startedAt</code></td><td><a href="#datetime">DateTime</a>!</td><td></td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="recipemarketplace" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">RecipeMarketplace</span>
-<span className="gql-svc">recipemarketplace</span>
-</div>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>categories</code></td><td>(first: Int = 100, after: String, where: <a href="#recipecategorywhereinput">RecipeCategoryWhereInput</a>, orderBy: [<a href="#recipecategoryorderbyinput">RecipeCategoryOrderByInput</a>!]): <a href="#recipecategoryconnection">RecipeCategoryConnection</a>!</td><td></td></tr>
-    <tr><td><code>recipes</code></td><td>(first: Int = 100, after: String, where: <a href="#recipewhereinput">RecipeWhereInput</a>, orderBy: [<a href="#recipeorderbyinput">RecipeOrderByInput</a>!]): <a href="#recipedescriptorconnection">RecipeDescriptorConnection</a>!</td><td></td></tr>
-    <tr><td><code>installations</code></td><td>(first: Int = 50, after: String, where: <a href="#recipeinstallationwhereinput">RecipeInstallationWhereInput</a>, orderBy: [<a href="#recipeinstallationorderbyinput">RecipeInstallationOrderByInput</a>!]): <a href="#recipeinstallationconnection">RecipeInstallationConnection</a>!</td><td></td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="recipeoptionvalue" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">RecipeOptionValue</span>
-<span className="gql-svc">changesetreader</span>
-</div>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>name</code></td><td>String!</td><td></td></tr>
-    <tr><td><code>value</code></td><td><a href="#object">Object</a>!</td><td></td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="recipeoptionsmessage" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">RecipeOptionsMessage</span>
-<span className="gql-svc">moddy</span>
-<span className="gql-impl">implements <a href="#message">Message</a></span>
-</div>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>id</code></td><td>ID!</td><td></td></tr>
-    <tr><td><code>user</code></td><td><a href="#user">User</a>!</td><td></td></tr>
-    <tr><td><code>options</code></td><td>[<a href="#option">Option</a>!]!</td><td></td></tr>
-    <tr><td><code>state</code></td><td><a href="#messagestate">MessageState</a>!</td><td></td></tr>
-    <tr><td><code>lastUpdatedAt</code></td><td><a href="#datetime">DateTime</a>!</td><td></td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="reciperunfilechange" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">RecipeRunFileChange</span>
-<span className="gql-svc">changesetreader</span>
-<span className="gql-impl">implements <a href="#filechange">FileChange</a></span>
-</div>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>path</code></td><td><a href="#path">Path</a>!</td><td></td></tr>
-    <tr><td><code>beforeSourcePath</code></td><td><a href="#path">Path</a></td><td></td></tr>
-    <tr><td><code>afterSourcePath</code></td><td><a href="#path">Path</a></td><td></td></tr>
-    <tr><td><code>diff</code></td><td>(markupLevel: <a href="#markuplevel">MarkupLevel</a> = ERROR, showWhitespaceOnlyChanges: Boolean = true): <a href="#patch">Patch</a></td><td></td></tr>
-    <tr><td><code>recipesThatMadeChanges</code></td><td>[[<a href="#recipedescriptor">RecipeDescriptor</a>!]!]!</td><td>Recipe chains that contributed changes to this file. Each inner list is one mutation event's call stack, ordered root composite first to leaf recipe last (the leaf is the narrowest recipe that actually performed the change).</td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="reciperunmessage" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">RecipeRunMessage</span>
-<span className="gql-svc">moddy</span>
-<span className="gql-impl">implements <a href="#message">Message</a></span>
-</div>
-<p>Long-running recipe execution started by the LLM. Carries a typed progress envelope while IN_PROGRESS — clients should read `progress` rather than poking at a free-form payload. When the run reaches a terminal state, `recipeRun` resolves via federation.</p>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>id</code></td><td>ID!</td><td></td></tr>
-    <tr><td><code>user</code></td><td><a href="#user">User</a>!</td><td></td></tr>
-    <tr><td><code>recipeRun</code></td><td><a href="#organizationreciperun">OrganizationRecipeRun</a></td><td></td></tr>
-    <tr><td><code>progress</code></td><td><a href="#reciperunprogress">RecipeRunProgress</a></td><td>Typed progress snapshot while the run is IN_PROGRESS.</td></tr>
-    <tr><td><code>state</code></td><td><a href="#messagestate">MessageState</a>!</td><td></td></tr>
-    <tr><td><code>lastUpdatedAt</code></td><td><a href="#datetime">DateTime</a>!</td><td></td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="reciperunprogress" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">RecipeRunProgress</span>
-<span className="gql-svc">moddy</span>
-</div>
-<p>Typed progress envelope for an in-flight recipe run.</p>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>recipeRunId</code></td><td>ID</td><td></td></tr>
-    <tr><td><code>reposQueued</code></td><td>Int</td><td></td></tr>
-    <tr><td><code>reposRunning</code></td><td>Int</td><td></td></tr>
-    <tr><td><code>reposFinished</code></td><td>Int</td><td></td></tr>
-    <tr><td><code>reposTotal</code></td><td>Int</td><td></td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="reciperuntotals" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">RecipeRunTotals</span>
-<span className="gql-svc">changesetreader</span>
-</div>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>timeSavings</code></td><td><a href="#duration">Duration</a></td><td></td></tr>
-    <tr><td><code>filesSearched</code></td><td>Int!</td><td></td></tr>
-    <tr><td><code>filesChanged</code></td><td>Int!</td><td></td></tr>
-    <tr><td><code>filesWithResults</code></td><td>Int!</td><td></td></tr>
-    <tr><td><code>totalMarkers</code></td><td>Int!</td><td></td></tr>
-    <tr><td><code>repositoriesWithResults</code></td><td>Int!</td><td></td></tr>
-    <tr><td><code>repositoriesSuccessful</code></td><td>Int!</td><td></td></tr>
-    <tr><td><code>repositoriesWithNoChanges</code></td><td>Int!</td><td></td></tr>
-    <tr><td><code>repositoriesWithErrors</code></td><td>Int!</td><td></td></tr>
-    <tr><td><code>repositoriesInProgress</code></td><td>Int!</td><td></td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="recipesearchmessage" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">RecipeSearchMessage</span>
-<span className="gql-svc">moddy</span>
-<span className="gql-impl">implements <a href="#message">Message</a></span>
-</div>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>id</code></td><td>ID!</td><td></td></tr>
-    <tr><td><code>user</code></td><td><a href="#user">User</a>!</td><td></td></tr>
-    <tr><td><code>searchResults</code></td><td>[<a href="#recipedescriptor">RecipeDescriptor</a>!]!</td><td></td></tr>
-    <tr><td><code>state</code></td><td><a href="#messagestate">MessageState</a>!</td><td></td></tr>
-    <tr><td><code>lastUpdatedAt</code></td><td><a href="#datetime">DateTime</a>!</td><td></td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="recipeuninstallation" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">RecipeUninstallation</span>
-<span className="gql-svc">recipemarketplace</span>
-</div>
-<p>Result of an uninstall operation.</p>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>removedCount</code></td><td>Int!</td><td>The number of recipes that were removed.</td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="reindexresult" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">ReindexResult</span>
-<span className="gql-svc">changelogwriter</span>
-</div>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>resetCount</code></td><td>Int!</td><td>Number of repository cursors that were reset.</td></tr>
-    <tr><td><code>since</code></td><td><a href="#datetime">DateTime</a>!</td><td>The timestamp cursors were rewound to.</td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="repository" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">Repository</span>
-<span className="gql-svc">changelogreader</span>
-</div>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>origin</code></td><td>String!</td><td></td></tr>
-    <tr><td><code>path</code></td><td>String!</td><td></td></tr>
-    <tr><td><code>branch</code></td><td>String!</td><td></td></tr>
-    <tr><td><code>changeset</code></td><td>String</td><td></td></tr>
-    <tr><td><code>lstArtifact</code></td><td><a href="#lstartifact">LstArtifact</a>!</td><td></td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="repositoryauthorization" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">RepositoryAuthorization</span>
-<span className="gql-svc">corechangeset</span>
-</div>
-<p>Authorization status for accessing repository content. Resolved by the changeset reader using a batch check against the authorization service.</p>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>origin</code></td><td>String!</td><td>The VCS origin (e.g., github.com).</td></tr>
-    <tr><td><code>isAuthorized</code></td><td>Boolean!</td><td>Whether the user has a valid OAuth token for this origin.</td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="repositorybatchchange" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">RepositoryBatchChange</span>
-<span className="gql-svc">changesetreader</span>
-<span className="gql-impl">implements <a href="#repositorychangeset">RepositoryChangeset</a></span>
-</div>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>repository</code></td><td><a href="#repository">Repository</a>!</td><td></td></tr>
-    <tr><td><code>authorization</code></td><td><a href="#repositoryauthorization">RepositoryAuthorization</a>!</td><td></td></tr>
-    <tr><td><code>results</code></td><td>(first: Int = 100, after: String, where: <a href="#filechangewhereinput">FileChangeWhereInput</a>, orderBy: [<a href="#filechangeorderbyinput">FileChangeOrderByInput</a>!]): <a href="#filechangeconnection">FileChangeConnection</a>!</td><td></td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="repositorychangesetconnection" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">RepositoryChangesetConnection</span>
-<span className="gql-svc">corechangeset</span>
-</div>
-<p>Paginated connection for repository changesets.</p>
-<p>`completed` indicates how many repositories have finished processing: - For BatchChange: completed always equals count (all repositories are pre-processed). - For OrganizationRecipeRun: completed counts repository runs in a terminal state   (regardless of success/failure), excluding canceled runs. A canceled run shows   the completion status reached prior to cancellation.</p>
-<p>Sync totals (`syncPending`, `synced`, `syncFailed`, `syncCanceled`, `syncSkipped`) track repository sync progress during the SYNCING phase. Their sum equals `count`.</p>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>edges</code></td><td>[<a href="#repositorychangesetedge">RepositoryChangesetEdge</a>!]!</td><td></td></tr>
-    <tr><td><code>pageInfo</code></td><td><a href="#pageinfo">PageInfo</a>!</td><td></td></tr>
-    <tr><td><code>completed</code></td><td>Int!</td><td></td></tr>
-    <tr><td><code>count</code></td><td>Int!</td><td></td></tr>
-    <tr><td><code>syncPending</code></td><td>Int!</td><td>Repositories not yet synced.</td></tr>
-    <tr><td><code>synced</code></td><td>Int!</td><td>Repositories successfully synced.</td></tr>
-    <tr><td><code>syncFailed</code></td><td>Int!</td><td>Repositories that failed to sync.</td></tr>
-    <tr><td><code>syncCanceled</code></td><td>Int!</td><td>Repositories whose sync was canceled before completion.</td></tr>
-    <tr><td><code>syncSkipped</code></td><td>Int!</td><td>Repositories the CLI skipped during sync (typically: no LST available).</td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="repositorychangesetedge" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">RepositoryChangesetEdge</span>
-<span className="gql-svc">corechangeset</span>
-</div>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>node</code></td><td><a href="#repositorychangeset">RepositoryChangeset</a>!</td><td></td></tr>
-    <tr><td><code>cursor</code></td><td>String!</td><td></td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="repositorycommitcanceled" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">RepositoryCommitCanceled</span>
-<span className="gql-svc">changesetcommitter</span>
-<span className="gql-impl">implements <a href="#repositorycommit">RepositoryCommit</a></span>
-</div>
-<p>Repository commit was canceled. Use `options.__typename` to determine the specific commit type.</p>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>repository</code></td><td><a href="#repository">Repository</a>!</td><td></td></tr>
-    <tr><td><code>startedAt</code></td><td><a href="#datetime">DateTime</a></td><td></td></tr>
-    <tr><td><code>finishedAt</code></td><td><a href="#datetime">DateTime</a>!</td><td></td></tr>
-    <tr><td><code>options</code></td><td><a href="#commitoptions">CommitOptions</a>!</td><td>The commit options. Use `__typename` to determine commit type.</td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="repositorycommitconnection" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">RepositoryCommitConnection</span>
-<span className="gql-svc">changesetcommitter</span>
-</div>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>edges</code></td><td>[<a href="#repositorycommitedge">RepositoryCommitEdge</a>!]!</td><td></td></tr>
-    <tr><td><code>pageInfo</code></td><td><a href="#pageinfo">PageInfo</a>!</td><td></td></tr>
-    <tr><td><code>count</code></td><td>Int!</td><td></td></tr>
-    <tr><td><code>completedCount</code></td><td>Int!</td><td>Count of repository commits that have reached a terminal state (succeeded, failed, canceled, or no changes). Pair with `count` to show progress: "Completed X / Y".</td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="repositorycommitedge" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">RepositoryCommitEdge</span>
-<span className="gql-svc">changesetcommitter</span>
-</div>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>node</code></td><td><a href="#repositorycommit">RepositoryCommit</a>!</td><td></td></tr>
-    <tr><td><code>cursor</code></td><td>String!</td><td></td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="repositorycommitfailed" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">RepositoryCommitFailed</span>
-<span className="gql-svc">changesetcommitter</span>
-<span className="gql-impl">implements <a href="#repositorycommit">RepositoryCommit</a></span>
-</div>
-<p>Repository commit failed with an error. Use `options.__typename` to determine the specific commit type.</p>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>repository</code></td><td><a href="#repository">Repository</a>!</td><td></td></tr>
-    <tr><td><code>startedAt</code></td><td><a href="#datetime">DateTime</a></td><td></td></tr>
-    <tr><td><code>finishedAt</code></td><td><a href="#datetime">DateTime</a>!</td><td></td></tr>
-    <tr><td><code>errorMessage</code></td><td>String!</td><td>Human-readable error message.</td></tr>
-    <tr><td><code>retryCount</code></td><td>Int</td><td>Number of retry attempts made.</td></tr>
-    <tr><td><code>options</code></td><td><a href="#commitoptions">CommitOptions</a>!</td><td>The commit options. Use `__typename` to determine commit type.</td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="repositorycommitnochanges" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">RepositoryCommitNoChanges</span>
-<span className="gql-svc">changesetcommitter</span>
-<span className="gql-impl">implements <a href="#repositorycommit">RepositoryCommit</a></span>
-</div>
-<p>Repository commit completed but yielded no changes. Generally occurs when applying a patch does not produce any changes to commit. Use `options.__typename` to determine the specific commit type.</p>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>repository</code></td><td><a href="#repository">Repository</a>!</td><td></td></tr>
-    <tr><td><code>startedAt</code></td><td><a href="#datetime">DateTime</a>!</td><td></td></tr>
-    <tr><td><code>finishedAt</code></td><td><a href="#datetime">DateTime</a>!</td><td></td></tr>
-    <tr><td><code>options</code></td><td><a href="#commitoptions">CommitOptions</a>!</td><td>The commit options. Use `__typename` to determine commit type.</td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="repositorycommitqueued" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">RepositoryCommitQueued</span>
-<span className="gql-svc">changesetcommitter</span>
-<span className="gql-impl">implements <a href="#repositorycommit">RepositoryCommit</a></span>
-</div>
-<p>Repository commit is queued and waiting to be processed. Use `options.__typename` to determine the specific commit type.</p>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>repository</code></td><td><a href="#repository">Repository</a>!</td><td></td></tr>
-    <tr><td><code>startedAt</code></td><td><a href="#datetime">DateTime</a></td><td></td></tr>
-    <tr><td><code>rateLimitReset</code></td><td><a href="#datetime">DateTime</a></td><td>Time when rate limit expires (if rate limited).</td></tr>
-    <tr><td><code>options</code></td><td><a href="#commitoptions">CommitOptions</a>!</td><td>The commit options. Use `__typename` to determine commit type.</td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="repositorycommitrunning" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">RepositoryCommitRunning</span>
-<span className="gql-svc">changesetcommitter</span>
-<span className="gql-impl">implements <a href="#repositorycommit">RepositoryCommit</a></span>
-</div>
-<p>Repository commit is actively being processed. Use `options.__typename` to determine the specific commit type.</p>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>repository</code></td><td><a href="#repository">Repository</a>!</td><td></td></tr>
-    <tr><td><code>startedAt</code></td><td><a href="#datetime">DateTime</a>!</td><td></td></tr>
-    <tr><td><code>options</code></td><td><a href="#commitoptions">CommitOptions</a>!</td><td>The commit options. Use `__typename` to determine commit type.</td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="repositoryconnection" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">RepositoryConnection</span>
-<span className="gql-svc">organization</span>
-</div>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>edges</code></td><td>[<a href="#repositoryedge">RepositoryEdge</a>!]!</td><td></td></tr>
-    <tr><td><code>pageInfo</code></td><td><a href="#pageinfo">PageInfo</a>!</td><td></td></tr>
-    <tr><td><code>count</code></td><td>Int!</td><td></td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="repositoryedge" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">RepositoryEdge</span>
-<span className="gql-svc">organization</span>
-</div>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>node</code></td><td><a href="#repository">Repository</a>!</td><td></td></tr>
-    <tr><td><code>cursor</code></td><td>String!</td><td></td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="repositoryreciperuncanceled" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">RepositoryRecipeRunCanceled</span>
-<span className="gql-svc">changesetreader</span>
-<span className="gql-impl">implements <a href="#repositoryreciperun">RepositoryRecipeRun</a></span>
-<span className="gql-impl">implements <a href="#repositorychangeset">RepositoryChangeset</a></span>
-</div>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>repository</code></td><td><a href="#repository">Repository</a>!</td><td></td></tr>
-    <tr><td><code>authorization</code></td><td><a href="#repositoryauthorization">RepositoryAuthorization</a>!</td><td></td></tr>
-    <tr><td><code>syncStatus</code></td><td><a href="#repositorysyncstatus">RepositorySyncStatus</a></td><td></td></tr>
-    <tr><td><code>results</code></td><td>(first: Int = 100, after: String, where: <a href="#filechangewhereinput">FileChangeWhereInput</a>, orderBy: [<a href="#filechangeorderbyinput">FileChangeOrderByInput</a>!]): <a href="#filechangeconnection">FileChangeConnection</a>!</td><td></td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="repositoryreciperunconnection" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">RepositoryRecipeRunConnection</span>
-<span className="gql-svc">changesetreader</span>
-</div>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>edges</code></td><td>[<a href="#repositoryreciperunedge">RepositoryRecipeRunEdge</a>!]!</td><td></td></tr>
-    <tr><td><code>pageInfo</code></td><td><a href="#pageinfo">PageInfo</a>!</td><td></td></tr>
-    <tr><td><code>count</code></td><td>Int!</td><td></td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="repositoryreciperunedge" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">RepositoryRecipeRunEdge</span>
-<span className="gql-svc">changesetreader</span>
-</div>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>node</code></td><td><a href="#repositoryreciperun">RepositoryRecipeRun</a>!</td><td></td></tr>
-    <tr><td><code>cursor</code></td><td>String!</td><td></td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="repositoryreciperunerror" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">RepositoryRecipeRunError</span>
-<span className="gql-svc">changesetreader</span>
-<span className="gql-impl">implements <a href="#repositoryreciperun">RepositoryRecipeRun</a></span>
-<span className="gql-impl">implements <a href="#repositorychangeset">RepositoryChangeset</a></span>
-</div>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>repository</code></td><td><a href="#repository">Repository</a>!</td><td></td></tr>
-    <tr><td><code>authorization</code></td><td><a href="#repositoryauthorization">RepositoryAuthorization</a>!</td><td></td></tr>
-    <tr><td><code>syncStatus</code></td><td><a href="#repositorysyncstatus">RepositorySyncStatus</a></td><td></td></tr>
-    <tr><td><code>results</code></td><td>(first: Int = 100, after: String, where: <a href="#filechangewhereinput">FileChangeWhereInput</a>, orderBy: [<a href="#filechangeorderbyinput">FileChangeOrderByInput</a>!]): <a href="#filechangeconnection">FileChangeConnection</a>!</td><td></td></tr>
-    <tr><td><code>startedAt</code></td><td><a href="#datetime">DateTime</a></td><td></td></tr>
-    <tr><td><code>finishedAt</code></td><td><a href="#datetime">DateTime</a></td><td></td></tr>
-    <tr><td><code>errorReason</code></td><td><a href="#repositoryerrorreason">RepositoryErrorReason</a></td><td></td></tr>
-    <tr><td><code>message</code></td><td>String</td><td></td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="repositoryreciperunfinished" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">RepositoryRecipeRunFinished</span>
-<span className="gql-svc">changesetreader</span>
-<span className="gql-impl">implements <a href="#repositoryreciperun">RepositoryRecipeRun</a></span>
-<span className="gql-impl">implements <a href="#repositorychangeset">RepositoryChangeset</a></span>
-</div>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>repository</code></td><td><a href="#repository">Repository</a>!</td><td></td></tr>
-    <tr><td><code>authorization</code></td><td><a href="#repositoryauthorization">RepositoryAuthorization</a>!</td><td></td></tr>
-    <tr><td><code>syncStatus</code></td><td><a href="#repositorysyncstatus">RepositorySyncStatus</a></td><td></td></tr>
-    <tr><td><code>results</code></td><td>(first: Int = 100, after: String, where: <a href="#filechangewhereinput">FileChangeWhereInput</a>, orderBy: [<a href="#filechangeorderbyinput">FileChangeOrderByInput</a>!]): <a href="#filechangeconnection">FileChangeConnection</a>!</td><td></td></tr>
-    <tr><td><code>startedAt</code></td><td><a href="#datetime">DateTime</a></td><td></td></tr>
-    <tr><td><code>finishedAt</code></td><td><a href="#datetime">DateTime</a></td><td></td></tr>
-    <tr><td><code>timeSavings</code></td><td><a href="#duration">Duration</a></td><td></td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="repositoryreciperunnolst" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">RepositoryRecipeRunNoLst</span>
-<span className="gql-svc">changesetreader</span>
-<span className="gql-impl">implements <a href="#repositoryreciperun">RepositoryRecipeRun</a></span>
-<span className="gql-impl">implements <a href="#repositorychangeset">RepositoryChangeset</a></span>
-</div>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>repository</code></td><td><a href="#repository">Repository</a>!</td><td></td></tr>
-    <tr><td><code>authorization</code></td><td><a href="#repositoryauthorization">RepositoryAuthorization</a>!</td><td></td></tr>
-    <tr><td><code>syncStatus</code></td><td><a href="#repositorysyncstatus">RepositorySyncStatus</a></td><td></td></tr>
-    <tr><td><code>results</code></td><td>(first: Int = 100, after: String, where: <a href="#filechangewhereinput">FileChangeWhereInput</a>, orderBy: [<a href="#filechangeorderbyinput">FileChangeOrderByInput</a>!]): <a href="#filechangeconnection">FileChangeConnection</a>!</td><td></td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="repositoryreciperunqueued" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">RepositoryRecipeRunQueued</span>
-<span className="gql-svc">changesetreader</span>
-<span className="gql-impl">implements <a href="#repositoryreciperun">RepositoryRecipeRun</a></span>
-<span className="gql-impl">implements <a href="#repositorychangeset">RepositoryChangeset</a></span>
-</div>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>repository</code></td><td><a href="#repository">Repository</a>!</td><td></td></tr>
-    <tr><td><code>authorization</code></td><td><a href="#repositoryauthorization">RepositoryAuthorization</a>!</td><td></td></tr>
-    <tr><td><code>syncStatus</code></td><td><a href="#repositorysyncstatus">RepositorySyncStatus</a></td><td></td></tr>
-    <tr><td><code>results</code></td><td>(first: Int = 100, after: String, where: <a href="#filechangewhereinput">FileChangeWhereInput</a>, orderBy: [<a href="#filechangeorderbyinput">FileChangeOrderByInput</a>!]): <a href="#filechangeconnection">FileChangeConnection</a>!</td><td></td></tr>
-    <tr><td><code>queuedAt</code></td><td><a href="#datetime">DateTime</a></td><td></td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="repositoryreciperunrunning" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">RepositoryRecipeRunRunning</span>
-<span className="gql-svc">changesetreader</span>
-<span className="gql-impl">implements <a href="#repositoryreciperun">RepositoryRecipeRun</a></span>
-<span className="gql-impl">implements <a href="#repositorychangeset">RepositoryChangeset</a></span>
-</div>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>repository</code></td><td><a href="#repository">Repository</a>!</td><td></td></tr>
-    <tr><td><code>authorization</code></td><td><a href="#repositoryauthorization">RepositoryAuthorization</a>!</td><td></td></tr>
-    <tr><td><code>syncStatus</code></td><td><a href="#repositorysyncstatus">RepositorySyncStatus</a></td><td></td></tr>
-    <tr><td><code>results</code></td><td>(first: Int = 100, after: String, where: <a href="#filechangewhereinput">FileChangeWhereInput</a>, orderBy: [<a href="#filechangeorderbyinput">FileChangeOrderByInput</a>!]): <a href="#filechangeconnection">FileChangeConnection</a>!</td><td></td></tr>
-    <tr><td><code>startedAt</code></td><td><a href="#datetime">DateTime</a></td><td></td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="reviewstatus" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">ReviewStatus</span>
-<span className="gql-svc">changesetcommitter</span>
-</div>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>approvedBy</code></td><td>[String!]</td><td></td></tr>
-    <tr><td><code>reviewDecision</code></td><td><a href="#reviewdecision">ReviewDecision</a>!</td><td></td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="revoketokenresult" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">RevokeTokenResult</span>
-<span className="gql-svc">authz</span>
-</div>
-<p>Result of revoking an SCM OAuth token.</p>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>success</code></td><td>Boolean!</td><td>True if the token was revoked (or didn't exist).</td></tr>
-    <tr><td><code>error</code></td><td>String</td><td>Error message if revocation failed.</td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="s3configuration" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">S3Configuration</span>
-<span className="gql-svc">gateway</span>
-</div>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>resourceId</code></td><td>String!</td><td></td></tr>
-    <tr><td><code>skipSsl</code></td><td>Boolean!</td><td></td></tr>
-    <tr><td><code>skipValidateConnectivity</code></td><td>Boolean!</td><td></td></tr>
-    <tr><td><code>connectivity</code></td><td><a href="#httptoolconnectivity">HttpToolConnectivity</a>!</td><td></td></tr>
-    <tr><td><code>region</code></td><td>String</td><td></td></tr>
-    <tr><td><code>endpointUrl</code></td><td>String</td><td></td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="scmtokeninfo" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">ScmTokenInfo</span>
-<span className="gql-svc">authz</span>
-</div>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>created</code></td><td><a href="#datetime">DateTime</a>!</td><td></td></tr>
-    <tr><td><code>expiresAt</code></td><td><a href="#datetime">DateTime</a></td><td></td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="searchresult" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">SearchResult</span>
-<span className="gql-svc">corechangeset</span>
-<span className="gql-impl">implements <a href="#marker">Marker</a></span>
-</div>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>id</code></td><td>ID!</td><td></td></tr>
-    <tr><td><code>type</code></td><td>String!</td><td></td></tr>
-    <tr><td><code>description</code></td><td>String</td><td></td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="sendmessageresult" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">SendMessageResult</span>
-<span className="gql-svc">moddy</span>
-</div>
-<p>Handle returned by `createConversation` / `sendMessage`. Clients should poll `conversation.messages(after: initialCursor)` using `turnState.recommendedPollIntervalMs` as the cadence hint.</p>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>conversation</code></td><td><a href="#conversation">Conversation</a>!</td><td></td></tr>
-    <tr><td><code>initialCursor</code></td><td>String!</td><td></td></tr>
-    <tr><td><code>turnState</code></td><td><a href="#conversationturnstate">ConversationTurnState</a>!</td><td></td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="textmessage" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">TextMessage</span>
-<span className="gql-svc">moddy</span>
-<span className="gql-impl">implements <a href="#message">Message</a></span>
-</div>
-<p>A text message from either the human user or the chatbot. Check the `user` field to distinguish sender.</p>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>id</code></td><td>ID!</td><td></td></tr>
-    <tr><td><code>user</code></td><td><a href="#user">User</a>!</td><td></td></tr>
-    <tr><td><code>content</code></td><td><a href="#markdown">Markdown</a>!</td><td></td></tr>
-    <tr><td><code>truncated</code></td><td>Boolean!</td><td>True when the LLM response was cut off by the token limit.</td></tr>
-    <tr><td><code>state</code></td><td><a href="#messagestate">MessageState</a>!</td><td></td></tr>
-    <tr><td><code>lastUpdatedAt</code></td><td><a href="#datetime">DateTime</a>!</td><td></td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="toolinfo" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">ToolInfo</span>
-<span className="gql-svc">changesetreader</span>
-</div>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>name</code></td><td>String!</td><td></td></tr>
-    <tr><td><code>version</code></td><td>String</td><td></td></tr>
-    <tr><td><code>arguments</code></td><td>String</td><td></td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="uiconfiguration" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">UiConfiguration</span>
-<span className="gql-svc">gateway</span>
-</div>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>moreHelp</code></td><td>[<a href="#morehelplink">MoreHelpLink</a>!]</td><td></td></tr>
-    <tr><td><code>loginText</code></td><td>String</td><td></td></tr>
-    <tr><td><code>loginLinks</code></td><td>[<a href="#morehelplink">MoreHelpLink</a>!]</td><td></td></tr>
-    <tr><td><code>cliDownloadInstructions</code></td><td><a href="#clidownloadinstructionlink">CliDownloadInstructionLink</a></td><td></td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="user" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">User</span>
-<span className="gql-svc">authz</span>
-</div>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>username</code></td><td>String</td><td></td></tr>
-    <tr><td><code>role</code></td><td><a href="#userrole">UserRole</a></td><td></td></tr>
-    <tr><td><code>lastActive</code></td><td><a href="#datetime">DateTime</a></td><td></td></tr>
-    <tr><td><code>tokens</code></td><td>(first: Int = 100, after: String, where: <a href="#accesstokenwhereinput">AccessTokenWhereInput</a>, orderBy: [<a href="#accesstokenorderbyinput">AccessTokenOrderByInput</a>!]): <a href="#accesstokenconnection">AccessTokenConnection</a>!</td><td></td></tr>
-    <tr><td><code>email</code></td><td>String!</td><td></td></tr>
-    <tr><td><code>moddy</code></td><td><a href="#moddy">Moddy</a>!</td><td></td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="userconnection" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">UserConnection</span>
-<span className="gql-svc">authz</span>
-</div>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>edges</code></td><td>[<a href="#usersedge">UsersEdge</a>!]!</td><td></td></tr>
-    <tr><td><code>pageInfo</code></td><td><a href="#pageinfo">PageInfo</a>!</td><td></td></tr>
-    <tr><td><code>count</code></td><td>Int!</td><td></td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="usersedge" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">UsersEdge</span>
-<span className="gql-svc">authz</span>
-</div>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>node</code></td><td><a href="#user">User</a>!</td><td></td></tr>
-    <tr><td><code>cursor</code></td><td>String!</td><td></td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="visualizationavailable" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">VisualizationAvailable</span>
-<span className="gql-svc">changesetreader</span>
-<span className="gql-impl">implements <a href="#visualization">Visualization</a></span>
-</div>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>id</code></td><td>ID!</td><td></td></tr>
-    <tr><td><code>descriptor</code></td><td><a href="#visualizationdescriptor">VisualizationDescriptor</a>!</td><td></td></tr>
-    <tr><td><code>changesetId</code></td><td>ID!</td><td>The changeset (recipe run or batch change) this visualization is available for.</td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="visualizationconnection" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">VisualizationConnection</span>
-<span className="gql-svc">corechangeset</span>
-</div>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>edges</code></td><td>[<a href="#visualizationedge">VisualizationEdge</a>!]!</td><td></td></tr>
-    <tr><td><code>pageInfo</code></td><td><a href="#pageinfo">PageInfo</a>!</td><td></td></tr>
-    <tr><td><code>count</code></td><td>Int!</td><td></td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="visualizationdescriptor" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">VisualizationDescriptor</span>
-<span className="gql-svc">changesetvisualizer</span>
-</div>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>options</code></td><td>[<a href="#visualizationoption">VisualizationOption</a>!]!</td><td></td></tr>
-    <tr><td><code>name</code></td><td>String!</td><td></td></tr>
-    <tr><td><code>displayName</code></td><td><a href="#markdown">Markdown</a>!</td><td></td></tr>
-    <tr><td><code>description</code></td><td><a href="#markdown">Markdown</a>!</td><td></td></tr>
-    <tr><td><code>image</code></td><td><a href="#base64">Base64</a>!</td><td></td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="visualizationedge" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">VisualizationEdge</span>
-<span className="gql-svc">corechangeset</span>
-</div>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>node</code></td><td><a href="#visualization">Visualization</a>!</td><td></td></tr>
-    <tr><td><code>cursor</code></td><td>String!</td><td></td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="visualizationerror" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">VisualizationError</span>
-<span className="gql-svc">changesetreader</span>
-<span className="gql-impl">implements <a href="#visualization">Visualization</a></span>
-</div>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>id</code></td><td>ID!</td><td></td></tr>
-    <tr><td><code>descriptor</code></td><td><a href="#visualizationdescriptor">VisualizationDescriptor</a>!</td><td></td></tr>
-    <tr><td><code>changesetId</code></td><td>ID!</td><td></td></tr>
-    <tr><td><code>startedAt</code></td><td><a href="#datetime">DateTime</a>!</td><td></td></tr>
-    <tr><td><code>finishedAt</code></td><td><a href="#datetime">DateTime</a>!</td><td></td></tr>
-    <tr><td><code>message</code></td><td>String!</td><td></td></tr>
-    <tr><td><code>repositories</code></td><td>(first: Int = 100, after: String): <a href="#visualizationrepositoryconnection">VisualizationRepositoryConnection</a>!</td><td></td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="visualizationfinished" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">VisualizationFinished</span>
-<span className="gql-svc">changesetreader</span>
-<span className="gql-impl">implements <a href="#visualization">Visualization</a></span>
-</div>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>id</code></td><td>ID!</td><td></td></tr>
-    <tr><td><code>descriptor</code></td><td><a href="#visualizationdescriptor">VisualizationDescriptor</a>!</td><td></td></tr>
-    <tr><td><code>changesetId</code></td><td>ID!</td><td></td></tr>
-    <tr><td><code>startedAt</code></td><td><a href="#datetime">DateTime</a>!</td><td></td></tr>
-    <tr><td><code>finishedAt</code></td><td><a href="#datetime">DateTime</a>!</td><td></td></tr>
-    <tr><td><code>duration</code></td><td><a href="#duration">Duration</a></td><td></td></tr>
-    <tr><td><code>output</code></td><td><a href="#visualizationoutput">VisualizationOutput</a>!</td><td></td></tr>
-    <tr><td><code>repositories</code></td><td>(first: Int = 100, after: String): <a href="#visualizationrepositoryconnection">VisualizationRepositoryConnection</a>!</td><td></td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="visualizationimageoutput" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">VisualizationImageOutput</span>
-<span className="gql-svc">changesetreader</span>
-<span className="gql-impl">implements <a href="#visualizationoutput">VisualizationOutput</a></span>
-</div>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>format</code></td><td><a href="#imageformat">ImageFormat</a>!</td><td></td></tr>
-    <tr><td><code>data</code></td><td><a href="#base64">Base64</a>!</td><td></td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="visualizationoption" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">VisualizationOption</span>
-<span className="gql-svc">changesetvisualizer</span>
-</div>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>name</code></td><td>String!</td><td></td></tr>
-    <tr><td><code>value</code></td><td><a href="#object">Object</a></td><td></td></tr>
-    <tr><td><code>type</code></td><td>String!</td><td></td></tr>
-    <tr><td><code>displayName</code></td><td>String!</td><td></td></tr>
-    <tr><td><code>description</code></td><td>String!</td><td></td></tr>
-    <tr><td><code>example</code></td><td>String</td><td></td></tr>
-    <tr><td><code>valid</code></td><td>[String]</td><td></td></tr>
-    <tr><td><code>required</code></td><td>Boolean!</td><td></td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="visualizationplotlyoutput" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">VisualizationPlotlyOutput</span>
-<span className="gql-svc">changesetreader</span>
-<span className="gql-impl">implements <a href="#visualizationoutput">VisualizationOutput</a></span>
-</div>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>data</code></td><td><a href="#base64">Base64</a>!</td><td>Plotly JSON data (MIME type: application/vnd.plotly.v1+json)</td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="visualizationprocessing" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">VisualizationProcessing</span>
-<span className="gql-svc">changesetreader</span>
-<span className="gql-impl">implements <a href="#visualization">Visualization</a></span>
-</div>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>id</code></td><td>ID!</td><td></td></tr>
-    <tr><td><code>descriptor</code></td><td><a href="#visualizationdescriptor">VisualizationDescriptor</a>!</td><td></td></tr>
-    <tr><td><code>changesetId</code></td><td>ID!</td><td></td></tr>
-    <tr><td><code>startedAt</code></td><td><a href="#datetime">DateTime</a>!</td><td></td></tr>
-    <tr><td><code>repositories</code></td><td>(first: Int = 100, after: String): <a href="#visualizationrepositoryconnection">VisualizationRepositoryConnection</a>!</td><td></td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="visualizationrepository" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">VisualizationRepository</span>
-<span className="gql-svc">changesetreader</span>
-</div>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>state</code></td><td><a href="#visualizationrepositoryrunstate">VisualizationRepositoryRunState</a>!</td><td></td></tr>
-    <tr><td><code>stateMessage</code></td><td>String</td><td></td></tr>
-    <tr><td><code>repository</code></td><td><a href="#repository">Repository</a>!</td><td></td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="visualizationrepositoryconnection" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">VisualizationRepositoryConnection</span>
-<span className="gql-svc">changesetreader</span>
-</div>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>edges</code></td><td>[<a href="#visualizationrepositoryedge">VisualizationRepositoryEdge</a>!]!</td><td></td></tr>
-    <tr><td><code>pageInfo</code></td><td><a href="#pageinfo">PageInfo</a>!</td><td></td></tr>
-    <tr><td><code>count</code></td><td>Int!</td><td></td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="visualizationrepositoryedge" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">VisualizationRepositoryEdge</span>
-<span className="gql-svc">changesetreader</span>
-</div>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>node</code></td><td><a href="#visualizationrepository">VisualizationRepository</a>!</td><td></td></tr>
-    <tr><td><code>cursor</code></td><td>String!</td><td></td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="yamlrecipebundle" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">YamlRecipeBundle</span>
-<span className="gql-svc">changesetreader</span>
-<span className="gql-impl">implements <a href="#recipebundle">RecipeBundle</a></span>
-</div>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>yaml</code></td><td><a href="#base64">Base64</a>!</td><td></td></tr>
-    <tr><td><code>requestedVersion</code></td><td>String</td><td></td></tr>
-    <tr><td><code>version</code></td><td>String</td><td></td></tr>
-    <tr><td><code>recipeCount</code></td><td>Int</td><td></td></tr>
-    <tr><td><code>primary</code></td><td><a href="#recipedescriptor">RecipeDescriptor</a></td><td>The primary recipe in this bundle. When specified, only this recipe is shown in marketplace categories, hiding other recipes from this bundle.</td></tr>
-  </tbody>
-</table>
-</div>
+#### `AccessToken`
+
+**Service:** authz
+
+Moderne Personal Access Tokens
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `id` | ID! | The unique identifier for the access token.
+This is not the same as the token itself. |
+| `description` | String | Optional description of the token.
+
+Useful for distinguishing between multiple tokens. |
+| `created` | [DateTime](#datetime)! | The date and time the token was created. |
+| `expiresAt` | [DateTime](#datetime) | The date and time the token will expire. |
+
+---
+
+#### `AccessTokenConnection`
+
+**Service:** authz
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `edges` | [[AccessTokenEdge](#accesstokenedge)!]! |  |
+| `pageInfo` | [PageInfo](#pageinfo)! |  |
+| `count` | Int! |  |
+
+---
+
+#### `AccessTokenEdge`
+
+**Service:** authz
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `node` | [AccessToken](#accesstoken)! |  |
+| `cursor` | String! |  |
+
+---
+
+#### `ArtifactoryConfiguration`
+
+**Service:** gateway
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `resourceId` | String! |  |
+| `skipSsl` | Boolean! |  |
+| `skipValidateConnectivity` | Boolean! |  |
+| `connectivity` | [HttpToolConnectivity](#httptoolconnectivity)! |  |
+| `lstQuery` | [String!] |  |
+| `lastIngestedAt` | [DateTime](#datetime) |  |
+
+---
+
+#### `AuditLog`
+
+**Service:** auditreader
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `id` | ID! |  |
+| `user` | [User](#user)! | The user who performed the action. |
+| `target` | String! | The resource type that was acted upon (e.g., "access.tokens", "organizations"). |
+| `action` | String! | The specific action that was performed (e.g., "create.token", "delete.organization"). |
+| `actionType` | [AuditActionType](#auditactiontype)! | The CRUD classification of the action. |
+| `outcome` | [AuditOutcome](#auditoutcome)! | Whether the action succeeded or failed. |
+| `description` | String | Human-readable description of what happened. |
+| `timestamp` | [DateTime](#datetime)! | When the action occurred. |
+
+---
+
+#### `AuditLogConnection`
+
+**Service:** auditreader
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `edges` | [[AuditLogEdge](#auditlogedge)!]! |  |
+| `pageInfo` | [PageInfo](#pageinfo)! |  |
+| `count` | Int! |  |
+
+---
+
+#### `AuditLogEdge`
+
+**Service:** auditreader
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `node` | [AuditLog](#auditlog)! |  |
+| `cursor` | String! |  |
+
+---
+
+#### `AuditLogsDownloadConnection`
+
+**Service:** auditreader
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `edges` | [[AuditLogsDownloadEdge](#auditlogsdownloadedge)!]! |  |
+| `pageInfo` | [PageInfo](#pageinfo)! |  |
+| `count` | Int! |  |
+
+---
+
+#### `AuditLogsDownloadEdge`
+
+**Service:** auditreader
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `node` | [AuditLogsDownload](#auditlogsdownload)! |  |
+| `cursor` | String! |  |
+
+---
+
+#### `AuditLogsDownloadError`
+
+**Service:** auditreader | **Implements:** [AuditLogsDownload](#auditlogsdownload)
+
+An audit log download failed.
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `id` | ID! |  |
+| `startedAt` | [DateTime](#datetime)! |  |
+| `finishedAt` | [DateTime](#datetime)! |  |
+| `message` | String! |  |
+
+---
+
+#### `AuditLogsDownloadFinished`
+
+**Service:** auditreader | **Implements:** [AuditLogsDownload](#auditlogsdownload)
+
+An audit log download has completed successfully.
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `id` | ID! |  |
+| `format` | [AuditLogExportFormat](#auditlogexportformat)! |  |
+| `startedAt` | [DateTime](#datetime)! |  |
+| `finishedAt` | [DateTime](#datetime)! |  |
+| `downloadUrl` | String! | URL path to download the file (relative to the service base URL). |
+
+---
+
+#### `AuditLogsDownloadProcessing`
+
+**Service:** auditreader | **Implements:** [AuditLogsDownload](#auditlogsdownload)
+
+An audit log download is being processed.
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `id` | ID! |  |
+| `format` | [AuditLogExportFormat](#auditlogexportformat)! |  |
+| `startedAt` | [DateTime](#datetime)! |  |
+
+---
+
+#### `AzureDevOpsConfiguration`
+
+**Service:** gateway
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `resourceId` | String! |  |
+| `skipSsl` | Boolean! |  |
+| `skipValidateConnectivity` | Boolean! |  |
+| `connectivity` | [HttpToolConnectivity](#httptoolconnectivity)! |  |
+| `oauth` | [AzureDevOpsOauth](#azuredevopsoauth) |  |
+
+---
+
+#### `AzureDevOpsConnection`
+
+**Service:** authz | **Implements:** [ScmConnection](#scmconnection)
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `resourceId` | String! |  |
+| `isAuthorized` | Boolean! |  |
+| `tokens` | [[ScmTokenInfo](#scmtokeninfo)!]! |  |
+
+---
+
+#### `AzureDevOpsOauth`
+
+**Service:** gateway
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `clientId` | String! |  |
+| `tenantId` | String! |  |
+
+---
+
+#### `BatchChange`
+
+**Service:** changesetreader | **Implements:** [OrganizationChangeset](#organizationchangeset)
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `id` | ID! |  |
+| `user` | [User](#user)! |  |
+| `createdAt` | [DateTime](#datetime)! |  |
+| `parent` | [OrganizationChangeset](#organizationchangeset) |  |
+| `repositories` | (first: Int = 100, after: String, where: [RepositoryChangesetWhereInput](#repositorychangesetwhereinput), orderBy: [[RepositoryChangesetOrderByInput](#repositorychangesetorderbyinput)!]): [RepositoryChangesetConnection](#repositorychangesetconnection)! |  |
+| `name` | String |  |
+| `description` | String |  |
+| `sourceTool` | [ToolInfo](#toolinfo) |  |
+| `diffTool` | [ToolInfo](#toolinfo) |  |
+| `dataTables` | (first: Int = 50, after: String, where: [DataTableWhereInput](#datatablewhereinput), orderBy: [[DataTableOrderByInput](#datatableorderbyinput)!]): [DataTableConnection](#datatableconnection)! | Data tables produced by this batch change.
+Each data table starts as Available and transitions to Processing/Finished/Error
+when downloadDataTable mutation is called. |
+| `visualizations` | (first: Int = 50, after: String, where: [VisualizationWhereInput](#visualizationwhereinput), orderBy: [[VisualizationOrderByInput](#visualizationorderbyinput)!]): [VisualizationConnection](#visualizationconnection)! | Visualizations produced by this batch change. |
+
+---
+
+#### `BatchChangeFileChange`
+
+**Service:** changesetreader | **Implements:** [FileChange](#filechange)
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `path` | [Path](#path)! |  |
+| `beforeSourcePath` | [Path](#path) |  |
+| `afterSourcePath` | [Path](#path) |  |
+| `diff` | (markupLevel: [MarkupLevel](#markuplevel) = ERROR, showWhitespaceOnlyChanges: Boolean = true): [Patch](#patch) |  |
+
+---
+
+#### `BitbucketCloudConfiguration`
+
+**Service:** gateway
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `resourceId` | String! |  |
+| `skipSsl` | Boolean! |  |
+| `skipValidateConnectivity` | Boolean! |  |
+| `connectivity` | [HttpToolConnectivity](#httptoolconnectivity)! |  |
+| `oauth` | [BitbucketCloudOauth](#bitbucketcloudoauth) |  |
+
+---
+
+#### `BitbucketCloudConnection`
+
+**Service:** authz | **Implements:** [ScmConnection](#scmconnection)
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `resourceId` | String! |  |
+| `isAuthorized` | Boolean! |  |
+| `tokens` | [[ScmTokenInfo](#scmtokeninfo)!]! |  |
+
+---
+
+#### `BitbucketCloudOauth`
+
+**Service:** gateway
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `clientId` | String! |  |
+
+---
+
+#### `BitbucketConfiguration`
+
+**Service:** gateway
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `resourceId` | String! |  |
+| `skipSsl` | Boolean! |  |
+| `skipValidateConnectivity` | Boolean! |  |
+| `connectivity` | [HttpToolConnectivity](#httptoolconnectivity)! |  |
+| `oauth` | [BitbucketOauth](#bitbucketoauth) |  |
+
+---
+
+#### `BitbucketConnection`
+
+**Service:** authz | **Implements:** [ScmConnection](#scmconnection)
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `resourceId` | String! |  |
+| `isAuthorized` | Boolean! |  |
+| `tokens` | [[ScmTokenInfo](#scmtokeninfo)!]! |  |
+
+---
+
+#### `BitbucketOauth`
+
+**Service:** gateway
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `clientId` | String! |  |
+
+---
+
+#### `BranchCommitOptions`
+
+**Service:** changesetcommitter | **Implements:** [CommitOptions](#commitoptions)
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `branchName` | String |  |
+
+---
+
+#### `BulkPullRequestActionCanceled`
+
+**Service:** changelogreader | **Implements:** [BulkPullRequestAction](#bulkpullrequestaction)
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `id` | ID! |  |
+| `actionType` | [PullRequestActionType](#pullrequestactiontype)! |  |
+| `user` | [User](#user)! |  |
+| `canceledBy` | [User](#user)! |  |
+| `results` | (first: Int = 50, after: String, where: [PullRequestActionWhereInput](#pullrequestactionwhereinput), orderBy: [[PullRequestActionOrderByInput](#pullrequestactionorderbyinput)!]): [PullRequestActionConnection](#pullrequestactionconnection)! |  |
+
+---
+
+#### `BulkPullRequestActionConnection`
+
+**Service:** changelogreader
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `edges` | [[BulkPullRequestActionEdge](#bulkpullrequestactionedge)!]! |  |
+| `pageInfo` | [PageInfo](#pageinfo)! |  |
+| `count` | Int! |  |
+
+---
+
+#### `BulkPullRequestActionEdge`
+
+**Service:** changelogreader
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `node` | [BulkPullRequestAction](#bulkpullrequestaction)! |  |
+| `cursor` | String! |  |
+
+---
+
+#### `BulkPullRequestActionError`
+
+**Service:** changelogreader | **Implements:** [BulkPullRequestAction](#bulkpullrequestaction)
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `id` | ID! |  |
+| `actionType` | [PullRequestActionType](#pullrequestactiontype)! |  |
+| `user` | [User](#user)! |  |
+| `errorMessage` | String! |  |
+| `results` | (first: Int = 50, after: String, where: [PullRequestActionWhereInput](#pullrequestactionwhereinput), orderBy: [[PullRequestActionOrderByInput](#pullrequestactionorderbyinput)!]): [PullRequestActionConnection](#pullrequestactionconnection)! |  |
+
+---
+
+#### `BulkPullRequestActionFinished`
+
+**Service:** changelogreader | **Implements:** [BulkPullRequestAction](#bulkpullrequestaction)
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `id` | ID! |  |
+| `actionType` | [PullRequestActionType](#pullrequestactiontype)! |  |
+| `user` | [User](#user)! |  |
+| `startedAt` | [DateTime](#datetime)! |  |
+| `finishedAt` | [DateTime](#datetime)! |  |
+| `results` | (first: Int = 50, after: String, where: [PullRequestActionWhereInput](#pullrequestactionwhereinput), orderBy: [[PullRequestActionOrderByInput](#pullrequestactionorderbyinput)!]): [PullRequestActionConnection](#pullrequestactionconnection)! |  |
+
+---
+
+#### `BulkPullRequestActionQueued`
+
+**Service:** changelogreader | **Implements:** [BulkPullRequestAction](#bulkpullrequestaction)
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `id` | ID! |  |
+| `actionType` | [PullRequestActionType](#pullrequestactiontype)! |  |
+| `user` | [User](#user)! |  |
+| `queuedAt` | [DateTime](#datetime)! |  |
+| `results` | (first: Int = 50, after: String, where: [PullRequestActionWhereInput](#pullrequestactionwhereinput), orderBy: [[PullRequestActionOrderByInput](#pullrequestactionorderbyinput)!]): [PullRequestActionConnection](#pullrequestactionconnection)! |  |
+
+---
+
+#### `BulkPullRequestActionRunning`
+
+**Service:** changelogreader | **Implements:** [BulkPullRequestAction](#bulkpullrequestaction)
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `id` | ID! |  |
+| `actionType` | [PullRequestActionType](#pullrequestactiontype)! |  |
+| `user` | [User](#user)! |  |
+| `startedAt` | [DateTime](#datetime)! |  |
+| `results` | (first: Int = 50, after: String, where: [PullRequestActionWhereInput](#pullrequestactionwhereinput), orderBy: [[PullRequestActionOrderByInput](#pullrequestactionorderbyinput)!]): [PullRequestActionConnection](#pullrequestactionconnection)! |  |
+
+---
+
+#### `ChangeParticipant`
+
+**Service:** changelogreader
+
+A participant identity from the VCS provider. Not necessarily a Moderne user.
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `name` | String | Display name. |
+| `email` | String | Email address. |
+| `username` | String | Username/login on the VCS provider. |
+| `avatarUrl` | String | Avatar URL from the VCS provider. |
+| `roles` | [[ContributorRole](#contributorrole)!]! | The roles this participant has across changelog entries. |
+
+---
+
+#### `ChangelogCommit`
+
+**Service:** changelogreader | **Implements:** [ChangelogEntry](#changelogentry)
+
+A direct commit to a branch.
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `id` | ID! |  |
+| `title` | String! |  |
+| `author` | [ChangeParticipant](#changeparticipant)! |  |
+| `repository` | [Repository](#repository)! |  |
+| `url` | String! |  |
+| `branch` | String! |  |
+| `sha` | String! | The commit SHA. |
+| `updatedAt` | [DateTime](#datetime)! |  |
+| `createdAt` | [DateTime](#datetime)! |  |
+| `changeset` | [OrganizationChangeset](#organizationchangeset) |  |
+| `buildState` | [BuildState](#buildstate) |  |
+| `diffstat` | [DiffStat](#diffstat)! |  |
+
+---
+
+#### `ChangelogEntryConnection`
+
+**Service:** changelogreader
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `edges` | [[ChangelogEntryEdge](#changelogentryedge)!]! |  |
+| `pageInfo` | [PageInfo](#pageinfo)! |  |
+| `count` | Int! |  |
+
+---
+
+#### `ChangelogEntryEdge`
+
+**Service:** changelogreader
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `node` | [ChangelogEntry](#changelogentry)! |  |
+| `cursor` | String! |  |
+
+---
+
+#### `ChangelogParticipantConnection`
+
+**Service:** changelogreader
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `edges` | [[ChangelogParticipantEdge](#changelogparticipantedge)!]! |  |
+| `pageInfo` | [PageInfo](#pageinfo)! |  |
+| `count` | Int! |  |
+
+---
+
+#### `ChangelogParticipantEdge`
+
+**Service:** changelogreader
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `node` | [ChangeParticipant](#changeparticipant)! |  |
+| `cursor` | String! |  |
+
+---
+
+#### `ChangelogPullRequest`
+
+**Service:** changelogreader | **Implements:** [ChangelogEntry](#changelogentry)
+
+A pull request (open, draft, merged, or closed).
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `id` | ID! |  |
+| `title` | String! |  |
+| `author` | [ChangeParticipant](#changeparticipant)! |  |
+| `repository` | [Repository](#repository)! |  |
+| `url` | String! |  |
+| `branch` | String! |  |
+| `number` | Int! | The PR number. |
+| `sourceBranch` | String! | The source branch of the pull request. |
+| `state` | [PullRequestState](#pullrequeststate)! | Current state of the pull request. |
+| `draft` | Boolean! | Whether this is a draft pull request. |
+| `updatedAt` | [DateTime](#datetime)! |  |
+| `createdAt` | [DateTime](#datetime)! |  |
+| `buildState` | [BuildState](#buildstate) |  |
+| `reviewDecision` | [ReviewDecision](#reviewdecision) | Review decision for the pull request. |
+| `approvedBy` | [[ChangeParticipant](#changeparticipant)!] | Reviewers who approved this pull request. |
+| `requestedReviewers` | [[ChangeParticipant](#changeparticipant)!] | Reviewers assigned/requested on this pull request. |
+| `additions` | Int | Lines added. |
+| `deletions` | Int | Lines removed. |
+| `changeset` | [OrganizationChangeset](#organizationchangeset) |  |
+| `diffstat` | [DiffStat](#diffstat)! |  |
+| `actions` | (first: Int = 50, after: String, where: [PullRequestActionWhereInput](#pullrequestactionwhereinput), orderBy: [[PullRequestActionOrderByInput](#pullrequestactionorderbyinput)!]): [PullRequestActionConnection](#pullrequestactionconnection)! | Actions (approve, merge, close) that have been applied to this pull request.
+Default sort order is descending by startedAt. |
+
+---
+
+#### `CliDownloadInstructionLink`
+
+**Service:** gateway
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `label` | String! |  |
+| `uri` | String! |  |
+
+---
+
+#### `CodeSearchResult`
+
+**Service:** code-search
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `groupId` | String! |  |
+| `artifactId` | String! |  |
+| `fileChanges` | (first: Int = 100, after: String): [FileChangeConnection](#filechangeconnection)! |  |
+
+---
+
+#### `CodeSearchResultConnection`
+
+**Service:** code-search
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `edges` | [[CodeSearchResultEdge](#codesearchresultedge)!]! |  |
+| `pageInfo` | [PageInfo](#pageinfo)! |  |
+| `count` | Int! |  |
+| `searchDurationMs` | [Long](#long)! |  |
+
+---
+
+#### `CodeSearchResultEdge`
+
+**Service:** code-search
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `node` | [CodeSearchResult](#codesearchresult)! |  |
+| `cursor` | String! |  |
+
+---
+
+#### `Column`
+
+**Service:** corechangeset
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `name` | String! |  |
+| `displayName` | String! |  |
+| `description` | String! |  |
+| `type` | String! |  |
+
+---
+
+#### `Connector`
+
+**Service:** gateway
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `id` | ID! |  |
+| `nickname` | String |  |
+| `version` | String! |  |
+| `tools` | [[ConnectorTool](#connectortool)!]! |  |
+| `uiConfiguration` | [UiConfiguration](#uiconfiguration) |  |
+| `personalAccessTokenConfiguration` | [PersonalAccessTokenConfiguration](#personalaccesstokenconfiguration) |  |
+
+---
+
+#### `ConnectorConnection`
+
+**Service:** gateway
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `edges` | [[ConnectorEdge](#connectoredge)!]! |  |
+| `pageInfo` | [PageInfo](#pageinfo)! |  |
+| `count` | Int! |  |
+
+---
+
+#### `ConnectorEdge`
+
+**Service:** gateway
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `node` | [Connector](#connector)! |  |
+| `cursor` | String! |  |
+
+---
+
+#### `Conversation`
+
+**Service:** moddy
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `id` | ID! |  |
+| `organization` | [Organization](#organization)! |  |
+| `user` | [User](#user)! |  |
+| `messages` | (first: Int = 100, after: String): [MessageConnection](#messageconnection)! |  |
+| `turnState` | [ConversationTurnState](#conversationturnstate)! | Current turn state for this conversation. Carries the server-
+recommended poll cadence — clients should respect this rather than
+hardcoding an interval. |
+| `startedAt` | [DateTime](#datetime)! |  |
+| `lastUpdatedAt` | [DateTime](#datetime)! |  |
+
+---
+
+#### `ConversationConnection`
+
+**Service:** moddy
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `edges` | [[ConversationEdge](#conversationedge)!]! |  |
+| `pageInfo` | [PageInfo](#pageinfo)! |  |
+
+---
+
+#### `ConversationEdge`
+
+**Service:** moddy
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `node` | [Conversation](#conversation)! |  |
+| `cursor` | String! |  |
+
+---
+
+#### `ConversationTurnState`
+
+**Service:** moddy
+
+Represents the current phase of the conversation's active turn (if any).
+Drives client poll cadence.
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `phase` | [ConversationPhase](#conversationphase)! |  |
+| `recommendedPollIntervalMs` | Int! | Server-recommended poll interval in milliseconds. |
+| `activeTurnStartedAt` | [DateTime](#datetime) | When the currently-active turn started, if any. |
+
+---
+
+#### `CreateAccessTokenResult`
+
+**Service:** authz
+
+Result of creating a new access token.
+The token value is only available in this response.
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `id` | ID! | The unique identifier for the token. Use this ID for revocation. |
+| `token` | String! | The actual token value. Store this securely - it cannot be retrieved again. |
+| `description` | String | The description provided when creating the token. |
+| `created` | [DateTime](#datetime)! | When the token was created. |
+| `expiresAt` | [DateTime](#datetime) | When the token will expire, or null if it never expires. |
+
+---
+
+#### `DataTableAvailable`
+
+**Service:** changesetreader | **Implements:** [DataTable](#datatable)
+
+A data table is available for download but no download has been initiated yet.
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `id` | ID! |  |
+| `dataTable` | [DataTableDescriptor](#datatabledescriptor)! |  |
+| `instanceName` | String! |  |
+| `group` | String |  |
+| `changesetId` | ID! |  |
+
+---
+
+#### `DataTableConnection`
+
+**Service:** corechangeset
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `edges` | [[DataTableEdge](#datatableedge)!]! |  |
+| `pageInfo` | [PageInfo](#pageinfo)! |  |
+| `count` | Int! |  |
+
+---
+
+#### `DataTableDescriptor`
+
+**Service:** corechangeset
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `name` | String! |  |
+| `displayName` | String! |  |
+| `description` | String! |  |
+| `columns` | [[Column](#column)!]! |  |
+
+---
+
+#### `DataTableEdge`
+
+**Service:** corechangeset
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `node` | [DataTable](#datatable)! |  |
+| `cursor` | String! |  |
+
+---
+
+#### `DataTableError`
+
+**Service:** changesetreader | **Implements:** [DataTable](#datatable)
+
+A data table download failed.
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `id` | ID! |  |
+| `dataTable` | [DataTableDescriptor](#datatabledescriptor)! |  |
+| `instanceName` | String! |  |
+| `group` | String |  |
+| `changesetId` | ID! |  |
+| `startedAt` | [DateTime](#datetime)! |  |
+| `finishedAt` | [DateTime](#datetime)! |  |
+| `message` | String! |  |
+
+---
+
+#### `DataTableFinished`
+
+**Service:** changesetreader | **Implements:** [DataTable](#datatable)
+
+A data table download has completed successfully.
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `id` | ID! |  |
+| `dataTable` | [DataTableDescriptor](#datatabledescriptor)! |  |
+| `instanceName` | String! |  |
+| `group` | String |  |
+| `format` | [DataTableFormat](#datatableformat)! |  |
+| `changesetId` | ID! |  |
+| `startedAt` | [DateTime](#datetime)! |  |
+| `finishedAt` | [DateTime](#datetime)! |  |
+| `duration` | [Duration](#duration) |  |
+| `downloadUrl` | String! | URL path to download the file (relative to the service base URL). |
+
+---
+
+#### `DataTableProcessing`
+
+**Service:** changesetreader | **Implements:** [DataTable](#datatable)
+
+A data table download is being processed.
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `id` | ID! |  |
+| `dataTable` | [DataTableDescriptor](#datatabledescriptor)! |  |
+| `instanceName` | String! |  |
+| `group` | String |  |
+| `format` | [DataTableFormat](#datatableformat)! |  |
+| `changesetId` | ID! |  |
+| `startedAt` | [DateTime](#datetime)! |  |
+
+---
+
+#### `DataTableSqlMessage`
+
+**Service:** moddy | **Implements:** [Message](#message)
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `id` | ID! |  |
+| `user` | [User](#user)! |  |
+| `sqlQuery` | String! |  |
+| `state` | [MessageState](#messagestate)! |  |
+| `lastUpdatedAt` | [DateTime](#datetime)! |  |
+
+---
+
+#### `DataTablesMessage`
+
+**Service:** moddy | **Implements:** [Message](#message)
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `id` | ID! |  |
+| `user` | [User](#user)! |  |
+| `dataTables` | [[DataTableDescriptor](#datatabledescriptor)!]! |  |
+| `state` | [MessageState](#messagestate)! |  |
+| `lastUpdatedAt` | [DateTime](#datetime)! |  |
+
+---
+
+#### `DevCenter`
+
+**Service:** changesetreader
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `recipe` | [RecipeDescriptor](#recipedescriptor) | The currently configured DevCenter recipe for this organization. |
+| `runs` | (first: Int = 10, after: String, where: [DevCenterRunWhereInput](#devcenterrunwhereinput), orderBy: [[DevCenterRunOrderByInput](#devcenterrunorderbyinput)!]): [DevCenterRunConnection](#devcenterrunconnection)! | DevCenter runs for this organization, ordered by start time descending. |
+
+---
+
+#### `DevCenterCard`
+
+**Service:** changesetreader
+
+A DevCenter card represents a category of work (e.g., "Spring Boot 3", "Java 21", "Security").
+Cards contain measures that track progress toward completion.
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `displayName` | [Markdown](#markdown)! | Display name of the card. |
+| `description` | [Markdown](#markdown) | Description of what this card tracks. |
+| `fixRecipe` | [RecipeDescriptor](#recipedescriptor) | Recipe that can fix/complete the work tracked by this card. |
+| `aggregation` | [DevCenterAggregation](#devcenteraggregation)! | How results are aggregated for this card. |
+| `measures` | [[DevCenterMeasure](#devcentermeasure)!]! | Measures within this card, ordered by ordinal. |
+| `repositoriesNotApplicable` | Int! | Repositories where this card is not applicable. |
+
+---
+
+#### `DevCenterCardDescriptor`
+
+**Service:** recipemarketplace
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `displayName` | [Markdown](#markdown)! |  |
+| `description` | [Markdown](#markdown) |  |
+| `fixRecipe` | [RecipeDescriptor](#recipedescriptor) |  |
+| `aggregation` | [DevCenterAggregation](#devcenteraggregation)! |  |
+| `measures` | [[DevCenterMeasureDescriptor](#devcentermeasuredescriptor)!]! |  |
+
+---
+
+#### `DevCenterMeasure`
+
+**Service:** changesetreader
+
+A measure within a DevCenter card representing a specific state or finding,
+with a count from the run results.
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `displayName` | [Markdown](#markdown)! | Display name of the measure. |
+| `description` | [Markdown](#markdown) | Description of what this measure represents. |
+| `ordinal` | Int! | Sort order relative to other measures in the card. |
+| `count` | Int! | Count of repositories or occurrences for this measure.
+For PER_REPOSITORY: number of repositories in this state.
+For PER_OCCURRENCE: total count of occurrences. |
+
+---
+
+#### `DevCenterMeasureDescriptor`
+
+**Service:** recipemarketplace
+
+A measure descriptor within a DevCenter card, representing metadata about
+a specific state or finding. See DevCenterMeasure in changeset:reader
+for the runtime version with counts.
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `displayName` | [Markdown](#markdown)! |  |
+| `description` | [Markdown](#markdown) |  |
+| `ordinal` | Int! |  |
+
+---
+
+#### `DevCenterOrganization`
+
+**Service:** changesetreader
+
+Organization-level context from a DevCenter run.
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `repositories` | [DevCenterRepositories](#devcenterrepositories)! | Repository counts at the time of the run. |
+| `contributingDevelopers` | Int! | Number of unique contributing developers (last 90 days). |
+| `linesOfCode` | [Long](#long)! | Total lines of code across all repositories on platform. |
+
+---
+
+#### `DevCenterRepositories`
+
+**Service:** changesetreader
+
+Repository counts from a DevCenter run.
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `total` | Int! | Total repositories defined in the organization at the time of the run. |
+| `repositoriesWithoutLst` | Int! | Repositories with no LST ingested at the time of the run. |
+
+---
+
+#### `DevCenterRunCanceled`
+
+**Service:** changesetreader | **Implements:** [DevCenterRun](#devcenterrun)
+
+DevCenter run was canceled before completion.
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `id` | ID! |  |
+| `startedAt` | [DateTime](#datetime)! |  |
+| `changeset` | [OrganizationChangeset](#organizationchangeset) |  |
+| `finishedAt` | [DateTime](#datetime)! |  |
+
+---
+
+#### `DevCenterRunConnection`
+
+**Service:** changesetreader
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `edges` | [[DevCenterRunEdge](#devcenterrunedge)!]! |  |
+| `pageInfo` | [PageInfo](#pageinfo)! |  |
+| `count` | Int! |  |
+
+---
+
+#### `DevCenterRunEdge`
+
+**Service:** changesetreader
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `node` | [DevCenterRun](#devcenterrun)! |  |
+| `cursor` | String! |  |
+
+---
+
+#### `DevCenterRunError`
+
+**Service:** changesetreader | **Implements:** [DevCenterRun](#devcenterrun)
+
+DevCenter run failed with an error.
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `id` | ID! |  |
+| `startedAt` | [DateTime](#datetime)! |  |
+| `changeset` | [OrganizationChangeset](#organizationchangeset) |  |
+| `finishedAt` | [DateTime](#datetime)! |  |
+| `message` | String! | Human-readable error message. |
+
+---
+
+#### `DevCenterRunFinished`
+
+**Service:** changesetreader | **Implements:** [DevCenterRun](#devcenterrun)
+
+DevCenter run completed successfully with summarized results.
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `id` | ID! |  |
+| `startedAt` | [DateTime](#datetime)! |  |
+| `changeset` | [OrganizationChangeset](#organizationchangeset) |  |
+| `finishedAt` | [DateTime](#datetime)! |  |
+| `organization` | [DevCenterOrganization](#devcenterorganization)! |  |
+| `upgradesAndMigrations` | [[DevCenterCard](#devcentercard)!]! | Upgrade and migration opportunities found (from UpgradesAndMigrations data table). |
+| `security` | [DevCenterCard](#devcentercard) | Security vulnerabilities found (from SecurityIssues data table). |
+
+---
+
+#### `DevCenterRunRunning`
+
+**Service:** changesetreader | **Implements:** [DevCenterRun](#devcenterrun)
+
+DevCenter recipe is currently running across repositories.
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `id` | ID! |  |
+| `startedAt` | [DateTime](#datetime)! |  |
+| `changeset` | [OrganizationChangeset](#organizationchangeset) |  |
+
+---
+
+#### `DiffStat`
+
+**Service:** changelogreader
+
+Aggregate line-level diff statistics.
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `additions` | Int! | Total lines added. |
+| `deletions` | Int! | Total lines removed. |
+
+---
+
+#### `DirectCommitSucceeded`
+
+**Service:** changesetcommitter | **Implements:** [RepositoryCommitSucceeded](#repositorycommitsucceeded), [RepositoryCommit](#repositorycommit)
+
+Direct commit to repository completed successfully.
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `repository` | [Repository](#repository)! |  |
+| `startedAt` | [DateTime](#datetime)! |  |
+| `finishedAt` | [DateTime](#datetime)! |  |
+| `resultLink` | String |  |
+
+---
+
+#### `ErrorMessage`
+
+**Service:** moddy | **Implements:** [Message](#message)
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `id` | ID! |  |
+| `user` | [User](#user)! |  |
+| `content` | [Markdown](#markdown)! |  |
+| `code` | String | Stable error code that clients may switch on for UI copy. The full
+taxonomy (split into API-call errors vs in-conversation errors) is
+maintained in `doc/moddy-polling-ui-handoff.md`. As of now:
+
+  Configuration / LLM provider:
+    LLM_UNAVAILABLE, LLM_OVERLOADED, LLM_RATE_LIMITED, LLM_AUTH_FAILED,
+    LLM_CONTEXT_TOO_LONG, LLM_TIMED_OUT, LLM_QUOTA_EXCEEDED,
+    LLM_UNREACHABLE, LLM_EMPTY_RESPONSE, LLM_FAILED
+
+  Tool execution:
+    TOOL_UNKNOWN, TOOL_FAILED
+
+  Turn lifecycle:
+    TURN_LIMIT_EXCEEDED, CANCELLED
+
+  Fallback:
+    INTERNAL
+
+API-call errors (returned in GraphQL `errors[]`, not as messages):
+INVALID_CURSOR, FORBIDDEN, CONVERSATION_BUSY, MESSAGE_TOO_LONG,
+CONVERSATION_NOT_FOUND, TOO_MANY_REQUESTS. |
+| `state` | [MessageState](#messagestate)! |  |
+| `lastUpdatedAt` | [DateTime](#datetime)! |  |
+
+---
+
+#### `ExchangeAuthorizationResult`
+
+**Service:** authz
+
+Result of exchanging an authorization code.
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `success` | Boolean! | True if the exchange was successful and token was stored. |
+| `error` | String | Error message if exchange failed. |
+
+---
+
+#### `FileChangeConnection`
+
+**Service:** corechangeset
+
+Connection for file changes with aggregate statistics.
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `edges` | [[FileChangeEdge](#filechangeedge)!]! |  |
+| `pageInfo` | [PageInfo](#pageinfo)! |  |
+| `count` | Int! |  |
+| `searched` | Int! | Total files searched. |
+| `changed` | Int! | Files with committable changes. |
+| `errors` | Int! | Files with errors. |
+
+---
+
+#### `FileChangeEdge`
+
+**Service:** corechangeset
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `node` | [FileChange](#filechange)! |  |
+| `cursor` | String! |  |
+
+---
+
+#### `ForkAndPullRequestCommitSucceeded`
+
+**Service:** changesetcommitter | **Implements:** [RepositoryCommitSucceeded](#repositorycommitsucceeded), [RepositoryCommit](#repositorycommit)
+
+Fork and pull request commit completed successfully.
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `repository` | [Repository](#repository)! |  |
+| `startedAt` | [DateTime](#datetime)! |  |
+| `finishedAt` | [DateTime](#datetime)! |  |
+| `resultLink` | String |  |
+| `pullRequestStatus` | [PullRequestStatus](#pullrequeststatus)! | Pull request status. |
+
+---
+
+#### `ForkCommitOptions`
+
+**Service:** changesetcommitter | **Implements:** [CommitOptions](#commitoptions)
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `branchName` | String |  |
+| `organization` | String | If set, the fork will be created in this organization. Otherwise, the fork will be created in the user's
+personal account. |
+| `prefixOrganization` | Boolean! |  |
+
+---
+
+#### `ForkCommitSucceeded`
+
+**Service:** changesetcommitter | **Implements:** [RepositoryCommitSucceeded](#repositorycommitsucceeded), [RepositoryCommit](#repositorycommit)
+
+Fork commit completed successfully.
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `repository` | [Repository](#repository)! |  |
+| `startedAt` | [DateTime](#datetime)! |  |
+| `finishedAt` | [DateTime](#datetime)! |  |
+| `resultLink` | String |  |
+
+---
+
+#### `ForkPullRequestOptions`
+
+**Service:** changesetcommitter | **Implements:** [CommitOptions](#commitoptions)
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `branchName` | String |  |
+| `organization` | String | If set, the fork will be created in this organization. Otherwise, the fork will be created in the user's
+personal account. |
+| `prefixOrganization` | Boolean! |  |
+| `pullRequestTitle` | String | If unset, the commit message will be used as the pull request title. |
+| `pullRequestBody` | [Base64](#base64) |  |
+| `draft` | Boolean! |  |
+| `maintainerCanModify` | Boolean! | GitHub only flag to allow maintainers to edit a pull request. |
+| `autoMergeMethod` | [MergeMethod](#mergemethod) | If allowed by the repository, set the pull request to automatically merge after all checks pass using the defined strategy. |
+| `canRecreateClosedPullRequest` | Boolean! | Recreate a pull request if it was already closed. |
+
+---
+
+#### `GenericHttpToolConfiguration`
+
+**Service:** gateway
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `resourceId` | String! |  |
+| `skipSsl` | Boolean! |  |
+| `skipValidateConnectivity` | Boolean! |  |
+| `connectivity` | [HttpToolConnectivity](#httptoolconnectivity)! |  |
+
+---
+
+#### `GitLabConfiguration`
+
+**Service:** gateway
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `resourceId` | String! |  |
+| `skipSsl` | Boolean! |  |
+| `skipValidateConnectivity` | Boolean! |  |
+| `connectivity` | [HttpToolConnectivity](#httptoolconnectivity)! |  |
+| `oauth` | [GitLabOauth](#gitlaboauth) |  |
+
+---
+
+#### `GitLabConnection`
+
+**Service:** authz | **Implements:** [ScmConnection](#scmconnection)
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `resourceId` | String! |  |
+| `isAuthorized` | Boolean! |  |
+| `tokens` | [[ScmTokenInfo](#scmtokeninfo)!]! |  |
+
+---
+
+#### `GitLabOauth`
+
+**Service:** gateway
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `clientId` | String! |  |
+
+---
+
+#### `GithubConfiguration`
+
+**Service:** gateway
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `resourceId` | String! |  |
+| `skipSsl` | Boolean! |  |
+| `skipValidateConnectivity` | Boolean! |  |
+| `allowableOrganizations` | [String!]! |  |
+| `connectivity` | [HttpToolConnectivity](#httptoolconnectivity)! |  |
+| `oauth` | [GithubOauth](#githuboauth) |  |
+
+---
+
+#### `GithubConnection`
+
+**Service:** authz | **Implements:** [ScmConnection](#scmconnection)
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `resourceId` | String! |  |
+| `isAuthorized` | Boolean! |  |
+| `tokens` | [[ScmTokenInfo](#scmtokeninfo)!]! |  |
+
+---
+
+#### `GithubOauth`
+
+**Service:** gateway
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `clientId` | String! |  |
+| `includePrivateRepos` | Boolean! |  |
+
+---
+
+#### `GoRecipeBundle`
+
+**Service:** changesetreader | **Implements:** [RecipeBundle](#recipebundle)
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `packageName` | String! |  |
+| `requestedVersion` | String |  |
+| `version` | String |  |
+| `recipeCount` | Int |  |
+
+---
+
+#### `HttpToolConnectivity`
+
+**Service:** gateway
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `connected` | Boolean! |  |
+| `latency` | [Duration](#duration) |  |
+
+---
+
+#### `License`
+
+**Service:** authz
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `key` | String |  |
+
+---
+
+#### `LlmConfiguration`
+
+**Service:** gateway
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `resourceId` | String! |  |
+| `skipSsl` | Boolean! |  |
+| `skipValidateConnectivity` | Boolean! |  |
+| `connectivity` | [HttpToolConnectivity](#httptoolconnectivity)! |  |
+| `llmProvider` | [LlmProvider](#llmprovider)! |  |
+
+---
+
+#### `LstArtifact`
+
+**Service:** organization
+
+The LST artifact for a repository - the precomputed Lossless Semantic Tree
+that recipe runs consume. Every repository has a conceptual artifact;
+`published` reflects the upstream `mod publish` timestamp, while
+`available` indicates whether the saas can route a recipe run to it yet.
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `published` | [DateTime](#datetime) | When `mod publish` produced an artifact into the customer's LST artifact
+repository, or null if no artifact has been published. For a tenant
+configured for encrypted LSTs, a non-null `published` does NOT mean the
+encrypted artifact has been received by the tenant - that signal lives
+on `available`. |
+| `available` | Boolean! | Whether the artifact is reachable for a recipe run.
+For an organization source with encryption enabled, true once the
+connector has uploaded the encrypted artifact and the gateway has
+surfaced an `encrypted://` alternate publish URI. For a source without
+encryption (pass-through), true when the gateway-projected row has a
+non-empty `publishUri`, which we assume is reachable from `mod publish`. |
+
+---
+
+#### `Markup`
+
+**Service:** corechangeset | **Implements:** [Marker](#marker)
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `id` | ID! |  |
+| `level` | [MarkupLevel](#markuplevel)! |  |
+| `message` | String |  |
+| `detail` | String |  |
+
+---
+
+#### `MavenConfiguration`
+
+**Service:** gateway
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `resourceId` | String! |  |
+| `skipSsl` | Boolean! |  |
+| `skipValidateConnectivity` | Boolean! |  |
+| `connectivity` | [HttpToolConnectivity](#httptoolconnectivity)! |  |
+| `localRepository` | String |  |
+| `lastIngestedAt` | [DateTime](#datetime) |  |
+
+---
+
+#### `MavenRecipeBundle`
+
+**Service:** changesetreader | **Implements:** [RecipeBundle](#recipebundle)
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `packageName` | String! |  |
+| `groupId` | String! |  |
+| `artifactId` | String! |  |
+| `requestedVersion` | String |  |
+| `version` | String |  |
+| `recipeCount` | Int |  |
+
+---
+
+#### `MergeOptions`
+
+**Service:** changesetcommitter
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `deleteSourceBranch` | Boolean! |  |
+| `mergeMethod` | [MergeMethod](#mergemethod)! |  |
+
+---
+
+#### `MessageConnection`
+
+**Service:** moddy
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `edges` | [[MessageEdge](#messageedge)!]! |  |
+| `pageInfo` | [PageInfo](#pageinfo)! |  |
+
+---
+
+#### `MessageEdge`
+
+**Service:** moddy
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `node` | [Message](#message)! |  |
+| `cursor` | String! |  |
+
+---
+
+#### `Moddy`
+
+**Service:** moddy
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `systemPrompt` | [Prompt](#prompt)! | The effective system prompt for this context.
+Cascades: user > organization > universal > built-in default. |
+| `adminOnly` | Boolean! | When true, only administrators can create conversations or send messages.
+Install-level policy flag; the UI uses this together with the viewer's admin
+status to gate the Moddy menu entry. |
+| `conversations` | (first: Int = 50, after: String, where: [ConversationWhereInput](#conversationwhereinput), orderBy: [[ConversationOrderByInput](#conversationorderbyinput)!]): [ConversationConnection](#conversationconnection)! |  |
+| `providerName` | String | Human-readable provider name (e.g. "Anthropic", "OpenAI"). Null when
+no LLM provider is configured (in which case `capabilities.moddy` is
+also false — clients should gate the chat composer on the capability,
+not on this field). |
+| `model` | String | Configured model identifier (e.g. "claude-3-5-sonnet-20241022"). Null
+when no provider is configured or the provider is configured without a
+model override. |
+
+---
+
+#### `MoreHelpLink`
+
+**Service:** gateway
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `label` | String! |  |
+| `uri` | String! |  |
+
+---
+
+#### `NpmConfiguration`
+
+**Service:** gateway
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `resourceId` | String! |  |
+| `skipSsl` | Boolean! |  |
+| `skipValidateConnectivity` | Boolean! |  |
+| `connectivity` | [HttpToolConnectivity](#httptoolconnectivity)! |  |
+
+---
+
+#### `NpmRecipeBundle`
+
+**Service:** changesetreader | **Implements:** [RecipeBundle](#recipebundle)
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `packageName` | String! |  |
+| `requestedVersion` | String |  |
+| `version` | String |  |
+| `recipeCount` | Int |  |
+
+---
+
+#### `NugetConfiguration`
+
+**Service:** gateway
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `resourceId` | String! |  |
+| `skipSsl` | Boolean! |  |
+| `skipValidateConnectivity` | Boolean! |  |
+| `connectivity` | [HttpToolConnectivity](#httptoolconnectivity)! |  |
+
+---
+
+#### `NugetRecipeBundle`
+
+**Service:** changesetreader | **Implements:** [RecipeBundle](#recipebundle)
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `packageName` | String! |  |
+| `requestedVersion` | String |  |
+| `version` | String |  |
+| `recipeCount` | Int |  |
+
+---
+
+#### `OAuthAuthorization`
+
+**Service:** authz
+
+Represents a pending OAuth authorization.
+The UI should redirect to authorizationUrl, then call exchangeAuthorizationCode
+with the id and extracted callback parameters.
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `id` | ID! | Unique ID for this authorization attempt.
+Used to look up stored PKCE state at exchange time. |
+| `authorizationUrl` | String! | The fully-constructed OAuth authorization URL.
+UI should redirect the user to this URL.
+
+IMPORTANT: The UI must store the authorization ID before redirecting,
+as it will be needed to call exchangeAuthorizationCode after the callback.
+The redirect URI does not contain the authorization ID. |
+| `callbackParameters` | [String!]! | Query parameters the UI should extract from the OAuth callback URL
+and pass to exchangeAuthorizationCode (e.g., ["code"]). |
+| `expiresAt` | [DateTime](#datetime)! | When this authorization expires. UI should treat expired authorizations as stale. |
+
+---
+
+#### `Option`
+
+**Service:** changesetreader
+
+RecipeDescriptor resolved from changeset-specific recipes.csv.
+When a recipe run is created, the recipes.csv is copied to the changeset directory,
+so we can resolve the recipe that was used at the time of the run (not the current global state).
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `name` | String! |  |
+| `value` | [Object](#object) |  |
+| `type` | String! |  |
+| `displayName` | String! |  |
+| `description` | String! |  |
+| `example` | String |  |
+| `valid` | [String] |  |
+| `required` | Boolean! |  |
+
+---
+
+#### `Organization`
+
+**Service:** changelogreader
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `id` | ID! |  |
+| `changelog` | (first: Int = 50, after: String, where: [ChangelogEntryWhereInput](#changelogentrywhereinput), orderBy: [[ChangelogEntryOrderByInput](#changelogentryorderbyinput)!]): [ChangelogEntryConnection](#changelogentryconnection)! | PR and commit activity feed for repositories in this organization. |
+| `participants` | (first: Int = 50, after: String, where: [ChangelogParticipantWhereInput](#changelogparticipantwhereinput), orderBy: [[ChangelogParticipantOrderByInput](#changelogparticipantorderbyinput)!]): [ChangelogParticipantConnection](#changelogparticipantconnection)! | All unique participants across the changelog for this organization,
+aggregated from authors, assignees, closers, and reviewers. |
+| `commitOptions` | [[CommitOption](#commitoption)!]! | Available commit options for this organization. |
+| `changesets` | (first: Int = 50, after: String, where: [OrganizationChangesetWhereInput](#organizationchangesetwhereinput), orderBy: [[OrganizationChangesetOrderByInput](#organizationchangesetorderbyinput)!]): [OrganizationChangesetConnection](#organizationchangesetconnection)! |  |
+| `devCenter` | [DevCenter](#devcenter) | DevCenter provides organization-wide campaign progress tracking. |
+| `moddy` | [Moddy](#moddy)! |  |
+| `name` | String! |  |
+| `parents` | [[Organization](#organization)!]! | The ancestor organizations of this organization, ordered from immediate parent towards root.
+Does not include the epsilon root. Empty for the root organization and direct children of root. |
+| `user` | [User](#user) | The user who owns this organization. Null for global organizations,
+non-null for user-defined organizations. |
+| `repositories` | (first: Int = 100, after: String, where: [RepositoryWhereInput](#repositorywhereinput), orderBy: [[RepositoryOrderByInput](#repositoryorderbyinput)!]): [RepositoryConnection](#repositoryconnection)! |  |
+| `children` | (first: Int = 100, after: String, where: [OrganizationWhereInput](#organizationwhereinput), orderBy: [[OrganizationOrderByInput](#organizationorderbyinput)!]): [OrganizationConnection](#organizationconnection)! | Direct children of this organization in the tree, paginated.
+Useful for lazy-loading the org tree level by level — e.g. an org
+selector that fetches the root, then the children of each folder
+only when the user expands it.
+
+`where.depth` is ignored on this field — every direct child of a
+given parent has the same depth, so the filter would be either
+all-or-nothing. Use `where.name` and the boolean composers
+(`_and`, `_or`, `_not`) for meaningful filtering.
+
+`orderBy` defaults to NAME ascending when unspecified. |
+| `marketplace` | [RecipeMarketplace](#recipemarketplace) |  |
+
+---
+
+#### `OrganizationChangeset`
+
+**Service:** changelogreader
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `id` | ID! |  |
+| `bulkPullRequestActions` | (first: Int = 50, after: String, where: [BulkPullRequestActionWhereInput](#bulkpullrequestactionwhereinput), orderBy: [[BulkPullRequestActionOrderByInput](#bulkpullrequestactionorderbyinput)!]): [BulkPullRequestActionConnection](#bulkpullrequestactionconnection)! | Bulk pull request actions (approve, merge, close) initiated against pull
+requests that belong to this changeset.
+
+Default sort: STARTED_AT DESC with QUEUED entries (no startedAt) appearing
+last so polling clients still see in-flight actions. |
+| `commits` | (first: Int = 50, after: String, where: [OrganizationCommitWhereInput](#organizationcommitwhereinput), orderBy: [[OrganizationCommitOrderByInput](#organizationcommitorderbyinput)!]): [OrganizationCommitConnection](#organizationcommitconnection) | Commit operations initiated from this changeset. |
+| `user` | [User](#user)! |  |
+| `createdAt` | [DateTime](#datetime)! |  |
+| `parent` | [OrganizationChangeset](#organizationchangeset) |  |
+| `repositories` | (first: Int = 100, after: String, where: [RepositoryChangesetWhereInput](#repositorychangesetwhereinput), orderBy: [[RepositoryChangesetOrderByInput](#repositorychangesetorderbyinput)!]): [RepositoryChangesetConnection](#repositorychangesetconnection)! |  |
+| `dataTables` | (first: Int = 50, after: String, where: [DataTableWhereInput](#datatablewhereinput), orderBy: [[DataTableOrderByInput](#datatableorderbyinput)!]): [DataTableConnection](#datatableconnection)! | Data tables produced by this recipe run.
+Each data table starts as Available and transitions to Processing/Finished/Error
+when downloadDataTable mutation is called. |
+| `visualizations` | (first: Int = 50, after: String, where: [VisualizationWhereInput](#visualizationwhereinput), orderBy: [[VisualizationOrderByInput](#visualizationorderbyinput)!]): [VisualizationConnection](#visualizationconnection)! | Visualizations produced by this changeset.
+Each visualization starts as Available and transitions to Processing/Finished/Error
+when runVisualization mutation is called. |
+
+---
+
+#### `OrganizationChangesetConnection`
+
+**Service:** corechangeset
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `edges` | [[OrganizationChangesetEdge](#organizationchangesetedge)!]! |  |
+| `pageInfo` | [PageInfo](#pageinfo)! |  |
+| `count` | Int! |  |
+
+---
+
+#### `OrganizationChangesetEdge`
+
+**Service:** corechangeset
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `node` | [OrganizationChangeset](#organizationchangeset)! |  |
+| `cursor` | String! |  |
+| `organization` | [Organization](#organization) | The organization this changeset was run against.
+May differ from the queried organization when the changeset belongs to a suborganization.
+Null if the organization has been deleted or is temporarily unavailable. |
+
+---
+
+#### `OrganizationCommitCanceled`
+
+**Service:** changesetcommitter | **Implements:** [OrganizationCommit](#organizationcommit)
+
+Commit was canceled before completion.
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `id` | ID! |  |
+| `user` | [User](#user)! |  |
+| `options` | [CommitOptions](#commitoptions)! |  |
+| `message` | String! |  |
+| `extendedMessage` | [Base64](#base64) |  |
+| `startedAt` | [DateTime](#datetime) |  |
+| `finishedAt` | [DateTime](#datetime)! |  |
+| `canceledBy` | [User](#user)! | Who or what initiated the cancellation. |
+| `repositories` | (first: Int = 50, after: String, where: [RepositoryCommitWhereInput](#repositorycommitwhereinput), orderBy: [[RepositoryCommitOrderByInput](#repositorycommitorderbyinput)!]): [RepositoryCommitConnection](#repositorycommitconnection)! | Paginated results per repository (partial). |
+
+---
+
+#### `OrganizationCommitConnection`
+
+**Service:** changesetcommitter
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `edges` | [[OrganizationCommitEdge](#organizationcommitedge)!]! |  |
+| `pageInfo` | [PageInfo](#pageinfo)! |  |
+| `count` | Int! |  |
+
+---
+
+#### `OrganizationCommitEdge`
+
+**Service:** changesetcommitter
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `node` | [OrganizationCommit](#organizationcommit)! |  |
+| `cursor` | String! |  |
+
+---
+
+#### `OrganizationCommitError`
+
+**Service:** changesetcommitter | **Implements:** [OrganizationCommit](#organizationcommit)
+
+Commit failed with an error.
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `id` | ID! |  |
+| `user` | [User](#user)! |  |
+| `options` | [CommitOptions](#commitoptions)! |  |
+| `message` | String! |  |
+| `extendedMessage` | [Base64](#base64) |  |
+| `startedAt` | [DateTime](#datetime) |  |
+| `finishedAt` | [DateTime](#datetime)! |  |
+| `errorMessage` | String! | Human-readable error message. |
+| `repositories` | (first: Int = 50, after: String, where: [RepositoryCommitWhereInput](#repositorycommitwhereinput), orderBy: [[RepositoryCommitOrderByInput](#repositorycommitorderbyinput)!]): [RepositoryCommitConnection](#repositorycommitconnection)! | Paginated results per repository (partial). |
+
+---
+
+#### `OrganizationCommitFinished`
+
+**Service:** changesetcommitter | **Implements:** [OrganizationCommit](#organizationcommit)
+
+Commit completed successfully (all or partial success).
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `id` | ID! |  |
+| `user` | [User](#user)! |  |
+| `options` | [CommitOptions](#commitoptions)! |  |
+| `message` | String! |  |
+| `extendedMessage` | [Base64](#base64) |  |
+| `startedAt` | [DateTime](#datetime)! |  |
+| `finishedAt` | [DateTime](#datetime)! |  |
+| `repositories` | (first: Int = 50, after: String, where: [RepositoryCommitWhereInput](#repositorycommitwhereinput), orderBy: [[RepositoryCommitOrderByInput](#repositorycommitorderbyinput)!]): [RepositoryCommitConnection](#repositorycommitconnection)! | Paginated results per repository. |
+
+---
+
+#### `OrganizationCommitQueued`
+
+**Service:** changesetcommitter | **Implements:** [OrganizationCommit](#organizationcommit)
+
+Commit is queued and waiting to be processed.
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `id` | ID! |  |
+| `user` | [User](#user)! |  |
+| `options` | [CommitOptions](#commitoptions)! |  |
+| `message` | String! |  |
+| `extendedMessage` | [Base64](#base64) |  |
+| `startedAt` | [DateTime](#datetime)! |  |
+| `repositories` | (first: Int = 50, after: String, where: [RepositoryCommitWhereInput](#repositorycommitwhereinput), orderBy: [[RepositoryCommitOrderByInput](#repositorycommitorderbyinput)!]): [RepositoryCommitConnection](#repositorycommitconnection)! | Paginated results per repository. |
+
+---
+
+#### `OrganizationCommitRunning`
+
+**Service:** changesetcommitter | **Implements:** [OrganizationCommit](#organizationcommit)
+
+Commit is actively being processed across repositories.
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `id` | ID! |  |
+| `user` | [User](#user)! |  |
+| `options` | [CommitOptions](#commitoptions)! |  |
+| `message` | String! |  |
+| `extendedMessage` | [Base64](#base64) |  |
+| `startedAt` | [DateTime](#datetime)! |  |
+| `repositories` | (first: Int = 50, after: String, where: [RepositoryCommitWhereInput](#repositorycommitwhereinput), orderBy: [[RepositoryCommitOrderByInput](#repositorycommitorderbyinput)!]): [RepositoryCommitConnection](#repositorycommitconnection)! | Paginated results per repository. |
+
+---
+
+#### `OrganizationConfiguration`
+
+**Service:** gateway
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `resourceId` | String! |  |
+| `skipSsl` | Boolean! |  |
+| `skipValidateConnectivity` | Boolean! |  |
+| `connectivity` | [HttpToolConnectivity](#httptoolconnectivity)! |  |
+
+---
+
+#### `OrganizationConnection`
+
+**Service:** organization
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `edges` | [[OrganizationEdge](#organizationedge)!]! |  |
+| `pageInfo` | [PageInfo](#pageinfo)! |  |
+| `count` | Int! |  |
+
+---
+
+#### `OrganizationEdge`
+
+**Service:** organization
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `node` | [Organization](#organization)! |  |
+| `cursor` | String! |  |
+
+---
+
+#### `OrganizationRecipeRun`
+
+**Service:** changelogreader
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `id` | ID! |  |
+| `bulkPullRequestActions` | (first: Int = 50, after: String, where: [BulkPullRequestActionWhereInput](#bulkpullrequestactionwhereinput), orderBy: [[BulkPullRequestActionOrderByInput](#bulkpullrequestactionorderbyinput)!]): [BulkPullRequestActionConnection](#bulkpullrequestactionconnection)! | Bulk pull request actions for recipe-run changesets. |
+| `commits` | (first: Int = 50, after: String, where: [OrganizationCommitWhereInput](#organizationcommitwhereinput), orderBy: [[OrganizationCommitOrderByInput](#organizationcommitorderbyinput)!]): [OrganizationCommitConnection](#organizationcommitconnection) | Commit operations initiated from this recipe run. |
+| `recipe` | [RecipeDescriptor](#recipedescriptor) |  |
+| `user` | [User](#user)! |  |
+| `options` | [[RecipeOptionValue](#recipeoptionvalue)!]! |  |
+| `createdAt` | [DateTime](#datetime)! |  |
+| `lastUpdatedAt` | [DateTime](#datetime)! | Monotonic high-water mark advanced by every state writer (sync monitor,
+run monitor, processor). Treat as a content version: poll a tiny query
+selecting `__typename` + `lastUpdatedAt` cheaply and only refetch the
+heavy `repositories`/`totals` selections when this value changes. |
+| `priority` | [RecipeRunPriority](#reciperunpriority)! |  |
+| `parent` | [OrganizationChangeset](#organizationchangeset) |  |
+| `repositories` | (first: Int = 100, after: String, where: [RepositoryChangesetWhereInput](#repositorychangesetwhereinput), orderBy: [[RepositoryChangesetOrderByInput](#repositorychangesetorderbyinput)!]): [RepositoryChangesetConnection](#repositorychangesetconnection)! |  |
+| `dataTables` | (first: Int = 50, after: String, where: [DataTableWhereInput](#datatablewhereinput), orderBy: [[DataTableOrderByInput](#datatableorderbyinput)!]): [DataTableConnection](#datatableconnection)! | Data tables produced by this recipe run.
+Each data table starts as Available and transitions to Processing/Finished/Error
+when downloadDataTable mutation is called. |
+| `visualizations` | (first: Int = 50, after: String, where: [VisualizationWhereInput](#visualizationwhereinput), orderBy: [[VisualizationOrderByInput](#visualizationorderbyinput)!]): [VisualizationConnection](#visualizationconnection)! | Visualizations produced by this recipe run. |
+
+---
+
+#### `OrganizationRecipeRunCanceled`
+
+**Service:** changesetreader | **Implements:** [OrganizationChangeset](#organizationchangeset), [OrganizationRecipeRun](#organizationreciperun)
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `id` | ID! |  |
+| `recipe` | [RecipeDescriptor](#recipedescriptor) |  |
+| `user` | [User](#user)! |  |
+| `options` | [[RecipeOptionValue](#recipeoptionvalue)!]! |  |
+| `createdAt` | [DateTime](#datetime)! |  |
+| `lastUpdatedAt` | [DateTime](#datetime)! | Monotonic high-water mark advanced by every state writer (sync monitor,
+run monitor, processor). Treat as a content version: poll a tiny query
+selecting `__typename` + `lastUpdatedAt` cheaply and only refetch the
+heavy `repositories`/`totals` selections when this value changes. |
+| `priority` | [RecipeRunPriority](#reciperunpriority)! |  |
+| `parent` | [OrganizationChangeset](#organizationchangeset) |  |
+| `startedAt` | [DateTime](#datetime) |  |
+| `finishedAt` | [DateTime](#datetime)! |  |
+| `canceledAt` | [DateTime](#datetime)! | Alias for finishedAt - when the run was canceled |
+| `repositories` | (first: Int = 100, after: String, where: [RepositoryChangesetWhereInput](#repositorychangesetwhereinput), orderBy: [[RepositoryChangesetOrderByInput](#repositorychangesetorderbyinput)!]): [RepositoryChangesetConnection](#repositorychangesetconnection)! |  |
+| `dataTables` | (first: Int = 50, after: String, where: [DataTableWhereInput](#datatablewhereinput), orderBy: [[DataTableOrderByInput](#datatableorderbyinput)!]): [DataTableConnection](#datatableconnection)! | Data tables produced by this recipe run.
+Each data table starts as Available and transitions to Processing/Finished/Error
+when downloadDataTable mutation is called. |
+| `visualizations` | (first: Int = 50, after: String, where: [VisualizationWhereInput](#visualizationwhereinput), orderBy: [[VisualizationOrderByInput](#visualizationorderbyinput)!]): [VisualizationConnection](#visualizationconnection)! | Visualizations produced by this recipe run. |
+
+---
+
+#### `OrganizationRecipeRunConnection`
+
+**Service:** changesetreader
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `edges` | [[OrganizationRecipeRunEdge](#organizationreciperunedge)!]! |  |
+| `pageInfo` | [PageInfo](#pageinfo)! |  |
+| `count` | Int! |  |
+
+---
+
+#### `OrganizationRecipeRunEdge`
+
+**Service:** changesetreader
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `node` | [OrganizationRecipeRun](#organizationreciperun)! |  |
+| `cursor` | String! |  |
+
+---
+
+#### `OrganizationRecipeRunError`
+
+**Service:** changesetreader | **Implements:** [OrganizationChangeset](#organizationchangeset), [OrganizationRecipeRun](#organizationreciperun)
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `id` | ID! |  |
+| `recipe` | [RecipeDescriptor](#recipedescriptor) |  |
+| `user` | [User](#user)! |  |
+| `options` | [[RecipeOptionValue](#recipeoptionvalue)!]! |  |
+| `createdAt` | [DateTime](#datetime)! |  |
+| `lastUpdatedAt` | [DateTime](#datetime)! | Monotonic high-water mark advanced by every state writer (sync monitor,
+run monitor, processor). Treat as a content version: poll a tiny query
+selecting `__typename` + `lastUpdatedAt` cheaply and only refetch the
+heavy `repositories`/`totals` selections when this value changes. |
+| `priority` | [RecipeRunPriority](#reciperunpriority)! |  |
+| `parent` | [OrganizationChangeset](#organizationchangeset) |  |
+| `startedAt` | [DateTime](#datetime) |  |
+| `finishedAt` | [DateTime](#datetime)! |  |
+| `errorMessage` | String |  |
+| `repositories` | (first: Int = 100, after: String, where: [RepositoryChangesetWhereInput](#repositorychangesetwhereinput), orderBy: [[RepositoryChangesetOrderByInput](#repositorychangesetorderbyinput)!]): [RepositoryChangesetConnection](#repositorychangesetconnection)! |  |
+| `dataTables` | (first: Int = 50, after: String, where: [DataTableWhereInput](#datatablewhereinput), orderBy: [[DataTableOrderByInput](#datatableorderbyinput)!]): [DataTableConnection](#datatableconnection)! | Data tables produced by this recipe run.
+Each data table starts as Available and transitions to Processing/Finished/Error
+when downloadDataTable mutation is called. |
+| `visualizations` | (first: Int = 50, after: String, where: [VisualizationWhereInput](#visualizationwhereinput), orderBy: [[VisualizationOrderByInput](#visualizationorderbyinput)!]): [VisualizationConnection](#visualizationconnection)! | Visualizations produced by this recipe run. |
+
+---
+
+#### `OrganizationRecipeRunFinished`
+
+**Service:** changesetreader | **Implements:** [OrganizationChangeset](#organizationchangeset), [OrganizationRecipeRun](#organizationreciperun)
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `id` | ID! |  |
+| `recipe` | [RecipeDescriptor](#recipedescriptor) |  |
+| `user` | [User](#user)! |  |
+| `options` | [[RecipeOptionValue](#recipeoptionvalue)!]! |  |
+| `createdAt` | [DateTime](#datetime)! |  |
+| `lastUpdatedAt` | [DateTime](#datetime)! | Monotonic high-water mark advanced by every state writer (sync monitor,
+run monitor, processor). Treat as a content version: poll a tiny query
+selecting `__typename` + `lastUpdatedAt` cheaply and only refetch the
+heavy `repositories`/`totals` selections when this value changes. |
+| `priority` | [RecipeRunPriority](#reciperunpriority)! |  |
+| `parent` | [OrganizationChangeset](#organizationchangeset) |  |
+| `startedAt` | [DateTime](#datetime)! |  |
+| `finishedAt` | [DateTime](#datetime)! |  |
+| `duration` | [Duration](#duration) |  |
+| `totals` | [RecipeRunTotals](#reciperuntotals)! |  |
+| `repositories` | (first: Int = 100, after: String, where: [RepositoryChangesetWhereInput](#repositorychangesetwhereinput), orderBy: [[RepositoryChangesetOrderByInput](#repositorychangesetorderbyinput)!]): [RepositoryChangesetConnection](#repositorychangesetconnection)! |  |
+| `dataTables` | (first: Int = 50, after: String, where: [DataTableWhereInput](#datatablewhereinput), orderBy: [[DataTableOrderByInput](#datatableorderbyinput)!]): [DataTableConnection](#datatableconnection)! | Data tables produced by this recipe run.
+Each data table starts as Available and transitions to Processing/Finished/Error
+when downloadDataTable mutation is called. |
+| `visualizations` | (first: Int = 50, after: String, where: [VisualizationWhereInput](#visualizationwhereinput), orderBy: [[VisualizationOrderByInput](#visualizationorderbyinput)!]): [VisualizationConnection](#visualizationconnection)! | Visualizations produced by this recipe run. |
+
+---
+
+#### `OrganizationRecipeRunQueued`
+
+**Service:** changesetreader | **Implements:** [OrganizationChangeset](#organizationchangeset), [OrganizationRecipeRun](#organizationreciperun)
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `id` | ID! |  |
+| `recipe` | [RecipeDescriptor](#recipedescriptor) |  |
+| `user` | [User](#user)! |  |
+| `options` | [[RecipeOptionValue](#recipeoptionvalue)!]! |  |
+| `createdAt` | [DateTime](#datetime)! |  |
+| `lastUpdatedAt` | [DateTime](#datetime)! | Monotonic high-water mark advanced by every state writer (sync monitor,
+run monitor, processor). Treat as a content version: poll a tiny query
+selecting `__typename` + `lastUpdatedAt` cheaply and only refetch the
+heavy `repositories`/`totals` selections when this value changes. |
+| `priority` | [RecipeRunPriority](#reciperunpriority)! |  |
+| `parent` | [OrganizationChangeset](#organizationchangeset) |  |
+| `queuedAt` | [DateTime](#datetime)! |  |
+| `repositories` | (first: Int = 100, after: String, where: [RepositoryChangesetWhereInput](#repositorychangesetwhereinput), orderBy: [[RepositoryChangesetOrderByInput](#repositorychangesetorderbyinput)!]): [RepositoryChangesetConnection](#repositorychangesetconnection)! |  |
+| `dataTables` | (first: Int = 50, after: String, where: [DataTableWhereInput](#datatablewhereinput), orderBy: [[DataTableOrderByInput](#datatableorderbyinput)!]): [DataTableConnection](#datatableconnection)! | Data tables produced by this recipe run.
+Each data table starts as Available and transitions to Processing/Finished/Error
+when downloadDataTable mutation is called. |
+| `visualizations` | (first: Int = 50, after: String, where: [VisualizationWhereInput](#visualizationwhereinput), orderBy: [[VisualizationOrderByInput](#visualizationorderbyinput)!]): [VisualizationConnection](#visualizationconnection)! | Visualizations produced by this recipe run. |
+
+---
+
+#### `OrganizationRecipeRunRunning`
+
+**Service:** changesetreader | **Implements:** [OrganizationChangeset](#organizationchangeset), [OrganizationRecipeRun](#organizationreciperun)
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `id` | ID! |  |
+| `recipe` | [RecipeDescriptor](#recipedescriptor) |  |
+| `user` | [User](#user)! |  |
+| `options` | [[RecipeOptionValue](#recipeoptionvalue)!]! |  |
+| `createdAt` | [DateTime](#datetime)! |  |
+| `lastUpdatedAt` | [DateTime](#datetime)! | Monotonic high-water mark advanced by every state writer (sync monitor,
+run monitor, processor). Treat as a content version: poll a tiny query
+selecting `__typename` + `lastUpdatedAt` cheaply and only refetch the
+heavy `repositories`/`totals` selections when this value changes. |
+| `priority` | [RecipeRunPriority](#reciperunpriority)! |  |
+| `parent` | [OrganizationChangeset](#organizationchangeset) |  |
+| `startedAt` | [DateTime](#datetime)! |  |
+| `totals` | [RecipeRunTotals](#reciperuntotals) |  |
+| `repositories` | (first: Int = 100, after: String, where: [RepositoryChangesetWhereInput](#repositorychangesetwhereinput), orderBy: [[RepositoryChangesetOrderByInput](#repositorychangesetorderbyinput)!]): [RepositoryChangesetConnection](#repositorychangesetconnection)! |  |
+| `dataTables` | (first: Int = 50, after: String, where: [DataTableWhereInput](#datatablewhereinput), orderBy: [[DataTableOrderByInput](#datatableorderbyinput)!]): [DataTableConnection](#datatableconnection)! | Data tables produced by this recipe run.
+Each data table starts as Available and transitions to Processing/Finished/Error
+when downloadDataTable mutation is called. |
+| `visualizations` | (first: Int = 50, after: String, where: [VisualizationWhereInput](#visualizationwhereinput), orderBy: [[VisualizationOrderByInput](#visualizationorderbyinput)!]): [VisualizationConnection](#visualizationconnection)! | Visualizations produced by this recipe run. |
+
+---
+
+#### `OrganizationRecipeRunSyncing`
+
+**Service:** changesetreader | **Implements:** [OrganizationChangeset](#organizationchangeset), [OrganizationRecipeRun](#organizationreciperun)
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `id` | ID! |  |
+| `recipe` | [RecipeDescriptor](#recipedescriptor) |  |
+| `user` | [User](#user)! |  |
+| `options` | [[RecipeOptionValue](#recipeoptionvalue)!]! |  |
+| `createdAt` | [DateTime](#datetime)! |  |
+| `lastUpdatedAt` | [DateTime](#datetime)! | Monotonic high-water mark advanced by every state writer (sync monitor,
+run monitor, processor). Treat as a content version: poll a tiny query
+selecting `__typename` + `lastUpdatedAt` cheaply and only refetch the
+heavy `repositories`/`totals` selections when this value changes. |
+| `priority` | [RecipeRunPriority](#reciperunpriority)! |  |
+| `parent` | [OrganizationChangeset](#organizationchangeset) |  |
+| `startedAt` | [DateTime](#datetime)! |  |
+| `repositories` | (first: Int = 100, after: String, where: [RepositoryChangesetWhereInput](#repositorychangesetwhereinput), orderBy: [[RepositoryChangesetOrderByInput](#repositorychangesetorderbyinput)!]): [RepositoryChangesetConnection](#repositorychangesetconnection)! |  |
+| `dataTables` | (first: Int = 50, after: String, where: [DataTableWhereInput](#datatablewhereinput), orderBy: [[DataTableOrderByInput](#datatableorderbyinput)!]): [DataTableConnection](#datatableconnection)! | Data tables produced by this recipe run.
+Each data table starts as Available and transitions to Processing/Finished/Error
+when downloadDataTable mutation is called. |
+| `visualizations` | (first: Int = 50, after: String, where: [VisualizationWhereInput](#visualizationwhereinput), orderBy: [[VisualizationOrderByInput](#visualizationorderbyinput)!]): [VisualizationConnection](#visualizationconnection)! | Visualizations produced by this recipe run. |
+
+---
+
+#### `PageInfo`
+
+**Service:** coregraphql
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `hasNextPage` | Boolean! |  |
+| `hasPreviousPage` | Boolean! |  |
+| `startCursor` | String |  |
+| `endCursor` | String |  |
+
+---
+
+#### `Patch`
+
+**Service:** corechangeset
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `diff` | String! | Sanitized diff (does not include markers) |
+| `fencedMarkerDiff` | String! | A diff with search and markup markers included in fenced
+{{UUID}} wrappers that correspond to ids in the markers list. |
+| `markers` | [[Marker](#marker)!]! |  |
+
+---
+
+#### `PersonalAccessTokenConfiguration`
+
+**Service:** gateway
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `maxExpiryDays` | Int |  |
+
+---
+
+#### `PipRecipeBundle`
+
+**Service:** changesetreader | **Implements:** [RecipeBundle](#recipebundle)
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `packageName` | String! |  |
+| `requestedVersion` | String |  |
+| `version` | String |  |
+| `recipeCount` | Int |  |
+
+---
+
+#### `PlatformCapabilities`
+
+**Service:** artifactsmaven
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `id` | ID! |  |
+| `artifacts` | Boolean! |  |
+| `changelog` | Boolean! |  |
+| `codeSearch` | Boolean! |  |
+| `connector` | Boolean! |  |
+| `moddy` | Boolean! |  |
+| `profiling` | [Profiling](#profiling)! |  |
+
+---
+
+#### `Profiling`
+
+**Service:** gateway
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `deployed` | Boolean! | Whether the per-tenant Pyroscope ASG, S3 bucket, and IAM are provisioned. |
+| `session` | [ProfilingSession](#profilingsession) | The currently active profiling session, or null when profiling is off. Flipped by setProfiling. |
+
+---
+
+#### `ProfilingSession`
+
+**Service:** gateway
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `user` | [User](#user)! | The user who turned profiling on. |
+| `startedAt` | [DateTime](#datetime)! | When profiling was turned on. |
+| `event` | [ProfilingEvent](#profilingevent)! | The primary profiling event the in-process agent is sampling. |
+
+---
+
+#### `Prompt`
+
+**Service:** moddy
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `content` | [Markdown](#markdown)! |  |
+| `lastUpdatedAt` | [DateTime](#datetime)! |  |
+| `lastUpdatedBy` | [User](#user)! |  |
+
+---
+
+#### `PullRequestActionCanceled`
+
+**Service:** changelogreader | **Implements:** [PullRequestAction](#pullrequestaction)
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `pullRequest` | [PullRequestRef](#pullrequestref)! |  |
+| `canceledBy` | [User](#user)! |  |
+
+---
+
+#### `PullRequestActionConnection`
+
+**Service:** changelogreader
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `edges` | [[PullRequestActionEdge](#pullrequestactionedge)!]! |  |
+| `pageInfo` | [PageInfo](#pageinfo)! |  |
+| `count` | Int! |  |
+
+---
+
+#### `PullRequestActionEdge`
+
+**Service:** changelogreader
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `node` | [PullRequestAction](#pullrequestaction)! |  |
+| `cursor` | String! |  |
+
+---
+
+#### `PullRequestActionFailed`
+
+**Service:** changelogreader | **Implements:** [PullRequestAction](#pullrequestaction)
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `pullRequest` | [PullRequestRef](#pullrequestref)! |  |
+| `startedAt` | [DateTime](#datetime) |  |
+| `finishedAt` | [DateTime](#datetime)! |  |
+| `errorMessage` | String! |  |
+
+---
+
+#### `PullRequestActionQueued`
+
+**Service:** changelogreader | **Implements:** [PullRequestAction](#pullrequestaction)
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `pullRequest` | [PullRequestRef](#pullrequestref)! |  |
+
+---
+
+#### `PullRequestActionRunning`
+
+**Service:** changelogreader | **Implements:** [PullRequestAction](#pullrequestaction)
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `pullRequest` | [PullRequestRef](#pullrequestref)! |  |
+| `startedAt` | [DateTime](#datetime)! |  |
+
+---
+
+#### `PullRequestActionSucceeded`
+
+**Service:** changelogreader | **Implements:** [PullRequestAction](#pullrequestaction)
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `pullRequest` | [PullRequestRef](#pullrequestref)! |  |
+| `startedAt` | [DateTime](#datetime)! |  |
+| `finishedAt` | [DateTime](#datetime)! |  |
+
+---
+
+#### `PullRequestCommitSucceeded`
+
+**Service:** changesetcommitter | **Implements:** [RepositoryCommitSucceeded](#repositorycommitsucceeded), [RepositoryCommit](#repositorycommit)
+
+Pull request commit completed successfully.
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `repository` | [Repository](#repository)! |  |
+| `startedAt` | [DateTime](#datetime)! |  |
+| `finishedAt` | [DateTime](#datetime)! |  |
+| `resultLink` | String |  |
+| `pullRequestStatus` | [PullRequestStatus](#pullrequeststatus)! | Pull request status. |
+
+---
+
+#### `PullRequestOptions`
+
+**Service:** changesetcommitter | **Implements:** [CommitOptions](#commitoptions)
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `branchName` | String |  |
+| `pullRequestTitle` | String | If unset, the commit message will be used as the pull request title. |
+| `pullRequestBody` | [Base64](#base64) |  |
+| `draft` | Boolean! |  |
+| `autoMergeMethod` | [MergeMethod](#mergemethod) | If allowed by the repository, set the pull request to automatically merge after all checks pass using the defined strategy. |
+| `canRecreateClosedPullRequest` | Boolean! | Recreate a pull request if it was already closed. |
+
+---
+
+#### `PullRequestRef`
+
+**Service:** changelogreader
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `origin` | String! |  |
+| `repositoryPath` | String! |  |
+| `branch` | String! |  |
+| `number` | Int! |  |
+
+---
+
+#### `PullRequestStatus`
+
+**Service:** changesetcommitter
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `mergeable` | [Mergeable](#mergeable)! | Can this pull request be merged or not |
+| `state` | [PullRequestState](#pullrequeststate)! |  |
+| `review` | [ReviewStatus](#reviewstatus)! |  |
+| `buildState` | [BuildState](#buildstate) |  |
+| `otherBlockingReasons` | [String!]! | Additional status flags that block this pull request. Can depend on the SCM service provider. |
+
+---
+
+#### `PypiConfiguration`
+
+**Service:** gateway
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `resourceId` | String! |  |
+| `skipSsl` | Boolean! |  |
+| `skipValidateConnectivity` | Boolean! |  |
+| `connectivity` | [HttpToolConnectivity](#httptoolconnectivity)! |  |
+
+---
+
+#### `RecipeBundleConnection`
+
+**Service:** recipemarketplace
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `edges` | [[RecipeBundleEdge](#recipebundleedge)!]! |  |
+| `pageInfo` | [PageInfo](#pageinfo)! |  |
+| `count` | Int! |  |
+
+---
+
+#### `RecipeBundleEdge`
+
+**Service:** recipemarketplace
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `node` | [RecipeBundle](#recipebundle)! |  |
+| `cursor` | String! |  |
+
+---
+
+#### `RecipeCategory`
+
+**Service:** recipemarketplace
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `id` | ID! |  |
+| `displayName` | [Markdown](#markdown)! |  |
+| `description` | [Markdown](#markdown)! |  |
+| `recipeCount` | Int! | Total number of unique recipes in this category, including all subcategories recursively. |
+| `parents` | [[RecipeCategory](#recipecategory)!]! |  |
+| `recipes` | (first: Int = 100, after: String, where: [RecipeWhereInput](#recipewhereinput), orderBy: [[RecipeOrderByInput](#recipeorderbyinput)!]): [RecipeDescriptorConnection](#recipedescriptorconnection)! |  |
+| `categories` | (first: Int = 100, after: String, where: [RecipeCategoryWhereInput](#recipecategorywhereinput), orderBy: [[RecipeCategoryOrderByInput](#recipecategoryorderbyinput)!]): [RecipeCategoryConnection](#recipecategoryconnection)! |  |
+
+---
+
+#### `RecipeCategoryConnection`
+
+**Service:** recipemarketplace
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `edges` | [[RecipeCategoryEdge](#recipecategoryedge)!]! |  |
+| `pageInfo` | [PageInfo](#pageinfo)! |  |
+| `count` | Int! |  |
+
+---
+
+#### `RecipeCategoryEdge`
+
+**Service:** recipemarketplace
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `node` | [RecipeCategory](#recipecategory)! |  |
+| `cursor` | String! |  |
+
+---
+
+#### `RecipeDescriptor`
+
+**Service:** changesetreader
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `id` | ID! |  |
+| `instanceName` | String |  |
+| `displayName` | [Markdown](#markdown)! |  |
+| `description` | [Markdown](#markdown)! |  |
+| `recipeCount` | Int |  |
+| `bundle` | [RecipeBundle](#recipebundle)! |  |
+| `options` | [[Option](#option)!]! |  |
+| `dataTables` | [[DataTableDescriptor](#datatabledescriptor)!]! |  |
+| `devCenterCards` | [[DevCenterCardDescriptor](#devcentercarddescriptor)!] | DevCenter card descriptors for this recipe, or null if not a DevCenter recipe. |
+| `detail` | [RecipeDetail](#recipedetail)! | Expensive recipe detail fields that require resolving the full recipe bundle.
+Returns a state machine: query once to trigger resolution, poll until Finished. |
+
+---
+
+#### `RecipeDescriptorConnection`
+
+**Service:** recipemarketplace
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `edges` | [[RecipeDescriptorEdge](#recipedescriptoredge)!]! |  |
+| `pageInfo` | [PageInfo](#pageinfo)! |  |
+| `count` | Int! |  |
+
+---
+
+#### `RecipeDescriptorEdge`
+
+**Service:** recipemarketplace
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `node` | [RecipeDescriptor](#recipedescriptor)! |  |
+| `cursor` | String! |  |
+| `relevance` | Float! | Relevance score for this recipe in the context of a search query.
+For semantic search, this represents the search relevance (0.0 to 1.0).
+For filter-based queries, this is always 1.0. |
+
+---
+
+#### `RecipeDetailError`
+
+**Service:** recipemarketplace | **Implements:** [RecipeDetail](#recipedetail)
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `startedAt` | [DateTime](#datetime)! |  |
+| `finishedAt` | [DateTime](#datetime)! |  |
+| `message` | String! |  |
+
+---
+
+#### `RecipeDetailFinished`
+
+**Service:** recipemarketplace | **Implements:** [RecipeDetail](#recipedetail)
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `startedAt` | [DateTime](#datetime)! |  |
+| `finishedAt` | [DateTime](#datetime)! |  |
+| `recipeList` | (first: Int = 100, after: String): [RecipeDescriptorConnection](#recipedescriptorconnection)! | The list of recipes that make up this composite recipe.
+Returns an empty connection for non-composite (leaf) recipes. |
+| `tags` | [String!]! | Tags associated with this recipe for categorization and filtering. |
+| `preconditions` | [[RecipeDescriptor](#recipedescriptor)!]! |  |
+| `graph` | [RecipeGraph](#recipegraph)! | Flat vertices-and-edges representation of this composite recipe tree with
+Singleton deduplication pre-applied. Used by the Builder UI to visualize
+a composite recipe in a single round trip regardless of tree depth.
+Atomic (leaf) recipes return a single-vertex graph. |
+
+---
+
+#### `RecipeDetailLoading`
+
+**Service:** recipemarketplace | **Implements:** [RecipeDetail](#recipedetail)
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `startedAt` | [DateTime](#datetime)! |  |
+
+---
+
+#### `RecipeGraph`
+
+**Service:** recipemarketplace
+
+Flat vertices-and-edges representation of a composite recipe with
+`org.openrewrite.Singleton` deduplication pre-applied. Produced by the
+marketplace backend and served to visualization clients in one round trip.
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `rootVertexId` | Int! | ID of the root (entry-point) vertex in the graph. |
+| `vertices` | [[RecipeGraphVertex](#recipegraphvertex)!]! |  |
+| `edges` | [[RecipeGraphEdge](#recipegraphedge)!]! |  |
+
+---
+
+#### `RecipeGraphEdge`
+
+**Service:** recipemarketplace
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `from` | Int! |  |
+| `to` | Int! |  |
+| `type` | [RecipeGraphEdgeType](#recipegraphedgetype)! |  |
+
+---
+
+#### `RecipeGraphVertex`
+
+**Service:** recipemarketplace
+
+A vertex in a RecipeGraph: a full recipe occurrence with its configured
+options. Recipes that declare `org.openrewrite.Singleton` as a precondition
+are deduplicated — additional occurrences are expressed as REFERENCE edges
+pointing back to the first occurrence rather than as separate vertices.
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `id` | Int! |  |
+| `descriptor` | [RecipeDescriptor](#recipedescriptor)! | The recipe this vertex represents. Carries recipe name (as `id`),
+displayName, instanceName, options, bundle, dataTables, etc. — reuse
+the existing RecipeDescriptor type rather than duplicating fields here. |
+| `isSingleton` | Boolean! | True if this recipe declares `org.openrewrite.Singleton` as a precondition,
+meaning additional occurrences in the graph appear as REFERENCE edges
+pointing back to this vertex. |
+
+---
+
+#### `RecipeInstallationConnection`
+
+**Service:** recipemarketplace
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `edges` | [[RecipeInstallationEdge](#recipeinstallationedge)!]! |  |
+| `pageInfo` | [PageInfo](#pageinfo)! |  |
+| `count` | Int! |  |
+
+---
+
+#### `RecipeInstallationEdge`
+
+**Service:** recipemarketplace
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `node` | [RecipeInstallation](#recipeinstallation)! |  |
+| `cursor` | String! |  |
+| `requestedBy` | [User](#user)! | The user who initiated this installation |
+| `user` | [User](#user) | The user whose marketplace this installation was made to. If the installation is a
+universal or organization installation, this field will be null. |
+| `organization` | [Organization](#organization) | The organization to which this installation was made. If the installation is a universal
+or user installation, this field will be null. |
+
+---
+
+#### `RecipeInstallationError`
+
+**Service:** recipemarketplace | **Implements:** [RecipeInstallation](#recipeinstallation)
+
+Installation failed with an error.
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `id` | ID! |  |
+| `bundle` | [RecipeBundle](#recipebundle)! |  |
+| `startedAt` | [DateTime](#datetime)! |  |
+| `finishedAt` | [DateTime](#datetime)! |  |
+| `message` | String! | Human-readable error message. |
+
+---
+
+#### `RecipeInstallationFinished`
+
+**Service:** recipemarketplace | **Implements:** [RecipeInstallation](#recipeinstallation)
+
+Installation completed successfully.
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `id` | ID! |  |
+| `bundle` | [RecipeBundle](#recipebundle)! |  |
+| `startedAt` | [DateTime](#datetime)! |  |
+| `finishedAt` | [DateTime](#datetime)! |  |
+| `recipes` | [[RecipeDescriptor](#recipedescriptor)!]! | The recipes that were installed. |
+
+---
+
+#### `RecipeInstallationProcessing`
+
+**Service:** recipemarketplace | **Implements:** [RecipeInstallation](#recipeinstallation)
+
+Installation is actively loading and resolving the recipe bundle.
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `id` | ID! |  |
+| `bundle` | [RecipeBundle](#recipebundle)! |  |
+| `startedAt` | [DateTime](#datetime)! |  |
+| `progress` | Float | Progress from 0.0 to 1.0, if available. |
+
+---
+
+#### `RecipeInstallationQueued`
+
+**Service:** recipemarketplace | **Implements:** [RecipeInstallation](#recipeinstallation)
+
+Installation is queued and waiting to be processed.
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `id` | ID! |  |
+| `bundle` | [RecipeBundle](#recipebundle)! |  |
+| `startedAt` | [DateTime](#datetime)! |  |
+
+---
+
+#### `RecipeMarketplace`
+
+**Service:** recipemarketplace
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `categories` | (first: Int = 100, after: String, where: [RecipeCategoryWhereInput](#recipecategorywhereinput), orderBy: [[RecipeCategoryOrderByInput](#recipecategoryorderbyinput)!]): [RecipeCategoryConnection](#recipecategoryconnection)! |  |
+| `recipes` | (first: Int = 100, after: String, where: [RecipeWhereInput](#recipewhereinput), orderBy: [[RecipeOrderByInput](#recipeorderbyinput)!]): [RecipeDescriptorConnection](#recipedescriptorconnection)! |  |
+| `installations` | (first: Int = 50, after: String, where: [RecipeInstallationWhereInput](#recipeinstallationwhereinput), orderBy: [[RecipeInstallationOrderByInput](#recipeinstallationorderbyinput)!]): [RecipeInstallationConnection](#recipeinstallationconnection)! |  |
+
+---
+
+#### `RecipeOptionValue`
+
+**Service:** changesetreader
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `name` | String! |  |
+| `value` | [Object](#object)! |  |
+
+---
+
+#### `RecipeOptionsMessage`
+
+**Service:** moddy | **Implements:** [Message](#message)
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `id` | ID! |  |
+| `user` | [User](#user)! |  |
+| `options` | [[Option](#option)!]! |  |
+| `state` | [MessageState](#messagestate)! |  |
+| `lastUpdatedAt` | [DateTime](#datetime)! |  |
+
+---
+
+#### `RecipeRunFileChange`
+
+**Service:** changesetreader | **Implements:** [FileChange](#filechange)
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `path` | [Path](#path)! |  |
+| `beforeSourcePath` | [Path](#path) |  |
+| `afterSourcePath` | [Path](#path) |  |
+| `diff` | (markupLevel: [MarkupLevel](#markuplevel) = ERROR, showWhitespaceOnlyChanges: Boolean = true): [Patch](#patch) |  |
+| `recipesThatMadeChanges` | [[[RecipeDescriptor](#recipedescriptor)!]!]! | Recipe chains that contributed changes to this file. Each inner list is one
+mutation event's call stack, ordered root composite first to leaf recipe last
+(the leaf is the narrowest recipe that actually performed the change). |
+
+---
+
+#### `RecipeRunMessage`
+
+**Service:** moddy | **Implements:** [Message](#message)
+
+Long-running recipe execution started by the LLM. Carries a typed
+progress envelope while IN_PROGRESS — clients should read `progress`
+rather than poking at a free-form payload. When the run reaches a
+terminal state, `recipeRun` resolves via federation.
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `id` | ID! |  |
+| `user` | [User](#user)! |  |
+| `recipeRun` | [OrganizationRecipeRun](#organizationreciperun) |  |
+| `progress` | [RecipeRunProgress](#reciperunprogress) | Typed progress snapshot while the run is IN_PROGRESS. |
+| `state` | [MessageState](#messagestate)! |  |
+| `lastUpdatedAt` | [DateTime](#datetime)! |  |
+
+---
+
+#### `RecipeRunProgress`
+
+**Service:** moddy
+
+Typed progress envelope for an in-flight recipe run.
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `recipeRunId` | ID |  |
+| `reposQueued` | Int |  |
+| `reposRunning` | Int |  |
+| `reposFinished` | Int |  |
+| `reposTotal` | Int |  |
+
+---
+
+#### `RecipeRunTotals`
+
+**Service:** changesetreader
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `timeSavings` | [Duration](#duration) |  |
+| `filesSearched` | Int! |  |
+| `filesChanged` | Int! |  |
+| `filesWithResults` | Int! |  |
+| `totalMarkers` | Int! |  |
+| `repositoriesWithResults` | Int! |  |
+| `repositoriesSuccessful` | Int! |  |
+| `repositoriesWithNoChanges` | Int! |  |
+| `repositoriesWithErrors` | Int! |  |
+| `repositoriesInProgress` | Int! |  |
+
+---
+
+#### `RecipeSearchMessage`
+
+**Service:** moddy | **Implements:** [Message](#message)
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `id` | ID! |  |
+| `user` | [User](#user)! |  |
+| `searchResults` | [[RecipeDescriptor](#recipedescriptor)!]! |  |
+| `state` | [MessageState](#messagestate)! |  |
+| `lastUpdatedAt` | [DateTime](#datetime)! |  |
+
+---
+
+#### `RecipeUninstallation`
+
+**Service:** recipemarketplace
+
+Result of an uninstall operation.
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `removedCount` | Int! | The number of recipes that were removed. |
+
+---
+
+#### `ReindexResult`
+
+**Service:** changelogwriter
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `resetCount` | Int! | Number of repository cursors that were reset. |
+| `since` | [DateTime](#datetime)! | The timestamp cursors were rewound to. |
+
+---
+
+#### `Repository`
+
+**Service:** changelogreader
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `origin` | String! |  |
+| `path` | String! |  |
+| `branch` | String! |  |
+| `changeset` | String |  |
+| `lstArtifact` | [LstArtifact](#lstartifact)! |  |
+
+---
+
+#### `RepositoryAuthorization`
+
+**Service:** corechangeset
+
+Authorization status for accessing repository content.
+Resolved by the changeset reader using a batch check against the authorization service.
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `origin` | String! | The VCS origin (e.g., github.com). |
+| `isAuthorized` | Boolean! | Whether the user has a valid OAuth token for this origin. |
+
+---
+
+#### `RepositoryBatchChange`
+
+**Service:** changesetreader | **Implements:** [RepositoryChangeset](#repositorychangeset)
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `repository` | [Repository](#repository)! |  |
+| `authorization` | [RepositoryAuthorization](#repositoryauthorization)! |  |
+| `results` | (first: Int = 100, after: String, where: [FileChangeWhereInput](#filechangewhereinput), orderBy: [[FileChangeOrderByInput](#filechangeorderbyinput)!]): [FileChangeConnection](#filechangeconnection)! |  |
+
+---
+
+#### `RepositoryChangesetConnection`
+
+**Service:** corechangeset
+
+Paginated connection for repository changesets.
+
+`completed` indicates how many repositories have finished processing:
+- For BatchChange: completed always equals count (all repositories are pre-processed).
+- For OrganizationRecipeRun: completed counts repository runs in a terminal state
+  (regardless of success/failure), excluding canceled runs. A canceled run shows
+  the completion status reached prior to cancellation.
+
+Sync totals (`syncPending`, `synced`, `syncFailed`, `syncCanceled`, `syncSkipped`)
+track repository sync progress during the SYNCING phase. Their sum equals `count`.
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `edges` | [[RepositoryChangesetEdge](#repositorychangesetedge)!]! |  |
+| `pageInfo` | [PageInfo](#pageinfo)! |  |
+| `completed` | Int! |  |
+| `count` | Int! |  |
+| `syncPending` | Int! | Repositories not yet synced. |
+| `synced` | Int! | Repositories successfully synced. |
+| `syncFailed` | Int! | Repositories that failed to sync. |
+| `syncCanceled` | Int! | Repositories whose sync was canceled before completion. |
+| `syncSkipped` | Int! | Repositories the CLI skipped during sync (typically: no LST available). |
+
+---
+
+#### `RepositoryChangesetEdge`
+
+**Service:** corechangeset
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `node` | [RepositoryChangeset](#repositorychangeset)! |  |
+| `cursor` | String! |  |
+
+---
+
+#### `RepositoryCommitCanceled`
+
+**Service:** changesetcommitter | **Implements:** [RepositoryCommit](#repositorycommit)
+
+Repository commit was canceled.
+Use `options.__typename` to determine the specific commit type.
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `repository` | [Repository](#repository)! |  |
+| `startedAt` | [DateTime](#datetime) |  |
+| `finishedAt` | [DateTime](#datetime)! |  |
+| `options` | [CommitOptions](#commitoptions)! | The commit options. Use `__typename` to determine commit type. |
+
+---
+
+#### `RepositoryCommitConnection`
+
+**Service:** changesetcommitter
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `edges` | [[RepositoryCommitEdge](#repositorycommitedge)!]! |  |
+| `pageInfo` | [PageInfo](#pageinfo)! |  |
+| `count` | Int! |  |
+| `completedCount` | Int! | Count of repository commits that have reached a terminal state
+(succeeded, failed, canceled, or no changes). Pair with `count`
+to show progress: "Completed X / Y". |
+
+---
+
+#### `RepositoryCommitEdge`
+
+**Service:** changesetcommitter
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `node` | [RepositoryCommit](#repositorycommit)! |  |
+| `cursor` | String! |  |
+
+---
+
+#### `RepositoryCommitFailed`
+
+**Service:** changesetcommitter | **Implements:** [RepositoryCommit](#repositorycommit)
+
+Repository commit failed with an error.
+Use `options.__typename` to determine the specific commit type.
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `repository` | [Repository](#repository)! |  |
+| `startedAt` | [DateTime](#datetime) |  |
+| `finishedAt` | [DateTime](#datetime)! |  |
+| `errorMessage` | String! | Human-readable error message. |
+| `retryCount` | Int | Number of retry attempts made. |
+| `options` | [CommitOptions](#commitoptions)! | The commit options. Use `__typename` to determine commit type. |
+
+---
+
+#### `RepositoryCommitNoChanges`
+
+**Service:** changesetcommitter | **Implements:** [RepositoryCommit](#repositorycommit)
+
+Repository commit completed but yielded no changes.
+Generally occurs when applying a patch does not produce any changes to commit.
+Use `options.__typename` to determine the specific commit type.
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `repository` | [Repository](#repository)! |  |
+| `startedAt` | [DateTime](#datetime)! |  |
+| `finishedAt` | [DateTime](#datetime)! |  |
+| `options` | [CommitOptions](#commitoptions)! | The commit options. Use `__typename` to determine commit type. |
+
+---
+
+#### `RepositoryCommitQueued`
+
+**Service:** changesetcommitter | **Implements:** [RepositoryCommit](#repositorycommit)
+
+Repository commit is queued and waiting to be processed.
+Use `options.__typename` to determine the specific commit type.
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `repository` | [Repository](#repository)! |  |
+| `startedAt` | [DateTime](#datetime) |  |
+| `rateLimitReset` | [DateTime](#datetime) | Time when rate limit expires (if rate limited). |
+| `options` | [CommitOptions](#commitoptions)! | The commit options. Use `__typename` to determine commit type. |
+
+---
+
+#### `RepositoryCommitRunning`
+
+**Service:** changesetcommitter | **Implements:** [RepositoryCommit](#repositorycommit)
+
+Repository commit is actively being processed.
+Use `options.__typename` to determine the specific commit type.
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `repository` | [Repository](#repository)! |  |
+| `startedAt` | [DateTime](#datetime)! |  |
+| `options` | [CommitOptions](#commitoptions)! | The commit options. Use `__typename` to determine commit type. |
+
+---
+
+#### `RepositoryConnection`
+
+**Service:** organization
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `edges` | [[RepositoryEdge](#repositoryedge)!]! |  |
+| `pageInfo` | [PageInfo](#pageinfo)! |  |
+| `count` | Int! |  |
+
+---
+
+#### `RepositoryEdge`
+
+**Service:** organization
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `node` | [Repository](#repository)! |  |
+| `cursor` | String! |  |
+
+---
+
+#### `RepositoryRecipeRunCanceled`
+
+**Service:** changesetreader | **Implements:** [RepositoryRecipeRun](#repositoryreciperun), [RepositoryChangeset](#repositorychangeset)
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `repository` | [Repository](#repository)! |  |
+| `authorization` | [RepositoryAuthorization](#repositoryauthorization)! |  |
+| `syncStatus` | [RepositorySyncStatus](#repositorysyncstatus) |  |
+| `results` | (first: Int = 100, after: String, where: [FileChangeWhereInput](#filechangewhereinput), orderBy: [[FileChangeOrderByInput](#filechangeorderbyinput)!]): [FileChangeConnection](#filechangeconnection)! |  |
+
+---
+
+#### `RepositoryRecipeRunConnection`
+
+**Service:** changesetreader
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `edges` | [[RepositoryRecipeRunEdge](#repositoryreciperunedge)!]! |  |
+| `pageInfo` | [PageInfo](#pageinfo)! |  |
+| `count` | Int! |  |
+
+---
+
+#### `RepositoryRecipeRunEdge`
+
+**Service:** changesetreader
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `node` | [RepositoryRecipeRun](#repositoryreciperun)! |  |
+| `cursor` | String! |  |
+
+---
+
+#### `RepositoryRecipeRunError`
+
+**Service:** changesetreader | **Implements:** [RepositoryRecipeRun](#repositoryreciperun), [RepositoryChangeset](#repositorychangeset)
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `repository` | [Repository](#repository)! |  |
+| `authorization` | [RepositoryAuthorization](#repositoryauthorization)! |  |
+| `syncStatus` | [RepositorySyncStatus](#repositorysyncstatus) |  |
+| `results` | (first: Int = 100, after: String, where: [FileChangeWhereInput](#filechangewhereinput), orderBy: [[FileChangeOrderByInput](#filechangeorderbyinput)!]): [FileChangeConnection](#filechangeconnection)! |  |
+| `startedAt` | [DateTime](#datetime) |  |
+| `finishedAt` | [DateTime](#datetime) |  |
+| `errorReason` | [RepositoryErrorReason](#repositoryerrorreason) |  |
+| `message` | String |  |
+
+---
+
+#### `RepositoryRecipeRunFinished`
+
+**Service:** changesetreader | **Implements:** [RepositoryRecipeRun](#repositoryreciperun), [RepositoryChangeset](#repositorychangeset)
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `repository` | [Repository](#repository)! |  |
+| `authorization` | [RepositoryAuthorization](#repositoryauthorization)! |  |
+| `syncStatus` | [RepositorySyncStatus](#repositorysyncstatus) |  |
+| `results` | (first: Int = 100, after: String, where: [FileChangeWhereInput](#filechangewhereinput), orderBy: [[FileChangeOrderByInput](#filechangeorderbyinput)!]): [FileChangeConnection](#filechangeconnection)! |  |
+| `startedAt` | [DateTime](#datetime) |  |
+| `finishedAt` | [DateTime](#datetime) |  |
+| `timeSavings` | [Duration](#duration) |  |
+
+---
+
+#### `RepositoryRecipeRunNoLst`
+
+**Service:** changesetreader | **Implements:** [RepositoryRecipeRun](#repositoryreciperun), [RepositoryChangeset](#repositorychangeset)
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `repository` | [Repository](#repository)! |  |
+| `authorization` | [RepositoryAuthorization](#repositoryauthorization)! |  |
+| `syncStatus` | [RepositorySyncStatus](#repositorysyncstatus) |  |
+| `results` | (first: Int = 100, after: String, where: [FileChangeWhereInput](#filechangewhereinput), orderBy: [[FileChangeOrderByInput](#filechangeorderbyinput)!]): [FileChangeConnection](#filechangeconnection)! |  |
+
+---
+
+#### `RepositoryRecipeRunQueued`
+
+**Service:** changesetreader | **Implements:** [RepositoryRecipeRun](#repositoryreciperun), [RepositoryChangeset](#repositorychangeset)
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `repository` | [Repository](#repository)! |  |
+| `authorization` | [RepositoryAuthorization](#repositoryauthorization)! |  |
+| `syncStatus` | [RepositorySyncStatus](#repositorysyncstatus) |  |
+| `results` | (first: Int = 100, after: String, where: [FileChangeWhereInput](#filechangewhereinput), orderBy: [[FileChangeOrderByInput](#filechangeorderbyinput)!]): [FileChangeConnection](#filechangeconnection)! |  |
+| `queuedAt` | [DateTime](#datetime) |  |
+
+---
+
+#### `RepositoryRecipeRunRunning`
+
+**Service:** changesetreader | **Implements:** [RepositoryRecipeRun](#repositoryreciperun), [RepositoryChangeset](#repositorychangeset)
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `repository` | [Repository](#repository)! |  |
+| `authorization` | [RepositoryAuthorization](#repositoryauthorization)! |  |
+| `syncStatus` | [RepositorySyncStatus](#repositorysyncstatus) |  |
+| `results` | (first: Int = 100, after: String, where: [FileChangeWhereInput](#filechangewhereinput), orderBy: [[FileChangeOrderByInput](#filechangeorderbyinput)!]): [FileChangeConnection](#filechangeconnection)! |  |
+| `startedAt` | [DateTime](#datetime) |  |
+
+---
+
+#### `ReviewStatus`
+
+**Service:** changesetcommitter
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `approvedBy` | [String!] |  |
+| `reviewDecision` | [ReviewDecision](#reviewdecision)! |  |
+
+---
+
+#### `RevokeTokenResult`
+
+**Service:** authz
+
+Result of revoking an SCM OAuth token.
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `success` | Boolean! | True if the token was revoked (or didn't exist). |
+| `error` | String | Error message if revocation failed. |
+
+---
+
+#### `S3Configuration`
+
+**Service:** gateway
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `resourceId` | String! |  |
+| `skipSsl` | Boolean! |  |
+| `skipValidateConnectivity` | Boolean! |  |
+| `connectivity` | [HttpToolConnectivity](#httptoolconnectivity)! |  |
+| `region` | String |  |
+| `endpointUrl` | String |  |
+
+---
+
+#### `ScmTokenInfo`
+
+**Service:** authz
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `created` | [DateTime](#datetime)! |  |
+| `expiresAt` | [DateTime](#datetime) |  |
+
+---
+
+#### `SearchResult`
+
+**Service:** corechangeset | **Implements:** [Marker](#marker)
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `id` | ID! |  |
+| `type` | String! |  |
+| `description` | String |  |
+
+---
+
+#### `SendMessageResult`
+
+**Service:** moddy
+
+Handle returned by `createConversation` / `sendMessage`. Clients should
+poll `conversation.messages(after: initialCursor)` using
+`turnState.recommendedPollIntervalMs` as the cadence hint.
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `conversation` | [Conversation](#conversation)! |  |
+| `initialCursor` | String! |  |
+| `turnState` | [ConversationTurnState](#conversationturnstate)! |  |
+
+---
+
+#### `TextMessage`
+
+**Service:** moddy | **Implements:** [Message](#message)
+
+A text message from either the human user or the chatbot.
+Check the `user` field to distinguish sender.
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `id` | ID! |  |
+| `user` | [User](#user)! |  |
+| `content` | [Markdown](#markdown)! |  |
+| `truncated` | Boolean! | True when the LLM response was cut off by the token limit. |
+| `state` | [MessageState](#messagestate)! |  |
+| `lastUpdatedAt` | [DateTime](#datetime)! |  |
+
+---
+
+#### `ToolInfo`
+
+**Service:** changesetreader
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `name` | String! |  |
+| `version` | String |  |
+| `arguments` | String |  |
+
+---
+
+#### `UiConfiguration`
+
+**Service:** gateway
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `moreHelp` | [[MoreHelpLink](#morehelplink)!] |  |
+| `loginText` | String |  |
+| `loginLinks` | [[MoreHelpLink](#morehelplink)!] |  |
+| `cliDownloadInstructions` | [CliDownloadInstructionLink](#clidownloadinstructionlink) |  |
+
+---
+
+#### `User`
+
+**Service:** authz
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `username` | String |  |
+| `role` | [UserRole](#userrole) |  |
+| `lastActive` | [DateTime](#datetime) |  |
+| `tokens` | (first: Int = 100, after: String, where: [AccessTokenWhereInput](#accesstokenwhereinput), orderBy: [[AccessTokenOrderByInput](#accesstokenorderbyinput)!]): [AccessTokenConnection](#accesstokenconnection)! |  |
+| `email` | String! |  |
+| `moddy` | [Moddy](#moddy)! |  |
+
+---
+
+#### `UserConnection`
+
+**Service:** authz
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `edges` | [[UsersEdge](#usersedge)!]! |  |
+| `pageInfo` | [PageInfo](#pageinfo)! |  |
+| `count` | Int! |  |
+
+---
+
+#### `UsersEdge`
+
+**Service:** authz
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `node` | [User](#user)! |  |
+| `cursor` | String! |  |
+
+---
+
+#### `VisualizationAvailable`
+
+**Service:** changesetreader | **Implements:** [Visualization](#visualization)
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `id` | ID! |  |
+| `descriptor` | [VisualizationDescriptor](#visualizationdescriptor)! |  |
+| `changesetId` | ID! | The changeset (recipe run or batch change) this visualization is available for. |
+
+---
+
+#### `VisualizationConnection`
+
+**Service:** corechangeset
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `edges` | [[VisualizationEdge](#visualizationedge)!]! |  |
+| `pageInfo` | [PageInfo](#pageinfo)! |  |
+| `count` | Int! |  |
+
+---
+
+#### `VisualizationDescriptor`
+
+**Service:** changesetvisualizer
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `options` | [[VisualizationOption](#visualizationoption)!]! |  |
+| `name` | String! |  |
+| `displayName` | [Markdown](#markdown)! |  |
+| `description` | [Markdown](#markdown)! |  |
+| `image` | [Base64](#base64)! |  |
+
+---
+
+#### `VisualizationEdge`
+
+**Service:** corechangeset
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `node` | [Visualization](#visualization)! |  |
+| `cursor` | String! |  |
+
+---
+
+#### `VisualizationError`
+
+**Service:** changesetreader | **Implements:** [Visualization](#visualization)
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `id` | ID! |  |
+| `descriptor` | [VisualizationDescriptor](#visualizationdescriptor)! |  |
+| `changesetId` | ID! |  |
+| `startedAt` | [DateTime](#datetime)! |  |
+| `finishedAt` | [DateTime](#datetime)! |  |
+| `message` | String! |  |
+| `repositories` | (first: Int = 100, after: String): [VisualizationRepositoryConnection](#visualizationrepositoryconnection)! |  |
+
+---
+
+#### `VisualizationFinished`
+
+**Service:** changesetreader | **Implements:** [Visualization](#visualization)
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `id` | ID! |  |
+| `descriptor` | [VisualizationDescriptor](#visualizationdescriptor)! |  |
+| `changesetId` | ID! |  |
+| `startedAt` | [DateTime](#datetime)! |  |
+| `finishedAt` | [DateTime](#datetime)! |  |
+| `duration` | [Duration](#duration) |  |
+| `output` | [VisualizationOutput](#visualizationoutput)! |  |
+| `repositories` | (first: Int = 100, after: String): [VisualizationRepositoryConnection](#visualizationrepositoryconnection)! |  |
+
+---
+
+#### `VisualizationImageOutput`
+
+**Service:** changesetreader | **Implements:** [VisualizationOutput](#visualizationoutput)
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `format` | [ImageFormat](#imageformat)! |  |
+| `data` | [Base64](#base64)! |  |
+
+---
+
+#### `VisualizationOption`
+
+**Service:** changesetvisualizer
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `name` | String! |  |
+| `value` | [Object](#object) |  |
+| `type` | String! |  |
+| `displayName` | String! |  |
+| `description` | String! |  |
+| `example` | String |  |
+| `valid` | [String] |  |
+| `required` | Boolean! |  |
+
+---
+
+#### `VisualizationPlotlyOutput`
+
+**Service:** changesetreader | **Implements:** [VisualizationOutput](#visualizationoutput)
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `data` | [Base64](#base64)! | Plotly JSON data (MIME type: application/vnd.plotly.v1+json) |
+
+---
+
+#### `VisualizationProcessing`
+
+**Service:** changesetreader | **Implements:** [Visualization](#visualization)
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `id` | ID! |  |
+| `descriptor` | [VisualizationDescriptor](#visualizationdescriptor)! |  |
+| `changesetId` | ID! |  |
+| `startedAt` | [DateTime](#datetime)! |  |
+| `repositories` | (first: Int = 100, after: String): [VisualizationRepositoryConnection](#visualizationrepositoryconnection)! |  |
+
+---
+
+#### `VisualizationRepository`
+
+**Service:** changesetreader
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `state` | [VisualizationRepositoryRunState](#visualizationrepositoryrunstate)! |  |
+| `stateMessage` | String |  |
+| `repository` | [Repository](#repository)! |  |
+
+---
+
+#### `VisualizationRepositoryConnection`
+
+**Service:** changesetreader
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `edges` | [[VisualizationRepositoryEdge](#visualizationrepositoryedge)!]! |  |
+| `pageInfo` | [PageInfo](#pageinfo)! |  |
+| `count` | Int! |  |
+
+---
+
+#### `VisualizationRepositoryEdge`
+
+**Service:** changesetreader
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `node` | [VisualizationRepository](#visualizationrepository)! |  |
+| `cursor` | String! |  |
+
+---
+
+#### `YamlRecipeBundle`
+
+**Service:** changesetreader | **Implements:** [RecipeBundle](#recipebundle)
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `yaml` | [Base64](#base64)! |  |
+| `requestedVersion` | String |  |
+| `version` | String |  |
+| `recipeCount` | Int |  |
+| `primary` | [RecipeDescriptor](#recipedescriptor) | The primary recipe in this bundle. When specified, only this recipe
+is shown in marketplace categories, hiding other recipes from this bundle. |
+
+---
 
 ### Interfaces
 
-<div id="auditlogsdownload" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">AuditLogsDownload</span>
-<span className="gql-svc">auditreader</span>
-</div>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>id</code></td><td>ID!</td><td></td></tr>
-  </tbody>
-</table>
-</div>
+#### `AuditLogsDownload`
 
-<div id="bulkpullrequestaction" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">BulkPullRequestAction</span>
-<span className="gql-svc">changelogreader</span>
-</div>
-<p>A bulk pull request action (approve, merge, close) that operates on potentially multiple repositories. Use `__typename` to determine the current state.</p>
-<p>Each `BulkPullRequestAction` contains individual `PullRequestAction` entries representing the state of each repository targeted by the bulk operation.</p>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>id</code></td><td>ID!</td><td></td></tr>
-    <tr><td><code>actionType</code></td><td><a href="#pullrequestactiontype">PullRequestActionType</a>!</td><td></td></tr>
-    <tr><td><code>user</code></td><td><a href="#user">User</a>!</td><td></td></tr>
-    <tr><td><code>results</code></td><td>(first: Int = 50, after: String, where: <a href="#pullrequestactionwhereinput">PullRequestActionWhereInput</a>, orderBy: [<a href="#pullrequestactionorderbyinput">PullRequestActionOrderByInput</a>!]): <a href="#pullrequestactionconnection">PullRequestActionConnection</a>!</td><td></td></tr>
-  </tbody>
-</table>
-</div>
+**Service:** auditreader
 
-<div id="changelogentry" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">ChangelogEntry</span>
-<span className="gql-svc">changelogreader</span>
-</div>
-<p>A single entry in the changelog — either a commit or a pull request. Use `__typename` to distinguish between `ChangelogCommit` and `ChangelogPullRequest`.</p>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>id</code></td><td>ID!</td><td></td></tr>
-    <tr><td><code>title</code></td><td>String!</td><td>Commit message (for commits) or PR title (for pull requests).</td></tr>
-    <tr><td><code>author</code></td><td><a href="#changeparticipant">ChangeParticipant</a>!</td><td>The author of the commit or PR.</td></tr>
-    <tr><td><code>repository</code></td><td><a href="#repository">Repository</a>!</td><td>The repository this entry belongs to.</td></tr>
-    <tr><td><code>url</code></td><td>String!</td><td>URL to the commit or PR in the VCS provider.</td></tr>
-    <tr><td><code>branch</code></td><td>String!</td><td>The target branch (for PRs) or the branch committed to (for commits).</td></tr>
-    <tr><td><code>updatedAt</code></td><td><a href="#datetime">DateTime</a>!</td><td>When this entry was last updated in the VCS provider.</td></tr>
-    <tr><td><code>createdAt</code></td><td><a href="#datetime">DateTime</a>!</td><td>When this entry was created in the VCS provider.</td></tr>
-    <tr><td><code>changeset</code></td><td><a href="#organizationchangeset">OrganizationChangeset</a></td><td>If this activity was originated by Moderne, the changeset it belongs to.</td></tr>
-    <tr><td><code>buildState</code></td><td><a href="#buildstate">BuildState</a></td><td>CI status (e.g. from GitHub Actions, GitLab pipelines). Null if no CI is configured or status has not been fetched yet.</td></tr>
-    <tr><td><code>diffstat</code></td><td><a href="#diffstat">DiffStat</a>!</td><td>Lines added and removed.</td></tr>
-  </tbody>
-</table>
-</div>
+| Field | Type | Description |
+|-------|------|-------------|
+| `id` | ID! |  |
 
-<div id="commitoptions" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">CommitOptions</span>
-<span className="gql-svc">changesetcommitter</span>
-</div>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>branchName</code></td><td>String</td><td></td></tr>
-  </tbody>
-</table>
-</div>
+---
 
-<div id="datatable" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">DataTable</span>
-<span className="gql-svc">corechangeset</span>
-</div>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>id</code></td><td>ID!</td><td></td></tr>
-    <tr><td><code>dataTable</code></td><td><a href="#datatabledescriptor">DataTableDescriptor</a>!</td><td></td></tr>
-    <tr><td><code>instanceName</code></td><td>String!</td><td>A human-readable name for this data table instance, describing what it contains. For example, "Method calls matching \`java.util.List add(..)\`". Defaults to the data table's display name when not explicitly set.</td></tr>
-    <tr><td><code>group</code></td><td>String</td><td>The group identifying this data table bucket. For community tables this is the group name (e.g., "architecture"). Null for ungrouped/private tables.</td></tr>
-  </tbody>
-</table>
-</div>
+#### `BulkPullRequestAction`
 
-<div id="devcenterrun" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">DevCenterRun</span>
-<span className="gql-svc">changesetreader</span>
-</div>
-<p>A DevCenter run represents the execution of a DevCenter recipe. Use `__typename` to determine the current state.</p>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>id</code></td><td>ID!</td><td></td></tr>
-    <tr><td><code>startedAt</code></td><td><a href="#datetime">DateTime</a>!</td><td>When this DevCenter run started.</td></tr>
-    <tr><td><code>changeset</code></td><td><a href="#organizationchangeset">OrganizationChangeset</a></td><td>The underlying recipe run changeset.</td></tr>
-  </tbody>
-</table>
-</div>
+**Service:** changelogreader
 
-<div id="filechange" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">FileChange</span>
-<span className="gql-svc">corechangeset</span>
-</div>
-<p>A change to a single file within a repository changeset.</p>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>path</code></td><td><a href="#path">Path</a>!</td><td>Path to the file relative to repository root.</td></tr>
-    <tr><td><code>beforeSourcePath</code></td><td><a href="#path">Path</a></td><td>The source path before the change (from the diff's `--- a/...` line). Null for newly created files.</td></tr>
-    <tr><td><code>afterSourcePath</code></td><td><a href="#path">Path</a></td><td>The source path after the change (from the diff's `+++ b/...` line). Null for deleted files.</td></tr>
-    <tr><td><code>diff</code></td><td>(markupLevel: <a href="#markuplevel">MarkupLevel</a> = ERROR, showWhitespaceOnlyChanges: Boolean = true): <a href="#patch">Patch</a></td><td>Get the diff for this file.</td></tr>
-  </tbody>
-</table>
-</div>
+A bulk pull request action (approve, merge, close) that operates on potentially
+multiple repositories. Use `__typename` to determine the current state.
 
-<div id="marker" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">Marker</span>
-<span className="gql-svc">corechangeset</span>
-</div>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>id</code></td><td>ID!</td><td></td></tr>
-  </tbody>
-</table>
-</div>
+Each `BulkPullRequestAction` contains individual `PullRequestAction` entries
+representing the state of each repository targeted by the bulk operation.
 
-<div id="message" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">Message</span>
-<span className="gql-svc">moddy</span>
-</div>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>id</code></td><td>ID!</td><td></td></tr>
-    <tr><td><code>user</code></td><td><a href="#user">User</a>!</td><td></td></tr>
-    <tr><td><code>state</code></td><td><a href="#messagestate">MessageState</a>!</td><td></td></tr>
-    <tr><td><code>lastUpdatedAt</code></td><td><a href="#datetime">DateTime</a>!</td><td></td></tr>
-  </tbody>
-</table>
-</div>
+| Field | Type | Description |
+|-------|------|-------------|
+| `id` | ID! |  |
+| `actionType` | [PullRequestActionType](#pullrequestactiontype)! |  |
+| `user` | [User](#user)! |  |
+| `results` | (first: Int = 50, after: String, where: [PullRequestActionWhereInput](#pullrequestactionwhereinput), orderBy: [[PullRequestActionOrderByInput](#pullrequestactionorderbyinput)!]): [PullRequestActionConnection](#pullrequestactionconnection)! |  |
 
-<div id="organizationcommit" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">OrganizationCommit</span>
-<span className="gql-svc">changesetcommitter</span>
-</div>
-<p>An organization-level commit operation represents applying changes across multiple repositories. Use `__typename` to determine the current state.</p>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>id</code></td><td>ID!</td><td></td></tr>
-    <tr><td><code>user</code></td><td><a href="#user">User</a>!</td><td>The user who initiated the commit.</td></tr>
-    <tr><td><code>options</code></td><td><a href="#commitoptions">CommitOptions</a>!</td><td>The commit options (branch, PR settings, etc.).</td></tr>
-    <tr><td><code>message</code></td><td>String!</td><td>The commit message.</td></tr>
-    <tr><td><code>extendedMessage</code></td><td><a href="#base64">Base64</a></td><td>Extended commit message (Base64 encoded).</td></tr>
-    <tr><td><code>repositories</code></td><td>(first: Int = 50, after: String, where: <a href="#repositorycommitwhereinput">RepositoryCommitWhereInput</a>, orderBy: [<a href="#repositorycommitorderbyinput">RepositoryCommitOrderByInput</a>!]): <a href="#repositorycommitconnection">RepositoryCommitConnection</a>!</td><td>Paginated results per repository.</td></tr>
-  </tbody>
-</table>
-</div>
+---
 
-<div id="pullrequestaction" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">PullRequestAction</span>
-<span className="gql-svc">changelogreader</span>
-</div>
-<p>The state of an individual repository within a `BulkPullRequestAction`. Use `__typename` to determine the current state.</p>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>pullRequest</code></td><td><a href="#pullrequestref">PullRequestRef</a>!</td><td></td></tr>
-  </tbody>
-</table>
-</div>
+#### `ChangelogEntry`
 
-<div id="recipebundle" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">RecipeBundle</span>
-<span className="gql-svc">changesetreader</span>
-</div>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>requestedVersion</code></td><td>String</td><td></td></tr>
-    <tr><td><code>version</code></td><td>String</td><td></td></tr>
-    <tr><td><code>recipeCount</code></td><td>Int</td><td>Number of top-level recipes contributed by this bundle's package. Null when the bundle has not yet been resolved into the marketplace (e.g. an installation still in progress).</td></tr>
-  </tbody>
-</table>
-</div>
+**Service:** changelogreader
 
-<div id="recipedetail" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">RecipeDetail</span>
-<span className="gql-svc">recipemarketplace</span>
-</div>
-<p>State machine for recipe detail resolution. Querying the `detail` field on a RecipeDescriptor triggers background resolution of the full recipe bundle. Poll until `__typename` is `RecipeDetailFinished`.</p>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>startedAt</code></td><td><a href="#datetime">DateTime</a>!</td><td></td></tr>
-  </tbody>
-</table>
-</div>
+A single entry in the changelog — either a commit or a pull request.
+Use `__typename` to distinguish between `ChangelogCommit` and `ChangelogPullRequest`.
 
-<div id="recipeinstallation" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">RecipeInstallation</span>
-<span className="gql-svc">recipemarketplace</span>
-</div>
-<p>Common fields for all recipe installation states. Use `__typename` to determine the current state.</p>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>id</code></td><td>ID!</td><td></td></tr>
-    <tr><td><code>bundle</code></td><td><a href="#recipebundle">RecipeBundle</a>!</td><td></td></tr>
-    <tr><td><code>startedAt</code></td><td><a href="#datetime">DateTime</a>!</td><td></td></tr>
-  </tbody>
-</table>
-</div>
+| Field | Type | Description |
+|-------|------|-------------|
+| `id` | ID! |  |
+| `title` | String! | Commit message (for commits) or PR title (for pull requests). |
+| `author` | [ChangeParticipant](#changeparticipant)! | The author of the commit or PR. |
+| `repository` | [Repository](#repository)! | The repository this entry belongs to. |
+| `url` | String! | URL to the commit or PR in the VCS provider. |
+| `branch` | String! | The target branch (for PRs) or the branch committed to (for commits). |
+| `updatedAt` | [DateTime](#datetime)! | When this entry was last updated in the VCS provider. |
+| `createdAt` | [DateTime](#datetime)! | When this entry was created in the VCS provider. |
+| `changeset` | [OrganizationChangeset](#organizationchangeset) | If this activity was originated by Moderne, the changeset it belongs to. |
+| `buildState` | [BuildState](#buildstate) | CI status (e.g. from GitHub Actions, GitLab pipelines).
+Null if no CI is configured or status has not been fetched yet. |
+| `diffstat` | [DiffStat](#diffstat)! | Lines added and removed. |
 
-<div id="repositorychangeset" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">RepositoryChangeset</span>
-<span className="gql-svc">corechangeset</span>
-</div>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>repository</code></td><td><a href="#repository">Repository</a>!</td><td></td></tr>
-    <tr><td><code>authorization</code></td><td><a href="#repositoryauthorization">RepositoryAuthorization</a>!</td><td>Authorization status for accessing this repository's content. Check this before accessing file results.</td></tr>
-    <tr><td><code>results</code></td><td>(first: Int = 100, after: String, where: <a href="#filechangewhereinput">FileChangeWhereInput</a>, orderBy: [<a href="#filechangeorderbyinput">FileChangeOrderByInput</a>!]): <a href="#filechangeconnection">FileChangeConnection</a>!</td><td>File-level changes within this repository.</td></tr>
-  </tbody>
-</table>
-</div>
+---
 
-<div id="repositorycommit" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">RepositoryCommit</span>
-<span className="gql-svc">changesetcommitter</span>
-</div>
-<p>A commit result for a single repository within an organization-level commit operation. Use `__typename` to determine the current state.</p>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>repository</code></td><td><a href="#repository">Repository</a>!</td><td></td></tr>
-  </tbody>
-</table>
-</div>
+#### `CommitOptions`
 
-<div id="repositorycommitsucceeded" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">RepositoryCommitSucceeded</span>
-<span className="gql-svc">changesetcommitter</span>
-</div>
-<p>Repository commit completed successfully. Use `__typename` to determine the specific commit type.</p>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>repository</code></td><td><a href="#repository">Repository</a>!</td><td></td></tr>
-    <tr><td><code>startedAt</code></td><td><a href="#datetime">DateTime</a>!</td><td></td></tr>
-    <tr><td><code>finishedAt</code></td><td><a href="#datetime">DateTime</a>!</td><td></td></tr>
-    <tr><td><code>resultLink</code></td><td>String</td><td>Link to the commit or pull request result.</td></tr>
-  </tbody>
-</table>
-</div>
+**Service:** changesetcommitter
 
-<div id="repositoryreciperun" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">RepositoryRecipeRun</span>
-<span className="gql-svc">changesetreader</span>
-</div>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>repository</code></td><td><a href="#repository">Repository</a>!</td><td></td></tr>
-    <tr><td><code>authorization</code></td><td><a href="#repositoryauthorization">RepositoryAuthorization</a>!</td><td></td></tr>
-    <tr><td><code>syncStatus</code></td><td><a href="#repositorysyncstatus">RepositorySyncStatus</a></td><td></td></tr>
-    <tr><td><code>results</code></td><td>(first: Int = 100, after: String, where: <a href="#filechangewhereinput">FileChangeWhereInput</a>, orderBy: [<a href="#filechangeorderbyinput">FileChangeOrderByInput</a>!]): <a href="#filechangeconnection">FileChangeConnection</a>!</td><td></td></tr>
-  </tbody>
-</table>
-</div>
+| Field | Type | Description |
+|-------|------|-------------|
+| `branchName` | String |  |
 
-<div id="scmconnection" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">ScmConnection</span>
-<span className="gql-svc">authz</span>
-</div>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>resourceId</code></td><td>String!</td><td></td></tr>
-    <tr><td><code>isAuthorized</code></td><td>Boolean!</td><td></td></tr>
-    <tr><td><code>tokens</code></td><td>[<a href="#scmtokeninfo">ScmTokenInfo</a>!]!</td><td></td></tr>
-  </tbody>
-</table>
-</div>
+---
 
-<div id="visualization" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">Visualization</span>
-<span className="gql-svc">corechangeset</span>
-</div>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>id</code></td><td>ID!</td><td></td></tr>
-    <tr><td><code>descriptor</code></td><td><a href="#visualizationdescriptor">VisualizationDescriptor</a>!</td><td></td></tr>
-  </tbody>
-</table>
-</div>
+#### `DataTable`
 
-<div id="visualizationoutput" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">VisualizationOutput</span>
-<span className="gql-svc">changesetreader</span>
-</div>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>data</code></td><td><a href="#base64">Base64</a>!</td><td></td></tr>
-  </tbody>
-</table>
-</div>
+**Service:** corechangeset
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `id` | ID! |  |
+| `dataTable` | [DataTableDescriptor](#datatabledescriptor)! |  |
+| `instanceName` | String! | A human-readable name for this data table instance, describing what it contains.
+For example, "Method calls matching \`java.util.List add(..)\`".
+Defaults to the data table's display name when not explicitly set. |
+| `group` | String | The group identifying this data table bucket. For community tables this is
+the group name (e.g., "architecture"). Null for ungrouped/private tables. |
+
+---
+
+#### `DevCenterRun`
+
+**Service:** changesetreader
+
+A DevCenter run represents the execution of a DevCenter recipe.
+Use `__typename` to determine the current state.
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `id` | ID! |  |
+| `startedAt` | [DateTime](#datetime)! | When this DevCenter run started. |
+| `changeset` | [OrganizationChangeset](#organizationchangeset) | The underlying recipe run changeset. |
+
+---
+
+#### `FileChange`
+
+**Service:** corechangeset
+
+A change to a single file within a repository changeset.
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `path` | [Path](#path)! | Path to the file relative to repository root. |
+| `beforeSourcePath` | [Path](#path) | The source path before the change (from the diff's `--- a/...` line).
+Null for newly created files. |
+| `afterSourcePath` | [Path](#path) | The source path after the change (from the diff's `+++ b/...` line).
+Null for deleted files. |
+| `diff` | (markupLevel: [MarkupLevel](#markuplevel) = ERROR, showWhitespaceOnlyChanges: Boolean = true): [Patch](#patch) | Get the diff for this file. |
+
+---
+
+#### `Marker`
+
+**Service:** corechangeset
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `id` | ID! |  |
+
+---
+
+#### `Message`
+
+**Service:** moddy
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `id` | ID! |  |
+| `user` | [User](#user)! |  |
+| `state` | [MessageState](#messagestate)! |  |
+| `lastUpdatedAt` | [DateTime](#datetime)! |  |
+
+---
+
+#### `OrganizationCommit`
+
+**Service:** changesetcommitter
+
+An organization-level commit operation represents applying changes across multiple
+repositories. Use `__typename` to determine the current state.
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `id` | ID! |  |
+| `user` | [User](#user)! | The user who initiated the commit. |
+| `options` | [CommitOptions](#commitoptions)! | The commit options (branch, PR settings, etc.). |
+| `message` | String! | The commit message. |
+| `extendedMessage` | [Base64](#base64) | Extended commit message (Base64 encoded). |
+| `repositories` | (first: Int = 50, after: String, where: [RepositoryCommitWhereInput](#repositorycommitwhereinput), orderBy: [[RepositoryCommitOrderByInput](#repositorycommitorderbyinput)!]): [RepositoryCommitConnection](#repositorycommitconnection)! | Paginated results per repository. |
+
+---
+
+#### `PullRequestAction`
+
+**Service:** changelogreader
+
+The state of an individual repository within a `BulkPullRequestAction`.
+Use `__typename` to determine the current state.
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `pullRequest` | [PullRequestRef](#pullrequestref)! |  |
+
+---
+
+#### `RecipeBundle`
+
+**Service:** changesetreader
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `requestedVersion` | String |  |
+| `version` | String |  |
+| `recipeCount` | Int | Number of top-level recipes contributed by this bundle's package.
+Null when the bundle has not yet been resolved into the marketplace
+(e.g. an installation still in progress). |
+
+---
+
+#### `RecipeDetail`
+
+**Service:** recipemarketplace
+
+State machine for recipe detail resolution. Querying the `detail` field on a
+RecipeDescriptor triggers background resolution of the full recipe bundle.
+Poll until `__typename` is `RecipeDetailFinished`.
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `startedAt` | [DateTime](#datetime)! |  |
+
+---
+
+#### `RecipeInstallation`
+
+**Service:** recipemarketplace
+
+Common fields for all recipe installation states.
+Use `__typename` to determine the current state.
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `id` | ID! |  |
+| `bundle` | [RecipeBundle](#recipebundle)! |  |
+| `startedAt` | [DateTime](#datetime)! |  |
+
+---
+
+#### `RepositoryChangeset`
+
+**Service:** corechangeset
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `repository` | [Repository](#repository)! |  |
+| `authorization` | [RepositoryAuthorization](#repositoryauthorization)! | Authorization status for accessing this repository's content.
+Check this before accessing file results. |
+| `results` | (first: Int = 100, after: String, where: [FileChangeWhereInput](#filechangewhereinput), orderBy: [[FileChangeOrderByInput](#filechangeorderbyinput)!]): [FileChangeConnection](#filechangeconnection)! | File-level changes within this repository. |
+
+---
+
+#### `RepositoryCommit`
+
+**Service:** changesetcommitter
+
+A commit result for a single repository within an organization-level commit operation.
+Use `__typename` to determine the current state.
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `repository` | [Repository](#repository)! |  |
+
+---
+
+#### `RepositoryCommitSucceeded`
+
+**Service:** changesetcommitter
+
+Repository commit completed successfully.
+Use `__typename` to determine the specific commit type.
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `repository` | [Repository](#repository)! |  |
+| `startedAt` | [DateTime](#datetime)! |  |
+| `finishedAt` | [DateTime](#datetime)! |  |
+| `resultLink` | String | Link to the commit or pull request result. |
+
+---
+
+#### `RepositoryRecipeRun`
+
+**Service:** changesetreader
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `repository` | [Repository](#repository)! |  |
+| `authorization` | [RepositoryAuthorization](#repositoryauthorization)! |  |
+| `syncStatus` | [RepositorySyncStatus](#repositorysyncstatus) |  |
+| `results` | (first: Int = 100, after: String, where: [FileChangeWhereInput](#filechangewhereinput), orderBy: [[FileChangeOrderByInput](#filechangeorderbyinput)!]): [FileChangeConnection](#filechangeconnection)! |  |
+
+---
+
+#### `ScmConnection`
+
+**Service:** authz
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `resourceId` | String! |  |
+| `isAuthorized` | Boolean! |  |
+| `tokens` | [[ScmTokenInfo](#scmtokeninfo)!]! |  |
+
+---
+
+#### `Visualization`
+
+**Service:** corechangeset
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `id` | ID! |  |
+| `descriptor` | [VisualizationDescriptor](#visualizationdescriptor)! |  |
+
+---
+
+#### `VisualizationOutput`
+
+**Service:** changesetreader
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `data` | [Base64](#base64)! |  |
+
+---
 
 ### Enums
 
-<div id="accesstokenorderbyfield" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">AccessTokenOrderByField</span>
-<span className="gql-svc">authz</span>
-</div>
-<ul>
-  <li><code>CREATED</code></li>
-  <li><code>EXPIRES_AT</code></li>
-</ul>
-</div>
+#### `AccessTokenOrderByField`
 
-<div id="auditactiontype" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">AuditActionType</span>
-<span className="gql-svc">auditreader</span>
-</div>
-<ul>
-  <li><code>CREATE</code></li>
-  <li><code>READ</code></li>
-  <li><code>UPDATE</code></li>
-  <li><code>DELETE</code></li>
-</ul>
-</div>
+**Service:** authz
 
-<div id="auditlogexportformat" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">AuditLogExportFormat</span>
-<span className="gql-svc">auditreader</span>
-</div>
-<ul>
-  <li><code>CEF</code></li>
-  <li><code>CSV</code></li>
-</ul>
-</div>
+* `CREATED`
+* `EXPIRES_AT`
 
-<div id="auditlogorderbyfield" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">AuditLogOrderByField</span>
-<span className="gql-svc">auditreader</span>
-</div>
-<ul>
-  <li><code>TIMESTAMP</code></li>
-  <li><code>USER_ID</code></li>
-  <li><code>TARGET</code></li>
-  <li><code>ACTION</code></li>
-</ul>
-</div>
+---
 
-<div id="auditlogsdownloadorderbyfield" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">AuditLogsDownloadOrderByField</span>
-<span className="gql-svc">auditreader</span>
-</div>
-<ul>
-  <li><code>STARTED_AT</code></li>
-</ul>
-</div>
+#### `AuditActionType`
 
-<div id="auditoutcome" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">AuditOutcome</span>
-<span className="gql-svc">auditreader</span>
-</div>
-<ul>
-  <li><code>SUCCESS</code></li>
-  <li><code>FAILURE</code></li>
-</ul>
-</div>
+**Service:** auditreader
 
-<div id="buildstate" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">BuildState</span>
-<span className="gql-svc">changelogreader</span>
-</div>
-<ul>
-  <li><code>PENDING</code></li>
-  <li><code>IN_PROGRESS</code></li>
-  <li><code>FAILED</code></li>
-  <li><code>SKIPPED</code></li>
-  <li><code>SUCCESSFUL</code></li>
-  <li><code>NOT_REQUIRED</code></li>
-</ul>
-</div>
+* `CREATE`
+* `READ`
+* `UPDATE`
+* `DELETE`
 
-<div id="bulkpullrequestactionorderbyfield" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">BulkPullRequestActionOrderByField</span>
-<span className="gql-svc">changelogreader</span>
-</div>
-<ul>
-  <li><code>CREATED_AT</code></li>
-  <li><code>STARTED_AT</code></li>
-  <li><code>FINISHED_AT</code></li>
-</ul>
-</div>
+---
 
-<div id="bulkpullrequestactionstate" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">BulkPullRequestActionState</span>
-<span className="gql-svc">changelogreader</span>
-</div>
-<p>The lifecycle state of a `BulkPullRequestAction`. Matches the `__typename` of the concrete state types (Queued, Running, Finished, Canceled, Error).</p>
-<ul>
-  <li><code>QUEUED</code></li>
-  <li><code>RUNNING</code></li>
-  <li><code>FINISHED</code></li>
-  <li><code>CANCELED</code></li>
-  <li><code>ERROR</code></li>
-</ul>
-</div>
+#### `AuditLogExportFormat`
 
-<div id="changelogentryorderbyfield" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">ChangelogEntryOrderByField</span>
-<span className="gql-svc">changelogreader</span>
-</div>
-<ul>
-  <li><code>UPDATED_AT</code></li>
-  <li><code>CREATED_AT</code></li>
-  <li><code>TITLE</code></li>
-  <li><code>REPOSITORY_PATH</code></li>
-</ul>
-</div>
+**Service:** auditreader
 
-<div id="changelogentrytype" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">ChangelogEntryType</span>
-<span className="gql-svc">changelogreader</span>
-</div>
-<p>Discriminator for filtering by entry type.</p>
-<ul>
-  <li><code>COMMIT</code></li>
-  <li><code>PULL_REQUEST</code></li>
-</ul>
-</div>
+* `CEF`
+* `CSV`
 
-<div id="changelogparticipantorderbyfield" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">ChangelogParticipantOrderByField</span>
-<span className="gql-svc">changelogreader</span>
-</div>
-<ul>
-  <li><code>USERNAME</code></li>
-  <li><code>EMAIL</code></li>
-  <li><code>NAME</code></li>
-</ul>
-</div>
+---
 
-<div id="commitoption" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">CommitOption</span>
-<span className="gql-svc">changesetcommitter</span>
-</div>
-<ul>
-  <li><code>DIRECT</code></li>
-  <li><code>BRANCH</code></li>
-  <li><code>FORK</code></li>
-  <li><code>PULL_REQUEST</code></li>
-  <li><code>FORK_AND_PULL_REQUEST</code></li>
-  <li><code>NONE</code></li>
-</ul>
-</div>
+#### `AuditLogOrderByField`
 
-<div id="connectororderbyfield" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">ConnectorOrderByField</span>
-<span className="gql-svc">gateway</span>
-</div>
-<ul>
-  <li><code>NICKNAME</code></li>
-  <li><code>VERSION</code></li>
-</ul>
-</div>
+**Service:** auditreader
 
-<div id="connectortooltype" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">ConnectorToolType</span>
-<span className="gql-svc">gateway</span>
-</div>
-<ul>
-  <li><code>GITHUB</code></li>
-  <li><code>GITLAB</code></li>
-  <li><code>BITBUCKET</code></li>
-  <li><code>BITBUCKET_CLOUD</code></li>
-  <li><code>AZURE_DEVOPS</code></li>
-  <li><code>ARTIFACTORY</code></li>
-  <li><code>MAVEN</code></li>
-  <li><code>PYPI</code></li>
-  <li><code>NPM</code></li>
-  <li><code>NUGET</code></li>
-  <li><code>HTTP_TOOL</code></li>
-  <li><code>ORGANIZATION</code></li>
-  <li><code>LLM</code></li>
-  <li><code>S3</code></li>
-</ul>
-</div>
+* `TIMESTAMP`
+* `USER_ID`
+* `TARGET`
+* `ACTION`
 
-<div id="contributorrole" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">ContributorRole</span>
-<span className="gql-svc">changelogreader</span>
-</div>
-<p>The participant's role for filtering.</p>
-<ul>
-  <li><code>AUTHOR</code></li>
-  <li><code>ASSIGNEE</code></li>
-  <li><code>CLOSED_BY</code></li>
-  <li><code>REVIEWER</code></li>
-</ul>
-</div>
+---
 
-<div id="conversationorderbyfield" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">ConversationOrderByField</span>
-<span className="gql-svc">moddy</span>
-</div>
-<ul>
-  <li><code>STARTED_AT</code></li>
-  <li><code>LAST_UPDATED_AT</code></li>
-</ul>
-</div>
+#### `AuditLogsDownloadOrderByField`
 
-<div id="conversationphase" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">ConversationPhase</span>
-<span className="gql-svc">moddy</span>
-</div>
-<ul>
-  <li><code>IDLE</code></li>
-  <li><code>AWAITING_LLM</code></li>
-  <li><code>STREAMING_TEXT</code></li>
-  <li><code>TOOL_RUNNING</code></li>
-  <li><code>ERRORED</code></li>
-</ul>
-</div>
+**Service:** auditreader
 
-<div id="datatableformat" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">DataTableFormat</span>
-<span className="gql-svc">corechangeset</span>
-</div>
-<ul>
-  <li><code>CSV</code></li>
-  <li><code>XLSX</code></li>
-</ul>
-</div>
+* `STARTED_AT`
 
-<div id="datatableorderbyfield" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">DataTableOrderByField</span>
-<span className="gql-svc">corechangeset</span>
-</div>
-<ul>
-  <li><code>DATA_TABLE</code></li>
-  <li><code>STARTED_AT</code></li>
-</ul>
-</div>
+---
 
-<div id="devcenteraggregation" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">DevCenterAggregation</span>
-<span className="gql-svc">changesetreader</span>
-</div>
-<p>How DevCenter card results are aggregated across repositories.</p>
-<ul>
-  <li><code>PER_REPOSITORY</code></li>
-  <li><code>PER_OCCURRENCE</code></li>
-</ul>
-</div>
+#### `AuditOutcome`
 
-<div id="devcenterrunorderbyfield" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">DevCenterRunOrderByField</span>
-<span className="gql-svc">changesetreader</span>
-</div>
-<ul>
-  <li><code>STARTED_AT</code></li>
-  <li><code>STATE</code></li>
-</ul>
-</div>
+**Service:** auditreader
 
-<div id="devcenterrunstate" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">DevCenterRunState</span>
-<span className="gql-svc">changesetreader</span>
-</div>
-<p>Execution state of a DevCenter run.</p>
-<ul>
-  <li><code>RUNNING</code></li>
-  <li><code>FINISHED</code></li>
-  <li><code>CANCELED</code></li>
-  <li><code>ERROR</code></li>
-</ul>
-</div>
+* `SUCCESS`
+* `FAILURE`
 
-<div id="filechangeorderbyfield" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">FileChangeOrderByField</span>
-<span className="gql-svc">corechangeset</span>
-</div>
-<ul>
-  <li><code>PATH</code></li>
-</ul>
-</div>
+---
 
-<div id="imageformat" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">ImageFormat</span>
-<span className="gql-svc">changesetreader</span>
-</div>
-<ul>
-  <li><code>SVG</code></li>
-  <li><code>GIF</code></li>
-  <li><code>JPEG</code></li>
-  <li><code>PNG</code></li>
-</ul>
-</div>
+#### `BuildState`
 
-<div id="llmprovider" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">LlmProvider</span>
-<span className="gql-svc">gateway</span>
-</div>
-<ul>
-  <li><code>ANTHROPIC</code></li>
-  <li><code>GEMINI</code></li>
-  <li><code>MISTRAL</code></li>
-  <li><code>OPEN_AI</code></li>
-</ul>
-</div>
+**Service:** changelogreader
 
-<div id="markuplevel" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">MarkupLevel</span>
-<span className="gql-svc">corechangeset</span>
-</div>
-<ul>
-  <li><code>DEBUG</code></li>
-  <li><code>INFO</code></li>
-  <li><code>WARNING</code></li>
-  <li><code>ERROR</code></li>
-  <li><code>NONE</code></li>
-</ul>
-</div>
+* `PENDING`
+* `IN_PROGRESS`
+* `FAILED`
+* `SKIPPED`
+* `SUCCESSFUL`
+* `NOT_REQUIRED`
 
-<div id="mergemethod" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">MergeMethod</span>
-<span className="gql-svc">changelogreader</span>
-</div>
-<ul>
-  <li><code>MERGE</code></li>
-  <li><code>SQUASH</code></li>
-  <li><code>REBASE</code></li>
-</ul>
-</div>
+---
 
-<div id="mergeable" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">Mergeable</span>
-<span className="gql-svc">changesetcommitter</span>
-</div>
-<ul>
-  <li><code>MERGEABLE</code></li>
-  <li><code>BLOCKED</code></li>
-  <li><code>UNKNOWN</code></li>
-</ul>
-</div>
+#### `BulkPullRequestActionOrderByField`
 
-<div id="messagestate" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">MessageState</span>
-<span className="gql-svc">moddy</span>
-</div>
-<ul>
-  <li><code>IN_PROGRESS</code></li>
-  <li><code>COMPLETED</code></li>
-</ul>
-</div>
+**Service:** changelogreader
 
-<div id="organizationchangesetorderbyfield" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">OrganizationChangesetOrderByField</span>
-<span className="gql-svc">corechangeset</span>
-</div>
-<ul>
-  <li><code>CREATED_AT</code></li>
-  <li><code>TYPE</code></li>
-  <li><code>USER</code></li>
-</ul>
-</div>
+* `CREATED_AT`
+* `STARTED_AT`
+* `FINISHED_AT`
 
-<div id="organizationchangesettype" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">OrganizationChangesetType</span>
-<span className="gql-svc">corechangeset</span>
-</div>
-<ul>
-  <li><code>RECIPE_RUN</code></li>
-  <li><code>BATCH_CHANGE</code></li>
-</ul>
-</div>
+---
 
-<div id="organizationcommitorderbyfield" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">OrganizationCommitOrderByField</span>
-<span className="gql-svc">changesetcommitter</span>
-</div>
-<ul>
-  <li><code>STARTED_AT</code></li>
-</ul>
-</div>
+#### `BulkPullRequestActionState`
 
-<div id="organizationorderbyfield" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">OrganizationOrderByField</span>
-<span className="gql-svc">organization</span>
-</div>
-<ul>
-  <li><code>NAME</code></li>
-</ul>
-</div>
+**Service:** changelogreader
 
-<div id="organizationreciperunorderbyfield" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">OrganizationRecipeRunOrderByField</span>
-<span className="gql-svc">changesetreader</span>
-</div>
-<ul>
-  <li><code>STARTED_AT</code></li>
-  <li><code>ENDED_AT</code></li>
-  <li><code>STATE</code></li>
-  <li><code>USER</code></li>
-</ul>
-</div>
+The lifecycle state of a `BulkPullRequestAction`. Matches the `__typename`
+of the concrete state types (Queued, Running, Finished, Canceled, Error).
 
-<div id="organizationreciperunstate" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">OrganizationRecipeRunState</span>
-<span className="gql-svc">changesetreader</span>
-</div>
-<ul>
-  <li><code>QUEUED</code></li>
-  <li><code>SYNCING</code></li>
-  <li><code>RUNNING</code></li>
-  <li><code>FINISHED</code></li>
-  <li><code>CANCELED</code></li>
-  <li><code>ERROR</code></li>
-</ul>
-</div>
+* `QUEUED`
+* `RUNNING`
+* `FINISHED`
+* `CANCELED`
+* `ERROR`
 
-<div id="profilingevent" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">ProfilingEvent</span>
-<span className="gql-svc">gateway</span>
-</div>
-<p>The primary event the Pyroscope agent samples on. async-profiler can only collect one of these at a time as the primary event; alloc and lock sampling run on separate channels and are always on.</p>
-<ul>
-  <li><code>CPU</code></li>
-  <li><code>WALL</code></li>
-</ul>
-</div>
+---
 
-<div id="pullrequestactionorderbyfield" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">PullRequestActionOrderByField</span>
-<span className="gql-svc">changelogreader</span>
-</div>
-<ul>
-  <li><code>REPOSITORY_PATH</code></li>
-  <li><code>STATE</code></li>
-  <li><code>STARTED_AT</code></li>
-</ul>
-</div>
+#### `ChangelogEntryOrderByField`
 
-<div id="pullrequestactionstate" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">PullRequestActionState</span>
-<span className="gql-svc">changelogreader</span>
-</div>
-<ul>
-  <li><code>QUEUED</code></li>
-  <li><code>IN_PROGRESS</code></li>
-  <li><code>SUCCESSFUL</code></li>
-  <li><code>FAILED</code></li>
-  <li><code>CANCELED</code></li>
-</ul>
-</div>
+**Service:** changelogreader
 
-<div id="pullrequestactiontype" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">PullRequestActionType</span>
-<span className="gql-svc">changelogreader</span>
-</div>
-<ul>
-  <li><code>APPROVE</code></li>
-  <li><code>MERGE</code></li>
-  <li><code>CLOSE</code></li>
-</ul>
-</div>
+* `UPDATED_AT`
+* `CREATED_AT`
+* `TITLE`
+* `REPOSITORY_PATH`
 
-<div id="pullrequeststate" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">PullRequestState</span>
-<span className="gql-svc">changelogreader</span>
-</div>
-<ul>
-  <li><code>OPEN</code></li>
-  <li><code>DRAFT</code></li>
-  <li><code>CLOSED</code></li>
-  <li><code>MERGED</code></li>
-</ul>
-</div>
+---
 
-<div id="recipebundleorderbyfield" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">RecipeBundleOrderByField</span>
-<span className="gql-svc">recipemarketplace</span>
-</div>
-<ul>
-  <li><code>PACKAGE_NAME</code></li>
-  <li><code>VERSION</code></li>
-  <li><code>REQUESTED_VERSION</code></li>
-  <li><code>ECOSYSTEM</code></li>
-</ul>
-</div>
+#### `ChangelogEntryType`
 
-<div id="recipecategoryorderbyfield" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">RecipeCategoryOrderByField</span>
-<span className="gql-svc">recipemarketplace</span>
-</div>
-<ul>
-  <li><code>DISPLAY_NAME</code></li>
-  <li><code>RECIPE_COUNT</code></li>
-</ul>
-</div>
+**Service:** changelogreader
 
-<div id="recipeecosystem" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">RecipeEcosystem</span>
-<span className="gql-svc">recipemarketplace</span>
-</div>
-<ul>
-  <li><code>Maven</code></li>
-  <li><code>NPM</code></li>
-  <li><code>YAML</code></li>
-  <li><code>Pip</code></li>
-  <li><code>Nuget</code></li>
-  <li><code>Go</code></li>
-</ul>
-</div>
+Discriminator for filtering by entry type.
 
-<div id="recipegraphedgetype" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">RecipeGraphEdgeType</span>
-<span className="gql-svc">recipemarketplace</span>
-</div>
-<ul>
-  <li><code>RECIPE</code></li>
-  <li><code>PRECONDITION</code></li>
-  <li><code>REFERENCE</code></li>
-</ul>
-</div>
+* `COMMIT`
+* `PULL_REQUEST`
 
-<div id="recipeinstallationorderbyfield" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">RecipeInstallationOrderByField</span>
-<span className="gql-svc">recipemarketplace</span>
-</div>
-<ul>
-  <li><code>STARTED_AT</code></li>
-  <li><code>STATUS</code></li>
-</ul>
-</div>
+---
 
-<div id="recipeinstallationstatus" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">RecipeInstallationStatus</span>
-<span className="gql-svc">recipemarketplace</span>
-</div>
-<ul>
-  <li><code>QUEUED</code></li>
-  <li><code>PROCESSING</code></li>
-  <li><code>FINISHED</code></li>
-  <li><code>ERROR</code></li>
-</ul>
-</div>
+#### `ChangelogParticipantOrderByField`
 
-<div id="recipeorderbyfield" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">RecipeOrderByField</span>
-<span className="gql-svc">recipemarketplace</span>
-</div>
-<ul>
-  <li><code>ID</code></li>
-  <li><code>DISPLAY_NAME</code></li>
-  <li><code>RECIPE_COUNT</code></li>
-  <li><code>RELEVANCE</code></li>
-</ul>
-</div>
+**Service:** changelogreader
 
-<div id="reciperunpriority" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">RecipeRunPriority</span>
-<span className="gql-svc">changesetreader</span>
-</div>
-<p>Priority level for recipe runs. HIGH priority runs target small organizations (≤100 repositories). LOW priority runs target large organizations (>100 repositories).</p>
-<ul>
-  <li><code>HIGH</code></li>
-  <li><code>LOW</code></li>
-</ul>
-</div>
+* `USERNAME`
+* `EMAIL`
+* `NAME`
 
-<div id="repositorychangesetorderbyfield" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">RepositoryChangesetOrderByField</span>
-<span className="gql-svc">corechangeset</span>
-</div>
-<ul>
-  <li><code>PATH</code></li>
-  <li><code>ORIGIN</code></li>
-  <li><code>FILES_CHANGED</code></li>
-  <li><code>SYNC_STATUS</code></li>
-</ul>
-</div>
+---
 
-<div id="repositorychangesetstate" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">RepositoryChangesetState</span>
-<span className="gql-svc">changesetcommitter</span>
-</div>
-<p>Result state of a repository within a changeset.</p>
-<ul>
-  <li><code>QUEUED</code></li>
-  <li><code>RUNNING</code></li>
-  <li><code>SUCCESS</code></li>
-  <li><code>ERROR</code></li>
-  <li><code>NO_LST</code></li>
-  <li><code>CANCELED</code></li>
-</ul>
-</div>
+#### `CommitOption`
 
-<div id="repositorycommitorderbyfield" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">RepositoryCommitOrderByField</span>
-<span className="gql-svc">changesetcommitter</span>
-</div>
-<ul>
-  <li><code>STARTED_AT</code></li>
-</ul>
-</div>
+**Service:** changesetcommitter
 
-<div id="repositoryerrorreason" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">RepositoryErrorReason</span>
-<span className="gql-svc">changesetreader</span>
-</div>
-<ul>
-  <li><code>FAILED_LOAD_AST</code></li>
-  <li><code>FAILED_LOAD_RECIPE</code></li>
-  <li><code>TIMEOUT</code></li>
-  <li><code>RECIPE_ERROR</code></li>
-</ul>
-</div>
+* `DIRECT`
+* `BRANCH`
+* `FORK`
+* `PULL_REQUEST`
+* `FORK_AND_PULL_REQUEST`
+* `NONE`
 
-<div id="repositoryorderbyfield" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">RepositoryOrderByField</span>
-<span className="gql-svc">organization</span>
-</div>
-<ul>
-  <li><code>ORIGIN</code></li>
-  <li><code>PATH</code></li>
-  <li><code>BRANCH</code></li>
-  <li><code>CHANGESET</code></li>
-  <li><code>LST_ARTIFACT_PUBLISHED</code></li>
-</ul>
-</div>
+---
 
-<div id="repositoryreciperunorderbyfield" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">RepositoryRecipeRunOrderByField</span>
-<span className="gql-svc">changesetreader</span>
-</div>
-<ul>
-  <li><code>PATH</code></li>
-  <li><code>ORIGIN</code></li>
-  <li><code>STATE</code></li>
-</ul>
-</div>
+#### `ConnectorOrderByField`
 
-<div id="repositorysyncstatus" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">RepositorySyncStatus</span>
-<span className="gql-svc">corechangeset</span>
-</div>
-<p>Sync status of a repository within a recipe run. Tracks whether the repository has been synced (cloned + LST downloaded) before the recipe execution phase begins.</p>
-<p>`SKIPPED` indicates the CLI elected not to sync the repository — typically because there is no LST available to fetch — and is distinct from `FAILED`, which indicates an actual error during the sync attempt. `CANCELED` is set when sync was interrupted (e.g., the run was canceled before the repository's sync completed).</p>
-<ul>
-  <li><code>PENDING</code></li>
-  <li><code>SYNCED</code></li>
-  <li><code>FAILED</code></li>
-  <li><code>CANCELED</code></li>
-  <li><code>SKIPPED</code></li>
-</ul>
-</div>
+**Service:** gateway
 
-<div id="reviewdecision" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">ReviewDecision</span>
-<span className="gql-svc">changelogreader</span>
-</div>
-<ul>
-  <li><code>APPROVED</code></li>
-  <li><code>CHANGES_REQUESTED</code></li>
-  <li><code>REVIEW_REQUIRED</code></li>
-  <li><code>REVIEW_NOT_REQUIRED</code></li>
-  <li><code>UNKNOWN</code></li>
-</ul>
-</div>
+* `NICKNAME`
+* `VERSION`
 
-<div id="scmtype" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">ScmType</span>
-<span className="gql-svc">authz</span>
-</div>
-<ul>
-  <li><code>GITHUB</code></li>
-  <li><code>BITBUCKET</code></li>
-  <li><code>BITBUCKET_CLOUD</code></li>
-  <li><code>GITLAB</code></li>
-  <li><code>AZURE_DEVOPS</code></li>
-</ul>
-</div>
+---
 
-<div id="sortorder" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">SortOrder</span>
-<span className="gql-svc">coregraphql</span>
-</div>
-<ul>
-  <li><code>ASC</code></li>
-  <li><code>DESC</code></li>
-</ul>
-</div>
+#### `ConnectorToolType`
 
-<div id="userorderbyfield" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">UserOrderByField</span>
-<span className="gql-svc">authz</span>
-</div>
-<ul>
-  <li><code>EMAIL</code></li>
-  <li><code>USERNAME</code></li>
-  <li><code>ROLE</code></li>
-  <li><code>LAST_ACTIVE</code></li>
-</ul>
-</div>
+**Service:** gateway
 
-<div id="userrole" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">UserRole</span>
-<span className="gql-svc">authz</span>
-</div>
-<ul>
-  <li><code>ADMIN</code></li>
-  <li><code>USER</code></li>
-</ul>
-</div>
+* `GITHUB`
+* `GITLAB`
+* `BITBUCKET`
+* `BITBUCKET_CLOUD`
+* `AZURE_DEVOPS`
+* `ARTIFACTORY`
+* `MAVEN`
+* `PYPI`
+* `NPM`
+* `NUGET`
+* `HTTP_TOOL`
+* `ORGANIZATION`
+* `LLM`
+* `S3`
 
-<div id="visualizationorderbyfield" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">VisualizationOrderByField</span>
-<span className="gql-svc">corechangeset</span>
-</div>
-<ul>
-  <li><code>VISUALIZATION</code></li>
-  <li><code>STARTED_AT</code></li>
-</ul>
-</div>
+---
 
-<div id="visualizationrepositoryrunstate" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">VisualizationRepositoryRunState</span>
-<span className="gql-svc">changesetreader</span>
-</div>
-<ul>
-  <li><code>QUEUED</code></li>
-  <li><code>PROCESSING</code></li>
-  <li><code>FINISHED</code></li>
-  <li><code>FINISHED_EMPTY</code></li>
-  <li><code>NO_LST</code></li>
-  <li><code>ERROR</code></li>
-</ul>
-</div>
+#### `ContributorRole`
+
+**Service:** changelogreader
+
+The participant's role for filtering.
+
+* `AUTHOR`
+* `ASSIGNEE`
+* `CLOSED_BY`
+* `REVIEWER`
+
+---
+
+#### `ConversationOrderByField`
+
+**Service:** moddy
+
+* `STARTED_AT`
+* `LAST_UPDATED_AT`
+
+---
+
+#### `ConversationPhase`
+
+**Service:** moddy
+
+* `IDLE`
+* `AWAITING_LLM`
+* `STREAMING_TEXT`
+* `TOOL_RUNNING`
+* `ERRORED`
+
+---
+
+#### `DataTableFormat`
+
+**Service:** corechangeset
+
+* `CSV`
+* `XLSX`
+
+---
+
+#### `DataTableOrderByField`
+
+**Service:** corechangeset
+
+* `DATA_TABLE`
+* `STARTED_AT`
+
+---
+
+#### `DevCenterAggregation`
+
+**Service:** changesetreader
+
+How DevCenter card results are aggregated across repositories.
+
+* `PER_REPOSITORY`
+* `PER_OCCURRENCE`
+
+---
+
+#### `DevCenterRunOrderByField`
+
+**Service:** changesetreader
+
+* `STARTED_AT`
+* `STATE`
+
+---
+
+#### `DevCenterRunState`
+
+**Service:** changesetreader
+
+Execution state of a DevCenter run.
+
+* `RUNNING`
+* `FINISHED`
+* `CANCELED`
+* `ERROR`
+
+---
+
+#### `FileChangeOrderByField`
+
+**Service:** corechangeset
+
+* `PATH`
+
+---
+
+#### `ImageFormat`
+
+**Service:** changesetreader
+
+* `SVG`
+* `GIF`
+* `JPEG`
+* `PNG`
+
+---
+
+#### `LlmProvider`
+
+**Service:** gateway
+
+* `ANTHROPIC`
+* `GEMINI`
+* `MISTRAL`
+* `OPEN_AI`
+
+---
+
+#### `MarkupLevel`
+
+**Service:** corechangeset
+
+* `DEBUG`
+* `INFO`
+* `WARNING`
+* `ERROR`
+* `NONE`
+
+---
+
+#### `MergeMethod`
+
+**Service:** changelogreader
+
+* `MERGE`
+* `SQUASH`
+* `REBASE`
+
+---
+
+#### `Mergeable`
+
+**Service:** changesetcommitter
+
+* `MERGEABLE`
+* `BLOCKED`
+* `UNKNOWN`
+
+---
+
+#### `MessageState`
+
+**Service:** moddy
+
+* `IN_PROGRESS`
+* `COMPLETED`
+
+---
+
+#### `OrganizationChangesetOrderByField`
+
+**Service:** corechangeset
+
+* `CREATED_AT`
+* `TYPE`
+* `USER`
+
+---
+
+#### `OrganizationChangesetType`
+
+**Service:** corechangeset
+
+* `RECIPE_RUN`
+* `BATCH_CHANGE`
+
+---
+
+#### `OrganizationCommitOrderByField`
+
+**Service:** changesetcommitter
+
+* `STARTED_AT`
+
+---
+
+#### `OrganizationOrderByField`
+
+**Service:** organization
+
+* `NAME`
+
+---
+
+#### `OrganizationRecipeRunOrderByField`
+
+**Service:** changesetreader
+
+* `STARTED_AT`
+* `ENDED_AT`
+* `STATE`
+* `USER`
+
+---
+
+#### `OrganizationRecipeRunState`
+
+**Service:** changesetreader
+
+* `QUEUED`
+* `SYNCING`
+* `RUNNING`
+* `FINISHED`
+* `CANCELED`
+* `ERROR`
+
+---
+
+#### `ProfilingEvent`
+
+**Service:** gateway
+
+The primary event the Pyroscope agent samples on. async-profiler can only
+collect one of these at a time as the primary event; alloc and lock
+sampling run on separate channels and are always on.
+
+* `CPU`
+* `WALL`
+
+---
+
+#### `PullRequestActionOrderByField`
+
+**Service:** changelogreader
+
+* `REPOSITORY_PATH`
+* `STATE`
+* `STARTED_AT`
+
+---
+
+#### `PullRequestActionState`
+
+**Service:** changelogreader
+
+* `QUEUED`
+* `IN_PROGRESS`
+* `SUCCESSFUL`
+* `FAILED`
+* `CANCELED`
+
+---
+
+#### `PullRequestActionType`
+
+**Service:** changelogreader
+
+* `APPROVE`
+* `MERGE`
+* `CLOSE`
+
+---
+
+#### `PullRequestState`
+
+**Service:** changelogreader
+
+* `OPEN`
+* `DRAFT`
+* `CLOSED`
+* `MERGED`
+
+---
+
+#### `RecipeBundleOrderByField`
+
+**Service:** recipemarketplace
+
+* `PACKAGE_NAME`
+* `VERSION`
+* `REQUESTED_VERSION`
+* `ECOSYSTEM`
+
+---
+
+#### `RecipeCategoryOrderByField`
+
+**Service:** recipemarketplace
+
+* `DISPLAY_NAME`
+* `RECIPE_COUNT`
+
+---
+
+#### `RecipeEcosystem`
+
+**Service:** recipemarketplace
+
+* `Maven`
+* `NPM`
+* `YAML`
+* `Pip`
+* `Nuget`
+* `Go`
+
+---
+
+#### `RecipeGraphEdgeType`
+
+**Service:** recipemarketplace
+
+* `RECIPE`
+* `PRECONDITION`
+* `REFERENCE`
+
+---
+
+#### `RecipeInstallationOrderByField`
+
+**Service:** recipemarketplace
+
+* `STARTED_AT`
+* `STATUS`
+
+---
+
+#### `RecipeInstallationStatus`
+
+**Service:** recipemarketplace
+
+* `QUEUED`
+* `PROCESSING`
+* `FINISHED`
+* `ERROR`
+
+---
+
+#### `RecipeOrderByField`
+
+**Service:** recipemarketplace
+
+* `ID`
+* `DISPLAY_NAME`
+* `RECIPE_COUNT`
+* `RELEVANCE`
+
+---
+
+#### `RecipeRunPriority`
+
+**Service:** changesetreader
+
+Priority level for recipe runs.
+HIGH priority runs target small organizations (≤100 repositories).
+LOW priority runs target large organizations (>100 repositories).
+
+* `HIGH`
+* `LOW`
+
+---
+
+#### `RepositoryChangesetOrderByField`
+
+**Service:** corechangeset
+
+* `PATH`
+* `ORIGIN`
+* `FILES_CHANGED`
+* `SYNC_STATUS`
+
+---
+
+#### `RepositoryChangesetState`
+
+**Service:** changesetcommitter
+
+Result state of a repository within a changeset.
+
+* `QUEUED`
+* `RUNNING`
+* `SUCCESS`
+* `ERROR`
+* `NO_LST`
+* `CANCELED`
+
+---
+
+#### `RepositoryCommitOrderByField`
+
+**Service:** changesetcommitter
+
+* `STARTED_AT`
+
+---
+
+#### `RepositoryErrorReason`
+
+**Service:** changesetreader
+
+* `FAILED_LOAD_AST`
+* `FAILED_LOAD_RECIPE`
+* `TIMEOUT`
+* `RECIPE_ERROR`
+
+---
+
+#### `RepositoryOrderByField`
+
+**Service:** organization
+
+* `ORIGIN`
+* `PATH`
+* `BRANCH`
+* `CHANGESET`
+* `LST_ARTIFACT_PUBLISHED`
+
+---
+
+#### `RepositoryRecipeRunOrderByField`
+
+**Service:** changesetreader
+
+* `PATH`
+* `ORIGIN`
+* `STATE`
+
+---
+
+#### `RepositorySyncStatus`
+
+**Service:** corechangeset
+
+Sync status of a repository within a recipe run.
+Tracks whether the repository has been synced (cloned + LST downloaded)
+before the recipe execution phase begins.
+
+`SKIPPED` indicates the CLI elected not to sync the repository — typically
+because there is no LST available to fetch — and is distinct from `FAILED`,
+which indicates an actual error during the sync attempt. `CANCELED` is set
+when sync was interrupted (e.g., the run was canceled before the repository's
+sync completed).
+
+* `PENDING`
+* `SYNCED`
+* `FAILED`
+* `CANCELED`
+* `SKIPPED`
+
+---
+
+#### `ReviewDecision`
+
+**Service:** changelogreader
+
+* `APPROVED`
+* `CHANGES_REQUESTED`
+* `REVIEW_REQUIRED`
+* `REVIEW_NOT_REQUIRED`
+* `UNKNOWN`
+
+---
+
+#### `ScmType`
+
+**Service:** authz
+
+* `GITHUB`
+* `BITBUCKET`
+* `BITBUCKET_CLOUD`
+* `GITLAB`
+* `AZURE_DEVOPS`
+
+---
+
+#### `SortOrder`
+
+**Service:** coregraphql
+
+* `ASC`
+* `DESC`
+
+---
+
+#### `UserOrderByField`
+
+**Service:** authz
+
+* `EMAIL`
+* `USERNAME`
+* `ROLE`
+* `LAST_ACTIVE`
+
+---
+
+#### `UserRole`
+
+**Service:** authz
+
+* `ADMIN`
+* `USER`
+
+---
+
+#### `VisualizationOrderByField`
+
+**Service:** corechangeset
+
+* `VISUALIZATION`
+* `STARTED_AT`
+
+---
+
+#### `VisualizationRepositoryRunState`
+
+**Service:** changesetreader
+
+* `QUEUED`
+* `PROCESSING`
+* `FINISHED`
+* `FINISHED_EMPTY`
+* `NO_LST`
+* `ERROR`
+
+---
 
 ### Input types
 
-<div id="accesstokenorderbyinput" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">AccessTokenOrderByInput</span>
-<span className="gql-svc">authz</span>
-</div>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>field</code></td><td><a href="#accesstokenorderbyfield">AccessTokenOrderByField</a>!</td><td></td></tr>
-    <tr><td><code>direction</code></td><td><a href="#sortorder">SortOrder</a>!</td><td></td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="accesstokenwhereinput" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">AccessTokenWhereInput</span>
-<span className="gql-svc">authz</span>
-</div>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>description</code></td><td><a href="#stringfilter">StringFilter</a></td><td></td></tr>
-    <tr><td><code>created</code></td><td><a href="#datetimefilter">DateTimeFilter</a></td><td></td></tr>
-    <tr><td><code>expiresAt</code></td><td><a href="#datetimefilter">DateTimeFilter</a></td><td></td></tr>
-    <tr><td><code>_and</code></td><td>[<a href="#accesstokenwhereinput">AccessTokenWhereInput</a>!]</td><td></td></tr>
-    <tr><td><code>_or</code></td><td>[<a href="#accesstokenwhereinput">AccessTokenWhereInput</a>!]</td><td></td></tr>
-    <tr><td><code>_not</code></td><td><a href="#accesstokenwhereinput">AccessTokenWhereInput</a></td><td></td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="auditactiontypefilter" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">AuditActionTypeFilter</span>
-<span className="gql-svc">auditreader</span>
-</div>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>_eq</code></td><td><a href="#auditactiontype">AuditActionType</a></td><td></td></tr>
-    <tr><td><code>_neq</code></td><td><a href="#auditactiontype">AuditActionType</a></td><td></td></tr>
-    <tr><td><code>_in</code></td><td>[<a href="#auditactiontype">AuditActionType</a>!]</td><td></td></tr>
-    <tr><td><code>_nin</code></td><td>[<a href="#auditactiontype">AuditActionType</a>!]</td><td></td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="auditlogexportformatfilter" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">AuditLogExportFormatFilter</span>
-<span className="gql-svc">auditreader</span>
-</div>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>_eq</code></td><td><a href="#auditlogexportformat">AuditLogExportFormat</a></td><td></td></tr>
-    <tr><td><code>_neq</code></td><td><a href="#auditlogexportformat">AuditLogExportFormat</a></td><td></td></tr>
-    <tr><td><code>_in</code></td><td>[<a href="#auditlogexportformat">AuditLogExportFormat</a>!]</td><td></td></tr>
-    <tr><td><code>_nin</code></td><td>[<a href="#auditlogexportformat">AuditLogExportFormat</a>!]</td><td></td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="auditlogorderbyinput" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">AuditLogOrderByInput</span>
-<span className="gql-svc">auditreader</span>
-</div>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>field</code></td><td><a href="#auditlogorderbyfield">AuditLogOrderByField</a>!</td><td></td></tr>
-    <tr><td><code>direction</code></td><td><a href="#sortorder">SortOrder</a>!</td><td></td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="auditlogwhereinput" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">AuditLogWhereInput</span>
-<span className="gql-svc">auditreader</span>
-</div>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>user</code></td><td><a href="#userwhereinput">UserWhereInput</a></td><td></td></tr>
-    <tr><td><code>target</code></td><td><a href="#stringfilter">StringFilter</a></td><td></td></tr>
-    <tr><td><code>action</code></td><td><a href="#stringfilter">StringFilter</a></td><td></td></tr>
-    <tr><td><code>actionType</code></td><td><a href="#auditactiontypefilter">AuditActionTypeFilter</a></td><td></td></tr>
-    <tr><td><code>outcome</code></td><td><a href="#auditoutcomefilter">AuditOutcomeFilter</a></td><td></td></tr>
-    <tr><td><code>description</code></td><td><a href="#stringfilter">StringFilter</a></td><td></td></tr>
-    <tr><td><code>timestamp</code></td><td><a href="#datetimefilter">DateTimeFilter</a></td><td></td></tr>
-    <tr><td><code>_and</code></td><td>[<a href="#auditlogwhereinput">AuditLogWhereInput</a>!]</td><td></td></tr>
-    <tr><td><code>_or</code></td><td>[<a href="#auditlogwhereinput">AuditLogWhereInput</a>!]</td><td></td></tr>
-    <tr><td><code>_not</code></td><td><a href="#auditlogwhereinput">AuditLogWhereInput</a></td><td></td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="auditlogsdownloadorderbyinput" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">AuditLogsDownloadOrderByInput</span>
-<span className="gql-svc">auditreader</span>
-</div>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>field</code></td><td><a href="#auditlogsdownloadorderbyfield">AuditLogsDownloadOrderByField</a>!</td><td></td></tr>
-    <tr><td><code>direction</code></td><td><a href="#sortorder">SortOrder</a>!</td><td></td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="auditlogsdownloadwhereinput" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">AuditLogsDownloadWhereInput</span>
-<span className="gql-svc">auditreader</span>
-</div>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>id</code></td><td><a href="#idfilter">IDFilter</a></td><td></td></tr>
-    <tr><td><code>format</code></td><td><a href="#auditlogexportformatfilter">AuditLogExportFormatFilter</a></td><td></td></tr>
-    <tr><td><code>_and</code></td><td>[<a href="#auditlogsdownloadwhereinput">AuditLogsDownloadWhereInput</a>!]</td><td></td></tr>
-    <tr><td><code>_or</code></td><td>[<a href="#auditlogsdownloadwhereinput">AuditLogsDownloadWhereInput</a>!]</td><td></td></tr>
-    <tr><td><code>_not</code></td><td><a href="#auditlogsdownloadwhereinput">AuditLogsDownloadWhereInput</a></td><td></td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="auditoutcomefilter" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">AuditOutcomeFilter</span>
-<span className="gql-svc">auditreader</span>
-</div>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>_eq</code></td><td><a href="#auditoutcome">AuditOutcome</a></td><td></td></tr>
-    <tr><td><code>_neq</code></td><td><a href="#auditoutcome">AuditOutcome</a></td><td></td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="booleanfilter" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">BooleanFilter</span>
-<span className="gql-svc">coregraphql</span>
-</div>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>_eq</code></td><td>Boolean</td><td></td></tr>
-    <tr><td><code>_neq</code></td><td>Boolean</td><td></td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="buildstatefilter" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">BuildStateFilter</span>
-<span className="gql-svc">changelogreader</span>
-</div>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>_eq</code></td><td><a href="#buildstate">BuildState</a></td><td></td></tr>
-    <tr><td><code>_neq</code></td><td><a href="#buildstate">BuildState</a></td><td></td></tr>
-    <tr><td><code>_in</code></td><td>[<a href="#buildstate">BuildState</a>!]</td><td></td></tr>
-    <tr><td><code>_nin</code></td><td>[<a href="#buildstate">BuildState</a>!]</td><td></td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="bulkpullrequestactionorderbyinput" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">BulkPullRequestActionOrderByInput</span>
-<span className="gql-svc">changelogreader</span>
-</div>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>field</code></td><td><a href="#bulkpullrequestactionorderbyfield">BulkPullRequestActionOrderByField</a>!</td><td></td></tr>
-    <tr><td><code>direction</code></td><td><a href="#sortorder">SortOrder</a>!</td><td></td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="bulkpullrequestactionstatefilter" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">BulkPullRequestActionStateFilter</span>
-<span className="gql-svc">changelogreader</span>
-</div>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>_eq</code></td><td><a href="#bulkpullrequestactionstate">BulkPullRequestActionState</a></td><td></td></tr>
-    <tr><td><code>_neq</code></td><td><a href="#bulkpullrequestactionstate">BulkPullRequestActionState</a></td><td></td></tr>
-    <tr><td><code>_in</code></td><td>[<a href="#bulkpullrequestactionstate">BulkPullRequestActionState</a>!]</td><td></td></tr>
-    <tr><td><code>_nin</code></td><td>[<a href="#bulkpullrequestactionstate">BulkPullRequestActionState</a>!]</td><td></td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="bulkpullrequestactionwhereinput" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">BulkPullRequestActionWhereInput</span>
-<span className="gql-svc">changelogreader</span>
-</div>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>actionType</code></td><td><a href="#pullrequestactiontypefilter">PullRequestActionTypeFilter</a></td><td></td></tr>
-    <tr><td><code>state</code></td><td><a href="#bulkpullrequestactionstatefilter">BulkPullRequestActionStateFilter</a></td><td></td></tr>
-    <tr><td><code>startedAt</code></td><td><a href="#datetimefilter">DateTimeFilter</a></td><td>Filter by `startedAt`. Matches RUNNING/FINISHED/ERROR/CANCELED states that have a startedAt value; QUEUED entries (no startedAt) are excluded when a bound is supplied.</td></tr>
-    <tr><td><code>user</code></td><td><a href="#userwhereinput">UserWhereInput</a></td><td></td></tr>
-    <tr><td><code>_and</code></td><td>[<a href="#bulkpullrequestactionwhereinput">BulkPullRequestActionWhereInput</a>!]</td><td></td></tr>
-    <tr><td><code>_or</code></td><td>[<a href="#bulkpullrequestactionwhereinput">BulkPullRequestActionWhereInput</a>!]</td><td></td></tr>
-    <tr><td><code>_not</code></td><td><a href="#bulkpullrequestactionwhereinput">BulkPullRequestActionWhereInput</a></td><td></td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="changelogauthorwhereinput" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">ChangelogAuthorWhereInput</span>
-<span className="gql-svc">changelogreader</span>
-</div>
-<p>Filter by changelog author.</p>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>name</code></td><td><a href="#stringfilter">StringFilter</a></td><td></td></tr>
-    <tr><td><code>email</code></td><td><a href="#stringfilter">StringFilter</a></td><td></td></tr>
-    <tr><td><code>username</code></td><td><a href="#stringfilter">StringFilter</a></td><td></td></tr>
-    <tr><td><code>role</code></td><td><a href="#contributorrole">ContributorRole</a></td><td>The role of the contributor to filter on.</td></tr>
-    <tr><td><code>_and</code></td><td>[<a href="#changelogauthorwhereinput">ChangelogAuthorWhereInput</a>!]</td><td></td></tr>
-    <tr><td><code>_or</code></td><td>[<a href="#changelogauthorwhereinput">ChangelogAuthorWhereInput</a>!]</td><td></td></tr>
-    <tr><td><code>_not</code></td><td><a href="#changelogauthorwhereinput">ChangelogAuthorWhereInput</a></td><td></td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="changelogentryorderbyinput" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">ChangelogEntryOrderByInput</span>
-<span className="gql-svc">changelogreader</span>
-</div>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>field</code></td><td><a href="#changelogentryorderbyfield">ChangelogEntryOrderByField</a>!</td><td></td></tr>
-    <tr><td><code>direction</code></td><td><a href="#sortorder">SortOrder</a>!</td><td></td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="changelogentrytypefilter" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">ChangelogEntryTypeFilter</span>
-<span className="gql-svc">changelogreader</span>
-</div>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>_eq</code></td><td><a href="#changelogentrytype">ChangelogEntryType</a></td><td></td></tr>
-    <tr><td><code>_neq</code></td><td><a href="#changelogentrytype">ChangelogEntryType</a></td><td></td></tr>
-    <tr><td><code>_in</code></td><td>[<a href="#changelogentrytype">ChangelogEntryType</a>!]</td><td></td></tr>
-    <tr><td><code>_nin</code></td><td>[<a href="#changelogentrytype">ChangelogEntryType</a>!]</td><td></td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="changelogentrywhereinput" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">ChangelogEntryWhereInput</span>
-<span className="gql-svc">changelogreader</span>
-</div>
-<p>Filter input for changelog entries.</p>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>entryType</code></td><td><a href="#changelogentrytypefilter">ChangelogEntryTypeFilter</a></td><td>Filter by entry type (COMMIT or PULL_REQUEST).</td></tr>
-    <tr><td><code>title</code></td><td><a href="#stringfilter">StringFilter</a></td><td>Full-text search on title.</td></tr>
-    <tr><td><code>author</code></td><td><a href="#changelogauthorwhereinput">ChangelogAuthorWhereInput</a></td><td>Filter by author.</td></tr>
-    <tr><td><code>repositoryPath</code></td><td><a href="#stringfilter">StringFilter</a></td><td>Filter by repository path.</td></tr>
-    <tr><td><code>repositoryOrigin</code></td><td><a href="#stringfilter">StringFilter</a></td><td>Filter by repository origin.</td></tr>
-    <tr><td><code>updatedAt</code></td><td><a href="#datetimefilter">DateTimeFilter</a></td><td>Filter by last updated time.</td></tr>
-    <tr><td><code>createdAt</code></td><td><a href="#datetimefilter">DateTimeFilter</a></td><td>Filter by creation time.</td></tr>
-    <tr><td><code>pullRequestState</code></td><td><a href="#pullrequeststatefilter">PullRequestStateFilter</a></td><td>Filter by pull request state (only applies to PRs).</td></tr>
-    <tr><td><code>buildState</code></td><td><a href="#buildstatefilter">BuildStateFilter</a></td><td>Filter by CI state.</td></tr>
-    <tr><td><code>reviewDecision</code></td><td><a href="#reviewdecisionfilter">ReviewDecisionFilter</a></td><td>Filter by review decision.</td></tr>
-    <tr><td><code>changesetId</code></td><td><a href="#stringfilter">StringFilter</a></td><td>Filter by changeset ID.</td></tr>
-    <tr><td><code>_and</code></td><td>[<a href="#changelogentrywhereinput">ChangelogEntryWhereInput</a>!]</td><td></td></tr>
-    <tr><td><code>_or</code></td><td>[<a href="#changelogentrywhereinput">ChangelogEntryWhereInput</a>!]</td><td></td></tr>
-    <tr><td><code>_not</code></td><td><a href="#changelogentrywhereinput">ChangelogEntryWhereInput</a></td><td></td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="changelogparticipantorderbyinput" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">ChangelogParticipantOrderByInput</span>
-<span className="gql-svc">changelogreader</span>
-</div>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>field</code></td><td><a href="#changelogparticipantorderbyfield">ChangelogParticipantOrderByField</a>!</td><td></td></tr>
-    <tr><td><code>direction</code></td><td><a href="#sortorder">SortOrder</a>!</td><td></td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="changelogparticipantwhereinput" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">ChangelogParticipantWhereInput</span>
-<span className="gql-svc">changelogreader</span>
-</div>
-<p>Filter input for participants.</p>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>name</code></td><td><a href="#stringfilter">StringFilter</a></td><td></td></tr>
-    <tr><td><code>email</code></td><td><a href="#stringfilter">StringFilter</a></td><td></td></tr>
-    <tr><td><code>username</code></td><td><a href="#stringfilter">StringFilter</a></td><td></td></tr>
-    <tr><td><code>role</code></td><td><a href="#contributorrole">ContributorRole</a></td><td>Filter participants by role.</td></tr>
-    <tr><td><code>updatedAt</code></td><td><a href="#datetimefilter">DateTimeFilter</a></td><td>Scopes participant aggregation to entries updated within this window. Defaults to last 30 days if not specified.</td></tr>
-    <tr><td><code>_and</code></td><td>[<a href="#changelogparticipantwhereinput">ChangelogParticipantWhereInput</a>!]</td><td></td></tr>
-    <tr><td><code>_or</code></td><td>[<a href="#changelogparticipantwhereinput">ChangelogParticipantWhereInput</a>!]</td><td></td></tr>
-    <tr><td><code>_not</code></td><td><a href="#changelogparticipantwhereinput">ChangelogParticipantWhereInput</a></td><td></td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="commitinput" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">CommitInput</span>
-<span className="gql-svc">changesetcommitter</span>
-</div>
-<p>Input for creating a commit from a changeset.</p>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>organizationId</code></td><td>ID</td><td>Organization ID for determining available commit options.</td></tr>
-    <tr><td><code>changesetId</code></td><td>ID!</td><td>Changeset ID (e.g., recipe run ID, batch changeset ID). Resolved via federation to an OrganizationChangeset.</td></tr>
-    <tr><td><code>repositories</code></td><td>[<a href="#repositorychangesetwhereinput">RepositoryChangesetWhereInput</a>!]</td><td>Filter which repositories and files to include. Evaluated in order - first matching rule wins for each repository. Put repo-specific rules first, global fallback rules last. If empty or not provided, all repositories and files in the changeset are included.</td></tr>
-    <tr><td><code>branchName</code></td><td>String</td><td>If unset, commit to the branch that the LST was generated from.</td></tr>
-    <tr><td><code>message</code></td><td>String!</td><td>Commit message.</td></tr>
-    <tr><td><code>extendedMessage</code></td><td><a href="#base64">Base64</a></td><td>Extended commit message (Base64 encoded).</td></tr>
-    <tr><td><code>gpgKey</code></td><td><a href="#gpginput">GpgInput</a></td><td>GPG key for signing commits.</td></tr>
-    <tr><td><code>email</code></td><td>String</td><td>Email to author commit with. Verified against your emails (public and private) that are verified in your SCM provider. If left blank, your first email will be used.</td></tr>
-    <tr><td><code>scmAccessTokens</code></td><td>[<a href="#scmaccesstoken">ScmAccessToken</a>!]</td><td>Optional SCM access tokens keyed by origin. When provided, these are used instead of stored OAuth tokens for the matching origin.</td></tr>
-    <tr><td><code>strategy</code></td><td><a href="#commitstrategyinput">CommitStrategyInput</a>!</td><td>How to deliver the commit. Choose one strategy.</td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="commitstrategyinput" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">CommitStrategyInput</span>
-<span className="gql-svc">changesetcommitter</span>
-</div>
-<p>Commit delivery strategy. Choose one option.</p>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>direct</code></td><td><a href="#directcommitinput">DirectCommitInput</a></td><td>Push directly to the origin remote.</td></tr>
-    <tr><td><code>fork</code></td><td><a href="#forkcommitinput">ForkCommitInput</a></td><td>Push to a fork of the origin repository.</td></tr>
-    <tr><td><code>pullRequest</code></td><td><a href="#pullrequestcommitinput">PullRequestCommitInput</a></td><td>Create a pull request from a branch on the origin remote.</td></tr>
-    <tr><td><code>forkAndPullRequest</code></td><td><a href="#forkandpullrequestcommitinput">ForkAndPullRequestCommitInput</a></td><td>Create a pull request from a branch on a fork.</td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="connectororderbyinput" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">ConnectorOrderByInput</span>
-<span className="gql-svc">gateway</span>
-</div>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>field</code></td><td><a href="#connectororderbyfield">ConnectorOrderByField</a>!</td><td></td></tr>
-    <tr><td><code>direction</code></td><td><a href="#sortorder">SortOrder</a>!</td><td></td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="connectortooltypefilter" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">ConnectorToolTypeFilter</span>
-<span className="gql-svc">gateway</span>
-</div>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>_eq</code></td><td><a href="#connectortooltype">ConnectorToolType</a></td><td></td></tr>
-    <tr><td><code>_in</code></td><td>[<a href="#connectortooltype">ConnectorToolType</a>!]</td><td></td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="connectorwhereinput" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">ConnectorWhereInput</span>
-<span className="gql-svc">gateway</span>
-</div>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>id</code></td><td><a href="#idfilter">IDFilter</a></td><td></td></tr>
-    <tr><td><code>nickname</code></td><td><a href="#stringfilter">StringFilter</a></td><td></td></tr>
-    <tr><td><code>version</code></td><td><a href="#stringfilter">StringFilter</a></td><td></td></tr>
-    <tr><td><code>toolType</code></td><td><a href="#connectortooltypefilter">ConnectorToolTypeFilter</a></td><td></td></tr>
-    <tr><td><code>_and</code></td><td>[<a href="#connectorwhereinput">ConnectorWhereInput</a>!]</td><td></td></tr>
-    <tr><td><code>_or</code></td><td>[<a href="#connectorwhereinput">ConnectorWhereInput</a>!]</td><td></td></tr>
-    <tr><td><code>_not</code></td><td><a href="#connectorwhereinput">ConnectorWhereInput</a></td><td></td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="conversationorderbyinput" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">ConversationOrderByInput</span>
-<span className="gql-svc">moddy</span>
-</div>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>field</code></td><td><a href="#conversationorderbyfield">ConversationOrderByField</a>!</td><td></td></tr>
-    <tr><td><code>direction</code></td><td><a href="#sortorder">SortOrder</a>!</td><td></td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="conversationwhereinput" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">ConversationWhereInput</span>
-<span className="gql-svc">moddy</span>
-</div>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>id</code></td><td><a href="#idfilter">IDFilter</a></td><td></td></tr>
-    <tr><td><code>user</code></td><td><a href="#stringfilter">StringFilter</a></td><td></td></tr>
-    <tr><td><code>startedAt</code></td><td><a href="#datetimefilter">DateTimeFilter</a></td><td></td></tr>
-    <tr><td><code>lastUpdatedAt</code></td><td><a href="#datetimefilter">DateTimeFilter</a></td><td></td></tr>
-    <tr><td><code>_and</code></td><td>[<a href="#conversationwhereinput">ConversationWhereInput</a>!]</td><td></td></tr>
-    <tr><td><code>_or</code></td><td>[<a href="#conversationwhereinput">ConversationWhereInput</a>!]</td><td></td></tr>
-    <tr><td><code>_not</code></td><td><a href="#conversationwhereinput">ConversationWhereInput</a></td><td></td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="createconversationinput" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">CreateConversationInput</span>
-<span className="gql-svc">moddy</span>
-</div>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>message</code></td><td>String!</td><td></td></tr>
-    <tr><td><code>organizationId</code></td><td>ID!</td><td></td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="createuserorganizationinput" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">CreateUserOrganizationInput</span>
-<span className="gql-svc">organization</span>
-</div>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>name</code></td><td>String!</td><td>The name of the organization.</td></tr>
-    <tr><td><code>repositories</code></td><td>[<a href="#repositoryinput">RepositoryInput</a>!]</td><td>Repositories to include in the organization.</td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="datatableformatfilter" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">DataTableFormatFilter</span>
-<span className="gql-svc">corechangeset</span>
-</div>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>_eq</code></td><td><a href="#datatableformat">DataTableFormat</a></td><td></td></tr>
-    <tr><td><code>_neq</code></td><td><a href="#datatableformat">DataTableFormat</a></td><td></td></tr>
-    <tr><td><code>_in</code></td><td>[<a href="#datatableformat">DataTableFormat</a>!]</td><td></td></tr>
-    <tr><td><code>_nin</code></td><td>[<a href="#datatableformat">DataTableFormat</a>!]</td><td></td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="datatableorderbyinput" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">DataTableOrderByInput</span>
-<span className="gql-svc">corechangeset</span>
-</div>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>field</code></td><td><a href="#datatableorderbyfield">DataTableOrderByField</a>!</td><td></td></tr>
-    <tr><td><code>direction</code></td><td><a href="#sortorder">SortOrder</a>!</td><td></td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="datatablewhereinput" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">DataTableWhereInput</span>
-<span className="gql-svc">corechangeset</span>
-</div>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>id</code></td><td><a href="#idfilter">IDFilter</a></td><td></td></tr>
-    <tr><td><code>dataTable</code></td><td><a href="#stringfilter">StringFilter</a></td><td></td></tr>
-    <tr><td><code>group</code></td><td><a href="#stringfilter">StringFilter</a></td><td></td></tr>
-    <tr><td><code>format</code></td><td><a href="#datatableformatfilter">DataTableFormatFilter</a></td><td></td></tr>
-    <tr><td><code>_and</code></td><td>[<a href="#datatablewhereinput">DataTableWhereInput</a>!]</td><td></td></tr>
-    <tr><td><code>_or</code></td><td>[<a href="#datatablewhereinput">DataTableWhereInput</a>!]</td><td></td></tr>
-    <tr><td><code>_not</code></td><td><a href="#datatablewhereinput">DataTableWhereInput</a></td><td></td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="datetimefilter" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">DateTimeFilter</span>
-<span className="gql-svc">coregraphql</span>
-</div>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>_eq</code></td><td><a href="#datetime">DateTime</a></td><td></td></tr>
-    <tr><td><code>_neq</code></td><td><a href="#datetime">DateTime</a></td><td></td></tr>
-    <tr><td><code>_gt</code></td><td><a href="#datetime">DateTime</a></td><td></td></tr>
-    <tr><td><code>_gte</code></td><td><a href="#datetime">DateTime</a></td><td></td></tr>
-    <tr><td><code>_lt</code></td><td><a href="#datetime">DateTime</a></td><td></td></tr>
-    <tr><td><code>_lte</code></td><td><a href="#datetime">DateTime</a></td><td></td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="devcenterrunorderbyinput" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">DevCenterRunOrderByInput</span>
-<span className="gql-svc">changesetreader</span>
-</div>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>field</code></td><td><a href="#devcenterrunorderbyfield">DevCenterRunOrderByField</a>!</td><td></td></tr>
-    <tr><td><code>direction</code></td><td><a href="#sortorder">SortOrder</a>!</td><td></td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="devcenterrunstatefilter" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">DevCenterRunStateFilter</span>
-<span className="gql-svc">changesetreader</span>
-</div>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>_eq</code></td><td><a href="#devcenterrunstate">DevCenterRunState</a></td><td></td></tr>
-    <tr><td><code>_neq</code></td><td><a href="#devcenterrunstate">DevCenterRunState</a></td><td></td></tr>
-    <tr><td><code>_in</code></td><td>[<a href="#devcenterrunstate">DevCenterRunState</a>!]</td><td></td></tr>
-    <tr><td><code>_nin</code></td><td>[<a href="#devcenterrunstate">DevCenterRunState</a>!]</td><td></td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="devcenterrunwhereinput" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">DevCenterRunWhereInput</span>
-<span className="gql-svc">changesetreader</span>
-</div>
-<p>Filter input for DevCenter run queries.</p>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>id</code></td><td><a href="#idfilter">IDFilter</a></td><td>Filter by run ID. Use `where: &#123; id: &#123; _eq: "run-id" &#125; &#125;` to get a specific run.</td></tr>
-    <tr><td><code>state</code></td><td><a href="#devcenterrunstatefilter">DevCenterRunStateFilter</a></td><td>Filter by run state.</td></tr>
-    <tr><td><code>startedAt</code></td><td><a href="#datetimefilter">DateTimeFilter</a></td><td>Filter by start time.</td></tr>
-    <tr><td><code>_and</code></td><td>[<a href="#devcenterrunwhereinput">DevCenterRunWhereInput</a>!]</td><td>Logical AND - all conditions must match.</td></tr>
-    <tr><td><code>_or</code></td><td>[<a href="#devcenterrunwhereinput">DevCenterRunWhereInput</a>!]</td><td>Logical OR - at least one condition must match.</td></tr>
-    <tr><td><code>_not</code></td><td><a href="#devcenterrunwhereinput">DevCenterRunWhereInput</a></td><td>Logical NOT - negates the condition.</td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="directcommitinput" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">DirectCommitInput</span>
-<span className="gql-svc">changesetcommitter</span>
-</div>
-<p>Direct commit to origin. No additional options required.</p>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>_empty</code></td><td>Boolean</td><td>Placeholder field. Direct commits require no additional configuration.</td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="exchangeauthorizationcodeinput" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">ExchangeAuthorizationCodeInput</span>
-<span className="gql-svc">authz</span>
-</div>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>authorizationId</code></td><td>ID!</td><td>The authorization ID returned from initiateAuthorization or from NeedsAuthorization.</td></tr>
-    <tr><td><code>code</code></td><td>String!</td><td>Authorization code from the OAuth callback.</td></tr>
-    <tr><td><code>redirectUri</code></td><td>String!</td><td>The redirect URI used in the authorization request. Note: This field is deprecated - the server uses the stored redirect URI from the authorization to ensure an exact match.</td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="filechangeorderbyinput" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">FileChangeOrderByInput</span>
-<span className="gql-svc">corechangeset</span>
-</div>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>field</code></td><td><a href="#filechangeorderbyfield">FileChangeOrderByField</a>!</td><td></td></tr>
-    <tr><td><code>direction</code></td><td><a href="#sortorder">SortOrder</a>!</td><td></td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="filechangewhereinput" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">FileChangeWhereInput</span>
-<span className="gql-svc">changesetcommitter</span>
-</div>
-<p>Filter for file changes.</p>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>path</code></td><td><a href="#pathfilter">PathFilter</a></td><td>Filter by file path using glob patterns.</td></tr>
-    <tr><td><code>_and</code></td><td>[<a href="#filechangewhereinput">FileChangeWhereInput</a>!]</td><td>Logical AND - all conditions must match.</td></tr>
-    <tr><td><code>_or</code></td><td>[<a href="#filechangewhereinput">FileChangeWhereInput</a>!]</td><td>Logical OR - at least one condition must match.</td></tr>
-    <tr><td><code>_not</code></td><td><a href="#filechangewhereinput">FileChangeWhereInput</a></td><td>Logical NOT - negates the condition.</td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="forkandpullrequestcommitinput" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">ForkAndPullRequestCommitInput</span>
-<span className="gql-svc">changesetcommitter</span>
-</div>
-<p>Create a pull request from a branch on a fork.</p>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>organization</code></td><td>String</td><td>Organization to create the fork in. If unset, creates in user's personal account.</td></tr>
-    <tr><td><code>prefixOrganizationName</code></td><td>Boolean</td><td>Prefix the fork name with the origin organization to avoid name collisions.</td></tr>
-    <tr><td><code>title</code></td><td>String</td><td>Pull request title. If unset, uses the commit message.</td></tr>
-    <tr><td><code>body</code></td><td><a href="#base64">Base64</a></td><td>Pull request body (Base64 encoded).</td></tr>
-    <tr><td><code>draft</code></td><td>Boolean</td><td>Create as a draft pull request.</td></tr>
-    <tr><td><code>maintainerCanModify</code></td><td>Boolean</td><td>GitHub only: allow maintainers to edit the pull request.</td></tr>
-    <tr><td><code>autoMergeMethod</code></td><td><a href="#mergemethod">MergeMethod</a></td><td>Auto-merge method after checks pass. Null means no auto-merge. Best effort - silently ignored if not supported by the repository.</td></tr>
-    <tr><td><code>recreateClosedPullRequest</code></td><td>Boolean</td><td>Recreate pull request if it was previously closed.</td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="forkcommitinput" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">ForkCommitInput</span>
-<span className="gql-svc">changesetcommitter</span>
-</div>
-<p>Commit to a fork of the origin repository.</p>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>organization</code></td><td>String</td><td>Organization to create the fork in. If unset, creates in user's personal account.</td></tr>
-    <tr><td><code>prefixOrganizationName</code></td><td>Boolean</td><td>Prefix the fork name with the origin organization to avoid name collisions. Example: openrewrite/rewrite -> myuser/openrewrite__rewrite</td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="gorecipebundleinput" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">GoRecipeBundleInput</span>
-<span className="gql-svc">recipemarketplace</span>
-</div>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>packageName</code></td><td>String!</td><td></td></tr>
-    <tr><td><code>version</code></td><td>String</td><td></td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="gpginput" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">GpgInput</span>
-<span className="gql-svc">changesetcommitter</span>
-</div>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>privateKey</code></td><td>String!</td><td></td></tr>
-    <tr><td><code>publicKey</code></td><td>String!</td><td></td></tr>
-    <tr><td><code>passphrase</code></td><td>String</td><td></td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="idfilter" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">IDFilter</span>
-<span className="gql-svc">coregraphql</span>
-</div>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>_eq</code></td><td>ID</td><td></td></tr>
-    <tr><td><code>_neq</code></td><td>ID</td><td></td></tr>
-    <tr><td><code>_in</code></td><td>[ID!]</td><td></td></tr>
-    <tr><td><code>_nin</code></td><td>[ID!]</td><td></td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="initiateauthorizationinput" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">InitiateAuthorizationInput</span>
-<span className="gql-svc">authz</span>
-</div>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>origin</code></td><td>String!</td><td>The VCS origin to authorize (e.g., github.com, gitlab.com).</td></tr>
-    <tr><td><code>redirectUri</code></td><td>String!</td><td>The redirect URI where the VCS will send the callback. Must match an allowed redirect URI in the OAuth app configuration.</td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="intfilter" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">IntFilter</span>
-<span className="gql-svc">coregraphql</span>
-</div>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>_eq</code></td><td>Int</td><td></td></tr>
-    <tr><td><code>_neq</code></td><td>Int</td><td></td></tr>
-    <tr><td><code>_gt</code></td><td>Int</td><td></td></tr>
-    <tr><td><code>_gte</code></td><td>Int</td><td></td></tr>
-    <tr><td><code>_lt</code></td><td>Int</td><td></td></tr>
-    <tr><td><code>_lte</code></td><td>Int</td><td></td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="lstartifactwhereinput" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">LstArtifactWhereInput</span>
-<span className="gql-svc">organization</span>
-</div>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>published</code></td><td><a href="#datetimefilter">DateTimeFilter</a></td><td></td></tr>
-    <tr><td><code>available</code></td><td><a href="#booleanfilter">BooleanFilter</a></td><td></td></tr>
-    <tr><td><code>_and</code></td><td>[<a href="#lstartifactwhereinput">LstArtifactWhereInput</a>!]</td><td></td></tr>
-    <tr><td><code>_or</code></td><td>[<a href="#lstartifactwhereinput">LstArtifactWhereInput</a>!]</td><td></td></tr>
-    <tr><td><code>_not</code></td><td><a href="#lstartifactwhereinput">LstArtifactWhereInput</a></td><td></td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="mavenrecipebundleinput" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">MavenRecipeBundleInput</span>
-<span className="gql-svc">recipemarketplace</span>
-</div>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>groupId</code></td><td>String!</td><td></td></tr>
-    <tr><td><code>artifactId</code></td><td>String!</td><td></td></tr>
-    <tr><td><code>version</code></td><td>String!</td><td></td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="npmrecipebundleinput" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">NpmRecipeBundleInput</span>
-<span className="gql-svc">recipemarketplace</span>
-</div>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>packageName</code></td><td>String!</td><td></td></tr>
-    <tr><td><code>version</code></td><td>String!</td><td></td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="nugetrecipebundleinput" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">NugetRecipeBundleInput</span>
-<span className="gql-svc">recipemarketplace</span>
-</div>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>packageName</code></td><td>String!</td><td></td></tr>
-    <tr><td><code>version</code></td><td>String!</td><td></td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="organizationchangesetorderbyinput" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">OrganizationChangesetOrderByInput</span>
-<span className="gql-svc">corechangeset</span>
-</div>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>field</code></td><td><a href="#organizationchangesetorderbyfield">OrganizationChangesetOrderByField</a>!</td><td></td></tr>
-    <tr><td><code>direction</code></td><td><a href="#sortorder">SortOrder</a>!</td><td></td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="organizationchangesettypefilter" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">OrganizationChangesetTypeFilter</span>
-<span className="gql-svc">corechangeset</span>
-</div>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>_eq</code></td><td><a href="#organizationchangesettype">OrganizationChangesetType</a></td><td></td></tr>
-    <tr><td><code>_neq</code></td><td><a href="#organizationchangesettype">OrganizationChangesetType</a></td><td></td></tr>
-    <tr><td><code>_in</code></td><td>[<a href="#organizationchangesettype">OrganizationChangesetType</a>!]</td><td></td></tr>
-    <tr><td><code>_nin</code></td><td>[<a href="#organizationchangesettype">OrganizationChangesetType</a>!]</td><td></td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="organizationchangesetwhereinput" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">OrganizationChangesetWhereInput</span>
-<span className="gql-svc">corechangeset</span>
-</div>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>id</code></td><td><a href="#idfilter">IDFilter</a></td><td></td></tr>
-    <tr><td><code>type</code></td><td><a href="#organizationchangesettypefilter">OrganizationChangesetTypeFilter</a></td><td></td></tr>
-    <tr><td><code>createdAt</code></td><td><a href="#datetimefilter">DateTimeFilter</a></td><td></td></tr>
-    <tr><td><code>user</code></td><td><a href="#stringfilter">StringFilter</a></td><td></td></tr>
-    <tr><td><code>_and</code></td><td>[<a href="#organizationchangesetwhereinput">OrganizationChangesetWhereInput</a>!]</td><td></td></tr>
-    <tr><td><code>_or</code></td><td>[<a href="#organizationchangesetwhereinput">OrganizationChangesetWhereInput</a>!]</td><td></td></tr>
-    <tr><td><code>_not</code></td><td><a href="#organizationchangesetwhereinput">OrganizationChangesetWhereInput</a></td><td></td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="organizationcommitorderbyinput" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">OrganizationCommitOrderByInput</span>
-<span className="gql-svc">changesetcommitter</span>
-</div>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>field</code></td><td><a href="#organizationcommitorderbyfield">OrganizationCommitOrderByField</a>!</td><td></td></tr>
-    <tr><td><code>direction</code></td><td><a href="#sortorder">SortOrder</a>!</td><td></td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="organizationcommitwhereinput" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">OrganizationCommitWhereInput</span>
-<span className="gql-svc">changesetcommitter</span>
-</div>
-<p>Filter input for organization-level commit queries.</p>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>id</code></td><td><a href="#idfilter">IDFilter</a></td><td>Filter by commit ID.</td></tr>
-    <tr><td><code>startedAt</code></td><td><a href="#datetimefilter">DateTimeFilter</a></td><td>Filter by when the commit started.</td></tr>
-    <tr><td><code>_and</code></td><td>[<a href="#organizationcommitwhereinput">OrganizationCommitWhereInput</a>!]</td><td>Logical AND - all conditions must match.</td></tr>
-    <tr><td><code>_or</code></td><td>[<a href="#organizationcommitwhereinput">OrganizationCommitWhereInput</a>!]</td><td>Logical OR - at least one condition must match.</td></tr>
-    <tr><td><code>_not</code></td><td><a href="#organizationcommitwhereinput">OrganizationCommitWhereInput</a></td><td>Logical NOT - negates the condition.</td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="organizationorderbyinput" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">OrganizationOrderByInput</span>
-<span className="gql-svc">organization</span>
-</div>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>field</code></td><td><a href="#organizationorderbyfield">OrganizationOrderByField</a>!</td><td></td></tr>
-    <tr><td><code>direction</code></td><td><a href="#sortorder">SortOrder</a>!</td><td></td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="organizationreciperunorderbyinput" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">OrganizationRecipeRunOrderByInput</span>
-<span className="gql-svc">changesetreader</span>
-</div>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>field</code></td><td><a href="#organizationreciperunorderbyfield">OrganizationRecipeRunOrderByField</a>!</td><td></td></tr>
-    <tr><td><code>direction</code></td><td><a href="#sortorder">SortOrder</a>!</td><td></td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="organizationreciperunstatefilter" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">OrganizationRecipeRunStateFilter</span>
-<span className="gql-svc">changesetreader</span>
-</div>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>_eq</code></td><td><a href="#organizationreciperunstate">OrganizationRecipeRunState</a></td><td></td></tr>
-    <tr><td><code>_neq</code></td><td><a href="#organizationreciperunstate">OrganizationRecipeRunState</a></td><td></td></tr>
-    <tr><td><code>_in</code></td><td>[<a href="#organizationreciperunstate">OrganizationRecipeRunState</a>!]</td><td></td></tr>
-    <tr><td><code>_nin</code></td><td>[<a href="#organizationreciperunstate">OrganizationRecipeRunState</a>!]</td><td></td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="organizationreciperunwhereinput" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">OrganizationRecipeRunWhereInput</span>
-<span className="gql-svc">changesetreader</span>
-</div>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>id</code></td><td><a href="#idfilter">IDFilter</a></td><td></td></tr>
-    <tr><td><code>state</code></td><td><a href="#organizationreciperunstatefilter">OrganizationRecipeRunStateFilter</a></td><td></td></tr>
-    <tr><td><code>startedAt</code></td><td><a href="#datetimefilter">DateTimeFilter</a></td><td></td></tr>
-    <tr><td><code>user</code></td><td><a href="#stringfilter">StringFilter</a></td><td></td></tr>
-    <tr><td><code>_and</code></td><td>[<a href="#organizationreciperunwhereinput">OrganizationRecipeRunWhereInput</a>!]</td><td></td></tr>
-    <tr><td><code>_or</code></td><td>[<a href="#organizationreciperunwhereinput">OrganizationRecipeRunWhereInput</a>!]</td><td></td></tr>
-    <tr><td><code>_not</code></td><td><a href="#organizationreciperunwhereinput">OrganizationRecipeRunWhereInput</a></td><td></td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="organizationwhereinput" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">OrganizationWhereInput</span>
-<span className="gql-svc">organization</span>
-</div>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>name</code></td><td><a href="#stringfilter">StringFilter</a></td><td></td></tr>
-    <tr><td><code>depth</code></td><td><a href="#intfilter">IntFilter</a></td><td>Filter by depth in the organization hierarchy. The root organization ("_root") is depth 0, its direct children are depth 1, etc.</td></tr>
-    <tr><td><code>_and</code></td><td>[<a href="#organizationwhereinput">OrganizationWhereInput</a>!]</td><td></td></tr>
-    <tr><td><code>_or</code></td><td>[<a href="#organizationwhereinput">OrganizationWhereInput</a>!]</td><td></td></tr>
-    <tr><td><code>_not</code></td><td><a href="#organizationwhereinput">OrganizationWhereInput</a></td><td></td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="pathfilter" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">PathFilter</span>
-<span className="gql-svc">coregraphql</span>
-</div>
-<p>Filter for file paths using glob patterns.</p>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>_eq</code></td><td><a href="#path">Path</a></td><td>Exact path match.</td></tr>
-    <tr><td><code>_in</code></td><td>[<a href="#path">Path</a>!]</td><td>Match any of the exact paths.</td></tr>
-    <tr><td><code>_nin</code></td><td>[<a href="#path">Path</a>!]</td><td>Exclude any of the exact paths.</td></tr>
-    <tr><td><code>_glob</code></td><td>String</td><td>Glob pattern match. Examples: **\/*.java, src/main/**</td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="piprecipebundleinput" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">PipRecipeBundleInput</span>
-<span className="gql-svc">recipemarketplace</span>
-</div>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>packageName</code></td><td>String!</td><td></td></tr>
-    <tr><td><code>version</code></td><td>String</td><td></td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="pullrequestactionorderbyinput" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">PullRequestActionOrderByInput</span>
-<span className="gql-svc">changelogreader</span>
-</div>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>field</code></td><td><a href="#pullrequestactionorderbyfield">PullRequestActionOrderByField</a>!</td><td></td></tr>
-    <tr><td><code>direction</code></td><td><a href="#sortorder">SortOrder</a>!</td><td></td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="pullrequestactionstatefilter" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">PullRequestActionStateFilter</span>
-<span className="gql-svc">changelogreader</span>
-</div>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>_eq</code></td><td><a href="#pullrequestactionstate">PullRequestActionState</a></td><td></td></tr>
-    <tr><td><code>_neq</code></td><td><a href="#pullrequestactionstate">PullRequestActionState</a></td><td></td></tr>
-    <tr><td><code>_in</code></td><td>[<a href="#pullrequestactionstate">PullRequestActionState</a>!]</td><td></td></tr>
-    <tr><td><code>_nin</code></td><td>[<a href="#pullrequestactionstate">PullRequestActionState</a>!]</td><td></td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="pullrequestactiontypefilter" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">PullRequestActionTypeFilter</span>
-<span className="gql-svc">changelogreader</span>
-</div>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>_eq</code></td><td><a href="#pullrequestactiontype">PullRequestActionType</a></td><td></td></tr>
-    <tr><td><code>_neq</code></td><td><a href="#pullrequestactiontype">PullRequestActionType</a></td><td></td></tr>
-    <tr><td><code>_in</code></td><td>[<a href="#pullrequestactiontype">PullRequestActionType</a>!]</td><td></td></tr>
-    <tr><td><code>_nin</code></td><td>[<a href="#pullrequestactiontype">PullRequestActionType</a>!]</td><td></td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="pullrequestactionwhereinput" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">PullRequestActionWhereInput</span>
-<span className="gql-svc">changelogreader</span>
-</div>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>state</code></td><td><a href="#pullrequestactionstatefilter">PullRequestActionStateFilter</a></td><td></td></tr>
-    <tr><td><code>_and</code></td><td>[<a href="#pullrequestactionwhereinput">PullRequestActionWhereInput</a>!]</td><td></td></tr>
-    <tr><td><code>_or</code></td><td>[<a href="#pullrequestactionwhereinput">PullRequestActionWhereInput</a>!]</td><td></td></tr>
-    <tr><td><code>_not</code></td><td><a href="#pullrequestactionwhereinput">PullRequestActionWhereInput</a></td><td></td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="pullrequestcommitinput" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">PullRequestCommitInput</span>
-<span className="gql-svc">changesetcommitter</span>
-</div>
-<p>Create a pull request from a branch on the origin remote.</p>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>title</code></td><td>String</td><td>Pull request title. If unset, uses the commit message.</td></tr>
-    <tr><td><code>body</code></td><td><a href="#base64">Base64</a></td><td>Pull request body (Base64 encoded).</td></tr>
-    <tr><td><code>draft</code></td><td>Boolean</td><td>Create as a draft pull request.</td></tr>
-    <tr><td><code>autoMergeMethod</code></td><td><a href="#mergemethod">MergeMethod</a></td><td>Auto-merge method after checks pass. Null means no auto-merge. Best effort - silently ignored if not supported by the repository.</td></tr>
-    <tr><td><code>recreateClosedPullRequest</code></td><td>Boolean</td><td>Recreate pull request if it was previously closed.</td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="pullrequestinput" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">PullRequestInput</span>
-<span className="gql-svc">changelogreader</span>
-</div>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>repository</code></td><td><a href="#repositoryinput">RepositoryInput</a>!</td><td></td></tr>
-    <tr><td><code>number</code></td><td>Int!</td><td>Pull request number.</td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="pullrequestselectioninput" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">PullRequestSelectionInput</span>
-<span className="gql-svc">changelogreader</span>
-</div>
-<p>Selects pull requests for a bulk action.</p>
-<p>The `where` filter defines a base set of matching PRs. The optional `pullRequests` modifier can include or exclude specific PRs from that base set.</p>
-<p>Examples: - Filter-only: `&#123; where: &#123; ... &#125; &#125;` — all matching PRs - Explicit: `&#123; pullRequests: &#123; include: [...] &#125; &#125;` — exactly those PRs - Filter + exclusions: `&#123; where: &#123; ... &#125;, pullRequests: &#123; exclude: [...] &#125; &#125;` — matching minus excluded - Filter + additions: `&#123; where: &#123; ... &#125;, pullRequests: &#123; include: [...] &#125; &#125;` — matching plus included</p>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>where</code></td><td><a href="#changelogentrywhereinput">ChangelogEntryWhereInput</a></td><td>Filter for the base set of PRs. Omit to start with an empty set.</td></tr>
-    <tr><td><code>pullRequests</code></td><td><a href="#pullrequestselectionmodifier">PullRequestSelectionModifier</a></td><td>Modify the base set by including or excluding specific PRs.</td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="pullrequestselectionmodifier" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">PullRequestSelectionModifier</span>
-<span className="gql-svc">changelogreader</span>
-</div>
-<p>Modifies a PR selection by either including or excluding specific PRs. Exactly one field must be set.</p>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>include</code></td><td>[<a href="#pullrequestinput">PullRequestInput</a>!]</td><td>Add these PRs to the base set.</td></tr>
-    <tr><td><code>exclude</code></td><td>[<a href="#pullrequestinput">PullRequestInput</a>!]</td><td>Remove these PRs from the base set.</td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="pullrequeststatefilter" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">PullRequestStateFilter</span>
-<span className="gql-svc">changelogreader</span>
-</div>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>_eq</code></td><td><a href="#pullrequeststate">PullRequestState</a></td><td></td></tr>
-    <tr><td><code>_neq</code></td><td><a href="#pullrequeststate">PullRequestState</a></td><td></td></tr>
-    <tr><td><code>_in</code></td><td>[<a href="#pullrequeststate">PullRequestState</a>!]</td><td></td></tr>
-    <tr><td><code>_nin</code></td><td>[<a href="#pullrequeststate">PullRequestState</a>!]</td><td></td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="recipebundleinput" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">RecipeBundleInput</span>
-<span className="gql-svc">recipemarketplace</span>
-</div>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>maven</code></td><td><a href="#mavenrecipebundleinput">MavenRecipeBundleInput</a></td><td></td></tr>
-    <tr><td><code>npm</code></td><td><a href="#npmrecipebundleinput">NpmRecipeBundleInput</a></td><td></td></tr>
-    <tr><td><code>nuget</code></td><td><a href="#nugetrecipebundleinput">NugetRecipeBundleInput</a></td><td></td></tr>
-    <tr><td><code>yaml</code></td><td><a href="#yamlrecipebundleinput">YamlRecipeBundleInput</a></td><td></td></tr>
-    <tr><td><code>pip</code></td><td><a href="#piprecipebundleinput">PipRecipeBundleInput</a></td><td></td></tr>
-    <tr><td><code>go</code></td><td><a href="#gorecipebundleinput">GoRecipeBundleInput</a></td><td></td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="recipebundleorderbyinput" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">RecipeBundleOrderByInput</span>
-<span className="gql-svc">recipemarketplace</span>
-</div>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>field</code></td><td><a href="#recipebundleorderbyfield">RecipeBundleOrderByField</a>!</td><td></td></tr>
-    <tr><td><code>direction</code></td><td><a href="#sortorder">SortOrder</a>!</td><td></td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="recipebundlewhereinput" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">RecipeBundleWhereInput</span>
-<span className="gql-svc">recipemarketplace</span>
-</div>
-<p>Filter input for RecipeBundle queries.</p>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>packageName</code></td><td><a href="#stringfilter">StringFilter</a></td><td>Filter by package name (e.g., "org.openrewrite:rewrite-java").</td></tr>
-    <tr><td><code>version</code></td><td><a href="#stringfilter">StringFilter</a></td><td>Filter by resolved version.</td></tr>
-    <tr><td><code>requestedVersion</code></td><td><a href="#stringfilter">StringFilter</a></td><td>Filter by requested version (the version requested before resolution).</td></tr>
-    <tr><td><code>ecosystem</code></td><td><a href="#recipeecosystemfilter">RecipeEcosystemFilter</a></td><td>Filter by ecosystem.</td></tr>
-    <tr><td><code>_and</code></td><td>[<a href="#recipebundlewhereinput">RecipeBundleWhereInput</a>!]</td><td></td></tr>
-    <tr><td><code>_or</code></td><td>[<a href="#recipebundlewhereinput">RecipeBundleWhereInput</a>!]</td><td></td></tr>
-    <tr><td><code>_not</code></td><td><a href="#recipebundlewhereinput">RecipeBundleWhereInput</a></td><td></td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="recipecategoryorderbyinput" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">RecipeCategoryOrderByInput</span>
-<span className="gql-svc">recipemarketplace</span>
-</div>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>field</code></td><td><a href="#recipecategoryorderbyfield">RecipeCategoryOrderByField</a>!</td><td></td></tr>
-    <tr><td><code>direction</code></td><td><a href="#sortorder">SortOrder</a>!</td><td></td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="recipecategorywhereinput" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">RecipeCategoryWhereInput</span>
-<span className="gql-svc">recipemarketplace</span>
-</div>
-<p>Filter input for RecipeCategory queries.</p>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>id</code></td><td><a href="#idfilter">IDFilter</a></td><td>Filter by category ID.</td></tr>
-    <tr><td><code>parentId</code></td><td><a href="#idfilter">IDFilter</a></td><td>Filter by parent category ID. Use null to find root categories.</td></tr>
-    <tr><td><code>displayName</code></td><td><a href="#stringfilter">StringFilter</a></td><td>Filter by display name.</td></tr>
-    <tr><td><code>_and</code></td><td>[<a href="#recipecategorywhereinput">RecipeCategoryWhereInput</a>!]</td><td></td></tr>
-    <tr><td><code>_or</code></td><td>[<a href="#recipecategorywhereinput">RecipeCategoryWhereInput</a>!]</td><td></td></tr>
-    <tr><td><code>_not</code></td><td><a href="#recipecategorywhereinput">RecipeCategoryWhereInput</a></td><td></td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="recipeecosystemfilter" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">RecipeEcosystemFilter</span>
-<span className="gql-svc">recipemarketplace</span>
-</div>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>_eq</code></td><td><a href="#recipeecosystem">RecipeEcosystem</a></td><td></td></tr>
-    <tr><td><code>_neq</code></td><td><a href="#recipeecosystem">RecipeEcosystem</a></td><td></td></tr>
-    <tr><td><code>_in</code></td><td>[<a href="#recipeecosystem">RecipeEcosystem</a>!]</td><td></td></tr>
-    <tr><td><code>_nin</code></td><td>[<a href="#recipeecosystem">RecipeEcosystem</a>!]</td><td></td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="recipeinput" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">RecipeInput</span>
-<span className="gql-svc">recipeworker</span>
-</div>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>id</code></td><td>ID!</td><td>Fully-qualified recipe ID. Example: `org.openrewrite.java.search.FindMethods`</td></tr>
-    <tr><td><code>options</code></td><td>[<a href="#recipeoptioninput">RecipeOptionInput</a>!]</td><td></td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="recipeinstallationorderbyinput" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">RecipeInstallationOrderByInput</span>
-<span className="gql-svc">recipemarketplace</span>
-</div>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>field</code></td><td><a href="#recipeinstallationorderbyfield">RecipeInstallationOrderByField</a>!</td><td></td></tr>
-    <tr><td><code>direction</code></td><td><a href="#sortorder">SortOrder</a>!</td><td></td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="recipeinstallationstatusfilter" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">RecipeInstallationStatusFilter</span>
-<span className="gql-svc">recipemarketplace</span>
-</div>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>_eq</code></td><td><a href="#recipeinstallationstatus">RecipeInstallationStatus</a></td><td></td></tr>
-    <tr><td><code>_neq</code></td><td><a href="#recipeinstallationstatus">RecipeInstallationStatus</a></td><td></td></tr>
-    <tr><td><code>_in</code></td><td>[<a href="#recipeinstallationstatus">RecipeInstallationStatus</a>!]</td><td></td></tr>
-    <tr><td><code>_nin</code></td><td>[<a href="#recipeinstallationstatus">RecipeInstallationStatus</a>!]</td><td></td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="recipeinstallationwhereinput" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">RecipeInstallationWhereInput</span>
-<span className="gql-svc">recipemarketplace</span>
-</div>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>id</code></td><td><a href="#idfilter">IDFilter</a></td><td></td></tr>
-    <tr><td><code>status</code></td><td><a href="#recipeinstallationstatusfilter">RecipeInstallationStatusFilter</a></td><td></td></tr>
-    <tr><td><code>startedAt</code></td><td><a href="#datetimefilter">DateTimeFilter</a></td><td></td></tr>
-    <tr><td><code>user</code></td><td><a href="#userwhereinput">UserWhereInput</a></td><td></td></tr>
-    <tr><td><code>organization</code></td><td><a href="#idfilter">IDFilter</a></td><td></td></tr>
-    <tr><td><code>bundle</code></td><td><a href="#recipebundlewhereinput">RecipeBundleWhereInput</a></td><td>Filter by bundle properties (packageName, ecosystem, version, etc.).</td></tr>
-    <tr><td><code>_and</code></td><td>[<a href="#recipeinstallationwhereinput">RecipeInstallationWhereInput</a>!]</td><td></td></tr>
-    <tr><td><code>_or</code></td><td>[<a href="#recipeinstallationwhereinput">RecipeInstallationWhereInput</a>!]</td><td></td></tr>
-    <tr><td><code>_not</code></td><td><a href="#recipeinstallationwhereinput">RecipeInstallationWhereInput</a></td><td></td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="recipeoptioninput" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">RecipeOptionInput</span>
-<span className="gql-svc">recipeworker</span>
-</div>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>name</code></td><td>String!</td><td>Option name. Example: `methodPattern`</td></tr>
-    <tr><td><code>value</code></td><td><a href="#object">Object</a>!</td><td>Option value. Example: `java.util.List add(..)`</td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="recipeorderbyinput" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">RecipeOrderByInput</span>
-<span className="gql-svc">recipemarketplace</span>
-</div>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>field</code></td><td><a href="#recipeorderbyfield">RecipeOrderByField</a>!</td><td></td></tr>
-    <tr><td><code>direction</code></td><td><a href="#sortorder">SortOrder</a>!</td><td></td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="recipewhereinput" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">RecipeWhereInput</span>
-<span className="gql-svc">recipemarketplace</span>
-</div>
-<p>Filter input for Recipe queries. Use `query` for semantic search, or use field filters for exact matching.</p>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>query</code></td><td>String</td><td>Semantic search query - searches recipe names, descriptions, and content.</td></tr>
-    <tr><td><code>id</code></td><td><a href="#stringfilter">StringFilter</a></td><td>Filter by recipe ID (fully qualified recipe name).</td></tr>
-    <tr><td><code>displayName</code></td><td><a href="#stringfilter">StringFilter</a></td><td>Filter by display name.</td></tr>
-    <tr><td><code>_and</code></td><td>[<a href="#recipewhereinput">RecipeWhereInput</a>!]</td><td></td></tr>
-    <tr><td><code>_or</code></td><td>[<a href="#recipewhereinput">RecipeWhereInput</a>!]</td><td></td></tr>
-    <tr><td><code>_not</code></td><td><a href="#recipewhereinput">RecipeWhereInput</a></td><td></td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="repositorychangesetorderbyinput" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">RepositoryChangesetOrderByInput</span>
-<span className="gql-svc">corechangeset</span>
-</div>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>field</code></td><td><a href="#repositorychangesetorderbyfield">RepositoryChangesetOrderByField</a>!</td><td></td></tr>
-    <tr><td><code>direction</code></td><td><a href="#sortorder">SortOrder</a>!</td><td></td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="repositorychangesetstatefilter" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">RepositoryChangesetStateFilter</span>
-<span className="gql-svc">changesetcommitter</span>
-</div>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>_eq</code></td><td><a href="#repositorychangesetstate">RepositoryChangesetState</a></td><td></td></tr>
-    <tr><td><code>_neq</code></td><td><a href="#repositorychangesetstate">RepositoryChangesetState</a></td><td></td></tr>
-    <tr><td><code>_in</code></td><td>[<a href="#repositorychangesetstate">RepositoryChangesetState</a>!]</td><td></td></tr>
-    <tr><td><code>_nin</code></td><td>[<a href="#repositorychangesetstate">RepositoryChangesetState</a>!]</td><td></td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="repositorychangesetwhereinput" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">RepositoryChangesetWhereInput</span>
-<span className="gql-svc">changesetcommitter</span>
-</div>
-<p>Filter for repository changesets.</p>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>path</code></td><td><a href="#stringfilter">StringFilter</a></td><td>Filter by repository path.</td></tr>
-    <tr><td><code>origin</code></td><td><a href="#stringfilter">StringFilter</a></td><td>Filter by repository origin.</td></tr>
-    <tr><td><code>branch</code></td><td><a href="#stringfilter">StringFilter</a></td><td>Filter by repository branch.</td></tr>
-    <tr><td><code>files</code></td><td><a href="#filechangewhereinput">FileChangeWhereInput</a></td><td>Filter files within matching repositories. Useful for filtering to specific file patterns (e.g., all build.gradle.kts files).</td></tr>
-    <tr><td><code>onlyWithResults</code></td><td>Boolean</td><td>Only return repositories with results (filesWithResults > 0).</td></tr>
-    <tr><td><code>state</code></td><td><a href="#repositorychangesetstatefilter">RepositoryChangesetStateFilter</a></td><td>Filter by repository result state.</td></tr>
-    <tr><td><code>_and</code></td><td>[<a href="#repositorychangesetwhereinput">RepositoryChangesetWhereInput</a>!]</td><td>Logical AND - all conditions must match.</td></tr>
-    <tr><td><code>_or</code></td><td>[<a href="#repositorychangesetwhereinput">RepositoryChangesetWhereInput</a>!]</td><td>Logical OR - at least one condition must match.</td></tr>
-    <tr><td><code>_not</code></td><td><a href="#repositorychangesetwhereinput">RepositoryChangesetWhereInput</a></td><td>Logical NOT - negates the condition.</td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="repositorycommitorderbyinput" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">RepositoryCommitOrderByInput</span>
-<span className="gql-svc">changesetcommitter</span>
-</div>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>field</code></td><td><a href="#repositorycommitorderbyfield">RepositoryCommitOrderByField</a>!</td><td></td></tr>
-    <tr><td><code>direction</code></td><td><a href="#sortorder">SortOrder</a>!</td><td></td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="repositorycommitwhereinput" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">RepositoryCommitWhereInput</span>
-<span className="gql-svc">changesetcommitter</span>
-</div>
-<p>Filter input for repository-level commit queries.</p>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>_and</code></td><td>[<a href="#repositorycommitwhereinput">RepositoryCommitWhereInput</a>!]</td><td></td></tr>
-    <tr><td><code>_or</code></td><td>[<a href="#repositorycommitwhereinput">RepositoryCommitWhereInput</a>!]</td><td></td></tr>
-    <tr><td><code>_not</code></td><td><a href="#repositorycommitwhereinput">RepositoryCommitWhereInput</a></td><td></td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="repositoryinput" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">RepositoryInput</span>
-<span className="gql-svc">corecommitter</span>
-</div>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>origin</code></td><td>String!</td><td></td></tr>
-    <tr><td><code>path</code></td><td>String!</td><td></td></tr>
-    <tr><td><code>branch</code></td><td>String!</td><td></td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="repositoryorderbyinput" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">RepositoryOrderByInput</span>
-<span className="gql-svc">organization</span>
-</div>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>field</code></td><td><a href="#repositoryorderbyfield">RepositoryOrderByField</a>!</td><td></td></tr>
-    <tr><td><code>direction</code></td><td><a href="#sortorder">SortOrder</a>!</td><td></td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="repositoryreciperunorderbyinput" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">RepositoryRecipeRunOrderByInput</span>
-<span className="gql-svc">changesetreader</span>
-</div>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>field</code></td><td><a href="#repositoryreciperunorderbyfield">RepositoryRecipeRunOrderByField</a>!</td><td></td></tr>
-    <tr><td><code>direction</code></td><td><a href="#sortorder">SortOrder</a>!</td><td></td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="repositoryreciperunwhereinput" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">RepositoryRecipeRunWhereInput</span>
-<span className="gql-svc">changesetreader</span>
-</div>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>path</code></td><td><a href="#stringfilter">StringFilter</a></td><td></td></tr>
-    <tr><td><code>origin</code></td><td><a href="#stringfilter">StringFilter</a></td><td></td></tr>
-    <tr><td><code>_and</code></td><td>[<a href="#repositoryreciperunwhereinput">RepositoryRecipeRunWhereInput</a>!]</td><td></td></tr>
-    <tr><td><code>_or</code></td><td>[<a href="#repositoryreciperunwhereinput">RepositoryRecipeRunWhereInput</a>!]</td><td></td></tr>
-    <tr><td><code>_not</code></td><td><a href="#repositoryreciperunwhereinput">RepositoryRecipeRunWhereInput</a></td><td></td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="repositorywhereinput" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">RepositoryWhereInput</span>
-<span className="gql-svc">organization</span>
-</div>
-<p>Filter input for Repository queries using typed field filters.</p>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>origin</code></td><td><a href="#stringfilter">StringFilter</a></td><td></td></tr>
-    <tr><td><code>path</code></td><td><a href="#stringfilter">StringFilter</a></td><td></td></tr>
-    <tr><td><code>branch</code></td><td><a href="#stringfilter">StringFilter</a></td><td></td></tr>
-    <tr><td><code>changeset</code></td><td><a href="#stringfilter">StringFilter</a></td><td></td></tr>
-    <tr><td><code>lstArtifact</code></td><td><a href="#lstartifactwhereinput">LstArtifactWhereInput</a></td><td></td></tr>
-    <tr><td><code>_and</code></td><td>[<a href="#repositorywhereinput">RepositoryWhereInput</a>!]</td><td>Logical AND - all conditions must match</td></tr>
-    <tr><td><code>_or</code></td><td>[<a href="#repositorywhereinput">RepositoryWhereInput</a>!]</td><td>Logical OR - at least one condition must match</td></tr>
-    <tr><td><code>_not</code></td><td><a href="#repositorywhereinput">RepositoryWhereInput</a></td><td>Logical NOT - negates the condition</td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="reviewdecisionfilter" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">ReviewDecisionFilter</span>
-<span className="gql-svc">changelogreader</span>
-</div>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>_eq</code></td><td><a href="#reviewdecision">ReviewDecision</a></td><td></td></tr>
-    <tr><td><code>_neq</code></td><td><a href="#reviewdecision">ReviewDecision</a></td><td></td></tr>
-    <tr><td><code>_in</code></td><td>[<a href="#reviewdecision">ReviewDecision</a>!]</td><td></td></tr>
-    <tr><td><code>_nin</code></td><td>[<a href="#reviewdecision">ReviewDecision</a>!]</td><td></td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="revokescmtokeninput" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">RevokeScmTokenInput</span>
-<span className="gql-svc">authz</span>
-</div>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>origin</code></td><td>String!</td><td>The VCS origin to revoke the token for (e.g., github.com, gitlab.com).</td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="rundevcenterinput" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">RunDevCenterInput</span>
-<span className="gql-svc">recipeworker</span>
-</div>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>organizationId</code></td><td>ID!</td><td>The organization to run DevCenter for.</td></tr>
-    <tr><td><code>recipeId</code></td><td>ID!</td><td>The DevCenter recipe to run.</td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="runrecipeinput" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">RunRecipeInput</span>
-<span className="gql-svc">recipeworker</span>
-</div>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>recipe</code></td><td><a href="#recipeinput">RecipeInput</a>!</td><td>The recipe to run with any configured options.</td></tr>
-    <tr><td><code>organizationId</code></td><td>ID!</td><td>Run against all repositories in this organization.</td></tr>
-    <tr><td><code>parentId</code></td><td>ID</td><td>Optional parent changeset ID this recipe run is derived from.</td></tr>
-    <tr><td><code>excludeFiles</code></td><td>[String!]</td><td>Exclude files matching these patterns.</td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="scmaccesstoken" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">ScmAccessToken</span>
-<span className="gql-svc">changesetcommitter</span>
-</div>
-<p>An access token for a specific SCM origin. When provided on a commit mutation, these tokens are preferred over stored OAuth tokens.</p>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>value</code></td><td>String!</td><td></td></tr>
-    <tr><td><code>origin</code></td><td>String!</td><td></td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="stringfilter" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">StringFilter</span>
-<span className="gql-svc">coregraphql</span>
-</div>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>_eq</code></td><td>String</td><td></td></tr>
-    <tr><td><code>_neq</code></td><td>String</td><td></td></tr>
-    <tr><td><code>_in</code></td><td>[String!]</td><td></td></tr>
-    <tr><td><code>_nin</code></td><td>[String!]</td><td></td></tr>
-    <tr><td><code>_contains</code></td><td>String</td><td></td></tr>
-    <tr><td><code>_startsWith</code></td><td>String</td><td></td></tr>
-    <tr><td><code>_endsWith</code></td><td>String</td><td></td></tr>
-    <tr><td><code>_icontains</code></td><td>String</td><td>Case-insensitive contains</td></tr>
-    <tr><td><code>_isNull</code></td><td>Boolean</td><td>True to match null values, false to match non-null values</td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="updateuserorganizationinput" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">UpdateUserOrganizationInput</span>
-<span className="gql-svc">organization</span>
-</div>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>id</code></td><td>ID!</td><td>The ID of the organization to update.</td></tr>
-    <tr><td><code>name</code></td><td>String</td><td>The new name for the organization.</td></tr>
-    <tr><td><code>repositories</code></td><td>[<a href="#repositoryinput">RepositoryInput</a>!]</td><td>Repositories to include in the organization. If provided, replaces the current list.</td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="userorderbyinput" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">UserOrderByInput</span>
-<span className="gql-svc">authz</span>
-</div>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>field</code></td><td><a href="#userorderbyfield">UserOrderByField</a>!</td><td></td></tr>
-    <tr><td><code>direction</code></td><td><a href="#sortorder">SortOrder</a>!</td><td></td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="userwhereinput" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">UserWhereInput</span>
-<span className="gql-svc">coregraphql</span>
-</div>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>email</code></td><td><a href="#stringfilter">StringFilter</a></td><td></td></tr>
-    <tr><td><code>_and</code></td><td>[<a href="#userwhereinput">UserWhereInput</a>!]</td><td></td></tr>
-    <tr><td><code>_or</code></td><td>[<a href="#userwhereinput">UserWhereInput</a>!]</td><td></td></tr>
-    <tr><td><code>_not</code></td><td><a href="#userwhereinput">UserWhereInput</a></td><td></td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="visualizationoptioninput" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">VisualizationOptionInput</span>
-<span className="gql-svc">changesetvisualizer</span>
-</div>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>name</code></td><td>String!</td><td></td></tr>
-    <tr><td><code>value</code></td><td><a href="#object">Object</a>!</td><td></td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="visualizationorderbyinput" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">VisualizationOrderByInput</span>
-<span className="gql-svc">corechangeset</span>
-</div>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>field</code></td><td><a href="#visualizationorderbyfield">VisualizationOrderByField</a>!</td><td></td></tr>
-    <tr><td><code>direction</code></td><td><a href="#sortorder">SortOrder</a>!</td><td></td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="visualizationwhereinput" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">VisualizationWhereInput</span>
-<span className="gql-svc">corechangeset</span>
-</div>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>id</code></td><td><a href="#idfilter">IDFilter</a></td><td></td></tr>
-    <tr><td><code>visualization</code></td><td><a href="#stringfilter">StringFilter</a></td><td></td></tr>
-    <tr><td><code>_and</code></td><td>[<a href="#visualizationwhereinput">VisualizationWhereInput</a>!]</td><td></td></tr>
-    <tr><td><code>_or</code></td><td>[<a href="#visualizationwhereinput">VisualizationWhereInput</a>!]</td><td></td></tr>
-    <tr><td><code>_not</code></td><td><a href="#visualizationwhereinput">VisualizationWhereInput</a></td><td></td></tr>
-  </tbody>
-</table>
-</div>
-
-<div id="yamlrecipebundleinput" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">YamlRecipeBundleInput</span>
-<span className="gql-svc">recipemarketplace</span>
-</div>
-<table>
-  <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>yaml</code></td><td><a href="#base64">Base64</a>!</td><td></td></tr>
-    <tr><td><code>primary</code></td><td>ID</td><td>The ID of the primary recipe in this bundle. When specified, only this recipe will be shown in the marketplace categories, hiding other recipes from this bundle. This is used for the Moderne Builder feature where users build complex composite recipes and we don't want to expose intermediate recipes in the marketplace.</td></tr>
-  </tbody>
-</table>
-</div>
+#### `AccessTokenOrderByInput`
+
+**Service:** authz
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `field` | [AccessTokenOrderByField](#accesstokenorderbyfield)! |  |
+| `direction` | [SortOrder](#sortorder)! |  |
+
+---
+
+#### `AccessTokenWhereInput`
+
+**Service:** authz
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `description` | [StringFilter](#stringfilter) |  |
+| `created` | [DateTimeFilter](#datetimefilter) |  |
+| `expiresAt` | [DateTimeFilter](#datetimefilter) |  |
+| `_and` | [[AccessTokenWhereInput](#accesstokenwhereinput)!] |  |
+| `_or` | [[AccessTokenWhereInput](#accesstokenwhereinput)!] |  |
+| `_not` | [AccessTokenWhereInput](#accesstokenwhereinput) |  |
+
+---
+
+#### `AuditActionTypeFilter`
+
+**Service:** auditreader
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `_eq` | [AuditActionType](#auditactiontype) |  |
+| `_neq` | [AuditActionType](#auditactiontype) |  |
+| `_in` | [[AuditActionType](#auditactiontype)!] |  |
+| `_nin` | [[AuditActionType](#auditactiontype)!] |  |
+
+---
+
+#### `AuditLogExportFormatFilter`
+
+**Service:** auditreader
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `_eq` | [AuditLogExportFormat](#auditlogexportformat) |  |
+| `_neq` | [AuditLogExportFormat](#auditlogexportformat) |  |
+| `_in` | [[AuditLogExportFormat](#auditlogexportformat)!] |  |
+| `_nin` | [[AuditLogExportFormat](#auditlogexportformat)!] |  |
+
+---
+
+#### `AuditLogOrderByInput`
+
+**Service:** auditreader
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `field` | [AuditLogOrderByField](#auditlogorderbyfield)! |  |
+| `direction` | [SortOrder](#sortorder)! |  |
+
+---
+
+#### `AuditLogWhereInput`
+
+**Service:** auditreader
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `user` | [UserWhereInput](#userwhereinput) |  |
+| `target` | [StringFilter](#stringfilter) |  |
+| `action` | [StringFilter](#stringfilter) |  |
+| `actionType` | [AuditActionTypeFilter](#auditactiontypefilter) |  |
+| `outcome` | [AuditOutcomeFilter](#auditoutcomefilter) |  |
+| `description` | [StringFilter](#stringfilter) |  |
+| `timestamp` | [DateTimeFilter](#datetimefilter) |  |
+| `_and` | [[AuditLogWhereInput](#auditlogwhereinput)!] |  |
+| `_or` | [[AuditLogWhereInput](#auditlogwhereinput)!] |  |
+| `_not` | [AuditLogWhereInput](#auditlogwhereinput) |  |
+
+---
+
+#### `AuditLogsDownloadOrderByInput`
+
+**Service:** auditreader
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `field` | [AuditLogsDownloadOrderByField](#auditlogsdownloadorderbyfield)! |  |
+| `direction` | [SortOrder](#sortorder)! |  |
+
+---
+
+#### `AuditLogsDownloadWhereInput`
+
+**Service:** auditreader
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `id` | [IDFilter](#idfilter) |  |
+| `format` | [AuditLogExportFormatFilter](#auditlogexportformatfilter) |  |
+| `_and` | [[AuditLogsDownloadWhereInput](#auditlogsdownloadwhereinput)!] |  |
+| `_or` | [[AuditLogsDownloadWhereInput](#auditlogsdownloadwhereinput)!] |  |
+| `_not` | [AuditLogsDownloadWhereInput](#auditlogsdownloadwhereinput) |  |
+
+---
+
+#### `AuditOutcomeFilter`
+
+**Service:** auditreader
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `_eq` | [AuditOutcome](#auditoutcome) |  |
+| `_neq` | [AuditOutcome](#auditoutcome) |  |
+
+---
+
+#### `BooleanFilter`
+
+**Service:** coregraphql
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `_eq` | Boolean |  |
+| `_neq` | Boolean |  |
+
+---
+
+#### `BuildStateFilter`
+
+**Service:** changelogreader
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `_eq` | [BuildState](#buildstate) |  |
+| `_neq` | [BuildState](#buildstate) |  |
+| `_in` | [[BuildState](#buildstate)!] |  |
+| `_nin` | [[BuildState](#buildstate)!] |  |
+
+---
+
+#### `BulkPullRequestActionOrderByInput`
+
+**Service:** changelogreader
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `field` | [BulkPullRequestActionOrderByField](#bulkpullrequestactionorderbyfield)! |  |
+| `direction` | [SortOrder](#sortorder)! |  |
+
+---
+
+#### `BulkPullRequestActionStateFilter`
+
+**Service:** changelogreader
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `_eq` | [BulkPullRequestActionState](#bulkpullrequestactionstate) |  |
+| `_neq` | [BulkPullRequestActionState](#bulkpullrequestactionstate) |  |
+| `_in` | [[BulkPullRequestActionState](#bulkpullrequestactionstate)!] |  |
+| `_nin` | [[BulkPullRequestActionState](#bulkpullrequestactionstate)!] |  |
+
+---
+
+#### `BulkPullRequestActionWhereInput`
+
+**Service:** changelogreader
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `actionType` | [PullRequestActionTypeFilter](#pullrequestactiontypefilter) |  |
+| `state` | [BulkPullRequestActionStateFilter](#bulkpullrequestactionstatefilter) |  |
+| `startedAt` | [DateTimeFilter](#datetimefilter) | Filter by `startedAt`. Matches RUNNING/FINISHED/ERROR/CANCELED states that
+have a startedAt value; QUEUED entries (no startedAt) are excluded when a
+bound is supplied. |
+| `user` | [UserWhereInput](#userwhereinput) |  |
+| `_and` | [[BulkPullRequestActionWhereInput](#bulkpullrequestactionwhereinput)!] |  |
+| `_or` | [[BulkPullRequestActionWhereInput](#bulkpullrequestactionwhereinput)!] |  |
+| `_not` | [BulkPullRequestActionWhereInput](#bulkpullrequestactionwhereinput) |  |
+
+---
+
+#### `ChangelogAuthorWhereInput`
+
+**Service:** changelogreader
+
+Filter by changelog author.
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `name` | [StringFilter](#stringfilter) |  |
+| `email` | [StringFilter](#stringfilter) |  |
+| `username` | [StringFilter](#stringfilter) |  |
+| `role` | [ContributorRole](#contributorrole) | The role of the contributor to filter on. |
+| `_and` | [[ChangelogAuthorWhereInput](#changelogauthorwhereinput)!] |  |
+| `_or` | [[ChangelogAuthorWhereInput](#changelogauthorwhereinput)!] |  |
+| `_not` | [ChangelogAuthorWhereInput](#changelogauthorwhereinput) |  |
+
+---
+
+#### `ChangelogEntryOrderByInput`
+
+**Service:** changelogreader
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `field` | [ChangelogEntryOrderByField](#changelogentryorderbyfield)! |  |
+| `direction` | [SortOrder](#sortorder)! |  |
+
+---
+
+#### `ChangelogEntryTypeFilter`
+
+**Service:** changelogreader
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `_eq` | [ChangelogEntryType](#changelogentrytype) |  |
+| `_neq` | [ChangelogEntryType](#changelogentrytype) |  |
+| `_in` | [[ChangelogEntryType](#changelogentrytype)!] |  |
+| `_nin` | [[ChangelogEntryType](#changelogentrytype)!] |  |
+
+---
+
+#### `ChangelogEntryWhereInput`
+
+**Service:** changelogreader
+
+Filter input for changelog entries.
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `entryType` | [ChangelogEntryTypeFilter](#changelogentrytypefilter) | Filter by entry type (COMMIT or PULL_REQUEST). |
+| `title` | [StringFilter](#stringfilter) | Full-text search on title. |
+| `author` | [ChangelogAuthorWhereInput](#changelogauthorwhereinput) | Filter by author. |
+| `repositoryPath` | [StringFilter](#stringfilter) | Filter by repository path. |
+| `repositoryOrigin` | [StringFilter](#stringfilter) | Filter by repository origin. |
+| `updatedAt` | [DateTimeFilter](#datetimefilter) | Filter by last updated time. |
+| `createdAt` | [DateTimeFilter](#datetimefilter) | Filter by creation time. |
+| `pullRequestState` | [PullRequestStateFilter](#pullrequeststatefilter) | Filter by pull request state (only applies to PRs). |
+| `buildState` | [BuildStateFilter](#buildstatefilter) | Filter by CI state. |
+| `reviewDecision` | [ReviewDecisionFilter](#reviewdecisionfilter) | Filter by review decision. |
+| `changesetId` | [StringFilter](#stringfilter) | Filter by changeset ID. |
+| `_and` | [[ChangelogEntryWhereInput](#changelogentrywhereinput)!] |  |
+| `_or` | [[ChangelogEntryWhereInput](#changelogentrywhereinput)!] |  |
+| `_not` | [ChangelogEntryWhereInput](#changelogentrywhereinput) |  |
+
+---
+
+#### `ChangelogParticipantOrderByInput`
+
+**Service:** changelogreader
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `field` | [ChangelogParticipantOrderByField](#changelogparticipantorderbyfield)! |  |
+| `direction` | [SortOrder](#sortorder)! |  |
+
+---
+
+#### `ChangelogParticipantWhereInput`
+
+**Service:** changelogreader
+
+Filter input for participants.
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `name` | [StringFilter](#stringfilter) |  |
+| `email` | [StringFilter](#stringfilter) |  |
+| `username` | [StringFilter](#stringfilter) |  |
+| `role` | [ContributorRole](#contributorrole) | Filter participants by role. |
+| `updatedAt` | [DateTimeFilter](#datetimefilter) | Scopes participant aggregation to entries updated within this window.
+Defaults to last 30 days if not specified. |
+| `_and` | [[ChangelogParticipantWhereInput](#changelogparticipantwhereinput)!] |  |
+| `_or` | [[ChangelogParticipantWhereInput](#changelogparticipantwhereinput)!] |  |
+| `_not` | [ChangelogParticipantWhereInput](#changelogparticipantwhereinput) |  |
+
+---
+
+#### `CommitInput`
+
+**Service:** changesetcommitter
+
+Input for creating a commit from a changeset.
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `organizationId` | ID | Organization ID for determining available commit options. |
+| `changesetId` | ID! | Changeset ID (e.g., recipe run ID, batch changeset ID).
+Resolved via federation to an OrganizationChangeset. |
+| `repositories` | [[RepositoryChangesetWhereInput](#repositorychangesetwhereinput)!] | Filter which repositories and files to include.
+Evaluated in order - first matching rule wins for each repository.
+Put repo-specific rules first, global fallback rules last.
+If empty or not provided, all repositories and files in the changeset are included. |
+| `branchName` | String | If unset, commit to the branch that the LST was generated from. |
+| `message` | String! | Commit message. |
+| `extendedMessage` | [Base64](#base64) | Extended commit message (Base64 encoded). |
+| `gpgKey` | [GpgInput](#gpginput) | GPG key for signing commits. |
+| `email` | String | Email to author commit with. Verified against your emails (public and private)
+that are verified in your SCM provider. If left blank, your first email will be used. |
+| `scmAccessTokens` | [[ScmAccessToken](#scmaccesstoken)!] | Optional SCM access tokens keyed by origin. When provided, these are used
+instead of stored OAuth tokens for the matching origin. |
+| `strategy` | [CommitStrategyInput](#commitstrategyinput)! | How to deliver the commit. Choose one strategy. |
+
+---
+
+#### `CommitStrategyInput`
+
+**Service:** changesetcommitter
+
+Commit delivery strategy. Choose one option.
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `direct` | [DirectCommitInput](#directcommitinput) | Push directly to the origin remote. |
+| `fork` | [ForkCommitInput](#forkcommitinput) | Push to a fork of the origin repository. |
+| `pullRequest` | [PullRequestCommitInput](#pullrequestcommitinput) | Create a pull request from a branch on the origin remote. |
+| `forkAndPullRequest` | [ForkAndPullRequestCommitInput](#forkandpullrequestcommitinput) | Create a pull request from a branch on a fork. |
+
+---
+
+#### `ConnectorOrderByInput`
+
+**Service:** gateway
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `field` | [ConnectorOrderByField](#connectororderbyfield)! |  |
+| `direction` | [SortOrder](#sortorder)! |  |
+
+---
+
+#### `ConnectorToolTypeFilter`
+
+**Service:** gateway
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `_eq` | [ConnectorToolType](#connectortooltype) |  |
+| `_in` | [[ConnectorToolType](#connectortooltype)!] |  |
+
+---
+
+#### `ConnectorWhereInput`
+
+**Service:** gateway
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `id` | [IDFilter](#idfilter) |  |
+| `nickname` | [StringFilter](#stringfilter) |  |
+| `version` | [StringFilter](#stringfilter) |  |
+| `toolType` | [ConnectorToolTypeFilter](#connectortooltypefilter) |  |
+| `_and` | [[ConnectorWhereInput](#connectorwhereinput)!] |  |
+| `_or` | [[ConnectorWhereInput](#connectorwhereinput)!] |  |
+| `_not` | [ConnectorWhereInput](#connectorwhereinput) |  |
+
+---
+
+#### `ConversationOrderByInput`
+
+**Service:** moddy
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `field` | [ConversationOrderByField](#conversationorderbyfield)! |  |
+| `direction` | [SortOrder](#sortorder)! |  |
+
+---
+
+#### `ConversationWhereInput`
+
+**Service:** moddy
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `id` | [IDFilter](#idfilter) |  |
+| `user` | [StringFilter](#stringfilter) |  |
+| `startedAt` | [DateTimeFilter](#datetimefilter) |  |
+| `lastUpdatedAt` | [DateTimeFilter](#datetimefilter) |  |
+| `_and` | [[ConversationWhereInput](#conversationwhereinput)!] |  |
+| `_or` | [[ConversationWhereInput](#conversationwhereinput)!] |  |
+| `_not` | [ConversationWhereInput](#conversationwhereinput) |  |
+
+---
+
+#### `CreateConversationInput`
+
+**Service:** moddy
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `message` | String! |  |
+| `organizationId` | ID! |  |
+
+---
+
+#### `CreateUserOrganizationInput`
+
+**Service:** organization
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `name` | String! | The name of the organization. |
+| `repositories` | [[RepositoryInput](#repositoryinput)!] | Repositories to include in the organization. |
+
+---
+
+#### `DataTableFormatFilter`
+
+**Service:** corechangeset
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `_eq` | [DataTableFormat](#datatableformat) |  |
+| `_neq` | [DataTableFormat](#datatableformat) |  |
+| `_in` | [[DataTableFormat](#datatableformat)!] |  |
+| `_nin` | [[DataTableFormat](#datatableformat)!] |  |
+
+---
+
+#### `DataTableOrderByInput`
+
+**Service:** corechangeset
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `field` | [DataTableOrderByField](#datatableorderbyfield)! |  |
+| `direction` | [SortOrder](#sortorder)! |  |
+
+---
+
+#### `DataTableWhereInput`
+
+**Service:** corechangeset
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `id` | [IDFilter](#idfilter) |  |
+| `dataTable` | [StringFilter](#stringfilter) |  |
+| `group` | [StringFilter](#stringfilter) |  |
+| `format` | [DataTableFormatFilter](#datatableformatfilter) |  |
+| `_and` | [[DataTableWhereInput](#datatablewhereinput)!] |  |
+| `_or` | [[DataTableWhereInput](#datatablewhereinput)!] |  |
+| `_not` | [DataTableWhereInput](#datatablewhereinput) |  |
+
+---
+
+#### `DateTimeFilter`
+
+**Service:** coregraphql
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `_eq` | [DateTime](#datetime) |  |
+| `_neq` | [DateTime](#datetime) |  |
+| `_gt` | [DateTime](#datetime) |  |
+| `_gte` | [DateTime](#datetime) |  |
+| `_lt` | [DateTime](#datetime) |  |
+| `_lte` | [DateTime](#datetime) |  |
+
+---
+
+#### `DevCenterRunOrderByInput`
+
+**Service:** changesetreader
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `field` | [DevCenterRunOrderByField](#devcenterrunorderbyfield)! |  |
+| `direction` | [SortOrder](#sortorder)! |  |
+
+---
+
+#### `DevCenterRunStateFilter`
+
+**Service:** changesetreader
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `_eq` | [DevCenterRunState](#devcenterrunstate) |  |
+| `_neq` | [DevCenterRunState](#devcenterrunstate) |  |
+| `_in` | [[DevCenterRunState](#devcenterrunstate)!] |  |
+| `_nin` | [[DevCenterRunState](#devcenterrunstate)!] |  |
+
+---
+
+#### `DevCenterRunWhereInput`
+
+**Service:** changesetreader
+
+Filter input for DevCenter run queries.
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `id` | [IDFilter](#idfilter) | Filter by run ID. Use `where: { id: { _eq: "run-id" } }` to get a specific run. |
+| `state` | [DevCenterRunStateFilter](#devcenterrunstatefilter) | Filter by run state. |
+| `startedAt` | [DateTimeFilter](#datetimefilter) | Filter by start time. |
+| `_and` | [[DevCenterRunWhereInput](#devcenterrunwhereinput)!] | Logical AND - all conditions must match. |
+| `_or` | [[DevCenterRunWhereInput](#devcenterrunwhereinput)!] | Logical OR - at least one condition must match. |
+| `_not` | [DevCenterRunWhereInput](#devcenterrunwhereinput) | Logical NOT - negates the condition. |
+
+---
+
+#### `DirectCommitInput`
+
+**Service:** changesetcommitter
+
+Direct commit to origin. No additional options required.
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `_empty` | Boolean | Placeholder field. Direct commits require no additional configuration. |
+
+---
+
+#### `ExchangeAuthorizationCodeInput`
+
+**Service:** authz
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `authorizationId` | ID! | The authorization ID returned from initiateAuthorization or from NeedsAuthorization. |
+| `code` | String! | Authorization code from the OAuth callback. |
+| `redirectUri` | String! | The redirect URI used in the authorization request.
+Note: This field is deprecated - the server uses the stored redirect URI
+from the authorization to ensure an exact match. |
+
+---
+
+#### `FileChangeOrderByInput`
+
+**Service:** corechangeset
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `field` | [FileChangeOrderByField](#filechangeorderbyfield)! |  |
+| `direction` | [SortOrder](#sortorder)! |  |
+
+---
+
+#### `FileChangeWhereInput`
+
+**Service:** changesetcommitter
+
+Filter for file changes.
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `path` | [PathFilter](#pathfilter) | Filter by file path using glob patterns. |
+| `_and` | [[FileChangeWhereInput](#filechangewhereinput)!] | Logical AND - all conditions must match. |
+| `_or` | [[FileChangeWhereInput](#filechangewhereinput)!] | Logical OR - at least one condition must match. |
+| `_not` | [FileChangeWhereInput](#filechangewhereinput) | Logical NOT - negates the condition. |
+
+---
+
+#### `ForkAndPullRequestCommitInput`
+
+**Service:** changesetcommitter
+
+Create a pull request from a branch on a fork.
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `organization` | String | Organization to create the fork in. If unset, creates in user's personal account. |
+| `prefixOrganizationName` | Boolean | Prefix the fork name with the origin organization to avoid name collisions. |
+| `title` | String | Pull request title. If unset, uses the commit message. |
+| `body` | [Base64](#base64) | Pull request body (Base64 encoded). |
+| `draft` | Boolean | Create as a draft pull request. |
+| `maintainerCanModify` | Boolean | GitHub only: allow maintainers to edit the pull request. |
+| `autoMergeMethod` | [MergeMethod](#mergemethod) | Auto-merge method after checks pass. Null means no auto-merge.
+Best effort - silently ignored if not supported by the repository. |
+| `recreateClosedPullRequest` | Boolean | Recreate pull request if it was previously closed. |
+
+---
+
+#### `ForkCommitInput`
+
+**Service:** changesetcommitter
+
+Commit to a fork of the origin repository.
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `organization` | String | Organization to create the fork in. If unset, creates in user's personal account. |
+| `prefixOrganizationName` | Boolean | Prefix the fork name with the origin organization to avoid name collisions.
+Example: openrewrite/rewrite -> myuser/openrewrite__rewrite |
+
+---
+
+#### `GoRecipeBundleInput`
+
+**Service:** recipemarketplace
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `packageName` | String! |  |
+| `version` | String |  |
+
+---
+
+#### `GpgInput`
+
+**Service:** changesetcommitter
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `privateKey` | String! |  |
+| `publicKey` | String! |  |
+| `passphrase` | String |  |
+
+---
+
+#### `IDFilter`
+
+**Service:** coregraphql
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `_eq` | ID |  |
+| `_neq` | ID |  |
+| `_in` | [ID!] |  |
+| `_nin` | [ID!] |  |
+
+---
+
+#### `InitiateAuthorizationInput`
+
+**Service:** authz
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `origin` | String! | The VCS origin to authorize (e.g., github.com, gitlab.com). |
+| `redirectUri` | String! | The redirect URI where the VCS will send the callback.
+Must match an allowed redirect URI in the OAuth app configuration. |
+
+---
+
+#### `IntFilter`
+
+**Service:** coregraphql
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `_eq` | Int |  |
+| `_neq` | Int |  |
+| `_gt` | Int |  |
+| `_gte` | Int |  |
+| `_lt` | Int |  |
+| `_lte` | Int |  |
+
+---
+
+#### `LstArtifactWhereInput`
+
+**Service:** organization
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `published` | [DateTimeFilter](#datetimefilter) |  |
+| `available` | [BooleanFilter](#booleanfilter) |  |
+| `_and` | [[LstArtifactWhereInput](#lstartifactwhereinput)!] |  |
+| `_or` | [[LstArtifactWhereInput](#lstartifactwhereinput)!] |  |
+| `_not` | [LstArtifactWhereInput](#lstartifactwhereinput) |  |
+
+---
+
+#### `MavenRecipeBundleInput`
+
+**Service:** recipemarketplace
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `groupId` | String! |  |
+| `artifactId` | String! |  |
+| `version` | String! |  |
+
+---
+
+#### `NpmRecipeBundleInput`
+
+**Service:** recipemarketplace
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `packageName` | String! |  |
+| `version` | String! |  |
+
+---
+
+#### `NugetRecipeBundleInput`
+
+**Service:** recipemarketplace
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `packageName` | String! |  |
+| `version` | String! |  |
+
+---
+
+#### `OrganizationChangesetOrderByInput`
+
+**Service:** corechangeset
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `field` | [OrganizationChangesetOrderByField](#organizationchangesetorderbyfield)! |  |
+| `direction` | [SortOrder](#sortorder)! |  |
+
+---
+
+#### `OrganizationChangesetTypeFilter`
+
+**Service:** corechangeset
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `_eq` | [OrganizationChangesetType](#organizationchangesettype) |  |
+| `_neq` | [OrganizationChangesetType](#organizationchangesettype) |  |
+| `_in` | [[OrganizationChangesetType](#organizationchangesettype)!] |  |
+| `_nin` | [[OrganizationChangesetType](#organizationchangesettype)!] |  |
+
+---
+
+#### `OrganizationChangesetWhereInput`
+
+**Service:** corechangeset
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `id` | [IDFilter](#idfilter) |  |
+| `type` | [OrganizationChangesetTypeFilter](#organizationchangesettypefilter) |  |
+| `createdAt` | [DateTimeFilter](#datetimefilter) |  |
+| `user` | [StringFilter](#stringfilter) |  |
+| `_and` | [[OrganizationChangesetWhereInput](#organizationchangesetwhereinput)!] |  |
+| `_or` | [[OrganizationChangesetWhereInput](#organizationchangesetwhereinput)!] |  |
+| `_not` | [OrganizationChangesetWhereInput](#organizationchangesetwhereinput) |  |
+
+---
+
+#### `OrganizationCommitOrderByInput`
+
+**Service:** changesetcommitter
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `field` | [OrganizationCommitOrderByField](#organizationcommitorderbyfield)! |  |
+| `direction` | [SortOrder](#sortorder)! |  |
+
+---
+
+#### `OrganizationCommitWhereInput`
+
+**Service:** changesetcommitter
+
+Filter input for organization-level commit queries.
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `id` | [IDFilter](#idfilter) | Filter by commit ID. |
+| `startedAt` | [DateTimeFilter](#datetimefilter) | Filter by when the commit started. |
+| `_and` | [[OrganizationCommitWhereInput](#organizationcommitwhereinput)!] | Logical AND - all conditions must match. |
+| `_or` | [[OrganizationCommitWhereInput](#organizationcommitwhereinput)!] | Logical OR - at least one condition must match. |
+| `_not` | [OrganizationCommitWhereInput](#organizationcommitwhereinput) | Logical NOT - negates the condition. |
+
+---
+
+#### `OrganizationOrderByInput`
+
+**Service:** organization
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `field` | [OrganizationOrderByField](#organizationorderbyfield)! |  |
+| `direction` | [SortOrder](#sortorder)! |  |
+
+---
+
+#### `OrganizationRecipeRunOrderByInput`
+
+**Service:** changesetreader
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `field` | [OrganizationRecipeRunOrderByField](#organizationreciperunorderbyfield)! |  |
+| `direction` | [SortOrder](#sortorder)! |  |
+
+---
+
+#### `OrganizationRecipeRunStateFilter`
+
+**Service:** changesetreader
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `_eq` | [OrganizationRecipeRunState](#organizationreciperunstate) |  |
+| `_neq` | [OrganizationRecipeRunState](#organizationreciperunstate) |  |
+| `_in` | [[OrganizationRecipeRunState](#organizationreciperunstate)!] |  |
+| `_nin` | [[OrganizationRecipeRunState](#organizationreciperunstate)!] |  |
+
+---
+
+#### `OrganizationRecipeRunWhereInput`
+
+**Service:** changesetreader
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `id` | [IDFilter](#idfilter) |  |
+| `state` | [OrganizationRecipeRunStateFilter](#organizationreciperunstatefilter) |  |
+| `startedAt` | [DateTimeFilter](#datetimefilter) |  |
+| `user` | [StringFilter](#stringfilter) |  |
+| `_and` | [[OrganizationRecipeRunWhereInput](#organizationreciperunwhereinput)!] |  |
+| `_or` | [[OrganizationRecipeRunWhereInput](#organizationreciperunwhereinput)!] |  |
+| `_not` | [OrganizationRecipeRunWhereInput](#organizationreciperunwhereinput) |  |
+
+---
+
+#### `OrganizationWhereInput`
+
+**Service:** organization
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `name` | [StringFilter](#stringfilter) |  |
+| `depth` | [IntFilter](#intfilter) | Filter by depth in the organization hierarchy.
+The root organization ("_root") is depth 0, its direct children are depth 1, etc. |
+| `_and` | [[OrganizationWhereInput](#organizationwhereinput)!] |  |
+| `_or` | [[OrganizationWhereInput](#organizationwhereinput)!] |  |
+| `_not` | [OrganizationWhereInput](#organizationwhereinput) |  |
+
+---
+
+#### `PathFilter`
+
+**Service:** coregraphql
+
+Filter for file paths using glob patterns.
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `_eq` | [Path](#path) | Exact path match. |
+| `_in` | [[Path](#path)!] | Match any of the exact paths. |
+| `_nin` | [[Path](#path)!] | Exclude any of the exact paths. |
+| `_glob` | String | Glob pattern match. Examples: **\/*.java, src/main/** |
+
+---
+
+#### `PipRecipeBundleInput`
+
+**Service:** recipemarketplace
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `packageName` | String! |  |
+| `version` | String |  |
+
+---
+
+#### `PullRequestActionOrderByInput`
+
+**Service:** changelogreader
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `field` | [PullRequestActionOrderByField](#pullrequestactionorderbyfield)! |  |
+| `direction` | [SortOrder](#sortorder)! |  |
+
+---
+
+#### `PullRequestActionStateFilter`
+
+**Service:** changelogreader
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `_eq` | [PullRequestActionState](#pullrequestactionstate) |  |
+| `_neq` | [PullRequestActionState](#pullrequestactionstate) |  |
+| `_in` | [[PullRequestActionState](#pullrequestactionstate)!] |  |
+| `_nin` | [[PullRequestActionState](#pullrequestactionstate)!] |  |
+
+---
+
+#### `PullRequestActionTypeFilter`
+
+**Service:** changelogreader
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `_eq` | [PullRequestActionType](#pullrequestactiontype) |  |
+| `_neq` | [PullRequestActionType](#pullrequestactiontype) |  |
+| `_in` | [[PullRequestActionType](#pullrequestactiontype)!] |  |
+| `_nin` | [[PullRequestActionType](#pullrequestactiontype)!] |  |
+
+---
+
+#### `PullRequestActionWhereInput`
+
+**Service:** changelogreader
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `state` | [PullRequestActionStateFilter](#pullrequestactionstatefilter) |  |
+| `_and` | [[PullRequestActionWhereInput](#pullrequestactionwhereinput)!] |  |
+| `_or` | [[PullRequestActionWhereInput](#pullrequestactionwhereinput)!] |  |
+| `_not` | [PullRequestActionWhereInput](#pullrequestactionwhereinput) |  |
+
+---
+
+#### `PullRequestCommitInput`
+
+**Service:** changesetcommitter
+
+Create a pull request from a branch on the origin remote.
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `title` | String | Pull request title. If unset, uses the commit message. |
+| `body` | [Base64](#base64) | Pull request body (Base64 encoded). |
+| `draft` | Boolean | Create as a draft pull request. |
+| `autoMergeMethod` | [MergeMethod](#mergemethod) | Auto-merge method after checks pass. Null means no auto-merge.
+Best effort - silently ignored if not supported by the repository. |
+| `recreateClosedPullRequest` | Boolean | Recreate pull request if it was previously closed. |
+
+---
+
+#### `PullRequestInput`
+
+**Service:** changelogreader
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `repository` | [RepositoryInput](#repositoryinput)! |  |
+| `number` | Int! | Pull request number. |
+
+---
+
+#### `PullRequestSelectionInput`
+
+**Service:** changelogreader
+
+Selects pull requests for a bulk action.
+
+The `where` filter defines a base set of matching PRs. The optional `pullRequests`
+modifier can include or exclude specific PRs from that base set.
+
+Examples:
+- Filter-only: `{ where: { ... } }` — all matching PRs
+- Explicit: `{ pullRequests: { include: [...] } }` — exactly those PRs
+- Filter + exclusions: `{ where: { ... }, pullRequests: { exclude: [...] } }` — matching minus excluded
+- Filter + additions: `{ where: { ... }, pullRequests: { include: [...] } }` — matching plus included
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `where` | [ChangelogEntryWhereInput](#changelogentrywhereinput) | Filter for the base set of PRs. Omit to start with an empty set. |
+| `pullRequests` | [PullRequestSelectionModifier](#pullrequestselectionmodifier) | Modify the base set by including or excluding specific PRs. |
+
+---
+
+#### `PullRequestSelectionModifier`
+
+**Service:** changelogreader
+
+Modifies a PR selection by either including or excluding specific PRs.
+Exactly one field must be set.
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `include` | [[PullRequestInput](#pullrequestinput)!] | Add these PRs to the base set. |
+| `exclude` | [[PullRequestInput](#pullrequestinput)!] | Remove these PRs from the base set. |
+
+---
+
+#### `PullRequestStateFilter`
+
+**Service:** changelogreader
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `_eq` | [PullRequestState](#pullrequeststate) |  |
+| `_neq` | [PullRequestState](#pullrequeststate) |  |
+| `_in` | [[PullRequestState](#pullrequeststate)!] |  |
+| `_nin` | [[PullRequestState](#pullrequeststate)!] |  |
+
+---
+
+#### `RecipeBundleInput`
+
+**Service:** recipemarketplace
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `maven` | [MavenRecipeBundleInput](#mavenrecipebundleinput) |  |
+| `npm` | [NpmRecipeBundleInput](#npmrecipebundleinput) |  |
+| `nuget` | [NugetRecipeBundleInput](#nugetrecipebundleinput) |  |
+| `yaml` | [YamlRecipeBundleInput](#yamlrecipebundleinput) |  |
+| `pip` | [PipRecipeBundleInput](#piprecipebundleinput) |  |
+| `go` | [GoRecipeBundleInput](#gorecipebundleinput) |  |
+
+---
+
+#### `RecipeBundleOrderByInput`
+
+**Service:** recipemarketplace
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `field` | [RecipeBundleOrderByField](#recipebundleorderbyfield)! |  |
+| `direction` | [SortOrder](#sortorder)! |  |
+
+---
+
+#### `RecipeBundleWhereInput`
+
+**Service:** recipemarketplace
+
+Filter input for RecipeBundle queries.
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `packageName` | [StringFilter](#stringfilter) | Filter by package name (e.g., "org.openrewrite:rewrite-java"). |
+| `version` | [StringFilter](#stringfilter) | Filter by resolved version. |
+| `requestedVersion` | [StringFilter](#stringfilter) | Filter by requested version (the version requested before resolution). |
+| `ecosystem` | [RecipeEcosystemFilter](#recipeecosystemfilter) | Filter by ecosystem. |
+| `_and` | [[RecipeBundleWhereInput](#recipebundlewhereinput)!] |  |
+| `_or` | [[RecipeBundleWhereInput](#recipebundlewhereinput)!] |  |
+| `_not` | [RecipeBundleWhereInput](#recipebundlewhereinput) |  |
+
+---
+
+#### `RecipeCategoryOrderByInput`
+
+**Service:** recipemarketplace
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `field` | [RecipeCategoryOrderByField](#recipecategoryorderbyfield)! |  |
+| `direction` | [SortOrder](#sortorder)! |  |
+
+---
+
+#### `RecipeCategoryWhereInput`
+
+**Service:** recipemarketplace
+
+Filter input for RecipeCategory queries.
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `id` | [IDFilter](#idfilter) | Filter by category ID. |
+| `parentId` | [IDFilter](#idfilter) | Filter by parent category ID. Use null to find root categories. |
+| `displayName` | [StringFilter](#stringfilter) | Filter by display name. |
+| `_and` | [[RecipeCategoryWhereInput](#recipecategorywhereinput)!] |  |
+| `_or` | [[RecipeCategoryWhereInput](#recipecategorywhereinput)!] |  |
+| `_not` | [RecipeCategoryWhereInput](#recipecategorywhereinput) |  |
+
+---
+
+#### `RecipeEcosystemFilter`
+
+**Service:** recipemarketplace
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `_eq` | [RecipeEcosystem](#recipeecosystem) |  |
+| `_neq` | [RecipeEcosystem](#recipeecosystem) |  |
+| `_in` | [[RecipeEcosystem](#recipeecosystem)!] |  |
+| `_nin` | [[RecipeEcosystem](#recipeecosystem)!] |  |
+
+---
+
+#### `RecipeInput`
+
+**Service:** recipeworker
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `id` | ID! | Fully-qualified recipe ID.
+Example: `org.openrewrite.java.search.FindMethods` |
+| `options` | [[RecipeOptionInput](#recipeoptioninput)!] |  |
+
+---
+
+#### `RecipeInstallationOrderByInput`
+
+**Service:** recipemarketplace
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `field` | [RecipeInstallationOrderByField](#recipeinstallationorderbyfield)! |  |
+| `direction` | [SortOrder](#sortorder)! |  |
+
+---
+
+#### `RecipeInstallationStatusFilter`
+
+**Service:** recipemarketplace
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `_eq` | [RecipeInstallationStatus](#recipeinstallationstatus) |  |
+| `_neq` | [RecipeInstallationStatus](#recipeinstallationstatus) |  |
+| `_in` | [[RecipeInstallationStatus](#recipeinstallationstatus)!] |  |
+| `_nin` | [[RecipeInstallationStatus](#recipeinstallationstatus)!] |  |
+
+---
+
+#### `RecipeInstallationWhereInput`
+
+**Service:** recipemarketplace
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `id` | [IDFilter](#idfilter) |  |
+| `status` | [RecipeInstallationStatusFilter](#recipeinstallationstatusfilter) |  |
+| `startedAt` | [DateTimeFilter](#datetimefilter) |  |
+| `user` | [UserWhereInput](#userwhereinput) |  |
+| `organization` | [IDFilter](#idfilter) |  |
+| `bundle` | [RecipeBundleWhereInput](#recipebundlewhereinput) | Filter by bundle properties (packageName, ecosystem, version, etc.). |
+| `_and` | [[RecipeInstallationWhereInput](#recipeinstallationwhereinput)!] |  |
+| `_or` | [[RecipeInstallationWhereInput](#recipeinstallationwhereinput)!] |  |
+| `_not` | [RecipeInstallationWhereInput](#recipeinstallationwhereinput) |  |
+
+---
+
+#### `RecipeOptionInput`
+
+**Service:** recipeworker
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `name` | String! | Option name. Example: `methodPattern` |
+| `value` | [Object](#object)! | Option value. Example: `java.util.List add(..)` |
+
+---
+
+#### `RecipeOrderByInput`
+
+**Service:** recipemarketplace
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `field` | [RecipeOrderByField](#recipeorderbyfield)! |  |
+| `direction` | [SortOrder](#sortorder)! |  |
+
+---
+
+#### `RecipeWhereInput`
+
+**Service:** recipemarketplace
+
+Filter input for Recipe queries.
+Use `query` for semantic search, or use field filters for exact matching.
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `query` | String | Semantic search query - searches recipe names, descriptions, and content. |
+| `id` | [StringFilter](#stringfilter) | Filter by recipe ID (fully qualified recipe name). |
+| `displayName` | [StringFilter](#stringfilter) | Filter by display name. |
+| `_and` | [[RecipeWhereInput](#recipewhereinput)!] |  |
+| `_or` | [[RecipeWhereInput](#recipewhereinput)!] |  |
+| `_not` | [RecipeWhereInput](#recipewhereinput) |  |
+
+---
+
+#### `RepositoryChangesetOrderByInput`
+
+**Service:** corechangeset
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `field` | [RepositoryChangesetOrderByField](#repositorychangesetorderbyfield)! |  |
+| `direction` | [SortOrder](#sortorder)! |  |
+
+---
+
+#### `RepositoryChangesetStateFilter`
+
+**Service:** changesetcommitter
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `_eq` | [RepositoryChangesetState](#repositorychangesetstate) |  |
+| `_neq` | [RepositoryChangesetState](#repositorychangesetstate) |  |
+| `_in` | [[RepositoryChangesetState](#repositorychangesetstate)!] |  |
+| `_nin` | [[RepositoryChangesetState](#repositorychangesetstate)!] |  |
+
+---
+
+#### `RepositoryChangesetWhereInput`
+
+**Service:** changesetcommitter
+
+Filter for repository changesets.
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `path` | [StringFilter](#stringfilter) | Filter by repository path. |
+| `origin` | [StringFilter](#stringfilter) | Filter by repository origin. |
+| `branch` | [StringFilter](#stringfilter) | Filter by repository branch. |
+| `files` | [FileChangeWhereInput](#filechangewhereinput) | Filter files within matching repositories.
+Useful for filtering to specific file patterns (e.g., all build.gradle.kts files). |
+| `onlyWithResults` | Boolean | Only return repositories with results (filesWithResults > 0). |
+| `state` | [RepositoryChangesetStateFilter](#repositorychangesetstatefilter) | Filter by repository result state. |
+| `_and` | [[RepositoryChangesetWhereInput](#repositorychangesetwhereinput)!] | Logical AND - all conditions must match. |
+| `_or` | [[RepositoryChangesetWhereInput](#repositorychangesetwhereinput)!] | Logical OR - at least one condition must match. |
+| `_not` | [RepositoryChangesetWhereInput](#repositorychangesetwhereinput) | Logical NOT - negates the condition. |
+
+---
+
+#### `RepositoryCommitOrderByInput`
+
+**Service:** changesetcommitter
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `field` | [RepositoryCommitOrderByField](#repositorycommitorderbyfield)! |  |
+| `direction` | [SortOrder](#sortorder)! |  |
+
+---
+
+#### `RepositoryCommitWhereInput`
+
+**Service:** changesetcommitter
+
+Filter input for repository-level commit queries.
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `_and` | [[RepositoryCommitWhereInput](#repositorycommitwhereinput)!] |  |
+| `_or` | [[RepositoryCommitWhereInput](#repositorycommitwhereinput)!] |  |
+| `_not` | [RepositoryCommitWhereInput](#repositorycommitwhereinput) |  |
+
+---
+
+#### `RepositoryInput`
+
+**Service:** corecommitter
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `origin` | String! |  |
+| `path` | String! |  |
+| `branch` | String! |  |
+
+---
+
+#### `RepositoryOrderByInput`
+
+**Service:** organization
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `field` | [RepositoryOrderByField](#repositoryorderbyfield)! |  |
+| `direction` | [SortOrder](#sortorder)! |  |
+
+---
+
+#### `RepositoryRecipeRunOrderByInput`
+
+**Service:** changesetreader
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `field` | [RepositoryRecipeRunOrderByField](#repositoryreciperunorderbyfield)! |  |
+| `direction` | [SortOrder](#sortorder)! |  |
+
+---
+
+#### `RepositoryRecipeRunWhereInput`
+
+**Service:** changesetreader
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `path` | [StringFilter](#stringfilter) |  |
+| `origin` | [StringFilter](#stringfilter) |  |
+| `_and` | [[RepositoryRecipeRunWhereInput](#repositoryreciperunwhereinput)!] |  |
+| `_or` | [[RepositoryRecipeRunWhereInput](#repositoryreciperunwhereinput)!] |  |
+| `_not` | [RepositoryRecipeRunWhereInput](#repositoryreciperunwhereinput) |  |
+
+---
+
+#### `RepositoryWhereInput`
+
+**Service:** organization
+
+Filter input for Repository queries using typed field filters.
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `origin` | [StringFilter](#stringfilter) |  |
+| `path` | [StringFilter](#stringfilter) |  |
+| `branch` | [StringFilter](#stringfilter) |  |
+| `changeset` | [StringFilter](#stringfilter) |  |
+| `lstArtifact` | [LstArtifactWhereInput](#lstartifactwhereinput) |  |
+| `_and` | [[RepositoryWhereInput](#repositorywhereinput)!] | Logical AND - all conditions must match |
+| `_or` | [[RepositoryWhereInput](#repositorywhereinput)!] | Logical OR - at least one condition must match |
+| `_not` | [RepositoryWhereInput](#repositorywhereinput) | Logical NOT - negates the condition |
+
+---
+
+#### `ReviewDecisionFilter`
+
+**Service:** changelogreader
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `_eq` | [ReviewDecision](#reviewdecision) |  |
+| `_neq` | [ReviewDecision](#reviewdecision) |  |
+| `_in` | [[ReviewDecision](#reviewdecision)!] |  |
+| `_nin` | [[ReviewDecision](#reviewdecision)!] |  |
+
+---
+
+#### `RevokeScmTokenInput`
+
+**Service:** authz
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `origin` | String! | The VCS origin to revoke the token for (e.g., github.com, gitlab.com). |
+
+---
+
+#### `RunDevCenterInput`
+
+**Service:** recipeworker
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `organizationId` | ID! | The organization to run DevCenter for. |
+| `recipeId` | ID! | The DevCenter recipe to run. |
+
+---
+
+#### `RunRecipeInput`
+
+**Service:** recipeworker
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `recipe` | [RecipeInput](#recipeinput)! | The recipe to run with any configured options. |
+| `organizationId` | ID! | Run against all repositories in this organization. |
+| `parentId` | ID | Optional parent changeset ID this recipe run is derived from. |
+| `excludeFiles` | [String!] | Exclude files matching these patterns. |
+
+---
+
+#### `ScmAccessToken`
+
+**Service:** changesetcommitter
+
+An access token for a specific SCM origin. When provided on a commit mutation,
+these tokens are preferred over stored OAuth tokens.
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `value` | String! |  |
+| `origin` | String! |  |
+
+---
+
+#### `StringFilter`
+
+**Service:** coregraphql
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `_eq` | String |  |
+| `_neq` | String |  |
+| `_in` | [String!] |  |
+| `_nin` | [String!] |  |
+| `_contains` | String |  |
+| `_startsWith` | String |  |
+| `_endsWith` | String |  |
+| `_icontains` | String | Case-insensitive contains |
+| `_isNull` | Boolean | True to match null values, false to match non-null values |
+
+---
+
+#### `UpdateUserOrganizationInput`
+
+**Service:** organization
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `id` | ID! | The ID of the organization to update. |
+| `name` | String | The new name for the organization. |
+| `repositories` | [[RepositoryInput](#repositoryinput)!] | Repositories to include in the organization. If provided, replaces the current list. |
+
+---
+
+#### `UserOrderByInput`
+
+**Service:** authz
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `field` | [UserOrderByField](#userorderbyfield)! |  |
+| `direction` | [SortOrder](#sortorder)! |  |
+
+---
+
+#### `UserWhereInput`
+
+**Service:** coregraphql
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `email` | [StringFilter](#stringfilter) |  |
+| `_and` | [[UserWhereInput](#userwhereinput)!] |  |
+| `_or` | [[UserWhereInput](#userwhereinput)!] |  |
+| `_not` | [UserWhereInput](#userwhereinput) |  |
+
+---
+
+#### `VisualizationOptionInput`
+
+**Service:** changesetvisualizer
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `name` | String! |  |
+| `value` | [Object](#object)! |  |
+
+---
+
+#### `VisualizationOrderByInput`
+
+**Service:** corechangeset
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `field` | [VisualizationOrderByField](#visualizationorderbyfield)! |  |
+| `direction` | [SortOrder](#sortorder)! |  |
+
+---
+
+#### `VisualizationWhereInput`
+
+**Service:** corechangeset
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `id` | [IDFilter](#idfilter) |  |
+| `visualization` | [StringFilter](#stringfilter) |  |
+| `_and` | [[VisualizationWhereInput](#visualizationwhereinput)!] |  |
+| `_or` | [[VisualizationWhereInput](#visualizationwhereinput)!] |  |
+| `_not` | [VisualizationWhereInput](#visualizationwhereinput) |  |
+
+---
+
+#### `YamlRecipeBundleInput`
+
+**Service:** recipemarketplace
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `yaml` | [Base64](#base64)! |  |
+| `primary` | ID | The ID of the primary recipe in this bundle. When specified, only this recipe
+will be shown in the marketplace categories, hiding other recipes from this bundle.
+This is used for the Moderne Builder feature where users build complex composite
+recipes and we don't want to expose intermediate recipes in the marketplace. |
+
+---
 
 ### Unions
 
-<div id="connectortool" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">ConnectorTool</span>
-<span className="gql-svc">gateway</span>
-</div>
-<p>= <a href="#githubconfiguration">GithubConfiguration</a> | <a href="#gitlabconfiguration">GitLabConfiguration</a> | <a href="#bitbucketconfiguration">BitbucketConfiguration</a> | <a href="#bitbucketcloudconfiguration">BitbucketCloudConfiguration</a> | <a href="#azuredevopsconfiguration">AzureDevOpsConfiguration</a> | <a href="#artifactoryconfiguration">ArtifactoryConfiguration</a> | <a href="#mavenconfiguration">MavenConfiguration</a> | <a href="#pypiconfiguration">PypiConfiguration</a> | <a href="#npmconfiguration">NpmConfiguration</a> | <a href="#nugetconfiguration">NugetConfiguration</a> | <a href="#generichttptoolconfiguration">GenericHttpToolConfiguration</a> | <a href="#organizationconfiguration">OrganizationConfiguration</a> | <a href="#llmconfiguration">LlmConfiguration</a> | <a href="#s3configuration">S3Configuration</a></p>
-</div>
+#### `ConnectorTool`
+
+**Service:** gateway
+
+= [GithubConfiguration](#githubconfiguration) | [GitLabConfiguration](#gitlabconfiguration) | [BitbucketConfiguration](#bitbucketconfiguration) | [BitbucketCloudConfiguration](#bitbucketcloudconfiguration) | [AzureDevOpsConfiguration](#azuredevopsconfiguration) | [ArtifactoryConfiguration](#artifactoryconfiguration) | [MavenConfiguration](#mavenconfiguration) | [PypiConfiguration](#pypiconfiguration) | [NpmConfiguration](#npmconfiguration) | [NugetConfiguration](#nugetconfiguration) | [GenericHttpToolConfiguration](#generichttptoolconfiguration) | [OrganizationConfiguration](#organizationconfiguration) | [LlmConfiguration](#llmconfiguration) | [S3Configuration](#s3configuration)
+
+---
 
 ### Scalars
 
-<div id="base64" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">Base64</span>
-<span className="gql-svc">coregraphql</span>
-</div>
-<p>`Base64` represents a base64 encoded string. In the browser, `btoa` encodes ASCII strings to Base64.</p>
-</div>
+#### `Base64`
 
-<div id="date" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">Date</span>
-<span className="gql-svc">coregraphql</span>
-</div>
-</div>
+**Service:** coregraphql
 
-<div id="datetime" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">DateTime</span>
-<span className="gql-svc">coregraphql</span>
-</div>
-</div>
+`Base64` represents a base64 encoded string.
+In the browser, `btoa` encodes ASCII strings to Base64.
 
-<div id="duration" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">Duration</span>
-<span className="gql-svc">coregraphql</span>
-</div>
-</div>
+---
 
-<div id="json" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">JSON</span>
-<span className="gql-svc">coregraphql</span>
-</div>
-</div>
+#### `Date`
 
-<div id="long" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">Long</span>
-<span className="gql-svc">coregraphql</span>
-</div>
-</div>
+**Service:** coregraphql
 
-<div id="markdown" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">Markdown</span>
-<span className="gql-svc">coregraphql</span>
-</div>
-<p>Contents may contain Markdown, HTML, or other text and should be passed through a Markdown parser by consumers</p>
-</div>
+---
 
-<div id="object" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">Object</span>
-<span className="gql-svc">coregraphql</span>
-</div>
-</div>
+#### `DateTime`
 
-<div id="path" className="gql-card">
-<div className="gql-hdr">
-<span className="gql-name">Path</span>
-<span className="gql-svc">coregraphql</span>
-</div>
-<p>A file path relative to repository root (e.g., "src/main/java/Foo.java").</p>
-</div>
+**Service:** coregraphql
+
+---
+
+#### `Duration`
+
+**Service:** coregraphql
+
+---
+
+#### `JSON`
+
+**Service:** coregraphql
+
+---
+
+#### `Long`
+
+**Service:** coregraphql
+
+---
+
+#### `Markdown`
+
+**Service:** coregraphql
+
+Contents may contain Markdown, HTML, or other text and should be passed through a Markdown parser by consumers
+
+---
+
+#### `Object`
+
+**Service:** coregraphql
+
+---
+
+#### `Path`
+
+**Service:** coregraphql
+
+A file path relative to repository root (e.g., "src/main/java/Foo.java").
+
+---
 
