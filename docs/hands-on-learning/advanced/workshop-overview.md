@@ -7,7 +7,7 @@ description: A high-level overview of what this workshop will entail.
 
 This workshop builds on the foundations covered in the [Fundamentals of OpenRewrite recipe development](../fundamentals/workshop-overview.md) workshop and focuses on deeper, more powerful features of the OpenRewrite and Moderne ecosystem.
 
-You will gain experience with advanced recipe development tooling, understand how to extract insights using data tables, write scanning recipes that reason across multiple files, use traits for abstraction and generalization, and compose powerful imperative workflows that combine existing recipes and generate new code. This workshop is designed to be hands-on, so you can follow along with the examples in your own environment. The workshop consists of a series of modules that highlight key concepts, each with one or more exercises to help you practice what you've learned.
+You will gain experience with advanced recipe development tooling, learn to debug recipes with the IntelliJ plugin and CLI, understand how to extract insights using data tables, and write scanning recipes that reason across multiple files. This workshop is designed to be hands-on, so you can follow along with the examples in your own environment. The workshop consists of a series of modules that highlight key concepts, each with one or more exercises to help you practice what you've learned.
 
 Be sure to also follow the links to the [OpenRewrite documentation](https://docs.openrewrite.org/) for more in-depth information. Feel free to skip around to the sections that interest you most, based on your needs and experience level.
 
@@ -15,12 +15,10 @@ If you get stuck or have questions, feel free to ask in the [OpenRewrite Slack](
 
 ## What you'll learn
 
-* How to set up and optimize your development environment for recipe authoring
 * Debugging techniques using both the CLI and the IntelliJ plugin
-* How to build scanning recipes that analyze multiple files across a codebase
-* Using traits to model higher-level abstractions in recipes
 * Writing and analyzing data tables to extract insights from source code
-* Generating code and composing imperative workflows from existing recipes
+* How to build scanning recipes that analyze and generate files across a codebase
+* Using traits to model higher-level abstractions in recipes (covered in the optional bonus module)
 
 ## Prerequisites
 
@@ -31,3 +29,10 @@ To get the most out of this workshop, you should be comfortable with:
 * Java and build tools like Maven or Gradle
 
 If you haven’t been through the [Fundamentals of OpenRewrite recipe development](../fundamentals/workshop-overview.md) workshop yet, we recommend completing it first before returning here.
+
+## Workshop modules
+
+1. [Module 1: Development environment and debugging](./module-1-recipe-development-environment.md)
+2. [Module 2: Data tables](./module-2-data-tables.md)
+3. [Module 3: Scanning recipes](./module-3-scanning-recipes.md)
+4. [Bonus: Traits](./module-4-traits.md) — an optional deeper dive that builds on Module 3

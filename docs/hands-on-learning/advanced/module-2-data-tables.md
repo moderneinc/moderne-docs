@@ -14,21 +14,13 @@ In this exercise, you’ll review the use of a data table to extract superclass 
 ### Goals for this exercise
 
 * See how to define and populate data tables in recipes.
-* Learn how to run and inspect data table output using the Moderne platform or CLI.
+* See how a data table's structure is defined and how its contents are verified in tests.
 
 ### Steps
 
-1. With the [`rewrite-recipe-starter`](https://github.com/moderneinc/rewrite-recipe-starter) still open in IntelliJ, open the `ClassHierarchy` recipe.
-   * You can find this recipe in [src/main/java/com/yourorg/ClassHierarchy.java](https://github.com/moderneinc/rewrite-recipe-starter/blob/main/src/main/java/com/yourorg/ClassHierarchy.java).
-2. Review the `ClassHierarchy` recipe to see how data tables are defined and populated.
-   * Notice there is a `ClassHierarchyReport` member and that the `.insertRow(...)` method is called against it in the visitor.
-   * This member is marked as `transient` to make sure it does not get serialized since it is only needed at runtime.
-3. Now open [src/main/java/com/yourorg/table/ClassHierarchyReport.java](https://github.com/moderneinc/rewrite-recipe-starter/blob/main/src/main/java/com/yourorg/table/ClassHierarchyReport.java).
-   * This is where the structure of the data table is defined. You can see that there is a `displayName` and `description` for each field, as well as a type.
-   * In this case, there is also an `enum` defined. This can be a useful way to add more semantic meaning to the data instead of using arbitrary strings.
-4. Now open the unit tests for `ClassHierarchy`.
-   * You can find them in [src/test/java/com/yourorg/ClassHierarchyTest.java](https://github.com/moderneinc/rewrite-recipe-starter/blob/main/src/test/java/com/yourorg/ClassHierarchyTest.java).
-   * You will also see that a `RecipeSpec` is provided using `assertThat(rows).containsExactly(...)` to test whether a data table is there and if it has the expected data or not.
+1. In the `rewrite-recipe-starter` project, open [`ClassHierarchy.java`](https://github.com/moderneinc/rewrite-recipe-starter/blob/main/src/main/java/com/yourorg/ClassHierarchy.java) and note the `transient ClassHierarchyReport` member and the `.insertRow(...)` call in the visitor. (It is `transient` so it is not serialized, since it is only needed at runtime.)
+2. Open [`table/ClassHierarchyReport.java`](https://github.com/moderneinc/rewrite-recipe-starter/blob/main/src/main/java/com/yourorg/table/ClassHierarchyReport.java) to see how the data table is defined: each column has a `displayName`, `description`, and type, and an `enum` is used to give the data more semantic meaning than arbitrary strings.
+3. Open [`ClassHierarchyTest.java`](https://github.com/moderneinc/rewrite-recipe-starter/blob/main/src/test/java/com/yourorg/ClassHierarchyTest.java) and note how a `RecipeSpec` with `assertThat(rows).containsExactly(...)` verifies the data table contents.
 
 ### Takeaways
 
@@ -48,21 +40,13 @@ In this exercise, you'll write a recipe to find any comments in Java source file
 
 ### Steps
 
-1. Open the unit test [src/test/java/com/yourorg/TrackJavaTodosTest.java](https://github.com/moderneinc/rewrite-recipe-starter/blob/main/src/test/java/com/yourorg/TrackJavaTodosTest.java) again.
-   * Notice the code at the top of the test. These lines test for the presence of the expected data tables.
-   * Remove the `@Disabled` annotations, and run the tests to see that it fails with an error that the expected data table is missing. You will need to add a data table that allows these tests to pass.
-2. Now open [src/main/java/com/yourorg/table/TodoCommentsReport.java](https://github.com/moderneinc/rewrite-recipe-starter/blob/main/src/test/java/com/yourorg/table/TodoCommentsReport.java).
-   * This code has been provided for you. It defines the fields for the data table that you will need to populate in the next step.
-   * All of the members are type `String`, and the `sourcePath` one is identical to the example above.
-3. Now open [src/main/java/com/yourorg/TrackJavaTodos.java](https://github.com/moderneinc/rewrite-recipe-starter/blob/main/src/main/java/com/yourorg/TrackJavaTodos.java) again.
-   * Using the knowledge gained in Exercise 2a, add the necessary `.insertRow(...)` statements to populate the data table.
-   * Use the example from Exercise 2a to help you populate `sourcePath`.
-   * If you are having trouble with where to find the data for `elementType`, use `System.out.println()` or the debugger to find the right method that matches what the tests show.
-      * Hint: Look at the `.getTree().getClass()` method.
-4. Build your project and run the tests.
-   * All tests should pass, and you should see a message that the project was successfully built.
-   * If one or more of the tests fail, use the description of the failure to try to find where the problem is.
-5. In case you get completely stuck or just need a reference, [here's an example of a completed `TrackJavaTodos.java` file](https://github.com/moderneinc/rewrite-recipe-starter/blob/workshop-solutions/src/main/java/com/yourorg/TrackJavaTodos.java).
+1. Open the unit test [`TrackJavaTodosTest.java`](https://github.com/moderneinc/rewrite-recipe-starter/blob/main/src/test/java/com/yourorg/TrackJavaTodosTest.java). The lines at the top test for the presence of the expected data table. Remove the `@Disabled` annotations and run the tests — they fail because the data table is missing.
+2. Open [`table/TodoCommentsReport.java`](https://github.com/moderneinc/rewrite-recipe-starter/blob/main/src/main/java/com/yourorg/table/TodoCommentsReport.java). This is provided for you and defines the data table fields you will populate. All members are `String`, and `sourcePath` is identical to the `ClassHierarchy` example.
+3. Open [`TrackJavaTodos.java`](https://github.com/moderneinc/rewrite-recipe-starter/blob/main/src/main/java/com/yourorg/TrackJavaTodos.java) and, using what you saw in Exercise 2a, add the `.insertRow(...)` statements to populate the data table.
+   * Populate `sourcePath` the same way as the `ClassHierarchy` example.
+   * For `elementType`, use `System.out.println()` or the debugger to find the right method. Hint: look at `.getTree().getClass()`.
+4. Build your project and run the tests. They should all pass. If any fail, use the failure description to locate the problem.
+5. If you get stuck, see the [completed `TrackJavaTodos.java`](https://github.com/moderneinc/rewrite-recipe-starter/blob/workshop-solutions/src/main/java/com/yourorg/TrackJavaTodos.java) for reference.
 
 ### Takeaways
 

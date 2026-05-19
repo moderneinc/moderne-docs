@@ -1,9 +1,13 @@
 ---
-sidebar_label: "Module 4: Traits"
+sidebar_label: "Bonus: Traits"
 description: How to use traits to match semantically related elements.
 ---
 
-# Module 4: Traits
+# Bonus module: Traits
+
+:::info
+This is an optional bonus module that builds directly on the scanning recipe you wrote in [Module 3](./module-3-scanning-recipes.md). Modules 1–3 cover the core advanced workshop content — complete those first, then come back here if you want to go further.
+:::
 
 Traits are a powerful abstraction that allow you to define higher-level semantic groupings in OpenRewrite’s LSTs (Lossless Syntax Trees). They let you build reusable logic for elements that are semantically similar but structurally different. Instead of embedding utility logic in unrelated classes or expanding the core LST APIs, traits act as opt-in behavior layers. This keeps your recipes modular, discoverable, and semantically rich.
 
