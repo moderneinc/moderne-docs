@@ -32,9 +32,11 @@ jobs:
       - name: Fetch supergraph schema
         env:
           APOLLO_KEY: ${{ secrets.APOLLO_KEY }}
+        run: rover graph fetch Moderne-SaaS-API@SaaS-v2 --format json > /tmp/schema.json
+
+      - name: Generate GraphQL API reference
         run: |
-          rover graph fetch Moderne-SaaS-API@SaaS-v2 --format json \
-            | node scripts/generate_graphql_docs.mjs \
+          node scripts/generate_graphql_docs.mjs /tmp/schema.json \
             > docs/user-documentation/moderne-platform/references/graphql-api-reference.md
 
       - name: Commit and push

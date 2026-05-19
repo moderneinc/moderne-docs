@@ -235,8 +235,12 @@ export function generateMarkdown(ops, types) {
 }
 
 if (process.argv[1] === fileURLToPath(import.meta.url)) {
-  const raw = readFileSync(process.stdin.fd, 'utf-8');
-  const sdl = JSON.parse(raw).data.sdl;
+  if (process.argv.length < 3) {
+    process.stderr.write(`Usage: node ${process.argv[1]} <rover-output.json>\n`);
+    process.exit(1);
+  }
+  const raw = readFileSync(process.argv[2], 'utf-8');
+  const sdl = JSON.parse(raw).data.sdl.contents;
   const { ops, types } = parseSchema(sdl);
   process.stdout.write(generateMarkdown(ops, types));
 }
