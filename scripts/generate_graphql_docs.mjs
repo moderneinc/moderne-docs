@@ -167,8 +167,12 @@ function linkify(text, knownTypes) {
   return text.replace(TYPE_NAME_RE, name => knownTypes.has(name) ? `[${name}](#type-${name.toLowerCase()})` : name);
 }
 
+function mdxEscape(text) {
+  return text.replace(/[{}]/g, '\\$&');
+}
+
 function cell(text) {
-  return text.replace(/\|/g, '\\|');
+  return mdxEscape(text.replace(/\n+/g, ' ')).replace(/\|/g, '\\|');
 }
 
 export function generateMarkdown(ops, types) {
@@ -190,10 +194,10 @@ export function generateMarkdown(ops, types) {
     if (!group.length) continue;
     lines.push(`## ${PLURAL[kind]}`, '');
     for (const op of group) {
-      lines.push(`### \`${op.name}\``, '');
+      lines.push(`#### \`${op.name}\``, '');
       lines.push('```graphql', op.signature, '```', '');
-      if (op.deprecated) lines.push(`> **Deprecated:** ${op.deprecated}`, '');
-      if (op.description) lines.push(op.description, '');
+      if (op.deprecated) lines.push(`> **Deprecated:** ${mdxEscape(op.deprecated)}`, '');
+      if (op.description) lines.push(mdxEscape(op.description), '');
     }
   }
 
@@ -205,12 +209,12 @@ export function generateMarkdown(ops, types) {
       if (!group.length) continue;
       lines.push(`### ${kindLabel}`, '');
       for (const t of group) {
-        lines.push(`#### \`${t.name}\` {#type-${t.name.toLowerCase()}}`, '');
+        lines.push(`<a id="type-${t.name.toLowerCase()}"></a>`, '', `##### \`${t.name}\``, '');
         if (t.implements.length) {
           const impls = t.implements.map(i => `[${i}](#type-${i.toLowerCase()})`).join(', ');
           lines.push(`**Implements:** ${impls}`, '');
         }
-        if (t.description) lines.push(t.description, '');
+        if (t.description) lines.push(mdxEscape(t.description), '');
         if (t.kind === 'union') {
           lines.push('= ' + t.unionTypes.map(m => linkify(m, known)).join(' | '), '');
         } else if (t.kind === 'enum' && t.enumValues.length) {

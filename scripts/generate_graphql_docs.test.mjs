@@ -170,7 +170,7 @@ describe('generateMarkdown', () => {
   it('has Queries section with operation heading', () => {
     const out = md();
     expect(out).toContain('## Queries');
-    expect(out).toContain('### `user`');
+    expect(out).toContain('#### `user`');
   });
 
   it('renders signature as graphql code block', () => {
@@ -193,7 +193,8 @@ describe('generateMarkdown', () => {
   });
 
   it('renders type heading with explicit anchor id', () => {
-    expect(md()).toContain('#### `User` {#type-user}');
+    expect(md()).toContain('<a id="type-user"></a>');
+    expect(md()).toContain('##### `User`');
   });
 
   it('renders implements link', () => {
@@ -212,7 +213,8 @@ describe('generateMarkdown', () => {
   it('renders enum values', () => {
     const out = md();
     expect(out).toContain('### Enums');
-    expect(out).toContain('#### `UserRole` {#type-userrole}');
+    expect(out).toContain('<a id="type-userrole"></a>');
+    expect(out).toContain('##### `UserRole`');
     expect(out).toContain('- `ADMIN`');
     expect(out).toContain('- `MEMBER`');
   });
@@ -231,7 +233,7 @@ describe('generateMarkdown', () => {
 
   it('does not show deprecated notice on non-deprecated operation', () => {
     const out = md();
-    const userSection = out.slice(out.indexOf('### `user`'), out.indexOf('### `users`'));
+    const userSection = out.slice(out.indexOf('#### `user`'), out.indexOf('#### `users`'));
     expect(userSection).not.toContain('Deprecated');
   });
 });
