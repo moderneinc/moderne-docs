@@ -635,11 +635,8 @@ Moderne Personal Access Tokens
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `id` | ID! | The unique identifier for the access token.
-This is not the same as the token itself. |
-| `description` | String | Optional description of the token.
-
-Useful for distinguishing between multiple tokens. |
+| `id` | ID! | The unique identifier for the access token. This is not the same as the token itself. |
+| `description` | String | Optional description of the token.  Useful for distinguishing between multiple tokens. |
 | `created` | [DateTime](#datetime)! | The date and time the token was created. |
 | `expiresAt` | [DateTime](#datetime) | The date and time the token will expire. |
 
@@ -843,9 +840,7 @@ An audit log download is being processed.
 | `description` | String |  |
 | `sourceTool` | [ToolInfo](#toolinfo) |  |
 | `diffTool` | [ToolInfo](#toolinfo) |  |
-| `dataTables` | (first: Int = 50, after: String, where: [DataTableWhereInput](#datatablewhereinput), orderBy: [[DataTableOrderByInput](#datatableorderbyinput)!]): [DataTableConnection](#datatableconnection)! | Data tables produced by this batch change.
-Each data table starts as Available and transitions to Processing/Finished/Error
-when downloadDataTable mutation is called. |
+| `dataTables` | (first: Int = 50, after: String, where: [DataTableWhereInput](#datatablewhereinput), orderBy: [[DataTableOrderByInput](#datatableorderbyinput)!]): [DataTableConnection](#datatableconnection)! | Data tables produced by this batch change. Each data table starts as Available and transitions to Processing/Finished/Error when downloadDataTable mutation is called. |
 | `visualizations` | (first: Int = 50, after: String, where: [VisualizationWhereInput](#visualizationwhereinput), orderBy: [[VisualizationOrderByInput](#visualizationorderbyinput)!]): [VisualizationConnection](#visualizationconnection)! | Visualizations produced by this batch change. |
 
 ---
@@ -1152,8 +1147,7 @@ A pull request (open, draft, merged, or closed).
 | `deletions` | Int | Lines removed. |
 | `changeset` | [OrganizationChangeset](#organizationchangeset) |  |
 | `diffstat` | [DiffStat](#diffstat)! |  |
-| `actions` | (first: Int = 50, after: String, where: [PullRequestActionWhereInput](#pullrequestactionwhereinput), orderBy: [[PullRequestActionOrderByInput](#pullrequestactionorderbyinput)!]): [PullRequestActionConnection](#pullrequestactionconnection)! | Actions (approve, merge, close) that have been applied to this pull request.
-Default sort order is descending by startedAt. |
+| `actions` | (first: Int = 50, after: String, where: [PullRequestActionWhereInput](#pullrequestactionwhereinput), orderBy: [[PullRequestActionOrderByInput](#pullrequestactionorderbyinput)!]): [PullRequestActionConnection](#pullrequestactionconnection)! | Actions (approve, merge, close) that have been applied to this pull request. Default sort order is descending by startedAt. |
 
 ---
 
@@ -1265,9 +1259,7 @@ Default sort order is descending by startedAt. |
 | `organization` | [Organization](#organization)! |  |
 | `user` | [User](#user)! |  |
 | `messages` | (first: Int = 100, after: String): [MessageConnection](#messageconnection)! |  |
-| `turnState` | [ConversationTurnState](#conversationturnstate)! | Current turn state for this conversation. Carries the server-
-recommended poll cadence — clients should respect this rather than
-hardcoding an interval. |
+| `turnState` | [ConversationTurnState](#conversationturnstate)! | Current turn state for this conversation. Carries the server- recommended poll cadence — clients should respect this rather than hardcoding an interval. |
 | `startedAt` | [DateTime](#datetime)! |  |
 | `lastUpdatedAt` | [DateTime](#datetime)! |  |
 
@@ -1520,9 +1512,7 @@ with a count from the run results.
 | `displayName` | [Markdown](#markdown)! | Display name of the measure. |
 | `description` | [Markdown](#markdown) | Description of what this measure represents. |
 | `ordinal` | Int! | Sort order relative to other measures in the card. |
-| `count` | Int! | Count of repositories or occurrences for this measure.
-For PER_REPOSITORY: number of repositories in this state.
-For PER_OCCURRENCE: total count of occurrences. |
+| `count` | Int! | Count of repositories or occurrences for this measure. For PER_REPOSITORY: number of repositories in this state. For PER_OCCURRENCE: total count of occurrences. |
 
 ---
 
@@ -1692,27 +1682,7 @@ Direct commit to repository completed successfully.
 | `id` | ID! |  |
 | `user` | [User](#user)! |  |
 | `content` | [Markdown](#markdown)! |  |
-| `code` | String | Stable error code that clients may switch on for UI copy. The full
-taxonomy (split into API-call errors vs in-conversation errors) is
-maintained in `doc/moddy-polling-ui-handoff.md`. As of now:
-
-  Configuration / LLM provider:
-    LLM_UNAVAILABLE, LLM_OVERLOADED, LLM_RATE_LIMITED, LLM_AUTH_FAILED,
-    LLM_CONTEXT_TOO_LONG, LLM_TIMED_OUT, LLM_QUOTA_EXCEEDED,
-    LLM_UNREACHABLE, LLM_EMPTY_RESPONSE, LLM_FAILED
-
-  Tool execution:
-    TOOL_UNKNOWN, TOOL_FAILED
-
-  Turn lifecycle:
-    TURN_LIMIT_EXCEEDED, CANCELLED
-
-  Fallback:
-    INTERNAL
-
-API-call errors (returned in GraphQL `errors[]`, not as messages):
-INVALID_CURSOR, FORBIDDEN, CONVERSATION_BUSY, MESSAGE_TOO_LONG,
-CONVERSATION_NOT_FOUND, TOO_MANY_REQUESTS. |
+| `code` | String | Stable error code that clients may switch on for UI copy. The full taxonomy (split into API-call errors vs in-conversation errors) is maintained in `doc/moddy-polling-ui-handoff.md`. As of now:    Configuration / LLM provider:     LLM_UNAVAILABLE, LLM_OVERLOADED, LLM_RATE_LIMITED, LLM_AUTH_FAILED,     LLM_CONTEXT_TOO_LONG, LLM_TIMED_OUT, LLM_QUOTA_EXCEEDED,     LLM_UNREACHABLE, LLM_EMPTY_RESPONSE, LLM_FAILED    Tool execution:     TOOL_UNKNOWN, TOOL_FAILED    Turn lifecycle:     TURN_LIMIT_EXCEEDED, CANCELLED    Fallback:     INTERNAL  API-call errors (returned in GraphQL `errors[]`, not as messages): INVALID_CURSOR, FORBIDDEN, CONVERSATION_BUSY, MESSAGE_TOO_LONG, CONVERSATION_NOT_FOUND, TOO_MANY_REQUESTS. |
 | `state` | [MessageState](#messagestate)! |  |
 | `lastUpdatedAt` | [DateTime](#datetime)! |  |
 
@@ -1782,8 +1752,7 @@ Fork and pull request commit completed successfully.
 | Field | Type | Description |
 |-------|------|-------------|
 | `branchName` | String |  |
-| `organization` | String | If set, the fork will be created in this organization. Otherwise, the fork will be created in the user's
-personal account. |
+| `organization` | String | If set, the fork will be created in this organization. Otherwise, the fork will be created in the user's personal account. |
 | `prefixOrganization` | Boolean! |  |
 
 ---
@@ -1810,8 +1779,7 @@ Fork commit completed successfully.
 | Field | Type | Description |
 |-------|------|-------------|
 | `branchName` | String |  |
-| `organization` | String | If set, the fork will be created in this organization. Otherwise, the fork will be created in the user's
-personal account. |
+| `organization` | String | If set, the fork will be created in this organization. Otherwise, the fork will be created in the user's personal account. |
 | `prefixOrganization` | Boolean! |  |
 | `pullRequestTitle` | String | If unset, the commit message will be used as the pull request title. |
 | `pullRequestBody` | [Base64](#base64) |  |
@@ -1968,17 +1936,8 @@ that recipe runs consume. Every repository has a conceptual artifact;
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `published` | [DateTime](#datetime) | When `mod publish` produced an artifact into the customer's LST artifact
-repository, or null if no artifact has been published. For a tenant
-configured for encrypted LSTs, a non-null `published` does NOT mean the
-encrypted artifact has been received by the tenant - that signal lives
-on `available`. |
-| `available` | Boolean! | Whether the artifact is reachable for a recipe run.
-For an organization source with encryption enabled, true once the
-connector has uploaded the encrypted artifact and the gateway has
-surfaced an `encrypted://` alternate publish URI. For a source without
-encryption (pass-through), true when the gateway-projected row has a
-non-empty `publishUri`, which we assume is reachable from `mod publish`. |
+| `published` | [DateTime](#datetime) | When `mod publish` produced an artifact into the customer's LST artifact repository, or null if no artifact has been published. For a tenant configured for encrypted LSTs, a non-null `published` does NOT mean the encrypted artifact has been received by the tenant - that signal lives on `available`. |
+| `available` | Boolean! | Whether the artifact is reachable for a recipe run. For an organization source with encryption enabled, true once the connector has uploaded the encrypted artifact and the gateway has surfaced an `encrypted://` alternate publish URI. For a source without encryption (pass-through), true when the gateway-projected row has a non-empty `publishUri`, which we assume is reachable from `mod publish`. |
 
 ---
 
@@ -2064,19 +2023,11 @@ non-empty `publishUri`, which we assume is reachable from `mod publish`. |
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `systemPrompt` | [Prompt](#prompt)! | The effective system prompt for this context.
-Cascades: user > organization > universal > built-in default. |
-| `adminOnly` | Boolean! | When true, only administrators can create conversations or send messages.
-Install-level policy flag; the UI uses this together with the viewer's admin
-status to gate the Moddy menu entry. |
+| `systemPrompt` | [Prompt](#prompt)! | The effective system prompt for this context. Cascades: user > organization > universal > built-in default. |
+| `adminOnly` | Boolean! | When true, only administrators can create conversations or send messages. Install-level policy flag; the UI uses this together with the viewer's admin status to gate the Moddy menu entry. |
 | `conversations` | (first: Int = 50, after: String, where: [ConversationWhereInput](#conversationwhereinput), orderBy: [[ConversationOrderByInput](#conversationorderbyinput)!]): [ConversationConnection](#conversationconnection)! |  |
-| `providerName` | String | Human-readable provider name (e.g. "Anthropic", "OpenAI"). Null when
-no LLM provider is configured (in which case `capabilities.moddy` is
-also false — clients should gate the chat composer on the capability,
-not on this field). |
-| `model` | String | Configured model identifier (e.g. "claude-3-5-sonnet-20241022"). Null
-when no provider is configured or the provider is configured without a
-model override. |
+| `providerName` | String | Human-readable provider name (e.g. "Anthropic", "OpenAI"). Null when no LLM provider is configured (in which case `capabilities.moddy` is also false — clients should gate the chat composer on the capability, not on this field). |
+| `model` | String | Configured model identifier (e.g. "claude-3-5-sonnet-20241022"). Null when no provider is configured or the provider is configured without a model override. |
 
 ---
 
@@ -2153,16 +2104,9 @@ with the id and extracted callback parameters.
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `id` | ID! | Unique ID for this authorization attempt.
-Used to look up stored PKCE state at exchange time. |
-| `authorizationUrl` | String! | The fully-constructed OAuth authorization URL.
-UI should redirect the user to this URL.
-
-IMPORTANT: The UI must store the authorization ID before redirecting,
-as it will be needed to call exchangeAuthorizationCode after the callback.
-The redirect URI does not contain the authorization ID. |
-| `callbackParameters` | [String!]! | Query parameters the UI should extract from the OAuth callback URL
-and pass to exchangeAuthorizationCode (e.g., ["code"]). |
+| `id` | ID! | Unique ID for this authorization attempt. Used to look up stored PKCE state at exchange time. |
+| `authorizationUrl` | String! | The fully-constructed OAuth authorization URL. UI should redirect the user to this URL.  IMPORTANT: The UI must store the authorization ID before redirecting, as it will be needed to call exchangeAuthorizationCode after the callback. The redirect URI does not contain the authorization ID. |
+| `callbackParameters` | [String!]! | Query parameters the UI should extract from the OAuth callback URL and pass to exchangeAuthorizationCode (e.g., ["code"]). |
 | `expiresAt` | [DateTime](#datetime)! | When this authorization expires. UI should treat expired authorizations as stale. |
 
 ---
@@ -2196,29 +2140,16 @@ so we can resolve the recipe that was used at the time of the run (not the curre
 |-------|------|-------------|
 | `id` | ID! |  |
 | `changelog` | (first: Int = 50, after: String, where: [ChangelogEntryWhereInput](#changelogentrywhereinput), orderBy: [[ChangelogEntryOrderByInput](#changelogentryorderbyinput)!]): [ChangelogEntryConnection](#changelogentryconnection)! | PR and commit activity feed for repositories in this organization. |
-| `participants` | (first: Int = 50, after: String, where: [ChangelogParticipantWhereInput](#changelogparticipantwhereinput), orderBy: [[ChangelogParticipantOrderByInput](#changelogparticipantorderbyinput)!]): [ChangelogParticipantConnection](#changelogparticipantconnection)! | All unique participants across the changelog for this organization,
-aggregated from authors, assignees, closers, and reviewers. |
+| `participants` | (first: Int = 50, after: String, where: [ChangelogParticipantWhereInput](#changelogparticipantwhereinput), orderBy: [[ChangelogParticipantOrderByInput](#changelogparticipantorderbyinput)!]): [ChangelogParticipantConnection](#changelogparticipantconnection)! | All unique participants across the changelog for this organization, aggregated from authors, assignees, closers, and reviewers. |
 | `commitOptions` | [[CommitOption](#commitoption)!]! | Available commit options for this organization. |
 | `changesets` | (first: Int = 50, after: String, where: [OrganizationChangesetWhereInput](#organizationchangesetwhereinput), orderBy: [[OrganizationChangesetOrderByInput](#organizationchangesetorderbyinput)!]): [OrganizationChangesetConnection](#organizationchangesetconnection)! |  |
 | `devCenter` | [DevCenter](#devcenter) | DevCenter provides organization-wide campaign progress tracking. |
 | `moddy` | [Moddy](#moddy)! |  |
 | `name` | String! |  |
-| `parents` | [[Organization](#organization)!]! | The ancestor organizations of this organization, ordered from immediate parent towards root.
-Does not include the epsilon root. Empty for the root organization and direct children of root. |
-| `user` | [User](#user) | The user who owns this organization. Null for global organizations,
-non-null for user-defined organizations. |
+| `parents` | [[Organization](#organization)!]! | The ancestor organizations of this organization, ordered from immediate parent towards root. Does not include the epsilon root. Empty for the root organization and direct children of root. |
+| `user` | [User](#user) | The user who owns this organization. Null for global organizations, non-null for user-defined organizations. |
 | `repositories` | (first: Int = 100, after: String, where: [RepositoryWhereInput](#repositorywhereinput), orderBy: [[RepositoryOrderByInput](#repositoryorderbyinput)!]): [RepositoryConnection](#repositoryconnection)! |  |
-| `children` | (first: Int = 100, after: String, where: [OrganizationWhereInput](#organizationwhereinput), orderBy: [[OrganizationOrderByInput](#organizationorderbyinput)!]): [OrganizationConnection](#organizationconnection)! | Direct children of this organization in the tree, paginated.
-Useful for lazy-loading the org tree level by level — e.g. an org
-selector that fetches the root, then the children of each folder
-only when the user expands it.
-
-`where.depth` is ignored on this field — every direct child of a
-given parent has the same depth, so the filter would be either
-all-or-nothing. Use `where.name` and the boolean composers
-(`_and`, `_or`, `_not`) for meaningful filtering.
-
-`orderBy` defaults to NAME ascending when unspecified. |
+| `children` | (first: Int = 100, after: String, where: [OrganizationWhereInput](#organizationwhereinput), orderBy: [[OrganizationOrderByInput](#organizationorderbyinput)!]): [OrganizationConnection](#organizationconnection)! | Direct children of this organization in the tree, paginated. Useful for lazy-loading the org tree level by level — e.g. an org selector that fetches the root, then the children of each folder only when the user expands it.  `where.depth` is ignored on this field — every direct child of a given parent has the same depth, so the filter would be either all-or-nothing. Use `where.name` and the boolean composers (`_and`, `_or`, `_not`) for meaningful filtering.  `orderBy` defaults to NAME ascending when unspecified. |
 | `marketplace` | [RecipeMarketplace](#recipemarketplace) |  |
 
 ---
@@ -2230,22 +2161,14 @@ all-or-nothing. Use `where.name` and the boolean composers
 | Field | Type | Description |
 |-------|------|-------------|
 | `id` | ID! |  |
-| `bulkPullRequestActions` | (first: Int = 50, after: String, where: [BulkPullRequestActionWhereInput](#bulkpullrequestactionwhereinput), orderBy: [[BulkPullRequestActionOrderByInput](#bulkpullrequestactionorderbyinput)!]): [BulkPullRequestActionConnection](#bulkpullrequestactionconnection)! | Bulk pull request actions (approve, merge, close) initiated against pull
-requests that belong to this changeset.
-
-Default sort: STARTED_AT DESC with QUEUED entries (no startedAt) appearing
-last so polling clients still see in-flight actions. |
+| `bulkPullRequestActions` | (first: Int = 50, after: String, where: [BulkPullRequestActionWhereInput](#bulkpullrequestactionwhereinput), orderBy: [[BulkPullRequestActionOrderByInput](#bulkpullrequestactionorderbyinput)!]): [BulkPullRequestActionConnection](#bulkpullrequestactionconnection)! | Bulk pull request actions (approve, merge, close) initiated against pull requests that belong to this changeset.  Default sort: STARTED_AT DESC with QUEUED entries (no startedAt) appearing last so polling clients still see in-flight actions. |
 | `commits` | (first: Int = 50, after: String, where: [OrganizationCommitWhereInput](#organizationcommitwhereinput), orderBy: [[OrganizationCommitOrderByInput](#organizationcommitorderbyinput)!]): [OrganizationCommitConnection](#organizationcommitconnection) | Commit operations initiated from this changeset. |
 | `user` | [User](#user)! |  |
 | `createdAt` | [DateTime](#datetime)! |  |
 | `parent` | [OrganizationChangeset](#organizationchangeset) |  |
 | `repositories` | (first: Int = 100, after: String, where: [RepositoryChangesetWhereInput](#repositorychangesetwhereinput), orderBy: [[RepositoryChangesetOrderByInput](#repositorychangesetorderbyinput)!]): [RepositoryChangesetConnection](#repositorychangesetconnection)! |  |
-| `dataTables` | (first: Int = 50, after: String, where: [DataTableWhereInput](#datatablewhereinput), orderBy: [[DataTableOrderByInput](#datatableorderbyinput)!]): [DataTableConnection](#datatableconnection)! | Data tables produced by this recipe run.
-Each data table starts as Available and transitions to Processing/Finished/Error
-when downloadDataTable mutation is called. |
-| `visualizations` | (first: Int = 50, after: String, where: [VisualizationWhereInput](#visualizationwhereinput), orderBy: [[VisualizationOrderByInput](#visualizationorderbyinput)!]): [VisualizationConnection](#visualizationconnection)! | Visualizations produced by this changeset.
-Each visualization starts as Available and transitions to Processing/Finished/Error
-when runVisualization mutation is called. |
+| `dataTables` | (first: Int = 50, after: String, where: [DataTableWhereInput](#datatablewhereinput), orderBy: [[DataTableOrderByInput](#datatableorderbyinput)!]): [DataTableConnection](#datatableconnection)! | Data tables produced by this recipe run. Each data table starts as Available and transitions to Processing/Finished/Error when downloadDataTable mutation is called. |
+| `visualizations` | (first: Int = 50, after: String, where: [VisualizationWhereInput](#visualizationwhereinput), orderBy: [[VisualizationOrderByInput](#visualizationorderbyinput)!]): [VisualizationConnection](#visualizationconnection)! | Visualizations produced by this changeset. Each visualization starts as Available and transitions to Processing/Finished/Error when runVisualization mutation is called. |
 
 ---
 
@@ -2269,9 +2192,7 @@ when runVisualization mutation is called. |
 |-------|------|-------------|
 | `node` | [OrganizationChangeset](#organizationchangeset)! |  |
 | `cursor` | String! |  |
-| `organization` | [Organization](#organization) | The organization this changeset was run against.
-May differ from the queried organization when the changeset belongs to a suborganization.
-Null if the organization has been deleted or is temporarily unavailable. |
+| `organization` | [Organization](#organization) | The organization this changeset was run against. May differ from the queried organization when the changeset belongs to a suborganization. Null if the organization has been deleted or is temporarily unavailable. |
 
 ---
 
@@ -2442,16 +2363,11 @@ Commit is actively being processed across repositories.
 | `user` | [User](#user)! |  |
 | `options` | [[RecipeOptionValue](#recipeoptionvalue)!]! |  |
 | `createdAt` | [DateTime](#datetime)! |  |
-| `lastUpdatedAt` | [DateTime](#datetime)! | Monotonic high-water mark advanced by every state writer (sync monitor,
-run monitor, processor). Treat as a content version: poll a tiny query
-selecting `__typename` + `lastUpdatedAt` cheaply and only refetch the
-heavy `repositories`/`totals` selections when this value changes. |
+| `lastUpdatedAt` | [DateTime](#datetime)! | Monotonic high-water mark advanced by every state writer (sync monitor, run monitor, processor). Treat as a content version: poll a tiny query selecting `__typename` + `lastUpdatedAt` cheaply and only refetch the heavy `repositories`/`totals` selections when this value changes. |
 | `priority` | [RecipeRunPriority](#reciperunpriority)! |  |
 | `parent` | [OrganizationChangeset](#organizationchangeset) |  |
 | `repositories` | (first: Int = 100, after: String, where: [RepositoryChangesetWhereInput](#repositorychangesetwhereinput), orderBy: [[RepositoryChangesetOrderByInput](#repositorychangesetorderbyinput)!]): [RepositoryChangesetConnection](#repositorychangesetconnection)! |  |
-| `dataTables` | (first: Int = 50, after: String, where: [DataTableWhereInput](#datatablewhereinput), orderBy: [[DataTableOrderByInput](#datatableorderbyinput)!]): [DataTableConnection](#datatableconnection)! | Data tables produced by this recipe run.
-Each data table starts as Available and transitions to Processing/Finished/Error
-when downloadDataTable mutation is called. |
+| `dataTables` | (first: Int = 50, after: String, where: [DataTableWhereInput](#datatablewhereinput), orderBy: [[DataTableOrderByInput](#datatableorderbyinput)!]): [DataTableConnection](#datatableconnection)! | Data tables produced by this recipe run. Each data table starts as Available and transitions to Processing/Finished/Error when downloadDataTable mutation is called. |
 | `visualizations` | (first: Int = 50, after: String, where: [VisualizationWhereInput](#visualizationwhereinput), orderBy: [[VisualizationOrderByInput](#visualizationorderbyinput)!]): [VisualizationConnection](#visualizationconnection)! | Visualizations produced by this recipe run. |
 
 ---
@@ -2467,19 +2383,14 @@ when downloadDataTable mutation is called. |
 | `user` | [User](#user)! |  |
 | `options` | [[RecipeOptionValue](#recipeoptionvalue)!]! |  |
 | `createdAt` | [DateTime](#datetime)! |  |
-| `lastUpdatedAt` | [DateTime](#datetime)! | Monotonic high-water mark advanced by every state writer (sync monitor,
-run monitor, processor). Treat as a content version: poll a tiny query
-selecting `__typename` + `lastUpdatedAt` cheaply and only refetch the
-heavy `repositories`/`totals` selections when this value changes. |
+| `lastUpdatedAt` | [DateTime](#datetime)! | Monotonic high-water mark advanced by every state writer (sync monitor, run monitor, processor). Treat as a content version: poll a tiny query selecting `__typename` + `lastUpdatedAt` cheaply and only refetch the heavy `repositories`/`totals` selections when this value changes. |
 | `priority` | [RecipeRunPriority](#reciperunpriority)! |  |
 | `parent` | [OrganizationChangeset](#organizationchangeset) |  |
 | `startedAt` | [DateTime](#datetime) |  |
 | `finishedAt` | [DateTime](#datetime)! |  |
 | `canceledAt` | [DateTime](#datetime)! | Alias for finishedAt - when the run was canceled |
 | `repositories` | (first: Int = 100, after: String, where: [RepositoryChangesetWhereInput](#repositorychangesetwhereinput), orderBy: [[RepositoryChangesetOrderByInput](#repositorychangesetorderbyinput)!]): [RepositoryChangesetConnection](#repositorychangesetconnection)! |  |
-| `dataTables` | (first: Int = 50, after: String, where: [DataTableWhereInput](#datatablewhereinput), orderBy: [[DataTableOrderByInput](#datatableorderbyinput)!]): [DataTableConnection](#datatableconnection)! | Data tables produced by this recipe run.
-Each data table starts as Available and transitions to Processing/Finished/Error
-when downloadDataTable mutation is called. |
+| `dataTables` | (first: Int = 50, after: String, where: [DataTableWhereInput](#datatablewhereinput), orderBy: [[DataTableOrderByInput](#datatableorderbyinput)!]): [DataTableConnection](#datatableconnection)! | Data tables produced by this recipe run. Each data table starts as Available and transitions to Processing/Finished/Error when downloadDataTable mutation is called. |
 | `visualizations` | (first: Int = 50, after: String, where: [VisualizationWhereInput](#visualizationwhereinput), orderBy: [[VisualizationOrderByInput](#visualizationorderbyinput)!]): [VisualizationConnection](#visualizationconnection)! | Visualizations produced by this recipe run. |
 
 ---
@@ -2518,19 +2429,14 @@ when downloadDataTable mutation is called. |
 | `user` | [User](#user)! |  |
 | `options` | [[RecipeOptionValue](#recipeoptionvalue)!]! |  |
 | `createdAt` | [DateTime](#datetime)! |  |
-| `lastUpdatedAt` | [DateTime](#datetime)! | Monotonic high-water mark advanced by every state writer (sync monitor,
-run monitor, processor). Treat as a content version: poll a tiny query
-selecting `__typename` + `lastUpdatedAt` cheaply and only refetch the
-heavy `repositories`/`totals` selections when this value changes. |
+| `lastUpdatedAt` | [DateTime](#datetime)! | Monotonic high-water mark advanced by every state writer (sync monitor, run monitor, processor). Treat as a content version: poll a tiny query selecting `__typename` + `lastUpdatedAt` cheaply and only refetch the heavy `repositories`/`totals` selections when this value changes. |
 | `priority` | [RecipeRunPriority](#reciperunpriority)! |  |
 | `parent` | [OrganizationChangeset](#organizationchangeset) |  |
 | `startedAt` | [DateTime](#datetime) |  |
 | `finishedAt` | [DateTime](#datetime)! |  |
 | `errorMessage` | String |  |
 | `repositories` | (first: Int = 100, after: String, where: [RepositoryChangesetWhereInput](#repositorychangesetwhereinput), orderBy: [[RepositoryChangesetOrderByInput](#repositorychangesetorderbyinput)!]): [RepositoryChangesetConnection](#repositorychangesetconnection)! |  |
-| `dataTables` | (first: Int = 50, after: String, where: [DataTableWhereInput](#datatablewhereinput), orderBy: [[DataTableOrderByInput](#datatableorderbyinput)!]): [DataTableConnection](#datatableconnection)! | Data tables produced by this recipe run.
-Each data table starts as Available and transitions to Processing/Finished/Error
-when downloadDataTable mutation is called. |
+| `dataTables` | (first: Int = 50, after: String, where: [DataTableWhereInput](#datatablewhereinput), orderBy: [[DataTableOrderByInput](#datatableorderbyinput)!]): [DataTableConnection](#datatableconnection)! | Data tables produced by this recipe run. Each data table starts as Available and transitions to Processing/Finished/Error when downloadDataTable mutation is called. |
 | `visualizations` | (first: Int = 50, after: String, where: [VisualizationWhereInput](#visualizationwhereinput), orderBy: [[VisualizationOrderByInput](#visualizationorderbyinput)!]): [VisualizationConnection](#visualizationconnection)! | Visualizations produced by this recipe run. |
 
 ---
@@ -2546,10 +2452,7 @@ when downloadDataTable mutation is called. |
 | `user` | [User](#user)! |  |
 | `options` | [[RecipeOptionValue](#recipeoptionvalue)!]! |  |
 | `createdAt` | [DateTime](#datetime)! |  |
-| `lastUpdatedAt` | [DateTime](#datetime)! | Monotonic high-water mark advanced by every state writer (sync monitor,
-run monitor, processor). Treat as a content version: poll a tiny query
-selecting `__typename` + `lastUpdatedAt` cheaply and only refetch the
-heavy `repositories`/`totals` selections when this value changes. |
+| `lastUpdatedAt` | [DateTime](#datetime)! | Monotonic high-water mark advanced by every state writer (sync monitor, run monitor, processor). Treat as a content version: poll a tiny query selecting `__typename` + `lastUpdatedAt` cheaply and only refetch the heavy `repositories`/`totals` selections when this value changes. |
 | `priority` | [RecipeRunPriority](#reciperunpriority)! |  |
 | `parent` | [OrganizationChangeset](#organizationchangeset) |  |
 | `startedAt` | [DateTime](#datetime)! |  |
@@ -2557,9 +2460,7 @@ heavy `repositories`/`totals` selections when this value changes. |
 | `duration` | [Duration](#duration) |  |
 | `totals` | [RecipeRunTotals](#reciperuntotals)! |  |
 | `repositories` | (first: Int = 100, after: String, where: [RepositoryChangesetWhereInput](#repositorychangesetwhereinput), orderBy: [[RepositoryChangesetOrderByInput](#repositorychangesetorderbyinput)!]): [RepositoryChangesetConnection](#repositorychangesetconnection)! |  |
-| `dataTables` | (first: Int = 50, after: String, where: [DataTableWhereInput](#datatablewhereinput), orderBy: [[DataTableOrderByInput](#datatableorderbyinput)!]): [DataTableConnection](#datatableconnection)! | Data tables produced by this recipe run.
-Each data table starts as Available and transitions to Processing/Finished/Error
-when downloadDataTable mutation is called. |
+| `dataTables` | (first: Int = 50, after: String, where: [DataTableWhereInput](#datatablewhereinput), orderBy: [[DataTableOrderByInput](#datatableorderbyinput)!]): [DataTableConnection](#datatableconnection)! | Data tables produced by this recipe run. Each data table starts as Available and transitions to Processing/Finished/Error when downloadDataTable mutation is called. |
 | `visualizations` | (first: Int = 50, after: String, where: [VisualizationWhereInput](#visualizationwhereinput), orderBy: [[VisualizationOrderByInput](#visualizationorderbyinput)!]): [VisualizationConnection](#visualizationconnection)! | Visualizations produced by this recipe run. |
 
 ---
@@ -2575,17 +2476,12 @@ when downloadDataTable mutation is called. |
 | `user` | [User](#user)! |  |
 | `options` | [[RecipeOptionValue](#recipeoptionvalue)!]! |  |
 | `createdAt` | [DateTime](#datetime)! |  |
-| `lastUpdatedAt` | [DateTime](#datetime)! | Monotonic high-water mark advanced by every state writer (sync monitor,
-run monitor, processor). Treat as a content version: poll a tiny query
-selecting `__typename` + `lastUpdatedAt` cheaply and only refetch the
-heavy `repositories`/`totals` selections when this value changes. |
+| `lastUpdatedAt` | [DateTime](#datetime)! | Monotonic high-water mark advanced by every state writer (sync monitor, run monitor, processor). Treat as a content version: poll a tiny query selecting `__typename` + `lastUpdatedAt` cheaply and only refetch the heavy `repositories`/`totals` selections when this value changes. |
 | `priority` | [RecipeRunPriority](#reciperunpriority)! |  |
 | `parent` | [OrganizationChangeset](#organizationchangeset) |  |
 | `queuedAt` | [DateTime](#datetime)! |  |
 | `repositories` | (first: Int = 100, after: String, where: [RepositoryChangesetWhereInput](#repositorychangesetwhereinput), orderBy: [[RepositoryChangesetOrderByInput](#repositorychangesetorderbyinput)!]): [RepositoryChangesetConnection](#repositorychangesetconnection)! |  |
-| `dataTables` | (first: Int = 50, after: String, where: [DataTableWhereInput](#datatablewhereinput), orderBy: [[DataTableOrderByInput](#datatableorderbyinput)!]): [DataTableConnection](#datatableconnection)! | Data tables produced by this recipe run.
-Each data table starts as Available and transitions to Processing/Finished/Error
-when downloadDataTable mutation is called. |
+| `dataTables` | (first: Int = 50, after: String, where: [DataTableWhereInput](#datatablewhereinput), orderBy: [[DataTableOrderByInput](#datatableorderbyinput)!]): [DataTableConnection](#datatableconnection)! | Data tables produced by this recipe run. Each data table starts as Available and transitions to Processing/Finished/Error when downloadDataTable mutation is called. |
 | `visualizations` | (first: Int = 50, after: String, where: [VisualizationWhereInput](#visualizationwhereinput), orderBy: [[VisualizationOrderByInput](#visualizationorderbyinput)!]): [VisualizationConnection](#visualizationconnection)! | Visualizations produced by this recipe run. |
 
 ---
@@ -2601,18 +2497,13 @@ when downloadDataTable mutation is called. |
 | `user` | [User](#user)! |  |
 | `options` | [[RecipeOptionValue](#recipeoptionvalue)!]! |  |
 | `createdAt` | [DateTime](#datetime)! |  |
-| `lastUpdatedAt` | [DateTime](#datetime)! | Monotonic high-water mark advanced by every state writer (sync monitor,
-run monitor, processor). Treat as a content version: poll a tiny query
-selecting `__typename` + `lastUpdatedAt` cheaply and only refetch the
-heavy `repositories`/`totals` selections when this value changes. |
+| `lastUpdatedAt` | [DateTime](#datetime)! | Monotonic high-water mark advanced by every state writer (sync monitor, run monitor, processor). Treat as a content version: poll a tiny query selecting `__typename` + `lastUpdatedAt` cheaply and only refetch the heavy `repositories`/`totals` selections when this value changes. |
 | `priority` | [RecipeRunPriority](#reciperunpriority)! |  |
 | `parent` | [OrganizationChangeset](#organizationchangeset) |  |
 | `startedAt` | [DateTime](#datetime)! |  |
 | `totals` | [RecipeRunTotals](#reciperuntotals) |  |
 | `repositories` | (first: Int = 100, after: String, where: [RepositoryChangesetWhereInput](#repositorychangesetwhereinput), orderBy: [[RepositoryChangesetOrderByInput](#repositorychangesetorderbyinput)!]): [RepositoryChangesetConnection](#repositorychangesetconnection)! |  |
-| `dataTables` | (first: Int = 50, after: String, where: [DataTableWhereInput](#datatablewhereinput), orderBy: [[DataTableOrderByInput](#datatableorderbyinput)!]): [DataTableConnection](#datatableconnection)! | Data tables produced by this recipe run.
-Each data table starts as Available and transitions to Processing/Finished/Error
-when downloadDataTable mutation is called. |
+| `dataTables` | (first: Int = 50, after: String, where: [DataTableWhereInput](#datatablewhereinput), orderBy: [[DataTableOrderByInput](#datatableorderbyinput)!]): [DataTableConnection](#datatableconnection)! | Data tables produced by this recipe run. Each data table starts as Available and transitions to Processing/Finished/Error when downloadDataTable mutation is called. |
 | `visualizations` | (first: Int = 50, after: String, where: [VisualizationWhereInput](#visualizationwhereinput), orderBy: [[VisualizationOrderByInput](#visualizationorderbyinput)!]): [VisualizationConnection](#visualizationconnection)! | Visualizations produced by this recipe run. |
 
 ---
@@ -2628,17 +2519,12 @@ when downloadDataTable mutation is called. |
 | `user` | [User](#user)! |  |
 | `options` | [[RecipeOptionValue](#recipeoptionvalue)!]! |  |
 | `createdAt` | [DateTime](#datetime)! |  |
-| `lastUpdatedAt` | [DateTime](#datetime)! | Monotonic high-water mark advanced by every state writer (sync monitor,
-run monitor, processor). Treat as a content version: poll a tiny query
-selecting `__typename` + `lastUpdatedAt` cheaply and only refetch the
-heavy `repositories`/`totals` selections when this value changes. |
+| `lastUpdatedAt` | [DateTime](#datetime)! | Monotonic high-water mark advanced by every state writer (sync monitor, run monitor, processor). Treat as a content version: poll a tiny query selecting `__typename` + `lastUpdatedAt` cheaply and only refetch the heavy `repositories`/`totals` selections when this value changes. |
 | `priority` | [RecipeRunPriority](#reciperunpriority)! |  |
 | `parent` | [OrganizationChangeset](#organizationchangeset) |  |
 | `startedAt` | [DateTime](#datetime)! |  |
 | `repositories` | (first: Int = 100, after: String, where: [RepositoryChangesetWhereInput](#repositorychangesetwhereinput), orderBy: [[RepositoryChangesetOrderByInput](#repositorychangesetorderbyinput)!]): [RepositoryChangesetConnection](#repositorychangesetconnection)! |  |
-| `dataTables` | (first: Int = 50, after: String, where: [DataTableWhereInput](#datatablewhereinput), orderBy: [[DataTableOrderByInput](#datatableorderbyinput)!]): [DataTableConnection](#datatableconnection)! | Data tables produced by this recipe run.
-Each data table starts as Available and transitions to Processing/Finished/Error
-when downloadDataTable mutation is called. |
+| `dataTables` | (first: Int = 50, after: String, where: [DataTableWhereInput](#datatablewhereinput), orderBy: [[DataTableOrderByInput](#datatableorderbyinput)!]): [DataTableConnection](#datatableconnection)! | Data tables produced by this recipe run. Each data table starts as Available and transitions to Processing/Finished/Error when downloadDataTable mutation is called. |
 | `visualizations` | (first: Int = 50, after: String, where: [VisualizationWhereInput](#visualizationwhereinput), orderBy: [[VisualizationOrderByInput](#visualizationorderbyinput)!]): [VisualizationConnection](#visualizationconnection)! | Visualizations produced by this recipe run. |
 
 ---
@@ -2663,8 +2549,7 @@ when downloadDataTable mutation is called. |
 | Field | Type | Description |
 |-------|------|-------------|
 | `diff` | String! | Sanitized diff (does not include markers) |
-| `fencedMarkerDiff` | String! | A diff with search and markup markers included in fenced
-\{\{UUID}} wrappers that correspond to ids in the markers list. |
+| `fencedMarkerDiff` | String! | A diff with search and markup markers included in fenced \{\{UUID}} wrappers that correspond to ids in the markers list. |
 | `markers` | [[Marker](#marker)!]! |  |
 
 ---
@@ -2971,8 +2856,7 @@ Pull request commit completed successfully.
 | `options` | [[Option](#option)!]! |  |
 | `dataTables` | [[DataTableDescriptor](#datatabledescriptor)!]! |  |
 | `devCenterCards` | [[DevCenterCardDescriptor](#devcentercarddescriptor)!] | DevCenter card descriptors for this recipe, or null if not a DevCenter recipe. |
-| `detail` | [RecipeDetail](#recipedetail)! | Expensive recipe detail fields that require resolving the full recipe bundle.
-Returns a state machine: query once to trigger resolution, poll until Finished. |
+| `detail` | [RecipeDetail](#recipedetail)! | Expensive recipe detail fields that require resolving the full recipe bundle. Returns a state machine: query once to trigger resolution, poll until Finished. |
 
 ---
 
@@ -2996,9 +2880,7 @@ Returns a state machine: query once to trigger resolution, poll until Finished. 
 |-------|------|-------------|
 | `node` | [RecipeDescriptor](#recipedescriptor)! |  |
 | `cursor` | String! |  |
-| `relevance` | Float! | Relevance score for this recipe in the context of a search query.
-For semantic search, this represents the search relevance (0.0 to 1.0).
-For filter-based queries, this is always 1.0. |
+| `relevance` | Float! | Relevance score for this recipe in the context of a search query. For semantic search, this represents the search relevance (0.0 to 1.0). For filter-based queries, this is always 1.0. |
 
 ---
 
@@ -3022,14 +2904,10 @@ For filter-based queries, this is always 1.0. |
 |-------|------|-------------|
 | `startedAt` | [DateTime](#datetime)! |  |
 | `finishedAt` | [DateTime](#datetime)! |  |
-| `recipeList` | (first: Int = 100, after: String): [RecipeDescriptorConnection](#recipedescriptorconnection)! | The list of recipes that make up this composite recipe.
-Returns an empty connection for non-composite (leaf) recipes. |
+| `recipeList` | (first: Int = 100, after: String): [RecipeDescriptorConnection](#recipedescriptorconnection)! | The list of recipes that make up this composite recipe. Returns an empty connection for non-composite (leaf) recipes. |
 | `tags` | [String!]! | Tags associated with this recipe for categorization and filtering. |
 | `preconditions` | [[RecipeDescriptor](#recipedescriptor)!]! |  |
-| `graph` | [RecipeGraph](#recipegraph)! | Flat vertices-and-edges representation of this composite recipe tree with
-Singleton deduplication pre-applied. Used by the Builder UI to visualize
-a composite recipe in a single round trip regardless of tree depth.
-Atomic (leaf) recipes return a single-vertex graph. |
+| `graph` | [RecipeGraph](#recipegraph)! | Flat vertices-and-edges representation of this composite recipe tree with Singleton deduplication pre-applied. Used by the Builder UI to visualize a composite recipe in a single round trip regardless of tree depth. Atomic (leaf) recipes return a single-vertex graph. |
 
 ---
 
@@ -3083,12 +2961,8 @@ pointing back to the first occurrence rather than as separate vertices.
 | Field | Type | Description |
 |-------|------|-------------|
 | `id` | Int! |  |
-| `descriptor` | [RecipeDescriptor](#recipedescriptor)! | The recipe this vertex represents. Carries recipe name (as `id`),
-displayName, instanceName, options, bundle, dataTables, etc. — reuse
-the existing RecipeDescriptor type rather than duplicating fields here. |
-| `isSingleton` | Boolean! | True if this recipe declares `org.openrewrite.Singleton` as a precondition,
-meaning additional occurrences in the graph appear as REFERENCE edges
-pointing back to this vertex. |
+| `descriptor` | [RecipeDescriptor](#recipedescriptor)! | The recipe this vertex represents. Carries recipe name (as `id`), displayName, instanceName, options, bundle, dataTables, etc. — reuse the existing RecipeDescriptor type rather than duplicating fields here. |
+| `isSingleton` | Boolean! | True if this recipe declares `org.openrewrite.Singleton` as a precondition, meaning additional occurrences in the graph appear as REFERENCE edges pointing back to this vertex. |
 
 ---
 
@@ -3113,10 +2987,8 @@ pointing back to this vertex. |
 | `node` | [RecipeInstallation](#recipeinstallation)! |  |
 | `cursor` | String! |  |
 | `requestedBy` | [User](#user)! | The user who initiated this installation |
-| `user` | [User](#user) | The user whose marketplace this installation was made to. If the installation is a
-universal or organization installation, this field will be null. |
-| `organization` | [Organization](#organization) | The organization to which this installation was made. If the installation is a universal
-or user installation, this field will be null. |
+| `user` | [User](#user) | The user whose marketplace this installation was made to. If the installation is a universal or organization installation, this field will be null. |
+| `organization` | [Organization](#organization) | The organization to which this installation was made. If the installation is a universal or user installation, this field will be null. |
 
 ---
 
@@ -3228,9 +3100,7 @@ Installation is queued and waiting to be processed.
 | `beforeSourcePath` | [Path](#path) |  |
 | `afterSourcePath` | [Path](#path) |  |
 | `diff` | (markupLevel: [MarkupLevel](#markuplevel) = ERROR, showWhitespaceOnlyChanges: Boolean = true): [Patch](#patch) |  |
-| `recipesThatMadeChanges` | [[[RecipeDescriptor](#recipedescriptor)!]!]! | Recipe chains that contributed changes to this file. Each inner list is one
-mutation event's call stack, ordered root composite first to leaf recipe last
-(the leaf is the narrowest recipe that actually performed the change). |
+| `recipesThatMadeChanges` | [[[RecipeDescriptor](#recipedescriptor)!]!]! | Recipe chains that contributed changes to this file. Each inner list is one mutation event's call stack, ordered root composite first to leaf recipe last (the leaf is the narrowest recipe that actually performed the change). |
 
 ---
 
@@ -3431,9 +3301,7 @@ Use `options.__typename` to determine the specific commit type.
 | `edges` | [[RepositoryCommitEdge](#repositorycommitedge)!]! |  |
 | `pageInfo` | [PageInfo](#pageinfo)! |  |
 | `count` | Int! |  |
-| `completedCount` | Int! | Count of repository commits that have reached a terminal state
-(succeeded, failed, canceled, or no changes). Pair with `count`
-to show progress: "Completed X / Y". |
+| `completedCount` | Int! | Count of repository commits that have reached a terminal state (succeeded, failed, canceled, or no changes). Pair with `count` to show progress: "Completed X / Y". |
 
 ---
 
@@ -3985,8 +3853,7 @@ Check the `user` field to distinguish sender.
 | `requestedVersion` | String |  |
 | `version` | String |  |
 | `recipeCount` | Int |  |
-| `primary` | [RecipeDescriptor](#recipedescriptor) | The primary recipe in this bundle. When specified, only this recipe
-is shown in marketplace categories, hiding other recipes from this bundle. |
+| `primary` | [RecipeDescriptor](#recipedescriptor) | The primary recipe in this bundle. When specified, only this recipe is shown in marketplace categories, hiding other recipes from this bundle. |
 
 ---
 
@@ -4039,8 +3906,7 @@ Use `__typename` to distinguish between `ChangelogCommit` and `ChangelogPullRequ
 | `updatedAt` | [DateTime](#datetime)! | When this entry was last updated in the VCS provider. |
 | `createdAt` | [DateTime](#datetime)! | When this entry was created in the VCS provider. |
 | `changeset` | [OrganizationChangeset](#organizationchangeset) | If this activity was originated by Moderne, the changeset it belongs to. |
-| `buildState` | [BuildState](#buildstate) | CI status (e.g. from GitHub Actions, GitLab pipelines).
-Null if no CI is configured or status has not been fetched yet. |
+| `buildState` | [BuildState](#buildstate) | CI status (e.g. from GitHub Actions, GitLab pipelines). Null if no CI is configured or status has not been fetched yet. |
 | `diffstat` | [DiffStat](#diffstat)! | Lines added and removed. |
 
 ---
@@ -4063,11 +3929,8 @@ Null if no CI is configured or status has not been fetched yet. |
 |-------|------|-------------|
 | `id` | ID! |  |
 | `dataTable` | [DataTableDescriptor](#datatabledescriptor)! |  |
-| `instanceName` | String! | A human-readable name for this data table instance, describing what it contains.
-For example, "Method calls matching \`java.util.List add(..)\`".
-Defaults to the data table's display name when not explicitly set. |
-| `group` | String | The group identifying this data table bucket. For community tables this is
-the group name (e.g., "architecture"). Null for ungrouped/private tables. |
+| `instanceName` | String! | A human-readable name for this data table instance, describing what it contains. For example, "Method calls matching \`java.util.List add(..)\`". Defaults to the data table's display name when not explicitly set. |
+| `group` | String | The group identifying this data table bucket. For community tables this is the group name (e.g., "architecture"). Null for ungrouped/private tables. |
 
 ---
 
@@ -4095,10 +3958,8 @@ A change to a single file within a repository changeset.
 | Field | Type | Description |
 |-------|------|-------------|
 | `path` | [Path](#path)! | Path to the file relative to repository root. |
-| `beforeSourcePath` | [Path](#path) | The source path before the change (from the diff's `--- a/...` line).
-Null for newly created files. |
-| `afterSourcePath` | [Path](#path) | The source path after the change (from the diff's `+++ b/...` line).
-Null for deleted files. |
+| `beforeSourcePath` | [Path](#path) | The source path before the change (from the diff's `--- a/...` line). Null for newly created files. |
+| `afterSourcePath` | [Path](#path) | The source path after the change (from the diff's `+++ b/...` line). Null for deleted files. |
 | `diff` | (markupLevel: [MarkupLevel](#markuplevel) = ERROR, showWhitespaceOnlyChanges: Boolean = true): [Patch](#patch) | Get the diff for this file. |
 
 ---
@@ -4165,9 +4026,7 @@ Use `__typename` to determine the current state.
 |-------|------|-------------|
 | `requestedVersion` | String |  |
 | `version` | String |  |
-| `recipeCount` | Int | Number of top-level recipes contributed by this bundle's package.
-Null when the bundle has not yet been resolved into the marketplace
-(e.g. an installation still in progress). |
+| `recipeCount` | Int | Number of top-level recipes contributed by this bundle's package. Null when the bundle has not yet been resolved into the marketplace (e.g. an installation still in progress). |
 
 ---
 
@@ -4207,8 +4066,7 @@ Use `__typename` to determine the current state.
 | Field | Type | Description |
 |-------|------|-------------|
 | `repository` | [Repository](#repository)! |  |
-| `authorization` | [RepositoryAuthorization](#repositoryauthorization)! | Authorization status for accessing this repository's content.
-Check this before accessing file results. |
+| `authorization` | [RepositoryAuthorization](#repositoryauthorization)! | Authorization status for accessing this repository's content. Check this before accessing file results. |
 | `results` | (first: Int = 100, after: String, where: [FileChangeWhereInput](#filechangewhereinput), orderBy: [[FileChangeOrderByInput](#filechangeorderbyinput)!]): [FileChangeConnection](#filechangeconnection)! | File-level changes within this repository. |
 
 ---
@@ -5158,9 +5016,7 @@ sync completed).
 |-------|------|-------------|
 | `actionType` | [PullRequestActionTypeFilter](#pullrequestactiontypefilter) |  |
 | `state` | [BulkPullRequestActionStateFilter](#bulkpullrequestactionstatefilter) |  |
-| `startedAt` | [DateTimeFilter](#datetimefilter) | Filter by `startedAt`. Matches RUNNING/FINISHED/ERROR/CANCELED states that
-have a startedAt value; QUEUED entries (no startedAt) are excluded when a
-bound is supplied. |
+| `startedAt` | [DateTimeFilter](#datetimefilter) | Filter by `startedAt`. Matches RUNNING/FINISHED/ERROR/CANCELED states that have a startedAt value; QUEUED entries (no startedAt) are excluded when a bound is supplied. |
 | `user` | [UserWhereInput](#userwhereinput) |  |
 | `_and` | [[BulkPullRequestActionWhereInput](#bulkpullrequestactionwhereinput)!] |  |
 | `_or` | [[BulkPullRequestActionWhereInput](#bulkpullrequestactionwhereinput)!] |  |
@@ -5258,8 +5114,7 @@ Filter input for participants.
 | `email` | [StringFilter](#stringfilter) |  |
 | `username` | [StringFilter](#stringfilter) |  |
 | `role` | [ContributorRole](#contributorrole) | Filter participants by role. |
-| `updatedAt` | [DateTimeFilter](#datetimefilter) | Scopes participant aggregation to entries updated within this window.
-Defaults to last 30 days if not specified. |
+| `updatedAt` | [DateTimeFilter](#datetimefilter) | Scopes participant aggregation to entries updated within this window. Defaults to last 30 days if not specified. |
 | `_and` | [[ChangelogParticipantWhereInput](#changelogparticipantwhereinput)!] |  |
 | `_or` | [[ChangelogParticipantWhereInput](#changelogparticipantwhereinput)!] |  |
 | `_not` | [ChangelogParticipantWhereInput](#changelogparticipantwhereinput) |  |
@@ -5275,20 +5130,14 @@ Input for creating a commit from a changeset.
 | Field | Type | Description |
 |-------|------|-------------|
 | `organizationId` | ID | Organization ID for determining available commit options. |
-| `changesetId` | ID! | Changeset ID (e.g., recipe run ID, batch changeset ID).
-Resolved via federation to an OrganizationChangeset. |
-| `repositories` | [[RepositoryChangesetWhereInput](#repositorychangesetwhereinput)!] | Filter which repositories and files to include.
-Evaluated in order - first matching rule wins for each repository.
-Put repo-specific rules first, global fallback rules last.
-If empty or not provided, all repositories and files in the changeset are included. |
+| `changesetId` | ID! | Changeset ID (e.g., recipe run ID, batch changeset ID). Resolved via federation to an OrganizationChangeset. |
+| `repositories` | [[RepositoryChangesetWhereInput](#repositorychangesetwhereinput)!] | Filter which repositories and files to include. Evaluated in order - first matching rule wins for each repository. Put repo-specific rules first, global fallback rules last. If empty or not provided, all repositories and files in the changeset are included. |
 | `branchName` | String | If unset, commit to the branch that the LST was generated from. |
 | `message` | String! | Commit message. |
 | `extendedMessage` | [Base64](#base64) | Extended commit message (Base64 encoded). |
 | `gpgKey` | [GpgInput](#gpginput) | GPG key for signing commits. |
-| `email` | String | Email to author commit with. Verified against your emails (public and private)
-that are verified in your SCM provider. If left blank, your first email will be used. |
-| `scmAccessTokens` | [[ScmAccessToken](#scmaccesstoken)!] | Optional SCM access tokens keyed by origin. When provided, these are used
-instead of stored OAuth tokens for the matching origin. |
+| `email` | String | Email to author commit with. Verified against your emails (public and private) that are verified in your SCM provider. If left blank, your first email will be used. |
+| `scmAccessTokens` | [[ScmAccessToken](#scmaccesstoken)!] | Optional SCM access tokens keyed by origin. When provided, these are used instead of stored OAuth tokens for the matching origin. |
 | `strategy` | [CommitStrategyInput](#commitstrategyinput)! | How to deliver the commit. Choose one strategy. |
 
 ---
@@ -5511,9 +5360,7 @@ Direct commit to origin. No additional options required.
 |-------|------|-------------|
 | `authorizationId` | ID! | The authorization ID returned from initiateAuthorization or from NeedsAuthorization. |
 | `code` | String! | Authorization code from the OAuth callback. |
-| `redirectUri` | String! | The redirect URI used in the authorization request.
-Note: This field is deprecated - the server uses the stored redirect URI
-from the authorization to ensure an exact match. |
+| `redirectUri` | String! | The redirect URI used in the authorization request. Note: This field is deprecated - the server uses the stored redirect URI from the authorization to ensure an exact match. |
 
 ---
 
@@ -5557,8 +5404,7 @@ Create a pull request from a branch on a fork.
 | `body` | [Base64](#base64) | Pull request body (Base64 encoded). |
 | `draft` | Boolean | Create as a draft pull request. |
 | `maintainerCanModify` | Boolean | GitHub only: allow maintainers to edit the pull request. |
-| `autoMergeMethod` | [MergeMethod](#mergemethod) | Auto-merge method after checks pass. Null means no auto-merge.
-Best effort - silently ignored if not supported by the repository. |
+| `autoMergeMethod` | [MergeMethod](#mergemethod) | Auto-merge method after checks pass. Null means no auto-merge. Best effort - silently ignored if not supported by the repository. |
 | `recreateClosedPullRequest` | Boolean | Recreate pull request if it was previously closed. |
 
 ---
@@ -5572,8 +5418,7 @@ Commit to a fork of the origin repository.
 | Field | Type | Description |
 |-------|------|-------------|
 | `organization` | String | Organization to create the fork in. If unset, creates in user's personal account. |
-| `prefixOrganizationName` | Boolean | Prefix the fork name with the origin organization to avoid name collisions.
-Example: openrewrite/rewrite -> myuser/openrewrite__rewrite |
+| `prefixOrganizationName` | Boolean | Prefix the fork name with the origin organization to avoid name collisions. Example: openrewrite/rewrite -> myuser/openrewrite__rewrite |
 
 ---
 
@@ -5620,8 +5465,7 @@ Example: openrewrite/rewrite -> myuser/openrewrite__rewrite |
 | Field | Type | Description |
 |-------|------|-------------|
 | `origin` | String! | The VCS origin to authorize (e.g., github.com, gitlab.com). |
-| `redirectUri` | String! | The redirect URI where the VCS will send the callback.
-Must match an allowed redirect URI in the OAuth app configuration. |
+| `redirectUri` | String! | The redirect URI where the VCS will send the callback. Must match an allowed redirect URI in the OAuth app configuration. |
 
 ---
 
@@ -5813,8 +5657,7 @@ Filter input for organization-level commit queries.
 | Field | Type | Description |
 |-------|------|-------------|
 | `name` | [StringFilter](#stringfilter) |  |
-| `depth` | [IntFilter](#intfilter) | Filter by depth in the organization hierarchy.
-The root organization ("_root") is depth 0, its direct children are depth 1, etc. |
+| `depth` | [IntFilter](#intfilter) | Filter by depth in the organization hierarchy. The root organization ("_root") is depth 0, its direct children are depth 1, etc. |
 | `_and` | [[OrganizationWhereInput](#organizationwhereinput)!] |  |
 | `_or` | [[OrganizationWhereInput](#organizationwhereinput)!] |  |
 | `_not` | [OrganizationWhereInput](#organizationwhereinput) |  |
@@ -5908,8 +5751,7 @@ Create a pull request from a branch on the origin remote.
 | `title` | String | Pull request title. If unset, uses the commit message. |
 | `body` | [Base64](#base64) | Pull request body (Base64 encoded). |
 | `draft` | Boolean | Create as a draft pull request. |
-| `autoMergeMethod` | [MergeMethod](#mergemethod) | Auto-merge method after checks pass. Null means no auto-merge.
-Best effort - silently ignored if not supported by the repository. |
+| `autoMergeMethod` | [MergeMethod](#mergemethod) | Auto-merge method after checks pass. Null means no auto-merge. Best effort - silently ignored if not supported by the repository. |
 | `recreateClosedPullRequest` | Boolean | Recreate pull request if it was previously closed. |
 
 ---
@@ -6065,8 +5907,7 @@ Filter input for RecipeCategory queries.
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `id` | ID! | Fully-qualified recipe ID.
-Example: `org.openrewrite.java.search.FindMethods` |
+| `id` | ID! | Fully-qualified recipe ID. Example: `org.openrewrite.java.search.FindMethods` |
 | `options` | [[RecipeOptionInput](#recipeoptioninput)!] |  |
 
 ---
@@ -6188,8 +6029,7 @@ Filter for repository changesets.
 | `path` | [StringFilter](#stringfilter) | Filter by repository path. |
 | `origin` | [StringFilter](#stringfilter) | Filter by repository origin. |
 | `branch` | [StringFilter](#stringfilter) | Filter by repository branch. |
-| `files` | [FileChangeWhereInput](#filechangewhereinput) | Filter files within matching repositories.
-Useful for filtering to specific file patterns (e.g., all build.gradle.kts files). |
+| `files` | [FileChangeWhereInput](#filechangewhereinput) | Filter files within matching repositories. Useful for filtering to specific file patterns (e.g., all build.gradle.kts files). |
 | `onlyWithResults` | Boolean | Only return repositories with results (filesWithResults > 0). |
 | `state` | [RepositoryChangesetStateFilter](#repositorychangesetstatefilter) | Filter by repository result state. |
 | `_and` | [[RepositoryChangesetWhereInput](#repositorychangesetwhereinput)!] | Logical AND - all conditions must match. |
@@ -6448,10 +6288,7 @@ these tokens are preferred over stored OAuth tokens.
 | Field | Type | Description |
 |-------|------|-------------|
 | `yaml` | [Base64](#base64)! |  |
-| `primary` | ID | The ID of the primary recipe in this bundle. When specified, only this recipe
-will be shown in the marketplace categories, hiding other recipes from this bundle.
-This is used for the Moderne Builder feature where users build complex composite
-recipes and we don't want to expose intermediate recipes in the marketplace. |
+| `primary` | ID | The ID of the primary recipe in this bundle. When specified, only this recipe will be shown in the marketplace categories, hiding other recipes from this bundle. This is used for the Moderne Builder feature where users build complex composite recipes and we don't want to expose intermediate recipes in the marketplace. |
 
 ---
 
