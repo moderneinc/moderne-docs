@@ -28,7 +28,7 @@ Query audit log events with pagination and filtering.
 `auditLogsDownloads`(first: Int = 50, after: String, where: [AuditLogsDownloadWhereInput](#auditlogsdownloadwhereinput), orderBy: [[AuditLogsDownloadOrderByInput](#auditlogsdownloadorderbyinput)!]): [AuditLogsDownloadConnection](#auditlogsdownloadconnection)!
 
 Query audit log downloads with pagination and filtering.
-Use where: { id: { _eq: "..." } } to poll a specific download.
+Use where: \{ id: \{ _eq: "..." } } to poll a specific download.
 
 ---
 
@@ -222,9 +222,9 @@ only rows that actually persisted are rebuilt — partially-executed
 tool batches are reconstructed from whichever tool-origin rows made
 it to the log.
 
-Returns {@code true} when a running turn was actually interrupted,
-{@code false} when the conversation was already idle (no-op, not an
-error). {@code messageId} is accepted for client compatibility but
+Returns `true` when a running turn was actually interrupted,
+`false` when the conversation was already idle (no-op, not an
+error). `messageId` is accepted for client compatibility but
 only the conversation's active turn is cancellable — there is never
 more than one turn in flight.
 
@@ -2664,7 +2664,7 @@ when downloadDataTable mutation is called. |
 |-------|------|-------------|
 | `diff` | String! | Sanitized diff (does not include markers) |
 | `fencedMarkerDiff` | String! | A diff with search and markup markers included in fenced
-{{UUID}} wrappers that correspond to ids in the markers list. |
+\{\{UUID}} wrappers that correspond to ids in the markers list. |
 | `markers` | [[Marker](#marker)!]! |  |
 
 ---
