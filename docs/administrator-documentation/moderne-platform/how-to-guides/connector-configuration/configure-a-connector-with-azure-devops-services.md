@@ -131,7 +131,7 @@ The OAuth token is scoped to the individual user who authorizes it — Moderne c
 
 ### Step 2: Configure the Moderne Connector
 
-The following table contains all of the variables/arguments you need to add to your Moderne Connector run command in order for it to work with your Azure DevOps Services instance. Please note that these variables/arguments must be combined with ones found in other steps in the [Configuring the Moderne Connector guide](./agent-config.md).
+The following table contains all of the variables/arguments you need to add to your Moderne Connector run command in order for it to work with your Azure DevOps Services instance. Please note that these variables/arguments must be combined with ones found in other steps in the [Configuring the Moderne Connector guide](./connector-config.md).
 
 Values for client ID, client secret and tenant ID can be found in the Overview page for your OAuth app's registration:
 ![OAuth app registration overview showing client ID, tenant ID, and client credentials](./assets/azure_oauth_app_registration_overview.png)

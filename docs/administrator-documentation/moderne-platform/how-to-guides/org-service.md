@@ -13,7 +13,7 @@ import VersionBanner from '@site/src/components/VersionBanner';
 
 You should create a dedicated Organizations service if you want to:
 
-* Limit access to the organizations you've [previously defined](./agent-configuration/configure-organizations-hierarchy.md) so that some users only have access to some repositories OR
+* Limit access to the organizations you've [previously defined](./connector-configuration/configure-organizations-hierarchy.md) so that some users only have access to some repositories OR
 * Customize commit messages by repository (e.g., adding a JIRA ticket to your commit messages based on the repository)
 
 This guide will walk you through everything you need to know to create such a service.
@@ -29,7 +29,7 @@ We generally recommend forking the template and modifying it as, in most cases, 
 
 ## Connector variables
 
-Once you've created an organizations service, you'll need to update your Connector run command to provide it with additional variables. Please note that these variables/arguments must be combined with ones found in other steps in the [Configuring the Moderne Connector guide](./agent-configuration/agent-config.md).
+Once you've created an organizations service, you'll need to update your Connector run command to provide it with additional variables. Please note that these variables/arguments must be combined with ones found in other steps in the [Configuring the Moderne Connector guide](./connector-configuration/connector-config.md).
 
 <Tabs groupId="agent-type">
 <TabItem value="oci-container" label="OCI Container">

@@ -31,7 +31,7 @@ As a Moderne customer, you have access to the [Moderne recipe bom](https://centr
 
 ## Step 2: Create a recipe JAR
 
-After you're done writing your recipe(s), you will need to publish them to an artifact repository that is connected to your Moderne instance. An administrator from your organization should have configured this when they set up the Moderne Connector. For instructions on how to configure this connection, please see the [recipe marketplace repositories doc](../../../administrator-documentation/moderne-platform/how-to-guides/agent-configuration/configure-recipe-marketplace-repositories.md).
+After you're done writing your recipe(s), you will need to publish them to an artifact repository that is connected to your Moderne instance. An administrator from your organization should have configured this when they set up the Moderne Connector. For instructions on how to configure this connection, please see the [recipe marketplace repositories doc](../../../administrator-documentation/moderne-platform/how-to-guides/connector-configuration/configure-recipe-marketplace-repositories.md).
 
 Once the connection has been set up, you will need to ensure your repository publishes the recipe artifacts to the artifact repository mentioned above. 
 
@@ -44,7 +44,7 @@ If your organization has not configured any Maven recipe marketplace repositorie
 
 Once your administrator configures one or more Maven repositories, only those are searched — the defaults above are not merged in, so Maven Central and Sonatype snapshots must be listed explicitly to keep them. PyPI, NuGet, and NPM have no defaults.
 
-If you publish a release artifact, make sure it goes to a repository that Moderne searches for releases. If you publish a snapshot, make sure it goes to a repository that Moderne searches for snapshots. If you need to use a different artifact repository, an administrator from your organization will need to [configure it as a recipe marketplace repository](../../../administrator-documentation/moderne-platform/how-to-guides/agent-configuration/configure-recipe-marketplace-repositories.md).
+If you publish a release artifact, make sure it goes to a repository that Moderne searches for releases. If you publish a snapshot, make sure it goes to a repository that Moderne searches for snapshots. If you need to use a different artifact repository, an administrator from your organization will need to [configure it as a recipe marketplace repository](../../../administrator-documentation/moderne-platform/how-to-guides/connector-configuration/configure-recipe-marketplace-repositories.md).
 
 You may also find it useful to read over these other artifact publishing docs:
 

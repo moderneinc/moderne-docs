@@ -25,7 +25,7 @@ Organizations may want to customize UI elements for several reasons:
 
 ## Connector configuration
 
-The following table contains the variables/arguments needed to configure custom UI elements for your Moderne Connector. Please note that these variables/arguments must be combined with ones found in other steps in the [Configuring the Moderne Connector guide](./agent-config.md).
+The following table contains the variables/arguments needed to configure custom UI elements for your Moderne Connector. Please note that these variables/arguments must be combined with ones found in other steps in the [Configuring the Moderne Connector guide](./connector-config.md).
 
 <Tabs groupId="agent-type">
 <TabItem value="oci-container" label="OCI Container">

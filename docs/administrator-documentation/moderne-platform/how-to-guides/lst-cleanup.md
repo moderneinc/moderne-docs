@@ -296,7 +296,7 @@ To run this cleanup automatically, add it to a cron job:
 ```
 
 :::note
-This script requires `s3:ListBucket`, `s3:DeleteObject`, and `s3:HeadBucket` permissions on the LST bucket. These are the credentials used to _run the cleanup script_ — they are separate from the credentials the Connector uses to fetch a CSV from S3 (covered in the [S3 organization source guide](./agent-configuration/configure-an-agent-with-s3-access.md)).
+This script requires `s3:ListBucket`, `s3:DeleteObject`, and `s3:HeadBucket` permissions on the LST bucket. These are the credentials used to _run the cleanup script_ — they are separate from the credentials the Connector uses to fetch a CSV from S3 (covered in the [S3 organization source guide](./connector-configuration/configure-a-connector-with-s3-access.md)).
 :::
 
 :::tip

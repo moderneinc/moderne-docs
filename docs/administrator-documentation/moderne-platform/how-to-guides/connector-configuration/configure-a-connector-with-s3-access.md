@@ -15,7 +15,7 @@ This guide explains how to point the Moderne Connector at a repository CSV store
 
 Any of the CSV variants documented in the [repos.csv reference](../../../../user-documentation/moderne-cli/references/repos-csv.md) work here: a minimal CSV with just `origin`, `path`, and `branch` columns; one that adds organization hierarchy columns; or a full `repos-lock.csv` produced by Mass Ingest's `mod publish`.
 
-For background on how the Connector uses CSV sources and how S3 fits into the overall Connector configuration, please see [how the Connector finds your repositories and their LSTs](./agent-config.md#step-5-configure-the-connector-to-find-your-repositories-and-their-lsts).
+For background on how the Connector uses CSV sources and how S3 fits into the overall Connector configuration, please see [how the Connector finds your repositories and their LSTs](./connector-config.md#step-5-configure-the-connector-to-find-your-repositories-and-their-lsts).
 
 ## Prerequisites
 
@@ -54,7 +54,7 @@ The Connector supports multiple authentication methods for S3:
 
 ## Configuring the Moderne Connector
 
-The following table contains all the variables/arguments you need to add to your Moderne Connector run command in order for it to load a repository CSV from S3. Please note that these variables/arguments must be combined with ones found in other steps in the [Configuring the Moderne Connector guide](./agent-config.md).
+The following table contains all the variables/arguments you need to add to your Moderne Connector run command in order for it to load a repository CSV from S3. Please note that these variables/arguments must be combined with ones found in other steps in the [Configuring the Moderne Connector guide](./connector-config.md).
 
 You can configure multiple S3 sources by including multiple entries, each with a different `{index}`.
 

@@ -13,7 +13,7 @@ import VersionBanner from '@site/src/components/VersionBanner';
 
 This guide explains how to configure the Moderne Connector to talk to a Maven-formatted artifact repository (Artifactory, Nexus, etc.) so the Connector can discover and download your LST artifacts.
 
-When your [repository CSV](./agent-config.md#step-5-configure-the-connector-to-find-your-repositories-and-their-lsts) does not include `publishUri` values, the Connector uses the [Maven Indexer](https://maven.apache.org/maven-indexer/) to discover LST locations. Note that there will be a delay between when an LST is published and when it shows up in Moderne, controlled by a batch index-update process. Even when your CSV already includes `publishUri` values, the credentials you configure here are still used to fetch LSTs from the repository. This connection also allows Moderne to look up dependency versions to determine if a new version is available.
+When your [repository CSV](./connector-config.md#step-5-configure-the-connector-to-find-your-repositories-and-their-lsts) does not include `publishUri` values, the Connector uses the [Maven Indexer](https://maven.apache.org/maven-indexer/) to discover LST locations. Note that there will be a delay between when an LST is published and when it shows up in Moderne, controlled by a batch index-update process. Even when your CSV already includes `publishUri` values, the credentials you configure here are still used to fetch LSTs from the repository. This connection also allows Moderne to look up dependency versions to determine if a new version is available.
 
 :::note
 This page covers Maven repositories used to serve **LST artifacts** for code analysis. If you're looking to configure repositories for **recipe artifacts** (Maven, NPM, NuGet, or PyPI), see [Recipe marketplace repositories](./configure-recipe-marketplace-repositories.md) instead.
@@ -46,7 +46,7 @@ Please follow the below instructions to configure the indexer for your Maven for
 <TabItem value="artifactory" label="Artifactory">
 
 :::warning
-If you are using Artifactory to publish LST artifacts, it is _highly_ recommended that you follow the instructions in the [configuring a Connector with Artifactory doc](./configure-an-agent-with-artifactory-access.md) instead as that will result in faster artifact consumption while also avoiding substantial load on your Artifactory instance. The following instructions should only be followed if you can not use [AQL](https://www.jfrog.com/confluence/display/JFROG/Artifactory+Query+Language) for some reason.
+If you are using Artifactory to publish LST artifacts, it is _highly_ recommended that you follow the instructions in the [configuring a Connector with Artifactory doc](./configure-a-connector-with-artifactory-access.md) instead as that will result in faster artifact consumption while also avoiding substantial load on your Artifactory instance. The following instructions should only be followed if you can not use [AQL](https://www.jfrog.com/confluence/display/JFROG/Artifactory+Query+Language) for some reason.
 :::
 
 In Artifactory, select the `Artifactory` link on the left nav and then select `Maven Indexer` under Services:
@@ -82,10 +82,10 @@ Select the repository that will serve LST artifacts and specify a frequency with
 
 ## Configuring the Moderne Connector
 
-The following table contains all of the variables/arguments you need to add to your Moderne Connector run command in order for it to get LST artifacts from your Maven formatted repository. Please note that these variables/arguments must be combined with ones found in other steps in the [Configuring the Moderne Connector guide](./agent-config.md).
+The following table contains all of the variables/arguments you need to add to your Moderne Connector run command in order for it to get LST artifacts from your Maven formatted repository. Please note that these variables/arguments must be combined with ones found in other steps in the [Configuring the Moderne Connector guide](./connector-config.md).
 
 :::info
-The Maven poll repos below nest under an HTTP organization source (`moderne.organization.sources.http[0]`). That source's `uri` field — pointing at your `repos.csv` / `repos-lock.csv` — must also be set (see [step 5 of the Configuring the Moderne Connector guide](./agent-config.md#step-5-configure-the-connector-to-find-your-repositories-and-their-lsts)), otherwise the Connector fails to start with a validation error on the missing URI.
+The Maven poll repos below nest under an HTTP organization source (`moderne.organization.sources.http[0]`). That source's `uri` field — pointing at your `repos.csv` / `repos-lock.csv` — must also be set (see [step 5 of the Configuring the Moderne Connector guide](./connector-config.md#step-5-configure-the-connector-to-find-your-repositories-and-their-lsts)), otherwise the Connector fails to start with a validation error on the missing URI.
 :::
 
 You can configure multiple Maven formatted repositories by including multiple entries, each with a different `{index}`.

@@ -1361,7 +1361,7 @@ The header on a visualization page will now include the organization the visuali
 
 ### Connector 0.195.0 (2024/11/21)
 
-- As of Connector version 0.195.0 we are now **no longer publishing new versions to Azure Container Registry**. If you were using Azure Container Registry to pull a Docker image for the Moderne Connector, you will need to follow the instructions [here](../administrator-documentation/moderne-platform/how-to-guides/agent-configuration/agent-config.md#step-2-determine-how-you-will-run-the-connector) to build a Dockerfile and publish your own Docker image for the Moderne Connector.
+- As of Connector version 0.195.0 we are now **no longer publishing new versions to Azure Container Registry**. If you were using Azure Container Registry to pull a Docker image for the Moderne Connector, you will need to follow the instructions [here](../administrator-documentation/moderne-platform/how-to-guides/connector-configuration/connector-config.md#step-2-determine-how-you-will-run-the-connector) to build a Dockerfile and publish your own Docker image for the Moderne Connector.
 - As of Connector version 0.195.0 we are now **no longer publishing new versions to Azure DevOps**. If you were using Azure DevOps to pull the Connector's executable JAR, you will now pull the Connector from Maven Central. The link to the latest Connector release on Maven Central can be found on our [Connector releases page](./connector-releases.md)
 
 ### UI v10.169.2 (2024/11/15)
@@ -1778,7 +1778,7 @@ This new mime type allows visualization notebook authors the ability to generate
 
 ### UI v10.134.0 (2024/08/01)
 
-- add authorization support for Azure DevOps. See how to [setup your Connector to connect to Azure DevOps](../administrator-documentation/moderne-platform/how-to-guides/agent-configuration/configure-an-agent-with-azure-devops-services)
+- add authorization support for Azure DevOps. See how to [setup your Connector to connect to Azure DevOps](../administrator-documentation/moderne-platform/how-to-guides/connector-configuration/configure-a-connector-with-azure-devops-services)
 
 <figure>
   ![](./assets/azure-connection.png)
@@ -3855,7 +3855,7 @@ Actions for grids are now presented on the left-hand side of the table.
 
 #### Bitbucket Cloud support
 
-Repositories hosted on Bitbucket Cloud are now supported. This [requires additional configuration through your Connector](../administrator-documentation/moderne-platform/how-to-guides/agent-configuration/configure-bitbucket-cloud-to-agent.md#prerequisites).
+Repositories hosted on Bitbucket Cloud are now supported. This [requires additional configuration through your Connector](../administrator-documentation/moderne-platform/how-to-guides/connector-configuration/configure-bitbucket-cloud-to-connector.md#prerequisites).
 
 <figure>
   ![](./assets/bit-cloud.png)

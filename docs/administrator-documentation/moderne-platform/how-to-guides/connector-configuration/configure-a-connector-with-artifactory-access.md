@@ -13,7 +13,7 @@ import VersionBanner from '@site/src/components/VersionBanner';
 
 This guide explains how to configure the Moderne Connector to talk to your Artifactory instance so the Connector can discover and download your LST artifacts.
 
-When your [repository CSV](./agent-config.md#step-5-configure-the-connector-to-find-your-repositories-and-their-lsts) does not include `publishUri` values, the Connector uses [Artifactory Query Language](https://www.jfrog.com/confluence/display/JFROG/Artifactory+Query+Language) (AQL) to discover LST locations in near real-time — within a minute or two of publishing. Even when your CSV already includes `publishUri` values, the credentials you configure here are still used to fetch LSTs from Artifactory.
+When your [repository CSV](./connector-config.md#step-5-configure-the-connector-to-find-your-repositories-and-their-lsts) does not include `publishUri` values, the Connector uses [Artifactory Query Language](https://www.jfrog.com/confluence/display/JFROG/Artifactory+Query+Language) (AQL) to discover LST locations in near real-time — within a minute or two of publishing. Even when your CSV already includes `publishUri` values, the credentials you configure here are still used to fetch LSTs from Artifactory.
 
 :::info
 If you're wanting to configure repositories for recipe artifacts, please see [Recipe marketplace repositories](./configure-recipe-marketplace-repositories.md) instead.
@@ -27,10 +27,10 @@ If you're wanting to configure repositories for recipe artifacts, please see [Re
 
 ## Configuring the Moderne Connector
 
-The following table contains all of the variables/arguments you need to add to your Moderne Connector run command in order for it to get LST artifacts from your Artifactory instance. Please note that these variables/arguments must be combined with ones found in other steps in the [Configuring the Moderne Connector guide](./agent-config.md).
+The following table contains all of the variables/arguments you need to add to your Moderne Connector run command in order for it to get LST artifacts from your Artifactory instance. Please note that these variables/arguments must be combined with ones found in other steps in the [Configuring the Moderne Connector guide](./connector-config.md).
 
 :::info
-The Artifactory poll repos below nest under an HTTP organization source (`moderne.organization.sources.http[0]`). That source's `uri` field — pointing at your `repos.csv` / `repos-lock.csv` — must also be set (see [step 5 of the Configuring the Moderne Connector guide](./agent-config.md#step-5-configure-the-connector-to-find-your-repositories-and-their-lsts)), otherwise the Connector fails to start with a validation error on the missing URI.
+The Artifactory poll repos below nest under an HTTP organization source (`moderne.organization.sources.http[0]`). That source's `uri` field — pointing at your `repos.csv` / `repos-lock.csv` — must also be set (see [step 5 of the Configuring the Moderne Connector guide](./connector-config.md#step-5-configure-the-connector-to-find-your-repositories-and-their-lsts)), otherwise the Connector fails to start with a validation error on the missing URI.
 :::
 
 You can configure multiple Artifactory servers by including multiple entries, each with a different `{index}`. Within a given Artifactory server configuration, you can configure multiple LST query filters by including multiple entries, each with a different `{index}`.

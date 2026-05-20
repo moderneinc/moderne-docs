@@ -30,7 +30,7 @@ The Standard edition of Moderne offers a more cost-effective operational footpri
 
 As part of the Standard edition setup, you will need to:
 
-* Own and deploy a [Moderne Connector](../how-to-guides/agent-configuration/agent-config.md) in some location that has access to your source code repositories
+* Own and deploy a [Moderne Connector](../how-to-guides/connector-configuration/connector-config.md) in some location that has access to your source code repositories
 * Set up [mass ingestion](../how-to-guides/mass-ingest.md) to build and publish LSTs to an Artifactory/Nexus instance (either one we own or you manage that the Connector connects to)
 
 :::tip
@@ -65,7 +65,7 @@ Moderne is SOC 2 Type 2 certified.
 
 The Enterprise edition of Moderne is one where your company receives a dedicated, fully isolated instance of the Moderne Platform. The cloud provider and region for this instance can be configured based on your preferences.
 
-This isolated instance receives data from an [on-prem Connector](../how-to-guides/agent-configuration/agent-config.md) that you configure and control the key for. If you delete the key, the Moderne instance will stop receiving data and won't be able to function anymore.
+This isolated instance receives data from an [on-prem Connector](../how-to-guides/connector-configuration/connector-config.md) that you configure and control the key for. If you delete the key, the Moderne instance will stop receiving data and won't be able to function anymore.
 
 For further details about the Enterprise edition, please see the following docs:
 

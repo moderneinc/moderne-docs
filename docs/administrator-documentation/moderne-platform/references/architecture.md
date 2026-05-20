@@ -58,7 +58,7 @@ Your team may also wish to configure the Connector to:
 * Proxy requests to LLM providers for AI-powered features like [Moddy](#moddy)
 
 :::info
-For more details, see the [Connector configuration documentation](../how-to-guides/agent-configuration/agent-config.md).
+For more details, see the [Connector configuration documentation](../how-to-guides/connector-configuration/connector-config.md).
 :::
 
 **Setup requirements**
