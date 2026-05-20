@@ -8,7 +8,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import VersionBanner from '@site/src/components/VersionBanner';
 
-<VersionBanner version="v1" linkPath="/administrator-documentation/moderne-platform/how-to-guides/agent-configuration/configure-organizations-hierarchy" />
+<VersionBanner version="v1" linkPath="/administrator-documentation/moderne-platform/how-to-guides/connector-configuration/configure-organizations-hierarchy" />
 
 # Configure an organizational hierarchy
 

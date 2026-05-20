@@ -98,7 +98,7 @@ After creating a GitHub App, you must install it in each organization or account
 
 ## Configure the Moderne Connector
 
-The following table contains all of the variables/arguments you need to add to your Moderne Connector run command in order for it to work with your GitHub instance. Please note that these variables/arguments must be combined with ones found in other steps in the [Configuring the Moderne Connector guide](./agent-config.md).
+The following table contains all of the variables/arguments you need to add to your Moderne Connector run command in order for it to work with your GitHub instance. Please note that these variables/arguments must be combined with ones found in other steps in the [Configuring the Moderne Connector guide](./connector-config.md).
 
 :::info
 You can configure multiple GitHub OAuth apps by including multiple entries, each with a different `{index}`.

@@ -8,7 +8,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import VersionBanner from '@site/src/components/VersionBanner';
 
-<VersionBanner version="v1" linkPath="/administrator-documentation/moderne-platform/how-to-guides/agent-configuration/configure-bitbucket-cloud-to-agent" />
+<VersionBanner version="v1" linkPath="/administrator-documentation/moderne-platform/how-to-guides/connector-configuration/configure-bitbucket-cloud-to-connector" />
 
 # Configure an agent with Bitbucket Cloud access
 

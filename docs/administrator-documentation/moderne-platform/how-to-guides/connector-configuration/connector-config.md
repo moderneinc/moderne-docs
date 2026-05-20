@@ -1,7 +1,7 @@
 ---
 sidebar_label: Configuring the Moderne Connector
 description: Detailed instructions for configuring the Moderne Connector.
-slug: /administrator-documentation/moderne-platform/how-to-guides/agent-configuration/agent-configuration
+slug: /administrator-documentation/moderne-platform/how-to-guides/connector-configuration/connector-configuration
 ---
      
 import Tabs from '@theme/Tabs';
@@ -278,11 +278,11 @@ For every SCM that you want to connect to Moderne, please follow the instruction
 
 **SCM configuration:**
 
-* [Azure DevOps Services configuration](./configure-an-agent-with-azure-devops-services.md)
-* [Bitbucket Cloud configuration](./configure-bitbucket-cloud-to-agent.md)
-* [Bitbucket Data Center configuration](./configure-bitbucket-to-agent.md)
-* [GitHub configuration](./configure-an-agent-with-github.md)
-* [GitLab configuration](./configure-an-agent-with-gitlab.md)
+* [Azure DevOps Services configuration](./configure-a-connector-with-azure-devops-services.md)
+* [Bitbucket Cloud configuration](./configure-bitbucket-cloud-to-connector.md)
+* [Bitbucket Data Center configuration](./configure-bitbucket-to-connector.md)
+* [GitHub configuration](./configure-a-connector-with-github.md)
+* [GitLab configuration](./configure-a-connector-with-gitlab.md)
 
 Below is an example of what a Connector run command might look like at the end of this step.
 
@@ -355,7 +355,7 @@ The CSV can live in a few different places - pick whichever fits your environmen
 | HTTP(S)     | A URL serving a CSV.                 | `moderne.organization.sources.http[*]` |
 | S3 object   | An S3 URI pointing to a CSV object.  | `moderne.organization.sources.s3[*]`   |
 
-For `file` and `http` sources, please see the [organizational hierarchy configuration guide](./configure-organizations-hierarchy.md). For `s3` sources, please see the [S3 organization source guide](./configure-an-agent-with-s3-access.md). For details on the CSV format itself (such as required and optional columns, how to express an organizational hierarchy), please see the [repos.csv reference](../../../../user-documentation/moderne-cli/references/repos-csv.md).
+For `file` and `http` sources, please see the [organizational hierarchy configuration guide](./configure-organizations-hierarchy.md). For `s3` sources, please see the [S3 organization source guide](./configure-a-connector-with-s3-access.md). For details on the CSV format itself (such as required and optional columns, how to express an organizational hierarchy), please see the [repos.csv reference](../../../../user-documentation/moderne-cli/references/repos-csv.md).
 
 #### Configure where your LSTs live
 
@@ -363,10 +363,10 @@ You have two options:
 
 * **(Recommended) Include publish URIs in the CSV.** When each row has a `publishUri` column, the Connector trusts those values and fetches LSTs directly. You can generate such a CSV by setting up a [Mass Ingest](../mass-ingest.md) pipeline; its `mod publish` step produces a `repos-lock.csv` with `publishUri` values for every repository.
 * **Let the Connector discover them.** If your CSV does not have `publishUri` values, point the Connector at the artifact repository (or repositories) where your LSTs are published. The Connector will query it to look up each LST's location at runtime:
-  * **[Artifactory](./configure-an-agent-with-artifactory-access.md)** - uses [AQL](https://www.jfrog.com/confluence/display/JFROG/Artifactory+Query+Language) to discover LSTs in near real-time (within a minute or two of publishing). Recommended for Artifactory users.
-  * **[Maven repository](./configure-an-agent-with-maven-repository-access.md)** - works with any Maven-formatted repository (Artifactory, Nexus, etc.) via the [Maven Indexer](https://maven.apache.org/maven-indexer/). There will be a delay between when an LST is published and when it shows up in Moderne, controlled by a batch index-update process.
+  * **[Artifactory](./configure-a-connector-with-artifactory-access.md)** - uses [AQL](https://www.jfrog.com/confluence/display/JFROG/Artifactory+Query+Language) to discover LSTs in near real-time (within a minute or two of publishing). Recommended for Artifactory users.
+  * **[Maven repository](./configure-a-connector-with-maven-repository-access.md)** - works with any Maven-formatted repository (Artifactory, Nexus, etc.) via the [Maven Indexer](https://maven.apache.org/maven-indexer/). There will be a delay between when an LST is published and when it shows up in Moderne, controlled by a batch index-update process.
 
-The Connector picks between these two paths automatically based on whether you've configured poll repositories. If you need to force one or the other, set `moderne.connector.organization.mode` - see the [agent variables reference](./agent-variables.md) for the full list of values.
+The Connector picks between these two paths automatically based on whether you've configured poll repositories. If you need to force one or the other, set `moderne.connector.organization.mode` - see the [agent variables reference](./connector-variables.md) for the full list of values.
 
 Below is an example of what a Connector run command might look like at the end of this step.
 
@@ -458,7 +458,7 @@ For the full list of variables/arguments, please see the [recipe marketplace rep
 
 ### Step 7: (Optionally) Configure LLM support for Moddy
 
-If you want to enable Moddy (Moderne's AI agent) in your platform, you'll need to configure LLM support. Moddy allows users to interact with their codebase using natural language. Please follow the [Moddy configuration instructions](./configure-an-agent-with-llm-for-moddy.md) to set this up.
+If you want to enable Moddy (Moderne's AI agent) in your platform, you'll need to configure LLM support. Moddy allows users to interact with their codebase using natural language. Please follow the [Moddy configuration instructions](./configure-a-connector-with-llm-for-moddy.md) to set this up.
 
 ### Step 8: (Optionally) Create an Organizations service
 
@@ -475,7 +475,7 @@ The DevCenter is the mission-control dashboard of the Moderne Platform. If you w
 
 ### Step 10: (Optionally) Provide SSL client keystore
 
-If you have configured any services that require client SSL certificates (such as Maven or Artifactory), you will need to provide a KeyStore with these certificates. Please follow [these instructions](./configure-an-agent-with-client-ssl-certificates.md) to configure the KeyStore.
+If you have configured any services that require client SSL certificates (such as Maven or Artifactory), you will need to provide a KeyStore with these certificates. Please follow [these instructions](./configure-a-connector-with-client-ssl-certificates.md) to configure the KeyStore.
 
 ### Step 11: Run the Connector
 
@@ -578,7 +578,7 @@ The Connector exposes two organization-wide knobs that affect how quickly new LS
 * **`moderne.connector.organization.interval`** — how often the Connector re-fetches each source `repos.csv` and re-runs enrichment. Defaults to `10m`. Lower this if you want LSTs to show up faster; raise it to reduce load on your artifact repository.
 * **`moderne.connector.organization.downloadParallelism`** — the global cap on concurrent LST download, encrypt, and upload operations across all configured sources. Defaults to `max(4, availableProcessors())`. Raise it if your Connector host and upstream gateway have headroom; lower it to throttle network/CPU use.
 
-See the [All Connector variables reference](./agent-variables.md#organization-sync-variables) for the exact variable and argument names.
+See the [All Connector variables reference](./connector-variables.md#organization-sync-variables) for the exact variable and argument names.
 
 ## Health endpoints
 

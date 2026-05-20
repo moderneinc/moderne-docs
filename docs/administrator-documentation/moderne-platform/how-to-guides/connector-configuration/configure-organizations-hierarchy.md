@@ -47,10 +47,10 @@ Please see our [creating a repos.csv guide](../../../../user-documentation/moder
 
 ## Connector configuration
 
-The `repos.csv` source location is provided to the Connector by setting a variable in the Connector run command. A source can be a local file (`file` source), an HTTP(S) URL (`http` source), or an S3 object URI (`s3` source — see [S3 organization source](./configure-an-agent-with-s3-access.md) for S3-specific variables). You can configure multiple sources of each type.
+The `repos.csv` source location is provided to the Connector by setting a variable in the Connector run command. A source can be a local file (`file` source), an HTTP(S) URL (`http` source), or an S3 object URI (`s3` source — see [S3 organization source](./configure-a-connector-with-s3-access.md) for S3-specific variables). You can configure multiple sources of each type.
 
 :::tip[`repos.csv` vs. `repos-lock.csv`]
-If you set up a [Mass Ingest](../mass-ingest.md) pipeline, the `mod publish` step produces a `repos-lock.csv` with a `publishUri` for every repository. Pointing the Connector at this file lets it fetch LSTs directly from the URIs in the CSV, which is faster and more reliable than asking the Connector to discover LSTs at runtime. See [how the Connector finds your repositories and their LSTs](./agent-config.md#step-5-configure-the-connector-to-find-your-repositories-and-their-lsts) for the full picture.
+If you set up a [Mass Ingest](../mass-ingest.md) pipeline, the `mod publish` step produces a `repos-lock.csv` with a `publishUri` for every repository. Pointing the Connector at this file lets it fetch LSTs directly from the URIs in the CSV, which is faster and more reliable than asking the Connector to discover LSTs at runtime. See [how the Connector finds your repositories and their LSTs](./connector-config.md#step-5-configure-the-connector-to-find-your-repositories-and-their-lsts) for the full picture.
 :::
 
 <Tabs groupId="agent-type">
@@ -67,7 +67,7 @@ If you set up a [Mass Ingest](../mass-ingest.md) pipeline, the `mod publish` ste
 | `MODERNE_ORGANIZATION_SOURCES_HTTP_{index}_BEARERTOKEN`       | `false`  |         | Bearer token for the HTTP endpoint. Mutually exclusive with `USERNAME`/`PASSWORD`.                                                                                       |
 | `MODERNE_ORGANIZATION_SOURCES_HTTP_{index}_PROXY_HOST`        | `false`  |         | The hostname of a proxy server to use for connections to the HTTP endpoint. If specified, `PROXY_PORT` must also be set.                                                 |
 | `MODERNE_ORGANIZATION_SOURCES_HTTP_{index}_PROXY_PORT`        | `false`  |         | The port of the proxy server to use for connections to the HTTP endpoint. If specified, `PROXY_HOST` must also be set.                                                   |
-| `MODERNE_ORGANIZATION_SOURCES_S3_{index}_URI`                 | `false`  |         | The S3 URI of a CSV object (e.g., `s3://my-bucket/repos.csv`). For the full set of S3 auth/region/endpoint variables, please see [S3 organization source](./configure-an-agent-with-s3-access.md). |
+| `MODERNE_ORGANIZATION_SOURCES_S3_{index}_URI`                 | `false`  |         | The S3 URI of a CSV object (e.g., `s3://my-bucket/repos.csv`). For the full set of S3 auth/region/endpoint variables, please see [S3 organization source](./configure-a-connector-with-s3-access.md). |
 
 **Example using a local file:**
 
@@ -111,7 +111,7 @@ docker run \
 | `--moderne.organization.sources.http[{index}].bearerToken` | `false`  |         | Bearer token for the HTTP endpoint. Mutually exclusive with `username`/`password`.                                                                                         |
 | `--moderne.organization.sources.http[{index}].proxy.host`  | `false`  |         | The hostname of a proxy server to use for connections to the HTTP endpoint. If specified, `proxy.port` must also be set.                                                   |
 | `--moderne.organization.sources.http[{index}].proxy.port`  | `false`  |         | The port of the proxy server to use for connections to the HTTP endpoint. If specified, `proxy.host` must also be set.                                                     |
-| `--moderne.organization.sources.s3[{index}].uri`           | `false`  |         | The S3 URI of a CSV object (e.g., `s3://my-bucket/repos.csv`). For the full set of S3 auth/region/endpoint arguments, please see [S3 organization source](./configure-an-agent-with-s3-access.md). |
+| `--moderne.organization.sources.s3[{index}].uri`           | `false`  |         | The S3 URI of a CSV object (e.g., `s3://my-bucket/repos.csv`). For the full set of S3 auth/region/endpoint arguments, please see [S3 organization source](./configure-a-connector-with-s3-access.md). |
 
 **Example using a local file:**
 

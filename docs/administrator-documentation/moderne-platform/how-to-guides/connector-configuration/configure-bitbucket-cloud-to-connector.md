@@ -117,7 +117,7 @@ Please save those for use in [Step 2](#step-2-configure-the-moderne-connector).
 
 ### Step 2: Configure the Moderne Connector
 
-The following table contains all of the variables/arguments you need to add to your Moderne Connector run command in order for it to work with your Bitbucket instance. Please note that these variables/arguments must be combined with ones found in other steps in the [Configuring the Moderne Connector guide](./agent-config.md).
+The following table contains all of the variables/arguments you need to add to your Moderne Connector run command in order for it to work with your Bitbucket instance. Please note that these variables/arguments must be combined with ones found in other steps in the [Configuring the Moderne Connector guide](./connector-config.md).
 
 <Tabs>
 <TabItem value="oci-container" label="OCI Container">

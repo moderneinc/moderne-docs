@@ -21,7 +21,7 @@ Visualization artifacts published to the configured PyPI index can be deployed t
 
 ## Configuring the Moderne Connector
 
-The following table contains all of the variables/arguments you need to add to your Moderne Connector run command in order for it to get visualization artifacts from your PyPI package index. Please note that these variables/arguments must be combined with ones found in other steps in the [Configuring the Moderne Connector guide](./agent-config.md).
+The following table contains all of the variables/arguments you need to add to your Moderne Connector run command in order for it to get visualization artifacts from your PyPI package index. Please note that these variables/arguments must be combined with ones found in other steps in the [Configuring the Moderne Connector guide](./connector-config.md).
 
 You can configure multiple PyPI indexes by including multiple entries, each with a different `{index}`.
 

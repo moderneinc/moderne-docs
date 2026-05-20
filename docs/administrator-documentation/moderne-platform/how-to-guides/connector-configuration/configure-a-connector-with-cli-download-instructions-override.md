@@ -26,7 +26,7 @@ Organizations may want to customize CLI download instructions for several reason
 
 ## Connector configuration
 
-The following table contains the variables/arguments needed to configure custom CLI download instructions for your Moderne Connector. Please note that these variables/arguments must be combined with ones found in other steps in the [Configuring the Moderne Connector guide](./agent-config.md).
+The following table contains the variables/arguments needed to configure custom CLI download instructions for your Moderne Connector. Please note that these variables/arguments must be combined with ones found in other steps in the [Configuring the Moderne Connector guide](./connector-config.md).
 
 <Tabs groupId="agent-type">
 <TabItem value="oci-container" label="OCI Container">

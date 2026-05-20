@@ -27,7 +27,7 @@ Setting up a generic HTTP tool will allow you to use `org.openrewrite.ipc.http.H
 
 ## Connector configuration
 
-The following table contains all the variables/arguments you need to add to your Moderne Connector run command to work with your HTTP tool. Please note that these variables/arguments must be combined with ones found in other steps in the [Configuring the Moderne Connector guide](./agent-config.md).
+The following table contains all the variables/arguments you need to add to your Moderne Connector run command to work with your HTTP tool. Please note that these variables/arguments must be combined with ones found in other steps in the [Configuring the Moderne Connector guide](./connector-config.md).
 
 You can configure multiple generic HTTP tools by including multiple entries, each with a different `{index}`.
 

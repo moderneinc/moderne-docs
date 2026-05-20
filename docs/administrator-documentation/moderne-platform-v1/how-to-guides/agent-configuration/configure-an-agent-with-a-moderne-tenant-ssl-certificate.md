@@ -8,7 +8,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import VersionBanner from '@site/src/components/VersionBanner';
 
-<VersionBanner version="v1" linkPath="/administrator-documentation/moderne-platform/how-to-guides/agent-configuration/configure-an-agent-with-a-moderne-tenant-ssl-certificate" />
+<VersionBanner version="v1" linkPath="/administrator-documentation/moderne-platform/how-to-guides/connector-configuration/configure-a-connector-with-a-moderne-tenant-ssl-certificate" />
 
 # Configure an agent with a Moderne tenant SSL certificate
 

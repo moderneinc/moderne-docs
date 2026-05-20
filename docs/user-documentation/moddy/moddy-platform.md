@@ -17,7 +17,7 @@ In this guide, we'll walk you through everything you need to know to get started
 ## Prerequisites
 
 * Access to the Moderne Platform.
-* Moddy [already being configured in your tenant](../../administrator-documentation/moderne-platform/how-to-guides/agent-configuration/configure-an-agent-with-llm-for-moddy.md) by an admin.
+* Moddy [already being configured in your tenant](../../administrator-documentation/moderne-platform/how-to-guides/connector-configuration/configure-a-connector-with-llm-for-moddy.md) by an admin.
 * Repositories ingested into the Moderne Platform.
 
 ## Where to access Moddy

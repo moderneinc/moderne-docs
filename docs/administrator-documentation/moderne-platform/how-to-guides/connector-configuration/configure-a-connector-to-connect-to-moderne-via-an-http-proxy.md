@@ -22,7 +22,7 @@ This proxy will be used for egress, and then the API gateway will establish the 
 
 ## HTTP CONNECT proxy
 
-If your organization uses an HTTP CONNECT proxy for outbound traffic, configure the Connector with the proxy host and port. The following variables/arguments must be combined with ones found in other steps in the [Configuring the Moderne Connector guide](./agent-config.md).
+If your organization uses an HTTP CONNECT proxy for outbound traffic, configure the Connector with the proxy host and port. The following variables/arguments must be combined with ones found in other steps in the [Configuring the Moderne Connector guide](./connector-config.md).
 
 <Tabs groupId="agent-type">
 <TabItem value="oci-container" label="OCI Container">

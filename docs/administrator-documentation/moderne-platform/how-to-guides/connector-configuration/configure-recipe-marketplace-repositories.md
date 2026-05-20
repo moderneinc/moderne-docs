@@ -17,7 +17,7 @@ This guide explains how to point the Moderne Connector at one or more package re
 
 Recipe marketplace repositories are configured under the `moderne.recipe.marketplace.repositories` namespace. You can configure multiple repositories of each type by including multiple entries, each with a different `{index}`.
 
-The variables/arguments in the tables below must be combined with ones found in other steps in the [Configuring the Moderne Connector guide](./agent-config.md).
+The variables/arguments in the tables below must be combined with ones found in other steps in the [Configuring the Moderne Connector guide](./connector-config.md).
 
 :::info[Defaults and override behavior]
 If no Maven recipe marketplace repositories are configured, the Moderne Platform falls back to Maven Central (`https://repo.maven.apache.org/maven2`, releases only) and Sonatype snapshots (`https://central.sonatype.com/repository/maven-snapshots/`, snapshots only). Once you configure one or more Maven repositories below, only those are searched — the defaults are not merged in, so you will need to list Maven Central and Sonatype snapshots explicitly to keep them. PyPI, NuGet, and NPM have no defaults.
