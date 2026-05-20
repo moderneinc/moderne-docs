@@ -16,9 +16,6 @@ const config: Config = {
 
   // Only throw on broken links when the full site (including recipe catalog) is built.
   onBrokenLinks: (process.env.CI_STRICT_LINKS && !process.env.SKIP_RECIPE_CATALOG) ? 'throw' : 'warn',
-  // The GraphQL API reference uses <h5 id="type-xxx"> HTML anchors which work in browsers
-  // but are not recognized by Docusaurus's anchor checker (it only checks heading-generated IDs).
-  onBrokenAnchors: 'ignore',
 
   i18n: {
     defaultLocale: 'en',

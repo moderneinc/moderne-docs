@@ -165,7 +165,7 @@ const KIND_ORDER = [
 ];
 
 function linkify(text, knownTypes) {
-  return text.replace(TYPE_NAME_RE, name => knownTypes.has(name) ? `[${name}](#type-${name.toLowerCase()})` : name);
+  return text.replace(TYPE_NAME_RE, name => knownTypes.has(name) ? `[${name}](#${name.toLowerCase()})` : name);
 }
 
 function mdxEscape(text) {
@@ -211,9 +211,9 @@ export function generateMarkdown(ops, types) {
       if (!group.length) continue;
       lines.push(`### ${kindLabel}`, '');
       for (const t of group) {
-        lines.push(`<h5 id="type-${t.name.toLowerCase()}"><code>${t.name}</code></h5>`, '');
+        lines.push(`##### \`${t.name}\``, '');
         if (t.implements.length) {
-          const impls = t.implements.map(i => `[${i}](#type-${i.toLowerCase()})`).join(', ');
+          const impls = t.implements.map(i => `[${i}](#${i.toLowerCase()})`).join(', ');
           lines.push(`**Implements:** ${impls}`, '');
         }
         if (t.description) lines.push(mdxEscape(t.description), '');
