@@ -187,13 +187,13 @@ describe('generateMarkdown', () => {
   });
 
   it('renders Returns line with link for known type', () => {
-    expect(md()).toContain('**Returns:** [User](#type-user)');
+    expect(md()).toContain('**Returns:** [User](#user)');
   });
 
   it('renders Returns line with list type linkified', () => {
     const out = md();
     const usersSection = out.slice(out.indexOf('#### `users`'));
-    expect(usersSection).toContain('**Returns:** [[User](#type-user)!]!');
+    expect(usersSection).toContain('**Returns:** [[User](#user)!]!');
   });
 
   it('has Types section with Object types subsection', () => {
@@ -202,13 +202,12 @@ describe('generateMarkdown', () => {
     expect(out).toContain('### Object types');
   });
 
-  it('renders type heading with explicit anchor id', () => {
-    expect(md()).toContain('<a id="type-user"></a>');
+  it('renders type heading', () => {
     expect(md()).toContain('##### `User`');
   });
 
   it('renders implements link', () => {
-    expect(md()).toContain('**Implements:** [Node](#type-node)');
+    expect(md()).toContain('**Implements:** [Node](#node)');
   });
 
   it('renders field table', () => {
@@ -217,13 +216,12 @@ describe('generateMarkdown', () => {
   });
 
   it('linkifies known type names in field table', () => {
-    expect(md()).toContain('[UserRole](#type-userrole)');
+    expect(md()).toContain('[UserRole](#userrole)');
   });
 
   it('renders enum values', () => {
     const out = md();
     expect(out).toContain('### Enums');
-    expect(out).toContain('<a id="type-userrole"></a>');
     expect(out).toContain('##### `UserRole`');
     expect(out).toContain('- `ADMIN`');
     expect(out).toContain('- `MEMBER`');
@@ -232,7 +230,7 @@ describe('generateMarkdown', () => {
   it('renders union members', () => {
     const out = md();
     expect(out).toContain('### Unions');
-    expect(out).toContain('= [User](#type-user)');
+    expect(out).toContain('= [User](#user)');
   });
 
   it('renders deprecated field in table', () => {
