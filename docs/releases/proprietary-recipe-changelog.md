@@ -3742,11 +3742,3 @@ Republishing to update dependencies
 
 * Make `DevCenterMeasurer` a non-generic interface to avoid class loading issues when reading measures in CLI
 
-## May 20, 2025
-
-#### rewrite-java-security - v3.9.0
-
-* Recreate type table using latest patch versions
-* Made transitive dependency bump a ScanningRecipe
-* `DependencyVulnerabilityCheck` recursively checks upgrade paths for transitive dependencies
-
