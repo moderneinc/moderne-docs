@@ -211,7 +211,7 @@ export function generateMarkdown(ops, types) {
       if (!group.length) continue;
       lines.push(`### ${kindLabel}`, '');
       for (const t of group) {
-        lines.push(`<a id="type-${t.name.toLowerCase()}"></a>`, '', `##### \`${t.name}\``, '');
+        lines.push(`<h5 id="type-${t.name.toLowerCase()}"><code>${t.name}</code></h5>`, '');
         if (t.implements.length) {
           const impls = t.implements.map(i => `[${i}](#type-${i.toLowerCase()})`).join(', ');
           lines.push(`**Implements:** ${impls}`, '');

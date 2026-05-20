@@ -625,9 +625,7 @@ Update an existing user-defined organization.
 
 ### Object types
 
-<a id="type-accesstoken"></a>
-
-##### `AccessToken`
+<h5 id="type-accesstoken"><code>AccessToken</code></h5>
 
 Moderne Personal Access Tokens
 
@@ -638,9 +636,7 @@ Moderne Personal Access Tokens
 | `created` | [DateTime](#type-datetime)! | The date and time the token was created. |
 | `expiresAt` | [DateTime](#type-datetime) | The date and time the token will expire. |
 
-<a id="type-accesstokenconnection"></a>
-
-##### `AccessTokenConnection`
+<h5 id="type-accesstokenconnection"><code>AccessTokenConnection</code></h5>
 
 | Field | Type | Description |
 |-------|------|-------------|
@@ -648,18 +644,14 @@ Moderne Personal Access Tokens
 | `pageInfo` | [PageInfo](#type-pageinfo)! |  |
 | `count` | Int! |  |
 
-<a id="type-accesstokenedge"></a>
-
-##### `AccessTokenEdge`
+<h5 id="type-accesstokenedge"><code>AccessTokenEdge</code></h5>
 
 | Field | Type | Description |
 |-------|------|-------------|
 | `node` | [AccessToken](#type-accesstoken)! |  |
 | `cursor` | String! |  |
 
-<a id="type-artifactoryconfiguration"></a>
-
-##### `ArtifactoryConfiguration`
+<h5 id="type-artifactoryconfiguration"><code>ArtifactoryConfiguration</code></h5>
 
 | Field | Type | Description |
 |-------|------|-------------|
@@ -670,9 +662,7 @@ Moderne Personal Access Tokens
 | `lstQuery` | [String!] |  |
 | `lastIngestedAt` | [DateTime](#type-datetime) |  |
 
-<a id="type-auditlog"></a>
-
-##### `AuditLog`
+<h5 id="type-auditlog"><code>AuditLog</code></h5>
 
 | Field | Type | Description |
 |-------|------|-------------|
@@ -685,9 +675,7 @@ Moderne Personal Access Tokens
 | `description` | String | Human-readable description of what happened. |
 | `timestamp` | [DateTime](#type-datetime)! | When the action occurred. |
 
-<a id="type-auditlogconnection"></a>
-
-##### `AuditLogConnection`
+<h5 id="type-auditlogconnection"><code>AuditLogConnection</code></h5>
 
 | Field | Type | Description |
 |-------|------|-------------|
@@ -695,18 +683,14 @@ Moderne Personal Access Tokens
 | `pageInfo` | [PageInfo](#type-pageinfo)! |  |
 | `count` | Int! |  |
 
-<a id="type-auditlogedge"></a>
-
-##### `AuditLogEdge`
+<h5 id="type-auditlogedge"><code>AuditLogEdge</code></h5>
 
 | Field | Type | Description |
 |-------|------|-------------|
 | `node` | [AuditLog](#type-auditlog)! |  |
 | `cursor` | String! |  |
 
-<a id="type-auditlogsdownloadconnection"></a>
-
-##### `AuditLogsDownloadConnection`
+<h5 id="type-auditlogsdownloadconnection"><code>AuditLogsDownloadConnection</code></h5>
 
 | Field | Type | Description |
 |-------|------|-------------|
@@ -714,18 +698,14 @@ Moderne Personal Access Tokens
 | `pageInfo` | [PageInfo](#type-pageinfo)! |  |
 | `count` | Int! |  |
 
-<a id="type-auditlogsdownloadedge"></a>
-
-##### `AuditLogsDownloadEdge`
+<h5 id="type-auditlogsdownloadedge"><code>AuditLogsDownloadEdge</code></h5>
 
 | Field | Type | Description |
 |-------|------|-------------|
 | `node` | [AuditLogsDownload](#type-auditlogsdownload)! |  |
 | `cursor` | String! |  |
 
-<a id="type-auditlogsdownloaderror"></a>
-
-##### `AuditLogsDownloadError`
+<h5 id="type-auditlogsdownloaderror"><code>AuditLogsDownloadError</code></h5>
 
 **Implements:** [AuditLogsDownload](#type-auditlogsdownload)
 
@@ -738,9 +718,7 @@ An audit log download failed.
 | `finishedAt` | [DateTime](#type-datetime)! |  |
 | `message` | String! |  |
 
-<a id="type-auditlogsdownloadfinished"></a>
-
-##### `AuditLogsDownloadFinished`
+<h5 id="type-auditlogsdownloadfinished"><code>AuditLogsDownloadFinished</code></h5>
 
 **Implements:** [AuditLogsDownload](#type-auditlogsdownload)
 
@@ -754,9 +732,7 @@ An audit log download has completed successfully.
 | `finishedAt` | [DateTime](#type-datetime)! |  |
 | `downloadUrl` | String! | URL path to download the file (relative to the service base URL). |
 
-<a id="type-auditlogsdownloadprocessing"></a>
-
-##### `AuditLogsDownloadProcessing`
+<h5 id="type-auditlogsdownloadprocessing"><code>AuditLogsDownloadProcessing</code></h5>
 
 **Implements:** [AuditLogsDownload](#type-auditlogsdownload)
 
@@ -768,9 +744,7 @@ An audit log download is being processed.
 | `format` | [AuditLogExportFormat](#type-auditlogexportformat)! |  |
 | `startedAt` | [DateTime](#type-datetime)! |  |
 
-<a id="type-azuredevopsconfiguration"></a>
-
-##### `AzureDevOpsConfiguration`
+<h5 id="type-azuredevopsconfiguration"><code>AzureDevOpsConfiguration</code></h5>
 
 | Field | Type | Description |
 |-------|------|-------------|
@@ -780,9 +754,7 @@ An audit log download is being processed.
 | `connectivity` | [HttpToolConnectivity](#type-httptoolconnectivity)! |  |
 | `oauth` | [AzureDevOpsOauth](#type-azuredevopsoauth) |  |
 
-<a id="type-azuredevopsconnection"></a>
-
-##### `AzureDevOpsConnection`
+<h5 id="type-azuredevopsconnection"><code>AzureDevOpsConnection</code></h5>
 
 **Implements:** [ScmConnection](#type-scmconnection)
 
@@ -792,18 +764,14 @@ An audit log download is being processed.
 | `isAuthorized` | Boolean! |  |
 | `tokens` | [[ScmTokenInfo](#type-scmtokeninfo)!]! |  |
 
-<a id="type-azuredevopsoauth"></a>
-
-##### `AzureDevOpsOauth`
+<h5 id="type-azuredevopsoauth"><code>AzureDevOpsOauth</code></h5>
 
 | Field | Type | Description |
 |-------|------|-------------|
 | `clientId` | String! |  |
 | `tenantId` | String! |  |
 
-<a id="type-batchchange"></a>
-
-##### `BatchChange`
+<h5 id="type-batchchange"><code>BatchChange</code></h5>
 
 **Implements:** [OrganizationChangeset](#type-organizationchangeset)
 
@@ -823,9 +791,7 @@ An audit log download is being processed.
 | `bulkPullRequestActions` | (first: Int = 50, after: String, where: [BulkPullRequestActionWhereInput](#type-bulkpullrequestactionwhereinput), orderBy: [[BulkPullRequestActionOrderByInput](#type-bulkpullrequestactionorderbyinput)!]): [BulkPullRequestActionConnection](#type-bulkpullrequestactionconnection)! | Bulk pull request actions (approve, merge, close) initiated against pull requests that belong to this changeset. Default sort: STARTED_AT DESC with QUEUED entries (no startedAt) appearing last so polling clients still see in-flight actions. |
 | `commits` | (first: Int = 50, after: String, where: [OrganizationCommitWhereInput](#type-organizationcommitwhereinput), orderBy: [[OrganizationCommitOrderByInput](#type-organizationcommitorderbyinput)!]): [OrganizationCommitConnection](#type-organizationcommitconnection) | Commit operations initiated from this changeset. |
 
-<a id="type-batchchangefilechange"></a>
-
-##### `BatchChangeFileChange`
+<h5 id="type-batchchangefilechange"><code>BatchChangeFileChange</code></h5>
 
 **Implements:** [FileChange](#type-filechange)
 
@@ -836,9 +802,7 @@ An audit log download is being processed.
 | `afterSourcePath` | [Path](#type-path) |  |
 | `diff` | (markupLevel: [MarkupLevel](#type-markuplevel) = ERROR, showWhitespaceOnlyChanges: Boolean = true): [Patch](#type-patch) |  |
 
-<a id="type-bitbucketcloudconfiguration"></a>
-
-##### `BitbucketCloudConfiguration`
+<h5 id="type-bitbucketcloudconfiguration"><code>BitbucketCloudConfiguration</code></h5>
 
 | Field | Type | Description |
 |-------|------|-------------|
@@ -848,9 +812,7 @@ An audit log download is being processed.
 | `connectivity` | [HttpToolConnectivity](#type-httptoolconnectivity)! |  |
 | `oauth` | [BitbucketCloudOauth](#type-bitbucketcloudoauth) |  |
 
-<a id="type-bitbucketcloudconnection"></a>
-
-##### `BitbucketCloudConnection`
+<h5 id="type-bitbucketcloudconnection"><code>BitbucketCloudConnection</code></h5>
 
 **Implements:** [ScmConnection](#type-scmconnection)
 
@@ -860,17 +822,13 @@ An audit log download is being processed.
 | `isAuthorized` | Boolean! |  |
 | `tokens` | [[ScmTokenInfo](#type-scmtokeninfo)!]! |  |
 
-<a id="type-bitbucketcloudoauth"></a>
-
-##### `BitbucketCloudOauth`
+<h5 id="type-bitbucketcloudoauth"><code>BitbucketCloudOauth</code></h5>
 
 | Field | Type | Description |
 |-------|------|-------------|
 | `clientId` | String! |  |
 
-<a id="type-bitbucketconfiguration"></a>
-
-##### `BitbucketConfiguration`
+<h5 id="type-bitbucketconfiguration"><code>BitbucketConfiguration</code></h5>
 
 | Field | Type | Description |
 |-------|------|-------------|
@@ -880,9 +838,7 @@ An audit log download is being processed.
 | `connectivity` | [HttpToolConnectivity](#type-httptoolconnectivity)! |  |
 | `oauth` | [BitbucketOauth](#type-bitbucketoauth) |  |
 
-<a id="type-bitbucketconnection"></a>
-
-##### `BitbucketConnection`
+<h5 id="type-bitbucketconnection"><code>BitbucketConnection</code></h5>
 
 **Implements:** [ScmConnection](#type-scmconnection)
 
@@ -892,17 +848,13 @@ An audit log download is being processed.
 | `isAuthorized` | Boolean! |  |
 | `tokens` | [[ScmTokenInfo](#type-scmtokeninfo)!]! |  |
 
-<a id="type-bitbucketoauth"></a>
-
-##### `BitbucketOauth`
+<h5 id="type-bitbucketoauth"><code>BitbucketOauth</code></h5>
 
 | Field | Type | Description |
 |-------|------|-------------|
 | `clientId` | String! |  |
 
-<a id="type-branchcommitoptions"></a>
-
-##### `BranchCommitOptions`
+<h5 id="type-branchcommitoptions"><code>BranchCommitOptions</code></h5>
 
 **Implements:** [CommitOptions](#type-commitoptions)
 
@@ -910,9 +862,7 @@ An audit log download is being processed.
 |-------|------|-------------|
 | `branchName` | String |  |
 
-<a id="type-bulkpullrequestactioncanceled"></a>
-
-##### `BulkPullRequestActionCanceled`
+<h5 id="type-bulkpullrequestactioncanceled"><code>BulkPullRequestActionCanceled</code></h5>
 
 **Implements:** [BulkPullRequestAction](#type-bulkpullrequestaction)
 
@@ -924,9 +874,7 @@ An audit log download is being processed.
 | `canceledBy` | [User](#type-user)! |  |
 | `results` | (first: Int = 50, after: String, where: [PullRequestActionWhereInput](#type-pullrequestactionwhereinput), orderBy: [[PullRequestActionOrderByInput](#type-pullrequestactionorderbyinput)!]): [PullRequestActionConnection](#type-pullrequestactionconnection)! |  |
 
-<a id="type-bulkpullrequestactionconnection"></a>
-
-##### `BulkPullRequestActionConnection`
+<h5 id="type-bulkpullrequestactionconnection"><code>BulkPullRequestActionConnection</code></h5>
 
 | Field | Type | Description |
 |-------|------|-------------|
@@ -934,18 +882,14 @@ An audit log download is being processed.
 | `pageInfo` | [PageInfo](#type-pageinfo)! |  |
 | `count` | Int! |  |
 
-<a id="type-bulkpullrequestactionedge"></a>
-
-##### `BulkPullRequestActionEdge`
+<h5 id="type-bulkpullrequestactionedge"><code>BulkPullRequestActionEdge</code></h5>
 
 | Field | Type | Description |
 |-------|------|-------------|
 | `node` | [BulkPullRequestAction](#type-bulkpullrequestaction)! |  |
 | `cursor` | String! |  |
 
-<a id="type-bulkpullrequestactionerror"></a>
-
-##### `BulkPullRequestActionError`
+<h5 id="type-bulkpullrequestactionerror"><code>BulkPullRequestActionError</code></h5>
 
 **Implements:** [BulkPullRequestAction](#type-bulkpullrequestaction)
 
@@ -957,9 +901,7 @@ An audit log download is being processed.
 | `errorMessage` | String! |  |
 | `results` | (first: Int = 50, after: String, where: [PullRequestActionWhereInput](#type-pullrequestactionwhereinput), orderBy: [[PullRequestActionOrderByInput](#type-pullrequestactionorderbyinput)!]): [PullRequestActionConnection](#type-pullrequestactionconnection)! |  |
 
-<a id="type-bulkpullrequestactionfinished"></a>
-
-##### `BulkPullRequestActionFinished`
+<h5 id="type-bulkpullrequestactionfinished"><code>BulkPullRequestActionFinished</code></h5>
 
 **Implements:** [BulkPullRequestAction](#type-bulkpullrequestaction)
 
@@ -972,9 +914,7 @@ An audit log download is being processed.
 | `finishedAt` | [DateTime](#type-datetime)! |  |
 | `results` | (first: Int = 50, after: String, where: [PullRequestActionWhereInput](#type-pullrequestactionwhereinput), orderBy: [[PullRequestActionOrderByInput](#type-pullrequestactionorderbyinput)!]): [PullRequestActionConnection](#type-pullrequestactionconnection)! |  |
 
-<a id="type-bulkpullrequestactionqueued"></a>
-
-##### `BulkPullRequestActionQueued`
+<h5 id="type-bulkpullrequestactionqueued"><code>BulkPullRequestActionQueued</code></h5>
 
 **Implements:** [BulkPullRequestAction](#type-bulkpullrequestaction)
 
@@ -986,9 +926,7 @@ An audit log download is being processed.
 | `queuedAt` | [DateTime](#type-datetime)! |  |
 | `results` | (first: Int = 50, after: String, where: [PullRequestActionWhereInput](#type-pullrequestactionwhereinput), orderBy: [[PullRequestActionOrderByInput](#type-pullrequestactionorderbyinput)!]): [PullRequestActionConnection](#type-pullrequestactionconnection)! |  |
 
-<a id="type-bulkpullrequestactionrunning"></a>
-
-##### `BulkPullRequestActionRunning`
+<h5 id="type-bulkpullrequestactionrunning"><code>BulkPullRequestActionRunning</code></h5>
 
 **Implements:** [BulkPullRequestAction](#type-bulkpullrequestaction)
 
@@ -1000,9 +938,7 @@ An audit log download is being processed.
 | `startedAt` | [DateTime](#type-datetime)! |  |
 | `results` | (first: Int = 50, after: String, where: [PullRequestActionWhereInput](#type-pullrequestactionwhereinput), orderBy: [[PullRequestActionOrderByInput](#type-pullrequestactionorderbyinput)!]): [PullRequestActionConnection](#type-pullrequestactionconnection)! |  |
 
-<a id="type-changelogcommit"></a>
-
-##### `ChangelogCommit`
+<h5 id="type-changelogcommit"><code>ChangelogCommit</code></h5>
 
 **Implements:** [ChangelogEntry](#type-changelogentry)
 
@@ -1023,9 +959,7 @@ A direct commit to a branch.
 | `buildState` | [BuildState](#type-buildstate) |  |
 | `diffstat` | [DiffStat](#type-diffstat)! |  |
 
-<a id="type-changelogentryconnection"></a>
-
-##### `ChangelogEntryConnection`
+<h5 id="type-changelogentryconnection"><code>ChangelogEntryConnection</code></h5>
 
 | Field | Type | Description |
 |-------|------|-------------|
@@ -1033,18 +967,14 @@ A direct commit to a branch.
 | `pageInfo` | [PageInfo](#type-pageinfo)! |  |
 | `count` | Int! |  |
 
-<a id="type-changelogentryedge"></a>
-
-##### `ChangelogEntryEdge`
+<h5 id="type-changelogentryedge"><code>ChangelogEntryEdge</code></h5>
 
 | Field | Type | Description |
 |-------|------|-------------|
 | `node` | [ChangelogEntry](#type-changelogentry)! |  |
 | `cursor` | String! |  |
 
-<a id="type-changelogparticipantconnection"></a>
-
-##### `ChangelogParticipantConnection`
+<h5 id="type-changelogparticipantconnection"><code>ChangelogParticipantConnection</code></h5>
 
 | Field | Type | Description |
 |-------|------|-------------|
@@ -1052,18 +982,14 @@ A direct commit to a branch.
 | `pageInfo` | [PageInfo](#type-pageinfo)! |  |
 | `count` | Int! |  |
 
-<a id="type-changelogparticipantedge"></a>
-
-##### `ChangelogParticipantEdge`
+<h5 id="type-changelogparticipantedge"><code>ChangelogParticipantEdge</code></h5>
 
 | Field | Type | Description |
 |-------|------|-------------|
 | `node` | [ChangeParticipant](#type-changeparticipant)! |  |
 | `cursor` | String! |  |
 
-<a id="type-changelogpullrequest"></a>
-
-##### `ChangelogPullRequest`
+<h5 id="type-changelogpullrequest"><code>ChangelogPullRequest</code></h5>
 
 **Implements:** [ChangelogEntry](#type-changelogentry)
 
@@ -1093,9 +1019,7 @@ A pull request (open, draft, merged, or closed).
 | `diffstat` | [DiffStat](#type-diffstat)! |  |
 | `actions` | (first: Int = 50, after: String, where: [PullRequestActionWhereInput](#type-pullrequestactionwhereinput), orderBy: [[PullRequestActionOrderByInput](#type-pullrequestactionorderbyinput)!]): [PullRequestActionConnection](#type-pullrequestactionconnection)! | Actions (approve, merge, close) that have been applied to this pull request. Default sort order is descending by startedAt. |
 
-<a id="type-changeparticipant"></a>
-
-##### `ChangeParticipant`
+<h5 id="type-changeparticipant"><code>ChangeParticipant</code></h5>
 
 A participant identity from the VCS provider. Not necessarily a Moderne user.
 
@@ -1107,18 +1031,14 @@ A participant identity from the VCS provider. Not necessarily a Moderne user.
 | `avatarUrl` | String | Avatar URL from the VCS provider. |
 | `roles` | [[ContributorRole](#type-contributorrole)!]! | The roles this participant has across changelog entries. |
 
-<a id="type-clidownloadinstructionlink"></a>
-
-##### `CliDownloadInstructionLink`
+<h5 id="type-clidownloadinstructionlink"><code>CliDownloadInstructionLink</code></h5>
 
 | Field | Type | Description |
 |-------|------|-------------|
 | `label` | String! |  |
 | `uri` | String! |  |
 
-<a id="type-codesearchresult"></a>
-
-##### `CodeSearchResult`
+<h5 id="type-codesearchresult"><code>CodeSearchResult</code></h5>
 
 | Field | Type | Description |
 |-------|------|-------------|
@@ -1126,9 +1046,7 @@ A participant identity from the VCS provider. Not necessarily a Moderne user.
 | `artifactId` | String! |  |
 | `fileChanges` | (first: Int = 100, after: String): [FileChangeConnection](#type-filechangeconnection)! |  |
 
-<a id="type-codesearchresultconnection"></a>
-
-##### `CodeSearchResultConnection`
+<h5 id="type-codesearchresultconnection"><code>CodeSearchResultConnection</code></h5>
 
 | Field | Type | Description |
 |-------|------|-------------|
@@ -1137,18 +1055,14 @@ A participant identity from the VCS provider. Not necessarily a Moderne user.
 | `count` | Int! |  |
 | `searchDurationMs` | [Long](#type-long)! |  |
 
-<a id="type-codesearchresultedge"></a>
-
-##### `CodeSearchResultEdge`
+<h5 id="type-codesearchresultedge"><code>CodeSearchResultEdge</code></h5>
 
 | Field | Type | Description |
 |-------|------|-------------|
 | `node` | [CodeSearchResult](#type-codesearchresult)! |  |
 | `cursor` | String! |  |
 
-<a id="type-column"></a>
-
-##### `Column`
+<h5 id="type-column"><code>Column</code></h5>
 
 | Field | Type | Description |
 |-------|------|-------------|
@@ -1157,9 +1071,7 @@ A participant identity from the VCS provider. Not necessarily a Moderne user.
 | `description` | String! |  |
 | `type` | String! |  |
 
-<a id="type-connector"></a>
-
-##### `Connector`
+<h5 id="type-connector"><code>Connector</code></h5>
 
 | Field | Type | Description |
 |-------|------|-------------|
@@ -1170,9 +1082,7 @@ A participant identity from the VCS provider. Not necessarily a Moderne user.
 | `uiConfiguration` | [UiConfiguration](#type-uiconfiguration) |  |
 | `personalAccessTokenConfiguration` | [PersonalAccessTokenConfiguration](#type-personalaccesstokenconfiguration) |  |
 
-<a id="type-connectorconnection"></a>
-
-##### `ConnectorConnection`
+<h5 id="type-connectorconnection"><code>ConnectorConnection</code></h5>
 
 | Field | Type | Description |
 |-------|------|-------------|
@@ -1180,18 +1090,14 @@ A participant identity from the VCS provider. Not necessarily a Moderne user.
 | `pageInfo` | [PageInfo](#type-pageinfo)! |  |
 | `count` | Int! |  |
 
-<a id="type-connectoredge"></a>
-
-##### `ConnectorEdge`
+<h5 id="type-connectoredge"><code>ConnectorEdge</code></h5>
 
 | Field | Type | Description |
 |-------|------|-------------|
 | `node` | [Connector](#type-connector)! |  |
 | `cursor` | String! |  |
 
-<a id="type-conversation"></a>
-
-##### `Conversation`
+<h5 id="type-conversation"><code>Conversation</code></h5>
 
 | Field | Type | Description |
 |-------|------|-------------|
@@ -1203,27 +1109,21 @@ A participant identity from the VCS provider. Not necessarily a Moderne user.
 | `startedAt` | [DateTime](#type-datetime)! |  |
 | `lastUpdatedAt` | [DateTime](#type-datetime)! |  |
 
-<a id="type-conversationconnection"></a>
-
-##### `ConversationConnection`
+<h5 id="type-conversationconnection"><code>ConversationConnection</code></h5>
 
 | Field | Type | Description |
 |-------|------|-------------|
 | `edges` | [[ConversationEdge](#type-conversationedge)!]! |  |
 | `pageInfo` | [PageInfo](#type-pageinfo)! |  |
 
-<a id="type-conversationedge"></a>
-
-##### `ConversationEdge`
+<h5 id="type-conversationedge"><code>ConversationEdge</code></h5>
 
 | Field | Type | Description |
 |-------|------|-------------|
 | `node` | [Conversation](#type-conversation)! |  |
 | `cursor` | String! |  |
 
-<a id="type-conversationturnstate"></a>
-
-##### `ConversationTurnState`
+<h5 id="type-conversationturnstate"><code>ConversationTurnState</code></h5>
 
 Represents the current phase of the conversation's active turn (if any).
 Drives client poll cadence.
@@ -1234,9 +1134,7 @@ Drives client poll cadence.
 | `recommendedPollIntervalMs` | Int! | Server-recommended poll interval in milliseconds. |
 | `activeTurnStartedAt` | [DateTime](#type-datetime) | When the currently-active turn started, if any. |
 
-<a id="type-createaccesstokenresult"></a>
-
-##### `CreateAccessTokenResult`
+<h5 id="type-createaccesstokenresult"><code>CreateAccessTokenResult</code></h5>
 
 Result of creating a new access token.
 The token value is only available in this response.
@@ -1249,9 +1147,7 @@ The token value is only available in this response.
 | `created` | [DateTime](#type-datetime)! | When the token was created. |
 | `expiresAt` | [DateTime](#type-datetime) | When the token will expire, or null if it never expires. |
 
-<a id="type-datatableavailable"></a>
-
-##### `DataTableAvailable`
+<h5 id="type-datatableavailable"><code>DataTableAvailable</code></h5>
 
 **Implements:** [DataTable](#type-datatable)
 
@@ -1265,9 +1161,7 @@ A data table is available for download but no download has been initiated yet.
 | `group` | String |  |
 | `changesetId` | ID! |  |
 
-<a id="type-datatableconnection"></a>
-
-##### `DataTableConnection`
+<h5 id="type-datatableconnection"><code>DataTableConnection</code></h5>
 
 | Field | Type | Description |
 |-------|------|-------------|
@@ -1275,9 +1169,7 @@ A data table is available for download but no download has been initiated yet.
 | `pageInfo` | [PageInfo](#type-pageinfo)! |  |
 | `count` | Int! |  |
 
-<a id="type-datatabledescriptor"></a>
-
-##### `DataTableDescriptor`
+<h5 id="type-datatabledescriptor"><code>DataTableDescriptor</code></h5>
 
 | Field | Type | Description |
 |-------|------|-------------|
@@ -1286,18 +1178,14 @@ A data table is available for download but no download has been initiated yet.
 | `description` | String! |  |
 | `columns` | [[Column](#type-column)!]! |  |
 
-<a id="type-datatableedge"></a>
-
-##### `DataTableEdge`
+<h5 id="type-datatableedge"><code>DataTableEdge</code></h5>
 
 | Field | Type | Description |
 |-------|------|-------------|
 | `node` | [DataTable](#type-datatable)! |  |
 | `cursor` | String! |  |
 
-<a id="type-datatableerror"></a>
-
-##### `DataTableError`
+<h5 id="type-datatableerror"><code>DataTableError</code></h5>
 
 **Implements:** [DataTable](#type-datatable)
 
@@ -1314,9 +1202,7 @@ A data table download failed.
 | `finishedAt` | [DateTime](#type-datetime)! |  |
 | `message` | String! |  |
 
-<a id="type-datatablefinished"></a>
-
-##### `DataTableFinished`
+<h5 id="type-datatablefinished"><code>DataTableFinished</code></h5>
 
 **Implements:** [DataTable](#type-datatable)
 
@@ -1335,9 +1221,7 @@ A data table download has completed successfully.
 | `duration` | [Duration](#type-duration) |  |
 | `downloadUrl` | String! | URL path to download the file (relative to the service base URL). |
 
-<a id="type-datatableprocessing"></a>
-
-##### `DataTableProcessing`
+<h5 id="type-datatableprocessing"><code>DataTableProcessing</code></h5>
 
 **Implements:** [DataTable](#type-datatable)
 
@@ -1353,9 +1237,7 @@ A data table download is being processed.
 | `changesetId` | ID! |  |
 | `startedAt` | [DateTime](#type-datetime)! |  |
 
-<a id="type-datatablesmessage"></a>
-
-##### `DataTablesMessage`
+<h5 id="type-datatablesmessage"><code>DataTablesMessage</code></h5>
 
 **Implements:** [Message](#type-message)
 
@@ -1367,9 +1249,7 @@ A data table download is being processed.
 | `state` | [MessageState](#type-messagestate)! |  |
 | `lastUpdatedAt` | [DateTime](#type-datetime)! |  |
 
-<a id="type-datatablesqlmessage"></a>
-
-##### `DataTableSqlMessage`
+<h5 id="type-datatablesqlmessage"><code>DataTableSqlMessage</code></h5>
 
 **Implements:** [Message](#type-message)
 
@@ -1381,18 +1261,14 @@ A data table download is being processed.
 | `state` | [MessageState](#type-messagestate)! |  |
 | `lastUpdatedAt` | [DateTime](#type-datetime)! |  |
 
-<a id="type-devcenter"></a>
-
-##### `DevCenter`
+<h5 id="type-devcenter"><code>DevCenter</code></h5>
 
 | Field | Type | Description |
 |-------|------|-------------|
 | `recipe` | [RecipeDescriptor](#type-recipedescriptor) | The currently configured DevCenter recipe for this organization. |
 | `runs` | (first: Int = 10, after: String, where: [DevCenterRunWhereInput](#type-devcenterrunwhereinput), orderBy: [[DevCenterRunOrderByInput](#type-devcenterrunorderbyinput)!]): [DevCenterRunConnection](#type-devcenterrunconnection)! | DevCenter runs for this organization, ordered by start time descending. |
 
-<a id="type-devcentercard"></a>
-
-##### `DevCenterCard`
+<h5 id="type-devcentercard"><code>DevCenterCard</code></h5>
 
 A DevCenter card represents a category of work (e.g., "Spring Boot 3", "Java 21", "Security").
 Cards contain measures that track progress toward completion.
@@ -1406,9 +1282,7 @@ Cards contain measures that track progress toward completion.
 | `measures` | [[DevCenterMeasure](#type-devcentermeasure)!]! | Measures within this card, ordered by ordinal. |
 | `repositoriesNotApplicable` | Int! | Repositories where this card is not applicable. |
 
-<a id="type-devcentercarddescriptor"></a>
-
-##### `DevCenterCardDescriptor`
+<h5 id="type-devcentercarddescriptor"><code>DevCenterCardDescriptor</code></h5>
 
 | Field | Type | Description |
 |-------|------|-------------|
@@ -1418,9 +1292,7 @@ Cards contain measures that track progress toward completion.
 | `aggregation` | [DevCenterAggregation](#type-devcenteraggregation)! |  |
 | `measures` | [[DevCenterMeasureDescriptor](#type-devcentermeasuredescriptor)!]! |  |
 
-<a id="type-devcentermeasure"></a>
-
-##### `DevCenterMeasure`
+<h5 id="type-devcentermeasure"><code>DevCenterMeasure</code></h5>
 
 A measure within a DevCenter card representing a specific state or finding,
 with a count from the run results.
@@ -1432,9 +1304,7 @@ with a count from the run results.
 | `ordinal` | Int! | Sort order relative to other measures in the card. |
 | `count` | Int! | Count of repositories or occurrences for this measure. For PER_REPOSITORY: number of repositories in this state. For PER_OCCURRENCE: total count of occurrences. |
 
-<a id="type-devcentermeasuredescriptor"></a>
-
-##### `DevCenterMeasureDescriptor`
+<h5 id="type-devcentermeasuredescriptor"><code>DevCenterMeasureDescriptor</code></h5>
 
 A measure descriptor within a DevCenter card, representing metadata about
 a specific state or finding. See DevCenterMeasure in changeset:reader
@@ -1446,9 +1316,7 @@ for the runtime version with counts.
 | `description` | [Markdown](#type-markdown) |  |
 | `ordinal` | Int! |  |
 
-<a id="type-devcenterorganization"></a>
-
-##### `DevCenterOrganization`
+<h5 id="type-devcenterorganization"><code>DevCenterOrganization</code></h5>
 
 Organization-level context from a DevCenter run.
 
@@ -1458,9 +1326,7 @@ Organization-level context from a DevCenter run.
 | `contributingDevelopers` | Int! | Number of unique contributing developers (last 90 days). |
 | `linesOfCode` | [Long](#type-long)! | Total lines of code across all repositories on platform. |
 
-<a id="type-devcenterrepositories"></a>
-
-##### `DevCenterRepositories`
+<h5 id="type-devcenterrepositories"><code>DevCenterRepositories</code></h5>
 
 Repository counts from a DevCenter run.
 
@@ -1469,9 +1335,7 @@ Repository counts from a DevCenter run.
 | `total` | Int! | Total repositories defined in the organization at the time of the run. |
 | `repositoriesWithoutLst` | Int! | Repositories with no LST ingested at the time of the run. |
 
-<a id="type-devcenterruncanceled"></a>
-
-##### `DevCenterRunCanceled`
+<h5 id="type-devcenterruncanceled"><code>DevCenterRunCanceled</code></h5>
 
 **Implements:** [DevCenterRun](#type-devcenterrun)
 
@@ -1484,9 +1348,7 @@ DevCenter run was canceled before completion.
 | `changeset` | [OrganizationChangeset](#type-organizationchangeset) |  |
 | `finishedAt` | [DateTime](#type-datetime)! |  |
 
-<a id="type-devcenterrunconnection"></a>
-
-##### `DevCenterRunConnection`
+<h5 id="type-devcenterrunconnection"><code>DevCenterRunConnection</code></h5>
 
 | Field | Type | Description |
 |-------|------|-------------|
@@ -1494,18 +1356,14 @@ DevCenter run was canceled before completion.
 | `pageInfo` | [PageInfo](#type-pageinfo)! |  |
 | `count` | Int! |  |
 
-<a id="type-devcenterrunedge"></a>
-
-##### `DevCenterRunEdge`
+<h5 id="type-devcenterrunedge"><code>DevCenterRunEdge</code></h5>
 
 | Field | Type | Description |
 |-------|------|-------------|
 | `node` | [DevCenterRun](#type-devcenterrun)! |  |
 | `cursor` | String! |  |
 
-<a id="type-devcenterrunerror"></a>
-
-##### `DevCenterRunError`
+<h5 id="type-devcenterrunerror"><code>DevCenterRunError</code></h5>
 
 **Implements:** [DevCenterRun](#type-devcenterrun)
 
@@ -1519,9 +1377,7 @@ DevCenter run failed with an error.
 | `finishedAt` | [DateTime](#type-datetime)! |  |
 | `message` | String! | Human-readable error message. |
 
-<a id="type-devcenterrunfinished"></a>
-
-##### `DevCenterRunFinished`
+<h5 id="type-devcenterrunfinished"><code>DevCenterRunFinished</code></h5>
 
 **Implements:** [DevCenterRun](#type-devcenterrun)
 
@@ -1537,9 +1393,7 @@ DevCenter run completed successfully with summarized results.
 | `upgradesAndMigrations` | [[DevCenterCard](#type-devcentercard)!]! | Upgrade and migration opportunities found (from UpgradesAndMigrations data table). |
 | `security` | [DevCenterCard](#type-devcentercard) | Security vulnerabilities found (from SecurityIssues data table). |
 
-<a id="type-devcenterrunrunning"></a>
-
-##### `DevCenterRunRunning`
+<h5 id="type-devcenterrunrunning"><code>DevCenterRunRunning</code></h5>
 
 **Implements:** [DevCenterRun](#type-devcenterrun)
 
@@ -1551,9 +1405,7 @@ DevCenter recipe is currently running across repositories.
 | `startedAt` | [DateTime](#type-datetime)! |  |
 | `changeset` | [OrganizationChangeset](#type-organizationchangeset) |  |
 
-<a id="type-diffstat"></a>
-
-##### `DiffStat`
+<h5 id="type-diffstat"><code>DiffStat</code></h5>
 
 Aggregate line-level diff statistics.
 
@@ -1562,9 +1414,7 @@ Aggregate line-level diff statistics.
 | `additions` | Int! | Total lines added. |
 | `deletions` | Int! | Total lines removed. |
 
-<a id="type-directcommitsucceeded"></a>
-
-##### `DirectCommitSucceeded`
+<h5 id="type-directcommitsucceeded"><code>DirectCommitSucceeded</code></h5>
 
 **Implements:** [RepositoryCommitSucceeded](#type-repositorycommitsucceeded), [RepositoryCommit](#type-repositorycommit)
 
@@ -1577,9 +1427,7 @@ Direct commit to repository completed successfully.
 | `finishedAt` | [DateTime](#type-datetime)! |  |
 | `resultLink` | String |  |
 
-<a id="type-errormessage"></a>
-
-##### `ErrorMessage`
+<h5 id="type-errormessage"><code>ErrorMessage</code></h5>
 
 **Implements:** [Message](#type-message)
 
@@ -1592,9 +1440,7 @@ Direct commit to repository completed successfully.
 | `state` | [MessageState](#type-messagestate)! |  |
 | `lastUpdatedAt` | [DateTime](#type-datetime)! |  |
 
-<a id="type-exchangeauthorizationresult"></a>
-
-##### `ExchangeAuthorizationResult`
+<h5 id="type-exchangeauthorizationresult"><code>ExchangeAuthorizationResult</code></h5>
 
 Result of exchanging an authorization code.
 
@@ -1603,9 +1449,7 @@ Result of exchanging an authorization code.
 | `success` | Boolean! | True if the exchange was successful and token was stored. |
 | `error` | String | Error message if exchange failed. |
 
-<a id="type-filechangeconnection"></a>
-
-##### `FileChangeConnection`
+<h5 id="type-filechangeconnection"><code>FileChangeConnection</code></h5>
 
 Connection for file changes with aggregate statistics.
 
@@ -1618,18 +1462,14 @@ Connection for file changes with aggregate statistics.
 | `changed` | Int! | Files with committable changes. |
 | `errors` | Int! | Files with errors. |
 
-<a id="type-filechangeedge"></a>
-
-##### `FileChangeEdge`
+<h5 id="type-filechangeedge"><code>FileChangeEdge</code></h5>
 
 | Field | Type | Description |
 |-------|------|-------------|
 | `node` | [FileChange](#type-filechange)! |  |
 | `cursor` | String! |  |
 
-<a id="type-forkandpullrequestcommitsucceeded"></a>
-
-##### `ForkAndPullRequestCommitSucceeded`
+<h5 id="type-forkandpullrequestcommitsucceeded"><code>ForkAndPullRequestCommitSucceeded</code></h5>
 
 **Implements:** [RepositoryCommitSucceeded](#type-repositorycommitsucceeded), [RepositoryCommit](#type-repositorycommit)
 
@@ -1643,9 +1483,7 @@ Fork and pull request commit completed successfully.
 | `resultLink` | String |  |
 | `pullRequestStatus` | [PullRequestStatus](#type-pullrequeststatus)! | Pull request status. |
 
-<a id="type-forkcommitoptions"></a>
-
-##### `ForkCommitOptions`
+<h5 id="type-forkcommitoptions"><code>ForkCommitOptions</code></h5>
 
 **Implements:** [CommitOptions](#type-commitoptions)
 
@@ -1655,9 +1493,7 @@ Fork and pull request commit completed successfully.
 | `organization` | String | If set, the fork will be created in this organization. Otherwise, the fork will be created in the user's personal account. |
 | `prefixOrganization` | Boolean! |  |
 
-<a id="type-forkcommitsucceeded"></a>
-
-##### `ForkCommitSucceeded`
+<h5 id="type-forkcommitsucceeded"><code>ForkCommitSucceeded</code></h5>
 
 **Implements:** [RepositoryCommitSucceeded](#type-repositorycommitsucceeded), [RepositoryCommit](#type-repositorycommit)
 
@@ -1670,9 +1506,7 @@ Fork commit completed successfully.
 | `finishedAt` | [DateTime](#type-datetime)! |  |
 | `resultLink` | String |  |
 
-<a id="type-forkpullrequestoptions"></a>
-
-##### `ForkPullRequestOptions`
+<h5 id="type-forkpullrequestoptions"><code>ForkPullRequestOptions</code></h5>
 
 **Implements:** [CommitOptions](#type-commitoptions)
 
@@ -1688,9 +1522,7 @@ Fork commit completed successfully.
 | `autoMergeMethod` | [MergeMethod](#type-mergemethod) | If allowed by the repository, set the pull request to automatically merge after all checks pass using the defined strategy. |
 | `canRecreateClosedPullRequest` | Boolean! | Recreate a pull request if it was already closed. |
 
-<a id="type-generichttptoolconfiguration"></a>
-
-##### `GenericHttpToolConfiguration`
+<h5 id="type-generichttptoolconfiguration"><code>GenericHttpToolConfiguration</code></h5>
 
 | Field | Type | Description |
 |-------|------|-------------|
@@ -1699,9 +1531,7 @@ Fork commit completed successfully.
 | `skipValidateConnectivity` | Boolean! |  |
 | `connectivity` | [HttpToolConnectivity](#type-httptoolconnectivity)! |  |
 
-<a id="type-githubconfiguration"></a>
-
-##### `GithubConfiguration`
+<h5 id="type-githubconfiguration"><code>GithubConfiguration</code></h5>
 
 | Field | Type | Description |
 |-------|------|-------------|
@@ -1712,9 +1542,7 @@ Fork commit completed successfully.
 | `connectivity` | [HttpToolConnectivity](#type-httptoolconnectivity)! |  |
 | `oauth` | [GithubOauth](#type-githuboauth) |  |
 
-<a id="type-githubconnection"></a>
-
-##### `GithubConnection`
+<h5 id="type-githubconnection"><code>GithubConnection</code></h5>
 
 **Implements:** [ScmConnection](#type-scmconnection)
 
@@ -1724,18 +1552,14 @@ Fork commit completed successfully.
 | `isAuthorized` | Boolean! |  |
 | `tokens` | [[ScmTokenInfo](#type-scmtokeninfo)!]! |  |
 
-<a id="type-githuboauth"></a>
-
-##### `GithubOauth`
+<h5 id="type-githuboauth"><code>GithubOauth</code></h5>
 
 | Field | Type | Description |
 |-------|------|-------------|
 | `clientId` | String! |  |
 | `includePrivateRepos` | Boolean! |  |
 
-<a id="type-gitlabconfiguration"></a>
-
-##### `GitLabConfiguration`
+<h5 id="type-gitlabconfiguration"><code>GitLabConfiguration</code></h5>
 
 | Field | Type | Description |
 |-------|------|-------------|
@@ -1745,9 +1569,7 @@ Fork commit completed successfully.
 | `connectivity` | [HttpToolConnectivity](#type-httptoolconnectivity)! |  |
 | `oauth` | [GitLabOauth](#type-gitlaboauth) |  |
 
-<a id="type-gitlabconnection"></a>
-
-##### `GitLabConnection`
+<h5 id="type-gitlabconnection"><code>GitLabConnection</code></h5>
 
 **Implements:** [ScmConnection](#type-scmconnection)
 
@@ -1757,17 +1579,13 @@ Fork commit completed successfully.
 | `isAuthorized` | Boolean! |  |
 | `tokens` | [[ScmTokenInfo](#type-scmtokeninfo)!]! |  |
 
-<a id="type-gitlaboauth"></a>
-
-##### `GitLabOauth`
+<h5 id="type-gitlaboauth"><code>GitLabOauth</code></h5>
 
 | Field | Type | Description |
 |-------|------|-------------|
 | `clientId` | String! |  |
 
-<a id="type-gorecipebundle"></a>
-
-##### `GoRecipeBundle`
+<h5 id="type-gorecipebundle"><code>GoRecipeBundle</code></h5>
 
 **Implements:** [RecipeBundle](#type-recipebundle)
 
@@ -1778,26 +1596,20 @@ Fork commit completed successfully.
 | `version` | String |  |
 | `recipeCount` | Int |  |
 
-<a id="type-httptoolconnectivity"></a>
-
-##### `HttpToolConnectivity`
+<h5 id="type-httptoolconnectivity"><code>HttpToolConnectivity</code></h5>
 
 | Field | Type | Description |
 |-------|------|-------------|
 | `connected` | Boolean! |  |
 | `latency` | [Duration](#type-duration) |  |
 
-<a id="type-license"></a>
-
-##### `License`
+<h5 id="type-license"><code>License</code></h5>
 
 | Field | Type | Description |
 |-------|------|-------------|
 | `key` | String |  |
 
-<a id="type-llmconfiguration"></a>
-
-##### `LlmConfiguration`
+<h5 id="type-llmconfiguration"><code>LlmConfiguration</code></h5>
 
 | Field | Type | Description |
 |-------|------|-------------|
@@ -1807,9 +1619,7 @@ Fork commit completed successfully.
 | `connectivity` | [HttpToolConnectivity](#type-httptoolconnectivity)! |  |
 | `llmProvider` | [LlmProvider](#type-llmprovider)! |  |
 
-<a id="type-lstartifact"></a>
-
-##### `LstArtifact`
+<h5 id="type-lstartifact"><code>LstArtifact</code></h5>
 
 The LST artifact for a repository - the precomputed Lossless Semantic Tree
 that recipe runs consume. Every repository has a conceptual artifact;
@@ -1821,9 +1631,7 @@ that recipe runs consume. Every repository has a conceptual artifact;
 | `published` | [DateTime](#type-datetime) | When `mod publish` produced an artifact into the customer's LST artifact repository, or null if no artifact has been published. For a tenant configured for encrypted LSTs, a non-null `published` does NOT mean the encrypted artifact has been received by the tenant - that signal lives on `available`. |
 | `available` | Boolean! | Whether the artifact is reachable for a recipe run. For an organization source with encryption enabled, true once the connector has uploaded the encrypted artifact and the gateway has surfaced an `encrypted://` alternate publish URI. For a source without encryption (pass-through), true when the gateway-projected row has a non-empty `publishUri`, which we assume is reachable from `mod publish`. |
 
-<a id="type-markup"></a>
-
-##### `Markup`
+<h5 id="type-markup"><code>Markup</code></h5>
 
 **Implements:** [Marker](#type-marker)
 
@@ -1834,9 +1642,7 @@ that recipe runs consume. Every repository has a conceptual artifact;
 | `message` | String |  |
 | `detail` | String |  |
 
-<a id="type-mavenconfiguration"></a>
-
-##### `MavenConfiguration`
+<h5 id="type-mavenconfiguration"><code>MavenConfiguration</code></h5>
 
 | Field | Type | Description |
 |-------|------|-------------|
@@ -1847,9 +1653,7 @@ that recipe runs consume. Every repository has a conceptual artifact;
 | `localRepository` | String |  |
 | `lastIngestedAt` | [DateTime](#type-datetime) |  |
 
-<a id="type-mavenrecipebundle"></a>
-
-##### `MavenRecipeBundle`
+<h5 id="type-mavenrecipebundle"><code>MavenRecipeBundle</code></h5>
 
 **Implements:** [RecipeBundle](#type-recipebundle)
 
@@ -1862,36 +1666,28 @@ that recipe runs consume. Every repository has a conceptual artifact;
 | `version` | String |  |
 | `recipeCount` | Int |  |
 
-<a id="type-mergeoptions"></a>
-
-##### `MergeOptions`
+<h5 id="type-mergeoptions"><code>MergeOptions</code></h5>
 
 | Field | Type | Description |
 |-------|------|-------------|
 | `deleteSourceBranch` | Boolean! |  |
 | `mergeMethod` | [MergeMethod](#type-mergemethod)! |  |
 
-<a id="type-messageconnection"></a>
-
-##### `MessageConnection`
+<h5 id="type-messageconnection"><code>MessageConnection</code></h5>
 
 | Field | Type | Description |
 |-------|------|-------------|
 | `edges` | [[MessageEdge](#type-messageedge)!]! |  |
 | `pageInfo` | [PageInfo](#type-pageinfo)! |  |
 
-<a id="type-messageedge"></a>
-
-##### `MessageEdge`
+<h5 id="type-messageedge"><code>MessageEdge</code></h5>
 
 | Field | Type | Description |
 |-------|------|-------------|
 | `node` | [Message](#type-message)! |  |
 | `cursor` | String! |  |
 
-<a id="type-moddy"></a>
-
-##### `Moddy`
+<h5 id="type-moddy"><code>Moddy</code></h5>
 
 | Field | Type | Description |
 |-------|------|-------------|
@@ -1901,18 +1697,14 @@ that recipe runs consume. Every repository has a conceptual artifact;
 | `providerName` | String | Human-readable provider name (e.g. "Anthropic", "OpenAI"). Null when no LLM provider is configured (in which case `capabilities.moddy` is also false — clients should gate the chat composer on the capability, not on this field). |
 | `model` | String | Configured model identifier (e.g. "claude-3-5-sonnet-20241022"). Null when no provider is configured or the provider is configured without a model override. |
 
-<a id="type-morehelplink"></a>
-
-##### `MoreHelpLink`
+<h5 id="type-morehelplink"><code>MoreHelpLink</code></h5>
 
 | Field | Type | Description |
 |-------|------|-------------|
 | `label` | String! |  |
 | `uri` | String! |  |
 
-<a id="type-npmconfiguration"></a>
-
-##### `NpmConfiguration`
+<h5 id="type-npmconfiguration"><code>NpmConfiguration</code></h5>
 
 | Field | Type | Description |
 |-------|------|-------------|
@@ -1921,9 +1713,7 @@ that recipe runs consume. Every repository has a conceptual artifact;
 | `skipValidateConnectivity` | Boolean! |  |
 | `connectivity` | [HttpToolConnectivity](#type-httptoolconnectivity)! |  |
 
-<a id="type-npmrecipebundle"></a>
-
-##### `NpmRecipeBundle`
+<h5 id="type-npmrecipebundle"><code>NpmRecipeBundle</code></h5>
 
 **Implements:** [RecipeBundle](#type-recipebundle)
 
@@ -1934,9 +1724,7 @@ that recipe runs consume. Every repository has a conceptual artifact;
 | `version` | String |  |
 | `recipeCount` | Int |  |
 
-<a id="type-nugetconfiguration"></a>
-
-##### `NugetConfiguration`
+<h5 id="type-nugetconfiguration"><code>NugetConfiguration</code></h5>
 
 | Field | Type | Description |
 |-------|------|-------------|
@@ -1945,9 +1733,7 @@ that recipe runs consume. Every repository has a conceptual artifact;
 | `skipValidateConnectivity` | Boolean! |  |
 | `connectivity` | [HttpToolConnectivity](#type-httptoolconnectivity)! |  |
 
-<a id="type-nugetrecipebundle"></a>
-
-##### `NugetRecipeBundle`
+<h5 id="type-nugetrecipebundle"><code>NugetRecipeBundle</code></h5>
 
 **Implements:** [RecipeBundle](#type-recipebundle)
 
@@ -1958,9 +1744,7 @@ that recipe runs consume. Every repository has a conceptual artifact;
 | `version` | String |  |
 | `recipeCount` | Int |  |
 
-<a id="type-oauthauthorization"></a>
-
-##### `OAuthAuthorization`
+<h5 id="type-oauthauthorization"><code>OAuthAuthorization</code></h5>
 
 Represents a pending OAuth authorization.
 The UI should redirect to authorizationUrl, then call exchangeAuthorizationCode
@@ -1973,9 +1757,7 @@ with the id and extracted callback parameters.
 | `callbackParameters` | [String!]! | Query parameters the UI should extract from the OAuth callback URL and pass to exchangeAuthorizationCode (e.g., ["code"]). |
 | `expiresAt` | [DateTime](#type-datetime)! | When this authorization expires. UI should treat expired authorizations as stale. |
 
-<a id="type-option"></a>
-
-##### `Option`
+<h5 id="type-option"><code>Option</code></h5>
 
 RecipeDescriptor resolved from changeset-specific recipes.csv.
 When a recipe run is created, the recipes.csv is copied to the changeset directory,
@@ -1992,9 +1774,7 @@ so we can resolve the recipe that was used at the time of the run (not the curre
 | `valid` | [String] |  |
 | `required` | Boolean! |  |
 
-<a id="type-organization"></a>
-
-##### `Organization`
+<h5 id="type-organization"><code>Organization</code></h5>
 
 | Field | Type | Description |
 |-------|------|-------------|
@@ -2012,9 +1792,7 @@ so we can resolve the recipe that was used at the time of the run (not the curre
 | `children` | (first: Int = 100, after: String, where: [OrganizationWhereInput](#type-organizationwhereinput), orderBy: [[OrganizationOrderByInput](#type-organizationorderbyinput)!]): [OrganizationConnection](#type-organizationconnection)! | Direct children of this organization in the tree, paginated. Useful for lazy-loading the org tree level by level — e.g. an org selector that fetches the root, then the children of each folder only when the user expands it. `where.depth` is ignored on this field — every direct child of a given parent has the same depth, so the filter would be either all-or-nothing. Use `where.name` and the boolean composers (`_and`, `_or`, `_not`) for meaningful filtering. `orderBy` defaults to NAME ascending when unspecified. |
 | `marketplace` | [RecipeMarketplace](#type-recipemarketplace) |  |
 
-<a id="type-organizationchangesetconnection"></a>
-
-##### `OrganizationChangesetConnection`
+<h5 id="type-organizationchangesetconnection"><code>OrganizationChangesetConnection</code></h5>
 
 | Field | Type | Description |
 |-------|------|-------------|
@@ -2022,9 +1800,7 @@ so we can resolve the recipe that was used at the time of the run (not the curre
 | `pageInfo` | [PageInfo](#type-pageinfo)! |  |
 | `count` | Int! |  |
 
-<a id="type-organizationchangesetedge"></a>
-
-##### `OrganizationChangesetEdge`
+<h5 id="type-organizationchangesetedge"><code>OrganizationChangesetEdge</code></h5>
 
 | Field | Type | Description |
 |-------|------|-------------|
@@ -2032,9 +1808,7 @@ so we can resolve the recipe that was used at the time of the run (not the curre
 | `cursor` | String! |  |
 | `organization` | [Organization](#type-organization) | The organization this changeset was run against. May differ from the queried organization when the changeset belongs to a suborganization. Null if the organization has been deleted or is temporarily unavailable. |
 
-<a id="type-organizationcommitcanceled"></a>
-
-##### `OrganizationCommitCanceled`
+<h5 id="type-organizationcommitcanceled"><code>OrganizationCommitCanceled</code></h5>
 
 **Implements:** [OrganizationCommit](#type-organizationcommit)
 
@@ -2052,9 +1826,7 @@ Commit was canceled before completion.
 | `canceledBy` | [User](#type-user)! | Who or what initiated the cancellation. |
 | `repositories` | (first: Int = 50, after: String, where: [RepositoryCommitWhereInput](#type-repositorycommitwhereinput), orderBy: [[RepositoryCommitOrderByInput](#type-repositorycommitorderbyinput)!]): [RepositoryCommitConnection](#type-repositorycommitconnection)! | Paginated results per repository (partial). |
 
-<a id="type-organizationcommitconnection"></a>
-
-##### `OrganizationCommitConnection`
+<h5 id="type-organizationcommitconnection"><code>OrganizationCommitConnection</code></h5>
 
 | Field | Type | Description |
 |-------|------|-------------|
@@ -2062,18 +1834,14 @@ Commit was canceled before completion.
 | `pageInfo` | [PageInfo](#type-pageinfo)! |  |
 | `count` | Int! |  |
 
-<a id="type-organizationcommitedge"></a>
-
-##### `OrganizationCommitEdge`
+<h5 id="type-organizationcommitedge"><code>OrganizationCommitEdge</code></h5>
 
 | Field | Type | Description |
 |-------|------|-------------|
 | `node` | [OrganizationCommit](#type-organizationcommit)! |  |
 | `cursor` | String! |  |
 
-<a id="type-organizationcommiterror"></a>
-
-##### `OrganizationCommitError`
+<h5 id="type-organizationcommiterror"><code>OrganizationCommitError</code></h5>
 
 **Implements:** [OrganizationCommit](#type-organizationcommit)
 
@@ -2091,9 +1859,7 @@ Commit failed with an error.
 | `errorMessage` | String! | Human-readable error message. |
 | `repositories` | (first: Int = 50, after: String, where: [RepositoryCommitWhereInput](#type-repositorycommitwhereinput), orderBy: [[RepositoryCommitOrderByInput](#type-repositorycommitorderbyinput)!]): [RepositoryCommitConnection](#type-repositorycommitconnection)! | Paginated results per repository (partial). |
 
-<a id="type-organizationcommitfinished"></a>
-
-##### `OrganizationCommitFinished`
+<h5 id="type-organizationcommitfinished"><code>OrganizationCommitFinished</code></h5>
 
 **Implements:** [OrganizationCommit](#type-organizationcommit)
 
@@ -2110,9 +1876,7 @@ Commit completed successfully (all or partial success).
 | `finishedAt` | [DateTime](#type-datetime)! |  |
 | `repositories` | (first: Int = 50, after: String, where: [RepositoryCommitWhereInput](#type-repositorycommitwhereinput), orderBy: [[RepositoryCommitOrderByInput](#type-repositorycommitorderbyinput)!]): [RepositoryCommitConnection](#type-repositorycommitconnection)! | Paginated results per repository. |
 
-<a id="type-organizationcommitqueued"></a>
-
-##### `OrganizationCommitQueued`
+<h5 id="type-organizationcommitqueued"><code>OrganizationCommitQueued</code></h5>
 
 **Implements:** [OrganizationCommit](#type-organizationcommit)
 
@@ -2128,9 +1892,7 @@ Commit is queued and waiting to be processed.
 | `startedAt` | [DateTime](#type-datetime)! |  |
 | `repositories` | (first: Int = 50, after: String, where: [RepositoryCommitWhereInput](#type-repositorycommitwhereinput), orderBy: [[RepositoryCommitOrderByInput](#type-repositorycommitorderbyinput)!]): [RepositoryCommitConnection](#type-repositorycommitconnection)! | Paginated results per repository. |
 
-<a id="type-organizationcommitrunning"></a>
-
-##### `OrganizationCommitRunning`
+<h5 id="type-organizationcommitrunning"><code>OrganizationCommitRunning</code></h5>
 
 **Implements:** [OrganizationCommit](#type-organizationcommit)
 
@@ -2146,9 +1908,7 @@ Commit is actively being processed across repositories.
 | `startedAt` | [DateTime](#type-datetime)! |  |
 | `repositories` | (first: Int = 50, after: String, where: [RepositoryCommitWhereInput](#type-repositorycommitwhereinput), orderBy: [[RepositoryCommitOrderByInput](#type-repositorycommitorderbyinput)!]): [RepositoryCommitConnection](#type-repositorycommitconnection)! | Paginated results per repository. |
 
-<a id="type-organizationconfiguration"></a>
-
-##### `OrganizationConfiguration`
+<h5 id="type-organizationconfiguration"><code>OrganizationConfiguration</code></h5>
 
 | Field | Type | Description |
 |-------|------|-------------|
@@ -2157,9 +1917,7 @@ Commit is actively being processed across repositories.
 | `skipValidateConnectivity` | Boolean! |  |
 | `connectivity` | [HttpToolConnectivity](#type-httptoolconnectivity)! |  |
 
-<a id="type-organizationconnection"></a>
-
-##### `OrganizationConnection`
+<h5 id="type-organizationconnection"><code>OrganizationConnection</code></h5>
 
 | Field | Type | Description |
 |-------|------|-------------|
@@ -2167,18 +1925,14 @@ Commit is actively being processed across repositories.
 | `pageInfo` | [PageInfo](#type-pageinfo)! |  |
 | `count` | Int! |  |
 
-<a id="type-organizationedge"></a>
-
-##### `OrganizationEdge`
+<h5 id="type-organizationedge"><code>OrganizationEdge</code></h5>
 
 | Field | Type | Description |
 |-------|------|-------------|
 | `node` | [Organization](#type-organization)! |  |
 | `cursor` | String! |  |
 
-<a id="type-organizationreciperuncanceled"></a>
-
-##### `OrganizationRecipeRunCanceled`
+<h5 id="type-organizationreciperuncanceled"><code>OrganizationRecipeRunCanceled</code></h5>
 
 **Implements:** [OrganizationChangeset](#type-organizationchangeset), [OrganizationRecipeRun](#type-organizationreciperun)
 
@@ -2201,9 +1955,7 @@ Commit is actively being processed across repositories.
 | `bulkPullRequestActions` | (first: Int = 50, after: String, where: [BulkPullRequestActionWhereInput](#type-bulkpullrequestactionwhereinput), orderBy: [[BulkPullRequestActionOrderByInput](#type-bulkpullrequestactionorderbyinput)!]): [BulkPullRequestActionConnection](#type-bulkpullrequestactionconnection)! | Bulk pull request actions (approve, merge, close) initiated against pull requests that belong to this changeset. Default sort: STARTED_AT DESC with QUEUED entries (no startedAt) appearing last so polling clients still see in-flight actions. |
 | `commits` | (first: Int = 50, after: String, where: [OrganizationCommitWhereInput](#type-organizationcommitwhereinput), orderBy: [[OrganizationCommitOrderByInput](#type-organizationcommitorderbyinput)!]): [OrganizationCommitConnection](#type-organizationcommitconnection) | Commit operations initiated from this changeset. |
 
-<a id="type-organizationreciperunconnection"></a>
-
-##### `OrganizationRecipeRunConnection`
+<h5 id="type-organizationreciperunconnection"><code>OrganizationRecipeRunConnection</code></h5>
 
 | Field | Type | Description |
 |-------|------|-------------|
@@ -2211,18 +1963,14 @@ Commit is actively being processed across repositories.
 | `pageInfo` | [PageInfo](#type-pageinfo)! |  |
 | `count` | Int! |  |
 
-<a id="type-organizationreciperunedge"></a>
-
-##### `OrganizationRecipeRunEdge`
+<h5 id="type-organizationreciperunedge"><code>OrganizationRecipeRunEdge</code></h5>
 
 | Field | Type | Description |
 |-------|------|-------------|
 | `node` | [OrganizationRecipeRun](#type-organizationreciperun)! |  |
 | `cursor` | String! |  |
 
-<a id="type-organizationreciperunerror"></a>
-
-##### `OrganizationRecipeRunError`
+<h5 id="type-organizationreciperunerror"><code>OrganizationRecipeRunError</code></h5>
 
 **Implements:** [OrganizationChangeset](#type-organizationchangeset), [OrganizationRecipeRun](#type-organizationreciperun)
 
@@ -2245,9 +1993,7 @@ Commit is actively being processed across repositories.
 | `bulkPullRequestActions` | (first: Int = 50, after: String, where: [BulkPullRequestActionWhereInput](#type-bulkpullrequestactionwhereinput), orderBy: [[BulkPullRequestActionOrderByInput](#type-bulkpullrequestactionorderbyinput)!]): [BulkPullRequestActionConnection](#type-bulkpullrequestactionconnection)! | Bulk pull request actions (approve, merge, close) initiated against pull requests that belong to this changeset. Default sort: STARTED_AT DESC with QUEUED entries (no startedAt) appearing last so polling clients still see in-flight actions. |
 | `commits` | (first: Int = 50, after: String, where: [OrganizationCommitWhereInput](#type-organizationcommitwhereinput), orderBy: [[OrganizationCommitOrderByInput](#type-organizationcommitorderbyinput)!]): [OrganizationCommitConnection](#type-organizationcommitconnection) | Commit operations initiated from this changeset. |
 
-<a id="type-organizationreciperunfinished"></a>
-
-##### `OrganizationRecipeRunFinished`
+<h5 id="type-organizationreciperunfinished"><code>OrganizationRecipeRunFinished</code></h5>
 
 **Implements:** [OrganizationChangeset](#type-organizationchangeset), [OrganizationRecipeRun](#type-organizationreciperun)
 
@@ -2271,9 +2017,7 @@ Commit is actively being processed across repositories.
 | `bulkPullRequestActions` | (first: Int = 50, after: String, where: [BulkPullRequestActionWhereInput](#type-bulkpullrequestactionwhereinput), orderBy: [[BulkPullRequestActionOrderByInput](#type-bulkpullrequestactionorderbyinput)!]): [BulkPullRequestActionConnection](#type-bulkpullrequestactionconnection)! | Bulk pull request actions (approve, merge, close) initiated against pull requests that belong to this changeset. Default sort: STARTED_AT DESC with QUEUED entries (no startedAt) appearing last so polling clients still see in-flight actions. |
 | `commits` | (first: Int = 50, after: String, where: [OrganizationCommitWhereInput](#type-organizationcommitwhereinput), orderBy: [[OrganizationCommitOrderByInput](#type-organizationcommitorderbyinput)!]): [OrganizationCommitConnection](#type-organizationcommitconnection) | Commit operations initiated from this changeset. |
 
-<a id="type-organizationreciperunqueued"></a>
-
-##### `OrganizationRecipeRunQueued`
+<h5 id="type-organizationreciperunqueued"><code>OrganizationRecipeRunQueued</code></h5>
 
 **Implements:** [OrganizationChangeset](#type-organizationchangeset), [OrganizationRecipeRun](#type-organizationreciperun)
 
@@ -2294,9 +2038,7 @@ Commit is actively being processed across repositories.
 | `bulkPullRequestActions` | (first: Int = 50, after: String, where: [BulkPullRequestActionWhereInput](#type-bulkpullrequestactionwhereinput), orderBy: [[BulkPullRequestActionOrderByInput](#type-bulkpullrequestactionorderbyinput)!]): [BulkPullRequestActionConnection](#type-bulkpullrequestactionconnection)! | Bulk pull request actions (approve, merge, close) initiated against pull requests that belong to this changeset. Default sort: STARTED_AT DESC with QUEUED entries (no startedAt) appearing last so polling clients still see in-flight actions. |
 | `commits` | (first: Int = 50, after: String, where: [OrganizationCommitWhereInput](#type-organizationcommitwhereinput), orderBy: [[OrganizationCommitOrderByInput](#type-organizationcommitorderbyinput)!]): [OrganizationCommitConnection](#type-organizationcommitconnection) | Commit operations initiated from this changeset. |
 
-<a id="type-organizationreciperunrunning"></a>
-
-##### `OrganizationRecipeRunRunning`
+<h5 id="type-organizationreciperunrunning"><code>OrganizationRecipeRunRunning</code></h5>
 
 **Implements:** [OrganizationChangeset](#type-organizationchangeset), [OrganizationRecipeRun](#type-organizationreciperun)
 
@@ -2318,9 +2060,7 @@ Commit is actively being processed across repositories.
 | `bulkPullRequestActions` | (first: Int = 50, after: String, where: [BulkPullRequestActionWhereInput](#type-bulkpullrequestactionwhereinput), orderBy: [[BulkPullRequestActionOrderByInput](#type-bulkpullrequestactionorderbyinput)!]): [BulkPullRequestActionConnection](#type-bulkpullrequestactionconnection)! | Bulk pull request actions (approve, merge, close) initiated against pull requests that belong to this changeset. Default sort: STARTED_AT DESC with QUEUED entries (no startedAt) appearing last so polling clients still see in-flight actions. |
 | `commits` | (first: Int = 50, after: String, where: [OrganizationCommitWhereInput](#type-organizationcommitwhereinput), orderBy: [[OrganizationCommitOrderByInput](#type-organizationcommitorderbyinput)!]): [OrganizationCommitConnection](#type-organizationcommitconnection) | Commit operations initiated from this changeset. |
 
-<a id="type-organizationreciperunsyncing"></a>
-
-##### `OrganizationRecipeRunSyncing`
+<h5 id="type-organizationreciperunsyncing"><code>OrganizationRecipeRunSyncing</code></h5>
 
 **Implements:** [OrganizationChangeset](#type-organizationchangeset), [OrganizationRecipeRun](#type-organizationreciperun)
 
@@ -2341,9 +2081,7 @@ Commit is actively being processed across repositories.
 | `bulkPullRequestActions` | (first: Int = 50, after: String, where: [BulkPullRequestActionWhereInput](#type-bulkpullrequestactionwhereinput), orderBy: [[BulkPullRequestActionOrderByInput](#type-bulkpullrequestactionorderbyinput)!]): [BulkPullRequestActionConnection](#type-bulkpullrequestactionconnection)! | Bulk pull request actions (approve, merge, close) initiated against pull requests that belong to this changeset. Default sort: STARTED_AT DESC with QUEUED entries (no startedAt) appearing last so polling clients still see in-flight actions. |
 | `commits` | (first: Int = 50, after: String, where: [OrganizationCommitWhereInput](#type-organizationcommitwhereinput), orderBy: [[OrganizationCommitOrderByInput](#type-organizationcommitorderbyinput)!]): [OrganizationCommitConnection](#type-organizationcommitconnection) | Commit operations initiated from this changeset. |
 
-<a id="type-pageinfo"></a>
-
-##### `PageInfo`
+<h5 id="type-pageinfo"><code>PageInfo</code></h5>
 
 | Field | Type | Description |
 |-------|------|-------------|
@@ -2352,9 +2090,7 @@ Commit is actively being processed across repositories.
 | `startCursor` | String |  |
 | `endCursor` | String |  |
 
-<a id="type-patch"></a>
-
-##### `Patch`
+<h5 id="type-patch"><code>Patch</code></h5>
 
 | Field | Type | Description |
 |-------|------|-------------|
@@ -2362,17 +2098,13 @@ Commit is actively being processed across repositories.
 | `fencedMarkerDiff` | String! | A diff with search and markup markers included in fenced \{\{UUID\}\} wrappers that correspond to ids in the markers list. |
 | `markers` | [[Marker](#type-marker)!]! |  |
 
-<a id="type-personalaccesstokenconfiguration"></a>
-
-##### `PersonalAccessTokenConfiguration`
+<h5 id="type-personalaccesstokenconfiguration"><code>PersonalAccessTokenConfiguration</code></h5>
 
 | Field | Type | Description |
 |-------|------|-------------|
 | `maxExpiryDays` | Int |  |
 
-<a id="type-piprecipebundle"></a>
-
-##### `PipRecipeBundle`
+<h5 id="type-piprecipebundle"><code>PipRecipeBundle</code></h5>
 
 **Implements:** [RecipeBundle](#type-recipebundle)
 
@@ -2383,9 +2115,7 @@ Commit is actively being processed across repositories.
 | `version` | String |  |
 | `recipeCount` | Int |  |
 
-<a id="type-platformcapabilities"></a>
-
-##### `PlatformCapabilities`
+<h5 id="type-platformcapabilities"><code>PlatformCapabilities</code></h5>
 
 | Field | Type | Description |
 |-------|------|-------------|
@@ -2397,18 +2127,14 @@ Commit is actively being processed across repositories.
 | `moddy` | Boolean! |  |
 | `profiling` | [Profiling](#type-profiling)! |  |
 
-<a id="type-profiling"></a>
-
-##### `Profiling`
+<h5 id="type-profiling"><code>Profiling</code></h5>
 
 | Field | Type | Description |
 |-------|------|-------------|
 | `deployed` | Boolean! | Whether the per-tenant Pyroscope ASG, S3 bucket, and IAM are provisioned. |
 | `session` | [ProfilingSession](#type-profilingsession) | The currently active profiling session, or null when profiling is off. Flipped by setProfiling. |
 
-<a id="type-profilingsession"></a>
-
-##### `ProfilingSession`
+<h5 id="type-profilingsession"><code>ProfilingSession</code></h5>
 
 | Field | Type | Description |
 |-------|------|-------------|
@@ -2416,9 +2142,7 @@ Commit is actively being processed across repositories.
 | `startedAt` | [DateTime](#type-datetime)! | When profiling was turned on. |
 | `event` | [ProfilingEvent](#type-profilingevent)! | The primary profiling event the in-process agent is sampling. |
 
-<a id="type-prompt"></a>
-
-##### `Prompt`
+<h5 id="type-prompt"><code>Prompt</code></h5>
 
 | Field | Type | Description |
 |-------|------|-------------|
@@ -2426,9 +2150,7 @@ Commit is actively being processed across repositories.
 | `lastUpdatedAt` | [DateTime](#type-datetime)! |  |
 | `lastUpdatedBy` | [User](#type-user)! |  |
 
-<a id="type-pullrequestactioncanceled"></a>
-
-##### `PullRequestActionCanceled`
+<h5 id="type-pullrequestactioncanceled"><code>PullRequestActionCanceled</code></h5>
 
 **Implements:** [PullRequestAction](#type-pullrequestaction)
 
@@ -2437,9 +2159,7 @@ Commit is actively being processed across repositories.
 | `pullRequest` | [PullRequestRef](#type-pullrequestref)! |  |
 | `canceledBy` | [User](#type-user)! |  |
 
-<a id="type-pullrequestactionconnection"></a>
-
-##### `PullRequestActionConnection`
+<h5 id="type-pullrequestactionconnection"><code>PullRequestActionConnection</code></h5>
 
 | Field | Type | Description |
 |-------|------|-------------|
@@ -2447,18 +2167,14 @@ Commit is actively being processed across repositories.
 | `pageInfo` | [PageInfo](#type-pageinfo)! |  |
 | `count` | Int! |  |
 
-<a id="type-pullrequestactionedge"></a>
-
-##### `PullRequestActionEdge`
+<h5 id="type-pullrequestactionedge"><code>PullRequestActionEdge</code></h5>
 
 | Field | Type | Description |
 |-------|------|-------------|
 | `node` | [PullRequestAction](#type-pullrequestaction)! |  |
 | `cursor` | String! |  |
 
-<a id="type-pullrequestactionfailed"></a>
-
-##### `PullRequestActionFailed`
+<h5 id="type-pullrequestactionfailed"><code>PullRequestActionFailed</code></h5>
 
 **Implements:** [PullRequestAction](#type-pullrequestaction)
 
@@ -2469,9 +2185,7 @@ Commit is actively being processed across repositories.
 | `finishedAt` | [DateTime](#type-datetime)! |  |
 | `errorMessage` | String! |  |
 
-<a id="type-pullrequestactionqueued"></a>
-
-##### `PullRequestActionQueued`
+<h5 id="type-pullrequestactionqueued"><code>PullRequestActionQueued</code></h5>
 
 **Implements:** [PullRequestAction](#type-pullrequestaction)
 
@@ -2479,9 +2193,7 @@ Commit is actively being processed across repositories.
 |-------|------|-------------|
 | `pullRequest` | [PullRequestRef](#type-pullrequestref)! |  |
 
-<a id="type-pullrequestactionrunning"></a>
-
-##### `PullRequestActionRunning`
+<h5 id="type-pullrequestactionrunning"><code>PullRequestActionRunning</code></h5>
 
 **Implements:** [PullRequestAction](#type-pullrequestaction)
 
@@ -2490,9 +2202,7 @@ Commit is actively being processed across repositories.
 | `pullRequest` | [PullRequestRef](#type-pullrequestref)! |  |
 | `startedAt` | [DateTime](#type-datetime)! |  |
 
-<a id="type-pullrequestactionsucceeded"></a>
-
-##### `PullRequestActionSucceeded`
+<h5 id="type-pullrequestactionsucceeded"><code>PullRequestActionSucceeded</code></h5>
 
 **Implements:** [PullRequestAction](#type-pullrequestaction)
 
@@ -2502,9 +2212,7 @@ Commit is actively being processed across repositories.
 | `startedAt` | [DateTime](#type-datetime)! |  |
 | `finishedAt` | [DateTime](#type-datetime)! |  |
 
-<a id="type-pullrequestcommitsucceeded"></a>
-
-##### `PullRequestCommitSucceeded`
+<h5 id="type-pullrequestcommitsucceeded"><code>PullRequestCommitSucceeded</code></h5>
 
 **Implements:** [RepositoryCommitSucceeded](#type-repositorycommitsucceeded), [RepositoryCommit](#type-repositorycommit)
 
@@ -2518,9 +2226,7 @@ Pull request commit completed successfully.
 | `resultLink` | String |  |
 | `pullRequestStatus` | [PullRequestStatus](#type-pullrequeststatus)! | Pull request status. |
 
-<a id="type-pullrequestoptions"></a>
-
-##### `PullRequestOptions`
+<h5 id="type-pullrequestoptions"><code>PullRequestOptions</code></h5>
 
 **Implements:** [CommitOptions](#type-commitoptions)
 
@@ -2533,9 +2239,7 @@ Pull request commit completed successfully.
 | `autoMergeMethod` | [MergeMethod](#type-mergemethod) | If allowed by the repository, set the pull request to automatically merge after all checks pass using the defined strategy. |
 | `canRecreateClosedPullRequest` | Boolean! | Recreate a pull request if it was already closed. |
 
-<a id="type-pullrequestref"></a>
-
-##### `PullRequestRef`
+<h5 id="type-pullrequestref"><code>PullRequestRef</code></h5>
 
 | Field | Type | Description |
 |-------|------|-------------|
@@ -2544,9 +2248,7 @@ Pull request commit completed successfully.
 | `branch` | String! |  |
 | `number` | Int! |  |
 
-<a id="type-pullrequeststatus"></a>
-
-##### `PullRequestStatus`
+<h5 id="type-pullrequeststatus"><code>PullRequestStatus</code></h5>
 
 | Field | Type | Description |
 |-------|------|-------------|
@@ -2556,9 +2258,7 @@ Pull request commit completed successfully.
 | `buildState` | [BuildState](#type-buildstate) |  |
 | `otherBlockingReasons` | [String!]! | Additional status flags that block this pull request. Can depend on the SCM service provider. |
 
-<a id="type-pypiconfiguration"></a>
-
-##### `PypiConfiguration`
+<h5 id="type-pypiconfiguration"><code>PypiConfiguration</code></h5>
 
 | Field | Type | Description |
 |-------|------|-------------|
@@ -2567,9 +2267,7 @@ Pull request commit completed successfully.
 | `skipValidateConnectivity` | Boolean! |  |
 | `connectivity` | [HttpToolConnectivity](#type-httptoolconnectivity)! |  |
 
-<a id="type-recipebundleconnection"></a>
-
-##### `RecipeBundleConnection`
+<h5 id="type-recipebundleconnection"><code>RecipeBundleConnection</code></h5>
 
 | Field | Type | Description |
 |-------|------|-------------|
@@ -2577,18 +2275,14 @@ Pull request commit completed successfully.
 | `pageInfo` | [PageInfo](#type-pageinfo)! |  |
 | `count` | Int! |  |
 
-<a id="type-recipebundleedge"></a>
-
-##### `RecipeBundleEdge`
+<h5 id="type-recipebundleedge"><code>RecipeBundleEdge</code></h5>
 
 | Field | Type | Description |
 |-------|------|-------------|
 | `node` | [RecipeBundle](#type-recipebundle)! |  |
 | `cursor` | String! |  |
 
-<a id="type-recipecategory"></a>
-
-##### `RecipeCategory`
+<h5 id="type-recipecategory"><code>RecipeCategory</code></h5>
 
 | Field | Type | Description |
 |-------|------|-------------|
@@ -2600,9 +2294,7 @@ Pull request commit completed successfully.
 | `recipes` | (first: Int = 100, after: String, where: [RecipeWhereInput](#type-recipewhereinput), orderBy: [[RecipeOrderByInput](#type-recipeorderbyinput)!]): [RecipeDescriptorConnection](#type-recipedescriptorconnection)! |  |
 | `categories` | (first: Int = 100, after: String, where: [RecipeCategoryWhereInput](#type-recipecategorywhereinput), orderBy: [[RecipeCategoryOrderByInput](#type-recipecategoryorderbyinput)!]): [RecipeCategoryConnection](#type-recipecategoryconnection)! |  |
 
-<a id="type-recipecategoryconnection"></a>
-
-##### `RecipeCategoryConnection`
+<h5 id="type-recipecategoryconnection"><code>RecipeCategoryConnection</code></h5>
 
 | Field | Type | Description |
 |-------|------|-------------|
@@ -2610,18 +2302,14 @@ Pull request commit completed successfully.
 | `pageInfo` | [PageInfo](#type-pageinfo)! |  |
 | `count` | Int! |  |
 
-<a id="type-recipecategoryedge"></a>
-
-##### `RecipeCategoryEdge`
+<h5 id="type-recipecategoryedge"><code>RecipeCategoryEdge</code></h5>
 
 | Field | Type | Description |
 |-------|------|-------------|
 | `node` | [RecipeCategory](#type-recipecategory)! |  |
 | `cursor` | String! |  |
 
-<a id="type-recipedescriptor"></a>
-
-##### `RecipeDescriptor`
+<h5 id="type-recipedescriptor"><code>RecipeDescriptor</code></h5>
 
 | Field | Type | Description |
 |-------|------|-------------|
@@ -2636,9 +2324,7 @@ Pull request commit completed successfully.
 | `detail` | [RecipeDetail](#type-recipedetail)! | Expensive recipe detail fields that require resolving the full recipe bundle. Returns a state machine: query once to trigger resolution, poll until Finished. |
 | `devCenterCards` | [[DevCenterCardDescriptor](#type-devcentercarddescriptor)!] | DevCenter card descriptors for this recipe, or null if not a DevCenter recipe. |
 
-<a id="type-recipedescriptorconnection"></a>
-
-##### `RecipeDescriptorConnection`
+<h5 id="type-recipedescriptorconnection"><code>RecipeDescriptorConnection</code></h5>
 
 | Field | Type | Description |
 |-------|------|-------------|
@@ -2646,9 +2332,7 @@ Pull request commit completed successfully.
 | `pageInfo` | [PageInfo](#type-pageinfo)! |  |
 | `count` | Int! |  |
 
-<a id="type-recipedescriptoredge"></a>
-
-##### `RecipeDescriptorEdge`
+<h5 id="type-recipedescriptoredge"><code>RecipeDescriptorEdge</code></h5>
 
 | Field | Type | Description |
 |-------|------|-------------|
@@ -2656,9 +2340,7 @@ Pull request commit completed successfully.
 | `cursor` | String! |  |
 | `relevance` | Float! | Relevance score for this recipe in the context of a search query. For semantic search, this represents the search relevance (0.0 to 1.0). For filter-based queries, this is always 1.0. |
 
-<a id="type-recipedetailerror"></a>
-
-##### `RecipeDetailError`
+<h5 id="type-recipedetailerror"><code>RecipeDetailError</code></h5>
 
 **Implements:** [RecipeDetail](#type-recipedetail)
 
@@ -2668,9 +2350,7 @@ Pull request commit completed successfully.
 | `finishedAt` | [DateTime](#type-datetime)! |  |
 | `message` | String! |  |
 
-<a id="type-recipedetailfinished"></a>
-
-##### `RecipeDetailFinished`
+<h5 id="type-recipedetailfinished"><code>RecipeDetailFinished</code></h5>
 
 **Implements:** [RecipeDetail](#type-recipedetail)
 
@@ -2683,9 +2363,7 @@ Pull request commit completed successfully.
 | `preconditions` | [[RecipeDescriptor](#type-recipedescriptor)!]! |  |
 | `graph` | [RecipeGraph](#type-recipegraph)! | Flat vertices-and-edges representation of this composite recipe tree with Singleton deduplication pre-applied. Used by the Builder UI to visualize a composite recipe in a single round trip regardless of tree depth. Atomic (leaf) recipes return a single-vertex graph. |
 
-<a id="type-recipedetailloading"></a>
-
-##### `RecipeDetailLoading`
+<h5 id="type-recipedetailloading"><code>RecipeDetailLoading</code></h5>
 
 **Implements:** [RecipeDetail](#type-recipedetail)
 
@@ -2693,9 +2371,7 @@ Pull request commit completed successfully.
 |-------|------|-------------|
 | `startedAt` | [DateTime](#type-datetime)! |  |
 
-<a id="type-recipegraph"></a>
-
-##### `RecipeGraph`
+<h5 id="type-recipegraph"><code>RecipeGraph</code></h5>
 
 Flat vertices-and-edges representation of a composite recipe with
 `org.openrewrite.Singleton` deduplication pre-applied. Produced by the
@@ -2707,9 +2383,7 @@ marketplace backend and served to visualization clients in one round trip.
 | `vertices` | [[RecipeGraphVertex](#type-recipegraphvertex)!]! |  |
 | `edges` | [[RecipeGraphEdge](#type-recipegraphedge)!]! |  |
 
-<a id="type-recipegraphedge"></a>
-
-##### `RecipeGraphEdge`
+<h5 id="type-recipegraphedge"><code>RecipeGraphEdge</code></h5>
 
 | Field | Type | Description |
 |-------|------|-------------|
@@ -2717,9 +2391,7 @@ marketplace backend and served to visualization clients in one round trip.
 | `to` | Int! |  |
 | `type` | [RecipeGraphEdgeType](#type-recipegraphedgetype)! |  |
 
-<a id="type-recipegraphvertex"></a>
-
-##### `RecipeGraphVertex`
+<h5 id="type-recipegraphvertex"><code>RecipeGraphVertex</code></h5>
 
 A vertex in a RecipeGraph: a full recipe occurrence with its configured
 options. Recipes that declare `org.openrewrite.Singleton` as a precondition
@@ -2732,9 +2404,7 @@ pointing back to the first occurrence rather than as separate vertices.
 | `descriptor` | [RecipeDescriptor](#type-recipedescriptor)! | The recipe this vertex represents. Carries recipe name (as `id`), displayName, instanceName, options, bundle, dataTables, etc. — reuse the existing RecipeDescriptor type rather than duplicating fields here. |
 | `isSingleton` | Boolean! | True if this recipe declares `org.openrewrite.Singleton` as a precondition, meaning additional occurrences in the graph appear as REFERENCE edges pointing back to this vertex. |
 
-<a id="type-recipeinstallationconnection"></a>
-
-##### `RecipeInstallationConnection`
+<h5 id="type-recipeinstallationconnection"><code>RecipeInstallationConnection</code></h5>
 
 | Field | Type | Description |
 |-------|------|-------------|
@@ -2742,9 +2412,7 @@ pointing back to the first occurrence rather than as separate vertices.
 | `pageInfo` | [PageInfo](#type-pageinfo)! |  |
 | `count` | Int! |  |
 
-<a id="type-recipeinstallationedge"></a>
-
-##### `RecipeInstallationEdge`
+<h5 id="type-recipeinstallationedge"><code>RecipeInstallationEdge</code></h5>
 
 | Field | Type | Description |
 |-------|------|-------------|
@@ -2754,9 +2422,7 @@ pointing back to the first occurrence rather than as separate vertices.
 | `user` | [User](#type-user) | The user whose marketplace this installation was made to. If the installation is a universal or organization installation, this field will be null. |
 | `organization` | [Organization](#type-organization) | The organization to which this installation was made. If the installation is a universal or user installation, this field will be null. |
 
-<a id="type-recipeinstallationerror"></a>
-
-##### `RecipeInstallationError`
+<h5 id="type-recipeinstallationerror"><code>RecipeInstallationError</code></h5>
 
 **Implements:** [RecipeInstallation](#type-recipeinstallation)
 
@@ -2770,9 +2436,7 @@ Installation failed with an error.
 | `finishedAt` | [DateTime](#type-datetime)! |  |
 | `message` | String! | Human-readable error message. |
 
-<a id="type-recipeinstallationfinished"></a>
-
-##### `RecipeInstallationFinished`
+<h5 id="type-recipeinstallationfinished"><code>RecipeInstallationFinished</code></h5>
 
 **Implements:** [RecipeInstallation](#type-recipeinstallation)
 
@@ -2786,9 +2450,7 @@ Installation completed successfully.
 | `finishedAt` | [DateTime](#type-datetime)! |  |
 | `recipes` | [[RecipeDescriptor](#type-recipedescriptor)!]! | The recipes that were installed. |
 
-<a id="type-recipeinstallationprocessing"></a>
-
-##### `RecipeInstallationProcessing`
+<h5 id="type-recipeinstallationprocessing"><code>RecipeInstallationProcessing</code></h5>
 
 **Implements:** [RecipeInstallation](#type-recipeinstallation)
 
@@ -2801,9 +2463,7 @@ Installation is actively loading and resolving the recipe bundle.
 | `startedAt` | [DateTime](#type-datetime)! |  |
 | `progress` | Float | Progress from 0.0 to 1.0, if available. |
 
-<a id="type-recipeinstallationqueued"></a>
-
-##### `RecipeInstallationQueued`
+<h5 id="type-recipeinstallationqueued"><code>RecipeInstallationQueued</code></h5>
 
 **Implements:** [RecipeInstallation](#type-recipeinstallation)
 
@@ -2815,9 +2475,7 @@ Installation is queued and waiting to be processed.
 | `bundle` | [RecipeBundle](#type-recipebundle)! |  |
 | `startedAt` | [DateTime](#type-datetime)! |  |
 
-<a id="type-recipemarketplace"></a>
-
-##### `RecipeMarketplace`
+<h5 id="type-recipemarketplace"><code>RecipeMarketplace</code></h5>
 
 | Field | Type | Description |
 |-------|------|-------------|
@@ -2825,9 +2483,7 @@ Installation is queued and waiting to be processed.
 | `recipes` | (first: Int = 100, after: String, where: [RecipeWhereInput](#type-recipewhereinput), orderBy: [[RecipeOrderByInput](#type-recipeorderbyinput)!]): [RecipeDescriptorConnection](#type-recipedescriptorconnection)! |  |
 | `installations` | (first: Int = 50, after: String, where: [RecipeInstallationWhereInput](#type-recipeinstallationwhereinput), orderBy: [[RecipeInstallationOrderByInput](#type-recipeinstallationorderbyinput)!]): [RecipeInstallationConnection](#type-recipeinstallationconnection)! |  |
 
-<a id="type-recipeoptionsmessage"></a>
-
-##### `RecipeOptionsMessage`
+<h5 id="type-recipeoptionsmessage"><code>RecipeOptionsMessage</code></h5>
 
 **Implements:** [Message](#type-message)
 
@@ -2839,18 +2495,14 @@ Installation is queued and waiting to be processed.
 | `state` | [MessageState](#type-messagestate)! |  |
 | `lastUpdatedAt` | [DateTime](#type-datetime)! |  |
 
-<a id="type-recipeoptionvalue"></a>
-
-##### `RecipeOptionValue`
+<h5 id="type-recipeoptionvalue"><code>RecipeOptionValue</code></h5>
 
 | Field | Type | Description |
 |-------|------|-------------|
 | `name` | String! |  |
 | `value` | [Object](#type-object)! |  |
 
-<a id="type-reciperunfilechange"></a>
-
-##### `RecipeRunFileChange`
+<h5 id="type-reciperunfilechange"><code>RecipeRunFileChange</code></h5>
 
 **Implements:** [FileChange](#type-filechange)
 
@@ -2862,9 +2514,7 @@ Installation is queued and waiting to be processed.
 | `diff` | (markupLevel: [MarkupLevel](#type-markuplevel) = ERROR, showWhitespaceOnlyChanges: Boolean = true): [Patch](#type-patch) |  |
 | `recipesThatMadeChanges` | [[[RecipeDescriptor](#type-recipedescriptor)!]!]! | Recipe chains that contributed changes to this file. Each inner list is one mutation event's call stack, ordered root composite first to leaf recipe last (the leaf is the narrowest recipe that actually performed the change). |
 
-<a id="type-reciperunmessage"></a>
-
-##### `RecipeRunMessage`
+<h5 id="type-reciperunmessage"><code>RecipeRunMessage</code></h5>
 
 **Implements:** [Message](#type-message)
 
@@ -2882,9 +2532,7 @@ terminal state, `recipeRun` resolves via federation.
 | `state` | [MessageState](#type-messagestate)! |  |
 | `lastUpdatedAt` | [DateTime](#type-datetime)! |  |
 
-<a id="type-reciperunprogress"></a>
-
-##### `RecipeRunProgress`
+<h5 id="type-reciperunprogress"><code>RecipeRunProgress</code></h5>
 
 Typed progress envelope for an in-flight recipe run.
 
@@ -2896,9 +2544,7 @@ Typed progress envelope for an in-flight recipe run.
 | `reposFinished` | Int |  |
 | `reposTotal` | Int |  |
 
-<a id="type-reciperuntotals"></a>
-
-##### `RecipeRunTotals`
+<h5 id="type-reciperuntotals"><code>RecipeRunTotals</code></h5>
 
 | Field | Type | Description |
 |-------|------|-------------|
@@ -2913,9 +2559,7 @@ Typed progress envelope for an in-flight recipe run.
 | `repositoriesWithErrors` | Int! |  |
 | `repositoriesInProgress` | Int! |  |
 
-<a id="type-recipesearchmessage"></a>
-
-##### `RecipeSearchMessage`
+<h5 id="type-recipesearchmessage"><code>RecipeSearchMessage</code></h5>
 
 **Implements:** [Message](#type-message)
 
@@ -2927,9 +2571,7 @@ Typed progress envelope for an in-flight recipe run.
 | `state` | [MessageState](#type-messagestate)! |  |
 | `lastUpdatedAt` | [DateTime](#type-datetime)! |  |
 
-<a id="type-recipeuninstallation"></a>
-
-##### `RecipeUninstallation`
+<h5 id="type-recipeuninstallation"><code>RecipeUninstallation</code></h5>
 
 Result of an uninstall operation.
 
@@ -2937,18 +2579,14 @@ Result of an uninstall operation.
 |-------|------|-------------|
 | `removedCount` | Int! | The number of recipes that were removed. |
 
-<a id="type-reindexresult"></a>
-
-##### `ReindexResult`
+<h5 id="type-reindexresult"><code>ReindexResult</code></h5>
 
 | Field | Type | Description |
 |-------|------|-------------|
 | `resetCount` | Int! | Number of repository cursors that were reset. |
 | `since` | [DateTime](#type-datetime)! | The timestamp cursors were rewound to. |
 
-<a id="type-repository"></a>
-
-##### `Repository`
+<h5 id="type-repository"><code>Repository</code></h5>
 
 | Field | Type | Description |
 |-------|------|-------------|
@@ -2958,9 +2596,7 @@ Result of an uninstall operation.
 | `changeset` | String |  |
 | `lstArtifact` | [LstArtifact](#type-lstartifact)! |  |
 
-<a id="type-repositoryauthorization"></a>
-
-##### `RepositoryAuthorization`
+<h5 id="type-repositoryauthorization"><code>RepositoryAuthorization</code></h5>
 
 Authorization status for accessing repository content.
 Resolved by the changeset reader using a batch check against the authorization service.
@@ -2970,9 +2606,7 @@ Resolved by the changeset reader using a batch check against the authorization s
 | `origin` | String! | The VCS origin (e.g., github.com). |
 | `isAuthorized` | Boolean! | Whether the user has a valid OAuth token for this origin. |
 
-<a id="type-repositorybatchchange"></a>
-
-##### `RepositoryBatchChange`
+<h5 id="type-repositorybatchchange"><code>RepositoryBatchChange</code></h5>
 
 **Implements:** [RepositoryChangeset](#type-repositorychangeset)
 
@@ -2982,9 +2616,7 @@ Resolved by the changeset reader using a batch check against the authorization s
 | `authorization` | [RepositoryAuthorization](#type-repositoryauthorization)! |  |
 | `results` | (first: Int = 100, after: String, where: [FileChangeWhereInput](#type-filechangewhereinput), orderBy: [[FileChangeOrderByInput](#type-filechangeorderbyinput)!]): [FileChangeConnection](#type-filechangeconnection)! |  |
 
-<a id="type-repositorychangesetconnection"></a>
-
-##### `RepositoryChangesetConnection`
+<h5 id="type-repositorychangesetconnection"><code>RepositoryChangesetConnection</code></h5>
 
 Paginated connection for repository changesets.
 
@@ -3009,18 +2641,14 @@ track repository sync progress during the SYNCING phase. Their sum equals `count
 | `syncCanceled` | Int! | Repositories whose sync was canceled before completion. |
 | `syncSkipped` | Int! | Repositories the CLI skipped during sync (typically: no LST available). |
 
-<a id="type-repositorychangesetedge"></a>
-
-##### `RepositoryChangesetEdge`
+<h5 id="type-repositorychangesetedge"><code>RepositoryChangesetEdge</code></h5>
 
 | Field | Type | Description |
 |-------|------|-------------|
 | `node` | [RepositoryChangeset](#type-repositorychangeset)! |  |
 | `cursor` | String! |  |
 
-<a id="type-repositorycommitcanceled"></a>
-
-##### `RepositoryCommitCanceled`
+<h5 id="type-repositorycommitcanceled"><code>RepositoryCommitCanceled</code></h5>
 
 **Implements:** [RepositoryCommit](#type-repositorycommit)
 
@@ -3034,9 +2662,7 @@ Use `options.__typename` to determine the specific commit type.
 | `finishedAt` | [DateTime](#type-datetime)! |  |
 | `options` | [CommitOptions](#type-commitoptions)! | The commit options. Use `__typename` to determine commit type. |
 
-<a id="type-repositorycommitconnection"></a>
-
-##### `RepositoryCommitConnection`
+<h5 id="type-repositorycommitconnection"><code>RepositoryCommitConnection</code></h5>
 
 | Field | Type | Description |
 |-------|------|-------------|
@@ -3045,18 +2671,14 @@ Use `options.__typename` to determine the specific commit type.
 | `count` | Int! |  |
 | `completedCount` | Int! | Count of repository commits that have reached a terminal state (succeeded, failed, canceled, or no changes). Pair with `count` to show progress: "Completed X / Y". |
 
-<a id="type-repositorycommitedge"></a>
-
-##### `RepositoryCommitEdge`
+<h5 id="type-repositorycommitedge"><code>RepositoryCommitEdge</code></h5>
 
 | Field | Type | Description |
 |-------|------|-------------|
 | `node` | [RepositoryCommit](#type-repositorycommit)! |  |
 | `cursor` | String! |  |
 
-<a id="type-repositorycommitfailed"></a>
-
-##### `RepositoryCommitFailed`
+<h5 id="type-repositorycommitfailed"><code>RepositoryCommitFailed</code></h5>
 
 **Implements:** [RepositoryCommit](#type-repositorycommit)
 
@@ -3072,9 +2694,7 @@ Use `options.__typename` to determine the specific commit type.
 | `retryCount` | Int | Number of retry attempts made. |
 | `options` | [CommitOptions](#type-commitoptions)! | The commit options. Use `__typename` to determine commit type. |
 
-<a id="type-repositorycommitnochanges"></a>
-
-##### `RepositoryCommitNoChanges`
+<h5 id="type-repositorycommitnochanges"><code>RepositoryCommitNoChanges</code></h5>
 
 **Implements:** [RepositoryCommit](#type-repositorycommit)
 
@@ -3089,9 +2709,7 @@ Use `options.__typename` to determine the specific commit type.
 | `finishedAt` | [DateTime](#type-datetime)! |  |
 | `options` | [CommitOptions](#type-commitoptions)! | The commit options. Use `__typename` to determine commit type. |
 
-<a id="type-repositorycommitqueued"></a>
-
-##### `RepositoryCommitQueued`
+<h5 id="type-repositorycommitqueued"><code>RepositoryCommitQueued</code></h5>
 
 **Implements:** [RepositoryCommit](#type-repositorycommit)
 
@@ -3105,9 +2723,7 @@ Use `options.__typename` to determine the specific commit type.
 | `rateLimitReset` | [DateTime](#type-datetime) | Time when rate limit expires (if rate limited). |
 | `options` | [CommitOptions](#type-commitoptions)! | The commit options. Use `__typename` to determine commit type. |
 
-<a id="type-repositorycommitrunning"></a>
-
-##### `RepositoryCommitRunning`
+<h5 id="type-repositorycommitrunning"><code>RepositoryCommitRunning</code></h5>
 
 **Implements:** [RepositoryCommit](#type-repositorycommit)
 
@@ -3120,9 +2736,7 @@ Use `options.__typename` to determine the specific commit type.
 | `startedAt` | [DateTime](#type-datetime)! |  |
 | `options` | [CommitOptions](#type-commitoptions)! | The commit options. Use `__typename` to determine commit type. |
 
-<a id="type-repositoryconnection"></a>
-
-##### `RepositoryConnection`
+<h5 id="type-repositoryconnection"><code>RepositoryConnection</code></h5>
 
 | Field | Type | Description |
 |-------|------|-------------|
@@ -3130,18 +2744,14 @@ Use `options.__typename` to determine the specific commit type.
 | `pageInfo` | [PageInfo](#type-pageinfo)! |  |
 | `count` | Int! |  |
 
-<a id="type-repositoryedge"></a>
-
-##### `RepositoryEdge`
+<h5 id="type-repositoryedge"><code>RepositoryEdge</code></h5>
 
 | Field | Type | Description |
 |-------|------|-------------|
 | `node` | [Repository](#type-repository)! |  |
 | `cursor` | String! |  |
 
-<a id="type-repositoryreciperuncanceled"></a>
-
-##### `RepositoryRecipeRunCanceled`
+<h5 id="type-repositoryreciperuncanceled"><code>RepositoryRecipeRunCanceled</code></h5>
 
 **Implements:** [RepositoryRecipeRun](#type-repositoryreciperun), [RepositoryChangeset](#type-repositorychangeset)
 
@@ -3152,9 +2762,7 @@ Use `options.__typename` to determine the specific commit type.
 | `syncStatus` | [RepositorySyncStatus](#type-repositorysyncstatus) |  |
 | `results` | (first: Int = 100, after: String, where: [FileChangeWhereInput](#type-filechangewhereinput), orderBy: [[FileChangeOrderByInput](#type-filechangeorderbyinput)!]): [FileChangeConnection](#type-filechangeconnection)! |  |
 
-<a id="type-repositoryreciperunconnection"></a>
-
-##### `RepositoryRecipeRunConnection`
+<h5 id="type-repositoryreciperunconnection"><code>RepositoryRecipeRunConnection</code></h5>
 
 | Field | Type | Description |
 |-------|------|-------------|
@@ -3162,18 +2770,14 @@ Use `options.__typename` to determine the specific commit type.
 | `pageInfo` | [PageInfo](#type-pageinfo)! |  |
 | `count` | Int! |  |
 
-<a id="type-repositoryreciperunedge"></a>
-
-##### `RepositoryRecipeRunEdge`
+<h5 id="type-repositoryreciperunedge"><code>RepositoryRecipeRunEdge</code></h5>
 
 | Field | Type | Description |
 |-------|------|-------------|
 | `node` | [RepositoryRecipeRun](#type-repositoryreciperun)! |  |
 | `cursor` | String! |  |
 
-<a id="type-repositoryreciperunerror"></a>
-
-##### `RepositoryRecipeRunError`
+<h5 id="type-repositoryreciperunerror"><code>RepositoryRecipeRunError</code></h5>
 
 **Implements:** [RepositoryRecipeRun](#type-repositoryreciperun), [RepositoryChangeset](#type-repositorychangeset)
 
@@ -3188,9 +2792,7 @@ Use `options.__typename` to determine the specific commit type.
 | `errorReason` | [RepositoryErrorReason](#type-repositoryerrorreason) |  |
 | `message` | String |  |
 
-<a id="type-repositoryreciperunfinished"></a>
-
-##### `RepositoryRecipeRunFinished`
+<h5 id="type-repositoryreciperunfinished"><code>RepositoryRecipeRunFinished</code></h5>
 
 **Implements:** [RepositoryRecipeRun](#type-repositoryreciperun), [RepositoryChangeset](#type-repositorychangeset)
 
@@ -3204,9 +2806,7 @@ Use `options.__typename` to determine the specific commit type.
 | `finishedAt` | [DateTime](#type-datetime) |  |
 | `timeSavings` | [Duration](#type-duration) |  |
 
-<a id="type-repositoryreciperunnolst"></a>
-
-##### `RepositoryRecipeRunNoLst`
+<h5 id="type-repositoryreciperunnolst"><code>RepositoryRecipeRunNoLst</code></h5>
 
 **Implements:** [RepositoryRecipeRun](#type-repositoryreciperun), [RepositoryChangeset](#type-repositorychangeset)
 
@@ -3217,9 +2817,7 @@ Use `options.__typename` to determine the specific commit type.
 | `syncStatus` | [RepositorySyncStatus](#type-repositorysyncstatus) |  |
 | `results` | (first: Int = 100, after: String, where: [FileChangeWhereInput](#type-filechangewhereinput), orderBy: [[FileChangeOrderByInput](#type-filechangeorderbyinput)!]): [FileChangeConnection](#type-filechangeconnection)! |  |
 
-<a id="type-repositoryreciperunqueued"></a>
-
-##### `RepositoryRecipeRunQueued`
+<h5 id="type-repositoryreciperunqueued"><code>RepositoryRecipeRunQueued</code></h5>
 
 **Implements:** [RepositoryRecipeRun](#type-repositoryreciperun), [RepositoryChangeset](#type-repositorychangeset)
 
@@ -3231,9 +2829,7 @@ Use `options.__typename` to determine the specific commit type.
 | `results` | (first: Int = 100, after: String, where: [FileChangeWhereInput](#type-filechangewhereinput), orderBy: [[FileChangeOrderByInput](#type-filechangeorderbyinput)!]): [FileChangeConnection](#type-filechangeconnection)! |  |
 | `queuedAt` | [DateTime](#type-datetime) |  |
 
-<a id="type-repositoryreciperunrunning"></a>
-
-##### `RepositoryRecipeRunRunning`
+<h5 id="type-repositoryreciperunrunning"><code>RepositoryRecipeRunRunning</code></h5>
 
 **Implements:** [RepositoryRecipeRun](#type-repositoryreciperun), [RepositoryChangeset](#type-repositorychangeset)
 
@@ -3245,18 +2841,14 @@ Use `options.__typename` to determine the specific commit type.
 | `results` | (first: Int = 100, after: String, where: [FileChangeWhereInput](#type-filechangewhereinput), orderBy: [[FileChangeOrderByInput](#type-filechangeorderbyinput)!]): [FileChangeConnection](#type-filechangeconnection)! |  |
 | `startedAt` | [DateTime](#type-datetime) |  |
 
-<a id="type-reviewstatus"></a>
-
-##### `ReviewStatus`
+<h5 id="type-reviewstatus"><code>ReviewStatus</code></h5>
 
 | Field | Type | Description |
 |-------|------|-------------|
 | `approvedBy` | [String!] |  |
 | `reviewDecision` | [ReviewDecision](#type-reviewdecision)! |  |
 
-<a id="type-revoketokenresult"></a>
-
-##### `RevokeTokenResult`
+<h5 id="type-revoketokenresult"><code>RevokeTokenResult</code></h5>
 
 Result of revoking an SCM OAuth token.
 
@@ -3265,9 +2857,7 @@ Result of revoking an SCM OAuth token.
 | `success` | Boolean! | True if the token was revoked (or didn't exist). |
 | `error` | String | Error message if revocation failed. |
 
-<a id="type-s3configuration"></a>
-
-##### `S3Configuration`
+<h5 id="type-s3configuration"><code>S3Configuration</code></h5>
 
 | Field | Type | Description |
 |-------|------|-------------|
@@ -3278,18 +2868,14 @@ Result of revoking an SCM OAuth token.
 | `region` | String |  |
 | `endpointUrl` | String |  |
 
-<a id="type-scmtokeninfo"></a>
-
-##### `ScmTokenInfo`
+<h5 id="type-scmtokeninfo"><code>ScmTokenInfo</code></h5>
 
 | Field | Type | Description |
 |-------|------|-------------|
 | `created` | [DateTime](#type-datetime)! |  |
 | `expiresAt` | [DateTime](#type-datetime) |  |
 
-<a id="type-searchresult"></a>
-
-##### `SearchResult`
+<h5 id="type-searchresult"><code>SearchResult</code></h5>
 
 **Implements:** [Marker](#type-marker)
 
@@ -3299,9 +2885,7 @@ Result of revoking an SCM OAuth token.
 | `type` | String! |  |
 | `description` | String |  |
 
-<a id="type-sendmessageresult"></a>
-
-##### `SendMessageResult`
+<h5 id="type-sendmessageresult"><code>SendMessageResult</code></h5>
 
 Handle returned by `createConversation` / `sendMessage`. Clients should
 poll `conversation.messages(after: initialCursor)` using
@@ -3313,9 +2897,7 @@ poll `conversation.messages(after: initialCursor)` using
 | `initialCursor` | String! |  |
 | `turnState` | [ConversationTurnState](#type-conversationturnstate)! |  |
 
-<a id="type-textmessage"></a>
-
-##### `TextMessage`
+<h5 id="type-textmessage"><code>TextMessage</code></h5>
 
 **Implements:** [Message](#type-message)
 
@@ -3331,9 +2913,7 @@ Check the `user` field to distinguish sender.
 | `state` | [MessageState](#type-messagestate)! |  |
 | `lastUpdatedAt` | [DateTime](#type-datetime)! |  |
 
-<a id="type-toolinfo"></a>
-
-##### `ToolInfo`
+<h5 id="type-toolinfo"><code>ToolInfo</code></h5>
 
 | Field | Type | Description |
 |-------|------|-------------|
@@ -3341,9 +2921,7 @@ Check the `user` field to distinguish sender.
 | `version` | String |  |
 | `arguments` | String |  |
 
-<a id="type-uiconfiguration"></a>
-
-##### `UiConfiguration`
+<h5 id="type-uiconfiguration"><code>UiConfiguration</code></h5>
 
 | Field | Type | Description |
 |-------|------|-------------|
@@ -3352,9 +2930,7 @@ Check the `user` field to distinguish sender.
 | `loginLinks` | [[MoreHelpLink](#type-morehelplink)!] |  |
 | `cliDownloadInstructions` | [CliDownloadInstructionLink](#type-clidownloadinstructionlink) |  |
 
-<a id="type-user"></a>
-
-##### `User`
+<h5 id="type-user"><code>User</code></h5>
 
 | Field | Type | Description |
 |-------|------|-------------|
@@ -3365,9 +2941,7 @@ Check the `user` field to distinguish sender.
 | `tokens` | (first: Int = 100, after: String, where: [AccessTokenWhereInput](#type-accesstokenwhereinput), orderBy: [[AccessTokenOrderByInput](#type-accesstokenorderbyinput)!]): [AccessTokenConnection](#type-accesstokenconnection)! |  |
 | `moddy` | [Moddy](#type-moddy)! |  |
 
-<a id="type-userconnection"></a>
-
-##### `UserConnection`
+<h5 id="type-userconnection"><code>UserConnection</code></h5>
 
 | Field | Type | Description |
 |-------|------|-------------|
@@ -3375,18 +2949,14 @@ Check the `user` field to distinguish sender.
 | `pageInfo` | [PageInfo](#type-pageinfo)! |  |
 | `count` | Int! |  |
 
-<a id="type-usersedge"></a>
-
-##### `UsersEdge`
+<h5 id="type-usersedge"><code>UsersEdge</code></h5>
 
 | Field | Type | Description |
 |-------|------|-------------|
 | `node` | [User](#type-user)! |  |
 | `cursor` | String! |  |
 
-<a id="type-visualizationavailable"></a>
-
-##### `VisualizationAvailable`
+<h5 id="type-visualizationavailable"><code>VisualizationAvailable</code></h5>
 
 **Implements:** [Visualization](#type-visualization)
 
@@ -3396,9 +2966,7 @@ Check the `user` field to distinguish sender.
 | `descriptor` | [VisualizationDescriptor](#type-visualizationdescriptor)! |  |
 | `changesetId` | ID! | The changeset (recipe run or batch change) this visualization is available for. |
 
-<a id="type-visualizationconnection"></a>
-
-##### `VisualizationConnection`
+<h5 id="type-visualizationconnection"><code>VisualizationConnection</code></h5>
 
 | Field | Type | Description |
 |-------|------|-------------|
@@ -3406,9 +2974,7 @@ Check the `user` field to distinguish sender.
 | `pageInfo` | [PageInfo](#type-pageinfo)! |  |
 | `count` | Int! |  |
 
-<a id="type-visualizationdescriptor"></a>
-
-##### `VisualizationDescriptor`
+<h5 id="type-visualizationdescriptor"><code>VisualizationDescriptor</code></h5>
 
 | Field | Type | Description |
 |-------|------|-------------|
@@ -3418,18 +2984,14 @@ Check the `user` field to distinguish sender.
 | `image` | [Base64](#type-base64)! |  |
 | `options` | [[VisualizationOption](#type-visualizationoption)!]! |  |
 
-<a id="type-visualizationedge"></a>
-
-##### `VisualizationEdge`
+<h5 id="type-visualizationedge"><code>VisualizationEdge</code></h5>
 
 | Field | Type | Description |
 |-------|------|-------------|
 | `node` | [Visualization](#type-visualization)! |  |
 | `cursor` | String! |  |
 
-<a id="type-visualizationerror"></a>
-
-##### `VisualizationError`
+<h5 id="type-visualizationerror"><code>VisualizationError</code></h5>
 
 **Implements:** [Visualization](#type-visualization)
 
@@ -3443,9 +3005,7 @@ Check the `user` field to distinguish sender.
 | `message` | String! |  |
 | `repositories` | (first: Int = 100, after: String): [VisualizationRepositoryConnection](#type-visualizationrepositoryconnection)! |  |
 
-<a id="type-visualizationfinished"></a>
-
-##### `VisualizationFinished`
+<h5 id="type-visualizationfinished"><code>VisualizationFinished</code></h5>
 
 **Implements:** [Visualization](#type-visualization)
 
@@ -3460,9 +3020,7 @@ Check the `user` field to distinguish sender.
 | `output` | [VisualizationOutput](#type-visualizationoutput)! |  |
 | `repositories` | (first: Int = 100, after: String): [VisualizationRepositoryConnection](#type-visualizationrepositoryconnection)! |  |
 
-<a id="type-visualizationimageoutput"></a>
-
-##### `VisualizationImageOutput`
+<h5 id="type-visualizationimageoutput"><code>VisualizationImageOutput</code></h5>
 
 **Implements:** [VisualizationOutput](#type-visualizationoutput)
 
@@ -3471,9 +3029,7 @@ Check the `user` field to distinguish sender.
 | `format` | [ImageFormat](#type-imageformat)! |  |
 | `data` | [Base64](#type-base64)! |  |
 
-<a id="type-visualizationoption"></a>
-
-##### `VisualizationOption`
+<h5 id="type-visualizationoption"><code>VisualizationOption</code></h5>
 
 | Field | Type | Description |
 |-------|------|-------------|
@@ -3486,9 +3042,7 @@ Check the `user` field to distinguish sender.
 | `valid` | [String] |  |
 | `required` | Boolean! |  |
 
-<a id="type-visualizationplotlyoutput"></a>
-
-##### `VisualizationPlotlyOutput`
+<h5 id="type-visualizationplotlyoutput"><code>VisualizationPlotlyOutput</code></h5>
 
 **Implements:** [VisualizationOutput](#type-visualizationoutput)
 
@@ -3496,9 +3050,7 @@ Check the `user` field to distinguish sender.
 |-------|------|-------------|
 | `data` | [Base64](#type-base64)! | Plotly JSON data (MIME type: application/vnd.plotly.v1+json) |
 
-<a id="type-visualizationprocessing"></a>
-
-##### `VisualizationProcessing`
+<h5 id="type-visualizationprocessing"><code>VisualizationProcessing</code></h5>
 
 **Implements:** [Visualization](#type-visualization)
 
@@ -3510,9 +3062,7 @@ Check the `user` field to distinguish sender.
 | `startedAt` | [DateTime](#type-datetime)! |  |
 | `repositories` | (first: Int = 100, after: String): [VisualizationRepositoryConnection](#type-visualizationrepositoryconnection)! |  |
 
-<a id="type-visualizationrepository"></a>
-
-##### `VisualizationRepository`
+<h5 id="type-visualizationrepository"><code>VisualizationRepository</code></h5>
 
 | Field | Type | Description |
 |-------|------|-------------|
@@ -3520,9 +3070,7 @@ Check the `user` field to distinguish sender.
 | `stateMessage` | String |  |
 | `repository` | [Repository](#type-repository)! |  |
 
-<a id="type-visualizationrepositoryconnection"></a>
-
-##### `VisualizationRepositoryConnection`
+<h5 id="type-visualizationrepositoryconnection"><code>VisualizationRepositoryConnection</code></h5>
 
 | Field | Type | Description |
 |-------|------|-------------|
@@ -3530,18 +3078,14 @@ Check the `user` field to distinguish sender.
 | `pageInfo` | [PageInfo](#type-pageinfo)! |  |
 | `count` | Int! |  |
 
-<a id="type-visualizationrepositoryedge"></a>
-
-##### `VisualizationRepositoryEdge`
+<h5 id="type-visualizationrepositoryedge"><code>VisualizationRepositoryEdge</code></h5>
 
 | Field | Type | Description |
 |-------|------|-------------|
 | `node` | [VisualizationRepository](#type-visualizationrepository)! |  |
 | `cursor` | String! |  |
 
-<a id="type-yamlrecipebundle"></a>
-
-##### `YamlRecipeBundle`
+<h5 id="type-yamlrecipebundle"><code>YamlRecipeBundle</code></h5>
 
 **Implements:** [RecipeBundle](#type-recipebundle)
 
@@ -3555,17 +3099,13 @@ Check the `user` field to distinguish sender.
 
 ### Interfaces
 
-<a id="type-auditlogsdownload"></a>
-
-##### `AuditLogsDownload`
+<h5 id="type-auditlogsdownload"><code>AuditLogsDownload</code></h5>
 
 | Field | Type | Description |
 |-------|------|-------------|
 | `id` | ID! |  |
 
-<a id="type-bulkpullrequestaction"></a>
-
-##### `BulkPullRequestAction`
+<h5 id="type-bulkpullrequestaction"><code>BulkPullRequestAction</code></h5>
 
 A bulk pull request action (approve, merge, close) that operates on potentially
 multiple repositories. Use `__typename` to determine the current state.
@@ -3580,9 +3120,7 @@ representing the state of each repository targeted by the bulk operation.
 | `user` | [User](#type-user)! |  |
 | `results` | (first: Int = 50, after: String, where: [PullRequestActionWhereInput](#type-pullrequestactionwhereinput), orderBy: [[PullRequestActionOrderByInput](#type-pullrequestactionorderbyinput)!]): [PullRequestActionConnection](#type-pullrequestactionconnection)! |  |
 
-<a id="type-changelogentry"></a>
-
-##### `ChangelogEntry`
+<h5 id="type-changelogentry"><code>ChangelogEntry</code></h5>
 
 A single entry in the changelog — either a commit or a pull request.
 Use `__typename` to distinguish between `ChangelogCommit` and `ChangelogPullRequest`.
@@ -3601,17 +3139,13 @@ Use `__typename` to distinguish between `ChangelogCommit` and `ChangelogPullRequ
 | `buildState` | [BuildState](#type-buildstate) | CI status (e.g. from GitHub Actions, GitLab pipelines). Null if no CI is configured or status has not been fetched yet. |
 | `diffstat` | [DiffStat](#type-diffstat)! | Lines added and removed. |
 
-<a id="type-commitoptions"></a>
-
-##### `CommitOptions`
+<h5 id="type-commitoptions"><code>CommitOptions</code></h5>
 
 | Field | Type | Description |
 |-------|------|-------------|
 | `branchName` | String |  |
 
-<a id="type-datatable"></a>
-
-##### `DataTable`
+<h5 id="type-datatable"><code>DataTable</code></h5>
 
 | Field | Type | Description |
 |-------|------|-------------|
@@ -3620,9 +3154,7 @@ Use `__typename` to distinguish between `ChangelogCommit` and `ChangelogPullRequ
 | `instanceName` | String! | A human-readable name for this data table instance, describing what it contains. For example, "Method calls matching \`java.util.List add(..)\`". Defaults to the data table's display name when not explicitly set. |
 | `group` | String | The group identifying this data table bucket. For community tables this is the group name (e.g., "architecture"). Null for ungrouped/private tables. |
 
-<a id="type-devcenterrun"></a>
-
-##### `DevCenterRun`
+<h5 id="type-devcenterrun"><code>DevCenterRun</code></h5>
 
 A DevCenter run represents the execution of a DevCenter recipe.
 Use `__typename` to determine the current state.
@@ -3633,9 +3165,7 @@ Use `__typename` to determine the current state.
 | `startedAt` | [DateTime](#type-datetime)! | When this DevCenter run started. |
 | `changeset` | [OrganizationChangeset](#type-organizationchangeset) | The underlying recipe run changeset. |
 
-<a id="type-filechange"></a>
-
-##### `FileChange`
+<h5 id="type-filechange"><code>FileChange</code></h5>
 
 A change to a single file within a repository changeset.
 
@@ -3646,17 +3176,13 @@ A change to a single file within a repository changeset.
 | `afterSourcePath` | [Path](#type-path) | The source path after the change (from the diff's `+++ b/...` line). Null for deleted files. |
 | `diff` | (markupLevel: [MarkupLevel](#type-markuplevel) = ERROR, showWhitespaceOnlyChanges: Boolean = true): [Patch](#type-patch) | Get the diff for this file. |
 
-<a id="type-marker"></a>
-
-##### `Marker`
+<h5 id="type-marker"><code>Marker</code></h5>
 
 | Field | Type | Description |
 |-------|------|-------------|
 | `id` | ID! |  |
 
-<a id="type-message"></a>
-
-##### `Message`
+<h5 id="type-message"><code>Message</code></h5>
 
 | Field | Type | Description |
 |-------|------|-------------|
@@ -3665,9 +3191,7 @@ A change to a single file within a repository changeset.
 | `state` | [MessageState](#type-messagestate)! |  |
 | `lastUpdatedAt` | [DateTime](#type-datetime)! |  |
 
-<a id="type-organizationchangeset"></a>
-
-##### `OrganizationChangeset`
+<h5 id="type-organizationchangeset"><code>OrganizationChangeset</code></h5>
 
 An organization-wide changeset represents code changes or search results
 across multiple repositories. Implemented by OrganizationRecipeRun* and BatchChange.
@@ -3687,9 +3211,7 @@ interface must define the implementation types (OrganizationRecipeRun*, BatchCha
 | `dataTables` | (first: Int = 50, after: String, where: [DataTableWhereInput](#type-datatablewhereinput), orderBy: [[DataTableOrderByInput](#type-datatableorderbyinput)!]): [DataTableConnection](#type-datatableconnection)! | Data tables produced by this recipe run. Each data table starts as Available and transitions to Processing/Finished/Error when downloadDataTable mutation is called. |
 | `visualizations` | (first: Int = 50, after: String, where: [VisualizationWhereInput](#type-visualizationwhereinput), orderBy: [[VisualizationOrderByInput](#type-visualizationorderbyinput)!]): [VisualizationConnection](#type-visualizationconnection)! | Visualizations produced by this changeset. Each visualization starts as Available and transitions to Processing/Finished/Error when runVisualization mutation is called. |
 
-<a id="type-organizationcommit"></a>
-
-##### `OrganizationCommit`
+<h5 id="type-organizationcommit"><code>OrganizationCommit</code></h5>
 
 An organization-level commit operation represents applying changes across multiple
 repositories. Use `__typename` to determine the current state.
@@ -3703,9 +3225,7 @@ repositories. Use `__typename` to determine the current state.
 | `extendedMessage` | [Base64](#type-base64) | Extended commit message (Base64 encoded). |
 | `repositories` | (first: Int = 50, after: String, where: [RepositoryCommitWhereInput](#type-repositorycommitwhereinput), orderBy: [[RepositoryCommitOrderByInput](#type-repositorycommitorderbyinput)!]): [RepositoryCommitConnection](#type-repositorycommitconnection)! | Paginated results per repository. |
 
-<a id="type-organizationreciperun"></a>
-
-##### `OrganizationRecipeRun`
+<h5 id="type-organizationreciperun"><code>OrganizationRecipeRun</code></h5>
 
 | Field | Type | Description |
 |-------|------|-------------|
@@ -3723,9 +3243,7 @@ repositories. Use `__typename` to determine the current state.
 | `dataTables` | (first: Int = 50, after: String, where: [DataTableWhereInput](#type-datatablewhereinput), orderBy: [[DataTableOrderByInput](#type-datatableorderbyinput)!]): [DataTableConnection](#type-datatableconnection)! | Data tables produced by this recipe run. Each data table starts as Available and transitions to Processing/Finished/Error when downloadDataTable mutation is called. |
 | `visualizations` | (first: Int = 50, after: String, where: [VisualizationWhereInput](#type-visualizationwhereinput), orderBy: [[VisualizationOrderByInput](#type-visualizationorderbyinput)!]): [VisualizationConnection](#type-visualizationconnection)! | Visualizations produced by this recipe run. |
 
-<a id="type-pullrequestaction"></a>
-
-##### `PullRequestAction`
+<h5 id="type-pullrequestaction"><code>PullRequestAction</code></h5>
 
 The state of an individual repository within a `BulkPullRequestAction`.
 Use `__typename` to determine the current state.
@@ -3734,9 +3252,7 @@ Use `__typename` to determine the current state.
 |-------|------|-------------|
 | `pullRequest` | [PullRequestRef](#type-pullrequestref)! |  |
 
-<a id="type-recipebundle"></a>
-
-##### `RecipeBundle`
+<h5 id="type-recipebundle"><code>RecipeBundle</code></h5>
 
 | Field | Type | Description |
 |-------|------|-------------|
@@ -3744,9 +3260,7 @@ Use `__typename` to determine the current state.
 | `version` | String |  |
 | `recipeCount` | Int | Number of top-level recipes contributed by this bundle's package. Null when the bundle has not yet been resolved into the marketplace (e.g. an installation still in progress). |
 
-<a id="type-recipedetail"></a>
-
-##### `RecipeDetail`
+<h5 id="type-recipedetail"><code>RecipeDetail</code></h5>
 
 State machine for recipe detail resolution. Querying the `detail` field on a
 RecipeDescriptor triggers background resolution of the full recipe bundle.
@@ -3756,9 +3270,7 @@ Poll until `__typename` is `RecipeDetailFinished`.
 |-------|------|-------------|
 | `startedAt` | [DateTime](#type-datetime)! |  |
 
-<a id="type-recipeinstallation"></a>
-
-##### `RecipeInstallation`
+<h5 id="type-recipeinstallation"><code>RecipeInstallation</code></h5>
 
 Common fields for all recipe installation states.
 Use `__typename` to determine the current state.
@@ -3769,9 +3281,7 @@ Use `__typename` to determine the current state.
 | `bundle` | [RecipeBundle](#type-recipebundle)! |  |
 | `startedAt` | [DateTime](#type-datetime)! |  |
 
-<a id="type-repositorychangeset"></a>
-
-##### `RepositoryChangeset`
+<h5 id="type-repositorychangeset"><code>RepositoryChangeset</code></h5>
 
 | Field | Type | Description |
 |-------|------|-------------|
@@ -3779,9 +3289,7 @@ Use `__typename` to determine the current state.
 | `authorization` | [RepositoryAuthorization](#type-repositoryauthorization)! | Authorization status for accessing this repository's content. Check this before accessing file results. |
 | `results` | (first: Int = 100, after: String, where: [FileChangeWhereInput](#type-filechangewhereinput), orderBy: [[FileChangeOrderByInput](#type-filechangeorderbyinput)!]): [FileChangeConnection](#type-filechangeconnection)! | File-level changes within this repository. |
 
-<a id="type-repositorycommit"></a>
-
-##### `RepositoryCommit`
+<h5 id="type-repositorycommit"><code>RepositoryCommit</code></h5>
 
 A commit result for a single repository within an organization-level commit operation.
 Use `__typename` to determine the current state.
@@ -3790,9 +3298,7 @@ Use `__typename` to determine the current state.
 |-------|------|-------------|
 | `repository` | [Repository](#type-repository)! |  |
 
-<a id="type-repositorycommitsucceeded"></a>
-
-##### `RepositoryCommitSucceeded`
+<h5 id="type-repositorycommitsucceeded"><code>RepositoryCommitSucceeded</code></h5>
 
 Repository commit completed successfully.
 Use `__typename` to determine the specific commit type.
@@ -3804,9 +3310,7 @@ Use `__typename` to determine the specific commit type.
 | `finishedAt` | [DateTime](#type-datetime)! |  |
 | `resultLink` | String | Link to the commit or pull request result. |
 
-<a id="type-repositoryreciperun"></a>
-
-##### `RepositoryRecipeRun`
+<h5 id="type-repositoryreciperun"><code>RepositoryRecipeRun</code></h5>
 
 | Field | Type | Description |
 |-------|------|-------------|
@@ -3815,9 +3319,7 @@ Use `__typename` to determine the specific commit type.
 | `syncStatus` | [RepositorySyncStatus](#type-repositorysyncstatus) |  |
 | `results` | (first: Int = 100, after: String, where: [FileChangeWhereInput](#type-filechangewhereinput), orderBy: [[FileChangeOrderByInput](#type-filechangeorderbyinput)!]): [FileChangeConnection](#type-filechangeconnection)! |  |
 
-<a id="type-scmconnection"></a>
-
-##### `ScmConnection`
+<h5 id="type-scmconnection"><code>ScmConnection</code></h5>
 
 | Field | Type | Description |
 |-------|------|-------------|
@@ -3825,18 +3327,14 @@ Use `__typename` to determine the specific commit type.
 | `isAuthorized` | Boolean! |  |
 | `tokens` | [[ScmTokenInfo](#type-scmtokeninfo)!]! |  |
 
-<a id="type-visualization"></a>
-
-##### `Visualization`
+<h5 id="type-visualization"><code>Visualization</code></h5>
 
 | Field | Type | Description |
 |-------|------|-------------|
 | `id` | ID! |  |
 | `descriptor` | [VisualizationDescriptor](#type-visualizationdescriptor)! |  |
 
-<a id="type-visualizationoutput"></a>
-
-##### `VisualizationOutput`
+<h5 id="type-visualizationoutput"><code>VisualizationOutput</code></h5>
 
 | Field | Type | Description |
 |-------|------|-------------|
@@ -3844,54 +3342,40 @@ Use `__typename` to determine the specific commit type.
 
 ### Enums
 
-<a id="type-accesstokenorderbyfield"></a>
-
-##### `AccessTokenOrderByField`
+<h5 id="type-accesstokenorderbyfield"><code>AccessTokenOrderByField</code></h5>
 
 - `CREATED`
 - `EXPIRES_AT`
 
-<a id="type-auditactiontype"></a>
-
-##### `AuditActionType`
+<h5 id="type-auditactiontype"><code>AuditActionType</code></h5>
 
 - `CREATE`
 - `READ`
 - `UPDATE`
 - `DELETE`
 
-<a id="type-auditlogexportformat"></a>
-
-##### `AuditLogExportFormat`
+<h5 id="type-auditlogexportformat"><code>AuditLogExportFormat</code></h5>
 
 - `CEF`
 - `CSV`
 
-<a id="type-auditlogorderbyfield"></a>
-
-##### `AuditLogOrderByField`
+<h5 id="type-auditlogorderbyfield"><code>AuditLogOrderByField</code></h5>
 
 - `TIMESTAMP`
 - `USER_ID`
 - `TARGET`
 - `ACTION`
 
-<a id="type-auditlogsdownloadorderbyfield"></a>
-
-##### `AuditLogsDownloadOrderByField`
+<h5 id="type-auditlogsdownloadorderbyfield"><code>AuditLogsDownloadOrderByField</code></h5>
 
 - `STARTED_AT`
 
-<a id="type-auditoutcome"></a>
-
-##### `AuditOutcome`
+<h5 id="type-auditoutcome"><code>AuditOutcome</code></h5>
 
 - `SUCCESS`
 - `FAILURE`
 
-<a id="type-buildstate"></a>
-
-##### `BuildState`
+<h5 id="type-buildstate"><code>BuildState</code></h5>
 
 - `PENDING`
 - `IN_PROGRESS`
@@ -3900,17 +3384,13 @@ Use `__typename` to determine the specific commit type.
 - `SUCCESSFUL`
 - `NOT_REQUIRED`
 
-<a id="type-bulkpullrequestactionorderbyfield"></a>
-
-##### `BulkPullRequestActionOrderByField`
+<h5 id="type-bulkpullrequestactionorderbyfield"><code>BulkPullRequestActionOrderByField</code></h5>
 
 - `CREATED_AT`
 - `STARTED_AT`
 - `FINISHED_AT`
 
-<a id="type-bulkpullrequestactionstate"></a>
-
-##### `BulkPullRequestActionState`
+<h5 id="type-bulkpullrequestactionstate"><code>BulkPullRequestActionState</code></h5>
 
 The lifecycle state of a `BulkPullRequestAction`. Matches the `__typename`
 of the concrete state types (Queued, Running, Finished, Canceled, Error).
@@ -3921,35 +3401,27 @@ of the concrete state types (Queued, Running, Finished, Canceled, Error).
 - `CANCELED`
 - `ERROR`
 
-<a id="type-changelogentryorderbyfield"></a>
-
-##### `ChangelogEntryOrderByField`
+<h5 id="type-changelogentryorderbyfield"><code>ChangelogEntryOrderByField</code></h5>
 
 - `UPDATED_AT`
 - `CREATED_AT`
 - `TITLE`
 - `REPOSITORY_PATH`
 
-<a id="type-changelogentrytype"></a>
-
-##### `ChangelogEntryType`
+<h5 id="type-changelogentrytype"><code>ChangelogEntryType</code></h5>
 
 Discriminator for filtering by entry type.
 
 - `COMMIT`
 - `PULL_REQUEST`
 
-<a id="type-changelogparticipantorderbyfield"></a>
-
-##### `ChangelogParticipantOrderByField`
+<h5 id="type-changelogparticipantorderbyfield"><code>ChangelogParticipantOrderByField</code></h5>
 
 - `USERNAME`
 - `EMAIL`
 - `NAME`
 
-<a id="type-commitoption"></a>
-
-##### `CommitOption`
+<h5 id="type-commitoption"><code>CommitOption</code></h5>
 
 - `DIRECT`
 - `BRANCH`
@@ -3958,16 +3430,12 @@ Discriminator for filtering by entry type.
 - `FORK_AND_PULL_REQUEST`
 - `NONE`
 
-<a id="type-connectororderbyfield"></a>
-
-##### `ConnectorOrderByField`
+<h5 id="type-connectororderbyfield"><code>ConnectorOrderByField</code></h5>
 
 - `NICKNAME`
 - `VERSION`
 
-<a id="type-connectortooltype"></a>
-
-##### `ConnectorToolType`
+<h5 id="type-connectortooltype"><code>ConnectorToolType</code></h5>
 
 - `GITHUB`
 - `GITLAB`
@@ -3984,9 +3452,7 @@ Discriminator for filtering by entry type.
 - `LLM`
 - `S3`
 
-<a id="type-contributorrole"></a>
-
-##### `ContributorRole`
+<h5 id="type-contributorrole"><code>ContributorRole</code></h5>
 
 The participant's role for filtering.
 
@@ -3995,16 +3461,12 @@ The participant's role for filtering.
 - `CLOSED_BY`
 - `REVIEWER`
 
-<a id="type-conversationorderbyfield"></a>
-
-##### `ConversationOrderByField`
+<h5 id="type-conversationorderbyfield"><code>ConversationOrderByField</code></h5>
 
 - `STARTED_AT`
 - `LAST_UPDATED_AT`
 
-<a id="type-conversationphase"></a>
-
-##### `ConversationPhase`
+<h5 id="type-conversationphase"><code>ConversationPhase</code></h5>
 
 - `IDLE`
 - `AWAITING_LLM`
@@ -4012,39 +3474,29 @@ The participant's role for filtering.
 - `TOOL_RUNNING`
 - `ERRORED`
 
-<a id="type-datatableformat"></a>
-
-##### `DataTableFormat`
+<h5 id="type-datatableformat"><code>DataTableFormat</code></h5>
 
 - `CSV`
 - `XLSX`
 
-<a id="type-datatableorderbyfield"></a>
-
-##### `DataTableOrderByField`
+<h5 id="type-datatableorderbyfield"><code>DataTableOrderByField</code></h5>
 
 - `DATA_TABLE`
 - `STARTED_AT`
 
-<a id="type-devcenteraggregation"></a>
-
-##### `DevCenterAggregation`
+<h5 id="type-devcenteraggregation"><code>DevCenterAggregation</code></h5>
 
 How DevCenter card results are aggregated across repositories.
 
 - `PER_REPOSITORY`
 - `PER_OCCURRENCE`
 
-<a id="type-devcenterrunorderbyfield"></a>
-
-##### `DevCenterRunOrderByField`
+<h5 id="type-devcenterrunorderbyfield"><code>DevCenterRunOrderByField</code></h5>
 
 - `STARTED_AT`
 - `STATE`
 
-<a id="type-devcenterrunstate"></a>
-
-##### `DevCenterRunState`
+<h5 id="type-devcenterrunstate"><code>DevCenterRunState</code></h5>
 
 Execution state of a DevCenter run.
 
@@ -4053,33 +3505,25 @@ Execution state of a DevCenter run.
 - `CANCELED`
 - `ERROR`
 
-<a id="type-filechangeorderbyfield"></a>
-
-##### `FileChangeOrderByField`
+<h5 id="type-filechangeorderbyfield"><code>FileChangeOrderByField</code></h5>
 
 - `PATH`
 
-<a id="type-imageformat"></a>
-
-##### `ImageFormat`
+<h5 id="type-imageformat"><code>ImageFormat</code></h5>
 
 - `SVG`
 - `GIF`
 - `JPEG`
 - `PNG`
 
-<a id="type-llmprovider"></a>
-
-##### `LlmProvider`
+<h5 id="type-llmprovider"><code>LlmProvider</code></h5>
 
 - `ANTHROPIC`
 - `GEMINI`
 - `MISTRAL`
 - `OPEN_AI`
 
-<a id="type-markuplevel"></a>
-
-##### `MarkupLevel`
+<h5 id="type-markuplevel"><code>MarkupLevel</code></h5>
 
 - `DEBUG`
 - `INFO`
@@ -4087,68 +3531,50 @@ Execution state of a DevCenter run.
 - `ERROR`
 - `NONE`
 
-<a id="type-mergeable"></a>
-
-##### `Mergeable`
+<h5 id="type-mergeable"><code>Mergeable</code></h5>
 
 - `MERGEABLE`
 - `BLOCKED`
 - `UNKNOWN`
 
-<a id="type-mergemethod"></a>
-
-##### `MergeMethod`
+<h5 id="type-mergemethod"><code>MergeMethod</code></h5>
 
 - `MERGE`
 - `SQUASH`
 - `REBASE`
 
-<a id="type-messagestate"></a>
-
-##### `MessageState`
+<h5 id="type-messagestate"><code>MessageState</code></h5>
 
 - `IN_PROGRESS`
 - `COMPLETED`
 
-<a id="type-organizationchangesetorderbyfield"></a>
-
-##### `OrganizationChangesetOrderByField`
+<h5 id="type-organizationchangesetorderbyfield"><code>OrganizationChangesetOrderByField</code></h5>
 
 - `CREATED_AT`
 - `TYPE`
 - `USER`
 
-<a id="type-organizationchangesettype"></a>
-
-##### `OrganizationChangesetType`
+<h5 id="type-organizationchangesettype"><code>OrganizationChangesetType</code></h5>
 
 - `RECIPE_RUN`
 - `BATCH_CHANGE`
 
-<a id="type-organizationcommitorderbyfield"></a>
-
-##### `OrganizationCommitOrderByField`
+<h5 id="type-organizationcommitorderbyfield"><code>OrganizationCommitOrderByField</code></h5>
 
 - `STARTED_AT`
 
-<a id="type-organizationorderbyfield"></a>
-
-##### `OrganizationOrderByField`
+<h5 id="type-organizationorderbyfield"><code>OrganizationOrderByField</code></h5>
 
 - `NAME`
 
-<a id="type-organizationreciperunorderbyfield"></a>
-
-##### `OrganizationRecipeRunOrderByField`
+<h5 id="type-organizationreciperunorderbyfield"><code>OrganizationRecipeRunOrderByField</code></h5>
 
 - `STARTED_AT`
 - `ENDED_AT`
 - `STATE`
 - `USER`
 
-<a id="type-organizationreciperunstate"></a>
-
-##### `OrganizationRecipeRunState`
+<h5 id="type-organizationreciperunstate"><code>OrganizationRecipeRunState</code></h5>
 
 - `QUEUED`
 - `SYNCING`
@@ -4157,9 +3583,7 @@ Execution state of a DevCenter run.
 - `CANCELED`
 - `ERROR`
 
-<a id="type-profilingevent"></a>
-
-##### `ProfilingEvent`
+<h5 id="type-profilingevent"><code>ProfilingEvent</code></h5>
 
 The primary event the Pyroscope agent samples on. async-profiler can only
 collect one of these at a time as the primary event; alloc and lock
@@ -4168,17 +3592,13 @@ sampling run on separate channels and are always on.
 - `CPU`
 - `WALL`
 
-<a id="type-pullrequestactionorderbyfield"></a>
-
-##### `PullRequestActionOrderByField`
+<h5 id="type-pullrequestactionorderbyfield"><code>PullRequestActionOrderByField</code></h5>
 
 - `REPOSITORY_PATH`
 - `STATE`
 - `STARTED_AT`
 
-<a id="type-pullrequestactionstate"></a>
-
-##### `PullRequestActionState`
+<h5 id="type-pullrequestactionstate"><code>PullRequestActionState</code></h5>
 
 - `QUEUED`
 - `IN_PROGRESS`
@@ -4186,42 +3606,32 @@ sampling run on separate channels and are always on.
 - `FAILED`
 - `CANCELED`
 
-<a id="type-pullrequestactiontype"></a>
-
-##### `PullRequestActionType`
+<h5 id="type-pullrequestactiontype"><code>PullRequestActionType</code></h5>
 
 - `APPROVE`
 - `MERGE`
 - `CLOSE`
 
-<a id="type-pullrequeststate"></a>
-
-##### `PullRequestState`
+<h5 id="type-pullrequeststate"><code>PullRequestState</code></h5>
 
 - `OPEN`
 - `DRAFT`
 - `CLOSED`
 - `MERGED`
 
-<a id="type-recipebundleorderbyfield"></a>
-
-##### `RecipeBundleOrderByField`
+<h5 id="type-recipebundleorderbyfield"><code>RecipeBundleOrderByField</code></h5>
 
 - `PACKAGE_NAME`
 - `VERSION`
 - `REQUESTED_VERSION`
 - `ECOSYSTEM`
 
-<a id="type-recipecategoryorderbyfield"></a>
-
-##### `RecipeCategoryOrderByField`
+<h5 id="type-recipecategoryorderbyfield"><code>RecipeCategoryOrderByField</code></h5>
 
 - `DISPLAY_NAME`
 - `RECIPE_COUNT`
 
-<a id="type-recipeecosystem"></a>
-
-##### `RecipeEcosystem`
+<h5 id="type-recipeecosystem"><code>RecipeEcosystem</code></h5>
 
 - `Maven`
 - `NPM`
@@ -4230,42 +3640,32 @@ sampling run on separate channels and are always on.
 - `Nuget`
 - `Go`
 
-<a id="type-recipegraphedgetype"></a>
-
-##### `RecipeGraphEdgeType`
+<h5 id="type-recipegraphedgetype"><code>RecipeGraphEdgeType</code></h5>
 
 - `RECIPE`
 - `PRECONDITION`
 - `REFERENCE`
 
-<a id="type-recipeinstallationorderbyfield"></a>
-
-##### `RecipeInstallationOrderByField`
+<h5 id="type-recipeinstallationorderbyfield"><code>RecipeInstallationOrderByField</code></h5>
 
 - `STARTED_AT`
 - `STATUS`
 
-<a id="type-recipeinstallationstatus"></a>
-
-##### `RecipeInstallationStatus`
+<h5 id="type-recipeinstallationstatus"><code>RecipeInstallationStatus</code></h5>
 
 - `QUEUED`
 - `PROCESSING`
 - `FINISHED`
 - `ERROR`
 
-<a id="type-recipeorderbyfield"></a>
-
-##### `RecipeOrderByField`
+<h5 id="type-recipeorderbyfield"><code>RecipeOrderByField</code></h5>
 
 - `ID`
 - `DISPLAY_NAME`
 - `RECIPE_COUNT`
 - `RELEVANCE`
 
-<a id="type-reciperunpriority"></a>
-
-##### `RecipeRunPriority`
+<h5 id="type-reciperunpriority"><code>RecipeRunPriority</code></h5>
 
 Priority level for recipe runs.
 HIGH priority runs target small organizations (≤100 repositories).
@@ -4274,18 +3674,14 @@ LOW priority runs target large organizations (>100 repositories).
 - `HIGH`
 - `LOW`
 
-<a id="type-repositorychangesetorderbyfield"></a>
-
-##### `RepositoryChangesetOrderByField`
+<h5 id="type-repositorychangesetorderbyfield"><code>RepositoryChangesetOrderByField</code></h5>
 
 - `PATH`
 - `ORIGIN`
 - `FILES_CHANGED`
 - `SYNC_STATUS`
 
-<a id="type-repositorychangesetstate"></a>
-
-##### `RepositoryChangesetState`
+<h5 id="type-repositorychangesetstate"><code>RepositoryChangesetState</code></h5>
 
 Result state of a repository within a changeset.
 
@@ -4296,24 +3692,18 @@ Result state of a repository within a changeset.
 - `NO_LST`
 - `CANCELED`
 
-<a id="type-repositorycommitorderbyfield"></a>
-
-##### `RepositoryCommitOrderByField`
+<h5 id="type-repositorycommitorderbyfield"><code>RepositoryCommitOrderByField</code></h5>
 
 - `STARTED_AT`
 
-<a id="type-repositoryerrorreason"></a>
-
-##### `RepositoryErrorReason`
+<h5 id="type-repositoryerrorreason"><code>RepositoryErrorReason</code></h5>
 
 - `FAILED_LOAD_AST`
 - `FAILED_LOAD_RECIPE`
 - `TIMEOUT`
 - `RECIPE_ERROR`
 
-<a id="type-repositoryorderbyfield"></a>
-
-##### `RepositoryOrderByField`
+<h5 id="type-repositoryorderbyfield"><code>RepositoryOrderByField</code></h5>
 
 - `ORIGIN`
 - `PATH`
@@ -4321,17 +3711,13 @@ Result state of a repository within a changeset.
 - `CHANGESET`
 - `LST_ARTIFACT_PUBLISHED`
 
-<a id="type-repositoryreciperunorderbyfield"></a>
-
-##### `RepositoryRecipeRunOrderByField`
+<h5 id="type-repositoryreciperunorderbyfield"><code>RepositoryRecipeRunOrderByField</code></h5>
 
 - `PATH`
 - `ORIGIN`
 - `STATE`
 
-<a id="type-repositorysyncstatus"></a>
-
-##### `RepositorySyncStatus`
+<h5 id="type-repositorysyncstatus"><code>RepositorySyncStatus</code></h5>
 
 Sync status of a repository within a recipe run.
 Tracks whether the repository has been synced (cloned + LST downloaded)
@@ -4349,9 +3735,7 @@ sync completed).
 - `CANCELED`
 - `SKIPPED`
 
-<a id="type-reviewdecision"></a>
-
-##### `ReviewDecision`
+<h5 id="type-reviewdecision"><code>ReviewDecision</code></h5>
 
 - `APPROVED`
 - `CHANGES_REQUESTED`
@@ -4359,9 +3743,7 @@ sync completed).
 - `REVIEW_NOT_REQUIRED`
 - `UNKNOWN`
 
-<a id="type-scmtype"></a>
-
-##### `ScmType`
+<h5 id="type-scmtype"><code>ScmType</code></h5>
 
 - `GITHUB`
 - `BITBUCKET`
@@ -4369,39 +3751,29 @@ sync completed).
 - `GITLAB`
 - `AZURE_DEVOPS`
 
-<a id="type-sortorder"></a>
-
-##### `SortOrder`
+<h5 id="type-sortorder"><code>SortOrder</code></h5>
 
 - `ASC`
 - `DESC`
 
-<a id="type-userorderbyfield"></a>
-
-##### `UserOrderByField`
+<h5 id="type-userorderbyfield"><code>UserOrderByField</code></h5>
 
 - `EMAIL`
 - `USERNAME`
 - `ROLE`
 - `LAST_ACTIVE`
 
-<a id="type-userrole"></a>
-
-##### `UserRole`
+<h5 id="type-userrole"><code>UserRole</code></h5>
 
 - `ADMIN`
 - `USER`
 
-<a id="type-visualizationorderbyfield"></a>
-
-##### `VisualizationOrderByField`
+<h5 id="type-visualizationorderbyfield"><code>VisualizationOrderByField</code></h5>
 
 - `VISUALIZATION`
 - `STARTED_AT`
 
-<a id="type-visualizationrepositoryrunstate"></a>
-
-##### `VisualizationRepositoryRunState`
+<h5 id="type-visualizationrepositoryrunstate"><code>VisualizationRepositoryRunState</code></h5>
 
 - `QUEUED`
 - `PROCESSING`
@@ -4412,18 +3784,14 @@ sync completed).
 
 ### Input types
 
-<a id="type-accesstokenorderbyinput"></a>
-
-##### `AccessTokenOrderByInput`
+<h5 id="type-accesstokenorderbyinput"><code>AccessTokenOrderByInput</code></h5>
 
 | Field | Type | Description |
 |-------|------|-------------|
 | `field` | [AccessTokenOrderByField](#type-accesstokenorderbyfield)! |  |
 | `direction` | [SortOrder](#type-sortorder)! |  |
 
-<a id="type-accesstokenwhereinput"></a>
-
-##### `AccessTokenWhereInput`
+<h5 id="type-accesstokenwhereinput"><code>AccessTokenWhereInput</code></h5>
 
 | Field | Type | Description |
 |-------|------|-------------|
@@ -4434,9 +3802,7 @@ sync completed).
 | `_or` | [[AccessTokenWhereInput](#type-accesstokenwhereinput)!] |  |
 | `_not` | [AccessTokenWhereInput](#type-accesstokenwhereinput) |  |
 
-<a id="type-auditactiontypefilter"></a>
-
-##### `AuditActionTypeFilter`
+<h5 id="type-auditactiontypefilter"><code>AuditActionTypeFilter</code></h5>
 
 | Field | Type | Description |
 |-------|------|-------------|
@@ -4445,9 +3811,7 @@ sync completed).
 | `_in` | [[AuditActionType](#type-auditactiontype)!] |  |
 | `_nin` | [[AuditActionType](#type-auditactiontype)!] |  |
 
-<a id="type-auditlogexportformatfilter"></a>
-
-##### `AuditLogExportFormatFilter`
+<h5 id="type-auditlogexportformatfilter"><code>AuditLogExportFormatFilter</code></h5>
 
 | Field | Type | Description |
 |-------|------|-------------|
@@ -4456,27 +3820,21 @@ sync completed).
 | `_in` | [[AuditLogExportFormat](#type-auditlogexportformat)!] |  |
 | `_nin` | [[AuditLogExportFormat](#type-auditlogexportformat)!] |  |
 
-<a id="type-auditlogorderbyinput"></a>
-
-##### `AuditLogOrderByInput`
+<h5 id="type-auditlogorderbyinput"><code>AuditLogOrderByInput</code></h5>
 
 | Field | Type | Description |
 |-------|------|-------------|
 | `field` | [AuditLogOrderByField](#type-auditlogorderbyfield)! |  |
 | `direction` | [SortOrder](#type-sortorder)! |  |
 
-<a id="type-auditlogsdownloadorderbyinput"></a>
-
-##### `AuditLogsDownloadOrderByInput`
+<h5 id="type-auditlogsdownloadorderbyinput"><code>AuditLogsDownloadOrderByInput</code></h5>
 
 | Field | Type | Description |
 |-------|------|-------------|
 | `field` | [AuditLogsDownloadOrderByField](#type-auditlogsdownloadorderbyfield)! |  |
 | `direction` | [SortOrder](#type-sortorder)! |  |
 
-<a id="type-auditlogsdownloadwhereinput"></a>
-
-##### `AuditLogsDownloadWhereInput`
+<h5 id="type-auditlogsdownloadwhereinput"><code>AuditLogsDownloadWhereInput</code></h5>
 
 | Field | Type | Description |
 |-------|------|-------------|
@@ -4486,9 +3844,7 @@ sync completed).
 | `_or` | [[AuditLogsDownloadWhereInput](#type-auditlogsdownloadwhereinput)!] |  |
 | `_not` | [AuditLogsDownloadWhereInput](#type-auditlogsdownloadwhereinput) |  |
 
-<a id="type-auditlogwhereinput"></a>
-
-##### `AuditLogWhereInput`
+<h5 id="type-auditlogwhereinput"><code>AuditLogWhereInput</code></h5>
 
 | Field | Type | Description |
 |-------|------|-------------|
@@ -4503,27 +3859,21 @@ sync completed).
 | `_or` | [[AuditLogWhereInput](#type-auditlogwhereinput)!] |  |
 | `_not` | [AuditLogWhereInput](#type-auditlogwhereinput) |  |
 
-<a id="type-auditoutcomefilter"></a>
-
-##### `AuditOutcomeFilter`
+<h5 id="type-auditoutcomefilter"><code>AuditOutcomeFilter</code></h5>
 
 | Field | Type | Description |
 |-------|------|-------------|
 | `_eq` | [AuditOutcome](#type-auditoutcome) |  |
 | `_neq` | [AuditOutcome](#type-auditoutcome) |  |
 
-<a id="type-booleanfilter"></a>
-
-##### `BooleanFilter`
+<h5 id="type-booleanfilter"><code>BooleanFilter</code></h5>
 
 | Field | Type | Description |
 |-------|------|-------------|
 | `_eq` | Boolean |  |
 | `_neq` | Boolean |  |
 
-<a id="type-buildstatefilter"></a>
-
-##### `BuildStateFilter`
+<h5 id="type-buildstatefilter"><code>BuildStateFilter</code></h5>
 
 | Field | Type | Description |
 |-------|------|-------------|
@@ -4532,18 +3882,14 @@ sync completed).
 | `_in` | [[BuildState](#type-buildstate)!] |  |
 | `_nin` | [[BuildState](#type-buildstate)!] |  |
 
-<a id="type-bulkpullrequestactionorderbyinput"></a>
-
-##### `BulkPullRequestActionOrderByInput`
+<h5 id="type-bulkpullrequestactionorderbyinput"><code>BulkPullRequestActionOrderByInput</code></h5>
 
 | Field | Type | Description |
 |-------|------|-------------|
 | `field` | [BulkPullRequestActionOrderByField](#type-bulkpullrequestactionorderbyfield)! |  |
 | `direction` | [SortOrder](#type-sortorder)! |  |
 
-<a id="type-bulkpullrequestactionstatefilter"></a>
-
-##### `BulkPullRequestActionStateFilter`
+<h5 id="type-bulkpullrequestactionstatefilter"><code>BulkPullRequestActionStateFilter</code></h5>
 
 | Field | Type | Description |
 |-------|------|-------------|
@@ -4552,9 +3898,7 @@ sync completed).
 | `_in` | [[BulkPullRequestActionState](#type-bulkpullrequestactionstate)!] |  |
 | `_nin` | [[BulkPullRequestActionState](#type-bulkpullrequestactionstate)!] |  |
 
-<a id="type-bulkpullrequestactionwhereinput"></a>
-
-##### `BulkPullRequestActionWhereInput`
+<h5 id="type-bulkpullrequestactionwhereinput"><code>BulkPullRequestActionWhereInput</code></h5>
 
 | Field | Type | Description |
 |-------|------|-------------|
@@ -4566,9 +3910,7 @@ sync completed).
 | `_or` | [[BulkPullRequestActionWhereInput](#type-bulkpullrequestactionwhereinput)!] |  |
 | `_not` | [BulkPullRequestActionWhereInput](#type-bulkpullrequestactionwhereinput) |  |
 
-<a id="type-changelogauthorwhereinput"></a>
-
-##### `ChangelogAuthorWhereInput`
+<h5 id="type-changelogauthorwhereinput"><code>ChangelogAuthorWhereInput</code></h5>
 
 Filter by changelog author.
 
@@ -4582,18 +3924,14 @@ Filter by changelog author.
 | `_or` | [[ChangelogAuthorWhereInput](#type-changelogauthorwhereinput)!] |  |
 | `_not` | [ChangelogAuthorWhereInput](#type-changelogauthorwhereinput) |  |
 
-<a id="type-changelogentryorderbyinput"></a>
-
-##### `ChangelogEntryOrderByInput`
+<h5 id="type-changelogentryorderbyinput"><code>ChangelogEntryOrderByInput</code></h5>
 
 | Field | Type | Description |
 |-------|------|-------------|
 | `field` | [ChangelogEntryOrderByField](#type-changelogentryorderbyfield)! |  |
 | `direction` | [SortOrder](#type-sortorder)! |  |
 
-<a id="type-changelogentrytypefilter"></a>
-
-##### `ChangelogEntryTypeFilter`
+<h5 id="type-changelogentrytypefilter"><code>ChangelogEntryTypeFilter</code></h5>
 
 | Field | Type | Description |
 |-------|------|-------------|
@@ -4602,9 +3940,7 @@ Filter by changelog author.
 | `_in` | [[ChangelogEntryType](#type-changelogentrytype)!] |  |
 | `_nin` | [[ChangelogEntryType](#type-changelogentrytype)!] |  |
 
-<a id="type-changelogentrywhereinput"></a>
-
-##### `ChangelogEntryWhereInput`
+<h5 id="type-changelogentrywhereinput"><code>ChangelogEntryWhereInput</code></h5>
 
 Filter input for changelog entries.
 
@@ -4625,18 +3961,14 @@ Filter input for changelog entries.
 | `_or` | [[ChangelogEntryWhereInput](#type-changelogentrywhereinput)!] |  |
 | `_not` | [ChangelogEntryWhereInput](#type-changelogentrywhereinput) |  |
 
-<a id="type-changelogparticipantorderbyinput"></a>
-
-##### `ChangelogParticipantOrderByInput`
+<h5 id="type-changelogparticipantorderbyinput"><code>ChangelogParticipantOrderByInput</code></h5>
 
 | Field | Type | Description |
 |-------|------|-------------|
 | `field` | [ChangelogParticipantOrderByField](#type-changelogparticipantorderbyfield)! |  |
 | `direction` | [SortOrder](#type-sortorder)! |  |
 
-<a id="type-changelogparticipantwhereinput"></a>
-
-##### `ChangelogParticipantWhereInput`
+<h5 id="type-changelogparticipantwhereinput"><code>ChangelogParticipantWhereInput</code></h5>
 
 Filter input for participants.
 
@@ -4651,9 +3983,7 @@ Filter input for participants.
 | `_or` | [[ChangelogParticipantWhereInput](#type-changelogparticipantwhereinput)!] |  |
 | `_not` | [ChangelogParticipantWhereInput](#type-changelogparticipantwhereinput) |  |
 
-<a id="type-commitinput"></a>
-
-##### `CommitInput`
+<h5 id="type-commitinput"><code>CommitInput</code></h5>
 
 Input for creating a commit from a changeset.
 
@@ -4670,9 +4000,7 @@ Input for creating a commit from a changeset.
 | `scmAccessTokens` | [[ScmAccessToken](#type-scmaccesstoken)!] | Optional SCM access tokens keyed by origin. When provided, these are used instead of stored OAuth tokens for the matching origin. |
 | `strategy` | [CommitStrategyInput](#type-commitstrategyinput)! | How to deliver the commit. Choose one strategy. |
 
-<a id="type-commitstrategyinput"></a>
-
-##### `CommitStrategyInput`
+<h5 id="type-commitstrategyinput"><code>CommitStrategyInput</code></h5>
 
 Commit delivery strategy. Choose one option.
 
@@ -4683,27 +4011,21 @@ Commit delivery strategy. Choose one option.
 | `pullRequest` | [PullRequestCommitInput](#type-pullrequestcommitinput) | Create a pull request from a branch on the origin remote. |
 | `forkAndPullRequest` | [ForkAndPullRequestCommitInput](#type-forkandpullrequestcommitinput) | Create a pull request from a branch on a fork. |
 
-<a id="type-connectororderbyinput"></a>
-
-##### `ConnectorOrderByInput`
+<h5 id="type-connectororderbyinput"><code>ConnectorOrderByInput</code></h5>
 
 | Field | Type | Description |
 |-------|------|-------------|
 | `field` | [ConnectorOrderByField](#type-connectororderbyfield)! |  |
 | `direction` | [SortOrder](#type-sortorder)! |  |
 
-<a id="type-connectortooltypefilter"></a>
-
-##### `ConnectorToolTypeFilter`
+<h5 id="type-connectortooltypefilter"><code>ConnectorToolTypeFilter</code></h5>
 
 | Field | Type | Description |
 |-------|------|-------------|
 | `_eq` | [ConnectorToolType](#type-connectortooltype) |  |
 | `_in` | [[ConnectorToolType](#type-connectortooltype)!] |  |
 
-<a id="type-connectorwhereinput"></a>
-
-##### `ConnectorWhereInput`
+<h5 id="type-connectorwhereinput"><code>ConnectorWhereInput</code></h5>
 
 | Field | Type | Description |
 |-------|------|-------------|
@@ -4715,18 +4037,14 @@ Commit delivery strategy. Choose one option.
 | `_or` | [[ConnectorWhereInput](#type-connectorwhereinput)!] |  |
 | `_not` | [ConnectorWhereInput](#type-connectorwhereinput) |  |
 
-<a id="type-conversationorderbyinput"></a>
-
-##### `ConversationOrderByInput`
+<h5 id="type-conversationorderbyinput"><code>ConversationOrderByInput</code></h5>
 
 | Field | Type | Description |
 |-------|------|-------------|
 | `field` | [ConversationOrderByField](#type-conversationorderbyfield)! |  |
 | `direction` | [SortOrder](#type-sortorder)! |  |
 
-<a id="type-conversationwhereinput"></a>
-
-##### `ConversationWhereInput`
+<h5 id="type-conversationwhereinput"><code>ConversationWhereInput</code></h5>
 
 | Field | Type | Description |
 |-------|------|-------------|
@@ -4738,27 +4056,21 @@ Commit delivery strategy. Choose one option.
 | `_or` | [[ConversationWhereInput](#type-conversationwhereinput)!] |  |
 | `_not` | [ConversationWhereInput](#type-conversationwhereinput) |  |
 
-<a id="type-createconversationinput"></a>
-
-##### `CreateConversationInput`
+<h5 id="type-createconversationinput"><code>CreateConversationInput</code></h5>
 
 | Field | Type | Description |
 |-------|------|-------------|
 | `message` | String! |  |
 | `organizationId` | ID! |  |
 
-<a id="type-createuserorganizationinput"></a>
-
-##### `CreateUserOrganizationInput`
+<h5 id="type-createuserorganizationinput"><code>CreateUserOrganizationInput</code></h5>
 
 | Field | Type | Description |
 |-------|------|-------------|
 | `name` | String! | The name of the organization. |
 | `repositories` | [[RepositoryInput](#type-repositoryinput)!] | Repositories to include in the organization. |
 
-<a id="type-datatableformatfilter"></a>
-
-##### `DataTableFormatFilter`
+<h5 id="type-datatableformatfilter"><code>DataTableFormatFilter</code></h5>
 
 | Field | Type | Description |
 |-------|------|-------------|
@@ -4767,18 +4079,14 @@ Commit delivery strategy. Choose one option.
 | `_in` | [[DataTableFormat](#type-datatableformat)!] |  |
 | `_nin` | [[DataTableFormat](#type-datatableformat)!] |  |
 
-<a id="type-datatableorderbyinput"></a>
-
-##### `DataTableOrderByInput`
+<h5 id="type-datatableorderbyinput"><code>DataTableOrderByInput</code></h5>
 
 | Field | Type | Description |
 |-------|------|-------------|
 | `field` | [DataTableOrderByField](#type-datatableorderbyfield)! |  |
 | `direction` | [SortOrder](#type-sortorder)! |  |
 
-<a id="type-datatablewhereinput"></a>
-
-##### `DataTableWhereInput`
+<h5 id="type-datatablewhereinput"><code>DataTableWhereInput</code></h5>
 
 | Field | Type | Description |
 |-------|------|-------------|
@@ -4790,9 +4098,7 @@ Commit delivery strategy. Choose one option.
 | `_or` | [[DataTableWhereInput](#type-datatablewhereinput)!] |  |
 | `_not` | [DataTableWhereInput](#type-datatablewhereinput) |  |
 
-<a id="type-datetimefilter"></a>
-
-##### `DateTimeFilter`
+<h5 id="type-datetimefilter"><code>DateTimeFilter</code></h5>
 
 | Field | Type | Description |
 |-------|------|-------------|
@@ -4803,18 +4109,14 @@ Commit delivery strategy. Choose one option.
 | `_lt` | [DateTime](#type-datetime) |  |
 | `_lte` | [DateTime](#type-datetime) |  |
 
-<a id="type-devcenterrunorderbyinput"></a>
-
-##### `DevCenterRunOrderByInput`
+<h5 id="type-devcenterrunorderbyinput"><code>DevCenterRunOrderByInput</code></h5>
 
 | Field | Type | Description |
 |-------|------|-------------|
 | `field` | [DevCenterRunOrderByField](#type-devcenterrunorderbyfield)! |  |
 | `direction` | [SortOrder](#type-sortorder)! |  |
 
-<a id="type-devcenterrunstatefilter"></a>
-
-##### `DevCenterRunStateFilter`
+<h5 id="type-devcenterrunstatefilter"><code>DevCenterRunStateFilter</code></h5>
 
 | Field | Type | Description |
 |-------|------|-------------|
@@ -4823,9 +4125,7 @@ Commit delivery strategy. Choose one option.
 | `_in` | [[DevCenterRunState](#type-devcenterrunstate)!] |  |
 | `_nin` | [[DevCenterRunState](#type-devcenterrunstate)!] |  |
 
-<a id="type-devcenterrunwhereinput"></a>
-
-##### `DevCenterRunWhereInput`
+<h5 id="type-devcenterrunwhereinput"><code>DevCenterRunWhereInput</code></h5>
 
 Filter input for DevCenter run queries.
 
@@ -4838,9 +4138,7 @@ Filter input for DevCenter run queries.
 | `_or` | [[DevCenterRunWhereInput](#type-devcenterrunwhereinput)!] | Logical OR - at least one condition must match. |
 | `_not` | [DevCenterRunWhereInput](#type-devcenterrunwhereinput) | Logical NOT - negates the condition. |
 
-<a id="type-directcommitinput"></a>
-
-##### `DirectCommitInput`
+<h5 id="type-directcommitinput"><code>DirectCommitInput</code></h5>
 
 Direct commit to origin. No additional options required.
 
@@ -4848,9 +4146,7 @@ Direct commit to origin. No additional options required.
 |-------|------|-------------|
 | `_empty` | Boolean | Placeholder field. Direct commits require no additional configuration. |
 
-<a id="type-exchangeauthorizationcodeinput"></a>
-
-##### `ExchangeAuthorizationCodeInput`
+<h5 id="type-exchangeauthorizationcodeinput"><code>ExchangeAuthorizationCodeInput</code></h5>
 
 | Field | Type | Description |
 |-------|------|-------------|
@@ -4858,18 +4154,14 @@ Direct commit to origin. No additional options required.
 | `code` | String! | Authorization code from the OAuth callback. |
 | `redirectUri` | String! | The redirect URI used in the authorization request. Note: This field is deprecated - the server uses the stored redirect URI from the authorization to ensure an exact match. |
 
-<a id="type-filechangeorderbyinput"></a>
-
-##### `FileChangeOrderByInput`
+<h5 id="type-filechangeorderbyinput"><code>FileChangeOrderByInput</code></h5>
 
 | Field | Type | Description |
 |-------|------|-------------|
 | `field` | [FileChangeOrderByField](#type-filechangeorderbyfield)! |  |
 | `direction` | [SortOrder](#type-sortorder)! |  |
 
-<a id="type-filechangewhereinput"></a>
-
-##### `FileChangeWhereInput`
+<h5 id="type-filechangewhereinput"><code>FileChangeWhereInput</code></h5>
 
 Filter for file changes.
 
@@ -4880,9 +4172,7 @@ Filter for file changes.
 | `_or` | [[FileChangeWhereInput](#type-filechangewhereinput)!] | Logical OR - at least one condition must match. |
 | `_not` | [FileChangeWhereInput](#type-filechangewhereinput) | Logical NOT - negates the condition. |
 
-<a id="type-forkandpullrequestcommitinput"></a>
-
-##### `ForkAndPullRequestCommitInput`
+<h5 id="type-forkandpullrequestcommitinput"><code>ForkAndPullRequestCommitInput</code></h5>
 
 Create a pull request from a branch on a fork.
 
@@ -4897,9 +4187,7 @@ Create a pull request from a branch on a fork.
 | `autoMergeMethod` | [MergeMethod](#type-mergemethod) | Auto-merge method after checks pass. Null means no auto-merge. Best effort - silently ignored if not supported by the repository. |
 | `recreateClosedPullRequest` | Boolean | Recreate pull request if it was previously closed. |
 
-<a id="type-forkcommitinput"></a>
-
-##### `ForkCommitInput`
+<h5 id="type-forkcommitinput"><code>ForkCommitInput</code></h5>
 
 Commit to a fork of the origin repository.
 
@@ -4908,18 +4196,14 @@ Commit to a fork of the origin repository.
 | `organization` | String | Organization to create the fork in. If unset, creates in user's personal account. |
 | `prefixOrganizationName` | Boolean | Prefix the fork name with the origin organization to avoid name collisions. Example: openrewrite/rewrite -> myuser/openrewrite__rewrite |
 
-<a id="type-gorecipebundleinput"></a>
-
-##### `GoRecipeBundleInput`
+<h5 id="type-gorecipebundleinput"><code>GoRecipeBundleInput</code></h5>
 
 | Field | Type | Description |
 |-------|------|-------------|
 | `packageName` | String! |  |
 | `version` | String |  |
 
-<a id="type-gpginput"></a>
-
-##### `GpgInput`
+<h5 id="type-gpginput"><code>GpgInput</code></h5>
 
 | Field | Type | Description |
 |-------|------|-------------|
@@ -4927,9 +4211,7 @@ Commit to a fork of the origin repository.
 | `publicKey` | String! |  |
 | `passphrase` | String |  |
 
-<a id="type-idfilter"></a>
-
-##### `IDFilter`
+<h5 id="type-idfilter"><code>IDFilter</code></h5>
 
 | Field | Type | Description |
 |-------|------|-------------|
@@ -4938,18 +4220,14 @@ Commit to a fork of the origin repository.
 | `_in` | [ID!] |  |
 | `_nin` | [ID!] |  |
 
-<a id="type-initiateauthorizationinput"></a>
-
-##### `InitiateAuthorizationInput`
+<h5 id="type-initiateauthorizationinput"><code>InitiateAuthorizationInput</code></h5>
 
 | Field | Type | Description |
 |-------|------|-------------|
 | `origin` | String! | The VCS origin to authorize (e.g., github.com, gitlab.com). |
 | `redirectUri` | String! | The redirect URI where the VCS will send the callback. Must match an allowed redirect URI in the OAuth app configuration. |
 
-<a id="type-intfilter"></a>
-
-##### `IntFilter`
+<h5 id="type-intfilter"><code>IntFilter</code></h5>
 
 | Field | Type | Description |
 |-------|------|-------------|
@@ -4960,9 +4238,7 @@ Commit to a fork of the origin repository.
 | `_lt` | Int |  |
 | `_lte` | Int |  |
 
-<a id="type-lstartifactwhereinput"></a>
-
-##### `LstArtifactWhereInput`
+<h5 id="type-lstartifactwhereinput"><code>LstArtifactWhereInput</code></h5>
 
 | Field | Type | Description |
 |-------|------|-------------|
@@ -4972,9 +4248,7 @@ Commit to a fork of the origin repository.
 | `_or` | [[LstArtifactWhereInput](#type-lstartifactwhereinput)!] |  |
 | `_not` | [LstArtifactWhereInput](#type-lstartifactwhereinput) |  |
 
-<a id="type-mavenrecipebundleinput"></a>
-
-##### `MavenRecipeBundleInput`
+<h5 id="type-mavenrecipebundleinput"><code>MavenRecipeBundleInput</code></h5>
 
 | Field | Type | Description |
 |-------|------|-------------|
@@ -4982,36 +4256,28 @@ Commit to a fork of the origin repository.
 | `artifactId` | String! |  |
 | `version` | String! |  |
 
-<a id="type-npmrecipebundleinput"></a>
-
-##### `NpmRecipeBundleInput`
+<h5 id="type-npmrecipebundleinput"><code>NpmRecipeBundleInput</code></h5>
 
 | Field | Type | Description |
 |-------|------|-------------|
 | `packageName` | String! |  |
 | `version` | String! |  |
 
-<a id="type-nugetrecipebundleinput"></a>
-
-##### `NugetRecipeBundleInput`
+<h5 id="type-nugetrecipebundleinput"><code>NugetRecipeBundleInput</code></h5>
 
 | Field | Type | Description |
 |-------|------|-------------|
 | `packageName` | String! |  |
 | `version` | String! |  |
 
-<a id="type-organizationchangesetorderbyinput"></a>
-
-##### `OrganizationChangesetOrderByInput`
+<h5 id="type-organizationchangesetorderbyinput"><code>OrganizationChangesetOrderByInput</code></h5>
 
 | Field | Type | Description |
 |-------|------|-------------|
 | `field` | [OrganizationChangesetOrderByField](#type-organizationchangesetorderbyfield)! |  |
 | `direction` | [SortOrder](#type-sortorder)! |  |
 
-<a id="type-organizationchangesettypefilter"></a>
-
-##### `OrganizationChangesetTypeFilter`
+<h5 id="type-organizationchangesettypefilter"><code>OrganizationChangesetTypeFilter</code></h5>
 
 | Field | Type | Description |
 |-------|------|-------------|
@@ -5020,9 +4286,7 @@ Commit to a fork of the origin repository.
 | `_in` | [[OrganizationChangesetType](#type-organizationchangesettype)!] |  |
 | `_nin` | [[OrganizationChangesetType](#type-organizationchangesettype)!] |  |
 
-<a id="type-organizationchangesetwhereinput"></a>
-
-##### `OrganizationChangesetWhereInput`
+<h5 id="type-organizationchangesetwhereinput"><code>OrganizationChangesetWhereInput</code></h5>
 
 | Field | Type | Description |
 |-------|------|-------------|
@@ -5034,18 +4298,14 @@ Commit to a fork of the origin repository.
 | `_or` | [[OrganizationChangesetWhereInput](#type-organizationchangesetwhereinput)!] |  |
 | `_not` | [OrganizationChangesetWhereInput](#type-organizationchangesetwhereinput) |  |
 
-<a id="type-organizationcommitorderbyinput"></a>
-
-##### `OrganizationCommitOrderByInput`
+<h5 id="type-organizationcommitorderbyinput"><code>OrganizationCommitOrderByInput</code></h5>
 
 | Field | Type | Description |
 |-------|------|-------------|
 | `field` | [OrganizationCommitOrderByField](#type-organizationcommitorderbyfield)! |  |
 | `direction` | [SortOrder](#type-sortorder)! |  |
 
-<a id="type-organizationcommitwhereinput"></a>
-
-##### `OrganizationCommitWhereInput`
+<h5 id="type-organizationcommitwhereinput"><code>OrganizationCommitWhereInput</code></h5>
 
 Filter input for organization-level commit queries.
 
@@ -5057,27 +4317,21 @@ Filter input for organization-level commit queries.
 | `_or` | [[OrganizationCommitWhereInput](#type-organizationcommitwhereinput)!] | Logical OR - at least one condition must match. |
 | `_not` | [OrganizationCommitWhereInput](#type-organizationcommitwhereinput) | Logical NOT - negates the condition. |
 
-<a id="type-organizationorderbyinput"></a>
-
-##### `OrganizationOrderByInput`
+<h5 id="type-organizationorderbyinput"><code>OrganizationOrderByInput</code></h5>
 
 | Field | Type | Description |
 |-------|------|-------------|
 | `field` | [OrganizationOrderByField](#type-organizationorderbyfield)! |  |
 | `direction` | [SortOrder](#type-sortorder)! |  |
 
-<a id="type-organizationreciperunorderbyinput"></a>
-
-##### `OrganizationRecipeRunOrderByInput`
+<h5 id="type-organizationreciperunorderbyinput"><code>OrganizationRecipeRunOrderByInput</code></h5>
 
 | Field | Type | Description |
 |-------|------|-------------|
 | `field` | [OrganizationRecipeRunOrderByField](#type-organizationreciperunorderbyfield)! |  |
 | `direction` | [SortOrder](#type-sortorder)! |  |
 
-<a id="type-organizationreciperunstatefilter"></a>
-
-##### `OrganizationRecipeRunStateFilter`
+<h5 id="type-organizationreciperunstatefilter"><code>OrganizationRecipeRunStateFilter</code></h5>
 
 | Field | Type | Description |
 |-------|------|-------------|
@@ -5086,9 +4340,7 @@ Filter input for organization-level commit queries.
 | `_in` | [[OrganizationRecipeRunState](#type-organizationreciperunstate)!] |  |
 | `_nin` | [[OrganizationRecipeRunState](#type-organizationreciperunstate)!] |  |
 
-<a id="type-organizationreciperunwhereinput"></a>
-
-##### `OrganizationRecipeRunWhereInput`
+<h5 id="type-organizationreciperunwhereinput"><code>OrganizationRecipeRunWhereInput</code></h5>
 
 | Field | Type | Description |
 |-------|------|-------------|
@@ -5100,9 +4352,7 @@ Filter input for organization-level commit queries.
 | `_or` | [[OrganizationRecipeRunWhereInput](#type-organizationreciperunwhereinput)!] |  |
 | `_not` | [OrganizationRecipeRunWhereInput](#type-organizationreciperunwhereinput) |  |
 
-<a id="type-organizationwhereinput"></a>
-
-##### `OrganizationWhereInput`
+<h5 id="type-organizationwhereinput"><code>OrganizationWhereInput</code></h5>
 
 | Field | Type | Description |
 |-------|------|-------------|
@@ -5112,9 +4362,7 @@ Filter input for organization-level commit queries.
 | `_or` | [[OrganizationWhereInput](#type-organizationwhereinput)!] |  |
 | `_not` | [OrganizationWhereInput](#type-organizationwhereinput) |  |
 
-<a id="type-pathfilter"></a>
-
-##### `PathFilter`
+<h5 id="type-pathfilter"><code>PathFilter</code></h5>
 
 Filter for file paths using glob patterns.
 
@@ -5125,27 +4373,21 @@ Filter for file paths using glob patterns.
 | `_nin` | [[Path](#type-path)!] | Exclude any of the exact paths. |
 | `_glob` | String | Glob pattern match. Examples: **\/*.java, src/main/** |
 
-<a id="type-piprecipebundleinput"></a>
-
-##### `PipRecipeBundleInput`
+<h5 id="type-piprecipebundleinput"><code>PipRecipeBundleInput</code></h5>
 
 | Field | Type | Description |
 |-------|------|-------------|
 | `packageName` | String! |  |
 | `version` | String |  |
 
-<a id="type-pullrequestactionorderbyinput"></a>
-
-##### `PullRequestActionOrderByInput`
+<h5 id="type-pullrequestactionorderbyinput"><code>PullRequestActionOrderByInput</code></h5>
 
 | Field | Type | Description |
 |-------|------|-------------|
 | `field` | [PullRequestActionOrderByField](#type-pullrequestactionorderbyfield)! |  |
 | `direction` | [SortOrder](#type-sortorder)! |  |
 
-<a id="type-pullrequestactionstatefilter"></a>
-
-##### `PullRequestActionStateFilter`
+<h5 id="type-pullrequestactionstatefilter"><code>PullRequestActionStateFilter</code></h5>
 
 | Field | Type | Description |
 |-------|------|-------------|
@@ -5154,9 +4396,7 @@ Filter for file paths using glob patterns.
 | `_in` | [[PullRequestActionState](#type-pullrequestactionstate)!] |  |
 | `_nin` | [[PullRequestActionState](#type-pullrequestactionstate)!] |  |
 
-<a id="type-pullrequestactiontypefilter"></a>
-
-##### `PullRequestActionTypeFilter`
+<h5 id="type-pullrequestactiontypefilter"><code>PullRequestActionTypeFilter</code></h5>
 
 | Field | Type | Description |
 |-------|------|-------------|
@@ -5165,9 +4405,7 @@ Filter for file paths using glob patterns.
 | `_in` | [[PullRequestActionType](#type-pullrequestactiontype)!] |  |
 | `_nin` | [[PullRequestActionType](#type-pullrequestactiontype)!] |  |
 
-<a id="type-pullrequestactionwhereinput"></a>
-
-##### `PullRequestActionWhereInput`
+<h5 id="type-pullrequestactionwhereinput"><code>PullRequestActionWhereInput</code></h5>
 
 | Field | Type | Description |
 |-------|------|-------------|
@@ -5176,9 +4414,7 @@ Filter for file paths using glob patterns.
 | `_or` | [[PullRequestActionWhereInput](#type-pullrequestactionwhereinput)!] |  |
 | `_not` | [PullRequestActionWhereInput](#type-pullrequestactionwhereinput) |  |
 
-<a id="type-pullrequestcommitinput"></a>
-
-##### `PullRequestCommitInput`
+<h5 id="type-pullrequestcommitinput"><code>PullRequestCommitInput</code></h5>
 
 Create a pull request from a branch on the origin remote.
 
@@ -5190,18 +4426,14 @@ Create a pull request from a branch on the origin remote.
 | `autoMergeMethod` | [MergeMethod](#type-mergemethod) | Auto-merge method after checks pass. Null means no auto-merge. Best effort - silently ignored if not supported by the repository. |
 | `recreateClosedPullRequest` | Boolean | Recreate pull request if it was previously closed. |
 
-<a id="type-pullrequestinput"></a>
-
-##### `PullRequestInput`
+<h5 id="type-pullrequestinput"><code>PullRequestInput</code></h5>
 
 | Field | Type | Description |
 |-------|------|-------------|
 | `repository` | [RepositoryInput](#type-repositoryinput)! |  |
 | `number` | Int! | Pull request number. |
 
-<a id="type-pullrequestselectioninput"></a>
-
-##### `PullRequestSelectionInput`
+<h5 id="type-pullrequestselectioninput"><code>PullRequestSelectionInput</code></h5>
 
 Selects pull requests for a bulk action.
 
@@ -5219,9 +4451,7 @@ Examples:
 | `where` | [ChangelogEntryWhereInput](#type-changelogentrywhereinput) | Filter for the base set of PRs. Omit to start with an empty set. |
 | `pullRequests` | [PullRequestSelectionModifier](#type-pullrequestselectionmodifier) | Modify the base set by including or excluding specific PRs. |
 
-<a id="type-pullrequestselectionmodifier"></a>
-
-##### `PullRequestSelectionModifier`
+<h5 id="type-pullrequestselectionmodifier"><code>PullRequestSelectionModifier</code></h5>
 
 Modifies a PR selection by either including or excluding specific PRs.
 Exactly one field must be set.
@@ -5231,9 +4461,7 @@ Exactly one field must be set.
 | `include` | [[PullRequestInput](#type-pullrequestinput)!] | Add these PRs to the base set. |
 | `exclude` | [[PullRequestInput](#type-pullrequestinput)!] | Remove these PRs from the base set. |
 
-<a id="type-pullrequeststatefilter"></a>
-
-##### `PullRequestStateFilter`
+<h5 id="type-pullrequeststatefilter"><code>PullRequestStateFilter</code></h5>
 
 | Field | Type | Description |
 |-------|------|-------------|
@@ -5242,9 +4470,7 @@ Exactly one field must be set.
 | `_in` | [[PullRequestState](#type-pullrequeststate)!] |  |
 | `_nin` | [[PullRequestState](#type-pullrequeststate)!] |  |
 
-<a id="type-recipebundleinput"></a>
-
-##### `RecipeBundleInput`
+<h5 id="type-recipebundleinput"><code>RecipeBundleInput</code></h5>
 
 | Field | Type | Description |
 |-------|------|-------------|
@@ -5255,18 +4481,14 @@ Exactly one field must be set.
 | `pip` | [PipRecipeBundleInput](#type-piprecipebundleinput) |  |
 | `go` | [GoRecipeBundleInput](#type-gorecipebundleinput) |  |
 
-<a id="type-recipebundleorderbyinput"></a>
-
-##### `RecipeBundleOrderByInput`
+<h5 id="type-recipebundleorderbyinput"><code>RecipeBundleOrderByInput</code></h5>
 
 | Field | Type | Description |
 |-------|------|-------------|
 | `field` | [RecipeBundleOrderByField](#type-recipebundleorderbyfield)! |  |
 | `direction` | [SortOrder](#type-sortorder)! |  |
 
-<a id="type-recipebundlewhereinput"></a>
-
-##### `RecipeBundleWhereInput`
+<h5 id="type-recipebundlewhereinput"><code>RecipeBundleWhereInput</code></h5>
 
 Filter input for RecipeBundle queries.
 
@@ -5280,18 +4502,14 @@ Filter input for RecipeBundle queries.
 | `_or` | [[RecipeBundleWhereInput](#type-recipebundlewhereinput)!] |  |
 | `_not` | [RecipeBundleWhereInput](#type-recipebundlewhereinput) |  |
 
-<a id="type-recipecategoryorderbyinput"></a>
-
-##### `RecipeCategoryOrderByInput`
+<h5 id="type-recipecategoryorderbyinput"><code>RecipeCategoryOrderByInput</code></h5>
 
 | Field | Type | Description |
 |-------|------|-------------|
 | `field` | [RecipeCategoryOrderByField](#type-recipecategoryorderbyfield)! |  |
 | `direction` | [SortOrder](#type-sortorder)! |  |
 
-<a id="type-recipecategorywhereinput"></a>
-
-##### `RecipeCategoryWhereInput`
+<h5 id="type-recipecategorywhereinput"><code>RecipeCategoryWhereInput</code></h5>
 
 Filter input for RecipeCategory queries.
 
@@ -5304,9 +4522,7 @@ Filter input for RecipeCategory queries.
 | `_or` | [[RecipeCategoryWhereInput](#type-recipecategorywhereinput)!] |  |
 | `_not` | [RecipeCategoryWhereInput](#type-recipecategorywhereinput) |  |
 
-<a id="type-recipeecosystemfilter"></a>
-
-##### `RecipeEcosystemFilter`
+<h5 id="type-recipeecosystemfilter"><code>RecipeEcosystemFilter</code></h5>
 
 | Field | Type | Description |
 |-------|------|-------------|
@@ -5315,27 +4531,21 @@ Filter input for RecipeCategory queries.
 | `_in` | [[RecipeEcosystem](#type-recipeecosystem)!] |  |
 | `_nin` | [[RecipeEcosystem](#type-recipeecosystem)!] |  |
 
-<a id="type-recipeinput"></a>
-
-##### `RecipeInput`
+<h5 id="type-recipeinput"><code>RecipeInput</code></h5>
 
 | Field | Type | Description |
 |-------|------|-------------|
 | `id` | ID! | Fully-qualified recipe ID. Example: `org.openrewrite.java.search.FindMethods` |
 | `options` | [[RecipeOptionInput](#type-recipeoptioninput)!] |  |
 
-<a id="type-recipeinstallationorderbyinput"></a>
-
-##### `RecipeInstallationOrderByInput`
+<h5 id="type-recipeinstallationorderbyinput"><code>RecipeInstallationOrderByInput</code></h5>
 
 | Field | Type | Description |
 |-------|------|-------------|
 | `field` | [RecipeInstallationOrderByField](#type-recipeinstallationorderbyfield)! |  |
 | `direction` | [SortOrder](#type-sortorder)! |  |
 
-<a id="type-recipeinstallationstatusfilter"></a>
-
-##### `RecipeInstallationStatusFilter`
+<h5 id="type-recipeinstallationstatusfilter"><code>RecipeInstallationStatusFilter</code></h5>
 
 | Field | Type | Description |
 |-------|------|-------------|
@@ -5344,9 +4554,7 @@ Filter input for RecipeCategory queries.
 | `_in` | [[RecipeInstallationStatus](#type-recipeinstallationstatus)!] |  |
 | `_nin` | [[RecipeInstallationStatus](#type-recipeinstallationstatus)!] |  |
 
-<a id="type-recipeinstallationwhereinput"></a>
-
-##### `RecipeInstallationWhereInput`
+<h5 id="type-recipeinstallationwhereinput"><code>RecipeInstallationWhereInput</code></h5>
 
 | Field | Type | Description |
 |-------|------|-------------|
@@ -5360,27 +4568,21 @@ Filter input for RecipeCategory queries.
 | `_or` | [[RecipeInstallationWhereInput](#type-recipeinstallationwhereinput)!] |  |
 | `_not` | [RecipeInstallationWhereInput](#type-recipeinstallationwhereinput) |  |
 
-<a id="type-recipeoptioninput"></a>
-
-##### `RecipeOptionInput`
+<h5 id="type-recipeoptioninput"><code>RecipeOptionInput</code></h5>
 
 | Field | Type | Description |
 |-------|------|-------------|
 | `name` | String! | Option name. Example: `methodPattern` |
 | `value` | [Object](#type-object)! | Option value. Example: `java.util.List add(..)` |
 
-<a id="type-recipeorderbyinput"></a>
-
-##### `RecipeOrderByInput`
+<h5 id="type-recipeorderbyinput"><code>RecipeOrderByInput</code></h5>
 
 | Field | Type | Description |
 |-------|------|-------------|
 | `field` | [RecipeOrderByField](#type-recipeorderbyfield)! |  |
 | `direction` | [SortOrder](#type-sortorder)! |  |
 
-<a id="type-recipewhereinput"></a>
-
-##### `RecipeWhereInput`
+<h5 id="type-recipewhereinput"><code>RecipeWhereInput</code></h5>
 
 Filter input for Recipe queries.
 Use `query` for semantic search, or use field filters for exact matching.
@@ -5394,18 +4596,14 @@ Use `query` for semantic search, or use field filters for exact matching.
 | `_or` | [[RecipeWhereInput](#type-recipewhereinput)!] |  |
 | `_not` | [RecipeWhereInput](#type-recipewhereinput) |  |
 
-<a id="type-repositorychangesetorderbyinput"></a>
-
-##### `RepositoryChangesetOrderByInput`
+<h5 id="type-repositorychangesetorderbyinput"><code>RepositoryChangesetOrderByInput</code></h5>
 
 | Field | Type | Description |
 |-------|------|-------------|
 | `field` | [RepositoryChangesetOrderByField](#type-repositorychangesetorderbyfield)! |  |
 | `direction` | [SortOrder](#type-sortorder)! |  |
 
-<a id="type-repositorychangesetstatefilter"></a>
-
-##### `RepositoryChangesetStateFilter`
+<h5 id="type-repositorychangesetstatefilter"><code>RepositoryChangesetStateFilter</code></h5>
 
 | Field | Type | Description |
 |-------|------|-------------|
@@ -5414,9 +4612,7 @@ Use `query` for semantic search, or use field filters for exact matching.
 | `_in` | [[RepositoryChangesetState](#type-repositorychangesetstate)!] |  |
 | `_nin` | [[RepositoryChangesetState](#type-repositorychangesetstate)!] |  |
 
-<a id="type-repositorychangesetwhereinput"></a>
-
-##### `RepositoryChangesetWhereInput`
+<h5 id="type-repositorychangesetwhereinput"><code>RepositoryChangesetWhereInput</code></h5>
 
 Filter for repository changesets.
 
@@ -5432,18 +4628,14 @@ Filter for repository changesets.
 | `_or` | [[RepositoryChangesetWhereInput](#type-repositorychangesetwhereinput)!] | Logical OR - at least one condition must match. |
 | `_not` | [RepositoryChangesetWhereInput](#type-repositorychangesetwhereinput) | Logical NOT - negates the condition. |
 
-<a id="type-repositorycommitorderbyinput"></a>
-
-##### `RepositoryCommitOrderByInput`
+<h5 id="type-repositorycommitorderbyinput"><code>RepositoryCommitOrderByInput</code></h5>
 
 | Field | Type | Description |
 |-------|------|-------------|
 | `field` | [RepositoryCommitOrderByField](#type-repositorycommitorderbyfield)! |  |
 | `direction` | [SortOrder](#type-sortorder)! |  |
 
-<a id="type-repositorycommitwhereinput"></a>
-
-##### `RepositoryCommitWhereInput`
+<h5 id="type-repositorycommitwhereinput"><code>RepositoryCommitWhereInput</code></h5>
 
 Filter input for repository-level commit queries.
 
@@ -5453,9 +4645,7 @@ Filter input for repository-level commit queries.
 | `_or` | [[RepositoryCommitWhereInput](#type-repositorycommitwhereinput)!] |  |
 | `_not` | [RepositoryCommitWhereInput](#type-repositorycommitwhereinput) |  |
 
-<a id="type-repositoryinput"></a>
-
-##### `RepositoryInput`
+<h5 id="type-repositoryinput"><code>RepositoryInput</code></h5>
 
 | Field | Type | Description |
 |-------|------|-------------|
@@ -5463,27 +4653,21 @@ Filter input for repository-level commit queries.
 | `path` | String! |  |
 | `branch` | String! |  |
 
-<a id="type-repositoryorderbyinput"></a>
-
-##### `RepositoryOrderByInput`
+<h5 id="type-repositoryorderbyinput"><code>RepositoryOrderByInput</code></h5>
 
 | Field | Type | Description |
 |-------|------|-------------|
 | `field` | [RepositoryOrderByField](#type-repositoryorderbyfield)! |  |
 | `direction` | [SortOrder](#type-sortorder)! |  |
 
-<a id="type-repositoryreciperunorderbyinput"></a>
-
-##### `RepositoryRecipeRunOrderByInput`
+<h5 id="type-repositoryreciperunorderbyinput"><code>RepositoryRecipeRunOrderByInput</code></h5>
 
 | Field | Type | Description |
 |-------|------|-------------|
 | `field` | [RepositoryRecipeRunOrderByField](#type-repositoryreciperunorderbyfield)! |  |
 | `direction` | [SortOrder](#type-sortorder)! |  |
 
-<a id="type-repositoryreciperunwhereinput"></a>
-
-##### `RepositoryRecipeRunWhereInput`
+<h5 id="type-repositoryreciperunwhereinput"><code>RepositoryRecipeRunWhereInput</code></h5>
 
 | Field | Type | Description |
 |-------|------|-------------|
@@ -5493,9 +4677,7 @@ Filter input for repository-level commit queries.
 | `_or` | [[RepositoryRecipeRunWhereInput](#type-repositoryreciperunwhereinput)!] |  |
 | `_not` | [RepositoryRecipeRunWhereInput](#type-repositoryreciperunwhereinput) |  |
 
-<a id="type-repositorywhereinput"></a>
-
-##### `RepositoryWhereInput`
+<h5 id="type-repositorywhereinput"><code>RepositoryWhereInput</code></h5>
 
 Filter input for Repository queries using typed field filters.
 
@@ -5510,9 +4692,7 @@ Filter input for Repository queries using typed field filters.
 | `_or` | [[RepositoryWhereInput](#type-repositorywhereinput)!] | Logical OR - at least one condition must match |
 | `_not` | [RepositoryWhereInput](#type-repositorywhereinput) | Logical NOT - negates the condition |
 
-<a id="type-reviewdecisionfilter"></a>
-
-##### `ReviewDecisionFilter`
+<h5 id="type-reviewdecisionfilter"><code>ReviewDecisionFilter</code></h5>
 
 | Field | Type | Description |
 |-------|------|-------------|
@@ -5521,26 +4701,20 @@ Filter input for Repository queries using typed field filters.
 | `_in` | [[ReviewDecision](#type-reviewdecision)!] |  |
 | `_nin` | [[ReviewDecision](#type-reviewdecision)!] |  |
 
-<a id="type-revokescmtokeninput"></a>
-
-##### `RevokeScmTokenInput`
+<h5 id="type-revokescmtokeninput"><code>RevokeScmTokenInput</code></h5>
 
 | Field | Type | Description |
 |-------|------|-------------|
 | `origin` | String! | The VCS origin to revoke the token for (e.g., github.com, gitlab.com). |
 
-<a id="type-rundevcenterinput"></a>
-
-##### `RunDevCenterInput`
+<h5 id="type-rundevcenterinput"><code>RunDevCenterInput</code></h5>
 
 | Field | Type | Description |
 |-------|------|-------------|
 | `organizationId` | ID! | The organization to run DevCenter for. |
 | `recipeId` | ID! | The DevCenter recipe to run. |
 
-<a id="type-runrecipeinput"></a>
-
-##### `RunRecipeInput`
+<h5 id="type-runrecipeinput"><code>RunRecipeInput</code></h5>
 
 | Field | Type | Description |
 |-------|------|-------------|
@@ -5549,9 +4723,7 @@ Filter input for Repository queries using typed field filters.
 | `parentId` | ID | Optional parent changeset ID this recipe run is derived from. |
 | `excludeFiles` | [String!] | Exclude files matching these patterns. |
 
-<a id="type-scmaccesstoken"></a>
-
-##### `ScmAccessToken`
+<h5 id="type-scmaccesstoken"><code>ScmAccessToken</code></h5>
 
 An access token for a specific SCM origin. When provided on a commit mutation,
 these tokens are preferred over stored OAuth tokens.
@@ -5561,9 +4733,7 @@ these tokens are preferred over stored OAuth tokens.
 | `value` | String! |  |
 | `origin` | String! |  |
 
-<a id="type-stringfilter"></a>
-
-##### `StringFilter`
+<h5 id="type-stringfilter"><code>StringFilter</code></h5>
 
 | Field | Type | Description |
 |-------|------|-------------|
@@ -5577,9 +4747,7 @@ these tokens are preferred over stored OAuth tokens.
 | `_icontains` | String | Case-insensitive contains |
 | `_isNull` | Boolean | True to match null values, false to match non-null values |
 
-<a id="type-updateuserorganizationinput"></a>
-
-##### `UpdateUserOrganizationInput`
+<h5 id="type-updateuserorganizationinput"><code>UpdateUserOrganizationInput</code></h5>
 
 | Field | Type | Description |
 |-------|------|-------------|
@@ -5587,18 +4755,14 @@ these tokens are preferred over stored OAuth tokens.
 | `name` | String | The new name for the organization. |
 | `repositories` | [[RepositoryInput](#type-repositoryinput)!] | Repositories to include in the organization. If provided, replaces the current list. |
 
-<a id="type-userorderbyinput"></a>
-
-##### `UserOrderByInput`
+<h5 id="type-userorderbyinput"><code>UserOrderByInput</code></h5>
 
 | Field | Type | Description |
 |-------|------|-------------|
 | `field` | [UserOrderByField](#type-userorderbyfield)! |  |
 | `direction` | [SortOrder](#type-sortorder)! |  |
 
-<a id="type-userwhereinput"></a>
-
-##### `UserWhereInput`
+<h5 id="type-userwhereinput"><code>UserWhereInput</code></h5>
 
 | Field | Type | Description |
 |-------|------|-------------|
@@ -5607,27 +4771,21 @@ these tokens are preferred over stored OAuth tokens.
 | `_or` | [[UserWhereInput](#type-userwhereinput)!] |  |
 | `_not` | [UserWhereInput](#type-userwhereinput) |  |
 
-<a id="type-visualizationoptioninput"></a>
-
-##### `VisualizationOptionInput`
+<h5 id="type-visualizationoptioninput"><code>VisualizationOptionInput</code></h5>
 
 | Field | Type | Description |
 |-------|------|-------------|
 | `name` | String! |  |
 | `value` | [Object](#type-object)! |  |
 
-<a id="type-visualizationorderbyinput"></a>
-
-##### `VisualizationOrderByInput`
+<h5 id="type-visualizationorderbyinput"><code>VisualizationOrderByInput</code></h5>
 
 | Field | Type | Description |
 |-------|------|-------------|
 | `field` | [VisualizationOrderByField](#type-visualizationorderbyfield)! |  |
 | `direction` | [SortOrder](#type-sortorder)! |  |
 
-<a id="type-visualizationwhereinput"></a>
-
-##### `VisualizationWhereInput`
+<h5 id="type-visualizationwhereinput"><code>VisualizationWhereInput</code></h5>
 
 | Field | Type | Description |
 |-------|------|-------------|
@@ -5637,9 +4795,7 @@ these tokens are preferred over stored OAuth tokens.
 | `_or` | [[VisualizationWhereInput](#type-visualizationwhereinput)!] |  |
 | `_not` | [VisualizationWhereInput](#type-visualizationwhereinput) |  |
 
-<a id="type-yamlrecipebundleinput"></a>
-
-##### `YamlRecipeBundleInput`
+<h5 id="type-yamlrecipebundleinput"><code>YamlRecipeBundleInput</code></h5>
 
 | Field | Type | Description |
 |-------|------|-------------|
@@ -5648,54 +4804,34 @@ these tokens are preferred over stored OAuth tokens.
 
 ### Unions
 
-<a id="type-connectortool"></a>
-
-##### `ConnectorTool`
+<h5 id="type-connectortool"><code>ConnectorTool</code></h5>
 
 = [GithubConfiguration](#type-githubconfiguration) | [GitLabConfiguration](#type-gitlabconfiguration) | [BitbucketConfiguration](#type-bitbucketconfiguration) | [BitbucketCloudConfiguration](#type-bitbucketcloudconfiguration) | [AzureDevOpsConfiguration](#type-azuredevopsconfiguration) | [ArtifactoryConfiguration](#type-artifactoryconfiguration) | [MavenConfiguration](#type-mavenconfiguration) | [PypiConfiguration](#type-pypiconfiguration) | [NpmConfiguration](#type-npmconfiguration) | [NugetConfiguration](#type-nugetconfiguration) | [GenericHttpToolConfiguration](#type-generichttptoolconfiguration) | [OrganizationConfiguration](#type-organizationconfiguration) | [LlmConfiguration](#type-llmconfiguration) | [S3Configuration](#type-s3configuration)
 
 ### Scalars
 
-<a id="type-base64"></a>
-
-##### `Base64`
+<h5 id="type-base64"><code>Base64</code></h5>
 
 `Base64` represents a base64 encoded string.
 In the browser, `btoa` encodes ASCII strings to Base64.
 
-<a id="type-date"></a>
+<h5 id="type-date"><code>Date</code></h5>
 
-##### `Date`
+<h5 id="type-datetime"><code>DateTime</code></h5>
 
-<a id="type-datetime"></a>
+<h5 id="type-duration"><code>Duration</code></h5>
 
-##### `DateTime`
+<h5 id="type-json"><code>JSON</code></h5>
 
-<a id="type-duration"></a>
+<h5 id="type-long"><code>Long</code></h5>
 
-##### `Duration`
-
-<a id="type-json"></a>
-
-##### `JSON`
-
-<a id="type-long"></a>
-
-##### `Long`
-
-<a id="type-markdown"></a>
-
-##### `Markdown`
+<h5 id="type-markdown"><code>Markdown</code></h5>
 
 Contents may contain Markdown, HTML, or other text and should be passed through a Markdown parser by consumers
 
-<a id="type-object"></a>
+<h5 id="type-object"><code>Object</code></h5>
 
-##### `Object`
-
-<a id="type-path"></a>
-
-##### `Path`
+<h5 id="type-path"><code>Path</code></h5>
 
 A file path relative to repository root (e.g., "src/main/java/Foo.java").
 

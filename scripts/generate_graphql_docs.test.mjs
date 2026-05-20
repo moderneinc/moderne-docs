@@ -203,8 +203,7 @@ describe('generateMarkdown', () => {
   });
 
   it('renders type heading with explicit anchor id', () => {
-    expect(md()).toContain('<a id="type-user"></a>');
-    expect(md()).toContain('##### `User`');
+    expect(md()).toContain('<h5 id="type-user"><code>User</code></h5>');
   });
 
   it('renders implements link', () => {
@@ -223,8 +222,7 @@ describe('generateMarkdown', () => {
   it('renders enum values', () => {
     const out = md();
     expect(out).toContain('### Enums');
-    expect(out).toContain('<a id="type-userrole"></a>');
-    expect(out).toContain('##### `UserRole`');
+    expect(out).toContain('<h5 id="type-userrole"><code>UserRole</code></h5>');
     expect(out).toContain('- `ADMIN`');
     expect(out).toContain('- `MEMBER`');
   });
