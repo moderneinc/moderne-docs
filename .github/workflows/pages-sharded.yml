@@ -1,10 +1,17 @@
-# Sharded build prototype: splits SSG across N parallel jobs, then merges
-# the per-shard build outputs and deploys to GitHub Pages.
-# Once validated, this is intended to replace pages.yml.
+# Sharded production deploy: splits SSG across N parallel jobs, then merges
+# the per-shard build outputs and deploys to GitHub Pages. Replaces the
+# single-job pages.yml (kept as a workflow_dispatch-only emergency fallback).
 name: Deploy Moderne docs to Pages (sharded)
 
 on:
   workflow_dispatch:
+  workflow_run:
+    workflows: ["Update docs"]
+    types:
+      - completed
+  push:
+    branches:
+      - main
 
 concurrency:
   group: "pages"
@@ -91,33 +98,22 @@ jobs:
       - name: Merge shards
         run: node scripts/merge-shards.js
 
-      - name: Upload combined build (for inspection)
-        uses: actions/upload-artifact@v4
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v5
         with:
-          name: combined-build
           path: build
-          retention-days: 3
-          if-no-files-found: error
 
-# Deploy step disabled while validating on this branch. Re-enable before
-# cutting over from pages.yml.
-#
-#      - name: Upload Pages artifact
-#        uses: actions/upload-pages-artifact@v5
-#        with:
-#          path: build
-#
-#  deploy:
-#    name: Deploy to GitHub Pages
-#    needs: combine
-#    permissions:
-#      pages: write
-#      id-token: write
-#    environment:
-#      name: github-pages
-#      url: ${{ steps.deployment.outputs.page_url }}
-#    runs-on: ubuntu-latest
-#    steps:
-#      - name: Deploy to GitHub Pages
-#        id: deployment
-#        uses: actions/deploy-pages@v5
+  deploy:
+    name: Deploy to GitHub Pages
+    needs: combine
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v5

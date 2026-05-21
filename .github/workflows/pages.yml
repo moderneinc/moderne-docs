@@ -1,15 +1,10 @@
-# Simple workflow for deploying static content to GitHub Pages
-name: Deploy Moderne docs to Pages
+# Emergency fallback: single-job deploy. Superseded by pages-sharded.yml as
+# the primary deploy path; kept here as a manually-dispatched backup in case
+# the sharded build needs to be bypassed.
+name: Deploy Moderne docs to Pages (emergency fallback)
 
 on:
   workflow_dispatch:
-  workflow_run:
-    workflows: ["Update docs"]
-    types:
-      - completed
-  push:
-    branches:
-      - main
 
 # Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
 # However, do NOT cancel in-progress runs as we want to allow these production deployments to complete.
