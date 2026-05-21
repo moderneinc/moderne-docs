@@ -26,7 +26,7 @@ The Moderne CLI previously followed a two-track release model with separate "sta
 * [4.2.x] Preserve leading slash on absolute paths in mod config show
 * [4.2.x] Use G1 unconditionally in modw to stop AOT cache thrash
 * [4.2.x] Add `mod log execs` to aggregate exec logs (#3822)
-* [4.2.x] `mod search`: don't render filename matches as "L1: <path>"
+* [4.2.x] `mod search`: don't render filename matches as `L1: <path>`
 * [4.2.x] Apply clone timeout to checkout step in `mod git sync csv`
 * [4.2.x] Drop Claude-specific path from skill version check
 * [4.2.x] Apply lsts.artifacts auth when fetching remote repos.csv (#3922)
