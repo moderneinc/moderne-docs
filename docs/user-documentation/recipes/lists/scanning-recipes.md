@@ -93,9 +93,21 @@ _This doc contains all [scanning recipes](https://docs.openrewrite.org/concepts-
 * [io.moderne.prethink.ComprehendCodeTokenCounter](/user-documentation/recipes/recipe-catalog/prethink/comprehendcodetokencounter.md)
   * **Estimate comprehension token usage**
   * Estimate the input token counts that would be sent to an LLM for method comprehension, without actually calling a model. Uses OpenAI's tokenizer locally. Outputs to the MethodDescriptions table with blank descriptions.
+* [io.moderne.prethink.ExtractDependencyUsage](/user-documentation/recipes/recipe-catalog/prethink/extractdependencyusage.md)
+  * **Extract dependency usage patterns**
+  * Analyze the codebase to extract dependency usage patterns by examining which types from external libraries are actually used in the code.
+* [io.moderne.prethink.ExtractGoDependencies](/user-documentation/recipes/recipe-catalog/prethink/extractgodependencies.md)
+  * **Extract Go dependencies and usage**
+  * Scan go.mod and Go source imports to produce a DependencyUsage entry per actually-imported module, including file-count and sample imports.
 * [io.moderne.prethink.calm.FindCalmRelationships](/user-documentation/recipes/recipe-catalog/prethink/calm/findcalmrelationships.md)
   * **Find CALM relationships**
   * Discover method call relationships within the repository for building interaction diagrams. Captures all method-to-method calls between in-repo classes. Entity IDs are resolved by GenerateCalmArchitecture when building CALM relationships.
+* [io.moderne.prethink.calm.FindEndpointContracts](/user-documentation/recipes/recipe-catalog/prethink/calm/findendpointcontracts.md)
+  * **Find endpoint contracts**
+  * Extract per-endpoint request body, response body (per status code), and parameter details from Spring/JAX-RS/Micronaut handlers to support OpenAPI 3.0.3 spec generation and consumer/provider contract-test generation. Walks interface inheritance for OpenAPI-codegen-first projects.
+* [io.moderne.prethink.calm.FindServiceEndpoints](/user-documentation/recipes/recipe-catalog/prethink/calm/findserviceendpoints.md)
+  * **Find service endpoints**
+  * Identify all REST/HTTP service endpoints exposed by the application. Supports Spring MVC, JAX-RS, Micronaut, and Quarkus REST endpoints. Also walks interface inheritance to detect endpoints in OpenAPI-codegen-first projects where @GetMapping etc. live on the interface methods.
 * [io.moderne.prethink.calm.GenerateCalmMermaidDiagram](/user-documentation/recipes/recipe-catalog/prethink/calm/generatecalmmermaiddiagram.md)
   * **Generate architecture mermaid diagram**
   * Generate a markdown file with a mermaid architecture diagram from discovered service endpoints, database connections, external service calls, and messaging connections.
@@ -105,6 +117,15 @@ _This doc contains all [scanning recipes](https://docs.openrewrite.org/concepts-
 * [io.moderne.prethink.quality.FindCodeSmells](/user-documentation/recipes/recipe-catalog/prethink/quality/findcodesmells.md)
   * **Find code smells**
   * Detect code smells including God Class, Feature Envy, and Data Class using composite metric thresholds with severity ratings.
+* [io.moderne.prethink.quality.FindGoCodeSmells](/user-documentation/recipes/recipe-catalog/prethink/quality/findgocodesmells.md)
+  * **Find Go code smells**
+  * Detect God Struct, Feature Envy, Large Interface, and Long Function code smells in Go. Data Class is intentionally excluded (idiomatic in Go).
+* [io.moderne.prethink.quality.FindGoPackageMetrics](/user-documentation/recipes/recipe-catalog/prethink/quality/findgopackagemetrics.md)
+  * **Find Go package quality metrics**
+  * Per-package architectural metrics for Go: afferent/efferent coupling, instability, abstractness (interface ratio), distance from main sequence, and cycle detection.
+* [io.moderne.prethink.quality.FindGoTypeMetrics](/user-documentation/recipes/recipe-catalog/prethink/quality/findgotypemetrics.md)
+  * **Find Go type quality metrics**
+  * Compute per-struct code quality metrics for Go including WMC, LCOM4, TCC, CBO, and maintainability index. Aggregates methods with the same receiver type across files.
 * [io.moderne.prethink.quality.FindPackageMetrics](/user-documentation/recipes/recipe-catalog/prethink/quality/findpackagemetrics.md)
   * **Find package quality metrics**
   * Compute per-package architectural quality metrics including afferent/efferent coupling, instability, abstractness, distance from the main sequence, and dependency cycle detection using Tarjan's strongly connected components algorithm.
@@ -129,6 +150,9 @@ _This doc contains all [scanning recipes](https://docs.openrewrite.org/concepts-
 * [org.openrewrite.analysis.java.security.FindCommandInjection](/user-documentation/recipes/recipe-catalog/analysis/java/security/findcommandinjection.md)
   * **Find command injection vulnerabilities**
   * Detects when user-controlled input flows into system command execution methods like Runtime.exec() or ProcessBuilder, which could allow attackers to execute arbitrary commands.
+* [org.openrewrite.analysis.java.security.FindInsecureCryptoComparison](/user-documentation/recipes/recipe-catalog/analysis/java/security/findinsecurecryptocomparison.md)
+  * **Find non-constant-time comparison of cryptographic digests**
+  * Detects when the output of `MessageDigest.digest(..)` or `Mac.doFinal(..)` flows into `Arrays.equals(byte[], byte[])`, a non-constant-time comparison that is vulnerable to timing attacks (CWE-208). Use `MessageDigest.isEqual(byte[], byte[])` for security-sensitive byte-array comparisons.
 * [org.openrewrite.analysis.java.security.FindJndiInjection](/user-documentation/recipes/recipe-catalog/analysis/java/security/findjndiinjection.md)
   * **Find JNDI injection vulnerabilities**
   * Detects when user-controlled input flows into JNDI lookup operations without proper validation, which could allow an attacker to connect to malicious naming/directory services (CWE-99).
@@ -162,6 +186,12 @@ _This doc contains all [scanning recipes](https://docs.openrewrite.org/concepts-
 * [org.openrewrite.analysis.java.security.SanitizeLogInjection](/user-documentation/recipes/recipe-catalog/analysis/java/security/sanitizeloginjection.md)
   * **Sanitize log injection vulnerabilities**
   * Sanitizes user-controlled input before it flows into logging methods by stripping newline, carriage return, and tab characters that could enable log forging.
+
+### rewrite-release-metromap
+
+* [io.moderne.recipe.releasemetro.FindGradleParentRelationships](/user-documentation/recipes/recipe-catalog/recipe/releasemetro/findgradleparentrelationships.md)
+  * **Find Gradle root project to subproject relationships**
+  * Gradle has no parent-project concept like Maven. The closest analog is the root project of a multi-project build, so this recipe records the GAV coordinates of each subproject paired with the root project.
 
 ### rewrite-spring
 
@@ -383,19 +413,19 @@ _This doc contains all [scanning recipes](https://docs.openrewrite.org/concepts-
 
 * [org.openrewrite.python.AddDependency](/user-documentation/recipes/recipe-catalog/python/adddependency.md)
   * **Add Python dependency**
-  * Add a dependency to a Python project. Supports `pyproject.toml` (with scope/group targeting), `requirements.txt`, and `Pipfile`. When `uv` is available, the `uv.lock` file is regenerated.
+  * Add a dependency to a Python project. Supports `pyproject.toml` (with scope/group targeting), `requirements.txt`, and `Pipfile`. When the matching package manager (`uv` or `pipenv`) is available, the corresponding lock file (`uv.lock` or `Pipfile.lock`) is regenerated. Not safe to use as a precondition: invokes the package manager and publishes per-project state shared with other dependency recipes.
 * [org.openrewrite.python.ChangeDependency](/user-documentation/recipes/recipe-catalog/python/changedependency.md)
   * **Change Python dependency**
-  * Change a dependency to a different package. Supports `pyproject.toml`, `requirements.txt`, and `Pipfile`. Searches all dependency scopes. When `uv` is available, the `uv.lock` file is regenerated.
+  * Change a dependency to a different package. Supports `pyproject.toml`, `requirements.txt`, and `Pipfile`. Searches all dependency scopes. When the matching package manager (`uv` or `pipenv`) is available, the corresponding lock file (`uv.lock` or `Pipfile.lock`) is regenerated. Not safe to use as a precondition: invokes the package manager and publishes per-project state shared with other dependency recipes.
 * [org.openrewrite.python.RemoveDependency](/user-documentation/recipes/recipe-catalog/python/removedependency.md)
   * **Remove Python dependency**
-  * Remove a dependency from a Python project. Supports `pyproject.toml` (with scope/group targeting), `requirements.txt`, and `Pipfile`. When `uv` is available, the `uv.lock` file is regenerated.
+  * Remove a dependency from a Python project. Supports `pyproject.toml` (with scope/group targeting), `requirements.txt`, and `Pipfile`. When the matching package manager (`uv` or `pipenv`) is available, the corresponding lock file (`uv.lock` or `Pipfile.lock`) is regenerated. Not safe to use as a precondition: invokes the package manager and publishes per-project state shared with other dependency recipes.
 * [org.openrewrite.python.UpgradeDependencyVersion](/user-documentation/recipes/recipe-catalog/python/upgradedependencyversion.md)
   * **Upgrade Python dependency version**
-  * Upgrade the version constraint for a dependency. Supports `pyproject.toml` (with scope/group targeting), `requirements.txt`, and `Pipfile`. When `uv` is available, the `uv.lock` file is regenerated.
+  * Upgrade the version constraint for a dependency. Supports `pyproject.toml` (with scope/group targeting), `requirements.txt`, and `Pipfile`. When the matching package manager (`uv` or `pipenv`) is available, the corresponding lock file (`uv.lock` or `Pipfile.lock`) is regenerated. Not safe to use as a precondition: invokes the package manager and publishes per-project state shared with other dependency recipes.
 * [org.openrewrite.python.UpgradeTransitiveDependencyVersion](/user-documentation/recipes/recipe-catalog/python/upgradetransitivedependencyversion.md)
   * **Upgrade transitive Python dependency version**
-  * Pin a transitive dependency version using the strategy appropriate for the file type and package manager. For `pyproject.toml`: uv uses `[tool.uv].constraint-dependencies`, PDM uses `[tool.pdm.overrides]`, and other managers add a direct dependency. For `requirements.txt` and `Pipfile`: appends the dependency.
+  * Pin a transitive dependency version using the strategy appropriate for the file type and package manager. For `pyproject.toml`: uv uses `[tool.uv].constraint-dependencies`, PDM uses `[tool.pdm.overrides]`, and other managers add a direct dependency. For `requirements.txt` and `Pipfile`: appends the dependency. Not safe to use as a precondition: invokes the package manager and publishes per-project state shared with other dependency recipes.
 
 ### rewrite-toml
 
@@ -493,6 +523,12 @@ _This doc contains all [scanning recipes](https://docs.openrewrite.org/concepts-
   * **Analyze a .NET project using upgrade-assistant**
   * Run [upgrade-assistant analyze](https://learn.microsoft.com/en-us/dotnet/core/porting/upgrade-assistant-overview) across a repository to analyze changes required to upgrade projects to a newer version of .NET. This recipe will generate an `org.openrewrite.dotnet.UpgradeAssistantAnalysis` data table containing the report details.
 
+### rewrite-github-actions
+
+* [org.openrewrite.github.security.PinGitHubActionsToSha](/user-documentation/recipes/recipe-catalog/github/security/pingithubactionstosha.md)
+  * **Pin GitHub Actions to commit SHAs**
+  * Replaces mutable tag or branch references in GitHub Actions `uses:` declarations with immutable commit SHAs. A static mapping of well-known actions is checked first; if the action is not found, the GitHub API is used to resolve the reference at recipe run time. By default only third-party actions are pinned; set `pinOfficialActions` to include actions from the `actions` and `github` organizations. To pin only a specific allow-list of actions, set `includedActions`.
+
 ### rewrite-jackson
 
 * [org.openrewrite.java.jackson.LombokJacksonizedConfig](/user-documentation/recipes/recipe-catalog/java/jackson/lombokjacksonizedconfig.md)
@@ -545,7 +581,7 @@ _This doc contains all [scanning recipes](https://docs.openrewrite.org/concepts-
 
 * [org.openrewrite.csharp.dependencies.DependencyVulnerabilityCheck](/user-documentation/recipes/recipe-catalog/csharp/dependencies/dependencyvulnerabilitycheck.md)
   * **Find and fix vulnerable Nuget dependencies**
-  * This software composition analysis (SCA) tool detects and upgrades dependencies with publicly disclosed vulnerabilities. This recipe both generates a report of vulnerable dependencies and upgrades to newer versions with fixes. This recipe **only** upgrades to the latest **patch** version.  If a minor or major upgrade is required to reach the fixed version, this recipe will not make any changes. Vulnerability information comes from the [GitHub Security Advisory Database](https://docs.github.com/en/code-security/security-advisories/global-security-advisories/about-the-github-advisory-database), which aggregates vulnerability data from several public databases, including the [National Vulnerability Database](https://nvd.nist.gov/) maintained by the United States government. Dependencies following [Semantic Versioning](https://semver.org/) will see their _patch_ version updated where applicable.
+  * This software composition analysis (SCA) tool detects and upgrades dependencies with publicly disclosed vulnerabilities. This recipe both generates a report of vulnerable dependencies and upgrades to newer versions with fixes. This recipe by default only upgrades to the latest **patch** version. If a minor or major upgrade is required to reach the fixed version, this can be controlled using the `maximumUpgradeDelta` option. Vulnerability information comes from the [GitHub Security Advisory Database](https://docs.github.com/en/code-security/security-advisories/global-security-advisories/about-the-github-advisory-database), which aggregates vulnerability data from several public databases, including the [National Vulnerability Database](https://nvd.nist.gov/) maintained by the United States government. Dependencies following [Semantic Versioning](https://semver.org/) will see their _patch_ version updated where applicable. Last updated: 2026-05-11T1202.
 * [org.openrewrite.java.dependencies.AddExplicitTransitiveDependencies](/user-documentation/recipes/recipe-catalog/java/dependencies/addexplicittransitivedependencies.md)
   * **Add explicit transitive dependencies**
   * Detects when Java source code or configuration files reference types from transitive Maven dependencies and promotes those transitive dependencies to explicit direct dependencies in the pom.xml. This ensures the build is resilient against changes in transitive dependency trees of upstream libraries.
@@ -554,7 +590,7 @@ _This doc contains all [scanning recipes](https://docs.openrewrite.org/concepts-
   * Locates and reports on all licenses in use.
 * [org.openrewrite.java.dependencies.DependencyVulnerabilityCheck](/user-documentation/recipes/recipe-catalog/java/dependencies/dependencyvulnerabilitycheck.md)
   * **Find and fix vulnerable dependencies**
-  * This software composition analysis (SCA) tool detects and upgrades dependencies with publicly disclosed vulnerabilities. This recipe both generates a report of vulnerable dependencies and upgrades to newer versions with fixes. This recipe by default only upgrades to the latest **patch** version.  If a minor or major upgrade is required to reach the fixed version, this can be controlled using the `maximumUpgradeDelta` option. Vulnerability information comes from the [GitHub Security Advisory Database](https://docs.github.com/en/code-security/security-advisories/global-security-advisories/about-the-github-advisory-database), which aggregates vulnerability data from several public databases, including the [National Vulnerability Database](https://nvd.nist.gov/) maintained by the United States government. Upgrades dependencies versioned according to [Semantic Versioning](https://semver.org/).   ## Customizing Vulnerability Data  This recipe can be customized by extending `DependencyVulnerabilityCheckBase` and overriding the vulnerability data sources:   - **`baselineVulnerabilities(ExecutionContext ctx)`**: Provides the default set of known vulnerabilities. The base implementation loads vulnerability data from the GitHub Security Advisory Database CSV file using `ResourceUtils.parseResourceAsCsv()`. Override this method to replace the entire vulnerability dataset with your own curated list.   - **`supplementalVulnerabilities(ExecutionContext ctx)`**: Allows adding custom vulnerability data beyond the baseline. The base implementation returns an empty list. Override this method to add organization-specific vulnerabilities, internal security advisories, or vulnerabilities from additional sources while retaining the baseline GitHub Advisory Database.  Both methods return `List&lt;Vulnerability&gt;` objects. Vulnerability data can be loaded from CSV files using `ResourceUtils.parseResourceAsCsv(path, Vulnerability.class, consumer)` or constructed programmatically. To customize, extend `DependencyVulnerabilityCheckBase` and override one or both methods depending on your needs. For example, override `supplementalVulnerabilities()` to add custom CVEs while keeping the standard vulnerability database, or override `baselineVulnerabilities()` to use an entirely different vulnerability data source. Last updated: 2026-04-27T1132.
+  * This software composition analysis (SCA) tool detects and upgrades dependencies with publicly disclosed vulnerabilities. This recipe both generates a report of vulnerable dependencies and upgrades to newer versions with fixes. This recipe by default only upgrades to the latest **patch** version.  If a minor or major upgrade is required to reach the fixed version, this can be controlled using the `maximumUpgradeDelta` option. Vulnerability information comes from the [GitHub Security Advisory Database](https://docs.github.com/en/code-security/security-advisories/global-security-advisories/about-the-github-advisory-database), which aggregates vulnerability data from several public databases, including the [National Vulnerability Database](https://nvd.nist.gov/) maintained by the United States government. Upgrades dependencies versioned according to [Semantic Versioning](https://semver.org/).   ## Customizing Vulnerability Data  This recipe can be customized by extending `DependencyVulnerabilityCheckBase` and overriding the vulnerability data sources:   - **`baselineVulnerabilities(ExecutionContext ctx)`**: Provides the default set of known vulnerabilities. The base implementation loads vulnerability data from the GitHub Security Advisory Database CSV file using `ResourceUtils.parseResourceAsCsv()`. Override this method to replace the entire vulnerability dataset with your own curated list.   - **`supplementalVulnerabilities(ExecutionContext ctx)`**: Allows adding custom vulnerability data beyond the baseline. The base implementation returns an empty list. Override this method to add organization-specific vulnerabilities, internal security advisories, or vulnerabilities from additional sources while retaining the baseline GitHub Advisory Database.  Both methods return `List&lt;Vulnerability&gt;` objects. Vulnerability data can be loaded from CSV files using `ResourceUtils.parseResourceAsCsv(path, Vulnerability.class, consumer)` or constructed programmatically. To customize, extend `DependencyVulnerabilityCheckBase` and override one or both methods depending on your needs. For example, override `supplementalVulnerabilities()` to add custom CVEs while keeping the standard vulnerability database, or override `baselineVulnerabilities()` to use an entirely different vulnerability data source. Last updated: 2026-05-11T1202.
 * [org.openrewrite.java.dependencies.RemoveUnusedDependencies](/user-documentation/recipes/recipe-catalog/java/dependencies/removeunuseddependencies.md)
   * **Remove unused dependencies**
   * Scans through source code collecting references to types and methods, removing any dependencies that are not used from Maven or Gradle build files. This is best effort and not guaranteed to work well in all cases; false positives are still possible.  This recipe takes reflective access into account: - When reflective access to a class is made unambiguously via a string literal, such as: `Class.forName(&quot;java.util.List&quot;)` that is counted correctly. - When reflective access to a class is made ambiguously via anything other than a string literal no dependencies will be removed.  This recipe takes transitive dependencies into account: - When a direct dependency is not used but a transitive dependency it brings in _is_ in use the direct dependency is not removed.
@@ -630,6 +666,9 @@ _This doc contains all [scanning recipes](https://docs.openrewrite.org/concepts-
 * [org.openrewrite.java.migrate.javax.RemoveEmbeddableId](/user-documentation/recipes/recipe-catalog/java/migrate/javax/removeembeddableid.md)
   * **`@Embeddable` classes cannot have an `@Id` annotation when referenced by an `@EmbeddedId` annotation**
   * According to the Java Persistence API (JPA) specification, if an entity defines an attribute with an `@EmbeddedId` annotation, the embeddable class cannot contain an attribute with an `@Id` annotation. If both the `@EmbeddedId` annotation and the `@Id` annotation are defined, OpenJPA ignores the `@Id` annotation, whereas EclipseLink throws an exception.
+* [org.openrewrite.java.migrate.lang.MigrateMainMethodToInstanceMain](/user-documentation/recipes/recipe-catalog/java/migrate/lang/migratemainmethodtoinstancemain.md)
+  * **Migrate `public static void main(String[] args)` to instance `void main()`**
+  * Migrate `public static void main(String[] args)` method to instance `void main()` method when the `args` parameter is unused, as supported by JEP 512 in Java 25+.
 * [org.openrewrite.java.migrate.lombok.AdoptLombokGetterMethodNames](/user-documentation/recipes/recipe-catalog/java/migrate/lombok/adoptlombokgettermethodnames.md)
   * **Rename getter methods to fit Lombok**
   * Rename methods that are effectively getter to the name Lombok would give them.  Limitations:  - If two methods in a class are effectively the same getter then one's name will be corrected and the others name will be left as it is.  - If the correct name for a method is already taken by another method then the name will not be corrected.  - Method name swaps or circular renaming within a class cannot be performed because the names block each other. E.g. `int getFoo() \{ return ba; \} int getBa() \{ return foo; \}` stays as it is.
@@ -639,6 +678,9 @@ _This doc contains all [scanning recipes](https://docs.openrewrite.org/concepts-
 * [org.openrewrite.java.migrate.lombok.LombokValueToRecord](/user-documentation/recipes/recipe-catalog/java/migrate/lombok/lombokvaluetorecord.md)
   * **Convert `@lombok.Value` class to Record**
   * Convert Lombok `@Value` annotated classes to standard Java Records.
+* [org.openrewrite.java.migrate.search.FindJavaVersion](/user-documentation/recipes/recipe-catalog/java/migrate/search/findjavaversion.md)
+  * **Find Java versions in use**
+  * Finds Java versions in use, emitting one row per git repository (the lowest source/target compatibility across modules in that repository).
 * [org.openrewrite.java.migrate.search.ModuleHasKotlinSource](/user-documentation/recipes/recipe-catalog/java/migrate/search/modulehaskotlinsource.md)
   * **Module has Kotlin source files**
   * Marks all files in modules that contain at least one Kotlin source file (`.kt`). Intended as a precondition to scope recipes to projects that actually compile Kotlin, as opposed to projects that merely pick up `kotlin-stdlib` transitively.
@@ -654,9 +696,6 @@ _This doc contains all [scanning recipes](https://docs.openrewrite.org/concepts-
 
 ### rewrite-nodejs
 
-* [org.openrewrite.nodejs.DependencyVulnerabilityCheck](/user-documentation/recipes/recipe-catalog/nodejs/dependencyvulnerabilitycheck.md)
-  * **Find and fix vulnerable npm dependencies**
-  * This software composition analysis (SCA) tool detects and upgrades dependencies with publicly disclosed vulnerabilities. This recipe both generates a report of vulnerable dependencies and upgrades to newer versions with fixes. This recipe **only** upgrades to the latest **patch** version.  If a minor or major upgrade is required to reach the fixed version, this recipe will not make any changes. Vulnerability information comes from the [GitHub Security Advisory Database](https://docs.github.com/en/code-security/security-advisories/global-security-advisories/about-the-github-advisory-database), which aggregates vulnerability data from several public databases, including the [National Vulnerability Database](https://nvd.nist.gov/) maintained by the United States government. Dependencies following [Semantic Versioning](https://semver.org/) will see their _patch_ version updated where applicable.
 * [org.openrewrite.nodejs.search.DependencyInsight](/user-documentation/recipes/recipe-catalog/nodejs/search/dependencyinsight.md)
   * **Node.js dependency insight**
   * Identify the direct and transitive Node.js dependencies used in a project.
@@ -708,6 +747,9 @@ _This doc contains all [scanning recipes](https://docs.openrewrite.org/concepts-
 * [org.openrewrite.java.spring.UpdateApiManifest](/user-documentation/recipes/recipe-catalog/java/spring/updateapimanifest.md)
   * **Update the API manifest**
   * Keep a consolidated manifest of the API endpoints that this application exposes up-to-date.
+* [org.openrewrite.java.spring.boot2.AddConfigurationAnnotationIfBeansPresent](/user-documentation/recipes/recipe-catalog/java/spring/boot2/addconfigurationannotationifbeanspresent.md)
+  * **Add missing `@Configuration` annotation**
+  * Class having `@Bean` annotation over any methods but missing `@Configuration` annotation over the declaring class would have `@Configuration` annotation added. Classes referenced as scoped configuration via `.class` (e.g. `@FeignClient(configuration = X.class)`) are skipped to preserve their intended per-client scope.
 * [org.openrewrite.java.spring.boot2.MergeBootstrapYamlWithApplicationYaml](/user-documentation/recipes/recipe-catalog/java/spring/boot2/mergebootstrapyamlwithapplicationyaml.md)
   * **Merge Spring `bootstrap.yml` with `application.yml`**
   * In Spring Boot 2.4, the bootstrap context that loads `bootstrap.yml` is [disabled by default](https://docs.spring.io/spring-cloud-config/reference/client.html). Its properties should be merged with `application.yml` unless `spring-cloud-starter-bootstrap` is present as a dependency.
@@ -732,6 +774,9 @@ _This doc contains all [scanning recipes](https://docs.openrewrite.org/concepts-
 * [org.openrewrite.java.spring.doc.MigrateDocketBeanToGroupedOpenApiBean](/user-documentation/recipes/recipe-catalog/java/spring/doc/migratedocketbeantogroupedopenapibean.md)
   * **Migrate `Docket` to `GroupedOpenAPI`**
   * Migrate a `Docket` bean to a `GroupedOpenAPI` bean preserving group name, packages and paths. When possible the recipe will prefer property based configuration.
+* [org.openrewrite.java.spring.doc.MigrateSpringFoxSecurityConfiguration](/user-documentation/recipes/recipe-catalog/java/spring/doc/migratespringfoxsecurityconfiguration.md)
+  * **Migrate SpringFox `SecurityConfiguration` bean to Springdoc Swagger UI properties**
+  * Replace `@Bean` methods that return `springfox.documentation.swagger.web.SecurityConfiguration` with the equivalent `springdoc.swagger-ui.*` configuration properties. Only literal builder arguments are migrated; beans with non-literal arguments or unsupported builder methods (`apiKey`, `apiKeyName`, `apiKeyVehicle`, `additionalQueryStringParams`) are left untouched for manual review. If no Spring application configuration file exists, the bean is left in place to avoid silently dropping configuration.
 * [org.openrewrite.maven.spring.UpgradeExplicitSpringBootDependencies](/user-documentation/recipes/recipe-catalog/maven/spring/upgradeexplicitspringbootdependencies.md)
   * **Upgrade Spring dependencies**
   * Upgrades dependencies according to the specified version of spring boot. Spring boot has many direct and transitive dependencies. When a module has an explicit dependency on one of these it may also need to be upgraded to match the version used by spring boot.

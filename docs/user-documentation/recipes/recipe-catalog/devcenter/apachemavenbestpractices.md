@@ -103,6 +103,20 @@ Please [contact Moderne](https://moderne.io/product) for more information about 
 ## Data Tables
 
 <Tabs groupId="data-tables">
+<TabItem value="io.moderne.devcenter.table.SecurityIssues" label="SecurityIssues">
+
+### Security issues
+**io.moderne.devcenter.table.SecurityIssues**
+
+_Security issues in the repository._
+
+| Column Name | Description |
+| ----------- | ----------- |
+| Ordinal | The ordinal position of this issue relative to other issues. |
+| Issue name | The name of the security issue. |
+
+</TabItem>
+
 <TabItem value="org.openrewrite.table.SourcesFileResults" label="SourcesFileResults">
 
 ### Source files that had results
@@ -169,20 +183,6 @@ _Statistics used in analyzing the performance of recipes._
 | Max scanning time (ns) | The max time scanning any one source file. |
 | Cumulative edit time (ns) | The total time spent across the editing phase of this recipe. |
 | Max edit time (ns) | The max time editing any one source file. |
-
-</TabItem>
-
-<TabItem value="io.moderne.devcenter.table.SecurityIssues" label="SecurityIssues">
-
-### Security issues
-**io.moderne.devcenter.table.SecurityIssues**
-
-_Security issues in the repository._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| Ordinal | The ordinal position of this issue relative to other issues. |
-| Issue name | The name of the security issue. |
 
 </TabItem>
 

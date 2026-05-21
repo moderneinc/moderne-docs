@@ -32,6 +32,7 @@ This recipe is used as part of the following composite recipes:
 
 * [Apache Maven best practices](/user-documentation/recipes/recipe-catalog/maven/bestpractices.md)
 * [Apache Maven best practices](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/devcenter/apachemavenbestpractices)
+* [Apache Maven reproducible builds](/user-documentation/recipes/recipe-catalog/maven/reproduciblebuilds.md)
 
 ## Example
 

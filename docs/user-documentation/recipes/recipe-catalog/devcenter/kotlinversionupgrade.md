@@ -28,6 +28,13 @@ This recipe is available under the [Moderne Source Available License](https://do
 | `String` | upgradeRecipe | *Optional*. The recipe to use to upgrade. | `org.openrewrite.kotlin.migrate.UpgradeToKotlin2` |
 
 
+## Used by
+
+This recipe is used as part of the following composite recipes:
+
+* [DevCenter Kotlin](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/devcenter/devcenterkotlin)
+
+
 ## Usage
 
 This recipe has required configuration parameters and can only be run by users of Moderne.
