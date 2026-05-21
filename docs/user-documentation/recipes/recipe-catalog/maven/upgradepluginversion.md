@@ -42,14 +42,13 @@ This recipe is available under the [Apache License Version 2.0](https://www.apac
 This recipe is used as part of the following composite recipes:
 
 * [Add explicit JAXB API dependencies](/user-documentation/recipes/recipe-catalog/java/migrate/javax/addjaxbapidependencies.md)
-* [Apache Maven reproducible builds](/user-documentation/recipes/recipe-catalog/maven/reproduciblebuilds.md)
 * [Customize Quarkus BOM Version](/user-documentation/recipes/recipe-catalog/quarkus/spring/customizequarkusversion.md)
 * [JUnit 6 migration from JUnit 5.x](/user-documentation/recipes/recipe-catalog/java/testing/junit6/junit5to6migration.md)
 * [JUnit Jupiter migration from JUnit 4.x](/user-documentation/recipes/recipe-catalog/java/testing/junit5/junit4to5migration.md)
 * [Migrate deprecated `javax.xml.bind` packages to `jakarta.xml.bind`](/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/javaxxmlbindmigrationtojakartaxmlbind.md)
 * [Migrate from Spring Boot 1.x to 2.0](/user-documentation/recipes/recipe-catalog/java/spring/boot2/upgradespringboot_2_0.md)
 * [Migrate to 4.10.6](/user-documentation/recipes/recipe-catalog/org/apache/camel/upgrade/camel410ltsmigrationrecipe.md)
-* [Migrate to 4.20.0](/user-documentation/recipes/recipe-catalog/org/apache/camel/upgrade/camelmigrationrecipe.md)
+* [Migrate to 4.18.0](/user-documentation/recipes/recipe-catalog/org/apache/camel/upgrade/camelmigrationrecipe.md)
 * [Migrate to Java 17](/user-documentation/recipes/recipe-catalog/io/quarkus/updates/core/quarkus37/upgradetojava17.md)
 * [Migrate to Java 17](/user-documentation/recipes/recipe-catalog/java/migrate/upgradetojava17.md)
 * [Migrate to Java 17](/user-documentation/recipes/recipe-catalog/org/apache/camel/upgrade/upgradetojava17.md)
@@ -68,7 +67,6 @@ This recipe is used as part of the following composite recipes:
 * [Migrate to Spring Boot 3.5 (Moderne Edition)](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/spring/boot3/upgradespringboot_3_5-moderne-edition)
 * [Migrate to Spring Boot 4.0 (Community Edition)](/user-documentation/recipes/recipe-catalog/java/spring/boot4/upgradespringboot_4_0-community-edition.md)
 * [Migrate to Spring Boot 4.0 (Moderne Edition)](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/spring/boot4/upgradespringboot_4_0-moderne-edition)
-* [Migrate to Spring Boot 4.1](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/spring/boot4/upgradespringboot_4_1)
 * [Migrate to WebLogic 14.1.1](/user-documentation/recipes/recipe-catalog/com/oracle/weblogic/rewrite/upgradeto1411.md)
 * [Quarkus 2.x migration from Quarkus 1.x](/user-documentation/recipes/recipe-catalog/quarkus/quarkus2/quarkus1to2migration.md)
 * [Update Plugins for Jakarta EE 10](/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/migratepluginsforjakarta10.md)

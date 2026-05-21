@@ -33,19 +33,19 @@ This recipe is available under the [Moderne Source Available License](https://do
   * cardName: `Move to the latest `maven-parent``
   * groupIdPattern: `org.apache.maven`
   * artifactIdPattern: `maven-parent`
-  * version: `47`
+  * version: `45`
   * upgradeRecipe: `io.moderne.devcenter.UpgradeMavenParent`
 * [Parent POM upgrade](../devcenter/parentpomupgrade)
   * cardName: `Move to the latest `maven-plugins``
   * groupIdPattern: `org.apache.maven.plugins`
   * artifactIdPattern: `maven-plugins`
-  * version: `47`
+  * version: `45`
   * upgradeRecipe: `io.moderne.devcenter.UpgradeMavenPluginsParent`
 * [Parent POM upgrade](../devcenter/parentpomupgrade)
   * cardName: `Move to the latest `maven-shared-components``
   * groupIdPattern: `org.apache.maven.shared`
   * artifactIdPattern: `maven-shared-components`
-  * version: `47`
+  * version: `45`
   * upgradeRecipe: `io.moderne.devcenter.UpgradeMavenSharedParent`
 * [Move to a later Java version](../devcenter/javaversionupgrade)
   * majorVersion: `17`
@@ -68,19 +68,19 @@ recipeList:
       cardName: Move to the latest `maven-parent`
       groupIdPattern: org.apache.maven
       artifactIdPattern: maven-parent
-      version: 47
+      version: 45
       upgradeRecipe: io.moderne.devcenter.UpgradeMavenParent
   - io.moderne.devcenter.ParentPomUpgrade:
       cardName: Move to the latest `maven-plugins`
       groupIdPattern: org.apache.maven.plugins
       artifactIdPattern: maven-plugins
-      version: 47
+      version: 45
       upgradeRecipe: io.moderne.devcenter.UpgradeMavenPluginsParent
   - io.moderne.devcenter.ParentPomUpgrade:
       cardName: Move to the latest `maven-shared-components`
       groupIdPattern: org.apache.maven.shared
       artifactIdPattern: maven-shared-components
-      version: 47
+      version: 45
       upgradeRecipe: io.moderne.devcenter.UpgradeMavenSharedParent
   - io.moderne.devcenter.JavaVersionUpgrade:
       majorVersion: 17
@@ -129,20 +129,6 @@ _Progress towards organizational objectives on library or language migrations an
 | Ordinal | The ordinal position of this value relative to other values. |
 | Value | The display value of the current state of this repository. |
 | Minimum version | The minimum matching version that is currently in use. |
-
-</TabItem>
-
-<TabItem value="io.moderne.devcenter.table.SecurityIssues" label="SecurityIssues">
-
-### Security issues
-**io.moderne.devcenter.table.SecurityIssues**
-
-_Security issues in the repository._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| Ordinal | The ordinal position of this issue relative to other issues. |
-| Issue name | The name of the security issue. |
 
 </TabItem>
 
@@ -212,6 +198,20 @@ _Statistics used in analyzing the performance of recipes._
 | Max scanning time (ns) | The max time scanning any one source file. |
 | Cumulative edit time (ns) | The total time spent across the editing phase of this recipe. |
 | Max edit time (ns) | The max time editing any one source file. |
+
+</TabItem>
+
+<TabItem value="io.moderne.devcenter.table.SecurityIssues" label="SecurityIssues">
+
+### Security issues
+**io.moderne.devcenter.table.SecurityIssues**
+
+_Security issues in the repository._
+
+| Column Name | Description |
+| ----------- | ----------- |
+| Ordinal | The ordinal position of this issue relative to other issues. |
+| Issue name | The name of the security issue. |
 
 </TabItem>
 

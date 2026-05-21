@@ -81,7 +81,6 @@ recipeList:
 This recipe is used as part of the following composite recipes:
 
 * [JSpecify best practices](/user-documentation/recipes/recipe-catalog/java/jspecify/jspecifybestpractices.md)
-* [Migrate from Micronaut 4.x to 5.x](/user-documentation/recipes/recipe-catalog/java/micronaut/micronaut4to5migration.md)
 * [Migrate to Spring Boot 4.0 (Moderne Edition)](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/spring/boot4/upgradespringboot_4_0-moderne-edition)
 * [Recipe nullability best practices](/user-documentation/recipes/recipe-catalog/java/recipes/recipenullabilitybestpractices.md)
 

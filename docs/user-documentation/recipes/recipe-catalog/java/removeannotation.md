@@ -49,7 +49,6 @@ This recipe is used as part of the following composite recipes:
 * [Mockito best practices](/user-documentation/recipes/recipe-catalog/java/testing/mockito/mockitobestpractices.md)
 * [Modernize a Jenkins plugin to the latest recommended versions](/user-documentation/recipes/recipe-catalog/jenkins/modernizeplugin.md)
 * [Recipe nullability best practices](/user-documentation/recipes/recipe-catalog/java/recipes/recipenullabilitybestpractices.md)
-* [Remove redundant `@OptIn` annotations](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/kotlin/migrate/removeredundantoptins$ktrecipe)
 * [Replace PowerMock with raw Mockito](/user-documentation/recipes/recipe-catalog/java/testing/mockito/replacepowermockito.md)
 
 ## Example

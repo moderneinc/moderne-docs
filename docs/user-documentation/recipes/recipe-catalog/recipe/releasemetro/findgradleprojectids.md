@@ -26,58 +26,6 @@ This recipe is used as part of the following composite recipes:
 
 * [Analyse Organization's Release Train Metro Plan](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/recipe/releasemetro/releasemetroplan)
 
-## Example
-
-
-<Tabs groupId="beforeAfter">
-<TabItem value="buildGradleKts" label="buildGradleKts">
-
-
-###### Before
-```buildGradleKts
-plugins {
-    id("java")
-}
-
-group = "org.openrewrite.recipe"
-
-dependencies {
-    implementation("org.springframework:spring-core:5.3.21")
-    testImplementation ("org.junit.jupiter:junit-jupiter:5.8.2")
-}
-```
-
-###### After
-```buildGradleKts
-/*~~(org.openrewrite.recipe:rewrite-testing-frameworks)~~>*/plugins {
-    id("java")
-}
-
-group = "org.openrewrite.recipe"
-
-dependencies {
-    implementation("org.springframework:spring-core:5.3.21")
-    testImplementation ("org.junit.jupiter:junit-jupiter:5.8.2")
-}
-```
-
-</TabItem>
-<TabItem value="diff" label="Diff" >
-
-```diff
-@@ -1,1 +1,1 @@
--plugins {
-+/*~~(org.openrewrite.recipe:rewrite-testing-frameworks)~~>*/plugins {
-    id("java")
-```
-</TabItem>
-</Tabs>
-
-###### Unchanged
-```settingsGradleKts
-rootProject.name = "rewrite-testing-frameworks"
-```
-
 
 ## Usage
 

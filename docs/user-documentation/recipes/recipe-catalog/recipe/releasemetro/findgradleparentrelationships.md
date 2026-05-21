@@ -1,16 +1,16 @@
 ---
-sidebar_label: "Find Gradle root project to subproject relationships"
+sidebar_label: "Find Gradle project hierarchy relationships"
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import RunRecipe from '@site/src/components/RunRecipe';
 
-# Find Gradle root project to subproject relationships
+# Find Gradle project hierarchy relationships
 
 **io.moderne.recipe.releasemetro.FindGradleParentRelationships**
 
-_Gradle has no parent-project concept like Maven. The closest analog is the root project of a multi-project build, so this recipe records the GAV coordinates of each subproject paired with the root project._
+_Find Gradle parent-child project relationships in multi-project builds to understand project hierarchies._
 
 ## Recipe source
 
@@ -26,30 +26,12 @@ This recipe is used as part of the following composite recipes:
 
 * [Analyse Organization's Release Train Metro Plan](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/recipe/releasemetro/releasemetroplan)
 
-## Example
-
-
-###### Unchanged
-```buildGradleKts
-plugins {
-    id("java")
-}
-
-group = "org.openrewrite.recipe"
-```
-
-###### Unchanged
-```settingsGradleKts
-rootProject.name = "rewrite-testing-frameworks"
-include("core")
-```
-
 
 ## Usage
 
 <RunRecipe
   recipeName="io.moderne.recipe.releasemetro.FindGradleParentRelationships"
-  displayName="Find Gradle root project to subproject relationships"
+  displayName="Find Gradle project hierarchy relationships"
   groupId="io.moderne.recipe"
   artifactId="rewrite-release-metromap"
   versionKey="VERSION_IO_MODERNE_RECIPE_REWRITE_RELEASE_METROMAP"
@@ -72,10 +54,10 @@ Please [contact Moderne](https://moderne.io/product) for more information about 
 <Tabs groupId="data-tables">
 <TabItem value="io.moderne.recipe.releasemetro.table.ParentRelationships" label="ParentRelationships">
 
-### Maven parent and Gradle project hierarchies
+### Maven Parent and Gradle Project Hierarchies
 **io.moderne.recipe.releasemetro.table.ParentRelationships**
 
-_Relationships between Maven child modules and their parent POMs, or Gradle subprojects and their root project._
+_Relationships between child projects and their parent POMs or Gradle parent projects._
 
 | Column Name | Description |
 | ----------- | ----------- |

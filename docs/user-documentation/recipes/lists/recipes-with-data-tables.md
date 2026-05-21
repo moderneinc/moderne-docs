@@ -212,15 +212,6 @@ _This doc contains all of the recipes with **unique** data tables that have been
 
 ### rewrite-devcenter
 
-#### [io.moderne.devcenter.AngularVersionUpgrade](/user-documentation/recipes/recipe-catalog/devcenter/angularversionupgrade.md)
-  * **Move to a later Angular version**
-  * Determine the current state of a repository relative to a desired Angular version upgrade.
-
-##### Data tables:
-
-  * **io.moderne.devcenter.table.UpgradesAndMigrations**: *Progress towards organizational objectives on library or language migrations and upgrades.*
-
-
 #### [io.moderne.devcenter.ApacheDevCenter](/user-documentation/recipes/recipe-catalog/devcenter/apachedevcenter.md)
   * **DevCenter for Apache**
   * A DevCenter that tracks the latest Apache Maven parent POM versions and applies best practices.
@@ -251,15 +242,6 @@ _This doc contains all of the recipes with **unique** data tables that have been
   * **io.moderne.devcenter.table.SecurityIssues**: *Security issues in the repository.*
 
 
-#### [io.moderne.devcenter.BucketedMetricCard](/user-documentation/recipes/recipe-catalog/devcenter/bucketedmetriccard.md)
-  * **DevCenter card from a data table column**
-  * Read rows from a previously emitted data table, aggregate a numeric column across all rows for this repository, and bucket the result into ordinal DevCenter measures.
-
-##### Data tables:
-
-  * **io.moderne.devcenter.table.UpgradesAndMigrations**: *Progress towards organizational objectives on library or language migrations and upgrades.*
-
-
 #### [io.moderne.devcenter.BuildToolCard](/user-documentation/recipes/recipe-catalog/devcenter/buildtoolcard.md)
   * **Build tool**
   * Track build tool versions across repositories.
@@ -287,17 +269,6 @@ _This doc contains all of the recipes with **unique** data tables that have been
   * **io.moderne.devcenter.table.UpgradesAndMigrations**: *Progress towards organizational objectives on library or language migrations and upgrades.*
 
 
-#### [io.moderne.devcenter.ClassCohesionDevCenter](/user-documentation/recipes/recipe-catalog/devcenter/classcohesiondevcenter.md)
-  * **Class cohesion DevCenter**
-  * A DevCenter that finds class quality metrics for repositories and buckets the average LCOM4 (Lack of Cohesion of Methods, version 4) into HIGH / MEDIUM / LOW cohesion categories.
-
-##### Data tables:
-
-  * **io.moderne.prethink.table.ClassQualityMetrics**: *Per-class code quality metrics including WMC, LCOM4, TCC, CBO, and maintainability index.*
-  * **io.moderne.prethink.table.TestGaps**: *Public non-trivial methods that have no test coverage, ranked by risk score.*
-  * **io.moderne.devcenter.table.UpgradesAndMigrations**: *Progress towards organizational objectives on library or language migrations and upgrades.*
-
-
 #### [io.moderne.devcenter.DependencyVulnerabilityCheck](/user-documentation/recipes/recipe-catalog/devcenter/dependencyvulnerabilitycheck.md)
   * **Vulnerabilities status**
   * Determine the current state of a repository relative to its vulnerabilities.
@@ -307,18 +278,6 @@ _This doc contains all of the recipes with **unique** data tables that have been
   * **io.moderne.devcenter.table.UpgradesAndMigrations**: *Progress towards organizational objectives on library or language migrations and upgrades.*
 
 
-#### [io.moderne.devcenter.DevCenterAngularStarter](/user-documentation/recipes/recipe-catalog/devcenter/devcenterangularstarter.md)
-  * **DevCenter for Angular**
-  * A default DevCenter configuration for Angular repositories. Track Angular version adoption across your organization.
-
-##### Data tables:
-
-  * **io.moderne.devcenter.table.UpgradesAndMigrations**: *Progress towards organizational objectives on library or language migrations and upgrades.*
-  * **io.moderne.devcenter.table.OrganizationStatistics**: *Per-repository statistics aggregated at the organization level.*
-  * **org.openrewrite.table.DistinctCommitters**: *The distinct set of committers per repository.*
-  * **org.openrewrite.table.CommitsByDay**: *The commit activity by day by committer.*
-
-
 #### [io.moderne.devcenter.DevCenterCSharpStarter](/user-documentation/recipes/recipe-catalog/devcenter/devcentercsharpstarter.md)
   * **DevCenter for C#**
   * A default DevCenter configuration for C# repositories. Track .NET version adoption across your organization.
@@ -326,20 +285,6 @@ _This doc contains all of the recipes with **unique** data tables that have been
 ##### Data tables:
 
   * **io.moderne.devcenter.table.UpgradesAndMigrations**: *Progress towards organizational objectives on library or language migrations and upgrades.*
-  * **io.moderne.devcenter.table.OrganizationStatistics**: *Per-repository statistics aggregated at the organization level.*
-  * **org.openrewrite.table.DistinctCommitters**: *The distinct set of committers per repository.*
-  * **org.openrewrite.table.CommitsByDay**: *The commit activity by day by committer.*
-
-
-#### [io.moderne.devcenter.DevCenterKotlin](/user-documentation/recipes/recipe-catalog/devcenter/devcenterkotlin.md)
-  * **DevCenter Kotlin**
-  * This is a DevCenter helping you to track general Kotlin Modernisations.
-
-##### Data tables:
-
-  * **io.moderne.devcenter.table.UpgradesAndMigrations**: *Progress towards organizational objectives on library or language migrations and upgrades.*
-  * **org.openrewrite.java.table.MethodCalls**: *The text of matching method invocations.*
-  * **io.moderne.devcenter.table.SecurityIssues**: *Security issues in the repository.*
   * **io.moderne.devcenter.table.OrganizationStatistics**: *Per-repository statistics aggregated at the organization level.*
   * **org.openrewrite.table.DistinctCommitters**: *The distinct set of committers per repository.*
   * **org.openrewrite.table.CommitsByDay**: *The commit activity by day by committer.*
@@ -663,125 +608,6 @@ _This doc contains all of the recipes with **unique** data tables that have been
   * **org.openrewrite.prethink.table.ErrorHandlingPatterns**: *Error and exception handling patterns detected in the codebase.*
 
 
-#### [io.moderne.prethink.ExtractGoDependencies](/user-documentation/recipes/recipe-catalog/prethink/extractgodependencies.md)
-  * **Extract Go dependencies and usage**
-  * Scan go.mod and Go source imports to produce a DependencyUsage entry per actually-imported module, including file-count and sample imports.
-
-##### Data tables:
-
-  * **org.openrewrite.prethink.table.DependencyUsage**: *External library dependencies and how they are used in the codebase.*
-
-
-#### [io.moderne.prethink.FindGoCodingConventions](/user-documentation/recipes/recipe-catalog/prethink/findgocodingconventions.md)
-  * **Find Go coding conventions**
-  * Detect Go naming patterns (package names, exported vs unexported, interface -er suffix, error variable prefix, test prefix).
-
-##### Data tables:
-
-  * **org.openrewrite.prethink.table.CodingConventions**: *Coding conventions and patterns detected in the codebase.*
-
-
-#### [io.moderne.prethink.FindGoErrorPatterns](/user-documentation/recipes/recipe-catalog/prethink/findgoerrorpatterns.md)
-  * **Find Go error handling patterns**
-  * Detect Go error-handling idioms: error returns, fmt.Errorf %w wrapping, errors.Is/As, panic/recover, and sentinel error variables.
-
-##### Data tables:
-
-  * **org.openrewrite.prethink.table.ErrorHandlingPatterns**: *Error and exception handling patterns detected in the codebase.*
-
-
-#### [io.moderne.prethink.UpdatePrethinkContextNoAiStarter](/user-documentation/recipes/recipe-catalog/prethink/updateprethinkcontextnoaistarter.md)
-  * **Update Prethink context (no AI)**
-  * Generate Moderne Prethink context files with architectural discovery, test coverage mapping, dependency inventory, and FINOS CALM architecture diagrams. This recipe does not require an LLM provider - use UpdatePrethinkContextStarter if you want AI-generated code comprehension and test summaries.
-
-##### Data tables:
-
-  * **org.openrewrite.prethink.table.ProjectMetadata**: *Project-level identity and structure for each build module. Includes Maven GAV coordinates, display name, description, parent project lineage, and submodule count. Use this to understand what the project is, how it relates to parent projects, and whether it is a multi-module aggregator.*
-  * **org.openrewrite.prethink.table.ServiceEndpoints**: *REST/HTTP endpoints exposed by the application.*
-  * **io.moderne.prethink.table.EndpointSchemas**: *Per-endpoint request body and response body bindings, one row per (endpoint, status code) pair. Supports OpenAPI 3.0.3 generation by giving the LLM a full mapping from handler to body DTO FQNs.*
-  * **io.moderne.prethink.table.EndpointParameters**: *Per-parameter detail for REST endpoint handlers - path, query, header, form. Join to service-endpoints.csv via endpointId.*
-  * **org.openrewrite.prethink.table.DatabaseConnections**: *Database connections and data access patterns in the application.*
-  * **org.openrewrite.prethink.table.ExternalServiceCalls**: *Outbound HTTP/REST calls to external services.*
-  * **org.openrewrite.prethink.table.MessagingConnections**: *Message queue producers and consumers in the application.*
-  * **org.openrewrite.prethink.table.ServerConfiguration**: *Server configuration properties extracted from application.properties/yml.*
-  * **org.openrewrite.prethink.table.DataAssets**: *Data entities, DTOs, and records that represent the application's data model.*
-  * **io.moderne.prethink.table.DtoFieldSchemas**: *Per-field schema detail for request/response DTOs: wire name, type, required flag, OpenAPI format, validation constraints, and any @Schema(example=) example values.*
-  * **io.moderne.prethink.table.FieldExamples**: *Raw (fixturePath, jsonPath, value, valueType) rows mined from JSON fixture files. Supply realistic example payloads for contract test generation. LLM correlates jsonPath to DTO fields at spec/contract generation time.*
-  * **org.openrewrite.prethink.table.DeploymentArtifacts**: *Deployment configuration files (Dockerfile, Kubernetes manifests, docker-compose).*
-  * **org.openrewrite.prethink.table.SecurityConfiguration**: *Security configuration including authentication methods, CORS settings, and OAuth2 configuration.*
-  * **org.openrewrite.prethink.table.ServiceComponents**: *Service layer components (@Service, @Component, @Named) in the application.*
-  * **io.moderne.prethink.table.ScheduledTasks**: *Scheduled tasks, cron jobs, and background processing detected in the application.*
-  * **org.openrewrite.prethink.table.CodingConventions**: *Coding conventions and patterns detected in the codebase.*
-  * **org.openrewrite.prethink.table.ErrorHandlingPatterns**: *Error and exception handling patterns detected in the codebase.*
-  * **io.moderne.prethink.table.ExceptionHandlers**: *Spring @ExceptionHandler and @ControllerAdvice bindings: exception type -&gt; HTTP status -&gt; response body FQN. Used to complete the 'responses' section of an OpenAPI spec with non-2xx branches.*
-  * **io.moderne.prethink.table.EndpointSecurity**: *Per-endpoint security requirements: roles, scopes, and the raw SpEL/permission expressions from @PreAuthorize/@Secured/@RolesAllowed at method or class level.*
-  * **org.openrewrite.prethink.table.DependencyUsage**: *External library dependencies and how they are used in the codebase.*
-  * **org.openrewrite.prethink.table.CalmRelationships**: *Method call graph for discovering relationships between architectural entities. Records all method calls within the repository with entity markers for graph traversal.*
-  * **io.moderne.prethink.table.MethodQualityMetrics**: *Per-method code quality metrics including cyclomatic complexity, cognitive complexity, nesting depth, Halstead measures, and ABC metric.*
-  * **io.moderne.prethink.table.ClassQualityMetrics**: *Per-class code quality metrics including WMC, LCOM4, TCC, CBO, and maintainability index.*
-  * **io.moderne.prethink.table.PackageQualityMetrics**: *Per-package architectural metrics including afferent/efferent coupling, instability, abstractness, distance from main sequence, and dependency cycle membership.*
-  * **io.moderne.prethink.table.CodeSmells**: *Detected code smells including God Class, Feature Envy, and Data Class with severity ratings and the metric evidence that triggered detection.*
-  * **io.moderne.prethink.table.MethodDescriptions**: *AI-generated descriptions of methods in the codebase with inference time and token usage metrics.*
-  * **io.moderne.prethink.table.TestMapping**: *Maps test methods to implementation methods with optional AI-generated summaries and inference metrics.*
-  * **io.moderne.prethink.table.TestGaps**: *Public non-trivial methods that have no test coverage, ranked by risk score.*
-  * **io.moderne.prethink.table.TestQualityIssues**: *Issues found in test code that may cause flakiness, silent failures, or maintenance burden. Each row includes a rich evidence message with what was found, why it matters, and how to fix it.*
-  * **org.openrewrite.java.dependencies.table.DependencyListReport**: *Lists all Gradle and Maven dependencies*
-  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
-  * **org.openrewrite.javascript.table.NodeDependenciesInUse**: *Direct and transitive dependencies in use in Node.js projects.*
-  * **org.openrewrite.prethink.table.ContextRegistry**: *Registry of available context files for coding agents.*
-
-
-#### [io.moderne.prethink.UpdatePrethinkContextStarter](/user-documentation/recipes/recipe-catalog/prethink/updateprethinkcontextstarter.md)
-  * **Update Prethink context (with AI)**
-  * Generate Moderne Prethink context files with AI-generated code comprehension, test coverage mapping, dependency inventory, and FINOS CALM architecture diagrams. Maps tests to implementation methods and optionally generates AI summaries of what each test verifies when LLM provider is configured.
-
-##### Data tables:
-
-  * **org.openrewrite.prethink.table.ProjectMetadata**: *Project-level identity and structure for each build module. Includes Maven GAV coordinates, display name, description, parent project lineage, and submodule count. Use this to understand what the project is, how it relates to parent projects, and whether it is a multi-module aggregator.*
-  * **org.openrewrite.prethink.table.ServiceEndpoints**: *REST/HTTP endpoints exposed by the application.*
-  * **io.moderne.prethink.table.EndpointSchemas**: *Per-endpoint request body and response body bindings, one row per (endpoint, status code) pair. Supports OpenAPI 3.0.3 generation by giving the LLM a full mapping from handler to body DTO FQNs.*
-  * **io.moderne.prethink.table.EndpointParameters**: *Per-parameter detail for REST endpoint handlers - path, query, header, form. Join to service-endpoints.csv via endpointId.*
-  * **org.openrewrite.prethink.table.DatabaseConnections**: *Database connections and data access patterns in the application.*
-  * **org.openrewrite.prethink.table.ExternalServiceCalls**: *Outbound HTTP/REST calls to external services.*
-  * **org.openrewrite.prethink.table.MessagingConnections**: *Message queue producers and consumers in the application.*
-  * **org.openrewrite.prethink.table.ServerConfiguration**: *Server configuration properties extracted from application.properties/yml.*
-  * **org.openrewrite.prethink.table.DataAssets**: *Data entities, DTOs, and records that represent the application's data model.*
-  * **io.moderne.prethink.table.DtoFieldSchemas**: *Per-field schema detail for request/response DTOs: wire name, type, required flag, OpenAPI format, validation constraints, and any @Schema(example=) example values.*
-  * **io.moderne.prethink.table.FieldExamples**: *Raw (fixturePath, jsonPath, value, valueType) rows mined from JSON fixture files. Supply realistic example payloads for contract test generation. LLM correlates jsonPath to DTO fields at spec/contract generation time.*
-  * **org.openrewrite.prethink.table.DeploymentArtifacts**: *Deployment configuration files (Dockerfile, Kubernetes manifests, docker-compose).*
-  * **org.openrewrite.prethink.table.SecurityConfiguration**: *Security configuration including authentication methods, CORS settings, and OAuth2 configuration.*
-  * **org.openrewrite.prethink.table.ServiceComponents**: *Service layer components (@Service, @Component, @Named) in the application.*
-  * **io.moderne.prethink.table.ScheduledTasks**: *Scheduled tasks, cron jobs, and background processing detected in the application.*
-  * **org.openrewrite.prethink.table.CodingConventions**: *Coding conventions and patterns detected in the codebase.*
-  * **org.openrewrite.prethink.table.ErrorHandlingPatterns**: *Error and exception handling patterns detected in the codebase.*
-  * **io.moderne.prethink.table.ExceptionHandlers**: *Spring @ExceptionHandler and @ControllerAdvice bindings: exception type -&gt; HTTP status -&gt; response body FQN. Used to complete the 'responses' section of an OpenAPI spec with non-2xx branches.*
-  * **io.moderne.prethink.table.EndpointSecurity**: *Per-endpoint security requirements: roles, scopes, and the raw SpEL/permission expressions from @PreAuthorize/@Secured/@RolesAllowed at method or class level.*
-  * **org.openrewrite.prethink.table.DependencyUsage**: *External library dependencies and how they are used in the codebase.*
-  * **org.openrewrite.prethink.table.CalmRelationships**: *Method call graph for discovering relationships between architectural entities. Records all method calls within the repository with entity markers for graph traversal.*
-  * **io.moderne.prethink.table.MethodQualityMetrics**: *Per-method code quality metrics including cyclomatic complexity, cognitive complexity, nesting depth, Halstead measures, and ABC metric.*
-  * **io.moderne.prethink.table.ClassQualityMetrics**: *Per-class code quality metrics including WMC, LCOM4, TCC, CBO, and maintainability index.*
-  * **io.moderne.prethink.table.PackageQualityMetrics**: *Per-package architectural metrics including afferent/efferent coupling, instability, abstractness, distance from main sequence, and dependency cycle membership.*
-  * **io.moderne.prethink.table.CodeSmells**: *Detected code smells including God Class, Feature Envy, and Data Class with severity ratings and the metric evidence that triggered detection.*
-  * **io.moderne.prethink.table.MethodDescriptions**: *AI-generated descriptions of methods in the codebase with inference time and token usage metrics.*
-  * **io.moderne.prethink.table.ClassDescriptions**: *AI-generated descriptions of classes in the codebase with inference time and token usage metrics.*
-  * **io.moderne.prethink.table.TestMapping**: *Maps test methods to implementation methods with optional AI-generated summaries and inference metrics.*
-  * **io.moderne.prethink.table.TestGaps**: *Public non-trivial methods that have no test coverage, ranked by risk score.*
-  * **io.moderne.prethink.table.TestQualityIssues**: *Issues found in test code that may cause flakiness, silent failures, or maintenance burden. Each row includes a rich evidence message with what was found, why it matters, and how to fix it.*
-  * **org.openrewrite.java.dependencies.table.DependencyListReport**: *Lists all Gradle and Maven dependencies*
-  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
-  * **org.openrewrite.javascript.table.NodeDependenciesInUse**: *Direct and transitive dependencies in use in Node.js projects.*
-  * **org.openrewrite.prethink.table.ContextRegistry**: *Registry of available context files for coding agents.*
-
-
-#### [io.moderne.prethink.calm.FindAspNetCoreEndpoints](/user-documentation/recipes/recipe-catalog/prethink/calm/findaspnetcoreendpoints.md)
-  * **Find ASP.NET Core endpoints**
-  * Identify HTTP endpoints declared via ASP.NET Core controllers ([ApiController], [Route], [HttpGet/Post/...]) and Minimal APIs (app.MapGet/MapPost/MapPut/MapDelete/MapPatch).
-
-##### Data tables:
-
-  * **org.openrewrite.prethink.table.ServiceEndpoints**: *REST/HTTP endpoints exposed by the application.*
-
-
 #### [io.moderne.prethink.calm.FindCalmRelationships](/user-documentation/recipes/recipe-catalog/prethink/calm/findcalmrelationships.md)
   * **Find CALM relationships**
   * Discover method call relationships within the repository for building interaction diagrams. Captures all method-to-method calls between in-repo classes. Entity IDs are resolved by GenerateCalmArchitecture when building CALM relationships.
@@ -827,188 +653,6 @@ _This doc contains all of the recipes with **unique** data tables that have been
   * **org.openrewrite.prethink.table.ServiceEndpoints**: *REST/HTTP endpoints exposed by the application.*
 
 
-#### [io.moderne.prethink.calm.FindDotnetDataAssets](/user-documentation/recipes/recipe-catalog/prethink/calm/finddotnetdataassets.md)
-  * **Find .NET data assets**
-  * Detect C# DTOs, records, and entity types based on property/method ratio, [DataContract] / [Table] attributes, and `record` keyword.
-
-##### Data tables:
-
-  * **org.openrewrite.prethink.table.DataAssets**: *Data entities, DTOs, and records that represent the application's data model.*
-
-
-#### [io.moderne.prethink.calm.FindDotnetDtoFieldSchemas](/user-documentation/recipes/recipe-catalog/prethink/calm/finddotnetdtofieldschemas.md)
-  * **Find .NET DTO field schemas**
-  * Per-property schema rows for C# DTOs: serialized name (JsonPropertyName/JsonProperty), OpenAPI format, required flag (DataAnnotations.RequiredAttribute / non-nullable value types), and a validations JSON map.
-
-##### Data tables:
-
-  * **io.moderne.prethink.table.DtoFieldSchemas**: *Per-field schema detail for request/response DTOs: wire name, type, required flag, OpenAPI format, validation constraints, and any @Schema(example=) example values.*
-
-
-#### [io.moderne.prethink.calm.FindDotnetEndpointContracts](/user-documentation/recipes/recipe-catalog/prethink/calm/finddotnetendpointcontracts.md)
-  * **Find .NET endpoint contracts**
-  * Extract request body, response body (unwrapping ActionResult&lt;T&gt;/Task&lt;T&gt;), and per-parameter binding source ([FromBody/Query/Route/Header/Form]) for ASP.NET Core controller endpoints.
-
-##### Data tables:
-
-  * **io.moderne.prethink.table.EndpointSchemas**: *Per-endpoint request body and response body bindings, one row per (endpoint, status code) pair. Supports OpenAPI 3.0.3 generation by giving the LLM a full mapping from handler to body DTO FQNs.*
-  * **io.moderne.prethink.table.EndpointParameters**: *Per-parameter detail for REST endpoint handlers - path, query, header, form. Join to service-endpoints.csv via endpointId.*
-
-
-#### [io.moderne.prethink.calm.FindDotnetEndpointSecurity](/user-documentation/recipes/recipe-catalog/prethink/calm/finddotnetendpointsecurity.md)
-  * **Find .NET endpoint security**
-  * Per-endpoint security requirements derived from ASP.NET Core [Authorize] (Policy/Roles/AuthenticationSchemes) and [AllowAnonymous].
-
-##### Data tables:
-
-  * **io.moderne.prethink.table.EndpointSecurity**: *Per-endpoint security requirements: roles, scopes, and the raw SpEL/permission expressions from @PreAuthorize/@Secured/@RolesAllowed at method or class level.*
-
-
-#### [io.moderne.prethink.calm.FindDotnetExceptionHandlers](/user-documentation/recipes/recipe-catalog/prethink/calm/finddotnetexceptionhandlers.md)
-  * **Find .NET exception handlers**
-  * Detect IExceptionFilter / IAsyncExceptionFilter / IExceptionHandler implementations and ExceptionFilterAttribute-derived classes in ASP.NET Core projects.
-
-##### Data tables:
-
-  * **io.moderne.prethink.table.ExceptionHandlers**: *Spring @ExceptionHandler and @ControllerAdvice bindings: exception type -&gt; HTTP status -&gt; response body FQN. Used to complete the 'responses' section of an OpenAPI spec with non-2xx branches.*
-
-
-#### [io.moderne.prethink.calm.FindDotnetGraphQLEndpoints](/user-documentation/recipes/recipe-catalog/prethink/calm/finddotnetgraphqlendpoints.md)
-  * **Find .NET GraphQL endpoints**
-  * Detect HotChocolate query/mutation/subscription types and GraphQL.NET schema types in .NET projects.
-
-##### Data tables:
-
-  * **org.openrewrite.prethink.table.ServiceEndpoints**: *REST/HTTP endpoints exposed by the application.*
-
-
-#### [io.moderne.prethink.calm.FindDotnetGrpcServices](/user-documentation/recipes/recipe-catalog/prethink/calm/finddotnetgrpcservices.md)
-  * **Find .NET gRPC services**
-  * Detect gRPC service implementations (classes deriving from generated *Base types under Grpc.Core / Grpc.AspNetCore) and ASP.NET Core gRPC endpoint registrations via MapGrpcService&lt;T&gt;().
-
-##### Data tables:
-
-  * **org.openrewrite.prethink.table.ServiceEndpoints**: *REST/HTTP endpoints exposed by the application.*
-
-
-#### [io.moderne.prethink.calm.FindDotnetHttpClients](/user-documentation/recipes/recipe-catalog/prethink/calm/finddotnethttpclients.md)
-  * **Find .NET HTTP clients**
-  * Detect outbound HTTP client usage via HttpClient, IHttpClientFactory.CreateClient, Refit interfaces, RestSharp, and Flurl.
-
-##### Data tables:
-
-  * **org.openrewrite.prethink.table.ExternalServiceCalls**: *Outbound HTTP/REST calls to external services.*
-
-
-#### [io.moderne.prethink.calm.FindDotnetMessagingConnections](/user-documentation/recipes/recipe-catalog/prethink/calm/finddotnetmessagingconnections.md)
-  * **Find .NET messaging connections**
-  * Detect MassTransit IConsumer&lt;T&gt;, NServiceBus IHandleMessages&lt;T&gt;, MediatR IRequestHandler/INotificationHandler, Confluent.Kafka producers/consumers, Azure Service Bus, and RabbitMQ.Client usage.
-
-##### Data tables:
-
-  * **org.openrewrite.prethink.table.MessagingConnections**: *Message queue producers and consumers in the application.*
-
-
-#### [io.moderne.prethink.calm.FindDotnetProjectMetadata](/user-documentation/recipes/recipe-catalog/prethink/calm/finddotnetprojectmetadata.md)
-  * **Find .NET project metadata**
-  * Extract project metadata (SDK, target framework(s), package list) from MSBuild project files. Reads the MSBuildProject marker which captures values resolved across the project file, Directory.Build.props, Directory.Packages.props, global.json and nuget.config.
-
-##### Data tables:
-
-  * **org.openrewrite.prethink.table.ProjectMetadata**: *Project-level identity and structure for each build module. Includes Maven GAV coordinates, display name, description, parent project lineage, and submodule count. Use this to understand what the project is, how it relates to parent projects, and whether it is a multi-module aggregator.*
-
-
-#### [io.moderne.prethink.calm.FindDotnetScheduledTasks](/user-documentation/recipes/recipe-catalog/prethink/calm/finddotnetscheduledtasks.md)
-  * **Find .NET scheduled tasks**
-  * Detect Hangfire RecurringJob.AddOrUpdate, Quartz.IJob implementations, BackgroundService/IHostedService classes, and Azure Functions TimerTrigger methods.
-
-##### Data tables:
-
-  * **io.moderne.prethink.table.ScheduledTasks**: *Scheduled tasks, cron jobs, and background processing detected in the application.*
-
-
-#### [io.moderne.prethink.calm.FindDotnetSecurityConfiguration](/user-documentation/recipes/recipe-catalog/prethink/calm/finddotnetsecurityconfiguration.md)
-  * **Find .NET security configuration**
-  * Detect ASP.NET Core authentication (JwtBearer/OpenIdConnect/Cookie), authorization, CORS, HSTS, and HTTPS redirection middleware registrations.
-
-##### Data tables:
-
-  * **org.openrewrite.prethink.table.SecurityConfiguration**: *Security configuration including authentication methods, CORS settings, and OAuth2 configuration.*
-
-
-#### [io.moderne.prethink.calm.FindDotnetServerConfiguration](/user-documentation/recipes/recipe-catalog/prethink/calm/finddotnetserverconfiguration.md)
-  * **Find .NET server configuration**
-  * Read appsettings*.json and launchSettings.json for Kestrel Urls/ApplicationUrl entries and emit ServerConfiguration rows (port, sslEnabled, contextPath, protocol).
-
-##### Data tables:
-
-  * **org.openrewrite.prethink.table.ServerConfiguration**: *Server configuration properties extracted from application.properties/yml.*
-
-
-#### [io.moderne.prethink.calm.FindDotnetServiceComponents](/user-documentation/recipes/recipe-catalog/prethink/calm/finddotnetservicecomponents.md)
-  * **Find .NET service components**
-  * Detect IServiceCollection.AddSingleton/AddScoped/AddTransient/AddHttpClient registrations and emit one row per registered service.
-
-##### Data tables:
-
-  * **org.openrewrite.prethink.table.ServiceComponents**: *Service layer components (@Service, @Component, @Named) in the application.*
-
-
-#### [io.moderne.prethink.calm.FindDotnetTestCoverage](/user-documentation/recipes/recipe-catalog/prethink/calm/finddotnettestcoverage.md)
-  * **Find .NET test coverage**
-  * Identify xUnit ([Fact]/[Theory]), NUnit ([Test]/[TestCase]) and MSTest ([TestMethod]/[DataTestMethod]) test methods in C# source and record them in the test mapping table for downstream coverage linking.
-
-##### Data tables:
-
-  * **io.moderne.prethink.table.TestMapping**: *Maps test methods to implementation methods with optional AI-generated summaries and inference metrics.*
-
-
-#### [io.moderne.prethink.calm.FindDtoFieldSchemas](/user-documentation/recipes/recipe-catalog/prethink/calm/finddtofieldschemas.md)
-  * **Find DTO field schemas**
-  * Emit per-field rows for request/response DTO classes: wire name, type, required flag, OpenAPI format, validation constraints, and @Schema(example = ...) values. Supports OpenAPI 3.0.3 generation by providing the full field schema for each DTO an endpoint references.
-
-##### Data tables:
-
-  * **io.moderne.prethink.table.DtoFieldSchemas**: *Per-field schema detail for request/response DTOs: wire name, type, required flag, OpenAPI format, validation constraints, and any @Schema(example=) example values.*
-
-
-#### [io.moderne.prethink.calm.FindEndpointContracts](/user-documentation/recipes/recipe-catalog/prethink/calm/findendpointcontracts.md)
-  * **Find endpoint contracts**
-  * Extract per-endpoint request body, response body (per status code), and parameter details from Spring/JAX-RS/Micronaut handlers to support OpenAPI 3.0.3 spec generation and consumer/provider contract-test generation. Walks interface inheritance for OpenAPI-codegen-first projects.
-
-##### Data tables:
-
-  * **io.moderne.prethink.table.EndpointSchemas**: *Per-endpoint request body and response body bindings, one row per (endpoint, status code) pair. Supports OpenAPI 3.0.3 generation by giving the LLM a full mapping from handler to body DTO FQNs.*
-  * **io.moderne.prethink.table.EndpointParameters**: *Per-parameter detail for REST endpoint handlers - path, query, header, form. Join to service-endpoints.csv via endpointId.*
-
-
-#### [io.moderne.prethink.calm.FindEndpointSecurity](/user-documentation/recipes/recipe-catalog/prethink/calm/findendpointsecurity.md)
-  * **Find endpoint security**
-  * Per-endpoint security requirements (roles, scopes, raw expressions) extracted from @PreAuthorize/@Secured/@RolesAllowed/@PermitAll annotations at method or class level. Joins to service-endpoints.csv via endpointId.
-
-##### Data tables:
-
-  * **io.moderne.prethink.table.EndpointSecurity**: *Per-endpoint security requirements: roles, scopes, and the raw SpEL/permission expressions from @PreAuthorize/@Secured/@RolesAllowed at method or class level.*
-
-
-#### [io.moderne.prethink.calm.FindEntityFrameworkConnections](/user-documentation/recipes/recipe-catalog/prethink/calm/findentityframeworkconnections.md)
-  * **Find Entity Framework / Dapper / ADO.NET database access**
-  * Detect Entity Framework Core DbContext subclasses, DbSet&lt;T&gt; properties, [Table]/[Column]/[Key] annotated entity classes, Dapper Query/Execute calls, and raw SqlConnection usage.
-
-##### Data tables:
-
-  * **org.openrewrite.prethink.table.DatabaseConnections**: *Database connections and data access patterns in the application.*
-
-
-#### [io.moderne.prethink.calm.FindExceptionHandlers](/user-documentation/recipes/recipe-catalog/prethink/calm/findexceptionhandlers.md)
-  * **Find exception handlers**
-  * Capture @ControllerAdvice and controller-local @ExceptionHandler methods so that OpenAPI 3.0.3 specs include non-2xx response branches. Emits one row per (scope, exception type, status) triple.
-
-##### Data tables:
-
-  * **io.moderne.prethink.table.ExceptionHandlers**: *Spring @ExceptionHandler and @ControllerAdvice bindings: exception type -&gt; HTTP status -&gt; response body FQN. Used to complete the 'responses' section of an OpenAPI spec with non-2xx branches.*
-
-
 #### [io.moderne.prethink.calm.FindExpressEndpoints](/user-documentation/recipes/recipe-catalog/prethink/calm/findexpressendpoints.md)
   * **Find Express endpoints**
   * Identify REST/HTTP endpoints in Express and Fastify applications. Detects app.get(), router.post(), and similar route definition patterns.
@@ -1036,15 +680,6 @@ _This doc contains all of the recipes with **unique** data tables that have been
   * **org.openrewrite.prethink.table.ServiceEndpoints**: *REST/HTTP endpoints exposed by the application.*
 
 
-#### [io.moderne.prethink.calm.FindFieldExamplesFromFixtures](/user-documentation/recipes/recipe-catalog/prethink/calm/findfieldexamplesfromfixtures.md)
-  * **Find field examples from JSON fixtures**
-  * Walk JSON and YAML fixture files under src/test/resources and emit raw (fixturePath, jsonPath, value, valueType) rows so that an LLM can mine realistic example values for OpenAPI specs and contract tests.
-
-##### Data tables:
-
-  * **io.moderne.prethink.table.FieldExamples**: *Raw (fixturePath, jsonPath, value, valueType) rows mined from JSON fixture files. Supply realistic example payloads for contract test generation. LLM correlates jsonPath to DTO fields at spec/contract generation time.*
-
-
 #### [io.moderne.prethink.calm.FindFlaskEndpoints](/user-documentation/recipes/recipe-catalog/prethink/calm/findflaskendpoints.md)
   * **Find Flask endpoints**
   * Identify REST/HTTP endpoints in Flask applications. Detects @app.route(), @blueprint.route(), and Flask 2.0+ shortcut decorators like @app.get() and @app.post().
@@ -1052,69 +687,6 @@ _This doc contains all of the recipes with **unique** data tables that have been
 ##### Data tables:
 
   * **org.openrewrite.prethink.table.ServiceEndpoints**: *REST/HTTP endpoints exposed by the application.*
-
-
-#### [io.moderne.prethink.calm.FindGoDatabaseConnections](/user-documentation/recipes/recipe-catalog/prethink/calm/findgodatabaseconnections.md)
-  * **Find Go database connections**
-  * Detect database/sql, GORM, sqlx, pgx, and ent usage in Go source.
-
-##### Data tables:
-
-  * **org.openrewrite.prethink.table.DatabaseConnections**: *Database connections and data access patterns in the application.*
-
-
-#### [io.moderne.prethink.calm.FindGoGrpcServices](/user-documentation/recipes/recipe-catalog/prethink/calm/findgogrpcservices.md)
-  * **Find Go gRPC services**
-  * Detect gRPC service registrations via grpc-go RegisterXxxServer calls.
-
-##### Data tables:
-
-  * **org.openrewrite.prethink.table.ServiceEndpoints**: *REST/HTTP endpoints exposed by the application.*
-
-
-#### [io.moderne.prethink.calm.FindGoHttpClients](/user-documentation/recipes/recipe-catalog/prethink/calm/findgohttpclients.md)
-  * **Find Go HTTP clients**
-  * Detect outbound HTTP calls made through net/http, resty, go-retryablehttp, or imroc/req.
-
-##### Data tables:
-
-  * **org.openrewrite.prethink.table.ExternalServiceCalls**: *Outbound HTTP/REST calls to external services.*
-
-
-#### [io.moderne.prethink.calm.FindGoMessagingConnections](/user-documentation/recipes/recipe-catalog/prethink/calm/findgomessagingconnections.md)
-  * **Find Go messaging connections**
-  * Detect Kafka, NATS, RabbitMQ/AMQP client usage in Go source.
-
-##### Data tables:
-
-  * **org.openrewrite.prethink.table.MessagingConnections**: *Message queue producers and consumers in the application.*
-
-
-#### [io.moderne.prethink.calm.FindGoProjectMetadata](/user-documentation/recipes/recipe-catalog/prethink/calm/findgoprojectmetadata.md)
-  * **Find Go project metadata**
-  * Extract project metadata (module path, go version) from Go go.mod files.
-
-##### Data tables:
-
-  * **org.openrewrite.prethink.table.ProjectMetadata**: *Project-level identity and structure for each build module. Includes Maven GAV coordinates, display name, description, parent project lineage, and submodule count. Use this to understand what the project is, how it relates to parent projects, and whether it is a multi-module aggregator.*
-
-
-#### [io.moderne.prethink.calm.FindGoServiceEndpoints](/user-documentation/recipes/recipe-catalog/prethink/calm/findgoserviceendpoints.md)
-  * **Find Go service endpoints**
-  * Detect HTTP endpoints registered via net/http, gin, echo, chi, gorilla/mux, and fiber routers.
-
-##### Data tables:
-
-  * **org.openrewrite.prethink.table.ServiceEndpoints**: *REST/HTTP endpoints exposed by the application.*
-
-
-#### [io.moderne.prethink.calm.FindGoTestCoverage](/user-documentation/recipes/recipe-catalog/prethink/calm/findgotestcoverage.md)
-  * **Find Go test coverage**
-  * Identify Go test/benchmark/fuzz functions in *_test.go files and record them in the test mapping table.
-
-##### Data tables:
-
-  * **io.moderne.prethink.table.TestMapping**: *Maps test methods to implementation methods with optional AI-generated summaries and inference metrics.*
 
 
 #### [io.moderne.prethink.calm.FindGraphQLEndpoints](/user-documentation/recipes/recipe-catalog/prethink/calm/findgraphqlendpoints.md)
@@ -1299,16 +871,7 @@ _This doc contains all of the recipes with **unique** data tables that have been
 
 #### [io.moderne.prethink.calm.FindServiceEndpoints](/user-documentation/recipes/recipe-catalog/prethink/calm/findserviceendpoints.md)
   * **Find service endpoints**
-  * Identify all REST/HTTP service endpoints exposed by the application. Supports Spring MVC, JAX-RS, Micronaut, and Quarkus REST endpoints. Also walks interface inheritance to detect endpoints in OpenAPI-codegen-first projects where @GetMapping etc. live on the interface methods.
-
-##### Data tables:
-
-  * **org.openrewrite.prethink.table.ServiceEndpoints**: *REST/HTTP endpoints exposed by the application.*
-
-
-#### [io.moderne.prethink.calm.FindSignalRHubs](/user-documentation/recipes/recipe-catalog/prethink/calm/findsignalrhubs.md)
-  * **Find ASP.NET Core SignalR hubs**
-  * Detect SignalR Hub subclasses, their methods (with optional [HubMethodName]), and MapHub&lt;T&gt; registrations.
+  * Identify all REST/HTTP service endpoints exposed by the application. Supports Spring MVC, JAX-RS, Micronaut, and Quarkus REST endpoints.
 
 ##### Data tables:
 
@@ -1351,42 +914,6 @@ _This doc contains all of the recipes with **unique** data tables that have been
   * **io.moderne.prethink.table.CodeSmells**: *Detected code smells including God Class, Feature Envy, and Data Class with severity ratings and the metric evidence that triggered detection.*
 
 
-#### [io.moderne.prethink.quality.FindDotnetErrorPatterns](/user-documentation/recipes/recipe-catalog/prethink/quality/finddotneterrorpatterns.md)
-  * **Find .NET error patterns**
-  * Detect .NET logging frameworks (Microsoft.Extensions.Logging, Serilog, NLog, log4net) and catch-block strategies (swallow, rethrow, log, wrap).
-
-##### Data tables:
-
-  * **org.openrewrite.prethink.table.ErrorHandlingPatterns**: *Error and exception handling patterns detected in the codebase.*
-
-
-#### [io.moderne.prethink.quality.FindGoCodeSmells](/user-documentation/recipes/recipe-catalog/prethink/quality/findgocodesmells.md)
-  * **Find Go code smells**
-  * Detect God Struct, Feature Envy, Large Interface, and Long Function code smells in Go. Data Class is intentionally excluded (idiomatic in Go).
-
-##### Data tables:
-
-  * **io.moderne.prethink.table.CodeSmells**: *Detected code smells including God Class, Feature Envy, and Data Class with severity ratings and the metric evidence that triggered detection.*
-
-
-#### [io.moderne.prethink.quality.FindGoPackageMetrics](/user-documentation/recipes/recipe-catalog/prethink/quality/findgopackagemetrics.md)
-  * **Find Go package quality metrics**
-  * Per-package architectural metrics for Go: afferent/efferent coupling, instability, abstractness (interface ratio), distance from main sequence, and cycle detection.
-
-##### Data tables:
-
-  * **io.moderne.prethink.table.PackageQualityMetrics**: *Per-package architectural metrics including afferent/efferent coupling, instability, abstractness, distance from main sequence, and dependency cycle membership.*
-
-
-#### [io.moderne.prethink.quality.FindGoTypeMetrics](/user-documentation/recipes/recipe-catalog/prethink/quality/findgotypemetrics.md)
-  * **Find Go type quality metrics**
-  * Compute per-struct code quality metrics for Go including WMC, LCOM4, TCC, CBO, and maintainability index. Aggregates methods with the same receiver type across files.
-
-##### Data tables:
-
-  * **io.moderne.prethink.table.ClassQualityMetrics**: *Per-class code quality metrics including WMC, LCOM4, TCC, CBO, and maintainability index.*
-
-
 #### [io.moderne.prethink.quality.FindMethodComplexity](/user-documentation/recipes/recipe-catalog/prethink/quality/findmethodcomplexity.md)
   * **Find method complexity**
   * Compute per-method code quality metrics including cyclomatic complexity, cognitive complexity, max nesting depth, line count, parameter count, ABC metric, and Halstead measures.
@@ -1423,69 +950,6 @@ _This doc contains all of the recipes with **unique** data tables that have been
   * **io.moderne.prethink.table.TestGaps**: *Public non-trivial methods that have no test coverage, ranked by risk score.*
 
 
-#### [io.moderne.prethink.testing.quality.FindDotnetFlakyTestPatterns](/user-documentation/recipes/recipe-catalog/prethink/testing/quality/finddotnetflakytestpatterns.md)
-  * **Find .NET flaky test patterns**
-  * Detect Thread.Sleep, Task.Delay (without CancellationToken), and .Result/.Wait() on Task in .NET tests — patterns that cause flakiness or deadlocks.
-
-##### Data tables:
-
-  * **io.moderne.prethink.table.TestQualityIssues**: *Issues found in test code that may cause flakiness, silent failures, or maintenance burden. Each row includes a rich evidence message with what was found, why it matters, and how to fix it.*
-
-
-#### [io.moderne.prethink.testing.quality.FindDotnetFragileTestData](/user-documentation/recipes/recipe-catalog/prethink/testing/quality/finddotnetfragiletestdata.md)
-  * **Find .NET fragile test data**
-  * Detect hardcoded dates/paths/ports, DateTime.Now usage, and Guid.NewGuid/ Random in .NET tests — sources of timing- or environment-dependent flakiness.
-
-##### Data tables:
-
-  * **io.moderne.prethink.table.TestQualityIssues**: *Issues found in test code that may cause flakiness, silent failures, or maintenance burden. Each row includes a rich evidence message with what was found, why it matters, and how to fix it.*
-
-
-#### [io.moderne.prethink.testing.quality.FindDotnetGhostTests](/user-documentation/recipes/recipe-catalog/prethink/testing/quality/finddotnetghosttests.md)
-  * **Find .NET ghost tests**
-  * Detect empty test bodies and suppressed tests ([Ignore], [Fact(Skip=...)]) in .NET tests.
-
-##### Data tables:
-
-  * **io.moderne.prethink.table.TestQualityIssues**: *Issues found in test code that may cause flakiness, silent failures, or maintenance burden. Each row includes a rich evidence message with what was found, why it matters, and how to fix it.*
-
-
-#### [io.moderne.prethink.testing.quality.FindDotnetOverlyBroadMocks](/user-documentation/recipes/recipe-catalog/prethink/testing/quality/finddotnetoverlybroadmocks.md)
-  * **Find overly broad mocks in .NET tests**
-  * Detect It.IsAny&lt;T&gt; (Moq), Arg.Any&lt;T&gt; (NSubstitute) and A&lt;T&gt;.Ignored (FakeItEasy) matcher overuse in .NET tests.
-
-##### Data tables:
-
-  * **io.moderne.prethink.table.TestQualityIssues**: *Issues found in test code that may cause flakiness, silent failures, or maintenance burden. Each row includes a rich evidence message with what was found, why it matters, and how to fix it.*
-
-
-#### [io.moderne.prethink.testing.quality.FindDotnetSilentTestFailures](/user-documentation/recipes/recipe-catalog/prethink/testing/quality/finddotnetsilenttestfailures.md)
-  * **Find .NET silent test failures**
-  * Detect .NET test methods with no assertions, and swallowed exceptions inside tests.
-
-##### Data tables:
-
-  * **io.moderne.prethink.table.TestQualityIssues**: *Issues found in test code that may cause flakiness, silent failures, or maintenance burden. Each row includes a rich evidence message with what was found, why it matters, and how to fix it.*
-
-
-#### [io.moderne.prethink.testing.quality.FindDotnetTestCodeSmells](/user-documentation/recipes/recipe-catalog/prethink/testing/quality/finddotnettestcodesmells.md)
-  * **Find .NET test code smells**
-  * Detect poor test names, magic numbers in assertions, generic catch in tests, and Debug.Assert misuse in .NET tests.
-
-##### Data tables:
-
-  * **io.moderne.prethink.table.TestQualityIssues**: *Issues found in test code that may cause flakiness, silent failures, or maintenance burden. Each row includes a rich evidence message with what was found, why it matters, and how to fix it.*
-
-
-#### [io.moderne.prethink.testing.quality.FindDotnetUnmockedExternalCalls](/user-documentation/recipes/recipe-catalog/prethink/testing/quality/finddotnetunmockedexternalcalls.md)
-  * **Find unmocked external calls in .NET tests**
-  * Detect direct HttpClient/SqlConnection/EF DbContext/File/Socket usage inside .NET unit tests that should typically be mocked.
-
-##### Data tables:
-
-  * **io.moderne.prethink.table.TestQualityIssues**: *Issues found in test code that may cause flakiness, silent failures, or maintenance burden. Each row includes a rich evidence message with what was found, why it matters, and how to fix it.*
-
-
 #### [io.moderne.prethink.testing.quality.FindFlakyTestPatterns](/user-documentation/recipes/recipe-catalog/prethink/testing/quality/findflakytestpatterns.md)
   * **Find flaky test patterns**
   * Detect patterns that commonly cause flaky tests in Java and Python code, including static waits (Thread.sleep, TimeUnit.sleep) and shared mutable state (static non-final fields in test classes).
@@ -1507,69 +971,6 @@ _This doc contains all of the recipes with **unique** data tables that have been
 #### [io.moderne.prethink.testing.quality.FindGhostTests](/user-documentation/recipes/recipe-catalog/prethink/testing/quality/findghosttests.md)
   * **Find ghost tests**
   * Detect methods that look like tests but will not be executed by the test runner, and tests skipped without a documented reason.
-
-##### Data tables:
-
-  * **io.moderne.prethink.table.TestQualityIssues**: *Issues found in test code that may cause flakiness, silent failures, or maintenance burden. Each row includes a rich evidence message with what was found, why it matters, and how to fix it.*
-
-
-#### [io.moderne.prethink.testing.quality.FindGoFlakyTestPatterns](/user-documentation/recipes/recipe-catalog/prethink/testing/quality/findgoflakytestpatterns.md)
-  * **Find Go flaky test patterns**
-  * Detect time.Sleep and non-deterministic randomness in Go *_test.go files.
-
-##### Data tables:
-
-  * **io.moderne.prethink.table.TestQualityIssues**: *Issues found in test code that may cause flakiness, silent failures, or maintenance burden. Each row includes a rich evidence message with what was found, why it matters, and how to fix it.*
-
-
-#### [io.moderne.prethink.testing.quality.FindGoFragileTestData](/user-documentation/recipes/recipe-catalog/prethink/testing/quality/findgofragiletestdata.md)
-  * **Find Go fragile test data**
-  * Detect hardcoded dates, absolute paths, and hardcoded ports in Go tests.
-
-##### Data tables:
-
-  * **io.moderne.prethink.table.TestQualityIssues**: *Issues found in test code that may cause flakiness, silent failures, or maintenance burden. Each row includes a rich evidence message with what was found, why it matters, and how to fix it.*
-
-
-#### [io.moderne.prethink.testing.quality.FindGoGhostTests](/user-documentation/recipes/recipe-catalog/prethink/testing/quality/findgoghosttests.md)
-  * **Find Go ghost tests**
-  * Detect empty test bodies and unexplained skips in Go tests.
-
-##### Data tables:
-
-  * **io.moderne.prethink.table.TestQualityIssues**: *Issues found in test code that may cause flakiness, silent failures, or maintenance burden. Each row includes a rich evidence message with what was found, why it matters, and how to fix it.*
-
-
-#### [io.moderne.prethink.testing.quality.FindGoOverlyBroadMocks](/user-documentation/recipes/recipe-catalog/prethink/testing/quality/findgooverlybroadmocks.md)
-  * **Find Go overly broad mocks**
-  * Detect testify mock.Anything / mock.AnythingOfType usage in Go tests.
-
-##### Data tables:
-
-  * **io.moderne.prethink.table.TestQualityIssues**: *Issues found in test code that may cause flakiness, silent failures, or maintenance burden. Each row includes a rich evidence message with what was found, why it matters, and how to fix it.*
-
-
-#### [io.moderne.prethink.testing.quality.FindGoSilentTestFailures](/user-documentation/recipes/recipe-catalog/prethink/testing/quality/findgosilenttestfailures.md)
-  * **Find Go silent test failures**
-  * Detect discarded error returns and assertion-less test bodies in Go tests.
-
-##### Data tables:
-
-  * **io.moderne.prethink.table.TestQualityIssues**: *Issues found in test code that may cause flakiness, silent failures, or maintenance burden. Each row includes a rich evidence message with what was found, why it matters, and how to fix it.*
-
-
-#### [io.moderne.prethink.testing.quality.FindGoTestCodeSmells](/user-documentation/recipes/recipe-catalog/prethink/testing/quality/findgotestcodesmells.md)
-  * **Find Go test code smells**
-  * Detect magic numbers, over-long test names, and over-grown table-driven tests.
-
-##### Data tables:
-
-  * **io.moderne.prethink.table.TestQualityIssues**: *Issues found in test code that may cause flakiness, silent failures, or maintenance burden. Each row includes a rich evidence message with what was found, why it matters, and how to fix it.*
-
-
-#### [io.moderne.prethink.testing.quality.FindGoUnmockedExternalCalls](/user-documentation/recipes/recipe-catalog/prethink/testing/quality/findgounmockedexternalcalls.md)
-  * **Find Go unmocked external calls**
-  * Detect net/http, os.Open, net.Dial, sql.Open calls directly in Go tests.
 
 ##### Data tables:
 
@@ -1714,15 +1115,6 @@ _This doc contains all of the recipes with **unique** data tables that have been
   * **org.openrewrite.analysis.java.taint.table.TaintFlowTable**: *Records taint flows from sources to sinks with their taint types.*
 
 
-#### [org.openrewrite.analysis.java.security.FindInsecureCryptoComparison](/user-documentation/recipes/recipe-catalog/analysis/java/security/findinsecurecryptocomparison.md)
-  * **Find non-constant-time comparison of cryptographic digests**
-  * Detects when the output of `MessageDigest.digest(..)` or `Mac.doFinal(..)` flows into `Arrays.equals(byte[], byte[])`, a non-constant-time comparison that is vulnerable to timing attacks (CWE-208). Use `MessageDigest.isEqual(byte[], byte[])` for security-sensitive byte-array comparisons.
-
-##### Data tables:
-
-  * **org.openrewrite.analysis.java.taint.table.TaintFlowTable**: *Records taint flows from sources to sinks with their taint types.*
-
-
 #### [org.openrewrite.analysis.java.security.FindJndiInjection](/user-documentation/recipes/recipe-catalog/analysis/java/security/findjndiinjection.md)
   * **Find JNDI injection vulnerabilities**
   * Detects when user-controlled input flows into JNDI lookup operations without proper validation, which could allow an attacker to connect to malicious naming/directory services (CWE-99).
@@ -1762,15 +1154,6 @@ _This doc contains all of the recipes with **unique** data tables that have been
 #### [org.openrewrite.analysis.java.security.FindProcessControlInjection](/user-documentation/recipes/recipe-catalog/analysis/java/security/findprocesscontrolinjection.md)
   * **Find process control vulnerabilities**
   * Detects when user-controlled input flows into native library loading methods without proper validation, which could allow an attacker to load arbitrary native code (CWE-114).
-
-##### Data tables:
-
-  * **org.openrewrite.analysis.java.taint.table.TaintFlowTable**: *Records taint flows from sources to sinks with their taint types.*
-
-
-#### [org.openrewrite.analysis.java.security.FindSecurityVulnerabilities](/user-documentation/recipes/recipe-catalog/analysis/java/security/findsecurityvulnerabilities.md)
-  * **Find security vulnerabilities using taint analysis**
-  * Identifies potential security vulnerabilities where untrusted data from sources flows to sensitive sinks without proper sanitization.
 
 ##### Data tables:
 
@@ -1847,12 +1230,12 @@ _This doc contains all of the recipes with **unique** data tables that have been
 ### rewrite-release-metromap
 
 #### [io.moderne.recipe.releasemetro.FindGradleParentRelationships](/user-documentation/recipes/recipe-catalog/recipe/releasemetro/findgradleparentrelationships.md)
-  * **Find Gradle root project to subproject relationships**
-  * Gradle has no parent-project concept like Maven. The closest analog is the root project of a multi-project build, so this recipe records the GAV coordinates of each subproject paired with the root project.
+  * **Find Gradle project hierarchy relationships**
+  * Find Gradle parent-child project relationships in multi-project builds to understand project hierarchies.
 
 ##### Data tables:
 
-  * **io.moderne.recipe.releasemetro.table.ParentRelationships**: *Relationships between Maven child modules and their parent POMs, or Gradle subprojects and their root project.*
+  * **io.moderne.recipe.releasemetro.table.ParentRelationships**: *Relationships between child projects and their parent POMs or Gradle parent projects.*
 
 
 #### [io.moderne.recipe.releasemetro.FindGradleProjectIDs](/user-documentation/recipes/recipe-catalog/recipe/releasemetro/findgradleprojectids.md)
@@ -1870,7 +1253,7 @@ _This doc contains all of the recipes with **unique** data tables that have been
 
 ##### Data tables:
 
-  * **io.moderne.recipe.releasemetro.table.ParentRelationships**: *Relationships between Maven child modules and their parent POMs, or Gradle subprojects and their root project.*
+  * **io.moderne.recipe.releasemetro.table.ParentRelationships**: *Relationships between child projects and their parent POMs or Gradle parent projects.*
 
 
 #### [io.moderne.recipe.releasemetro.FindMavenProjectIDs](/user-documentation/recipes/recipe-catalog/recipe/releasemetro/findmavenprojectids.md)
@@ -1898,9 +1281,9 @@ _This doc contains all of the recipes with **unique** data tables that have been
 ##### Data tables:
 
   * **io.moderne.recipe.releasemetro.table.ProjectCoordinates**: *Maven Modules or Gradle (sub-)project groupId and artifactId.*
-  * **io.moderne.recipe.releasemetro.table.ParentRelationships**: *Relationships between Maven child modules and their parent POMs, or Gradle subprojects and their root project.*
+  * **io.moderne.recipe.releasemetro.table.ParentRelationships**: *Relationships between child projects and their parent POMs or Gradle parent projects.*
   * **io.moderne.recipe.releasemetro.table.UnusedDependencies**: *Dependencies that are declared in build files but may not be used based on import analysis.*
-  * **org.openrewrite.maven.table.DependenciesDeclared**: *Direct (first-order) dependencies declared by the project.*
+  * **org.openrewrite.maven.table.DependenciesInUse**: *Direct and transitive dependencies in use.*
 
 
 
@@ -1954,15 +1337,6 @@ _This doc contains all of the recipes with **unique** data tables that have been
 #### [io.moderne.java.spring.boot4.UpgradeSpringBoot_4_0](/user-documentation/recipes/recipe-catalog/java/spring/boot4/upgradespringboot_4_0-moderne-edition.md)
   * **Migrate to Spring Boot 4.0 (Moderne Edition)**
   * Migrate applications to the latest Spring Boot 4.0 release. This recipe will modify an application's build files, make changes to deprecated/preferred APIs, and migrate configuration settings that have changes between versions. This recipe will also chain additional framework migrations (Spring Framework, Spring Data, etc) that are required as part of the migration to Spring Boot 4.0.
-
-##### Data tables:
-
-  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
-
-
-#### [io.moderne.java.spring.boot4.UpgradeSpringBoot_4_1](/user-documentation/recipes/recipe-catalog/java/spring/boot4/upgradespringboot_4_1.md)
-  * **Migrate to Spring Boot 4.1**
-  * Migrate applications to the latest Spring Boot 4.1 release. This recipe will modify an application's build files, make changes to deprecated/preferred APIs, and migrate configuration settings that have changes between versions. This recipe will also chain additional framework migrations (Spring Framework, Spring Data, etc) that are required as part of the migration to Spring Boot 4.1.
 
 ##### Data tables:
 
@@ -2369,15 +1743,6 @@ _This doc contains all of the recipes with **unique** data tables that have been
   * **org.openrewrite.maven.search.EffectiveMavenRepositoriesTable**: *Table showing which Maven repositories were used in dependency resolution for this POM.*
 
 
-#### [org.openrewrite.gradle.search.FindDependency](/user-documentation/recipes/recipe-catalog/gradle/search/finddependency.md)
-  * **Find Gradle dependency**
-  * Finds dependencies declared in gradle build files. Each match is also recorded as a row in the `DependenciesDeclared` data table. See the [reference](https://docs.gradle.org/current/userguide/java_library_plugin.html#sec:java_library_configurations_graph) on Gradle configurations or the diagram below for a description of what configuration to use. A project's compile and runtime classpath is based on these configurations.  &lt;img alt=&quot;Gradle compile classpath&quot; src=&quot;https://docs.gradle.org/current/userguide/img/java-library-ignore-deprecated-main.png&quot; width=&quot;200px&quot;/&gt; A project's test classpath is based on these configurations.  &lt;img alt=&quot;Gradle test classpath&quot; src=&quot;https://docs.gradle.org/current/userguide/img/java-library-ignore-deprecated-test.png&quot; width=&quot;200px&quot;/&gt;.
-
-##### Data tables:
-
-  * **org.openrewrite.maven.table.DependenciesDeclared**: *Direct (first-order) dependencies declared by the project.*
-
-
 #### [org.openrewrite.gradle.search.FindGradleWrapper](/user-documentation/recipes/recipe-catalog/gradle/search/findgradlewrapper.md)
   * **Find Gradle wrappers**
   * Find Gradle wrappers.
@@ -2456,15 +1821,6 @@ _This doc contains all of the recipes with **unique** data tables that have been
 #### [org.openrewrite.java.search.FindDeprecatedMethods](/user-documentation/recipes/recipe-catalog/java/search/finddeprecatedmethods.md)
   * **Find uses of deprecated methods**
   * Find uses of deprecated methods in any API.
-
-##### Data tables:
-
-  * **org.openrewrite.java.table.MethodCalls**: *The text of matching method invocations.*
-
-
-#### [org.openrewrite.java.search.FindDeprecatedUses](/user-documentation/recipes/recipe-catalog/java/search/finddeprecateduses.md)
-  * **Find uses of deprecated classes, methods, and fields**
-  * Find deprecated uses of methods, fields, and types. Optionally ignore those classes that are inside deprecated scopes.
 
 ##### Data tables:
 
@@ -2624,15 +1980,6 @@ _This doc contains all of the recipes with **unique** data tables that have been
   * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
 
 
-#### [org.openrewrite.maven.ReproducibleBuilds](/user-documentation/recipes/recipe-catalog/maven/reproduciblebuilds.md)
-  * **Apache Maven reproducible builds**
-  * Configure a Maven project for [reproducible builds](https://maven.apache.org/guides/mini/guide-reproducible-builds.html): pin dependency and plugin versions, set `project.build.outputTimestamp`, set explicit UTF-8 source encoding, and upgrade core plugins to versions that honor the output timestamp.
-
-##### Data tables:
-
-  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
-
-
 #### [org.openrewrite.maven.UpgradeDependencyVersion](/user-documentation/recipes/recipe-catalog/maven/upgradedependencyversion.md)
   * **Upgrade Maven dependency version**
   * Upgrade the version of a dependency by specifying a group and (optionally) an artifact using Node Semver advanced range selectors, allowing more precise control over version updates to patch or minor releases.
@@ -2704,15 +2051,6 @@ _This doc contains all of the recipes with **unique** data tables that have been
 ##### Data tables:
 
   * **org.openrewrite.maven.search.EffectiveMavenRepositoriesTable**: *Table showing which Maven repositories were used in dependency resolution for this POM.*
-
-
-#### [org.openrewrite.maven.search.FindDependency](/user-documentation/recipes/recipe-catalog/maven/search/finddependency.md)
-  * **Find Maven dependency**
-  * Finds first-order dependency uses, i.e. dependencies that are defined directly in a project. Each match is also recorded as a row in the `DependenciesDeclared` data table.
-
-##### Data tables:
-
-  * **org.openrewrite.maven.table.DependenciesDeclared**: *Direct (first-order) dependencies declared by the project.*
 
 
 #### [org.openrewrite.maven.search.FindMavenSettings](/user-documentation/recipes/recipe-catalog/maven/search/findmavensettings.md)
@@ -2855,8 +2193,6 @@ _This doc contains all of the recipes with **unique** data tables that have been
 ##### Data tables:
 
   * **org.openrewrite.table.CallGraph**: *Records method callers and the methods they invoke.*
-  * **org.openrewrite.table.FactoryEdges**: *Construction edges where the caller's declared return type is assignable from the constructed class (the caller semantically produces an instance of the target type).*
-  * **org.openrewrite.table.LowConfidenceFiles**: *Source files where call-graph construction skipped an edge because the underlying LST had a null type. Used as a confidence signal during test selection: any row for a file means that file's outbound edges may be undercounted.*
 
 
 #### [org.openrewrite.FindDuplicateSourceFiles](/user-documentation/recipes/recipe-catalog/core/findduplicatesourcefiles.md)
@@ -2877,234 +2213,6 @@ _This doc contains all of the recipes with **unique** data tables that have been
   * **org.openrewrite.table.LanguageCompositionPerRepository**: *Counts the number of files and lines of source code in the various formats OpenRewrite knows how to parse.*
   * **org.openrewrite.table.LanguageCompositionPerFolder**: *A list of folders and the language composition and line counts of their contents.*
   * **org.openrewrite.table.LanguageCompositionPerFile**: *A list of individual files and their language composition.*
-
-
-
-### rewrite-android
-
-#### [org.openrewrite.android.MigrateToAndroidGradlePlugin_7_2](/user-documentation/recipes/recipe-catalog/android/migratetoandroidgradleplugin_7_2.md)
-  * **Migrate to Android Gradle Plugin 7.2**
-  * Recipes to migrate to Android Gradle Plugin version 7.2.
-
-##### Data tables:
-
-  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
-
-
-#### [org.openrewrite.android.MigrateToAndroidGradlePlugin_7_3](/user-documentation/recipes/recipe-catalog/android/migratetoandroidgradleplugin_7_3.md)
-  * **Migrate to Android Gradle Plugin 7.3**
-  * Recipes to migrate to Android Gradle Plugin version 7.3.
-
-##### Data tables:
-
-  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
-
-
-#### [org.openrewrite.android.MigrateToAndroidGradlePlugin_7_4](/user-documentation/recipes/recipe-catalog/android/migratetoandroidgradleplugin_7_4.md)
-  * **Migrate to Android Gradle Plugin 7.4**
-  * Recipes to migrate to Android Gradle Plugin version 7.4.
-
-##### Data tables:
-
-  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
-
-
-#### [org.openrewrite.android.MigrateToAndroidGradlePlugin_8_0](/user-documentation/recipes/recipe-catalog/android/migratetoandroidgradleplugin_8_0.md)
-  * **Migrate to Android Gradle Plugin 8.0**
-  * Recipes to migrate to Android Gradle Plugin version 8.0.
-
-##### Data tables:
-
-  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
-
-
-#### [org.openrewrite.android.MigrateToAndroidGradlePlugin_8_1](/user-documentation/recipes/recipe-catalog/android/migratetoandroidgradleplugin_8_1.md)
-  * **Migrate to Android Gradle Plugin 8.1**
-  * Recipes to migrate to Android Gradle Plugin version 8.1.
-
-##### Data tables:
-
-  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
-
-
-#### [org.openrewrite.android.MigrateToAndroidGradlePlugin_8_10](/user-documentation/recipes/recipe-catalog/android/migratetoandroidgradleplugin_8_10.md)
-  * **Migrate to Android Gradle Plugin 8.10**
-  * Recipes to migrate to Android Gradle Plugin version 8.10.
-
-##### Data tables:
-
-  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
-
-
-#### [org.openrewrite.android.MigrateToAndroidGradlePlugin_8_11](/user-documentation/recipes/recipe-catalog/android/migratetoandroidgradleplugin_8_11.md)
-  * **Migrate to Android Gradle Plugin 8.11**
-  * Recipes to migrate to Android Gradle Plugin version 8.11.
-
-##### Data tables:
-
-  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
-
-
-#### [org.openrewrite.android.MigrateToAndroidGradlePlugin_8_12](/user-documentation/recipes/recipe-catalog/android/migratetoandroidgradleplugin_8_12.md)
-  * **Migrate to Android Gradle Plugin 8.12**
-  * Recipes to migrate to Android Gradle Plugin version 8.12.
-
-##### Data tables:
-
-  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
-
-
-#### [org.openrewrite.android.MigrateToAndroidGradlePlugin_8_13](/user-documentation/recipes/recipe-catalog/android/migratetoandroidgradleplugin_8_13.md)
-  * **Migrate to Android Gradle Plugin 8.13**
-  * Recipes to migrate to Android Gradle Plugin version 8.13.
-
-##### Data tables:
-
-  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
-
-
-#### [org.openrewrite.android.MigrateToAndroidGradlePlugin_8_2](/user-documentation/recipes/recipe-catalog/android/migratetoandroidgradleplugin_8_2.md)
-  * **Migrate to Android Gradle Plugin 8.2**
-  * Recipes to migrate to Android Gradle Plugin version 8.2.
-
-##### Data tables:
-
-  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
-
-
-#### [org.openrewrite.android.MigrateToAndroidGradlePlugin_8_3](/user-documentation/recipes/recipe-catalog/android/migratetoandroidgradleplugin_8_3.md)
-  * **Migrate to Android Gradle Plugin 8.3**
-  * Recipes to migrate to Android Gradle Plugin version 8.3.
-
-##### Data tables:
-
-  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
-
-
-#### [org.openrewrite.android.MigrateToAndroidGradlePlugin_8_4](/user-documentation/recipes/recipe-catalog/android/migratetoandroidgradleplugin_8_4.md)
-  * **Migrate to Android Gradle Plugin 8.4**
-  * Recipes to migrate to Android Gradle Plugin version 8.4.
-
-##### Data tables:
-
-  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
-
-
-#### [org.openrewrite.android.MigrateToAndroidGradlePlugin_8_5](/user-documentation/recipes/recipe-catalog/android/migratetoandroidgradleplugin_8_5.md)
-  * **Migrate to Android Gradle Plugin 8.5**
-  * Recipes to migrate to Android Gradle Plugin version 8.5.
-
-##### Data tables:
-
-  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
-
-
-#### [org.openrewrite.android.MigrateToAndroidGradlePlugin_8_6](/user-documentation/recipes/recipe-catalog/android/migratetoandroidgradleplugin_8_6.md)
-  * **Migrate to Android Gradle Plugin 8.6**
-  * Recipes to migrate to Android Gradle Plugin version 8.6.
-
-##### Data tables:
-
-  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
-
-
-#### [org.openrewrite.android.MigrateToAndroidGradlePlugin_8_7](/user-documentation/recipes/recipe-catalog/android/migratetoandroidgradleplugin_8_7.md)
-  * **Migrate to Android Gradle Plugin 8.7**
-  * Recipes to migrate to Android Gradle Plugin version 8.7.
-
-##### Data tables:
-
-  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
-
-
-#### [org.openrewrite.android.MigrateToAndroidGradlePlugin_8_8](/user-documentation/recipes/recipe-catalog/android/migratetoandroidgradleplugin_8_8.md)
-  * **Migrate to Android Gradle Plugin 8.8**
-  * Recipes to migrate to Android Gradle Plugin version 8.8.
-
-##### Data tables:
-
-  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
-
-
-#### [org.openrewrite.android.MigrateToAndroidGradlePlugin_8_9](/user-documentation/recipes/recipe-catalog/android/migratetoandroidgradleplugin_8_9.md)
-  * **Migrate to Android Gradle Plugin 8.9**
-  * Recipes to migrate to Android Gradle Plugin version 8.9.
-
-##### Data tables:
-
-  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
-
-
-#### [org.openrewrite.android.MigrateToAndroidGradlePlugin_9_0](/user-documentation/recipes/recipe-catalog/android/migratetoandroidgradleplugin_9_0.md)
-  * **Migrate to Android Gradle Plugin 9.0**
-  * Recipes to migrate to Android Gradle Plugin version 9.0.
-
-##### Data tables:
-
-  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
-
-
-#### [org.openrewrite.android.MigrateToAndroidGradlePlugin_9_1](/user-documentation/recipes/recipe-catalog/android/migratetoandroidgradleplugin_9_1.md)
-  * **Migrate to Android Gradle Plugin 9.1**
-  * Recipes to migrate to Android Gradle Plugin version 9.1.
-
-##### Data tables:
-
-  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
-
-
-#### [org.openrewrite.android.MigrateToAndroidGradlePlugin_9_2](/user-documentation/recipes/recipe-catalog/android/migratetoandroidgradleplugin_9_2.md)
-  * **Migrate to Android Gradle Plugin 9.2**
-  * Recipes to migrate to Android Gradle Plugin version 9.2.
-
-##### Data tables:
-
-  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
-
-
-#### [org.openrewrite.android.UpgradeAndroidGradlePluginVersion](/user-documentation/recipes/recipe-catalog/android/upgradeandroidgradlepluginversion.md)
-  * **Upgrade Android Gradle Plugin (AGP) version**
-  * Upgrade Android Gradle Plugin (AGP) version and update the Gradle Wrapper version. Compatible versions are published in the [AGP release notes](https://developer.android.com/build/releases/gradle-plugin).
-
-##### Data tables:
-
-  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
-
-
-#### [org.openrewrite.android.UpgradeToAndroidSDK33](/user-documentation/recipes/recipe-catalog/android/upgradetoandroidsdk33.md)
-  * **Upgrade to Android SDK 33**
-  * Recipes to upgrade to Android SDK version 33.
-
-##### Data tables:
-
-  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
-
-
-#### [org.openrewrite.android.UpgradeToAndroidSDK34](/user-documentation/recipes/recipe-catalog/android/upgradetoandroidsdk34.md)
-  * **Upgrade to Android SDK 34**
-  * Recipes to upgrade to Android SDK version 34.
-
-##### Data tables:
-
-  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
-
-
-#### [org.openrewrite.android.UpgradeToAndroidSDK35](/user-documentation/recipes/recipe-catalog/android/upgradetoandroidsdk35.md)
-  * **Upgrade to Android SDK 35**
-  * Recipes to upgrade to Android SDK version 35.
-
-##### Data tables:
-
-  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
-
-
-#### [org.openrewrite.android.UpgradeToAndroidSDK36](/user-documentation/recipes/recipe-catalog/android/upgradetoandroidsdk36.md)
-  * **Upgrade to Android SDK 36**
-  * Recipes to upgrade to Android SDK version 36.
-
-##### Data tables:
-
-  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
 
 
 
@@ -6254,15 +5362,6 @@ _This doc contains all of the recipes with **unique** data tables that have been
 
 ### rewrite-compiled-analysis
 
-#### [io.moderne.compiled.verification.ChangeListMethodAndVerify](/user-documentation/recipes/recipe-catalog/compiled/verification/changelistmethodandverify.md)
-  * **Change `List#add` to `List#plus` and verify**
-  * We know this won't compile.
-
-##### Data tables:
-
-  * **io.moderne.compiled.table.ABITraces**: *ASM trace of the ABI of types needed to perform compile verification.*
-
-
 #### [io.moderne.compiled.verification.VerifyCompilation](/user-documentation/recipes/recipe-catalog/compiled/verification/verifycompilation.md)
   * **Verify compilation**
   * This is a task that runs after another recipe to verify that the changes made by that recipe would result in a successful compilation.
@@ -6387,7 +5486,7 @@ _This doc contains all of the recipes with **unique** data tables that have been
 
 #### [org.openrewrite.csharp.dependencies.DependencyVulnerabilityCheck](/user-documentation/recipes/recipe-catalog/csharp/dependencies/dependencyvulnerabilitycheck.md)
   * **Find and fix vulnerable Nuget dependencies**
-  * This software composition analysis (SCA) tool detects and upgrades dependencies with publicly disclosed vulnerabilities. This recipe both generates a report of vulnerable dependencies and upgrades to newer versions with fixes. This recipe by default only upgrades to the latest **patch** version. If a minor or major upgrade is required to reach the fixed version, this can be controlled using the `maximumUpgradeDelta` option. Vulnerability information comes from the [GitHub Security Advisory Database](https://docs.github.com/en/code-security/security-advisories/global-security-advisories/about-the-github-advisory-database), which aggregates vulnerability data from several public databases, including the [National Vulnerability Database](https://nvd.nist.gov/) maintained by the United States government. Dependencies following [Semantic Versioning](https://semver.org/) will see their _patch_ version updated where applicable. Last updated: 2026-05-11T1202.
+  * This software composition analysis (SCA) tool detects and upgrades dependencies with publicly disclosed vulnerabilities. This recipe both generates a report of vulnerable dependencies and upgrades to newer versions with fixes. This recipe **only** upgrades to the latest **patch** version.  If a minor or major upgrade is required to reach the fixed version, this recipe will not make any changes. Vulnerability information comes from the [GitHub Security Advisory Database](https://docs.github.com/en/code-security/security-advisories/global-security-advisories/about-the-github-advisory-database), which aggregates vulnerability data from several public databases, including the [National Vulnerability Database](https://nvd.nist.gov/) maintained by the United States government. Dependencies following [Semantic Versioning](https://semver.org/) will see their _patch_ version updated where applicable.
 
 ##### Data tables:
 
@@ -6414,7 +5513,7 @@ _This doc contains all of the recipes with **unique** data tables that have been
 
 #### [org.openrewrite.java.dependencies.DependencyVulnerabilityCheck](/user-documentation/recipes/recipe-catalog/java/dependencies/dependencyvulnerabilitycheck.md)
   * **Find and fix vulnerable dependencies**
-  * This software composition analysis (SCA) tool detects and upgrades dependencies with publicly disclosed vulnerabilities. This recipe both generates a report of vulnerable dependencies and upgrades to newer versions with fixes. This recipe by default only upgrades to the latest **patch** version.  If a minor or major upgrade is required to reach the fixed version, this can be controlled using the `maximumUpgradeDelta` option. Vulnerability information comes from the [GitHub Security Advisory Database](https://docs.github.com/en/code-security/security-advisories/global-security-advisories/about-the-github-advisory-database), which aggregates vulnerability data from several public databases, including the [National Vulnerability Database](https://nvd.nist.gov/) maintained by the United States government. Upgrades dependencies versioned according to [Semantic Versioning](https://semver.org/).   ## Customizing Vulnerability Data  This recipe can be customized by extending `DependencyVulnerabilityCheckBase` and overriding the vulnerability data sources:   - **`baselineVulnerabilities(ExecutionContext ctx)`**: Provides the default set of known vulnerabilities. The base implementation loads vulnerability data from the GitHub Security Advisory Database CSV file using `ResourceUtils.parseResourceAsCsv()`. Override this method to replace the entire vulnerability dataset with your own curated list.   - **`supplementalVulnerabilities(ExecutionContext ctx)`**: Allows adding custom vulnerability data beyond the baseline. The base implementation returns an empty list. Override this method to add organization-specific vulnerabilities, internal security advisories, or vulnerabilities from additional sources while retaining the baseline GitHub Advisory Database.  Both methods return `List&lt;Vulnerability&gt;` objects. Vulnerability data can be loaded from CSV files using `ResourceUtils.parseResourceAsCsv(path, Vulnerability.class, consumer)` or constructed programmatically. To customize, extend `DependencyVulnerabilityCheckBase` and override one or both methods depending on your needs. For example, override `supplementalVulnerabilities()` to add custom CVEs while keeping the standard vulnerability database, or override `baselineVulnerabilities()` to use an entirely different vulnerability data source. Last updated: 2026-05-11T1202.
+  * This software composition analysis (SCA) tool detects and upgrades dependencies with publicly disclosed vulnerabilities. This recipe both generates a report of vulnerable dependencies and upgrades to newer versions with fixes. This recipe by default only upgrades to the latest **patch** version.  If a minor or major upgrade is required to reach the fixed version, this can be controlled using the `maximumUpgradeDelta` option. Vulnerability information comes from the [GitHub Security Advisory Database](https://docs.github.com/en/code-security/security-advisories/global-security-advisories/about-the-github-advisory-database), which aggregates vulnerability data from several public databases, including the [National Vulnerability Database](https://nvd.nist.gov/) maintained by the United States government. Upgrades dependencies versioned according to [Semantic Versioning](https://semver.org/).   ## Customizing Vulnerability Data  This recipe can be customized by extending `DependencyVulnerabilityCheckBase` and overriding the vulnerability data sources:   - **`baselineVulnerabilities(ExecutionContext ctx)`**: Provides the default set of known vulnerabilities. The base implementation loads vulnerability data from the GitHub Security Advisory Database CSV file using `ResourceUtils.parseResourceAsCsv()`. Override this method to replace the entire vulnerability dataset with your own curated list.   - **`supplementalVulnerabilities(ExecutionContext ctx)`**: Allows adding custom vulnerability data beyond the baseline. The base implementation returns an empty list. Override this method to add organization-specific vulnerabilities, internal security advisories, or vulnerabilities from additional sources while retaining the baseline GitHub Advisory Database.  Both methods return `List&lt;Vulnerability&gt;` objects. Vulnerability data can be loaded from CSV files using `ResourceUtils.parseResourceAsCsv(path, Vulnerability.class, consumer)` or constructed programmatically. To customize, extend `DependencyVulnerabilityCheckBase` and override one or both methods depending on your needs. For example, override `supplementalVulnerabilities()` to add custom CVEs while keeping the standard vulnerability database, or override `baselineVulnerabilities()` to use an entirely different vulnerability data source. Last updated: 2026-04-27T1132.
 
 ##### Data tables:
 
@@ -6450,7 +5549,6 @@ _This doc contains all of the recipes with **unique** data tables that have been
   * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
   * **org.openrewrite.java.dependencies.table.VulnerabilityReport**: *A vulnerability report that includes detailed information about the affected artifact and the corresponding CVEs.*
   * **org.openrewrite.java.dependencies.table.DependencyOriginsReport**: *A report that maps dependencies to their originating root node represented as dependency graph. The information can be used to understand which direct dependencies are responsible for bringing in specific transitive dependencies.*
-  * **org.openrewrite.java.table.MethodCalls**: *The text of matching method invocations.*
 
 
 #### [org.openrewrite.java.security.Owasp2025A04](/user-documentation/recipes/recipe-catalog/java/security/owasp2025a04.md)
@@ -6715,27 +5813,9 @@ _This doc contains all of the recipes with **unique** data tables that have been
   * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
 
 
-#### [org.openrewrite.java.micronaut.Micronaut4to5Migration](/user-documentation/recipes/recipe-catalog/java/micronaut/micronaut4to5migration.md)
-  * **Migrate from Micronaut 4.x to 5.x**
-  * This recipe will apply changes required for migrating from Micronaut 4 to Micronaut 5. Micronaut 5 raises the Java baseline to 25 and ships a number of artifact/plugin renames; see the [upstream migration guide](https://github.com/micronaut-projects/micronaut-core/wiki/Update-to-Micronaut-5) for the full list of breaking changes.
-
-##### Data tables:
-
-  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
-
-
 #### [org.openrewrite.java.micronaut.UpdateBuildPlugins](/user-documentation/recipes/recipe-catalog/java/micronaut/updatebuildplugins.md)
   * **Add Micronaut build plugins to 4.x**
   * This recipe will update the shadow jar plugin to 8.x and the Micronaut build plugins to 4.x for a Gradle build.
-
-##### Data tables:
-
-  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
-
-
-#### [org.openrewrite.java.micronaut.UpdateBuildPlugins5](/user-documentation/recipes/recipe-catalog/java/micronaut/updatebuildplugins5.md)
-  * **Update Micronaut Gradle build plugins to 5.x**
-  * This recipe will update the Micronaut Gradle build plugins to 5.x and migrate the Shadow plugin from `com.github.johnrengelman.shadow` to `com.gradleup.shadow` 9.x.
 
 ##### Data tables:
 
@@ -7071,7 +6151,7 @@ _This doc contains all of the recipes with **unique** data tables that have been
 
 #### [org.openrewrite.java.migrate.search.FindJavaVersion](/user-documentation/recipes/recipe-catalog/java/migrate/search/findjavaversion.md)
   * **Find Java versions in use**
-  * Finds Java versions in use, emitting one row per git repository (the lowest source/target compatibility across modules in that repository).
+  * Finds Java versions in use.
 
 ##### Data tables:
 
@@ -7161,6 +6241,15 @@ _This doc contains all of the recipes with **unique** data tables that have been
 
 
 ### rewrite-nodejs
+
+#### [org.openrewrite.nodejs.DependencyVulnerabilityCheck](/user-documentation/recipes/recipe-catalog/nodejs/dependencyvulnerabilitycheck.md)
+  * **Find and fix vulnerable npm dependencies**
+  * This software composition analysis (SCA) tool detects and upgrades dependencies with publicly disclosed vulnerabilities. This recipe both generates a report of vulnerable dependencies and upgrades to newer versions with fixes. This recipe **only** upgrades to the latest **patch** version.  If a minor or major upgrade is required to reach the fixed version, this recipe will not make any changes. Vulnerability information comes from the [GitHub Security Advisory Database](https://docs.github.com/en/code-security/security-advisories/global-security-advisories/about-the-github-advisory-database), which aggregates vulnerability data from several public databases, including the [National Vulnerability Database](https://nvd.nist.gov/) maintained by the United States government. Dependencies following [Semantic Versioning](https://semver.org/) will see their _patch_ version updated where applicable.
+
+##### Data tables:
+
+  * **org.openrewrite.nodejs.table.VulnerabilityReport**: *A vulnerability report that includes detailed information about the affected artifact and the corresponding CVEs.*
+
 
 #### [org.openrewrite.nodejs.search.DatabaseInteractionInsights](/user-documentation/recipes/recipe-catalog/nodejs/search/databaseinteractioninsights.md)
   * **Javascript database interaction library insights**
@@ -7285,15 +6374,6 @@ _This doc contains all of the recipes with **unique** data tables that have been
 #### [org.openrewrite.prethink.UpdateAgentConfig](/user-documentation/recipes/recipe-catalog/prethink/updateagentconfig.md)
   * **Update agent configuration files**
   * Update coding agent configuration files (CLAUDE.md, .cursorrules, etc.) to include references to Moderne Prethink context files in .moderne/context/.
-
-##### Data tables:
-
-  * **org.openrewrite.prethink.table.ContextRegistry**: *Registry of available context files for coding agents.*
-
-
-#### [org.openrewrite.prethink.UpdatePrethinkContext](/user-documentation/recipes/recipe-catalog/prethink/updateprethinkcontext.md)
-  * **Update Prethink context**
-  * Generate FINOS CALM architecture diagram and update agent configuration files. This recipe expects CALM-related data tables (ServiceEndpoints, DatabaseConnections, ExternalServiceCalls, MessagingConnections, etc.) to be populated by other recipes in a composite.
 
 ##### Data tables:
 
@@ -7461,24 +6541,6 @@ _This doc contains all of the recipes with **unique** data tables that have been
 ##### Data tables:
 
   * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
-
-
-#### [org.openrewrite.java.spring.boot2.search.FindUpgradeRequirementsSpringBoot_2_5](/user-documentation/recipes/recipe-catalog/java/spring/boot2/search/findupgraderequirementsspringboot_2_5.md)
-  * **Find patterns that require updating for Spring Boot 2.5**
-  * Looks for a series of patterns that have not yet had auto-remediation recipes developed for.
-
-##### Data tables:
-
-  * **org.openrewrite.maven.table.DependenciesDeclared**: *Direct (first-order) dependencies declared by the project.*
-
-
-#### [org.openrewrite.java.spring.boot2.search.MessagesInTheDefaultErrorView](/user-documentation/recipes/recipe-catalog/java/spring/boot2/search/messagesinthedefaulterrorview.md)
-  * **Find projects affected by changes to the default error view message attribute**
-  * As of Spring Boot 2.5 the `message` attribute in the default error view was removed rather than blanked when it is not shown. `spring-webmvc` or `spring-webflux` projects that parse the error response JSON may need to deal with the missing item ([release notes](https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-2.5-Release-Notes#messages-in-the-default-error-view)). You can still use the `server.error.include-message` property if you want messages to be included.
-
-##### Data tables:
-
-  * **org.openrewrite.maven.table.DependenciesDeclared**: *Direct (first-order) dependencies declared by the project.*
 
 
 #### [org.openrewrite.java.spring.boot3.SpringBoot33BestPractices](/user-documentation/recipes/recipe-catalog/java/spring/boot3/springboot33bestpractices.md)
@@ -7882,7 +6944,6 @@ _This doc contains all of the recipes with **unique** data tables that have been
 
 ##### Data tables:
 
-  * **org.openrewrite.java.table.MethodCalls**: *The text of matching method invocations.*
   * **org.openrewrite.java.table.TypeUses**: *The source code of matching type uses.*
 
 
@@ -7892,7 +6953,6 @@ _This doc contains all of the recipes with **unique** data tables that have been
 
 ##### Data tables:
 
-  * **org.openrewrite.java.table.MethodCalls**: *The text of matching method invocations.*
   * **org.openrewrite.java.table.TypeUses**: *The source code of matching type uses.*
 
 
@@ -7905,22 +6965,12 @@ _This doc contains all of the recipes with **unique** data tables that have been
   * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
 
 
-#### [com.oracle.weblogic.rewrite.ReportDeprecated](/user-documentation/recipes/recipe-catalog/com/oracle/weblogic/rewrite/reportdeprecated.md)
-  * **Report uses of Java types deprecated or removed in WebLogic**
-  * This recipe will report uses of Java types that have been deprecated or removed in WebLogic.
-
-##### Data tables:
-
-  * **org.openrewrite.java.table.MethodCalls**: *The text of matching method invocations.*
-
-
 #### [com.oracle.weblogic.rewrite.ReportDeprecatedOrRemoved1412](/user-documentation/recipes/recipe-catalog/com/oracle/weblogic/rewrite/reportdeprecatedorremoved1412.md)
   * **Report types deprecated or removed in WebLogic version 14.1.2**
   * This recipe will report Java types that have been deprecated or removed in WebLogic version 14.1.2.
 
 ##### Data tables:
 
-  * **org.openrewrite.java.table.MethodCalls**: *The text of matching method invocations.*
   * **org.openrewrite.java.table.TypeUses**: *The source code of matching type uses.*
 
 
@@ -7930,7 +6980,6 @@ _This doc contains all of the recipes with **unique** data tables that have been
 
 ##### Data tables:
 
-  * **org.openrewrite.java.table.MethodCalls**: *The text of matching method invocations.*
   * **org.openrewrite.java.table.TypeUses**: *The source code of matching type uses.*
 
 
@@ -7968,7 +7017,6 @@ _This doc contains all of the recipes with **unique** data tables that have been
 ##### Data tables:
 
   * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
-  * **org.openrewrite.java.table.MethodCalls**: *The text of matching method invocations.*
   * **org.openrewrite.java.table.TypeUses**: *The source code of matching type uses.*
 
 
@@ -7979,7 +7027,6 @@ _This doc contains all of the recipes with **unique** data tables that have been
 ##### Data tables:
 
   * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
-  * **org.openrewrite.java.table.MethodCalls**: *The text of matching method invocations.*
   * **org.openrewrite.java.table.TypeUses**: *The source code of matching type uses.*
 
 
@@ -8479,8 +7526,8 @@ _This doc contains all of the recipes with **unique** data tables that have been
 
 
 #### [org.apache.camel.upgrade.CamelMigrationRecipe](/user-documentation/recipes/recipe-catalog/org/apache/camel/upgrade/camelmigrationrecipe.md)
-  * **Migrate to 4.20.0**
-  * Migrates Apache Camel application to 4.20.0.
+  * **Migrate to 4.18.0**
+  * Migrates Apache Camel application to 4.18.0.
 
 ##### Data tables:
 
@@ -8526,24 +7573,6 @@ _This doc contains all of the recipes with **unique** data tables that have been
 #### [org.apache.camel.upgrade.camel413.furyDependency](/user-documentation/recipes/recipe-catalog/org/apache/camel/upgrade/camel413/furydependency.md)
   * **Change Maven dependency example**
   * 
-
-##### Data tables:
-
-  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
-
-
-#### [org.apache.camel.upgrade.camel419.CamelMigrationRecipe](/user-documentation/recipes/recipe-catalog/org/apache/camel/upgrade/camel419/camelmigrationrecipe.md)
-  * **Migrates `camel 4.18` application to `camel 4.19`**
-  * Migrates `camel 4.18` application to `camel 4.19`.
-
-##### Data tables:
-
-  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
-
-
-#### [org.apache.camel.upgrade.camel419.migrateGroovyXml](/user-documentation/recipes/recipe-catalog/org/apache/camel/upgrade/camel419/migrategroovyxml.md)
-  * **Migrate camel-groovy-xml to camel-groovy**
-  * camel-groovy-xml has been removed and moved into camel-groovy. Changes the dependency from camel-groovy-xml to camel-groovy.
 
 ##### Data tables:
 

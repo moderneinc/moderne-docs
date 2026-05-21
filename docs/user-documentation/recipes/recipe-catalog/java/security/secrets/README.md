@@ -24,9 +24,7 @@ _Recipes that include further recipes, often including the individual recipes be
 ## Recipes
 
 * [Find Azure secrets](./findazuresecrets.md)
-* [Find Bearer token secrets](./findbearertokensecrets.md)
 * [Find Discord secrets](./finddiscordsecrets.md)
-* [Find HTTP Basic authentication secrets](./findbasicauthsecrets.md)
 * [Find Heroku secrets](./findherokusecrets.md)
 * [Find JWT secrets](./findjwtsecrets.md)
 * [Find Mailgun secrets](./findmailgunsecrets.md)

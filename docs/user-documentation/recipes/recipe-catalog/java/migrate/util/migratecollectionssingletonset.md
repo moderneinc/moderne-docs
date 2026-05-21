@@ -15,7 +15,7 @@ import RunRecipe from '@site/src/components/RunRecipe';
 
 **org.openrewrite.java.migrate.util.MigrateCollectionsSingletonSet**
 
-_Prefer `Set.of(..)` instead of using `Collections.singleton()` in Java 9 or higher. Note that the resulting `Set` is not behaviorally equivalent: `Set.of(..)` throws `NullPointerException` when probed with `contains(null)`, whereas `Collections.singleton(..)` returns `false`._
+_Prefer `Set.Of(..)` instead of using `Collections.singleton()` in Java 9 or higher._
 
 ## Recipe source
 

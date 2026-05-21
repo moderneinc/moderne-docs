@@ -23,9 +23,7 @@ _Recipes that include further recipes, often including the individual recipes be
 ## Recipes
 
 * [Add Terraform configuration](./addconfiguration.md)
-* [Add a nested block to a Terraform resource](./addresourcenestedblock.md)
 * [Change Terraform resource attribute](./changeresourceattribute.md)
-* [Change a single attribute inside a Terraform resource's nested block](./changeresourcenestedblockattribute.md)
 * [Move provider version to `required_providers`](./moveproviderversiontorequiredproviders.md)
 * [Use a long enough byte length for `random` resources](./securerandom.md)
 

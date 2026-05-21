@@ -7,6 +7,5 @@ description: Scala OpenRewrite recipes.
 ## Categories
 
 * [Migrate](/user-documentation/recipes/recipe-catalog/scala/migrate)
-* [Recipes](/user-documentation/recipes/recipe-catalog/scala/recipes)
 
 

@@ -33,7 +33,7 @@ This recipe is available under the [Moderne Source Available License](https://do
   * cardName: `Move to the latest `apache` parent POM`
   * groupIdPattern: `org.apache`
   * artifactIdPattern: `apache`
-  * version: `37`
+  * version: `35`
   * upgradeRecipe: `io.moderne.devcenter.UpgradeApacheParent`
 * [Move to a later Java version](../devcenter/javaversionupgrade)
   * majorVersion: `25`
@@ -57,7 +57,7 @@ recipeList:
       cardName: Move to the latest `apache` parent POM
       groupIdPattern: org.apache
       artifactIdPattern: apache
-      version: 37
+      version: 35
       upgradeRecipe: io.moderne.devcenter.UpgradeApacheParent
   - io.moderne.devcenter.JavaVersionUpgrade:
       majorVersion: 25
@@ -107,37 +107,6 @@ _Progress towards organizational objectives on library or language migrations an
 | Ordinal | The ordinal position of this value relative to other values. |
 | Value | The display value of the current state of this repository. |
 | Minimum version | The minimum matching version that is currently in use. |
-
-</TabItem>
-
-<TabItem value="org.openrewrite.java.table.MethodCalls" label="MethodCalls">
-
-### Method calls
-**org.openrewrite.java.table.MethodCalls**
-
-_The text of matching method invocations._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| Source file | The source file that the method call occurred in. |
-| Method call | The text of the method call. |
-| Class name | The class name of the method call. |
-| Method name | The method name of the method call. |
-| Argument types | The argument types of the method call. |
-
-</TabItem>
-
-<TabItem value="io.moderne.devcenter.table.SecurityIssues" label="SecurityIssues">
-
-### Security issues
-**io.moderne.devcenter.table.SecurityIssues**
-
-_Security issues in the repository._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| Ordinal | The ordinal position of this issue relative to other issues. |
-| Issue name | The name of the security issue. |
 
 </TabItem>
 
@@ -207,6 +176,37 @@ _Statistics used in analyzing the performance of recipes._
 | Max scanning time (ns) | The max time scanning any one source file. |
 | Cumulative edit time (ns) | The total time spent across the editing phase of this recipe. |
 | Max edit time (ns) | The max time editing any one source file. |
+
+</TabItem>
+
+<TabItem value="org.openrewrite.java.table.MethodCalls" label="MethodCalls">
+
+### Method calls
+**org.openrewrite.java.table.MethodCalls**
+
+_The text of matching method invocations._
+
+| Column Name | Description |
+| ----------- | ----------- |
+| Source file | The source file that the method call occurred in. |
+| Method call | The text of the method call. |
+| Class name | The class name of the method call. |
+| Method name | The method name of the method call. |
+| Argument types | The argument types of the method call. |
+
+</TabItem>
+
+<TabItem value="io.moderne.devcenter.table.SecurityIssues" label="SecurityIssues">
+
+### Security issues
+**io.moderne.devcenter.table.SecurityIssues**
+
+_Security issues in the repository._
+
+| Column Name | Description |
+| ----------- | ----------- |
+| Ordinal | The ordinal position of this issue relative to other issues. |
+| Issue name | The name of the security issue. |
 
 </TabItem>
 

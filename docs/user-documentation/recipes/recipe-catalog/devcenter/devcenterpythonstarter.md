@@ -96,51 +96,6 @@ _Progress towards organizational objectives on library or language migrations an
 
 </TabItem>
 
-<TabItem value="io.moderne.devcenter.table.OrganizationStatistics" label="OrganizationStatistics">
-
-### Organization statistics
-**io.moderne.devcenter.table.OrganizationStatistics**
-
-_Per-repository statistics aggregated at the organization level._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| Line count | The number of lines of code in this repository. |
-
-</TabItem>
-
-<TabItem value="org.openrewrite.table.DistinctCommitters" label="DistinctCommitters">
-
-### Repository committers
-**org.openrewrite.table.DistinctCommitters**
-
-_The distinct set of committers per repository._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| Name | The name of the committer. |
-| Email | The email of the committer. |
-| Last commit | The date of this committer's last commit. |
-| Number of commits | The number of commits made by this committer. |
-
-</TabItem>
-
-<TabItem value="org.openrewrite.table.CommitsByDay" label="CommitsByDay">
-
-### Commits by day
-**org.openrewrite.table.CommitsByDay**
-
-_The commit activity by day by committer._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| Name | The name of the committer. |
-| Email | The email of the committer. |
-| Date | The date of the day. |
-| Number of commits | The number of commits made by this committer on this day. |
-
-</TabItem>
-
 <TabItem value="org.openrewrite.table.SourcesFileResults" label="SourcesFileResults">
 
 ### Source files that had results
@@ -207,6 +162,51 @@ _Statistics used in analyzing the performance of recipes._
 | Max scanning time (ns) | The max time scanning any one source file. |
 | Cumulative edit time (ns) | The total time spent across the editing phase of this recipe. |
 | Max edit time (ns) | The max time editing any one source file. |
+
+</TabItem>
+
+<TabItem value="io.moderne.devcenter.table.OrganizationStatistics" label="OrganizationStatistics">
+
+### Organization statistics
+**io.moderne.devcenter.table.OrganizationStatistics**
+
+_Per-repository statistics aggregated at the organization level._
+
+| Column Name | Description |
+| ----------- | ----------- |
+| Line count | The number of lines of code in this repository. |
+
+</TabItem>
+
+<TabItem value="org.openrewrite.table.DistinctCommitters" label="DistinctCommitters">
+
+### Repository committers
+**org.openrewrite.table.DistinctCommitters**
+
+_The distinct set of committers per repository._
+
+| Column Name | Description |
+| ----------- | ----------- |
+| Name | The name of the committer. |
+| Email | The email of the committer. |
+| Last commit | The date of this committer's last commit. |
+| Number of commits | The number of commits made by this committer. |
+
+</TabItem>
+
+<TabItem value="org.openrewrite.table.CommitsByDay" label="CommitsByDay">
+
+### Commits by day
+**org.openrewrite.table.CommitsByDay**
+
+_The commit activity by day by committer._
+
+| Column Name | Description |
+| ----------- | ----------- |
+| Name | The name of the committer. |
+| Email | The email of the committer. |
+| Date | The date of the day. |
+| Number of commits | The number of commits made by this committer on this day. |
 
 </TabItem>
 

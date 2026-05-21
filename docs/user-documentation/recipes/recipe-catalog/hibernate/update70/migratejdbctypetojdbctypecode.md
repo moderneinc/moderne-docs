@@ -1,16 +1,16 @@
 ---
-sidebar_label: "Migrate `@JdbcType` and legacy `@Type` to `@JdbcTypeCode`"
+sidebar_label: "Migrate @JdbcType to @JdbcTypeCode"
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import RunRecipe from '@site/src/components/RunRecipe';
 
-# Migrate `@JdbcType` and legacy `@Type` to `@JdbcTypeCode`
+# Migrate @JdbcType to @JdbcTypeCode
 
 **io.moderne.hibernate.update70.MigrateJdbcTypeToJdbcTypeCode**
 
-_In Hibernate 7.0, various JDBC types were moved to internal packages. Use `@JdbcTypeCode` with `SqlTypes` constants instead of `@JdbcType` with specific classes. Also rewrites `@Type(LegacyType.class)` references to deprecated Hibernate basic types (e.g. `MaterializedBlobType`, `ImageType`) into the equivalent `@JdbcTypeCode(SqlTypes.X)`._
+_In Hibernate 7.0, various JDBC types were moved to internal packages. Use @JdbcTypeCode with SqlTypes constants instead of @JdbcType with specific classes._
 
 ## Recipe source
 
@@ -18,13 +18,6 @@ This recipe is only available to users of [Moderne](https://docs.moderne.io/).
 
 
 This recipe is available under the [Moderne Proprietary License](https://docs.moderne.io/licensing/overview).
-
-
-## Used by
-
-This recipe is used as part of the following composite recipes:
-
-* [Migrate to Hibernate 7.0.x (Moderne Edition)](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/hibernate/migratetohibernate70-moderne-edition)
 
 ## Example
 
@@ -98,7 +91,7 @@ import jakarta.persistence.Id;
 
 <RunRecipe
   recipeName="io.moderne.hibernate.update70.MigrateJdbcTypeToJdbcTypeCode"
-  displayName="Migrate `@JdbcType` and legacy `@Type` to `@JdbcTypeCode`"
+  displayName="Migrate @JdbcType to @JdbcTypeCode"
   groupId="io.moderne.recipe"
   artifactId="rewrite-hibernate"
   versionKey="VERSION_IO_MODERNE_RECIPE_REWRITE_HIBERNATE"

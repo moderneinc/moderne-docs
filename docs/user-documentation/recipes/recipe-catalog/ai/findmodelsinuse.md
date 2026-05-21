@@ -45,20 +45,6 @@ Please [contact Moderne](https://moderne.io/product) for more information about 
 ## Data Tables
 
 <Tabs groupId="data-tables">
-<TabItem value="org.openrewrite.table.TextMatches" label="TextMatches">
-
-### Text matches
-**org.openrewrite.table.TextMatches**
-
-_Lines matching simple text search._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| Source path | The path to the source file. |
-| Match | The text of the match. |
-
-</TabItem>
-
 <TabItem value="org.openrewrite.table.SourcesFileResults" label="SourcesFileResults">
 
 ### Source files that had results
@@ -125,6 +111,20 @@ _Statistics used in analyzing the performance of recipes._
 | Max scanning time (ns) | The max time scanning any one source file. |
 | Cumulative edit time (ns) | The total time spent across the editing phase of this recipe. |
 | Max edit time (ns) | The max time editing any one source file. |
+
+</TabItem>
+
+<TabItem value="org.openrewrite.table.TextMatches" label="TextMatches">
+
+### Text matches
+**org.openrewrite.table.TextMatches**
+
+_Lines matching simple text search._
+
+| Column Name | Description |
+| ----------- | ----------- |
+| Source path | The path to the source file. |
+| Match | The text of the match. |
 
 </TabItem>
 

@@ -48,6 +48,12 @@ This recipe is available under the [Moderne Source Available License](https://do
 
 * [Migrate from Swagger to OpenAPI](../../openapi/swagger/swaggertoopenapi)
 * [Removes @Import(BeanValidatorPluginsConfiguration.class)](../../java/spring/doc/removebeanvalidatorpluginsconfiguration)
+* [Delete a spring configuration property](../../java/spring/deletespringproperty)
+  * propertyKey: `swagger.title`
+* [Delete a spring configuration property](../../java/spring/deletespringproperty)
+  * propertyKey: `swagger.description`
+* [Delete a spring configuration property](../../java/spring/deletespringproperty)
+  * propertyKey: `swagger.contact`
 * [Remove annotation](../../java/removeannotation)
   * annotationPattern: `@springfox.documentation.swagger2.annotations.EnableSwagger2`
 * [Migrate `Docket` to `GroupedOpenAPI`](../../java/spring/doc/migratedocketbeantogroupedopenapibean)
@@ -72,6 +78,12 @@ preconditions:
 recipeList:
   - org.openrewrite.openapi.swagger.SwaggerToOpenAPI
   - org.openrewrite.java.spring.doc.RemoveBeanValidatorPluginsConfiguration
+  - org.openrewrite.java.spring.DeleteSpringProperty:
+      propertyKey: swagger.title
+  - org.openrewrite.java.spring.DeleteSpringProperty:
+      propertyKey: swagger.description
+  - org.openrewrite.java.spring.DeleteSpringProperty:
+      propertyKey: swagger.contact
   - org.openrewrite.java.RemoveAnnotation:
       annotationPattern: @springfox.documentation.swagger2.annotations.EnableSwagger2
   - org.openrewrite.java.spring.doc.MigrateDocketBeanToGroupedOpenApiBean

@@ -30,7 +30,6 @@ _Recipes that include further recipes, often including the individual recipes be
 * [Find unconditional secrets inheritance](./secretsinherit.md)
 * [Find usage of self-hosted runners](./selfhostedrunner.md)
 * [Pin Docker images to digests](./unpinneddockerimages.md)
-* [Pin GitHub Actions to commit SHAs](./pingithubactionstosha.md)
 * [Pin GitHub Actions to specific commits](./unpinnedactions.md)
 
 

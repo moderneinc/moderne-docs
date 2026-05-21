@@ -30,7 +30,7 @@ This recipe is available under the [Moderne Proprietary License](https://docs.mo
 ###### Parameters
 | Parameter | Value |
 | --- | --- |
-|ignoredDependencies|`List.of()`|
+|ignoredDependencies|`emptyList()`|
 
 
 ###### Unchanged

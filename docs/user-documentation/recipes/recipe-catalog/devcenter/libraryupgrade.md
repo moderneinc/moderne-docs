@@ -35,7 +35,6 @@ This recipe is available under the [Moderne Source Available License](https://do
 
 This recipe is used as part of the following composite recipes:
 
-* [DevCenter Kotlin](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/devcenter/devcenterkotlin)
 * [DevCenter for Quarkus](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/devcenter/quarkusdevcenter)
 * [DevCenter](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/devcenter/devcenterstarter)
 

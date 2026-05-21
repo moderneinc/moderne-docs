@@ -1,5 +1,5 @@
 ---
-sidebar_label: "Migrate to 4.20.0"
+sidebar_label: "Migrate to 4.18.0"
 ---
 
 
@@ -11,11 +11,11 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import RunRecipe from '@site/src/components/RunRecipe';
 
-# Migrate to 4.20.0
+# Migrate to 4.18.0
 
 **org.apache.camel.upgrade.CamelMigrationRecipe**
 
-_Migrates Apache Camel application to 4.20.0._
+_Migrates Apache Camel application to 4.18.0._
 
 ## Recipe source
 
@@ -34,8 +34,6 @@ This recipe is available under the [Apache License Version 2.0](https://www.apac
 
 <Tabs groupId="recipeType">
 <TabItem value="recipe-list" label="Recipe List" >
-* [Migrates `camel 4.19` application to `camel 4.20`](../../../../org/apache/camel/upgrade/camel420/camelmigrationrecipe)
-* [Migrates `camel 4.18` application to `camel 4.19`](../../../../org/apache/camel/upgrade/camel419/camelmigrationrecipe)
 * [Migrates `camel 4.17` application to `camel 4.18`](../../../../org/apache/camel/upgrade/camel418/camelmigrationrecipe)
 * [Migrates `camel 4.16` application to `camel 4.17`](../../../../org/apache/camel/upgrade/camel417/camelmigrationrecipe)
 * [Migrates `camel 4.15` application to `camel 4.16`](../../../../org/apache/camel/upgrade/camel416/camelmigrationrecipe)
@@ -57,18 +55,15 @@ This recipe is available under the [Apache License Version 2.0](https://www.apac
 * [Upgrade Maven dependency version](../../../../maven/upgradedependencyversion)
   * groupId: `org.apache.camel`
   * artifactId: `*`
-  * newVersion: `4.20.0`
+  * newVersion: `4.18.0`
 * [Upgrade Maven plugin version](../../../../maven/upgradepluginversion)
   * groupId: `org.apache.camel`
   * artifactId: `*`
-  * newVersion: `4.20.0`
+  * newVersion: `4.18.0`
 * [Upgrade Maven parent project version](../../../../maven/upgradeparentversion)
   * groupId: `org.apache.camel`
   * artifactId: `*`
-  * newVersion: `4.20.0`
-* [Change Maven project property value](../../../../maven/changepropertyvalue)
-  * key: `camel.version`
-  * newValue: `4.20.0`
+  * newVersion: `4.18.0`
 
 </TabItem>
 
@@ -78,12 +73,10 @@ This recipe is available under the [Apache License Version 2.0](https://www.apac
 ---
 type: specs.openrewrite.org/v1beta/recipe
 name: org.apache.camel.upgrade.CamelMigrationRecipe
-displayName: Migrate to 4.20.0
+displayName: Migrate to 4.18.0
 description: |
-  Migrates Apache Camel application to 4.20.0.
+  Migrates Apache Camel application to 4.18.0.
 recipeList:
-  - org.apache.camel.upgrade.camel420.CamelMigrationRecipe
-  - org.apache.camel.upgrade.camel419.CamelMigrationRecipe
   - org.apache.camel.upgrade.camel418.CamelMigrationRecipe
   - org.apache.camel.upgrade.camel417.CamelMigrationRecipe
   - org.apache.camel.upgrade.camel416.CamelMigrationRecipe
@@ -105,18 +98,15 @@ recipeList:
   - org.openrewrite.maven.UpgradeDependencyVersion:
       groupId: org.apache.camel
       artifactId: "*"
-      newVersion: 4.20.0
+      newVersion: 4.18.0
   - org.openrewrite.maven.UpgradePluginVersion:
       groupId: org.apache.camel
       artifactId: "*"
-      newVersion: 4.20.0
+      newVersion: 4.18.0
   - org.openrewrite.maven.UpgradeParentVersion:
       groupId: org.apache.camel
       artifactId: "*"
-      newVersion: 4.20.0
-  - org.openrewrite.maven.ChangePropertyValue:
-      key: camel.version
-      newValue: 4.20.0
+      newVersion: 4.18.0
 
 ```
 </TabItem>
@@ -126,7 +116,7 @@ recipeList:
 
 <RunRecipe
   recipeName="org.apache.camel.upgrade.CamelMigrationRecipe"
-  displayName="Migrate to 4.20.0"
+  displayName="Migrate to 4.18.0"
   groupId="org.openrewrite.recipe"
   artifactId="rewrite-third-party"
   versionKey="VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY"
@@ -147,25 +137,6 @@ Please [contact Moderne](https://moderne.io/product) for more information about 
 ## Data Tables
 
 <Tabs groupId="data-tables">
-<TabItem value="org.openrewrite.maven.table.MavenMetadataFailures" label="MavenMetadataFailures">
-
-### Maven metadata failures
-**org.openrewrite.maven.table.MavenMetadataFailures**
-
-_Attempts to resolve maven metadata that failed._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| Group id | The groupId of the artifact for which the metadata download failed. |
-| Artifact id | The artifactId of the artifact for which the metadata download failed. |
-| Version | The version of the artifact for which the metadata download failed. |
-| Maven repository | The URL of the Maven repository that the metadata download failed on. |
-| Snapshots | Does the repository support snapshots. |
-| Releases | Does the repository support releases. |
-| Failure | The reason the metadata download failed. |
-
-</TabItem>
-
 <TabItem value="org.openrewrite.table.SourcesFileResults" label="SourcesFileResults">
 
 ### Source files that had results
@@ -232,6 +203,25 @@ _Statistics used in analyzing the performance of recipes._
 | Max scanning time (ns) | The max time scanning any one source file. |
 | Cumulative edit time (ns) | The total time spent across the editing phase of this recipe. |
 | Max edit time (ns) | The max time editing any one source file. |
+
+</TabItem>
+
+<TabItem value="org.openrewrite.maven.table.MavenMetadataFailures" label="MavenMetadataFailures">
+
+### Maven metadata failures
+**org.openrewrite.maven.table.MavenMetadataFailures**
+
+_Attempts to resolve maven metadata that failed._
+
+| Column Name | Description |
+| ----------- | ----------- |
+| Group id | The groupId of the artifact for which the metadata download failed. |
+| Artifact id | The artifactId of the artifact for which the metadata download failed. |
+| Version | The version of the artifact for which the metadata download failed. |
+| Maven repository | The URL of the Maven repository that the metadata download failed on. |
+| Snapshots | Does the repository support snapshots. |
+| Releases | Does the repository support releases. |
+| Failure | The reason the metadata download failed. |
 
 </TabItem>
 

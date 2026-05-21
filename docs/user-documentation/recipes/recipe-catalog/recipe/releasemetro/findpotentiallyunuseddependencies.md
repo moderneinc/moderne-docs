@@ -26,51 +26,6 @@ This recipe is used as part of the following composite recipes:
 
 * [Analyse Organization's Release Train Metro Plan](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/recipe/releasemetro/releasemetroplan)
 
-## Example
-
-
-<Tabs groupId="beforeAfter">
-<TabItem value="java" label="java">
-
-
-###### Before
-```java
-package com.example;
-
-import org.springframework.context.ApplicationContext;
-import org.springframework.boot.SpringApplication;
-import java.util.List;
-
-public class MyApp {
-    // Simple class without method calls to avoid type resolution issues
-}
-```
-
-###### After
-```java
-/*~~(Uses packages: java.util, org.springframework)~~>*/package com.example;
-
-import org.springframework.context.ApplicationContext;
-import org.springframework.boot.SpringApplication;
-import java.util.List;
-
-public class MyApp {
-    // Simple class without method calls to avoid type resolution issues
-}
-```
-
-</TabItem>
-<TabItem value="diff" label="Diff" >
-
-```diff
-@@ -1,1 +1,1 @@
--package com.example;
-+/*~~(Uses packages: java.util, org.springframework)~~>*/package com.example;
-
-```
-</TabItem>
-</Tabs>
-
 
 ## Usage
 

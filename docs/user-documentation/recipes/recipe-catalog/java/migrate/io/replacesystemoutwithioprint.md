@@ -50,8 +50,6 @@ class Example {
 
 ###### After
 ```java
-import java.io.IO;
-
 class Example {
     void test() {
         IO.print("Hello");
@@ -63,11 +61,7 @@ class Example {
 <TabItem value="diff" label="Diff" >
 
 ```diff
-@@ -1,0 +1,2 @@
-+import java.io.IO;
-+
-class Example {
-@@ -3,1 +5,1 @@
+@@ -3,1 +3,1 @@
 class Example {
     void test() {
 -       System.out.print("Hello");

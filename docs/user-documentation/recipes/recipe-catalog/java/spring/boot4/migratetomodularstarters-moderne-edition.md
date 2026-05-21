@@ -10,7 +10,7 @@ import RunRecipe from '@site/src/components/RunRecipe';
 
 **io.moderne.java.spring.boot4.MigrateToModularStarters**
 
-_Adds Spring Boot 4.0 modular starter dependencies based on package usage and rewrites the classic starters to the minimal `spring-boot-starter` / `spring-boot-starter-test`. The minimal starter is retained so that modules whose code only references core Spring annotations (e.g. `@SpringBootApplication`, `@Configuration`, `@Component`) still compile after migration._
+_Remove monolithic starters and adds the necessary Spring Boot 4.0 starter dependencies based on package usage, where any spring-boot-starter was used previously._
 
 ### Tags
 

@@ -14,7 +14,7 @@ _This recipe is a starter card to reveal common OWASP Top 10 issues in your sour
 
 ## Recipe source
 
-[GitHub: devcenter-kotlin.yml](https://github.com/moderneinc/rewrite-devcenter/blob/main/src/main/resources/META-INF/rewrite/devcenter-kotlin.yml),
+[GitHub: devcenter-starter.yml](https://github.com/moderneinc/rewrite-devcenter/blob/main/src/main/resources/META-INF/rewrite/devcenter-starter.yml),
 [Issue Tracker](https://github.com/moderneinc/rewrite-devcenter/issues),
 [Maven Central](https://central.sonatype.com/artifact/io.moderne.recipe/rewrite-devcenter/)
 
@@ -69,7 +69,6 @@ recipeList:
 
 This recipe is used as part of the following composite recipes:
 
-* [DevCenter Kotlin](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/devcenter/devcenterkotlin)
 * [DevCenter for Apache](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/devcenter/apachedevcenter)
 * [DevCenter for Quarkus](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/devcenter/quarkusdevcenter)
 * [DevCenter](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/devcenter/devcenterstarter)
@@ -201,37 +200,6 @@ Please [contact Moderne](https://moderne.io/product) for more information about 
 ## Data Tables
 
 <Tabs groupId="data-tables">
-<TabItem value="org.openrewrite.java.table.MethodCalls" label="MethodCalls">
-
-### Method calls
-**org.openrewrite.java.table.MethodCalls**
-
-_The text of matching method invocations._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| Source file | The source file that the method call occurred in. |
-| Method call | The text of the method call. |
-| Class name | The class name of the method call. |
-| Method name | The method name of the method call. |
-| Argument types | The argument types of the method call. |
-
-</TabItem>
-
-<TabItem value="io.moderne.devcenter.table.SecurityIssues" label="SecurityIssues">
-
-### Security issues
-**io.moderne.devcenter.table.SecurityIssues**
-
-_Security issues in the repository._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| Ordinal | The ordinal position of this issue relative to other issues. |
-| Issue name | The name of the security issue. |
-
-</TabItem>
-
 <TabItem value="org.openrewrite.table.SourcesFileResults" label="SourcesFileResults">
 
 ### Source files that had results
@@ -298,6 +266,37 @@ _Statistics used in analyzing the performance of recipes._
 | Max scanning time (ns) | The max time scanning any one source file. |
 | Cumulative edit time (ns) | The total time spent across the editing phase of this recipe. |
 | Max edit time (ns) | The max time editing any one source file. |
+
+</TabItem>
+
+<TabItem value="org.openrewrite.java.table.MethodCalls" label="MethodCalls">
+
+### Method calls
+**org.openrewrite.java.table.MethodCalls**
+
+_The text of matching method invocations._
+
+| Column Name | Description |
+| ----------- | ----------- |
+| Source file | The source file that the method call occurred in. |
+| Method call | The text of the method call. |
+| Class name | The class name of the method call. |
+| Method name | The method name of the method call. |
+| Argument types | The argument types of the method call. |
+
+</TabItem>
+
+<TabItem value="io.moderne.devcenter.table.SecurityIssues" label="SecurityIssues">
+
+### Security issues
+**io.moderne.devcenter.table.SecurityIssues**
+
+_Security issues in the repository._
+
+| Column Name | Description |
+| ----------- | ----------- |
+| Ordinal | The ordinal position of this issue relative to other issues. |
+| Issue name | The name of the security issue. |
 
 </TabItem>
 

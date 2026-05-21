@@ -10,7 +10,7 @@ import RunRecipe from '@site/src/components/RunRecipe';
 
 **org.openrewrite.python.ChangeDependency**
 
-_Change a dependency to a different package. Supports `pyproject.toml`, `requirements.txt`, and `Pipfile`. Searches all dependency scopes. When the matching package manager (`uv` or `pipenv`) is available, the corresponding lock file (`uv.lock` or `Pipfile.lock`) is regenerated. Not safe to use as a precondition: invokes the package manager and publishes per-project state shared with other dependency recipes._
+_Change a dependency to a different package. Supports `pyproject.toml`, `requirements.txt`, and `Pipfile`. Searches all dependency scopes. When `uv` is available, the `uv.lock` file is regenerated._
 
 ## Recipe source
 

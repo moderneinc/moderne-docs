@@ -19,173 +19,6 @@ This recipe is only available to users of [Moderne](https://docs.moderne.io/).
 
 This recipe is available under the [Moderne Proprietary License](https://docs.moderne.io/licensing/overview).
 
-## Examples
-##### Example 1
-`ReleaseMetroPlanDependenciesTest#mavenMarksAllDeclaredDependenciesRegardlessOfScope`
-
-
-<Tabs groupId="beforeAfter">
-<TabItem value="pom.xml" label="pom.xml">
-
-
-###### Before
-```xml title="pom.xml"
-<?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0">
-    <modelVersion>4.0.0</modelVersion>
-    <groupId>com.example</groupId>
-    <artifactId>scope-filter</artifactId>
-    <version>1.0.0</version>
-    <dependencies>
-        <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-api</artifactId>
-            <version>1.7.36</version>
-        </dependency>
-        <dependency>
-            <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter</artifactId>
-            <version>5.8.2</version>
-            <scope>test</scope>
-        </dependency>
-    </dependencies>
-</project>
-```
-
-###### After
-```xml title="pom.xml"
-<!--~~(com.example:scope-filter)~~>--><?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0">
-    <modelVersion>4.0.0</modelVersion>
-    <groupId>com.example</groupId>
-    <artifactId>scope-filter</artifactId>
-    <version>1.0.0</version>
-    <dependencies>
-        <!--~~>--><dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-api</artifactId>
-            <version>1.7.36</version>
-        </dependency>
-        <!--~~>--><dependency>
-            <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter</artifactId>
-            <version>5.8.2</version>
-            <scope>test</scope>
-        </dependency>
-    </dependencies>
-</project>
-```
-
-</TabItem>
-<TabItem value="diff" label="Diff" >
-
-```diff
---- pom.xml
-+++ pom.xml
-@@ -1,1 +1,1 @@
--<?xml version="1.0" encoding="UTF-8"?>
-+<!--~~(com.example:scope-filter)~~>--><?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0">
-@@ -8,1 +8,1 @@
-    <version>1.0.0</version>
-    <dependencies>
--       <dependency>
-+       <!--~~>--><dependency>
-            <groupId>org.slf4j</groupId>
-@@ -13,1 +13,1 @@
-            <version>1.7.36</version>
-        </dependency>
--       <dependency>
-+       <!--~~>--><dependency>
-            <groupId>org.junit.jupiter</groupId>
-```
-</TabItem>
-</Tabs>
-
----
-
-##### Example 2
-`ReleaseMetroPlanDependenciesTest#mavenMarksAllDeclaredDependenciesRegardlessOfScope`
-
-
-<Tabs groupId="beforeAfter">
-<TabItem value="pom.xml" label="pom.xml">
-
-
-###### Before
-```xml title="pom.xml"
-<?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0">
-    <modelVersion>4.0.0</modelVersion>
-    <groupId>com.example</groupId>
-    <artifactId>scope-filter</artifactId>
-    <version>1.0.0</version>
-    <dependencies>
-        <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-api</artifactId>
-            <version>1.7.36</version>
-        </dependency>
-        <dependency>
-            <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter</artifactId>
-            <version>5.8.2</version>
-            <scope>test</scope>
-        </dependency>
-    </dependencies>
-</project>
-```
-
-###### After
-```xml title="pom.xml"
-<!--~~(com.example:scope-filter)~~>--><?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0">
-    <modelVersion>4.0.0</modelVersion>
-    <groupId>com.example</groupId>
-    <artifactId>scope-filter</artifactId>
-    <version>1.0.0</version>
-    <dependencies>
-        <!--~~>--><dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-api</artifactId>
-            <version>1.7.36</version>
-        </dependency>
-        <!--~~>--><dependency>
-            <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter</artifactId>
-            <version>5.8.2</version>
-            <scope>test</scope>
-        </dependency>
-    </dependencies>
-</project>
-```
-
-</TabItem>
-<TabItem value="diff" label="Diff" >
-
-```diff
---- pom.xml
-+++ pom.xml
-@@ -1,1 +1,1 @@
--<?xml version="1.0" encoding="UTF-8"?>
-+<!--~~(com.example:scope-filter)~~>--><?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0">
-@@ -8,1 +8,1 @@
-    <version>1.0.0</version>
-    <dependencies>
--       <dependency>
-+       <!--~~>--><dependency>
-            <groupId>org.slf4j</groupId>
-@@ -13,1 +13,1 @@
-            <version>1.7.36</version>
-        </dependency>
--       <dependency>
-+       <!--~~>--><dependency>
-            <groupId>org.junit.jupiter</groupId>
-```
-</TabItem>
-</Tabs>
-
 
 ## Usage
 
@@ -223,61 +56,6 @@ _Maven Modules or Gradle (sub-)project groupId and artifactId._
 | ----------- | ----------- |
 | groupId | Group ID of the current module/subproject |
 | artifactId | Artifact ID of the current module/subproject |
-
-</TabItem>
-
-<TabItem value="io.moderne.recipe.releasemetro.table.ParentRelationships" label="ParentRelationships">
-
-### Maven parent and Gradle project hierarchies
-**io.moderne.recipe.releasemetro.table.ParentRelationships**
-
-_Relationships between Maven child modules and their parent POMs, or Gradle subprojects and their root project._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| childGroupId | Group ID of the child project |
-| childArtifactId | Artifact ID of the child project |
-| parentGroupId | Group ID of the parent project |
-| parentArtifactId | Artifact ID of the parent project |
-| parentVersion | Version of the parent project |
-| hierarchyType | Type of hierarchy relationship (MAVEN_PARENT or GRADLE_PARENT) |
-
-</TabItem>
-
-<TabItem value="io.moderne.recipe.releasemetro.table.UnusedDependencies" label="UnusedDependencies">
-
-### Potentially Unused Dependencies
-**io.moderne.recipe.releasemetro.table.UnusedDependencies**
-
-_Dependencies that are declared in build files but may not be used based on import analysis._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| dependencyGroupId | Group ID of the potentially unused dependency |
-| dependencyArtifactId | Artifact ID of the potentially unused dependency |
-| dependencyVersion | Version of the potentially unused dependency |
-| dependencyScope | Scope of the dependency (compile, test, etc.) |
-| isDirect | Whether this is a direct dependency (not transitive) |
-| reasonSuspected | Reason why this dependency is suspected to be unused |
-
-</TabItem>
-
-<TabItem value="org.openrewrite.maven.table.DependenciesDeclared" label="DependenciesDeclared">
-
-### Dependencies declared
-**org.openrewrite.maven.table.DependenciesDeclared**
-
-_Direct (first-order) dependencies declared by the project._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| Project name | The name of the project that contains the dependency. |
-| Source set | The source set that contains the dependency. |
-| Group | The first part of a dependency coordinate `com.google.guava:guava:VERSION`. |
-| Artifact | The second part of a dependency coordinate `com.google.guava:guava:VERSION`. |
-| Version | The resolved version. |
-| Dated snapshot version | The resolved dated snapshot version or `null` if this dependency is not a snapshot. |
-| Scope | Maven scope (e.g. `compile`, `test`) or Gradle configuration name (e.g. `implementation`, `testImplementation`). For Maven, defaults to `compile` when no scope is declared. |
 
 </TabItem>
 
@@ -347,6 +125,62 @@ _Statistics used in analyzing the performance of recipes._
 | Max scanning time (ns) | The max time scanning any one source file. |
 | Cumulative edit time (ns) | The total time spent across the editing phase of this recipe. |
 | Max edit time (ns) | The max time editing any one source file. |
+
+</TabItem>
+
+<TabItem value="io.moderne.recipe.releasemetro.table.ParentRelationships" label="ParentRelationships">
+
+### Maven Parent and Gradle Project Hierarchies
+**io.moderne.recipe.releasemetro.table.ParentRelationships**
+
+_Relationships between child projects and their parent POMs or Gradle parent projects._
+
+| Column Name | Description |
+| ----------- | ----------- |
+| childGroupId | Group ID of the child project |
+| childArtifactId | Artifact ID of the child project |
+| parentGroupId | Group ID of the parent project |
+| parentArtifactId | Artifact ID of the parent project |
+| parentVersion | Version of the parent project |
+| hierarchyType | Type of hierarchy relationship (MAVEN_PARENT or GRADLE_PARENT) |
+
+</TabItem>
+
+<TabItem value="io.moderne.recipe.releasemetro.table.UnusedDependencies" label="UnusedDependencies">
+
+### Potentially Unused Dependencies
+**io.moderne.recipe.releasemetro.table.UnusedDependencies**
+
+_Dependencies that are declared in build files but may not be used based on import analysis._
+
+| Column Name | Description |
+| ----------- | ----------- |
+| dependencyGroupId | Group ID of the potentially unused dependency |
+| dependencyArtifactId | Artifact ID of the potentially unused dependency |
+| dependencyVersion | Version of the potentially unused dependency |
+| dependencyScope | Scope of the dependency (compile, test, etc.) |
+| isDirect | Whether this is a direct dependency (not transitive) |
+| reasonSuspected | Reason why this dependency is suspected to be unused |
+
+</TabItem>
+
+<TabItem value="org.openrewrite.maven.table.DependenciesInUse" label="DependenciesInUse">
+
+### Dependencies in use
+**org.openrewrite.maven.table.DependenciesInUse**
+
+_Direct and transitive dependencies in use._
+
+| Column Name | Description |
+| ----------- | ----------- |
+| Project name | The name of the project that contains the dependency. |
+| Source set | The source set that contains the dependency. |
+| Group | The first part of a dependency coordinate `com.google.guava:guava:VERSION`. |
+| Artifact | The second part of a dependency coordinate `com.google.guava:guava:VERSION`. |
+| Version | The resolved version. |
+| Dated snapshot version | The resolved dated snapshot version or `null` if this dependency is not a snapshot. |
+| Scope | Dependency scope. This will be `compile` if the dependency is direct and a scope is not explicitly specified in the POM. |
+| Count | How many times does this dependency appear. |
 
 </TabItem>
 

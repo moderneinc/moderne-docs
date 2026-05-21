@@ -57,9 +57,7 @@ class Test {
 import java.util.Map;
 
 class Test {
-    Map<String, String> m = Map.of(
-        "stru", "menta",
-        "mod", "erne");
+    Map<String, String> m = Map.of("stru", "menta", "mod", "erne");
 }
 ```
 
@@ -70,16 +68,14 @@ class Test {
 @@ -1,1 +1,0 @@
 -import java.util.HashMap;
 import java.util.Map;
-@@ -5,4 +4,3 @@
+@@ -5,4 +4,1 @@
 
 class Test {
 -   Map<String, String> m = new HashMap<>() {{
 -       put("stru", "menta");
 -       put("mod", "erne");
 -   }};
-+   Map<String, String> m = Map.of(
-+       "stru", "menta",
-+       "mod", "erne");
++   Map<String, String> m = Map.of("stru", "menta", "mod", "erne");
 }
 ```
 </TabItem>

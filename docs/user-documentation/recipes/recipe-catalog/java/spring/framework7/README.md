@@ -26,7 +26,6 @@ _Recipes that include further recipes, often including the individual recipes be
 * [Migrate `ListenableFuture` to `CompletableFuture`](./migratelistenablefuture.md)
 * [Migrate `ResponseEntity#getStatusCodeValue()` to `getStatusCode().value()`](./migrateresponseentitygetstatuscodevaluemethod.md)
 * [Preserve DynamicDestinationResolver behavior for JmsTemplate](./migratejmsdestinationresolver.md)
-* [Remove Kotlin nullability from Spring HTTP entity type arguments](./removenullabilityfromspringhttpentitytypearguments.md)
 * [Remove spring-jcl dependency](./removespringjcl.md)
 * [Rename `RequestContext.jstPresent` to `JSTL_PRESENT`](./renamerequestcontextjstlpresent.md)
 * [Replace JUnit 4 Spring test base classes with JUnit Jupiter annotations](./replacejunit4springtestbaseclasses.md)

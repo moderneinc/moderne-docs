@@ -191,7 +191,6 @@ recipeList:
 
 This recipe is used as part of the following composite recipes:
 
-* [Migrate from Micronaut 4.x to 5.x](/user-documentation/recipes/recipe-catalog/java/micronaut/micronaut4to5migration.md)
 * [Migrate to Spring Framework 7.0](/user-documentation/recipes/recipe-catalog/java/spring/framework/upgradespringframework_7_0.md)
 
 ## Examples

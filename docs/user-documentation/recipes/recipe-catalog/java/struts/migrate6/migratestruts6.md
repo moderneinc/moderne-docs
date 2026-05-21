@@ -284,22 +284,6 @@ Please [contact Moderne](https://moderne.io/product) for more information about 
 ## Data Tables
 
 <Tabs groupId="data-tables">
-<TabItem value="org.openrewrite.java.struts.table.StaticOgnlMethodAccess" label="StaticOgnlMethodAccess">
-
-### Static OGNL method access
-**org.openrewrite.java.struts.table.StaticOgnlMethodAccess**
-
-_Locations where OGNL expressions use static method access, which is disabled by default in Struts 6._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| Source file | The source file containing the OGNL expression. |
-| OGNL expression | The full OGNL expression containing the static method access. |
-| Static class | The fully qualified class name being accessed statically. |
-| Static method | The static method being called. |
-
-</TabItem>
-
 <TabItem value="org.openrewrite.table.SourcesFileResults" label="SourcesFileResults">
 
 ### Source files that had results
@@ -366,6 +350,22 @@ _Statistics used in analyzing the performance of recipes._
 | Max scanning time (ns) | The max time scanning any one source file. |
 | Cumulative edit time (ns) | The total time spent across the editing phase of this recipe. |
 | Max edit time (ns) | The max time editing any one source file. |
+
+</TabItem>
+
+<TabItem value="org.openrewrite.java.struts.table.StaticOgnlMethodAccess" label="StaticOgnlMethodAccess">
+
+### Static OGNL method access
+**org.openrewrite.java.struts.table.StaticOgnlMethodAccess**
+
+_Locations where OGNL expressions use static method access, which is disabled by default in Struts 6._
+
+| Column Name | Description |
+| ----------- | ----------- |
+| Source file | The source file containing the OGNL expression. |
+| OGNL expression | The full OGNL expression containing the static method access. |
+| Static class | The fully qualified class name being accessed statically. |
+| Static method | The static method being called. |
 
 </TabItem>
 

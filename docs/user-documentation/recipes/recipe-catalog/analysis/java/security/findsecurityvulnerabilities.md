@@ -94,24 +94,6 @@ Please [contact Moderne](https://moderne.io/product) for more information about 
 ## Data Tables
 
 <Tabs groupId="data-tables">
-<TabItem value="org.openrewrite.analysis.java.taint.table.TaintFlowTable" label="TaintFlowTable">
-
-### Taint flow
-**org.openrewrite.analysis.java.taint.table.TaintFlowTable**
-
-_Records taint flows from sources to sinks with their taint types._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| Source file | The source file that the method call occurred in. |
-| Source line | The line number where the taint source is located. |
-| Source | The source code where taint originates. |
-| Sink line | The line number where the taint sink is located. |
-| Sink | The sink code where taint flows to. |
-| Taint type | The taint type that matched at the sink. |
-
-</TabItem>
-
 <TabItem value="org.openrewrite.table.SourcesFileResults" label="SourcesFileResults">
 
 ### Source files that had results

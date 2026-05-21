@@ -48,7 +48,6 @@ This recipe is available under the [Moderne Source Available License](https://do
 * [Migrate `UsernamePasswordCredentials` to httpclient5](../../apache/httpclient5/usernamepasswordcredentials)
 * [Migrate to ApacheHttpClient 5.x deprecated methods from 4.x](../../apache/httpclient5/statusline)
 * [Migrate to ApacheHttpClient 5.x Classes Namespace from 4.x](../../apache/httpclient5/upgradeapachehttpclient_5_classmapping)
-* [Migrate `AuthState` to `AuthExchange`](../../apache/httpclient5/migrateauthstate)
 * [Migrate to ApacheHttpClient 5.x deprecated methods from 4.x](../../apache/httpclient5/upgradeapachehttpclient_5_deprecatedmethods)
 * [Adds `TimeUnit` to timeouts and duration methods](../../apache/httpclient5/upgradeapachehttpclient_5_timeunit)
 * [Replaces `AuthScope.ANY`](../../apache/httpclient5/migrateauthscope)
@@ -90,7 +89,6 @@ recipeList:
   - org.openrewrite.apache.httpclient5.UsernamePasswordCredentials
   - org.openrewrite.apache.httpclient5.StatusLine
   - org.openrewrite.apache.httpclient5.UpgradeApacheHttpClient_5_ClassMapping
-  - org.openrewrite.apache.httpclient5.MigrateAuthState
   - org.openrewrite.apache.httpclient5.UpgradeApacheHttpClient_5_DeprecatedMethods
   - org.openrewrite.apache.httpclient5.UpgradeApacheHttpClient_5_TimeUnit
   - org.openrewrite.apache.httpclient5.MigrateAuthScope
@@ -228,72 +226,6 @@ class A {
 ---
 
 ##### Example 3
-`MigrateAuthStateTest#renameTypeAndStateEnumAndMethods`
-
-
-<Tabs groupId="beforeAfter">
-<TabItem value="java" label="java">
-
-
-###### Before
-```java
-import org.apache.http.auth.AuthScheme;
-import org.apache.http.auth.AuthState;
-import org.apache.http.auth.AuthProtocolState;
-
-class A {
-    void m(AuthState s, AuthScheme scheme) {
-        s.setAuthScheme(scheme);
-        s.setState(AuthProtocolState.CHALLENGED);
-        s.reset();
-    }
-}
-```
-
-###### After
-```java
-import org.apache.hc.client5.http.auth.AuthExchange.State;
-import org.apache.hc.client5.http.auth.AuthScheme;
-import org.apache.hc.client5.http.auth.AuthExchange;
-
-class A {
-    void m(AuthExchange s, AuthScheme scheme) {
-        s.select(scheme);
-        s.setState(AuthExchange.State.CHALLENGED);
-        s.reset();
-    }
-}
-```
-
-</TabItem>
-<TabItem value="diff" label="Diff" >
-
-```diff
-@@ -1,3 +1,3 @@
--import org.apache.http.auth.AuthScheme;
--import org.apache.http.auth.AuthState;
--import org.apache.http.auth.AuthProtocolState;
-+import org.apache.hc.client5.http.auth.AuthExchange.State;
-+import org.apache.hc.client5.http.auth.AuthScheme;
-+import org.apache.hc.client5.http.auth.AuthExchange;
-
-@@ -6,3 +6,3 @@
-
-class A {
--   void m(AuthState s, AuthScheme scheme) {
--       s.setAuthScheme(scheme);
--       s.setState(AuthProtocolState.CHALLENGED);
-+   void m(AuthExchange s, AuthScheme scheme) {
-+       s.select(scheme);
-+       s.setState(AuthExchange.State.CHALLENGED);
-        s.reset();
-```
-</TabItem>
-</Tabs>
-
----
-
-##### Example 4
 `MigrateHttpResponseTest#migratesHttpResponseToClassicHttpResponse`
 
 
@@ -369,7 +301,7 @@ class HttpClientManager {
 
 ---
 
-##### Example 5
+##### Example 4
 `MigrateSSLConnectionSocketFactoryTest#migratesToDefaultClientTlsStrategy`
 
 
@@ -447,7 +379,7 @@ import javax.net.ssl.SSLContext;
 
 ---
 
-##### Example 6
+##### Example 5
 `NewRequestLineTest#removeRequestLineHttpResponse`
 
 
@@ -517,7 +449,7 @@ class A {
 
 ---
 
-##### Example 7
+##### Example 6
 `NewStatusLineTest#removeStatusLineHttpResponse`
 
 
@@ -613,7 +545,7 @@ class A {
 
 ---
 
-##### Example 8
+##### Example 7
 `UpgradeApacheHttpClient5Test#importReplacementsInGroupsWithSomeSpecificMappings`
 
 
@@ -699,7 +631,7 @@ class A {
 
 ---
 
-##### Example 9
+##### Example 8
 `CookieConstantsTest#cookieConstantsMapping`
 
 
@@ -757,7 +689,7 @@ class A {
 
 ---
 
-##### Example 10
+##### Example 9
 `MigrateAuthScopeTest#authScopeAnyTest`
 
 
@@ -807,73 +739,7 @@ class A {
 
 ---
 
-##### Example 11
-`MigrateAuthStateTest#renameTypeAndStateEnumAndMethods`
-
-
-<Tabs groupId="beforeAfter">
-<TabItem value="java" label="java">
-
-
-###### Before
-```java
-import org.apache.http.auth.AuthScheme;
-import org.apache.http.auth.AuthState;
-import org.apache.http.auth.AuthProtocolState;
-
-class A {
-    void m(AuthState s, AuthScheme scheme) {
-        s.setAuthScheme(scheme);
-        s.setState(AuthProtocolState.CHALLENGED);
-        s.reset();
-    }
-}
-```
-
-###### After
-```java
-import org.apache.hc.client5.http.auth.AuthExchange.State;
-import org.apache.hc.client5.http.auth.AuthScheme;
-import org.apache.hc.client5.http.auth.AuthExchange;
-
-class A {
-    void m(AuthExchange s, AuthScheme scheme) {
-        s.select(scheme);
-        s.setState(AuthExchange.State.CHALLENGED);
-        s.reset();
-    }
-}
-```
-
-</TabItem>
-<TabItem value="diff" label="Diff" >
-
-```diff
-@@ -1,3 +1,3 @@
--import org.apache.http.auth.AuthScheme;
--import org.apache.http.auth.AuthState;
--import org.apache.http.auth.AuthProtocolState;
-+import org.apache.hc.client5.http.auth.AuthExchange.State;
-+import org.apache.hc.client5.http.auth.AuthScheme;
-+import org.apache.hc.client5.http.auth.AuthExchange;
-
-@@ -6,3 +6,3 @@
-
-class A {
--   void m(AuthState s, AuthScheme scheme) {
--       s.setAuthScheme(scheme);
--       s.setState(AuthProtocolState.CHALLENGED);
-+   void m(AuthExchange s, AuthScheme scheme) {
-+       s.select(scheme);
-+       s.setState(AuthExchange.State.CHALLENGED);
-        s.reset();
-```
-</TabItem>
-</Tabs>
-
----
-
-##### Example 12
+##### Example 10
 `MigrateHttpResponseTest#migratesHttpResponseToClassicHttpResponse`
 
 
@@ -949,7 +815,7 @@ class HttpClientManager {
 
 ---
 
-##### Example 13
+##### Example 11
 `MigrateSSLConnectionSocketFactoryTest#migratesToDefaultClientTlsStrategy`
 
 
@@ -1027,7 +893,7 @@ import javax.net.ssl.SSLContext;
 
 ---
 
-##### Example 14
+##### Example 12
 `NewRequestLineTest#removeRequestLineHttpResponse`
 
 
@@ -1097,7 +963,7 @@ class A {
 
 ---
 
-##### Example 15
+##### Example 13
 `NewStatusLineTest#removeStatusLineHttpResponse`
 
 
@@ -1193,7 +1059,7 @@ class A {
 
 ---
 
-##### Example 16
+##### Example 14
 `UpgradeApacheHttpClient5Test#importReplacementsInGroupsWithSomeSpecificMappings`
 
 

@@ -6,3343 +6,1757 @@ description: A comprehensive list of all recipes organized by module.
 
 _This doc contains all recipes grouped by their module._
 
-Total recipes: 6650
+Total recipes: 6131
 
 
 ## io.moderne.recipe
 
 
-### recipes-kotlin
+### recipes-code-quality
 
 _License: Moderne Proprietary License_
 
-_1011 recipes_
+_408 recipes_
 
-* [org.openrewrite.kotlin.android.Android$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/android/android$ktrecipe.md)
-  * **Find Android smells**
-  * Search-only Android recipe family covering the deprecated-API surface (Activity / Fragment / Handler / kotlinx.android.synthetic / parcel / Vibrator / registerReceiver), storage-layer footguns (`SharedPreferences.commit`, Room `@Query` shape, `ContentResolver.query`), lifecycle smells (`LiveData.observe(this, ...)`, public `MutableLiveData`), permissions/security (`requestPermissions`, `MODE_WORLD_*`), Android-specific performance (`findViewById` in `onDraw`, raw `BitmapFactory`, `Handler.postDelayed`, `runOnUiThread`), WebView smells (`loadUrl`, `setJavaScriptEnabled`), logging smells (`Log.*`, `System.out`), and modernization candidates (manual `Parcelable`/`Serializable`, RxJava, raw Dagger, manual `ViewModelProvider`, `ObjectAnimator`, `Runtime.exec`).
-* [org.openrewrite.kotlin.android.FindAlertDialogBuilderConstructor$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/android/findalertdialogbuilderconstructor$ktrecipe.md)
-  * **Find `AlertDialog.Builder(this)` constructions**
-  * `android.app.AlertDialog.Builder` does not pick up app-bar themes or Material styles. For consistent theming on AppCompat surfaces, use `androidx.appcompat.app.AlertDialog.Builder` (or `MaterialAlertDialogBuilder` for Material apps). Each match is worth a quick accessibility/theming review.
-* [org.openrewrite.kotlin.android.FindAndroidLifecycleSmells$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/android/findandroidlifecyclesmells$ktrecipe.md)
-  * **Find Android lifecycle / LiveData smells**
-  * Lifecycle and observable-state patterns that leak across configuration changes or expose internal mutability: `LiveData.observe(this, ...)` inside fragments, `MutableLiveData.postValue` from main-thread contexts, public `MutableLiveData` properties, and raw `MutableLiveData` allocations.
-* [org.openrewrite.kotlin.android.FindAndroidLogUsage$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/android/findandroidlogusage$ktrecipe.md)
-  * **Find `android.util.Log.v/d/i/w/e(...)` calls**
-  * `android.util.Log` is a flat global logger with no routing, no structured fields, and no off-by-default for release builds. Migrate to Timber (per-tree fan-out, automatic tag detection) or AndroidX `androidx.tracing` for performance-trace integration. Each match is a candidate for the migration.
-* [org.openrewrite.kotlin.android.FindAndroidLoggingSmells$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/android/findandroidloggingsmells$ktrecipe.md)
-  * **Find Android logging smells**
-  * Logging shapes that don't compose with structured logging: `android.util.Log.v/d/i/w/e` calls (flat global logger; prefer Timber or `androidx.tracing`) and `System.out.println` on Android (untagged logcat output).
-* [org.openrewrite.kotlin.android.FindAndroidModernizationCandidates$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/android/findandroidmodernizationcandidates$ktrecipe.md)
-  * **Find Android modernization candidates**
-  * Patterns that work but predate the modern Android toolchain: manual `Parcelable` (`@Parcelize`), `java.io.Serializable` on Android transports, RxJava imports (coroutines + Flow), `Dagger*Component.builder()` (Hilt), direct `ViewModelProvider` construction (`by viewModels()`), `ObjectAnimator` (Compose animation APIs), and `Runtime.exec` (audit for app-sandbox fit).
-* [org.openrewrite.kotlin.android.FindAndroidPerformanceSmells$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/android/findandroidperformancesmells$ktrecipe.md)
-  * **Find Android-specific performance smells**
-  * Patterns that drop UI-thread frames or allocate at draw time: `findViewById` inside `onDraw`/`onMeasure`/`onLayout`, unbounded `BitmapFactory.decode*` (no `inSampleSize`), hand-rolled `Thread.start()` from UI components, `Handler.postDelayed` (no lifecycle), and pre-coroutine `runOnUiThread` / `View.post` dispatch.
-* [org.openrewrite.kotlin.android.FindAndroidPermissionsSmells$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/android/findandroidpermissionssmells$ktrecipe.md)
-  * **Find Android permissions / security smells**
-  * Permission-handling patterns the platform has deprecated: direct `requestPermissions(...)` calls and `onRequestPermissionsResult` overrides (use `ActivityResultContracts.RequestPermission`), and `MODE_WORLD_READABLE` / `WORLD_WRITEABLE` (use `FileProvider`).
-* [org.openrewrite.kotlin.android.FindAndroidStorageSmells$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/android/findandroidstoragesmells$ktrecipe.md)
-  * **Find Android storage / data-layer smells**
-  * Storage-tier patterns that block the main thread or sit on deprecated APIs: `SharedPreferences.Editor.commit()`, bare `prefs.edit()` calls, Room `@Query` methods returning synchronous results, `ContentResolver.query`, and Realm usage.
-* [org.openrewrite.kotlin.android.FindAndroidViewModelInjection$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/android/findandroidviewmodelinjection$ktrecipe.md)
-  * **Find `ViewModelProvider(...)` direct constructions**
-  * `ViewModelProvider(this).get(MyViewModel::class.java)` predates the `by viewModels()` / `by activityViewModels()` Kotlin property delegates. With Hilt, those delegates pick up the `@HiltViewModel` annotation — no factory plumbing needed at the call site.
-* [org.openrewrite.kotlin.android.FindAndroidWebViewSmells$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/android/findandroidwebviewsmells$ktrecipe.md)
-  * **Find Android WebView smells**
-  * WebView call sites that need a security review: `WebView.loadUrl(...)` (URL trust boundary) and `WebSettings.setJavaScriptEnabled(true)` (script-execution trust boundary). For untrusted content, Chrome Custom Tabs (`CustomTabsIntent`) is the safer alternative.
-* [org.openrewrite.kotlin.android.FindAsyncTask$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/android/findasynctask$ktrecipe.md)
-  * **Find `AsyncTask` instantiations**
-  * `AsyncTask` was deprecated in API 30. The Kotlin replacement is `viewModelScope.launch \{ withContext(Dispatchers.IO) \{ … \} \}` or another coroutine-aware framework. Each match is a candidate for migration.
-* [org.openrewrite.kotlin.android.FindAsyncTaskExecute$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/android/findasynctaskexecute$ktrecipe.md)
-  * **Find `AsyncTask.execute` / `executeOnExecutor` calls**
-  * Beyond `AsyncTask` instantiation, the `execute`/`executeOnExecutor` call sites are the place the background work actually starts. Migration to `viewModelScope.launch \{ withContext(Dispatchers.IO) \{ … \} \}` happens at the call site, not the declaration — flag both.
-* [org.openrewrite.kotlin.android.FindBareHandlerConstructor$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/android/findbarehandlerconstructor$ktrecipe.md)
-  * **Find `Handler()` constructor calls without an explicit `Looper`**
-  * The zero-arg `Handler` constructor was deprecated in API 30 because it implicitly captures the current thread's looper — a footgun when called from a background thread. Always pass an explicit `Looper`, e.g. `Handler(Looper.getMainLooper())`.
-* [org.openrewrite.kotlin.android.FindBitmapFactoryDecode$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/android/findbitmapfactorydecode$ktrecipe.md)
-  * **Find `BitmapFactory.decode*` calls**
-  * `BitmapFactory.decode*` without an explicit `BitmapFactory.Options.inSampleSize` allocates the bitmap at full source resolution. For UI use, downsample via `inSampleSize` (or move the entire concern to Coil/Glide, which handle pooling, lifecycle, and downsampling for you).
-* [org.openrewrite.kotlin.android.FindContentResolverQuery$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/android/findcontentresolverquery$ktrecipe.md)
-  * **Find `ContentResolver.query(...)` calls**
-  * `ContentResolver.query(...)` blocks the calling thread for the full lifetime of the underlying IPC and cursor walk. Wrap the call in `withContext(Dispatchers.IO) \{ … \}`, expose it as a `Flow` (`contentResolver.observe(uri)`-style), or move to a Room `@Query` if the data is backed by SQLite.
-* [org.openrewrite.kotlin.android.FindContextRegisterReceiver$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/android/findcontextregisterreceiver$ktrecipe.md)
-  * **Find `Context.registerReceiver(...)` calls**
-  * On API 33+ `registerReceiver(...)` requires an explicit `RECEIVER_EXPORTED` / `RECEIVER_NOT_EXPORTED` flag — calls without it throw `SecurityException`. Migrate to `ContextCompat.registerReceiver(...)`, which forwards the flag and is backwards-compatible.
-* [org.openrewrite.kotlin.android.FindDeprecatedAndroidApis$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/android/finddeprecatedandroidapis$ktrecipe.md)
-  * **Find deprecated Android APIs**
-  * Search-only bundle that flags Android APIs the platform has deprecated or removed: `findViewById`, `AsyncTask`, the single-arg `getColor`/`getDrawable`/`getColorStateList` resource getters, the zero-arg `Handler()` constructor, `kotlinx.android.synthetic` imports, the moved `kotlinx.android.parcel.Parcelize` import, `startActivityForResult`/`onActivityResult`/`requestPermissions`, `LocalBroadcastManager`, deprecated `Fragment` lifecycle methods, `Resources.getDrawable` / `getColor`, `startService`, `PreferenceManager`, `Vibrator.vibrate(long)`, `Context.registerReceiver` without flags, and `MutableLiveData` allocations.
-* [org.openrewrite.kotlin.android.FindDeprecatedParcelizeImport$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/android/finddeprecatedparcelizeimport$ktrecipe.md)
-  * **Find `kotlinx.android.parcel` imports**
-  * The `kotlinx.android.parcel` package was moved to `kotlinx.parcelize` in 2020 when the standalone Parcelize plugin shipped. Replace the import and the Gradle plugin coordinate.
-* [org.openrewrite.kotlin.android.FindDeprecatedResourceGetters$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/android/finddeprecatedresourcegetters$ktrecipe.md)
-  * **Find deprecated `Context.getColor`/`getDrawable`/`getColorStateList` calls**
-  * The single-argument forms on `Context`/`Resources` are deprecated — they don't take a theme and behave inconsistently across API levels. Use `ContextCompat.getColor(context, id)`/`ContextCompat.getDrawable(context, id)`/`AppCompatResources.getColorStateList(context, id)` instead.
-* [org.openrewrite.kotlin.android.FindFindViewById$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/android/findfindviewbyid$ktrecipe.md)
-  * **Find `findViewById` call sites**
-  * `findViewById` is the legacy view-lookup API. Modern Android uses ViewBinding (auto-generated `Binding` classes per layout) which is type-safe, null-safe, and avoids the per-call HashMap walk. Each match is a candidate for migration.
-* [org.openrewrite.kotlin.android.FindFindViewByIdInHotPath$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/android/findfindviewbyidinhotpath$ktrecipe.md)
-  * **Find `findViewById` inside `onDraw` / `onMeasure` / `onLayout`**
-  * View tree-walking inside the draw/measure/layout pass costs frame budget on every pass. Cache the lookup once (in `onFinishInflate` or a `lateinit` initialized when the view attaches), or — better — migrate to ViewBinding so the cache is generated.
-* [org.openrewrite.kotlin.android.FindFragmentManagerExecutePendingTransactions$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/android/findfragmentmanagerexecutependingtransactions$ktrecipe.md)
-  * **Find `FragmentManager.executePendingTransactions()` calls**
-  * `executePendingTransactions()` forces synchronous fragment-transaction execution on the calling thread — usually a workaround for code that races a not-yet-attached fragment. Prefer `commitNow()`/`commitNowAllowingStateLoss()` at the call site that scheduled the transaction, or restructure the call to read state from the resulting fragment's `onViewCreated`.
-* [org.openrewrite.kotlin.android.FindFragmentOnActivityCreated$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/android/findfragmentonactivitycreated$ktrecipe.md)
-  * **Find `Fragment.onActivityCreated` overrides**
-  * `Fragment.onActivityCreated(Bundle)` was deprecated in Fragment 1.3 because the host-activity lifecycle is no longer a reliable signal for fragment readiness. Move the work to `onViewCreated` (view-state setup) or to a `LifecycleObserver` on `viewLifecycleOwner` (cross-component coordination).
-* [org.openrewrite.kotlin.android.FindFragmentOnAttachActivity$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/android/findfragmentonattachactivity$ktrecipe.md)
-  * **Find `Fragment.onAttach(Activity)` overrides**
-  * The `onAttach(Activity)` overload was deprecated in API 23 — use `onAttach(Context)` instead. The `Context` parameter is the activity for activity-hosted fragments and the application context for headless cases, and works on devices where the parent is not an activity.
-* [org.openrewrite.kotlin.android.FindFragmentSetRetainInstance$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/android/findfragmentsetretaininstance$ktrecipe.md)
-  * **Find `Fragment.setRetainInstance(true)` calls**
-  * `Fragment.setRetainInstance(true)` was deprecated in Fragment 1.3 because retained fragments break process-death restoration and tangle the lifecycle owner with the host activity. Move retained state to a `ViewModel` scoped to the navigation host.
-* [org.openrewrite.kotlin.android.FindHandlerPostDelayed$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/android/findhandlerpostdelayed$ktrecipe.md)
-  * **Find `Handler.postDelayed(...)` calls**
-  * `Handler.postDelayed(runnable, ms)` schedules main-thread work without a story for cancellation — the canonical bug is the activity dying while the runnable is still scheduled, then running with a stale view reference. Use `lifecycleScope.launch \{ delay(ms); … \}` instead: cancellation is automatic on lifecycle teardown.
-* [org.openrewrite.kotlin.android.FindIntentActionGetContent$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/android/findintentactiongetcontent$ktrecipe.md)
-  * **Find legacy `Intent.ACTION_PICK` / `ACTION_GET_CONTENT` references**
-  * `ACTION_PICK` / `ACTION_GET_CONTENT` predate the Photo Picker (`ACTION_PICK_IMAGES`, API 33+ with backport) and the Storage Access Framework (`ACTION_OPEN_DOCUMENT`). For media, prefer `ActivityResultContracts.PickVisualMedia`; for documents, `OpenDocument`.
-* [org.openrewrite.kotlin.android.FindKotlinAndroidSyntheticImports$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/android/findkotlinandroidsyntheticimports$ktrecipe.md)
-  * **Find `kotlinx.android.synthetic.*` imports**
-  * The Kotlin Android Extensions synthetic-view plugin was deprecated in 1.4.20 and removed entirely in later AGP versions. Migrate the call sites to ViewBinding. Each reference here corresponds to a usage that won't compile without the (removed) plugin.
-* [org.openrewrite.kotlin.android.FindLifecycleObserveLiveData$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/android/findlifecycleobservelivedata$ktrecipe.md)
-  * **Find `LiveData.observe(this, observer)` calls inside `Fragment`**
-  * Inside a `Fragment`, `liveData.observe(this, observer)` ties the subscription to the fragment's lifecycle — which outlives the view across `onDestroyView`/`onCreateView` recreation and produces dangling references to a destroyed view. Use `viewLifecycleOwner` instead.
-* [org.openrewrite.kotlin.android.FindLiveDataPostValueFromMain$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/android/findlivedatapostvaluefrommain$ktrecipe.md)
-  * **Find `MutableLiveData.postValue(...)` calls inside coroutine main-thread contexts**
-  * `postValue` exists for background-thread updaters — it marshals through the main looper and coalesces consecutive updates. When called from a place that already runs on the main thread (UI callbacks, view-model initialization, `Dispatchers.Main` blocks), the coalescing is a footgun: intermediate values silently drop. Use `setValue`/`.value =` on the main thread, `postValue` only from background threads.
-* [org.openrewrite.kotlin.android.FindLocalBroadcastManager$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/android/findlocalbroadcastmanager$ktrecipe.md)
-  * **Find `LocalBroadcastManager.getInstance(...)` usage**
-  * `LocalBroadcastManager` was deprecated in AndroidX 1.1 — the project effectively documents it as a global event bus, with all the ordering and lifetime trouble that implies. Migrate to `LiveData`, `StateFlow`, or `SharedFlow` for in-process pub/sub.
-* [org.openrewrite.kotlin.android.FindManualDaggerProvision$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/android/findmanualdaggerprovision$ktrecipe.md)
-  * **Find `Dagger*Component.builder().build()` patterns**
-  * Calls of the form `DaggerXComponent.builder().build()` indicate the application is composing its dependency graph by hand. Hilt (`@HiltAndroidApp` / `@AndroidEntryPoint`) generates the same graph automatically and integrates with Compose, ViewModel, and WorkManager out of the box.
-* [org.openrewrite.kotlin.android.FindManualThreadingInActivity$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/android/findmanualthreadinginactivity$ktrecipe.md)
-  * **Find `Thread \{ \}.start()` calls inside `Activity` / `Fragment`**
-  * Hand-rolled `Thread \{ … \}.start()` inside a UI component leaks across configuration changes (the thread outlives the activity) and has no story for cancellation. Migrate to `lifecycleScope.launch(Dispatchers.IO) \{ … \}` or `viewModelScope.launch \{ … \}` — both cancel when the lifecycle ends.
-* [org.openrewrite.kotlin.android.FindModeWorldReadable$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/android/findmodeworldreadable$ktrecipe.md)
-  * **Find `MODE_WORLD_READABLE` / `MODE_WORLD_WRITEABLE` references**
-  * Both constants were deprecated in API 17 — they grant any app on the device read or write access to the file. Use a `FileProvider` to share content URIs, or scope the file via `Context.getFilesDir()` and expose it through your own content provider with explicit permissions.
-* [org.openrewrite.kotlin.android.FindMutableLiveDataAllocation$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/android/findmutablelivedataallocation$ktrecipe.md)
-  * **Find `MutableLiveData` allocations**
-  * In Kotlin Android code, `MutableStateFlow&lt;T&gt;` is the modern equivalent. It integrates with structured concurrency, exposes the current value synchronously, and composes cleanly with Compose's `collectAsState`/`collectAsStateWithLifecycle`. Each `MutableLiveData()` here is a candidate for migration.
-* [org.openrewrite.kotlin.android.FindObjectAnimator$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/android/findobjectanimator$ktrecipe.md)
-  * **Find `ObjectAnimator.ofInt/ofFloat(...)` calls**
-  * Direct `ObjectAnimator` use is a candidate for review — for Compose UIs the idiomatic replacement is `animate*AsState` / `Animatable`, which integrate with recomposition and cancellation. For view-system code, `SpringAnimation`/`PhysicsAnimation` cover more interaction shapes than the time-based `ObjectAnimator`.
-* [org.openrewrite.kotlin.android.FindOnActivityResultOverride$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/android/findonactivityresultoverride$ktrecipe.md)
-  * **Find `onActivityResult` overrides**
-  * Every override of `Activity.onActivityResult` / `Fragment.onActivityResult` is half of the deprecated `startActivityForResult` pair. The new Activity Result APIs (`registerForActivityResult(ActivityResultContracts.X) \{ … \}`) deliver results to a lambda colocated with the launcher — the override goes away.
-* [org.openrewrite.kotlin.android.FindOnRequestPermissionsResultOverride$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/android/findonrequestpermissionsresultoverride$ktrecipe.md)
-  * **Find `onRequestPermissionsResult` overrides**
-  * Override of `Activity.onRequestPermissionsResult` / `Fragment.onRequestPermissionsResult` — the result-callback half of the deprecated `requestPermissions(...)` pair. Replace with a `registerForActivityResult(ActivityResultContracts.RequestPermission)` lambda.
-* [org.openrewrite.kotlin.android.FindParcelableJavaImpl$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/android/findparcelablejavaimpl$ktrecipe.md)
-  * **Find Kotlin classes implementing `Parcelable` without `@Parcelize`**
-  * Manual `writeToParcel` / `CREATOR` implementations are pure boilerplate that the `kotlin-parcelize` plugin generates for any class annotated `@Parcelize`. Each manual implementation is a candidate for migration to the annotation.
-* [org.openrewrite.kotlin.android.FindPreferenceManagerGetDefaultSharedPreferences$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/android/findpreferencemanagergetdefaultsharedpreferences$ktrecipe.md)
-  * **Find `PreferenceManager.getDefaultSharedPreferences(...)` calls**
-  * `android.preference.*` (framework) was deprecated in API 29. AndroidX `androidx.preference.*` is the supported path, and even there the modern shape for KV state is Jetpack DataStore (`Preferences DataStore` for key/value, `Proto DataStore` for typed records) — which works in `suspend` contexts and survives process death without main-thread blocking.
-* [org.openrewrite.kotlin.android.FindPreferenceManagerImport$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/android/findpreferencemanagerimport$ktrecipe.md)
-  * **Find `android.preference.PreferenceManager` imports**
-  * The framework `android.preference.*` package was deprecated in API 29. Move to `androidx.preference.*` (drop-in replacement) or, for KV state, Jetpack DataStore — which composes with coroutines and `Flow` instead of running on the main thread.
-* [org.openrewrite.kotlin.android.FindPublicMutableLiveDataProperty$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/android/findpublicmutablelivedataproperty$ktrecipe.md)
-  * **Find public `MutableLiveData` properties**
-  * Exposing `MutableLiveData&lt;T&gt;` (or `MutableStateFlow&lt;T&gt;`) to observers lets them mutate the model from the consumer side. The convention is to keep the mutable handle `private` and expose a read-only `LiveData&lt;T&gt;` / `StateFlow&lt;T&gt;` getter, so the owner is the only one that can publish updates.
-* [org.openrewrite.kotlin.android.FindRealmUsage$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/android/findrealmusage$ktrecipe.md)
-  * **Find `Realm.getDefaultInstance()` calls**
-  * Realm Java/Kotlin is in maintenance and was effectively superseded by Realm Kotlin (`io.realm.kotlin`) and ultimately by MongoDB Atlas Device SDKs. Each `Realm.getDefaultInstance()` is a candidate for migration to Room + DataStore, or to the modern Realm Kotlin SDK.
-* [org.openrewrite.kotlin.android.FindRequestPermissions$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/android/findrequestpermissions$ktrecipe.md)
-  * **Find direct `requestPermissions(...)` calls**
-  * Calling `requestPermissions(...)` directly couples the request to a screen and a request code that has to be matched in `onRequestPermissionsResult`. The modern shape is `registerForActivityResult(ActivityResultContracts.RequestPermission()) \{ granted -&gt; … \}` — the result lands in a lambda next to the launcher.
-* [org.openrewrite.kotlin.android.FindResourcesGetColor$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/android/findresourcesgetcolor$ktrecipe.md)
-  * **Find `resources.getColor(...)` (one-arg) calls**
-  * `Resources.getColor(int)` was deprecated in API 23 — it doesn't take a theme. Replace with `ContextCompat.getColor(context, id)`, which threads the theme through and respects `?attr` references.
-* [org.openrewrite.kotlin.android.FindResourcesGetDrawable$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/android/findresourcesgetdrawable$ktrecipe.md)
-  * **Find `resources.getDrawable(...)` (one-arg) calls**
-  * `Resources.getDrawable(int)` was deprecated in API 22 — it doesn't take a theme. Replace with `ResourcesCompat.getDrawable(resources, id, theme)` to render themed drawables consistently across API levels.
-* [org.openrewrite.kotlin.android.FindRoomQueryWithoutLiveDataOrFlow$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/android/findroomquerywithoutlivedataorflow$ktrecipe.md)
-  * **Find `@Query` DAO methods returning a synchronous result**
-  * A non-suspend `@Query` returning `List&lt;X&gt;`, `X?`, or a scalar runs the DB query on the calling thread — by default Room throws `IllegalStateException` if that's the main thread. Mark the function `suspend` (single-shot) or return `Flow&lt;...&gt;` / `LiveData&lt;...&gt;` (observable) so Room can dispatch the query off the main thread.
-* [org.openrewrite.kotlin.android.FindRunOnUiThread$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/android/findrunonuithread$ktrecipe.md)
-  * **Find `Activity.runOnUiThread \{ \}` / `View.post \{ \}` calls**
-  * Hand-rolled main-thread dispatch (`runOnUiThread`, `view.post`) was the pre-coroutine pattern for crossing thread boundaries from a background worker. In Kotlin, prefer `withContext(Dispatchers.Main) \{ … \}` — it composes with structured cancellation and surfaces in the call site's coroutine context.
-* [org.openrewrite.kotlin.android.FindRuntimeExecInAndroid$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/android/findruntimeexecinandroid$ktrecipe.md)
-  * **Find `Runtime.exec(...)` / `ProcessBuilder.start()` calls**
-  * Forking a process from an Android app is almost never the right shape — the system imposes strict app-sandbox limits (no `su`, no arbitrary binaries) and process lifetime is unrelated to the activity that spawned it. Audit each call site against `WorkManager`, foreground services, or — if you genuinely need shell tools — `java.lang.ProcessBuilder` with explicit lifecycle management.
-* [org.openrewrite.kotlin.android.FindRxJavaImports$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/android/findrxjavaimports$ktrecipe.md)
-  * **Find `io.reactivex.*` imports**
-  * RxJava is in maintenance and Kotlin's idiomatic story is coroutines + `Flow`. Each import is a candidate for migration to `kotlinx.coroutines.flow.*` (or, at the boundary, `kotlinx-coroutines-rx3`/`kotlinx-coroutines-rx2` adapters during incremental migration).
-* [org.openrewrite.kotlin.android.FindSerializableUsage$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/android/findserializableusage$ktrecipe.md)
-  * **Find Kotlin classes implementing `java.io.Serializable`**
-  * `java.io.Serializable` is reflection-based and slow on Android — it allocates substantially more than `Parcelable` and pulls in field-by-field reflection at deserialize time. For inter-component transport, prefer `@Parcelize` (`kotlin-parcelize`) or `kotlinx.serialization`.
-* [org.openrewrite.kotlin.android.FindSharedPreferencesCommit$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/android/findsharedpreferencescommit$ktrecipe.md)
-  * **Find `SharedPreferences.Editor.commit()` calls**
-  * `commit()` writes to disk on the calling thread (often the main thread, where it can drop a frame). `apply()` writes asynchronously and atomically, returning immediately — use it unless you specifically need the boolean result on the spot.
-* [org.openrewrite.kotlin.android.FindSharedPreferencesEdit$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/android/findsharedpreferencesedit$ktrecipe.md)
-  * **Find `sharedPrefs.edit()` calls**
-  * Raw `edit()` calls predate AndroidX `SharedPreferences.edit \{ … \}`, the Kotlin extension that handles `apply`/`commit` for the caller. Replace each `prefs.edit().put*(...).apply()` chain with `prefs.edit \{ put*(...) \}` — same disk write, less ceremony, and harder to drop the apply by accident.
-* [org.openrewrite.kotlin.android.FindStartActivityForResult$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/android/findstartactivityforresult$ktrecipe.md)
-  * **Find `startActivityForResult` calls**
-  * `startActivityForResult` was deprecated in AndroidX Activity 1.2 / Fragment 1.3 in favor of the Activity Result APIs (`registerForActivityResult(ActivityResultContracts.X) \{ result -&gt; … \}`). The new API survives process death, decouples the launcher from the lifecycle owner, and removes the per-screen `onActivityResult` switch.
-* [org.openrewrite.kotlin.android.FindStartService$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/android/findstartservice$ktrecipe.md)
-  * **Find `startService(...)` calls**
-  * On API 26+ background apps cannot call `startService(...)` — the system throws `IllegalStateException`. For services that must run while the app is backgrounded, call `ContextCompat.startForegroundService(context, intent)` and post a notification within five seconds. For one-shot work, use `WorkManager` instead.
-* [org.openrewrite.kotlin.android.FindSystemOutInAndroid$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/android/findsystemoutinandroid$ktrecipe.md)
-  * **Find `System.out.println(...)` calls**
-  * `System.out` on Android writes to logcat under a default tag that's easy to lose. Use `Log.d`/`Log.i` for tagged output (or, better, Timber) — both route through Android's logging pipeline with filterable tags.
-* [org.openrewrite.kotlin.android.FindVibratorVibrateLong$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/android/findvibratorvibratelong$ktrecipe.md)
-  * **Find `Vibrator.vibrate(long)` (one-arg) calls**
-  * The single-`long` `Vibrator.vibrate(ms)` was deprecated in API 26. Use `Vibrator.vibrate(VibrationEffect.createOneShot(...))` (or `VibratorManager` on API 31+) — both let the platform pick the appropriate amplitude.
-* [org.openrewrite.kotlin.android.FindWebViewJavaScriptEnabled$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/android/findwebviewjavascriptenabled$ktrecipe.md)
-  * **Find `WebSettings.setJavaScriptEnabled(true)` calls**
-  * Enabling JavaScript in a WebView lets the loaded page run arbitrary script in your app's context. For first-party content this is often fine; for any third-party content it's a critical security boundary. Each match is worth reviewing alongside the trust model of the loaded URLs.
-* [org.openrewrite.kotlin.android.FindWebViewLoadUrl$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/android/findwebviewloadurl$ktrecipe.md)
-  * **Find `WebView.loadUrl(...)` calls**
-  * Each `WebView.loadUrl(...)` is worth a security review: arbitrary http://-scheme URLs bypass the system browser and inherit the WebView's privileges (cookies, JS bridges). For untrusted content prefer `CustomTabsIntent` (Chrome Custom Tabs) — better security, better UX, no JS bridge.
-* [org.openrewrite.kotlin.bestpractices.BestPractices$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/bestpractices/bestpractices$ktrecipe.md)
-  * **Apply Kotlin best-practice idioms**
-  * Opinionated bundle of every best-practice recipe in this module: collection / string round-trip collapses, stdlib accessor swaps, and a broad set of search-only flags covering class structure, function declarations, string construction, Boolean conditionals, lambdas, and exception handling. For diff-only output, use `ImproveKotlinBestPractices` instead.
-* [org.openrewrite.kotlin.bestpractices.CollapseRedundantConversions$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/bestpractices/collapseredundantconversions$ktrecipe.md)
-  * **Collapse redundant collection / string conversions**
-  * Drops needless `toList()`/`toMutableList()`/`toSet()`/`toTypedArray()` round-trips and `trimStart().trimEnd()`-style chains that allocate one or more intermediate copies. The replacement performs the same conversion in one pass.
-* [org.openrewrite.kotlin.bestpractices.FindAbstractClassWithoutMembers$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/bestpractices/findabstractclasswithoutmembers$ktrecipe.md)
-  * **Find `abstract class` declarations without abstract members**
-  * An `abstract class` with no abstract members and no state offers nothing over `interface` — and `interface` composes better (multiple inheritance, no constructor coupling). If the class is being used as a marker, consider `sealed interface` for stronger exhaustiveness checks.
-* [org.openrewrite.kotlin.bestpractices.FindAlsoPrintln$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/bestpractices/findalsoprintln$ktrecipe.md)
-  * **Find `.also \{ println(it) \}` debug patterns**
-  * `.also \{ println(it) \}` is a side-channel print left over from debugging. It survives compilation, runs in production, and is invisible at the call site — remove it or route the value through a logger.
-* [org.openrewrite.kotlin.bestpractices.FindAlsoWithEmptyBody$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/bestpractices/findalsowithemptybody$ktrecipe.md)
-  * **Find `x.also \{ \}` calls with an empty body**
-  * `x.also \{ \}` with an empty block is a no-op that returns `x`. Drop the call — it adds an allocation for the captured lambda and obscures the value flow.
-* [org.openrewrite.kotlin.bestpractices.FindAnonymousObjectSingleMethod$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/bestpractices/findanonymousobjectsinglemethod$ktrecipe.md)
-  * **Find anonymous `object : Interface \{ override fun … \}` with a single override**
-  * An anonymous object that implements one interface with a single function override is the canonical SAM-conversion target. If the interface is declared `fun interface I \{ … \}`, the call site collapses to a lambda.
-* [org.openrewrite.kotlin.bestpractices.FindBareExceptionThrow$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/bestpractices/findbareexceptionthrow$ktrecipe.md)
-  * **Find `throw Exception(&quot;…&quot;)` calls**
-  * Throwing bare `Exception` (or `RuntimeException`) loses information that a more specific type would carry. Prefer `IllegalArgumentException` (bad input), `IllegalStateException` (object in wrong state), or a domain-specific subclass.
-* [org.openrewrite.kotlin.bestpractices.FindBareRuntimeExceptionThrow$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/bestpractices/findbareruntimeexceptionthrow$ktrecipe.md)
-  * **Find `throw RuntimeException(&quot;…&quot;)` calls**
-  * Same family as `throw Exception(&quot;...&quot;)` — flag for replacement with `IllegalArgumentException`/`IllegalStateException`/domain-specific subclass.
-* [org.openrewrite.kotlin.bestpractices.FindBestPracticeCandidates$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/bestpractices/findbestpracticecandidates$ktrecipe.md)
-  * **Find best-practice candidates**
-  * Search-only bundle: flags places where a more idiomatic Kotlin spelling is available. Each match shows up as a `SearchResult` for review; nothing is rewritten automatically because the migration is a judgment call.
-* [org.openrewrite.kotlin.bestpractices.FindBooleanConditionalSmells$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/bestpractices/findbooleanconditionalsmells$ktrecipe.md)
-  * **Find Boolean-conditional smells**
-  * `if (x) true else false`, its inverse, `!x.isEmpty()` / `!x.isBlank()` family negations, `if (x == null) null else x.foo()`, `if (x != null) x.foo()` patterns, and `if (return …) else …` early-return ladders — each is the long form of a single Kotlin operator or method.
-* [org.openrewrite.kotlin.bestpractices.FindBooleanLiteralReturnType$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/bestpractices/findbooleanliteralreturntype$ktrecipe.md)
-  * **Find `fun f(): Boolean = true|false` literal-returning functions**
-  * A function whose body is literally `true` or `false` is rarely the right shape — either the predicate was a stub left in by mistake, or the value is genuinely constant and should be a `const val`. Either way, surface the call site for human review.
-* [org.openrewrite.kotlin.bestpractices.FindCatchReturningNull$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/bestpractices/findcatchreturningnull$ktrecipe.md)
-  * **Find `try \{ … \} catch (e: Exception) \{ null \}` patterns**
-  * Swallowing every exception into `null` discards diagnostic information and conflates 'no value' with 'I lost the cause'. `runCatching \{ \}` returns a `Result&lt;T&gt;` whose `getOrNull()` matches this shape, and `onFailure \{ \}` keeps a hook for diagnostics.
-* [org.openrewrite.kotlin.bestpractices.FindClassExtendsAny$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/bestpractices/findclassextendsany$ktrecipe.md)
-  * **Find `class Foo : Any()` declarations**
-  * Every class implicitly extends `Any` — writing it explicitly only adds noise and a redundant supertype clause.
-* [org.openrewrite.kotlin.bestpractices.FindClassStructureSmells$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/bestpractices/findclassstructuresmells$ktrecipe.md)
-  * **Find class-declaration smells**
-  * Search-only bundle: flags class-level structural smells (empty companion, empty class body, redundant `: Any()`, manual `toString`/`equals`/`hashCode` trio, named companion of constants, multiple secondary constructors, sealed-class-without-state, marker-object-without-data, empty init, all-val classes that could be `data class`, mutable `data class`/object state, abstract classes without abstract members, and `open` classes with no overridable members).
-* [org.openrewrite.kotlin.bestpractices.FindClassWithoutDataAnnotation$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/bestpractices/findclasswithoutdataannotation$ktrecipe.md)
-  * **Find classes that could be `data class`**
-  * A class whose only members are `val` constructor parameters — no methods, no init, no extra properties — is the canonical shape `data class` exists for. Adding `data` synthesizes `toString`/`equals`/`hashCode`/`copy`/`componentN` without changing any other semantics.
-* [org.openrewrite.kotlin.bestpractices.FindCompareToInsteadOfOperator$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/bestpractices/findcomparetoinsteadofoperator$ktrecipe.md)
-  * **Find `x.compareTo(y) &lt;op&gt; 0` patterns**
-  * `x.compareTo(y) &gt; 0` is the long form of `x &gt; y` for any `Comparable&lt;T&gt;` — and `&gt;`/`&lt;`/`&gt;=`/`&lt;=` are defined on `Comparable` to use exactly that call. The operator form reads as the comparison it is, and the bytecode emitted is identical.
-* [org.openrewrite.kotlin.bestpractices.FindDataClassWithMutableProperty$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/bestpractices/finddataclasswithmutableproperty$ktrecipe.md)
-  * **Find `data class` declarations with `var` properties**
-  * `data class` generates `equals` and `hashCode` over the primary-constructor properties. Mutating a `var` property after the instance is stored in a hash-based collection breaks the invariant — the entry can no longer be found by lookup. Prefer `val`; if mutation is needed, model it through `copy(...)`.
-* [org.openrewrite.kotlin.bestpractices.FindDataObjectCandidates$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/bestpractices/finddataobjectcandidates$ktrecipe.md)
-  * **Find marker `object` declarations that could be `data object`**
-  * A bare `object Foo` declaration with no body inherits `Any.toString()`, which prints as `Foo$Companion@&lt;hash&gt;`-style identity strings. `data object Foo` (Kotlin 1.9+) generates a readable `toString` (`&quot;Foo&quot;`), `equals` (identity), and `hashCode` — preferred for marker singletons used in `when` exhaustiveness checks and serialization.
-* [org.openrewrite.kotlin.bestpractices.FindDoubleBangChain$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/bestpractices/finddoublebangchain$ktrecipe.md)
-  * **Find chained `!!` assertions in a single expression**
-  * `x!!.y!!.z` chains multiple `!!` assertions in one expression. Each one is a separate NPE risk with no diagnostic. Either the intermediate values are non-null (and the assertions can be dropped) or the chain should be modeled with `?.let \{ \}` to surface the absent case explicitly.
-* [org.openrewrite.kotlin.bestpractices.FindElseAfterReturn$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/bestpractices/findelseafterreturn$ktrecipe.md)
-  * **Find `if (x) \{ return … \} else \{ … \}` patterns**
-  * When the `if` branch returns, the `else` is unreachable as a fall-through guard — the body after the `else` can be moved out of the `else` block, which makes the early-return shape obvious to readers.
-* [org.openrewrite.kotlin.bestpractices.FindEmptyClassBody$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/bestpractices/findemptyclassbody$ktrecipe.md)
-  * **Find `class Foo \{\}` declarations with an empty body**
-  * An empty class body `\{\}` adds no information. Kotlin allows the body to be omitted entirely: `class Foo` is the same declaration without the redundant braces.
-* [org.openrewrite.kotlin.bestpractices.FindEmptyCompanionObject$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/bestpractices/findemptycompanionobject$ktrecipe.md)
-  * **Find empty `companion object` declarations**
-  * A `companion object \{\}` with no members generates a synthetic `Companion` holder class that's never used. Remove it — Kotlin doesn't require an empty companion object for any feature.
-* [org.openrewrite.kotlin.bestpractices.FindEmptyInitBlock$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/bestpractices/findemptyinitblock$ktrecipe.md)
-  * **Find empty `init \{ \}` blocks**
-  * An empty `init \{\}` block is a no-op. Remove it — every empty initializer is a place a future reader pauses before noticing it does nothing.
-* [org.openrewrite.kotlin.bestpractices.FindEqualitySmells$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/bestpractices/findequalitysmells$ktrecipe.md)
-  * **Find equality / comparison smells**
-  * `===` / `!==` referential checks (usually `==` is meant), `x == true|false` longhand for Boolean, and `x.compareTo(y) &gt; 0` calls that should use the comparison operator directly.
-* [org.openrewrite.kotlin.bestpractices.FindEqualsToBooleanLiteral$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/bestpractices/findequalstobooleanliteral$ktrecipe.md)
-  * **Find `b == true` / `b == false` comparisons**
-  * When `b` is `Boolean`, `b == true` is just `b` and `b == false` is `!b`. The longhand only obscures intent. For `Boolean?` the longhand is meaningful — it returns `false` for `null` rather than failing on `!!` — so leave those alone; flag only the comparison and let the reviewer decide.
-* [org.openrewrite.kotlin.bestpractices.FindExceptionHandlingSmells$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/bestpractices/findexceptionhandlingsmells$ktrecipe.md)
-  * **Find exception-handling smells**
-  * `Throwable.printStackTrace()` (bypasses the logger), bare `throw Exception(&quot;…&quot;)` / `throw RuntimeException(&quot;…&quot;)` allocations (lose type information), and `try \{ \} catch (e: Exception) \{ null \}` patterns (collapsible to `runCatching \{ \}.getOrNull()`).
-* [org.openrewrite.kotlin.bestpractices.FindExplicitUnitReturnType$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/bestpractices/findexplicitunitreturntype$ktrecipe.md)
-  * **Find functions with explicit `: Unit` return type**
-  * Kotlin functions that don't declare a return type return `Unit` by convention. Writing `: Unit` explicitly adds noise — drop it unless the explicit form aids a generated API surface (e.g. `@JvmOverloads`).
-* [org.openrewrite.kotlin.bestpractices.FindForEachAddCandidate$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/bestpractices/findforeachaddcandidate$ktrecipe.md)
-  * **Find `xs.forEach \{ ys.add(it) \}` patterns**
-  * `xs.forEach \{ ys.add(it) \}` is the loop-form of `ys.addAll(xs)`. The bulk operation is a single method call and uses the most efficient copy strategy the receiver supports.
-* [org.openrewrite.kotlin.bestpractices.FindForEachPrintln$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/bestpractices/findforeachprintln$ktrecipe.md)
-  * **Find `forEach \{ println(it) \}` patterns**
-  * `forEach \{ println(it) \}` is the loop-form `for (x in xs) println(x)` — verify whether the print is debug-only. If it is intended output, consider `joinToString(&quot;\n&quot;).let(::println)` to write the whole thing in one syscall.
-* [org.openrewrite.kotlin.bestpractices.FindForceUnwrapInLet$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/bestpractices/findforceunwrapinlet$ktrecipe.md)
-  * **Find `!!` inside a `?.let \{ \}` body**
-  * `x?.let \{ it!! \}` (or `it.foo()!!`) is internally inconsistent: the safe-call entry already guards null, so the `!!` on `it` can never trigger. Drop the `!!` — the lambda body has a non-null receiver by construction.
-* [org.openrewrite.kotlin.bestpractices.FindFunctionDeclarationSmells$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/bestpractices/findfunctiondeclarationsmells$ktrecipe.md)
-  * **Find function-declaration smells**
-  * Search-only bundle: explicit `: Unit` / `: Nothing` return type, block bodies that are a single `return expr`, literal-Boolean-returning functions, `Pair`/`Triple` returns that could be data classes, default-before-required parameters, `suspend fun` declarations returning `Job`/`Deferred`, and explicit `return Unit` statements.
-* [org.openrewrite.kotlin.bestpractices.FindFunctionReturningPair$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/bestpractices/findfunctionreturningpair$ktrecipe.md)
-  * **Find functions returning `Pair&lt;A, B&gt;`**
-  * A function returning `Pair&lt;A, B&gt;` forces every caller to remember which side is which. A small `data class Result(val a: A, val b: B)` documents the role of each component and gains `componentN()` / `copy()` for free.
-* [org.openrewrite.kotlin.bestpractices.FindFunctionReturningTriple$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/bestpractices/findfunctionreturningtriple$ktrecipe.md)
-  * **Find functions returning `Triple&lt;A, B, C&gt;`**
-  * Same shape as the `Pair` case but the readability cost compounds — three positional components is the limit where most readers stop guessing which is which. Replace with a `data class`.
-* [org.openrewrite.kotlin.bestpractices.FindIfNullElseExpression$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/bestpractices/findifnullelseexpression$ktrecipe.md)
-  * **Find `if (x == null) null else x.foo()` patterns**
-  * An `if (x == null) null else x.foo()` collapses to the safe-call `x?.foo()`. The safe-call is structurally null-aware — the longhand re-checks for null without surfacing the absent case in the type system.
-* [org.openrewrite.kotlin.bestpractices.FindIfReturnFalseElseTrue$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/bestpractices/findifreturnfalseelsetrue$ktrecipe.md)
-  * **Find `if (x) false else true` patterns**
-  * `if (x) false else true` is just `!x`. Replace the inverted Boolean conditional with the negation it already expresses.
-* [org.openrewrite.kotlin.bestpractices.FindIfReturnTrueElseFalse$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/bestpractices/findifreturntrueelsefalse$ktrecipe.md)
-  * **Find `if (x) true else false` patterns**
-  * `if (x) true else false` is just `x` after Boolean simplification. The longhand only hides intent.
-* [org.openrewrite.kotlin.bestpractices.FindIsNotEmptyOnString$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/bestpractices/findisnotemptyonstring$ktrecipe.md)
-  * **Find `x.isNotEmpty()` on `String` where `isNotBlank()` might be wanted**
-  * `String.isNotEmpty()` returns true for whitespace-only strings. When the check exists to guard against missing user input, `isNotBlank()` is usually closer to the intent.
-* [org.openrewrite.kotlin.bestpractices.FindLambdaSmells$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/bestpractices/findlambdasmells$ktrecipe.md)
-  * **Find lambda / functional smells**
-  * Redundant `map \{ it.toString() \}` / `forEach \{ it.toString() \}`, debug-leftover `.also \{ println(it) \}` / `forEach \{ println(it) \}`, `xs.toList().forEach \{ \}` over already-iterable receivers, `.also \{ it.add(...) \}`-built mutable collections, and `forEach \{ ys.add(it) \}` (use `addAll`).
-* [org.openrewrite.kotlin.bestpractices.FindLazyWithoutMode$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/bestpractices/findlazywithoutmode$ktrecipe.md)
-  * **Find `lazy \{ \}` calls without an explicit `LazyThreadSafetyMode`**
-  * `lazy \{ \}` defaults to `LazyThreadSafetyMode.SYNCHRONIZED` — every read passes a synchronized check. For thread-confined state (UI, single-threaded actors), `lazy(LazyThreadSafetyMode.NONE) \{ \}` avoids the synchronization entirely.
-* [org.openrewrite.kotlin.bestpractices.FindLetForNotNullCheck$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/bestpractices/findletfornotnullcheck$ktrecipe.md)
-  * **Find `if (x != null) x.foo()` patterns**
-  * `if (x != null) \{ x.foo() \}` is the long form of `x?.let \{ it.foo() \}` — or, when only one call is needed and `x` is a local, `x?.foo()`. The safe-call form makes the null-aware path part of the type system rather than a separate Boolean check.
-* [org.openrewrite.kotlin.bestpractices.FindManualToStringEqualsHashCode$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/bestpractices/findmanualtostringequalshashcode$ktrecipe.md)
-  * **Find classes with manual `toString`/`equals`/`hashCode` overrides**
-  * A class that overrides all three of `toString`, `equals`, and `hashCode` over its own fields is the canonical shape `data class` exists for. Migrate to `data class C(val a: A, …)` to delete the boilerplate and gain `copy()` plus `componentN()` for free.
-* [org.openrewrite.kotlin.bestpractices.FindMultipleSecondaryConstructors$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/bestpractices/findmultiplesecondaryconstructors$ktrecipe.md)
-  * **Find classes with multiple overloaded secondary constructors**
-  * Two or more secondary constructors with different arities almost always collapse into a single primary constructor with default arguments. The default-arg form composes with named arguments and `@JvmOverloads` for cross-language interop.
-* [org.openrewrite.kotlin.bestpractices.FindMutableListAlsoAdd$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/bestpractices/findmutablelistalsoadd$ktrecipe.md)
-  * **Find `mutableListOf&lt;T&gt;().also \{ it.add(x) \}` patterns**
-  * Building a list through `mutableListOf&lt;T&gt;().also \{ it.add(...) \}` is the side-channel form of `buildList \{ add(...) \}` (or just `mutableListOf(x)` if every element is known up front). The builder form makes intent explicit.
-* [org.openrewrite.kotlin.bestpractices.FindMutableMapAlsoPut$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/bestpractices/findmutablemapalsoput$ktrecipe.md)
-  * **Find `mutableMapOf&lt;K,V&gt;().also \{ it.put(...) \}` patterns**
-  * Same shape as `mutableListOf().also \{ it.add(...) \}` for maps. The builder form (`buildMap \{ put(...) \}`) makes the entries visible without the side-channel `it.put`.
-* [org.openrewrite.kotlin.bestpractices.FindMutableSetAlsoAdd$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/bestpractices/findmutablesetalsoadd$ktrecipe.md)
-  * **Find `mutableSetOf&lt;T&gt;().also \{ it.add(x) \}` patterns**
-  * Same shape as the `mutableListOf` variant — use `buildSet \{ add(...) \}` for the same readability gain.
-* [org.openrewrite.kotlin.bestpractices.FindNamedCompanionObjectOfConstants$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/bestpractices/findnamedcompanionobjectofconstants$ktrecipe.md)
-  * **Find named `companion object Constants` patterns**
-  * A `companion object Constants \{ const val X = ... \}` adds a named singleton to hold what are essentially file-level constants. Promote the constants to top-level `const val`s — they read the same and avoid the synthetic holder class.
-* [org.openrewrite.kotlin.bestpractices.FindNegatedIsBlank$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/bestpractices/findnegatedisblank$ktrecipe.md)
-  * **Find `!x.isBlank()` calls**
-  * Kotlin's `String.isNotBlank()` is the direct positive form. The negated-blank check reads the same value without the leading `!`.
-* [org.openrewrite.kotlin.bestpractices.FindNegatedIsEmpty$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/bestpractices/findnegatedisempty$ktrecipe.md)
-  * **Find `!x.isEmpty()` calls**
-  * Kotlin ships `isNotEmpty()` directly on `String`, `Collection`, and `Map`. The negation reads top-down without re-parsing the `!`.
-* [org.openrewrite.kotlin.bestpractices.FindNegatedIsNotBlank$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/bestpractices/findnegatedisnotblank$ktrecipe.md)
-  * **Find `!x.isNotBlank()` calls**
-  * `!x.isNotBlank()` is the long form of `x.isBlank()`.
-* [org.openrewrite.kotlin.bestpractices.FindNegatedIsNotEmpty$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/bestpractices/findnegatedisnotempty$ktrecipe.md)
-  * **Find `!x.isNotEmpty()` calls**
-  * `!x.isNotEmpty()` is the long form of `x.isEmpty()`. Use the direct positive call.
-* [org.openrewrite.kotlin.bestpractices.FindObjectWithMutableState$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/bestpractices/findobjectwithmutablestate$ktrecipe.md)
-  * **Find `object` declarations with `var` properties**
-  * An `object` is a singleton — its `var` properties are shared global mutable state. Concurrent reads/writes race without synchronization, and the value can change in surprising ways across modules.
-* [org.openrewrite.kotlin.bestpractices.FindOpenClassWithoutOverrides$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/bestpractices/findopenclasswithoutoverrides$ktrecipe.md)
-  * **Find `open class` declarations without overridable members**
-  * The `open` modifier on a class only matters if subclasses override something. A bare `open class Foo` (or one whose members are all `final`) signals an intent — &quot;this class is meant to be extended&quot; — that the type system can't actually enforce. Either declare specific members `open` (and drop the class-level `open`) or remove the modifier entirely.
-* [org.openrewrite.kotlin.bestpractices.FindRedundantReturnUnit$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/bestpractices/findredundantreturnunit$ktrecipe.md)
-  * **Find `return Unit` / `return kotlin.Unit` statements**
-  * Functions that return `Unit` don't need an explicit return at all — `return` (no expression) or simply falling off the end is the conventional shape. Writing `return Unit` repeats the implicit value.
-* [org.openrewrite.kotlin.bestpractices.FindRedundantToStringInForEach$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/bestpractices/findredundanttostringinforeach$ktrecipe.md)
-  * **Find `forEach \{ it.toString() \}` patterns**
-  * `it.toString()` inside a `forEach` evaluates the call but discards the result — equivalent to `forEach \{\}`. Either the side effect on `toString()` is the goal (very unusual) or the call is dead code.
-* [org.openrewrite.kotlin.bestpractices.FindRedundantToStringInMap$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/bestpractices/findredundanttostringinmap$ktrecipe.md)
-  * **Find `map \{ it.toString() \}` / `map \{ x -&gt; x.toString() \}` patterns**
-  * If the producer already returns a type whose `toString()` is the desired representation, the `map` is a no-op. If the goal is to materialize the `String`s up-front, `joinToString()` / `toString()` on the collection is usually a better fit.
-* [org.openrewrite.kotlin.bestpractices.FindReferentialEquality$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/bestpractices/findreferentialequality$ktrecipe.md)
-  * **Find `===` / `!==` referential-equality comparisons**
-  * Kotlin's `===` checks reference identity, ignoring `equals`. For `data class` and other value-like types this almost always wants `==` instead. Flag every referential check for review — true reference comparisons (e.g. sentinel `Any` objects) are legitimate but rare.
-* [org.openrewrite.kotlin.bestpractices.FindReturnTypeNothing$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/bestpractices/findreturntypenothing$ktrecipe.md)
-  * **Find functions declared with `: Nothing` return type**
-  * `Nothing` means 'this function never returns normally' — the body must `throw`, loop forever, or call another `Nothing`-returning function. Flag for review: if the body actually does return, the type is wrong; if it always throws, the call sites can rely on Kotlin's exhaustiveness checks.
-* [org.openrewrite.kotlin.bestpractices.FindRunWithEmptyBody$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/bestpractices/findrunwithemptybody$ktrecipe.md)
-  * **Find `run \{ \}` calls with an empty body**
-  * `run \{ \}` is a scope function for evaluating a block as an expression with an implicit `this` receiver. If the block is empty, the call evaluates to `Unit` and does nothing — drop it.
-* [org.openrewrite.kotlin.bestpractices.FindScopeFunctionSmells$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/bestpractices/findscopefunctionsmells$ktrecipe.md)
-  * **Find scope-function smells**
-  * `run \{ \}` with empty or no-`this` bodies, `also \{ \}` with empty bodies, and `?.let \{ … !! \}` patterns where the null-guard and force-unwrap contradict each other.
-* [org.openrewrite.kotlin.bestpractices.FindSealedClassWithoutStateCandidates$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/bestpractices/findsealedclasswithoutstatecandidates$ktrecipe.md)
-  * **Find `sealed class` declarations that could be `sealed interface`**
-  * A `sealed class` with no constructor parameters and no fields adds no expressive power over `sealed interface`. The interface form composes better (allows multiple inheritance, supports `data object` direct implementation, makes the no-state contract explicit).
-* [org.openrewrite.kotlin.bestpractices.FindSingleExpressionBodyCandidate$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/bestpractices/findsingleexpressionbodycandidate$ktrecipe.md)
-  * **Find `fun foo(): T \{ return x \}` block bodies**
-  * A function whose entire body is a single `return expr` is the canonical shape for Kotlin's single-expression-body syntax (`fun foo(): T = expr`). The expression form makes type inference more useful and removes one level of brace nesting.
-* [org.openrewrite.kotlin.bestpractices.FindStandaloneRunWithoutThis$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/bestpractices/findstandalonerunwithoutthis$ktrecipe.md)
-  * **Find top-level `run \{ … \}` whose body never uses `this`**
-  * Top-level `run \{ … \}` (no receiver) is meaningful only when the block uses the implicit `this` or executes multiple statements as an expression. If the body neither references `this` nor depends on the scoping it provides, the wrapper just adds an unnecessary lambda allocation.
-* [org.openrewrite.kotlin.bestpractices.FindStringConcatWithEmptyLeft$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/bestpractices/findstringconcatwithemptyleft$ktrecipe.md)
-  * **Find `&quot;&quot; + x` patterns**
-  * Prepending an empty `&quot;&quot;` is a Java idiom for forcing a `toString()` conversion. In Kotlin write `x.toString()` or the template `&quot;$x&quot;` for the same effect with explicit intent.
-* [org.openrewrite.kotlin.bestpractices.FindStringConcatWithEmptyRight$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/bestpractices/findstringconcatwithemptyright$ktrecipe.md)
-  * **Find `x + &quot;&quot;` patterns**
-  * Appending an empty `&quot;&quot;` is the inverse of the Java `&quot;&quot; + x` idiom. Use `x.toString()` or `&quot;$x&quot;` instead.
-* [org.openrewrite.kotlin.bestpractices.FindStringConstructionSmells$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/bestpractices/findstringconstructionsmells$ktrecipe.md)
-  * **Find string-construction smells**
-  * Trivial `String.format(&quot;%s&quot;, x)` calls and `&quot;&quot; + x` / `x + &quot;&quot;` concatenations that read more clearly as Kotlin string templates.
-* [org.openrewrite.kotlin.bestpractices.FindStringFormatTrivial$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/bestpractices/findstringformattrivial$ktrecipe.md)
-  * **Find trivial `String.format(&quot;%s&quot;, x)` calls**
-  * `String.format(&quot;%s&quot;, x)` is the long-hand for the Kotlin string template `&quot;$x&quot;`. The template avoids the per-call format-string parse and reads as the thing it produces.
-* [org.openrewrite.kotlin.bestpractices.FindSuspendFunctionReturningJob$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/bestpractices/findsuspendfunctionreturningjob$ktrecipe.md)
-  * **Find `suspend fun` declarations returning `Job` / `Deferred`**
-  * A `suspend fun foo(): Job` is almost always a confusion of two patterns — either the function should suspend and return a value (drop the `Job`/`Deferred`), or it should launch and return the handle (drop `suspend`, and call `coroutineScope \{ launch \{ … \} \}` internally).
-* [org.openrewrite.kotlin.bestpractices.FindThrowablePrintStackTrace$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/bestpractices/findthrowableprintstacktrace$ktrecipe.md)
-  * **Find `Throwable.printStackTrace()` calls**
-  * `printStackTrace()` writes the throwable straight to `System.err`, bypassing whatever structured logger the application uses. Route the throwable through a logger so log levels, MDCs, and sinks apply.
-* [org.openrewrite.kotlin.bestpractices.FindToListBeforeForEach$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/bestpractices/findtolistbeforeforeach$ktrecipe.md)
-  * **Find `xs.toList().forEach \{ … \}` patterns**
-  * `Iterable.forEach` already iterates without materializing a list. The intermediate `toList()` allocates a copy that's read once and discarded.
-* [org.openrewrite.kotlin.bestpractices.FindWhenAsStatement$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/bestpractices/findwhenasstatement$ktrecipe.md)
-  * **Find `when (x) \{ … \}` used as a statement**
-  * A `when` used as a statement (its result is discarded) often obscures intent — either the writer expected an expression value or each branch is a side-effecting block that would read more clearly as `if`/`else if`. Flag for review.
-* [org.openrewrite.kotlin.bestpractices.FindWhenSmells$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/bestpractices/findwhensmells$ktrecipe.md)
-  * **Find `when`-statement smells**
-  * `when` expressions that read awkwardly: missing `else`, single-branch, used as statement, with duplicate branch bodies that should collapse to comma-separated labels, or with a Boolean selector that should be `if`.
-* [org.openrewrite.kotlin.bestpractices.FindWhenWithBooleanSubject$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/bestpractices/findwhenwithbooleansubject$ktrecipe.md)
-  * **Find `when (b: Boolean)` selectors**
-  * `when (b) \{ true -&gt; … false -&gt; … \}` is the long form of `if (b) …` — and the `when` reads as if it might gain a third branch, which Boolean cannot. Replace with `if`.
-* [org.openrewrite.kotlin.bestpractices.FindWhenWithIdenticalBranches$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/bestpractices/findwhenwithidenticalbranches$ktrecipe.md)
-  * **Find `when` with two or more branches having identical bodies**
-  * `when (x) \{ A -&gt; f(); B -&gt; f() \}` repeats the same body for distinct labels — collapse to a single branch with comma-separated labels: `A, B -&gt; f()`.
-* [org.openrewrite.kotlin.bestpractices.FindWhenWithSingleBranch$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/bestpractices/findwhenwithsinglebranch$ktrecipe.md)
-  * **Find `when (x) \{ A -&gt; … \}` with a single branch**
-  * A single-branch `when (x) \{ A -&gt; … \}` is the long form of `if (x == A) …`. The `if` reads more directly and doesn't suggest the branch list will grow.
-* [org.openrewrite.kotlin.bestpractices.FindWhenWithoutElse$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/bestpractices/findwhenwithoutelse$ktrecipe.md)
-  * **Find `when (x)` expressions without an `else` branch**
-  * A `when (x)` used as an expression requires exhaustiveness — without an `else`, the compiler can only prove it for sealed/`enum` selectors. Used as a statement, the missing `else` is a tripwire: any new variant silently falls through. Flag for review.
-* [org.openrewrite.kotlin.bestpractices.FindWildcardImport$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/bestpractices/findwildcardimport$ktrecipe.md)
-  * **Find wildcard `import a.b.*` statements**
-  * Wildcard imports pull every public symbol from a package — they hide the dependency surface and make incremental compilation more conservative. Prefer explicit per-symbol imports.
-* [org.openrewrite.kotlin.bestpractices.ImproveKotlinBestPractices$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/bestpractices/improvekotlinbestpractices$ktrecipe.md)
-  * **Apply Kotlin best-practice rewrites**
-  * Autofix-only best-practice bundle: collection / string round-trip collapses and stdlib accessor swaps. Excludes the search-only `Find*` recipes so the run output is just diffs, not a flood of search results.
-* [org.openrewrite.kotlin.bestpractices.UseFirstForGetZero$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/bestpractices/usefirstforgetzero$ktrecipe.md)
-  * **Use `first()` instead of `get(0)`**
-  * `first()` reads more naturally than `get(0)` and gives the same compile-time bounds guarantees — both throw `NoSuchElementException`/`IndexOutOfBoundsException` on an empty list.
-* [org.openrewrite.kotlin.bestpractices.UseLengthForCountNoPredicate$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/bestpractices/uselengthforcountnopredicate$ktrecipe.md)
-  * **Use `length` instead of `String.count()`**
-  * `String.count()` walks every character and increments a counter. `length` reads the precomputed size off the `String` header.
-* [org.openrewrite.kotlin.bestpractices.UseSizeForCountNoPredicate$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/bestpractices/usesizeforcountnopredicate$ktrecipe.md)
-  * **Use `size` instead of `Collection.count()`**
-  * `Collection.count()` without a predicate walks the iterable. `size` reads the precomputed property on `Collection`.
-* [org.openrewrite.kotlin.bestpractices.UseStdlibAccessors$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/bestpractices/usestdlibaccessors$ktrecipe.md)
-  * **Use stdlib accessors for size / first**
-  * Replaces walk-based accessors with their O(1) property/method equivalents — `count()`/`length`/`size` and `get(0)`/`first()`.
-* [org.openrewrite.kotlin.bestpractices.UseToListForToMutableListThenToList$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/bestpractices/usetolistfortomutablelistthentolist$ktrecipe.md)
-  * **Use `toList()` instead of `toMutableList().toList()`**
-  * `toMutableList()` allocates a mutable copy, then `toList()` copies it again to an immutable list. `toList()` directly does what's needed in one pass.
-* [org.openrewrite.kotlin.bestpractices.UseToListForToSetThenToList$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/bestpractices/usetolistfortosetthentolist$ktrecipe.md)
-  * **Use `distinct()` instead of `toSet().toList()`**
-  * `distinct()` returns a `List` with duplicates removed in one pass. `toSet().toList()` allocates a set and then copies its contents into a list — two allocations to do the same job, and the order semantics differ subtly because hash-based sets don't preserve insertion order across all platforms.
-* [org.openrewrite.kotlin.bestpractices.UseToSetForDistinctThenToSet$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/bestpractices/usetosetfordistinctthentoset$ktrecipe.md)
-  * **Use `toSet()` instead of `distinct().toSet()`**
-  * `toSet()` deduplicates while building the set. `distinct().toSet()` allocates a `List` of distinct elements first, then copies into the set.
-* [org.openrewrite.kotlin.bestpractices.UseToSetForToListThenToSet$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/bestpractices/usetosetfortolistthentoset$ktrecipe.md)
-  * **Use `toSet()` instead of `toList().toSet()`**
-  * `toSet()` works on any `Iterable`. The intermediate `toList()` just allocates a list that's immediately discarded.
-* [org.openrewrite.kotlin.bestpractices.UseToStringForStringToString$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/bestpractices/usetostringforstringtostring$ktrecipe.md)
-  * **Drop redundant `String.toString()`**
-  * Calling `toString()` on a value that is already a `String` is a no-op that compiles to a method call returning the same reference.
-* [org.openrewrite.kotlin.bestpractices.UseToTypedArrayForToListThenToTypedArray$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/bestpractices/usetotypedarrayfortolistthentotypedarray$ktrecipe.md)
-  * **Use `toTypedArray()` instead of `toList().toTypedArray()`**
-  * `toTypedArray()` accepts any `Collection`; the intermediate `toList()` just allocates a list that's immediately discarded.
-* [org.openrewrite.kotlin.bestpractices.UseTrimForTrimEndThenTrimStart$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/bestpractices/usetrimfortrimendthentrimstart$ktrecipe.md)
-  * **Use `trim()` instead of `trimEnd().trimStart()`**
-  * Same as the inverse — `trim()` strips both ends in one pass without the intermediate `String` allocation.
-* [org.openrewrite.kotlin.bestpractices.UseTrimForTrimStartThenTrimEnd$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/bestpractices/usetrimfortrimstartthentrimend$ktrecipe.md)
-  * **Use `trim()` instead of `trimStart().trimEnd()`**
-  * `trim()` strips whitespace from both ends in a single pass with no intermediate allocation. `trimStart().trimEnd()` builds a temporary `String` for the left-trimmed value before the second pass.
-* [org.openrewrite.kotlin.compose.Compose$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/compose/compose$ktrecipe.md)
-  * **Find Compose stability and recomposition issues**
-  * Search-only recipes that surface Jetpack Compose anti-patterns the Android docs and Compose stability guide call out: unstable parameter types, mutable classes annotated `@Stable`/`@Immutable`, inline `Modifier` allocations, missing `remember` keys, effect-handler misuse, navigation inside composable bodies, single-child layout wrappers, lazy-list items without keys, and API-shape violations. Each match is a `SearchResult` for human review — Compose remedies are judgement calls (hoist? wrap? annotate? split?) that depend on context outside any one expression. For diff-only output on the small autofix set, use `ImproveKotlinCompose`.
-* [org.openrewrite.kotlin.compose.FindArrayParameterOnComposable$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/compose/findarrayparameteroncomposable$ktrecipe.md)
-  * **Find `Array&lt;T&gt;` parameters on `@Composable` functions**
-  * JVM arrays are mutable references — Compose's stability inferrer marks an `Array&lt;T&gt;` parameter unstable, forcing the composable to recompose every time the parent recomposes. Prefer `ImmutableList&lt;T&gt;` or a `@Stable` wrapper.
-* [org.openrewrite.kotlin.compose.FindBoxWithSingleChild$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/compose/findboxwithsinglechild$ktrecipe.md)
-  * **Find `Box \{ … \}` with a single child**
-  * A `Box \{ OneChild() \}` adds a layout node and a measurement pass for no compositional benefit — the child could be invoked directly with the same `Modifier`. Either pull the modifier onto the child or use the explicit `Box` placement APIs if alignment is doing real work.
-* [org.openrewrite.kotlin.compose.FindByRememberWithoutMutableState$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/compose/findbyrememberwithoutmutablestate$ktrecipe.md)
-  * **Find `by remember \{ … \}` delegations whose body isn't a `mutableStateOf`**
-  * `by remember \{ … \}` pairs with a `MutableState&lt;T&gt;` so the property delegates its read/write through the snapshot system. If the `remember \{ \}` body returns a plain `T`, the `by` does nothing useful — and is a strong hint the author forgot to wrap the value in `mutableStateOf(...)` or `derivedStateOf \{ … \}`.
-* [org.openrewrite.kotlin.compose.FindCanvasInComposable$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/compose/findcanvasincomposable$ktrecipe.md)
-  * **Find `Canvas \{ … \}` blocks inside a `@Composable`**
-  * `Canvas \{ drawXxx(...) \}` re-runs the draw lambda on every recomposition; allocating `Paint`, `Path`, or `Brush` instances inside the lambda creates GC pressure that shows up as jank. Review for hoistable allocations (`remember \{ Paint().apply \{ … \} \}`) and for `drawWithCache \{ … \}` opportunities.
-* [org.openrewrite.kotlin.compose.FindCardWithSingleChild$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/compose/findcardwithsinglechild$ktrecipe.md)
-  * **Find `Card \{ OneChild() \}` patterns**
-  * A `Card \{ OneChild() \}` allocates a layout node and an elevation surface for exactly one composable. If the child already styles itself (`Modifier.background`/`Modifier.shadow`), the `Card` is decorative duplication — pull the styling into the child's `Modifier` chain.
-* [org.openrewrite.kotlin.compose.FindColumnWithSingleChild$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/compose/findcolumnwithsinglechild$ktrecipe.md)
-  * **Find `Column \{ … \}` with a single child**
-  * A `Column \{ OneChild() \}` allocates a layout node and runs the column measurement to position exactly one child. Either remove the column or replace with `Box(modifier = m)` if the column's `verticalArrangement` actually does work the parent isn't.
-* [org.openrewrite.kotlin.compose.FindComposableCallInNonComposableLambda$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/compose/findcomposablecallinnoncomposablelambda$ktrecipe.md)
-  * **Find `@Composable` calls inside non-`@Composable` lambda parameters**
-  * A `@Composable` function called from inside a non-Composable lambda (e.g., a `forEach \{ \}`) won't enter the composition tree correctly — the function executes but its emitted nodes don't get tracked for invalidation. Either move the call out of the lambda, or use a Compose-aware iterator (`items(list) \{ … \}`).
-* [org.openrewrite.kotlin.compose.FindComposableConventionSmells$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/compose/findcomposableconventionsmells$ktrecipe.md)
-  * **Find Compose function-naming conventions**
-  * Function-naming patterns the Compose API guide calls out: non-`@Composable` functions that use composable APIs (`remember`/`LaunchedEffect`/`rememberCoroutineScope`) without the annotation.
-* [org.openrewrite.kotlin.compose.FindComposableLambdaParamMissingDefault$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/compose/findcomposablelambdaparammissingdefault$ktrecipe.md)
-  * **Find `@Composable` functions with a content lambda parameter not defaulted to `\{\}`**
-  * By Material/Compose convention, content slot lambdas (`content: @Composable () -&gt; Unit`) default to `\{\}` so callers can compose the function without supplying a body when they only want the surrounding chrome. Flag content slots without defaults so the API gets the convention-conforming overload.
-* [org.openrewrite.kotlin.compose.FindComposableMissingModifierParam$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/compose/findcomposablemissingmodifierparam$ktrecipe.md)
-  * **Find `@Composable` functions without a `Modifier` parameter**
-  * The Compose API guideline says every composable that emits UI should accept a `Modifier` parameter (named `modifier`, defaulted to `Modifier`) so callers can size, layout, and decorate without subclassing. Flag composables that emit content but expose no `Modifier` slot.
-* [org.openrewrite.kotlin.compose.FindComposableWithReturnValue$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/compose/findcomposablewithreturnvalue$ktrecipe.md)
-  * **Find `@Composable fun … (): X` functions returning a non-`Unit` value**
-  * A `@Composable` function that returns a value either emits UI as a side-effect (anti-pattern: invocation order is now load-bearing) or computes a derived value that should be a `@ReadOnlyComposable`. Mark explicit value-returning composables `@ReadOnlyComposable` so callers know they don't emit, or split into emitting-vs-returning pairs.
-* [org.openrewrite.kotlin.compose.FindComposeApiDesignIssues$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/compose/findcomposeapidesignissues$ktrecipe.md)
-  * **Find Compose API design issues**
-  * Composable functions that don't follow the Compose API guidelines: lowercase name (UI emitters should be `PascalCase`), non-`Unit` return without `@ReadOnlyComposable`, content slot without a default `\{\}`, missing `Modifier` parameter, and `@Composable` invocations from non-Composable lambdas.
-* [org.openrewrite.kotlin.compose.FindComposeEffectIssues$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/compose/findcomposeeffectissues$ktrecipe.md)
-  * **Find Compose effect handler issues**
-  * Effect handlers misused: `LaunchedEffect(Unit)`/`LaunchedEffect(true)` placeholder keys, `DisposableEffect` lambdas missing `onDispose \{ \}`, `rememberCoroutineScope()` mis-placed inside a lambda, `LaunchedEffect` inside loops, and side-effecting calls (logging, `File`) inside the composable body rather than an effect block.
-* [org.openrewrite.kotlin.compose.FindComposeLayoutIssues$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/compose/findcomposelayoutissues$ktrecipe.md)
-  * **Find Compose layout hierarchy smells**
-  * Layout containers that exist for no compositional benefit: `Box`/`Column`/`Row` wrapping a single child, and `LazyColumn`/`LazyRow` items missing a stable `key` (which churns composition state on reorder).
-* [org.openrewrite.kotlin.compose.FindComposeModifierIssues$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/compose/findcomposemodifierissues$ktrecipe.md)
-  * **Find Compose `Modifier` smells**
-  * Modifier-chain shapes that allocate per recomposition (`Modifier.padding(...)` inline), branch with structurally distinct chains (`if (x) Modifier.foo() else Modifier`), or stack `fillMax`/`padding` in a layout-changing order. Each match needs the author's intent to fix correctly.
-* [org.openrewrite.kotlin.compose.FindComposeNavigationIssues$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/compose/findcomposenavigationissues$ktrecipe.md)
-  * **Find Compose navigation / coroutine misuse**
-  * Calls that need to be wrapped in an effect handler or event handler: `navController.navigate(...)` from a composable body, `scope.launch \{ … \}` outside `LaunchedEffect`, lifecycle-naive `collectAsState` instead of `collectAsStateWithLifecycle`.
-* [org.openrewrite.kotlin.compose.FindComposeRememberIssues$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/compose/findcomposerememberissues$ktrecipe.md)
-  * **Find Compose `remember` key issues**
-  * `remember \{ … \}` calls where the keys do not align with the values the block reads — keyless `remember` that captures changing variables, and `remember \{ mutableStateOf(call()) \}` candidates for `derivedStateOf`.
-* [org.openrewrite.kotlin.compose.FindComposeStabilityIssues$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/compose/findcomposestabilityissues$ktrecipe.md)
-  * **Find Compose stability issues**
-  * Surface declarations where Compose's stability inferrer will refuse to mark a parameter, property, or class as stable: `MutableList`/`MutableMap`/`MutableSet` parameters, read-only `List` parameters, `@Stable`/`@Immutable` annotations applied to classes with `var` fields, and `data class` declarations holding `List&lt;T&gt;` properties.
-* [org.openrewrite.kotlin.compose.FindComposeStateReadIssues$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/compose/findcomposestatereadissues$ktrecipe.md)
-  * **Find Compose state read/write issues**
-  * Patterns where a `MutableState`/`State` is read or constructed in a way that loses the snapshot value: explicit `.value` reads, bare `mutableStateOf` without `remember`, class-field state ownership, missing `derivedStateOf`, transient collection allocations.
-* [org.openrewrite.kotlin.compose.FindComposeViewModelIssues$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/compose/findcomposeviewmodelissues$ktrecipe.md)
-  * **Find Compose ViewModel wiring issues**
-  * ViewModel acquisition inside composables — `hiltViewModel&lt;X&gt;()` and `viewModel&lt;X&gt;()` — and StateFlow exposure: `MutableStateFlow` without an `asStateFlow()` read-only view.
-* [org.openrewrite.kotlin.compose.FindConditionalModifier$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/compose/findconditionalmodifier$ktrecipe.md)
-  * **Find `if (x) Modifier.foo() else Modifier` patterns**
-  * `if (cond) Modifier.foo() else Modifier` returns two structurally different `Modifier` chains, breaking memoization on the consumer. Use `Modifier.then(if (cond) Modifier.foo() else Modifier)` or `Modifier.composed \{ if (cond) padding(8.dp) else this \}` so the consumer sees a single stable reference.
-* [org.openrewrite.kotlin.compose.FindContextParameterOnComposable$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/compose/findcontextparameteroncomposable$ktrecipe.md)
-  * **Find `android.content.Context` parameters on `@Composable` functions**
-  * Passing a `Context` into a composable couples it to the activity instance and makes the function harder to preview/test. Use `LocalContext.current` inside the composable instead — it works through the composition tree and is preview-safe.
-* [org.openrewrite.kotlin.compose.FindCoroutineLaunchInComposableBody$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/compose/findcoroutinelaunchincomposablebody$ktrecipe.md)
-  * **Find `scope.launch \{ … \}` calls inside a `@Composable` body**
-  * `scope.launch \{ … \}` in a `@Composable` body starts a new coroutine on every recomposition — none of them get cancelled until the scope dies. Use `LaunchedEffect(key) \{ … \}`, which is automatically cancelled and restarted by the composition's lifecycle.
-* [org.openrewrite.kotlin.compose.FindCoroutineLaunchInsideLaunchedEffectInLoop$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/compose/findcoroutinelaunchinsidelaunchedeffectinloop$ktrecipe.md)
-  * **Find `for (...) \{ LaunchedEffect(...) \{ … \} \}` patterns**
-  * A `LaunchedEffect` inside a loop creates a separate coroutine per iteration. That is rarely the intended structure — it is usually a mis-placement of effect logic. Prefer a single `LaunchedEffect(keys = arrayOf(...)) \{ for (...) \{ … \} \}` or restructure the loop to live inside the effect.
-* [org.openrewrite.kotlin.compose.FindDataClassWithListProperty$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/compose/finddataclasswithlistproperty$ktrecipe.md)
-  * **Find `data class` declarations with `List&lt;T&gt;` properties**
-  * When a `data class` is passed to a `@Composable` and one of its properties is a `kotlin.collections.List&lt;T&gt;`, Compose marks the entire class unstable. Wrap the list in `ImmutableList&lt;T&gt;` from `kotlinx.collections.immutable` (or split the list out and remember it separately) so stability inference can prove the holder is `@Stable`.
-* [org.openrewrite.kotlin.compose.FindDerivedStateOfCandidate$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/compose/findderivedstateofcandidate$ktrecipe.md)
-  * **Find `remember \{ mutableStateOf(expensiveCall()) \}` patterns**
-  * `remember \{ mutableStateOf(expensiveCall()) \}` evaluates the expression once and stores it — but if the expression depends on snapshot state, you want it to recompute when that state changes. `derivedStateOf \{ expensiveCall() \}` (inside a `remember \{ \}`) recomputes lazily only when its tracked reads invalidate, instead of either staling out or recomputing on every recomposition.
-* [org.openrewrite.kotlin.compose.FindDisposableEffectMissingOnDispose$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/compose/finddisposableeffectmissingondispose$ktrecipe.md)
-  * **Find `DisposableEffect \{ … \}` blocks missing an `onDispose \{ \}`**
-  * `DisposableEffect`'s contract is to return a `DisposableEffectResult` from `onDispose \{ … \}` — without it, the compiler should reject the block, but easy mistakes (early `return`, wrong receiver) silently bypass cleanup. Confirm the final statement of every `DisposableEffect` lambda is an `onDispose \{ \}` call so resources are released on leave-the-composition.
-* [org.openrewrite.kotlin.compose.FindDpAllocationInComposableBody$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/compose/finddpallocationincomposablebody$ktrecipe.md)
-  * **Find `n.dp` allocations inside a `@Composable` body**
-  * `Dp` is an inline value class — most `.dp` accesses compile to a primitive. But certain platforms (older Kotlin, KMP non-JVM targets) box the value. In hot composables, prefer hoisting `private val padding = 8.dp` to file scope so the conversion runs once.
-* [org.openrewrite.kotlin.compose.FindFlowCollectAsState$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/compose/findflowcollectasstate$ktrecipe.md)
-  * **Find `Flow.collectAsState()` calls — prefer `collectAsStateWithLifecycle()`**
-  * `collectAsState()` keeps collecting whenever the composition is alive, including while the host activity is stopped. `collectAsStateWithLifecycle()` (from `androidx.lifecycle:lifecycle-runtime-compose`) ties collection to the lifecycle owner, dropping subscription while in the background and freeing the upstream `Flow` from doing work nothing will display.
-* [org.openrewrite.kotlin.compose.FindFlowParameterOnComposable$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/compose/findflowparameteroncomposable$ktrecipe.md)
-  * **Find `Flow&lt;T&gt;` / `StateFlow&lt;T&gt;` parameters on `@Composable` functions**
-  * Passing a `Flow&lt;T&gt;` into a `@Composable` shifts collection from a `LaunchedEffect` to the consumer — but if the caller re-creates the `Flow` per recomposition, collection restarts every time. Prefer collecting at the call site and passing the resulting `State&lt;T&gt;` (or `T` directly).
-* [org.openrewrite.kotlin.compose.FindHardcodedColor$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/compose/findhardcodedcolor$ktrecipe.md)
-  * **Find `Color(0xFF…)` / `Color.X` literals inside `@Composable`**
-  * Hardcoded `Color` literals inside a composable bypass `MaterialTheme.colorScheme.X`, breaking light/dark theme adaptation and theming overrides. Move the literal into the theme (a `ColorScheme` extension or a top-level theme val) and read it via `MaterialTheme.colorScheme` at the call site.
-* [org.openrewrite.kotlin.compose.FindHardcodedDesignTokens$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/compose/findhardcodeddesigntokens$ktrecipe.md)
-  * **Find hardcoded color literals inside `@Composable`**
-  * `Color(0xFF…)` literals inside composables break theming and accessibility (light/dark). Hoist into `MaterialTheme.colorScheme.*`.
-* [org.openrewrite.kotlin.compose.FindHiltViewModelInComposable$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/compose/findhiltviewmodelincomposable$ktrecipe.md)
-  * **Find `hiltViewModel&lt;X&gt;()` calls inside `@Composable`**
-  * `hiltViewModel&lt;MyViewModel&gt;()` inside a `@Composable` couples the screen-level dependency injection to that composable. That is the recommended pattern at navigation entry points, but flagged for review when the same ViewModel is injected from multiple composables (you'll get distinct instances per nav graph entry).
-* [org.openrewrite.kotlin.compose.FindImmutableAnnotationOnMutableClass$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/compose/findimmutableannotationonmutableclass$ktrecipe.md)
-  * **Find `@Immutable` on classes with `var` properties**
-  * `@Immutable` is the stronger sibling of `@Stable`: it promises that all public properties are observably unchangeable after construction. A `var` field is by definition observably changeable — Compose will assume it can skip recompositions safely and miss updates. Drop the annotation or convert the property to `val` (and a private backing var if needed).
-* [org.openrewrite.kotlin.compose.FindInlineModifierConstruction$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/compose/findinlinemodifierconstruction$ktrecipe.md)
-  * **Find `Modifier.xxx()` allocations inside a `@Composable` body**
-  * Each `Modifier.padding(...)`-style chain allocates a fresh `Modifier` instance, and a fresh `Modifier` defeats Compose's structural-equality skip — every recomposition allocates again and forces re-layout. Hoist the modifier into a `remember \{ Modifier… \}`, accept a `Modifier` parameter from the caller, or build static modifiers as top-level vals.
-* [org.openrewrite.kotlin.compose.FindLambdaAsComposableParamWithoutNoinline$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/compose/findlambdaascomposableparamwithoutnoinline$ktrecipe.md)
-  * **Find lambda parameters on `@Composable` functions**
-  * Function-typed parameters are unstable from Compose's stability inferrer perspective unless the lambda reference is stable (e.g., function reference or `remember`d). For frequently-recomposed composables, accept a `(T) -&gt; Unit` and document caller responsibility, or fold the callback into a stable holder. Flag for review when the API is performance-sensitive.
-* [org.openrewrite.kotlin.compose.FindLambdaCapturingMutableStateInItems$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/compose/findlambdacapturingmutablestateinitems$ktrecipe.md)
-  * **Find lazy-list `items(...) \{ … \}` content lambdas that read a `MutableState` from the enclosing scope**
-  * When a `LazyColumn`/`LazyRow` content lambda reads a `MutableState`/`State` from the enclosing scope, every change to that state invalidates the entire item composition. Hoist the state into a per-item `remember`, or read it inside a child composable so only the affected item recomposes.
-* [org.openrewrite.kotlin.compose.FindLaunchedEffectMultipleSuspendCalls$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/compose/findlaunchedeffectmultiplesuspendcalls$ktrecipe.md)
-  * **Find `LaunchedEffect` bodies with several distinct suspend calls**
-  * A `LaunchedEffect` lambda that issues several distinct top-level suspend calls is usually doing two things: a long-running collector plus an unrelated kickoff. Split them into separate `LaunchedEffect`s keyed independently so canceling one doesn't cancel the other on key changes.
-* [org.openrewrite.kotlin.compose.FindLaunchedEffectWithTrueKey$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/compose/findlaunchedeffectwithtruekey$ktrecipe.md)
-  * **Find `LaunchedEffect(true) \{ … \}` blocks**
-  * `LaunchedEffect(true)` (or any literal `true`/`false` key) is a one-shot effect dressed up to look like it has a key. It is structurally identical to `LaunchedEffect(Unit)` but reads as if the author meant to pass a variable. Switch to `Unit` for clarity or pass the real dependency.
-* [org.openrewrite.kotlin.compose.FindLaunchedEffectWithUnitKey$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/compose/findlaunchedeffectwithunitkey$ktrecipe.md)
-  * **Find `LaunchedEffect(Unit) \{ … \}` blocks**
-  * `LaunchedEffect(Unit) \{ … \}` runs exactly once per composition lifetime — that's intentional for one-shot startup work, but it is also the easiest spelling when the author wanted lifecycle-aware re-launch on a real key. Confirm `Unit` was intentional and not a placeholder for the actual dependencies the effect reads.
-* [org.openrewrite.kotlin.compose.FindLaunchedEffectWithoutKey$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/compose/findlaunchedeffectwithoutkey$ktrecipe.md)
-  * **Find `LaunchedEffect \{ … \}` calls with no key argument**
-  * `LaunchedEffect` always takes at least one key — without one the call is a compile error (or silently rebound to a `(suspend () -&gt; Unit)` overload in stubbed builds). Confirm a key is supplied; `LaunchedEffect(Unit) \{ … \}` is the canonical one-shot spelling.
-* [org.openrewrite.kotlin.compose.FindLazyColumnDirectCall$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/compose/findlazycolumndirectcall$ktrecipe.md)
-  * **Find `LazyColumn \{ … \}` calls — verify items use stable keys**
-  * A `LazyColumn \{ items(...) \{ … \} \}` whose inner `items` call has no `key = \{ … \}` recomposes every visible row on every reorder/insertion. Audit the call to add a stable key.
-* [org.openrewrite.kotlin.compose.FindLazyListItemMissingKey$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/compose/findlazylistitemmissingkey$ktrecipe.md)
-  * **Find `LazyColumn`/`LazyRow` `items(...)` calls missing a `key = \{ … \}` argument**
-  * Without a stable `key`, `LazyColumn`/`LazyRow` indexes items by position. Inserting an item shifts every following index and Compose has to recompose every visible child, recreating their state. A stable `key` (typically an id) lets Compose preserve composition state across reorderings and animations.
-* [org.openrewrite.kotlin.compose.FindLazyRowDirectCall$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/compose/findlazyrowdirectcall$ktrecipe.md)
-  * **Find `LazyRow \{ … \}` calls — verify items use stable keys**
-  * A `LazyRow \{ items(...) \{ … \} \}` whose inner `items` call has no `key = \{ … \}` recomposes every visible cell on every reorder. Audit the call to add a stable key.
-* [org.openrewrite.kotlin.compose.FindLazyVerticalGridDirectCall$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/compose/findlazyverticalgriddirectcall$ktrecipe.md)
-  * **Find `LazyVerticalGrid \{ … \}` calls — verify items use stable keys**
-  * A `LazyVerticalGrid \{ items(...) \{ … \} \}` whose inner `items` call has no `key = \{ … \}` recomposes every visible cell on every reorder. Audit the call to add a stable key.
-* [org.openrewrite.kotlin.compose.FindLifecycleAwareFlowSmells$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/compose/findlifecycleawareflowsmells$ktrecipe.md)
-  * **Find lifecycle-naive flow / LiveData collection in Composables**
-  * Collectors and observers that keep running while the host activity is stopped: `LiveData.observeAsState()`, `viewModel.uiState.collectAsState()` (vs `collectAsStateWithLifecycle()`), and `LiveData.observe(...)` called directly from a `@Composable`.
-* [org.openrewrite.kotlin.compose.FindListAsComposableParam$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/compose/findlistascomposableparam$ktrecipe.md)
-  * **Find `@Composable` functions with `List`/`Map`/`Set` parameters**
-  * `kotlin.collections.List` (and friends) are read-only views, not immutable types — a `List&lt;T&gt;` can be a `MutableList&lt;T&gt;` upcast, so Compose's stability inferrer marks the parameter unstable and re-invokes the composable on every parent recomposition. Use `ImmutableList&lt;T&gt;` from `kotlinx.collections.immutable` or wrap in a `@Immutable` data holder.
-* [org.openrewrite.kotlin.compose.FindListOfInComposableBody$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/compose/findlistofincomposablebody$ktrecipe.md)
-  * **Find `listOf(...)` / `mapOf(...)` / `setOf(...)` calls inside a `@Composable`**
-  * `listOf(a, b)` allocates a fresh `List` on every recomposition. If the composable downstream is `@Stable` and compares its inputs by reference, the new list defeats memoization. Hoist into a `remember \{ listOf(a, b) \}` or convert to an `ImmutableList` declared at file scope.
-* [org.openrewrite.kotlin.compose.FindLiveDataObserveInComposable$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/compose/findlivedataobserveincomposable$ktrecipe.md)
-  * **Find `LiveData.observe(...)` calls inside `@Composable`**
-  * `LiveData.observe(lifecycleOwner, observer)` is for `Activity`/`Fragment` code; inside a `@Composable` it registers a brand-new observer on every recomposition and never removes it. Use `observeAsState()` (or migrate to `StateFlow` and `collectAsStateWithLifecycle()`).
-* [org.openrewrite.kotlin.compose.FindLongModifierChain$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/compose/findlongmodifierchain$ktrecipe.md)
-  * **Find `Modifier.xxx().yyy()...` chains longer than five operations**
-  * A `Modifier` chain with more than five operations is hard to read, hard to memoize, and often hides a hoist-into-a-named-Modifier opportunity. Extract the chain into a `val styled = Modifier…` declaration (ideally `remember`ed at the call site) so the composable body reads as intent rather than plumbing.
-* [org.openrewrite.kotlin.compose.FindLowercaseComposableFunction$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/compose/findlowercasecomposablefunction$ktrecipe.md)
-  * **Find `@Composable` functions whose name starts with a lowercase letter**
-  * Compose convention: composables that emit UI use `PascalCase` to set them apart from regular Kotlin functions in IDE auto-complete and stack traces. Lowercase-named composables either should be renamed or, if they return a value rather than emit UI, marked `@ReadOnlyComposable` to signal they don't compose.
-* [org.openrewrite.kotlin.compose.FindModifierClickableBeforeBackground$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/compose/findmodifierclickablebeforebackground$ktrecipe.md)
-  * **Find `Modifier.clickable \{ \}.background(...)` chains**
-  * When `clickable` precedes `background` in a `Modifier` chain, the background paints on top of the touch target — the visible color is the background, but the ripple/feedback originates from the layer underneath, which usually isn't the look the author wanted. Place `background(...)` first and `clickable \{ … \}` last so the touch surface sits above the visual fill.
-* [org.openrewrite.kotlin.compose.FindModifierFillMaxAndPaddingOrderSmell$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/compose/findmodifierfillmaxandpaddingordersmell$ktrecipe.md)
-  * **Find `Modifier.fillMaxXxx().padding(...)` chains**
-  * Modifier order matters: `Modifier.fillMaxSize().padding(8.dp)` fills the parent first and then insets — the visible content is smaller than the parent. `Modifier.padding(8.dp).fillMaxSize()` insets the available space and then fills it, producing a layout that hugs the padded box. The right order is intent-specific; flag chains for review.
-* [org.openrewrite.kotlin.compose.FindModifierFillMaxWidthAfterFillMaxSize$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/compose/findmodifierfillmaxwidthafterfillmaxsize$ktrecipe.md)
-  * **Find `Modifier.fillMaxSize().fillMaxWidth()` chains**
-  * `fillMaxSize()` already constrains both width and height — appending `fillMaxWidth()` is redundant and signals the author wasn't sure which size operator they wanted. Drop the second call or swap to the single operator that captures the intent.
-* [org.openrewrite.kotlin.compose.FindModifierOrderingSmells$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/compose/findmodifierorderingsmells$ktrecipe.md)
-  * **Find Compose `Modifier` ordering smells**
-  * Modifier chains whose order produces a subtly wrong visual or interactive shape: `clickable` painted over by a later `background`, `fillMaxWidth` followed by `padding` (inset *after* the fill), and `fillMaxSize` immediately followed by a redundant `fillMaxWidth`/`fillMaxHeight`. Also surfaces `Modifier.weight(...)` calls outside a `Row`/`Column` scope, and overly long chains that could be hoisted into a named modifier.
-* [org.openrewrite.kotlin.compose.FindModifierPaddingAfterFillMaxWidth$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/compose/findmodifierpaddingafterfillmaxwidth$ktrecipe.md)
-  * **Find `Modifier.fillMaxWidth().padding(...)` chains**
-  * `fillMaxWidth()` followed by `padding(...)` reserves the full width and then insets — the visible content is narrower than the parent. Most authors who write that chain meant `padding(...).fillMaxWidth()` so the inset comes first and the fill happens inside the inset region. The right order is intent-specific; flag for review.
-* [org.openrewrite.kotlin.compose.FindModifierPaddingAllEqual$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/compose/findmodifierpaddingallequal$ktrecipe.md)
-  * **Find `padding(start = x, end = x, top = x, bottom = x)` shorthand opportunities**
-  * When every named `padding(...)` argument carries the same value, `padding(all = x)` (or just `padding(x)`) communicates the uniform inset in a single token. Mixed-value `padding(...)` is fine; equal-on-all-sides is a shorthand candidate.
-* [org.openrewrite.kotlin.compose.FindModifierPaddingHorizontalEqualToVertical$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/compose/findmodifierpaddinghorizontalequaltovertical$ktrecipe.md)
-  * **Find `padding(start = x, end = x, top = y, bottom = y)` shorthand opportunities**
-  * `Modifier.padding(start = 8.dp, end = 8.dp, top = 16.dp, bottom = 16.dp)` reads as four independent insets but really means &quot;8 horizontal, 16 vertical&quot;. The shorter `padding(horizontal = 8.dp, vertical = 16.dp)` says that intent up front and survives a future change to one axis without re-pairing the values.
-* [org.openrewrite.kotlin.compose.FindModifierPaddingZero$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/compose/findmodifierpaddingzero$ktrecipe.md)
-  * **Find zero-valued `Modifier.padding(...)` calls**
-  * `Modifier.padding(0.dp)` allocates a `PaddingValues` and a layout pass to inset by zero — the call is a no-op in terms of layout but not at runtime. Drop the call (or split out the surrounding chain so the zero edge isn't expressed at all).
-* [org.openrewrite.kotlin.compose.FindModifierShorthands$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/compose/findmodifiershorthands$ktrecipe.md)
-  * **Find `Modifier.padding(...)` shorthand opportunities**
-  * Named-argument `padding(...)` calls whose values reduce to a shorter spelling: equal start/end + equal top/bottom collapses to `padding(horizontal = x, vertical = y)`; all-equal collapses to `padding(all = x)`; all-zero is a removable no-op.
-* [org.openrewrite.kotlin.compose.FindModifierWeightOutsideRowColumn$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/compose/findmodifierweightoutsiderowcolumn$ktrecipe.md)
-  * **Find `Modifier.weight(...)` calls outside a `Row`/`Column` scope**
-  * `Modifier.weight(weight)` is an extension on `RowScope`/`ColumnScope` — calling it elsewhere is a compile error in well-typed code, but stub builds and intrinsic-measurement hacks let mis-scoped calls slip through. Flag any `weight(...)` on a `Modifier` chain whose nearest enclosing scoped builder isn't a `Row` or `Column`.
-* [org.openrewrite.kotlin.compose.FindMutableCollectionAsComposableParam$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/compose/findmutablecollectionascomposableparam$ktrecipe.md)
-  * **Find `@Composable` functions with `MutableList`/`MutableMap`/`MutableSet` parameters**
-  * Compose's stability inferrer treats `MutableList`/`MutableMap`/`MutableSet` parameters as unstable — every recomposition compares by identity and re-invokes the composable even if no element changed. Use `kotlinx.collections.immutable.ImmutableList` (or wrap in a `@Stable` class) so equality checks short-circuit and recomposition is skipped.
-* [org.openrewrite.kotlin.compose.FindMutableStateInClassField$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/compose/findmutablestateinclassfield$ktrecipe.md)
-  * **Find `mutableStateOf(...)` stored in a class field**
-  * `private val x = mutableStateOf(...)` at class scope ties the state to the lifetime of the enclosing class — ViewModel scope is fine, but UI-layer classes shouldn't be holding state for the composable. Hoist into a ViewModel or accept the state from the caller via parameters so recomposition and lifecycle agree on ownership.
-* [org.openrewrite.kotlin.compose.FindMutableStateInComposableWithoutRemember$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/compose/findmutablestateincomposablewithoutremember$ktrecipe.md)
-  * **Find bare `mutableStateOf(...)` inside `@Composable` without `remember \{ \}`**
-  * A bare `mutableStateOf(...)` call inside a `@Composable` allocates a fresh `MutableState` on every recomposition, throwing away the previous value. Wrap in `remember \{ mutableStateOf(...) \}` so the snapshot survives recomposition (or hoist into a ViewModel if it needs to survive process death).
-* [org.openrewrite.kotlin.compose.FindNavigateInComposableBody$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/compose/findnavigateincomposablebody$ktrecipe.md)
-  * **Find `NavController.navigate(...)` calls in a `@Composable` body**
-  * `navController.navigate(...)` called directly in the body fires on every recomposition, leading to navigation loops or back-stack corruption. Wrap in a `LaunchedEffect(key) \{ … \}` keyed by the condition that should trigger the navigation, or move the call into an event handler (`onClick = \{ … \}`).
-* [org.openrewrite.kotlin.compose.FindNonComposableUsingComposableApis$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/compose/findnoncomposableusingcomposableapis$ktrecipe.md)
-  * **Find non-`@Composable` functions calling `@Composable`-only APIs**
-  * A function that calls `LaunchedEffect`/`remember`/`rememberCoroutineScope` but isn't annotated `@Composable` itself is a compile error in well-typed code, but suppressors and hand-rolled annotations let it slip through. Add `@Composable` to the function declaration so the contract is explicit.
-* [org.openrewrite.kotlin.compose.FindObserveAsState$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/compose/findobserveasstate$ktrecipe.md)
-  * **Find `LiveData.observeAsState()` calls — prefer `collectAsStateWithLifecycle()`**
-  * `observeAsState()` ties subscription to the composition, not to the lifecycle owner — collection keeps running while the host activity is `STOPPED`. Migrate to `StateFlow` and `collectAsStateWithLifecycle()` (or stay on LiveData and use `androidx.lifecycle.compose.observeAsState`, which is lifecycle-aware in newer versions).
-* [org.openrewrite.kotlin.compose.FindPublicMutableStateFlowProperty$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/compose/findpublicmutablestateflowproperty$ktrecipe.md)
-  * **Find non-`private` `MutableStateFlow` properties**
-  * Convention pattern: `private val _state = MutableStateFlow(...); val state: StateFlow&lt;T&gt; = _state.asStateFlow()`. A non-`private` `MutableStateFlow` property exposes the writable handle to consumers — anyone who can read it can also call `.value = …` or `tryEmit(...)`, breaking the unidirectional-data-flow contract the ViewModel is supposed to enforce. Make the field `private` and expose a read-only `StateFlow` view.
-* [org.openrewrite.kotlin.compose.FindRecompositionSmells$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/compose/findrecompositionsmells$ktrecipe.md)
-  * **Find Compose recomposition smells**
-  * Recomposition-related patterns whose default behavior surprises authors: `LazyColumn`/`LazyRow`/`LazyVerticalGrid` whose inner `items(...)` calls have no `key` (composition state churns on reorder), and lazy-list content lambdas that read snapshot state from the enclosing scope (every state change invalidates the entire list).
-* [org.openrewrite.kotlin.compose.FindRememberCoroutineScopeInLambda$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/compose/findremembercoroutinescopeinlambda$ktrecipe.md)
-  * **Find `rememberCoroutineScope()` calls inside a lambda**
-  * `rememberCoroutineScope()` must be called from a composition-aware position — inside a lambda (like an `onClick`) it's a compile error. The recipe surfaces such mis-positioned calls so they migrate to the composable body proper.
-* [org.openrewrite.kotlin.compose.FindRememberMutableListOfWithoutMutableState$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/compose/findremembermutablelistofwithoutmutablestate$ktrecipe.md)
-  * **Find `remember \{ mutableListOf&lt;T&gt;() \}` patterns**
-  * `remember \{ mutableListOf&lt;T&gt;() \}` survives recomposition but mutations to the list are invisible to Compose — adding an item won't trigger a re-render of any consumer that reads the list. Use `remember \{ mutableStateListOf&lt;T&gt;() \}` (or hoist to `mutableStateListOf&lt;T&gt;()` at file scope) so writes register as snapshot writes.
-* [org.openrewrite.kotlin.compose.FindRememberNoKeys$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/compose/findremembernokeys$ktrecipe.md)
-  * **Find `remember \{ … \}` calls with no keys**
-  * `remember \{ … \}` with no key arguments caches once per call site forever. If the block references variables that vary between recompositions, the cache holds a stale value. Either pass the referenced variables as keys (`remember(input) \{ … \}`) or — if the value really is invariant — leave a comment justifying it.
-* [org.openrewrite.kotlin.compose.FindRememberWithUnstableKey$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/compose/findrememberwithunstablekey$ktrecipe.md)
-  * **Find `remember(mutableListOf(...), …)` and similar unstable-key calls**
-  * A `remember(key, calc)` whose key is a fresh allocation — `mutableListOf(...)`, `arrayOf(...)`, `listOf(...)` — is structurally a new key on every recomposition. The cache resets every time, defeating the entire purpose of `remember`. Pass the underlying values that *do* survive recomposition (or stable references) as the keys.
-* [org.openrewrite.kotlin.compose.FindRowWithSingleChild$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/compose/findrowwithsinglechild$ktrecipe.md)
-  * **Find `Row \{ … \}` with a single child**
-  * A `Row \{ OneChild() \}` allocates a layout node and runs the row measurement to position exactly one child. Either remove the row or replace with `Box(modifier = m)` if the row's `horizontalArrangement` actually does work the parent isn't.
-* [org.openrewrite.kotlin.compose.FindSideEffectAllocationsInBody$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/compose/findsideeffectallocationsinbody$ktrecipe.md)
-  * **Find `java.io.File(...)` allocations inside a `@Composable` body**
-  * Filesystem objects allocated inside a `@Composable` body get rebuilt on every recomposition. Even if the constructor is cheap, the I/O performed by callers (`File.exists()`, `File.length()`) often is not. Move the allocation into a `remember \{ File(...) \}` block or out of the composable entirely.
-* [org.openrewrite.kotlin.compose.FindSideEffectInComposableBody$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/compose/findsideeffectincomposablebody$ktrecipe.md)
-  * **Find logging calls in `@Composable` bodies**
-  * `android.util.Log`/`println` inside a `@Composable` body runs on every recomposition — often dozens of times during a single user interaction — producing log spam and disguising real telemetry. Move the call into a `SideEffect \{ \}` (or a `LaunchedEffect(key) \{ \}`) so it fires once per successful composition, or out of the composable entirely.
-* [org.openrewrite.kotlin.compose.FindSideEffectSmells$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/compose/findsideeffectsmells$ktrecipe.md)
-  * **Find Compose effect-handler misuse**
-  * Effect calls whose shape mismatches the effect's contract: `SideEffect(key) \{ \}` (`SideEffect` takes no keys); `LaunchedEffect \{ \}` with no key (use `LaunchedEffect(Unit)`); `LaunchedEffect` lambdas with several distinct suspend calls that probably want splitting.
-* [org.openrewrite.kotlin.compose.FindSideEffectWithKey$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/compose/findsideeffectwithkey$ktrecipe.md)
-  * **Find `SideEffect(key) \{ … \}` calls**
-  * `SideEffect \{ \}` takes no keys — it runs after every successful composition. Passing an argument suggests the author meant `LaunchedEffect(key) \{ \}` (lifecycle-tied) or `DisposableEffect(key) \{ … \}` (cleanup-tied). Either drop the argument or switch to the keyed effect type.
-* [org.openrewrite.kotlin.compose.FindStableAnnotationOnClassWithMutableCollection$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/compose/findstableannotationonclasswithmutablecollection$ktrecipe.md)
-  * **Find `@Stable` classes holding mutable-collection properties**
-  * An `@Stable` class with a `MutableList`/`MutableMap`/`MutableSet` property cannot uphold the contract: the collection can mutate without `equals`/`hashCode` reflecting the change, so Compose's skip-when-equal heuristic produces stale UI. Replace with `ImmutableList`/`PersistentList` or drop the `@Stable` annotation.
-* [org.openrewrite.kotlin.compose.FindStableAnnotationOnMutableClass$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/compose/findstableannotationonmutableclass$ktrecipe.md)
-  * **Find `@Stable` on classes with `var` properties**
-  * `@Stable` is a contract: callers may skip recomposition when input references compare equal, and the class promises that `equals`/`hashCode` reflect all observable state. A `var` property breaks both halves — the value can mutate without anyone updating the snapshot system, so the annotation lies and downstream `@Composable`s silently skip required recompositions.
-* [org.openrewrite.kotlin.compose.FindStateAndRememberSmells$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/compose/findstateandremembersmells$ktrecipe.md)
-  * **Find Compose state + remember misuse**
-  * State that does not survive recomposition the way the author intended: `remember(unstableKey, …)` whose key is itself a fresh allocation; `by remember \{ … \}` whose body isn't a `MutableState` (the delegate is a no-op); `remember \{ mutableListOf(...) \}` where the mutations bypass the snapshot system.
-* [org.openrewrite.kotlin.compose.FindStateFlowDirectCollect$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/compose/findstateflowdirectcollect$ktrecipe.md)
-  * **Find `viewModel.uiState.collectAsState()` calls — confirm lifecycle-aware collection**
-  * `viewModel.uiState.collectAsState()` keeps the collector active while the host is in the background — `collectAsStateWithLifecycle()` is the lifecycle-aware analogue. Both work; the recipe surfaces the call so each ViewModel-collection site is verified rather than defaulted.
-* [org.openrewrite.kotlin.compose.FindStateValueRead$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/compose/findstatevalueread$ktrecipe.md)
-  * **Find `state.value` reads inside a `@Composable`**
-  * Reading `state.value` works but loses the `by` delegate ergonomics — and worse, with `remember \{ mutableStateOf(...) \}` plus `.value`, it is easy to forget the `remember` and create a fresh `MutableState` per recomposition. Prefer `val state by remember \{ mutableStateOf(...) \}` so the type checker keeps the snapshot read implicit.
-* [org.openrewrite.kotlin.compose.FindSurfaceWithSingleChild$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/compose/findsurfacewithsinglechild$ktrecipe.md)
-  * **Find `Surface \{ OneChild() \}` patterns**
-  * A `Surface \{ OneChild() \}` wrapper that only sets a tonal elevation or color is rarely the right place to live — the same effect is achievable by passing `Modifier.background(...)` or `Modifier.shadow(...)` directly to the child. Audit single-child surfaces for redundancy.
-* [org.openrewrite.kotlin.compose.FindUnnecessaryComposeWrappers$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/compose/findunnecessarycomposewrappers$ktrecipe.md)
-  * **Find single-child wrapper composables (Material 3)**
-  * Material 3 wrapper composables that add a layout node and a styling pass for exactly one child: `Surface \{ OneChild() \}` and `Card \{ OneChild() \}`. Audit for redundancy — the same styling can usually be expressed by passing `Modifier.background`/`Modifier.shadow` to the child.
-* [org.openrewrite.kotlin.compose.FindViewModelInComposable$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/compose/findviewmodelincomposable$ktrecipe.md)
-  * **Find `viewModel&lt;X&gt;()` calls inside `@Composable`**
-  * `viewModel&lt;X&gt;()` retrieves a `ViewModel` scoped to the nearest `ViewModelStoreOwner`. Inside a generic composable this couples the composable to the host's `ViewModelStoreOwner` provision — fine at screen entry points, surprising deep in a component tree. Flag to confirm intent.
-* [org.openrewrite.kotlin.compose.ImproveKotlinCompose$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/compose/improvekotlincompose$ktrecipe.md)
-  * **Apply Compose autofix rewrites**
-  * Autofix-only Compose bundle: promotes `remember \{ mutableStateOf(emptyList/Map()) \}` to the snapshot-aware `mutableStateListOf` / `mutableStateMapOf` containers. The bulk of Compose remediation is judgement-call work flagged by `Compose` — for diff-only output, use this recipe instead.
-* [org.openrewrite.kotlin.compose.UseMutableStateListOf$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/compose/usemutablestatelistof$ktrecipe.md)
-  * **Find `remember \{ mutableStateOf(emptyList&lt;T&gt;()) \}` candidates for `mutableStateListOf`**
-  * `remember \{ mutableStateOf(emptyList()) \}` boxes the list in a `MutableState`, so writes require `state.value = state.value + item`. `mutableStateListOf&lt;T&gt;()` is a snapshot-aware list: `add`/`remove` register as snapshot writes and trigger recomposition for readers.
-* [org.openrewrite.kotlin.compose.UseMutableStateMapOf$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/compose/usemutablestatemapof$ktrecipe.md)
-  * **Find `remember \{ mutableStateOf(emptyMap&lt;K, V&gt;()) \}` candidates for `mutableStateMapOf`**
-  * `remember \{ mutableStateOf(emptyMap()) \}` boxes the map in a `MutableState`, so writes require `state.value = state.value + …` (or a clone). `mutableStateMapOf&lt;K, V&gt;()` is a snapshot-aware map: direct `put`/`remove` calls register as snapshot writes and trigger recomposition for readers.
-* [org.openrewrite.kotlin.compose.UseSpecializedComposeStateContainers$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/compose/usespecializedcomposestatecontainers$ktrecipe.md)
-  * **Find `remember \{ mutableStateOf(emptyList/Map()) \}` candidates for snapshot-aware containers**
-  * Patterns like `remember \{ mutableStateOf(emptyList()) \}` box the collection in a `MutableState` — direct `add`/`put` calls bypass the snapshot system. `mutableStateListOf&lt;T&gt;()` / `mutableStateMapOf&lt;K, V&gt;()` are snapshot-aware containers whose mutations register as snapshot writes and notify readers.
-* [org.openrewrite.kotlin.coroutines.Coroutines$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/coroutines/coroutines$ktrecipe.md)
-  * **Modernize Kotlin coroutines code**
-  * Search-only recipes that surface coroutine-related issues IntelliJ IDEA 2026.1's coroutine inspections flag: structured-concurrency leaks, blocking on suspend contexts, Flow operator misorder, and hand-rolled sequencing where a canonical operator exists. Each match is a `SearchResult` for review — nothing is rewritten automatically.
-* [org.openrewrite.kotlin.coroutines.FindAsyncImmediatelyAwait$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/coroutines/findasyncimmediatelyawait$ktrecipe.md)
-  * **Find `async \{ ... \}.await()` patterns**
-  * `async \{ … \}.await()` on its own is structurally identical to `withContext \{ … \}` plus an extra `Deferred` allocation. Use `withContext(ctx) \{ … \}` (or just inline the body) — `async` is for concurrency, not sequencing.
-* [org.openrewrite.kotlin.coroutines.FindBareCoroutineScopeCtor$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/coroutines/findbarecoroutinescopector$ktrecipe.md)
-  * **Find raw `CoroutineScope(...)` constructions**
-  * A `CoroutineScope(...)` constructed inline must be cancelled explicitly when its owner is torn down; nothing automatic ties it to a lifecycle. Prefer one of the framework scopes (`viewModelScope`, `lifecycleScope`) or own the cancellation explicitly in a `Closeable`.
-* [org.openrewrite.kotlin.coroutines.FindBlockingOnSuspend$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/coroutines/findblockingonsuspend$ktrecipe.md)
-  * **Find blocking calls inside coroutine contexts**
-  * Java-monitor and `runBlocking` primitives that pin the dispatcher thread when invoked from a suspend function or coroutine builder. Each match needs to migrate to a coroutine-aware signaling primitive (`delay`, `Channel`, `Mutex`, `CompletableDeferred`).
-* [org.openrewrite.kotlin.coroutines.FindCallbackFlowWithoutAwaitClose$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/coroutines/findcallbackflowwithoutawaitclose$ktrecipe.md)
-  * **Find `callbackFlow \{ \}` blocks without an `awaitClose \{ \}` terminator**
-  * `callbackFlow \{ \}` must end with `awaitClose \{ \}` to suspend until the consumer cancels. Without it, the producer either completes immediately (silent drop) or throws — the same flow needs to register its cleanup hook in `awaitClose \{ \}`.
-* [org.openrewrite.kotlin.coroutines.FindCoroutineScopeBuilderWithSingleLaunch$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/coroutines/findcoroutinescopebuilderwithsinglelaunch$ktrecipe.md)
-  * **Find `coroutineScope \{ launch \{ ... \} \}` with a single child**
-  * A `coroutineScope \{ launch \{ … \} \}` containing a single `launch` is equivalent to just running the launch body inline — the surrounding scope adds an allocation and a synchronization point with nothing to coordinate.
-* [org.openrewrite.kotlin.coroutines.FindCoroutineSequencingSmells$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/coroutines/findcoroutinesequencingsmells$ktrecipe.md)
-  * **Find coroutine sequencing smells**
-  * Hand-rolled sequencing that would be cleaner with the canonical operators: `map \{ it.await() \}` (use `awaitAll`), `forEach \{ it.join() \}` (use `joinAll`), `async \{ \}.await()` (use `withContext` or inline), nested `withContext`, `coroutineScope \{ launch \{ \} \}` with a single child.
-* [org.openrewrite.kotlin.coroutines.FindDebounceBeforeDistinctUntilChanged$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/coroutines/finddebouncebeforedistinctuntilchanged$ktrecipe.md)
-  * **Find `debounce(...).distinctUntilChanged()` patterns**
-  * `debounce` already drops intermediate values within the window; adding `distinctUntilChanged` after it is redundant if the upstream is already deduped. Verify whether `distinctUntilChanged` belongs before `debounce`, where it can prevent re-firing the debounce window for repeated values.
-* [org.openrewrite.kotlin.coroutines.FindFlowAntiPatterns$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/coroutines/findflowantipatterns$ktrecipe.md)
-  * **Find Flow operator antipatterns**
-  * Flow chains where operator order, sharing configuration, or terminal placement undermines the intended behavior — collapsible `map.map` / `filter.filter`, `flowOn` past a terminal, `stateIn`/`shareIn` without an explicit timeout, `Flow.collect` inside `@Composable`, etc.
-* [org.openrewrite.kotlin.coroutines.FindFlowCollectInsideCompose$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/coroutines/findflowcollectinsidecompose$ktrecipe.md)
-  * **Find `Flow.collect` calls inside a `@Composable`**
-  * `Flow.collect` inside a `@Composable` ties collection to recomposition rather than the composable's lifecycle, leaking work on re-entry. Use `collectAsStateWithLifecycle` (Compose) or wrap with `LaunchedEffect \{ flow.collect \{ … \} \}`.
-* [org.openrewrite.kotlin.coroutines.FindFlowFilterFilterChain$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/coroutines/findflowfilterfilterchain$ktrecipe.md)
-  * **Find `Flow.filter \{ \} .filter \{ \}` chains**
-  * Adjacent `Flow.filter \{ \}` calls do twice the work a combined predicate would do. Fold them into one `filter \{ p1(it) &amp;&amp; p2(it) \}`.
-* [org.openrewrite.kotlin.coroutines.FindFlowMapMapChain$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/coroutines/findflowmapmapchain$ktrecipe.md)
-  * **Find `Flow.map \{ \} .map \{ \}` chains**
-  * Two adjacent `Flow.map \{ \}` operators emit through two `transform` stages where one would do. Fold them into a single `map`, or use `map \{ (a, b) -&gt; … \}` destructuring.
-* [org.openrewrite.kotlin.coroutines.FindFlowOfWithVararg$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/coroutines/findflowofwithvararg$ktrecipe.md)
-  * **Find `flowOf(...)` calls — verify size**
-  * `flowOf(items)` materializes each item upfront — for hot data or large fanout, prefer `flow \{ items.forEach \{ emit(it) \} \}` or a `Channel`-backed flow to avoid the upfront vararg array.
-* [org.openrewrite.kotlin.coroutines.FindFlowOnAfterTerminal$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/coroutines/findflowonafterterminal$ktrecipe.md)
-  * **Find `Flow.flowOn` placed after a terminal operator**
-  * `flowOn(...)` applies to upstream operators only. Placing it after a terminal like `collect`, `first`, or `toList` is a no-op — the producer dispatcher is whatever the collector inherits.
-* [org.openrewrite.kotlin.coroutines.FindForEachJoin$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/coroutines/findforeachjoin$ktrecipe.md)
-  * **Find `forEach \{ it.join() \}` over `List&lt;Job&gt;`**
-  * Sequential `.forEach \{ it.join() \}` waits for each `Job` to complete before starting the next wait. `joinAll()` waits for all jobs concurrently with a single suspension point.
-* [org.openrewrite.kotlin.coroutines.FindGlobalScopeActor$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/coroutines/findglobalscopeactor$ktrecipe.md)
-  * **Find `GlobalScope.actor` calls**
-  * `GlobalScope.actor \{ \}` is structurally identical to `GlobalScope.launch`: the actor coroutine has no parent and cannot be cancelled cooperatively. Use a lifecycle-scoped `actor` instead.
-* [org.openrewrite.kotlin.coroutines.FindGlobalScopeAsync$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/coroutines/findglobalscopeasync$ktrecipe.md)
-  * **Find `GlobalScope.async` calls**
-  * `GlobalScope.async \{ \}` produces an orphan `Deferred` that has no parent in the structured-concurrency tree. Exceptions thrown from this coroutine are dropped until something `await()`s the result — and if nothing does, they vanish silently.
-* [org.openrewrite.kotlin.coroutines.FindGlobalScopeLaunch$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/coroutines/findglobalscopelaunch$ktrecipe.md)
-  * **Find `GlobalScope.launch` calls**
-  * `GlobalScope.launch \{ \}` is a fire-and-forget coroutine builder with no parent — it cannot be cancelled with the lifecycle that started it and leaks if the work outlives the screen/process. Prefer a scoped `CoroutineScope` tied to the lifecycle (`viewModelScope`, `lifecycleScope`, or an explicit scope cancelled in `onCleared`).
-* [org.openrewrite.kotlin.coroutines.FindGlobalScopeProduce$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/coroutines/findglobalscopeproduce$ktrecipe.md)
-  * **Find `GlobalScope.produce` calls**
-  * `GlobalScope.produce \{ \}` returns an unscoped `ReceiveChannel` that keeps running until its producer block returns. Anchor the channel to a scope owned by the surrounding lifecycle.
-* [org.openrewrite.kotlin.coroutines.FindJobAsContext$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/coroutines/findjobascontext$ktrecipe.md)
-  * **Find raw `Job()` allocations**
-  * Raw `Job()` calls usually feed a `CoroutineScope(...)` context, where they signal an intent to manage coroutine lifecycle manually. That manual lifecycle is easy to forget to cancel; prefer `SupervisorJob()` paired with a scope tied to the surrounding lifecycle (e.g. `viewModelScope`).
-* [org.openrewrite.kotlin.coroutines.FindMapAwait$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/coroutines/findmapawait$ktrecipe.md)
-  * **Find `map \{ it.await() \}` over `List&lt;Deferred&lt;T&gt;&gt;`**
-  * Sequential `.map \{ it.await() \}` waits for each `Deferred` in turn and rethrows the first exception only after every earlier element completes. `awaitAll()` waits concurrently and rethrows immediately on the first failure.
-* [org.openrewrite.kotlin.coroutines.FindMutableStateFlowNullable$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/coroutines/findmutablestateflownullable$ktrecipe.md)
-  * **Find `MutableStateFlow&lt;T?&gt;(null)` declarations**
-  * Nullable `MutableStateFlow&lt;T?&gt;` is a common pattern for 'no value yet', but collapses the empty state and the value-is-null state into one. A `SharedFlow&lt;T&gt;` with `replay = 0` and explicit `tryEmit` (or a sealed wrapper `UiState.Empty | Loaded(T)`) usually expresses intent more precisely.
-* [org.openrewrite.kotlin.coroutines.FindObjectNotifyInSuspend$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/coroutines/findobjectnotifyinsuspend$ktrecipe.md)
-  * **Find `Object.notify` / `notifyAll` calls inside `suspend` functions**
-  * Monitor-based signaling (`notify`/`notifyAll`) doesn't compose with coroutine cancellation or structured concurrency. Replace with a `Channel`, `MutableSharedFlow`, or `CompletableDeferred` to wake suspended coroutines.
-* [org.openrewrite.kotlin.coroutines.FindObjectWaitInSuspend$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/coroutines/findobjectwaitinsuspend$ktrecipe.md)
-  * **Find `Object.wait` calls inside `suspend` functions**
-  * `Object.wait()` blocks the dispatcher thread on a monitor and cannot be interrupted by coroutine cancellation. Migrate to `Channel`/`Flow`/`Mutex` or a `CompletableDeferred` for cross-coroutine signaling.
-* [org.openrewrite.kotlin.coroutines.FindRunBlockingInLaunch$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/coroutines/findrunblockinginlaunch$ktrecipe.md)
-  * **Find `runBlocking` calls inside a `launch`/`async` lambda**
-  * `runBlocking` inside an outer coroutine builder pins the dispatcher thread until the inner block returns, defeating the cooperative scheduling the outer builder set up. Inline the suspending body — you're already in a suspend context.
-* [org.openrewrite.kotlin.coroutines.FindRunBlockingInSuspend$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/coroutines/findrunblockinginsuspend$ktrecipe.md)
-  * **Find `runBlocking` calls inside `suspend` functions**
-  * `runBlocking` inside a `suspend` function blocks the calling thread until the inner block finishes, defeating cooperative cancellation and pinning a thread that the dispatcher could otherwise reuse. From a suspend context, the block can be inlined or wrapped in `withContext(...)` instead.
-* [org.openrewrite.kotlin.coroutines.FindShareInWithoutTimeout$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/coroutines/findshareinwithouttimeout$ktrecipe.md)
-  * **Find `shareIn` calls without a timeout-parameterized start**
-  * Same trap as `stateIn` — without an explicit `WhileSubscribed(timeoutMillis)`, an unused upstream producer keeps running, and config changes (which momentarily drop subscriber counts) can either drop state or hold work alive.
-* [org.openrewrite.kotlin.coroutines.FindStateInWithoutTimeout$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/coroutines/findstateinwithouttimeout$ktrecipe.md)
-  * **Find `stateIn` with `SharingStarted.Eagerly` or unparameterized start**
-  * `stateIn(scope)` with the default `Eagerly` start keeps the upstream Flow producing forever (no last-subscriber timeout). For UI state, `WhileSubscribed(5_000)` is the canonical setting — it survives configuration changes without leaking the producer.
-* [org.openrewrite.kotlin.coroutines.FindStructuredConcurrencyLeaks$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/coroutines/findstructuredconcurrencyleaks$ktrecipe.md)
-  * **Find structured-concurrency leaks**
-  * Coroutine builders that escape the structured-concurrency tree: `GlobalScope` builders, raw `Job()` / `CoroutineScope(...)` allocations, and `suspendCoroutine` calls that ignore cancellation. Each match is a `SearchResult` for review.
-* [org.openrewrite.kotlin.coroutines.FindSuspendCoroutineWithoutCancellation$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/coroutines/findsuspendcoroutinewithoutcancellation$ktrecipe.md)
-  * **Find `suspendCoroutine` calls**
-  * `suspendCoroutine` lacks cancellation hooks — if the surrounding coroutine is cancelled before the continuation resumes, the underlying callback work runs to completion uselessly. Switch to `suspendCancellableCoroutine` so the continuation block can register an `invokeOnCancellation` callback.
-* [org.openrewrite.kotlin.coroutines.FindThreadSleepInSuspend$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/coroutines/findthreadsleepinsuspend$ktrecipe.md)
-  * **Find `Thread.sleep` calls inside `suspend` functions**
-  * `Thread.sleep` parks the underlying dispatcher thread and ignores coroutine cancellation. From a suspend function, use `delay(ms)` — it suspends without blocking and integrates with structured cancellation.
-* [org.openrewrite.kotlin.coroutines.FindWithContextInsideSameDispatcher$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/coroutines/findwithcontextinsidesamedispatcher$ktrecipe.md)
-  * **Find nested `withContext` calls**
-  * A `withContext(...)` nested inside another `withContext(...)` rarely makes sense — the inner switch only matters if the dispatchers differ, and in either case the redundancy is worth a second look.
-* [org.openrewrite.kotlin.functional.FindCatchAllException$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/functional/findcatchallexception$ktrecipe.md)
-  * **Find broad `catch (e: Exception)` / `catch (e: Throwable)` clauses**
-  * `catch (e: Exception)` catches almost everything — `IllegalArgumentException`, `ConcurrentModificationException`, even programmer-error `NullPointerException`. `catch (e: Throwable)` is worse: it catches `OutOfMemoryError` and `kotlinx.coroutines.CancellationException`. Each broad catch is a candidate for narrowing to the specific exceptions the surrounding code is prepared to handle.
-* [org.openrewrite.kotlin.functional.FindCatchAndRethrowNewExceptionWithoutCause$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/functional/findcatchandrethrownewexceptionwithoutcause$ktrecipe.md)
-  * **Find `catch (e: Exception) \{ throw OtherException(...) \}` without `e` as cause**
-  * Catching one exception and throwing a different one without passing the original as the `cause` argument loses the original stack trace at the throw site — debugging then starts from the wrapping exception with no breadcrumbs to the actual failure. Include `e` in the new exception's constructor (or use `.initCause(e)`).
-* [org.openrewrite.kotlin.functional.FindCatchAndRethrowSameException$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/functional/findcatchandrethrowsameexception$ktrecipe.md)
-  * **Find `catch (e: Exception) \{ throw e \}` patterns**
-  * A catch whose only statement is `throw e` is a no-op: the same exception flows through the same way it would have without the try. Drop the entire try/catch (or, if there's a `finally`, switch to a try/finally).
-* [org.openrewrite.kotlin.functional.FindCatchBindingUnusedException$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/functional/findcatchbindingunusedexception$ktrecipe.md)
-  * **Find `catch (e: Exception)` clauses whose body never references `e`**
-  * If the catch body never reads the bound exception parameter — and there's still some statement that handles the recovery — the binding name is dead weight. Use `catch (_: Exception)` to make 'I have no use for the exception' explicit, and so future readers don't waste time looking for where `e` gets used.
-* [org.openrewrite.kotlin.functional.FindCatchWithoutLogging$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/functional/findcatchwithoutlogging$ktrecipe.md)
-  * **Find non-empty catch blocks that neither log nor rethrow**
-  * A catch that handles the exception by silently absorbing it (without logging, without rethrowing, without storing it) loses every detail of the failure. Either log with the exception as the cause (`log.error(&quot;context&quot;, e)`), rethrow as a wrapping exception, or capture the exception into a `Result`/sealed result type.
-* [org.openrewrite.kotlin.functional.FindNestedTryCatch$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/functional/findnestedtrycatch$ktrecipe.md)
-  * **Find `try \{ \} catch \{ \}` nested inside another `try \{ \} catch \{ \}`**
-  * A try nested inside another try usually means two failure modes are being handled at two different recovery points in the same control-flow tree. Pull each failure mode into its own helper function (or into a `runCatching \{ \}.fold(...)` chain) so the recovery strategy is visible at each level.
-* [org.openrewrite.kotlin.functional.FindNullabilityErgonomics$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/functional/findnullabilityergonomics$ktrecipe.md)
-  * **Find nullability idiom opportunities**
-  * Search-only bundle for nullable-handling `if/else` shapes that map to Kotlin idioms: `if (x != null) x else default` (use `?:`), `if (x != null) f(x) else null` (use `x?.let \{ f(it) \}`), `if (x == null) throw IllegalArgumentException` (use `requireNotNull`), `if (x == null) throw IllegalStateException` (use `checkNotNull`), and `if (p(x)) x else null` (use `x.takeIf \{ p(it) \}`).
-* [org.openrewrite.kotlin.functional.FindPrintStackTraceInCatch$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/functional/findprintstacktraceincatch$ktrecipe.md)
-  * **Find `e.printStackTrace()` calls inside a catch block**
-  * `e.printStackTrace()` writes to stderr — which in most server environments is either unread, unrotated, or both. Replace with a real logger call (`log.error(&quot;context&quot;, e)`) so the stack trace lands in the same place every other error in the application does.
-* [org.openrewrite.kotlin.functional.FindResultErgonomics$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/functional/findresultergonomics$ktrecipe.md)
-  * **Find `Result&lt;T&gt;` API ergonomics opportunities**
-  * Search-only bundle for `Result&lt;T&gt;` call sites where a different operator would be clearer: `if (result.isSuccess) … else …` (use `.fold(...)`), `Result.map \{ … \}.getOrThrow()` (drop the Result wrapper or use `.fold(...)`), and `getOrElse \{ default \}` whose lambda ignores the failure (use `getOrDefault(default)`).
-* [org.openrewrite.kotlin.functional.FindResultFoldImperative$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/functional/findresultfoldimperative$ktrecipe.md)
-  * **Find `if (result.isSuccess) … else …` patterns**
-  * Branching on `Result.isSuccess` / `Result.isFailure` and then unwrapping with `getOrNull()` / `exceptionOrNull()` is the imperative form of `result.fold(onSuccess, onFailure)`. The `.fold(...)` form is total (the compiler verifies both branches are present) and reads as the value-producing expression it actually is.
-* [org.openrewrite.kotlin.functional.FindResultGetOrElseIgnoringFailure$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/functional/findresultgetorelseignoringfailure$ktrecipe.md)
-  * **Find `Result.getOrElse \{ \}` whose lambda ignores the failure parameter**
-  * `result.getOrElse \{ default \}` (lambda ignores its parameter) is exactly `result.getOrDefault(default)`. The `getOrDefault` form makes the intent — 'a constant fallback, the exception type is irrelevant' — explicit in the call name.
-* [org.openrewrite.kotlin.functional.FindResultGetOrThrow$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/functional/findresultgetorthrow$ktrecipe.md)
-  * **Find `.getOrThrow()` calls on a `Result&lt;T&gt;`**
-  * `Result.getOrThrow()` unwraps success or rethrows the captured failure. If the call site does that immediately after `runCatching \{ … \}`, the `Result` round-trip is pure ceremony — the same value with the same failure mode comes out of the bare expression. Prefer the bare expression, or use `.fold(...)` / `.getOrElse \{ … \}` to actually do something with the failure.
-* [org.openrewrite.kotlin.functional.FindResultMapWithoutErrorHandling$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/functional/findresultmapwithouterrorhandling$ktrecipe.md)
-  * **Find `Result.map \{ \}.getOrThrow()` chains**
-  * `result.map \{ transform(it) \}.getOrThrow()` is `result.fold(::transform, \{ throw it \})` written long-hand — and `.fold(...)` keeps the transformation and the failure handling next to each other. If the failure branch really is 'rethrow', drop the `Result` wrapper entirely and put the transformation inside `runCatching \{ \}`.
-* [org.openrewrite.kotlin.functional.FindRunCatchingForLogOnly$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/functional/findruncatchingforlogonly$ktrecipe.md)
-  * **Find `runCatching \{ \}.onFailure \{ log… \}` chains with no further handling**
-  * `runCatching \{ … \}.onFailure \{ log.error(&quot;…&quot;, it) \}` — when nothing follows the `onFailure` — succeeds-on-error rather than just observing. Often fine, but worth a glance: usually the caller still needs to know success/failure happened (return the `Result`, or chain `.getOrElse \{ fallback \}`).
-* [org.openrewrite.kotlin.functional.FindRunCatchingGetOrNullDiscardingError$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/functional/findruncatchinggetornulldiscardingerror$ktrecipe.md)
-  * **Find `runCatching \{ \}.getOrNull()` chains**
-  * `runCatching \{ … \}.getOrNull()` silently swallows every failure and replaces it with `null`. The shape is fine for fire-and-forget side effects, but for value-producing calls you usually want at least an `onFailure \{ \}` hook for diagnostics, or `.getOrElse \{ default \}` so the failure is observable.
-* [org.openrewrite.kotlin.functional.FindRunCatchingOnSuccessOnly$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/functional/findruncatchingonsuccessonly$ktrecipe.md)
-  * **Find `runCatching \{ \}.onSuccess \{ … \}` chains with no failure handler**
-  * `runCatching \{ \}.onSuccess \{ … \}` with nothing after it discards the failure side of the `Result`. The success block runs only on success; the failure case vanishes silently. Add a paired `.onFailure \{ \}` for diagnostics, or `.fold(::onSuccess, ::onFailure)` to make both cases explicit.
-* [org.openrewrite.kotlin.functional.FindRunCatchingSmells$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/functional/findruncatchingsmells$ktrecipe.md)
-  * **Find `runCatching \{ \}` smells**
-  * Search-only bundle covering the most common `runCatching \{ \}` pitfalls: swallowing `CancellationException`, collapsing failures into `null` via `.getOrNull()`, discarding the `Result` in statement context, log-only handlers that drop the failure on the floor, `.onSuccess \{ \}` chains with no failure handler, and `.getOrThrow()` patterns that turn the `Result` round-trip into pure ceremony.
-* [org.openrewrite.kotlin.functional.FindRunCatchingSwallowingCancellation$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/functional/findruncatchingswallowingcancellation$ktrecipe.md)
-  * **Find `runCatching \{ \}` blocks that may swallow `CancellationException`**
-  * `runCatching \{ \}` catches every `Throwable`, including `kotlinx.coroutines.CancellationException`. Inside a coroutine that's a bug — `CancellationException` is the cooperative-cancellation signal, and swallowing it stops the coroutine from cancelling. Either avoid `runCatching` in suspending code, or rethrow with `.onFailure \{ if (it is CancellationException) throw it \}` before any other handling.
-* [org.openrewrite.kotlin.functional.FindRunCatchingWithoutHandling$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/functional/findruncatchingwithouthandling$ktrecipe.md)
-  * **Find `runCatching \{ \}` calls whose result is discarded**
-  * A `runCatching \{ \}` in statement context throws nothing and returns nothing — the `Result&lt;T&gt;` is allocated and dropped on the floor. If the intent was 'do this, but don't fail the caller', wrap with `.onFailure \{ log(it) \}`; if the intent was 'do this, ignoring exceptions', say so with `try \{ … \} catch (_: Exception) \{ \}` (or rethink whether to swallow at all).
-* [org.openrewrite.kotlin.functional.FindThrowCatchSmells$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/functional/findthrowcatchsmells$ktrecipe.md)
-  * **Find throw/catch shape smells**
-  * Search-only bundle for throw shapes inside catch blocks: bare-`RuntimeException`/`Exception` wrappers that discard contextual messages, useless `catch \{ throw e \}` blocks, and rethrows of new exception types that don't pass the caught exception as `cause`.
-* [org.openrewrite.kotlin.functional.FindTryCatchReturningDefault$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/functional/findtrycatchreturningdefault$ktrecipe.md)
-  * **Find `try \{ x \} catch (e: Exception) \{ default \}` patterns**
-  * A try whose catch returns a non-null default value maps directly to `runCatching \{ x \}.getOrDefault(default)` or `.getOrElse \{ default \}`. The latter is preferred when the default depends on the exception type.
-* [org.openrewrite.kotlin.functional.FindTryCatchReturningNull$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/functional/findtrycatchreturningnull$ktrecipe.md)
-  * **Find `try \{ x \} catch (e: Exception) \{ null \}` patterns**
-  * Swallowing every exception into `null` discards diagnostic information and conflates 'no value' with 'I lost the cause'. `runCatching \{ x \}.getOrNull()` matches the shape, and `.onFailure \{ … \}` keeps a hook for diagnostics if you decide you want one later.
-* [org.openrewrite.kotlin.functional.FindTryCatchSmells$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/functional/findtrycatchsmells$ktrecipe.md)
-  * **Find raw `try`/`catch` smells**
-  * Search-only bundle for try/catch shapes worth reviewing: collapse-to-null and collapse-to-default branches (candidates for `runCatching \{ \}.getOrNull()` / `.getOrDefault(...)`), empty catches that lose every detail of the failure, broad `catch (Exception)` / `catch (Throwable)` clauses, catches that absorb the exception without logging or rethrowing, `e.printStackTrace()` calls that should be logger calls, nested try/catch trees, and catch parameters that are bound but never read.
-* [org.openrewrite.kotlin.functional.FindTryCatchSwallowingException$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/functional/findtrycatchswallowingexception$ktrecipe.md)
-  * **Find empty catch blocks**
-  * An empty catch (`catch (e: Exception) \{ \}`) eats every exception and produces no record of it ever happening. Even a logger call records that something went wrong; an empty block makes the failure undebuggable.
-* [org.openrewrite.kotlin.functional.FindUseCheckForState$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/functional/findusecheckforstate$ktrecipe.md)
-  * **Find `if (x == null) throw IllegalStateException(...)` patterns**
-  * `checkNotNull(x) \{ &quot;…&quot; \}` is the state-precondition twin of `requireNotNull`: throws `IllegalStateException` when `x` is null and smart-casts to non-nullable on return. Use it for invariants about the object's state, leaving `requireNotNull` for arguments.
-* [org.openrewrite.kotlin.functional.FindUseElvisForNullableDefault$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/functional/finduseelvisfornullabledefault$ktrecipe.md)
-  * **Find `if (x != null) x else default` patterns**
-  * `if (x != null) x else default` is the elvis operator written long-hand: `x ?: default`. The elvis form composes naturally with chains (`a ?: b ?: c`) and keeps the value derivation in a single expression.
-* [org.openrewrite.kotlin.functional.FindUseLetForNullableMap$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/functional/finduseletfornullablemap$ktrecipe.md)
-  * **Find `if (x != null) f(x) else null` patterns**
-  * `if (x != null) f(x) else null` is `x?.let \{ f(it) \}` written long-hand. The `?.let \{ \}` form is more concise and (when `f` is a member call) collapses further to `x?.f(...)`.
-* [org.openrewrite.kotlin.functional.FindUseRequireForPrecondition$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/functional/finduserequireforprecondition$ktrecipe.md)
-  * **Find `if (x == null) throw IllegalArgumentException(...)` patterns**
-  * Kotlin's `requireNotNull(x) \{ &quot;…&quot; \}` is the idiomatic precondition check: it throws `IllegalArgumentException` when `x` is null, smart-casts `x` to its non-nullable type after the call, and reads as the assertion it is. The `if/throw` form does the same thing without the smart-cast.
-* [org.openrewrite.kotlin.functional.FindUseTakeIfForFilter$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/functional/findusetakeifforfilter$ktrecipe.md)
-  * **Find `if (predicate(x)) x else null` patterns**
-  * `if (predicate(x)) x else null` is `x.takeIf \{ predicate(it) \}` written long-hand. The `takeIf` form keeps the value as the focal point and composes with `?.let \{ \}` / elvis (`x.takeIf \{ … \} ?: default`).
-* [org.openrewrite.kotlin.functional.FindWrappingExceptionInCatch$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/functional/findwrappingexceptionincatch$ktrecipe.md)
-  * **Find `throw RuntimeException(e)` inside a catch block**
-  * Wrapping the caught exception in a bare `RuntimeException`/`Exception` discards the contextual message the catch site should be adding. Wrap with a domain-specific subclass and a real message (`throw FetchFailedException(&quot;fetch profile for $userId&quot;, e)`), or rethrow `e` directly if there's nothing to add.
-* [org.openrewrite.kotlin.functional.Functional$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/functional/functional$ktrecipe.md)
-  * **Modernize Kotlin functional / `Result` ergonomics**
-  * Search-only recipes that surface `kotlin.Result` / `runCatching \{ \}` smells and try/catch shapes that map cleanly to Kotlin idioms (`.fold(...)`, `.getOrNull()`, `.getOrDefault(...)`, `?:`, `?.let \{ \}`, `requireNotNull`, `checkNotNull`). Most of the actual rewrites involve moving statements between try-body / catch-body / Result-chain shapes, which the declarative `rewrite \{ \} to \{ \}` DSL doesn't model yet — so each match is a `SearchResult` for human review.
-* [org.openrewrite.kotlin.idiom.FindAlsoWithMutation$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/idiom/findalsowithmutation$ktrecipe.md)
-  * **Find `also \{ \}` blocks that mutate the receiver**
-  * `also \{ \}` is for side effects that don't change the receiver — logging, validation, registering a callback. If the lambda mutates `it`, prefer `apply \{ … \}`, which is built for that and reads as configuration.
-* [org.openrewrite.kotlin.idiom.FindApplyResultUnused$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/idiom/findapplyresultunused$ktrecipe.md)
-  * **Find `?.apply \{ \}` whose result is discarded**
-  * `x?.apply \{ … \}` returns the receiver, but if the result is discarded the safe-call's return value adds nothing. Use `x?.also \{ … \}` or move the side effect out of `apply`, where the receiver isn't needed.
-* [org.openrewrite.kotlin.idiom.FindApplyThisQualifier$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/idiom/findapplythisqualifier$ktrecipe.md)
-  * **Find redundant `this.` inside `apply \{ \}` blocks**
-  * Inside `apply \{ \}`, every member access resolves against the implicit receiver — `this.prop = v` is just `prop = v`. Drop the qualifier; the whole point of `apply` is the implicit receiver.
-* [org.openrewrite.kotlin.idiom.FindApplyWithoutMutation$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/idiom/findapplywithoutmutation$ktrecipe.md)
-  * **Find `apply \{ \}` blocks that perform no mutation**
-  * `apply \{ \}` is for configuring the receiver and returning it. If the block has no assignments or property writes, `also \{ \}` (which exposes the receiver as `it` and runs for side effects) or just inlining the call expresses the intent more clearly.
-* [org.openrewrite.kotlin.idiom.FindCastAndNullableShapes$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/idiom/findcastandnullableshapes$ktrecipe.md)
-  * **Find cast and nullable-shape idioms**
-  * Unsafe `as` casts vs `as?`, `takeIf \{ \}?.let \{ \}` chains, `takeUnless \{ !p \}` double-negatives, deep `?.` safe-call chains, explicit `return null` statements.
-* [org.openrewrite.kotlin.idiom.FindCheckNotNullWithoutMessage$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/idiom/findchecknotnullwithoutmessage$ktrecipe.md)
-  * **Find `checkNotNull(x)` without an explanatory message**
-  * `checkNotNull(x)` throws an `IllegalStateException` with a generic message. Pass a lazy message — `checkNotNull(x) \{ &quot;state invariant: x ready after init&quot; \}` — to make the failure self-documenting.
-* [org.openrewrite.kotlin.idiom.FindCollectionNullSafety$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/idiom/findcollectionnullsafety$ktrecipe.md)
-  * **Find collection null-safety idioms**
-  * `listOf(...).filterNotNull()` vs `listOfNotNull(...)`, `map \{ \}.filterNotNull()` vs `mapNotNull \{ \}`, `filter \{ it != null \}.map \{ it!! \}` chains, `firstOrNull` patterns where `single` is intended, `?.x.orEmpty()` mixed-call shapes.
-* [org.openrewrite.kotlin.idiom.FindElvisThrowWithoutMessage$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/idiom/findelvisthrowwithoutmessage$ktrecipe.md)
-  * **Find `x ?: throw SomeException()` without a message**
-  * `x ?: throw IllegalStateException()` (no message arg) throws with a stack trace and no context. Pass an argument that explains why `x` was expected non-null at this point — error reports are the cheapest tool we have.
-* [org.openrewrite.kotlin.idiom.FindFilterMapToMapNotNull$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/idiom/findfiltermaptomapnotnull$ktrecipe.md)
-  * **Find `filter \{ it != null \}.map \{ it!! \}` chains**
-  * `filter \{ it != null \}.map \{ it!! \}` is the long form of `mapNotNull \{ it \}`. Both passes can be folded into a single `filterNotNull` (when no transform is needed) or `mapNotNull` (with a transform).
-* [org.openrewrite.kotlin.idiom.FindFirstOrNullElvisError$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/idiom/findfirstornullelviserror$ktrecipe.md)
-  * **Find `firstOrNull \{ \} ?: error(...)` patterns**
-  * `firstOrNull \{ p \}.let \{ it ?: error(&quot;missing&quot;) \}` (or the `?: error` form) is a manual `single \{ p \}` — `single` throws when there's no match or more than one, which is usually the intended precondition.
-* [org.openrewrite.kotlin.idiom.FindFirstOrNullOnNullableReceiver$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/idiom/findfirstornullonnullablereceiver$ktrecipe.md)
-  * **Find `x?.firstOrNull()` calls**
-  * `x?.firstOrNull()` produces `null` either when `x` is null OR when `x` is empty — the two cases collapse. Use `x?.firstOrNull() ?: default` only when both null-cases should yield the same fallback.
-* [org.openrewrite.kotlin.idiom.FindIfElseNullDefault$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/idiom/findifelsenulldefault$ktrecipe.md)
-  * **Find `if (cond) value else null` patterns**
-  * `if (cond) value else null` is `value.takeIf \{ cond \}` (when `value` doesn't depend on `cond`) — the extension makes the predicate's role visible at the call site.
-* [org.openrewrite.kotlin.idiom.FindIfNotNullAssign$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/idiom/findifnotnullassign$ktrecipe.md)
-  * **Find `if (x != null) y = x.foo()` patterns**
-  * `if (x != null) y = x.foo()` followed by a default elsewhere reads as a hand-rolled `y = x?.foo() ?: default`. The elvis form keeps the value derivation in one expression.
-* [org.openrewrite.kotlin.idiom.FindIfNotNullThenCall$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/idiom/findifnotnullthencall$ktrecipe.md)
-  * **Find `if (x != null) x.foo()` that could use `?.`**
-  * An `if (x != null) x.foo()` ladder reads as a manual nullable dispatch where Kotlin already has `x?.foo()`. The safe-call form is shorter and folds into expression position, where the `if` cannot.
-* [org.openrewrite.kotlin.idiom.FindIfNullReturn$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/idiom/findifnullreturn$ktrecipe.md)
-  * **Find `if (x == null) return ...` early-exit patterns**
-  * An `if (x == null) return …` reads as a manual null guard where Kotlin's `x ?: return …` says the same thing inline. The elvis form keeps the expression in line with its consumer and avoids a separate control-flow statement.
-* [org.openrewrite.kotlin.idiom.FindIfNullThrow$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/idiom/findifnullthrow$ktrecipe.md)
-  * **Find `if (x == null) throw ...` patterns**
-  * An `if (x == null) throw …` is the elvis-throw idiom written long-hand. `x ?: throw …` keeps the throw expression in line and reads as the assertion it is, rather than as a control-flow branch.
-* [org.openrewrite.kotlin.idiom.FindLetAtStatementPosition$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/idiom/findletatstatementposition$ktrecipe.md)
-  * **Find `?.let \{ \}` calls at statement position**
-  * `x?.let \{ … \}` at statement position discards its return value, behaving identically to `x?.also \{ … \}` but reading as a transform. `also` makes the side-effect-only intent explicit.
-* [org.openrewrite.kotlin.idiom.FindLetElvis$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/idiom/findletelvis$ktrecipe.md)
-  * **Find `x?.let \{ \} ?: y` patterns**
-  * `x?.let \{ … \} ?: y` mixes two intents — transform-when-present and fall-back — into a single expression. Inverts the natural reading order; consider an explicit `if (x != null) … else y` or pull the elvis branch out for clarity.
-* [org.openrewrite.kotlin.idiom.FindLetIdioms$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/idiom/findletidioms$ktrecipe.md)
-  * **Find `let \{ \}` ergonomics**
-  * `?.let \{ it \}`, `?.let \{ it.foo() \}` (including property reads), nested `let` ladders, `let` blocks at statement position, and the `?.let \{ \} ?: y` pattern — all cases where `let \{ \}` adds shape without clarity.
-* [org.openrewrite.kotlin.idiom.FindLetItCall$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/idiom/findletitcall$ktrecipe.md)
-  * **Find `?.let \{ it.foo() \}` that could use `?.foo()`**
-  * `x?.let \{ it.foo() \}` is the long form of `x?.foo()` — the safe call already provides the non-null receiver, and the `let` introduces an unused binding. Drop `.let \{ \}` and call `foo()` directly.
-* [org.openrewrite.kotlin.idiom.FindLetItIdentity$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/idiom/findletitidentity$ktrecipe.md)
-  * **Find `?.let \{ it \}` no-ops**
-  * `x?.let \{ it \}` is structurally equivalent to `x` — the lambda introduces a binding and immediately returns it without transforming. Drop the `.let \{ it \}` call.
-* [org.openrewrite.kotlin.idiom.FindLetWithFnOfIt$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/idiom/findletwithfnofit$ktrecipe.md)
-  * **Find `obj.let \{ fn(it) \}` where `obj` is non-null**
-  * When `obj` is non-nullable, `obj.let \{ fn(it) \}` only adds a binding around `fn(obj)`. Save the lambda allocation and pass `obj` directly.
-* [org.openrewrite.kotlin.idiom.FindListOfFilterNotNull$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/idiom/findlistoffilternotnull$ktrecipe.md)
-  * **Find `listOf(a, b, c).filterNotNull()` patterns**
-  * `listOf(a, b, c).filterNotNull()` materializes a list with `null` entries only to discard them. `listOfNotNull(a, b, c)` skips the `null`s up front and returns the same result with one fewer allocation and one fewer pass.
-* [org.openrewrite.kotlin.idiom.FindMapThenFilterNotNull$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/idiom/findmapthenfilternotnull$ktrecipe.md)
-  * **Find `map \{ ... \}.filterNotNull()` chains**
-  * Two-pass `map \{ … \}.filterNotNull()` builds an intermediate list of nullable values. `mapNotNull \{ … \}` does both in one pass with a single allocation and propagates `null` returns naturally.
-* [org.openrewrite.kotlin.idiom.FindNestedLet$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/idiom/findnestedlet$ktrecipe.md)
-  * **Find nested `let \{ \}` chains**
-  * `a?.let \{ b?.let \{ … \} \}` ladders for combining nullable values are clearer as a single `if (a != null &amp;&amp; b != null) …` or a sealed pair. Two-level nesting is a code smell; three or more is almost always a refactor opportunity.
-* [org.openrewrite.kotlin.idiom.FindNotNullAssertion$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/idiom/findnotnullassertion$ktrecipe.md)
-  * **Find `!!` non-null assertions**
-  * The `!!` operator throws a generic `NullPointerException` with no context. `requireNotNull(x) \{ &quot;explain why&quot; \}` or `x ?: error(&quot;explain why&quot;)` produces a message that points at the assumption.
-* [org.openrewrite.kotlin.idiom.FindNotNullAssertionAsArgument$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/idiom/findnotnullassertionasargument$ktrecipe.md)
-  * **Find `!!` passed as a function argument**
-  * `foo(x!!)` pushes the null-check onto the call site, where the function signature could just accept `T?` and document the contract. If `foo` must have a non-null `x`, prefer `requireNotNull(x) \{ ... \}` at the call site to produce a contextual error.
-* [org.openrewrite.kotlin.idiom.FindNullAssertionPolish$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/idiom/findnullassertionpolish$ktrecipe.md)
-  * **Find null-assertion polish opportunities**
-  * `!!` operators (including as arguments), `requireNotNull` / `checkNotNull` calls without a lazy message, and `throw SomeException()` without a contextual message inside an elvis.
-* [org.openrewrite.kotlin.idiom.FindNullCheckIdioms$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/idiom/findnullcheckidioms$ktrecipe.md)
-  * **Find manual null-check idioms**
-  * `if (x != null) x.foo()` / `if (x == null) return …` / `if (x == null) throw …` patterns where Kotlin's `?.`, `?: return`, and `?: throw` operators express the same intent in expression position.
-* [org.openrewrite.kotlin.idiom.FindOrEmptyAfterSafeCall$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/idiom/findoremptyaftersafecall$ktrecipe.md)
-  * **Find `x?.something.orEmpty()` patterns**
-  * `x?.something.orEmpty()` mixes safe-call and a null-coalescing extension. Either drop the `?.` (if `x` is non-null) or chain through `?: emptyList()` — the mix obscures which call is providing the fallback.
-* [org.openrewrite.kotlin.idiom.FindRequireNotNullWithoutMessage$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/idiom/findrequirenotnullwithoutmessage$ktrecipe.md)
-  * **Find `requireNotNull(x)` without an explanatory message**
-  * `requireNotNull(x)` throws an `IllegalArgumentException` with a generic message. Pass a lazy message — `requireNotNull(x) \{ &quot;x must be set before init&quot; \}` — so the stack trace explains the precondition.
-* [org.openrewrite.kotlin.idiom.FindReturnNullExplicit$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/idiom/findreturnnullexplicit$ktrecipe.md)
-  * **Find `return null` in functions with nullable returns**
-  * An explicit `return null` is rarely the clearest expression of intent — usually the calling chain that produces the nullable can use `?:` or `mapNotNull` to handle the no-value case at the boundary, not the inside.
-* [org.openrewrite.kotlin.idiom.FindRunWithoutReceiverUse$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/idiom/findrunwithoutreceiveruse$ktrecipe.md)
-  * **Find `x.run \{ ... \}` that doesn't use the receiver**
-  * `run \{ \}` is meaningful when the lambda references `this`; otherwise `x.let \{ … \}` (binding via `it`) or even no scope function at all is clearer. The runtime cost is identical — the value is purely readability.
-* [org.openrewrite.kotlin.idiom.FindSafeCallChain$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/idiom/findsafecallchain$ktrecipe.md)
-  * **Find long `?.` safe-call chains**
-  * `a?.b?.c?.d?.e` chains beyond 3 hops indicate a domain object hierarchy with too many nullable boundaries — the chain hides which boundary is the real concern. Flatten with `let` blocks at the boundary that matters, or refactor to non-nullable intermediates.
-* [org.openrewrite.kotlin.idiom.FindScopeFunctionSwaps$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/idiom/findscopefunctionswaps$ktrecipe.md)
-  * **Find scope-function correctness swaps**
-  * The 12 well-known scope-function correctness rules: `with(x)` used as a receiver expression vs `x.run \{ \}`, `?.apply \{ \}` whose result is discarded vs `?.also \{ \}`, `apply \{ \}` without mutation vs `also \{ \}`, `also \{ \}` with mutation vs `apply \{ \}`, redundant `this.` inside `apply \{ \}`, `run` without `this` references.
-* [org.openrewrite.kotlin.idiom.FindSetOfFilterNotNull$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/idiom/findsetoffilternotnull$ktrecipe.md)
-  * **Find `setOf(a, b, c).filterNotNull()` patterns**
-  * Same shape as `listOf(...).filterNotNull()` — building a set with `null`s and filtering them out. `setOfNotNull(a, b, c)` exists for exactly this case.
-* [org.openrewrite.kotlin.idiom.FindTakeIfChainedLet$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/idiom/findtakeifchainedlet$ktrecipe.md)
-  * **Find `x.takeIf \{ p \}?.let \{ ... \}` patterns**
-  * `x.takeIf \{ p \}?.let \{ … \}` is a guard-then-transform expressed as two calls plus a safe-call. `if (p) x.let \{ … \} else null` (or `x.takeIf(p)?.run \{ … \}`) is the same in one operator without the implicit `null` bridge.
-* [org.openrewrite.kotlin.idiom.FindTakeUnlessNegated$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/idiom/findtakeunlessnegated$ktrecipe.md)
-  * **Find `takeUnless \{ !p \}` (double-negative) patterns**
-  * `takeUnless \{ !p \}` is `takeIf \{ p \}` written with a double negative. Inverting `takeUnless`'s predicate to positive form makes the intent immediate.
-* [org.openrewrite.kotlin.idiom.FindUnsafeCast$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/idiom/findunsafecast$ktrecipe.md)
-  * **Find unsafe `as` casts**
-  * `x as T` throws `ClassCastException` on mismatch — there's no diagnostic, just the JVM exception. `x as? T` returns `null` on mismatch and folds into elvis/`requireNotNull(...)` with a better message.
-* [org.openrewrite.kotlin.idiom.FindWithAsReceiver$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/idiom/findwithasreceiver$ktrecipe.md)
-  * **Find `with(x) \{ ... \}` used as an expression**
-  * `with(x) \{ … \}` returns the lambda result, which makes it interchangeable with `x.run \{ … \}`. The extension form chains better in safe-call sequences (`x?.run \{ … \}`) and reads as receiver-style throughout.
-* [org.openrewrite.kotlin.idiom.NullSafetyAndScopeFunctions$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/idiom/nullsafetyandscopefunctions$ktrecipe.md)
-  * **Apply Kotlin null-safety and scope-function idioms**
-  * Search-only recipes covering the two most-cited stylistic categories in IntelliJ's Kotlin inspections: null-safety (`if (x != null)` ladders, `!!`, `requireNotNull` polish, `mapNotNull` / `listOfNotNull` adoption, unsafe casts) and scope-function ergonomics (the 12 well-defined `let`/`run`/`with`/`apply`/`also` correctness rules). Each match is a `SearchResult` for review — nothing is rewritten automatically.
-* [org.openrewrite.kotlin.interop.FindBufferedReaderLines$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/interop/findbufferedreaderlines$ktrecipe.md)
-  * **Find `bufferedReader().lines()` calls**
-  * `BufferedReader.lines()` returns a `Stream&lt;String&gt;` that must be closed explicitly and consumed exactly once. Kotlin offers `lineSequence()` (lazy `Sequence&lt;String&gt;`) and `useLines \{ sequence -&gt; … \}` (auto-closing) for the same use cases.
-* [org.openrewrite.kotlin.interop.FindBuilderClass$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/interop/findbuilderclass$ktrecipe.md)
-  * **Find inner `class Builder` classes — default-args candidate**
-  * A Java-style nested `class Builder` mirrors the outer class fields with setters that return `this`, then a terminal `build()`. In Kotlin, a `data class` with default arguments composes with named-argument call syntax to express the same intent — usually with less code and no double maintenance.
-* [org.openrewrite.kotlin.interop.FindClockAndTestabilityFriction$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/interop/findclockandtestabilityfriction$ktrecipe.md)
-  * **Find non-injected clock / I/O calls (testability)**
-  * `System.currentTimeMillis()` / `System.nanoTime()` / `LocalDateTime.now()` and friends read the system clock implicitly. Each flagged call site is a candidate to receive a `Clock` (or the JDK `java.time.Clock`) so tests can advance time deterministically. Also flags `BufferedReader.lines()` — usually a `lineSequence`/`useLines` migration.
-* [org.openrewrite.kotlin.interop.FindCompletableFutureReturn$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/interop/findcompletablefuturereturn$ktrecipe.md)
-  * **Find functions returning `CompletableFuture&lt;T&gt;`**
-  * Returning `CompletableFuture&lt;T&gt;` from Kotlin code obliges every caller to either `.thenCompose` chain or `.await()` through the `kotlinx-coroutines-jdk8` bridge. A `suspend fun foo(): T` integrates with structured concurrency at the language level — keep the future shape only at the Java boundary.
-* [org.openrewrite.kotlin.interop.FindCompletableFutureUsage$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/interop/findcompletablefutureusage$ktrecipe.md)
-  * **Find `CompletableFuture` usage in Kotlin**
-  * `CompletableFuture&lt;T&gt;` is the JVM equivalent of a `Deferred&lt;T&gt;` or single-emission `Flow&lt;T&gt;`. In Kotlin, `suspend fun`/`Flow` integrate with structured concurrency, cancellation, and exception handling at the language level — prefer them inside Kotlin modules and bridge with `kotlinx-coroutines-jdk8` at the boundary.
-* [org.openrewrite.kotlin.interop.FindInteropFriction$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/interop/findinteropfriction$ktrecipe.md)
-  * **Find Java↔Kotlin interop friction points**
-  * Search-only bundle: every interop-flavored `Find*` recipe in this module. Covers `Optional`/`Stream`/`Collections` Java factories with Kotlin replacements, `CompletableFuture`/Rx/Reactor types with coroutine replacements, missing `@Jvm*` annotations on Kotlin-defined declarations Java callers reach for, and Java-style call shapes inside Kotlin source.
-* [org.openrewrite.kotlin.interop.FindIterableForEach$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/interop/finditerableforeach$ktrecipe.md)
-  * **Find Java-style `iterable.forEach(Consumer)` calls**
-  * `Iterable.forEach(Consumer&lt;T&gt;)` is the Java-8 functional terminal; Kotlin source can use the same shape but the inline `kotlin.collections.forEach` is preferred — it doesn't allocate a `Consumer` and integrates with non-local `return`/`break` inside the lambda.
-* [org.openrewrite.kotlin.interop.FindJavaGetterCallStyleInKotlin$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/interop/findjavagettercallstyleinkotlin$ktrecipe.md)
-  * **Find Java-style `getX()` calls in Kotlin source**
-  * Kotlin synthesizes property syntax for any Java getter that follows the `getX()`/`isX()` no-arg convention: `obj.x` reads the same value as `obj.getX()`. Writing the JVM-style call in Kotlin source obscures that — flag the call sites for migration to property access.
-* [org.openrewrite.kotlin.interop.FindJavaIdiomsInKotlin$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/interop/findjavaidiomsinkotlin$ktrecipe.md)
-  * **Find Java-style call shapes inside Kotlin source**
-  * Search-only bundle of Java idioms that have idiomatic Kotlin equivalents at the call site: `getX()`/`isX()` getters where property syntax reads the same value, `iterable.forEach(Consumer)`, `requireNotNull(javaCall())` over platform types, manual `getX`/`setX` pairs, static-utility/constants `object` holders, `Builder` classes, and manual `equals`/`hashCode`.
-* [org.openrewrite.kotlin.interop.FindJavaUtilArraysAsList$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/interop/findjavautilarraysaslist$ktrecipe.md)
-  * **Find `Arrays.asList(...)` calls**
-  * `Arrays.asList(a, b, c)` is the Java idiom for a small read-only `List`. In Kotlin, `listOf(a, b, c)` is more concise, properly read-only (the returned list is structurally immutable), and avoids leaking the array-backed quirk where `set` is allowed but `add` is not.
-* [org.openrewrite.kotlin.interop.FindJavaUtilCollectionsEmptyList$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/interop/findjavautilcollectionsemptylist$ktrecipe.md)
-  * **Find `Collections.emptyList/Set/Map()` calls**
-  * `Collections.emptyList()` (and its `emptySet`/`emptyMap` siblings) predate Kotlin's stdlib factories. `emptyList&lt;T&gt;()`/`emptySet&lt;T&gt;()`/`emptyMap&lt;K, V&gt;()` carry the same singletons, infer the type parameter at the call site, and don't drag the `java.util.Collections` import into Kotlin code.
-* [org.openrewrite.kotlin.interop.FindJavaUtilCollectionsFriction$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/interop/findjavautilcollectionsfriction$ktrecipe.md)
-  * **Find `java.util.Collections` / `Arrays` factory usage inside Kotlin**
-  * `Arrays.asList`, `Collections.emptyList`, `Collections.singletonList`, and `Collections.unmodifiableList` (plus Set/Map siblings) all have idiomatic Kotlin stdlib replacements — `listOf`, `emptyList&lt;T&gt;()`, `setOf`, `mapOf`, and `.toList()`/`.toSet()`/`.toMap()` for immutable copies.
-* [org.openrewrite.kotlin.interop.FindJavaUtilCollectionsSingleton$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/interop/findjavautilcollectionssingleton$ktrecipe.md)
-  * **Find `Collections.singletonList/Set/Map(...)` calls**
-  * `Collections.singletonList(x)` is the Java idiom for a one-element read-only list. `listOf(x)` returns the same shape with cleaner syntax and consistent overload selection for `setOf`/`mapOf`.
-* [org.openrewrite.kotlin.interop.FindJavaUtilCollectionsUnmodifiable$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/interop/findjavautilcollectionsunmodifiable$ktrecipe.md)
-  * **Find `Collections.unmodifiableList/Set/Map(...)` wrappers**
-  * `Collections.unmodifiableList(x)` wraps a collection in a view that throws on mutation. Kotlin's `x.toList()`/`x.toSet()`/`x.toMap()` produce a fresh immutable copy — safer in concurrent contexts and removes the runtime wrapper.
-* [org.openrewrite.kotlin.interop.FindKotlinDefaultMethodInterface$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/interop/findkotlindefaultmethodinterface$ktrecipe.md)
-  * **Find interface declarations with default-method bodies**
-  * An `interface I \{ fun foo() \{ … \} \}` exposes the body to Java callers only on JDK-8+ targets and only when the Kotlin compiler emits real default methods (`@JvmDefault` / `-Xjvm-default=all`). Without the right compiler flags, the body lives in a synthetic `DefaultImpls` and Java sees an abstract method.
-* [org.openrewrite.kotlin.interop.FindLocalDateTimeNow$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/interop/findlocaldatetimenow$ktrecipe.md)
-  * **Find `LocalDateTime.now()` / `Instant.now()` calls**
-  * `LocalDateTime.now()` (and its `Instant`/`LocalDate`/`ZonedDateTime` siblings) read the system clock implicitly. Inject a `Clock` and use the overload `LocalDateTime.now(clock)` so tests can advance time deterministically.
-* [org.openrewrite.kotlin.interop.FindManualEqualsHashCode$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/interop/findmanualequalshashcode$ktrecipe.md)
-  * **Find classes with manual `equals`/`hashCode` overrides — `data class` candidate**
-  * A non-`data` class that overrides both `equals` and `hashCode` over its own fields is the canonical shape `data class` exists for. Migrating gives `equals`/`hashCode`/`toString`/`copy()`/`componentN()` for free and removes the maintenance hazard of editing one of the two implementations.
-* [org.openrewrite.kotlin.interop.FindManualGetterSetter$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/interop/findmanualgettersetter$ktrecipe.md)
-  * **Find manual `getX()` / `setX(v)` pairs in Kotlin classes**
-  * A class that exposes state through hand-rolled `getX()`/`setX(v)` is reimplementing what `var x: T` already provides — Kotlin generates the same accessors on the JVM. Migrate to a property and let the compiler emit the getter/setter pair.
-* [org.openrewrite.kotlin.interop.FindMissingJvmAnnotations$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/interop/findmissingjvmannotations$ktrecipe.md)
-  * **Find Kotlin declarations missing `@Jvm*` interop annotations**
-  * Search-only bundle of declarations where the JVM-visible API surface would benefit from one of the `@JvmStatic` / `@JvmField` / `@JvmOverloads` / `@JvmName` / `@Throws` annotations. Each match is a candidate for review — none should be applied blindly, but the absence is the primary friction Java callers feel.
-* [org.openrewrite.kotlin.interop.FindMissingJvmFieldOnConst$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/interop/findmissingjvmfieldonconst$ktrecipe.md)
-  * **Find `const val` / companion `val` declarations missing `@JvmField`**
-  * A companion-object `val` without `@JvmField` is exposed to Java as `Outer.Companion.getX()` — a getter on a synthetic singleton. `@JvmField` lifts the property to a true static `public final` field on `Outer`, matching the Java idiom of named constants.
-* [org.openrewrite.kotlin.interop.FindMissingJvmNameOnExtensionFunction$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/interop/findmissingjvmnameonextensionfunction$ktrecipe.md)
-  * **Find top-level functions missing `@JvmName`**
-  * Top-level Kotlin functions (including extension functions) compile to static methods on a `&lt;FileName&gt;Kt` facade — Java callers see `MyKotlinUtilsKt.bar(...)` with a name the source file doesn't suggest. `@JvmName(&quot;bar&quot;)` on the function (or `@file:JvmName(&quot;...&quot;)` on the file) gives Java callers a name to bind against.
-* [org.openrewrite.kotlin.interop.FindMissingJvmNameOnIsGetter$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/interop/findmissingjvmnameonisgetter$ktrecipe.md)
-  * **Find `val isX` Boolean properties missing `@get:JvmName`**
-  * A Kotlin property named `isEnabled` compiles to a Java getter `getIsEnabled()` — not the idiomatic `isEnabled()`. `@get:JvmName(&quot;isEnabled&quot;)` (or naming the underlying property differently) restores the boolean-getter convention Java callers expect.
-* [org.openrewrite.kotlin.interop.FindMissingJvmOverloadsOnDefaults$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/interop/findmissingjvmoverloadsondefaults$ktrecipe.md)
-  * **Find functions with default parameters missing `@JvmOverloads`**
-  * A Kotlin function with default arguments compiles to a single JVM method — Java callers see only the all-parameters form. `@JvmOverloads` synthesizes overloads at every default-parameter boundary so Java callers can drop trailing arguments naturally.
-* [org.openrewrite.kotlin.interop.FindMissingJvmStaticInCompanion$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/interop/findmissingjvmstaticincompanion$ktrecipe.md)
-  * **Find `companion object` functions missing `@JvmStatic`**
-  * Without `@JvmStatic`, Java callers must reach companion-object functions through the synthetic `Companion` holder: `Outer.Companion.foo(...)`. Adding `@JvmStatic` lifts the function to `Outer.foo(...)`, matching what a Java reader expects from a class with static methods. Flag-only — sometimes the wrapper is intentional.
-* [org.openrewrite.kotlin.interop.FindMissingThrowsAnnotation$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/interop/findmissingthrowsannotation$ktrecipe.md)
-  * **Find functions with `throw` of a checked exception missing `@Throws`**
-  * Kotlin doesn't track checked exceptions, so a function that throws `IOException` looks unchecked to a Java caller — `try \{ … \} catch (IOException e) \{ … \}` won't compile without `@Throws(IOException::class)` on the Kotlin declaration. Flag declarations that throw a `Throwable` whose Java analog is checked.
-* [org.openrewrite.kotlin.interop.FindOptionalFriction$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/interop/findoptionalfriction$ktrecipe.md)
-  * **Find `java.util.Optional` friction inside Kotlin**
-  * Bundle every `Optional`-related search: declarations that return or accept `Optional&lt;T&gt;`, `Optional.ofNullable(...)` constructions, and `.isPresent`/`.get()`/`.orElse(...)` consumption sites. Once an upstream switches `Optional&lt;T&gt;` to `T?`, each flagged call site collapses to a `?:` / `?.let \{ … \}` / `!!` expression.
-* [org.openrewrite.kotlin.interop.FindOptionalGet$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/interop/findoptionalget$ktrecipe.md)
-  * **Find `Optional.get()` / `orElseThrow()` calls**
-  * `opt.get()` is the unsafe unwrap that throws `NoSuchElementException` when the Optional is empty — the equivalent of Kotlin's `!!` on a nullable. Once the underlying value type is `T?`, the call site becomes `value!!` (or, better, a `requireNotNull(value)`).
-* [org.openrewrite.kotlin.interop.FindOptionalIsPresent$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/interop/findoptionalispresent$ktrecipe.md)
-  * **Find `Optional.isPresent` / `isEmpty` checks**
-  * `opt.isPresent` and `opt.isEmpty` are the Optional-flavored analogs of `x != null` and `x == null`. Once the upstream returns `T?` instead of `Optional&lt;T&gt;`, the check collapses to a Kotlin null comparison plus a smart-cast.
-* [org.openrewrite.kotlin.interop.FindOptionalOfNullable$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/interop/findoptionalofnullable$ktrecipe.md)
-  * **Find `Optional.ofNullable(...)` calls**
-  * `Optional.ofNullable(x)` is the conversion `T? -&gt; Optional&lt;T&gt;` — the very wrapping Kotlin's null type system was designed to make unnecessary. Inside Kotlin code, return `x` and let `?:`/`?.let \{ … \}` express the absent-value branch directly.
-* [org.openrewrite.kotlin.interop.FindOptionalOrElse$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/interop/findoptionalorelse$ktrecipe.md)
-  * **Find `Optional.orElse(...)` calls**
-  * `opt.orElse(default)` is the Optional version of `value ?: default`. Once the producer returns `T?` directly, the elvis operator reads more naturally and produces tighter bytecode.
-* [org.openrewrite.kotlin.interop.FindOptionalParam$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/interop/findoptionalparam$ktrecipe.md)
-  * **Find function parameters typed `Optional&lt;T&gt;`**
-  * Taking `Optional&lt;T&gt;` as a parameter is strictly weaker than `T?` — every caller wraps the same value in an Optional, the function unwraps it, and the type system stops helping with null checking. The nullable parameter form composes with default arguments and `?.`/`?:` operators.
-* [org.openrewrite.kotlin.interop.FindOptionalReturn$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/interop/findoptionalreturn$ktrecipe.md)
-  * **Find functions returning `Optional&lt;T&gt;`**
-  * A Kotlin function that returns `Optional&lt;T&gt;` forces every caller into a `.isPresent`/`.get()` dance the language already expresses with `T?`. Returning the nullable type instead lets the call site use `?:`, `let`, and smart-casts directly.
-* [org.openrewrite.kotlin.interop.FindOptionalUsage$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/interop/findoptionalusage$ktrecipe.md)
-  * **Find `java.util.Optional` usage in Kotlin**
-  * Kotlin already models the absent-value case with the nullable type system (`T?`). `Optional&lt;T&gt;` is a JVM-only crutch that's worth keeping at the Java boundary only — converting Kotlin-internal `Optional` usage to `T?` improves null-safety and removes one wrapper allocation per call.
-* [org.openrewrite.kotlin.interop.FindReactiveInteropFriction$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/interop/findreactiveinteropfriction$ktrecipe.md)
-  * **Find reactive-framework return types in Kotlin**
-  * RxJava's `Observable`/`Flowable`/`Single`/`Maybe`/`Completable` and Reactor's `Mono`/`Flux` predate Kotlin coroutines. Each match is a candidate for migration to `suspend fun` (single-shot) or `Flow&lt;T&gt;` (stream); the corresponding `kotlinx-coroutines-rx*`/`-reactor` adapters cover the boundary to downstream Java callers.
-* [org.openrewrite.kotlin.interop.FindReactorPublisherInKotlin$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/interop/findreactorpublisherinkotlin$ktrecipe.md)
-  * **Find Reactor `Mono`/`Flux` returns in Kotlin**
-  * Project Reactor's `Mono&lt;T&gt;`/`Flux&lt;T&gt;` are the Spring-WebFlux reactive types. Inside Kotlin code the canonical shape is `suspend fun` (for `Mono`) and `Flow&lt;T&gt;` (for `Flux`); `kotlinx-coroutines-reactor` provides the boundary adapters for downstream Reactor APIs.
-* [org.openrewrite.kotlin.interop.FindRequireNotNullOnJavaCall$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/interop/findrequirenotnullonjavacall$ktrecipe.md)
-  * **Find `requireNotNull(javaCall())` patterns**
-  * `requireNotNull(javaApi.something())` is the safe-conversion idiom when a Java API returns an unannotated reference (platform type `T!`). Once the underlying API is annotated `@Nullable`/`@NotNull` (or migrated to Kotlin), the wrapper either becomes `javaApi.something()!!` or disappears entirely.
-* [org.openrewrite.kotlin.interop.FindRequiresOptInOnExperimentalApi$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/interop/findrequiresoptinonexperimentalapi$ktrecipe.md)
-  * **Find `@RequiresOptIn` annotation declarations**
-  * `@RequiresOptIn` marks an annotation as a feature opt-in marker — every caller of an annotated declaration must acknowledge the experimental status via `@OptIn(...)`. The marker itself is a stability contract worth surfacing for review whenever a new Kotlin-defined API claims experimental status.
-* [org.openrewrite.kotlin.interop.FindRxObservableInKotlin$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/interop/findrxobservableinkotlin$ktrecipe.md)
-  * **Find `io.reactivex.Observable`/`Flowable`/`Single`/`Maybe` usage in Kotlin**
-  * RxJava's reactive types predate Kotlin coroutines. `Flow&lt;T&gt;` covers cold-stream `Observable`/`Flowable`, `suspend fun` covers `Single`/`Maybe`, and `kotlinx-coroutines-rx2`/`-rx3` bridges the interop boundary. Inside Kotlin code, migrate to the coroutine equivalent.
-* [org.openrewrite.kotlin.interop.FindStaticHolderObject$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/interop/findstaticholderobject$ktrecipe.md)
-  * **Find `object Constants \{ const val A = ... \}` static-constants holders**
-  * An `object Constants` whose body is exclusively `const val` declarations is a holder for compile-time constants. Promote each `const val` to a top-level declaration — both forms inline identically at the JVM bytecode level, but the top-level form is one import shorter at every call site.
-* [org.openrewrite.kotlin.interop.FindStaticUtilObject$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/interop/findstaticutilobject$ktrecipe.md)
-  * **Find `object Utils \{ fun foo() = ... \}` static-utility holders**
-  * An `object Utils` whose members are all functions (no state) is the Kotlin spelling of a Java static-utility class. Promote the functions to top-level — they're indexable, importable directly, and don't carry the synthetic singleton-load overhead Java callers see.
-* [org.openrewrite.kotlin.interop.FindStreamCollectorsToList$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/interop/findstreamcollectorstolist$ktrecipe.md)
-  * **Find `stream.collect(Collectors.toList())` calls**
-  * The `collect(Collectors.toList())` terminal materializes a `Stream` into a `List`. In Kotlin source, the natural shape is `iterable.toList()` (eager) or `sequence.toList()` (lazy) — both avoid the `Collector` machinery and read at a glance.
-* [org.openrewrite.kotlin.interop.FindStreamFilterMap$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/interop/findstreamfiltermap$ktrecipe.md)
-  * **Find `stream.filter(...).map(...)` chains**
-  * A `filter().map()` chain on `Stream` is structurally identical to the same chain on `Iterable`/`Sequence` — the Stream machinery just adds Collector requirements at the terminal. Migrate to Kotlin collections; if laziness matters, use `asSequence()` once at the head.
-* [org.openrewrite.kotlin.interop.FindStreamFriction$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/interop/findstreamfriction$ktrecipe.md)
-  * **Find `java.util.stream.Stream` friction inside Kotlin**
-  * Bundle every Stream-related search: declarations returning `Stream&lt;T&gt;`, `Collectors.toList()` terminals, `filter.map` chains, and `Stream.of` constructions. Each match has a Kotlin equivalent in `Sequence`/`Iterable`/`Flow` that's idiomatic at the same call site.
-* [org.openrewrite.kotlin.interop.FindStreamOfCall$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/interop/findstreamofcall$ktrecipe.md)
-  * **Find `Stream.of(...)` calls**
-  * `Stream.of(...)` is a varargs-to-Stream constructor used to bootstrap a Stream pipeline. In Kotlin, `sequenceOf(...)` (lazy) or `listOf(...)` (eager) cover the same uses without committing to the Stream type at the boundary.
-* [org.openrewrite.kotlin.interop.FindStreamReturn$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/interop/findstreamreturn$ktrecipe.md)
-  * **Find functions returning `java.util.stream.Stream&lt;T&gt;`**
-  * `Stream&lt;T&gt;` is the Java 8 lazy-pipeline type — single-use, no built-in cancellation, only consumable through `collect`. In Kotlin, `Sequence&lt;T&gt;` is the equivalent for lazy iterable pipelines; `List&lt;T&gt;` and `Flow&lt;T&gt;` cover the eager and async-lazy cases respectively.
-* [org.openrewrite.kotlin.interop.FindSystemCurrentTimeMillis$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/interop/findsystemcurrenttimemillis$ktrecipe.md)
-  * **Find `System.currentTimeMillis()` calls**
-  * Direct `System.currentTimeMillis()` calls are convenient but couple the call site to wall-clock time, making tests deterministic only by mocking the whole class. Inject a `Clock` (or, on JDK 8+, `java.time.Clock`) and read time through it.
-* [org.openrewrite.kotlin.interop.ImproveKotlinInterop$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/interop/improvekotlininterop$ktrecipe.md)
-  * **Apply Java↔Kotlin interop rewrites**
-  * Autofix-only interop bundle: collapses `Optional.of(x).get()` round-trips that have a direct value equivalent. Excludes the search-only `Find*` recipes (Optional / CompletableFuture / Stream / Collections factories, Jvm-annotation gaps, Java-style call shapes, reactive return types) — for diff-only output, use this recipe instead.
-* [org.openrewrite.kotlin.interop.Interop$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/interop/interop$ktrecipe.md)
-  * **Improve Java↔Kotlin interop ergonomics**
-  * Opinionated bundle of every interop recipe in this module: the `Optional.of(x).get()` collapse plus search-only flags for Java idioms that have first-class Kotlin replacements (Optional, CompletableFuture, Stream, Collections factories, `@Jvm*`-annotation gaps, Java-style call shapes, reactive return types, non-injected clocks). For diff-only output, use `ImproveKotlinInterop`.
-* [org.openrewrite.kotlin.interop.UseValueForOptionalOfGet$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/interop/usevalueforoptionalofget$ktrecipe.md)
-  * **Use `x` instead of `Optional.of(x).get()`**
-  * `Optional.of(x).get()` is a JVM-style round-trip that's equivalent to `x`. In Kotlin you'd model the same thing with a non-nullable `x` directly, and Java callers already see the same value via the cross-language binding.
-* [org.openrewrite.kotlin.logging.FindCompanionLoggerWithoutPrivate$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/logging/findcompanionloggerwithoutprivate$ktrecipe.md)
-  * **Find companion-object loggers missing `private`**
-  * A companion-object `val log = LoggerFactory.getLogger(...)` without `private` is exposed to Java callers as `Foo.Companion.getLog()` — they can mutate the logger reference (well, not the val, but the visibility is wider than needed). Mark it `private`.
-* [org.openrewrite.kotlin.logging.FindEagerLogMessages$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/logging/findeagerlogmessages$ktrecipe.md)
-  * **Find eager log-message construction**
-  * Bundles the trace/debug/info/warn/error eager-interpolation and string-concatenation finders. Every hit is a candidate for migration to kotlin-logging's lambda form (`log.debug \{ &quot;...&quot; \}`) or SLF4J's parameterized form (`log.debug(&quot;x=\{\}&quot;, x)`).
-* [org.openrewrite.kotlin.logging.FindEagerStringInterpolationInLogDebug$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/logging/findeagerstringinterpolationinlogdebug$ktrecipe.md)
-  * **Find eager string interpolation in `log.debug(...)`**
-  * `log.debug(&quot;x=$x&quot;)` evaluates the template (including any `toString()` work on `x`) before the call even reaches the logger — if debug is disabled, the work is wasted. With kotlin-logging use `log.debug \{ &quot;x=$x&quot; \}`; with SLF4J use the parameterized form `log.debug(&quot;x=\{\}&quot;, x)`.
-* [org.openrewrite.kotlin.logging.FindEagerStringInterpolationInLogError$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/logging/findeagerstringinterpolationinlogerror$ktrecipe.md)
-  * **Find eager string interpolation in `log.error(...)`**
-  * Error logs almost always fire, so cost is rarely the issue — but a parameterized message keeps the template stable for log aggregators that group errors by template hash, and lets the throwable argument flow through SLF4J's last-arg-is-Throwable convention cleanly.
-* [org.openrewrite.kotlin.logging.FindEagerStringInterpolationInLogInfo$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/logging/findeagerstringinterpolationinloginfo$ktrecipe.md)
-  * **Find eager string interpolation in `log.info(...)`**
-  * `log.info(&quot;x=$x&quot;)` evaluates the template eagerly. If your application turns info off in production, the `toString()` calls inside the template still run. Use the lambda form (kotlin-logging) or the SLF4J `\{\}` placeholder form.
-* [org.openrewrite.kotlin.logging.FindEagerStringInterpolationInLogTrace$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/logging/findeagerstringinterpolationinlogtrace$ktrecipe.md)
-  * **Find eager string interpolation in `log.trace(...)`**
-  * `log.trace(&quot;x=$x&quot;)` evaluates the template (including any `toString()` work on `x`) before the call even reaches the logger — if trace is disabled, the work is wasted. With kotlin-logging use `log.trace \{ &quot;x=$x&quot; \}`; with SLF4J use the parameterized form `log.trace(&quot;x=\{\}&quot;, x)`.
-* [org.openrewrite.kotlin.logging.FindEagerStringInterpolationInLogWarn$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/logging/findeagerstringinterpolationinlogwarn$ktrecipe.md)
-  * **Find eager string interpolation in `log.warn(...)`**
-  * Warning logs are usually enabled in production, so eager interpolation is less of a hot-path issue — but the parameterized form (`log.warn(&quot;x=\{\}&quot;, x)`) still keeps the message template stable for log aggregators that group by template hash.
-* [org.openrewrite.kotlin.logging.FindIsDebugEnabledGuard$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/logging/findisdebugenabledguard$ktrecipe.md)
-  * **Find `if (log.isDebugEnabled) ...` guards**
-  * `if (log.isDebugEnabled) log.debug(...)` is the Java-1.4-era idiom — replaced by kotlin-logging's `log.debug \{ &quot;...&quot; \}` lambda or SLF4J's `log.debug(&quot;x=\{\}&quot;, x)` placeholder form. Either defers the work without the explicit guard.
-* [org.openrewrite.kotlin.logging.FindIsErrorEnabledGuard$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/logging/findiserrorenabledguard$ktrecipe.md)
-  * **Find `if (log.isErrorEnabled) ...` guards**
-  * Errors are practically always enabled. The guard suggests the code was once shared with debug/trace machinery — drop it.
-* [org.openrewrite.kotlin.logging.FindIsInfoEnabledGuard$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/logging/findisinfoenabledguard$ktrecipe.md)
-  * **Find `if (log.isInfoEnabled) ...` guards**
-  * Info is usually on in production, so the guard rarely saves anything. If you keep it, prefer the lambda or `\{\}`-placeholder form for consistency with debug/trace.
-* [org.openrewrite.kotlin.logging.FindIsTraceEnabledGuard$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/logging/findistraceenabledguard$ktrecipe.md)
-  * **Find `if (log.isTraceEnabled) ...` guards**
-  * With kotlin-logging's lambda form (`log.trace \{ &quot;...&quot; \}`) the level-check is built into the call — wrapping it in `if (log.isTraceEnabled)` repeats the check. With SLF4J's parameterized form, the placeholder substitution is also deferred, so the explicit guard is only worthwhile if the argument construction itself is expensive.
-* [org.openrewrite.kotlin.logging.FindIsWarnEnabledGuard$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/logging/findiswarnenabledguard$ktrecipe.md)
-  * **Find `if (log.isWarnEnabled) ...` guards**
-  * Warning logs are nearly always enabled. The guard is almost certainly dead code — drop it and use the parameterized form.
-* [org.openrewrite.kotlin.logging.FindJulLoggerGetLogger$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/logging/findjulloggergetlogger$ktrecipe.md)
-  * **Find `java.util.logging.Logger.getLogger(...)` calls**
-  * `java.util.logging` ships with the JDK but lacks the structured-logging, MDC, and parameterized-message ergonomics of SLF4J or kotlin-logging. Migrate `j.u.l.Logger.getLogger(...)` to `LoggerFactory.getLogger(...)` (SLF4J) or `KotlinLogging.logger \{ \}` (kotlin-logging).
-* [org.openrewrite.kotlin.logging.FindJulLoggerLog$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/logging/findjulloggerlog$ktrecipe.md)
-  * **Find `julLogger.log(level, msg)` and level-specific `julLogger.fine/info/severe/...` calls**
-  * Each `j.u.l.Logger.log(Level, ...)` call (and the level-specific shortcuts `fine`/`info`/`warning`/`severe`/`config`) needs to be re-expressed against SLF4J/kotlin-logging when migrating. Flag for review.
-* [org.openrewrite.kotlin.logging.FindLegacyLoggerLibraries$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/logging/findlegacyloggerlibraries$ktrecipe.md)
-  * **Find legacy logger-library usage**
-  * Bundles `java.util.logging` and log4j 1.x finders. Both predate structured logging and should migrate to SLF4J or kotlin-logging.
-* [org.openrewrite.kotlin.logging.FindLog4j1Logger$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/logging/findlog4j1logger$ktrecipe.md)
-  * **Find `org.apache.log4j.Logger` references**
-  * Log4j 1.x reached end-of-life in 2015 and has known unfixed vulnerabilities. Migrate to log4j 2.x (`org.apache.logging.log4j.Logger`) or SLF4J. The migration is mechanical for the basic getLogger / log methods, but custom appenders and layouts need a manual rewrite.
-* [org.openrewrite.kotlin.logging.FindLoggerDeclarationSmells$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/logging/findloggerdeclarationsmells$ktrecipe.md)
-  * **Find logger declaration smells**
-  * Bundles `log` vs `logger` naming, missing `private` on companion-object loggers, and instance-field loggers (one per allocation). The shape consensus is `private val log = LoggerFactory.getLogger(...)` in a companion object.
-* [org.openrewrite.kotlin.logging.FindLoggerFactoryGetLogger$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/logging/findloggerfactorygetlogger$ktrecipe.md)
-  * **Find `LoggerFactory.getLogger(SomeClass::class.java)` calls**
-  * `LoggerFactory.getLogger(Foo::class.java)` is the Java idiom Kotlin code inherited. kotlin-logging's `KotlinLogging.logger \{ \}` infers the enclosing class automatically (via the stack frame at site of declaration) and avoids the `::class.java` reflection round-trip.
-* [org.openrewrite.kotlin.logging.FindLoggerFactoryGetLoggerWithStringName$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/logging/findloggerfactorygetloggerwithstringname$ktrecipe.md)
-  * **Find `LoggerFactory.getLogger(&quot;some-name&quot;)` calls**
-  * A string logger name is fine for named/structured loggers but is a smell when the string happens to spell out a class FQN — that should be `getLogger(Foo::class.java)` (or `KotlinLogging.logger \{ \}`) so renames track. Flag for human review.
-* [org.openrewrite.kotlin.logging.FindLoggerFactoryGetLoggerWithThisClass$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/logging/findloggerfactorygetloggerwiththisclass$ktrecipe.md)
-  * **Find `LoggerFactory.getLogger(this::class.java)` calls**
-  * `this::class.java` resolves the runtime class — fine for non-final classes, but kotlin-logging's `KotlinLogging.logger \{ \}` already infers the declaring class lexically and avoids the runtime reflection. Either form binds the same logger name for a final class.
-* [org.openrewrite.kotlin.logging.FindLoggerFactoryMigrationCandidates$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/logging/findloggerfactorymigrationcandidates$ktrecipe.md)
-  * **Find `LoggerFactory.getLogger` migration candidates**
-  * Bundles the SLF4J `LoggerFactory.getLogger` shapes — class-literal, `this::class.java`, and string-name. Each is a candidate for kotlin-logging's `KotlinLogging.logger \{ \}`.
-* [org.openrewrite.kotlin.logging.FindLoggerFieldNamedLog$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/logging/findloggerfieldnamedlog$ktrecipe.md)
-  * **Find top-level/companion logger fields named `log`**
-  * Both `log` and `logger` are common — pick one and stick with it across the codebase. The naming convention is the only thing that lets a reader skim a file and spot the logger declaration in two seconds. Flag `log`-named declarations so the team can confirm the project convention.
-* [org.openrewrite.kotlin.logging.FindLoggerGuards$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/logging/findloggerguards$ktrecipe.md)
-  * **Find redundant logger level-check guards**
-  * Bundles `if (log.isXxxEnabled) ...` finders. With kotlin-logging's lambda form or SLF4J's `\{\}` placeholder form, the level check is built into the call.
-* [org.openrewrite.kotlin.logging.FindLoggerNotInCompanion$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/logging/findloggernotincompanion$ktrecipe.md)
-  * **Find loggers declared as instance fields (one per object)**
-  * An instance-field `val log = LoggerFactory.getLogger(...)` allocates one logger per object. Logger factories cache by name, so the runtime cost is one extra map lookup per allocation — but the conventional shape is a `private val log` in the companion object (or a top-level `private val log` for top-level functions), so a per-instance logger usually reflects accidental code placement.
-* [org.openrewrite.kotlin.logging.FindPrintAndPrintStackTrace$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/logging/findprintandprintstacktrace$ktrecipe.md)
-  * **Find `println` / `System.err.println` / `printStackTrace`**
-  * Bundles the unstructured-output finders. Each call writes outside the logger pipeline, so it bypasses level filters, MDCs, and structured sinks.
-* [org.openrewrite.kotlin.logging.FindPrintErr$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/logging/findprinterr$ktrecipe.md)
-  * **Find `System.err.println(...)` calls**
-  * `System.err.println` writes to stderr — better than stdout for errors, but still bypasses whatever structured logger the application uses. Route through `log.error(&quot;...&quot;, throwable)` so log aggregators see the context.
-* [org.openrewrite.kotlin.logging.FindPrintStackTrace$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/logging/findprintstacktrace$ktrecipe.md)
-  * **Find `Throwable.printStackTrace()` calls**
-  * `e.printStackTrace()` writes the throwable's stack frames straight to `System.err`, bypassing whatever logger the application configures. Use `log.error(&quot;context&quot;, e)` so the throwable flows through SLF4J's last-arg-is-Throwable convention and ends up in the same sink as the rest of your errors.
-* [org.openrewrite.kotlin.logging.FindPrintln$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/logging/findprintln$ktrecipe.md)
-  * **Find `println(...)` calls**
-  * `println` writes to stdout, which in containerized deployments lands in log files without structure, level filtering, or correlation IDs. Replace with a proper logger; if this is a CLI tool, consider the kotlin-logging level filter so tests can silence noisy output.
-* [org.openrewrite.kotlin.logging.FindStringConcatInLogDebug$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/logging/findstringconcatinlogdebug$ktrecipe.md)
-  * **Find string concatenation in `log.debug(...)`**
-  * `log.debug(&quot;x=&quot; + x)` performs the concatenation eagerly. Use kotlin-logging's `log.debug \{ &quot;x=$x&quot; \}` lambda form or SLF4J's `log.debug(&quot;x=\{\}&quot;, x)` placeholder form.
-* [org.openrewrite.kotlin.logging.FindStringConcatInLogError$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/logging/findstringconcatinlogerror$ktrecipe.md)
-  * **Find string concatenation in `log.error(...)`**
-  * `log.error(&quot;failed: &quot; + e)` mixes the throwable into the message string, losing the stack trace. Use the parameterized form with the throwable as the last argument: `log.error(&quot;failed&quot;, e)`.
-* [org.openrewrite.kotlin.logging.FindStringConcatInLogInfo$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/logging/findstringconcatinloginfo$ktrecipe.md)
-  * **Find string concatenation in `log.info(...)`**
-  * `log.info(&quot;x=&quot; + x)` is the Java-1.4-era logging idiom — replaced in SLF4J by `log.info(&quot;x=\{\}&quot;, x)` so the template is stable and the work is deferred.
-* [org.openrewrite.kotlin.logging.FindStringConcatInLogTrace$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/logging/findstringconcatinlogtrace$ktrecipe.md)
-  * **Find string concatenation in `log.trace(...)`**
-  * `log.trace(&quot;x=&quot; + x)` performs the concatenation (and the `toString` on `x`) before the call — wasted work if trace is disabled. Use the lambda form or SLF4J `\{\}` placeholders.
-* [org.openrewrite.kotlin.logging.FindStringConcatInLogWarn$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/logging/findstringconcatinlogwarn$ktrecipe.md)
-  * **Find string concatenation in `log.warn(...)`**
-  * `log.warn(&quot;x=&quot; + x)` does the concatenation up front. Use the parameterized form so log aggregators can group by message template.
-* [org.openrewrite.kotlin.logging.FindThrowablePrintStackTraceWithStream$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/logging/findthrowableprintstacktracewithstream$ktrecipe.md)
-  * **Find `e.printStackTrace(out)` calls**
-  * Writing the stack trace to a `PrintStream` / `PrintWriter` is the Java idiom for re-routing it manually. With a structured logger you don't need to — `log.error(&quot;context&quot;, e)` already carries the throwable to the configured sink. Review whether the explicit redirection still serves a purpose.
-* [org.openrewrite.kotlin.logging.Logging$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/logging/logging$ktrecipe.md)
-  * **Find Kotlin logging smells**
-  * Search-only recipes for SLF4J, kotlin-logging, `java.util.logging`, log4j 1.x, and `println`/`printStackTrace` usage. Covers eager-message construction (string templates and concatenation), redundant level-check guards, `LoggerFactory.getLogger` shapes that could be `KotlinLogging.logger \{ \}`, unstructured-output calls that bypass the logger, and logger-declaration smells (naming, visibility, instance-field placement).
-* [org.openrewrite.kotlin.migrate.Kotlin1To2$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/migrate/kotlin1to2$ktrecipe.md)
-  * **Migrate to Kotlin 2.x**
-  * Modernizes a Kotlin 1.x codebase for Kotlin 2.x: replaces stdlib APIs deprecated between 1.4 and 2.0 with their modern equivalents, swaps JVM-only `java.lang`/`java.util` helpers for multiplatform Kotlin extensions, migrates `inline class` to `@JvmInline value class`, and removes `@OptIn` annotations for experimental markers that have since graduated to stable.
-* [org.openrewrite.kotlin.migrate.RemoveRedundantOptIns$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/migrate/removeredundantoptins$ktrecipe.md)
-  * **Remove redundant `@OptIn` annotations**
-  * Removes `@OptIn` annotations for stdlib experimental markers that have since graduated to stable (`ExperimentalStdlibApi`, `ExperimentalTime`, `ExperimentalUnsignedTypes`, `ExperimentalPathApi`). The annotations no longer suppress anything and just add noise.
-* [org.openrewrite.kotlin.migrate.UseAppendLine$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/migrate/useappendline$ktrecipe.md)
-  * **Use `appendLine()` instead of `appendln()`**
-  * `Appendable.appendln()` was deprecated in Kotlin 1.4 in favor of `appendLine()` (consistent naming with `Reader.readLine()`).
-* [org.openrewrite.kotlin.migrate.UseAppendLineAny$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/migrate/useappendlineany$ktrecipe.md)
-  * **Use `appendLine(value)` instead of `appendln(value)` (Any?)**
-  * `StringBuilder.appendln(value: Any?)` was deprecated in Kotlin 1.4 in favor of `appendLine(value: Any?)`.
-* [org.openrewrite.kotlin.migrate.UseAppendLineChar$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/migrate/useappendlinechar$ktrecipe.md)
-  * **Use `appendLine(char)` instead of `appendln(char)`**
-  * `Appendable.appendln(value: Char)` was deprecated in Kotlin 1.4 in favor of `appendLine(value: Char)`.
-* [org.openrewrite.kotlin.migrate.UseAppendLineCharSequence$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/migrate/useappendlinecharsequence$ktrecipe.md)
-  * **Use `appendLine(cs)` instead of `appendln(cs)` (CharSequence)**
-  * `Appendable.appendln(value: CharSequence?)` was deprecated in Kotlin 1.4 in favor of `appendLine(value: CharSequence?)`.
-* [org.openrewrite.kotlin.migrate.UseAppendLineWithValue$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/migrate/useappendlinewithvalue$ktrecipe.md)
-  * **Use `appendLine(value)` instead of `appendln(value)`**
-  * `Appendable.appendln(value)` was deprecated in Kotlin 1.4 in favor of `appendLine(value)`.
-* [org.openrewrite.kotlin.migrate.UseArrayContentDeepEquals$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/migrate/usearraycontentdeepequals$ktrecipe.md)
-  * **Use `Array.contentDeepEquals()` instead of `Arrays.deepEquals(a, b)`**
-  * `java.util.Arrays.deepEquals(a, b)` recursively compares nested arrays; `a.contentDeepEquals(b)` is the multiplatform Kotlin extension.
-* [org.openrewrite.kotlin.migrate.UseArrayContentDeepHashCode$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/migrate/usearraycontentdeephashcode$ktrecipe.md)
-  * **Use `Array.contentDeepHashCode()` instead of `Arrays.deepHashCode(arr)`**
-  * `java.util.Arrays.deepHashCode(arr)` recursively hashes nested arrays; `arr.contentDeepHashCode()` is the multiplatform Kotlin extension.
-* [org.openrewrite.kotlin.migrate.UseArrayContentDeepToString$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/migrate/usearraycontentdeeptostring$ktrecipe.md)
-  * **Use `Array.contentDeepToString()` instead of `Arrays.deepToString(arr)`**
-  * `java.util.Arrays.deepToString(arr)` recursively unrolls nested arrays; `arr.contentDeepToString()` is the multiplatform Kotlin extension producing the same representation.
-* [org.openrewrite.kotlin.migrate.UseArrayContentEquals$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/migrate/usearraycontentequals$ktrecipe.md)
-  * **Use `Array.contentEquals()` instead of `Arrays.equals(a, b)`**
-  * `java.util.Arrays.equals(a: Object[], b: Object[])` is JVM-only; `a.contentEquals(b)` is the multiplatform Kotlin extension. For nested arrays use the deep variant.
-* [org.openrewrite.kotlin.migrate.UseArrayContentHashCode$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/migrate/usearraycontenthashcode$ktrecipe.md)
-  * **Use `Array.contentHashCode()` instead of `Arrays.hashCode(arr)`**
-  * `java.util.Arrays.hashCode(arr: Object[])` is JVM-only; `arr.contentHashCode()` is the multiplatform Kotlin extension. For nested arrays use the deep variant.
-* [org.openrewrite.kotlin.migrate.UseArrayContentToString$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/migrate/usearraycontenttostring$ktrecipe.md)
-  * **Use `Array.contentToString()` instead of `Arrays.toString(arr)`**
-  * `java.util.Arrays.toString(arr: Object[])` is JVM-only; `arr.contentToString()` is the multiplatform Kotlin extension. For nested arrays use the deep variant.
-* [org.openrewrite.kotlin.migrate.UseBooleanArrayContentEquals$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/migrate/usebooleanarraycontentequals$ktrecipe.md)
-  * **Use `BooleanArray.contentEquals()` instead of `Arrays.equals(a, b)`**
-  * `java.util.Arrays.equals(a: boolean[], b: boolean[])` is JVM-only; `a.contentEquals(b)` is the multiplatform Kotlin extension.
-* [org.openrewrite.kotlin.migrate.UseBooleanArrayContentHashCode$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/migrate/usebooleanarraycontenthashcode$ktrecipe.md)
-  * **Use `BooleanArray.contentHashCode()` instead of `Arrays.hashCode(arr)`**
-  * `java.util.Arrays.hashCode(arr: boolean[])` is JVM-only; `arr.contentHashCode()` is the multiplatform Kotlin extension.
-* [org.openrewrite.kotlin.migrate.UseBooleanArrayContentToString$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/migrate/usebooleanarraycontenttostring$ktrecipe.md)
-  * **Use `BooleanArray.contentToString()` instead of `Arrays.toString(arr)`**
-  * `java.util.Arrays.toString(arr: boolean[])` is JVM-only; `arr.contentToString()` is the multiplatform Kotlin extension.
-* [org.openrewrite.kotlin.migrate.UseBooleanArrayCopyOf$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/migrate/usebooleanarraycopyof$ktrecipe.md)
-  * **Use `BooleanArray.copyOf()` instead of `Arrays.copyOf(arr, newLength)`**
-  * `java.util.Arrays.copyOf(arr: boolean[], newLength)` is JVM-only; `arr.copyOf(newLength)` is the multiplatform Kotlin extension.
-* [org.openrewrite.kotlin.migrate.UseBooleanArrayFill$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/migrate/usebooleanarrayfill$ktrecipe.md)
-  * **Use `BooleanArray.fill()` instead of `Arrays.fill(arr, value)`**
-  * `java.util.Arrays.fill(arr: boolean[], value)` is JVM-only; `arr.fill(value)` is the multiplatform Kotlin extension.
-* [org.openrewrite.kotlin.migrate.UseByteArrayBinarySearch$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/migrate/usebytearraybinarysearch$ktrecipe.md)
-  * **Use `ByteArray.binarySearch()` instead of `Arrays.binarySearch(arr, key)`**
-  * `java.util.Arrays.binarySearch(arr: byte[], key: Byte)` is JVM-only; `arr.binarySearch(key)` is the multiplatform Kotlin extension.
-* [org.openrewrite.kotlin.migrate.UseByteArrayContentEquals$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/migrate/usebytearraycontentequals$ktrecipe.md)
-  * **Use `ByteArray.contentEquals()` instead of `Arrays.equals(a, b)`**
-  * `java.util.Arrays.equals(a: byte[], b: byte[])` is JVM-only; `a.contentEquals(b)` is the multiplatform Kotlin extension.
-* [org.openrewrite.kotlin.migrate.UseByteArrayContentHashCode$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/migrate/usebytearraycontenthashcode$ktrecipe.md)
-  * **Use `ByteArray.contentHashCode()` instead of `Arrays.hashCode(arr)`**
-  * `java.util.Arrays.hashCode(arr: byte[])` is JVM-only; `arr.contentHashCode()` is the multiplatform Kotlin extension.
-* [org.openrewrite.kotlin.migrate.UseByteArrayContentToString$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/migrate/usebytearraycontenttostring$ktrecipe.md)
-  * **Use `ByteArray.contentToString()` instead of `Arrays.toString(arr)`**
-  * `java.util.Arrays.toString(arr: byte[])` is JVM-only; `arr.contentToString()` is the multiplatform Kotlin extension.
-* [org.openrewrite.kotlin.migrate.UseByteArrayCopyOf$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/migrate/usebytearraycopyof$ktrecipe.md)
-  * **Use `ByteArray.copyOf()` instead of `Arrays.copyOf(arr, newLength)`**
-  * `java.util.Arrays.copyOf(arr: byte[], newLength)` is JVM-only; `arr.copyOf(newLength)` is the multiplatform Kotlin extension.
-* [org.openrewrite.kotlin.migrate.UseByteArrayFill$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/migrate/usebytearrayfill$ktrecipe.md)
-  * **Use `ByteArray.fill()` instead of `Arrays.fill(arr, value)`**
-  * `java.util.Arrays.fill(arr: byte[], value)` is JVM-only; `arr.fill(value)` is the multiplatform Kotlin extension.
-* [org.openrewrite.kotlin.migrate.UseByteArraySort$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/migrate/usebytearraysort$ktrecipe.md)
-  * **Use `ByteArray.sort()` instead of `Arrays.sort(arr)`**
-  * `java.util.Arrays.sort(arr: byte[])` is JVM-only; `arr.sort()` is the multiplatform Kotlin extension.
-* [org.openrewrite.kotlin.migrate.UseCapitalize$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/migrate/usecapitalize$ktrecipe.md)
-  * **Use `replaceFirstChar \{ … \}` instead of `capitalize()`**
-  * `String.capitalize()` was deprecated in Kotlin 1.5 in favor of the locale-explicit `replaceFirstChar \{ if (it.isLowerCase()) it.titlecase() else it.toString() \}`.
-* [org.openrewrite.kotlin.migrate.UseCharArrayBinarySearch$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/migrate/usechararraybinarysearch$ktrecipe.md)
-  * **Use `CharArray.binarySearch()` instead of `Arrays.binarySearch(arr, key)`**
-  * `java.util.Arrays.binarySearch(arr: char[], key: Char)` is JVM-only; `arr.binarySearch(key)` is the multiplatform Kotlin extension.
-* [org.openrewrite.kotlin.migrate.UseCharArrayContentEquals$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/migrate/usechararraycontentequals$ktrecipe.md)
-  * **Use `CharArray.contentEquals()` instead of `Arrays.equals(a, b)`**
-  * `java.util.Arrays.equals(a: char[], b: char[])` is JVM-only; `a.contentEquals(b)` is the multiplatform Kotlin extension.
-* [org.openrewrite.kotlin.migrate.UseCharArrayContentHashCode$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/migrate/usechararraycontenthashcode$ktrecipe.md)
-  * **Use `CharArray.contentHashCode()` instead of `Arrays.hashCode(arr)`**
-  * `java.util.Arrays.hashCode(arr: char[])` is JVM-only; `arr.contentHashCode()` is the multiplatform Kotlin extension.
-* [org.openrewrite.kotlin.migrate.UseCharArrayContentToString$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/migrate/usechararraycontenttostring$ktrecipe.md)
-  * **Use `CharArray.contentToString()` instead of `Arrays.toString(arr)`**
-  * `java.util.Arrays.toString(arr: char[])` is JVM-only; `arr.contentToString()` is the multiplatform Kotlin extension. Note this produces a bracketed list — use `String(arr)` if you want a String view of the characters.
-* [org.openrewrite.kotlin.migrate.UseCharArrayCopyOf$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/migrate/usechararraycopyof$ktrecipe.md)
-  * **Use `CharArray.copyOf()` instead of `Arrays.copyOf(arr, newLength)`**
-  * `java.util.Arrays.copyOf(arr: char[], newLength)` is JVM-only; `arr.copyOf(newLength)` is the multiplatform Kotlin extension.
-* [org.openrewrite.kotlin.migrate.UseCharArrayFill$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/migrate/usechararrayfill$ktrecipe.md)
-  * **Use `CharArray.fill()` instead of `Arrays.fill(arr, value)`**
-  * `java.util.Arrays.fill(arr: char[], value)` is JVM-only; `arr.fill(value)` is the multiplatform Kotlin extension.
-* [org.openrewrite.kotlin.migrate.UseCharArraySort$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/migrate/usechararraysort$ktrecipe.md)
-  * **Use `CharArray.sort()` instead of `Arrays.sort(arr)`**
-  * `java.util.Arrays.sort(arr: char[])` is JVM-only; `arr.sort()` is the multiplatform Kotlin extension.
-* [org.openrewrite.kotlin.migrate.UseCharCode$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/migrate/usecharcode$ktrecipe.md)
-  * **Use `Char.code` instead of `Char.toInt()`**
-  * `Char.toInt()` was deprecated in Kotlin 1.5; the replacement `Char.code` makes the conversion-to-codepoint intent explicit (the old name collided with `Number.toInt()`).
-* [org.openrewrite.kotlin.migrate.UseCharCodeAsByte$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/migrate/usecharcodeasbyte$ktrecipe.md)
-  * **Use `Char.code.toByte()` instead of `Char.toByte()`**
-  * `Char.toByte()` was deprecated in Kotlin 1.5 in favor of going through `Char.code`.
-* [org.openrewrite.kotlin.migrate.UseCharCodeAsDouble$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/migrate/usecharcodeasdouble$ktrecipe.md)
-  * **Use `Char.code.toDouble()` instead of `Char.toDouble()`**
-  * `Char.toDouble()` was deprecated in Kotlin 1.5 in favor of going through `Char.code`.
-* [org.openrewrite.kotlin.migrate.UseCharCodeAsFloat$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/migrate/usecharcodeasfloat$ktrecipe.md)
-  * **Use `Char.code.toFloat()` instead of `Char.toFloat()`**
-  * `Char.toFloat()` was deprecated in Kotlin 1.5 in favor of going through `Char.code`.
-* [org.openrewrite.kotlin.migrate.UseCharCodeAsLong$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/migrate/usecharcodeaslong$ktrecipe.md)
-  * **Use `Char.code.toLong()` instead of `Char.toLong()`**
-  * `Char.toLong()` was deprecated in Kotlin 1.5 in favor of going through `Char.code`.
-* [org.openrewrite.kotlin.migrate.UseCharCodeAsShort$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/migrate/usecharcodeasshort$ktrecipe.md)
-  * **Use `Char.code.toShort()` instead of `Char.toShort()`**
-  * `Char.toShort()` was deprecated in Kotlin 1.5 in favor of going through `Char.code`.
-* [org.openrewrite.kotlin.migrate.UseCharCompareTo$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/migrate/usecharcompareto$ktrecipe.md)
-  * **Use `Char.compareTo` instead of `java.lang.Character.compare`**
-  * `Character.compare(a, b)` becomes `a.compareTo(b)` — the multiplatform receiver call on `Char` returns the same `Int` ordering.
-* [org.openrewrite.kotlin.migrate.UseCharCtor$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/migrate/usecharctor$ktrecipe.md)
-  * **Use `Char(int)` instead of `Int.toChar()`**
-  * `Int.toChar()` was deprecated in Kotlin 1.5; the replacement `Char(int)` constructor expresses the codepoint-to-char intent symmetrically with `Char.code`.
-* [org.openrewrite.kotlin.migrate.UseCharDigitToInt$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/migrate/usechardigittoint$ktrecipe.md)
-  * **Use `Char.digitToInt(radix)` instead of `Character.digit(c, radix)`**
-  * `Character.digit(c, radix)` returns -1 for non-digits; the Kotlin extension `c.digitToInt(radix)` throws `IllegalArgumentException` instead. Use `c.digitToIntOrNull(radix)` if the JVM null-on-failure semantic is required.
-* [org.openrewrite.kotlin.migrate.UseCharIsDefined$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/migrate/usecharisdefined$ktrecipe.md)
-  * **Use `Char.isDefined()` instead of `Character.isDefined(c)`**
-  * Prefer the multiplatform Kotlin extension `c.isDefined()` over the JVM-only `Character.isDefined(c)`.
-* [org.openrewrite.kotlin.migrate.UseCharIsDigit$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/migrate/usecharisdigit$ktrecipe.md)
-  * **Use `Char.isDigit()` instead of `Character.isDigit(c)`**
-  * Java's `Character.isDigit(c)` is JVM-only; the Kotlin extension `c.isDigit()` is multiplatform and reads more naturally as a receiver call.
-* [org.openrewrite.kotlin.migrate.UseCharIsHighSurrogate$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/migrate/usecharishighsurrogate$ktrecipe.md)
-  * **Use `Char.isHighSurrogate()` instead of `Character.isHighSurrogate(c)`**
-  * Prefer the multiplatform Kotlin extension `c.isHighSurrogate()` over the JVM-only `Character.isHighSurrogate(c)`.
-* [org.openrewrite.kotlin.migrate.UseCharIsISOControl$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/migrate/usecharisisocontrol$ktrecipe.md)
-  * **Use `Char.isISOControl()` instead of `Character.isISOControl(c)`**
-  * Prefer the multiplatform Kotlin extension `c.isISOControl()` over the JVM-only `Character.isISOControl(c)`.
-* [org.openrewrite.kotlin.migrate.UseCharIsLetter$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/migrate/usecharisletter$ktrecipe.md)
-  * **Use `Char.isLetter()` instead of `Character.isLetter(c)`**
-  * Prefer the multiplatform Kotlin extension `c.isLetter()` over the JVM-only `Character.isLetter(c)`.
-* [org.openrewrite.kotlin.migrate.UseCharIsLetterOrDigit$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/migrate/usecharisletterordigit$ktrecipe.md)
-  * **Use `Char.isLetterOrDigit()` instead of `Character.isLetterOrDigit(c)`**
-  * Prefer the multiplatform Kotlin extension `c.isLetterOrDigit()` over the JVM-only `Character.isLetterOrDigit(c)`.
-* [org.openrewrite.kotlin.migrate.UseCharIsLowSurrogate$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/migrate/usecharislowsurrogate$ktrecipe.md)
-  * **Use `Char.isLowSurrogate()` instead of `Character.isLowSurrogate(c)`**
-  * Prefer the multiplatform Kotlin extension `c.isLowSurrogate()` over the JVM-only `Character.isLowSurrogate(c)`.
-* [org.openrewrite.kotlin.migrate.UseCharIsLowerCase$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/migrate/usecharislowercase$ktrecipe.md)
-  * **Use `Char.isLowerCase()` instead of `Character.isLowerCase(c)`**
-  * Prefer the multiplatform Kotlin extension `c.isLowerCase()` over the JVM-only `Character.isLowerCase(c)`.
-* [org.openrewrite.kotlin.migrate.UseCharIsTitleCase$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/migrate/usecharistitlecase$ktrecipe.md)
-  * **Use `Char.isTitleCase()` instead of `Character.isTitleCase(c)`**
-  * Prefer the multiplatform Kotlin extension `c.isTitleCase()` over the JVM-only `Character.isTitleCase(c)`.
-* [org.openrewrite.kotlin.migrate.UseCharIsUpperCase$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/migrate/usecharisuppercase$ktrecipe.md)
-  * **Use `Char.isUpperCase()` instead of `Character.isUpperCase(c)`**
-  * Prefer the multiplatform Kotlin extension `c.isUpperCase()` over the JVM-only `Character.isUpperCase(c)`.
-* [org.openrewrite.kotlin.migrate.UseCharIsWhitespace$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/migrate/usechariswhitespace$ktrecipe.md)
-  * **Use `Char.isWhitespace()` instead of `Character.isWhitespace(c)`**
-  * Prefer the multiplatform Kotlin extension `c.isWhitespace()` over the JVM-only `Character.isWhitespace(c)`.
-* [org.openrewrite.kotlin.migrate.UseCharLowercaseCharForCharacter$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/migrate/usecharlowercasecharforcharacter$ktrecipe.md)
-  * **Use `Char.lowercaseChar()` instead of `Character.toLowerCase(c)`**
-  * Prefer the multiplatform Kotlin extension `c.lowercaseChar()` over the JVM-only `Character.toLowerCase(c)`.
-* [org.openrewrite.kotlin.migrate.UseCharToString$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/migrate/usechartostring$ktrecipe.md)
-  * **Use `Char.toString()` instead of `Character.toString(c)`**
-  * `java.lang.Character.toString(c)` is JVM-only; `c.toString()` is the multiplatform receiver call and produces the same one-character `String`.
-* [org.openrewrite.kotlin.migrate.UseCharUppercaseCharForCharacter$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/migrate/usecharuppercasecharforcharacter$ktrecipe.md)
-  * **Use `Char.uppercaseChar()` instead of `Character.toUpperCase(c)`**
-  * Prefer the multiplatform Kotlin extension `c.uppercaseChar()` over the JVM-only `Character.toUpperCase(c)`.
-* [org.openrewrite.kotlin.migrate.UseCollectionMax$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/migrate/usecollectionmax$ktrecipe.md)
-  * **Use `Collection.max()` instead of `Collections.max(coll)`**
-  * `java.util.Collections.max(coll)` is JVM-only; Kotlin's `Collection.max()` extension is multiplatform and reads as a receiver call. Both throw `NoSuchElementException` on an empty collection.
-* [org.openrewrite.kotlin.migrate.UseCollectionMin$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/migrate/usecollectionmin$ktrecipe.md)
-  * **Use `Collection.min()` instead of `Collections.min(coll)`**
-  * `java.util.Collections.min(coll)` is JVM-only; Kotlin's `Collection.min()` extension is multiplatform and reads as a receiver call. Both throw `NoSuchElementException` on an empty collection.
-* [org.openrewrite.kotlin.migrate.UseConcatToString$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/migrate/useconcattostring$ktrecipe.md)
-  * **Use `CharArray.concatToString()` instead of `String(charArray)`**
-  * The `String(CharArray)` constructor is JVM-only; `charArray.concatToString()` is the multiplatform Kotlin extension producing the same `String`.
-* [org.openrewrite.kotlin.migrate.UseDecapitalize$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/migrate/usedecapitalize$ktrecipe.md)
-  * **Use `replaceFirstChar \{ it.lowercase() \}` instead of `decapitalize()`**
-  * `String.decapitalize()` was deprecated in Kotlin 1.5 in favor of `replaceFirstChar \{ it.lowercase() \}`.
-* [org.openrewrite.kotlin.migrate.UseDecodeToString$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/migrate/usedecodetostring$ktrecipe.md)
-  * **Use `ByteArray.decodeToString()` instead of `String(byteArray)`**
-  * The `String(ByteArray)` constructor is JVM-only and uses the platform default charset; `byteArray.decodeToString()` is the multiplatform Kotlin extension and always uses UTF-8.
-* [org.openrewrite.kotlin.migrate.UseDoubleArrayBinarySearch$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/migrate/usedoublearraybinarysearch$ktrecipe.md)
-  * **Use `DoubleArray.binarySearch()` instead of `Arrays.binarySearch(arr, key)`**
-  * `java.util.Arrays.binarySearch(arr: double[], key: Double)` is JVM-only; `arr.binarySearch(key)` is the multiplatform Kotlin extension.
-* [org.openrewrite.kotlin.migrate.UseDoubleArrayContentEquals$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/migrate/usedoublearraycontentequals$ktrecipe.md)
-  * **Use `DoubleArray.contentEquals()` instead of `Arrays.equals(a, b)`**
-  * `java.util.Arrays.equals(a: double[], b: double[])` is JVM-only; `a.contentEquals(b)` is the multiplatform Kotlin extension. Like `Arrays.equals`, NaN compares equal to NaN.
-* [org.openrewrite.kotlin.migrate.UseDoubleArrayContentHashCode$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/migrate/usedoublearraycontenthashcode$ktrecipe.md)
-  * **Use `DoubleArray.contentHashCode()` instead of `Arrays.hashCode(arr)`**
-  * `java.util.Arrays.hashCode(arr: double[])` is JVM-only; `arr.contentHashCode()` is the multiplatform Kotlin extension.
-* [org.openrewrite.kotlin.migrate.UseDoubleArrayContentToString$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/migrate/usedoublearraycontenttostring$ktrecipe.md)
-  * **Use `DoubleArray.contentToString()` instead of `Arrays.toString(arr)`**
-  * `java.util.Arrays.toString(arr: double[])` is JVM-only; `arr.contentToString()` is the multiplatform Kotlin extension.
-* [org.openrewrite.kotlin.migrate.UseDoubleArrayCopyOf$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/migrate/usedoublearraycopyof$ktrecipe.md)
-  * **Use `DoubleArray.copyOf()` instead of `Arrays.copyOf(arr, newLength)`**
-  * `java.util.Arrays.copyOf(arr: double[], newLength)` is JVM-only; `arr.copyOf(newLength)` is the multiplatform Kotlin extension.
-* [org.openrewrite.kotlin.migrate.UseDoubleArrayFill$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/migrate/usedoublearrayfill$ktrecipe.md)
-  * **Use `DoubleArray.fill()` instead of `Arrays.fill(arr, value)`**
-  * `java.util.Arrays.fill(arr: double[], value)` is JVM-only; `arr.fill(value)` is the multiplatform Kotlin extension.
-* [org.openrewrite.kotlin.migrate.UseDoubleArraySort$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/migrate/usedoublearraysort$ktrecipe.md)
-  * **Use `DoubleArray.sort()` instead of `Arrays.sort(arr)`**
-  * `java.util.Arrays.sort(arr: double[])` is JVM-only; `arr.sort()` is the multiplatform Kotlin extension.
-* [org.openrewrite.kotlin.migrate.UseDoubleIEEErem$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/migrate/usedoubleieeerem$ktrecipe.md)
-  * **Use `Double.IEEErem` instead of `java.lang.Math.IEEEremainder`**
-  * `Math.IEEEremainder(x, y)` becomes `x.IEEErem(y)` — the multiplatform Kotlin extension, also shorter.
-* [org.openrewrite.kotlin.migrate.UseDoubleNextDown$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/migrate/usedoublenextdown$ktrecipe.md)
-  * **Use `Double.nextDown()` instead of `java.lang.Math.nextDown`**
-  * `Math.nextDown(x)` becomes `x.nextDown()` — multiplatform Kotlin extension on `Double`.
-* [org.openrewrite.kotlin.migrate.UseDoubleNextTowards$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/migrate/usedoublenexttowards$ktrecipe.md)
-  * **Use `Double.nextTowards()` instead of `java.lang.Math.nextAfter`**
-  * `Math.nextAfter(x, y)` becomes `x.nextTowards(y)` — multiplatform Kotlin extension on `Double`. Only the `(Double, Double)` overload is rewritten; the `(Float, Double)` overload's mixed types don't line up with Kotlin's `Float.nextTowards(Float)`.
-* [org.openrewrite.kotlin.migrate.UseDoubleNextUp$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/migrate/usedoublenextup$ktrecipe.md)
-  * **Use `Double.nextUp()` instead of `java.lang.Math.nextUp`**
-  * `Math.nextUp(x)` becomes `x.nextUp()` — multiplatform Kotlin extension on `Double`.
-* [org.openrewrite.kotlin.migrate.UseDoublePow$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/migrate/usedoublepow$ktrecipe.md)
-  * **Use `Double.pow` instead of `java.lang.Math.pow`**
-  * `Math.pow(x, y)` is JVM-only; the Kotlin extension `x.pow(y)` reads as a receiver call and is multiplatform.
-* [org.openrewrite.kotlin.migrate.UseDoubleRoundToLong$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/migrate/usedoubleroundtolong$ktrecipe.md)
-  * **Use `Double.roundToLong()` instead of `java.lang.Math.round`**
-  * `Math.round(d: Double): Long` becomes `d.roundToLong()` as a multiplatform Kotlin extension.
-* [org.openrewrite.kotlin.migrate.UseDoubleWithSign$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/migrate/usedoublewithsign$ktrecipe.md)
-  * **Use `Double.withSign` instead of `java.lang.Math.copySign`**
-  * `Math.copySign(magnitude, sign)` becomes `magnitude.withSign(sign)` — the multiplatform Kotlin extension expresses the same magnitude/sign combination as a receiver call.
-* [org.openrewrite.kotlin.migrate.UseEnumEntries$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/migrate/useenumentries$ktrecipe.md)
-  * **Use `enumEntries&lt;T&gt;()` instead of `enumValues&lt;T&gt;()`**
-  * Kotlin 1.9 introduced `enumEntries&lt;T&gt;()` returning a stable `EnumEntries&lt;T&gt;` view. Prefer it over `enumValues&lt;T&gt;()`, which allocates a fresh array on each call.
-* [org.openrewrite.kotlin.migrate.UseFloatArrayBinarySearch$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/migrate/usefloatarraybinarysearch$ktrecipe.md)
-  * **Use `FloatArray.binarySearch()` instead of `Arrays.binarySearch(arr, key)`**
-  * `java.util.Arrays.binarySearch(arr: float[], key: Float)` is JVM-only; `arr.binarySearch(key)` is the multiplatform Kotlin extension.
-* [org.openrewrite.kotlin.migrate.UseFloatArrayContentEquals$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/migrate/usefloatarraycontentequals$ktrecipe.md)
-  * **Use `FloatArray.contentEquals()` instead of `Arrays.equals(a, b)`**
-  * `java.util.Arrays.equals(a: float[], b: float[])` is JVM-only; `a.contentEquals(b)` is the multiplatform Kotlin extension. Like `Arrays.equals`, NaN compares equal to NaN.
-* [org.openrewrite.kotlin.migrate.UseFloatArrayContentHashCode$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/migrate/usefloatarraycontenthashcode$ktrecipe.md)
-  * **Use `FloatArray.contentHashCode()` instead of `Arrays.hashCode(arr)`**
-  * `java.util.Arrays.hashCode(arr: float[])` is JVM-only; `arr.contentHashCode()` is the multiplatform Kotlin extension.
-* [org.openrewrite.kotlin.migrate.UseFloatArrayContentToString$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/migrate/usefloatarraycontenttostring$ktrecipe.md)
-  * **Use `FloatArray.contentToString()` instead of `Arrays.toString(arr)`**
-  * `java.util.Arrays.toString(arr: float[])` is JVM-only; `arr.contentToString()` is the multiplatform Kotlin extension.
-* [org.openrewrite.kotlin.migrate.UseFloatArrayCopyOf$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/migrate/usefloatarraycopyof$ktrecipe.md)
-  * **Use `FloatArray.copyOf()` instead of `Arrays.copyOf(arr, newLength)`**
-  * `java.util.Arrays.copyOf(arr: float[], newLength)` is JVM-only; `arr.copyOf(newLength)` is the multiplatform Kotlin extension.
-* [org.openrewrite.kotlin.migrate.UseFloatArrayFill$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/migrate/usefloatarrayfill$ktrecipe.md)
-  * **Use `FloatArray.fill()` instead of `Arrays.fill(arr, value)`**
-  * `java.util.Arrays.fill(arr: float[], value)` is JVM-only; `arr.fill(value)` is the multiplatform Kotlin extension.
-* [org.openrewrite.kotlin.migrate.UseFloatArraySort$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/migrate/usefloatarraysort$ktrecipe.md)
-  * **Use `FloatArray.sort()` instead of `Arrays.sort(arr)`**
-  * `java.util.Arrays.sort(arr: float[])` is JVM-only; `arr.sort()` is the multiplatform Kotlin extension.
-* [org.openrewrite.kotlin.migrate.UseFloatRoundToInt$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/migrate/usefloatroundtoint$ktrecipe.md)
-  * **Use `Float.roundToInt()` instead of `java.lang.Math.round`**
-  * `Math.round(f: Float): Int` becomes `f.roundToInt()` as a multiplatform Kotlin extension.
-* [org.openrewrite.kotlin.migrate.UseIntArrayBinarySearch$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/migrate/useintarraybinarysearch$ktrecipe.md)
-  * **Use `IntArray.binarySearch()` instead of `Arrays.binarySearch(arr, key)`**
-  * `java.util.Arrays.binarySearch(arr: int[], key: Int)` is JVM-only; `arr.binarySearch(key)` is the multiplatform Kotlin extension.
-* [org.openrewrite.kotlin.migrate.UseIntArrayContentEquals$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/migrate/useintarraycontentequals$ktrecipe.md)
-  * **Use `IntArray.contentEquals()` instead of `Arrays.equals(a, b)`**
-  * `java.util.Arrays.equals(a: int[], b: int[])` is JVM-only; `a.contentEquals(b)` is the multiplatform Kotlin extension.
-* [org.openrewrite.kotlin.migrate.UseIntArrayContentHashCode$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/migrate/useintarraycontenthashcode$ktrecipe.md)
-  * **Use `IntArray.contentHashCode()` instead of `Arrays.hashCode(arr)`**
-  * `java.util.Arrays.hashCode(arr: int[])` is JVM-only; `arr.contentHashCode()` is the multiplatform Kotlin extension and produces the same value.
-* [org.openrewrite.kotlin.migrate.UseIntArrayContentToString$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/migrate/useintarraycontenttostring$ktrecipe.md)
-  * **Use `IntArray.contentToString()` instead of `Arrays.toString(arr)`**
-  * `java.util.Arrays.toString(arr: int[])` is JVM-only; `arr.contentToString()` is the multiplatform Kotlin extension producing the same bracketed representation.
-* [org.openrewrite.kotlin.migrate.UseIntArrayCopyOf$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/migrate/useintarraycopyof$ktrecipe.md)
-  * **Use `IntArray.copyOf()` instead of `Arrays.copyOf(arr, newLength)`**
-  * `java.util.Arrays.copyOf(arr: int[], newLength)` is JVM-only; `arr.copyOf(newLength)` is the multiplatform Kotlin extension.
-* [org.openrewrite.kotlin.migrate.UseIntArrayFill$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/migrate/useintarrayfill$ktrecipe.md)
-  * **Use `IntArray.fill()` instead of `Arrays.fill(arr, value)`**
-  * `java.util.Arrays.fill(arr: int[], value)` is JVM-only; `arr.fill(value)` is the multiplatform Kotlin extension.
-* [org.openrewrite.kotlin.migrate.UseIntArraySort$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/migrate/useintarraysort$ktrecipe.md)
-  * **Use `IntArray.sort()` instead of `Arrays.sort(arr)`**
-  * `java.util.Arrays.sort(arr: int[])` is JVM-only; `arr.sort()` is the multiplatform Kotlin extension that sorts in place ascending.
-* [org.openrewrite.kotlin.migrate.UseIntCompareTo$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/migrate/useintcompareto$ktrecipe.md)
-  * **Use `Int.compareTo` instead of `java.lang.Integer.compare`**
-  * `Integer.compare(a, b)` is the JVM-only static comparator; the multiplatform `a.compareTo(b)` reads as a receiver call and returns the same `Int` ordering.
-* [org.openrewrite.kotlin.migrate.UseIntCountLeadingZeroBits$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/migrate/useintcountleadingzerobits$ktrecipe.md)
-  * **Use `Int.countLeadingZeroBits()` instead of `Integer.numberOfLeadingZeros`**
-  * `Integer.numberOfLeadingZeros(i)` becomes `i.countLeadingZeroBits()` — the multiplatform Kotlin extension reads as a receiver call.
-* [org.openrewrite.kotlin.migrate.UseIntCountOneBits$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/migrate/useintcountonebits$ktrecipe.md)
-  * **Use `Int.countOneBits()` instead of `java.lang.Integer.bitCount`**
-  * `Integer.bitCount(i)` is the JVM-only popcount; the multiplatform `i.countOneBits()` extension reads as a receiver call.
-* [org.openrewrite.kotlin.migrate.UseIntCountTrailingZeroBits$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/migrate/useintcounttrailingzerobits$ktrecipe.md)
-  * **Use `Int.countTrailingZeroBits()` instead of `Integer.numberOfTrailingZeros`**
-  * `Integer.numberOfTrailingZeros(i)` becomes `i.countTrailingZeroBits()` — the multiplatform Kotlin extension reads as a receiver call.
-* [org.openrewrite.kotlin.migrate.UseIntDigitToChar$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/migrate/useintdigittochar$ktrecipe.md)
-  * **Use `Int.digitToChar(radix)` instead of `Character.forDigit(digit, radix)`**
-  * `Character.forDigit(digit, radix)` returns the null `'\u0000'` for invalid input; the Kotlin extension `digit.digitToChar(radix)` throws `IllegalArgumentException` instead.
-* [org.openrewrite.kotlin.migrate.UseIntFloorDiv$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/migrate/useintfloordiv$ktrecipe.md)
-  * **Use `Int.floorDiv` instead of `java.lang.Math.floorDiv`**
-  * `Math.floorDiv(a, b)` becomes `a.floorDiv(b)` — the multiplatform Kotlin extension on `Int`.
-* [org.openrewrite.kotlin.migrate.UseIntMod$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/migrate/useintmod$ktrecipe.md)
-  * **Use `Int.mod()` instead of `java.lang.Math.floorMod`**
-  * `Math.floorMod(a, b)` becomes `a.mod(b)`. Kotlin's `Int.mod` uses floored-division semantics — the result is non-negative when the divisor is positive — matching `Math.floorMod`. Reads as a receiver call and is multiplatform.
-* [org.openrewrite.kotlin.migrate.UseIntRotateLeft$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/migrate/useintrotateleft$ktrecipe.md)
-  * **Use `Int.rotateLeft(n)` instead of `Integer.rotateLeft(i, n)`**
-  * `Integer.rotateLeft(i, n)` is JVM-only; the multiplatform `i.rotateLeft(n)` extension reads as a receiver call.
-* [org.openrewrite.kotlin.migrate.UseIntRotateRight$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/migrate/useintrotateright$ktrecipe.md)
-  * **Use `Int.rotateRight(n)` instead of `Integer.rotateRight(i, n)`**
-  * `Integer.rotateRight(i, n)` is JVM-only; the multiplatform `i.rotateRight(n)` extension reads as a receiver call.
-* [org.openrewrite.kotlin.migrate.UseIntToString$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/migrate/useinttostring$ktrecipe.md)
-  * **Use `Int.toString()` instead of `Integer.toString(i)`**
-  * `Integer.toString(i)` is the JVM-only spelling; `i.toString()` reads as a receiver call and is multiplatform.
-* [org.openrewrite.kotlin.migrate.UseIntToStringBinary$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/migrate/useinttostringbinary$ktrecipe.md)
-  * **Use `Int.toString(2)` instead of `Integer.toBinaryString`**
-  * `Integer.toBinaryString(i)` is JVM-only; the multiplatform `i.toString(2)` produces the same binary text.
-* [org.openrewrite.kotlin.migrate.UseIntToStringHex$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/migrate/useinttostringhex$ktrecipe.md)
-  * **Use `Int.toString(16)` instead of `Integer.toHexString`**
-  * `Integer.toHexString(i)` is JVM-only; the multiplatform `i.toString(16)` produces the same hexadecimal text.
-* [org.openrewrite.kotlin.migrate.UseIntToStringOctal$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/migrate/useinttostringoctal$ktrecipe.md)
-  * **Use `Int.toString(8)` instead of `Integer.toOctalString`**
-  * `Integer.toOctalString(i)` is JVM-only; the multiplatform `i.toString(8)` produces the same octal text.
-* [org.openrewrite.kotlin.migrate.UseIntToStringWithRadix$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/migrate/useinttostringwithradix$ktrecipe.md)
-  * **Use `Int.toString(radix)` instead of `Integer.toString(i, radix)`**
-  * `Integer.toString(i, radix)` is the JVM-only spelling; `i.toString(radix)` is the multiplatform Kotlin receiver call.
-* [org.openrewrite.kotlin.migrate.UseKotlinArray$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/migrate/usekotlinarray$ktrecipe.md)
-  * **Use Kotlin array extensions instead of `java.util.Arrays`**
-  * Replaces JVM-only `java.util.Arrays` static helpers with the multiplatform Kotlin extensions on each primitive array (and `Array&lt;*&gt;`): `contentToString()`, `contentEquals()`, `contentHashCode()`, `fill()`, `sort()`, `binarySearch()`, `copyOf()`, the deep variants for nested arrays, and the `String(charArray)`/`String(byteArray)` constructors that become `charArray.concatToString()`/`byteArray.decodeToString()`.
-* [org.openrewrite.kotlin.migrate.UseKotlinChar$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/migrate/usekotlinchar$ktrecipe.md)
-  * **Use `Char` extensions instead of `java.lang.Character`**
-  * Replaces JVM-only static helpers on `java.lang.Character` (`isDigit(c)`, `isLetter(c)`, `toUpperCase(c)`, `digit(c, radix)`, `compare(a, b)`, `toString(c)`, surrogate predicates) with the multiplatform Kotlin extensions on `Char` (`c.isDigit()`, `c.uppercaseChar()`, `c.digitToInt(radix)`, …).
-* [org.openrewrite.kotlin.migrate.UseKotlinCollections$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/migrate/usekotlincollections$ktrecipe.md)
-  * **Use Kotlin collection extensions instead of `java.util.Collections`**
-  * Replaces JVM-only `java.util.Collections` static helpers with the multiplatform Kotlin equivalents: `list.sort()`, `list.reverse()`, `list.shuffle()`, `listOf(x)`/`setOf(x)`, and `Collection.max()`/`min()`.
-* [org.openrewrite.kotlin.migrate.UseKotlinIntMax$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/migrate/usekotlinintmax$ktrecipe.md)
-  * **Use `Int.MAX_VALUE` instead of `java.lang.Integer.MAX_VALUE`**
-  * `Integer.MAX_VALUE` is the JVM-only spelling; Kotlin's `Int.MAX_VALUE` is the multiplatform equivalent.
-* [org.openrewrite.kotlin.migrate.UseKotlinIntMin$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/migrate/usekotlinintmin$ktrecipe.md)
-  * **Use `Int.MIN_VALUE` instead of `java.lang.Integer.MIN_VALUE`**
-  * `Integer.MIN_VALUE` is the JVM-only spelling; Kotlin's `Int.MIN_VALUE` is the multiplatform equivalent.
-* [org.openrewrite.kotlin.migrate.UseKotlinMath$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/migrate/usekotlinmath$ktrecipe.md)
-  * **Use `kotlin.math` instead of `java.lang.Math`**
-  * Replaces JVM-only `java.lang.Math` calls with their multiplatform `kotlin.math` equivalents — top-level functions (`abs`, `sqrt`, `sin`, …), constants (`PI`, `E`), and receiver-style extensions on `Double`/`Int`/`Long` (`pow`, `roundToInt`, `floorDiv`, `mod`, …).
-* [org.openrewrite.kotlin.migrate.UseKotlinMathAbs$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/migrate/usekotlinmathabs$ktrecipe.md)
-  * **Use `kotlin.math.abs` instead of `java.lang.Math.abs`**
-  * `kotlin.math.abs` is the multiplatform-friendly form. Java's `Math.abs` only works on the JVM and is a thin pass-through; the Kotlin call site reads more naturally in shared modules.
-* [org.openrewrite.kotlin.migrate.UseKotlinMathAcos$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/migrate/usekotlinmathacos$ktrecipe.md)
-  * **Use `kotlin.math.acos` instead of `java.lang.Math.acos`**
-  * Prefer the multiplatform-friendly `kotlin.math.acos` over the JVM-only `Math.acos`.
-* [org.openrewrite.kotlin.migrate.UseKotlinMathAsin$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/migrate/usekotlinmathasin$ktrecipe.md)
-  * **Use `kotlin.math.asin` instead of `java.lang.Math.asin`**
-  * Prefer the multiplatform-friendly `kotlin.math.asin` over the JVM-only `Math.asin`.
-* [org.openrewrite.kotlin.migrate.UseKotlinMathAtan$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/migrate/usekotlinmathatan$ktrecipe.md)
-  * **Use `kotlin.math.atan` instead of `java.lang.Math.atan`**
-  * Prefer the multiplatform-friendly `kotlin.math.atan` over the JVM-only `Math.atan`.
-* [org.openrewrite.kotlin.migrate.UseKotlinMathAtan2$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/migrate/usekotlinmathatan2$ktrecipe.md)
-  * **Use `kotlin.math.atan2` instead of `java.lang.Math.atan2`**
-  * Prefer the multiplatform-friendly `kotlin.math.atan2` over the JVM-only `Math.atan2`.
-* [org.openrewrite.kotlin.migrate.UseKotlinMathCbrt$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/migrate/usekotlinmathcbrt$ktrecipe.md)
-  * **Use `kotlin.math.cbrt` instead of `java.lang.Math.cbrt`**
-  * Prefer the multiplatform-friendly `kotlin.math.cbrt` over the JVM-only `Math.cbrt`.
-* [org.openrewrite.kotlin.migrate.UseKotlinMathCeil$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/migrate/usekotlinmathceil$ktrecipe.md)
-  * **Use `kotlin.math.ceil` instead of `java.lang.Math.ceil`**
-  * Prefer the multiplatform-friendly `kotlin.math.ceil` over the JVM-only `Math.ceil`.
-* [org.openrewrite.kotlin.migrate.UseKotlinMathCos$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/migrate/usekotlinmathcos$ktrecipe.md)
-  * **Use `kotlin.math.cos` instead of `java.lang.Math.cos`**
-  * Prefer the multiplatform-friendly `kotlin.math.cos` over the JVM-only `Math.cos`.
-* [org.openrewrite.kotlin.migrate.UseKotlinMathCosh$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/migrate/usekotlinmathcosh$ktrecipe.md)
-  * **Use `kotlin.math.cosh` instead of `java.lang.Math.cosh`**
-  * Prefer the multiplatform-friendly `kotlin.math.cosh` over the JVM-only `Math.cosh`.
-* [org.openrewrite.kotlin.migrate.UseKotlinMathE$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/migrate/usekotlinmathe$ktrecipe.md)
-  * **Use `kotlin.math.E` instead of `java.lang.Math.E`**
-  * Prefer the multiplatform-friendly `kotlin.math.E` over the JVM-only `Math.E`.
-* [org.openrewrite.kotlin.migrate.UseKotlinMathExp$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/migrate/usekotlinmathexp$ktrecipe.md)
-  * **Use `kotlin.math.exp` instead of `java.lang.Math.exp`**
-  * Prefer the multiplatform-friendly `kotlin.math.exp` over the JVM-only `Math.exp`.
-* [org.openrewrite.kotlin.migrate.UseKotlinMathExpm1$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/migrate/usekotlinmathexpm1$ktrecipe.md)
-  * **Use `kotlin.math.expm1` instead of `java.lang.Math.expm1`**
-  * Prefer the multiplatform-friendly `kotlin.math.expm1` over the JVM-only `Math.expm1`.
-* [org.openrewrite.kotlin.migrate.UseKotlinMathFloor$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/migrate/usekotlinmathfloor$ktrecipe.md)
-  * **Use `kotlin.math.floor` instead of `java.lang.Math.floor`**
-  * Prefer the multiplatform-friendly `kotlin.math.floor` over the JVM-only `Math.floor`.
-* [org.openrewrite.kotlin.migrate.UseKotlinMathHypot$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/migrate/usekotlinmathhypot$ktrecipe.md)
-  * **Use `kotlin.math.hypot` instead of `java.lang.Math.hypot`**
-  * Prefer the multiplatform-friendly `kotlin.math.hypot` over the JVM-only `Math.hypot`.
-* [org.openrewrite.kotlin.migrate.UseKotlinMathLn$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/migrate/usekotlinmathln$ktrecipe.md)
-  * **Use `kotlin.math.ln` instead of `java.lang.Math.log`**
-  * `Math.log` is natural log; the multiplatform `kotlin.math` package spells it `ln` to disambiguate from `log(b, x)` (log base b).
-* [org.openrewrite.kotlin.migrate.UseKotlinMathLn1p$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/migrate/usekotlinmathln1p$ktrecipe.md)
-  * **Use `kotlin.math.ln1p` instead of `java.lang.Math.log1p`**
-  * `Math.log1p(x)` computes `ln(1 + x)`. The multiplatform `kotlin.math` package spells it `ln1p`, mirroring the `log`→`ln` rename.
-* [org.openrewrite.kotlin.migrate.UseKotlinMathLog10$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/migrate/usekotlinmathlog10$ktrecipe.md)
-  * **Use `kotlin.math.log10` instead of `java.lang.Math.log10`**
-  * Prefer the multiplatform-friendly `kotlin.math.log10` over the JVM-only `Math.log10`.
-* [org.openrewrite.kotlin.migrate.UseKotlinMathMax$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/migrate/usekotlinmathmax$ktrecipe.md)
-  * **Use `kotlin.math.max` instead of `java.lang.Math.max`**
-  * Prefer the multiplatform-friendly `kotlin.math.max` over the JVM-only `Math.max`.
-* [org.openrewrite.kotlin.migrate.UseKotlinMathMin$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/migrate/usekotlinmathmin$ktrecipe.md)
-  * **Use `kotlin.math.min` instead of `java.lang.Math.min`**
-  * Prefer the multiplatform-friendly `kotlin.math.min` over the JVM-only `Math.min`.
-* [org.openrewrite.kotlin.migrate.UseKotlinMathPi$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/migrate/usekotlinmathpi$ktrecipe.md)
-  * **Use `kotlin.math.PI` instead of `java.lang.Math.PI`**
-  * Prefer the multiplatform-friendly `kotlin.math.PI` over the JVM-only `Math.PI`.
-* [org.openrewrite.kotlin.migrate.UseKotlinMathSign$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/migrate/usekotlinmathsign$ktrecipe.md)
-  * **Use `kotlin.math.sign` instead of `java.lang.Math.signum`**
-  * `Math.signum(x)` is renamed to `kotlin.math.sign(x)` in the multiplatform `kotlin.math` package.
-* [org.openrewrite.kotlin.migrate.UseKotlinMathSin$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/migrate/usekotlinmathsin$ktrecipe.md)
-  * **Use `kotlin.math.sin` instead of `java.lang.Math.sin`**
-  * Prefer the multiplatform-friendly `kotlin.math.sin` over the JVM-only `Math.sin`.
-* [org.openrewrite.kotlin.migrate.UseKotlinMathSinh$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/migrate/usekotlinmathsinh$ktrecipe.md)
-  * **Use `kotlin.math.sinh` instead of `java.lang.Math.sinh`**
-  * Prefer the multiplatform-friendly `kotlin.math.sinh` over the JVM-only `Math.sinh`.
-* [org.openrewrite.kotlin.migrate.UseKotlinMathSqrt$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/migrate/usekotlinmathsqrt$ktrecipe.md)
-  * **Use `kotlin.math.sqrt` instead of `java.lang.Math.sqrt`**
-  * Prefer the multiplatform-friendly `kotlin.math.sqrt` over the JVM-only `Math.sqrt`.
-* [org.openrewrite.kotlin.migrate.UseKotlinMathTan$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/migrate/usekotlinmathtan$ktrecipe.md)
-  * **Use `kotlin.math.tan` instead of `java.lang.Math.tan`**
-  * Prefer the multiplatform-friendly `kotlin.math.tan` over the JVM-only `Math.tan`.
-* [org.openrewrite.kotlin.migrate.UseKotlinMathTanh$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/migrate/usekotlinmathtanh$ktrecipe.md)
-  * **Use `kotlin.math.tanh` instead of `java.lang.Math.tanh`**
-  * Prefer the multiplatform-friendly `kotlin.math.tanh` over the JVM-only `Math.tanh`.
-* [org.openrewrite.kotlin.migrate.UseKotlinNumberApis$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/migrate/usekotlinnumberapis$ktrecipe.md)
-  * **Use Kotlin number extensions instead of `java.lang.Integer`/`Long`/`Double`/`Float`/`Boolean`**
-  * Replaces JVM-only static helpers on boxed primitive types with their multiplatform Kotlin counterparts: parsing (`s.toInt()`, `s.toLong(radix)`, `s.toDouble()`, `s.toBoolean()`), formatting (`i.toString(2)`, `l.toString(16)`), bit operations (`i.countOneBits()`, `l.rotateLeft(n)`), constants (`Int.MIN_VALUE`), and `compareTo`.
-* [org.openrewrite.kotlin.migrate.UseKotlinRegex$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/migrate/usekotlinregex$ktrecipe.md)
-  * **Use `kotlin.text.Regex` instead of `java.util.regex.Pattern`**
-  * Replaces JVM-only `java.util.regex.Pattern` calls with their multiplatform Kotlin equivalents: `s.toRegex()` and `Regex.escape(s)`.
-* [org.openrewrite.kotlin.migrate.UseListOf$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/migrate/uselistof$ktrecipe.md)
-  * **Use `listOf(x)` instead of `Collections.singletonList(x)`**
-  * `java.util.Collections.singletonList(x)` is JVM-only; Kotlin's multiplatform `listOf(x)` produces an immutable single-element list.
-* [org.openrewrite.kotlin.migrate.UseListReverse$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/migrate/uselistreverse$ktrecipe.md)
-  * **Use `MutableList.reverse()` instead of `Collections.reverse(list)`**
-  * `java.util.Collections.reverse(list)` is JVM-only; Kotlin's `MutableList.reverse()` extension is multiplatform and reads as a receiver call.
-* [org.openrewrite.kotlin.migrate.UseListShuffle$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/migrate/uselistshuffle$ktrecipe.md)
-  * **Use `MutableList.shuffle()` instead of `Collections.shuffle(list)`**
-  * `java.util.Collections.shuffle(list)` is JVM-only; Kotlin's `MutableList.shuffle()` extension is multiplatform and reads as a receiver call.
-* [org.openrewrite.kotlin.migrate.UseListSort$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/migrate/uselistsort$ktrecipe.md)
-  * **Use `MutableList.sort()` instead of `Collections.sort(list)`**
-  * `java.util.Collections.sort(list)` is JVM-only; Kotlin's `MutableList.sort()` extension is multiplatform and reads as a receiver call.
-* [org.openrewrite.kotlin.migrate.UseLocalizedMessage$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/migrate/uselocalizedmessage$ktrecipe.md)
-  * **Use `Throwable.localizedMessage` instead of `Throwable.message`**
-  * Prefer the i18n-aware `localizedMessage` property over `message` when surfacing exception text to end users. Both are Kotlin properties on `java.lang.Throwable` — the rewrite is a pure property-access rename.
-* [org.openrewrite.kotlin.migrate.UseLongArrayBinarySearch$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/migrate/uselongarraybinarysearch$ktrecipe.md)
-  * **Use `LongArray.binarySearch()` instead of `Arrays.binarySearch(arr, key)`**
-  * `java.util.Arrays.binarySearch(arr: long[], key: Long)` is JVM-only; `arr.binarySearch(key)` is the multiplatform Kotlin extension.
-* [org.openrewrite.kotlin.migrate.UseLongArrayContentEquals$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/migrate/uselongarraycontentequals$ktrecipe.md)
-  * **Use `LongArray.contentEquals()` instead of `Arrays.equals(a, b)`**
-  * `java.util.Arrays.equals(a: long[], b: long[])` is JVM-only; `a.contentEquals(b)` is the multiplatform Kotlin extension.
-* [org.openrewrite.kotlin.migrate.UseLongArrayContentHashCode$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/migrate/uselongarraycontenthashcode$ktrecipe.md)
-  * **Use `LongArray.contentHashCode()` instead of `Arrays.hashCode(arr)`**
-  * `java.util.Arrays.hashCode(arr: long[])` is JVM-only; `arr.contentHashCode()` is the multiplatform Kotlin extension.
-* [org.openrewrite.kotlin.migrate.UseLongArrayContentToString$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/migrate/uselongarraycontenttostring$ktrecipe.md)
-  * **Use `LongArray.contentToString()` instead of `Arrays.toString(arr)`**
-  * `java.util.Arrays.toString(arr: long[])` is JVM-only; `arr.contentToString()` is the multiplatform Kotlin extension.
-* [org.openrewrite.kotlin.migrate.UseLongArrayCopyOf$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/migrate/uselongarraycopyof$ktrecipe.md)
-  * **Use `LongArray.copyOf()` instead of `Arrays.copyOf(arr, newLength)`**
-  * `java.util.Arrays.copyOf(arr: long[], newLength)` is JVM-only; `arr.copyOf(newLength)` is the multiplatform Kotlin extension.
-* [org.openrewrite.kotlin.migrate.UseLongArrayFill$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/migrate/uselongarrayfill$ktrecipe.md)
-  * **Use `LongArray.fill()` instead of `Arrays.fill(arr, value)`**
-  * `java.util.Arrays.fill(arr: long[], value)` is JVM-only; `arr.fill(value)` is the multiplatform Kotlin extension.
-* [org.openrewrite.kotlin.migrate.UseLongArraySort$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/migrate/uselongarraysort$ktrecipe.md)
-  * **Use `LongArray.sort()` instead of `Arrays.sort(arr)`**
-  * `java.util.Arrays.sort(arr: long[])` is JVM-only; `arr.sort()` is the multiplatform Kotlin extension.
-* [org.openrewrite.kotlin.migrate.UseLongCountOneBits$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/migrate/uselongcountonebits$ktrecipe.md)
-  * **Use `Long.countOneBits()` instead of `java.lang.Long.bitCount`**
-  * `Long.bitCount(l)` is the JVM-only popcount; the multiplatform `l.countOneBits()` extension reads as a receiver call.
-* [org.openrewrite.kotlin.migrate.UseLongFloorDiv$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/migrate/uselongfloordiv$ktrecipe.md)
-  * **Use `Long.floorDiv` instead of `java.lang.Math.floorDiv`**
-  * `Math.floorDiv(a, b)` becomes `a.floorDiv(b)` — the multiplatform Kotlin extension on `Long`.
-* [org.openrewrite.kotlin.migrate.UseLongMod$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/migrate/uselongmod$ktrecipe.md)
-  * **Use `Long.mod()` instead of `java.lang.Math.floorMod`**
-  * `Math.floorMod(a, b)` becomes `a.mod(b)` for the `(Long, Long)` overload. Kotlin's `Long.mod` matches `Math.floorMod` floored-division semantics.
-* [org.openrewrite.kotlin.migrate.UseLongModInt$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/migrate/uselongmodint$ktrecipe.md)
-  * **Use `Long.mod(Int)` instead of `java.lang.Math.floorMod`**
-  * `Math.floorMod(a: Long, b: Int): Int` becomes `a.mod(b)`. Like the Java overload, `Long.mod(Int)` returns an `Int`.
-* [org.openrewrite.kotlin.migrate.UseLongRotateLeft$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/migrate/uselongrotateleft$ktrecipe.md)
-  * **Use `Long.rotateLeft(n)` instead of `Long.rotateLeft(l, n)`**
-  * `java.lang.Long.rotateLeft(l, n)` is JVM-only; the multiplatform `l.rotateLeft(n)` extension reads as a receiver call.
-* [org.openrewrite.kotlin.migrate.UseLongRotateRight$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/migrate/uselongrotateright$ktrecipe.md)
-  * **Use `Long.rotateRight(n)` instead of `Long.rotateRight(l, n)`**
-  * `java.lang.Long.rotateRight(l, n)` is JVM-only; the multiplatform `l.rotateRight(n)` extension reads as a receiver call.
-* [org.openrewrite.kotlin.migrate.UseLongToString$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/migrate/uselongtostring$ktrecipe.md)
-  * **Use `Long.toString()` instead of `Long.toString(l)`**
-  * `java.lang.Long.toString(l)` is the JVM-only spelling; `l.toString()` reads as a receiver call and is multiplatform.
-* [org.openrewrite.kotlin.migrate.UseLongToStringWithRadix$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/migrate/uselongtostringwithradix$ktrecipe.md)
-  * **Use `Long.toString(radix)` instead of `Long.toString(l, radix)`**
-  * `java.lang.Long.toString(l, radix)` is the JVM-only spelling; `l.toString(radix)` is the multiplatform Kotlin receiver call.
-* [org.openrewrite.kotlin.migrate.UseLowercase$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/migrate/uselowercase$ktrecipe.md)
-  * **Use `lowercase()` instead of `toLowerCase()`**
-  * `String.toLowerCase()` was deprecated in Kotlin 1.5 in favor of the locale-explicit `lowercase()`.
-* [org.openrewrite.kotlin.migrate.UseLowercaseChar$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/migrate/uselowercasechar$ktrecipe.md)
-  * **Use `Char.lowercaseChar()` instead of `Char.toLowerCase()`**
-  * `Char.toLowerCase()` was deprecated in Kotlin 1.5 in favor of the locale-explicit `lowercaseChar()`.
-* [org.openrewrite.kotlin.migrate.UseLowercaseWithLocale$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/migrate/uselowercasewithlocale$ktrecipe.md)
-  * **Use `lowercase(locale)` instead of `toLowerCase(locale)`**
-  * The JVM `String.toLowerCase(Locale)` overload was deprecated in Kotlin 1.5 alongside the no-arg form; the replacement `lowercase(Locale)` keeps the locale parameter and uses the new spelling.
-* [org.openrewrite.kotlin.migrate.UseModernKotlinStdlibApis$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/migrate/usemodernkotlinstdlibapis$ktrecipe.md)
-  * **Use modern Kotlin stdlib idioms**
-  * Replaces Kotlin stdlib APIs deprecated between 1.4 and 2.0 with their modern equivalents, and adopts newer language features (open-ended range `..&lt;`, `enumEntries&lt;T&gt;()`) where the older spelling still compiles but reads worse.
-* [org.openrewrite.kotlin.migrate.UseRangeUntilOperator$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/migrate/userangeuntiloperator$ktrecipe.md)
-  * **Use `..&lt;` instead of `until`**
-  * Kotlin 1.7.20 introduced the `..&lt;` open-ended range operator. Prefer it over the older `until` infix function.
-* [org.openrewrite.kotlin.migrate.UseReadln$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/migrate/usereadln$ktrecipe.md)
-  * **Use `readln()` instead of `readLine()!!`**
-  * Kotlin 1.6 introduced `readln()` to replace the common `readLine()!!` idiom — the new spelling makes the EOF-throws contract explicit and drops the not-null assertion.
-* [org.openrewrite.kotlin.migrate.UseReadlnOrNull$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/migrate/usereadlnornull$ktrecipe.md)
-  * **Use `readlnOrNull()` instead of `readLine()`**
-  * `readLine()` was deprecated in Kotlin 1.6 in favor of `readlnOrNull()` (and the asserting `readln()`), which spells the EOF-handling intent explicitly.
-* [org.openrewrite.kotlin.migrate.UseRegexEscape$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/migrate/useregexescape$ktrecipe.md)
-  * **Use `Regex.escape(s)` instead of `Pattern.quote(s)`**
-  * `java.util.regex.Pattern.quote(s)` migrates to `kotlin.text.Regex.escape(s)` — same behavior, multiplatform.
-* [org.openrewrite.kotlin.migrate.UseRemoveAtLastIndexForRemoveLast$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/migrate/useremoveatlastindexforremovelast$ktrecipe.md)
-  * **Use `removeAt(lastIndex)` instead of `removeLast()`**
-  * `MutableList.removeLast()` was deprecated in Kotlin 2.0 alongside `removeFirst()` for the same SequencedCollection conflict. Prefer `removeAt(lastIndex)`.
-* [org.openrewrite.kotlin.migrate.UseRemoveAtZeroForRemoveFirst$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/migrate/useremoveatzeroforremovefirst$ktrecipe.md)
-  * **Use `removeAt(0)` instead of `removeFirst()`**
-  * `MutableList.removeFirst()` was deprecated in Kotlin 2.0 because Java 21's `SequencedCollection.removeFirst()` introduced a conflicting signature with different return-on-empty semantics. Prefer `removeAt(0)` to keep the throwing behavior unambiguous.
-* [org.openrewrite.kotlin.migrate.UseSetOf$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/migrate/usesetof$ktrecipe.md)
-  * **Use `setOf(x)` instead of `Collections.singleton(x)`**
-  * `java.util.Collections.singleton(x)` is JVM-only; Kotlin's multiplatform `setOf(x)` produces an immutable single-element set.
-* [org.openrewrite.kotlin.migrate.UseShortArrayBinarySearch$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/migrate/useshortarraybinarysearch$ktrecipe.md)
-  * **Use `ShortArray.binarySearch()` instead of `Arrays.binarySearch(arr, key)`**
-  * `java.util.Arrays.binarySearch(arr: short[], key: Short)` is JVM-only; `arr.binarySearch(key)` is the multiplatform Kotlin extension.
-* [org.openrewrite.kotlin.migrate.UseShortArrayContentEquals$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/migrate/useshortarraycontentequals$ktrecipe.md)
-  * **Use `ShortArray.contentEquals()` instead of `Arrays.equals(a, b)`**
-  * `java.util.Arrays.equals(a: short[], b: short[])` is JVM-only; `a.contentEquals(b)` is the multiplatform Kotlin extension.
-* [org.openrewrite.kotlin.migrate.UseShortArrayContentHashCode$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/migrate/useshortarraycontenthashcode$ktrecipe.md)
-  * **Use `ShortArray.contentHashCode()` instead of `Arrays.hashCode(arr)`**
-  * `java.util.Arrays.hashCode(arr: short[])` is JVM-only; `arr.contentHashCode()` is the multiplatform Kotlin extension.
-* [org.openrewrite.kotlin.migrate.UseShortArrayContentToString$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/migrate/useshortarraycontenttostring$ktrecipe.md)
-  * **Use `ShortArray.contentToString()` instead of `Arrays.toString(arr)`**
-  * `java.util.Arrays.toString(arr: short[])` is JVM-only; `arr.contentToString()` is the multiplatform Kotlin extension.
-* [org.openrewrite.kotlin.migrate.UseShortArrayCopyOf$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/migrate/useshortarraycopyof$ktrecipe.md)
-  * **Use `ShortArray.copyOf()` instead of `Arrays.copyOf(arr, newLength)`**
-  * `java.util.Arrays.copyOf(arr: short[], newLength)` is JVM-only; `arr.copyOf(newLength)` is the multiplatform Kotlin extension.
-* [org.openrewrite.kotlin.migrate.UseShortArrayFill$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/migrate/useshortarrayfill$ktrecipe.md)
-  * **Use `ShortArray.fill()` instead of `Arrays.fill(arr, value)`**
-  * `java.util.Arrays.fill(arr: short[], value)` is JVM-only; `arr.fill(value)` is the multiplatform Kotlin extension.
-* [org.openrewrite.kotlin.migrate.UseShortArraySort$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/migrate/useshortarraysort$ktrecipe.md)
-  * **Use `ShortArray.sort()` instead of `Arrays.sort(arr)`**
-  * `java.util.Arrays.sort(arr: short[])` is JVM-only; `arr.sort()` is the multiplatform Kotlin extension.
-* [org.openrewrite.kotlin.migrate.UseStringToBoolean$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/migrate/usestringtoboolean$ktrecipe.md)
-  * **Use `String.toBoolean()` instead of `java.lang.Boolean.parseBoolean(s)`**
-  * Java-idiom `Boolean.parseBoolean(s)` migrates to the Kotlin extension `s.toBoolean()`; for strict parsing that throws on non-`true`/`false`, use `s.toBooleanStrict()` instead.
-* [org.openrewrite.kotlin.migrate.UseStringToDouble$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/migrate/usestringtodouble$ktrecipe.md)
-  * **Use `String.toDouble()` instead of `java.lang.Double.parseDouble(s)`**
-  * Java-idiom `Double.parseDouble(s)` migrates to the Kotlin extension `s.toDouble()`.
-* [org.openrewrite.kotlin.migrate.UseStringToFloat$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/migrate/usestringtofloat$ktrecipe.md)
-  * **Use `String.toFloat()` instead of `java.lang.Float.parseFloat(s)`**
-  * Java-idiom `Float.parseFloat(s)` migrates to the Kotlin extension `s.toFloat()`.
-* [org.openrewrite.kotlin.migrate.UseStringToInt$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/migrate/usestringtoint$ktrecipe.md)
-  * **Use `String.toInt()` instead of `Integer.parseInt(s)`**
-  * Java-idiom `Integer.parseInt(s)` migrates to the Kotlin extension `s.toInt()`. The behavior is identical — both throw `NumberFormatException` on invalid input.
-* [org.openrewrite.kotlin.migrate.UseStringToIntWithRadix$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/migrate/usestringtointwithradix$ktrecipe.md)
-  * **Use `String.toInt(radix)` instead of `Integer.parseInt(s, radix)`**
-  * `Integer.parseInt(s, radix)` is JVM-only; the Kotlin extension `s.toInt(radix)` is multiplatform and reads as a receiver call.
-* [org.openrewrite.kotlin.migrate.UseStringToLong$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/migrate/usestringtolong$ktrecipe.md)
-  * **Use `String.toLong()` instead of `java.lang.Long.parseLong(s)`**
-  * Java-idiom `Long.parseLong(s)` migrates to the Kotlin extension `s.toLong()`.
-* [org.openrewrite.kotlin.migrate.UseStringToLongWithRadix$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/migrate/usestringtolongwithradix$ktrecipe.md)
-  * **Use `String.toLong(radix)` instead of `Long.parseLong(s, radix)`**
-  * `java.lang.Long.parseLong(s, radix)` is JVM-only; the Kotlin extension `s.toLong(radix)` is multiplatform and reads as a receiver call.
-* [org.openrewrite.kotlin.migrate.UseStringToRegex$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/migrate/usestringtoregex$ktrecipe.md)
-  * **Use `String.toRegex()` instead of `Pattern.compile(s)`**
-  * `java.util.regex.Pattern.compile(s)` migrates to the Kotlin extension `s.toRegex()`, which returns a `kotlin.text.Regex` and reads more naturally.
-* [org.openrewrite.kotlin.migrate.UseSumOf$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/migrate/usesumof$ktrecipe.md)
-  * **Use `sumOf` instead of `sumBy`**
-  * `Iterable.sumBy \{ … \}` was deprecated in Kotlin 1.5 in favor of the type-inferred `sumOf \{ … \}` (which avoids the unchecked Int return).
-* [org.openrewrite.kotlin.migrate.UseSumOfDouble$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/migrate/usesumofdouble$ktrecipe.md)
-  * **Use `sumOf` instead of `sumByDouble`**
-  * `Iterable.sumByDouble \{ … \}` was deprecated in Kotlin 1.5 in favor of the type-inferred `sumOf \{ … \}`.
-* [org.openrewrite.kotlin.migrate.UseUppercase$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/migrate/useuppercase$ktrecipe.md)
-  * **Use `uppercase()` instead of `toUpperCase()`**
-  * `String.toUpperCase()` was deprecated in Kotlin 1.5 in favor of the locale-explicit `uppercase()`.
-* [org.openrewrite.kotlin.migrate.UseUppercaseChar$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/migrate/useuppercasechar$ktrecipe.md)
-  * **Use `Char.uppercaseChar()` instead of `Char.toUpperCase()`**
-  * `Char.toUpperCase()` was deprecated in Kotlin 1.5 in favor of the locale-explicit `uppercaseChar()`.
-* [org.openrewrite.kotlin.migrate.UseUppercaseWithLocale$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/migrate/useuppercasewithlocale$ktrecipe.md)
-  * **Use `uppercase(locale)` instead of `toUpperCase(locale)`**
-  * The JVM `String.toUpperCase(Locale)` overload was deprecated in Kotlin 1.5 alongside the no-arg form; the replacement `uppercase(Locale)` keeps the locale parameter and uses the new spelling.
-* [org.openrewrite.kotlin.migrate.UseValueClass$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/migrate/usevalueclass$ktrecipe.md)
-  * **Use `@JvmInline value class` instead of `inline class`**
-  * `inline class` was deprecated in Kotlin 1.5 in favor of the explicit `@JvmInline value class` pair; the new spelling separates the JVM mapping (`@JvmInline`) from the language-level semantics (`value`).
-* [org.openrewrite.kotlin.performance.CollapseFilterTerminals$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/performance/collapsefilterterminals$ktrecipe.md)
-  * **Collapse `filter \{ p \}.&lt;terminal&gt;()` chains**
-  * Folds predicate-taking terminals (`first`, `last`, `count`, `any`, `none`, `single`, `firstOrNull`, `lastOrNull`, `singleOrNull`) and `sumOf`/`maxOf`/`minOf` selectors into the upstream `filter` or `map`, avoiding the intermediate list materialization.
-* [org.openrewrite.kotlin.performance.CollapseSortAndReverse$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/performance/collapsesortandreverse$ktrecipe.md)
-  * **Collapse `sorted().first/last()` and `reversed().first/last()` chains**
-  * Replaces O(n log n) sorts whose only purpose is to read one element with the equivalent O(n) `min`/`max`/`minBy`/`maxBy`, and elides unnecessary `reversed()` copies before `first`/`last`.
-* [org.openrewrite.kotlin.performance.FindAllocationsInCollectionLambdas$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/performance/findallocationsincollectionlambdas$ktrecipe.md)
-  * **Find expensive allocations inside collection lambdas**
-  * Search-only recipes that flag heavyweight allocations sitting inside the trailing lambda of a `map` / `filter` / `forEach` / `flatMap` call. Each such lambda runs once per element — the same allocation-cost profile as a loop body.
-* [org.openrewrite.kotlin.performance.FindAllocationsInHotPaths$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/performance/findallocationsinhotpaths$ktrecipe.md)
-  * **Find expensive allocations on hot paths**
-  * Search-only recipes that flag heavyweight allocations sitting on a path the runtime exercises repeatedly — inside a loop, inside `View.onDraw`/`onMeasure`/`onLayout`. Each match shows up as a `SearchResult` for review; nothing is rewritten automatically.
-* [org.openrewrite.kotlin.performance.FindAllocationsInOnDraw$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/performance/findallocationsinondraw$ktrecipe.md)
-  * **Find graphics allocations inside `View.onDraw`**
-  * Android views call `onDraw` on every frame. Allocating `Paint`, `Path`, `Rect`, `RectF`, `Region`, `Matrix`, or `Bitmap` instances per draw causes GC pressure and dropped frames — hoist them into field initializers or `lazy \{ \}` properties.
-* [org.openrewrite.kotlin.performance.FindAllocationsInOnLayout$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/performance/findallocationsinonlayout$ktrecipe.md)
-  * **Find graphics allocations inside `View.onLayout`**
-  * `onLayout` runs whenever a view's children are repositioned. Allocating `Paint`, `Path`, `Rect`, `RectF`, `Region`, `Matrix`, or `Bitmap` instances per layout causes per-frame GC pressure — hoist them to fields.
-* [org.openrewrite.kotlin.performance.FindAllocationsInOnMeasure$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/performance/findallocationsinonmeasure$ktrecipe.md)
-  * **Find graphics allocations inside `View.onMeasure`**
-  * `onMeasure` runs whenever the measurement pass walks a view. Allocating `Paint`, `Path`, `Rect`, `RectF`, `Region`, `Matrix`, or `Bitmap` instances per measure makes layout reflows hit the GC — hoist them to fields.
-* [org.openrewrite.kotlin.performance.FindBase64GetDecoderInLoops$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/performance/findbase64getdecoderinloops$ktrecipe.md)
-  * **Find `Base64.getDecoder()` calls inside loops**
-  * `Base64.getDecoder()` returns a shared singleton, so the call itself is cheap — but reading the decoder from a `final` field is cheaper still. Hoist the decoder to a top-level `private val` for clarity.
-* [org.openrewrite.kotlin.performance.FindBigDecimalFromStringInLoops$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/performance/findbigdecimalfromstringinloops$ktrecipe.md)
-  * **Find `BigDecimal(&quot;...&quot;)` allocations inside loops**
-  * Parsing a `BigDecimal` from a `String` literal inside a loop reparses the same value every iteration. Hoist the literal `BigDecimal` out of the loop or use a cached constant.
-* [org.openrewrite.kotlin.performance.FindBigIntegerFromStringInLoops$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/performance/findbigintegerfromstringinloops$ktrecipe.md)
-  * **Find `BigInteger(&quot;...&quot;)` allocations inside loops**
-  * Parsing a `BigInteger` from a `String` literal inside a loop reparses the same value every iteration. Hoist the literal `BigInteger` to a top-level property or `BigInteger.valueOf` constant.
-* [org.openrewrite.kotlin.performance.FindBigIntegerValueOfInLoops$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/performance/findbigintegervalueofinloops$ktrecipe.md)
-  * **Find `BigInteger.valueOf(long)` calls inside loops**
-  * `BigInteger.valueOf` caches small values (-16..16) but allocates fresh `BigInteger` instances outside that range. Loop bodies frequently feed it dynamic values — hoist a constant where possible or accept the allocation cost.
-* [org.openrewrite.kotlin.performance.FindCalendarGetInstanceInLoops$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/performance/findcalendargetinstanceinloops$ktrecipe.md)
-  * **Find `Calendar.getInstance()` calls inside loops**
-  * `Calendar.getInstance()` resolves the default `TimeZone` and `Locale` and allocates a fresh `GregorianCalendar` on every call. Inside a loop the timezone lookup dominates — hoist the calendar or migrate to `java.time` types.
-* [org.openrewrite.kotlin.performance.FindCharsetForNameInLoops$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/performance/findcharsetfornameinloops$ktrecipe.md)
-  * **Find `Charset.forName(...)` calls inside loops**
-  * `Charset.forName(&quot;UTF-8&quot;)` walks the charset alias map on every call. Prefer the cached constants on `kotlin.text.Charsets` (`Charsets.UTF_8`, `Charsets.ISO_8859_1`, etc.) — or hoist a single `Charset` out of the loop.
-* [org.openrewrite.kotlin.performance.FindClassForNameInLoops$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/performance/findclassfornameinloops$ktrecipe.md)
-  * **Find `Class.forName` calls inside loops**
-  * `Class.forName(...)` walks the classloader hierarchy on every call. Resolving the same class on every loop iteration burns CPU — cache the resolved `Class&lt;*&gt;` in a top-level property.
-* [org.openrewrite.kotlin.performance.FindDateTimeFormatterInLoops$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/performance/finddatetimeformatterinloops$ktrecipe.md)
-  * **Find `DateTimeFormatter.ofPattern` allocations inside loops**
-  * `DateTimeFormatter.ofPattern(...)` parses the pattern up-front. Doing that on every loop iteration burns CPU repeatedly — hoist the formatter into a top-level property. Unlike `SimpleDateFormat`, `DateTimeFormatter` is thread-safe, so the hoisted instance can be shared.
-* [org.openrewrite.kotlin.performance.FindEagerMapOnSequence$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/performance/findeagermaponsequence$ktrecipe.md)
-  * **Find `seq.toList().map \{ ... \}` patterns**
-  * Calling `.toList()` on a `Sequence` and then `.map \{ … \}` materializes the full sequence into a `List` and then walks it again — defeating the lazy-pipeline purpose of `Sequence`. Drop the `toList()` so the `map` stays in the sequence.
-* [org.openrewrite.kotlin.performance.FindFileNewBufferedReaderInLoops$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/performance/findfilenewbufferedreaderinloops$ktrecipe.md)
-  * **Find `File(...).bufferedReader()` calls inside loops**
-  * Constructing a `File` and opening a `BufferedReader` per loop iteration multiplies the OS-level open/read/close cost. If the same path is read each pass, read it once before the loop; if every iteration reads a different path, batch the work or reuse a `Reader`.
-* [org.openrewrite.kotlin.performance.FindForEachWithIndexedAccess$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/performance/findforeachwithindexedaccess$ktrecipe.md)
-  * **Find `for (i in xs.indices) \{ val x = xs[i] \}` patterns**
-  * Iterating over `xs.indices` and indexing back into `xs[i]` is the explicit-index form of `xs.forEachIndexed \{ i, x -&gt; \}`. The indexed form is clearer and avoids re-resolving `xs[i]` on every access.
-* [org.openrewrite.kotlin.performance.FindGsonInCollectionLambdas$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/performance/findgsonincollectionlambdas$ktrecipe.md)
-  * **Find `Gson()` allocations inside collection lambdas**
-  * Gson's default constructor builds the type-adapter registry up front. Allocating a fresh `Gson` per element repeats that work — hoist one `Gson` instance to a top-level property.
-* [org.openrewrite.kotlin.performance.FindGsonInLoops$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/performance/findgsoninloops$ktrecipe.md)
-  * **Find `Gson()` allocations inside loops**
-  * Gson's default constructor builds the type-adapter registry up front. Allocating one per loop iteration repeats that work — hoist a single `Gson` instance to a top-level property.
-* [org.openrewrite.kotlin.performance.FindIterationSmells$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/performance/finditerationsmells$ktrecipe.md)
-  * **Find iteration-shape smells**
-  * Flags iteration idioms that have a clearer, allocation-equivalent Kotlin form — currently the `for (i in xs.indices) \{ val x = xs[i] \}` shape that `forEachIndexed \{ i, x -&gt; \}` replaces.
-* [org.openrewrite.kotlin.performance.FindLargeListPipeline$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/performance/findlargelistpipeline$ktrecipe.md)
-  * **Find long `List` pipelines that should use `Sequence`**
-  * A pipeline with three or more chained collection operations (`map`/`filter`/`flatMap`/etc.) on a `List` materializes an intermediate collection per stage. Long pipelines on large inputs typically run faster (and allocate less) as `xs.asSequence().…toList()`.
-* [org.openrewrite.kotlin.performance.FindListOfInLoops$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/performance/findlistofinloops$ktrecipe.md)
-  * **Find `listOf(...)` calls inside loops**
-  * An immutable `listOf(...)` built inside a loop allocates a fresh list every iteration. If the contents are constant, hoist the list to a `val` outside the loop. If the contents change per iteration, the allocation is necessary — review and accept.
-* [org.openrewrite.kotlin.performance.FindLocaleConstructionInLoops$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/performance/findlocaleconstructioninloops$ktrecipe.md)
-  * **Find `Locale(...)` allocations inside loops**
-  * `Locale(&quot;en&quot;, &quot;US&quot;)` walks the locale provider list on every construction. For common locales prefer the cached constants on `Locale` (e.g. `Locale.US`, `Locale.ENGLISH`). Otherwise hoist a single `Locale` out of the loop.
-* [org.openrewrite.kotlin.performance.FindLoggerFactoryGetLoggerInCollectionLambdas$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/performance/findloggerfactorygetloggerincollectionlambdas$ktrecipe.md)
-  * **Find `LoggerFactory.getLogger` calls inside collection lambdas**
-  * `LoggerFactory.getLogger(...)` resolves the logger through SLF4J on every call. Inside a collection lambda that resolves the same logger per element — hoist it to a `private val` companion property.
-* [org.openrewrite.kotlin.performance.FindLoggerFactoryGetLoggerInLoops$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/performance/findloggerfactorygetloggerinloops$ktrecipe.md)
-  * **Find `LoggerFactory.getLogger` calls inside loops**
-  * `LoggerFactory.getLogger(...)` resolves the logger through the SLF4J binding on every call. Hoist the logger to a `private val` companion property — there's exactly one logger per class.
-* [org.openrewrite.kotlin.performance.FindLoopAllocations$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/performance/findloopallocations$ktrecipe.md)
-  * **Find collection construction inside loops**
-  * Flags `listOf` / `mutableListOf` / `mutableMapOf` calls that allocate a fresh collection on every loop iteration. Hoist constants or `clear()`-and-reuse a single instance.
-* [org.openrewrite.kotlin.performance.FindMessageDigestGetInstanceInLoops$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/performance/findmessagedigestgetinstanceinloops$ktrecipe.md)
-  * **Find `MessageDigest.getInstance` calls inside loops**
-  * `MessageDigest.getInstance(&quot;MD5&quot;)` walks the security-provider list on every call. Hoist the digest to a per-thread cache or reset it per use.
-* [org.openrewrite.kotlin.performance.FindMutableListOfInLoops$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/performance/findmutablelistofinloops$ktrecipe.md)
-  * **Find `mutableListOf&lt;T&gt;()` allocations inside loops**
-  * A `mutableListOf&lt;T&gt;()` allocated per iteration produces garbage proportional to the loop count. If the list is filled and consumed each pass, consider `clear()`-and-reuse on a single hoisted list.
-* [org.openrewrite.kotlin.performance.FindMutableMapOfInLoops$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/performance/findmutablemapofinloops$ktrecipe.md)
-  * **Find `mutableMapOf&lt;K, V&gt;()` allocations inside loops**
-  * A `mutableMapOf&lt;K, V&gt;()` allocated per iteration produces garbage proportional to the loop count. If the map is filled and consumed each pass, consider `clear()`-and-reuse on a single hoisted map.
-* [org.openrewrite.kotlin.performance.FindObjectMapperInCollectionLambdas$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/performance/findobjectmapperincollectionlambdas$ktrecipe.md)
-  * **Find Jackson `ObjectMapper()` allocations inside collection lambdas**
-  * Allocating a fresh `ObjectMapper` per element rebuilds Jackson's module/serializer registry on every call. Hoist one mapper to a top-level property — it is thread-safe once configured.
-* [org.openrewrite.kotlin.performance.FindObjectMapperInLoops$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/performance/findobjectmapperinloops$ktrecipe.md)
-  * **Find Jackson `ObjectMapper()` allocations inside loops**
-  * Jackson's `ObjectMapper` is expensive to construct — it builds the default module and serializer registries on every allocation. Hoist a single `ObjectMapper` instance to a top-level property; it is thread-safe once configured.
-* [org.openrewrite.kotlin.performance.FindOptionalGetInLoops$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/performance/findoptionalgetinloops$ktrecipe.md)
-  * **Find `Optional.get()` calls inside loops**
-  * `Optional.get()` throws `NoSuchElementException` when the optional is empty — the loop body usually relies on a preceding `isPresent` check. Prefer `orElse`, `orElseThrow`, or `ifPresent \{ \}` to make the empty branch explicit and avoid the double-check.
-* [org.openrewrite.kotlin.performance.FindPatternCompileInCollectionLambdas$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/performance/findpatterncompileincollectionlambdas$ktrecipe.md)
-  * **Find `Pattern.compile` calls inside collection lambdas**
-  * `Pattern.compile(...)` parses the pattern up front; running it inside a `map`/`filter`/`forEach` lambda recompiles the pattern for every element. Hoist the `Pattern` to a top-level property.
-* [org.openrewrite.kotlin.performance.FindPatternCompileInLoops$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/performance/findpatterncompileinloops$ktrecipe.md)
-  * **Find `Pattern.compile` allocations inside loops**
-  * Compiling a `java.util.regex.Pattern` is expensive — allocating one inside a loop recompiles it on every iteration. Hoist the `Pattern` out of the loop or cache it in a top-level property.
-* [org.openrewrite.kotlin.performance.FindRegexAllocationsInCollectionLambdas$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/performance/findregexallocationsincollectionlambdas$ktrecipe.md)
-  * **Find `Regex` allocations inside collection lambdas**
-  * A `Regex` allocated inside the lambda passed to `map`, `filter`, `forEach`, `flatMap`, etc. is compiled once per element. Hoist the regex to a top-level property — collection-pipeline lambdas run on every element, just like a loop body.
-* [org.openrewrite.kotlin.performance.FindRegexAllocationsInLoops$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/performance/findregexallocationsinloops$ktrecipe.md)
-  * **Find `Regex` allocations inside loops**
-  * Compiling a `Regex` is expensive — allocating one inside a loop pays the cost on every iteration. Hoist the regex out of the loop or cache it in a top-level property.
-* [org.openrewrite.kotlin.performance.FindSequencePipelineSmells$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/performance/findsequencepipelinesmells$ktrecipe.md)
-  * **Find `Sequence`/`List` pipeline shape smells**
-  * Flags pipelines where the `List`/`Sequence` choice fights the data flow — long `List` pipelines that materialize between every stage, and `Sequence` pipelines that eagerly fall back to `List` mid-pipeline.
-* [org.openrewrite.kotlin.performance.FindSimpleDateFormatInLoops$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/performance/findsimpledateformatinloops$ktrecipe.md)
-  * **Find `SimpleDateFormat` allocations inside loops**
-  * `SimpleDateFormat` parses its pattern string in the constructor and is not thread-safe — allocating one per iteration is a common per-row hot spot. Hoist it out of the loop or use a thread-local cache (or migrate to `DateTimeFormatter`).
-* [org.openrewrite.kotlin.performance.FindStringConcatSmells$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/performance/findstringconcatsmells$ktrecipe.md)
-  * **Find string-allocation smells**
-  * Flags `s = s + &quot;…&quot;`-inside-loop patterns that allocate a fresh `String` on every iteration. The `StringBuilder.length`-vs-`size` rewrite lives in the autofix bundle.
-* [org.openrewrite.kotlin.performance.FindStringFormatInCollectionLambdas$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/performance/findstringformatincollectionlambdas$ktrecipe.md)
-  * **Find `String.format` calls inside collection lambdas**
-  * `String.format(...)` reparses the format string on every call. Inside a collection lambda that runs per element — prefer Kotlin string templates (`&quot;$\{x\}&quot;`) or hoist a `Formatter`.
-* [org.openrewrite.kotlin.performance.FindStringFormatInLoops$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/performance/findstringformatinloops$ktrecipe.md)
-  * **Find `String.format` calls inside loops**
-  * `String.format(...)` parses the format string on every call. Inside a loop this re-parses the same template every iteration — prefer string templates (`&quot;$\{x\}&quot;`) or extract the `Formatter` if you must use `%`-style specifiers.
-* [org.openrewrite.kotlin.performance.FindStringPlusInLoop$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/performance/findstringplusinloop$ktrecipe.md)
-  * **Find `s = s + &quot;...&quot;` string concatenation inside loops**
-  * Repeated `String` concatenation inside a loop allocates a new `String` on every iteration — each `+` produces a fresh `StringBuilder`. Prefer building once with `StringBuilder` (or `buildString \{ … \}`).
-* [org.openrewrite.kotlin.performance.FindURIConstructorInLoops$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/performance/finduriconstructorinloops$ktrecipe.md)
-  * **Find `URI(&quot;...&quot;)` allocations inside loops**
-  * `java.net.URI`'s constructor parses and validates the URI string. Doing that per loop iteration burns CPU on the same string — hoist constants out of the loop.
-* [org.openrewrite.kotlin.performance.FindURLConstructorInLoops$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/performance/findurlconstructorinloops$ktrecipe.md)
-  * **Find `URL(&quot;...&quot;)` allocations inside loops**
-  * `java.net.URL`'s constructor parses the URL string and dispatches through `URLStreamHandlerFactory`. Inside a loop that adds up — hoist URLs that don't change per iteration, or migrate to `URI`/`HttpRequest` builders.
-* [org.openrewrite.kotlin.performance.ImproveKotlinPerformance$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/performance/improvekotlinperformance$ktrecipe.md)
-  * **Improve performance of Kotlin code**
-  * Autofix-only performance bundle: collapses allocating call chains (filter/map/sort/reverse), promotes Compose primitive state holders, and rewrites `StringBuilder.length` to `size`. Excludes the search-only `Find*` recipes so the run output is just diffs, not a flood of search results.
-* [org.openrewrite.kotlin.performance.Performance$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/performance/performance$ktrecipe.md)
-  * **Apply Kotlin performance idioms**
-  * Opinionated bundle of every performance recipe in this module: chain collapses (filter/map/sort/reverse), Compose primitive-state holders, and hot-path allocation finders. Search-result recipes coexist with rewriting recipes — for diff-only output, use `ImproveKotlinPerformance` instead.
-* [org.openrewrite.kotlin.performance.UseAnyWithPredicate$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/performance/useanywithpredicate$ktrecipe.md)
-  * **Use `any \{ predicate \}` instead of `filter \{ predicate \}.isNotEmpty()`**
-  * `any \{ predicate \}` short-circuits on the first match and avoids materializing the intermediate filtered list.
-* [org.openrewrite.kotlin.performance.UseAnyWithPredicateInsteadOfFilterAny$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/performance/useanywithpredicateinsteadoffilterany$ktrecipe.md)
-  * **Use `any \{ predicate \}` instead of `filter \{ predicate \}.any()`**
-  * `any \{ predicate \}` short-circuits on the first match. Calling `any()` after `filter` first materializes the entire filtered list.
-* [org.openrewrite.kotlin.performance.UseComposePrimitiveStateOf$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/performance/usecomposeprimitivestateof$ktrecipe.md)
-  * **Use primitive `mutable&lt;Int|Long|Float|Double&gt;StateOf` in Compose**
-  * Inside `@Composable` functions, replaces `mutableStateOf(&lt;primitive&gt;)` with the matching primitive-specialized `mutableIntStateOf`/`mutableLongStateOf`/`mutableFloatStateOf`/`mutableDoubleStateOf`. The specialized state holders keep the wrapped value unboxed across reads and writes during recomposition.
-* [org.openrewrite.kotlin.performance.UseCountWithPredicate$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/performance/usecountwithpredicate$ktrecipe.md)
-  * **Use `count \{ predicate \}` instead of `filter \{ predicate \}.count()`**
-  * Folding the predicate into `count` avoids materializing the intermediate filtered list.
-* [org.openrewrite.kotlin.performance.UseFilterNotToForFilterNotToMutableList$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/performance/usefilternottoforfilternottomutablelist$ktrecipe.md)
-  * **Use `filterNotTo(mutableListOf(), p)` instead of `filterNot(p).toMutableList()`**
-  * `filterNot \{ p \}` allocates a `List&lt;T&gt;` and `toMutableList` copies it. `filterNotTo(mutableListOf(), p)` writes directly into the target without the intermediate.
-* [org.openrewrite.kotlin.performance.UseFilterToForFilterToMutableList$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/performance/usefiltertoforfiltertomutablelist$ktrecipe.md)
-  * **Use `filterTo(mutableListOf(), p)` instead of `filter(p).toMutableList()`**
-  * `filter \{ p \}` allocates a `List&lt;T&gt;` and `toMutableList` copies it. `filterTo(mutableListOf(), p)` writes directly into the target without the intermediate.
-* [org.openrewrite.kotlin.performance.UseFirstForReversedLast$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/performance/usefirstforreversedlast$ktrecipe.md)
-  * **Use `first()` instead of `reversed().last()`**
-  * `reversed()` allocates an intermediate reversed copy. `first()` returns the same element directly.
-* [org.openrewrite.kotlin.performance.UseFirstNotNullOfForMapFirst$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/performance/usefirstnotnullofformapfirst$ktrecipe.md)
-  * **Use `firstNotNullOf \{ f \}` instead of `mapNotNull \{ f \}.first()`**
-  * `firstNotNullOf` short-circuits on the first non-null result. `mapNotNull \{ f \}.first()` walks the whole input.
-* [org.openrewrite.kotlin.performance.UseFirstNotNullOfOrNullForMapFirstOrNull$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/performance/usefirstnotnullofornullformapfirstornull$ktrecipe.md)
-  * **Use `firstNotNullOfOrNull \{ f \}` instead of `mapNotNull \{ f \}.firstOrNull()`**
-  * `firstNotNullOfOrNull` short-circuits on the first non-null result. `mapNotNull \{ f \}.firstOrNull()` walks the whole input.
-* [org.openrewrite.kotlin.performance.UseFirstOrNullWithPredicate$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/performance/usefirstornullwithpredicate$ktrecipe.md)
-  * **Use `firstOrNull \{ predicate \}` instead of `filter \{ predicate \}.firstOrNull()`**
-  * Folding the predicate into `firstOrNull` short-circuits on the first match and avoids materializing the intermediate filtered list.
-* [org.openrewrite.kotlin.performance.UseFirstWithPredicate$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/performance/usefirstwithpredicate$ktrecipe.md)
-  * **Use `first \{ predicate \}` instead of `filter \{ predicate \}.first()`**
-  * Folding the predicate into `first` avoids materializing the intermediate filtered list and short-circuits on the first match.
-* [org.openrewrite.kotlin.performance.UseFlatMapToForFlatMapToMutableList$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/performance/useflatmaptoforflatmaptomutablelist$ktrecipe.md)
-  * **Use `flatMapTo(mutableListOf(), f)` instead of `flatMap(f).toMutableList()`**
-  * `flatMap \{ f \}` allocates a `List&lt;R&gt;` and `toMutableList` copies it. `flatMapTo(mutableListOf(), f)` writes directly into the target without the intermediate.
-* [org.openrewrite.kotlin.performance.UseLastForReversedFirst$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/performance/uselastforreversedfirst$ktrecipe.md)
-  * **Use `last()` instead of `reversed().first()`**
-  * `reversed()` allocates an intermediate reversed copy. `last()` walks to the same element directly.
-* [org.openrewrite.kotlin.performance.UseLastOrNullWithPredicate$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/performance/uselastornullwithpredicate$ktrecipe.md)
-  * **Use `lastOrNull \{ predicate \}` instead of `filter \{ predicate \}.lastOrNull()`**
-  * Folding the predicate into `lastOrNull` avoids materializing the intermediate filtered list.
-* [org.openrewrite.kotlin.performance.UseLastWithPredicate$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/performance/uselastwithpredicate$ktrecipe.md)
-  * **Use `last \{ predicate \}` instead of `filter \{ predicate \}.last()`**
-  * Folding the predicate into `last` avoids materializing the intermediate filtered list.
-* [org.openrewrite.kotlin.performance.UseLengthForStringBuilderSize$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/performance/uselengthforstringbuildersize$ktrecipe.md)
-  * **Use `sb.length` instead of `sb.toString().length`**
-  * Calling `toString()` on a `StringBuilder` allocates a snapshot `String` just to read its length. `StringBuilder` exposes `length` directly without the copy.
-* [org.openrewrite.kotlin.performance.UseMapNotNullForMapFilterNotNull$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/performance/usemapnotnullformapfilternotnull$ktrecipe.md)
-  * **Use `mapNotNull \{ f \}` instead of `map \{ f \}.filterNotNull()`**
-  * `mapNotNull` drops nulls in the same pass that produces them. `map \{ f \}.filterNotNull()` materializes the full `List&lt;R?&gt;` first.
-* [org.openrewrite.kotlin.performance.UseMapToForMapToMutableList$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/performance/usemaptoformaptomutablelist$ktrecipe.md)
-  * **Use `mapTo(mutableListOf(), f)` instead of `map(f).toMutableList()`**
-  * `map \{ f \}` allocates a `List&lt;R&gt;` and `toMutableList` copies it. `mapTo(mutableListOf(), f)` writes directly into the target without the intermediate.
-* [org.openrewrite.kotlin.performance.UseMaxByForSortedByLast$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/performance/usemaxbyforsortedbylast$ktrecipe.md)
-  * **Use `maxBy \{ selector \}` instead of `sortedBy \{ selector \}.last()`**
-  * `sortedBy(f).last()` does an O(n log n) sort just to read the maximum-by-`f`. `maxBy(f)` finds it in a single linear pass.
-* [org.openrewrite.kotlin.performance.UseMaxForSortedDescendingFirst$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/performance/usemaxforsorteddescendingfirst$ktrecipe.md)
-  * **Use `max()` instead of `sortedDescending().first()`**
-  * `sortedDescending().first()` does an O(n log n) sort just to read the maximum. `max()` finds it in a single linear pass.
-* [org.openrewrite.kotlin.performance.UseMaxForSortedLast$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/performance/usemaxforsortedlast$ktrecipe.md)
-  * **Use `max()` instead of `sorted().last()`**
-  * `sorted().last()` does an O(n log n) sort just to read the maximum. `max()` finds it in a single linear pass.
-* [org.openrewrite.kotlin.performance.UseMaxOfWithSelector$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/performance/usemaxofwithselector$ktrecipe.md)
-  * **Use `maxOf \{ selector \}` instead of `map \{ selector \}.max()`**
-  * `maxOf` walks the input once and tracks the running maximum without materializing the intermediate `List&lt;Int&gt;`.
-* [org.openrewrite.kotlin.performance.UseMinByForSortedByFirst$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/performance/useminbyforsortedbyfirst$ktrecipe.md)
-  * **Use `minBy \{ selector \}` instead of `sortedBy \{ selector \}.first()`**
-  * `sortedBy(f).first()` does an O(n log n) sort just to read the minimum-by-`f`. `minBy(f)` finds it in a single linear pass.
-* [org.openrewrite.kotlin.performance.UseMinForSortedDescendingLast$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/performance/useminforsorteddescendinglast$ktrecipe.md)
-  * **Use `min()` instead of `sortedDescending().last()`**
-  * `sortedDescending().last()` does an O(n log n) sort just to read the minimum. `min()` finds it in a single linear pass.
-* [org.openrewrite.kotlin.performance.UseMinForSortedFirst$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/performance/useminforsortedfirst$ktrecipe.md)
-  * **Use `min()` instead of `sorted().first()`**
-  * `sorted().first()` does an O(n log n) sort just to read the minimum. `min()` finds it in a single linear pass.
-* [org.openrewrite.kotlin.performance.UseMinOfWithSelector$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/performance/useminofwithselector$ktrecipe.md)
-  * **Use `minOf \{ selector \}` instead of `map \{ selector \}.min()`**
-  * `minOf` walks the input once and tracks the running minimum without materializing the intermediate `List&lt;Int&gt;`.
-* [org.openrewrite.kotlin.performance.UseMutableDoubleStateOf$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/performance/usemutabledoublestateof$ktrecipe.md)
-  * **Use `mutableDoubleStateOf` instead of `mutableStateOf&lt;Double&gt;` in Compose**
-  * Compose's `mutableDoubleStateOf` keeps the wrapped value as a primitive `Double`, avoiding the autobox-and-unbox cost that `mutableStateOf&lt;Double&gt;` pays on every read and write inside a recomposition.
-* [org.openrewrite.kotlin.performance.UseMutableFloatStateOf$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/performance/usemutablefloatstateof$ktrecipe.md)
-  * **Use `mutableFloatStateOf` instead of `mutableStateOf&lt;Float&gt;` in Compose**
-  * Compose's `mutableFloatStateOf` keeps the wrapped value as a primitive `Float`, avoiding the autobox-and-unbox cost that `mutableStateOf&lt;Float&gt;` pays on every read and write inside a recomposition.
-* [org.openrewrite.kotlin.performance.UseMutableIntStateOf$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/performance/usemutableintstateof$ktrecipe.md)
-  * **Use `mutableIntStateOf` instead of `mutableStateOf&lt;Int&gt;` in Compose**
-  * Compose's `mutableIntStateOf` keeps the wrapped value as a primitive `Int`, avoiding the autobox-and-unbox cost that `mutableStateOf&lt;Int&gt;` pays on every read and write inside a recomposition.
-* [org.openrewrite.kotlin.performance.UseMutableLongStateOf$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/performance/usemutablelongstateof$ktrecipe.md)
-  * **Use `mutableLongStateOf` instead of `mutableStateOf&lt;Long&gt;` in Compose**
-  * Compose's `mutableLongStateOf` keeps the wrapped value as a primitive `Long`, avoiding the autobox-and-unbox cost that `mutableStateOf&lt;Long&gt;` pays on every read and write inside a recomposition.
-* [org.openrewrite.kotlin.performance.UseNoneWithPredicate$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/performance/usenonewithpredicate$ktrecipe.md)
-  * **Use `none \{ predicate \}` instead of `filter \{ predicate \}.isEmpty()`**
-  * `none \{ predicate \}` short-circuits on the first match and avoids materializing the intermediate filtered list.
-* [org.openrewrite.kotlin.performance.UseNoneWithPredicateInsteadOfFilterNone$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/performance/usenonewithpredicateinsteadoffilternone$ktrecipe.md)
-  * **Use `none \{ predicate \}` instead of `filter \{ predicate \}.none()`**
-  * `none \{ predicate \}` short-circuits on the first match. Calling `none()` after `filter` first materializes the entire filtered list.
-* [org.openrewrite.kotlin.performance.UseSingleOrNullWithPredicate$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/performance/usesingleornullwithpredicate$ktrecipe.md)
-  * **Use `singleOrNull \{ predicate \}` instead of `filter \{ predicate \}.singleOrNull()`**
-  * Folding the predicate into `singleOrNull` avoids materializing the intermediate filtered list.
-* [org.openrewrite.kotlin.performance.UseSingleWithPredicate$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/performance/usesinglewithpredicate$ktrecipe.md)
-  * **Use `single \{ predicate \}` instead of `filter \{ predicate \}.single()`**
-  * Folding the predicate into `single` avoids materializing the intermediate filtered list and preserves the same throwing semantics on the no-match and multi-match cases.
-* [org.openrewrite.kotlin.performance.UseSortedByDescendingForSortedByReversed$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/performance/usesortedbydescendingforsortedbyreversed$ktrecipe.md)
-  * **Use `sortedByDescending \{ f \}` instead of `sortedBy \{ f \}.reversed()`**
-  * `sortedByDescending` sorts directly into the target order. `sortedBy(f).reversed()` allocates an intermediate ascending-sorted list and then a reversed copy.
-* [org.openrewrite.kotlin.performance.UseSortedDescendingForSortedReversed$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/performance/usesorteddescendingforsortedreversed$ktrecipe.md)
-  * **Use `sortedDescending()` instead of `sorted().reversed()`**
-  * `sortedDescending` sorts directly into descending order. `sorted().reversed()` allocates an intermediate ascending-sorted list and then a reversed copy.
-* [org.openrewrite.kotlin.performance.UseSumOfWithSelector$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/performance/usesumofwithselector$ktrecipe.md)
-  * **Use `sumOf \{ selector \}` instead of `map \{ selector \}.sum()`**
-  * `sumOf` accumulates the result directly without materializing the intermediate `List&lt;Int&gt;`.
-* [org.openrewrite.kotlin.search.FindApiSurface$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/search/findapisurface$ktrecipe.md)
-  * **Find public-API and binary-stability surface**
-  * Public `const val` / `lateinit var` declarations, `@OptIn` / `@RequiresOptIn` annotations, `@Deprecated` declarations, and JVM-interop annotations (`@JvmStatic`, `@JvmField`, `@JvmOverloads`). Each match is a position where API stability or external-consumer constraints are encoded in the source.
-* [org.openrewrite.kotlin.search.FindAssertJChains$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/search/findassertjchains$ktrecipe.md)
-  * **Find AssertJ `assertThat(...)` assertion chains**
-  * AssertJ chains are the heart of the test suite's verification logic. Surfacing them helps a reviewer or LLM agent locate the assertions in a long test method and reason about coverage.
-* [org.openrewrite.kotlin.search.FindAtomicAllocations$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/search/findatomicallocations$ktrecipe.md)
-  * **Find `AtomicReference`/`AtomicInteger`/`AtomicLong`/`AtomicBoolean` allocations**
-  * Atomic primitives indicate concurrent state — each one is a place where a reviewer or LLM agent should look for happens-before reasoning. In coroutine-only code, `MutableStateFlow` or `Mutex`-guarded state is usually a clearer alternative.
-* [org.openrewrite.kotlin.search.FindBuildHygiene$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/search/findbuildhygiene$ktrecipe.md)
-  * **Find build- and source-hygiene smells**
-  * Wildcard imports and similar source-organization smells that obscure where names come from.
-* [org.openrewrite.kotlin.search.FindClassForName$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/search/findclassforname$ktrecipe.md)
-  * **Find `Class.forName(...)` calls**
-  * `Class.forName` is the entrypoint to runtime reflection — the receiver type isn't known at compile time, so type-safety analyses can't follow what happens next. Each match is a position an LLM agent should single out when reasoning about what a function can touch.
-* [org.openrewrite.kotlin.search.FindClipboardAccess$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/search/findclipboardaccess$ktrecipe.md)
-  * **Find Android `ClipboardManager` access**
-  * Clipboard reads and writes carry user data into and out of a process boundary the user typically does not associate with the app. Each call is a candidate for review of secret-leak and accidental-paste scenarios.
-* [org.openrewrite.kotlin.search.FindCommandExecutionSinks$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/search/findcommandexecutionsinks$ktrecipe.md)
-  * **Find process-execution sinks (`Runtime.exec`, `ProcessBuilder.start`)**
-  * Spawning a process with attacker-controlled arguments is the canonical command-injection sink. Each call here is a position where a reviewer or LLM agent should verify that the argument list is statically built or properly quoted.
-* [org.openrewrite.kotlin.search.FindConcurrencySurface$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/search/findconcurrencysurface$ktrecipe.md)
-  * **Find concurrency primitives**
-  * Raw threads, executor-service factories, JUC locks, atomic primitives, futures, synchronized blocks, `@Volatile` fields, `ThreadLocal` allocations, and JUC coordination primitives (`Semaphore`, `CountDownLatch`, `CyclicBarrier`). Each match is a position to inspect for cancellation semantics, happens-before edges, and pool lifecycle.
-* [org.openrewrite.kotlin.search.FindCryptoSeeds$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/search/findcryptoseeds$ktrecipe.md)
-  * **Find cryptographic primitive entries (`KeyGenerator.generateKey`, `Cipher.getInstance`, etc.)**
-  * Every cryptographic operation is a place where algorithm choice and key handling matter — `Cipher.getInstance(&quot;AES&quot;)` is not the same as `Cipher.getInstance(&quot;AES/GCM/NoPadding&quot;)`. Each match is a position for security review.
-* [org.openrewrite.kotlin.search.FindDataFlowSinks$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/search/finddataflowsinks$ktrecipe.md)
-  * **Find data-flow sink positions**
-  * Locations where data crosses a trust or persistence boundary: SQL execution, filesystem writes, process execution, logger writes, outbound network, cryptographic operations, and Android clipboard access. Each match is a seed an LLM agent can connect back to upstream sources.
-* [org.openrewrite.kotlin.search.FindDataFlowSources$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/search/finddataflowsources$ktrecipe.md)
-  * **Find data-flow source positions**
-  * Locations where untrusted or configuration-controlled data enters the program: `readLine`/`Scanner` reads, environment/system-property reads, HTTP request reads, and filesystem reads. Each match is a seed an LLM agent (or human reviewer) can connect to downstream sinks.
-* [org.openrewrite.kotlin.search.FindDatabaseSeeds$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/search/finddatabaseseeds$ktrecipe.md)
-  * **Find database-query seeds**
-  * Individual SQL execution and JPA query construction calls (`Statement.executeQuery`, `Statement.executeUpdate`, `EntityManager.createQuery`). Each match is a position where a SQL/JPQL string crosses into the database layer.
-* [org.openrewrite.kotlin.search.FindDeepNesting$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/search/finddeepnesting$ktrecipe.md)
-  * **Find functions with nesting depth greater than 4**
-  * Deeply nested control flow is the canonical hard-to-read code smell. For human reviewers and LLM agents alike, nesting beyond 4 levels signals the body should be split or flattened with early returns.
-* [org.openrewrite.kotlin.search.FindDeprecatedDeclarations$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/search/finddeprecateddeclarations$ktrecipe.md)
-  * **Find declarations annotated `@Deprecated`**
-  * A `@Deprecated` declaration is API the maintainers want callers to migrate away from. Each match is a candidate to revisit either the deprecation timeline or the replacement strategy.
-* [org.openrewrite.kotlin.search.FindEmptyCatchBlocks$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/search/findemptycatchblocks$ktrecipe.md)
-  * **Find `catch` blocks with empty bodies**
-  * An empty `catch` block silently swallows failures — usually a bug or, at minimum, a missing comment explaining the intent. Flag for review so a reviewer or LLM agent can either log, rethrow, or document the swallow.
-* [org.openrewrite.kotlin.search.FindEmptyFunctions$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/search/findemptyfunctions$ktrecipe.md)
-  * **Find functions with empty bodies**
-  * An empty function body either belongs to a stub, an abstract-method override that intentionally does nothing, or forgotten work. For a reviewer or LLM agent reading the file, each match is a position where the contract claims something happens but nothing does.
-* [org.openrewrite.kotlin.search.FindEntityManagerCreateQuery$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/search/findentitymanagercreatequery$ktrecipe.md)
-  * **Find `EntityManager.createQuery(...)` calls**
-  * Each JPA `createQuery` is a JPQL/HQL execution seed — when the query string is built from user input, the same injection class applies as for raw SQL. Flag for parameter-binding review.
-* [org.openrewrite.kotlin.search.FindEnvironmentSources$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/search/findenvironmentsources$ktrecipe.md)
-  * **Find `System.getenv(...)` / `System.getProperty(...)` reads**
-  * Environment variables and system properties are operator-controlled configuration values. Each read is a configuration seam — a reviewer or LLM agent reading the code should know which knobs the program exposes.
-* [org.openrewrite.kotlin.search.FindExecutorServiceFactories$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/search/findexecutorservicefactories$ktrecipe.md)
-  * **Find `Executors.newXxxThreadPool` factory calls**
-  * Each `Executors.newXxx` call allocates a thread pool that needs explicit lifecycle (`shutdown` on teardown). For services that need bounded resources, each allocation is a candidate for review — and for an LLM agent, the call site reveals where the application's parallelism budget lives.
-* [org.openrewrite.kotlin.search.FindFieldReflection$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/search/findfieldreflection$ktrecipe.md)
-  * **Find `java.lang.reflect.Field.get/set` calls**
-  * Direct field reads/writes via reflection bypass property accessors and `private` visibility. Each call is a position where invariants the surrounding code relies on can be silently violated.
-* [org.openrewrite.kotlin.search.FindFileReadBytes$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/search/findfilereadbytes$ktrecipe.md)
-  * **Find `File.readBytes()` calls**
-  * Each `File.readBytes` call reads a file's raw bytes into memory — useful as a filesystem-read seed and as a hint that the program holds the whole file in memory (vs. streaming).
-* [org.openrewrite.kotlin.search.FindFileReadSources$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/search/findfilereadsources$ktrecipe.md)
-  * **Find filesystem read calls (`File.readText`, `Files.readString`, etc.)**
-  * Filesystem reads are the application's IO surface — each call is data crossing a trust boundary set by the deployment's filesystem permissions. Useful as a seed for reasoning about cold-path latency, security boundaries, and what the program depends on at runtime.
-* [org.openrewrite.kotlin.search.FindFileReadText$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/search/findfilereadtext$ktrecipe.md)
-  * **Find `File.readText()` calls**
-  * Each `File.readText` call reads bytes off the filesystem — a trust-boundary position where the file's content becomes program data. Useful as an individual read seed for path-traversal or cold-path latency analysis.
-* [org.openrewrite.kotlin.search.FindFileSystemSeeds$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/search/findfilesystemseeds$ktrecipe.md)
-  * **Find filesystem-operation seeds**
-  * Individual filesystem reads, writes, deletes, and copies via `java.io.File` and `java.nio.file.Files`. Each match is a position where the program crosses the filesystem trust boundary.
-* [org.openrewrite.kotlin.search.FindFileWriteSinks$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/search/findfilewritesinks$ktrecipe.md)
-  * **Find filesystem write calls (`File.writeText`, `Files.write`, etc.)**
-  * Filesystem writes are persistent side effects — each call is data crossing a trust boundary in the other direction. Useful as a seed for reasoning about what the application persists and where path-traversal vulnerabilities can land.
-* [org.openrewrite.kotlin.search.FindFileWriteText$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/search/findfilewritetext$ktrecipe.md)
-  * **Find `File.writeText(...)` calls**
-  * Each `File.writeText` call writes data to disk — a persistent side effect at the application's IO boundary. Useful as an individual write seed for path-traversal or trust-boundary analysis.
-* [org.openrewrite.kotlin.search.FindFilesCopy$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/search/findfilescopy$ktrecipe.md)
-  * **Find `Files.copy(...)` calls**
-  * Each `Files.copy` call duplicates filesystem content — flag as a write seed where source/destination path provenance and `CopyOption`s (REPLACE_EXISTING, etc.) should be reviewed.
-* [org.openrewrite.kotlin.search.FindFilesDelete$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/search/findfilesdelete$ktrecipe.md)
-  * **Find `Files.delete(...)` / `Files.deleteIfExists(...)` calls**
-  * Each call deletes a file from disk — a destructive filesystem operation. Flag as a seed for review of path provenance, e.g. whether the path is attacker-controlled and whether the deletion is intentional.
-* [org.openrewrite.kotlin.search.FindFilesNewBufferedWriter$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/search/findfilesnewbufferedwriter$ktrecipe.md)
-  * **Find `Files.newBufferedWriter(...)` calls**
-  * Each `Files.newBufferedWriter` call opens a streaming writer to a file — a long-lived write seed where charset, `OpenOption`s, and close handling all matter.
-* [org.openrewrite.kotlin.search.FindFilesWriteString$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/search/findfileswritestring$ktrecipe.md)
-  * **Find `Files.writeString(...)` calls**
-  * Each `java.nio.file.Files.writeString` call commits text to disk via the NIO API. Useful as an individual write seed and a position where charset and `OpenOption`s should be reviewed.
-* [org.openrewrite.kotlin.search.FindFutureAllocations$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/search/findfutureallocations$ktrecipe.md)
-  * **Find `CompletableFuture` / `FutureTask` allocations**
-  * `CompletableFuture` (and `FutureTask`) interleave with their own thread pool; from Kotlin, `Deferred`/`async` integrates with structured concurrency. Each allocation is a candidate to migrate or at minimum to review for cancellation handling.
-* [org.openrewrite.kotlin.search.FindGenericExceptionCatch$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/search/findgenericexceptioncatch$ktrecipe.md)
-  * **Find `catch (e: Exception)` and `catch (e: Throwable)` clauses**
-  * Catching `Exception` or `Throwable` is almost always too broad — it sweeps up `NullPointerException`, `IllegalStateException`, and `OutOfMemoryError` into one branch. Narrow the catch to the specific exception types the block actually handles.
-* [org.openrewrite.kotlin.search.FindGodClasses$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/search/findgodclasses$ktrecipe.md)
-  * **Find classes with more than 25 methods**
-  * A class with this many methods has likely accreted responsibility over time. Flag for splitting along the methods' natural seams — repository vs mapper, view-model vs presenter, etc.
-* [org.openrewrite.kotlin.search.FindHardcodedColorLiterals$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/search/findhardcodedcolorliterals$ktrecipe.md)
-  * **Find `Color(0xFF...)` color-literal constructions**
-  * Hardcoded ARGB literals inside `Color(0xFF...)` calls are a design-token leak — they should usually live in a theme or material color scheme. Each match is a candidate to extract to `MaterialTheme.colorScheme.X`.
-* [org.openrewrite.kotlin.search.FindHardcodedLiterals$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/search/findhardcodedliterals$ktrecipe.md)
-  * **Find hardcoded literals and error-handling smells**
-  * Hardcoded design tokens (`Color(0xFF...)`), empty `catch` blocks, overly-broad `catch (e: Exception)` clauses, and `throw RuntimeException(...)` calls. Each match is a position where intent is unclear or recovery is too broad.
-* [org.openrewrite.kotlin.search.FindHotspots$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/search/findhotspots$ktrecipe.md)
-  * **Find hotspots and complexity points**
-  * Surface large classes, long functions, wide parameter lists, sprawling `when` expressions, deep nesting, god classes, magic numbers, and unmarked self-recursion. Each match is a candidate for a reviewer (or LLM agent) to refactor or to read carefully when building a mental model of the file.
-* [org.openrewrite.kotlin.search.FindHttpClientConstructions$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/search/findhttpclientconstructions$ktrecipe.md)
-  * **Find HTTP client construction sites**
-  * Each HTTP client construction is a place where connection pooling, timeouts, retry policy, and TLS settings are committed. Flag for review so a reviewer or LLM agent can confirm the call site picks the right policy rather than the defaults.
-* [org.openrewrite.kotlin.search.FindHttpRequestSources$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/search/findhttprequestsources$ktrecipe.md)
-  * **Find `HttpServletRequest.getParameter/getHeader/getCookies` reads**
-  * Servlet-API request reads return raw, attacker-controlled strings. Each call is a taint root — anywhere the returned value flows into an SQL query, a filesystem path, or HTML output is a candidate vulnerability the reviewer should trace.
-* [org.openrewrite.kotlin.search.FindHttpURLConnection$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/search/findhttpurlconnection$ktrecipe.md)
-  * **Find `HttpURLConnection` references**
-  * `HttpURLConnection` is the JVM's built-in HTTP client — each reference is a position where external HTTP traffic is configured (timeouts, redirects, request method). Flag as an outbound-network seed.
-* [org.openrewrite.kotlin.search.FindIgnoredTests$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/search/findignoredtests$ktrecipe.md)
-  * **Find `@Disabled` / `@Ignore` test annotations**
-  * An ignored test is a regression-detection gap — at minimum it represents technical debt; at worst it's a silenced failure that turned chronic. Each match is a candidate to triage.
-* [org.openrewrite.kotlin.search.FindInsecureRandomSources$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/search/findinsecurerandomsources$ktrecipe.md)
-  * **Find non-cryptographic random sources (`Math.random`, `kotlin.random.Random`, `java.util.Random`)**
-  * Non-cryptographic randomness is fine for jitter, simulation, sampling — but each call is a position to verify that no security-relevant value (session token, password reset link, nonce) flows from it. Use `SecureRandom` instead in those positions.
-* [org.openrewrite.kotlin.search.FindJacksonObjectMapperReadValue$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/search/findjacksonobjectmapperreadvalue$ktrecipe.md)
-  * **Find Jackson `ObjectMapper.readValue(...)` calls**
-  * Each `readValue` is a JSON-deserialization sink — when the input bytes are attacker-controlled, the configured polymorphic-typing and visibility settings of the `ObjectMapper` become security-relevant. Flag as a deserialization seed.
-* [org.openrewrite.kotlin.search.FindJacksonObjectMapperWriteValue$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/search/findjacksonobjectmapperwritevalue$ktrecipe.md)
-  * **Find Jackson `ObjectMapper.writeValue*(...)` calls**
-  * Each `writeValue` / `writeValueAsString` / `writeValueAsBytes` call serializes a Kotlin object to JSON — useful as a seed for tracking which types cross the JSON boundary (DTO surface) and where sensitive fields might leak.
-* [org.openrewrite.kotlin.search.FindJvmFieldAnnotations$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/search/findjvmfieldannotations$ktrecipe.md)
-  * **Find `@JvmField` annotations**
-  * `@JvmField` exposes a Kotlin property as a public Java field — bypassing the generated getter/setter and freezing the storage layout in the binary API. Each match is a constraint on future refactors.
-* [org.openrewrite.kotlin.search.FindJvmOverloadsAnnotations$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/search/findjvmoverloadsannotations$ktrecipe.md)
-  * **Find `@JvmOverloads` annotations**
-  * `@JvmOverloads` emits N synthetic Java overloads for a Kotlin function with default parameters. Each annotation is a hint the function is part of the Java-facing surface; reordering parameters or changing defaults breaks the synthetic overloads.
-* [org.openrewrite.kotlin.search.FindJvmStaticAnnotations$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/search/findjvmstaticannotations$ktrecipe.md)
-  * **Find `@JvmStatic` annotations**
-  * `@JvmStatic` declares a member function that should appear as a JVM static — a Java-interop affordance. Each annotation is a hint that the API is consumed from Java code, which constrains how it can evolve.
-* [org.openrewrite.kotlin.search.FindKClassConstructors$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/search/findkclassconstructors$ktrecipe.md)
-  * **Find `KClass.constructors` access**
-  * Reflective access to `KClass.constructors` reveals every constructor of a Kotlin class at runtime. Each match is a seed where reflective allocation is plausible — opaque to static analysis.
-* [org.openrewrite.kotlin.search.FindKClassDeclaredFunctions$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/search/findkclassdeclaredfunctions$ktrecipe.md)
-  * **Find `KClass.declaredFunctions` / `declaredMemberFunctions` access**
-  * Access to `KClass.declaredFunctions` (and its variants) walks every declared function of a Kotlin class via reflection. Each call is a reflection seed — opaque to static analysis and requires `kotlin-reflect.jar` at runtime.
-* [org.openrewrite.kotlin.search.FindKClassMembers$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/search/findkclassmembers$ktrecipe.md)
-  * **Find `KClass.members` / `memberFunctions` / `memberProperties` access**
-  * Access to `KClass.members` (and its sibling reflective collections) requires `kotlin-reflect.jar` at runtime and walks every declared member of the class. Each call is a position where reflection over a Kotlin type is happening — opaque to static analysis.
-* [org.openrewrite.kotlin.search.FindKClassMembersAccess$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/search/findkclassmembersaccess$ktrecipe.md)
-  * **Find Kotlin reflection (`KClass.memberFunctions`, `KClass.members`, etc.)**
-  * Kotlin reflection (`kotlin.reflect.*`) needs `kotlin-reflect.jar` on the classpath and adds significant cold-start cost. Each call is also a reflective dispatch — invisible to static analysis — so a reviewer/agent should know it's there.
-* [org.openrewrite.kotlin.search.FindKotestSpecs$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/search/findkotestspecs$ktrecipe.md)
-  * **Find Kotest spec classes**
-  * A class extending a Kotest spec (`FunSpec`, `BehaviorSpec`, etc.) is a test entrypoint. Listing them helps a reviewer or LLM agent map a module's test surface without crawling annotations.
-* [org.openrewrite.kotlin.search.FindLargeClasses$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/search/findlargeclasses$ktrecipe.md)
-  * **Find classes with more than 200 statements**
-  * Large classes accumulate responsibility — they bury invariants and slow every cross-cutting edit. As LLM context, an oversized class dominates the window with details that may not be relevant to the task; flagging them helps a reviewer (or an agent) decide where to split.
-* [org.openrewrite.kotlin.search.FindLargeWhenBranches$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/search/findlargewhenbranches$ktrecipe.md)
-  * **Find `when` expressions with more than 10 branches**
-  * A `when` with many branches is often hiding a sealed-class or strategy-table refactor — and even when it isn't, it's a hotspot a reviewer or LLM agent should see when scanning a file. Each match is a candidate for restructuring.
-* [org.openrewrite.kotlin.search.FindLogWriteSinks$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/search/findlogwritesinks$ktrecipe.md)
-  * **Find logger write calls (`info`/`warn`/`error`/`debug`)**
-  * Logger calls can persistently capture user-controlled data into log aggregators — a PII-leak seed. Each match is a candidate to verify that the format arguments don't include sensitive fields or that a redaction layer wraps the call.
-* [org.openrewrite.kotlin.search.FindLongFunctions$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/search/findlongfunctions$ktrecipe.md)
-  * **Find functions with more than 30 statements**
-  * Long functions hide branching and are harder to test, refactor, and reason about. For an LLM agent reading the file, an oversized body eats tokens disproportionately and obscures the contract — flag for review or extraction.
-* [org.openrewrite.kotlin.search.FindMagicNumbers$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/search/findmagicnumbers$ktrecipe.md)
-  * **Find numeric literals other than 0, 1, -1**
-  * Magic numbers in code hide units, bounds, and protocol constants from a reader. Each match is a candidate to extract to a named `const val` so a reviewer or LLM agent can see the intent (`MAX_RETRIES`, `BUFFER_BYTES`, etc.) rather than the bare literal.
-* [org.openrewrite.kotlin.search.FindManyParameters$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/search/findmanyparameters$ktrecipe.md)
-  * **Find functions with more than 5 parameters**
-  * A long parameter list usually signals a missing aggregate (data class, builder, parameter object). For a reviewer or LLM agent, the parameter signature is the contract — when it's too wide, the call sites become hard to read and refactor in lockstep.
-* [org.openrewrite.kotlin.search.FindMethodInvoke$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/search/findmethodinvoke$ktrecipe.md)
-  * **Find `java.lang.reflect.Method.invoke(...)` calls**
-  * Calls through `Method.invoke` are reflective dispatch — the target body is opaque to static analysis. Flag for review whenever a reader needs to know which functions are actually reachable.
-* [org.openrewrite.kotlin.search.FindMockkAllocations$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/search/findmockkallocations$ktrecipe.md)
-  * **Find `mockk&lt;X&gt;()` / `mockk(...)` calls**
-  * Each `mockk` allocation is a test-time fake — the production type it stands in for is the seam under test. Flagging them helps a reviewer or LLM agent see what is real and what is faked inside a test.
-* [org.openrewrite.kotlin.search.FindNetworkSinks$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/search/findnetworksinks$ktrecipe.md)
-  * **Find outbound-network sinks (`URL.openConnection`, `OkHttpClient.newCall`, etc.)**
-  * Outbound network calls are SSRF candidates whenever the URL or request body flows from a request parameter. Each match is a seed for tracing where the program reaches into the outside world.
-* [org.openrewrite.kotlin.search.FindNetworkingSeeds$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/search/findnetworkingseeds$ktrecipe.md)
-  * **Find outbound-networking seeds**
-  * HTTP client and connection construction sites: `HttpURLConnection`, `okhttp3.OkHttpClient`, `okhttp3.Request.Builder`. Each match is a position where the program reaches out to the network.
-* [org.openrewrite.kotlin.search.FindNotNullAssertions$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/search/findnotnullassertions$ktrecipe.md)
-  * **Find `!!` not-null assertions**
-  * Each `!!` is a runtime promise — when the receiver turns out to be `null`, the program crashes with a `NullPointerException`. A reviewer or LLM agent reading the code should know which positions are betting against the type system; many of them are candidates for `?.let \{ … \}` or a `requireNotNull` with a better diagnostic.
-* [org.openrewrite.kotlin.search.FindObjectOutputStreamWriteObject$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/search/findobjectoutputstreamwriteobject$ktrecipe.md)
-  * **Find `ObjectOutputStream.writeObject(...)` calls**
-  * Java serialization is brittle and a known security hazard on the read side; the write side is a seed where the on-wire/on-disk format gets fixed. Flag for review when migrating away from Java serialization.
-* [org.openrewrite.kotlin.search.FindOkHttpClient$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/search/findokhttpclient$ktrecipe.md)
-  * **Find `okhttp3.OkHttpClient` constructions**
-  * Each `OkHttpClient` allocation commits a set of timeouts, interceptors, and connection-pool settings for outbound HTTP. Flag as an outbound-network seed and a configuration-policy review point.
-* [org.openrewrite.kotlin.search.FindOkHttpRequestBuilder$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/search/findokhttprequestbuilder$ktrecipe.md)
-  * **Find `okhttp3.Request.Builder()` constructions**
-  * Each `Request.Builder()` is the construction site of an outbound OkHttp request. Flag as an outbound-network seed — a reviewer or LLM agent should check the URL source and request body for attacker-controlled data.
-* [org.openrewrite.kotlin.search.FindOptInAnnotations$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/search/findoptinannotations$ktrecipe.md)
-  * **Find `@OptIn(...)` annotations**
-  * An `@OptIn` annotation acknowledges that the annotated declaration uses an experimental API. The site of the opt-in is where the contract risk lives — if the upstream changes the API, this is the file that breaks.
-* [org.openrewrite.kotlin.search.FindParameterizedTests$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/search/findparameterizedtests$ktrecipe.md)
-  * **Find `@ParameterizedTest` annotations**
-  * Parameterized tests cover families of inputs in a single declaration. Each annotation is a position where one test class line generates many test instances — useful context when reading coverage reports.
-* [org.openrewrite.kotlin.search.FindPublicConstants$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/search/findpublicconstants$ktrecipe.md)
-  * **Find public `const val` declarations**
-  * A public `const val` is part of the binary API surface — changing its value at the source recompiles dependents, but stale clients keep the old constant inlined. Flag for awareness when reviewing API stability.
-* [org.openrewrite.kotlin.search.FindPublicLateinit$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/search/findpubliclateinit$ktrecipe.md)
-  * **Find public `lateinit var` declarations**
-  * `lateinit var` defers initialization but exposes a mutable, possibly-uninitialized property. As public API, every caller can both read (and potentially trigger `UninitializedPropertyAccessException`) and write the field. Flag for review of encapsulation.
-* [org.openrewrite.kotlin.search.FindRecursionWithoutTailrec$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/search/findrecursionwithouttailrec$ktrecipe.md)
-  * **Find recursive functions not marked `tailrec`**
-  * A self-recursive function that doesn't carry the `tailrec` modifier won't get the Kotlin compiler's stack-elimination transform. Each match is a candidate to either annotate (if the recursive call is in tail position) or rewrite to an iterative form.
-* [org.openrewrite.kotlin.search.FindReentrantLockAllocations$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/search/findreentrantlockallocations$ktrecipe.md)
-  * **Find `ReentrantLock()` / `ReentrantReadWriteLock()` allocations**
-  * Each `ReentrantLock` allocation is a manual concurrency primitive. Flag for review — in coroutine code, `Mutex` is usually the cooperative-cancellation-friendly replacement.
-* [org.openrewrite.kotlin.search.FindReflectionGetField$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/search/findreflectiongetfield$ktrecipe.md)
-  * **Find `Class.getDeclaredField` / `Class.getField` calls**
-  * Each `getDeclaredField` / `getField` call is a reflective lookup of a field by name — the name is opaque to static analysis, so the field reference is invisible to rename refactorings. Flag as a reflection seed.
-* [org.openrewrite.kotlin.search.FindReflectionSeeds$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/search/findreflectionseeds$ktrecipe.md)
-  * **Find reflection seeds**
-  * Field/member/constructor reflection over Java and Kotlin types (`Class.getDeclaredField`, `KClass.members`, `KClass.declaredFunctions`, `KClass.constructors`). Each match is a position where program behavior is opaque to static analysis and depends on runtime symbol lookup.
-* [org.openrewrite.kotlin.search.FindReflectionSurface$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/search/findreflectionsurface$ktrecipe.md)
-  * **Find reflection and runtime introspection**
-  * Reflection entry points (`Class.forName`, `Method.invoke`, `Field.get/set`, kotlin.reflect calls, `ServiceLoader.load`), visibility overrides (`setAccessible(true)`), and unsafe `as` casts. Each match is opaque to static analysis — a reviewer/agent should know it's there before reasoning about what the program touches.
-* [org.openrewrite.kotlin.search.FindRequiresOptInDeclarations$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/search/findrequiresoptindeclarations$ktrecipe.md)
-  * **Find declarations annotated `@RequiresOptIn`**
-  * A `@RequiresOptIn` annotation defines a new opt-in marker — every caller must explicitly acknowledge it via `@OptIn`. Each match here is a place where stability semantics are being defined, not just consumed.
-* [org.openrewrite.kotlin.search.FindSemaphoreOrLatchAllocations$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/search/findsemaphoreorlatchallocations$ktrecipe.md)
-  * **Find `Semaphore` / `CountDownLatch` / `CyclicBarrier` allocations**
-  * Classic JUC coordination primitives indicate hand-rolled concurrency. In coroutine code, `kotlinx.coroutines.sync.Semaphore` and `CompletableDeferred` are the cooperative equivalents. Flag the call site for review.
-* [org.openrewrite.kotlin.search.FindSerializationSeeds$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/search/findserializationseeds$ktrecipe.md)
-  * **Find serialization seeds**
-  * Java serialization writes and Jackson read/write calls (`ObjectOutputStream.writeObject`, `ObjectMapper.readValue`, `ObjectMapper.writeValue*`). Each match is a position where Kotlin objects cross an external wire/disk format boundary.
-* [org.openrewrite.kotlin.search.FindServiceLoader$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/search/findserviceloader$ktrecipe.md)
-  * **Find `ServiceLoader.load(...)` calls**
-  * `ServiceLoader.load` walks META-INF/services at boot time and instantiates each provider via reflection. The set of loaded classes isn't visible to static analysis — each call is a fan-out point for a reviewer to understand.
-* [org.openrewrite.kotlin.search.FindSetAccessibleTrue$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/search/findsetaccessibletrue$ktrecipe.md)
-  * **Find `AccessibleObject.setAccessible(true)` calls**
-  * `setAccessible(true)` bypasses Java/Kotlin visibility. It's a strong signal of either a serialization library at work or a workaround for a missing API — either way, a reviewer/agent reading the code should be aware that visibility cannot be trusted here.
-* [org.openrewrite.kotlin.search.FindSqlExecutionSinks$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/search/findsqlexecutionsinks$ktrecipe.md)
-  * **Find SQL execution sinks (`Statement.execute*`, `prepareStatement`, `createNativeQuery`)**
-  * SQL execution is the canonical SQL-injection sink — every string argument that reaches one of these calls without parameter binding is a candidate vulnerability. As a data-flow seed, the call site is where untrusted strings either become parameter-bound or stay concatenated.
-* [org.openrewrite.kotlin.search.FindStatementExecuteQuery$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/search/findstatementexecutequery$ktrecipe.md)
-  * **Find `Statement.executeQuery(sql)` calls**
-  * Each `executeQuery` is a SQL read sink — if `sql` is built from user-controlled strings without binding, it's a SQL-injection candidate. Useful as an individual seed even when the broader `FindSqlExecutionSinks` composite is too coarse.
-* [org.openrewrite.kotlin.search.FindStatementExecuteUpdate$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/search/findstatementexecuteupdate$ktrecipe.md)
-  * **Find `Statement.executeUpdate(sql)` calls**
-  * Each `executeUpdate` is a SQL write sink — INSERT/UPDATE/DELETE built from string concatenation is the canonical injection pattern. Useful as an individual seed even when the broader composite is too coarse.
-* [org.openrewrite.kotlin.search.FindStdinSources$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/search/findstdinsources$ktrecipe.md)
-  * **Find `readLine()` / `Scanner.next*()` calls**
-  * Standard-input reads are user-controlled bytes — every downstream use of the returned string is a candidate taint root. Tagging the call site lets a downstream analysis (human or LLM agent) trace where untrusted data flows.
-* [org.openrewrite.kotlin.search.FindSynchronizedBlocks$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/search/findsynchronizedblocks$ktrecipe.md)
-  * **Find `synchronized(lock) \{ ... \}` calls**
-  * Each `synchronized` block is a JVM monitor-acquire/release — incompatible with coroutine cancellation and a candidate for `Mutex`/`withLock` in suspend code. Flag for review of contention and cancellation semantics.
-* [org.openrewrite.kotlin.search.FindTestNameAnnotations$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/search/findtestnameannotations$ktrecipe.md)
-  * **Find `@DisplayName(...)` test annotations**
-  * JUnit 5 `@DisplayName` overrides the rendered test name. Listing them helps a reviewer or LLM agent see where the source's function name and the test's reported name diverge — relevant for triaging CI failures.
-* [org.openrewrite.kotlin.search.FindTestSurface$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/search/findtestsurface$ktrecipe.md)
-  * **Find test-surface positions**
-  * Disabled/ignored tests, slow-tagged tests, mockk fakes, AssertJ assertion chains, and Kotest spec classes. Each match helps a reviewer or LLM agent navigate a module's test surface and verification logic.
-* [org.openrewrite.kotlin.search.FindTestsTaggedSlow$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/search/findteststaggedslow$ktrecipe.md)
-  * **Find tests tagged `@Tag(&quot;slow&quot;)`**
-  * Slow-tagged tests usually live behind a separate CI lane. Each match is a candidate to either speed up (find the underlying source of slowness) or to verify the tag is wired into the build's test selection.
-* [org.openrewrite.kotlin.search.FindThreadConstructors$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/search/findthreadconstructors$ktrecipe.md)
-  * **Find `Thread(...)` constructor calls**
-  * Each raw `Thread(...)` constructor is an unmanaged thread allocation — no pool, no lifecycle. On JVM/Android code that ships with Kotlin coroutines or a structured executor service, these are usually candidates to migrate to a managed scope.
-* [org.openrewrite.kotlin.search.FindThreadLocalAllocations$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/search/findthreadlocalallocations$ktrecipe.md)
-  * **Find `ThreadLocal()` allocations**
-  * `ThreadLocal` ties state to a thread identity that coroutines do not preserve across suspension. Each allocation is a candidate to migrate to a `CoroutineContext.Element` or to confirm the call site is non-suspending.
-* [org.openrewrite.kotlin.search.FindThrowGenericException$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/search/findthrowgenericexception$ktrecipe.md)
-  * **Find `throw Exception(...)` and `throw RuntimeException(...)` calls**
-  * Throwing a bare `Exception` / `RuntimeException` forces every caller into a generic catch. Each match is a candidate to use a more specific exception type (`IllegalArgumentException`, `IllegalStateException`, a domain-specific subclass).
-* [org.openrewrite.kotlin.search.FindUnsafeCast$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/search/findunsafecast$ktrecipe.md)
-  * **Find bare `as` casts (unsafe)**
-  * A bare `as` cast throws `ClassCastException` on a mismatch — every cast is a runtime contract the compiler can't enforce. Where the result might legitimately be the wrong type, prefer `as?` (returning `null`) so the failure surfaces as a nullable handling decision rather than an exception.
-* [org.openrewrite.kotlin.search.FindVolatileFields$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/search/findvolatilefields$ktrecipe.md)
-  * **Find `@Volatile` properties**
-  * `@Volatile` properties announce concurrent mutation — every read/write is a happens-before edge that downstream code relies on. Each match is a position a reviewer or LLM agent should inspect for memory-ordering bugs.
-* [org.openrewrite.kotlin.search.FindWildcardImports$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/search/findwildcardimports$ktrecipe.md)
-  * **Find `import x.*` wildcard imports**
-  * Wildcard imports pull every public name from a package into the file's symbol table — making it harder for a reviewer or LLM agent to tell where a name comes from. Each match is a candidate to expand into explicit imports.
-* [org.openrewrite.kotlin.search.Search$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/search/search$ktrecipe.md)
-  * **Surface impact-analysis findings**
-  * Search-only recipes that help an LLM coding agent or human reviewer build a mental map of the codebase: hotspots, hardcoded literals, reflection, concurrency primitives, public-API stability surface, dataflow source/sink locations, the test surface, and source-organization smells. Each match is a `SearchResult` — nothing is rewritten automatically.
-* [org.openrewrite.kotlin.security.FindAesDefaultMode$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/security/findaesdefaultmode$ktrecipe.md)
-  * **Find `Cipher.getInstance(&quot;AES&quot;)` calls without a mode**
-  * Bare `&quot;AES&quot;` defaults to `AES/ECB/PKCS5Padding` on the SunJCE provider — ECB mode is broken for any data with structure. Specify `&quot;AES/GCM/NoPadding&quot;` explicitly so the cipher is portable and authenticated.
-* [org.openrewrite.kotlin.security.FindAllowAllHostnameVerifierLambda$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/security/findallowallhostnameverifierlambda$ktrecipe.md)
-  * **Find `HostnameVerifier \{ _, _ -&gt; true \}` lambdas**
-  * A `HostnameVerifier` that returns `true` accepts a certificate for any hostname — defeats the purpose of TLS hostname pinning and enables straightforward MITM. Verify the hostname against the cert's CN/SAN, or use the platform default verifier.
-* [org.openrewrite.kotlin.security.FindAndroidLogSensitive$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/security/findandroidlogsensitive$ktrecipe.md)
-  * **Find `android.util.Log.\{d,i,v,w,e\}` calls with sensitive content**
-  * `android.util.Log` writes to `logcat`, which on rooted devices and via `adb logcat` is world-readable. Don't put `password`, `token`, or any PII into log messages — production builds should strip logging via R8/ProGuard rules.
-* [org.openrewrite.kotlin.security.FindAndroidSecuritySmells$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/security/findandroidsecuritysmells$ktrecipe.md)
-  * **Find Android-specific security smells**
-  * Deprecated world-readable/writeable file modes, `WebView` JavaScript enablement and `addJavascriptInterface` exposure, plaintext `SharedPreferences` for sensitive data, and implicit `Intent` broadcasts that any app on the device can intercept.
-* [org.openrewrite.kotlin.security.FindAwsAccessKeyLiteral$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/security/findawsaccesskeyliteral$ktrecipe.md)
-  * **Find AWS Access Key literals (`AKIA…`)**
-  * AWS access keys begin with `AKIA` followed by 16+ uppercase/digit characters. A literal `AKIA…` in source means the key is in every artifact build, every git commit, and every developer machine. Rotate immediately and load from environment or `SecretsManager`.
-* [org.openrewrite.kotlin.security.FindBasicAuthLiteral$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/security/findbasicauthliteral$ktrecipe.md)
-  * **Find `&quot;Basic &lt;base64&gt;&quot;` literals in source**
-  * A literal `Basic &lt;base64&gt;` header in source is a static credential; rotating it requires a deploy. Build the header from credentials loaded at startup.
-* [org.openrewrite.kotlin.security.FindCipherCbcWithoutMac$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/security/findciphercbcwithoutmac$ktrecipe.md)
-  * **Find `Cipher.getInstance(&quot;AES/CBC/...&quot;)` calls — verify integrity**
-  * AES/CBC is unauthenticated — without a separate MAC, the ciphertext is vulnerable to padding-oracle attacks (BEAST, POODLE family). Prefer `AES/GCM/NoPadding` for AEAD in one step, or pair CBC with an HMAC under encrypt-then-MAC.
-* [org.openrewrite.kotlin.security.FindCipherEcbMode$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/security/findcipherecbmode$ktrecipe.md)
-  * **Find `Cipher.getInstance(&quot;AES/ECB/...&quot;)` calls**
-  * ECB mode encrypts identical plaintext blocks to identical ciphertext blocks, leaking structure (the famous &quot;ECB penguin&quot;). Use AES/GCM/NoPadding or AES/CBC/PKCS5Padding with a random IV per message.
-* [org.openrewrite.kotlin.security.FindCipherInitWithoutSecureRandom$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/security/findcipherinitwithoutsecurerandom$ktrecipe.md)
-  * **Find two-argument `Cipher.init(opmode, key)` calls**
-  * The two-argument `Cipher.init(opmode, key)` lets the JCE pick an IV — that IV is generated from a provider-default `SecureRandom`, which is fine, but for CBC/GCM you usually want to control the IV explicitly so it can be transmitted alongside the ciphertext. Pass an `IvParameterSpec` (or `GCMParameterSpec`) generated from `SecureRandom`.
-* [org.openrewrite.kotlin.security.FindClassForNameWithNonLiteral$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/security/findclassfornamewithnonliteral$ktrecipe.md)
-  * **Find `Class.forName(...)` calls with non-literal arguments**
-  * `Class.forName(input)` lets the caller choose a class to load — the classic gadget chain for deserialization-style attacks and unsafe reflection. Match against a sealed allowlist instead.
-* [org.openrewrite.kotlin.security.FindCookieHttpOnlyFalse$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/security/findcookiehttponlyfalse$ktrecipe.md)
-  * **Find `Cookie.setHttpOnly(false)` calls**
-  * `setHttpOnly(false)` makes the cookie readable from JavaScript — directly exfiltratable by any XSS bug in the same origin. Set `httpOnly = true` for every session cookie.
-* [org.openrewrite.kotlin.security.FindCookieSecureFalse$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/security/findcookiesecurefalse$ktrecipe.md)
-  * **Find `Cookie.setSecure(false)` calls**
-  * `setSecure(false)` lets the cookie travel over plain HTTP — anyone on the path (coffee-shop wifi, ISP) can read it. For any session cookie, set `secure = true` and `httpOnly = true`, and prefer `SameSite=Strict`.
-* [org.openrewrite.kotlin.security.FindFilePathConcat$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/security/findfilepathconcat$ktrecipe.md)
-  * **Find `File(&quot;...&quot; + input)` constructions**
-  * Concatenating user input into a `File(...)` path is the canonical path-traversal vector (`../etc/passwd`). Resolve against a fixed base with `File(base, name)` plus an explicit `canonicalPath.startsWith(baseCanonicalPath)` check.
-* [org.openrewrite.kotlin.security.FindGitHubPatLiteral$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/security/findgithubpatliteral$ktrecipe.md)
-  * **Find GitHub PAT literals (`ghp_…`)**
-  * GitHub personal access tokens begin with `ghp_` and are full-scope unless the PAT is fine-grained. A literal `ghp_…` in source must be revoked at github.com/settings/tokens immediately.
-* [org.openrewrite.kotlin.security.FindGoogleApiKeyLiteral$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/security/findgoogleapikeyliteral$ktrecipe.md)
-  * **Find Google API key literals (`AIza…`)**
-  * Google Cloud / Firebase / Maps API keys follow the `AIza…` 39-char pattern. Even when client-restricted, a leaked literal lets attackers fingerprint your project and run up bills via unrestricted endpoints.
-* [org.openrewrite.kotlin.security.FindHardCodedSecrets$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/security/findhardcodedsecrets$ktrecipe.md)
-  * **Find hard-coded secret literals**
-  * High-confidence regex matches for AWS access keys, GitHub PATs, Stripe API keys, Google API keys, Slack tokens, and JWTs — plus a heuristic match for properties named `password`/`secret`/`token`/`apiKey` with non-empty string defaults. Each match needs immediate rotation if it is a real credential.
-* [org.openrewrite.kotlin.security.FindHttpUrlLiteral$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/security/findhttpurlliteral$ktrecipe.md)
-  * **Find `URL(&quot;http://...&quot;)` literal constructions**
-  * Constructing a `java.net.URL` from an `http://` literal opts out of TLS. If the host genuinely is HTTP-only, document the exception; otherwise switch the literal to `https://`.
-* [org.openrewrite.kotlin.security.FindInjectionVectors$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/security/findinjectionvectors$ktrecipe.md)
-  * **Find injection vectors**
-  * SQL string concatenation into `Statement`/`PreparedStatement`, command injection via `Runtime.exec` and `ProcessBuilder`, path traversal via `File` concatenation, unsafe reflection via `Class.forName(input)`, and dynamic-script evaluation via `ScriptEngine`.
-* [org.openrewrite.kotlin.security.FindInsecureSessionConfig$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/security/findinsecuresessionconfig$ktrecipe.md)
-  * **Find insecure cookie / session configuration**
-  * Cookies missing the `Secure` or `HttpOnly` flag leak to plain HTTP or JavaScript. Each match should set both flags to `true` and consider `SameSite=Strict`.
-* [org.openrewrite.kotlin.security.FindInsecureTls$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/security/findinsecuretls$ktrecipe.md)
-  * **Find insecure TLS configuration**
-  * Trust-everything `X509TrustManager` implementations, allow-all `HostnameVerifier` lambdas / setters, deprecated SSL/TLS protocol versions, and plain-HTTP URL literals.
-* [org.openrewrite.kotlin.security.FindIntentExplicitActionLiteral$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/security/findintentexplicitactionliteral$ktrecipe.md)
-  * **Find `Intent(&quot;some.implicit.action&quot;)` constructions**
-  * An `Intent` constructed with a string action becomes an implicit broadcast — any app declaring a matching `&lt;intent-filter&gt;` can receive it (and potentially read PII the sender attached). Prefer explicit intents with `Intent(context, Activity::class.java)`, or send with `LocalBroadcastManager` / `setPackage(...)`.
-* [org.openrewrite.kotlin.security.FindJavaUtilRandomForSecurity$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/security/findjavautilrandomforsecurity$ktrecipe.md)
-  * **Find `java.util.Random()` allocations**
-  * `java.util.Random` is a linear-congruential generator — its state is recoverable from a handful of outputs, so it must not produce session IDs, tokens, salts, IVs, or password reset values. Use `java.security.SecureRandom` for any security-adjacent randomness.
-* [org.openrewrite.kotlin.security.FindJjwtSetSigningKeyLiteral$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/security/findjjwtsetsigningkeyliteral$ktrecipe.md)
-  * **Find `JwtBuilder.setSigningKey(&quot;literal&quot;.toByteArray())` patterns**
-  * A hard-coded signing key compromises every token your service ever issues — anyone with the source (or the artifact, since literals end up in the constant pool) can forge tokens. Load the key from a secret store; rotate on a schedule.
-* [org.openrewrite.kotlin.security.FindJjwtSignWithNone$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/security/findjjwtsignwithnone$ktrecipe.md)
-  * **Find `JwtBuilder.signWith(SignatureAlgorithm.NONE, ...)` patterns**
-  * `alg=none` lets anyone forge a JWT — there is no signature to verify. Use HS256 (with a strong secret) or RS256/ES256 (with an asymmetric key pair).
-* [org.openrewrite.kotlin.security.FindJndiLookupWithNonLiteral$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/security/findjndilookupwithnonliteral$ktrecipe.md)
-  * **Find `InitialContext.lookup(input)` calls with non-literal arguments**
-  * Dynamic JNDI lookups are the Log4Shell (CVE-2021-44228) pattern — a controlled URL can fetch a remote class file and execute it. Pin lookup names to a literal allowlist; disable remote codebase loading.
-* [org.openrewrite.kotlin.security.FindJwtAlgNoneLiteral$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/security/findjwtalgnoneliteral$ktrecipe.md)
-  * **Find `&quot;alg&quot;:&quot;none&quot;` literal strings**
-  * Any literal containing `alg=none` is suspicious — even in tests, copy-paste tends to leak these into production assertions. Replace with HS256/RS256/ES256.
-* [org.openrewrite.kotlin.security.FindJwtLiteral$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/security/findjwtliteral$ktrecipe.md)
-  * **Find JWT literals (`eyJ…`-prefixed three-segment tokens)**
-  * A literal JWT in source is a long-lived signed token sitting in git history. Even if it's expired, it documents the claims structure and signing context. Replace with a fixture-generated token in tests; remove entirely from production code.
-* [org.openrewrite.kotlin.security.FindJwtMisuse$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/security/findjwtmisuse$ktrecipe.md)
-  * **Find JWT misuse**
-  * Hard-coded JJWT signing keys, `signWith(NONE)` patterns that produce unsigned tokens, and literal `&quot;alg&quot;:&quot;none&quot;` strings that show up in headers and test fixtures alike.
-* [org.openrewrite.kotlin.security.FindKeyGeneratorDes$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/security/findkeygeneratordes$ktrecipe.md)
-  * **Find `KeyGenerator.getInstance(&quot;DES&quot;)` calls**
-  * Generating a DES key feeds a known-broken cipher. Use `KeyGenerator.getInstance(&quot;AES&quot;).apply \{ init(256) \}` instead.
-* [org.openrewrite.kotlin.security.FindKotlinRandomForSecurity$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/security/findkotlinrandomforsecurity$ktrecipe.md)
-  * **Find `kotlin.random.Random.Default` references**
-  * `kotlin.random.Random.Default` delegates to a platform default RNG that on JVM is `ThreadLocalRandom` — not cryptographically secure. For tokens, session IDs, salts, etc. use `java.security.SecureRandom`.
-* [org.openrewrite.kotlin.security.FindModeWorldReadable$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/security/findmodeworldreadable$ktrecipe.md)
-  * **Find `MODE_WORLD_READABLE` references**
-  * `MODE_WORLD_READABLE` (and `MODE_WORLD_WRITEABLE`) were deprecated in API 17 and removed for security reasons — any other app on the device can read/write the file. Use the default `MODE_PRIVATE` mode and grant explicit cross-app access via `FileProvider`.
-* [org.openrewrite.kotlin.security.FindNullCipher$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/security/findnullcipher$ktrecipe.md)
-  * **Find `NullCipher()` allocations**
-  * `javax.crypto.NullCipher` is a no-op cipher — its `doFinal` returns the plaintext unchanged. Useful only for testing; if it ships in production code, the data is effectively unencrypted.
-* [org.openrewrite.kotlin.security.FindObjectInputStream$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/security/findobjectinputstream$ktrecipe.md)
-  * **Find `ObjectInputStream(...)` constructions**
-  * Java native deserialization is the source of the CVE-2015-4852 / Apache Commons gadget-chain family — any classpath gadget can fire on `readObject`. Replace with a JSON or Protobuf decoder; if you must keep Java serialization, install an `ObjectInputFilter`.
-* [org.openrewrite.kotlin.security.FindPathsGetWithConcat$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/security/findpathsgetwithconcat$ktrecipe.md)
-  * **Find `Paths.get(&quot;...&quot; + input)` calls**
-  * Same path-traversal risk as `File(...)` concatenation. Resolve against a fixed base with `Path.resolve(name)` plus an explicit `normalize().startsWith(base)` check.
-* [org.openrewrite.kotlin.security.FindPbkdf2LowIterationCount$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/security/findpbkdf2lowiterationcount$ktrecipe.md)
-  * **Find `PBEKeySpec(..., iterations, ...)` with low iteration counts**
-  * OWASP's PBKDF2 guidance (2023) recommends 600,000 iterations for SHA-256, 210,000 for SHA-512. Counts below 10,000 leak passwords to cheap GPU brute force.
-* [org.openrewrite.kotlin.security.FindPredictableIv$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/security/findpredictableiv$ktrecipe.md)
-  * **Find `IvParameterSpec(byteArrayOf(...))` constructions with a literal IV**
-  * A constant IV defeats the IND-CPA guarantees of CBC/GCM/CTR — every message encrypted under the same key/IV pair leaks the same prefix structure. Generate a fresh IV per message from `SecureRandom` and prepend it to the ciphertext.
-* [org.openrewrite.kotlin.security.FindPrepareStatementWithConcat$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/security/findpreparestatementwithconcat$ktrecipe.md)
-  * **Find `prepareStatement(&quot;... &quot; + x)` calls**
-  * `PreparedStatement` is only safe if the SQL is a fixed template — concatenating user input into the template before `prepareStatement` defeats the parameter binding. Parameterize the variable portion with `?`.
-* [org.openrewrite.kotlin.security.FindPrintlnSensitive$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/security/findprintlnsensitive$ktrecipe.md)
-  * **Find `println(&quot;... password ...&quot;)` patterns**
-  * `println` writes to stdout, which on production tends to land in container logs. Treat it like any other log sink — strip sensitive values before printing, or use a structured logger that redacts at the formatter.
-* [org.openrewrite.kotlin.security.FindPrivateKeyHeaderLiteral$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/security/findprivatekeyheaderliteral$ktrecipe.md)
-  * **Find `-----BEGIN ... PRIVATE KEY-----` literals**
-  * A PEM-formatted private key in source means the private key is in every artifact, every git commit, and every developer machine. Load from a secrets store or a file outside the build.
-* [org.openrewrite.kotlin.security.FindProcessBuilderWithNonLiteral$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/security/findprocessbuilderwithnonliteral$ktrecipe.md)
-  * **Find `ProcessBuilder(varargs)` constructions whose first arg is non-literal**
-  * `ProcessBuilder` is safer than `Runtime.exec` because it bypasses the shell, but a dynamic program name (the first argument) still lets the caller pick any executable on the `PATH`. Pin the program name to a literal.
-* [org.openrewrite.kotlin.security.FindResponseSendRedirectWithNonLiteral$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/security/findresponsesendredirectwithnonliteral$ktrecipe.md)
-  * **Find `HttpServletResponse.sendRedirect(input)` calls with non-literal arguments**
-  * An unvalidated redirect URL lets an attacker craft a link that looks like it leads to your site but bounces to an attacker-controlled page (open-redirect / phishing). Validate against an allowlist or use a relative path.
-* [org.openrewrite.kotlin.security.FindRsaKeySizeBelow2048$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/security/findrsakeysizebelow2048$ktrecipe.md)
-  * **Find `KeyPairGenerator.getInstance(&quot;RSA&quot;)` callers — verify 2048+ key size**
-  * RSA key sizes below 2048 bits are deprecated by NIST. Without seeing the `initialize(...)` call this recipe surfaces every `getInstance(&quot;RSA&quot;)` for review — confirm the key size is at least 2048 (preferably 3072 or migrate to Ed25519/X25519).
-* [org.openrewrite.kotlin.security.FindRuntimeExecWithNonLiteral$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/security/findruntimeexecwithnonliteral$ktrecipe.md)
-  * **Find `Runtime.getRuntime().exec(...)` calls with non-literal arguments**
-  * `Runtime.exec(...)` passes its argument to the shell on some platforms — concatenating any user input invites command injection. Use `ProcessBuilder(arrayOf(&quot;prog&quot;, arg))` so each argument is passed as a discrete argv slot.
-* [org.openrewrite.kotlin.security.FindScriptEngineEval$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/security/findscriptengineeval$ktrecipe.md)
-  * **Find `ScriptEngine.eval(...)` calls**
-  * `ScriptEngine.eval(input)` executes its argument as JavaScript (or Groovy / JRuby) — full code execution from a string. Replace with a domain-specific parser, or whitelist the script before evaluation.
-* [org.openrewrite.kotlin.security.FindScriptEngineManager$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/security/findscriptenginemanager$ktrecipe.md)
-  * **Find `ScriptEngineManager.getEngineByName(...)` calls**
-  * Constructing a `ScriptEngine` at all is usually a smell — once present, the engine is one `eval(...)` away from a remote-code-execution finding. Confirm the engine is loaded from a trusted source and the inputs it receives are not user-controlled.
-* [org.openrewrite.kotlin.security.FindSecretKeySpecDes$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/security/findsecretkeyspecdes$ktrecipe.md)
-  * **Find `SecretKeySpec(_, &quot;DES&quot;)` constructions**
-  * A `SecretKeySpec` tagged for `&quot;DES&quot;` will only feed `Cipher.getInstance(&quot;DES&quot;)` — the algorithm name flows through the JCE provider lookup. Replace with `&quot;AES&quot;` and a 256-bit key.
-* [org.openrewrite.kotlin.security.FindSecureRandomSetSeed$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/security/findsecurerandomsetseed$ktrecipe.md)
-  * **Find `SecureRandom.setSeed(...)` with a literal seed**
-  * `SecureRandom.setSeed(literal)` makes the RNG deterministic — defeats the whole point of using a CSPRNG. Let `SecureRandom` seed itself from the platform entropy source.
-* [org.openrewrite.kotlin.security.FindSensitiveDataInLogs$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/security/findsensitivedatainlogs$ktrecipe.md)
-  * **Find sensitive data in log calls**
-  * Log calls (SLF4J, `println`, `android.util.Log`) whose message string mentions `password`/`token`/`secret`/`api_key`/`credit_card` — each match likely renders the secret value into a log destination that isn't designed for secret storage.
-* [org.openrewrite.kotlin.security.FindSensitiveNamedVariableLiteral$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/security/findsensitivenamedvariableliteral$ktrecipe.md)
-  * **Find variables named `password`/`secret`/`token`/`apiKey` with a non-empty literal default**
-  * A property literally named `password = &quot;hunter2&quot;` (or `val token = &quot;…&quot;`, etc.) is almost always a hard-coded secret. False positives include unit-test fixtures and placeholder strings — review each match before treating as a CVE.
-* [org.openrewrite.kotlin.security.FindSetAllHostnameVerifier$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/security/findsetallhostnameverifier$ktrecipe.md)
-  * **Find `setHostnameVerifier(ALLOW_ALL)` calls**
-  * Setting an Apache-style `ALLOW_ALL` (or a custom always-true) hostname verifier disables one of TLS's two integrity checks. Remove the override and let the default verifier run.
-* [org.openrewrite.kotlin.security.FindSharedPreferencesForSensitiveData$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/security/findsharedpreferencesforsensitivedata$ktrecipe.md)
-  * **Find `getSharedPreferences(_, MODE_PRIVATE)` callers**
-  * `SharedPreferences` is stored as plain XML in app-private storage — on rooted or backed-up devices, that's readable. For tokens, refresh credentials, or PII use `EncryptedSharedPreferences` (androidx.security.crypto).
-* [org.openrewrite.kotlin.security.FindSlackTokenLiteral$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/security/findslacktokenliteral$ktrecipe.md)
-  * **Find Slack token literals (`xoxb-`/`xoxp-`/`xoxa-`/`xoxr-`/`xoxs-`)**
-  * Slack bot/user/app tokens follow the `xox[abprs]-` pattern. A leaked token lets a third party read channels, post as your bot, and pull workspace metadata.
-* [org.openrewrite.kotlin.security.FindSlf4jLogSensitive$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/security/findslf4jlogsensitive$ktrecipe.md)
-  * **Find SLF4J log calls with sensitive field names in the format string**
-  * Log messages mentioning `password`, `secret`, `token`, `api_key`, `credit_card`, `ssn`, etc. usually concatenate or substitute the secret itself. Logs propagate to disk, log aggregators, and alerting pipelines — none of which are designed as a secret store.
-* [org.openrewrite.kotlin.security.FindSqlExecuteQueryWithConcat$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/security/findsqlexecutequerywithconcat$ktrecipe.md)
-  * **Find `Statement.executeQuery(&quot;... &quot; + x)` calls**
-  * String concatenation into `executeQuery` is the canonical SQL-injection vector. Switch to `PreparedStatement` with `?` placeholders so the driver escapes the parameter for you.
-* [org.openrewrite.kotlin.security.FindSqlExecuteWithConcat$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/security/findsqlexecutewithconcat$ktrecipe.md)
-  * **Find `Statement.execute(&quot;... &quot; + x)` / `executeUpdate` calls**
-  * Same injection class as `executeQuery` — string concatenation into a `Statement` is unsafe for any execute variant. Use `PreparedStatement.setX(index, value)`.
-* [org.openrewrite.kotlin.security.FindStringToByteArrayDefaultCharset$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/security/findstringtobytearraydefaultcharset$ktrecipe.md)
-  * **Find `String.toByteArray()` calls without an explicit charset**
-  * `String.toByteArray()` uses the platform default charset, which differs across operating systems and produces non-portable bytes when hashed or signed. Pass `Charsets.UTF_8` (or another explicit charset) so the resulting bytes are stable.
-* [org.openrewrite.kotlin.security.FindStripeKeyLiteral$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/security/findstripekeyliteral$ktrecipe.md)
-  * **Find Stripe API key literals (`sk_live_…` / `sk_test_…`)**
-  * Stripe secret keys grant full account access; `sk_live_…` lets the holder create charges on your account. Rotate at dashboard.stripe.com/apikeys.
-* [org.openrewrite.kotlin.security.FindTrustAllX509TrustManager$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/security/findtrustallx509trustmanager$ktrecipe.md)
-  * **Find `X509TrustManager` implementations with empty `checkServerTrusted`**
-  * An `X509TrustManager` whose `checkServerTrusted`/`checkClientTrusted` body is empty accepts any certificate chain, defeating TLS authentication. Remove the override and use the JDK default trust manager, or pin against an explicit CA.
-* [org.openrewrite.kotlin.security.FindUnsafeDeserialization$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/security/findunsafedeserialization$ktrecipe.md)
-  * **Find unsafe Java deserialization**
-  * Java native deserialization is the source of the Apache Commons gadget-chain RCE family. Each `ObjectInputStream` allocation needs an explicit `ObjectInputFilter` (Java 9+) or a replacement encoding.
-* [org.openrewrite.kotlin.security.FindWeakCipherBlowfish$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/security/findweakcipherblowfish$ktrecipe.md)
-  * **Find `Cipher.getInstance(&quot;Blowfish&quot;)` calls**
-  * Blowfish has a 64-bit block size and is vulnerable to Sweet32 birthday collisions on long-lived sessions. Its successor Twofish is also legacy — prefer AES-GCM.
-* [org.openrewrite.kotlin.security.FindWeakCipherDes$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/security/findweakcipherdes$ktrecipe.md)
-  * **Find `Cipher.getInstance(&quot;DES...&quot;)` calls**
-  * DES has a 56-bit effective key length and is brute-forceable in hours on commodity GPUs. Replace with AES-256/GCM for new code; for legacy data, decrypt-and-re-encrypt under AES.
-* [org.openrewrite.kotlin.security.FindWeakCipherRc2$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/security/findweakcipherrc2$ktrecipe.md)
-  * **Find `Cipher.getInstance(&quot;RC2&quot;)` calls**
-  * RC2 has known cryptanalytic weaknesses and a 40-bit export-grade variant; the JCE accepts both. Migrate to AES-GCM.
-* [org.openrewrite.kotlin.security.FindWeakCipherRc4$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/security/findweakcipherrc4$ktrecipe.md)
-  * **Find `Cipher.getInstance(&quot;RC4&quot;/&quot;ARCFOUR&quot;)` calls**
-  * RC4 has been removed from TLS for biased-keystream reasons (IETF RFC 7465). Replace with AES-GCM or ChaCha20-Poly1305.
-* [org.openrewrite.kotlin.security.FindWeakCipherTripleDes$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/security/findweakciphertripledes$ktrecipe.md)
-  * **Find `Cipher.getInstance(&quot;DESede&quot;/&quot;TripleDES&quot;)` calls**
-  * Triple-DES (3DES, DESede) is deprecated by NIST as of 2023 due to its 64-bit block size making it vulnerable to Sweet32-style birthday attacks. Migrate to AES-GCM.
-* [org.openrewrite.kotlin.security.FindWeakCryptography$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/security/findweakcryptography$ktrecipe.md)
-  * **Find weak cryptographic primitives**
-  * Broken hash algorithms (MD2/MD5/SHA-1), broken or undersized ciphers (DES / 3DES / RC2 / RC4 / Blowfish / bare AES / AES-ECB), weak key material (DES key generation, DES `SecretKeySpec`, sub-2048-bit RSA), predictable IVs, and non-cryptographic random sources used in security-adjacent code.
-* [org.openrewrite.kotlin.security.FindWeakHashMd2$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/security/findweakhashmd2$ktrecipe.md)
-  * **Find `MessageDigest.getInstance(&quot;MD2&quot;)` calls**
-  * MD2 is older and weaker than MD5 — preimage and collision attacks are well-known. It exists in the JDK only for legacy interop and should never appear in new code.
-* [org.openrewrite.kotlin.security.FindWeakHashMd5$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/security/findweakhashmd5$ktrecipe.md)
-  * **Find `MessageDigest.getInstance(&quot;MD5&quot;)` calls**
-  * MD5 is cryptographically broken; collisions are computable in seconds on commodity hardware. Use SHA-256 for non-secret hashing or HMAC-SHA-256 / Argon2id for authenticated or derived secrets.
-* [org.openrewrite.kotlin.security.FindWeakHashSha1$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/security/findweakhashsha1$ktrecipe.md)
-  * **Find `MessageDigest.getInstance(&quot;SHA-1&quot;)` calls**
-  * SHA-1 collisions are computationally feasible (SHAttered, 2017). NIST has deprecated SHA-1 for signature use; migrate to SHA-256 or a SHA-3 variant.
-* [org.openrewrite.kotlin.security.FindWeakSslProtocol$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/security/findweaksslprotocol$ktrecipe.md)
-  * **Find `SSLContext.getInstance(&quot;SSL&quot;/&quot;TLSv1&quot;/&quot;TLSv1.1&quot;)` calls**
-  * `SSL`, `TLSv1`, and `TLSv1.1` are RFC-deprecated and disabled by browsers — POODLE / BEAST / Lucky13 attacks all apply. Use `TLSv1.2` or `TLSv1.3` (or `&quot;TLS&quot;` to let the JDK pick the strongest mutually-supported version).
-* [org.openrewrite.kotlin.security.FindWebViewAddJsInterface$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/security/findwebviewaddjsinterface$ktrecipe.md)
-  * **Find `WebView.addJavascriptInterface(...)` calls**
-  * `addJavascriptInterface` exposes a Kotlin/Java object to in-WebView JavaScript — pre-API-17 devices could call any reflectively-reachable method (CVE-2012-6636). Even on modern devices, every annotated method becomes attack surface for whatever content the WebView loads.
-* [org.openrewrite.kotlin.security.FindWebViewJavaScriptEnabled$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/security/findwebviewjavascriptenabled$ktrecipe.md)
-  * **Find `WebView.settings.javaScriptEnabled = true` / `setJavaScriptEnabled(true)`**
-  * Enabling JavaScript inside a `WebView` is the precondition for the entire WebView attack surface — `addJavascriptInterface` exposure, XSS in cached HTML, prompts-as-UI-spoofs. Disable it unless you control the loaded content.
-* [org.openrewrite.kotlin.security.FindWebViewLoadUrlHttp$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/security/findwebviewloadurlhttp$ktrecipe.md)
-  * **Find `WebView.loadUrl(&quot;http://...&quot;)` calls**
-  * Loading an `http://` URL into a WebView opts out of TLS and lets any on-path attacker rewrite the page (script injection, credential theft). Use `https://`, and if you must load HTTP, set `setAllowFileAccess(false)` plus a restricted `WebViewClient`.
-* [org.openrewrite.kotlin.security.FindWebViewSavePassword$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/security/findwebviewsavepassword$ktrecipe.md)
-  * **Find `WebView.settings.setSavePassword(true)` calls**
-  * `setSavePassword(true)` stores form passwords in plaintext inside the WebView database. Deprecated in API 18 for this reason. Don't enable it.
-* [org.openrewrite.kotlin.security.FindWebViewSetAllowFileAccessTrue$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/security/findwebviewsetallowfileaccesstrue$ktrecipe.md)
-  * **Find `WebView.settings.setAllowFileAccessFromFileURLs(true)` calls**
-  * `setAllowFileAccessFromFileURLs(true)` (and `setAllowUniversalAccessFromFileURLs(true)`) let HTML loaded from `file://` URLs read arbitrary local files — a popular Android XSS gadget. Default to `false`.
-* [org.openrewrite.kotlin.security.FindWebViewSetMixedContentAlwaysAllow$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/security/findwebviewsetmixedcontentalwaysallow$ktrecipe.md)
-  * **Find `WebView.settings.mixedContentMode = MIXED_CONTENT_ALWAYS_ALLOW` settings**
-  * `MIXED_CONTENT_ALWAYS_ALLOW` lets an HTTPS page pull HTTP subresources — the moment a single subresource loads over HTTP, the page's integrity is compromised. Use `MIXED_CONTENT_NEVER_ALLOW`.
-* [org.openrewrite.kotlin.security.Security$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/security/security$ktrecipe.md)
-  * **Find security smells in Kotlin code**
-  * OWASP-aligned search-only recipes covering weak cryptography, insecure TLS configuration, injection vectors, Java deserialization, JWT misuse, sensitive data in logs, Android-specific security smells, and hard-coded secret literals. Each match is a `SearchResult` for review — nothing is rewritten automatically because security findings nearly always need a human to pick the migration target.
-* [org.openrewrite.kotlin.spring.FindAsyncOnFinal$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/spring/findasynconfinal$ktrecipe.md)
-  * **Find `@Async` methods on classes that aren't `open`**
-  * Spring's `@Async` proxy is the same CGLIB subclass mechanism `@Transactional` uses; it can only intercept methods on a non-final, non-private surface. Mark the surrounding class and method `open`, or apply the `kotlin-spring` compiler plugin to do it for you.
-* [org.openrewrite.kotlin.spring.FindAsyncOnPrivate$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/spring/findasynconprivate$ktrecipe.md)
-  * **Find `@Async` on `private` functions**
-  * Like `@Transactional`, `@Async` is implemented by a Spring proxy that intercepts calls through the bean's public interface. `private` methods bypass the proxy and run synchronously on the caller's thread — the annotation has no effect.
-* [org.openrewrite.kotlin.spring.FindAutowiredLogger$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/spring/findautowiredlogger$ktrecipe.md)
-  * **Find `@Autowired lateinit var` Logger fields**
-  * Injecting a `Logger` through Spring is unnecessarily exotic — the Logger isn't a Spring bean in any standard configuration, and `LoggerFactory.getLogger(MyClass::class.java)` produces an identical instance with zero container plumbing. Move the declaration into a companion object: `companion object \{ private val log = LoggerFactory.getLogger(MyClass::class.java) \}`.
-* [org.openrewrite.kotlin.spring.FindAutowiredOnConstructor$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/spring/findautowiredonconstructor$ktrecipe.md)
-  * **Find `@Autowired` on a single constructor**
-  * Spring 4.3+ automatically autowires the single primary constructor — the `@Autowired` annotation is redundant and adds noise. Drop it from the constructor declaration.
-* [org.openrewrite.kotlin.spring.FindAutowiredOnField$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/spring/findautowiredonfield$ktrecipe.md)
-  * **Find `@Autowired lateinit var` field injection**
-  * Field injection through `@Autowired lateinit var` hides the dependency from the constructor, makes the class harder to test (no compile-time guarantee the field is wired), and breaks immutability. Move the dependency into the primary constructor.
-* [org.openrewrite.kotlin.spring.FindAutowiredOnLateinitVar$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/spring/findautowiredonlateinitvar$ktrecipe.md)
-  * **Find `@Autowired lateinit var` properties (ctor-injection candidate)**
-  * `@Autowired lateinit var x: X` is the most common Kotlin-Spring field-injection shape. Compared with `@Autowired constructor(val x: X)`, it hides the dependency from the constructor signature and prevents the compiler from enforcing initialization order. Constructor inject instead.
-* [org.openrewrite.kotlin.spring.FindAutowiredOnVar$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/spring/findautowiredonvar$ktrecipe.md)
-  * **Find `@Autowired var` properties (not `lateinit`)**
-  * A `@Autowired var x: X` property is mutable after wiring — the Spring container sets it once, but any subsequent caller can replace the dependency at runtime. Move the dependency into a primary constructor parameter (`val`) so it's `final` end-to-end.
-* [org.openrewrite.kotlin.spring.FindBeanLambdaCandidate$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/spring/findbeanlambdacandidate$ktrecipe.md)
-  * **Find `@Bean fun foo(): X = X()` candidates for the `beans \{ \}` DSL**
-  * Single-expression `@Bean` declarations that just construct a bean are one of the cases the Spring Kotlin `beans \{ \}` DSL was designed for — the DSL form drops the annotation overhead and reads as plain Kotlin. Each match here is a candidate for the migration.
-* [org.openrewrite.kotlin.spring.FindCacheableOnPrivate$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/spring/findcacheableonprivate$ktrecipe.md)
-  * **Find `@Cacheable` on `private` functions**
-  * `@Cacheable` works through the same proxy mechanism as `@Transactional` and `@Async` — invisible on `private` (and `internal`) methods. Either widen visibility or move the caching boundary up the call chain.
-* [org.openrewrite.kotlin.spring.FindCircularDependencyHint$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/spring/findcirculardependencyhint$ktrecipe.md)
-  * **Find `@Lazy` annotations on `@Autowired` properties**
-  * `@Lazy @Autowired` is Spring's escape hatch for circular bean references. It works, but each one is a hint that the dependency graph has a cycle that should be untangled by extracting a third bean or reorganising responsibilities. Flag every occurrence for design review.
-* [org.openrewrite.kotlin.spring.FindConfigurationPropertiesWithoutData$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/spring/findconfigurationpropertieswithoutdata$ktrecipe.md)
-  * **Find `@ConfigurationProperties` classes that aren't `data class`**
-  * A `@ConfigurationProperties` carrier should be a `data class` with `val` properties: immutable, `equals`/`hashCode`/`toString` for free, and the constructor binder works without `@ConstructorBinding`. Plain `class` carriers either require mutable `lateinit var` or lose the value-class benefits.
-* [org.openrewrite.kotlin.spring.FindControllerInsteadOfRestController$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/spring/findcontrollerinsteadofrestcontroller$ktrecipe.md)
-  * **Find `@Controller` classes whose methods all return data (consider `@RestController`)**
-  * A `@Controller` class needs `@ResponseBody` on each handler that returns data; `@RestController` applies `@ResponseBody` to every method in one annotation. Where every method on a `@Controller` is data-returning, `@RestController` reads more cleanly. Flag for review — view-rendering controllers are correct as-is.
-* [org.openrewrite.kotlin.spring.FindControllerReturningResponseEntity$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/spring/findcontrollerreturningresponseentity$ktrecipe.md)
-  * **Find `@RestController` methods returning `ResponseEntity&lt;T&gt;`**
-  * When the only thing a controller does with `ResponseEntity` is `ResponseEntity.ok(body)`, returning `T` directly produces the same 200 OK response with less boilerplate. Reserve `ResponseEntity` for endpoints that actually vary status/headers per call.
-* [org.openrewrite.kotlin.spring.FindCoroutineControllerCandidate$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/spring/findcoroutinecontrollercandidate$ktrecipe.md)
-  * **Find `@GetMapping`/`@PostMapping`/... methods returning `Mono&lt;T&gt;`**
-  * A controller method returning `Mono&lt;T&gt;` is a candidate for `suspend fun foo(): T`. The suspending form reads as plain Kotlin, integrates with structured concurrency, and Spring WebFlux handles the bridge automatically.
-* [org.openrewrite.kotlin.spring.FindCrudRepositoryGenericList$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/spring/findcrudrepositorygenericlist$ktrecipe.md)
-  * **Find repository interfaces extending `CrudRepository` instead of `JpaRepository`**
-  * `CrudRepository&lt;T, ID&gt;` returns `Iterable&lt;T&gt;` from `findAll()` — fine for streaming, awkward for everything else. `JpaRepository&lt;T, ID&gt;` returns `List&lt;T&gt;` and adds pagination, sorting, and batch operations. Most JPA repositories should extend `JpaRepository`.
-* [org.openrewrite.kotlin.spring.FindDataAccessSmells$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/spring/finddataaccesssmells$ktrecipe.md)
-  * **Find Spring Data / repository access smells**
-  * Repository call patterns that hide a problem: `repo.findById(id).get()` (use `findByIdOrNull` or `getReferenceById`) and `findByIdOrNull(id!!)` (contradictory nullability).
-* [org.openrewrite.kotlin.spring.FindEnableWebMvcOnBootApp$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/spring/findenablewebmvconbootapp$ktrecipe.md)
-  * **Find `@EnableWebMvc` on a Spring Boot application**
-  * `@EnableWebMvc` opts out of Spring Boot's Web MVC auto-configuration. Most applications shouldn't apply it — they want Boot's defaults plus a `WebMvcConfigurer` for tweaks. Flag the annotation so reviewers can confirm it's intentional.
-* [org.openrewrite.kotlin.spring.FindEnvironmentGetProperty$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/spring/findenvironmentgetproperty$ktrecipe.md)
-  * **Find `Environment.getProperty(...)` calls**
-  * `environment.getProperty(&quot;foo&quot;)` is the lowest-level Spring config API — string-typed, untyped default, no IDE completion. Promote frequently-used properties to a `@ConfigurationProperties data class` so the property name and type are encoded once.
-* [org.openrewrite.kotlin.spring.FindEventListenerWithReturn$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/spring/findeventlistenerwithreturn$ktrecipe.md)
-  * **Find `@EventListener` methods with non-`Unit` return types**
-  * Spring's `@EventListener` republishes any non-`Unit` return value as a new event. That's a useful feature when intentional, but easy to trip over — a function written to `return result` for the caller's convenience ends up firing the event loop. Make the intent explicit (`return Unit` if the caller value isn't supposed to publish, or document that it should).
-* [org.openrewrite.kotlin.spring.FindFieldInjection$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/spring/findfieldinjection$ktrecipe.md)
-  * **Find `@Inject lateinit var` field injection**
-  * The JSR-330 `@Inject` annotation has the same drawbacks as `@Autowired` for field injection: hidden dependencies, harder testing, mutable state. Migrate to constructor injection.
-* [org.openrewrite.kotlin.spring.FindFieldInjectionOverConstructor$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/spring/findfieldinjectionoverconstructor$ktrecipe.md)
-  * **Find `@Autowired val` field declarations (not in ctor)**
-  * A `@Autowired private val x: X` written as a class-body declaration (not a primary-constructor parameter) is functionally close to constructor injection but hides the dependency from the public constructor signature. Pull the parameter up into the primary constructor so callers and tests see the contract.
-* [org.openrewrite.kotlin.spring.FindFindByIdOrNullWithNonNullableId$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/spring/findfindbyidornullwithnonnullableid$ktrecipe.md)
-  * **Find `findByIdOrNull(id!!)` calls**
-  * Calling `findByIdOrNull(id!!)` says two contradictory things at once: the caller insists the id is non-null (`!!`) but is willing to accept a null result if no row matches. If the id is genuinely non-null, the `!!` is dead weight; if it might be null, the call should branch before the lookup.
-* [org.openrewrite.kotlin.spring.FindFluxBlockFirstInNonTest$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/spring/findfluxblockfirstinnontest$ktrecipe.md)
-  * **Find `Flux.blockFirst()` calls outside `@Test` methods**
-  * `Flux.blockFirst()` blocks the calling thread waiting for the first element of a Flux — fine in tests, a thread-pool hazard in production. Bridge with `awaitFirst()` / `awaitFirstOrNull()` from `kotlinx-coroutines-reactor` inside a `suspend fun`.
-* [org.openrewrite.kotlin.spring.FindFluxBlockLastInNonTest$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/spring/findfluxblocklastinnontest$ktrecipe.md)
-  * **Find `Flux.blockLast()` calls outside `@Test` methods**
-  * `Flux.blockLast()` drains the entire Flux on the calling thread to return the final element. In production code, that's almost never the intent — surface the elements through `asFlow().collect \{ \}` or call from a coroutine with `awaitLast()`.
-* [org.openrewrite.kotlin.spring.FindFluxFlatMapReturningFluxJust$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/spring/findfluxflatmapreturningfluxjust$ktrecipe.md)
-  * **Find `Flux.flatMap \{ x -&gt; Mono.just(f(x)) \}` patterns**
-  * A `Flux.flatMap` whose lambda only wraps a value back into `Mono.just` (or `Flux.just`) is doing the work of `map`. Drop the publisher boxing and the runtime cost of subscribing to a one-shot inner publisher per element.
-* [org.openrewrite.kotlin.spring.FindFluxFromIterableWithList$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/spring/findfluxfromiterablewithlist$ktrecipe.md)
-  * **Find `Flux.fromIterable(listOf(...))` patterns**
-  * When the source list is a constant `listOf(a, b, c)` known at compile time, `Flux.just(a, b, c)` is the same shape with one fewer allocation (no intermediate `List`). `fromIterable` only earns its keep when the iterable is already in hand.
-* [org.openrewrite.kotlin.spring.FindFluxSubscribeWithoutOnError$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/spring/findfluxsubscribewithoutonerror$ktrecipe.md)
-  * **Find `Flux.subscribe \{ ... \}` without an error consumer**
-  * Single-argument `subscribe(consumer)` swallows upstream errors into Reactor's default `onErrorDropped` hook — silent in most environments and frustrating to debug. The two-argument form `subscribe(consumer, errorConsumer)` (or four-argument with `onComplete` / `Context`) forces an explicit choice.
-* [org.openrewrite.kotlin.spring.FindHttpServletRequestParameter$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/spring/findhttpservletrequestparameter$ktrecipe.md)
-  * **Find `HttpServletRequest` parameters in controllers**
-  * Reaching for `HttpServletRequest` inside a controller handler bypasses Spring's argument-resolver chain (`@PathVariable`, `@RequestParam`, `@RequestHeader`, `@RequestBody`, etc.). Each of those binds the value with type conversion and validation; using the raw servlet request loses that and couples the handler to the servlet API.
-* [org.openrewrite.kotlin.spring.FindJpaEntityWithVarsOnly$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/spring/findjpaentitywithvarsonly$ktrecipe.md)
-  * **Find `@Entity` classes with `var` properties only**
-  * JPA entities need mutable properties for the persistence provider to hydrate them, but a `class X(var a: A, var b: B)` form mixes that JPA requirement with full external mutability. Promote to `data class` (still mutable for JPA via the `kotlin-jpa` compiler plugin's synthesized no-arg ctor) to get `equals`/`hashCode`/`toString` and `copy`.
-* [org.openrewrite.kotlin.spring.FindJpaRepositoryFindByIdWithoutOptional$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/spring/findjparepositoryfindbyidwithoutoptional$ktrecipe.md)
-  * **Find `repo.findById(id).get()` chains**
-  * `Optional.get()` on a JPA repository result throws `NoSuchElementException` when the row is missing — the same outcome as `getReferenceById(id)` but without the explicit Optional dance. In Kotlin, `findByIdOrNull(id)` plus a null check (or `?: throw`) is even more direct.
-* [org.openrewrite.kotlin.spring.FindLateinitInjectedField$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/spring/findlateinitinjectedfield$ktrecipe.md)
-  * **Find any `lateinit var` injected field (`@Autowired` / `@Inject` / `@Value`)**
-  * Any property wired via `lateinit var` + injection annotation pattern is a candidate for constructor injection. This recipe catches the union of `@Autowired`, `@Inject`, and `@Value` lateinit-var declarations.
-* [org.openrewrite.kotlin.spring.FindMainMethodWithSpringApplicationRun$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/spring/findmainmethodwithspringapplicationrun$ktrecipe.md)
-  * **Find top-level `main` functions wrapping `SpringApplication.run`**
-  * A top-level `main(args: Array&lt;String&gt;) \{ SpringApplication.run(MyApp::class.java, *args) \}` collapses to one line with the reified `runApplication&lt;MyApp&gt;(*args)` builder. Flag the `main` entry point for migration.
-* [org.openrewrite.kotlin.spring.FindMissingResponseStatus$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/spring/findmissingresponsestatus$ktrecipe.md)
-  * **Find `@PostMapping` methods missing `@ResponseStatus(HttpStatus.CREATED)`**
-  * By convention, a successful POST that creates a resource should return `201 Created`, not the default `200 OK`. Add `@ResponseStatus(HttpStatus.CREATED)` to the controller method so the status is consistent with the action.
-* [org.openrewrite.kotlin.spring.FindMockBeanOnField$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/spring/findmockbeanonfield$ktrecipe.md)
-  * **Find `@MockBean` on `lateinit var` fields**
-  * `@MockBean lateinit var x` mutates the bean at field-injection time, which works but ties the test to Spring's container even when the unit under test could be exercised with constructor injection of a plain `mockk&lt;X&gt;()`. Flag for review — preferred where the surrounding test can be a plain unit test.
-* [org.openrewrite.kotlin.spring.FindMockMvcStandalone$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/spring/findmockmvcstandalone$ktrecipe.md)
-  * **Find `MockMvcBuilders.standaloneSetup(...)` calls**
-  * `standaloneSetup` wires a single controller into a minimal MockMvc — fast, but misses any application-level configuration (interceptors, exception handlers, argument resolvers). `@AutoConfigureMockMvc` produces a MockMvc that mirrors the running application; flag standalone setups as candidates for replacement.
-* [org.openrewrite.kotlin.spring.FindMonoAwaitSingle$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/spring/findmonoawaitsingle$ktrecipe.md)
-  * **Find `mono.awaitSingle()` calls inside Flux/Flow collectors**
-  * `awaitSingle()` is the right bridge from a single-value `Mono` into a coroutine. Inside a `Flux.collect` / `Flow.collect` over many elements, however, the pattern often signals that the surrounding code is mixing two stream models — flag for review.
-* [org.openrewrite.kotlin.spring.FindMonoBlockInNonTest$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/spring/findmonoblockinnontest$ktrecipe.md)
-  * **Find `Mono.block()` calls outside `@Test` methods**
-  * `Mono.block()` parks the calling thread until the upstream Mono completes, which is fine in a test but a footgun in production code. On Netty's small event-loop pool, one `block()` can stall every concurrent request. Bridge with `awaitSingle()` from `kotlinx-coroutines-reactor` inside a `suspend fun` instead.
-* [org.openrewrite.kotlin.spring.FindMonoErrorInsteadOfThrow$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/spring/findmonoerrorinsteadofthrow$ktrecipe.md)
-  * **Find `throw ...` statements inside Mono/Flux operator lambdas**
-  * Reactor expects errors to be *signaled* through the publisher (`Mono.error(...)`) rather than thrown. A raw `throw` inside `flatMap` / `map` works through Reactor's `Exceptions.propagate` fallback, but loses stack-walking guarantees and trips up the assembly-time error handling.
-* [org.openrewrite.kotlin.spring.FindMonoFlatMapBlock$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/spring/findmonoflatmapblock$ktrecipe.md)
-  * **Find `Mono.block()` calls in non-test code**
-  * Outside of `@Test` methods, `Mono.block()` is almost always a bug: it bridges reactive code into a blocking call, defeating the purpose of WebFlux. In Kotlin, the bridge should go the other direction — `awaitSingle()` from `kotlinx-coroutines-reactor`.
-* [org.openrewrite.kotlin.spring.FindMonoFlatMapReturningMonoJust$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/spring/findmonoflatmapreturningmonojust$ktrecipe.md)
-  * **Find `Mono.flatMap \{ x -&gt; Mono.just(f(x)) \}` patterns**
-  * When a `flatMap` lambda's only job is to wrap a synchronous result in `Mono.just`, the whole step collapses to `map \{ x -&gt; f(x) \}`. `map` is cheaper (no inner Mono allocation) and signals that the transform is synchronous.
-* [org.openrewrite.kotlin.spring.FindMonoFluxSmells$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/spring/findmonofluxsmells$ktrecipe.md)
-  * **Find Mono/Flux ergonomic smells**
-  * Reactive-pipeline shapes that read more naturally a different way: `flatMap \{ Mono.just(...) \}` → `map`, `block()` / `blockFirst()` / `blockLast()` outside `@Test` methods, single-argument `Flux.subscribe` (missing error consumer), raw `throw` inside operator lambdas (use `Mono.error`), `Mono.zip` (verify independent operands), and `Flux.fromIterable(listOf(...))` (use `Flux.just`).
-* [org.openrewrite.kotlin.spring.FindMonoZipWithoutAllOperands$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/spring/findmonozipwithoutalloperands$ktrecipe.md)
-  * **Find `Mono.zip(...)` calls**
-  * `Mono.zip` waits for all of its sources to emit, then combines them. Useful when two requests are genuinely independent, but easy to misuse — flag for review to confirm the operands are independent and that the desired error semantics match `zip`'s eager-cancellation behaviour.
-* [org.openrewrite.kotlin.spring.FindNoArgConstructorMissing$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/spring/findnoargconstructormissing$ktrecipe.md)
-  * **Find `@Entity data class` declarations (verify `kotlin-jpa` plugin)**
-  * A `@Entity data class X(val a: A)` only works with JPA when the `kotlin-jpa` compiler plugin synthesizes a no-arg constructor. Without the plugin, JPA's `findById` fails at runtime with `InstantiationException: No default constructor`. Flag entity data classes so reviewers can confirm the plugin is applied.
-* [org.openrewrite.kotlin.spring.FindOpenClassForSpring$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/spring/findopenclassforspring$ktrecipe.md)
-  * **Find Spring stereotype classes not declared `open`**
-  * Kotlin classes are `final` by default, but Spring needs a non-final target to create CGLIB proxies (which is how `@Transactional`, `@Async`, scope-proxied beans, etc. work). The `kotlin-spring` compiler plugin opens them automatically, but if it isn't applied — or the class is in a module that doesn't apply it — Spring's proxy machinery fails at runtime. Flag stereotype classes that aren't explicitly `open` for review.
-* [org.openrewrite.kotlin.spring.FindPathVariableWithoutName$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/spring/findpathvariablewithoutname$ktrecipe.md)
-  * **Find `@PathVariable` parameters without an explicit name**
-  * `@PathVariable name: String` works only as long as the JVM preserves parameter names, which requires the `-parameters` javac flag and `-java-parameters` kotlinc flag. If either is missing, Spring resolves the path variable by ordinal — a footgun on rename. Set the name explicitly: `@PathVariable(&quot;id&quot;) id: String`.
-* [org.openrewrite.kotlin.spring.FindPropertySourceOnNonConfiguration$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/spring/findpropertysourceonnonconfiguration$ktrecipe.md)
-  * **Find `@PropertySource` on classes that lack `@Configuration`**
-  * `@PropertySource` only takes effect on a Spring `@Configuration` class — when applied to a stereotype like `@Component` or `@Service`, the property file is silently ignored. Move the annotation to a `@Configuration` class or change the surrounding class accordingly.
-* [org.openrewrite.kotlin.spring.FindQualifierOnLateinitField$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/spring/findqualifieronlateinitfield$ktrecipe.md)
-  * **Find `@Qualifier` on `lateinit var` fields**
-  * `@Qualifier` annotating a `lateinit var` doubles down on field injection. Move both the qualifier and the dependency to a constructor parameter so callers (and tests) can see what's required.
-* [org.openrewrite.kotlin.spring.FindReactiveCoroutineInterop$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/spring/findreactivecoroutineinterop$ktrecipe.md)
-  * **Find reactive / coroutine interop hazards**
-  * Bridges between Reactor and coroutines that usually point at a missed opportunity: `WebClient.bodyToMono(...).block()` (use `awaitBody&lt;T&gt;()`), `Mono.deferContextual \{ \}` inside a `suspend fun` (context propagation goes through `coroutineContext`), and `awaitSingle()` patterns worth a review.
-* [org.openrewrite.kotlin.spring.FindReactiveTestWithoutStepVerifier$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/spring/findreactivetestwithoutstepverifier$ktrecipe.md)
-  * **Find `WebTestClient` test classes that don't use `StepVerifier`**
-  * `WebTestClient` makes the call, but assertions on a `Mono&lt;T&gt;` body typically need `StepVerifier.create(...).expectNext(...).verifyComplete()` to fully drain the publisher and assert ordering. Without it, a reactive bug can hide behind the test's premature completion.
-* [org.openrewrite.kotlin.spring.FindReactorContextInsideSuspendFun$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/spring/findreactorcontextinsidesuspendfun$ktrecipe.md)
-  * **Find `Mono.deferContextual \{ ... \}` inside `suspend fun`**
-  * Reactor's `deferContextual` reads context from a reactive Subscriber. Inside a `suspend fun`, that subscriber isn't the active continuation — context propagation should go through `kotlin.coroutines.coroutineContext` or `kotlinx.coroutines.reactor.ReactorContext` instead. Flag for review.
-* [org.openrewrite.kotlin.spring.FindRepositoryReturnsOptional$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/spring/findrepositoryreturnsoptional$ktrecipe.md)
-  * **Find Spring Data repository methods returning `Optional&lt;T&gt;`**
-  * On the JVM, `Optional&lt;T&gt;` is the only way to model 'maybe absent' in Java APIs. In Kotlin, `T?` is the language-native equivalent — Spring Data auto-detects nullable return types since 2.0. Convert `Optional&lt;T&gt;` returns to `T?`.
-* [org.openrewrite.kotlin.spring.FindRequestBodyOnPrimitive$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/spring/findrequestbodyonprimitive$ktrecipe.md)
-  * **Find `@RequestBody` on primitive parameters**
-  * `@RequestBody Int` or `@RequestBody String` parses the entire HTTP body as a single value — a fragile contract that breaks the moment the API evolves to include a second field. Wrap the parameter in a DTO so future additions don't require client-side changes.
-* [org.openrewrite.kotlin.spring.FindRequestMappingMethodGetMapping$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/spring/findrequestmappingmethodgetmapping$ktrecipe.md)
-  * **Find `@RequestMapping(method = [RequestMethod.GET])` candidates for `@GetMapping`**
-  * `@RequestMapping` with an explicit `method = [...]` is the long-form spelling of `@GetMapping`/`@PostMapping`/etc. The shortcut annotations were introduced specifically to replace this pattern.
-* [org.openrewrite.kotlin.spring.FindRequestMappingWithoutVerb$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/spring/findrequestmappingwithoutverb$ktrecipe.md)
-  * **Find `@RequestMapping(...)` without an HTTP method**
-  * `@RequestMapping(&quot;/x&quot;)` matches every HTTP verb, which is rarely the intent. The verb-specific shortcuts (`@GetMapping`/`@PostMapping`/...) are clearer at a glance and prevent accidental dual-method routes.
-* [org.openrewrite.kotlin.spring.FindRequiredOnSetter$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/spring/findrequiredonsetter$ktrecipe.md)
-  * **Find `@Required` annotations**
-  * `@Required` was deprecated in Spring 5.1 and removed in 6.0 — its only purpose was to mandate setter injection. The modern equivalent is mandatory constructor injection, which is enforced by Kotlin's non-null types.
-* [org.openrewrite.kotlin.spring.FindResponseEntityWithoutStatus$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/spring/findresponseentitywithoutstatus$ktrecipe.md)
-  * **Find `ResponseEntity(body, HttpStatus.OK)` constructor calls**
-  * The two-argument `ResponseEntity` constructor with `HttpStatus.OK` is exactly what `ResponseEntity.ok(body)` produces — using the factory makes the 200-OK intent explicit and removes the dependency on `HttpStatus`. Save the constructor form for genuinely status-varying responses.
-* [org.openrewrite.kotlin.spring.FindRestTemplateUsage$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/spring/findresttemplateusage$ktrecipe.md)
-  * **Find `RestTemplate` allocations**
-  * `RestTemplate` was placed in maintenance mode in Spring 5 — Spring's docs explicitly steer new code to `WebClient` (reactive) or `RestClient` (Spring 6.1+, synchronous). Each `RestTemplate()` allocation is a candidate for migration.
-* [org.openrewrite.kotlin.spring.FindSpringAnnotationSmells$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/spring/findspringannotationsmells$ktrecipe.md)
-  * **Find Spring annotation-shape smells**
-  * Stereotype/injection annotations applied to the wrong Kotlin shape: `@Component` on `data class`, `@Service` on `object`, `@Bean` without `@Scope`, `@Autowired` on `var` / `lateinit var` / class-body `val`, and `@Lazy @Autowired` (a hint of circular dependencies).
-* [org.openrewrite.kotlin.spring.FindSpringApplicationRunJava$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/spring/findspringapplicationrunjava$ktrecipe.md)
-  * **Find `SpringApplication.run(MyApp::class.java, ...)` calls**
-  * Kotlin Spring Boot ships a reified helper `runApplication&lt;MyApp&gt;(*args)` that drops the `::class.java` token and the explicit `SpringApplication` reference. The Java-style form here works but reads as a Java port — flag for migration.
-* [org.openrewrite.kotlin.spring.FindSpringBeanWithoutScope$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/spring/findspringbeanwithoutscope$ktrecipe.md)
-  * **Find `@Bean` methods without `@Scope`**
-  * `@Bean` without `@Scope` produces a singleton, which is almost always correct — but for stateful beans (`@RequestScope`, `@SessionScope`, prototype-scoped builders) the default is wrong. Flag for review when the bean's nature suggests a scope decision is in order.
-* [org.openrewrite.kotlin.spring.FindSpringBootstrappingSmells$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/spring/findspringbootstrappingsmells$ktrecipe.md)
-  * **Find Spring Boot bootstrapping smells**
-  * Bootstrap code that hasn't been Kotlinized: Java-style `SpringApplication.run(MyApp::class.java, ...)` calls and `main` wrappers that could collapse to a one-line `runApplication&lt;MyApp&gt;(*args)`.
-* [org.openrewrite.kotlin.spring.FindSpringComponentOnDataClass$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/spring/findspringcomponentondataclass$ktrecipe.md)
-  * **Find `@Component` / `@Service` / `@Repository` on `data class`**
-  * Spring stereotype classes have proxy-friendly identity (Spring wires them as singletons keyed by class). `data class` overrides `equals`/`hashCode` over the constructor properties — two beans with the same fields compare equal, which is rarely desirable for a service-shaped component. Promote to a regular class.
-* [org.openrewrite.kotlin.spring.FindSpringConfigurationSmells$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/spring/findspringconfigurationsmells$ktrecipe.md)
-  * **Find Spring configuration smells**
-  * Configuration scattered across `@Value` lateinit-var reads, untyped `Environment.getProperty(...)` calls, `@ConfigurationProperties` carriers that aren't `data class`, `@Bean fun foo(): X = X()` candidates for the `beans \{ \}` Kotlin DSL, and misplaced `@PropertySource` on non-`@Configuration` classes.
-* [org.openrewrite.kotlin.spring.FindSpringCoroutineCandidates$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/spring/findspringcoroutinecandidates$ktrecipe.md)
-  * **Find Spring coroutine-migration candidates**
-  * Controllers and clients that work today with `Mono`/`Flux` chaining but read more naturally as suspending Kotlin: `Mono&lt;T&gt;` returns from mapping methods (could be `suspend fun foo(): T`) and `bodyToMono(X::class.java)` patterns (`awaitBody&lt;X&gt;()`).
-* [org.openrewrite.kotlin.spring.FindSpringDataSmells$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/spring/findspringdatasmells$ktrecipe.md)
-  * **Find Spring Data smells**
-  * Repository methods returning `Optional&lt;T&gt;` instead of `T?`, `@Entity` classes that should be `data class`, `@Entity data class` declarations whose JPA-friendliness depends on the `kotlin-jpa` plugin, `CrudRepository` candidates for `JpaRepository`, and `@Transactional` annotations on `private` methods or `final` classes (Spring's proxy can't intercept them).
-* [org.openrewrite.kotlin.spring.FindSpringDependencyInjectionSmells$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/spring/findspringdependencyinjectionsmells$ktrecipe.md)
-  * **Find Spring dependency-injection smells**
-  * Field injection (`@Autowired` / `@Inject` / `@Qualifier` on `lateinit var`), redundant `@Autowired` on single ctors, the deprecated `@Required` setter annotation, and Spring stereotype classes that aren't `open` (Kotlin's `final` default breaks CGLIB proxies unless `kotlin-spring` is applied).
-* [org.openrewrite.kotlin.spring.FindSpringLegacyApiSmells$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/spring/findspringlegacyapismells$ktrecipe.md)
-  * **Find Spring legacy / deprecated API smells**
-  * `RestTemplate` (in maintenance mode — use `WebClient` or `RestClient`), `@EnableWebMvc` on a Boot application (disables auto-config), `HttpServletRequest` parameters in controllers (use binding annotations), `@Controller` whose handlers all return data (consider `@RestController`), and `@Autowired` Logger fields (use companion `LoggerFactory`).
-* [org.openrewrite.kotlin.spring.FindSpringProxiedAnnotationSmells$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/spring/findspringproxiedannotationsmells$ktrecipe.md)
-  * **Find Spring proxied-annotation smells**
-  * Proxy-backed annotations beyond `@Transactional` that hit the same Kotlin-default-final trap: `@Async` and `@Cacheable` on `private` methods or final classes, plus `@EventListener` methods that accidentally republish their return values as new events.
-* [org.openrewrite.kotlin.spring.FindSpringServiceOnObject$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/spring/findspringserviceonobject$ktrecipe.md)
-  * **Find `@Service object Foo` declarations**
-  * A Spring `@Service` / `@Component` declared as `object` is a singleton at the language level — Spring will still register it as a bean, but autowiring into the object's properties is fragile (`object` initialization runs at class-load time, before the Spring context exists). Use a regular class so the container controls the lifecycle.
-* [org.openrewrite.kotlin.spring.FindSpringTestingSmells$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/spring/findspringtestingsmells$ktrecipe.md)
-  * **Find Spring testing smells**
-  * `@MockBean` / `@SpyBean` lateinit-var fields (often a plain unit test would do), `MockMvcBuilders.standaloneSetup` (consider `@AutoConfigureMockMvc`), and `WebTestClient` tests that don't drain the publisher with `StepVerifier`.
-* [org.openrewrite.kotlin.spring.FindSpringWebSmells$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/spring/findspringwebsmells$ktrecipe.md)
-  * **Find Spring Web / WebFlux smells**
-  * Controller endpoints worth a closer look: `ResponseEntity&lt;T&gt;` returns that always emit 200, verb-less `@RequestMapping`, `@RequestMapping(method = [...])` candidates for shortcut annotations, `@PathVariable` parameters without explicit names, primitive `@RequestBody` shapes, POST endpoints missing `@ResponseStatus(CREATED)`, and reactive `block()` calls that stall the event loop.
-* [org.openrewrite.kotlin.spring.FindSpyBeanOnField$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/spring/findspybeanonfield$ktrecipe.md)
-  * **Find `@SpyBean` on `lateinit var` fields**
-  * `@SpyBean` carries the same coupling to the Spring container as `@MockBean`, plus the extra surprise of partially mocking real implementation code. Where possible, exercise the unit under test directly with `mockk&lt;X&gt;(relaxed = true)` and verify against a spy of a single dependency.
-* [org.openrewrite.kotlin.spring.FindTransactionalOnFinal$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/spring/findtransactionalonfinal$ktrecipe.md)
-  * **Find `@Transactional` methods on classes that aren't `open`**
-  * Spring proxies a `@Transactional` bean by subclassing it (CGLIB); for the subclass to override the method, both the class and the method must be non-final. Kotlin's default `final` defeats this — either apply the `kotlin-spring` compiler plugin or mark the class and method `open`.
-* [org.openrewrite.kotlin.spring.FindTransactionalOnPrivate$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/spring/findtransactionalonprivate$ktrecipe.md)
-  * **Find `@Transactional` on `private` functions**
-  * Spring's transaction proxy intercepts calls through the bean's public interface — `private` (and `internal`) methods are invoked directly on the target instance, bypassing the proxy entirely. The annotation is silently no-op. Make the method `public` or move the transaction boundary up the call chain.
-* [org.openrewrite.kotlin.spring.FindValueAnnotationOnLateinit$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/spring/findvalueannotationonlateinit$ktrecipe.md)
-  * **Find `@Value` on `lateinit var` properties**
-  * Individual `@Value(&quot;\$\{x\}&quot;)` reads scatter configuration access across the codebase. Grouping related properties under a single `@ConfigurationProperties` data class produces typed, validated, IDE-discoverable config — and works seamlessly with `data class` + non-null types in Kotlin.
-* [org.openrewrite.kotlin.spring.FindWebClientBlockOnResponse$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/spring/findwebclientblockonresponse$ktrecipe.md)
-  * **Find `webClient...bodyToMono(X::class).block()` chains**
-  * Chaining `block()` onto a `WebClient.bodyToMono(...)` call defeats the reactive request entirely — the calling thread blocks for the HTTP round-trip, throwing away every concurrency benefit of WebClient. In a `suspend fun`, `awaitBody&lt;X&gt;()` produces the same value without blocking the event loop.
-* [org.openrewrite.kotlin.spring.FindWebClientCreateWithoutBuilder$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/spring/findwebclientcreatewithoutbuilder$ktrecipe.md)
-  * **Find `WebClient.create()` / `WebClient.create(url)` calls**
-  * The static `WebClient.create(...)` shortcut returns a client with default codecs, no `baseUrl` chain, no filters, no exchange-strategy tuning. Production WebClients almost always need at least one of those — promote to `WebClient.builder().baseUrl(...).build()` so the configuration shape is visible at the call site.
-* [org.openrewrite.kotlin.spring.FindWebClientRestTemplateSmells$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/spring/findwebclientresttemplatesmells$ktrecipe.md)
-  * **Find WebClient / RestTemplate / ResponseEntity smells**
-  * HTTP-client and response-shape patterns: `RestTemplate` allocations (maintenance mode — use `WebClient` / `RestClient`), `WebClient.create()` without the builder (use `WebClient.builder().baseUrl(...)`), and `ResponseEntity(body, HttpStatus.OK)` (use the `ok(body)` factory).
-* [org.openrewrite.kotlin.spring.FindWebClientWithoutAwait$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/spring/findwebclientwithoutawait$ktrecipe.md)
-  * **Find `WebClient.bodyToMono(X::class.java)` calls**
-  * In suspending controllers and services, `bodyToMono(X::class.java).awaitSingle()` is more naturally spelled as `awaitBody&lt;X&gt;()` from `kotlinx-coroutines-reactor`. The reified form removes the `::class.java` token and the `.awaitSingle()` chain.
-* [org.openrewrite.kotlin.spring.FindWebFluxBlocking$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/spring/findwebfluxblocking$ktrecipe.md)
-  * **Find `Mono.block` / `Flux.blockFirst` / `Flux.blockLast` calls**
-  * Calling `block()` on a reactive pipeline parks the calling thread until the upstream completes, which is exactly what the reactive runtime is built to avoid. On Netty's small event-loop pool, a single `block()` can stall every concurrent request the server is processing.
-* [org.openrewrite.kotlin.spring.Spring$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/spring/spring$ktrecipe.md)
-  * **Modernize Spring Boot Kotlin code**
-  * Find Kotlin-idiomatic violations in Spring Boot applications: Java-style `SpringApplication.run`, `@Autowired` / `@Inject` field injection, missing `open` on Spring-proxied classes, blocking `Mono.block()` calls, `@RequestMapping` candidates for `@GetMapping`, `Mono&lt;T&gt;` controllers that could be suspending, `@ConfigurationProperties` data class candidates, `@Entity` data class plugin reminders, `@Transactional`/`@Async`/`@Cacheable` on private/final methods, deprecated `RestTemplate` allocations, Mono/Flux ergonomic shapes, reactive-coroutine interop hazards, Spring annotation shapes, repository access patterns, and WebClient/ResponseEntity shapes.
-* [org.openrewrite.kotlin.stdlib.CollectionShorthands$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/stdlib/collectionshorthands$ktrecipe.md)
-  * **Apply Kotlin collection shorthands**
-  * Replaces round-trip conversions (`asSequence().toList()`, `toList().toSet()`, `toSet().toList()`, …) with the dedicated stdlib operator they're imitating.
-* [org.openrewrite.kotlin.stdlib.EmptyConstructorShorthands$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/stdlib/emptyconstructorshorthands$ktrecipe.md)
-  * **Prefer `emptyList()` / `emptySet()` / `emptyMap()` over zero-arg builders**
-  * When `listOf()` / `setOf()` / `mapOf()` are called with no entries, replace them with the explicit `emptyList()` / `emptySet()` / `emptyMap()` factories so the empty-by-construction intent is visible at the call site.
-* [org.openrewrite.kotlin.stdlib.Stdlib$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/stdlib/stdlib$ktrecipe.md)
-  * **Apply Kotlin standard-library idioms**
-  * Opinionated bundle of every Kotlin stdlib-shorthand recipe in this module: round-trip elimination, empty-factory preference, and string `isBlank`/`take`/`drop` folds. Complementary to `Performance` (which focuses on chain collapses) and `BestPractices` (which focuses on flagging smells).
-* [org.openrewrite.kotlin.stdlib.StringShorthands$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/stdlib/stringshorthands$ktrecipe.md)
-  * **Apply Kotlin string shorthands**
-  * Folds `trim().isEmpty()` into `isBlank()`, and prefers `take`/`drop` over `substring` indexing.
-* [org.openrewrite.kotlin.stdlib.UseAsSequenceToListIdentity$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/stdlib/useassequencetolistidentity$ktrecipe.md)
-  * **Use `toList()` instead of `asSequence().toList()`**
-  * `asSequence()` wraps the iterable in a `Sequence` only to immediately tear it back into a `List`. The intermediate `Sequence` allocation does no work.
-* [org.openrewrite.kotlin.stdlib.UseDistinctForToHashSetToList$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/stdlib/usedistinctfortohashsettolist$ktrecipe.md)
-  * **Use `distinct()` instead of `toHashSet().toList()`**
-  * Round-tripping through a `HashSet` to drop duplicates obscures intent and allocates an intermediate. `distinct()` says what it does and returns a `List` directly.
-* [org.openrewrite.kotlin.stdlib.UseDistinctForToSetToList$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/stdlib/usedistinctfortosettolist$ktrecipe.md)
-  * **Use `distinct()` instead of `toSet().toList()`**
-  * Round-tripping through a `Set` to drop duplicates obscures intent and allocates an intermediate. `distinct()` says what it does and returns a `List` directly.
-* [org.openrewrite.kotlin.stdlib.UseDistinctForToSetToMutableList$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/stdlib/usedistinctfortosettomutablelist$ktrecipe.md)
-  * **Use `distinct().toMutableList()` instead of `toSet().toMutableList()`**
-  * Round-tripping through a `Set` to drop duplicates obscures intent. `distinct()` says what it does; chain `toMutableList()` if you actually need a mutable result.
-* [org.openrewrite.kotlin.stdlib.UseEmptyListForListOfNoArgs$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/stdlib/useemptylistforlistofnoargs$ktrecipe.md)
-  * **Use `emptyList&lt;T&gt;()` instead of `listOf&lt;T&gt;()`**
-  * `listOf()` with no entries delegates to `emptyList()`. Call the named factory directly to make the empty-by-construction intent visible.
-* [org.openrewrite.kotlin.stdlib.UseEmptyMapForMapOfNoArgs$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/stdlib/useemptymapformapofnoargs$ktrecipe.md)
-  * **Use `emptyMap&lt;K, V&gt;()` instead of `mapOf&lt;K, V&gt;()`**
-  * `mapOf()` with no entries delegates to `emptyMap()`. Call the named factory directly to make the empty-by-construction intent visible.
-* [org.openrewrite.kotlin.stdlib.UseEmptySetForSetOfNoArgs$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/stdlib/useemptysetforsetofnoargs$ktrecipe.md)
-  * **Use `emptySet&lt;T&gt;()` instead of `setOf&lt;T&gt;()`**
-  * `setOf()` with no entries delegates to `emptySet()`. Call the named factory directly to make the empty-by-construction intent visible.
-* [org.openrewrite.kotlin.stdlib.UseSetForMutableSetToSet$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/stdlib/usesetformutablesettoset$ktrecipe.md)
-  * **Use `toSet()` instead of `toMutableSet().toSet()`**
-  * `toMutableSet()` already allocates a fresh set — calling `toSet()` on it copies again. Go directly to `toSet()`.
-* [org.openrewrite.kotlin.stdlib.UseStringDropForSubstring$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/stdlib/usestringdropforsubstring$ktrecipe.md)
-  * **Use `drop(n)` instead of `substring(n)` on a `String`**
-  * `drop(n)` is the named form for skipping the first `n` characters and returns the empty string for over-long `n` instead of throwing.
-* [org.openrewrite.kotlin.stdlib.UseStringIsBlankForTrimIsEmpty$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/stdlib/usestringisblankfortrimisempty$ktrecipe.md)
-  * **Use `isBlank()` instead of `trim().isEmpty()` on a `String`**
-  * `trim().isEmpty()` allocates a trimmed copy just to check whether the result has no characters. `isBlank()` answers the same question by scanning in place.
-* [org.openrewrite.kotlin.stdlib.UseStringIsNotBlankForTrimIsNotEmpty$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/stdlib/usestringisnotblankfortrimisnotempty$ktrecipe.md)
-  * **Use `isNotBlank()` instead of `trim().isNotEmpty()` on a `String`**
-  * `trim().isNotEmpty()` allocates a trimmed copy to check whether anything is left. `isNotBlank()` answers the same question by scanning in place.
-* [org.openrewrite.kotlin.stdlib.UseStringTakeForSubstringFromZero$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/stdlib/usestringtakeforsubstringfromzero$ktrecipe.md)
-  * **Use `take(n)` instead of `substring(0, n)` on a `String`**
-  * `take(n)` is the named form on `CharSequence` and uniformly returns the empty string when `n` is larger than `length`. `substring(0, n)` throws on that case — the named form is both clearer and friendlier.
-* [org.openrewrite.kotlin.stdlib.UseTakeForSubListFromZero$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/stdlib/usetakeforsublistfromzero$ktrecipe.md)
-  * **Use `take(n)` instead of `subList(0, n)`**
-  * `take(n)` returns the first `n` elements as a stable copy. `subList(0, n)` returns a live view backed by the original list — surprising aliasing if the source is mutated.
-* [org.openrewrite.kotlin.stdlib.UseToListForListToList$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/stdlib/usetolistforlisttolist$ktrecipe.md)
-  * **Use `toList()` instead of `toMutableList().toList()`**
-  * `toMutableList()` already allocates a fresh list — wrapping it in another `toList()` copies it again. Go directly to `toList()`.
-* [org.openrewrite.kotlin.stdlib.UseToSetForToListToSet$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/stdlib/usetosetfortolisttoset$ktrecipe.md)
-  * **Use `toSet()` instead of `toList().toSet()`**
-  * Materializing a `List` first and then a `Set` allocates one collection that's thrown away. `toSet()` builds the deduplicating collection directly.
-* [org.openrewrite.kotlin.testing.FindAssertEqualsCandidateForKotest$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/testing/findassertequalscandidateforkotest$ktrecipe.md)
-  * **Find `assertEquals(...)` calls — Kotest migration candidate**
-  * Kotest's idiomatic form for `assertEquals(expected, actual)` is `actual shouldBe expected` — the receiver is the subject under test, which composes naturally with chained matchers (`actual shouldBe expected; actual.shouldBeOfType&lt;T&gt;()`). Each match is a candidate when migrating to Kotest.
-* [org.openrewrite.kotlin.testing.FindAssertFalseCandidateForKotest$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/testing/findassertfalsecandidateforkotest$ktrecipe.md)
-  * **Find `assertFalse(...)` calls — Kotest migration candidate**
-  * Same shape as `assertTrue`: the predicate is collapsed to a boolean and the failure message loses fidelity. Kotest's `actual.shouldBeFalse()` (or specialized matchers like `actual.shouldNotContain(...)`) records the original expression.
-* [org.openrewrite.kotlin.testing.FindAssertJChainUsingExtractingThenContains$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/testing/findassertjchainusingextractingthencontains$ktrecipe.md)
-  * **Find AssertJ `.extracting(...).contains(...)` chains**
-  * AssertJ's `.extracting(&quot;name&quot;)` uses reflection; `.extracting \{ it.name \}` (lambda form) is type-safe. Each match is a candidate for the lambda form, or for moving to a `.allMatch \{ … \}` predicate when the collection-level invariant is what you actually want to assert.
-* [org.openrewrite.kotlin.testing.FindAssertNotNullCandidateForKotest$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/testing/findassertnotnullcandidateforkotest$ktrecipe.md)
-  * **Find `assertNotNull(...)` calls — Kotest migration candidate**
-  * Kotest's `actual.shouldNotBeNull()` is a contract function: after it returns, the compiler smart-casts `actual` to its non-nullable type, so the chained matcher can call methods without `!!`. JUnit's `assertNotNull` does not smart-cast.
-* [org.openrewrite.kotlin.testing.FindAssertNullCandidateForKotest$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/testing/findassertnullcandidateforkotest$ktrecipe.md)
-  * **Find `assertNull(...)` calls — Kotest migration candidate**
-  * `assertNull(actual)` → `actual.shouldBeNull()` in Kotest. The receiver-style form keeps the subject as the focal point, which composes more cleanly into specialized matchers (`actual.shouldBeNullOrEmpty()` etc).
-* [org.openrewrite.kotlin.testing.FindAssertThrowsCandidateForKotest$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/testing/findassertthrowscandidateforkotest$ktrecipe.md)
-  * **Find `assertThrows&lt;X&gt; \{ ... \}` calls — Kotest migration candidate**
-  * JUnit 5's `assertThrows&lt;X&gt; \{ … \}` and Kotest's `shouldThrow&lt;X&gt; \{ … \}` have the same shape. Migrating gives access to Kotest's `shouldThrowExactly&lt;X&gt;` (rejects subclass exceptions) and `shouldThrowMessage(text) \{ … \}`, which are tighter than JUnit's catch-and-introspect pattern.
-* [org.openrewrite.kotlin.testing.FindAssertTrueCandidateForKotest$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/testing/findasserttruecandidateforkotest$ktrecipe.md)
-  * **Find `assertTrue(...)` calls — Kotest migration candidate**
-  * `assertTrue(condition)` collapses the predicate into a boolean before failure formatting can capture *what* the value actually was. Kotest's `actual.shouldBeTrue()` (and the matcher library generally — `actual shouldBe true`, `actual.shouldStartWith(...)`) carries the original expression into the failure message.
-* [org.openrewrite.kotlin.testing.FindAssertionLibrarySmells$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/testing/findassertionlibrarysmells$ktrecipe.md)
-  * **Find assertion-library smells**
-  * Search-only bundle for assertion-library specifics: Hamcrest's `assertThat(actual, is(expected))` form, and AssertJ's reflective `.extracting(&quot;name&quot;)` followed by `.contains(...)`.
-* [org.openrewrite.kotlin.testing.FindBeforeEachReinitializingFinal$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/testing/findbeforeeachreinitializingfinal$ktrecipe.md)
-  * **Find `@BeforeEach` methods that reassign `val` properties**
-  * `@BeforeEach` runs before every test, but `val` property assignment only happens at construction. If `setUp` looks like `value = ...` against a `val`, it doesn't compile — but the related anti-pattern (reassigning a `lateinit var` per test where the type-safe shape would be a `val` initialized in the constructor) is worth surfacing.
-* [org.openrewrite.kotlin.testing.FindCoroutineTestRule$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/testing/findcoroutinetestrule$ktrecipe.md)
-  * **Find JUnit 4 coroutine-test `@Rule` fields**
-  * Hand-rolled `MainCoroutineRule` / `CoroutineTestRule` patterns predate `kotlinx-coroutines-test`'s `Dispatchers.setMain`/`resetMain` helpers. With `runTest \{ \} ` + `Dispatchers.setMain(StandardTestDispatcher())` the rule's responsibilities are spread across `@BeforeEach`/`@AfterEach` cleanly enough that the rule itself becomes redundant.
-* [org.openrewrite.kotlin.testing.FindCoroutineTestSmells$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/testing/findcoroutinetestsmells$ktrecipe.md)
-  * **Find coroutine-test patterns**
-  * Search-only bundle for coroutine-testing primitives: `runBlocking` inside `@Test`, `runBlockingTest` (deprecated), `TestCoroutineDispatcher` (deprecated), JUnit 4 `@Rule` fields named after coroutines (hand-rolled `MainCoroutineRule`-style), and `delay(...)` calls inside a `runBlocking` test body.
-* [org.openrewrite.kotlin.testing.FindDelayInTest$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/testing/finddelayintest$ktrecipe.md)
-  * **Find `delay(...)` calls inside test methods running on a real dispatcher**
-  * `delay(ms)` inside a test that uses `runBlocking` (not `runTest`) waits the literal duration in real time — a fast suite slows to a crawl. Inside `runTest \{ \}`, `delay` advances virtual time instantly; the call shape is identical but the runner makes the difference.
-* [org.openrewrite.kotlin.testing.FindDisabledTest$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/testing/finddisabledtest$ktrecipe.md)
-  * **Find `@Disabled` annotations**
-  * `@Disabled` is the JUnit 5 skip annotation — typically used for tests that are flaky, broken, or pending an upstream fix. Each match is a tech-debt marker worth reviewing: confirm the skip is still warranted, the reason still applies, and the test isn't hiding a real regression.
-* [org.openrewrite.kotlin.testing.FindEmptyTestBody$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/testing/findemptytestbody$ktrecipe.md)
-  * **Find `@Test` methods with empty bodies**
-  * An empty `@Test fun foo() \{ \}` passes unconditionally. The reasons it lands in a codebase are usually disabled-during-WIP, scaffolded-then-forgotten, or a stand-in for a TODO. Each match should either gain assertions, be annotated `@Disabled` with a reason, or be deleted.
-* [org.openrewrite.kotlin.testing.FindFunctionTestNamedWithUnderscores$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/testing/findfunctiontestnamedwithunderscores$ktrecipe.md)
-  * **Find test functions named with snake_case**
-  * Kotlin's backtick syntax lets test names read as sentences: `fun \`returns 404 when user not found\`()`. Names like `fun test_returns_404_when_user_not_found()` predate that convention — usually the result of porting Java tests directly.
-* [org.openrewrite.kotlin.testing.FindHamcrestAssertThatUsage$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/testing/findhamcrestassertthatusage$ktrecipe.md)
-  * **Find `MatcherAssert.assertThat(...)` (Hamcrest) calls**
-  * Hamcrest's `assertThat(actual, is(expected))` was the inspiration for both AssertJ's fluent chains and Kotest's matcher library. On a Kotlin codebase both alternatives compose better with the language (AssertJ via type-safe builders, Kotest via infix and extension functions).
-* [org.openrewrite.kotlin.testing.FindJUnitFunctionWithPublic$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/testing/findjunitfunctionwithpublic$ktrecipe.md)
-  * **Find `public` modifier on JUnit 5 test functions**
-  * JUnit 5 dropped the JUnit 4 requirement that test methods be public — package-private (Java) or no modifier (Kotlin default) is the convention. Each `public fun test...()` is a JUnit 4 holdover that can be dropped.
-* [org.openrewrite.kotlin.testing.FindKotestCandidates$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/testing/findkotestcandidates$ktrecipe.md)
-  * **Find Kotest migration candidates**
-  * Search-only bundle for assertion call sites that have direct Kotest equivalents: `assertEquals` (`shouldBe`), `assertTrue`/`assertFalse` (`shouldBeTrue`/`shouldBeFalse`), `assertNull`/`assertNotNull` (`shouldBeNull`/`shouldNotBeNull` with smart-cast), `assertThrows` (`shouldThrow`), plus snake_case test names that Kotlin's backtick syntax can replace with sentence-style names.
-* [org.openrewrite.kotlin.testing.FindMockitoArgumentCaptor$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/testing/findmockitoargumentcaptor$ktrecipe.md)
-  * **Find `ArgumentCaptor.forClass(X::class.java)` allocations**
-  * `ArgumentCaptor.forClass(X::class.java)` plus a later `verify(mock).method(captor.capture())` is the Mockito idiom for asserting on the actual argument passed in. mockk's `slot&lt;X&gt;()` + `every \{ mock.method(capture(slot)) \} answers \{ … \}` records the value as part of the recording block.
-* [org.openrewrite.kotlin.testing.FindMockitoArgumentMatchersAny$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/testing/findmockitoargumentmatchersany$ktrecipe.md)
-  * **Find Mockito argument-matcher `any()` / `eq()` / `isA()` calls**
-  * Mockito's argument matchers (`any()`, `eq(value)`, `isA(X::class.java)`) only work inside a `whenever`/`verify` call — they throw if used elsewhere. mockk's matchers (`any()`, `eq(value)`, `match \{ … \}`) work the same way but live in `every \{ \}` / `verify \{ \}` blocks, so the matcher and the recording context are co-located.
-* [org.openrewrite.kotlin.testing.FindMockitoInjectMocks$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/testing/findmockitoinjectmocks$ktrecipe.md)
-  * **Find Mockito `@InjectMocks` fields**
-  * `@InjectMocks` asks Mockito to wire `@Mock`-annotated fields into the target's constructor / setters / fields by reflection. In Kotlin code with constructor injection, the cleaner equivalent is to declare the target inside `@BeforeEach`: `val target = Service(mockA, mockB)`. mockk has no analogous annotation — the explicit constructor call is the convention.
-* [org.openrewrite.kotlin.testing.FindMockitoMockCall$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/testing/findmockitomockcall$ktrecipe.md)
-  * **Find `Mockito.mock(...)` / `mock&lt;X&gt;()` calls**
-  * Mockito's `mock(X::class.java)` (or mockito-kotlin's `mock&lt;X&gt;()`) builds a relaxed proxy that returns sensible defaults for unstubbed calls. The mockk equivalent is `mockk&lt;X&gt;()` — strict by default (unstubbed calls throw) with `mockk&lt;X&gt;(relaxed = true)` for the Mockito-style default behavior.
-* [org.openrewrite.kotlin.testing.FindMockitoMockField$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/testing/findmockitomockfield$ktrecipe.md)
-  * **Find Mockito `@Mock` fields**
-  * `@Mock`-annotated fields are populated by `MockitoAnnotations.openMocks(this)` (or the `MockitoExtension`). In mockk the convention is an inline assignment: `private val service = mockk&lt;Service&gt;(relaxed = true)`. Each match is a candidate for that conversion.
-* [org.openrewrite.kotlin.testing.FindMockitoSmells$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/testing/findmockitosmells$ktrecipe.md)
-  * **Find mockito-kotlin / Mockito patterns**
-  * Search-only bundle covering the Mockito surface most worth reviewing when migrating to mockk: `mock`/`spy` allocations, `whenever.thenReturn` chains, `verify(...)` calls, argument matchers, `ArgumentCaptor.forClass`, and `@Mock`/`@InjectMocks` field annotations.
-* [org.openrewrite.kotlin.testing.FindMockitoSpyCall$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/testing/findmockitospycall$ktrecipe.md)
-  * **Find `Mockito.spy(...)` / `spy(...)` calls**
-  * Mockito's `spy(realInstance)` wraps a real object so unstubbed methods call the real implementation. mockk uses `spyk(realInstance)` — same idea, different semantics around `every \{ \} returns ...` (mockk records the call, Mockito intercepts the invocation).
-* [org.openrewrite.kotlin.testing.FindMockitoVerifyCall$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/testing/findmockitoverifycall$ktrecipe.md)
-  * **Find Mockito `verify(mock).method(...)` calls**
-  * Mockito's `verify(mock).method(arg)` records a verification at the call site. mockk inverts the form: `verify \{ mock.method(arg) \}` — the lambda block makes the verified invocations explicit and supports `exactly = n`, `atLeast = n`, etc., as named arguments to the outer call.
-* [org.openrewrite.kotlin.testing.FindMockitoWhenThenReturn$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/testing/findmockitowhenthenreturn$ktrecipe.md)
-  * **Find Mockito `whenever(...).thenReturn(...)` chains**
-  * Mockito's `whenever(call).thenReturn(value)` (or `whenever(call).thenAnswer \{ … \}`) intercepts the method invocation as it happens. mockk records the invocation in a DSL block: `every \{ mock.foo() \} returns value`. The mockk form composes more naturally with property access and suspending calls.
-* [org.openrewrite.kotlin.testing.FindParameterizedTestWithValueSourceStrings$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/testing/findparameterizedtestwithvaluesourcestrings$ktrecipe.md)
-  * **Find `@ValueSource(strings = [...])` annotations**
-  * `@ValueSource(strings = [...])` is the simplest `@ParameterizedTest` data source. For tests where each row drives multiple parameters, `@CsvSource(...)` or `@MethodSource(...)` carry more information per case and read more like a table.
-* [org.openrewrite.kotlin.testing.FindRepeatedTestAnnotation$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/testing/findrepeatedtestannotation$ktrecipe.md)
-  * **Find `@RepeatedTest(N)` annotations**
-  * `@RepeatedTest(N)` runs the same test body N times — useful for flaky-test reproduction, suspicious for asserting on randomized inputs (use `@ParameterizedTest` + `@MethodSource` for that). Each match is worth a glance at N and at what the repetition is meant to prove.
-* [org.openrewrite.kotlin.testing.FindRunBlockingInTest$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/testing/findrunblockingintest$ktrecipe.md)
-  * **Find `runBlocking \{ ... \}` calls inside test methods**
-  * `runBlocking` inside a test method ties the test's wait to real wall-clock time — `delay(60_000)` is a literal minute. `runTest \{ … \}` from `kotlinx-coroutines-test` skips virtual time forward instead, so the same test finishes immediately while preserving suspend ordering.
-* [org.openrewrite.kotlin.testing.FindRunBlockingTestCall$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/testing/findrunblockingtestcall$ktrecipe.md)
-  * **Find `runBlockingTest \{ ... \}` calls**
-  * `runBlockingTest` was deprecated in `kotlinx-coroutines-test` 1.6 in favor of `runTest \{ … \}`, which uses a `TestCoroutineScheduler` instead of the old `DelayController`. The new API has a cleaner contract around how child coroutines are awaited.
-* [org.openrewrite.kotlin.testing.FindTagAnnotationUsage$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/testing/findtagannotationusage$ktrecipe.md)
-  * **Find `@Tag(...)` annotations**
-  * `@Tag(&quot;slow&quot;)` is JUnit 5's mechanism for grouping tests so the build can include/exclude them by tag. Useful to flag for tag-name consistency review across modules — if every module has its own spelling of &quot;integration&quot;, the build's tag filter doesn't catch them uniformly.
-* [org.openrewrite.kotlin.testing.FindTestCoroutineDispatcherUsage$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/testing/findtestcoroutinedispatcherusage$ktrecipe.md)
-  * **Find `TestCoroutineDispatcher` allocations**
-  * `TestCoroutineDispatcher` was deprecated alongside `runBlockingTest`. The replacements are `StandardTestDispatcher` (queues all coroutines to a scheduler) and `UnconfinedTestDispatcher` (runs them eagerly on the current thread) — pick based on whether the test wants explicit advancement of virtual time.
-* [org.openrewrite.kotlin.testing.FindTestFixtureSmells$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/testing/findtestfixturesmells$ktrecipe.md)
-  * **Find test fixture / setup smells**
-  * Search-only bundle for test-method shape issues: empty `@Test` bodies, `@Test` methods without any recognized assertion call, `@Test` methods with many assertions (consider parameterized), and `@BeforeEach`/`@Before` methods reassigning instance state (lateinit var hint).
-* [org.openrewrite.kotlin.testing.FindTestFrameworkSetupSmells$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/testing/findtestframeworksetupsmells$ktrecipe.md)
-  * **Find JUnit 5 setup smells (informational)**
-  * Search-only bundle for informational `@ParameterizedTest` / `@RepeatedTest` / `@Tag` / `@Disabled` review markers. None of these are anti-patterns on their own — each one is worth a once-over for parameter-source choice, repetition intent, tag spelling, or whether the disable is still warranted.
-* [org.openrewrite.kotlin.testing.FindTestNoAssertions$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/testing/findtestnoassertions$ktrecipe.md)
-  * **Find `@Test` methods with no recognized assertion calls**
-  * A test with no `assert*` / `should*` / `assertThat` calls relies on its setup to throw on failure — fine for some smoke tests, suspicious for most. Each match is a candidate for adding an explicit assertion that documents what the test is actually verifying.
-* [org.openrewrite.kotlin.testing.FindTooManyAssertions$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/testing/findtoomanyassertions$ktrecipe.md)
-  * **Find `@Test` methods with many assertions**
-  * A test with more than ~7 assertions is usually testing several behaviors at once — when one fails the others go unreported, and the failure message rarely points at the right cause. Split into focused tests, or move to `@ParameterizedTest` if the assertions are repeating with different inputs.
-* [org.openrewrite.kotlin.testing.Testing$KtRecipe](/user-documentation/recipes/recipe-catalog/kotlin/testing/testing$ktrecipe.md)
-  * **Modernize Kotlin test code**
-  * Find Kotlin-specific test patterns: mockito-kotlin usage where mockk would be idiomatic, deprecated `runBlocking` / `TestCoroutineDispatcher` patterns, Kotest assertion migration candidates, empty / assertion-less / many-assertion test bodies, snake_case test names, and Hamcrest call sites that fluent assertion libraries (AssertJ, Kotest) replace cleanly. Each match is a `SearchResult` for review — nothing is rewritten automatically. For bulk JUnit 4 → JUnit 5 annotation/assertion migration, apply `JUnit4to5Migration` from `rewrite-testing-frameworks`.
+* [OpenRewrite.CSharp.Recipes.AddNuGetPackageReference](/user-documentation/recipes/recipe-catalog/csharp/csharp/recipes/addnugetpackagereference.md)
+  * **Add NuGet package reference**
+  * Adds a `&lt;PackageReference&gt;` element to .csproj files if not already present.
+* [OpenRewrite.CSharp.Recipes.ChangeDotNetTargetFramework](/user-documentation/recipes/recipe-catalog/csharp/csharp/recipes/changedotnettargetframework.md)
+  * **Change .NET target framework**
+  * Changes the `&lt;TargetFramework&gt;` or `&lt;TargetFrameworks&gt;` value in .csproj files. For multi-TFM projects, replaces the matching framework within the semicolon-delimited list.
+* [OpenRewrite.CSharp.Recipes.FindNuGetPackageReference](/user-documentation/recipes/recipe-catalog/csharp/csharp/recipes/findnugetpackagereference.md)
+  * **Find NuGet package reference**
+  * Searches for .csproj files that reference a specific NuGet package. Intended for use as a precondition to scope other recipes.
+* [OpenRewrite.CSharp.Recipes.RemoveNuGetPackageReference](/user-documentation/recipes/recipe-catalog/csharp/csharp/recipes/removenugetpackagereference.md)
+  * **Remove NuGet package reference**
+  * Removes a `&lt;PackageReference&gt;` element from .csproj files.
+* [OpenRewrite.CSharp.Recipes.UpgradeNuGetPackageVersion](/user-documentation/recipes/recipe-catalog/csharp/csharp/recipes/upgradenugetpackageversion.md)
+  * **Upgrade NuGet package version**
+  * Upgrades the version of a NuGet `&lt;PackageReference&gt;` or `&lt;PackageVersion&gt;` in .csproj and Directory.Packages.props files. Handles property references by updating the property value instead of the version attribute. Uses NuGet.Versioning for correct version semantics.
+* [OpenRewrite.Recipes.CodeQuality.CodeQuality](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/codequality-recipe.md)
+  * **Code quality**
+  * All C# code quality recipes, organized by category.
+* [OpenRewrite.Recipes.CodeQuality.Formatting.AddNewLineAfterOpeningBrace](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/formatting/addnewlineafteropeningbrace.md)
+  * **Add newline after opening brace**
+  * Add newline after opening brace so the first statement starts on its own line.
+* [OpenRewrite.Recipes.CodeQuality.Formatting.AddNewLineBeforeReturn](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/formatting/addnewlinebeforereturn.md)
+  * **Add newline before return**
+  * Add a blank line before return statements that follow other statements.
+* [OpenRewrite.Recipes.CodeQuality.Formatting.AddParagraphToDocComment](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/formatting/addparagraphtodoccomment.md)
+  * **Add paragraph to documentation comment**
+  * Format multi-line documentation comments with paragraph elements.
+* [OpenRewrite.Recipes.CodeQuality.Formatting.AddParameterToDocComment](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/formatting/addparametertodoccomment.md)
+  * **Add parameter name to documentation comment**
+  * Add missing param elements to XML documentation comments.
+* [OpenRewrite.Recipes.CodeQuality.Formatting.AddSummaryElementToDocComment](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/formatting/addsummaryelementtodoccomment.md)
+  * **Add summary to documentation comment**
+  * Add summary text to documentation comments with empty summary elements.
+* [OpenRewrite.Recipes.CodeQuality.Formatting.AddSummaryToDocComment](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/formatting/addsummarytodoccomment.md)
+  * **Add summary element to documentation comment**
+  * Add missing summary element to XML documentation comments.
+* [OpenRewrite.Recipes.CodeQuality.Formatting.AddTypeParamToDocComment](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/formatting/addtypeparamtodoccomment.md)
+  * **Add 'typeparam' element to documentation comment**
+  * Add missing 'typeparam' elements to XML documentation comments.
+* [OpenRewrite.Recipes.CodeQuality.Formatting.FixDocCommentTag](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/formatting/fixdoccommenttag.md)
+  * **Fix documentation comment tag**
+  * Replace inline &lt;code&gt; elements with &lt;c&gt; elements in XML documentation comments.
+* [OpenRewrite.Recipes.CodeQuality.Formatting.FormatAccessorList](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/formatting/formataccessorlist.md)
+  * **Format accessor list**
+  * Format property accessor list for consistent whitespace.
+* [OpenRewrite.Recipes.CodeQuality.Formatting.FormatDocumentationSummary](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/formatting/formatdocumentationsummary.md)
+  * **Format documentation summary**
+  * Format XML documentation summary on a single line or multiple lines.
+* [OpenRewrite.Recipes.CodeQuality.Formatting.FormatSwitchSection](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/formatting/formatswitchsection.md)
+  * **Format switch section**
+  * Ensure consistent formatting of switch sections.
+* [OpenRewrite.Recipes.CodeQuality.Formatting.FormattingCodeQuality](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/formatting/formattingcodequality.md)
+  * **Formatting code quality**
+  * Code formatting recipes for C#.
+* [OpenRewrite.Recipes.CodeQuality.Formatting.InvalidDocCommentReference](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/formatting/invaliddoccommentreference.md)
+  * **Invalid reference in a documentation comment**
+  * Find invalid cref or paramref references in XML documentation comments.
+* [OpenRewrite.Recipes.CodeQuality.Formatting.NormalizeWhitespace](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/formatting/normalizewhitespace.md)
+  * **Normalize whitespace**
+  * Normalize whitespace for consistent formatting.
+* [OpenRewrite.Recipes.CodeQuality.Formatting.OrderDocCommentElements](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/formatting/orderdoccommentelements.md)
+  * **Order elements in documentation comment**
+  * Order param/typeparam elements to match declaration order.
+* [OpenRewrite.Recipes.CodeQuality.Linq.CombineLinqMethods](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/linq/combinelinqmethods.md)
+  * **Combine LINQ methods**
+  * Combine `.Where(predicate).First()` and similar patterns into `.First(predicate)`, and consecutive `.Where().Where()` calls into a single `.Where()` with a combined predicate. Eliminating intermediate LINQ calls improves readability.
+* [OpenRewrite.Recipes.CodeQuality.Linq.FindOptimizeCountUsage](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/linq/findoptimizecountusage.md)
+  * **Find Count() comparison that could be optimized**
+  * Detect `Count(pred) == n` and `Count() &gt; n` comparisons which could use `Where().Take(n+1).Count()` or `Skip(n).Any()` for better performance.
+* [OpenRewrite.Recipes.CodeQuality.Linq.FindWhereBeforeOrderBy](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/linq/findwherebeforeorderby.md)
+  * **Use Where before OrderBy**
+  * Place `.Where()` before `.OrderBy()` to filter elements before sorting. This reduces the number of items that need to be sorted.
+* [OpenRewrite.Recipes.CodeQuality.Linq.LinqCodeQuality](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/linq/linqcodequality.md)
+  * **LINQ code quality**
+  * Optimize LINQ method calls for better readability and performance.
+* [OpenRewrite.Recipes.CodeQuality.Linq.OptimizeLinqSelectAverage](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/linq/optimizelinqselectaverage.md)
+  * **Optimize LINQ Select().Average()**
+  * Replace `items.Select(selector).Average()` with `items.Average(selector)`.
+* [OpenRewrite.Recipes.CodeQuality.Linq.OptimizeLinqSelectMax](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/linq/optimizelinqselectmax.md)
+  * **Optimize LINQ Select().Max()**
+  * Replace `items.Select(selector).Max()` with `items.Max(selector)`. Passing the selector directly to `Max` avoids an intermediate iterator.
+* [OpenRewrite.Recipes.CodeQuality.Linq.OptimizeLinqSelectMin](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/linq/optimizelinqselectmin.md)
+  * **Optimize LINQ Select().Min()**
+  * Replace `items.Select(selector).Min()` with `items.Min(selector)`. Passing the selector directly to `Min` avoids an intermediate iterator.
+* [OpenRewrite.Recipes.CodeQuality.Linq.OptimizeLinqSelectSum](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/linq/optimizelinqselectsum.md)
+  * **Optimize LINQ Select().Sum()**
+  * Replace `items.Select(selector).Sum()` with `items.Sum(selector)`.
+* [OpenRewrite.Recipes.CodeQuality.Linq.OptimizeLinqWhereAny](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/linq/optimizelinqwhereany.md)
+  * **Optimize LINQ Where().Any()**
+  * Replace `items.Where(predicate).Any()` with `items.Any(predicate)`. Passing the predicate directly to `Any` avoids an intermediate iterator.
+* [OpenRewrite.Recipes.CodeQuality.Linq.OptimizeLinqWhereCount](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/linq/optimizelinqwherecount.md)
+  * **Optimize LINQ Where().Count()**
+  * Replace `items.Where(predicate).Count()` with `items.Count(predicate)`. Passing the predicate directly to `Count` avoids an intermediate iterator.
+* [OpenRewrite.Recipes.CodeQuality.Linq.OptimizeLinqWhereCountLong](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/linq/optimizelinqwherecountlong.md)
+  * **Optimize LINQ Where().LongCount()**
+  * Replace `.Where(predicate).LongCount()` with `.LongCount(predicate)`.
+* [OpenRewrite.Recipes.CodeQuality.Linq.OptimizeLinqWhereFirst](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/linq/optimizelinqwherefirst.md)
+  * **Optimize LINQ Where().First()**
+  * Replace `items.Where(predicate).First()` with `items.First(predicate)`.
+* [OpenRewrite.Recipes.CodeQuality.Linq.OptimizeLinqWhereFirstOrDefault](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/linq/optimizelinqwherefirstordefault.md)
+  * **Optimize LINQ Where().FirstOrDefault()**
+  * Replace `items.Where(predicate).FirstOrDefault()` with `items.FirstOrDefault(predicate)`.
+* [OpenRewrite.Recipes.CodeQuality.Linq.OptimizeLinqWhereLast](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/linq/optimizelinqwherelast.md)
+  * **Optimize LINQ Where().Last()**
+  * Replace `items.Where(predicate).Last()` with `items.Last(predicate)`.
+* [OpenRewrite.Recipes.CodeQuality.Linq.OptimizeLinqWhereLastOrDefault](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/linq/optimizelinqwherelastordefault.md)
+  * **Optimize LINQ Where().LastOrDefault()**
+  * Replace `.Where(predicate).LastOrDefault()` with `.LastOrDefault(predicate)`.
+* [OpenRewrite.Recipes.CodeQuality.Linq.OptimizeLinqWhereSingle](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/linq/optimizelinqwheresingle.md)
+  * **Optimize LINQ Where().Single()**
+  * Replace `items.Where(predicate).Single()` with `items.Single(predicate)`.
+* [OpenRewrite.Recipes.CodeQuality.Linq.OptimizeLinqWhereSingleOrDefault](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/linq/optimizelinqwheresingleordefault.md)
+  * **Optimize LINQ Where().SingleOrDefault()**
+  * Replace `items.Where(predicate).SingleOrDefault()` with `items.SingleOrDefault(predicate)`.
+* [OpenRewrite.Recipes.CodeQuality.Linq.RemoveUselessOrderBy](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/linq/removeuselessorderby.md)
+  * **Remove useless OrderBy call**
+  * Replace `.OrderBy(a).OrderBy(b)` with `.OrderBy(b)`. A second `OrderBy` completely replaces the first sort, making the first call useless.
+* [OpenRewrite.Recipes.CodeQuality.Linq.UseAnyInsteadOfCount](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/linq/useanyinsteadofcount.md)
+  * **Use Any() instead of Count() &gt; 0**
+  * Replace `.Count() &gt; 0` with `.Any()`. `Any()` short-circuits after the first match, while `Count()` enumerates all elements.
+* [OpenRewrite.Recipes.CodeQuality.Linq.UseCastInsteadOfSelect](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/linq/usecastinsteadofselect.md)
+  * **Use Cast&lt;T&gt;() instead of Select with cast**
+  * Replace `.Select(x =&gt; (T)x)` with `.Cast&lt;T&gt;()`. The `Cast&lt;T&gt;()` method is more concise and clearly expresses the intent.
+* [OpenRewrite.Recipes.CodeQuality.Linq.UseOrderByDescendingThenByDescending](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/linq/useorderbydescendingthenbydescending.md)
+  * **Use OrderByDescending().ThenByDescending()**
+  * Replace `.OrderByDescending(a).OrderByDescending(b)` with `.OrderByDescending(a).ThenByDescending(b)`.
+* [OpenRewrite.Recipes.CodeQuality.Linq.UseOrderByThenBy](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/linq/useorderbythenby.md)
+  * **Use ThenBy instead of second OrderBy**
+  * Replace `items.OrderBy(a).OrderBy(b)` with `items.OrderBy(a).ThenBy(b)`. A second `OrderBy` discards the first sort; `ThenBy` preserves it as a secondary key.
+* [OpenRewrite.Recipes.CodeQuality.Linq.UseOrderByThenByDescending](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/linq/useorderbythenbydescending.md)
+  * **Use OrderBy().ThenByDescending()**
+  * Replace `.OrderBy(a).OrderByDescending(b)` with `.OrderBy(a).ThenByDescending(b)`.
+* [OpenRewrite.Recipes.CodeQuality.Linq.UseOrderInsteadOfOrderBy](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/linq/useorderinsteadoforderby.md)
+  * **Use Order() instead of OrderBy() with identity**
+  * Replace `.OrderBy(x =&gt; x)` with `.Order()`. The `Order()` method (available since .NET 7) is a cleaner way to sort elements in their natural order.
+* [OpenRewrite.Recipes.CodeQuality.Naming.AsyncMethodNameShouldEndWithAsync](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/naming/asyncmethodnameshouldendwithasync.md)
+  * **Async method name should end with Async**
+  * Rename async methods to end with 'Async' suffix.
+* [OpenRewrite.Recipes.CodeQuality.Naming.FindAttributeNameShouldEndWithAttribute](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/naming/findattributenameshouldendwithattribute.md)
+  * **Attribute name should end with 'Attribute'**
+  * Classes that inherit from `System.Attribute` should have names ending with 'Attribute' by convention.
+* [OpenRewrite.Recipes.CodeQuality.Naming.FindEventArgsNameConvention](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/naming/findeventargsnameconvention.md)
+  * **EventArgs name should end with 'EventArgs'**
+  * Classes that inherit from `System.EventArgs` should have names ending with 'EventArgs' by convention.
+* [OpenRewrite.Recipes.CodeQuality.Naming.FindExceptionNameShouldEndWithException](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/naming/findexceptionnameshouldendwithexception.md)
+  * **Exception name should end with 'Exception'**
+  * Classes that inherit from `System.Exception` should have names ending with 'Exception' by convention.
+* [OpenRewrite.Recipes.CodeQuality.Naming.FindFixTodoComment](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/naming/findfixtodocomment.md)
+  * **Find TODO/HACK/FIXME comments**
+  * Detect TODO, HACK, UNDONE, and FIXME comments that indicate unfinished work.
+* [OpenRewrite.Recipes.CodeQuality.Naming.NamingCodeQuality](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/naming/namingcodequality.md)
+  * **Naming code quality**
+  * Naming convention recipes for C# code.
+* [OpenRewrite.Recipes.CodeQuality.Naming.NonAsyncMethodNameShouldNotEndWithAsync](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/naming/nonasyncmethodnameshouldnotendwithasync.md)
+  * **Non-async method should not end with Async**
+  * Remove 'Async' suffix from non-async methods.
+* [OpenRewrite.Recipes.CodeQuality.Naming.ParameterNameMatchesBase](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/naming/parameternamematchesbase.md)
+  * **Parameter name should match base definition**
+  * Ensure parameter names match the names used in base class or interface.
+* [OpenRewrite.Recipes.CodeQuality.Naming.RenameParameterAccordingToConvention](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/naming/renameparameteraccordingtoconvention.md)
+  * **Rename parameter to camelCase**
+  * Detect parameters not following camelCase naming convention.
+* [OpenRewrite.Recipes.CodeQuality.Naming.RenamePrivateFieldAccordingToConvention](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/naming/renameprivatefieldaccordingtoconvention.md)
+  * **Rename private field according to _camelCase convention**
+  * Detect private fields not following _camelCase naming convention.
+* [OpenRewrite.Recipes.CodeQuality.Naming.UseNameofOperator](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/naming/usenameofoperator.md)
+  * **Use nameof operator**
+  * Use nameof(parameter) instead of string literal for argument exception constructors.
+* [OpenRewrite.Recipes.CodeQuality.Performance.AvoidBoxingOfValueType](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/performance/avoidboxingofvaluetype.md)
+  * **Avoid boxing of value type**
+  * Avoid boxing of value type by using generic overloads or ToString().
+* [OpenRewrite.Recipes.CodeQuality.Performance.AvoidLockingOnPubliclyAccessible](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/performance/avoidlockingonpubliclyaccessible.md)
+  * **Avoid locking on publicly accessible instance**
+  * Avoid lock(this), lock(typeof(T)), or lock on string literals which can cause deadlocks.
+* [OpenRewrite.Recipes.CodeQuality.Performance.AvoidNullReferenceException](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/performance/avoidnullreferenceexception.md)
+  * **Avoid NullReferenceException**
+  * Flag patterns that may throw NullReferenceException, such as using 'as' cast result without null check.
+* [OpenRewrite.Recipes.CodeQuality.Performance.BitOperationOnEnumWithoutFlags](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/performance/bitoperationonenumwithoutflags.md)
+  * **Bitwise operation on enum without Flags attribute**
+  * Flag bitwise operations on enums that lack the Flags attribute.
+* [OpenRewrite.Recipes.CodeQuality.Performance.ConvertHasFlagToBitwiseOperation](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/performance/converthasflagtobitwiseoperation.md)
+  * **Convert HasFlag to bitwise operation**
+  * Replace flags.HasFlag(value) with (flags &amp; value) != 0.
+* [OpenRewrite.Recipes.CodeQuality.Performance.DoNotPassNonReadOnlyStructByReadOnlyRef](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/performance/donotpassnonreadonlystructbyreadonlyref.md)
+  * **Do not pass non-read-only struct by read-only reference**
+  * Remove 'in' modifier from parameters of non-readonly struct type to avoid defensive copies.
+* [OpenRewrite.Recipes.CodeQuality.Performance.FindAsyncVoid](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/performance/findasyncvoid.md)
+  * **Do not use async void**
+  * Async void methods cannot be awaited and exceptions cannot be caught. Use `async Task` instead, except for event handlers.
+* [OpenRewrite.Recipes.CodeQuality.Performance.FindAvoidClosureByUsingFactoryArg](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/performance/findavoidclosurebyusingfactoryarg.md)
+  * **Find closure in GetOrAdd that could use factory argument**
+  * Detect `ConcurrentDictionary.GetOrAdd` calls with lambdas that capture variables. Use the overload with a factory argument parameter to avoid allocation.
+* [OpenRewrite.Recipes.CodeQuality.Performance.FindAvoidClosureInConcurrentDictionary](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/performance/findavoidclosureinconcurrentdictionary.md)
+  * **Avoid closure when using ConcurrentDictionary**
+  * ConcurrentDictionary methods like `GetOrAdd` may evaluate the factory even when the key exists. Use the overload with a factory argument to avoid closure allocation.
+* [OpenRewrite.Recipes.CodeQuality.Performance.FindAvoidClosureInMethod](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/performance/findavoidclosureinmethod.md)
+  * **Find closure in GetOrAdd/AddOrUpdate factory**
+  * Detect closures in lambdas passed to `GetOrAdd` or `AddOrUpdate`. Use the factory overload that accepts a state argument to avoid allocations.
+* [OpenRewrite.Recipes.CodeQuality.Performance.FindBlockingCallsInAsync](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/performance/findblockingcallsinasync.md)
+  * **Find blocking calls in async methods**
+  * Detect `.Wait()`, `.Result`, and `.GetAwaiter().GetResult()` calls in async methods. Blocking calls in async methods can cause deadlocks.
+* [OpenRewrite.Recipes.CodeQuality.Performance.FindDoNotUseBlockingCall](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/performance/finddonotuseblockingcall.md)
+  * **Do not use blocking calls on tasks**
+  * Avoid `.Wait()`, `.Result`, and `.GetAwaiter().GetResult()` on tasks. These can cause deadlocks. Use `await` instead.
+* [OpenRewrite.Recipes.CodeQuality.Performance.FindDoNotUseToStringIfObject](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/performance/finddonotusetostringifobject.md)
+  * **Do not use ToString on GetType result**
+  * Using `.GetType().ToString()` returns the full type name. Consider using `.GetType().Name` or `.GetType().FullName` instead for clarity.
+* [OpenRewrite.Recipes.CodeQuality.Performance.FindEqualityComparerDefaultOfString](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/performance/findequalitycomparerdefaultofstring.md)
+  * **Find EqualityComparer&lt;string&gt;.Default usage**
+  * Detect `EqualityComparer&lt;string&gt;.Default` which uses ordinal comparison. Consider using an explicit `StringComparer` instead.
+* [OpenRewrite.Recipes.CodeQuality.Performance.FindGetTypeOnSystemType](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/performance/findgettypeonsystemtype.md)
+  * **Find GetType() called on System.Type**
+  * Detect `typeof(T).GetType()` which returns `System.RuntimeType` instead of the expected `System.Type`. Use `typeof(T)` directly.
+* [OpenRewrite.Recipes.CodeQuality.Performance.FindImplicitCultureSensitiveMethods](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/performance/findimplicitculturesensitivemethods.md)
+  * **Find implicit culture-sensitive string methods**
+  * Detect calls to `ToLower()` and `ToUpper()` without culture parameters. These methods use the current thread culture, which may cause unexpected behavior.
+* [OpenRewrite.Recipes.CodeQuality.Performance.FindImplicitCultureSensitiveToString](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/performance/findimplicitculturesensitivetostring.md)
+  * **Find implicit culture-sensitive ToString calls**
+  * Detect `.ToString()` calls without format arguments. On numeric and DateTime types, these use the current thread culture.
+* [OpenRewrite.Recipes.CodeQuality.Performance.FindLinqOnDirectMethods](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/performance/findlinqondirectmethods.md)
+  * **Find LINQ methods replaceable with direct methods**
+  * Detect LINQ methods like `.Count()` that could be replaced with direct collection properties. Direct access avoids enumeration overhead.
+* [OpenRewrite.Recipes.CodeQuality.Performance.FindMakeMethodStatic](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/performance/findmakemethodstatic.md)
+  * **Find methods that could be static**
+  * Detect private methods that don't appear to use instance members and could be marked `static` for clarity and performance.
+* [OpenRewrite.Recipes.CodeQuality.Performance.FindMissingCancellationToken](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/performance/findmissingcancellationtoken.md)
+  * **Find methods not forwarding CancellationToken**
+  * Detect calls to async methods that may have CancellationToken overloads but are called without one. Uses name-based heuristics.
+* [OpenRewrite.Recipes.CodeQuality.Performance.FindMissingStructLayout](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/performance/findmissingstructlayout.md)
+  * **Find structs without StructLayout attribute**
+  * Detect struct declarations without `[StructLayout]` attribute. Adding `[StructLayout(LayoutKind.Auto)]` allows the CLR to optimize field layout for better memory usage.
+* [OpenRewrite.Recipes.CodeQuality.Performance.FindMissingTimeoutForRegex](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/performance/findmissingtimeoutforregex.md)
+  * **Add timeout to Regex**
+  * Regex without a timeout can be vulnerable to ReDoS attacks. Specify a `TimeSpan` timeout or use `RegexOptions.NonBacktracking`.
+* [OpenRewrite.Recipes.CodeQuality.Performance.FindMissingWithCancellation](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/performance/findmissingwithcancellation.md)
+  * **Find missing WithCancellation on async enumerables**
+  * Detect async enumerable iteration without `.WithCancellation()`. Async enumerables should forward CancellationToken via WithCancellation.
+* [OpenRewrite.Recipes.CodeQuality.Performance.FindNaNComparison](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/performance/findnancomparison.md)
+  * **Do not use NaN in comparisons**
+  * Comparing with `NaN` using `==` always returns false. Use `double.IsNaN(x)` instead.
+* [OpenRewrite.Recipes.CodeQuality.Performance.FindOptimizeEnumerableCountVsAny](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/performance/findoptimizeenumerablecountvsany.md)
+  * **Find LINQ Count() on materialized collection**
+  * Detect LINQ `Count()` or `Any()` on types that have a `Count` or `Length` property. Use the property directly for O(1) performance.
+* [OpenRewrite.Recipes.CodeQuality.Performance.FindOptimizeGuidCreation](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/performance/findoptimizeguidcreation.md)
+  * **Find Guid.Parse with constant string**
+  * Detect `Guid.Parse(&quot;...&quot;)` with constant strings. Consider using `new Guid(&quot;...&quot;)` or a static readonly field for better performance.
+* [OpenRewrite.Recipes.CodeQuality.Performance.FindOptimizeStartsWith](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/performance/findoptimizestartswith.md)
+  * **Use char overload for single-character string methods**
+  * Convert string methods with single-character string literals to use char overloads for better performance.
+* [OpenRewrite.Recipes.CodeQuality.Performance.FindSequenceEqualForSpan](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/performance/findsequenceequalforspan.md)
+  * **Find Span&lt;char&gt; equality that should use SequenceEqual**
+  * Detect `==` and `!=` operators on `Span&lt;char&gt;` or `ReadOnlySpan&lt;char&gt;` which compare references. Use `SequenceEqual` for content comparison.
+* [OpenRewrite.Recipes.CodeQuality.Performance.FindSimplifyStringCreate](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/performance/findsimplifystringcreate.md)
+  * **Find simplifiable string.Create calls**
+  * Detect `string.Create(CultureInfo.InvariantCulture, ...)` calls that could be simplified to string interpolation when all parameters are culture-invariant.
+* [OpenRewrite.Recipes.CodeQuality.Performance.FindStreamReadResultNotUsed](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/performance/findstreamreadresultnotused.md)
+  * **Find unused Stream.Read return value**
+  * Detect calls to `Stream.Read` or `Stream.ReadAsync` where the return value is discarded. The return value indicates how many bytes were actually read.
+* [OpenRewrite.Recipes.CodeQuality.Performance.FindStringCreateInsteadOfFormattable](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/performance/findstringcreateinsteadofformattable.md)
+  * **Find FormattableString that could use string.Create**
+  * Detect `FormattableString` usage where `string.Create` with an `IFormatProvider` could be used for better performance.
+* [OpenRewrite.Recipes.CodeQuality.Performance.FindStringFormatShouldBeConstant](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/performance/findstringformatshouldbeconstant.md)
+  * **String.Format format string should be constant**
+  * The format string passed to `string.Format` should be a compile-time constant to enable analysis and avoid runtime format errors.
+* [OpenRewrite.Recipes.CodeQuality.Performance.FindStringGetHashCode](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/performance/findstringgethashcode.md)
+  * **Find string.GetHashCode() without StringComparer**
+  * Detect calls to `string.GetHashCode()` without a `StringComparer`. The default `GetHashCode()` may produce different results across platforms.
+* [OpenRewrite.Recipes.CodeQuality.Performance.FindStructWithDefaultEqualsAsKey](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/performance/findstructwithdefaultequalsaskey.md)
+  * **Find Dictionary/HashSet with struct key type**
+  * Detect `Dictionary` or `HashSet` usage with struct types as keys. Structs without overridden `Equals`/`GetHashCode` use slow reflection-based comparison.
+* [OpenRewrite.Recipes.CodeQuality.Performance.FindUseAttributeIsDefined](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/performance/finduseattributeisdefined.md)
+  * **Find GetCustomAttributes that could use Attribute.IsDefined**
+  * Detect `GetCustomAttributes().Any()` or similar patterns where `Attribute.IsDefined` would be more efficient.
+* [OpenRewrite.Recipes.CodeQuality.Performance.FindUseContainsKeyInsteadOfTryGetValue](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/performance/findusecontainskeyinsteadoftrygetvalue.md)
+  * **Use ContainsKey instead of TryGetValue with discard**
+  * When only checking if a key exists, use `ContainsKey` instead of `TryGetValue` with a discarded out parameter.
+* [OpenRewrite.Recipes.CodeQuality.Performance.FindUseExplicitCaptureRegexOption](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/performance/finduseexplicitcaptureregexoption.md)
+  * **Use RegexOptions.ExplicitCapture**
+  * Use `RegexOptions.ExplicitCapture` to avoid capturing unnamed groups, which improves performance.
+* [OpenRewrite.Recipes.CodeQuality.Performance.FindUseIndexerInsteadOfLinq](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/performance/finduseindexerinsteadoflinq.md)
+  * **Find LINQ methods replaceable with indexer**
+  * Detect LINQ methods like `.First()` and `.Last()` that could be replaced with direct indexer access for better performance.
+* [OpenRewrite.Recipes.CodeQuality.Performance.FindUseRegexSourceGenerator](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/performance/finduseregexsourcegenerator.md)
+  * **Find Regex that could use source generator**
+  * Detect `new Regex(...)` calls that could benefit from the `[GeneratedRegex]` source generator attribute for better performance (.NET 7+).
+* [OpenRewrite.Recipes.CodeQuality.Performance.FindUseTimeProviderOverload](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/performance/findusetimeprovideroverload.md)
+  * **Find calls that could use TimeProvider**
+  * Detect `DateTime.UtcNow`, `DateTimeOffset.UtcNow`, and `Task.Delay` calls that could use a `TimeProvider` parameter for better testability (.NET 8+).
+* [OpenRewrite.Recipes.CodeQuality.Performance.FindUseValuesContainsInsteadOfValues](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/performance/findusevaluescontainsinsteadofvalues.md)
+  * **Find Values.Contains() instead of ContainsValue()**
+  * Detect `.Values.Contains(value)` on dictionaries. Use `.ContainsValue(value)` instead.
+* [OpenRewrite.Recipes.CodeQuality.Performance.MakeParameterRefReadOnly](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/performance/makeparameterrefreadonly.md)
+  * **Make parameter ref read-only**
+  * Use in parameter modifier for large struct parameters.
+* [OpenRewrite.Recipes.CodeQuality.Performance.OptimizeMethodCall](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/performance/optimizemethodcall.md)
+  * **Optimize method call**
+  * Replace inefficient method calls with more optimal equivalents.
+* [OpenRewrite.Recipes.CodeQuality.Performance.OptimizeStringBuilderAppend](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/performance/optimizestringbuilderappend.md)
+  * **Optimize StringBuilder.Append usage**
+  * Optimize StringBuilder method calls: use char overloads for single-character strings, remove redundant ToString() calls, replace string.Format with AppendFormat, and split string concatenation into chained Append calls.
+* [OpenRewrite.Recipes.CodeQuality.Performance.PerformanceCodeQuality](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/performance/performancecodequality.md)
+  * **Performance code quality**
+  * Performance optimization recipes for C# code.
+* [OpenRewrite.Recipes.CodeQuality.Performance.ReplaceEnumToStringWithNameof](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/performance/replaceenumtostringwithnameof.md)
+  * **Replace Enum.ToString() with nameof**
+  * Replace `MyEnum.Value.ToString()` with `nameof(MyEnum.Value)`. The `nameof` operator is evaluated at compile time, avoiding runtime reflection.
+* [OpenRewrite.Recipes.CodeQuality.Performance.ReturnCompletedTask](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/performance/returncompletedtask.md)
+  * **Return completed task instead of null**
+  * Replace return null in Task-returning methods with return Task.CompletedTask.
+* [OpenRewrite.Recipes.CodeQuality.Performance.ThrowingNotImplementedException](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/performance/throwingnotimplementedexception.md)
+  * **Throwing of new NotImplementedException**
+  * Find code that throws new NotImplementedException, which may indicate unfinished implementation.
+* [OpenRewrite.Recipes.CodeQuality.Performance.UnnecessaryExplicitEnumerator](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/performance/unnecessaryexplicitenumerator.md)
+  * **Remove unnecessary explicit enumerator**
+  * Use foreach instead of explicit enumerator pattern.
+* [OpenRewrite.Recipes.CodeQuality.Performance.UseArrayEmpty](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/performance/usearrayempty.md)
+  * **Use Array.Empty&lt;T&gt;() instead of new T[0]**
+  * Use Array.Empty&lt;T&gt;() instead of allocating empty arrays.
+* [OpenRewrite.Recipes.CodeQuality.Performance.UseContainsKey](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/performance/usecontainskey.md)
+  * **Use ContainsKey instead of Keys.Contains**
+  * Replace `.Keys.Contains(key)` with `.ContainsKey(key)` on dictionaries for O(1) performance.
+* [OpenRewrite.Recipes.CodeQuality.Performance.UseCountProperty](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/performance/usecountproperty.md)
+  * **Use Count/Length property instead of Count()**
+  * Replace collection.Count() with collection.Count when available.
+* [OpenRewrite.Recipes.CodeQuality.Performance.UseRegexIsMatch](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/performance/useregexismatch.md)
+  * **Use Regex.IsMatch**
+  * Replace Regex.Match(s, p).Success with Regex.IsMatch(s, p).
+* [OpenRewrite.Recipes.CodeQuality.Performance.UseStringBuilderAppendLine](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/performance/usestringbuilderappendline.md)
+  * **Use StringBuilder.AppendLine**
+  * Replace `sb.Append(&quot;\n&quot;)` with `sb.AppendLine()`.
+* [OpenRewrite.Recipes.CodeQuality.Performance.UseStringComparison](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/performance/usestringcomparison.md)
+  * **Use StringComparison**
+  * Replace case-insensitive string comparisons using `ToLower()`/`ToUpper()` with overloads that accept `StringComparison.OrdinalIgnoreCase`.
+* [OpenRewrite.Recipes.CodeQuality.Performance.UseStringConcatInsteadOfJoin](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/performance/usestringconcatinsteadofjoin.md)
+  * **Use string.Concat instead of string.Join**
+  * Replace `string.Join(&quot;&quot;, args)` with `string.Concat(args)`.
+* [OpenRewrite.Recipes.CodeQuality.Redundancy.FileContainsNoCode](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/redundancy/filecontainsnocode.md)
+  * **File contains no code**
+  * Find files that contain no code, only using directives, comments, or whitespace.
+* [OpenRewrite.Recipes.CodeQuality.Redundancy.FindUnusedInternalType](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/redundancy/findunusedinternaltype.md)
+  * **Find internal types that may be unused**
+  * Detect `internal` (non-public) classes that may be unused. Review these types and remove them if they are no longer needed.
+* [OpenRewrite.Recipes.CodeQuality.Redundancy.RedundancyCodeQuality](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/redundancy/redundancycodequality.md)
+  * **Redundancy code quality**
+  * Remove redundant code from C# sources.
+* [OpenRewrite.Recipes.CodeQuality.Redundancy.RemoveArgumentListFromAttribute](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/redundancy/removeargumentlistfromattribute.md)
+  * **Remove argument list from attribute**
+  * Remove empty argument list from attribute.
+* [OpenRewrite.Recipes.CodeQuality.Redundancy.RemoveBracesFromRecordDeclaration](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/redundancy/removebracesfromrecorddeclaration.md)
+  * **Remove braces from record declaration**
+  * Remove unnecessary braces from record declarations with no body.
+* [OpenRewrite.Recipes.CodeQuality.Redundancy.RemoveEmptyCatchClause](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/redundancy/removeemptycatchclause.md)
+  * **Remove empty catch clause**
+  * Remove empty catch clauses that silently swallow exceptions without any logging or handling.
+* [OpenRewrite.Recipes.CodeQuality.Redundancy.RemoveEmptyDestructor](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/redundancy/removeemptydestructor.md)
+  * **Remove empty destructor**
+  * Remove destructors (finalizers) with empty bodies.
+* [OpenRewrite.Recipes.CodeQuality.Redundancy.RemoveEmptyFinallyClause](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/redundancy/removeemptyfinallyclause.md)
+  * **Remove empty finally clause**
+  * Remove `finally \{ \}` clauses that contain no statements. An empty finally block serves no purpose.
+* [OpenRewrite.Recipes.CodeQuality.Redundancy.RemoveEmptyForBody](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/redundancy/removeemptyforbody.md)
+  * **Flag empty for loop body**
+  * Flag `for` loops with empty bodies as potential dead code.
+* [OpenRewrite.Recipes.CodeQuality.Redundancy.RemoveEmptyForEachBody](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/redundancy/removeemptyforeachbody.md)
+  * **Remove empty foreach body**
+  * Remove `foreach` loops with empty bodies, which iterate without effect.
+* [OpenRewrite.Recipes.CodeQuality.Redundancy.RemoveEmptySyntax](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/redundancy/removeemptysyntax.md)
+  * **Remove empty syntax**
+  * Remove empty namespace, class, struct, interface, and enum declarations.
+* [OpenRewrite.Recipes.CodeQuality.Redundancy.RemoveEmptyWhileBody](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/redundancy/removeemptywhilebody.md)
+  * **Remove empty while body**
+  * Remove `while (cond) \{ \}` loops with empty bodies as they serve no purpose.
+* [OpenRewrite.Recipes.CodeQuality.Redundancy.RemoveEnumDefaultUnderlyingType](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/redundancy/removeenumdefaultunderlyingtype.md)
+  * **Remove enum default underlying type**
+  * Remove : int from enum declaration since int is the default.
+* [OpenRewrite.Recipes.CodeQuality.Redundancy.RemoveExplicitClassFromRecord](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/redundancy/removeexplicitclassfromrecord.md)
+  * **Remove explicit 'class' from record**
+  * Remove the redundant `class` keyword from `record class` declarations. Records are reference types by default.
+* [OpenRewrite.Recipes.CodeQuality.Redundancy.RemovePartialModifierFromSinglePart](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/redundancy/removepartialmodifierfromsinglepart.md)
+  * **Remove partial modifier from single-part type**
+  * Remove `partial` modifier from types that have only one part.
+* [OpenRewrite.Recipes.CodeQuality.Redundancy.RemoveRedundantAsOperator](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/redundancy/removeredundantasoperator.md)
+  * **Remove redundant as operator**
+  * Remove redundant 'as' operator when the expression already has the target type.
+* [OpenRewrite.Recipes.CodeQuality.Redundancy.RemoveRedundantAssignment](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/redundancy/removeredundantassignment.md)
+  * **Remove redundant assignment**
+  * Remove assignments where the value is immediately returned.
+* [OpenRewrite.Recipes.CodeQuality.Redundancy.RemoveRedundantAsyncAwait](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/redundancy/removeredundantasyncawait.md)
+  * **Remove redundant async/await**
+  * Remove redundant async/await when a Task can be returned directly.
+* [OpenRewrite.Recipes.CodeQuality.Redundancy.RemoveRedundantAutoPropertyInit](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/redundancy/removeredundantautopropertyinit.md)
+  * **Remove redundant constructor**
+  * Remove empty parameterless constructors that duplicate the implicit default.
+* [OpenRewrite.Recipes.CodeQuality.Redundancy.RemoveRedundantAutoPropertyInitialization](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/redundancy/removeredundantautopropertyinitialization.md)
+  * **Remove redundant auto-property initialization**
+  * Remove auto-property initializers that assign the default value.
+* [OpenRewrite.Recipes.CodeQuality.Redundancy.RemoveRedundantBaseConstructorCall](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/redundancy/removeredundantbaseconstructorcall.md)
+  * **Remove redundant base constructor call**
+  * Remove `: base()` parameterless base constructor call since it's implicit.
+* [OpenRewrite.Recipes.CodeQuality.Redundancy.RemoveRedundantBaseInterface](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/redundancy/removeredundantbaseinterface.md)
+  * **Remove redundant base interface**
+  * Remove interface that is already inherited by another implemented interface.
+* [OpenRewrite.Recipes.CodeQuality.Redundancy.RemoveRedundantCast](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/redundancy/removeredundantcast.md)
+  * **Remove redundant cast**
+  * Remove unnecessary casts when the expression already has the target type.
+* [OpenRewrite.Recipes.CodeQuality.Redundancy.RemoveRedundantCatchBlock](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/redundancy/removeredundantcatchblock.md)
+  * **Remove redundant catch block**
+  * Remove try-catch blocks where every catch clause only rethrows the exception.
+* [OpenRewrite.Recipes.CodeQuality.Redundancy.RemoveRedundantComma](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/redundancy/removeredundantcomma.md)
+  * **Remove redundant comma**
+  * Remove redundant trailing comma in enum declarations.
+* [OpenRewrite.Recipes.CodeQuality.Redundancy.RemoveRedundantDefaultFieldInitialization](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/redundancy/removeredundantdefaultfieldinitialization.md)
+  * **Remove redundant default field initialization**
+  * Remove field initializations that assign the default value (e.g., `int x = 0`, `bool b = false`, `string s = null`, `object o = default`).
+* [OpenRewrite.Recipes.CodeQuality.Redundancy.RemoveRedundantDefaultSwitchSection](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/redundancy/removeredundantdefaultswitchsection.md)
+  * **Remove redundant default switch section**
+  * Remove default switch section that only contains break.
+* [OpenRewrite.Recipes.CodeQuality.Redundancy.RemoveRedundantDelegateCreation](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/redundancy/removeredundantdelegatecreation.md)
+  * **Remove redundant delegate creation**
+  * Remove unnecessary `new EventHandler(M)` when `M` can be used directly.
+* [OpenRewrite.Recipes.CodeQuality.Redundancy.RemoveRedundantDisposeOrClose](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/redundancy/removeredundantdisposeorclose.md)
+  * **Remove redundant Dispose/Close call**
+  * Remove Dispose/Close calls on objects already in a using block.
+* [OpenRewrite.Recipes.CodeQuality.Redundancy.RemoveRedundantOverridingMember](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/redundancy/removeredundantoverridingmember.md)
+  * **Remove redundant overriding member**
+  * Remove overriding member that only calls the base implementation.
+* [OpenRewrite.Recipes.CodeQuality.Redundancy.RemoveRedundantParentheses](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/redundancy/removeredundantparentheses.md)
+  * **Remove redundant parentheses**
+  * Remove unnecessary parentheses around expressions in return statements and assignments.
+* [OpenRewrite.Recipes.CodeQuality.Redundancy.RemoveRedundantRegion](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/redundancy/removeredundantregion.md)
+  * **Remove redundant region**
+  * Remove #region/#endregion directives.
+* [OpenRewrite.Recipes.CodeQuality.Redundancy.RemoveRedundantSealedModifier](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/redundancy/removeredundantsealedmodifier.md)
+  * **Remove redundant sealed modifier**
+  * Remove `sealed` modifier on members of sealed classes, since it's redundant.
+* [OpenRewrite.Recipes.CodeQuality.Redundancy.RemoveRedundantSealedModifierFromOverride](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/redundancy/removeredundantsealedmodifierfromoverride.md)
+  * **Remove redundant 'sealed' modifier from override**
+  * Remove redundant 'sealed' modifier from an overriding member in a sealed class.
+* [OpenRewrite.Recipes.CodeQuality.Redundancy.RemoveRedundantStatement](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/redundancy/removeredundantstatement.md)
+  * **Remove redundant statement**
+  * Remove redundant `return;` at end of void method or `continue;` at end of loop body.
+* [OpenRewrite.Recipes.CodeQuality.Redundancy.RemoveRedundantStringToCharArrayCall](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/redundancy/removeredundantstringtochararraycall.md)
+  * **Remove redundant ToCharArray() call**
+  * Remove `ToCharArray()` calls in foreach loops where iterating over the string directly produces the same result.
+* [OpenRewrite.Recipes.CodeQuality.Redundancy.RemoveRedundantToStringCall](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/redundancy/removeredundanttostringcall.md)
+  * **Remove redundant ToString() call**
+  * Remove `ToString()` calls on expressions that are already strings.
+* [OpenRewrite.Recipes.CodeQuality.Redundancy.RemoveUnnecessaryCaseLabel](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/redundancy/removeunnecessarycaselabel.md)
+  * **Remove unnecessary case label**
+  * Remove case labels from switch section that has default label.
+* [OpenRewrite.Recipes.CodeQuality.Redundancy.RemoveUnnecessaryElse](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/redundancy/removeunnecessaryelse.md)
+  * **Remove unnecessary else clause**
+  * Remove `else` clause when the `if` body always terminates with `return`, `throw`, `break`, `continue`, or `goto`.
+* [OpenRewrite.Recipes.CodeQuality.Redundancy.RemoveUnnecessarySemicolon](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/redundancy/removeunnecessarysemicolon.md)
+  * **Remove unnecessary semicolon at end of declaration**
+  * Remove unnecessary semicolon at the end of a declaration.
+* [OpenRewrite.Recipes.CodeQuality.Redundancy.RemoveUnusedDocCommentElement](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/redundancy/removeunuseddoccommentelement.md)
+  * **Unused element in documentation comment**
+  * Remove unused param/typeparam elements from XML documentation.
+* [OpenRewrite.Recipes.CodeQuality.Redundancy.RemoveUnusedMemberDeclaration](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/redundancy/removeunusedmemberdeclaration.md)
+  * **Remove unused member declaration**
+  * Remove member declarations that are never referenced.
+* [OpenRewrite.Recipes.CodeQuality.Redundancy.RemoveUnusedThisParameter](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/redundancy/removeunusedthisparameter.md)
+  * **Unused 'this' parameter**
+  * Remove unused 'this' parameter from extension methods.
+* [OpenRewrite.Recipes.CodeQuality.Redundancy.ResourceCanBeDisposedAsynchronously](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/redundancy/resourcecanbedisposedasynchronously.md)
+  * **Resource can be disposed asynchronously**
+  * Use `await using` instead of `using` when the resource implements IAsyncDisposable.
+* [OpenRewrite.Recipes.CodeQuality.Redundancy.UnnecessaryEnumFlag](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/redundancy/unnecessaryenumflag.md)
+  * **Unnecessary enum flag**
+  * Remove unnecessary enum flag value that is a combination of other flags.
+* [OpenRewrite.Recipes.CodeQuality.Redundancy.UnnecessaryInterpolatedString](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/redundancy/unnecessaryinterpolatedstring.md)
+  * **Remove unnecessary interpolated string**
+  * Replace interpolated strings with no interpolations with regular strings.
+* [OpenRewrite.Recipes.CodeQuality.Redundancy.UnnecessaryInterpolation](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/redundancy/unnecessaryinterpolation.md)
+  * **Unnecessary interpolation**
+  * Remove unnecessary string interpolation, for example simplifying `$&quot;\{x\}&quot;` to `x.ToString()`.
+* [OpenRewrite.Recipes.CodeQuality.Redundancy.UnnecessaryNullCheck](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/redundancy/unnecessarynullcheck.md)
+  * **Remove unnecessary null check**
+  * Remove null check that is unnecessary because the value is known to be non-null.
+* [OpenRewrite.Recipes.CodeQuality.Redundancy.UnnecessaryNullForgivingOperator](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/redundancy/unnecessarynullforgivingoperator.md)
+  * **Remove unnecessary null-forgiving operator**
+  * Remove ! operator where expression is already non-nullable.
+* [OpenRewrite.Recipes.CodeQuality.Redundancy.UnnecessaryRawStringLiteral](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/redundancy/unnecessaryrawstringliteral.md)
+  * **Remove unnecessary raw string literal**
+  * Convert raw string literal to regular string when not needed.
+* [OpenRewrite.Recipes.CodeQuality.Redundancy.UnnecessaryUnsafeContext](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/redundancy/unnecessaryunsafecontext.md)
+  * **Remove unnecessary unsafe context**
+  * Remove unsafe blocks that do not contain unsafe code.
+* [OpenRewrite.Recipes.CodeQuality.Redundancy.UnnecessaryVerbatimStringLiteral](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/redundancy/unnecessaryverbatimstringliteral.md)
+  * **Remove unnecessary verbatim string literal**
+  * Remove @ prefix from string literals that do not contain escape sequences.
+* [OpenRewrite.Recipes.CodeQuality.Redundancy.UseRethrow](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/redundancy/userethrow.md)
+  * **Use rethrow instead of throw ex**
+  * Replace `throw ex;` with `throw;` inside catch clauses when `ex` is the caught exception variable. A bare `throw` preserves the original stack trace.
+* [OpenRewrite.Recipes.CodeQuality.Simplification.CombineWhereMethodChain](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/simplification/combinewheremethodchain.md)
+  * **Combine 'Enumerable.Where' method chain**
+  * Combine consecutive Enumerable.Where method calls into a single call with a combined predicate.
+* [OpenRewrite.Recipes.CodeQuality.Simplification.ConvertAnonymousMethodToLambda](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/simplification/convertanonymousmethodtolambda.md)
+  * **Convert anonymous method to lambda**
+  * Convert anonymous method delegate syntax to lambda expression.
+* [OpenRewrite.Recipes.CodeQuality.Simplification.ConvertIfToAssignment](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/simplification/convertiftoassignment.md)
+  * **Convert 'if' to assignment**
+  * Convert 'if' statement that assigns boolean literals to a simple assignment with the condition expression.
+* [OpenRewrite.Recipes.CodeQuality.Simplification.ConvertInterpolatedStringToConcatenation](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/simplification/convertinterpolatedstringtoconcatenation.md)
+  * **Convert interpolated string to concatenation**
+  * Detect string interpolations that could be simplified to concatenation.
+* [OpenRewrite.Recipes.CodeQuality.Simplification.ExpressionAlwaysTrueOrFalse](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/simplification/expressionalwaystrueorfalse.md)
+  * **Expression is always true or false**
+  * Simplify `x == x` to `true` and `x != x` to `false`.
+* [OpenRewrite.Recipes.CodeQuality.Simplification.InlineLazyInitialization](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/simplification/inlinelazyinitialization.md)
+  * **Inline lazy initialization**
+  * Use null-coalescing assignment (??=) for lazy initialization.
+* [OpenRewrite.Recipes.CodeQuality.Simplification.InlineLocalVariable](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/simplification/inlinelocalvariable.md)
+  * **Inline local variable**
+  * Inline local variable that is assigned once and used once immediately.
+* [OpenRewrite.Recipes.CodeQuality.Simplification.JoinStringExpressions](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/simplification/joinstringexpressions.md)
+  * **Join string expressions**
+  * Join consecutive string literal concatenations into a single literal.
+* [OpenRewrite.Recipes.CodeQuality.Simplification.MergeElseWithNestedIf](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/simplification/mergeelsewithnestedif.md)
+  * **Merge else with nested if**
+  * Merge `else \{ if (...) \{ \} \}` into `else if (...) \{ \}` when the else block contains only a single if statement.
+* [OpenRewrite.Recipes.CodeQuality.Simplification.MergeIfWithParentIf](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/simplification/mergeifwithparentif.md)
+  * **Merge if with parent if**
+  * Merge `if (a) \{ if (b) \{ ... \} \}` into `if (a &amp;&amp; b) \{ ... \}` when the outer if body contains only a single nested if without else.
+* [OpenRewrite.Recipes.CodeQuality.Simplification.MergeSwitchSections](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/simplification/mergeswitchsections.md)
+  * **Merge switch sections with equivalent content**
+  * Merge switch case labels that have identical bodies.
+* [OpenRewrite.Recipes.CodeQuality.Simplification.RemoveRedundantBooleanLiteral](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/simplification/removeredundantbooleanliteral.md)
+  * **Remove redundant boolean literal**
+  * Remove redundant `== true` comparison from boolean expressions.
+* [OpenRewrite.Recipes.CodeQuality.Simplification.RemoveUnnecessaryBraces](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/simplification/removeunnecessarybraces.md)
+  * **Remove unnecessary braces**
+  * Remove braces from single-statement blocks where they are optional.
+* [OpenRewrite.Recipes.CodeQuality.Simplification.SimplificationCodeQuality](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/simplification/simplificationcodequality.md)
+  * **Simplification code quality**
+  * Simplify expressions and patterns in C# code.
+* [OpenRewrite.Recipes.CodeQuality.Simplification.SimplifyArgumentNullCheck](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/simplification/simplifyargumentnullcheck.md)
+  * **Simplify argument null check**
+  * Use ArgumentNullException.ThrowIfNull(arg) instead of manual null check.
+* [OpenRewrite.Recipes.CodeQuality.Simplification.SimplifyBooleanComparison](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/simplification/simplifybooleancomparison.md)
+  * **Simplify boolean comparison**
+  * Simplify `true == x` to `x`, `false == x` to `!x`, `true != x` to `!x`, and `false != x` to `x`.
+* [OpenRewrite.Recipes.CodeQuality.Simplification.SimplifyCoalesceExpression](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/simplification/simplifycoalesceexpression.md)
+  * **Simplify coalesce expression**
+  * Simplify x ?? x to x.
+* [OpenRewrite.Recipes.CodeQuality.Simplification.SimplifyCodeBranching](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/simplification/simplifycodebranching.md)
+  * **Simplify code branching**
+  * Simplify code branching patterns such as empty if-else, while(true) with break, and trailing return/continue in if-else.
+* [OpenRewrite.Recipes.CodeQuality.Simplification.SimplifyConditionalExpression](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/simplification/simplifyconditionalexpression.md)
+  * **Simplify conditional expression**
+  * Simplify `cond ? true : false` to `cond` and `cond ? false : true` to `!cond`.
+* [OpenRewrite.Recipes.CodeQuality.Simplification.SimplifyDoWhileToWhile](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/simplification/simplifydowhiletowhile.md)
+  * **Simplify do-while(true) to while(true)**
+  * Convert `do \{ ... \} while (true)` to `while (true) \{ ... \}`.
+* [OpenRewrite.Recipes.CodeQuality.Simplification.SimplifyLazyInitialization](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/simplification/simplifylazyinitialization.md)
+  * **Simplify lazy initialization**
+  * Simplify lazy initialization using ??= operator.
+* [OpenRewrite.Recipes.CodeQuality.Simplification.SimplifyLogicalNegation](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/simplification/simplifylogicalnegation.md)
+  * **Simplify logical negation**
+  * Simplify negated comparison expressions. For example, `!(x == y)` becomes `x != y`.
+* [OpenRewrite.Recipes.CodeQuality.Simplification.SimplifyNegatedIsNull](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/simplification/simplifynegatedisnull.md)
+  * **Simplify negated is null pattern**
+  * Simplify `!(x is null)` to `x is not null` and `!(x is not null)` to `x is null`.
+* [OpenRewrite.Recipes.CodeQuality.Simplification.SimplifyNestedUsingStatement](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/simplification/simplifynestedusingstatement.md)
+  * **Simplify nested using statement**
+  * Merge nested `using` statements into a single `using` declaration.
+* [OpenRewrite.Recipes.CodeQuality.Simplification.SimplifyNullableHasValue](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/simplification/simplifynullablehasvalue.md)
+  * **Simplify Nullable&lt;T&gt;.HasValue**
+  * Replace `x.HasValue` with `x != null` and `!x.HasValue` with `x == null`.
+* [OpenRewrite.Recipes.CodeQuality.Simplification.SimplifyNullableToShorthand](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/simplification/simplifynullabletoshorthand.md)
+  * **Simplify Nullable&lt;T&gt; to T?**
+  * Use T? shorthand instead of Nullable&lt;T&gt;.
+* [OpenRewrite.Recipes.CodeQuality.Simplification.SimplifyNumericComparison](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/simplification/simplifynumericcomparison.md)
+  * **Simplify numeric comparison**
+  * Simplify `x - y &gt; 0` to `x &gt; y`, `x - y &lt; 0` to `x &lt; y`, `x - y &gt;= 0` to `x &gt;= y`, and `x - y &lt;= 0` to `x &lt;= y`.
+* [OpenRewrite.Recipes.CodeQuality.Simplification.SimplifyRedundantWhereWhere](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/simplification/simplifyredundantwherewhere.md)
+  * **Merge consecutive Where calls**
+  * Detect consecutive `.Where(p).Where(q)` calls that could be merged.
+* [OpenRewrite.Recipes.CodeQuality.Simplification.UnconstrainedTypeParamNullCheck](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/simplification/unconstrainedtypeparamnullcheck.md)
+  * **Unconstrained type parameter checked for null**
+  * Find null checks on unconstrained type parameters, which may not be reference types.
+* [OpenRewrite.Recipes.CodeQuality.Simplification.UnnecessaryOperator](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/simplification/unnecessaryoperator.md)
+  * **Operator is unnecessary**
+  * Remove unnecessary operators such as unary plus.
+* [OpenRewrite.Recipes.CodeQuality.Simplification.UseAnonymousFunctionOrMethodGroup](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/simplification/useanonymousfunctionormethodgroup.md)
+  * **Use anonymous function or method group**
+  * Convert a lambda expression to a method group where appropriate.
+* [OpenRewrite.Recipes.CodeQuality.Simplification.UseCoalesceExpression](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/simplification/usecoalesceexpression.md)
+  * **Use coalesce expression**
+  * Replace `x != null ? x : y` and `x == null ? y : x` with `x ?? y`.
+* [OpenRewrite.Recipes.CodeQuality.Simplification.UseCoalesceExpressionInsteadOfIf](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/simplification/usecoalesceexpressioninsteadofif.md)
+  * **Use coalesce expression instead of 'if'**
+  * Replace `if (x == null) x = y;` with `x ??= y`.
+* [OpenRewrite.Recipes.CodeQuality.Simplification.UseCompoundAssignment](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/simplification/usecompoundassignment.md)
+  * **Use compound assignment**
+  * Replace `x = x op y` with `x op= y` for arithmetic, bitwise, shift, and null-coalescing operators.
+* [OpenRewrite.Recipes.CodeQuality.Simplification.UseConditionalAccess](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/simplification/useconditionalaccess.md)
+  * **Use conditional access**
+  * Transform null-check patterns to use conditional access (?.).
+* [OpenRewrite.Recipes.CodeQuality.Simplification.UseConditionalAccessInsteadOfIf](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/simplification/useconditionalaccessinsteadofif.md)
+  * **Use conditional access instead of conditional expression**
+  * Transform ternary null-check expressions to use conditional access (?.) with null-coalescing (??) where needed.
+* [OpenRewrite.Recipes.CodeQuality.Simplification.UseConditionalExpressionForDeclaration](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/simplification/useconditionalexpressionfordeclaration.md)
+  * **Use conditional expression in declaration**
+  * Convert `int x; if (cond) x = a; else x = b;` to `int x = cond ? a : b;`.
+* [OpenRewrite.Recipes.CodeQuality.Simplification.UseConditionalExpressionForReturn](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/simplification/useconditionalexpressionforreturn.md)
+  * **Use conditional return expression**
+  * Convert `if (c) return a; return b;` to `return c ? a : b;`.
+* [OpenRewrite.Recipes.CodeQuality.Simplification.UseConditionalExpressionForThrow](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/simplification/useconditionalexpressionforthrow.md)
+  * **Use conditional throw expression**
+  * Detect `if (x == null) throw ...` patterns that could use `x ?? throw ...`.
+* [OpenRewrite.Recipes.CodeQuality.Simplification.UseDateTimeOffsetUnixEpoch](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/simplification/usedatetimeoffsetunixepoch.md)
+  * **Use DateTimeOffset.UnixEpoch**
+  * Replace `new DateTimeOffset(1970, 1, 1, 0, 0, 0, TimeSpan.Zero)` with `DateTimeOffset.UnixEpoch`. Available since .NET 8, `DateTimeOffset.UnixEpoch` is more readable.
+* [OpenRewrite.Recipes.CodeQuality.Simplification.UseDateTimeUnixEpoch](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/simplification/usedatetimeunixepoch.md)
+  * **Use DateTime.UnixEpoch**
+  * Replace `new DateTime(1970, 1, 1)` with `DateTime.UnixEpoch`. Available since .NET 8, `DateTime.UnixEpoch` is more readable and avoids magic numbers.
+* [OpenRewrite.Recipes.CodeQuality.Simplification.UseDefaultLiteral](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/simplification/usedefaultliteral.md)
+  * **Use default literal**
+  * Simplify default(T) expressions to default. Note: in rare cases where the type cannot be inferred (e.g., overload resolution), manual review may be needed.
+* [OpenRewrite.Recipes.CodeQuality.Simplification.UseExceptionFilter](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/simplification/useexceptionfilter.md)
+  * **Use exception filter**
+  * Detect catch blocks with if/throw pattern that could use a when clause.
+* [OpenRewrite.Recipes.CodeQuality.Simplification.UseExpressionBodiedLambda](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/simplification/useexpressionbodiedlambda.md)
+  * **Use expression-bodied lambda**
+  * Convert block-body lambdas with a single statement to expression-body lambdas.
+* [OpenRewrite.Recipes.CodeQuality.Simplification.UseForInsteadOfWhile](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/simplification/useforinsteadofwhile.md)
+  * **Use for statement instead of while**
+  * Convert while loops with counter to for loops.
+* [OpenRewrite.Recipes.CodeQuality.Simplification.UseGuidEmpty](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/simplification/useguidempty.md)
+  * **Use Guid.Empty**
+  * Replace `new Guid()` with `Guid.Empty`. The static `Guid.Empty` field avoids unnecessary allocations and clearly expresses intent.
+* [OpenRewrite.Recipes.CodeQuality.Simplification.UseIsOperatorInsteadOfAs](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/simplification/useisoperatorinsteadofas.md)
+  * **Use 'is' operator instead of 'as' operator**
+  * Replace 'as' operator followed by null check with 'is' operator.
+* [OpenRewrite.Recipes.CodeQuality.Simplification.UseIsPatternInsteadOfSequenceEqual](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/simplification/useispatterninsteadofsequenceequal.md)
+  * **Use 'is' pattern instead of SequenceEqual**
+  * Replace `span.SequenceEqual(&quot;str&quot;)` with `span is &quot;str&quot;`. Pattern matching with string constants is more concise for span comparisons.
+* [OpenRewrite.Recipes.CodeQuality.Simplification.UseNotPattern](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/simplification/usenotpattern.md)
+  * **Use 'not' pattern instead of negation**
+  * Detect `!(x is Type)` patterns that can use `x is not Type`.
+* [OpenRewrite.Recipes.CodeQuality.Simplification.UsePatternMatchingForEquality](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/simplification/usepatternmatchingforequality.md)
+  * **Use pattern matching for equality comparison**
+  * Replace `x == constant` with `x is constant` for improved readability using C# pattern matching.
+* [OpenRewrite.Recipes.CodeQuality.Simplification.UsePatternMatchingForInequality](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/simplification/usepatternmatchingforinequality.md)
+  * **Use pattern matching for inequality comparison**
+  * Replace `x != constant` with `x is not constant` for improved readability using C# pattern matching.
+* [OpenRewrite.Recipes.CodeQuality.Simplification.UsePatternMatchingInsteadOfAs](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/simplification/usepatternmatchinginsteadofas.md)
+  * **Use pattern matching instead of as**
+  * Use pattern matching instead of as. Note: Needs type resolution.
+* [OpenRewrite.Recipes.CodeQuality.Simplification.UsePatternMatchingInsteadOfHasValue](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/simplification/usepatternmatchinginsteadofhasvalue.md)
+  * **Use pattern matching instead of HasValue**
+  * Replace `nullable.HasValue` with `nullable is not null`. Pattern matching is more idiomatic in modern C#. Note: this recipe uses name-based matching and may match non-Nullable types with a `HasValue` property.
+* [OpenRewrite.Recipes.CodeQuality.Simplification.UsePatternMatchingInsteadOfIs](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/simplification/usepatternmatchinginsteadofis.md)
+  * **Use pattern matching instead of is**
+  * Use pattern matching instead of is. Note: Needs type resolution.
+* [OpenRewrite.Recipes.CodeQuality.Simplification.UsePatternMatchingNullCheck](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/simplification/usepatternmatchingnullcheck.md)
+  * **Use pattern matching for null check**
+  * Replace `x == null` with `x is null` and `x != null` with `x is not null`.
+* [OpenRewrite.Recipes.CodeQuality.Simplification.UsePostfixIncrement](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/simplification/usepostfixincrement.md)
+  * **Use postfix increment/decrement**
+  * Replace `x = x + 1` with `x++` and `x = x - 1` with `x--`.
+* [OpenRewrite.Recipes.CodeQuality.Simplification.UseRangeOperator](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/simplification/userangeoperator.md)
+  * **Use range operator**
+  * Detect Substring calls that could use C# 8 range syntax.
+* [OpenRewrite.Recipes.CodeQuality.Simplification.UseShortCircuitOperator](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/simplification/useshortcircuitoperator.md)
+  * **Use short-circuit operator**
+  * Replace bitwise `&amp;` with `&amp;&amp;` and `|` with `||` in boolean contexts.
+* [OpenRewrite.Recipes.CodeQuality.Simplification.UseStringEndsWith](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/simplification/usestringendswith.md)
+  * **Use string.EndsWith**
+  * Detect substring comparison patterns that could use EndsWith.
+* [OpenRewrite.Recipes.CodeQuality.Simplification.UseStringEquals](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/simplification/usestringequals.md)
+  * **Use string.Equals instead of == for string comparison**
+  * Replace `==` string comparisons with `string.Equals(a, b, StringComparison.Ordinal)` for explicit comparison semantics.
+* [OpenRewrite.Recipes.CodeQuality.Simplification.UseStringInterpolation](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/simplification/usestringinterpolation.md)
+  * **Use string interpolation instead of string.Format**
+  * Replace simple `string.Format(&quot;\{0\}&quot;, x)` calls with `$&quot;\{x\}&quot;`.
+* [OpenRewrite.Recipes.CodeQuality.Simplification.UseStringInterpolationInsteadOfConcat](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/simplification/usestringinterpolationinsteadofconcat.md)
+  * **Use string interpolation instead of concatenation**
+  * Replace string.Concat with string interpolation.
+* [OpenRewrite.Recipes.CodeQuality.Simplification.UseStringStartsWith](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/simplification/usestringstartswith.md)
+  * **Use string.StartsWith instead of IndexOf comparison**
+  * Replace `s.IndexOf(x) == 0` with `s.StartsWith(x)`.
+* [OpenRewrite.Recipes.CodeQuality.Simplification.UseSwitchExpression](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/simplification/useswitchexpression.md)
+  * **Use switch expression**
+  * Convert simple switch statements to switch expressions (C# 8+).
+* [OpenRewrite.Recipes.CodeQuality.Simplification.UseThrowExpression](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/simplification/usethrowexpression.md)
+  * **Use throw expression**
+  * Convert null-check-then-throw patterns to throw expressions.
+* [OpenRewrite.Recipes.CodeQuality.Simplification.UseTimeSpanZero](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/simplification/usetimespanzero.md)
+  * **Use TimeSpan.Zero**
+  * Replace `new TimeSpan(0)` and `TimeSpan.FromX(0)` with `TimeSpan.Zero`. The static `TimeSpan.Zero` field is more readable and avoids unnecessary object creation.
+* [OpenRewrite.Recipes.CodeQuality.Simplification.UseXorForBooleanInequality](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/simplification/usexorforbooleaninequality.md)
+  * **Use ^ operator for boolean inequality**
+  * Replace a != b with a ^ b when both operands are boolean.
+* [OpenRewrite.Recipes.CodeQuality.Style.AbstractTypeShouldNotHavePublicConstructors](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/abstracttypeshouldnothavepublicconstructors.md)
+  * **Abstract type should not have public constructors**
+  * Change public constructors of abstract types to protected.
+* [OpenRewrite.Recipes.CodeQuality.Style.AddParenthesesForClarity](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/addparenthesesforclarity.md)
+  * **Add parentheses for clarity**
+  * Add parentheses to expressions where operator precedence might be unclear to improve readability.
+* [OpenRewrite.Recipes.CodeQuality.Style.AddParenthesesToConditionalExpression](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/addparenthesestoconditionalexpression.md)
+  * **Add parentheses to conditional expression condition**
+  * Add or remove parentheses from the condition in a conditional operator.
+* [OpenRewrite.Recipes.CodeQuality.Style.AddRemoveTrailingComma](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/addremovetrailingcomma.md)
+  * **Add trailing comma to last enum member**
+  * Add trailing comma to the last member of enum declarations for cleaner diffs when adding new members.
+* [OpenRewrite.Recipes.CodeQuality.Style.AddStaticToMembersOfStaticClass](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/addstatictomembersofstaticclass.md)
+  * **Add static modifier to all members of static class**
+  * Ensure all members of a static class are also declared static.
+* [OpenRewrite.Recipes.CodeQuality.Style.AddTrailingComma](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/addtrailingcomma.md)
+  * **Add trailing comma**
+  * Add trailing commas to multi-line initializers and enum declarations for cleaner diffs.
+* [OpenRewrite.Recipes.CodeQuality.Style.AvoidChainOfAssignments](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/avoidchainofassignments.md)
+  * **Avoid chain of assignments**
+  * Flag chained assignment expressions like a = b = c = value.
+* [OpenRewrite.Recipes.CodeQuality.Style.AvoidNestingTernary](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/avoidnestingternary.md)
+  * **Avoid nested ternary operator**
+  * Replace nested ternary expressions with if/else chains for clarity.
+* [OpenRewrite.Recipes.CodeQuality.Style.CallExtensionMethodAsInstance](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/callextensionmethodasinstance.md)
+  * **Call extension method as instance method**
+  * Use instance method syntax instead of static extension method call.
+* [OpenRewrite.Recipes.CodeQuality.Style.CompositeEnumContainsUndefinedFlag](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/compositeenumcontainsundefinedflag.md)
+  * **Composite enum value contains undefined flag**
+  * Find composite enum values that contain a flag which is not defined in the enum type.
+* [OpenRewrite.Recipes.CodeQuality.Style.ConstantValuesOnRightSide](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/constantvaluesonrightside.md)
+  * **Place constant values on right side of comparisons**
+  * Move constant values (literals, null) from the left side of comparisons to the right side for consistency and readability.
+* [OpenRewrite.Recipes.CodeQuality.Style.ConvertCommentToDocComment](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/convertcommenttodoccomment.md)
+  * **Convert comment to documentation comment**
+  * Convert single-line or multi-line comments above declarations to XML documentation comments.
+* [OpenRewrite.Recipes.CodeQuality.Style.DeclareEachAttributeSeparately](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/declareeachattributeseparately.md)
+  * **Declare each attribute separately**
+  * Declare each attribute in a separate attribute list.
+* [OpenRewrite.Recipes.CodeQuality.Style.DeclareEachTypeInSeparateFile](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/declareeachtypeinseparatefile.md)
+  * **Declare each type in separate file**
+  * Declare each type in a separate file.
+* [OpenRewrite.Recipes.CodeQuality.Style.DeclareEachTypeSeparately](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/declareeachtypeseparately.md)
+  * **Declare each type in separate file**
+  * Flag files containing multiple top-level type declarations.
+* [OpenRewrite.Recipes.CodeQuality.Style.DeclareEnumMemberWithZeroValue](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/declareenummemberwithzerovalue.md)
+  * **Declare enum member with zero value**
+  * Ensure [Flags] enums have a member explicitly assigned the value 0.
+* [OpenRewrite.Recipes.CodeQuality.Style.DeclareEnumValueAsCombination](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/declareenumvalueascombination.md)
+  * **Declare enum value as combination of names**
+  * Declare Flags enum values as combinations of named values.
+* [OpenRewrite.Recipes.CodeQuality.Style.DeclareUsingDirectiveOnTopLevel](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/declareusingdirectiveontoplevel.md)
+  * **Declare using directive on top level**
+  * Move using directives outside of namespace declarations to the top level of the file.
+* [OpenRewrite.Recipes.CodeQuality.Style.DefaultLabelShouldBeLast](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/defaultlabelshouldbelast.md)
+  * **Default label should be last**
+  * Move default label to the last position in switch statement.
+* [OpenRewrite.Recipes.CodeQuality.Style.DuplicateEnumValue](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/duplicateenumvalue.md)
+  * **Flag duplicate enum value**
+  * Flag enum members that have the same underlying value.
+* [OpenRewrite.Recipes.CodeQuality.Style.DuplicateWordInComment](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/duplicatewordincomment.md)
+  * **Duplicate word in a comment**
+  * Find and fix duplicate consecutive words in comments.
+* [OpenRewrite.Recipes.CodeQuality.Style.EnumShouldDeclareExplicitValues](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/enumshoulddeclareexplicitvalues.md)
+  * **Enum should declare explicit values**
+  * Add explicit values to enum members that do not have them.
+* [OpenRewrite.Recipes.CodeQuality.Style.FindArgumentExceptionParameterName](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/findargumentexceptionparametername.md)
+  * **ArgumentException should specify argument name**
+  * When throwing `ArgumentException` or derived types, specify the parameter name using `nameof()`.
+* [OpenRewrite.Recipes.CodeQuality.Style.FindAsyncMethodReturnsNull](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/findasyncmethodreturnsnull.md)
+  * **Find async void method**
+  * Detect `async void` methods. Use `async Task` instead so callers can await and exceptions propagate correctly.
+* [OpenRewrite.Recipes.CodeQuality.Style.FindAsyncVoidDelegate](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/findasyncvoiddelegate.md)
+  * **Find async void delegate**
+  * Detect async lambdas used as delegates where the return type is void. Use `Func&lt;Task&gt;` instead of `Action` for async delegates.
+* [OpenRewrite.Recipes.CodeQuality.Style.FindAvoidAnonymousDelegateForUnsubscribe](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/findavoidanonymousdelegateforunsubscribe.md)
+  * **Do not use anonymous delegates to unsubscribe from events**
+  * Unsubscribing from events using anonymous delegates or lambdas has no effect because each lambda creates a new delegate instance.
+* [OpenRewrite.Recipes.CodeQuality.Style.FindAwaitTaskBeforeDisposing](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/findawaittaskbeforedisposing.md)
+  * **Find unawaited task return in using block**
+  * Detect `return` of a Task inside a `using` block without `await`. The resource may be disposed before the task completes.
+* [OpenRewrite.Recipes.CodeQuality.Style.FindBothConditionSidesIdentical](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/findbothconditionsidesidentical.md)
+  * **Find binary expression with identical sides**
+  * Detect binary expressions where both sides are identical, e.g. `x == x` or `a &amp;&amp; a`. This is likely a copy-paste bug.
+* [OpenRewrite.Recipes.CodeQuality.Style.FindClassWithEqualsButNoIEquatable](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/findclasswithequalsbutnoiequatable.md)
+  * **Find class with Equals(T) but no IEquatable&lt;T&gt;**
+  * Detect classes that define `Equals(T)` but do not implement `IEquatable&lt;T&gt;`. Implementing the interface ensures consistency and enables value-based equality.
+* [OpenRewrite.Recipes.CodeQuality.Style.FindCompareToWithoutIComparable](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/findcomparetowithouticomparable.md)
+  * **Find CompareTo without IComparable**
+  * Detect classes that provide a `CompareTo` method but do not implement `IComparable&lt;T&gt;`.
+* [OpenRewrite.Recipes.CodeQuality.Style.FindDangerousThreadingMethods](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/finddangerousthreadingmethods.md)
+  * **Do not use dangerous threading methods**
+  * Avoid `Thread.Abort()`, `Thread.Suspend()`, and `Thread.Resume()`. These methods are unreliable and can corrupt state.
+* [OpenRewrite.Recipes.CodeQuality.Style.FindDefaultParameterValueNeedsOptional](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/finddefaultparametervalueneedsoptional.md)
+  * **Find [DefaultParameterValue] without [Optional]**
+  * Detect parameters with `[DefaultParameterValue]` that are missing `[Optional]`. Both attributes are needed for COM interop default parameter behavior.
+* [OpenRewrite.Recipes.CodeQuality.Style.FindDoNotCallVirtualMethodInConstructor](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/finddonotcallvirtualmethodinconstructor.md)
+  * **Find virtual method call in constructor**
+  * Detect calls to virtual or abstract methods within constructors. Derived classes may not be fully initialized when these methods execute.
+* [OpenRewrite.Recipes.CodeQuality.Style.FindDoNotCompareWithNaN](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/finddonotcomparewithnan.md)
+  * **Find comparison with NaN**
+  * Detect comparisons with `NaN` using `==` or `!=`. Use `double.IsNaN()` or `float.IsNaN()` instead, as `x == NaN` is always false.
+* [OpenRewrite.Recipes.CodeQuality.Style.FindDoNotCreateTypeWithBCLName](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/finddonotcreatetypewithbclname.md)
+  * **Find type with BCL name**
+  * Detect class declarations that use names from well-known BCL types like `Task`, `Action`, `String`, which can cause confusion.
+* [OpenRewrite.Recipes.CodeQuality.Style.FindDoNotDeclareStaticMembersOnGenericTypes](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/finddonotdeclarestaticmembersongenerictypes.md)
+  * **Find static members on generic types**
+  * Detect static members declared on generic types. Static members on generic types require specifying type arguments at the call site, reducing discoverability.
+* [OpenRewrite.Recipes.CodeQuality.Style.FindDoNotOverwriteParameterValue](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/finddonotoverwriteparametervalue.md)
+  * **Find overwritten parameter values**
+  * Detect assignments to method parameters, which can mask the original argument and lead to confusion.
+* [OpenRewrite.Recipes.CodeQuality.Style.FindDoNotPassNullForCancellationToken](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/finddonotpassnullforcancellationtoken.md)
+  * **Find null passed for CancellationToken**
+  * Detect `null` or `default` passed for `CancellationToken` parameters. Use `CancellationToken.None` instead.
+* [OpenRewrite.Recipes.CodeQuality.Style.FindDoNotRaiseApplicationException](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/finddonotraiseapplicationexception.md)
+  * **Do not raise ApplicationException**
+  * Avoid throwing `ApplicationException`. Use a more specific exception type.
+* [OpenRewrite.Recipes.CodeQuality.Style.FindDoNotRaiseNotImplementedException](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/finddonotraisenotimplementedexception.md)
+  * **Do not throw NotImplementedException**
+  * Throwing `NotImplementedException` indicates incomplete implementation. Implement the functionality or throw a more specific exception.
+* [OpenRewrite.Recipes.CodeQuality.Style.FindDoNotRaiseReservedExceptionType](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/finddonotraisereservedexceptiontype.md)
+  * **Do not raise reserved exception types**
+  * Avoid throwing `Exception`, `SystemException`, or `ApplicationException`. Use more specific exception types.
+* [OpenRewrite.Recipes.CodeQuality.Style.FindDoNotThrowFromFinalizer](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/finddonotthrowfromfinalizer.md)
+  * **Find throw statements in finalizer**
+  * Detect `throw` statements inside finalizer/destructor methods. Throwing from a finalizer can terminate the process.
+* [OpenRewrite.Recipes.CodeQuality.Style.FindDoNotThrowFromFinallyBlock](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/finddonotthrowfromfinallyblock.md)
+  * **Do not throw from finally block**
+  * Throwing from a `finally` block can mask the original exception and make debugging difficult.
+* [OpenRewrite.Recipes.CodeQuality.Style.FindDoNotUseCertificateValidationCallback](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/finddonotusecertificatevalidationcallback.md)
+  * **Do not write custom certificate validation**
+  * Custom certificate validation callbacks can introduce security vulnerabilities by accidentally accepting invalid certificates.
+* [OpenRewrite.Recipes.CodeQuality.Style.FindDoNotUseEqualityComparerDefaultOfString](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/finddonotuseequalitycomparerdefaultofstring.md)
+  * **Find EqualityComparer&lt;string&gt;.Default**
+  * Detect `EqualityComparer&lt;string&gt;.Default` which may use different comparison semantics across platforms. Use an explicit `StringComparer`.
+* [OpenRewrite.Recipes.CodeQuality.Style.FindDoNotUseGetHashCodeForString](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/finddonotusegethashcodeforstring.md)
+  * **Find GetType() on Type instance**
+  * Detect `.GetType()` called on an object that is already a `System.Type`. Use `typeof()` directly.
+* [OpenRewrite.Recipes.CodeQuality.Style.FindDoNotUseObjectToString](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/finddonotuseobjecttostring.md)
+  * **Find ToString on object-typed parameter**
+  * Detect `.ToString()` calls on `object`-typed parameters. The default `object.ToString()` returns the type name, which is rarely the intended behavior.
+* [OpenRewrite.Recipes.CodeQuality.Style.FindDoNotUseSleep](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/finddonotusesleep.md)
+  * **Find Thread.Sleep usage**
+  * Detect `Thread.Sleep()` which blocks the thread. Use `await Task.Delay()` in async contexts instead.
+* [OpenRewrite.Recipes.CodeQuality.Style.FindDoNotUseStringGetHashCode](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/finddonotusestringgethashcode.md)
+  * **Find string.GetHashCode() usage**
+  * Detect `string.GetHashCode()` which is not stable across runs. Use `StringComparer.GetHashCode()` or `string.GetHashCode(StringComparison)` instead.
+* [OpenRewrite.Recipes.CodeQuality.Style.FindEmbedCaughtExceptionAsInner](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/findembedcaughtexceptionasinner.md)
+  * **Embed caught exception as inner exception**
+  * When rethrowing a different exception in a catch block, pass the original exception as the inner exception to preserve the stack trace.
+* [OpenRewrite.Recipes.CodeQuality.Style.FindEnumDefaultValueZero](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/findenumdefaultvaluezero.md)
+  * **Find explicit zero initialization in enum**
+  * Detect enum members explicitly initialized to `0`. The default value of an enum is already `0`.
+* [OpenRewrite.Recipes.CodeQuality.Style.FindEqualsWithoutNotNullWhen](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/findequalswithoutnotnullwhen.md)
+  * **Find Equals without [NotNullWhen(true)]**
+  * Detect `Equals(object?)` overrides that are missing `[NotNullWhen(true)]` on the parameter, which helps nullable analysis.
+* [OpenRewrite.Recipes.CodeQuality.Style.FindEventArgsSenderNotNull](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/findeventargssendernotnull.md)
+  * **Find event raised with null EventArgs**
+  * Detect event invocations that pass `null` for EventArgs. Use `EventArgs.Empty` instead.
+* [OpenRewrite.Recipes.CodeQuality.Style.FindFlowCancellationTokenInAwaitForEach](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/findflowcancellationtokeninawaitforeach.md)
+  * **Find await foreach without CancellationToken**
+  * Detect `await foreach` loops that don't pass a `CancellationToken` via `WithCancellation()` when one is available in the enclosing method.
+* [OpenRewrite.Recipes.CodeQuality.Style.FindIComparableWithoutComparisonOperators](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/findicomparablewithoutcomparisonoperators.md)
+  * **Find IComparable without comparison operators**
+  * Detect classes that implement `IComparable&lt;T&gt;` but do not override comparison operators (`&lt;`, `&gt;`, `&lt;=`, `&gt;=`).
+* [OpenRewrite.Recipes.CodeQuality.Style.FindIComparableWithoutIEquatable](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/findicomparablewithoutiequatable.md)
+  * **Find IComparable&lt;T&gt; without IEquatable&lt;T&gt;**
+  * Detect classes that implement `IComparable&lt;T&gt;` but not `IEquatable&lt;T&gt;`. Both interfaces should be implemented together for consistent comparison semantics.
+* [OpenRewrite.Recipes.CodeQuality.Style.FindIEquatableWithoutEquals](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/findiequatablewithoutequals.md)
+  * **Find IEquatable&lt;T&gt; without Equals(object) override**
+  * Detect classes that implement `IEquatable&lt;T&gt;` but do not override `Equals(object)`, which can lead to inconsistent equality behavior.
+* [OpenRewrite.Recipes.CodeQuality.Style.FindILoggerTypeMismatch](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/findiloggertypemismatch.md)
+  * **Find ILogger&lt;T&gt; type parameter mismatch**
+  * Detect `ILogger&lt;T&gt;` fields or parameters where `T` doesn't match the containing type name.
+* [OpenRewrite.Recipes.CodeQuality.Style.FindIfElseBranchesIdentical](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/findifelsebranchesidentical.md)
+  * **Find if/else with identical branches**
+  * Detect `if/else` statements where both branches contain identical code. This is likely a copy-paste bug.
+* [OpenRewrite.Recipes.CodeQuality.Style.FindImplementNonGenericInterface](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/findimplementnongenericinterface.md)
+  * **Find missing non-generic interface implementation**
+  * Detect types implementing `IComparable&lt;T&gt;` without `IComparable`, or `IEquatable&lt;T&gt;` without proper Equals override.
+* [OpenRewrite.Recipes.CodeQuality.Style.FindImplicitCultureSensitiveToStringDirect](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/findimplicitculturesensitivetostringdirect.md)
+  * **Find implicit culture-sensitive ToString in concatenation**
+  * Detect string concatenation with numeric types that implicitly call culture-sensitive `ToString()`. Use an explicit format or `CultureInfo.InvariantCulture`.
+* [OpenRewrite.Recipes.CodeQuality.Style.FindImplicitDateTimeOffsetConversion](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/findimplicitdatetimeoffsetconversion.md)
+  * **Find implicit DateTime to DateTimeOffset conversion**
+  * Detect implicit conversion from `DateTime` to `DateTimeOffset` which uses the local time zone and can produce unexpected results.
+* [OpenRewrite.Recipes.CodeQuality.Style.FindInterpolatedStringWithoutParameters](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/findinterpolatedstringwithoutparameters.md)
+  * **Find interpolated string without parameters**
+  * Detect interpolated strings (`$&quot;...&quot;`) that contain no interpolation expressions. Use a regular string literal instead.
+* [OpenRewrite.Recipes.CodeQuality.Style.FindInvalidAttributeArgumentType](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/findinvalidattributeargumenttype.md)
+  * **Find potentially invalid attribute argument type**
+  * Detect attribute arguments that use types not valid in attribute constructors (only primitives, string, Type, enums, and arrays of these are allowed).
+* [OpenRewrite.Recipes.CodeQuality.Style.FindMethodReturningIAsyncEnumerable](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/findmethodreturningiasyncenumerable.md)
+  * **Find IAsyncEnumerable method without Async suffix**
+  * Detect methods returning `IAsyncEnumerable&lt;T&gt;` that don't end with `Async`.
+* [OpenRewrite.Recipes.CodeQuality.Style.FindMethodTooLong](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/findmethodtoolong.md)
+  * **Find method that is too long**
+  * Detect methods with more than 60 statements. Long methods are harder to understand and maintain.
+* [OpenRewrite.Recipes.CodeQuality.Style.FindMissingCancellationTokenOverload](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/findmissingcancellationtokenoverload.md)
+  * **Find async call missing CancellationToken**
+  * Detect async method calls that don't pass a `CancellationToken` when the enclosing method has one available as a parameter.
+* [OpenRewrite.Recipes.CodeQuality.Style.FindMissingNamedParameter](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/findmissingnamedparameter.md)
+  * **Find boolean literal arguments without parameter name**
+  * Detect method calls passing `true` or `false` literals as arguments. Using named parameters improves readability.
+* [OpenRewrite.Recipes.CodeQuality.Style.FindMissingParamsInOverride](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/findmissingparamsinoverride.md)
+  * **Find override method missing params keyword**
+  * Detect override methods that may be missing the `params` keyword on array parameters that the base method declares as `params`.
+* [OpenRewrite.Recipes.CodeQuality.Style.FindMissingStringComparison](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/findmissingstringcomparison.md)
+  * **Find string method missing StringComparison**
+  * Detect string methods like `Equals`, `Contains`, `StartsWith`, `EndsWith` called without an explicit `StringComparison` parameter.
+* [OpenRewrite.Recipes.CodeQuality.Style.FindMissingStringEqualityComparer](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/findmissingstringequalitycomparer.md)
+  * **Find missing string equality comparer**
+  * Detect `Dictionary&lt;string, T&gt;` and `HashSet&lt;string&gt;` created without an explicit `StringComparer`. Without a comparer, the default ordinal comparison is used.
+* [OpenRewrite.Recipes.CodeQuality.Style.FindMultiLineXmlComment](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/findmultilinexmlcomment.md)
+  * **Find multi-line XML doc comments**
+  * Detect `/** */` style XML documentation comments that could use the `///` single-line syntax for consistency.
+* [OpenRewrite.Recipes.CodeQuality.Style.FindNonConstantStaticFieldsVisible](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/findnonconstantstaticfieldsvisible.md)
+  * **Non-constant static fields should not be visible**
+  * Public static fields that are not `const` or `readonly` can be modified by any code, breaking encapsulation. Make them `readonly` or use a property.
+* [OpenRewrite.Recipes.CodeQuality.Style.FindNonDeterministicEndOfLine](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/findnondeterministicendofline.md)
+  * **Find non-deterministic end-of-line in strings**
+  * Detect string literals containing `\n` that may behave differently across platforms. Consider using `Environment.NewLine` instead.
+* [OpenRewrite.Recipes.CodeQuality.Style.FindNonFlagsEnumWithFlagsAttribute](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/findnonflagsenumwithflagsattribute.md)
+  * **Find non-flags enum with [Flags]**
+  * Detect enums marked with `[Flags]` whose values are not powers of two, indicating they are not truly flags enums.
+* [OpenRewrite.Recipes.CodeQuality.Style.FindNotNullIfNotNullAttribute](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/findnotnullifnotnullattribute.md)
+  * **Find missing NotNullIfNotNull attribute**
+  * Detect methods with nullable return types depending on nullable parameters that lack `[NotNullIfNotNull]` attribute.
+* [OpenRewrite.Recipes.CodeQuality.Style.FindObserveAsyncResult](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/findobserveasyncresult.md)
+  * **Find unobserved async call result**
+  * Detect calls to async methods where the returned Task is not awaited, assigned, or otherwise observed. Unobserved tasks may silently swallow exceptions.
+* [OpenRewrite.Recipes.CodeQuality.Style.FindObsoleteWithoutMessage](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/findobsoletewithoutmessage.md)
+  * **Obsolete attribute should include explanation**
+  * The `[Obsolete]` attribute should include a message explaining why the member is obsolete and what to use instead.
+* [OpenRewrite.Recipes.CodeQuality.Style.FindOverrideChangesParameterDefaults](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/findoverridechangesparameterdefaults.md)
+  * **Find overrides that change parameter defaults**
+  * Detect `override` methods with default parameter values. Overrides should not change defaults from the base method as this causes confusing behavior depending on the reference type.
+* [OpenRewrite.Recipes.CodeQuality.Style.FindPreferCollectionAbstraction](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/findprefercollectionabstraction.md)
+  * **Find concrete collection in public API**
+  * Detect public method parameters or return types that use concrete collection types like `List&lt;T&gt;` instead of `IList&lt;T&gt;` or `IEnumerable&lt;T&gt;`.
+* [OpenRewrite.Recipes.CodeQuality.Style.FindPrimaryConstructorReadonly](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/findprimaryconstructorreadonly.md)
+  * **Find reassigned primary constructor parameter**
+  * Detect primary constructor parameters that are reassigned in the class body. Primary constructor parameters should be treated as readonly.
+* [OpenRewrite.Recipes.CodeQuality.Style.FindRawStringImplicitEndOfLine](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/findrawstringimplicitendofline.md)
+  * **Find raw string with implicit end of line**
+  * Detect raw string literals (`&quot;&quot;&quot;...&quot;&quot;&quot;`) that contain implicit end-of-line characters which may behave differently across platforms.
+* [OpenRewrite.Recipes.CodeQuality.Style.FindReadOnlyStructMembers](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/findreadonlystructmembers.md)
+  * **Find struct member that could be readonly**
+  * Detect struct methods and properties that don't modify state and could be marked `readonly` to prevent defensive copies.
+* [OpenRewrite.Recipes.CodeQuality.Style.FindRedundantArgumentValue](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/findredundantargumentvalue.md)
+  * **Find redundant default argument values**
+  * Detect named arguments that explicitly pass a default value. Removing them simplifies the call.
+* [OpenRewrite.Recipes.CodeQuality.Style.FindSenderNullForStaticEvents](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/findsendernullforstaticevents.md)
+  * **Find static event with non-null sender**
+  * Detect static event invocations that pass `this` as the sender. Static events should use `null` as the sender.
+* [OpenRewrite.Recipes.CodeQuality.Style.FindSingleLineXmlComment](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/findsinglelinexmlcomment.md)
+  * **Find multi-line XML doc comment style**
+  * Detect `/** ... */` style XML doc comments. Use `///` single-line style instead for consistency.
+* [OpenRewrite.Recipes.CodeQuality.Style.FindSpanEqualityOperator](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/findspanequalityoperator.md)
+  * **Find equality operator on Span&lt;T&gt;**
+  * Detect `==` or `!=` operators on `Span&lt;T&gt;` or `ReadOnlySpan&lt;T&gt;`. Use `SequenceEqual` instead.
+* [OpenRewrite.Recipes.CodeQuality.Style.FindStreamReadIgnored](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/findstreamreadignored.md)
+  * **Find Stream.Read() return value ignored**
+  * Detect `Stream.Read()` calls where the return value (bytes read) is not used. This can lead to incomplete reads.
+* [OpenRewrite.Recipes.CodeQuality.Style.FindStringFormatConstant](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/findstringformatconstant.md)
+  * **Find non-constant string.Format format string**
+  * Detect non-constant format strings passed to `string.Format`. Use a constant to prevent format string injection.
+* [OpenRewrite.Recipes.CodeQuality.Style.FindTaskInUsing](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/findtaskinusing.md)
+  * **Find unawaited task in using statement**
+  * Detect `using` statements where a Task is not awaited, which can cause premature disposal before the task completes.
+* [OpenRewrite.Recipes.CodeQuality.Style.FindThreadStaticOnInstanceField](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/findthreadstaticoninstancefield.md)
+  * **Do not use ThreadStatic on instance fields**
+  * `[ThreadStatic]` only works on static fields. Using it on instance fields has no effect.
+* [OpenRewrite.Recipes.CodeQuality.Style.FindThrowIfNullWithNonNullable](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/findthrowifnullwithnonnullable.md)
+  * **Find ThrowIfNull with value type argument**
+  * Detect `ArgumentNullException.ThrowIfNull` called with value type parameters that can never be null.
+* [OpenRewrite.Recipes.CodeQuality.Style.FindTypeNameMatchesNamespace](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/findtypenamematchesnamespace.md)
+  * **Find type name matching namespace**
+  * Detect type names that match their containing namespace, which can cause ambiguous references.
+* [OpenRewrite.Recipes.CodeQuality.Style.FindTypeShouldNotExtendApplicationException](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/findtypeshouldnotextendapplicationexception.md)
+  * **Types should not extend ApplicationException**
+  * Do not create custom exceptions that inherit from `ApplicationException`. Inherit from `Exception` or a more specific exception type.
+* [OpenRewrite.Recipes.CodeQuality.Style.FindUseCallerArgumentExpression](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/findusecallerargumentexpression.md)
+  * **Find redundant nameof with CallerArgumentExpression**
+  * Detect `nameof(param)` passed to parameters marked with `[CallerArgumentExpression]`. The attribute fills the value automatically.
+* [OpenRewrite.Recipes.CodeQuality.Style.FindUseDateTimeOffsetInsteadOfDateTime](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/findusedatetimeoffsetinsteadofdatetime.md)
+  * **Find DateTime.Now/UtcNow usage**
+  * Detect `DateTime.Now` and `DateTime.UtcNow` usage. Use `DateTimeOffset` instead for unambiguous time representation across time zones.
+* [OpenRewrite.Recipes.CodeQuality.Style.FindUseDebuggerDisplayAttribute](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/findusedebuggerdisplayattribute.md)
+  * **Find ToString override without DebuggerDisplay**
+  * Detect classes that override `ToString()` but lack `[DebuggerDisplay]` attribute for debugger integration.
+* [OpenRewrite.Recipes.CodeQuality.Style.FindUseDefaultParameterValue](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/findusedefaultparametervalue.md)
+  * **Find [DefaultValue] on parameter**
+  * Detect `[DefaultValue]` on method parameters. Use `[DefaultParameterValue]` instead, as `[DefaultValue]` is for component model metadata only.
+* [OpenRewrite.Recipes.CodeQuality.Style.FindUseElementAccessInsteadOfLinq](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/finduseelementaccessinsteadoflinq.md)
+  * **Find ElementAt() that could use indexer**
+  * Detect LINQ `.ElementAt(index)` calls that could be replaced with direct indexer access `[index]`.
+* [OpenRewrite.Recipes.CodeQuality.Style.FindUseEqualsMethodInsteadOfOperator](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/finduseequalsmethodinsteadofoperator.md)
+  * **Find == comparison that should use Equals()**
+  * Detect `==` comparisons on reference types that override `Equals`. Using `==` may compare references instead of values.
+* [OpenRewrite.Recipes.CodeQuality.Style.FindUseExplicitEnumValue](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/finduseexplicitenumvalue.md)
+  * **Find integer 0 used instead of named enum value**
+  * Detect usage of integer literal `0` where a named enum member should be used for clarity.
+* [OpenRewrite.Recipes.CodeQuality.Style.FindUseFormatProviderInToString](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/finduseformatproviderintostring.md)
+  * **Find Parse/ToString without IFormatProvider**
+  * Detect calls to culture-sensitive methods like `int.Parse`, `double.Parse` without an explicit `IFormatProvider` or `CultureInfo`.
+* [OpenRewrite.Recipes.CodeQuality.Style.FindUseIFormatProvider](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/finduseiformatprovider.md)
+  * **Find Parse/TryParse without IFormatProvider**
+  * Detect `int.Parse(str)` and similar calls without an `IFormatProvider` parameter. Use `CultureInfo.InvariantCulture` for culture-independent parsing.
+* [OpenRewrite.Recipes.CodeQuality.Style.FindUseLangwordInXmlComment](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/finduselangwordinxmlcomment.md)
+  * **Find missing langword in XML comment**
+  * Detect XML doc comments that reference `null`, `true`, `false` as plain text instead of using `&lt;see langword=&quot;...&quot;/&gt;`.
+* [OpenRewrite.Recipes.CodeQuality.Style.FindUseLazyInitializerEnsureInitialize](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/finduselazyinitializerensureinitialize.md)
+  * **Find Interlocked.CompareExchange lazy init pattern**
+  * Detect `Interlocked.CompareExchange(ref field, new T(), null)` pattern. Use `LazyInitializer.EnsureInitialized` for cleaner lazy initialization.
+* [OpenRewrite.Recipes.CodeQuality.Style.FindUseListPatternMatching](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/finduselistpatternmatching.md)
+  * **Find collection emptiness check**
+  * Detect `.Length == 0` or `.Count == 0` checks that could use list patterns like `is []` in C# 11+.
+* [OpenRewrite.Recipes.CodeQuality.Style.FindUseNamedParameter](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/findusenamedparameter.md)
+  * **Find boolean literal argument without name**
+  * Detect boolean literal arguments (`true`/`false`) passed without named parameters. Named arguments improve readability.
+* [OpenRewrite.Recipes.CodeQuality.Style.FindUseOperatingSystemMethods](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/finduseoperatingsystemmethods.md)
+  * **Use OperatingSystem methods instead of RuntimeInformation**
+  * Use `OperatingSystem.IsWindows()` and similar methods instead of `RuntimeInformation.IsOSPlatform()`. The OperatingSystem methods are more concise and can be optimized by the JIT.
+* [OpenRewrite.Recipes.CodeQuality.Style.FindUseProcessStartWithStartInfo](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/finduseprocessstartwithstartinfo.md)
+  * **Find Process.Start with string argument**
+  * Detect `Process.Start(&quot;filename&quot;)` which should use the `ProcessStartInfo` overload for explicit control over `UseShellExecute` and other settings.
+* [OpenRewrite.Recipes.CodeQuality.Style.FindUseRecordClassExplicitly](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/finduserecordclassexplicitly.md)
+  * **Find implicit record class declaration**
+  * Detect `record` declarations that should use `record class` explicitly to clarify that they are reference types.
+* [OpenRewrite.Recipes.CodeQuality.Style.FindUseRegexOptions](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/finduseregexoptions.md)
+  * **Find Regex without ExplicitCapture option**
+  * Detect `new Regex()` or `Regex.IsMatch()` without `RegexOptions.ExplicitCapture`. Using this option avoids unnecessary unnamed captures.
+* [OpenRewrite.Recipes.CodeQuality.Style.FindUseShellExecuteFalseWhenRedirecting](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/finduseshellexecutefalsewhenredirecting.md)
+  * **Find redirect without UseShellExecute=false**
+  * Detect `ProcessStartInfo` that sets `RedirectStandard*` without explicitly setting `UseShellExecute = false`.
+* [OpenRewrite.Recipes.CodeQuality.Style.FindUseShellExecuteNotSet](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/finduseshellexecutenotset.md)
+  * **Find ProcessStartInfo without UseShellExecute**
+  * Detect `new ProcessStartInfo()` without explicitly setting `UseShellExecute`. The default changed between .NET Framework (true) and .NET Core (false).
+* [OpenRewrite.Recipes.CodeQuality.Style.FindUseStringComparer](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/findusestringcomparer.md)
+  * **Find Dictionary/HashSet without StringComparer**
+  * Detect `Dictionary&lt;string, T&gt;` or `HashSet&lt;string&gt;` created without an explicit `StringComparer`. Use `StringComparer.Ordinal` or `StringComparer.OrdinalIgnoreCase`.
+* [OpenRewrite.Recipes.CodeQuality.Style.FindUseStringCreateInsteadOfConcat](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/findusestringcreateinsteadofconcat.md)
+  * **Find FormattableString usage**
+  * Detect `FormattableString` usage. Consider using `String.Create` on .NET 6+ for better performance.
+* [OpenRewrite.Recipes.CodeQuality.Style.FindUseStringEqualsInsteadOfIsPattern](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/findusestringequalsinsteadofispattern.md)
+  * **Find 'is' pattern with string literal**
+  * Detect `x is &quot;literal&quot;` patterns that should use `string.Equals` with explicit `StringComparison` for culture-aware or case-insensitive comparisons.
+* [OpenRewrite.Recipes.CodeQuality.Style.FindUseSystemThreadingLock](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/findusesystemthreadinglock.md)
+  * **Use System.Threading.Lock instead of object for locking**
+  * In .NET 9+, use `System.Threading.Lock` instead of `object` for lock objects. The dedicated Lock type provides better performance.
+* [OpenRewrite.Recipes.CodeQuality.Style.FindUseTaskUnwrap](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/findusetaskunwrap.md)
+  * **Find double await pattern**
+  * Detect `await await` pattern which can be replaced with `.Unwrap()` for clarity.
+* [OpenRewrite.Recipes.CodeQuality.Style.FindUseTimeProviderInsteadOfCustom](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/findusetimeproviderinsteadofcustom.md)
+  * **Find custom time abstraction**
+  * Detect interfaces or abstract classes that appear to be custom time providers. Use `System.TimeProvider` (available in .NET 8+) instead.
+* [OpenRewrite.Recipes.CodeQuality.Style.FindValidateArgumentsBeforeYield](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/findvalidateargumentsbeforeyield.md)
+  * **Find argument validation in iterator method**
+  * Detect iterator methods that validate arguments after `yield return`. Argument validation in iterators is deferred until enumeration begins.
+* [OpenRewrite.Recipes.CodeQuality.Style.ImplementExceptionConstructors](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/implementexceptionconstructors.md)
+  * **Implement exception constructors**
+  * Ensure custom exception classes implement standard constructors.
+* [OpenRewrite.Recipes.CodeQuality.Style.ImplementNonGenericCounterpart](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/implementnongenericcounterpart.md)
+  * **Implement non-generic counterpart**
+  * Implement non-generic interface when implementing generic counterpart.
+* [OpenRewrite.Recipes.CodeQuality.Style.InvalidArgumentNullCheck](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/invalidargumentnullcheck.md)
+  * **Fix invalid argument null check**
+  * Fix invalid argument null check patterns.
+* [OpenRewrite.Recipes.CodeQuality.Style.MakeClassSealed](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/makeclasssealed.md)
+  * **Make class sealed**
+  * A class that has only private constructors should be marked as sealed.
+* [OpenRewrite.Recipes.CodeQuality.Style.MakeClassStatic](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/makeclassstatic.md)
+  * **Make class static**
+  * Make classes that contain only static members static.
+* [OpenRewrite.Recipes.CodeQuality.Style.MakeFieldReadOnly](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/makefieldreadonly.md)
+  * **Make field read-only**
+  * Make field read-only when it is only assigned in the constructor or initializer.
+* [OpenRewrite.Recipes.CodeQuality.Style.MakeMethodExtensionMethod](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/makemethodextensionmethod.md)
+  * **Make method an extension method**
+  * Convert a static method to an extension method where appropriate.
+* [OpenRewrite.Recipes.CodeQuality.Style.MarkLocalVariableAsConst](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/marklocalvariableasconst.md)
+  * **Mark local variable as const**
+  * Mark local variable as const when its value never changes.
+* [OpenRewrite.Recipes.CodeQuality.Style.MarkTypeWithDebuggerDisplay](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/marktypewithdebuggerdisplay.md)
+  * **Mark type with DebuggerDisplay attribute**
+  * Add DebuggerDisplay attribute to publicly visible types to improve debugging experience.
+* [OpenRewrite.Recipes.CodeQuality.Style.MergePreprocessorDirectives](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/mergepreprocessordirectives.md)
+  * **Merge preprocessor directives**
+  * Merge consecutive preprocessor directives that can be combined into a single directive.
+* [OpenRewrite.Recipes.CodeQuality.Style.NormalizeEnumFlagValue](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/normalizeenumflagvalue.md)
+  * **Normalize format of enum flag value**
+  * Normalize the format of Flags enum values.
+* [OpenRewrite.Recipes.CodeQuality.Style.OrderModifiers](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/ordermodifiers.md)
+  * **Order modifiers**
+  * Reorder modifiers to the canonical C# order: access, new, abstract/virtual/override/sealed, static, readonly, extern, unsafe, volatile, async, partial, const.
+* [OpenRewrite.Recipes.CodeQuality.Style.OrderNamedArguments](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/ordernamedarguments.md)
+  * **Order named arguments by parameters**
+  * Reorder named arguments to match parameter order.
+* [OpenRewrite.Recipes.CodeQuality.Style.OrderTypeParameterConstraints](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/ordertypeparameterconstraints.md)
+  * **Order type parameter constraints**
+  * Order type parameter constraints consistently.
+* [OpenRewrite.Recipes.CodeQuality.Style.OverridingMemberShouldNotChangeParams](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/overridingmembershouldnotchangeparams.md)
+  * **Overriding member should not change 'params' modifier**
+  * An overriding member should not add or remove the 'params' modifier compared to its base declaration.
+* [OpenRewrite.Recipes.CodeQuality.Style.ParameterNameDiffersFromBase](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/parameternamediffersfrombase.md)
+  * **Parameter name differs from base**
+  * Rename parameter to match base class or interface definition.
+* [OpenRewrite.Recipes.CodeQuality.Style.ParenthesizeNotPattern](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/parenthesizenotpattern.md)
+  * **Parenthesize not pattern for clarity**
+  * Add parentheses to `not A or B` → `(not A) or B` to clarify that `not` binds tighter than `or`.
+* [OpenRewrite.Recipes.CodeQuality.Style.PreferNullCheckOverTypeCheck](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/prefernullcheckovertypecheck.md)
+  * **Prefer null check over type check**
+  * Replace `x is object` with `x is not null` for clarity.
+* [OpenRewrite.Recipes.CodeQuality.Style.SimplifyBooleanLogic](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/simplifybooleanlogic.md)
+  * **Simplify boolean logic with constants**
+  * Simplify `x || true` to `true`, `x &amp;&amp; false` to `false`, `x || false` to `x`, and `x &amp;&amp; true` to `x`.
+* [OpenRewrite.Recipes.CodeQuality.Style.SortEnumMembers](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/sortenummembers.md)
+  * **Sort enum members**
+  * Sort enum members by their resolved constant value.
+* [OpenRewrite.Recipes.CodeQuality.Style.SplitVariableDeclaration](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/splitvariabledeclaration.md)
+  * **Split variable declaration**
+  * Split multi-variable declarations into separate declarations.
+* [OpenRewrite.Recipes.CodeQuality.Style.StaticMemberInGenericType](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/staticmemberingenerictype.md)
+  * **Static member in generic type should use a type parameter**
+  * Find static members in generic types that do not use any of the type's type parameters.
+* [OpenRewrite.Recipes.CodeQuality.Style.StyleCodeQuality](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/stylecodequality.md)
+  * **Style code quality**
+  * Code style modernization recipes for C#.
+* [OpenRewrite.Recipes.CodeQuality.Style.UnusedParameter](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/unusedparameter.md)
+  * **Remove unused parameter**
+  * Rename unused lambda parameters to discard (_).
+* [OpenRewrite.Recipes.CodeQuality.Style.UnusedTypeParameter](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/unusedtypeparameter.md)
+  * **Remove unused type parameter**
+  * Flag type parameters that are not used.
+* [OpenRewrite.Recipes.CodeQuality.Style.UseAsyncAwait](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/useasyncawait.md)
+  * **Use async/await when necessary**
+  * Add async/await to methods that return Task but don't use await.
+* [OpenRewrite.Recipes.CodeQuality.Style.UseAttributeUsageAttribute](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/useattributeusageattribute.md)
+  * **Use AttributeUsageAttribute**
+  * Add AttributeUsage to custom attribute classes.
+* [OpenRewrite.Recipes.CodeQuality.Style.UseAutoProperty](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/useautoproperty.md)
+  * **Use auto property**
+  * Use auto property instead of property with backing field.
+* [OpenRewrite.Recipes.CodeQuality.Style.UseBlockBodyOrExpressionBody](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/useblockbodyorexpressionbody.md)
+  * **Use block body or expression body**
+  * Convert between block body and expression body for members.
+* [OpenRewrite.Recipes.CodeQuality.Style.UseCoalesceExpressionFromNullCheck](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/usecoalesceexpressionfromnullcheck.md)
+  * **Use coalesce expression**
+  * Convert null-check conditional to null-coalescing expression.
+* [OpenRewrite.Recipes.CodeQuality.Style.UseCollectionExpression](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/usecollectionexpression.md)
+  * **Use collection expression**
+  * Replace array/list creation with collection expressions (C# 12).
+* [OpenRewrite.Recipes.CodeQuality.Style.UseConstantInsteadOfField](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/useconstantinsteadoffield.md)
+  * **Use constant instead of field**
+  * Convert `static readonly` fields with literal initializers to `const`.
+* [OpenRewrite.Recipes.CodeQuality.Style.UseElementAccess](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/useelementaccess.md)
+  * **Use element access**
+  * Use indexer instead of First()/Last()/ElementAt() when the collection supports indexer access.
+* [OpenRewrite.Recipes.CodeQuality.Style.UseEnumFieldExplicitly](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/useenumfieldexplicitly.md)
+  * **Use enum field explicitly**
+  * Use named enum field instead of cast integer value.
+* [OpenRewrite.Recipes.CodeQuality.Style.UseEventArgsEmpty](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/useeventargsempty.md)
+  * **Use EventArgs.Empty**
+  * Replace `new EventArgs()` with `EventArgs.Empty`. The static `EventArgs.Empty` field avoids unnecessary allocations.
+* [OpenRewrite.Recipes.CodeQuality.Style.UseEventArgsEmptyForNull](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/useeventargsemptyfornull.md)
+  * **Use EventArgs.Empty instead of null**
+  * Replace `null` with `EventArgs.Empty` when raising events. Passing `null` for EventArgs can cause NullReferenceException in event handlers.
+* [OpenRewrite.Recipes.CodeQuality.Style.UseEventHandlerT](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/useeventhandlert.md)
+  * **Use EventHandler&lt;T&gt;**
+  * Use generic EventHandler&lt;T&gt; instead of custom delegate types.
+* [OpenRewrite.Recipes.CodeQuality.Style.UseExplicitTypeInsteadOfVar](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/useexplicittypeinsteadofvar.md)
+  * **Use explicit type instead of var**
+  * Use explicit type instead of `var` when the type is not evident.
+* [OpenRewrite.Recipes.CodeQuality.Style.UseExplicitlyTypedArray](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/useexplicitlytypedarray.md)
+  * **Use explicitly typed array**
+  * Use explicitly or implicitly typed array.
+* [OpenRewrite.Recipes.CodeQuality.Style.UseFileScopedNamespace](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/usefilescopednamespace.md)
+  * **Use file-scoped namespace**
+  * Detect block-scoped namespace declarations that could use file-scoped syntax (C# 10).
+* [OpenRewrite.Recipes.CodeQuality.Style.UseMethodChaining](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/usemethodchaining.md)
+  * **Use method chaining**
+  * Chain consecutive method calls on the same receiver into a fluent chain.
+* [OpenRewrite.Recipes.CodeQuality.Style.UseMethodGroupConversion](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/usemethodgroupconversion.md)
+  * **Use method group conversion**
+  * Replace `x =&gt; Foo(x)` with `Foo` where method group conversion applies.
+* [OpenRewrite.Recipes.CodeQuality.Style.UsePredefinedType](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/usepredefinedtype.md)
+  * **Use predefined type**
+  * Use predefined type keyword (e.g., int instead of Int32).
+* [OpenRewrite.Recipes.CodeQuality.Style.UsePrimaryConstructor](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/useprimaryconstructor.md)
+  * **Use primary constructor**
+  * Convert classes with a single constructor into primary constructor syntax (C# 12).
+* [OpenRewrite.Recipes.CodeQuality.Style.UseReadOnlyAutoProperty](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/usereadonlyautoproperty.md)
+  * **Use read-only auto property**
+  * Use read-only auto property when the setter is never used.
+* [OpenRewrite.Recipes.CodeQuality.Style.UseStringContains](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/usestringcontains.md)
+  * **Use string.Contains instead of IndexOf comparison**
+  * Replace `s.IndexOf(x) &gt;= 0` with `s.Contains(x)` and `s.IndexOf(x) == -1` with `!s.Contains(x)`.
+* [OpenRewrite.Recipes.CodeQuality.Style.UseStringIsNullOrEmpty](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/usestringisnullorempty.md)
+  * **Use string.IsNullOrEmpty method**
+  * Replace `s == null || s == &quot;&quot;` and `s == null || s.Length == 0` with `string.IsNullOrEmpty(s)`.
+* [OpenRewrite.Recipes.CodeQuality.Style.UseStringLengthComparison](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/usestringlengthcomparison.md)
+  * **Use string.Length instead of comparison with empty string**
+  * Replace `s == &quot;&quot;` with `s.Length == 0` and `s != &quot;&quot;` with `s.Length != 0`.
+* [OpenRewrite.Recipes.CodeQuality.Style.UseThisForEventSender](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/usethisforeventsender.md)
+  * **Use 'this' for event sender**
+  * Replace `null` with `this` as the sender argument when raising instance events. The sender should be the object raising the event.
+* [OpenRewrite.Recipes.CodeQuality.Style.UseUsingDeclaration](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/useusingdeclaration.md)
+  * **Use using declaration**
+  * Convert using statement to using declaration.
+* [OpenRewrite.Recipes.CodeQuality.Style.UseVarInForEach](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/usevarinforeach.md)
+  * **Use var instead of explicit type in foreach**
+  * Replace explicit type in foreach with var when type is evident.
+* [OpenRewrite.Recipes.CodeQuality.Style.UseVarOrExplicitType](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/usevarorexplicittype.md)
+  * **Use 'var' or explicit type**
+  * Enforce consistent use of 'var' or explicit type in local variable declarations.
+* [OpenRewrite.Recipes.CodeQuality.Style.ValidateArgumentsCorrectly](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/validateargumentscorrectly.md)
+  * **Validate arguments correctly**
+  * Ensure argument validation in iterator methods runs immediately by flagging iterator methods that contain argument validation.
+* [OpenRewrite.Recipes.CodeQuality.Style.ValueTypeIsNeverEqualToNull](/user-documentation/recipes/recipe-catalog/csharp/recipes/codequality/style/valuetypeisneverequaltonull.md)
+  * **Value type is never equal to null**
+  * Replace null with default in comparisons of value types.
+* [OpenRewrite.Xml.Recipes.ChangeXmlAttribute](/user-documentation/recipes/recipe-catalog/csharp/xml/recipes/changexmlattribute.md)
+  * **Change XML attribute value**
+  * Changes the value of attributes matching AttrName to NewValue.
+* [OpenRewrite.Xml.Recipes.ChangeXmlCharData](/user-documentation/recipes/recipe-catalog/csharp/xml/recipes/changexmlchardata.md)
+  * **Change XML CharData text**
+  * Replaces occurrences of OldText with NewText in XML CharData nodes.
 
-### recipes-scala
+### recipes-migrate-dotnet
 
 _License: Moderne Proprietary License_
 
-_95 recipes_
+_148 recipes_
 
-* [org.openrewrite.scala.recipes.cleanup.AvoidEmptyCatchBlock](/user-documentation/recipes/recipe-catalog/scala/recipes/cleanup/avoidemptycatchblock.md)
-  * **Avoid empty catch blocks**
-  * Finds catch blocks that contain no statements, which silently swallow exceptions.
-* [org.openrewrite.scala.recipes.cleanup.AvoidSystemExit](/user-documentation/recipes/recipe-catalog/scala/recipes/cleanup/avoidsystemexit.md)
-  * **Avoid `System.exit` in library code**
-  * Finds `System.exit` and `sys.exit` calls which terminate the JVM. Avoid using these in library code; prefer exceptions or controlled shutdown.
-* [org.openrewrite.scala.recipes.cleanup.EncapsulateField](/user-documentation/recipes/recipe-catalog/scala/recipes/cleanup/encapsulatefield.md)
-  * **Encapsulate public mutable fields**
-  * Finds public `var` fields in classes. Public mutable fields break encapsulation; consider using a private var with accessor methods.
-* [org.openrewrite.scala.recipes.cleanup.ExternalizeCredentials](/user-documentation/recipes/recipe-catalog/scala/recipes/cleanup/externalizecredentials.md)
-  * **Externalize hardcoded credentials**
-  * Finds variable declarations whose name contains credential-related keywords (password, secret, token, apikey, api_key) with a non-empty string literal initializer. Hardcoded credentials are a security risk.
-* [org.openrewrite.scala.recipes.cleanup.ExternalizeTimeout](/user-documentation/recipes/recipe-catalog/scala/recipes/cleanup/externalizetimeout.md)
-  * **Externalize hardcoded timeouts**
-  * Finds hardcoded timeout values such as `Duration(5, ...)`, `5.seconds`, or `Timeout(...)` with numeric literals. Consider making timeouts configurable.
-* [org.openrewrite.scala.recipes.cleanup.ExtractMagicNumber](/user-documentation/recipes/recipe-catalog/scala/recipes/cleanup/extractmagicnumber.md)
-  * **Extract magic numbers to named constants**
-  * Finds magic numbers (literal integers other than -1, 0, 1, 2) used in expressions or method arguments. Consider extracting them to named constants.
-* [org.openrewrite.scala.recipes.cleanup.InventoryScalaLogging](/user-documentation/recipes/recipe-catalog/scala/recipes/cleanup/inventoryscalalogging.md)
-  * **Inventory scala-logging usage**
-  * Finds imports of the Typesafe scala-logging library (`com.typesafe.scalalogging`). Use this recipe to inventory logging framework usage across a codebase.
-* [org.openrewrite.scala.recipes.cleanup.InventoryTypesafeConfig](/user-documentation/recipes/recipe-catalog/scala/recipes/cleanup/inventorytypesafeconfig.md)
-  * **Inventory Typesafe Config usage**
-  * Finds imports of the Typesafe Config library (`com.typesafe.config`). Use this recipe to inventory configuration library usage across a codebase.
-* [org.openrewrite.scala.recipes.cleanup.KeepClassesSmall](/user-documentation/recipes/recipe-catalog/scala/recipes/cleanup/keepclassessmall.md)
-  * **Keep classes small (max 30 members)**
-  * Finds classes with more than 30 members. Large classes are harder to maintain; consider splitting into smaller classes.
-* [org.openrewrite.scala.recipes.cleanup.KeepMethodsShort](/user-documentation/recipes/recipe-catalog/scala/recipes/cleanup/keepmethodsshort.md)
-  * **Keep methods short (max 20 statements)**
-  * Finds methods with more than 20 statements. Long methods are harder to understand and maintain; consider refactoring.
-* [org.openrewrite.scala.recipes.cleanup.PatchLog4j](/user-documentation/recipes/recipe-catalog/scala/recipes/cleanup/patchlog4j.md)
-  * **Ensure Log4j is patched against CVE-2021-44228**
-  * Finds imports of Log4j 1.x (`org.apache.log4j`) or Log4j 2.x (`org.apache.logging.log4j`). Ensure your Log4j version is patched against CVE-2021-44228.
-* [org.openrewrite.scala.recipes.cleanup.PreferExplicitImports](/user-documentation/recipes/recipe-catalog/scala/recipes/cleanup/preferexplicitimports.md)
-  * **Prefer explicit imports over wildcards**
-  * Finds wildcard imports (`import foo._` or `import foo.*`). Explicit imports are generally preferred for clarity.
-* [org.openrewrite.scala.recipes.cleanup.PreferImmutableCollections](/user-documentation/recipes/recipe-catalog/scala/recipes/cleanup/preferimmutablecollections.md)
-  * **Prefer immutable collections**
-  * Replaces imports of `scala.collection.mutable.*` with `scala.collection.immutable.*`. Idiomatic Scala prefers immutable collections.
-* [org.openrewrite.scala.recipes.cleanup.PreferImmutableVal](/user-documentation/recipes/recipe-catalog/scala/recipes/cleanup/preferimmutableval.md)
-  * **Prefer `val` over `var`**
-  * Finds mutable `var` declarations in Scala code. Idiomatic Scala prefers immutable `val` over mutable `var`.
-* [org.openrewrite.scala.recipes.cleanup.PreferOption](/user-documentation/recipes/recipe-catalog/scala/recipes/cleanup/preferoption.md)
-  * **Prefer `Option` over `null`**
-  * Replaces `null` literal with `None`. Idiomatic Scala uses `Option` instead of null.
-* [org.openrewrite.scala.recipes.cleanup.PreferPatternMatch](/user-documentation/recipes/recipe-catalog/scala/recipes/cleanup/preferpatternmatch.md)
-  * **Prefer pattern matching over `asInstanceOf` casts**
-  * Finds `.asInstanceOf[T]` type casts that should be replaced with pattern matching. Idiomatic Scala prefers pattern matching over explicit casts.
-* [org.openrewrite.scala.recipes.cleanup.PreferPatternMatchOverInstanceOf](/user-documentation/recipes/recipe-catalog/scala/recipes/cleanup/preferpatternmatchoverinstanceof.md)
-  * **Prefer pattern matching over `isInstanceOf`/`asInstanceOf` chains**
-  * Finds `if` statements that check `isInstanceOf` in the condition and use `asInstanceOf` in the then-part. Replace with pattern matching for idiomatic Scala.
-* [org.openrewrite.scala.recipes.cleanup.PreferScalaPropertyAccess](/user-documentation/recipes/recipe-catalog/scala/recipes/cleanup/preferscalapropertyaccess.md)
-  * **Prefer Scala-style property access over Java getters**
-  * Finds Java-style getter methods (`getName`, `getValue`, etc.) that could be replaced with Scala-style property access.
-* [org.openrewrite.scala.recipes.cleanup.PreferSpecificTypes](/user-documentation/recipes/recipe-catalog/scala/recipes/cleanup/preferspecifictypes.md)
-  * **Prefer specific types over `Any`**
-  * Finds variable declarations whose type expression contains `Any`. Type `Any` is the Scala equivalent of `Object` and is usually too broad.
-* [org.openrewrite.scala.recipes.cleanup.PreferStringInterpolation](/user-documentation/recipes/recipe-catalog/scala/recipes/cleanup/preferstringinterpolation.md)
-  * **Prefer string interpolation over concatenation**
-  * Finds string concatenation using the `+` operator. Idiomatic Scala prefers string interpolation (e.g., `s&quot;hello $name&quot;`) over concatenation with `+`.
-* [org.openrewrite.scala.recipes.cleanup.ReduceNesting](/user-documentation/recipes/recipe-catalog/scala/recipes/cleanup/reducenesting.md)
-  * **Reduce deep nesting by extracting methods**
-  * Finds `def` methods with deeply nested code (5+ indentation levels). Deeply nested code is hard to follow; consider extracting methods.
-* [org.openrewrite.scala.recipes.cleanup.ReduceParameterCount](/user-documentation/recipes/recipe-catalog/scala/recipes/cleanup/reduceparametercount.md)
-  * **Reduce parameter count (max 5 parameters)**
-  * Finds `def` methods with more than 5 parameters. Long parameter lists hurt readability; consider using a case class.
-* [org.openrewrite.scala.recipes.cleanup.RemoveExplicitReturn](/user-documentation/recipes/recipe-catalog/scala/recipes/cleanup/removeexplicitreturn.md)
-  * **Remove explicit `return` statements**
-  * Removes explicit `return` statements in Scala code. In Scala, the last expression in a method is automatically the return value, so explicit `return` is not idiomatic.
-* [org.openrewrite.scala.recipes.cleanup.RemoveRedundantToString](/user-documentation/recipes/recipe-catalog/scala/recipes/cleanup/removeredundanttostring.md)
-  * **Remove redundant `toString` on `String`**
-  * Removes calls to `.toString` on expressions that are already of type `String`. Such calls are redundant.
-* [org.openrewrite.scala.recipes.cleanup.RemoveUnitReturnType](/user-documentation/recipes/recipe-catalog/scala/recipes/cleanup/removeunitreturntype.md)
-  * **Remove unnecessary `: Unit` return type**
-  * Removes the explicit `Unit` return type annotation from Scala methods. In Scala, methods returning `Unit` do not need the `: Unit` annotation.
-* [org.openrewrite.scala.recipes.cleanup.RemoveUnusedBinding](/user-documentation/recipes/recipe-catalog/scala/recipes/cleanup/removeunusedbinding.md)
-  * **Remove unused variable bindings**
-  * Removes variable declarations whose name starts with `_` (underscore-prefixed binding). This removes unused variables that represent dead code.
-* [org.openrewrite.scala.recipes.cleanup.ResolveTodoComment](/user-documentation/recipes/recipe-catalog/scala/recipes/cleanup/resolvetodocomment.md)
-  * **Resolve TODO/FIXME comments**
-  * Finds comments containing TODO, FIXME, HACK, or XXX. These indicate incomplete work that should be tracked and resolved.
-* [org.openrewrite.scala.recipes.cleanup.ReviewDeprecatedApi](/user-documentation/recipes/recipe-catalog/scala/recipes/cleanup/reviewdeprecatedapi.md)
-  * **Review deprecated API declarations**
-  * Finds declarations annotated with `@deprecated` in Scala code. Deprecated APIs should be reviewed for removal or migration.
-* [org.openrewrite.scala.recipes.cleanup.SimplifyBooleanExpression](/user-documentation/recipes/recipe-catalog/scala/recipes/cleanup/simplifybooleanexpression.md)
-  * **Simplify boolean expression**
-  * Simplifies redundant boolean comparisons such as `x == true` to `x` and `x == false` to `!x`.
-* [org.openrewrite.scala.recipes.cleanup.UseCollectionConverters](/user-documentation/recipes/recipe-catalog/scala/recipes/cleanup/usecollectionconverters.md)
-  * **Replace `JavaConverters` with `CollectionConverters`**
-  * `scala.collection.JavaConverters` was deprecated in Scala 2.13 in favor of `scala.jdk.CollectionConverters`. This recipe replaces the import automatically.
-* [org.openrewrite.scala.recipes.cleanup.UseDirectToSet](/user-documentation/recipes/recipe-catalog/scala/recipes/cleanup/usedirecttoset.md)
-  * **Replace unnecessary intermediate collection before `.toSet`**
-  * Replaces patterns like `.toList.toSet` or `.toSeq.toSet` with `.toSet` to avoid creating an unnecessary intermediate collection.
-* [org.openrewrite.scala.recipes.cleanup.UseLogger](/user-documentation/recipes/recipe-catalog/scala/recipes/cleanup/uselogger.md)
-  * **Use logging framework instead of `println`**
-  * Finds `println` calls in Scala code. Using `println` directly is not suitable for production; use a logging framework instead.
-* [org.openrewrite.scala.recipes.cleanup.UseLoggerForExceptions](/user-documentation/recipes/recipe-catalog/scala/recipes/cleanup/useloggerforexceptions.md)
-  * **Use logging framework instead of `printStackTrace`**
-  * Finds `.printStackTrace` calls. Use a logging framework instead of writing directly to `System.err`.
-* [org.openrewrite.scala.recipes.cleanup.UseOptionSafely](/user-documentation/recipes/recipe-catalog/scala/recipes/cleanup/useoptionsafely.md)
-  * **Use `Option` safely**
-  * Finds calls to `.get` on `Option` values. Calling `.get` on `Option` can throw `NoSuchElementException`; prefer `getOrElse`, `map`, `fold`, or pattern matching.
-* [org.openrewrite.scala.recipes.cleanup.UseOrNull](/user-documentation/recipes/recipe-catalog/scala/recipes/cleanup/useornull.md)
-  * **Replace `.getOrElse(null)` with `.orNull`**
-  * Replaces `.getOrElse(null)` on `Option` values with `.orNull` for a cleaner, idiomatic alternative.
-* [org.openrewrite.scala.recipes.concurrency.AvoidBlockingCalls](/user-documentation/recipes/recipe-catalog/scala/recipes/concurrency/avoidblockingcalls.md)
-  * **Avoid blocking calls (`Await.result`/`Await.ready`)**
-  * Finds `Await.result` and `Await.ready` calls which block the current thread. Consider using non-blocking Future composition with map, flatMap, or for-comprehensions.
-* [org.openrewrite.scala.recipes.concurrency.AvoidThreadSleep](/user-documentation/recipes/recipe-catalog/scala/recipes/concurrency/avoidthreadsleep.md)
-  * **Avoid `Thread.sleep`**
-  * Finds `Thread.sleep` calls which block the current thread. Consider using scheduled executors or akka scheduler instead.
-* [org.openrewrite.scala.recipes.concurrency.PreferCustomExecutionContext](/user-documentation/recipes/recipe-catalog/scala/recipes/concurrency/prefercustomexecutioncontext.md)
-  * **Prefer custom `ExecutionContext` over global**
-  * Finds imports of `scala.concurrent.ExecutionContext.Implicits.global`. The global ExecutionContext may not be appropriate for blocking I/O operations; prefer a custom ExecutionContext backed by a dedicated thread pool.
-* [org.openrewrite.scala.recipes.concurrency.SynchronizeMutableState](/user-documentation/recipes/recipe-catalog/scala/recipes/concurrency/synchronizemutablestate.md)
-  * **Synchronize mutable shared state**
-  * Finds `var` declarations at class level that lack `@volatile` or other synchronization annotations. Mutable shared state without synchronization is a common source of concurrency bugs.
-* [org.openrewrite.scala.recipes.errorhandling.PreferDirectEitherOps](/user-documentation/recipes/recipe-catalog/scala/recipes/errorhandling/preferdirecteitherops.md)
-  * **Prefer direct `Either` operations over projections**
-  * Finds usages of `.left` and `.right` projections on `Either`. Since Scala 2.13, `Either` is right-biased so `map`/`flatMap` work directly. Use `swap` to operate on the `Left` side instead of `.left`.
-* [org.openrewrite.scala.recipes.errorhandling.PreferFunctionalErrorHandling](/user-documentation/recipes/recipe-catalog/scala/recipes/errorhandling/preferfunctionalerrorhandling.md)
-  * **Prefer functional error handling over `throw` expressions**
-  * Finds `throw` expressions inside method bodies that should use functional error handling. Throwing exceptions breaks referential transparency; prefer returning `Try`, `Either`, or `Option`.
-* [org.openrewrite.scala.recipes.errorhandling.UseNonFatalMatcher](/user-documentation/recipes/recipe-catalog/scala/recipes/errorhandling/usenonfatalmatcher.md)
-  * **Use `NonFatal` matcher for broad catch patterns**
-  * Finds catch blocks using broad patterns like `case e: Exception =&gt;` or `case _ =&gt;` that should use `scala.util.control.NonFatal` to catch all non-fatal exceptions while allowing fatal errors to propagate.
-* [org.openrewrite.scala.recipes.errorhandling.UseTrySafely](/user-documentation/recipes/recipe-catalog/scala/recipes/errorhandling/usetrysafely.md)
-  * **Use `Try` safely without calling `.get`**
-  * Finds calls to `.get` on `scala.util.Try` values that should use safer alternatives. Calling `.get` on a `Failure` throws the contained exception; prefer `getOrElse`, `map`, or pattern matching.
-* [org.openrewrite.scala.recipes.migrate.MigrateImplicitToGivenUsing](/user-documentation/recipes/recipe-catalog/scala/recipes/migrate/migrateimplicittogivenusing.md)
-  * **Migrate `implicit` to `given`/`using` (Scala 3)**
-  * Finds `implicit` keyword usage on methods and parameters. In Scala 3, `implicit` is replaced with `given`/`using`.
-* [org.openrewrite.scala.recipes.migrate.MigrateProcedureSyntax](/user-documentation/recipes/recipe-catalog/scala/recipes/migrate/migrateproceduresyntax.md)
-  * **Migrate deprecated procedure syntax**
-  * Finds method declarations that use deprecated Scala procedure syntax (methods with a body block but no explicit return type or `=` sign). Procedure syntax was deprecated in Scala 2.13 and removed in Scala 3.
-* [org.openrewrite.scala.recipes.migrate.RemoveAny2StringAdd](/user-documentation/recipes/recipe-catalog/scala/recipes/migrate/removeany2stringadd.md)
-  * **Remove deprecated `any2stringadd` usage**
-  * Finds expressions like `1 + &quot;string&quot;` that rely on the deprecated `any2stringadd` implicit conversion. This was deprecated in Scala 2.13 and removed in Scala 3. Use string interpolation or `.toString` instead.
-* [org.openrewrite.scala.recipes.migrate.RemoveExistentialTypes](/user-documentation/recipes/recipe-catalog/scala/recipes/migrate/removeexistentialtypes.md)
-  * **Remove existential types (removed in Scala 3)**
-  * Finds existential types using `forSome` syntax. Existential types were removed in Scala 3 and must be rewritten.
-* [org.openrewrite.scala.recipes.migrate.RemoveSymbolLiterals](/user-documentation/recipes/recipe-catalog/scala/recipes/migrate/removesymbolliterals.md)
-  * **Remove deprecated symbol literals**
-  * Finds symbol literals like `'foo` which were deprecated in Scala 2.13 and removed in Scala 3. Use `Symbol(&quot;foo&quot;)` instead.
-* [org.openrewrite.scala.recipes.migrate.ReviewAbstractOverride](/user-documentation/recipes/recipe-catalog/scala/recipes/migrate/reviewabstractoverride.md)
-  * **Review abstract override for Scala 3**
-  * Finds methods or fields with both `abstract` and `override` modifiers. The stackable trait pattern using `abstract override` may need review for Scala 3.
-* [org.openrewrite.scala.recipes.migrate.ReviewTraitVarInit](/user-documentation/recipes/recipe-catalog/scala/recipes/migrate/reviewtraitvarinit.md)
-  * **Review trait var initialization for Scala 3**
-  * Finds traits that have initialized `var` fields. In Scala 3, trait initialization semantics changed and these may need review.
-* [org.openrewrite.scala.recipes.migrate.UseQuestionMarkWildcard](/user-documentation/recipes/recipe-catalog/scala/recipes/migrate/usequestionmarkwildcard.md)
-  * **Use `?` instead of `_` for wildcard types (Scala 3)**
-  * Finds usage of `_` as a wildcard type in type parameters (e.g., `List[_]`). In Scala 3, the wildcard type syntax changed from `_` to `?`.
-* [org.openrewrite.scala.recipes.migrate.akka.MigrateActorRefTell](/user-documentation/recipes/recipe-catalog/scala/recipes/migrate/akka/migrateactorreftell.md)
-  * **Migrate classic actor tell to typed ActorRef**
-  * Finds classic Akka actor messaging patterns (`actorRef ! msg` or `actorRef.tell(msg)`). Consider migrating to typed `ActorRef` messaging.
-* [org.openrewrite.scala.recipes.migrate.akka.MigrateToTypedActor](/user-documentation/recipes/recipe-catalog/scala/recipes/migrate/akka/migratetotypedactor.md)
-  * **Migrate classic Actor to Akka Typed Behavior**
-  * Removes `akka.actor.Actor` imports and marks classes extending `Actor` or `UntypedActor` from classic Akka for migration to Akka Typed `Behavior`.
-* [org.openrewrite.scala.recipes.migrate.akka.MigrateToTypedActorSystem](/user-documentation/recipes/recipe-catalog/scala/recipes/migrate/akka/migratetotypedactorsystem.md)
-  * **Migrate `akka.actor.ActorSystem` to `akka.actor.typed.ActorSystem`**
-  * Replaces the import `akka.actor.ActorSystem` with `akka.actor.typed.ActorSystem` to migrate from the classic untyped actor system to Akka Typed.
-* [org.openrewrite.scala.recipes.migrate.akka.RemoveDeprecatedAkkaImports](/user-documentation/recipes/recipe-catalog/scala/recipes/migrate/akka/removedeprecatedakkaimports.md)
-  * **Remove deprecated Akka imports**
-  * Removes imports of deprecated Akka APIs such as `akka.pattern.ask` (old ask pattern) and `akka.actor.PoisonPill`. These have no direct drop-in replacement and should be replaced with their modern Akka Typed equivalents.
-* [org.openrewrite.scala.recipes.migrate.database.MigrateAnorm](/user-documentation/recipes/recipe-catalog/scala/recipes/migrate/database/migrateanorm.md)
-  * **Migrate Anorm to Doobie, Quill, or Skunk**
-  * Removes imports of the Anorm SQL library (`anorm.*`). Consider evaluating modern alternatives such as Doobie, Quill, or Skunk.
-* [org.openrewrite.scala.recipes.migrate.database.MigratePhantomDsl](/user-documentation/recipes/recipe-catalog/scala/recipes/migrate/database/migratephantomdsl.md)
-  * **Migrate Phantom DSL to Datastax driver or quill-cassandra**
-  * Removes imports of the Phantom DSL library (`com.outworkers.phantom.*`). Consider migrating to the direct Datastax driver or quill-cassandra.
-* [org.openrewrite.scala.recipes.migrate.database.MigrateScalikeJdbc](/user-documentation/recipes/recipe-catalog/scala/recipes/migrate/database/migratescalikejdbc.md)
-  * **Migrate ScalikeJDBC to Doobie or Quill**
-  * Removes imports of the ScalikeJDBC library (`scalikejdbc.*`). Consider evaluating modern alternatives such as Doobie or Quill.
-* [org.openrewrite.scala.recipes.migrate.database.SecureSqlQueries](/user-documentation/recipes/recipe-catalog/scala/recipes/migrate/database/securesqlqueries.md)
-  * **Ensure parameterized SQL queries**
-  * Finds raw SQL string patterns such as `sql&quot;...&quot;`, `SQL(...)`, or `s&quot;SELECT...&quot;`. Ensure parameterized queries are used to prevent SQL injection.
-* [org.openrewrite.scala.recipes.migrate.ecosystem.AvoidBlockingSlick](/user-documentation/recipes/recipe-catalog/scala/recipes/migrate/ecosystem/avoidblockingslick.md)
-  * **Avoid blocking Slick database calls**
-  * Finds methods that combine `Await.result` with `db.run`, indicating a blocking Slick database call. Use streaming or async patterns instead.
-* [org.openrewrite.scala.recipes.migrate.ecosystem.MigrateCatsEffect2To3](/user-documentation/recipes/recipe-catalog/scala/recipes/migrate/ecosystem/migratecatseffect2to3.md)
-  * **Migrate Cats Effect 2 to Cats Effect 3**
-  * Finds Cats Effect 2 imports by detecting `cats.effect.IO` without `cats.effect.unsafe`, or CE2-specific types like `ContextShift` and `Timer`. Consider migrating to Cats Effect 3.
-* [org.openrewrite.scala.recipes.migrate.ecosystem.MigrateScalazToCats](/user-documentation/recipes/recipe-catalog/scala/recipes/migrate/ecosystem/migratescalaztocats.md)
-  * **Migrate Scalaz to Cats**
-  * Removes imports of `scalaz.` packages. Scalaz is a legacy FP library; consider migrating to Cats or ZIO.
-* [org.openrewrite.scala.recipes.migrate.ecosystem.UseCirceDerivation](/user-documentation/recipes/recipe-catalog/scala/recipes/migrate/ecosystem/usecircederivation.md)
-  * **Use circe `derives` for Scala 3**
-  * Finds imports of `io.circe.generic.auto` which uses Shapeless-based automatic derivation. In Scala 3, consider using `derives` syntax for codec derivation instead.
-* [org.openrewrite.scala.recipes.migrate.http.MigrateAkkaHttpToPekko](/user-documentation/recipes/recipe-catalog/scala/recipes/migrate/http/migrateakkahttptopekko.md)
-  * **Find Akka HTTP imports to migrate to Apache Pekko**
-  * Finds imports starting with `akka.http`. Akka HTTP should be migrated to Apache Pekko HTTP (`org.apache.pekko.http`), the community-maintained fork.
-* [org.openrewrite.scala.recipes.migrate.http.MigrateDispatch](/user-documentation/recipes/recipe-catalog/scala/recipes/migrate/http/migratedispatch.md)
-  * **Migrate Dispatch to sttp or http4s-client**
-  * Removes imports starting with `dispatch.`. Dispatch is an unmaintained HTTP client library; consider using sttp, http4s-client, or requests-scala.
-* [org.openrewrite.scala.recipes.migrate.http.MigrateFinagle](/user-documentation/recipes/recipe-catalog/scala/recipes/migrate/http/migratefinagle.md)
-  * **Migrate Finagle to http4s, tapir, or pekko-http**
-  * Removes imports starting with `com.twitter.finagle`. Finagle is a legacy RPC framework; consider evaluating http4s, tapir, or pekko-http as alternatives.
-* [org.openrewrite.scala.recipes.migrate.http.MigrateScalatra](/user-documentation/recipes/recipe-catalog/scala/recipes/migrate/http/migratescalatra.md)
-  * **Migrate Scalatra to http4s, tapir, or Play**
-  * Removes imports starting with `org.scalatra`. Scalatra is a servlet-based framework with declining activity; consider migrating to http4s, tapir, or Play Framework.
-* [org.openrewrite.scala.recipes.migrate.json.MigrateJacksonScala](/user-documentation/recipes/recipe-catalog/scala/recipes/migrate/json/migratejacksonscala.md)
-  * **Remove Jackson Scala module imports**
-  * Removes imports of the Jackson Scala module (`com.fasterxml.jackson.module.scala.*`). Jackson is a Java-centric library and its Scala module can cause issues with Scala types. Consider using a Scala-native JSON library such as circe or zio-json. Removing the imports causes the compiler to highlight all usage sites that need updating.
-* [org.openrewrite.scala.recipes.migrate.json.MigrateJson4s](/user-documentation/recipes/recipe-catalog/scala/recipes/migrate/json/migratejson4s.md)
-  * **Remove json4s imports**
-  * Removes imports of the json4s library (`org.json4s.*`). json4s has known performance and maintenance concerns and should be replaced with a modern Scala JSON library such as circe or zio-json. Removing the imports causes the compiler to highlight all usage sites that need updating.
-* [org.openrewrite.scala.recipes.migrate.json.MigrateLiftJson](/user-documentation/recipes/recipe-catalog/scala/recipes/migrate/json/migrateliftjson.md)
-  * **Remove lift-json imports**
-  * Removes imports of the lift-json library (`net.liftweb.json.*`). lift-json is tightly coupled to the Lift framework and should be replaced with a standalone Scala JSON library such as circe or play-json. Removing the imports causes the compiler to highlight all usage sites that need updating.
-* [org.openrewrite.scala.recipes.migrate.json.MigrateSprayJson](/user-documentation/recipes/recipe-catalog/scala/recipes/migrate/json/migratesprayjson.md)
-  * **Remove spray-json imports**
-  * Removes imports of the spray-json library (`spray.json.*`). spray-json is no longer actively maintained and should be replaced with a modern Scala JSON library such as circe, play-json, or zio-json. Removing the imports causes the compiler to highlight all usage sites that need updating.
-* [org.openrewrite.scala.recipes.migrate.play.InjectWsClient](/user-documentation/recipes/recipe-catalog/scala/recipes/migrate/play/injectwsclient.md)
-  * **Inject `WSClient` instead of using deprecated `WS`**
-  * Finds imports of the deprecated `play.api.libs.ws.WS` object. In Play 2.6+, `WS` was deprecated; inject `WSClient` instead.
-* [org.openrewrite.scala.recipes.migrate.play.MigratePlayGlobalSettings](/user-documentation/recipes/recipe-catalog/scala/recipes/migrate/play/migrateplayglobalsettings.md)
-  * **Migrate `GlobalSettings` to dependency injection (Play 2.6+)**
-  * Finds classes extending `GlobalSettings` and imports of `play.api.GlobalSettings`. GlobalSettings is deprecated in Play 2.6+; use dependency injection instead.
-* [org.openrewrite.scala.recipes.migrate.play.UseAsyncPlayAction](/user-documentation/recipes/recipe-catalog/scala/recipes/migrate/play/useasyncplayaction.md)
-  * **Use `Action.async` with `Future` instead of blocking**
-  * Finds Play controller actions (`Action \{` or `Action.async \{`) that contain `Await.result` blocking calls. Blocking inside Play Actions can exhaust the thread pool; use `Action.async` with `Future` instead.
-* [org.openrewrite.scala.recipes.migrate.play.UsePlayJsonDirectly](/user-documentation/recipes/recipe-catalog/scala/recipes/migrate/play/useplayjsondirectly.md)
-  * **Use Play JSON `JsValue` directly**
-  * Finds imports of `play.api.libs.json.Json` and usages of `Json.parse` or `Json.toJson` that may rely on deprecated implicit conversions. Consider using `play.api.libs.json.JsValue` directly.
-* [org.openrewrite.scala.recipes.migrate.scala3.MigrateDelayedInit](/user-documentation/recipes/recipe-catalog/scala/recipes/migrate/scala3/migratedelayedinit.md)
-  * **Migrate from `DelayedInit`/`App` to `@main`**
-  * Finds classes or objects extending `DelayedInit` or `App`. The `DelayedInit` trait was deprecated in Scala 2.13 and removed in Scala 3. Use `@main` annotation instead.
-* [org.openrewrite.scala.recipes.migrate.scala3.MigrateXmlLiterals](/user-documentation/recipes/recipe-catalog/scala/recipes/migrate/scala3/migratexmlliterals.md)
-  * **Migrate XML literals to scala-xml interpolation**
-  * Finds XML literal usage in Scala code. XML literals were removed in Scala 3; use scala-xml library string interpolation instead.
-* [org.openrewrite.scala.recipes.migrate.scala3.RemoveAutoTupling](/user-documentation/recipes/recipe-catalog/scala/recipes/migrate/scala3/removeautotupling.md)
-  * **Remove auto-tupling (not available in Scala 3)**
-  * Finds imports of `scala.language.autoTupling`. Auto-tupling is not available in Scala 3 and code relying on it must be rewritten.
-* [org.openrewrite.scala.recipes.migrate.scala3.ReplaceDoWhileLoop](/user-documentation/recipes/recipe-catalog/scala/recipes/migrate/scala3/replacedowhileloop.md)
-  * **Replace do-while loops (removed in Scala 3)**
-  * Finds `do-while` loops which were removed in Scala 3. Rewrite using a `while` loop with initial execution of the loop body.
-* [org.openrewrite.scala.recipes.performance.PreferVectorOrPrepend](/user-documentation/recipes/recipe-catalog/scala/recipes/performance/prefervectororprepend.md)
-  * **Prefer Vector or prepend for append-heavy workloads**
-  * Finds usage of the `:+` operator to append to a List, which is O(n). Prefer Vector for append-heavy workloads or prepend with `::` instead.
-* [org.openrewrite.scala.recipes.performance.PreferViewMapValues](/user-documentation/recipes/recipe-catalog/scala/recipes/performance/preferviewmapvalues.md)
-  * **Prefer `.view.mapValues` for Scala 2.13+**
-  * Finds calls to `.mapValues` which is deprecated in Scala 2.13+ and returns a lazy view instead of a strict Map. Use `.view.mapValues(...).toMap` instead.
-* [org.openrewrite.scala.recipes.performance.UseCount](/user-documentation/recipes/recipe-catalog/scala/recipes/performance/usecount.md)
-  * **Replace `filter` then `size` with `count`**
-  * Replaces `.filter(f).size` or `.filter(f).length` chains with `.count(f)` to avoid creating an unnecessary intermediate collection.
-* [org.openrewrite.scala.recipes.performance.UseFlatMap](/user-documentation/recipes/recipe-catalog/scala/recipes/performance/useflatmap.md)
-  * **Replace `map` then `flatten` with `flatMap`**
-  * Replaces `.map(f).flatten` chains with `.flatMap(f)` for clarity and to avoid creating an unnecessary intermediate collection.
-* [org.openrewrite.scala.recipes.performance.UseHeadOption](/user-documentation/recipes/recipe-catalog/scala/recipes/performance/useheadoption.md)
-  * **Replace `.head` with `.headOption`**
-  * Replaces `.head` calls on collections with `.headOption` to avoid `NoSuchElementException` on empty collections.
-* [org.openrewrite.scala.recipes.performance.UseIsEmpty](/user-documentation/recipes/recipe-catalog/scala/recipes/performance/useisempty.md)
-  * **Use `isEmpty` instead of `size == 0`**
-  * Replaces `collection.size == 0` with `collection.isEmpty` for clarity and potential performance benefits.
-* [org.openrewrite.scala.recipes.performance.UseLastOption](/user-documentation/recipes/recipe-catalog/scala/recipes/performance/uselastoption.md)
-  * **Replace `.last` with `.lastOption`**
-  * Replaces `.last` calls on collections with `.lastOption` to avoid `NoSuchElementException` on empty collections.
-* [org.openrewrite.scala.recipes.performance.UseNonEmpty](/user-documentation/recipes/recipe-catalog/scala/recipes/performance/usenonempty.md)
-  * **Use `nonEmpty` instead of `size &gt; 0`**
-  * Replaces `collection.size &gt; 0` with `collection.nonEmpty` for clarity and potential performance benefits.
-* [org.openrewrite.scala.recipes.safety.AvoidThrowInFinally](/user-documentation/recipes/recipe-catalog/scala/recipes/safety/avoidthrowinfinally.md)
-  * **Avoid throwing in finally blocks**
-  * Finds `throw` statements inside `finally` blocks. Throwing in a `finally` block can mask the original exception, making debugging harder.
-* [org.openrewrite.scala.recipes.safety.NarrowCatchClause](/user-documentation/recipes/recipe-catalog/scala/recipes/safety/narrowcatchclause.md)
-  * **Narrow catch clauses that catch `Throwable`**
-  * Finds catch blocks that catch `Throwable` and should be narrowed to specific exception types. Catching `Throwable` also catches fatal errors like `OutOfMemoryError` and `StackOverflowError`. Prefer catching specific exception types.
-* [org.openrewrite.scala.recipes.safety.PreferConcurrentUtils](/user-documentation/recipes/recipe-catalog/scala/recipes/safety/preferconcurrentutils.md)
-  * **Prefer `java.util.concurrent` over `synchronized`**
-  * Finds `synchronized` blocks in Scala code. Consider using `java.util.concurrent` alternatives for better performance and composability.
-* [org.openrewrite.scala.recipes.safety.RemoveUnusedImport](/user-documentation/recipes/recipe-catalog/scala/recipes/safety/removeunusedimport.md)
-  * **Remove potentially unused imports (heuristic)**
-  * Removes imports where the imported simple name does not appear in the rest of the file. This is an approximate heuristic and may produce false positives.
-* [org.openrewrite.scala.recipes.testing.MigrateSpecs2](/user-documentation/recipes/recipe-catalog/scala/recipes/testing/migratespecs2.md)
-  * **Migrate specs2 to ScalaTest or MUnit**
-  * Finds imports of `org.specs2`. Consider migrating to ScalaTest or MUnit.
-* [org.openrewrite.scala.recipes.testing.MigrateToAnyFlatSpec](/user-documentation/recipes/recipe-catalog/scala/recipes/testing/migratetoanyflatspec.md)
-  * **Migrate from `FlatSpec` to `AnyFlatSpec`**
-  * Renames `FlatSpec` to `AnyFlatSpec` in extends clauses and updates the import from `org.scalatest.FlatSpec` to `org.scalatest.flatspec.AnyFlatSpec` (ScalaTest 3.x).
-* [org.openrewrite.scala.recipes.testing.UseNewScalaTestMatchers](/user-documentation/recipes/recipe-catalog/scala/recipes/testing/usenewscalatestmatchers.md)
-  * **Migrate to `org.scalatest.matchers.should.Matchers`**
-  * Replaces imports of `org.scalatest.Matchers` or `org.scalatest.ShouldMatchers` with `org.scalatest.matchers.should.Matchers`.
-* [org.openrewrite.scala.recipes.testing.UseScalaTestMatchers](/user-documentation/recipes/recipe-catalog/scala/recipes/testing/usescalatestmatchers.md)
-  * **Use ScalaTest matchers instead of `assert(x == y)`**
-  * Finds `assert(x == y)` patterns and `assertEquals` calls. Consider using ScalaTest matchers: `x shouldBe y`.
+* [OpenRewrite.Recipes.AddNuGetPackageReference](/user-documentation/recipes/recipe-catalog/csharp/recipes/addnugetpackagereference.md)
+  * **Add NuGet package reference**
+  * Adds a `&lt;PackageReference&gt;` to .csproj files if not already present.
+* [OpenRewrite.Recipes.AspNet.UpgradeAspNetFrameworkToCore](/user-documentation/recipes/recipe-catalog/csharp/recipes/aspnet/upgradeaspnetframeworktocore.md)
+  * **Migrate ASP.NET Framework to ASP.NET Core**
+  * Migrate ASP.NET Framework (System.Web.Mvc, System.Web.Http) types to their ASP.NET Core equivalents. Based on the .NET Upgrade Assistant's UA0002 and UA0010 diagnostics. See https://learn.microsoft.com/en-us/aspnet/core/migration/proper-to-2x.
+* [OpenRewrite.Recipes.AspNetCore2.FindBuildWebHost](/user-documentation/recipes/recipe-catalog/csharp/recipes/aspnetcore2/findbuildwebhost.md)
+  * **Find BuildWebHost method**
+  * Flags `BuildWebHost` method declarations that should be renamed to `CreateWebHostBuilder` and refactored for ASP.NET Core 2.1.
+* [OpenRewrite.Recipes.AspNetCore2.FindIAuthenticationManager](/user-documentation/recipes/recipe-catalog/csharp/recipes/aspnetcore2/findiauthenticationmanager.md)
+  * **Find IAuthenticationManager usage**
+  * Flags references to `IAuthenticationManager` which was removed in ASP.NET Core 2.0. Use `HttpContext` extension methods from `Microsoft.AspNetCore.Authentication` instead.
+* [OpenRewrite.Recipes.AspNetCore2.FindLoggerFactoryAddProvider](/user-documentation/recipes/recipe-catalog/csharp/recipes/aspnetcore2/findloggerfactoryaddprovider.md)
+  * **Find ILoggerFactory.Add*() calls**
+  * Flags `ILoggerFactory.AddConsole()`, `AddDebug()`, and similar extension methods. In ASP.NET Core 2.2+, logging should be configured via `ConfigureLogging` in the host builder.
+* [OpenRewrite.Recipes.AspNetCore2.FindSetCompatibilityVersion](/user-documentation/recipes/recipe-catalog/csharp/recipes/aspnetcore2/findsetcompatibilityversion.md)
+  * **Find SetCompatibilityVersion() calls**
+  * Flags `SetCompatibilityVersion` calls. This method is a no-op in ASP.NET Core 3.0+ and should be removed during migration.
+* [OpenRewrite.Recipes.AspNetCore2.FindUseKestrelWithConfig](/user-documentation/recipes/recipe-catalog/csharp/recipes/aspnetcore2/findusekestrelwithconfig.md)
+  * **Find UseKestrel() with configuration**
+  * Flags `UseKestrel` calls with configuration lambdas that should be replaced with `ConfigureKestrel` to avoid conflicts with the IIS in-process hosting model.
+* [OpenRewrite.Recipes.AspNetCore2.UpgradeToAspNetCore20](/user-documentation/recipes/recipe-catalog/csharp/recipes/aspnetcore2/upgradetoaspnetcore20.md)
+  * **Migrate to ASP.NET Core 2.0**
+  * Migrate ASP.NET Core 1.x projects to ASP.NET Core 2.0, applying authentication and Identity changes. See https://learn.microsoft.com/en-us/aspnet/core/migration/1x-to-2x/identity-2x.
+* [OpenRewrite.Recipes.AspNetCore2.UpgradeToAspNetCore21](/user-documentation/recipes/recipe-catalog/csharp/recipes/aspnetcore2/upgradetoaspnetcore21.md)
+  * **Migrate to ASP.NET Core 2.1**
+  * Migrate ASP.NET Core 2.0 projects to ASP.NET Core 2.1, including host builder changes and obsolete API replacements. See https://learn.microsoft.com/en-us/aspnet/core/migration/20-to-21.
+* [OpenRewrite.Recipes.AspNetCore2.UpgradeToAspNetCore22](/user-documentation/recipes/recipe-catalog/csharp/recipes/aspnetcore2/upgradetoaspnetcore22.md)
+  * **Migrate to ASP.NET Core 2.2**
+  * Migrate ASP.NET Core 2.1 projects to ASP.NET Core 2.2, including Kestrel configuration and logging changes. See https://learn.microsoft.com/en-us/aspnet/core/migration/21-to-22.
+* [OpenRewrite.Recipes.AspNetCore2.UseGetExternalAuthenticationSchemesAsync](/user-documentation/recipes/recipe-catalog/csharp/recipes/aspnetcore2/usegetexternalauthenticationschemesasync.md)
+  * **Use GetExternalAuthenticationSchemesAsync()**
+  * Replace `GetExternalAuthenticationSchemes()` with `GetExternalAuthenticationSchemesAsync()`. The synchronous method was removed in ASP.NET Core 2.0.
+* [OpenRewrite.Recipes.AspNetCore2.UseHttpContextAuthExtensions](/user-documentation/recipes/recipe-catalog/csharp/recipes/aspnetcore2/usehttpcontextauthextensions.md)
+  * **Use HttpContext authentication extensions**
+  * Replace `HttpContext.Authentication.Method(...)` calls with `HttpContext.Method(...)` extension methods. The `IAuthenticationManager` interface was removed in ASP.NET Core 2.0.
+* [OpenRewrite.Recipes.AspNetCore2.UseUseAuthentication](/user-documentation/recipes/recipe-catalog/csharp/recipes/aspnetcore2/useuseauthentication.md)
+  * **Replace UseIdentity() with UseAuthentication()**
+  * Replace `app.UseIdentity()` with `app.UseAuthentication()`. The `UseIdentity` method was removed in ASP.NET Core 2.0 in favor of `UseAuthentication`.
+* [OpenRewrite.Recipes.AspNetCore3.FindAddMvc](/user-documentation/recipes/recipe-catalog/csharp/recipes/aspnetcore3/findaddmvc.md)
+  * **Find AddMvc() calls**
+  * Flags `AddMvc()` calls that should be replaced with more specific service registrations (`AddControllers`, `AddControllersWithViews`, or `AddRazorPages`) in ASP.NET Core 3.0.
+* [OpenRewrite.Recipes.AspNetCore3.FindIApplicationLifetime](/user-documentation/recipes/recipe-catalog/csharp/recipes/aspnetcore3/findiapplicationlifetime.md)
+  * **Find IApplicationLifetime usage**
+  * Flags usages of `IApplicationLifetime` which should be replaced with `IHostApplicationLifetime` in ASP.NET Core 3.0.
+* [OpenRewrite.Recipes.AspNetCore3.FindIHostingEnvironment](/user-documentation/recipes/recipe-catalog/csharp/recipes/aspnetcore3/findihostingenvironment.md)
+  * **Find IHostingEnvironment usage**
+  * Flags usages of `IHostingEnvironment` which should be replaced with `IWebHostEnvironment` in ASP.NET Core 3.0.
+* [OpenRewrite.Recipes.AspNetCore3.FindNewLoggerFactory](/user-documentation/recipes/recipe-catalog/csharp/recipes/aspnetcore3/findnewloggerfactory.md)
+  * **Find new LoggerFactory() calls**
+  * Flags `new LoggerFactory()` calls that should be replaced with `LoggerFactory.Create(builder =&gt; ...)` in .NET Core 3.0+.
+* [OpenRewrite.Recipes.AspNetCore3.FindNewtonsoftJsonUsage](/user-documentation/recipes/recipe-catalog/csharp/recipes/aspnetcore3/findnewtonsoftjsonusage.md)
+  * **Find Newtonsoft.Json usage in ASP.NET Core**
+  * Flags `JsonConvert` and other `Newtonsoft.Json` usage. ASP.NET Core 3.0 uses `System.Text.Json` by default.
+* [OpenRewrite.Recipes.AspNetCore3.FindUseMvcOrUseSignalR](/user-documentation/recipes/recipe-catalog/csharp/recipes/aspnetcore3/findusemvcorusesignalr.md)
+  * **Find UseMvc()/UseSignalR() calls**
+  * Flags `UseMvc()` and `UseSignalR()` calls that should be replaced with endpoint routing (`UseRouting()` + `UseEndpoints()`) in ASP.NET Core 3.0.
+* [OpenRewrite.Recipes.AspNetCore3.FindWebHostBuilder](/user-documentation/recipes/recipe-catalog/csharp/recipes/aspnetcore3/findwebhostbuilder.md)
+  * **Find WebHostBuilder usage**
+  * Flags `WebHostBuilder` and `WebHost.CreateDefaultBuilder` usage that should migrate to the Generic Host pattern in ASP.NET Core 3.0+.
+* [OpenRewrite.Recipes.AspNetCore3.UpgradeToAspNetCore30](/user-documentation/recipes/recipe-catalog/csharp/recipes/aspnetcore3/upgradetoaspnetcore30.md)
+  * **Migrate to ASP.NET Core 3.0**
+  * Migrate ASP.NET Core 2.2 projects to ASP.NET Core 3.0, including endpoint routing, Generic Host, and System.Text.Json changes. See https://learn.microsoft.com/en-us/aspnet/core/migration/22-to-30.
+* [OpenRewrite.Recipes.ChangeDotNetTargetFramework](/user-documentation/recipes/recipe-catalog/csharp/recipes/changedotnettargetframework.md)
+  * **Change .NET target framework**
+  * Changes the `&lt;TargetFramework&gt;` or `&lt;TargetFrameworks&gt;` value in .csproj files. For multi-TFM projects, replaces the matching framework within the semicolon-delimited list.
+* [OpenRewrite.Recipes.ChangeMethodName](/user-documentation/recipes/recipe-catalog/csharp/recipes/changemethodname.md)
+  * **Change method name**
+  * Rename a method.
+* [OpenRewrite.Recipes.ChangeType](/user-documentation/recipes/recipe-catalog/csharp/recipes/changetype.md)
+  * **Change type**
+  * Change a type reference to another type.
+* [OpenRewrite.Recipes.DeleteMethodArgument](/user-documentation/recipes/recipe-catalog/csharp/recipes/deletemethodargument.md)
+  * **Delete method argument**
+  * Delete an argument from method invocations.
+* [OpenRewrite.Recipes.Net10.FindActionContextAccessorObsolete](/user-documentation/recipes/recipe-catalog/csharp/recipes/net10/findactioncontextaccessorobsolete.md)
+  * **Find obsolete `IActionContextAccessor`/`ActionContextAccessor` (ASPDEPR006)**
+  * Finds usages of `IActionContextAccessor` and `ActionContextAccessor` which are obsolete in .NET 10. Use `IHttpContextAccessor` and `HttpContext.GetEndpoint()` instead.
+* [OpenRewrite.Recipes.Net10.FindActivitySampling](/user-documentation/recipes/recipe-catalog/csharp/recipes/net10/findactivitysampling.md)
+  * **Find `ActivitySamplingResult.PropagationData` behavior change**
+  * Finds usages of `ActivitySamplingResult.PropagationData` which has changed behavior in .NET 10. Activities with a recorded parent and PropagationData sampling no longer set `Activity.Recorded = true`.
+* [OpenRewrite.Recipes.Net10.FindBackgroundServiceExecuteAsync](/user-documentation/recipes/recipe-catalog/csharp/recipes/net10/findbackgroundserviceexecuteasync.md)
+  * **Find `BackgroundService.ExecuteAsync` behavior change**
+  * Finds methods that override `ExecuteAsync` from `BackgroundService`. In .NET 10, the entire method runs on a background thread; synchronous code before the first `await` no longer blocks host startup.
+* [OpenRewrite.Recipes.Net10.FindBufferedStreamWriteByte](/user-documentation/recipes/recipe-catalog/csharp/recipes/net10/findbufferedstreamwritebyte.md)
+  * **Find `BufferedStream.WriteByte` implicit flush behavior change**
+  * Finds calls to `BufferedStream.WriteByte()` which no longer performs an implicit flush when the internal buffer is full in .NET 10. Call `Flush()` explicitly if needed.
+* [OpenRewrite.Recipes.Net10.FindClipboardGetData](/user-documentation/recipes/recipe-catalog/csharp/recipes/net10/findclipboardgetdata.md)
+  * **Find obsolete `Clipboard.GetData` calls (WFDEV005)**
+  * Finds calls to `Clipboard.GetData(string)`. In .NET 10, this method is obsolete (WFDEV005). Use `Clipboard.TryGetData` methods instead.
+* [OpenRewrite.Recipes.Net10.FindDistributedContextPropagator](/user-documentation/recipes/recipe-catalog/csharp/recipes/net10/finddistributedcontextpropagator.md)
+  * **Find `DistributedContextPropagator` default propagator change**
+  * Finds usages of `DistributedContextPropagator.Current` and `DistributedContextPropagator.CreateDefaultPropagator()` which now default to W3C format in .NET 10. The 'baggage' header is used instead of 'Correlation-Context'.
+* [OpenRewrite.Recipes.Net10.FindDllImportSearchPath](/user-documentation/recipes/recipe-catalog/csharp/recipes/net10/finddllimportsearchpath.md)
+  * **Find `DllImportSearchPath.AssemblyDirectory` behavior change**
+  * Finds usages of `DllImportSearchPath.AssemblyDirectory` which has changed behavior in .NET 10. Specifying only `AssemblyDirectory` no longer falls back to OS default search paths.
+* [OpenRewrite.Recipes.Net10.FindDriveInfoDriveFormat](/user-documentation/recipes/recipe-catalog/csharp/recipes/net10/finddriveinfodriveformat.md)
+  * **Find `DriveInfo.DriveFormat` behavior change**
+  * Finds usages of `DriveInfo.DriveFormat` which returns Linux kernel filesystem type strings instead of mapped names in .NET 10. Verify that comparisons match the new format.
+* [OpenRewrite.Recipes.Net10.FindFormOnClosingObsolete](/user-documentation/recipes/recipe-catalog/csharp/recipes/net10/findformonclosingobsolete.md)
+  * **Find obsolete `Form.OnClosing`/`OnClosed` usage (WFDEV004)**
+  * Finds usage of `Form.OnClosing`, `Form.OnClosed`, and the `Closing`/`Closed` events. In .NET 10, these are obsolete (WFDEV004). Use `OnFormClosing`/`OnFormClosed` and `FormClosing`/`FormClosed` instead.
+* [OpenRewrite.Recipes.Net10.FindGnuTarPaxTarEntry](/user-documentation/recipes/recipe-catalog/csharp/recipes/net10/findgnutarpaxtarentry.md)
+  * **Find `GnuTarEntry`/`PaxTarEntry` default timestamp change**
+  * Finds `new GnuTarEntry(...)` and `new PaxTarEntry(...)` constructor calls. In .NET 10, these no longer set atime and ctime by default. Set `AccessTime`/`ChangeTime` explicitly if needed.
+* [OpenRewrite.Recipes.Net10.FindIpNetworkObsolete](/user-documentation/recipes/recipe-catalog/csharp/recipes/net10/findipnetworkobsolete.md)
+  * **Find obsolete `IPNetwork`/`KnownNetworks` (ASPDEPR005)**
+  * Finds usages of `Microsoft.AspNetCore.HttpOverrides.IPNetwork` and `ForwardedHeadersOptions.KnownNetworks` which are obsolete in .NET 10. Use `System.Net.IPNetwork` and `KnownIPNetworks` instead.
+* [OpenRewrite.Recipes.Net10.FindKeyedServiceAnyKey](/user-documentation/recipes/recipe-catalog/csharp/recipes/net10/findkeyedserviceanykey.md)
+  * **Find `KeyedService.AnyKey` behavior change**
+  * Finds usages of `KeyedService.AnyKey` which has changed behavior in .NET 10. `GetKeyedService(AnyKey)` now throws `InvalidOperationException` and `GetKeyedServices(AnyKey)` no longer returns AnyKey registrations.
+* [OpenRewrite.Recipes.Net10.FindMakeGenericSignatureType](/user-documentation/recipes/recipe-catalog/csharp/recipes/net10/findmakegenericsignaturetype.md)
+  * **Find `Type.MakeGenericSignatureType` validation change**
+  * Finds calls to `Type.MakeGenericSignatureType()` which now validates that the first argument is a generic type definition in .NET 10.
+* [OpenRewrite.Recipes.Net10.FindQueryableMaxByMinByObsolete](/user-documentation/recipes/recipe-catalog/csharp/recipes/net10/findqueryablemaxbyminbyobsolete.md)
+  * **Find obsolete `Queryable.MaxBy`/`MinBy` with `IComparer&lt;TSource&gt;` (SYSLIB0061)**
+  * Finds `Queryable.MaxBy` and `Queryable.MinBy` overloads taking `IComparer&lt;TSource&gt;` which are obsolete in .NET 10. Use the overloads taking `IComparer&lt;TKey&gt;` instead.
+* [OpenRewrite.Recipes.Net10.FindRazorRuntimeCompilationObsolete](/user-documentation/recipes/recipe-catalog/csharp/recipes/net10/findrazorruntimecompilationobsolete.md)
+  * **Find obsolete `AddRazorRuntimeCompilation` calls (ASPDEPR003)**
+  * Finds calls to `AddRazorRuntimeCompilation` which is obsolete in .NET 10. Use Hot Reload instead for development scenarios.
+* [OpenRewrite.Recipes.Net10.FindRfc2898DeriveBytesObsolete](/user-documentation/recipes/recipe-catalog/csharp/recipes/net10/findrfc2898derivebytesobsolete.md)
+  * **Find obsolete `Rfc2898DeriveBytes` constructors (SYSLIB0060)**
+  * Finds `new Rfc2898DeriveBytes(...)` constructor calls which are obsolete in .NET 10. Use the static `Rfc2898DeriveBytes.Pbkdf2()` method instead.
+* [OpenRewrite.Recipes.Net10.FindSslAuthEnumTypes](/user-documentation/recipes/recipe-catalog/csharp/recipes/net10/findsslauthenumtypes.md)
+  * **Find obsolete SSL authentication enum types**
+  * Finds usage of `ExchangeAlgorithmType`, `CipherAlgorithmType`, and `HashAlgorithmType` from `System.Security.Authentication`. These enum types are obsolete in .NET 10 (SYSLIB0058). Use `SslStream.NegotiatedCipherSuite` instead.
+* [OpenRewrite.Recipes.Net10.FindSslStreamObsoleteProperties](/user-documentation/recipes/recipe-catalog/csharp/recipes/net10/findsslstreamobsoleteproperties.md)
+  * **Find obsolete `SslStream` cipher properties (SYSLIB0058)**
+  * Finds usages of `SslStream.KeyExchangeAlgorithm`, `KeyExchangeStrength`, `CipherAlgorithm`, `CipherStrength`, `HashAlgorithm`, and `HashStrength` which are obsolete in .NET 10. Use `SslStream.NegotiatedCipherSuite` instead.
+* [OpenRewrite.Recipes.Net10.FindSystemDrawingExceptionChange](/user-documentation/recipes/recipe-catalog/csharp/recipes/net10/findsystemdrawingexceptionchange.md)
+  * **Find `catch (OutOfMemoryException)` that may need `ExternalException`**
+  * In .NET 10, System.Drawing GDI+ errors now throw `ExternalException` instead of `OutOfMemoryException`. This recipe finds catch blocks that catch `OutOfMemoryException` which may need to also catch `ExternalException`.
+* [OpenRewrite.Recipes.Net10.FindSystemEventsThreadShutdownObsolete](/user-documentation/recipes/recipe-catalog/csharp/recipes/net10/findsystemeventsthreadshutdownobsolete.md)
+  * **Find obsolete `SystemEvents.EventsThreadShutdown` (SYSLIB0059)**
+  * Finds usages of `SystemEvents.EventsThreadShutdown` which is obsolete in .NET 10. Use `AppDomain.ProcessExit` instead.
+* [OpenRewrite.Recipes.Net10.FindWebHostBuilderObsolete](/user-documentation/recipes/recipe-catalog/csharp/recipes/net10/findwebhostbuilderobsolete.md)
+  * **Find obsolete `WebHostBuilder`/`IWebHost`/`WebHost` usage (ASPDEPR004/ASPDEPR008)**
+  * Finds usages of `WebHostBuilder`, `IWebHost`, and `WebHost` which are obsolete in .NET 10. Migrate to `HostBuilder` or `WebApplicationBuilder` instead.
+* [OpenRewrite.Recipes.Net10.FindWinFormsObsoleteApis](/user-documentation/recipes/recipe-catalog/csharp/recipes/net10/findwinformsobsoleteapis.md)
+  * **Find obsolete Windows Forms APIs (WFDEV004/005/006)**
+  * Finds usages of Windows Forms APIs that are obsolete in .NET 10, including `Form.OnClosing/OnClosed` (WFDEV004), `Clipboard.GetData` (WFDEV005), and legacy controls like `ContextMenu`, `DataGrid`, `MainMenu` (WFDEV006).
+* [OpenRewrite.Recipes.Net10.FindWithOpenApiDeprecated](/user-documentation/recipes/recipe-catalog/csharp/recipes/net10/findwithopenapideprecated.md)
+  * **Find deprecated `WithOpenApi` calls (ASPDEPR002)**
+  * Finds calls to `.WithOpenApi()` which is deprecated in .NET 10. Remove the call or use `AddOpenApiOperationTransformer` instead.
+* [OpenRewrite.Recipes.Net10.FindX500DistinguishedNameValidation](/user-documentation/recipes/recipe-catalog/csharp/recipes/net10/findx500distinguishednamevalidation.md)
+  * **Find `X500DistinguishedName` string constructor stricter validation**
+  * Finds `new X500DistinguishedName(string, ...)` constructor calls which have stricter validation in .NET 10. Non-Windows environments may reject previously accepted values.
+* [OpenRewrite.Recipes.Net10.FindXsltSettingsEnableScriptObsolete](/user-documentation/recipes/recipe-catalog/csharp/recipes/net10/findxsltsettingsenablescriptobsolete.md)
+  * **Find obsolete `XsltSettings.EnableScript` (SYSLIB0062)**
+  * Finds usages of `XsltSettings.EnableScript` which is obsolete in .NET 10.
+* [OpenRewrite.Recipes.Net10.FormOnClosingRename](/user-documentation/recipes/recipe-catalog/csharp/recipes/net10/formonclosingrename.md)
+  * **Rename `Form.OnClosing/OnClosed` to `OnFormClosing/OnFormClosed` (WFDEV004)**
+  * Renames `Form.OnClosing` to `OnFormClosing` and `Form.OnClosed` to `OnFormClosed` for .NET 10 compatibility. Parameter type changes (`CancelEventArgs` → `FormClosingEventArgs`, `EventArgs` → `FormClosedEventArgs`) must be updated manually.
+* [OpenRewrite.Recipes.Net10.InsertAdjacentElementOrientParameterRename](/user-documentation/recipes/recipe-catalog/csharp/recipes/net10/insertadjacentelementorientparameterrename.md)
+  * **Rename `orient` parameter to `orientation` in `HtmlElement.InsertAdjacentElement`**
+  * The `orient` parameter of `HtmlElement.InsertAdjacentElement` was renamed to `orientation` in .NET 10. This recipe updates named arguments in method calls to use the new parameter name.
+* [OpenRewrite.Recipes.Net10.KnownNetworksRename](/user-documentation/recipes/recipe-catalog/csharp/recipes/net10/knownnetworksrename.md)
+  * **Rename `KnownNetworks` to `KnownIPNetworks` (ASPDEPR005)**
+  * Renames `ForwardedHeadersOptions.KnownNetworks` to `KnownIPNetworks` for .NET 10 compatibility.
+* [OpenRewrite.Recipes.Net10.MlDsaSlhDsaSecretKeyToPrivateKey](/user-documentation/recipes/recipe-catalog/csharp/recipes/net10/mldsaslhdsasecretkeytoprivatekey.md)
+  * **Rename MLDsa/SlhDsa `SecretKey` members to `PrivateKey`**
+  * Renames `SecretKey` to `PrivateKey` in MLDsa and SlhDsa post-quantum cryptography APIs to align with .NET 10 naming conventions.
+* [OpenRewrite.Recipes.Net10.RazorRuntimeCompilationObsolete](/user-documentation/recipes/recipe-catalog/csharp/recipes/net10/razorruntimecompilationobsolete.md)
+  * **Remove obsolete `AddRazorRuntimeCompilation` calls (ASPDEPR003)**
+  * Removes `AddRazorRuntimeCompilation()` calls which are obsolete in .NET 10. Use Hot Reload instead for development scenarios.
+* [OpenRewrite.Recipes.Net10.UpgradeToDotNet10](/user-documentation/recipes/recipe-catalog/csharp/recipes/net10/upgradetodotnet10.md)
+  * **Migrate to .NET 10**
+  * Migrate C# projects to .NET 10, applying necessary API changes. Includes all .NET 9 (and earlier) migration steps. See https://learn.microsoft.com/en-us/dotnet/core/compatibility/10.0.
+* [OpenRewrite.Recipes.Net10.WithOpenApiDeprecated](/user-documentation/recipes/recipe-catalog/csharp/recipes/net10/withopenapideprecated.md)
+  * **Remove deprecated `WithOpenApi` calls (ASPDEPR002)**
+  * Removes `.WithOpenApi()` calls which are deprecated in .NET 10. The call is removed from fluent method chains.
+* [OpenRewrite.Recipes.Net3_0.FindCompactOnMemoryPressure](/user-documentation/recipes/recipe-catalog/csharp/recipes/net3_0/findcompactonmemorypressure.md)
+  * **Find `CompactOnMemoryPressure` usage (removed in ASP.NET Core 3.0)**
+  * Finds usages of `CompactOnMemoryPressure` which was removed from `MemoryCacheOptions` in ASP.NET Core 3.0.
+* [OpenRewrite.Recipes.Net3_0.FindConnectionAdapter](/user-documentation/recipes/recipe-catalog/csharp/recipes/net3_0/findconnectionadapter.md)
+  * **Find `IConnectionAdapter` usage (removed in ASP.NET Core 3.0)**
+  * Finds usages of `IConnectionAdapter` which was removed from Kestrel in ASP.NET Core 3.0. Use Connection Middleware instead.
+* [OpenRewrite.Recipes.Net3_0.FindHttpContextAuthentication](/user-documentation/recipes/recipe-catalog/csharp/recipes/net3_0/findhttpcontextauthentication.md)
+  * **Find `HttpContext.Authentication` usage (removed in ASP.NET Core 3.0)**
+  * Finds usages of `HttpContext.Authentication` which was removed in ASP.NET Core 3.0. Use dependency injection to get `IAuthenticationService` instead.
+* [OpenRewrite.Recipes.Net3_0.FindNewtonsoftJson](/user-documentation/recipes/recipe-catalog/csharp/recipes/net3_0/findnewtonsoftjson.md)
+  * **Find Newtonsoft.Json usage**
+  * Finds usages of Newtonsoft.Json types (`JObject`, `JArray`, `JToken`, `JsonConvert`) that should be migrated to `System.Text.Json` or explicitly preserved via `Microsoft.AspNetCore.Mvc.NewtonsoftJson` in ASP.NET Core 3.0+.
+* [OpenRewrite.Recipes.Net3_0.FindObsoleteLocalizationApis](/user-documentation/recipes/recipe-catalog/csharp/recipes/net3_0/findobsoletelocalizationapis.md)
+  * **Find obsolete localization APIs (ASP.NET Core 3.0)**
+  * Finds usages of `ResourceManagerWithCultureStringLocalizer` and `WithCulture()` which are obsolete in ASP.NET Core 3.0.
+* [OpenRewrite.Recipes.Net3_0.FindSpaServices](/user-documentation/recipes/recipe-catalog/csharp/recipes/net3_0/findspaservices.md)
+  * **Find SpaServices/NodeServices usage (obsolete in ASP.NET Core 3.0)**
+  * Finds usages of `SpaServices` and `NodeServices` which are obsolete in ASP.NET Core 3.0.
+* [OpenRewrite.Recipes.Net3_0.FindSynchronousIO](/user-documentation/recipes/recipe-catalog/csharp/recipes/net3_0/findsynchronousio.md)
+  * **Find synchronous IO usage (disabled in ASP.NET Core 3.0)**
+  * Finds references to `AllowSynchronousIO` which indicates synchronous IO usage that is disabled by default in ASP.NET Core 3.0.
+* [OpenRewrite.Recipes.Net3_0.FindUseMvc](/user-documentation/recipes/recipe-catalog/csharp/recipes/net3_0/findusemvc.md)
+  * **Find `UseMvc`/`AddMvc` usage (replaced in ASP.NET Core 3.0)**
+  * Finds usages of `app.UseMvc()`, `app.UseMvcWithDefaultRoute()`, and `services.AddMvc()` which should be migrated to endpoint routing and more specific service registration in ASP.NET Core 3.0.
+* [OpenRewrite.Recipes.Net3_0.FindWebApiCompatShim](/user-documentation/recipes/recipe-catalog/csharp/recipes/net3_0/findwebapicompatshim.md)
+  * **Find Web API compatibility shim usage (removed in ASP.NET Core 3.0)**
+  * Finds usages of `ApiController`, `HttpResponseMessage`, and other types from `Microsoft.AspNetCore.Mvc.WebApiCompatShim` which was removed in ASP.NET Core 3.0.
+* [OpenRewrite.Recipes.Net3_0.FindWebHostBuilder](/user-documentation/recipes/recipe-catalog/csharp/recipes/net3_0/findwebhostbuilder.md)
+  * **Find `WebHostBuilder`/`WebHost.CreateDefaultBuilder` usage (replaced in ASP.NET Core 3.0)**
+  * Finds usages of `WebHost.CreateDefaultBuilder()` and `new WebHostBuilder()` which should be migrated to `Host.CreateDefaultBuilder()` with `ConfigureWebHostDefaults()` in ASP.NET Core 3.0.
+* [OpenRewrite.Recipes.Net3_0.UpgradeToDotNet3_0](/user-documentation/recipes/recipe-catalog/csharp/recipes/net3_0/upgradetodotnet3_0.md)
+  * **Migrate to .NET Core 3.0**
+  * Migrate C# projects from .NET Core 2.x to .NET Core 3.0, applying necessary API changes for removed and replaced types. See https://learn.microsoft.com/en-us/dotnet/core/compatibility/3.0.
+* [OpenRewrite.Recipes.Net3_0.UseApiControllerBase](/user-documentation/recipes/recipe-catalog/csharp/recipes/net3_0/useapicontrollerbase.md)
+  * **Migrate ApiController to ControllerBase**
+  * Replace `ApiController` base class (from the removed WebApiCompatShim) with `ControllerBase` and add the `[ApiController]` attribute. The shim was removed in ASP.NET Core 3.0.
+* [OpenRewrite.Recipes.Net3_1.FindSameSiteNone](/user-documentation/recipes/recipe-catalog/csharp/recipes/net3_1/findsamesitenone.md)
+  * **Find `SameSiteMode.None` usage (behavior changed in .NET Core 3.1)**
+  * Finds usages of `SameSiteMode.None` which changed behavior in .NET Core 3.1 due to Chrome 80 SameSite cookie changes. Apps using remote authentication may need browser sniffing.
+* [OpenRewrite.Recipes.Net3_1.UpgradeToDotNet3_1](/user-documentation/recipes/recipe-catalog/csharp/recipes/net3_1/upgradetodotnet3_1.md)
+  * **Migrate to .NET Core 3.1**
+  * Migrate C# projects from .NET Core 3.0 to .NET Core 3.1. Includes all .NET Core 3.0 migration steps. See https://learn.microsoft.com/en-us/dotnet/core/compatibility/3.1.
+* [OpenRewrite.Recipes.Net5.FindCodeAccessSecurity](/user-documentation/recipes/recipe-catalog/csharp/recipes/net5/findcodeaccesssecurity.md)
+  * **Find Code Access Security usage (obsolete in .NET 5)**
+  * Finds usages of Code Access Security types (`SecurityPermission`, `PermissionSet`, etc.) which are obsolete in .NET 5+.
+* [OpenRewrite.Recipes.Net5.FindPrincipalPermissionAttribute](/user-documentation/recipes/recipe-catalog/csharp/recipes/net5/findprincipalpermissionattribute.md)
+  * **Find `PrincipalPermissionAttribute` usage (SYSLIB0003)**
+  * Finds usages of `PrincipalPermissionAttribute` which is obsolete in .NET 5+ (SYSLIB0003) and throws `NotSupportedException` at runtime.
+* [OpenRewrite.Recipes.Net5.FindUtf7Encoding](/user-documentation/recipes/recipe-catalog/csharp/recipes/net5/findutf7encoding.md)
+  * **Find `Encoding.UTF7` usage (SYSLIB0001)**
+  * Finds usages of `Encoding.UTF7` and `UTF7Encoding` which are obsolete in .NET 5+ (SYSLIB0001). UTF-7 is insecure.
+* [OpenRewrite.Recipes.Net5.FindWinHttpHandler](/user-documentation/recipes/recipe-catalog/csharp/recipes/net5/findwinhttphandler.md)
+  * **Find `WinHttpHandler` usage (removed in .NET 5)**
+  * Finds usages of `WinHttpHandler` which was removed from the .NET 5 runtime. Install the `System.Net.Http.WinHttpHandler` NuGet package explicitly.
+* [OpenRewrite.Recipes.Net5.FindWinRTInterop](/user-documentation/recipes/recipe-catalog/csharp/recipes/net5/findwinrtinterop.md)
+  * **Find WinRT interop usage (removed in .NET 5)**
+  * Finds usages of WinRT interop types (`WindowsRuntimeType`, `WindowsRuntimeMarshal`, etc.) which were removed in .NET 5.
+* [OpenRewrite.Recipes.Net5.UpgradeToDotNet5](/user-documentation/recipes/recipe-catalog/csharp/recipes/net5/upgradetodotnet5.md)
+  * **Migrate to .NET 5**
+  * Migrate C# projects from .NET Core 3.1 to .NET 5.0. Includes all .NET Core 3.0 and 3.1 migration steps. See https://learn.microsoft.com/en-us/dotnet/core/compatibility/5.0.
+* [OpenRewrite.Recipes.Net6.FindAssemblyCodeBase](/user-documentation/recipes/recipe-catalog/csharp/recipes/net6/findassemblycodebase.md)
+  * **Find `Assembly.CodeBase`/`EscapedCodeBase` usage (SYSLIB0012)**
+  * Finds usages of `Assembly.CodeBase` and `Assembly.EscapedCodeBase` which are obsolete (SYSLIB0012). Use `Assembly.Location` instead.
+* [OpenRewrite.Recipes.Net6.FindIgnoreNullValues](/user-documentation/recipes/recipe-catalog/csharp/recipes/net6/findignorenullvalues.md)
+  * **Find `JsonSerializerOptions.IgnoreNullValues` usage (SYSLIB0020)**
+  * Finds usages of `JsonSerializerOptions.IgnoreNullValues` which is obsolete in .NET 6 (SYSLIB0020). Use `DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull` instead.
+* [OpenRewrite.Recipes.Net6.FindThreadAbort](/user-documentation/recipes/recipe-catalog/csharp/recipes/net6/findthreadabort.md)
+  * **Find `Thread.Abort` usage (SYSLIB0006)**
+  * Finds calls to `Thread.Abort()` which throws `PlatformNotSupportedException` in .NET 6+ (SYSLIB0006). Use `CancellationToken` for cooperative cancellation instead.
+* [OpenRewrite.Recipes.Net6.FindWebRequest](/user-documentation/recipes/recipe-catalog/csharp/recipes/net6/findwebrequest.md)
+  * **Find `WebRequest`/`HttpWebRequest`/`WebClient` usage (SYSLIB0014)**
+  * Finds usages of `WebRequest`, `HttpWebRequest`, and `WebClient` which are obsolete in .NET 6 (SYSLIB0014). Use `HttpClient` instead.
+* [OpenRewrite.Recipes.Net6.FindX509PrivateKey](/user-documentation/recipes/recipe-catalog/csharp/recipes/net6/findx509privatekey.md)
+  * **Find `X509Certificate2.PrivateKey` usage (SYSLIB0028)**
+  * Finds usages of `X509Certificate2.PrivateKey` which is obsolete (SYSLIB0028). Use `GetRSAPrivateKey()`, `GetECDsaPrivateKey()`, or the appropriate algorithm-specific method instead.
+* [OpenRewrite.Recipes.Net6.UpgradeToDotNet6](/user-documentation/recipes/recipe-catalog/csharp/recipes/net6/upgradetodotnet6.md)
+  * **Migrate to .NET 6**
+  * Migrate C# projects to .NET 6, applying necessary API changes for obsoleted cryptographic types and other breaking changes. Includes all .NET Core 3.0, 3.1, and .NET 5 migration steps. See https://learn.microsoft.com/en-us/dotnet/core/compatibility/6.0.
+* [OpenRewrite.Recipes.Net6.UseEnvironmentCurrentManagedThreadId](/user-documentation/recipes/recipe-catalog/csharp/recipes/net6/useenvironmentcurrentmanagedthreadid.md)
+  * **Use Environment.CurrentManagedThreadId**
+  * Replace `Thread.CurrentThread.ManagedThreadId` with `Environment.CurrentManagedThreadId` (CA1840). Available since .NET 6.
+* [OpenRewrite.Recipes.Net6.UseEnvironmentProcessId](/user-documentation/recipes/recipe-catalog/csharp/recipes/net6/useenvironmentprocessid.md)
+  * **Use Environment.ProcessId**
+  * Replace `Process.GetCurrentProcess().Id` with `Environment.ProcessId` (CA1837). Available since .NET 6.
+* [OpenRewrite.Recipes.Net6.UseEnvironmentProcessPath](/user-documentation/recipes/recipe-catalog/csharp/recipes/net6/useenvironmentprocesspath.md)
+  * **Use Environment.ProcessPath**
+  * Replace `Process.GetCurrentProcess().MainModule.FileName` with `Environment.ProcessPath` (CA1839). Available since .NET 6.
+* [OpenRewrite.Recipes.Net6.UseLinqDistinctBy](/user-documentation/recipes/recipe-catalog/csharp/recipes/net6/uselinqdistinctby.md)
+  * **Use LINQ DistinctBy()**
+  * Replace `collection.GroupBy(selector).Select(g =&gt; g.First())` with `collection.DistinctBy(selector)`. Available since .NET 6.
+* [OpenRewrite.Recipes.Net6.UseLinqMaxMinBy](/user-documentation/recipes/recipe-catalog/csharp/recipes/net6/uselinqmaxminby.md)
+  * **Use LINQ MaxBy() and MinBy()**
+  * Replace `collection.OrderByDescending(selector).First()` with `collection.MaxBy(selector)` and `collection.OrderBy(selector).First()` with `collection.MinBy(selector)`. Also handles `.Last()` variants (OrderBy().Last() → MaxBy, OrderByDescending().Last() → MinBy). Note: MinBy/MaxBy return default for empty reference-type sequences instead of throwing. Available since .NET 6.
+* [OpenRewrite.Recipes.Net6.UseRandomShared](/user-documentation/recipes/recipe-catalog/csharp/recipes/net6/userandomshared.md)
+  * **Use Random.Shared**
+  * Replace `new Random().Method(...)` with `Random.Shared.Method(...)`. Available since .NET 6.
+* [OpenRewrite.Recipes.Net6.UseStringContainsChar](/user-documentation/recipes/recipe-catalog/csharp/recipes/net6/usestringcontainschar.md)
+  * **Use string.Contains(char) overload**
+  * Finds calls to `string.Contains(&quot;x&quot;)` with a single-character string literal that could use the `string.Contains('x')` overload for better performance.
+* [OpenRewrite.Recipes.Net6.UseStringStartsEndsWithChar](/user-documentation/recipes/recipe-catalog/csharp/recipes/net6/usestringstartsendswithchar.md)
+  * **Use string.StartsWith(char)/EndsWith(char) overload**
+  * Finds calls to `string.StartsWith(&quot;x&quot;)` and `string.EndsWith(&quot;x&quot;)` with a single-character string literal that could use the char overload for better performance.
+* [OpenRewrite.Recipes.Net6.UseThrowIfNull](/user-documentation/recipes/recipe-catalog/csharp/recipes/net6/usethrowifnull.md)
+  * **Use ArgumentNullException.ThrowIfNull()**
+  * Replace `if (x == null) throw new ArgumentNullException(nameof(x))` guard clauses with `ArgumentNullException.ThrowIfNull(x)` (CA1510). Handles `== null`, `is null`, reversed `null ==`, string literal param names, and braced then-blocks. Available since .NET 6.
+* [OpenRewrite.Recipes.Net7.FindObsoleteSslProtocols](/user-documentation/recipes/recipe-catalog/csharp/recipes/net7/findobsoletesslprotocols.md)
+  * **Find obsolete `SslProtocols.Tls`/`Tls11` usage (SYSLIB0039)**
+  * Finds usages of `SslProtocols.Tls` and `SslProtocols.Tls11` which are obsolete in .NET 7 (SYSLIB0039). Use `SslProtocols.Tls12`, `SslProtocols.Tls13`, or `SslProtocols.None` instead.
+* [OpenRewrite.Recipes.Net7.FindRfc2898InsecureCtors](/user-documentation/recipes/recipe-catalog/csharp/recipes/net7/findrfc2898insecurectors.md)
+  * **Find insecure `Rfc2898DeriveBytes` constructors (SYSLIB0041)**
+  * Finds `Rfc2898DeriveBytes` constructor calls that use default SHA1 or low iteration counts, which are obsolete in .NET 7 (SYSLIB0041). Specify `HashAlgorithmName` and at least 600,000 iterations.
+* [OpenRewrite.Recipes.Net7.UpgradeToDotNet7](/user-documentation/recipes/recipe-catalog/csharp/recipes/net7/upgradetodotnet7.md)
+  * **Migrate to .NET 7**
+  * Migrate C# projects to .NET 7, applying necessary API changes. See https://learn.microsoft.com/en-us/dotnet/core/compatibility/7.0.
+* [OpenRewrite.Recipes.Net7.UseLinqOrder](/user-documentation/recipes/recipe-catalog/csharp/recipes/net7/uselinqorder.md)
+  * **Use LINQ Order() and OrderDescending()**
+  * Replace `collection.OrderBy(x =&gt; x)` with `collection.Order()` and `collection.OrderByDescending(x =&gt; x)` with `collection.OrderDescending()`. Available since .NET 7.
+* [OpenRewrite.Recipes.Net7.UseThrowIfNegative](/user-documentation/recipes/recipe-catalog/csharp/recipes/net7/usethrowifnegative.md)
+  * **Use ArgumentOutOfRangeException.ThrowIfNegative()**
+  * Replace `if (value &lt; 0) throw new ArgumentOutOfRangeException(nameof(value))` guard clauses with `ArgumentOutOfRangeException.ThrowIfNegative(value)`. Also handles reversed `0 &gt; value`. Available since .NET 7.
+* [OpenRewrite.Recipes.Net7.UseThrowIfNegativeOrZero](/user-documentation/recipes/recipe-catalog/csharp/recipes/net7/usethrowifnegativeorzero.md)
+  * **Use ArgumentOutOfRangeException.ThrowIfNegativeOrZero()**
+  * Replace `if (value &lt;= 0) throw new ArgumentOutOfRangeException(nameof(value))` guard clauses with `ArgumentOutOfRangeException.ThrowIfNegativeOrZero(value)`. Also handles reversed `0 &gt;= value`. Available since .NET 7.
+* [OpenRewrite.Recipes.Net7.UseThrowIfNullOrEmpty](/user-documentation/recipes/recipe-catalog/csharp/recipes/net7/usethrowifnullorempty.md)
+  * **Use ArgumentException.ThrowIfNullOrEmpty()**
+  * Replace `if (string.IsNullOrEmpty(s)) throw new ArgumentException(&quot;...&quot;, nameof(s))` guard clauses with `ArgumentException.ThrowIfNullOrEmpty(s)`. Available since .NET 7.
+* [OpenRewrite.Recipes.Net8.FindAddContext](/user-documentation/recipes/recipe-catalog/csharp/recipes/net8/findaddcontext.md)
+  * **Find `JsonSerializerOptions.AddContext` usage (SYSLIB0049)**
+  * Finds calls to `JsonSerializerOptions.AddContext&lt;T&gt;()` which is obsolete in .NET 8 (SYSLIB0049). Use `TypeInfoResolverChain` or `TypeInfoResolver` instead.
+* [OpenRewrite.Recipes.Net8.FindAesGcmOldConstructor](/user-documentation/recipes/recipe-catalog/csharp/recipes/net8/findaesgcmoldconstructor.md)
+  * **Find `AesGcm` constructor without tag size (SYSLIB0053)**
+  * Finds `new AesGcm(key)` constructor calls without an explicit tag size parameter. In .NET 8, the single-argument constructor is obsolete (SYSLIB0053). Use `new AesGcm(key, tagSizeInBytes)` instead.
+* [OpenRewrite.Recipes.Net8.FindFormatterBasedSerialization](/user-documentation/recipes/recipe-catalog/csharp/recipes/net8/findformatterbasedserialization.md)
+  * **Find formatter-based serialization types (SYSLIB0050/0051)**
+  * Finds usage of formatter-based serialization types (`FormatterConverter`, `IFormatter`, `ObjectIDGenerator`, `ObjectManager`, `SurrogateSelector`, `SerializationInfo`, `StreamingContext`). These are obsolete in .NET 8 (SYSLIB0050/0051).
+* [OpenRewrite.Recipes.Net8.FindFrozenCollection](/user-documentation/recipes/recipe-catalog/csharp/recipes/net8/findfrozencollection.md)
+  * **Find ToImmutable*() that could use Frozen collections**
+  * Finds usages of `ToImmutableDictionary()` and `ToImmutableHashSet()`. In .NET 8+, `ToFrozenDictionary()` and `ToFrozenSet()` provide better read performance.
+* [OpenRewrite.Recipes.Net8.FindRegexCompileToAssembly](/user-documentation/recipes/recipe-catalog/csharp/recipes/net8/findregexcompiletoassembly.md)
+  * **Find `Regex.CompileToAssembly` usage (SYSLIB0052)**
+  * Finds usage of `Regex.CompileToAssembly()` and `RegexCompilationInfo`. These are obsolete in .NET 8 (SYSLIB0052). Use the Regex source generator instead.
+* [OpenRewrite.Recipes.Net8.FindSerializationConstructors](/user-documentation/recipes/recipe-catalog/csharp/recipes/net8/findserializationconstructors.md)
+  * **Find legacy serialization constructors (SYSLIB0051)**
+  * Finds legacy serialization constructors `.ctor(SerializationInfo, StreamingContext)` which are obsolete in .NET 8 (SYSLIB0051). The `ISerializable` pattern is no longer recommended.
+* [OpenRewrite.Recipes.Net8.FindTimeAbstraction](/user-documentation/recipes/recipe-catalog/csharp/recipes/net8/findtimeabstraction.md)
+  * **Find DateTime.Now/UtcNow usage (TimeProvider in .NET 8)**
+  * Finds usages of `DateTime.Now`, `DateTime.UtcNow`, `DateTimeOffset.Now`, and `DateTimeOffset.UtcNow`. In .NET 8+, `TimeProvider` is the recommended abstraction for time.
+* [OpenRewrite.Recipes.Net8.UpgradeToDotNet8](/user-documentation/recipes/recipe-catalog/csharp/recipes/net8/upgradetodotnet8.md)
+  * **Migrate to .NET 8**
+  * Migrate C# projects to .NET 8, applying necessary API changes. Includes all .NET 7 migration steps. See https://learn.microsoft.com/en-us/dotnet/core/compatibility/8.0.
+* [OpenRewrite.Recipes.Net8.UseThrowIfGreaterThan](/user-documentation/recipes/recipe-catalog/csharp/recipes/net8/usethrowifgreaterthan.md)
+  * **Use ArgumentOutOfRangeException.ThrowIfGreaterThan()**
+  * Replace `if (value &gt; other) throw new ArgumentOutOfRangeException(nameof(value))` guard clauses with `ArgumentOutOfRangeException.ThrowIfGreaterThan(value, other)`. Also handles reversed `other &lt; value` and `&gt;=`/`ThrowIfGreaterThanOrEqual`. Available since .NET 8.
+* [OpenRewrite.Recipes.Net8.UseThrowIfLessThan](/user-documentation/recipes/recipe-catalog/csharp/recipes/net8/usethrowiflessthan.md)
+  * **Use ArgumentOutOfRangeException.ThrowIfLessThan()**
+  * Replace `if (value &lt; other) throw new ArgumentOutOfRangeException(nameof(value))` guard clauses with `ArgumentOutOfRangeException.ThrowIfLessThan(value, other)`. Also handles reversed `other &gt; value` and `&lt;=`/`ThrowIfLessThanOrEqual`. Available since .NET 8.
+* [OpenRewrite.Recipes.Net8.UseThrowIfNullOrWhiteSpace](/user-documentation/recipes/recipe-catalog/csharp/recipes/net8/usethrowifnullorwhitespace.md)
+  * **Use ArgumentException.ThrowIfNullOrWhiteSpace()**
+  * Replace `if (string.IsNullOrWhiteSpace(s)) throw new ArgumentException(&quot;...&quot;, nameof(s))` guard clauses with `ArgumentException.ThrowIfNullOrWhiteSpace(s)`. Available since .NET 8.
+* [OpenRewrite.Recipes.Net8.UseThrowIfZero](/user-documentation/recipes/recipe-catalog/csharp/recipes/net8/usethrowifzero.md)
+  * **Use ArgumentOutOfRangeException.ThrowIfZero()**
+  * Replace `if (value == 0) throw new ArgumentOutOfRangeException(nameof(value))` guard clauses with `ArgumentOutOfRangeException.ThrowIfZero(value)`. Also handles reversed `0 == value`. Available since .NET 8.
+* [OpenRewrite.Recipes.Net8.UseTimeProvider](/user-documentation/recipes/recipe-catalog/csharp/recipes/net8/usetimeprovider.md)
+  * **Use TimeProvider instead of DateTime/DateTimeOffset static properties**
+  * Replace `DateTime.UtcNow`, `DateTime.Now`, `DateTimeOffset.UtcNow`, and `DateTimeOffset.Now` with `TimeProvider.System.GetUtcNow()`/`GetLocalNow()` equivalents. TimeProvider enables testability and consistent time sources. Available since .NET 8.
+* [OpenRewrite.Recipes.Net9.FindAuthenticationManager](/user-documentation/recipes/recipe-catalog/csharp/recipes/net9/findauthenticationmanager.md)
+  * **Find `AuthenticationManager` usage (SYSLIB0009)**
+  * Finds usages of `AuthenticationManager` which is not supported in .NET 9 (SYSLIB0009). Methods will no-op or throw `PlatformNotSupportedException`.
+* [OpenRewrite.Recipes.Net9.FindBinaryFormatter](/user-documentation/recipes/recipe-catalog/csharp/recipes/net9/findbinaryformatter.md)
+  * **Find `BinaryFormatter` usage (removed in .NET 9)**
+  * Finds usages of `BinaryFormatter` which always throws `NotSupportedException` in .NET 9. Migrate to a different serializer such as `System.Text.Json`, `XmlSerializer`, or `DataContractSerializer`.
+* [OpenRewrite.Recipes.Net9.FindBinaryReaderReadString](/user-documentation/recipes/recipe-catalog/csharp/recipes/net9/findbinaryreaderreadstring.md)
+  * **Find `BinaryReader.ReadString` behavior change**
+  * Finds calls to `BinaryReader.ReadString()` which now returns the Unicode replacement character (\uFFFD) for malformed UTF-8 byte sequences in .NET 9, instead of the previous behavior. Verify your code handles the replacement character correctly.
+* [OpenRewrite.Recipes.Net9.FindDistributedCache](/user-documentation/recipes/recipe-catalog/csharp/recipes/net9/finddistributedcache.md)
+  * **Find IDistributedCache usage (HybridCache in .NET 9)**
+  * Finds usages of `IDistributedCache`. In .NET 9, `HybridCache` is the recommended replacement with L1/L2 caching, stampede protection, and tag-based invalidation.
+* [OpenRewrite.Recipes.Net9.FindEnumConverter](/user-documentation/recipes/recipe-catalog/csharp/recipes/net9/findenumconverter.md)
+  * **Find `EnumConverter` constructor validation change**
+  * Finds `new EnumConverter()` constructor calls. In .NET 9, `EnumConverter` validates that the registered type is actually an enum and throws `ArgumentException` if not.
+* [OpenRewrite.Recipes.Net9.FindExecuteUpdateSync](/user-documentation/recipes/recipe-catalog/csharp/recipes/net9/findexecuteupdatesync.md)
+  * **Find synchronous ExecuteUpdate/ExecuteDelete (EF Core 9)**
+  * Finds usages of synchronous `ExecuteUpdate()` and `ExecuteDelete()` which were removed in EF Core 9. Use `ExecuteUpdateAsync`/`ExecuteDeleteAsync` instead.
+* [OpenRewrite.Recipes.Net9.FindHttpClientHandlerCast](/user-documentation/recipes/recipe-catalog/csharp/recipes/net9/findhttpclienthandlercast.md)
+  * **Find `HttpClientHandler` usage (HttpClientFactory default change)**
+  * Finds usages of `HttpClientHandler` which may break when `HttpClientFactory` switches its default handler to `SocketsHttpHandler` in .NET 9.
+* [OpenRewrite.Recipes.Net9.FindHttpListenerRequestUserAgent](/user-documentation/recipes/recipe-catalog/csharp/recipes/net9/findhttplistenerrequestuseragent.md)
+  * **Find `HttpListenerRequest.UserAgent` nullable change**
+  * Finds accesses to `HttpListenerRequest.UserAgent` which changed from `string` to `string?` in .NET 9. Code that assumes `UserAgent` is non-null may throw `NullReferenceException`.
+* [OpenRewrite.Recipes.Net9.FindImplicitAuthenticationDefault](/user-documentation/recipes/recipe-catalog/csharp/recipes/net9/findimplicitauthenticationdefault.md)
+  * **Find implicit authentication default scheme (ASP.NET Core 9)**
+  * Finds calls to `AddAuthentication()` with no arguments. In .NET 9, a single registered authentication scheme is no longer automatically used as the default.
+* [OpenRewrite.Recipes.Net9.FindInMemoryDirectoryInfo](/user-documentation/recipes/recipe-catalog/csharp/recipes/net9/findinmemorydirectoryinfo.md)
+  * **Find `InMemoryDirectoryInfo` rootDir prepend change**
+  * Finds `new InMemoryDirectoryInfo()` constructor calls. In .NET 9, `rootDir` is prepended to file paths that don't start with the `rootDir`, which may change file matching behavior.
+* [OpenRewrite.Recipes.Net9.FindIncrementingPollingCounter](/user-documentation/recipes/recipe-catalog/csharp/recipes/net9/findincrementingpollingcounter.md)
+  * **Find `IncrementingPollingCounter` async callback change**
+  * Finds `new IncrementingPollingCounter()` constructor calls. In .NET 9, the initial callback invocation is asynchronous instead of synchronous, which may change timing behavior.
+* [OpenRewrite.Recipes.Net9.FindJsonDocumentNullable](/user-documentation/recipes/recipe-catalog/csharp/recipes/net9/findjsondocumentnullable.md)
+  * **Find `JsonSerializer.Deserialize` nullable `JsonDocument` change**
+  * Finds `JsonSerializer.Deserialize()` calls. In .NET 9, nullable `JsonDocument` properties now deserialize to a `JsonDocument` with `RootElement.ValueKind == JsonValueKind.Null` instead of being `null`.
+* [OpenRewrite.Recipes.Net9.FindJsonStringEnumConverter](/user-documentation/recipes/recipe-catalog/csharp/recipes/net9/findjsonstringenumconverter.md)
+  * **Find non-generic JsonStringEnumConverter**
+  * Finds usages of the non-generic `JsonStringEnumConverter`. In .NET 9, the generic `JsonStringEnumConverter&lt;TEnum&gt;` is preferred for AOT compatibility.
+* [OpenRewrite.Recipes.Net9.FindRuntimeHelpersGetSubArray](/user-documentation/recipes/recipe-catalog/csharp/recipes/net9/findruntimehelpersgetsubarray.md)
+  * **Find `RuntimeHelpers.GetSubArray` return type change**
+  * Finds calls to `RuntimeHelpers.GetSubArray()` which may return a different array type in .NET 9. Code that depends on the runtime type of the returned array may break.
+* [OpenRewrite.Recipes.Net9.FindSafeEvpPKeyHandleDuplicate](/user-documentation/recipes/recipe-catalog/csharp/recipes/net9/findsafeevppkeyhandleduplicate.md)
+  * **Find `SafeEvpPKeyHandle.DuplicateHandle` up-ref change**
+  * Finds calls to `SafeEvpPKeyHandle.DuplicateHandle()`. In .NET 9, this method now increments the reference count instead of creating a deep copy, which may affect handle lifetime.
+* [OpenRewrite.Recipes.Net9.FindServicePointManager](/user-documentation/recipes/recipe-catalog/csharp/recipes/net9/findservicepointmanager.md)
+  * **Find `ServicePointManager` usage (SYSLIB0014)**
+  * Finds usages of `ServicePointManager` which is fully obsolete in .NET 9 (SYSLIB0014). Settings on `ServicePointManager` don't affect `SslStream` or `HttpClient`.
+* [OpenRewrite.Recipes.Net9.FindSwashbuckle](/user-documentation/recipes/recipe-catalog/csharp/recipes/net9/findswashbuckle.md)
+  * **Find Swashbuckle usage (ASP.NET Core 9 built-in OpenAPI)**
+  * Finds usages of Swashbuckle APIs (`AddSwaggerGen`, `UseSwagger`, `UseSwaggerUI`). .NET 9 includes built-in OpenAPI support. Consider migrating to `AddOpenApi()`/`MapOpenApi()`.
+* [OpenRewrite.Recipes.Net9.FindX509CertificateConstructors](/user-documentation/recipes/recipe-catalog/csharp/recipes/net9/findx509certificateconstructors.md)
+  * **Find obsolete `X509Certificate2`/`X509Certificate` constructors (SYSLIB0057)**
+  * Finds usages of `X509Certificate2` and `X509Certificate` constructors that accept binary content or file paths, which are obsolete in .NET 9 (SYSLIB0057). Use `X509CertificateLoader` methods instead.
+* [OpenRewrite.Recipes.Net9.FindZipArchiveCompressionLevel](/user-documentation/recipes/recipe-catalog/csharp/recipes/net9/findziparchivecompressionlevel.md)
+  * **Find `ZipArchive.CreateEntry` with `CompressionLevel` (bit flag change)**
+  * Finds `ZipArchive.CreateEntry()` and `ZipFileExtensions.CreateEntryFromFile()` calls with a `CompressionLevel` parameter. In .NET 9, the `CompressionLevel` value now sets general-purpose bit flags in the ZIP central directory header, which may affect interoperability.
+* [OpenRewrite.Recipes.Net9.FindZipArchiveEntryEncoding](/user-documentation/recipes/recipe-catalog/csharp/recipes/net9/findziparchiveentryencoding.md)
+  * **Find `ZipArchiveEntry` name/comment UTF-8 encoding change**
+  * Finds access to `ZipArchiveEntry.Name`, `FullName`, or `Comment` properties. In .NET 9, these now respect the UTF-8 flag in ZIP entries, which may change decoded values.
+* [OpenRewrite.Recipes.Net9.MigrateSwashbuckleToOpenApi](/user-documentation/recipes/recipe-catalog/csharp/recipes/net9/migrateswashbuckletoopenapi.md)
+  * **Migrate Swashbuckle to built-in OpenAPI**
+  * Migrate from Swashbuckle to the built-in OpenAPI support in ASP.NET Core 9. Replaces `AddSwaggerGen()` with `AddOpenApi()`, `UseSwaggerUI()` with `MapOpenApi()`, removes `UseSwagger()`, removes Swashbuckle packages, and adds `Microsoft.AspNetCore.OpenApi`.
+* [OpenRewrite.Recipes.Net9.RemoveConfigureAwaitFalse](/user-documentation/recipes/recipe-catalog/csharp/recipes/net9/removeconfigureawaitfalse.md)
+  * **Remove ConfigureAwait(false)**
+  * Remove `.ConfigureAwait(false)` calls that are unnecessary in ASP.NET Core and modern .NET applications (no SynchronizationContext). Do not apply to library code targeting .NET Framework.
+* [OpenRewrite.Recipes.Net9.UpgradeToDotNet9](/user-documentation/recipes/recipe-catalog/csharp/recipes/net9/upgradetodotnet9.md)
+  * **Migrate to .NET 9**
+  * Migrate C# projects to .NET 9, applying necessary API changes. Includes all .NET 7 and .NET 8 migration steps. See https://learn.microsoft.com/en-us/dotnet/core/compatibility/9.0.
+* [OpenRewrite.Recipes.Net9.UseEscapeSequenceE](/user-documentation/recipes/recipe-catalog/csharp/recipes/net9/useescapesequencee.md)
+  * **Use \e escape sequence**
+  * Replace `\u001b` and `\x1b` escape sequences with `\e`. C# 13 introduced `\e` as a dedicated escape sequence for the escape character (U+001B).
+* [OpenRewrite.Recipes.Net9.UseFrozenCollections](/user-documentation/recipes/recipe-catalog/csharp/recipes/net9/usefrozencollections.md)
+  * **Use Frozen collections instead of Immutable**
+  * Replace `ToImmutableDictionary()` with `ToFrozenDictionary()` and `ToImmutableHashSet()` with `ToFrozenSet()`. Frozen collections (.NET 8+) provide better read performance for collections populated once and read many times.
+* [OpenRewrite.Recipes.Net9.UseGuidCreateVersion7](/user-documentation/recipes/recipe-catalog/csharp/recipes/net9/useguidcreateversion7.md)
+  * **Use Guid.CreateVersion7()**
+  * Replace `Guid.NewGuid()` with `Guid.CreateVersion7()`. Version 7 GUIDs are time-ordered and better for database primary keys, indexing, and sorting. Available since .NET 9.
+* [OpenRewrite.Recipes.Net9.UseLinqAggregateBy](/user-documentation/recipes/recipe-catalog/csharp/recipes/net9/uselinqaggregateby.md)
+  * **Use LINQ AggregateBy()**
+  * Replace `collection.GroupBy(keySelector).ToDictionary(g =&gt; g.Key, g =&gt; g.Aggregate(seed, func))` with `collection.AggregateBy(keySelector, seed, func).ToDictionary()`. Available since .NET 9.
+* [OpenRewrite.Recipes.Net9.UseLinqCountBy](/user-documentation/recipes/recipe-catalog/csharp/recipes/net9/uselinqcountby.md)
+  * **Use LINQ CountBy()**
+  * Replace `collection.GroupBy(selector).Select(g =&gt; g.Count())` with `collection.CountBy(selector)`. Available since .NET 9.
+* [OpenRewrite.Recipes.Net9.UseLinqIndex](/user-documentation/recipes/recipe-catalog/csharp/recipes/net9/uselinqindex.md)
+  * **Use LINQ Index()**
+  * Replace `collection.Select((item, index) =&gt; (index, item))` with `collection.Index()`. Available since .NET 9.
+* [OpenRewrite.Recipes.Net9.UseLockObject](/user-documentation/recipes/recipe-catalog/csharp/recipes/net9/uselockobject.md)
+  * **Use System.Threading.Lock for lock fields**
+  * Replace `object` fields initialized with `new object()` with `System.Threading.Lock` initialized with `new()`. The Lock type provides better performance with the lock statement. Available since .NET 9.
+* [OpenRewrite.Recipes.Net9.UseMapStaticAssets](/user-documentation/recipes/recipe-catalog/csharp/recipes/net9/usemapstaticassets.md)
+  * **Use MapStaticAssets()**
+  * Replace `UseStaticFiles()` with `MapStaticAssets()` for ASP.NET Core 9. Only applies when the receiver supports `IEndpointRouteBuilder` (WebApplication / minimal hosting). Skips Startup.cs patterns using `IApplicationBuilder` where `MapStaticAssets` is not available.
+* [OpenRewrite.Recipes.Net9.UseTaskCompletedTask](/user-documentation/recipes/recipe-catalog/csharp/recipes/net9/usetaskcompletedtask.md)
+  * **Use Task.CompletedTask**
+  * Replace `Task.FromResult(0)`, `Task.FromResult(true)`, and `Task.FromResult(false)` with `Task.CompletedTask` when the return type is `Task` (not `Task&lt;T&gt;`).
+* [OpenRewrite.Recipes.Net9.UseVolatileReadWrite](/user-documentation/recipes/recipe-catalog/csharp/recipes/net9/usevolatilereadwrite.md)
+  * **Use Volatile.Read/Write (SYSLIB0054)**
+  * Replace `Thread.VolatileRead` and `Thread.VolatileWrite` with `Volatile.Read` and `Volatile.Write`. The Thread methods are obsolete in .NET 9 (SYSLIB0054).
+* [OpenRewrite.Recipes.Net9.UseX509CertificateLoader](/user-documentation/recipes/recipe-catalog/csharp/recipes/net9/usex509certificateloader.md)
+  * **Use X509CertificateLoader (SYSLIB0057)**
+  * Replace `new X509Certificate2(path, password)` with `X509CertificateLoader.LoadPkcs12FromFile(path, password)`. The two-argument X509Certificate2 constructor is obsolete in .NET 9 (SYSLIB0057).
+* [OpenRewrite.Recipes.RemoveNuGetPackageReference](/user-documentation/recipes/recipe-catalog/csharp/recipes/removenugetpackagereference.md)
+  * **Remove NuGet package reference**
+  * Removes a `&lt;PackageReference&gt;` from .csproj files.
+* [OpenRewrite.Recipes.UpgradeNuGetPackageVersion](/user-documentation/recipes/recipe-catalog/csharp/recipes/upgradenugetpackageversion.md)
+  * **Upgrade NuGet package version**
+  * Upgrades the version of a NuGet `&lt;PackageReference&gt;` or `&lt;PackageVersion&gt;` in .csproj and Directory.Packages.props files.
+
+### recipes-tunit
+
+_License: Moderne Proprietary License_
+
+_19 recipes_
+
+* [OpenRewrite.Recipes.TUnit.Migration.FromXUnit.AsyncLifetimeToBeforeAfterTest](/user-documentation/recipes/recipe-catalog/csharp/recipes/tunit/migration/fromxunit/asynclifetimetobeforeaftertest.md)
+  * **Find `IAsyncLifetime` needing TUnit migration**
+  * Find classes implementing `IAsyncLifetime` that should use `[Before(Test)]` and `[After(Test)]` for TUnit.
+* [OpenRewrite.Recipes.TUnit.Migration.FromXUnit.ChangeXUnitUsings](/user-documentation/recipes/recipe-catalog/csharp/recipes/tunit/migration/fromxunit/changexunitusings.md)
+  * **Change xUnit using directives to TUnit**
+  * Replace `using Xunit;` with `using TUnit.Core;` and `using TUnit.Assertions;`, and remove `using Xunit.Abstractions;` and `using Xunit.Sdk;`.
+* [OpenRewrite.Recipes.TUnit.Migration.FromXUnit.ClassFixtureToClassDataSource](/user-documentation/recipes/recipe-catalog/csharp/recipes/tunit/migration/fromxunit/classfixturetoclassdatasource.md)
+  * **Find `IClassFixture&lt;T&gt;` needing TUnit migration**
+  * Find classes implementing `IClassFixture&lt;T&gt;` that should use `[ClassDataSource&lt;T&gt;]` for TUnit.
+* [OpenRewrite.Recipes.TUnit.Migration.FromXUnit.CollectionToNotInParallel](/user-documentation/recipes/recipe-catalog/csharp/recipes/tunit/migration/fromxunit/collectiontonotinparallel.md)
+  * **Replace `[Collection]` with `[NotInParallel]`**
+  * Replace the xUnit `[Collection(&quot;name&quot;)]` attribute with the TUnit `[NotInParallel(&quot;name&quot;)]` attribute.
+* [OpenRewrite.Recipes.TUnit.Migration.FromXUnit.ConstructorToBeforeTest](/user-documentation/recipes/recipe-catalog/csharp/recipes/tunit/migration/fromxunit/constructortobeforetest.md)
+  * **Find test constructors needing `[Before(Test)]`**
+  * Find constructors in test classes that should be converted to `[Before(Test)]` methods for TUnit.
+* [OpenRewrite.Recipes.TUnit.Migration.FromXUnit.DisposableToAfterTest](/user-documentation/recipes/recipe-catalog/csharp/recipes/tunit/migration/fromxunit/disposabletoaftertest.md)
+  * **Replace `IDisposable` with `[After(Test)]`**
+  * Remove `IDisposable` from the base type list and add `[After(Test)]` to the `Dispose()` method.
+* [OpenRewrite.Recipes.TUnit.Migration.FromXUnit.FactSkipToSkipAttribute](/user-documentation/recipes/recipe-catalog/csharp/recipes/tunit/migration/fromxunit/factskiptoskipattribute.md)
+  * **Extract `Skip` into `[Skip]` attribute**
+  * Extract the `Skip` argument from `[Fact(Skip = &quot;...&quot;)]` or `[Theory(Skip = &quot;...&quot;)]` into a separate TUnit `[Skip(&quot;...&quot;)]` attribute.
+* [OpenRewrite.Recipes.TUnit.Migration.FromXUnit.FactTimeoutToTimeoutAttribute](/user-documentation/recipes/recipe-catalog/csharp/recipes/tunit/migration/fromxunit/facttimeouttotimeoutattribute.md)
+  * **Extract `Timeout` into `[Timeout]` attribute**
+  * Extract the `Timeout` argument from `[Fact(Timeout = ...)]` or `[Theory(Timeout = ...)]` into a separate TUnit `[Timeout(...)]` attribute.
+* [OpenRewrite.Recipes.TUnit.Migration.FromXUnit.FactToTest](/user-documentation/recipes/recipe-catalog/csharp/recipes/tunit/migration/fromxunit/facttotest.md)
+  * **Replace `[Fact]` with `[Test]`**
+  * Replace the xUnit `[Fact]` attribute with the TUnit `[Test]` attribute.
+* [OpenRewrite.Recipes.TUnit.Migration.FromXUnit.InlineDataToArguments](/user-documentation/recipes/recipe-catalog/csharp/recipes/tunit/migration/fromxunit/inlinedatatoarguments.md)
+  * **Replace `[InlineData]` with `[Arguments]`**
+  * Replace the xUnit `[InlineData]` attribute with the TUnit `[Arguments]` attribute.
+* [OpenRewrite.Recipes.TUnit.Migration.FromXUnit.MemberDataToMethodDataSource](/user-documentation/recipes/recipe-catalog/csharp/recipes/tunit/migration/fromxunit/memberdatatomethoddatasource.md)
+  * **Replace `[MemberData]` with `[MethodDataSource]`**
+  * Replace the xUnit `[MemberData]` attribute with the TUnit `[MethodDataSource]` attribute. Fields and properties referenced by MemberData are converted to methods.
+* [OpenRewrite.Recipes.TUnit.Migration.FromXUnit.MigrateFromXUnit](/user-documentation/recipes/recipe-catalog/csharp/recipes/tunit/migration/fromxunit/migratefromxunit.md)
+  * **Migrate from xUnit to TUnit**
+  * Migrate xUnit test attributes, assertions, and lifecycle patterns to their TUnit equivalents.
+* [OpenRewrite.Recipes.TUnit.Migration.FromXUnit.MigrateFromXUnitAttributes](/user-documentation/recipes/recipe-catalog/csharp/recipes/tunit/migration/fromxunit/migratefromxunitattributes.md)
+  * **Migrate xUnit attributes to TUnit**
+  * Replace xUnit test attributes ([Fact], [Theory], [InlineData], etc.) with their TUnit equivalents.
+* [OpenRewrite.Recipes.TUnit.Migration.FromXUnit.MigrateXUnitAssertions](/user-documentation/recipes/recipe-catalog/csharp/recipes/tunit/migration/fromxunit/migratexunitassertions.md)
+  * **Migrate xUnit assertions to TUnit**
+  * Replace xUnit `Assert.*` calls with TUnit's fluent `await Assert.That(...).Is*()` assertions. Note: test methods may need to be changed to `async Task` separately.
+* [OpenRewrite.Recipes.TUnit.Migration.FromXUnit.MigrateXUnitDependencies](/user-documentation/recipes/recipe-catalog/csharp/recipes/tunit/migration/fromxunit/migratexunitdependencies.md)
+  * **Migrate xUnit NuGet dependencies to TUnit**
+  * Remove xUnit NuGet package references, add TUnit, and upgrade the target framework to at least .NET 9.
+* [OpenRewrite.Recipes.TUnit.Migration.FromXUnit.TestOutputHelperToTestContext](/user-documentation/recipes/recipe-catalog/csharp/recipes/tunit/migration/fromxunit/testoutputhelpertotestcontext.md)
+  * **Find `ITestOutputHelper` needing TUnit migration**
+  * Find usages of xUnit's `ITestOutputHelper` that should be replaced with TUnit's `TestContext`.
+* [OpenRewrite.Recipes.TUnit.Migration.FromXUnit.TheoryToTest](/user-documentation/recipes/recipe-catalog/csharp/recipes/tunit/migration/fromxunit/theorytotest.md)
+  * **Replace `[Theory]` with `[Test]`**
+  * Replace the xUnit `[Theory]` attribute with the TUnit `[Test]` attribute.
+* [OpenRewrite.Recipes.TUnit.Migration.FromXUnit.TraitCategoryToCategory](/user-documentation/recipes/recipe-catalog/csharp/recipes/tunit/migration/fromxunit/traitcategorytocategory.md)
+  * **Replace `[Trait(&quot;Category&quot;, ...)]` with `[Category]`**
+  * Replace xUnit `[Trait(&quot;Category&quot;, &quot;X&quot;)]` with TUnit's dedicated `[Category(&quot;X&quot;)]` attribute.
+* [OpenRewrite.Recipes.TUnit.Migration.FromXUnit.TraitToProperty](/user-documentation/recipes/recipe-catalog/csharp/recipes/tunit/migration/fromxunit/traittoproperty.md)
+  * **Replace `[Trait]` with `[Property]`**
+  * Replace the xUnit `[Trait]` attribute with the TUnit `[Property]` attribute.
 
 ### rewrite-ai
 
@@ -3364,7 +1778,7 @@ _3 recipes_
 
 _License: Moderne Proprietary License_
 
-_123 recipes_
+_105 recipes_
 
 * [org.openrewrite.angular.UpgradeToAngular10](/user-documentation/recipes/recipe-catalog/angular/upgradetoangular10.md)
   * **Upgrade to Angular 10**
@@ -3536,7 +1950,7 @@ _123 recipes_
   * Replaces deprecated `TestBed.get()` calls with `TestBed.inject()`. `TestBed.get()` was deprecated in Angular 9 and removed in Angular 13.
 * [org.openrewrite.angular.migration.replace-untyped-forms](/user-documentation/recipes/recipe-catalog/angular/migration/replace-untyped-forms.md)
   * **Replace form classes with untyped variants**
-  * Renames `FormControl`, `FormGroup`, `FormArray`, and `FormBuilder` to their `Untyped*` equivalents in imports and usages. Angular 14 introduced strictly typed forms, requiring existing untyped usages to migrate to the `Untyped*` aliases. Classes used in parameterized type positions (e.g. `FormGroup&lt;T&gt;`) are left unchanged because the user already opted into typed forms.
+  * Renames `FormControl`, `FormGroup`, `FormArray`, and `FormBuilder` to their `Untyped*` equivalents in imports and usages. Angular 14 introduced strictly typed forms, requiring existing untyped usages to migrate to the `Untyped*` aliases.
 * [org.openrewrite.angular.migration.replace-validator-with-validators](/user-documentation/recipes/recipe-catalog/angular/migration/replace-validator-with-validators.md)
   * **Replace `validator`/`asyncValidator` with plural forms**
   * Renames the deprecated singular `validator` and `asyncValidator` property names to `validators` and `asyncValidators` (plural). Angular 10 deprecated the singular forms in favor of `AbstractControlOptions`.
@@ -3681,60 +2095,6 @@ _123 recipes_
 * [org.openrewrite.angular.search.find-zone-js-usage](/user-documentation/recipes/recipe-catalog/angular/search/find-zone-js-usage.md)
   * **Find zone.js usage**
   * Finds zone.js imports and NgZone references. Angular 20 supports zoneless change detection via `provideZonelessChangeDetection()`, making zone.js optional.
-* [org.openrewrite.primeng.AddPrimengProvider](/user-documentation/recipes/recipe-catalog/primeng/addprimengprovider.md)
-  * **Add `providePrimeNG` with a detected theme preset to the root NgModule**
-  * Wires the v18 styled mode into an NgModule-based app by adding `providePrimeNG(\{ theme: \{ preset: &lt;Preset&gt; \} \})` to the root `@NgModule`'s providers array (detected by the presence of a `bootstrap:` field). The preset is chosen by scanning `angular.json` for a `primeng/resources/themes/&lt;themeName&gt;/theme.css` entry: `lara-*` maps to Lara, `md-*`/`mdc-*` to Material, `nora`/`nano` to Nora, and any other v17 theme (mira, nova, saga, vela, soho, fluent, viva, rhea, tailwind, bootstrap4, arya, luna, ...) falls back to Aura. The matching imports for `providePrimeNG` and the chosen preset are added automatically. Also deletes the now-defunct `primeng/resources` style entries from `angular.json` so the build doesn't try to load missing files. Idempotent: skips files that already call `providePrimeNG`.
-* [org.openrewrite.primeng.MarkDeprecatedPrimengComponents](/user-documentation/recipes/recipe-catalog/primeng/markdeprecatedprimengcomponents.md)
-  * **Mark deprecated PrimeNG components with TODO comments**
-  * For every TS file that imports a component / module deprecated in PrimeNG 18 (`TabMenu`, `Steps`, `InlineMessage`, `TabView`, `pDefer`), prepends a TODO comment to the import describing the recommended v18 replacement and writes a row to the `ManualMigrationSteps` data table. The import itself is left intact — these modules still exist in v18 but their replacements have different APIs that require manual migration.
-* [org.openrewrite.primeng.MarkDeprecatedPrimengCssClasses](/user-documentation/recipes/recipe-catalog/primeng/markdeprecatedprimengcssclasses.md)
-  * **Mark deprecated PrimeNG CSS classes with TODO comments**
-  * For every HTML template that references a CSS class removed in PrimeNG 18 (`.p-link`, `.p-highlight`, `.p-fluid`), inserts a `&lt;!-- TODO: ... --&gt;` comment immediately before the offending element and writes a row to the `ManualMigrationSteps` data table. The class itself is left in place — the replacements are context-dependent (component-specific selectors, the new `fluid` input, etc.) and need a human or AI agent to apply.
-* [org.openrewrite.primeng.MarkDrawerSize](/user-documentation/recipes/recipe-catalog/primeng/markdrawersize.md)
-  * **Mark `&lt;p-drawer&gt;` / `&lt;p-sidebar&gt;` `size` usages with TODO comments**
-  * Inserts an HTML `&lt;!-- TODO: ... --&gt;` comment before any `&lt;p-drawer&gt;` or `&lt;p-sidebar&gt;` element that binds the removed `size` input, and records the site in the `ManualMigrationSteps` data table. Both `[size]=&quot;...&quot;` and `size=&quot;...&quot;` attribute forms are matched. The attribute is left untouched — the v18 replacement (responsive CSS via `[style]` / `styleClass`) depends on the desired layout and needs manual review.
-* [org.openrewrite.primeng.MarkRemovedPrimengModules](/user-documentation/recipes/recipe-catalog/primeng/markremovedprimengmodules.md)
-  * **Mark imports of removed PrimeNG modules with TODO stubs**
-  * For each `import` of a PrimeNG module that no longer exists in v18 (`primeng/chips`, `primeng/tristatecheckbox`, `primeng/messages`, `primeng/dataviewlayoutoptions`), replaces the broken import statement with a `const &lt;Name&gt;: any = null;` stub annotated by a TODO comment that describes the v18 replacement. Also strips the corresponding entries from `@NgModule` `imports`, `declarations`, and `exports` arrays since Angular's compiler rejects `null` values there. Each flagged site is also recorded in the `ManualMigrationSteps` data table so downstream tooling can enumerate the remaining work.
-* [org.openrewrite.primeng.MigrateMessagesToMessageLoop](/user-documentation/recipes/recipe-catalog/primeng/migratemessagestomessageloop.md)
-  * **Migrate `&lt;p-messages&gt;` to `&lt;p-message&gt;` with `@for` loop**
-  * Rewrites `&lt;p-messages [value]=&quot;expr&quot;&gt;…&lt;/p-messages&gt;` to `@for (msg of expr; track msg) \{ &lt;p-message [severity]=&quot;msg.severity&quot; [text]=&quot;msg.detail&quot;&gt;&lt;/p-message&gt; \}`. The `Messages` component was removed in PrimeNG 18 in favor of looping over the new `Message` component. Each rewritten site is recorded in the `ManualMigrationSteps` data table for follow-up review.
-* [org.openrewrite.primeng.MigratePFluidToWrapper](/user-documentation/recipes/recipe-catalog/primeng/migratepfluidtowrapper.md)
-  * **Migrate `.p-fluid` to `&lt;p-fluid&gt;` wrapper**
-  * Rewrites `&lt;div class=&quot;…p-fluid…&quot;&gt;…&lt;/div&gt;` to `&lt;p-fluid class=&quot;…&quot;&gt;…&lt;/p-fluid&gt;` and adds a `FluidModule` import from `primeng/fluid` to the corresponding component file. PrimeNG 18 removed the `.p-fluid` CSS class; the `&lt;p-fluid&gt;` wrapper component is its replacement.
-* [org.openrewrite.primeng.MigratePrimeNGSignalAssignments](/user-documentation/recipes/recipe-catalog/primeng/migrateprimengsignalassignments.md)
-  * **Migrate `PrimeNG` config field assignments to `.set()`**
-  * In PrimeNG 18, fields on the `PrimeNG` config service like `ripple`, `inputStyle`, `inputVariant`, and `csp` are `WritableSignal&lt;T&gt;` rather than plain fields. Direct assignment (`service.ripple = true`) no longer compiles. This recipe rewrites such assignments to use the signal's `set()` method (`service.ripple.set(true)`) when the file imports `PrimeNG` from `primeng/config`.
-* [org.openrewrite.primeng.MigratePrimeNgConfigToPrimeNG](/user-documentation/recipes/recipe-catalog/primeng/migrateprimengconfigtoprimeng.md)
-  * **Migrate `PrimeNGConfig` to `PrimeNG`**
-  * Renames the `PrimeNGConfig` import from `primeng/api` to `PrimeNG` from `primeng/config`, renames all identifier usages, and flags injection sites that should be migrated to `providePrimeNG()` in application providers.
-* [org.openrewrite.primeng.RenameCalendarToDatePicker](/user-documentation/recipes/recipe-catalog/primeng/renamecalendartodatepicker.md)
-  * **Rename `Calendar` to `DatePicker`**
-  * Renames `Calendar` and `CalendarModule` imports from `primeng/calendar` to `DatePicker` and `DatePickerModule` from `primeng/datepicker`, and updates all identifier usages. The old names are deprecated in PrimeNG 18.
-* [org.openrewrite.primeng.RenameDropdownToSelect](/user-documentation/recipes/recipe-catalog/primeng/renamedropdowntoselect.md)
-  * **Rename `Dropdown` to `Select`**
-  * Renames `Dropdown` and `DropdownModule` imports from `primeng/dropdown` to `Select` and `SelectModule` from `primeng/select`, and updates all identifier usages. The old names are deprecated in PrimeNG 18.
-* [org.openrewrite.primeng.RenameInputSwitchToToggleSwitch](/user-documentation/recipes/recipe-catalog/primeng/renameinputswitchtotoggleswitch.md)
-  * **Rename `InputSwitch` to `ToggleSwitch`**
-  * Renames `InputSwitch` and `InputSwitchModule` imports from `primeng/inputswitch` to `ToggleSwitch` and `ToggleSwitchModule` from `primeng/toggleswitch`, and updates all identifier usages. The old names are deprecated in PrimeNG 18.
-* [org.openrewrite.primeng.RenameMessageInterface](/user-documentation/recipes/recipe-catalog/primeng/renamemessageinterface.md)
-  * **Rename `Message` interface to `ToastMessageOptions`**
-  * Renames the `Message` interface import from `primeng/api` to `ToastMessageOptions` and updates all identifier usages. The `Message` interface was renamed in PrimeNG 18 due to name collision with the `Message` component.
-* [org.openrewrite.primeng.RenameOverlayPanelToPopover](/user-documentation/recipes/recipe-catalog/primeng/renameoverlaypaneltopopover.md)
-  * **Rename `OverlayPanel` to `Popover`**
-  * Renames `OverlayPanel` and `OverlayPanelModule` imports from `primeng/overlaypanel` to `Popover` and `PopoverModule` from `primeng/popover`, and updates all identifier usages. The old names are deprecated in PrimeNG 18.
-* [org.openrewrite.primeng.RenameSidebarToDrawer](/user-documentation/recipes/recipe-catalog/primeng/renamesidebartodrawer.md)
-  * **Rename `Sidebar` to `Drawer`**
-  * Renames `Sidebar` and `SidebarModule` imports from `primeng/sidebar` to `Drawer` and `DrawerModule` from `primeng/drawer`, and updates all identifier usages. The old names are deprecated in PrimeNG 18.
-* [org.openrewrite.primeng.RenameTemplateSelectors](/user-documentation/recipes/recipe-catalog/primeng/renametemplateselectors.md)
-  * **Rename PrimeNG selectors in HTML templates to their v18 equivalents**
-  * Renames v17 PrimeNG component selectors in `.html` templates to their v18 names: `&lt;p-calendar&gt;` → `&lt;p-datepicker&gt;`, `&lt;p-dropdown&gt;` → `&lt;p-select&gt;`, `&lt;p-inputSwitch&gt;` → `&lt;p-toggleSwitch&gt;`, `&lt;p-overlayPanel&gt;` → `&lt;p-popover&gt;`, `&lt;p-sidebar&gt;` → `&lt;p-drawer&gt;`. Both opening and closing tags are rewritten.
-* [org.openrewrite.primeng.UpgradeComponentsTo18](/user-documentation/recipes/recipe-catalog/primeng/upgradecomponentsto18.md)
-  * **Upgrade PrimeNG components to 18**
-  * Handles component renames, deprecations, and removals for PrimeNG 18. Renames Calendar to DatePicker, Dropdown to Select, InputSwitch to ToggleSwitch, OverlayPanel to Popover, and Sidebar to Drawer (TS imports + identifier usages + HTML selectors). Migrates the `Messages` template usage to the `&lt;p-message&gt;` + `@for` loop. Marks removed modules (Chips, TriStateCheckbox, Messages, DataViewLayoutOptions, pAnimate) with TODO stubs, marks deprecated components (TabMenu, Steps, InlineMessage, TabView, pDefer) with TODO comments on their imports, and marks deprecated CSS classes (`.p-link`, `.p-highlight`, `.p-fluid`) and `&lt;p-drawer&gt;`/`&lt;p-sidebar&gt;` `size` usages with HTML TODO comments. All marked sites are written to the `ManualMigrationSteps` data table.
-* [org.openrewrite.primeng.UpgradeTo18](/user-documentation/recipes/recipe-catalog/primeng/upgradeto18.md)
-  * **Upgrade to PrimeNG 18**
-  * Migrates PrimeNG 17.x applications to PrimeNG 18. Renames components, migrates `PrimeNGConfig` to `PrimeNG` (with signal-backed setters), comments out the obsolete `primeng/resources` style entries in `angular.json`, wires `providePrimeNG(\{ theme: \{ preset: Aura \} \})` into the root NgModule and adds `@primeng/themes` to `package.json`. Anything that can't be deterministically migrated (removed-and-no-direct-replacement components, deprecated CSS classes, structural template changes) gets a TODO comment in source plus a row in the `ManualMigrationSteps` data table for an agent or human to finish.
 
 ### rewrite-cryptography
 
@@ -3798,11 +2158,8 @@ _17 recipes_
 
 _License: Moderne Source Available License_
 
-_36 recipes_
+_31 recipes_
 
-* [io.moderne.devcenter.AngularVersionUpgrade](/user-documentation/recipes/recipe-catalog/devcenter/angularversionupgrade.md)
-  * **Move to a later Angular version**
-  * Determine the current state of a repository relative to a desired Angular version upgrade.
 * [io.moderne.devcenter.ApacheDevCenter](/user-documentation/recipes/recipe-catalog/devcenter/apachedevcenter.md)
   * **DevCenter for Apache**
   * A DevCenter that tracks the latest Apache Maven parent POM versions and applies best practices.
@@ -3812,9 +2169,6 @@ _36 recipes_
 * [io.moderne.devcenter.ApacheMavenDevCenter](/user-documentation/recipes/recipe-catalog/devcenter/apachemavendevcenter.md)
   * **DevCenter for Apache Maven**
   * A DevCenter that tracks the latest Apache Maven parent POM versions and applies best practices. This DevCenter includes recipes to upgrade the parent POMs of Apache Maven, as well as a collection of best practices for Maven POMs.
-* [io.moderne.devcenter.BucketedMetricCard](/user-documentation/recipes/recipe-catalog/devcenter/bucketedmetriccard.md)
-  * **DevCenter card from a data table column**
-  * Read rows from a previously emitted data table, aggregate a numeric column across all rows for this repository, and bucket the result into ordinal DevCenter measures.
 * [io.moderne.devcenter.BuildToolCard](/user-documentation/recipes/recipe-catalog/devcenter/buildtoolcard.md)
   * **Build tool**
   * Track build tool versions across repositories.
@@ -3824,21 +2178,12 @@ _36 recipes_
 * [io.moderne.devcenter.CSharpVersionUpgrade](/user-documentation/recipes/recipe-catalog/devcenter/csharpversionupgrade.md)
   * **Move to a later .NET version**
   * Determine the current state of a repository relative to a desired .NET version upgrade.
-* [io.moderne.devcenter.ClassCohesionDevCenter](/user-documentation/recipes/recipe-catalog/devcenter/classcohesiondevcenter.md)
-  * **Class cohesion DevCenter**
-  * A DevCenter that finds class quality metrics for repositories and buckets the average LCOM4 (Lack of Cohesion of Methods, version 4) into HIGH / MEDIUM / LOW cohesion categories.
 * [io.moderne.devcenter.DependencyVulnerabilityCheck](/user-documentation/recipes/recipe-catalog/devcenter/dependencyvulnerabilitycheck.md)
   * **Vulnerabilities status**
   * Determine the current state of a repository relative to its vulnerabilities.
-* [io.moderne.devcenter.DevCenterAngularStarter](/user-documentation/recipes/recipe-catalog/devcenter/devcenterangularstarter.md)
-  * **DevCenter for Angular**
-  * A default DevCenter configuration for Angular repositories. Track Angular version adoption across your organization.
 * [io.moderne.devcenter.DevCenterCSharpStarter](/user-documentation/recipes/recipe-catalog/devcenter/devcentercsharpstarter.md)
   * **DevCenter for C#**
   * A default DevCenter configuration for C# repositories. Track .NET version adoption across your organization.
-* [io.moderne.devcenter.DevCenterKotlin](/user-documentation/recipes/recipe-catalog/devcenter/devcenterkotlin.md)
-  * **DevCenter Kotlin**
-  * This is a DevCenter helping you to track general Kotlin Modernisations.
 * [io.moderne.devcenter.DevCenterNodeStarter](/user-documentation/recipes/recipe-catalog/devcenter/devcenternodestarter.md)
   * **DevCenter for Node.js**
   * A default DevCenter configuration for Node.js repositories. Track Node.js version adoption across your organization.
@@ -3913,7 +2258,7 @@ _36 recipes_
 
 _License: Moderne Proprietary License_
 
-_25 recipes_
+_21 recipes_
 
 * [io.moderne.java.dropwizard.MigrateToDropwizard5](/user-documentation/recipes/recipe-catalog/java/dropwizard/migratetodropwizard5.md)
   * **Migrate to Dropwizard 5.0.x from 4.x**
@@ -3963,9 +2308,6 @@ _25 recipes_
 * [io.moderne.java.dropwizard.boot.method.RemoveUnnecessarySuperCalls](/user-documentation/recipes/recipe-catalog/java/dropwizard/boot/method/removeunnecessarysupercalls.md)
   * **Remove `super` calls when the class does not extend another class**
   * Removes calls to `super(...)` or `super.someMethod(...)` if the class does not have a real superclass besides `java.lang.Object`.
-* [io.moderne.java.dropwizard.boot.test.AddSpringBootTestForDropwizardAppExtension](/user-documentation/recipes/recipe-catalog/java/dropwizard/boot/test/addspringboottestfordropwizardappextension.md)
-  * **Add `@SpringBootTest` to classes using `DropwizardAppExtension`**
-  * Adds `@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)` to test classes that contain a `DropwizardAppExtension` field, when no Spring test annotation is already present.
 * [io.moderne.java.dropwizard.boot.test.DropwizardRulesJUnit4ToSpringBoot](/user-documentation/recipes/recipe-catalog/java/dropwizard/boot/test/dropwizardrulesjunit4tospringboot.md)
   * **Replace Dropwizard rules with Spring Boot test configuration**
   * Remove Dropwizard JUnit4 rules and add Spring Boot test annotations and extensions.
@@ -3975,15 +2317,6 @@ _25 recipes_
 * [io.moderne.java.dropwizard.boot.test.MockitoVariableToMockBean](/user-documentation/recipes/recipe-catalog/java/dropwizard/boot/test/mockitovariabletomockbean.md)
   * **Convert Mockito mock() to @MockBean**
   * Converts static final Mockito mock fields to Spring Boot @MockBean fields.
-* [io.moderne.java.dropwizard.boot.test.ReplaceDropwizardApplicationWithAutowired](/user-documentation/recipes/recipe-catalog/java/dropwizard/boot/test/replacedropwizardapplicationwithautowired.md)
-  * **Replace `DropwizardAppExtension.getApplication()` with `@Autowired` application field**
-  * Replaces calls to `DropwizardAppExtension.getApplication()` with a reference to a new `@Autowired &lt;AppType&gt; application` field on the enclosing class. The application type is extracted from the constructor's first argument (`new DropwizardAppExtension&lt;&gt;(TestApp.class, ...)`); skips the rewrite if not resolvable. The application class must be a top-level class.
-* [io.moderne.java.dropwizard.boot.test.ReplaceDropwizardConfigurationWithAutowired](/user-documentation/recipes/recipe-catalog/java/dropwizard/boot/test/replacedropwizardconfigurationwithautowired.md)
-  * **Replace `DropwizardAppExtension.getConfiguration()` with `@Autowired` configuration field**
-  * Replaces calls to `DropwizardAppExtension.getConfiguration()` with a reference to a new `@Autowired &lt;ConfigType&gt; configuration` field on the enclosing class. The configuration type is extracted from `DropwizardAppExtension&lt;ConfigType&gt;` generic parameter; skips the rewrite if the type is raw, wildcard, or otherwise unresolvable. The configuration class must be a top-level class.
-* [io.moderne.java.dropwizard.boot.test.ReplaceMethodInvocationWithAnnotatedField](/user-documentation/recipes/recipe-catalog/java/dropwizard/boot/test/replacemethodinvocationwithannotatedfield.md)
-  * **Replace a method invocation with a reference to an annotated field**
-  * For each class containing an invocation matching the configured method pattern, introduces an annotated field of the requested type and rewrites every matching invocation in that class to reference the new field. If a field with the same annotation and type already exists, its name is reused.
 * [io.moderne.java.dropwizard.boot.test.TransformDropwizardRuleInvocations](/user-documentation/recipes/recipe-catalog/java/dropwizard/boot/test/transformdropwizardruleinvocations.md)
   * **Convert Dropwizard test rule calls to RestTemplate**
   * Transforms Dropwizard AppRule and ResourceTestRule testing calls to their equivalent RestTemplate calls.
@@ -4098,8 +2431,8 @@ _38 recipes_
   * **Migrate Hibernate `Integrator#integrate` method**
   * Migrate Hibernate `Integrator#integrate` method from deprecated signature to Hibernate 7 compatible signature. Changes `integrate(Metadata, SessionFactoryImplementor, SessionFactoryServiceRegistry)` to `integrate(Metadata, BootstrapContext, SessionFactoryImplementor)`.
 * [io.moderne.hibernate.update70.MigrateJdbcTypeToJdbcTypeCode](/user-documentation/recipes/recipe-catalog/hibernate/update70/migratejdbctypetojdbctypecode.md)
-  * **Migrate `@JdbcType` and legacy `@Type` to `@JdbcTypeCode`**
-  * In Hibernate 7.0, various JDBC types were moved to internal packages. Use `@JdbcTypeCode` with `SqlTypes` constants instead of `@JdbcType` with specific classes. Also rewrites `@Type(LegacyType.class)` references to deprecated Hibernate basic types (e.g. `MaterializedBlobType`, `ImageType`) into the equivalent `@JdbcTypeCode(SqlTypes.X)`.
+  * **Migrate @JdbcType to @JdbcTypeCode**
+  * In Hibernate 7.0, various JDBC types were moved to internal packages. Use @JdbcTypeCode with SqlTypes constants instead of @JdbcType with specific classes.
 * [io.moderne.hibernate.update70.MigrateJpqlTruncToDateCast](/user-documentation/recipes/recipe-catalog/hibernate/update70/migratejpqltrunctodatecast.md)
   * **Migrate JPQL `trunc()` to `cast(... as date)`**
   * Hibernate 7 maps the JPQL `trunc()` function to numeric truncation only (SQL standard). For date truncation, single-argument `trunc(expr)` must be replaced with `cast(expr as date)`.
@@ -4342,7 +2675,7 @@ _32 recipes_
 
 _License: Moderne Proprietary License_
 
-_110 recipes_
+_59 recipes_
 
 * [io.moderne.prethink.ComprehendCode](/user-documentation/recipes/recipe-catalog/prethink/comprehendcode.md)
   * **Comprehend code with AI**
@@ -4359,24 +2692,12 @@ _110 recipes_
 * [io.moderne.prethink.ExtractErrorPatterns](/user-documentation/recipes/recipe-catalog/prethink/extracterrorpatterns.md)
   * **Extract error handling patterns**
   * Analyze the codebase to extract error handling patterns including exception types, handling strategies, and logging frameworks used.
-* [io.moderne.prethink.ExtractGoDependencies](/user-documentation/recipes/recipe-catalog/prethink/extractgodependencies.md)
-  * **Extract Go dependencies and usage**
-  * Scan go.mod and Go source imports to produce a DependencyUsage entry per actually-imported module, including file-count and sample imports.
-* [io.moderne.prethink.FindGoCodingConventions](/user-documentation/recipes/recipe-catalog/prethink/findgocodingconventions.md)
-  * **Find Go coding conventions**
-  * Detect Go naming patterns (package names, exported vs unexported, interface -er suffix, error variable prefix, test prefix).
-* [io.moderne.prethink.FindGoErrorPatterns](/user-documentation/recipes/recipe-catalog/prethink/findgoerrorpatterns.md)
-  * **Find Go error handling patterns**
-  * Detect Go error-handling idioms: error returns, fmt.Errorf %w wrapping, errors.Is/As, panic/recover, and sentinel error variables.
 * [io.moderne.prethink.UpdatePrethinkContextNoAiStarter](/user-documentation/recipes/recipe-catalog/prethink/updateprethinkcontextnoaistarter.md)
   * **Update Prethink context (no AI)**
   * Generate Moderne Prethink context files with architectural discovery, test coverage mapping, dependency inventory, and FINOS CALM architecture diagrams. This recipe does not require an LLM provider - use UpdatePrethinkContextStarter if you want AI-generated code comprehension and test summaries.
 * [io.moderne.prethink.UpdatePrethinkContextStarter](/user-documentation/recipes/recipe-catalog/prethink/updateprethinkcontextstarter.md)
   * **Update Prethink context (with AI)**
   * Generate Moderne Prethink context files with AI-generated code comprehension, test coverage mapping, dependency inventory, and FINOS CALM architecture diagrams. Maps tests to implementation methods and optionally generates AI summaries of what each test verifies when LLM provider is configured.
-* [io.moderne.prethink.calm.FindAspNetCoreEndpoints](/user-documentation/recipes/recipe-catalog/prethink/calm/findaspnetcoreendpoints.md)
-  * **Find ASP.NET Core endpoints**
-  * Identify HTTP endpoints declared via ASP.NET Core controllers ([ApiController], [Route], [HttpGet/Post/...]) and Minimal APIs (app.MapGet/MapPost/MapPut/MapDelete/MapPatch).
 * [io.moderne.prethink.calm.FindCalmRelationships](/user-documentation/recipes/recipe-catalog/prethink/calm/findcalmrelationships.md)
   * **Find CALM relationships**
   * Discover method call relationships within the repository for building interaction diagrams. Captures all method-to-method calls between in-repo classes. Entity IDs are resolved by GenerateCalmArchitecture when building CALM relationships.
@@ -4392,66 +2713,6 @@ _110 recipes_
 * [io.moderne.prethink.calm.FindDjangoEndpoints](/user-documentation/recipes/recipe-catalog/prethink/calm/finddjangoendpoints.md)
   * **Find Django endpoints**
   * Identify REST/HTTP endpoints in Django and Django REST Framework applications. Detects class-based views, function-based views with @api_view, and regular Django views with @require_http_methods decorators.
-* [io.moderne.prethink.calm.FindDotnetDataAssets](/user-documentation/recipes/recipe-catalog/prethink/calm/finddotnetdataassets.md)
-  * **Find .NET data assets**
-  * Detect C# DTOs, records, and entity types based on property/method ratio, [DataContract] / [Table] attributes, and `record` keyword.
-* [io.moderne.prethink.calm.FindDotnetDtoFieldSchemas](/user-documentation/recipes/recipe-catalog/prethink/calm/finddotnetdtofieldschemas.md)
-  * **Find .NET DTO field schemas**
-  * Per-property schema rows for C# DTOs: serialized name (JsonPropertyName/JsonProperty), OpenAPI format, required flag (DataAnnotations.RequiredAttribute / non-nullable value types), and a validations JSON map.
-* [io.moderne.prethink.calm.FindDotnetEndpointContracts](/user-documentation/recipes/recipe-catalog/prethink/calm/finddotnetendpointcontracts.md)
-  * **Find .NET endpoint contracts**
-  * Extract request body, response body (unwrapping ActionResult&lt;T&gt;/Task&lt;T&gt;), and per-parameter binding source ([FromBody/Query/Route/Header/Form]) for ASP.NET Core controller endpoints.
-* [io.moderne.prethink.calm.FindDotnetEndpointSecurity](/user-documentation/recipes/recipe-catalog/prethink/calm/finddotnetendpointsecurity.md)
-  * **Find .NET endpoint security**
-  * Per-endpoint security requirements derived from ASP.NET Core [Authorize] (Policy/Roles/AuthenticationSchemes) and [AllowAnonymous].
-* [io.moderne.prethink.calm.FindDotnetExceptionHandlers](/user-documentation/recipes/recipe-catalog/prethink/calm/finddotnetexceptionhandlers.md)
-  * **Find .NET exception handlers**
-  * Detect IExceptionFilter / IAsyncExceptionFilter / IExceptionHandler implementations and ExceptionFilterAttribute-derived classes in ASP.NET Core projects.
-* [io.moderne.prethink.calm.FindDotnetGraphQLEndpoints](/user-documentation/recipes/recipe-catalog/prethink/calm/finddotnetgraphqlendpoints.md)
-  * **Find .NET GraphQL endpoints**
-  * Detect HotChocolate query/mutation/subscription types and GraphQL.NET schema types in .NET projects.
-* [io.moderne.prethink.calm.FindDotnetGrpcServices](/user-documentation/recipes/recipe-catalog/prethink/calm/finddotnetgrpcservices.md)
-  * **Find .NET gRPC services**
-  * Detect gRPC service implementations (classes deriving from generated *Base types under Grpc.Core / Grpc.AspNetCore) and ASP.NET Core gRPC endpoint registrations via MapGrpcService&lt;T&gt;().
-* [io.moderne.prethink.calm.FindDotnetHttpClients](/user-documentation/recipes/recipe-catalog/prethink/calm/finddotnethttpclients.md)
-  * **Find .NET HTTP clients**
-  * Detect outbound HTTP client usage via HttpClient, IHttpClientFactory.CreateClient, Refit interfaces, RestSharp, and Flurl.
-* [io.moderne.prethink.calm.FindDotnetMessagingConnections](/user-documentation/recipes/recipe-catalog/prethink/calm/finddotnetmessagingconnections.md)
-  * **Find .NET messaging connections**
-  * Detect MassTransit IConsumer&lt;T&gt;, NServiceBus IHandleMessages&lt;T&gt;, MediatR IRequestHandler/INotificationHandler, Confluent.Kafka producers/consumers, Azure Service Bus, and RabbitMQ.Client usage.
-* [io.moderne.prethink.calm.FindDotnetProjectMetadata](/user-documentation/recipes/recipe-catalog/prethink/calm/finddotnetprojectmetadata.md)
-  * **Find .NET project metadata**
-  * Extract project metadata (SDK, target framework(s), package list) from MSBuild project files. Reads the MSBuildProject marker which captures values resolved across the project file, Directory.Build.props, Directory.Packages.props, global.json and nuget.config.
-* [io.moderne.prethink.calm.FindDotnetScheduledTasks](/user-documentation/recipes/recipe-catalog/prethink/calm/finddotnetscheduledtasks.md)
-  * **Find .NET scheduled tasks**
-  * Detect Hangfire RecurringJob.AddOrUpdate, Quartz.IJob implementations, BackgroundService/IHostedService classes, and Azure Functions TimerTrigger methods.
-* [io.moderne.prethink.calm.FindDotnetSecurityConfiguration](/user-documentation/recipes/recipe-catalog/prethink/calm/finddotnetsecurityconfiguration.md)
-  * **Find .NET security configuration**
-  * Detect ASP.NET Core authentication (JwtBearer/OpenIdConnect/Cookie), authorization, CORS, HSTS, and HTTPS redirection middleware registrations.
-* [io.moderne.prethink.calm.FindDotnetServerConfiguration](/user-documentation/recipes/recipe-catalog/prethink/calm/finddotnetserverconfiguration.md)
-  * **Find .NET server configuration**
-  * Read appsettings*.json and launchSettings.json for Kestrel Urls/ApplicationUrl entries and emit ServerConfiguration rows (port, sslEnabled, contextPath, protocol).
-* [io.moderne.prethink.calm.FindDotnetServiceComponents](/user-documentation/recipes/recipe-catalog/prethink/calm/finddotnetservicecomponents.md)
-  * **Find .NET service components**
-  * Detect IServiceCollection.AddSingleton/AddScoped/AddTransient/AddHttpClient registrations and emit one row per registered service.
-* [io.moderne.prethink.calm.FindDotnetTestCoverage](/user-documentation/recipes/recipe-catalog/prethink/calm/finddotnettestcoverage.md)
-  * **Find .NET test coverage**
-  * Identify xUnit ([Fact]/[Theory]), NUnit ([Test]/[TestCase]) and MSTest ([TestMethod]/[DataTestMethod]) test methods in C# source and record them in the test mapping table for downstream coverage linking.
-* [io.moderne.prethink.calm.FindDtoFieldSchemas](/user-documentation/recipes/recipe-catalog/prethink/calm/finddtofieldschemas.md)
-  * **Find DTO field schemas**
-  * Emit per-field rows for request/response DTO classes: wire name, type, required flag, OpenAPI format, validation constraints, and @Schema(example = ...) values. Supports OpenAPI 3.0.3 generation by providing the full field schema for each DTO an endpoint references.
-* [io.moderne.prethink.calm.FindEndpointContracts](/user-documentation/recipes/recipe-catalog/prethink/calm/findendpointcontracts.md)
-  * **Find endpoint contracts**
-  * Extract per-endpoint request body, response body (per status code), and parameter details from Spring/JAX-RS/Micronaut handlers to support OpenAPI 3.0.3 spec generation and consumer/provider contract-test generation. Walks interface inheritance for OpenAPI-codegen-first projects.
-* [io.moderne.prethink.calm.FindEndpointSecurity](/user-documentation/recipes/recipe-catalog/prethink/calm/findendpointsecurity.md)
-  * **Find endpoint security**
-  * Per-endpoint security requirements (roles, scopes, raw expressions) extracted from @PreAuthorize/@Secured/@RolesAllowed/@PermitAll annotations at method or class level. Joins to service-endpoints.csv via endpointId.
-* [io.moderne.prethink.calm.FindEntityFrameworkConnections](/user-documentation/recipes/recipe-catalog/prethink/calm/findentityframeworkconnections.md)
-  * **Find Entity Framework / Dapper / ADO.NET database access**
-  * Detect Entity Framework Core DbContext subclasses, DbSet&lt;T&gt; properties, [Table]/[Column]/[Key] annotated entity classes, Dapper Query/Execute calls, and raw SqlConnection usage.
-* [io.moderne.prethink.calm.FindExceptionHandlers](/user-documentation/recipes/recipe-catalog/prethink/calm/findexceptionhandlers.md)
-  * **Find exception handlers**
-  * Capture @ControllerAdvice and controller-local @ExceptionHandler methods so that OpenAPI 3.0.3 specs include non-2xx response branches. Emits one row per (scope, exception type, status) triple.
 * [io.moderne.prethink.calm.FindExpressEndpoints](/user-documentation/recipes/recipe-catalog/prethink/calm/findexpressendpoints.md)
   * **Find Express endpoints**
   * Identify REST/HTTP endpoints in Express and Fastify applications. Detects app.get(), router.post(), and similar route definition patterns.
@@ -4461,33 +2722,9 @@ _110 recipes_
 * [io.moderne.prethink.calm.FindFastAPIEndpoints](/user-documentation/recipes/recipe-catalog/prethink/calm/findfastapiendpoints.md)
   * **Find FastAPI endpoints**
   * Identify REST/HTTP endpoints in FastAPI applications. Detects @app.get(), @router.post(), and similar route decorator patterns.
-* [io.moderne.prethink.calm.FindFieldExamplesFromFixtures](/user-documentation/recipes/recipe-catalog/prethink/calm/findfieldexamplesfromfixtures.md)
-  * **Find field examples from JSON fixtures**
-  * Walk JSON and YAML fixture files under src/test/resources and emit raw (fixturePath, jsonPath, value, valueType) rows so that an LLM can mine realistic example values for OpenAPI specs and contract tests.
 * [io.moderne.prethink.calm.FindFlaskEndpoints](/user-documentation/recipes/recipe-catalog/prethink/calm/findflaskendpoints.md)
   * **Find Flask endpoints**
   * Identify REST/HTTP endpoints in Flask applications. Detects @app.route(), @blueprint.route(), and Flask 2.0+ shortcut decorators like @app.get() and @app.post().
-* [io.moderne.prethink.calm.FindGoDatabaseConnections](/user-documentation/recipes/recipe-catalog/prethink/calm/findgodatabaseconnections.md)
-  * **Find Go database connections**
-  * Detect database/sql, GORM, sqlx, pgx, and ent usage in Go source.
-* [io.moderne.prethink.calm.FindGoGrpcServices](/user-documentation/recipes/recipe-catalog/prethink/calm/findgogrpcservices.md)
-  * **Find Go gRPC services**
-  * Detect gRPC service registrations via grpc-go RegisterXxxServer calls.
-* [io.moderne.prethink.calm.FindGoHttpClients](/user-documentation/recipes/recipe-catalog/prethink/calm/findgohttpclients.md)
-  * **Find Go HTTP clients**
-  * Detect outbound HTTP calls made through net/http, resty, go-retryablehttp, or imroc/req.
-* [io.moderne.prethink.calm.FindGoMessagingConnections](/user-documentation/recipes/recipe-catalog/prethink/calm/findgomessagingconnections.md)
-  * **Find Go messaging connections**
-  * Detect Kafka, NATS, RabbitMQ/AMQP client usage in Go source.
-* [io.moderne.prethink.calm.FindGoProjectMetadata](/user-documentation/recipes/recipe-catalog/prethink/calm/findgoprojectmetadata.md)
-  * **Find Go project metadata**
-  * Extract project metadata (module path, go version) from Go go.mod files.
-* [io.moderne.prethink.calm.FindGoServiceEndpoints](/user-documentation/recipes/recipe-catalog/prethink/calm/findgoserviceendpoints.md)
-  * **Find Go service endpoints**
-  * Detect HTTP endpoints registered via net/http, gin, echo, chi, gorilla/mux, and fiber routers.
-* [io.moderne.prethink.calm.FindGoTestCoverage](/user-documentation/recipes/recipe-catalog/prethink/calm/findgotestcoverage.md)
-  * **Find Go test coverage**
-  * Identify Go test/benchmark/fuzz functions in *_test.go files and record them in the test mapping table.
 * [io.moderne.prethink.calm.FindGraphQLEndpoints](/user-documentation/recipes/recipe-catalog/prethink/calm/findgraphqlendpoints.md)
   * **Find GraphQL endpoints**
   * Identify GraphQL endpoints exposed by the application. Supports Spring GraphQL, Netflix DGS, and GraphQL Java (graphql-java-tools).
@@ -4550,10 +2787,7 @@ _110 recipes_
   * Identify service layer components (@Service, @Component, @Named) in the application. Excludes controllers and repositories which are handled by dedicated recipes.
 * [io.moderne.prethink.calm.FindServiceEndpoints](/user-documentation/recipes/recipe-catalog/prethink/calm/findserviceendpoints.md)
   * **Find service endpoints**
-  * Identify all REST/HTTP service endpoints exposed by the application. Supports Spring MVC, JAX-RS, Micronaut, and Quarkus REST endpoints. Also walks interface inheritance to detect endpoints in OpenAPI-codegen-first projects where @GetMapping etc. live on the interface methods.
-* [io.moderne.prethink.calm.FindSignalRHubs](/user-documentation/recipes/recipe-catalog/prethink/calm/findsignalrhubs.md)
-  * **Find ASP.NET Core SignalR hubs**
-  * Detect SignalR Hub subclasses, their methods (with optional [HubMethodName]), and MapHub&lt;T&gt; registrations.
+  * Identify all REST/HTTP service endpoints exposed by the application. Supports Spring MVC, JAX-RS, Micronaut, and Quarkus REST endpoints.
 * [io.moderne.prethink.calm.FindTypeORMEntities](/user-documentation/recipes/recipe-catalog/prethink/calm/findtypeormentities.md)
   * **Find TypeORM entities**
   * Identify TypeORM entities in Node.js applications. Detects @Entity() decorator on classes and populates the DatabaseConnections table.
@@ -4569,18 +2803,6 @@ _110 recipes_
 * [io.moderne.prethink.quality.FindCodeSmells](/user-documentation/recipes/recipe-catalog/prethink/quality/findcodesmells.md)
   * **Find code smells**
   * Detect code smells including God Class, Feature Envy, and Data Class using composite metric thresholds with severity ratings.
-* [io.moderne.prethink.quality.FindDotnetErrorPatterns](/user-documentation/recipes/recipe-catalog/prethink/quality/finddotneterrorpatterns.md)
-  * **Find .NET error patterns**
-  * Detect .NET logging frameworks (Microsoft.Extensions.Logging, Serilog, NLog, log4net) and catch-block strategies (swallow, rethrow, log, wrap).
-* [io.moderne.prethink.quality.FindGoCodeSmells](/user-documentation/recipes/recipe-catalog/prethink/quality/findgocodesmells.md)
-  * **Find Go code smells**
-  * Detect God Struct, Feature Envy, Large Interface, and Long Function code smells in Go. Data Class is intentionally excluded (idiomatic in Go).
-* [io.moderne.prethink.quality.FindGoPackageMetrics](/user-documentation/recipes/recipe-catalog/prethink/quality/findgopackagemetrics.md)
-  * **Find Go package quality metrics**
-  * Per-package architectural metrics for Go: afferent/efferent coupling, instability, abstractness (interface ratio), distance from main sequence, and cycle detection.
-* [io.moderne.prethink.quality.FindGoTypeMetrics](/user-documentation/recipes/recipe-catalog/prethink/quality/findgotypemetrics.md)
-  * **Find Go type quality metrics**
-  * Compute per-struct code quality metrics for Go including WMC, LCOM4, TCC, CBO, and maintainability index. Aggregates methods with the same receiver type across files.
 * [io.moderne.prethink.quality.FindMethodComplexity](/user-documentation/recipes/recipe-catalog/prethink/quality/findmethodcomplexity.md)
   * **Find method complexity**
   * Compute per-method code quality metrics including cyclomatic complexity, cognitive complexity, max nesting depth, line count, parameter count, ABC metric, and Halstead measures.
@@ -4593,27 +2815,6 @@ _110 recipes_
 * [io.moderne.prethink.testing.coverage.FindTestGaps](/user-documentation/recipes/recipe-catalog/prethink/testing/coverage/findtestgaps.md)
   * **Find test coverage gaps**
   * Identify public non-trivial methods that lack test coverage. Reports gaps with cyclomatic complexity and risk scores to help prioritize where to add tests.
-* [io.moderne.prethink.testing.quality.FindDotnetFlakyTestPatterns](/user-documentation/recipes/recipe-catalog/prethink/testing/quality/finddotnetflakytestpatterns.md)
-  * **Find .NET flaky test patterns**
-  * Detect Thread.Sleep, Task.Delay (without CancellationToken), and .Result/.Wait() on Task in .NET tests — patterns that cause flakiness or deadlocks.
-* [io.moderne.prethink.testing.quality.FindDotnetFragileTestData](/user-documentation/recipes/recipe-catalog/prethink/testing/quality/finddotnetfragiletestdata.md)
-  * **Find .NET fragile test data**
-  * Detect hardcoded dates/paths/ports, DateTime.Now usage, and Guid.NewGuid/ Random in .NET tests — sources of timing- or environment-dependent flakiness.
-* [io.moderne.prethink.testing.quality.FindDotnetGhostTests](/user-documentation/recipes/recipe-catalog/prethink/testing/quality/finddotnetghosttests.md)
-  * **Find .NET ghost tests**
-  * Detect empty test bodies and suppressed tests ([Ignore], [Fact(Skip=...)]) in .NET tests.
-* [io.moderne.prethink.testing.quality.FindDotnetOverlyBroadMocks](/user-documentation/recipes/recipe-catalog/prethink/testing/quality/finddotnetoverlybroadmocks.md)
-  * **Find overly broad mocks in .NET tests**
-  * Detect It.IsAny&lt;T&gt; (Moq), Arg.Any&lt;T&gt; (NSubstitute) and A&lt;T&gt;.Ignored (FakeItEasy) matcher overuse in .NET tests.
-* [io.moderne.prethink.testing.quality.FindDotnetSilentTestFailures](/user-documentation/recipes/recipe-catalog/prethink/testing/quality/finddotnetsilenttestfailures.md)
-  * **Find .NET silent test failures**
-  * Detect .NET test methods with no assertions, and swallowed exceptions inside tests.
-* [io.moderne.prethink.testing.quality.FindDotnetTestCodeSmells](/user-documentation/recipes/recipe-catalog/prethink/testing/quality/finddotnettestcodesmells.md)
-  * **Find .NET test code smells**
-  * Detect poor test names, magic numbers in assertions, generic catch in tests, and Debug.Assert misuse in .NET tests.
-* [io.moderne.prethink.testing.quality.FindDotnetUnmockedExternalCalls](/user-documentation/recipes/recipe-catalog/prethink/testing/quality/finddotnetunmockedexternalcalls.md)
-  * **Find unmocked external calls in .NET tests**
-  * Detect direct HttpClient/SqlConnection/EF DbContext/File/Socket usage inside .NET unit tests that should typically be mocked.
 * [io.moderne.prethink.testing.quality.FindFlakyTestPatterns](/user-documentation/recipes/recipe-catalog/prethink/testing/quality/findflakytestpatterns.md)
   * **Find flaky test patterns**
   * Detect patterns that commonly cause flaky tests in Java and Python code, including static waits (Thread.sleep, TimeUnit.sleep) and shared mutable state (static non-final fields in test classes).
@@ -4623,27 +2824,6 @@ _110 recipes_
 * [io.moderne.prethink.testing.quality.FindGhostTests](/user-documentation/recipes/recipe-catalog/prethink/testing/quality/findghosttests.md)
   * **Find ghost tests**
   * Detect methods that look like tests but will not be executed by the test runner, and tests skipped without a documented reason.
-* [io.moderne.prethink.testing.quality.FindGoFlakyTestPatterns](/user-documentation/recipes/recipe-catalog/prethink/testing/quality/findgoflakytestpatterns.md)
-  * **Find Go flaky test patterns**
-  * Detect time.Sleep and non-deterministic randomness in Go *_test.go files.
-* [io.moderne.prethink.testing.quality.FindGoFragileTestData](/user-documentation/recipes/recipe-catalog/prethink/testing/quality/findgofragiletestdata.md)
-  * **Find Go fragile test data**
-  * Detect hardcoded dates, absolute paths, and hardcoded ports in Go tests.
-* [io.moderne.prethink.testing.quality.FindGoGhostTests](/user-documentation/recipes/recipe-catalog/prethink/testing/quality/findgoghosttests.md)
-  * **Find Go ghost tests**
-  * Detect empty test bodies and unexplained skips in Go tests.
-* [io.moderne.prethink.testing.quality.FindGoOverlyBroadMocks](/user-documentation/recipes/recipe-catalog/prethink/testing/quality/findgooverlybroadmocks.md)
-  * **Find Go overly broad mocks**
-  * Detect testify mock.Anything / mock.AnythingOfType usage in Go tests.
-* [io.moderne.prethink.testing.quality.FindGoSilentTestFailures](/user-documentation/recipes/recipe-catalog/prethink/testing/quality/findgosilenttestfailures.md)
-  * **Find Go silent test failures**
-  * Detect discarded error returns and assertion-less test bodies in Go tests.
-* [io.moderne.prethink.testing.quality.FindGoTestCodeSmells](/user-documentation/recipes/recipe-catalog/prethink/testing/quality/findgotestcodesmells.md)
-  * **Find Go test code smells**
-  * Detect magic numbers, over-long test names, and over-grown table-driven tests.
-* [io.moderne.prethink.testing.quality.FindGoUnmockedExternalCalls](/user-documentation/recipes/recipe-catalog/prethink/testing/quality/findgounmockedexternalcalls.md)
-  * **Find Go unmocked external calls**
-  * Detect net/http, os.Open, net.Dial, sql.Open calls directly in Go tests.
 * [io.moderne.prethink.testing.quality.FindNodeFlakyTestPatterns](/user-documentation/recipes/recipe-catalog/prethink/testing/quality/findnodeflakytestpatterns.md)
   * **Find Node.js flaky test patterns**
   * Detect patterns that commonly cause flaky tests in JavaScript and TypeScript code, including static waits (setTimeout, setInterval), prototype mutation, and shared mutable state (module-scope let/var declarations).
@@ -4679,7 +2859,7 @@ _110 recipes_
 
 _License: Moderne Proprietary License_
 
-_24 recipes_
+_23 recipes_
 
 * [io.moderne.recipe.rewrite-program-analysis.InlineDeprecatedMethods](/user-documentation/recipes/recipe-catalog/recipe/rewrite-program-analysis/inlinedeprecatedmethods.md)
   * **Inline deprecated delegating methods**
@@ -4714,9 +2894,6 @@ _24 recipes_
 * [org.openrewrite.analysis.java.security.FindCommandInjection](/user-documentation/recipes/recipe-catalog/analysis/java/security/findcommandinjection.md)
   * **Find command injection vulnerabilities**
   * Detects when user-controlled input flows into system command execution methods like Runtime.exec() or ProcessBuilder, which could allow attackers to execute arbitrary commands.
-* [org.openrewrite.analysis.java.security.FindInsecureCryptoComparison](/user-documentation/recipes/recipe-catalog/analysis/java/security/findinsecurecryptocomparison.md)
-  * **Find non-constant-time comparison of cryptographic digests**
-  * Detects when the output of `MessageDigest.digest(..)` or `Mac.doFinal(..)` flows into `Arrays.equals(byte[], byte[])`, a non-constant-time comparison that is vulnerable to timing attacks (CWE-208). Use `MessageDigest.isEqual(byte[], byte[])` for security-sensitive byte-array comparisons.
 * [org.openrewrite.analysis.java.security.FindJndiInjection](/user-documentation/recipes/recipe-catalog/analysis/java/security/findjndiinjection.md)
   * **Find JNDI injection vulnerabilities**
   * Detects when user-controlled input flows into JNDI lookup operations without proper validation, which could allow an attacker to connect to malicious naming/directory services (CWE-99).
@@ -4758,161 +2935,14 @@ _24 recipes_
 
 _License: Moderne Proprietary License_
 
-_51 recipes_
+_2 recipes_
 
-* [org.openrewrite.javascript.cleanup.simplify-object-pattern-property](/user-documentation/recipes/recipe-catalog/javascript/cleanup/simplify-object-pattern-property.md)
-  * **Simplify object pattern properties**
-  * Simplifies object destructuring patterns where the property name and variable name are the same (e.g., `\{ x: x \}` becomes `\{ x \}`).
-* [org.openrewrite.react.16.error-boundaries](/user-documentation/recipes/recipe-catalog/react/16/error-boundaries.md)
-  * **Rename `unstable_handleError` to `componentDidCatch`**
-  * Renames the unstable error boundary method to the official `componentDidCatch` API introduced in React 16.
-* [org.openrewrite.react.16.find-dom-node](/user-documentation/recipes/recipe-catalog/react/16/find-dom-node.md)
-  * **Replace `getDOMNode()` with `React.findDOMNode()`**
-  * Migrates deprecated `getDOMNode()` calls to `React.findDOMNode()`.
-* [org.openrewrite.react.16.react-dom-factories](/user-documentation/recipes/recipe-catalog/react/16/react-dom-factories.md)
-  * **Replace `React.DOM` factories with `createElement`**
-  * Converts deprecated `React.DOM.xxx()` factory calls to `React.createElement('xxx', ...)`.
-* [org.openrewrite.react.16.react-prop-types](/user-documentation/recipes/recipe-catalog/react/16/react-prop-types.md)
-  * **Move `React.PropTypes` to `prop-types` package**
-  * Extracts PropTypes usage from the React namespace to the separate `prop-types` package introduced in React 15.5.
-* [org.openrewrite.react.16.react-to-react-dom](/user-documentation/recipes/recipe-catalog/react/16/react-to-react-dom.md)
-  * **Split `React` DOM methods to `ReactDOM`**
-  * Moves DOM-specific methods like `React.render()` and `React.findDOMNode()` to `ReactDOM` from the `react-dom` package.
-* [org.openrewrite.react.16.replace-create-factory](/user-documentation/recipes/recipe-catalog/react/16/replace-create-factory.md)
-  * **Replace `React.createFactory` with `React.createElement`**
-  * Replaces `React.createFactory(type)(props, children)` with `React.createElement(type, props, children)`. React.createFactory was deprecated in React 15.6 and removed in React 16.
-* [org.openrewrite.react.17.remove-event-persist](/user-documentation/recipes/recipe-catalog/react/17/remove-event-persist.md)
-  * **Remove `event.persist()` calls**
-  * Removes `event.persist()` calls. React 17 removed event pooling, making persist() unnecessary.
-* [org.openrewrite.react.17.rename-unsafe-lifecycles](/user-documentation/recipes/recipe-catalog/react/17/rename-unsafe-lifecycles.md)
-  * **Add `UNSAFE_` prefix to deprecated lifecycle methods**
-  * Renames `componentWillMount`, `componentWillReceiveProps`, and `componentWillUpdate` to their UNSAFE_ prefixed versions.
-* [org.openrewrite.react.17.update-react-imports](/user-documentation/recipes/recipe-catalog/react/17/update-react-imports.md)
-  * **Remove unnecessary React imports**
-  * Removes the default `import React from 'react'` when React is only used for JSX, which is no longer necessary with the new JSX transform in React 17+.
-* [org.openrewrite.react.18.remove-unstable-batched-updates](/user-documentation/recipes/recipe-catalog/react/18/remove-unstable-batched-updates.md)
-  * **Remove `unstable_batchedUpdates`**
-  * Removes `unstable_batchedUpdates` wrappers from `react-dom`. React 18 automatically batches all state updates, making this function unnecessary.
-* [org.openrewrite.react.18.replace-reactdom-render](/user-documentation/recipes/recipe-catalog/react/18/replace-reactdom-render.md)
-  * **Replace `ReactDOM.render` with `createRoot`**
-  * Migrates from the legacy `ReactDOM.render()` API to the `createRoot()` API from `react-dom/client` introduced in React 18.
-* [org.openrewrite.react.18.replace-render-callback](/user-documentation/recipes/recipe-catalog/react/18/replace-render-callback.md)
-  * **Remove `ReactDOM.render` callback argument**
-  * Removes the third callback argument from `ReactDOM.render(element, container, callback)` calls. Callbacks are not supported in React 18's `createRoot` API.
-* [org.openrewrite.react.18.replace-unmount-component-at-node](/user-documentation/recipes/recipe-catalog/react/18/replace-unmount-component-at-node.md)
-  * **Replace `unmountComponentAtNode` with `createRoot().unmount()`**
-  * Replaces `ReactDOM.unmountComponentAtNode(container)` with `createRoot(container).unmount()` from `react-dom/client`.
-* [org.openrewrite.react.19.deprecated-react-types](/user-documentation/recipes/recipe-catalog/react/19/deprecated-react-types.md)
-  * **Replace deprecated React types**
-  * Replaces deprecated React TypeScript types (`SFC`, `StatelessComponent`, `VFC`, `VoidFunctionComponent`) with their modern equivalents.
-* [org.openrewrite.react.19.find-context-consumer](/user-documentation/recipes/recipe-catalog/react/19/find-context-consumer.md)
-  * **Find `Context.Consumer` usage**
-  * Finds usage of the deprecated `&lt;Context.Consumer&gt;` pattern. In React 19, use the `use()` hook instead.
-* [org.openrewrite.react.19.find-deprecated-reactdom-apis](/user-documentation/recipes/recipe-catalog/react/19/find-deprecated-reactdom-apis.md)
-  * **Find deprecated ReactDOM APIs**
-  * Finds usage of deprecated or removed ReactDOM APIs (`findDOMNode`, `unmountComponentAtNode`, `createFactory`, `renderToNodeStream`) that were removed in React 19.
-* [org.openrewrite.react.19.find-element-ref](/user-documentation/recipes/recipe-catalog/react/19/find-element-ref.md)
-  * **Find `element.ref` access**
-  * Finds direct access of `element.ref` on React elements. In React 19, `element.ref` is deprecated; use `element.props.ref` instead.
-* [org.openrewrite.react.19.find-legacy-context-api](/user-documentation/recipes/recipe-catalog/react/19/find-legacy-context-api.md)
-  * **Find legacy Context API usage**
-  * Finds usage of the legacy Context API (`contextTypes`, `childContextTypes`, `getChildContext`) that was removed in React 19. These must be migrated to `React.createContext()`.
-* [org.openrewrite.react.19.no-implicit-ref-callback-return](/user-documentation/recipes/recipe-catalog/react/19/no-implicit-ref-callback-return.md)
-  * **Remove implicit ref callback returns**
-  * In React 19, ref callbacks can return cleanup functions. Arrow functions with expression bodies implicitly return values, which React would interpret as cleanup functions. This recipe wraps them in block bodies.
-* [org.openrewrite.react.19.remove-context-provider](/user-documentation/recipes/recipe-catalog/react/19/remove-context-provider.md)
-  * **Remove `Context.Provider` wrapper**
-  * In React 19, `&lt;Context.Provider&gt;` is deprecated. Render `&lt;Context&gt;` directly as a provider instead.
-* [org.openrewrite.react.19.remove-forward-ref](/user-documentation/recipes/recipe-catalog/react/19/remove-forward-ref.md)
-  * **Remove `React.forwardRef` wrapper**
-  * `React.forwardRef` is deprecated for Function Components in React 19. This recipe removes the `forwardRef` wrapper and converts ref to a regular prop.
-* [org.openrewrite.react.19.remove-prop-types](/user-documentation/recipes/recipe-catalog/react/19/remove-prop-types.md)
-  * **Remove `propTypes` assignments**
-  * Removes `Component.propTypes = \{...\}` assignments. PropTypes are silently ignored in React 19.
-* [org.openrewrite.react.19.remove-react-fc](/user-documentation/recipes/recipe-catalog/react/19/remove-react-fc.md)
-  * **Remove `React.FC` type annotation**
-  * Removes `React.FC` and `FC` type annotations from functional components, moving the props type to the function parameter instead.
-* [org.openrewrite.react.19.replace-act-import](/user-documentation/recipes/recipe-catalog/react/19/replace-act-import.md)
-  * **Replace `act` import from react-dom/test-utils**
-  * In React 19, `act` has been moved from `react-dom/test-utils` to `react`. This recipe updates the import statement.
-* [org.openrewrite.react.19.replace-default-props](/user-documentation/recipes/recipe-catalog/react/19/replace-default-props.md)
-  * **Replace `defaultProps` with default parameter values**
-  * Converts `Component.defaultProps = \{...\}` to ES6 default parameter values in function components. `defaultProps` for function components is deprecated in React 19.
-* [org.openrewrite.react.19.replace-react-shallow-renderer](/user-documentation/recipes/recipe-catalog/react/19/replace-react-shallow-renderer.md)
-  * **Replace `react-test-renderer/shallow` import**
-  * Changes import of shallow renderer from `react-test-renderer/shallow` to the standalone `react-shallow-renderer` package, as it was removed from React 19.
-* [org.openrewrite.react.19.replace-reactdom-hydrate](/user-documentation/recipes/recipe-catalog/react/19/replace-reactdom-hydrate.md)
-  * **Replace `ReactDOM.hydrate` with `hydrateRoot`**
-  * Migrates from the legacy `ReactDOM.hydrate()` API to the `hydrateRoot()` API from `react-dom/client`.
-* [org.openrewrite.react.19.replace-string-ref](/user-documentation/recipes/recipe-catalog/react/19/replace-string-ref.md)
-  * **Replace string refs with callback refs**
-  * String refs are removed in React 19. This recipe converts them to callback refs.
-* [org.openrewrite.react.19.replace-use-form-state](/user-documentation/recipes/recipe-catalog/react/19/replace-use-form-state.md)
-  * **Replace `useFormState` with `useActionState`**
-  * In React 19, `useFormState` from `react-dom` has been renamed to `useActionState` and moved to `react`.
-* [org.openrewrite.react.19.use-context-hook](/user-documentation/recipes/recipe-catalog/react/19/use-context-hook.md)
-  * **Replace `useContext` with `use`**
-  * In React 19, `useContext` is replaced by the `use` API. This recipe updates both direct and namespace imports.
-* [org.openrewrite.react.19.use-ref-required-initial](/user-documentation/recipes/recipe-catalog/react/19/use-ref-required-initial.md)
-  * **Add initial value to `useRef()` calls**
-  * Adds `undefined` as initial argument to `useRef()` calls with no arguments. Required by `@types/react` 19.
-* [org.openrewrite.react.migrate.upgrade-to-react-16](/user-documentation/recipes/recipe-catalog/react/migrate/upgrade-to-react-16.md)
-  * **Upgrade to React 16**
-  * Migrate deprecated APIs for React 16 compatibility. Includes PropTypes extraction, ReactDOM split, DOM factory replacement, createFactory replacement, and error boundary API updates.
-* [org.openrewrite.react.migrate.upgrade-to-react-17](/user-documentation/recipes/recipe-catalog/react/migrate/upgrade-to-react-17.md)
-  * **Upgrade to React 17**
-  * Migrate deprecated APIs for React 17 compatibility. Includes all React 16 migrations plus lifecycle method prefixing, import cleanup, and event.persist() removal.
-* [org.openrewrite.react.migrate.upgrade-to-react-18](/user-documentation/recipes/recipe-catalog/react/migrate/upgrade-to-react-18.md)
-  * **Upgrade to React 18**
-  * Migrate deprecated APIs for React 18 compatibility. Includes all React 16 and 17 migrations plus the createRoot API migration, removal of unstable_batchedUpdates, unmountComponentAtNode replacement, and render callback removal.
-* [org.openrewrite.react.migrate.upgrade-to-react-19](/user-documentation/recipes/recipe-catalog/react/migrate/upgrade-to-react-19.md)
-  * **Upgrade to React 19**
-  * Migrate deprecated and removed APIs for React 19 compatibility. This includes removing forwardRef, updating Context.Provider usage, replacing useContext with use, and other breaking changes.
-* [org.openrewrite.react.migration.change-component-prop-value](/user-documentation/recipes/recipe-catalog/react/migration/change-component-prop-value.md)
-  * **Change React component prop value**
-  * Changes literal prop values on React components. Useful for library upgrades where prop values were renamed (e.g., Material-UI, Ant Design).
-* [org.openrewrite.react.native.view-prop-types](/user-documentation/recipes/recipe-catalog/react/native/view-prop-types.md)
-  * **Replace `View.propTypes` with `ViewPropTypes`**
-  * Migrates deprecated `View.propTypes` references to `ViewPropTypes` from `deprecated-react-native-prop-types`.
-* [org.openrewrite.react.refactoring.class-to-functional](/user-documentation/recipes/recipe-catalog/react/refactoring/class-to-functional.md)
-  * **Convert class components to functional components**
-  * Converts simple render-only class components to functional components.
-* [org.openrewrite.react.refactoring.create-class-to-es6](/user-documentation/recipes/recipe-catalog/react/refactoring/create-class-to-es6.md)
-  * **Convert `createClass` to ES6 class**
-  * Converts `React.createClass()` and `createReactClass()` calls to ES6 class syntax.
-* [org.openrewrite.react.refactoring.create-element-to-jsx](/user-documentation/recipes/recipe-catalog/react/refactoring/create-element-to-jsx.md)
-  * **Convert `createElement` to JSX**
-  * Converts `React.createElement()` calls to JSX syntax for improved readability.
-* [org.openrewrite.react.refactoring.manual-bind-to-arrow](/user-documentation/recipes/recipe-catalog/react/refactoring/manual-bind-to-arrow.md)
-  * **Convert manual `.bind(this)` to arrow functions**
-  * Converts `this.method = this.method.bind(this)` in constructors to class field arrow function syntax.
-* [org.openrewrite.react.refactoring.pure-render-mixin](/user-documentation/recipes/recipe-catalog/react/refactoring/pure-render-mixin.md)
-  * **Remove `PureRenderMixin`**
-  * Removes `PureRenderMixin` from `React.createClass` mixins and adds an explicit `shouldComponentUpdate` method.
-* [org.openrewrite.react.refactoring.sort-comp](/user-documentation/recipes/recipe-catalog/react/refactoring/sort-comp.md)
-  * **Sort React component methods**
-  * Reorders React component methods to follow the recommended lifecycle ordering convention.
 * [org.openrewrite.react.search.FindPropUsage](/user-documentation/recipes/recipe-catalog/react/search/findpropusage.md)
   * **Find React prop usage**
   * Locates usages of a specific prop of a React component.
 * [org.openrewrite.react.search.FindReactComponent](/user-documentation/recipes/recipe-catalog/react/search/findreactcomponent.md)
   * **Find React component**
   * Locates usages of React components across the codebase including JSX elements and other references. If `componentName` is `null`, finds all React components.
-* [org.openrewrite.react.search.find-hook-usage](/user-documentation/recipes/recipe-catalog/react/search/find-hook-usage.md)
-  * **Find React hook usage**
-  * Finds all React hook usages including built-in and custom hooks, and detects Rules of Hooks violations.
-* [org.openrewrite.react.search.find-prop-usage](/user-documentation/recipes/recipe-catalog/react/search/find-prop-usage.md)
-  * **Find React prop usage**
-  * Finds all prop usages on React JSX elements, with optional filtering by component and prop name.
-* [org.openrewrite.react.search.find-react-component](/user-documentation/recipes/recipe-catalog/react/search/find-react-component.md)
-  * **Find React component**
-  * Finds all usages of a specific React component including imports, JSX elements, and exports.
-* [org.openrewrite.react.search.find-server-rendering-usage](/user-documentation/recipes/recipe-catalog/react/search/find-server-rendering-usage.md)
-  * **Find server-side rendering API usage**
-  * Finds usage of React server-side rendering APIs from `react-dom/server` including `renderToString`, `renderToStaticMarkup`, `renderToNodeStream`, and `renderToStaticNodeStream` to help plan SSR migration.
-* [org.openrewrite.react.simplify-react-imports](/user-documentation/recipes/recipe-catalog/react/simplify-react-imports.md)
-  * **Simplify `React.xxx` to direct imports**
-  * Converts `React.useState`, `React.useEffect`, and other React namespace accesses to direct named imports.
 
 ### rewrite-release-metromap
 
@@ -4921,8 +2951,8 @@ _License: Moderne Proprietary License_
 _6 recipes_
 
 * [io.moderne.recipe.releasemetro.FindGradleParentRelationships](/user-documentation/recipes/recipe-catalog/recipe/releasemetro/findgradleparentrelationships.md)
-  * **Find Gradle root project to subproject relationships**
-  * Gradle has no parent-project concept like Maven. The closest analog is the root project of a multi-project build, so this recipe records the GAV coordinates of each subproject paired with the root project.
+  * **Find Gradle project hierarchy relationships**
+  * Find Gradle parent-child project relationships in multi-project builds to understand project hierarchies.
 * [io.moderne.recipe.releasemetro.FindGradleProjectIDs](/user-documentation/recipes/recipe-catalog/recipe/releasemetro/findgradleprojectids.md)
   * **Find Gradle project IDs**
   * Find Gradle project IDs in build.gradle files to determine the project ID.
@@ -4943,7 +2973,7 @@ _6 recipes_
 
 _License: Moderne Proprietary License_
 
-_169 recipes_
+_158 recipes_
 
 * [io.moderne.java.jsf.MigrateToJsf_2_3](/user-documentation/recipes/recipe-catalog/java/jsf/migratetojsf_2_3.md)
   * **Migrate to JSF 2.3**
@@ -5116,9 +3146,6 @@ _169 recipes_
 * [io.moderne.java.spring.boot4.AddValidationStarterDependency](/user-documentation/recipes/recipe-catalog/java/spring/boot4/addvalidationstarterdependency.md)
   * **Add `spring-boot-starter-validation` dependency**
   * In Spring Boot 4, validation is no longer auto-included from the web starter. This recipe adds the `spring-boot-starter-validation` dependency when Jakarta Validation annotations are used in the project.
-* [io.moderne.java.spring.boot4.AddWithHttpClientDefaultsToReactorBuilders](/user-documentation/recipes/recipe-catalog/java/spring/boot4/addwithhttpclientdefaultstoreactorbuilders.md)
-  * **Preserve system-proxy defaults on Reactor HTTP client builders**
-  * Spring Boot 4.1 no longer applies `proxyWithSystemProperties()` by default on `ReactorClientHttpRequestFactoryBuilder` and `ReactorClientHttpConnectorBuilder`. This recipe appends `.withHttpClientDefaults()` to chains starting at `ClientHttpRequestFactoryBuilder.reactor()` or `ClientHttpConnectorBuilder.reactor()` to restore the previous behavior. Chains that already call `withHttpClientDefaults(..)` or `proxyWithSystemProperties(..)` are left untouched.
 * [io.moderne.java.spring.boot4.AdoptJackson3](/user-documentation/recipes/recipe-catalog/java/spring/boot4/adoptjackson3.md)
   * **Adopt Jackson 3**
   * Adopt Jackson 3 which is supported by Spring Boot 4 and Jackson 2 support is deprecated.
@@ -5128,18 +3155,9 @@ _169 recipes_
 * [io.moderne.java.spring.boot4.InsertPropertyMapperAlwaysMethodInvocation](/user-documentation/recipes/recipe-catalog/java/spring/boot4/insertpropertymapperalwaysmethodinvocation.md)
   * **Preserve `PropertyMapper` null-passing behavior**
   * Spring Boot 4.0 changes the `PropertyMapper` behavior so that `from()` no longer calls `to()` when the source value is `null`. This recipe inserts `.always()` before terminal mapping methods to preserve the previous behavior. Chains that already contain `.whenNonNull()` or `.alwaysApplyingWhenNonNull()` are skipped, as they explicitly opted into null-skipping behavior which is now the default.
-* [io.moderne.java.spring.boot4.MigrateAutoConfigureMockMvcHtmlUnit](/user-documentation/recipes/recipe-catalog/java/spring/boot4/migrateautoconfiguremockmvchtmlunit.md)
-  * **Migrate `@AutoConfigureMockMvc` HtmlUnit attributes to nested `@HtmlUnit`**
-  * Spring Boot 4 moved `webClientEnabled` and `webDriverEnabled` on `@AutoConfigureMockMvc` under a nested `@HtmlUnit` annotation as `webClient` and `webDriver`, and relocated the annotation to `org.springframework.boot.webmvc.test.autoconfigure`. This recipe rewrites the attribute syntax and relocates the annotation in one step, so it must run before any package-relocation recipe touches `@AutoConfigureMockMvc`.
 * [io.moderne.java.spring.boot4.MigrateHazelcastSpringSession](/user-documentation/recipes/recipe-catalog/java/spring/boot4/migratehazelcastspringsession.md)
   * **Migrate Spring Session Hazelcast to Hazelcast Spring Session**
   * Spring Boot 4.0 removed direct support for Spring Session Hazelcast. The Hazelcast team now maintains their own Spring Session integration. This recipe changes the dependency from `org.springframework.session:spring-session-hazelcast` to `com.hazelcast.spring:hazelcast-spring-session` and updates the package from `org.springframework.session.hazelcast` to `com.hazelcast.spring.session`.
-* [io.moderne.java.spring.boot4.MigrateJsonFactoryDecorator](/user-documentation/recipes/recipe-catalog/java/spring/boot4/migratejsonfactorydecorator.md)
-  * **Migrate `JsonFactoryDecorator` to `TokenStreamFactoryBuilderDecorator`**
-  * Migrates classes that implement `net.logstash.logback.decorate.JsonFactoryDecorator` (removed in logstash-logback-encoder 9.0) to implement `TokenStreamFactoryBuilderDecorator&lt;JsonFactory, JsonFactoryBuilder&gt;`. The `decorate(JsonFactory)` method is rewritten to take and return a `JsonFactoryBuilder`, and mutator calls inside the body (e.g. `setCharacterEscapes`) are folded into the equivalent builder calls (e.g. `characterEscapes`) where a mapping is known. Unmapped mutators are kept by name with a `TODO` comment for manual review.
-* [io.moderne.java.spring.boot4.MigrateLayertoolsToTools_4_1](/user-documentation/recipes/recipe-catalog/java/spring/boot4/migratelayertoolstotools_4_1.md)
-  * **Migrate `layertools` jarmode to `tools`**
-  * The `layertools` jar mode was deprecated in Spring Boot 3.3 and removed in Spring Boot 4.1. Replace `-Djarmode=layertools` invocations (commonly found in Dockerfiles and shell scripts) with `-Djarmode=tools`, which provides equivalent and expanded functionality.
 * [io.moderne.java.spring.boot4.MigrateMockMvcToAssertJ](/user-documentation/recipes/recipe-catalog/java/spring/boot4/migratemockmvctoassertj.md)
   * **Migrate MockMvc to AssertJ assertions**
   * Migrates Spring MockMvc tests from Hamcrest-style `andExpect()` assertions to AssertJ-style fluent assertions. Changes `MockMvc` to `MockMvcTester` and converts assertion chains.
@@ -5157,10 +3175,7 @@ _169 recipes_
   * Migrate `spring-retry`s `@Retryable` and `@Backoff` annotation to Spring Framework 7 Resilience annotations.
 * [io.moderne.java.spring.boot4.MigrateToModularStarters](/user-documentation/recipes/recipe-catalog/java/spring/boot4/migratetomodularstarters-moderne-edition.md)
   * **Migrate to Spring Boot 4.0 modular starters (Moderne Edition)**
-  * Adds Spring Boot 4.0 modular starter dependencies based on package usage and rewrites the classic starters to the minimal `spring-boot-starter` / `spring-boot-starter-test`. The minimal starter is retained so that modules whose code only references core Spring annotations (e.g. `@SpringBootApplication`, `@Configuration`, `@Component`) still compile after migration.
-* [io.moderne.java.spring.boot4.MigrateToModularStarters_4_1](/user-documentation/recipes/recipe-catalog/java/spring/boot4/migratetomodularstarters_4_1.md)
-  * **Migrate to Spring Boot 4.1 modular starters**
-  * Add Spring Boot 4.1 starter dependencies for modules introduced in 4.1 (gRPC server, gRPC client, and Spring Batch with MongoDB support). This recipe complements `MigrateToModularStarters` from 4.0 and only adds the new starters; it does not rewrite or remove anything else.
+  * Remove monolithic starters and adds the necessary Spring Boot 4.0 starter dependencies based on package usage, where any spring-boot-starter was used previously.
 * [io.moderne.java.spring.boot4.MockMvcAssertionsToAssertJ](/user-documentation/recipes/recipe-catalog/java/spring/boot4/mockmvcassertionstoassertj.md)
   * **Migrate MockMvc `andExpect()` chains to AssertJ assertions**
   * Converts MockMvc Hamcrest-style `andExpect()` assertion chains to AssertJ-style fluent assertions using `assertThat()`. Handles status, content, JSON path, header, redirect, and forward assertions.
@@ -5185,9 +3200,6 @@ _169 recipes_
 * [io.moderne.java.spring.boot4.RemoveContentNegotiationFavorPathExtension](/user-documentation/recipes/recipe-catalog/java/spring/boot4/removecontentnegotiationfavorpathextension.md)
   * **Remove `ContentNegotiationConfigurer.favorPathExtension()` calls**
   * Spring Framework 7 removed `favorPathExtension()` from `ContentNegotiationConfigurer`. Path extension content negotiation is no longer supported. This recipe removes calls to `favorPathExtension()`.
-* [io.moderne.java.spring.boot4.RemoveDevtoolsLiveReloadProperties_4_1](/user-documentation/recipes/recipe-catalog/java/spring/boot4/removedevtoolslivereloadproperties_4_1.md)
-  * **Comment out deprecated DevTools LiveReload properties**
-  * Spring Boot 4.1.0-M3 deprecated the LiveReload feature in DevTools with no replacement. The feature still functions in 4.1, so this recipe comments out `spring.devtools.livereload.*` properties (rather than deleting them) to flag the deprecation while leaving the values recoverable.
 * [io.moderne.java.spring.boot4.RemoveGradleUberJarLoaderImplementationConfig](/user-documentation/recipes/recipe-catalog/java/spring/boot4/removegradleuberjarloaderimplementationconfig.md)
   * **Remove `loaderImplementation` from Gradle**
   * Removes the Spring Boot Uber-Jar `loaderImplementation` configuration from Gradle build files.
@@ -5215,24 +3227,15 @@ _169 recipes_
 * [io.moderne.java.spring.boot4.ReplaceDeprecatedThreadPoolTaskSchedulerBuilderApi](/user-documentation/recipes/recipe-catalog/java/spring/boot4/replacedeprecatedthreadpooltaskschedulerbuilderapi.md)
   * **Replace deprecated `ThreadPoolTaskSchedulerBuilder` constructor**
   * Replaces the deprecated 5-argument constructor of `ThreadPoolTaskSchedulerBuilder` with the builder pattern.
-* [io.moderne.java.spring.boot4.SimplifyOptionalConfigurationPropertiesNullChecks](/user-documentation/recipes/recipe-catalog/java/spring/boot4/simplifyoptionalconfigurationpropertiesnullchecks.md)
-  * **Simplify null checks on `Optional` `@ConfigurationProperties` parameters**
-  * Spring Boot 4.1 changes constructor-bound `@ConfigurationProperties` so that `Optional&lt;T&gt;` parameters bind to `Optional.empty()` rather than `null`. This recipe replaces `== null` / `!= null` checks against such parameters (or same-named fields in the binding constructor's class) with the constant they will always evaluate to, then runs `SimplifyConstantIfBranchExecution` to remove the dead branches.
 * [io.moderne.java.spring.boot4.SpringBoot4BestPractices](/user-documentation/recipes/recipe-catalog/java/spring/boot4/springboot4bestpractices.md)
   * **Spring Boot 4.0 best practices**
   * Applies best practices to Spring Boot 4.+ applications.
-* [io.moderne.java.spring.boot4.SpringBootProperties_4_1](/user-documentation/recipes/recipe-catalog/java/spring/boot4/springbootproperties_4_1.md)
-  * **Migrate Spring Boot properties to 4.1**
-  * Migrate properties found in `application.properties` and `application.yml`.
 * [io.moderne.java.spring.boot4.UpgradeMyBatisToSpringBoot_4_0](/user-documentation/recipes/recipe-catalog/java/spring/boot4/upgrademybatistospringboot_4_0.md)
   * **Upgrade MyBatis to Spring Boot 4.0**
   * Upgrade MyBatis Spring modules to a version corresponding to Spring Boot 4.0.
 * [io.moderne.java.spring.boot4.UpgradeSpringBoot_4_0](/user-documentation/recipes/recipe-catalog/java/spring/boot4/upgradespringboot_4_0-moderne-edition.md)
   * **Migrate to Spring Boot 4.0 (Moderne Edition)**
   * Migrate applications to the latest Spring Boot 4.0 release. This recipe will modify an application's build files, make changes to deprecated/preferred APIs, and migrate configuration settings that have changes between versions. This recipe will also chain additional framework migrations (Spring Framework, Spring Data, etc) that are required as part of the migration to Spring Boot 4.0.
-* [io.moderne.java.spring.boot4.UpgradeSpringBoot_4_1](/user-documentation/recipes/recipe-catalog/java/spring/boot4/upgradespringboot_4_1.md)
-  * **Migrate to Spring Boot 4.1**
-  * Migrate applications to the latest Spring Boot 4.1 release. This recipe will modify an application's build files, make changes to deprecated/preferred APIs, and migrate configuration settings that have changes between versions. This recipe will also chain additional framework migrations (Spring Framework, Spring Data, etc) that are required as part of the migration to Spring Boot 4.1.
 * [io.moderne.java.spring.boot4.UpgradeSpringKafka_4_0](/user-documentation/recipes/recipe-catalog/java/spring/boot4/upgradespringkafka_4_0.md)
   * **Migrate to Spring Kafka 4.0**
   * Migrate applications to Spring Kafka 4.0. This includes removing deprecated configuration options that are no longer supported.
@@ -5374,9 +3377,6 @@ _169 recipes_
 * [io.moderne.java.spring.framework7.MigrateResponseEntityGetStatusCodeValueMethod](/user-documentation/recipes/recipe-catalog/java/spring/framework7/migrateresponseentitygetstatuscodevaluemethod.md)
   * **Migrate `ResponseEntity#getStatusCodeValue()` to `getStatusCode().value()`**
   * Replaces calls to `ResponseEntity#getStatusCodeValue()` which was deprecated in Spring Framework 6.0 and removed in Spring Framework 7.0 with `getStatusCode().value()`.
-* [io.moderne.java.spring.framework7.RemoveNullabilityFromSpringHttpEntityTypeArguments](/user-documentation/recipes/recipe-catalog/java/spring/framework7/removenullabilityfromspringhttpentitytypearguments.md)
-  * **Remove Kotlin nullability from Spring HTTP entity type arguments**
-  * Spring Framework 7 narrowed `HttpEntity&lt;T&gt;` (and its subtypes `ResponseEntity` and `RequestEntity`) to `&lt;T : Any&gt;`. This recipe removes Kotlin's `?` nullable marker from the type argument of these types in declared parameterized types and in explicit method-invocation type arguments, so Kotlin sources continue to compile.
 * [io.moderne.java.spring.framework7.RemoveSpringJcl](/user-documentation/recipes/recipe-catalog/java/spring/framework7/removespringjcl.md)
   * **Remove spring-jcl dependency**
   * The `spring-jcl` module has been removed in Spring Framework 7.0 in favor of Apache Commons Logging 1.3.0. This recipe removes any explicit dependency on `org.springframework:spring-jcl`. The change should be transparent for most applications, as spring-jcl was typically a transitive dependency and the logging API calls (`org.apache.commons.logging.*`) remain unchanged.
@@ -5430,13 +3430,10 @@ _169 recipes_
   * Migrates Acegi Security 1.0.x directly to Spring Security 5.0. This recipe handles dependency changes, type renames, XML configuration updates, web.xml filter migration, and adds TODO comments for password encoders that require manual migration.
 * [io.moderne.java.spring.security6.MigrateAntPathRequestMatcher](/user-documentation/recipes/recipe-catalog/java/spring/security6/migrateantpathrequestmatcher.md)
   * **Migrate antPathRequestMatcher to pathPatternRequestMatcher**
-  * In Spring Security 6.5, `AntPathRequestMatcher` is deprecated in favor of `PathPatternRequestMatcher`. This recipe migrates static method calls and constructor usage to the new pattern in both Java and Kotlin sources.
+  * In Spring Security 6.5, `AntPathRequestMatcher` is deprecated in favor of `PathPatternRequestMatcher`. This recipe migrates static method calls and constructor usage to the new pattern.
 * [io.moderne.java.spring.security6.UpgradeSpringSecurity_6_5](/user-documentation/recipes/recipe-catalog/java/spring/security6/upgradespringsecurity_6_5-moderne-edition.md)
   * **Migrate to Spring Security 6.5 (Moderne Edition)**
   * Migrate applications to the latest Spring Security 6.5 release. This recipe will modify an application's build files, make changes to deprecated/preferred APIs, and migrate configuration settings that have changes between versions.
-* [io.moderne.java.spring.security7.CommentOnSecurityContextAuthenticationInKotlin](/user-documentation/recipes/recipe-catalog/java/spring/security7/commentonsecuritycontextauthenticationinkotlin.md)
-  * **Comment on Kotlin usages of `SecurityContext.getAuthentication()`**
-  * Spring Security 7 made `SecurityContext.getAuthentication()` return `@Nullable Authentication`. In Kotlin this becomes `Authentication?`, so existing chains like `SecurityContextHolder.getContext().authentication.credentials` no longer compile. This recipe adds a TODO comment on the line above each Kotlin statement that reads the authentication — both the explicit `getAuthentication()` form and the Kotlin property form `.authentication` — so a developer can decide per call site whether to use a safe-call (`?.`) or a non-null assertion (`!!`).
 * [io.moderne.java.spring.security7.MigrateMvcRequestMatcher](/user-documentation/recipes/recipe-catalog/java/spring/security7/migratemvcrequestmatcher.md)
   * **Migrate `MvcRequestMatcher` to `PathPatternRequestMatcher`**
   * In Spring Security 7.0, `MvcRequestMatcher` which depends on the deprecated `HandlerMappingIntrospector` is removed in favor of `PathPatternRequestMatcher`. This recipe migrates constructor and builder usage to the new pattern.
@@ -5693,7 +3690,7 @@ _18 recipes_
 
 _License: Apache License Version 2.0_
 
-_73 recipes_
+_68 recipes_
 
 * [org.openrewrite.gradle.AddDependency](/user-documentation/recipes/recipe-catalog/gradle/adddependency.md)
   * **Add Gradle dependency**
@@ -5818,21 +3815,6 @@ _73 recipes_
 * [org.openrewrite.gradle.gradle8.JacocoReportDeprecations](/user-documentation/recipes/recipe-catalog/gradle/gradle8/jacocoreportdeprecations.md)
   * **Replace Gradle 8 introduced deprecations in JaCoCo report task**
   * Set the `enabled` to `required` and the `destination` to `outputLocation` for Reports deprecations that were removed in gradle 8. See [the gradle docs on this topic](https://docs.gradle.org/current/userguide/upgrading_version_7.html#report_and_testreport_api_cleanup).
-* [org.openrewrite.gradle.gradle9.RewriteSpreadAllInConfigurationsBlock](/user-documentation/recipes/recipe-catalog/gradle/gradle9/rewritespreadallinconfigurationsblock.md)
-  * **Replace spread-`all*` calls in `configurations` blocks with `configurations.all \{ \}`**
-  * Gradle 9 throws `Cannot mutate the dependencies of configuration ':all' after the configuration was resolved.` when a `configurations \{ \}` closure uses Groovy's spread-dot form `all*.&lt;method&gt;(args)`. Rewrite each such call to the closure form `configurations.all \{ &lt;method&gt;(args) \}`, which preserves eager-`all` semantics but is accepted by Gradle 9. Only applied when every statement in the `configurations \{ \}` block uses the spread form; mixed blocks are left untouched for manual review.
-* [org.openrewrite.gradle.gradle9.UseJavaExtensionBlock](/user-documentation/recipes/recipe-catalog/gradle/gradle9/usejavaextensionblock.md)
-  * **Move `sourceCompatibility` and `targetCompatibility` into the `java \{ \}` extension block**
-  * Gradle 9 removed the `JavaPluginConvention` (deprecated in 8.2). Top-level `sourceCompatibility` and `targetCompatibility` assignments in a Groovy build script previously delegated to that convention object and stop working in Gradle 9. Move them into the `java \{ \}` extension block, normalizing values to `JavaVersion.VERSION_&lt;n&gt;` and adding the missing counterpart so both properties are set explicitly. See the [Gradle upgrade guide](https://docs.gradle.org/9.0.0/userguide/upgrading_major_version_9.html) for more information.
-* [org.openrewrite.gradle.gradle9.UseMainClassProperty](/user-documentation/recipes/recipe-catalog/gradle/gradle9/usemainclassproperty.md)
-  * **Use `mainClass` instead of `main` for `JavaExec` tasks**
-  * The `main` property on `JavaExec` tasks was deprecated in Gradle 7.1 and removed in Gradle 9.0. Use the `mainClass` property instead. See the [Gradle upgrade guide](https://docs.gradle.org/9.0.0/userguide/upgrading_major_version_9.html) for more information.
-* [org.openrewrite.gradle.gradle9.UseMainClassPropertyForApplication](/user-documentation/recipes/recipe-catalog/gradle/gradle9/usemainclasspropertyforapplication.md)
-  * **Use `application \{ mainClass \}` instead of `mainClassName`**
-  * The `mainClassName` property on the `application` extension was deprecated in Gradle 6.4 and removed in Gradle 9.0. Use `application \{ mainClass = ... \}` instead. Top-level `mainClassName` assignments are wrapped in an `application` block. See the [Gradle upgrade guide](https://docs.gradle.org/9.0.0/userguide/upgrading_major_version_9.html) for more information.
-* [org.openrewrite.gradle.gradle9.UseVersionClosure](/user-documentation/recipes/recipe-catalog/gradle/gradle9/useversionclosure.md)
-  * **Use `version \{ \}` closure instead of `version = \{ \}` assignment**
-  * Converts `version = \{ ... \}` assignment syntax to `version \{ ... \}` closure call syntax in Gradle dependency declarations. The assignment form is not valid Gradle DSL; the closure form invokes the version spec method directly.
 * [org.openrewrite.gradle.plugins.AddBuildPlugin](/user-documentation/recipes/recipe-catalog/gradle/plugins/addbuildplugin.md)
   * **Add Gradle plugin**
   * Add a build plugin to a Gradle build file's `plugins` block.
@@ -5883,7 +3865,7 @@ _73 recipes_
   * Lists the Gradle project repositories that would be used for dependency resolution, in order of precedence. This includes Maven repositories defined in the Gradle build files and settings as determined when the LST was produced.
 * [org.openrewrite.gradle.search.FindDependency](/user-documentation/recipes/recipe-catalog/gradle/search/finddependency.md)
   * **Find Gradle dependency**
-  * Finds dependencies declared in gradle build files. Each match is also recorded as a row in the `DependenciesDeclared` data table. See the [reference](https://docs.gradle.org/current/userguide/java_library_plugin.html#sec:java_library_configurations_graph) on Gradle configurations or the diagram below for a description of what configuration to use. A project's compile and runtime classpath is based on these configurations.  &lt;img alt=&quot;Gradle compile classpath&quot; src=&quot;https://docs.gradle.org/current/userguide/img/java-library-ignore-deprecated-main.png&quot; width=&quot;200px&quot;/&gt; A project's test classpath is based on these configurations.  &lt;img alt=&quot;Gradle test classpath&quot; src=&quot;https://docs.gradle.org/current/userguide/img/java-library-ignore-deprecated-test.png&quot; width=&quot;200px&quot;/&gt;.
+  * Finds dependencies declared in gradle build files. See the [reference](https://docs.gradle.org/current/userguide/java_library_plugin.html#sec:java_library_configurations_graph) on Gradle configurations or the diagram below for a description of what configuration to use. A project's compile and runtime classpath is based on these configurations.  &lt;img alt=&quot;Gradle compile classpath&quot; src=&quot;https://docs.gradle.org/current/userguide/img/java-library-ignore-deprecated-main.png&quot; width=&quot;200px&quot;/&gt; A project's test classpath is based on these configurations.  &lt;img alt=&quot;Gradle test classpath&quot; src=&quot;https://docs.gradle.org/current/userguide/img/java-library-ignore-deprecated-test.png&quot; width=&quot;200px&quot;/&gt;.
 * [org.openrewrite.gradle.search.FindDependencyHandler](/user-documentation/recipes/recipe-catalog/gradle/search/finddependencyhandler.md)
   * **Find Gradle `dependencies` blocks**
   * Find the dependency handler containing any number of dependency definitions.
@@ -6423,7 +4405,7 @@ _11 recipes_
 
 _License: Apache License Version 2.0_
 
-_90 recipes_
+_88 recipes_
 
 * [org.openrewrite.maven.AddAnnotationProcessor](/user-documentation/recipes/recipe-catalog/maven/addannotationprocessor.md)
   * **Add an annotation processor to `maven-compiler-plugin`**
@@ -6581,9 +4563,6 @@ _90 recipes_
 * [org.openrewrite.maven.ReplaceRemovedRootDirectoryProperties](/user-documentation/recipes/recipe-catalog/maven/replaceremovedrootdirectoryproperties.md)
   * **Replace removed root directory properties**
   * Maven 4 removed support for deprecated root directory properties. This recipe replaces `$\{executionRootDirectory\}` with `$\{session.rootDirectory\}` and `$\{multiModuleProjectDirectory\}` with `$\{project.rootDirectory\}`.
-* [org.openrewrite.maven.ReproducibleBuilds](/user-documentation/recipes/recipe-catalog/maven/reproduciblebuilds.md)
-  * **Apache Maven reproducible builds**
-  * Configure a Maven project for [reproducible builds](https://maven.apache.org/guides/mini/guide-reproducible-builds.html): pin dependency and plugin versions, set `project.build.outputTimestamp`, set explicit UTF-8 source encoding, and upgrade core plugins to versions that honor the output timestamp.
 * [org.openrewrite.maven.SortDependencies](/user-documentation/recipes/recipe-catalog/maven/sortdependencies.md)
   * **Sort dependencies**
   * Sort dependencies alphabetically by groupId then artifactId. Test-scoped dependencies are sorted after non-test dependencies. Applies to both `&lt;dependencies&gt;` and `&lt;dependencyManagement&gt;` sections.
@@ -6617,9 +4596,6 @@ _90 recipes_
 * [org.openrewrite.maven.UseParentInference](/user-documentation/recipes/recipe-catalog/maven/useparentinference.md)
   * **Use Maven 4 parent inference**
   * Maven 4.1.0 supports automatic parent version inference when using a relative path. This recipe simplifies parent declarations by using the shorthand `&lt;parent/&gt;` form when the parent is in the default location (`..`), removing the explicit `&lt;relativePath&gt;`, `&lt;groupId&gt;`, `&lt;artifactId&gt;`, and `&lt;version&gt;` elements. Maven automatically infers these values from the parent POM.
-* [org.openrewrite.maven.cleanup.AddProjectBuildOutputTimestamp](/user-documentation/recipes/recipe-catalog/maven/cleanup/addprojectbuildoutputtimestamp.md)
-  * **Add `project.build.outputTimestamp` for reproducible builds**
-  * Adds the `project.build.outputTimestamp` property, which Maven uses to make build outputs reproducible by stamping archive entries with a fixed timestamp instead of the current time. An existing value is preserved. See [Configuring for Reproducible Builds](https://maven.apache.org/guides/mini/guide-reproducible-builds.html).
 * [org.openrewrite.maven.cleanup.DependencyManagementDependencyRequiresVersion](/user-documentation/recipes/recipe-catalog/maven/cleanup/dependencymanagementdependencyrequiresversion.md)
   * **Dependency management dependencies should have a version**
   * If they don't have a version, they can't possibly affect dependency resolution anywhere, and can be safely removed.
@@ -6658,7 +4634,7 @@ _90 recipes_
   * Lists the Maven repositories that would be used for dependency resolution, in order of precedence. This includes Maven repositories defined in the Maven settings file (and those contributed by active profiles) as determined when the LST was produced.
 * [org.openrewrite.maven.search.FindDependency](/user-documentation/recipes/recipe-catalog/maven/search/finddependency.md)
   * **Find Maven dependency**
-  * Finds first-order dependency uses, i.e. dependencies that are defined directly in a project. Each match is also recorded as a row in the `DependenciesDeclared` data table.
+  * Finds first-order dependency uses, i.e. dependencies that are defined directly in a project.
 * [org.openrewrite.maven.search.FindManagedDependency](/user-documentation/recipes/recipe-catalog/maven/search/findmanageddependency.md)
   * **Find Maven dependency management entry**
   * Finds first-order dependency management entries, i.e. dependencies that are defined directly in a project.
@@ -6735,13 +4711,13 @@ _15 recipes_
 
 * [org.openrewrite.python.AddDependency](/user-documentation/recipes/recipe-catalog/python/adddependency.md)
   * **Add Python dependency**
-  * Add a dependency to a Python project. Supports `pyproject.toml` (with scope/group targeting), `requirements.txt`, and `Pipfile`. When the matching package manager (`uv` or `pipenv`) is available, the corresponding lock file (`uv.lock` or `Pipfile.lock`) is regenerated. Not safe to use as a precondition: invokes the package manager and publishes per-project state shared with other dependency recipes.
+  * Add a dependency to a Python project. Supports `pyproject.toml` (with scope/group targeting), `requirements.txt`, and `Pipfile`. When `uv` is available, the `uv.lock` file is regenerated.
 * [org.openrewrite.python.AddLiteralMethodArgument](/user-documentation/recipes/recipe-catalog/python/addliteralmethodargument.md)
   * **Add literal method argument**
   * Add a literal argument to method invocations matching a pattern.
 * [org.openrewrite.python.ChangeDependency](/user-documentation/recipes/recipe-catalog/python/changedependency.md)
   * **Change Python dependency**
-  * Change a dependency to a different package. Supports `pyproject.toml`, `requirements.txt`, and `Pipfile`. Searches all dependency scopes. When the matching package manager (`uv` or `pipenv`) is available, the corresponding lock file (`uv.lock` or `Pipfile.lock`) is regenerated. Not safe to use as a precondition: invokes the package manager and publishes per-project state shared with other dependency recipes.
+  * Change a dependency to a different package. Supports `pyproject.toml`, `requirements.txt`, and `Pipfile`. Searches all dependency scopes. When `uv` is available, the `uv.lock` file is regenerated.
 * [org.openrewrite.python.ChangeImport](/user-documentation/recipes/recipe-catalog/python/changeimport.md)
   * **Change import**
   * Change a Python import from one module/name to another, updating all type attributions.
@@ -6759,7 +4735,7 @@ _15 recipes_
   * Remove an argument from method invocations matching a pattern.
 * [org.openrewrite.python.RemoveDependency](/user-documentation/recipes/recipe-catalog/python/removedependency.md)
   * **Remove Python dependency**
-  * Remove a dependency from a Python project. Supports `pyproject.toml` (with scope/group targeting), `requirements.txt`, and `Pipfile`. When the matching package manager (`uv` or `pipenv`) is available, the corresponding lock file (`uv.lock` or `Pipfile.lock`) is regenerated. Not safe to use as a precondition: invokes the package manager and publishes per-project state shared with other dependency recipes.
+  * Remove a dependency from a Python project. Supports `pyproject.toml` (with scope/group targeting), `requirements.txt`, and `Pipfile`. When `uv` is available, the `uv.lock` file is regenerated.
 * [org.openrewrite.python.RemovePass](/user-documentation/recipes/recipe-catalog/python/removepass.md)
   * **Remove redundant pass statements**
   * Remove redundant `pass` statements from Python code when there are other executable statements in the block.
@@ -6768,10 +4744,10 @@ _15 recipes_
   * Reorder arguments in method invocations matching a pattern.
 * [org.openrewrite.python.UpgradeDependencyVersion](/user-documentation/recipes/recipe-catalog/python/upgradedependencyversion.md)
   * **Upgrade Python dependency version**
-  * Upgrade the version constraint for a dependency. Supports `pyproject.toml` (with scope/group targeting), `requirements.txt`, and `Pipfile`. When the matching package manager (`uv` or `pipenv`) is available, the corresponding lock file (`uv.lock` or `Pipfile.lock`) is regenerated. Not safe to use as a precondition: invokes the package manager and publishes per-project state shared with other dependency recipes.
+  * Upgrade the version constraint for a dependency. Supports `pyproject.toml` (with scope/group targeting), `requirements.txt`, and `Pipfile`. When `uv` is available, the `uv.lock` file is regenerated.
 * [org.openrewrite.python.UpgradeTransitiveDependencyVersion](/user-documentation/recipes/recipe-catalog/python/upgradetransitivedependencyversion.md)
   * **Upgrade transitive Python dependency version**
-  * Pin a transitive dependency version using the strategy appropriate for the file type and package manager. For `pyproject.toml`: uv uses `[tool.uv].constraint-dependencies`, PDM uses `[tool.pdm.overrides]`, and other managers add a direct dependency. For `requirements.txt` and `Pipfile`: appends the dependency. Not safe to use as a precondition: invokes the package manager and publishes per-project state shared with other dependency recipes.
+  * Pin a transitive dependency version using the strategy appropriate for the file type and package manager. For `pyproject.toml`: uv uses `[tool.uv].constraint-dependencies`, PDM uses `[tool.pdm.overrides]`, and other managers add a direct dependency. For `requirements.txt` and `Pipfile`: appends the dependency.
 * [org.openrewrite.python.format.PythonSpaces](/user-documentation/recipes/recipe-catalog/python/format/pythonspaces.md)
   * **Formats spaces in Python code**
   * Standardizes spaces in Python code. Currently limited to formatting method arguments.
@@ -7041,7 +5017,7 @@ _3 recipes_
 
 _License: Moderne Proprietary License_
 
-_29 recipes_
+_16 recipes_
 
 * [org.openrewrite.android.ChangeAndroidSdkVersion](/user-documentation/recipes/recipe-catalog/android/changeandroidsdkversion.md)
   * **Change Android SDK version**
@@ -7061,18 +5037,6 @@ _29 recipes_
 * [org.openrewrite.android.MigrateToAndroidGradlePlugin_8_1](/user-documentation/recipes/recipe-catalog/android/migratetoandroidgradleplugin_8_1.md)
   * **Migrate to Android Gradle Plugin 8.1**
   * Recipes to migrate to Android Gradle Plugin version 8.1.
-* [org.openrewrite.android.MigrateToAndroidGradlePlugin_8_10](/user-documentation/recipes/recipe-catalog/android/migratetoandroidgradleplugin_8_10.md)
-  * **Migrate to Android Gradle Plugin 8.10**
-  * Recipes to migrate to Android Gradle Plugin version 8.10.
-* [org.openrewrite.android.MigrateToAndroidGradlePlugin_8_11](/user-documentation/recipes/recipe-catalog/android/migratetoandroidgradleplugin_8_11.md)
-  * **Migrate to Android Gradle Plugin 8.11**
-  * Recipes to migrate to Android Gradle Plugin version 8.11.
-* [org.openrewrite.android.MigrateToAndroidGradlePlugin_8_12](/user-documentation/recipes/recipe-catalog/android/migratetoandroidgradleplugin_8_12.md)
-  * **Migrate to Android Gradle Plugin 8.12**
-  * Recipes to migrate to Android Gradle Plugin version 8.12.
-* [org.openrewrite.android.MigrateToAndroidGradlePlugin_8_13](/user-documentation/recipes/recipe-catalog/android/migratetoandroidgradleplugin_8_13.md)
-  * **Migrate to Android Gradle Plugin 8.13**
-  * Recipes to migrate to Android Gradle Plugin version 8.13.
 * [org.openrewrite.android.MigrateToAndroidGradlePlugin_8_2](/user-documentation/recipes/recipe-catalog/android/migratetoandroidgradleplugin_8_2.md)
   * **Migrate to Android Gradle Plugin 8.2**
   * Recipes to migrate to Android Gradle Plugin version 8.2.
@@ -7091,30 +5055,6 @@ _29 recipes_
 * [org.openrewrite.android.MigrateToAndroidGradlePlugin_8_7](/user-documentation/recipes/recipe-catalog/android/migratetoandroidgradleplugin_8_7.md)
   * **Migrate to Android Gradle Plugin 8.7**
   * Recipes to migrate to Android Gradle Plugin version 8.7.
-* [org.openrewrite.android.MigrateToAndroidGradlePlugin_8_8](/user-documentation/recipes/recipe-catalog/android/migratetoandroidgradleplugin_8_8.md)
-  * **Migrate to Android Gradle Plugin 8.8**
-  * Recipes to migrate to Android Gradle Plugin version 8.8.
-* [org.openrewrite.android.MigrateToAndroidGradlePlugin_8_9](/user-documentation/recipes/recipe-catalog/android/migratetoandroidgradleplugin_8_9.md)
-  * **Migrate to Android Gradle Plugin 8.9**
-  * Recipes to migrate to Android Gradle Plugin version 8.9.
-* [org.openrewrite.android.MigrateToAndroidGradlePlugin_9_0](/user-documentation/recipes/recipe-catalog/android/migratetoandroidgradleplugin_9_0.md)
-  * **Migrate to Android Gradle Plugin 9.0**
-  * Recipes to migrate to Android Gradle Plugin version 9.0.
-* [org.openrewrite.android.MigrateToAndroidGradlePlugin_9_1](/user-documentation/recipes/recipe-catalog/android/migratetoandroidgradleplugin_9_1.md)
-  * **Migrate to Android Gradle Plugin 9.1**
-  * Recipes to migrate to Android Gradle Plugin version 9.1.
-* [org.openrewrite.android.MigrateToAndroidGradlePlugin_9_2](/user-documentation/recipes/recipe-catalog/android/migratetoandroidgradleplugin_9_2.md)
-  * **Migrate to Android Gradle Plugin 9.2**
-  * Recipes to migrate to Android Gradle Plugin version 9.2.
-* [org.openrewrite.android.RemoveBuildToolsVersion](/user-documentation/recipes/recipe-catalog/android/removebuildtoolsversion.md)
-  * **Remove `buildToolsVersion`**
-  * Remove the `buildToolsVersion` declaration from the `android` block in a Gradle build file. Since Android Gradle Plugin 3.0 the build tools version is selected automatically based on the AGP version, so explicit `buildToolsVersion` declarations are ignored and add noise to build files.
-* [org.openrewrite.android.RenameAaptOptionsToAndroidResources](/user-documentation/recipes/recipe-catalog/android/renameaaptoptionstoandroidresources.md)
-  * **Rename `aaptOptions` to `androidResources`**
-  * The `aaptOptions \{ ... \}` DSL block was renamed to `androidResources \{ ... \}` in Android Gradle Plugin 7.0 and may be removed in AGP 9.x. This is a pure block rename with no semantic change.
-* [org.openrewrite.android.RenameLintOptionsToLint](/user-documentation/recipes/recipe-catalog/android/renamelintoptionstolint.md)
-  * **Rename `lintOptions` to `lint`**
-  * The `lintOptions \{ ... \}` DSL block was renamed to `lint \{ ... \}` in Android Gradle Plugin 7.0 and may be removed in AGP 9.x. This is a pure block rename with no semantic change.
 * [org.openrewrite.android.UpgradeAndroidGradlePluginVersion](/user-documentation/recipes/recipe-catalog/android/upgradeandroidgradlepluginversion.md)
   * **Upgrade Android Gradle Plugin (AGP) version**
   * Upgrade Android Gradle Plugin (AGP) version and update the Gradle Wrapper version. Compatible versions are published in the [AGP release notes](https://developer.android.com/build/releases/gradle-plugin).
@@ -7127,15 +5067,12 @@ _29 recipes_
 * [org.openrewrite.android.UpgradeToAndroidSDK35](/user-documentation/recipes/recipe-catalog/android/upgradetoandroidsdk35.md)
   * **Upgrade to Android SDK 35**
   * Recipes to upgrade to Android SDK version 35.
-* [org.openrewrite.android.UpgradeToAndroidSDK36](/user-documentation/recipes/recipe-catalog/android/upgradetoandroidsdk36.md)
-  * **Upgrade to Android SDK 36**
-  * Recipes to upgrade to Android SDK version 36.
 
 ### rewrite-apache
 
 _License: Moderne Source Available License_
 
-_118 recipes_
+_116 recipes_
 
 * [org.openrewrite.apache.commons.PreferJavaStandardLibrary](/user-documentation/recipes/recipe-catalog/apache/commons/preferjavastandardlibrary.md)
   * **Prefer the Java standard library instead of Apache Commons**
@@ -7293,15 +5230,9 @@ _118 recipes_
 * [org.openrewrite.apache.httpclient5.InputBufferReadAddOffsetAndLengthArguments](/user-documentation/recipes/recipe-catalog/apache/httpclient5/inputbufferreadaddoffsetandlengtharguments.md)
   * **Adds offset and length arguments to the read method of SharedInputBuffer**
   * In Apache Http Client 5.x migration, the shortened form of the `read(byte[])` has been removed.
-* [org.openrewrite.apache.httpclient5.MigrateAuthSchemeCredentials](/user-documentation/recipes/recipe-catalog/apache/httpclient5/migrateauthschemecredentials.md)
-  * **Migrate `AuthScheme` credential handling**
-  * Rewrites `AuthExchange#update(BasicScheme, Credentials)` to `BasicScheme#initPreemptive(Credentials)` followed by `AuthExchange#select(AuthScheme)`. Unwraps leftover `AuthOption#getAuthScheme()` calls (now on `AuthScheme` after the type rename) to the receiver itself. Other `update`/`setCredentials`/`getCredentials` call sites are flagged separately by `AddCommentToMethodInvocations`.
 * [org.openrewrite.apache.httpclient5.MigrateAuthScope](/user-documentation/recipes/recipe-catalog/apache/httpclient5/migrateauthscope.md)
   * **Replaces `AuthScope.ANY`**
   * Replace removed constant `org.apache.http.auth.AuthScope.AuthScope.ANY` with `new org.apache.hc.client5.http.auth.AuthScope(null, -1)`.
-* [org.openrewrite.apache.httpclient5.MigrateAuthState](/user-documentation/recipes/recipe-catalog/apache/httpclient5/migrateauthstate.md)
-  * **Migrate `AuthState` to `AuthExchange`**
-  * Migrate Apache HttpClient 4.x `AuthState` and related types to the HttpClient 5.x `AuthExchange` API, including the `AuthProtocolState` enum, `AuthOption` queue elements, and credential-handling call sites.
 * [org.openrewrite.apache.httpclient5.MigratePoolingNHttpClientConnectionManager](/user-documentation/recipes/recipe-catalog/apache/httpclient5/migratepoolingnhttpclientconnectionmanager.md)
   * **Migrate `PoolingNHttpClientConnectionManager` to `PoolingAsyncClientConnectionManager`**
   * Migrates `PoolingNHttpClientConnectionManager` from Apache HttpAsyncClient 4.x to `PoolingAsyncClientConnectionManager` in HttpClient 5.x using the builder pattern.
@@ -9097,7 +7028,7 @@ _27 recipes_
 
 _License: Moderne Source Available License_
 
-_54 recipes_
+_53 recipes_
 
 * [org.openrewrite.github.AddCronTrigger](/user-documentation/recipes/recipe-catalog/github/addcrontrigger.md)
   * **Add cron workflow trigger**
@@ -9234,9 +7165,6 @@ _54 recipes_
 * [org.openrewrite.github.security.Obfuscation](/user-documentation/recipes/recipe-catalog/github/security/obfuscation.md)
   * **Find obfuscated GitHub Actions features**
   * Find workflows that use obfuscated action references or expressions that may be attempting to hide malicious behavior. This includes action paths with `'.'`, `'..'`, empty components, or expressions that use quote manipulation to hide their true intent. Based on [zizmor's `obfuscation` audit](https://github.com/woodruffw/zizmor/blob/main/crates/zizmor/src/audit/obfuscation.rs).
-* [org.openrewrite.github.security.PinGitHubActionsToSha](/user-documentation/recipes/recipe-catalog/github/security/pingithubactionstosha.md)
-  * **Pin GitHub Actions to commit SHAs**
-  * Replaces mutable tag or branch references in GitHub Actions `uses:` declarations with immutable commit SHAs. A static mapping of well-known actions is checked first; if the action is not found, the GitHub API is used to resolve the reference at recipe run time. By default only third-party actions are pinned; set `pinOfficialActions` to include actions from the `actions` and `github` organizations. To pin only a specific allow-list of actions, set `includedActions`.
 * [org.openrewrite.github.security.RefVersionMismatch](/user-documentation/recipes/recipe-catalog/github/security/refversionmismatch.md)
   * **Find commit SHAs with potentially mismatched version comments**
   * Find GitHub Actions that are pinned to commit SHAs but have version comments that may not match the actual pinned version. This can lead to confusion about which version is actually being used and potential security issues if the comment misleads developers about the pinned version. Based on [zizmor's `ref-version-mismatch` audit](https://github.com/woodruffw/zizmor/blob/main/crates/zizmor/src/audit/ref_version_mismatch.rs).
@@ -9603,14 +7531,14 @@ _18 recipes_
 
 _License: Moderne Proprietary License_
 
-_106 recipes_
+_104 recipes_
 
 * [org.openrewrite.csharp.dependencies.DependencyInsight](/user-documentation/recipes/recipe-catalog/csharp/dependencies/dependencyinsight.md)
   * **Dependency insight for C#**
   * Finds dependencies in `*.csproj` and `packages.config`.
 * [org.openrewrite.csharp.dependencies.DependencyVulnerabilityCheck](/user-documentation/recipes/recipe-catalog/csharp/dependencies/dependencyvulnerabilitycheck.md)
   * **Find and fix vulnerable Nuget dependencies**
-  * This software composition analysis (SCA) tool detects and upgrades dependencies with publicly disclosed vulnerabilities. This recipe both generates a report of vulnerable dependencies and upgrades to newer versions with fixes. This recipe by default only upgrades to the latest **patch** version. If a minor or major upgrade is required to reach the fixed version, this can be controlled using the `maximumUpgradeDelta` option. Vulnerability information comes from the [GitHub Security Advisory Database](https://docs.github.com/en/code-security/security-advisories/global-security-advisories/about-the-github-advisory-database), which aggregates vulnerability data from several public databases, including the [National Vulnerability Database](https://nvd.nist.gov/) maintained by the United States government. Dependencies following [Semantic Versioning](https://semver.org/) will see their _patch_ version updated where applicable. Last updated: 2026-05-11T1202.
+  * This software composition analysis (SCA) tool detects and upgrades dependencies with publicly disclosed vulnerabilities. This recipe both generates a report of vulnerable dependencies and upgrades to newer versions with fixes. This recipe **only** upgrades to the latest **patch** version.  If a minor or major upgrade is required to reach the fixed version, this recipe will not make any changes. Vulnerability information comes from the [GitHub Security Advisory Database](https://docs.github.com/en/code-security/security-advisories/global-security-advisories/about-the-github-advisory-database), which aggregates vulnerability data from several public databases, including the [National Vulnerability Database](https://nvd.nist.gov/) maintained by the United States government. Dependencies following [Semantic Versioning](https://semver.org/) will see their _patch_ version updated where applicable.
 * [org.openrewrite.csharp.dependencies.UpgradeDependencyVersion](/user-documentation/recipes/recipe-catalog/csharp/dependencies/upgradedependencyversion.md)
   * **Upgrade C# dependency versions**
   * Upgrades dependencies in `*.csproj`, `Directory.Packages.props`, and `packages.config`.
@@ -9622,7 +7550,7 @@ _106 recipes_
   * Locates and reports on all licenses in use.
 * [org.openrewrite.java.dependencies.DependencyVulnerabilityCheck](/user-documentation/recipes/recipe-catalog/java/dependencies/dependencyvulnerabilitycheck.md)
   * **Find and fix vulnerable dependencies**
-  * This software composition analysis (SCA) tool detects and upgrades dependencies with publicly disclosed vulnerabilities. This recipe both generates a report of vulnerable dependencies and upgrades to newer versions with fixes. This recipe by default only upgrades to the latest **patch** version.  If a minor or major upgrade is required to reach the fixed version, this can be controlled using the `maximumUpgradeDelta` option. Vulnerability information comes from the [GitHub Security Advisory Database](https://docs.github.com/en/code-security/security-advisories/global-security-advisories/about-the-github-advisory-database), which aggregates vulnerability data from several public databases, including the [National Vulnerability Database](https://nvd.nist.gov/) maintained by the United States government. Upgrades dependencies versioned according to [Semantic Versioning](https://semver.org/).   ## Customizing Vulnerability Data  This recipe can be customized by extending `DependencyVulnerabilityCheckBase` and overriding the vulnerability data sources:   - **`baselineVulnerabilities(ExecutionContext ctx)`**: Provides the default set of known vulnerabilities. The base implementation loads vulnerability data from the GitHub Security Advisory Database CSV file using `ResourceUtils.parseResourceAsCsv()`. Override this method to replace the entire vulnerability dataset with your own curated list.   - **`supplementalVulnerabilities(ExecutionContext ctx)`**: Allows adding custom vulnerability data beyond the baseline. The base implementation returns an empty list. Override this method to add organization-specific vulnerabilities, internal security advisories, or vulnerabilities from additional sources while retaining the baseline GitHub Advisory Database.  Both methods return `List&lt;Vulnerability&gt;` objects. Vulnerability data can be loaded from CSV files using `ResourceUtils.parseResourceAsCsv(path, Vulnerability.class, consumer)` or constructed programmatically. To customize, extend `DependencyVulnerabilityCheckBase` and override one or both methods depending on your needs. For example, override `supplementalVulnerabilities()` to add custom CVEs while keeping the standard vulnerability database, or override `baselineVulnerabilities()` to use an entirely different vulnerability data source. Last updated: 2026-05-11T1202.
+  * This software composition analysis (SCA) tool detects and upgrades dependencies with publicly disclosed vulnerabilities. This recipe both generates a report of vulnerable dependencies and upgrades to newer versions with fixes. This recipe by default only upgrades to the latest **patch** version.  If a minor or major upgrade is required to reach the fixed version, this can be controlled using the `maximumUpgradeDelta` option. Vulnerability information comes from the [GitHub Security Advisory Database](https://docs.github.com/en/code-security/security-advisories/global-security-advisories/about-the-github-advisory-database), which aggregates vulnerability data from several public databases, including the [National Vulnerability Database](https://nvd.nist.gov/) maintained by the United States government. Upgrades dependencies versioned according to [Semantic Versioning](https://semver.org/).   ## Customizing Vulnerability Data  This recipe can be customized by extending `DependencyVulnerabilityCheckBase` and overriding the vulnerability data sources:   - **`baselineVulnerabilities(ExecutionContext ctx)`**: Provides the default set of known vulnerabilities. The base implementation loads vulnerability data from the GitHub Security Advisory Database CSV file using `ResourceUtils.parseResourceAsCsv()`. Override this method to replace the entire vulnerability dataset with your own curated list.   - **`supplementalVulnerabilities(ExecutionContext ctx)`**: Allows adding custom vulnerability data beyond the baseline. The base implementation returns an empty list. Override this method to add organization-specific vulnerabilities, internal security advisories, or vulnerabilities from additional sources while retaining the baseline GitHub Advisory Database.  Both methods return `List&lt;Vulnerability&gt;` objects. Vulnerability data can be loaded from CSV files using `ResourceUtils.parseResourceAsCsv(path, Vulnerability.class, consumer)` or constructed programmatically. To customize, extend `DependencyVulnerabilityCheckBase` and override one or both methods depending on your needs. For example, override `supplementalVulnerabilities()` to add custom CVEs while keeping the standard vulnerability database, or override `baselineVulnerabilities()` to use an entirely different vulnerability data source. Last updated: 2026-04-27T1132.
 * [org.openrewrite.java.dependencies.RemoveUnusedDependencies](/user-documentation/recipes/recipe-catalog/java/dependencies/removeunuseddependencies.md)
   * **Remove unused dependencies**
   * Scans through source code collecting references to types and methods, removing any dependencies that are not used from Maven or Gradle build files. This is best effort and not guaranteed to work well in all cases; false positives are still possible.  This recipe takes reflective access into account: - When reflective access to a class is made unambiguously via a string literal, such as: `Class.forName(&quot;java.util.List&quot;)` that is counted correctly. - When reflective access to a class is made ambiguously via anything other than a string literal no dependencies will be removed.  This recipe takes transitive dependencies into account: - When a direct dependency is not used but a transitive dependency it brings in _is_ in use the direct dependency is not removed.
@@ -9809,12 +7737,6 @@ _106 recipes_
 * [org.openrewrite.java.security.secrets.FindAzureSecrets](/user-documentation/recipes/recipe-catalog/java/security/secrets/findazuresecrets.md)
   * **Find Azure secrets**
   * Locates Azure secrets stored in plain text in code.
-* [org.openrewrite.java.security.secrets.FindBasicAuthSecrets](/user-documentation/recipes/recipe-catalog/java/security/secrets/findbasicauthsecrets.md)
-  * **Find HTTP Basic authentication secrets**
-  * Locates HTTP Basic authentication credentials stored in plain text in code.
-* [org.openrewrite.java.security.secrets.FindBearerTokenSecrets](/user-documentation/recipes/recipe-catalog/java/security/secrets/findbearertokensecrets.md)
-  * **Find Bearer token secrets**
-  * Locates HTTP Bearer tokens (RFC 6750) stored in plain text in code.
 * [org.openrewrite.java.security.secrets.FindDiscordSecrets](/user-documentation/recipes/recipe-catalog/java/security/secrets/finddiscordsecrets.md)
   * **Find Discord secrets**
   * Locates Discord secrets stored in plain text in code.
@@ -10618,7 +8540,7 @@ _7 recipes_
 
 _License: Apache License Version 2.0_
 
-_39 recipes_
+_37 recipes_
 
 * [org.openrewrite.java.micronaut.AddAnnotationProcessorPath](/user-documentation/recipes/recipe-catalog/java/micronaut/addannotationprocessorpath.md)
   * **Add Maven annotation processor path**
@@ -10662,9 +8584,6 @@ _39 recipes_
 * [org.openrewrite.java.micronaut.Micronaut3to4Migration](/user-documentation/recipes/recipe-catalog/java/micronaut/micronaut3to4migration.md)
   * **Migrate from Micronaut 3.x to 4.x**
   * This recipe will apply changes required for migrating from Micronaut 3 to Micronaut 4.
-* [org.openrewrite.java.micronaut.Micronaut4to5Migration](/user-documentation/recipes/recipe-catalog/java/micronaut/micronaut4to5migration.md)
-  * **Migrate from Micronaut 4.x to 5.x**
-  * This recipe will apply changes required for migrating from Micronaut 4 to Micronaut 5. Micronaut 5 raises the Java baseline to 25 and ships a number of artifact/plugin renames; see the [upstream migration guide](https://github.com/micronaut-projects/micronaut-core/wiki/Update-to-Micronaut-5) for the full list of breaking changes.
 * [org.openrewrite.java.micronaut.OncePerRequestHttpServerFilterToHttpServerFilter](/user-documentation/recipes/recipe-catalog/java/micronaut/onceperrequesthttpserverfiltertohttpserverfilter.md)
   * **Convert `OncePerRequestServerFilter` extensions to `HttpServerFilter`**
   * Starting in Micronaut 3.0 all filters are executed once per request. Directly implement `HttpServerFilter` instead of extending `OncePerRequestHttpServerFilter` and replace any usages of `micronaut.once` attributes with a custom attribute name.
@@ -10695,9 +8614,6 @@ _39 recipes_
 * [org.openrewrite.java.micronaut.UpdateBuildPlugins](/user-documentation/recipes/recipe-catalog/java/micronaut/updatebuildplugins.md)
   * **Add Micronaut build plugins to 4.x**
   * This recipe will update the shadow jar plugin to 8.x and the Micronaut build plugins to 4.x for a Gradle build.
-* [org.openrewrite.java.micronaut.UpdateBuildPlugins5](/user-documentation/recipes/recipe-catalog/java/micronaut/updatebuildplugins5.md)
-  * **Update Micronaut Gradle build plugins to 5.x**
-  * This recipe will update the Micronaut Gradle build plugins to 5.x and migrate the Shadow plugin from `com.github.johnrengelman.shadow` to `com.gradleup.shadow` 9.x.
 * [org.openrewrite.java.micronaut.UpdateBuildToMicronaut4Version](/user-documentation/recipes/recipe-catalog/java/micronaut/updatebuildtomicronaut4version.md)
   * **Update the Micronaut version to 4.x**
   * This recipe will update the Micronaut version to 4.x for a Gradle or Maven build.
@@ -12018,7 +9934,7 @@ _458 recipes_
   * The libraries that define these APIs will have to be migrated before any of the repositories that use them.
 * [org.openrewrite.java.migrate.search.FindJavaVersion](/user-documentation/recipes/recipe-catalog/java/migrate/search/findjavaversion.md)
   * **Find Java versions in use**
-  * Finds Java versions in use, emitting one row per git repository (the lowest source/target compatibility across modules in that repository).
+  * Finds Java versions in use.
 * [org.openrewrite.java.migrate.search.FindLocaleDateTimeFormats](/user-documentation/recipes/recipe-catalog/java/migrate/search/findlocaledatetimeformats.md)
   * **Find locale-sensitive date/time formatting**
   * Finds usages of locale-based date/time formatting APIs that may be affected by JDK 20+ CLDR locale data changes, where the space before AM/PM was changed from a regular space to a narrow no-break space (NNBSP).
@@ -12054,13 +9970,13 @@ _458 recipes_
   * Prefer `Set.of()` instead of using `Collections.emptySet()` in Java 9 or higher.
 * [org.openrewrite.java.migrate.util.MigrateCollectionsSingletonList](/user-documentation/recipes/recipe-catalog/java/migrate/util/migratecollectionssingletonlist.md)
   * **Prefer `List.of(..)`**
-  * Prefer `List.of(..)` instead of using `Collections.singletonList()` in Java 9 or higher. Note that the resulting `List` is not behaviorally equivalent: `List.of(..)` throws `NullPointerException` when probed with `contains(null)`, `indexOf(null)`, or `lastIndexOf(null)`, whereas `Collections.singletonList(..)` returns `false`/`-1`.
+  * Prefer `List.of(..)` instead of using `Collections.singletonList()` in Java 9 or higher.
 * [org.openrewrite.java.migrate.util.MigrateCollectionsSingletonMap](/user-documentation/recipes/recipe-catalog/java/migrate/util/migratecollectionssingletonmap.md)
   * **Prefer `Map.of(..)`**
-  * Prefer `Map.of(..)` instead of using `Collections.singletonMap()` in Java 9 or higher. Note that the resulting `Map` is not behaviorally equivalent: `Map.of(..)` throws `NullPointerException` when probed with `containsKey(null)`, `containsValue(null)`, or `get(null)`, whereas `Collections.singletonMap(..)` returns `false`/`null`.
+  * Prefer `Map.of(..)` instead of using `Collections.singletonMap()` in Java 9 or higher.
 * [org.openrewrite.java.migrate.util.MigrateCollectionsSingletonSet](/user-documentation/recipes/recipe-catalog/java/migrate/util/migratecollectionssingletonset.md)
   * **Prefer `Set.of(..)`**
-  * Prefer `Set.of(..)` instead of using `Collections.singleton()` in Java 9 or higher. Note that the resulting `Set` is not behaviorally equivalent: `Set.of(..)` throws `NullPointerException` when probed with `contains(null)`, whereas `Collections.singleton(..)` returns `false`.
+  * Prefer `Set.Of(..)` instead of using `Collections.singleton()` in Java 9 or higher.
 * [org.openrewrite.java.migrate.util.MigrateCollectionsUnmodifiableList](/user-documentation/recipes/recipe-catalog/java/migrate/util/migratecollectionsunmodifiablelist.md)
   * **Prefer `List.of(..)`**
   * Prefer `List.Of(..)` instead of using `unmodifiableList(java.util.Arrays asList(&lt;args&gt;))` in Java 9 or higher.
@@ -12220,23 +10136,347 @@ _30 recipes_
 
 _License: Moderne Proprietary License_
 
-_5 recipes_
+_113 recipes_
 
+* [org.openrewrite.python.codequality.AllBranchesIdentical](/user-documentation/recipes/recipe-catalog/python/codequality/allbranchesidentical.md)
+  * **Remove conditional with identical branches**
+  * Replace `if`/`elif`/`else` chains where every branch has the same body with just the body, since the condition has no effect on what code executes.
+* [org.openrewrite.python.codequality.BooleanChecksNotInverted](/user-documentation/recipes/recipe-catalog/python/codequality/booleanchecksnotinverted.md)
+  * **Boolean checks should not be inverted**
+  * Replace inverted boolean comparisons like `not (a == b)` with the equivalent direct operator (`a != b`), and remove double negations like `not (not x)`.
+* [org.openrewrite.python.codequality.CollapsibleIfStatements](/user-documentation/recipes/recipe-catalog/python/codequality/collapsibleifstatements.md)
+  * **Merge collapsible if statements**
+  * Combine nested `if` statements that have no `else` branch into a single `if` joined with `and`.
+* [org.openrewrite.python.codequality.MergeIdenticalBranches](/user-documentation/recipes/recipe-catalog/python/codequality/mergeidenticalbranches.md)
+  * **Merge consecutive branches with identical bodies**
+  * Combine consecutive `if`/`elif` branches that have the same body into a single branch with conditions joined by `or`.
+* [org.openrewrite.python.codequality.RemoveDuplicateConditions](/user-documentation/recipes/recipe-catalog/python/codequality/removeduplicateconditions.md)
+  * **Remove duplicate conditions in if/elif chains**
+  * Remove `elif` branches whose condition is identical to an earlier branch in the same `if`/`elif` chain, since the duplicate branch is dead code that can never execute.
+* [org.openrewrite.python.codequality.RemoveSelfAssignment](/user-documentation/recipes/recipe-catalog/python/codequality/removeselfassignment.md)
+  * **Remove self-assignments**
+  * Remove statements that assign a variable to itself (`x = x`, `self.x = self.x`), since they have no effect.
+* [org.openrewrite.python.codequality.RemoveUnconditionalValueOverwrite](/user-documentation/recipes/recipe-catalog/python/codequality/removeunconditionalvalueoverwrite.md)
+  * **Remove unconditional value overwrites**
+  * Remove consecutive assignments that write to the same dict key or object attribute, since the first value is immediately overwritten and never used.
+* [org.openrewrite.python.codequality.SimplifyBooleanLiteral](/user-documentation/recipes/recipe-catalog/python/codequality/simplifybooleanliteral.md)
+  * **Simplify boolean literal comparisons**
+  * Replace comparisons against boolean literals (`== True`, `!= False`, `is True`, etc.) with the simpler equivalent boolean expression.
+* [org.openrewrite.python.codequality.SimplifyRedundantLogicalExpression](/user-documentation/recipes/recipe-catalog/python/codequality/simplifyredundantlogicalexpression.md)
+  * **Simplify redundant logical expressions**
+  * Replace `x and x` with `x` and `x or x` with `x`. Identical operands in a logical expression are redundant and often indicate a copy-paste mistake.
 * [org.openrewrite.python.migrate.DependencyInsight](/user-documentation/recipes/recipe-catalog/python/migrate/dependencyinsight.md)
   * **Python dependency insight**
   * Find Python dependencies, including transitive dependencies, matching a package name pattern. Results include the resolved version, scope, and whether the dependency is direct or transitive.
+* [org.openrewrite.python.migrate.FindAifcModule](/user-documentation/recipes/recipe-catalog/python/migrate/findaifcmodule.md)
+  * **Find deprecated `aifc` module usage**
+  * The `aifc` module was deprecated in Python 3.11 and removed in Python 3.13. Use third-party audio libraries instead.
+* [org.openrewrite.python.migrate.FindAsyncioCoroutineDecorator](/user-documentation/recipes/recipe-catalog/python/migrate/findasynciocoroutinedecorator.md)
+  * **Find deprecated `@asyncio.coroutine` decorator**
+  * Find usage of the deprecated `@asyncio.coroutine` decorator which was removed in Python 3.11. Convert to `async def` syntax with `await` instead of `yield from`.
+* [org.openrewrite.python.migrate.FindAudioopModule](/user-documentation/recipes/recipe-catalog/python/migrate/findaudioopmodule.md)
+  * **Find deprecated `audioop` module usage**
+  * The `audioop` module was deprecated in Python 3.11 and removed in Python 3.13. Use pydub, numpy, or scipy for audio operations.
+* [org.openrewrite.python.migrate.FindCgiModule](/user-documentation/recipes/recipe-catalog/python/migrate/findcgimodule.md)
+  * **Find deprecated `cgi` module usage**
+  * The `cgi` module was deprecated in Python 3.11 and removed in Python 3.13. Use `urllib.parse` for query string parsing, `html.escape()` for escaping, and web frameworks or `email.message` for form handling.
+* [org.openrewrite.python.migrate.FindCgitbModule](/user-documentation/recipes/recipe-catalog/python/migrate/findcgitbmodule.md)
+  * **Find deprecated `cgitb` module usage**
+  * The `cgitb` module was deprecated in Python 3.11 and removed in Python 3.13. Use the standard `logging` and `traceback` modules for error handling.
+* [org.openrewrite.python.migrate.FindChunkModule](/user-documentation/recipes/recipe-catalog/python/migrate/findchunkmodule.md)
+  * **Find deprecated `chunk` module usage**
+  * The `chunk` module was deprecated in Python 3.11 and removed in Python 3.13. Implement IFF chunk reading manually or use specialized libraries.
+* [org.openrewrite.python.migrate.FindCryptModule](/user-documentation/recipes/recipe-catalog/python/migrate/findcryptmodule.md)
+  * **Find deprecated `crypt` module usage**
+  * The `crypt` module was deprecated in Python 3.11 and removed in Python 3.13. Use `bcrypt`, `argon2-cffi`, or `passlib` instead.
+* [org.openrewrite.python.migrate.FindDistutilsUsage](/user-documentation/recipes/recipe-catalog/python/migrate/finddistutilsusage.md)
+  * **Find deprecated distutils module usage**
+  * Find imports of the deprecated `distutils` module which was removed in Python 3.12. Migrate to `setuptools` or other modern build tools.
+* [org.openrewrite.python.migrate.FindFunctoolsCmpToKey](/user-documentation/recipes/recipe-catalog/python/migrate/findfunctoolscmptokey.md)
+  * **Find `functools.cmp_to_key()` usage**
+  * Find usage of `functools.cmp_to_key()` which is a Python 2 compatibility function. Consider using a key function directly.
 * [org.openrewrite.python.migrate.FindFutureImports](/user-documentation/recipes/recipe-catalog/python/migrate/findfutureimports.md)
   * **Find `__future__` imports**
   * Find `__future__` imports and add a search marker.
+* [org.openrewrite.python.migrate.FindImghdrModule](/user-documentation/recipes/recipe-catalog/python/migrate/findimghdrmodule.md)
+  * **Find deprecated `imghdr` module usage**
+  * The `imghdr` module was deprecated in Python 3.11 and removed in Python 3.13. Use `filetype`, `python-magic`, or `Pillow` instead.
+* [org.openrewrite.python.migrate.FindImpUsage](/user-documentation/recipes/recipe-catalog/python/migrate/findimpusage.md)
+  * **Find deprecated imp module usage**
+  * Find imports of the deprecated `imp` module which was removed in Python 3.12. Migrate to `importlib`.
+* [org.openrewrite.python.migrate.FindLocaleGetdefaultlocale](/user-documentation/recipes/recipe-catalog/python/migrate/findlocalegetdefaultlocale.md)
+  * **Find deprecated `locale.getdefaultlocale()` usage**
+  * `locale.getdefaultlocale()` was deprecated in Python 3.11. Use `locale.setlocale()`, `locale.getlocale()`, or `locale.getpreferredencoding(False)` instead.
+* [org.openrewrite.python.migrate.FindMacpathModule](/user-documentation/recipes/recipe-catalog/python/migrate/findmacpathmodule.md)
+  * **Find removed `macpath` module usage**
+  * The `macpath` module was removed in Python 3.8. Use `os.path` instead.
+* [org.openrewrite.python.migrate.FindMailcapModule](/user-documentation/recipes/recipe-catalog/python/migrate/findmailcapmodule.md)
+  * **Find deprecated `mailcap` module usage**
+  * The `mailcap` module was deprecated in Python 3.11 and removed in Python 3.13. Use `mimetypes` module for MIME type handling.
 * [org.openrewrite.python.migrate.FindMethods](/user-documentation/recipes/recipe-catalog/python/migrate/findmethods.md)
   * **Find Python function and method usages**
   * Find function and method calls by pattern. Covers standalone functions, class methods, static methods, and constructor calls.
+* [org.openrewrite.python.migrate.FindMsilibModule](/user-documentation/recipes/recipe-catalog/python/migrate/findmsilibmodule.md)
+  * **Find deprecated `msilib` module usage**
+  * The `msilib` module was deprecated in Python 3.11 and removed in Python 3.13. Use platform-specific tools for MSI creation.
+* [org.openrewrite.python.migrate.FindNisModule](/user-documentation/recipes/recipe-catalog/python/migrate/findnismodule.md)
+  * **Find deprecated `nis` module usage**
+  * The `nis` module was deprecated in Python 3.11 and removed in Python 3.13. There is no direct replacement.
+* [org.openrewrite.python.migrate.FindNntplibModule](/user-documentation/recipes/recipe-catalog/python/migrate/findnntplibmodule.md)
+  * **Find deprecated `nntplib` module usage**
+  * The `nntplib` module was deprecated in Python 3.11 and removed in Python 3.13. NNTP is largely obsolete; consider alternatives if needed.
+* [org.openrewrite.python.migrate.FindOsPopen](/user-documentation/recipes/recipe-catalog/python/migrate/findospopen.md)
+  * **Find deprecated `os.popen()` usage**
+  * `os.popen()` has been deprecated since Python 3.6. Use `subprocess.run()` or `subprocess.Popen()` instead for better control over process creation and output handling.
+* [org.openrewrite.python.migrate.FindOsSpawn](/user-documentation/recipes/recipe-catalog/python/migrate/findosspawn.md)
+  * **Find deprecated `os.spawn*()` usage**
+  * The `os.spawn*()` family of functions are deprecated. Use `subprocess.run()` or `subprocess.Popen()` instead.
+* [org.openrewrite.python.migrate.FindOssaudiodevModule](/user-documentation/recipes/recipe-catalog/python/migrate/findossaudiodevmodule.md)
+  * **Find deprecated `ossaudiodev` module usage**
+  * The `ossaudiodev` module was deprecated in Python 3.11 and removed in Python 3.13. There is no direct replacement.
+* [org.openrewrite.python.migrate.FindPathlibLinkTo](/user-documentation/recipes/recipe-catalog/python/migrate/findpathliblinkto.md)
+  * **Find deprecated `Path.link_to()` usage**
+  * Find usage of `Path.link_to()` which was deprecated in Python 3.10 and removed in 3.12. Use `hardlink_to()` instead (note: argument order is reversed).
+* [org.openrewrite.python.migrate.FindPipesModule](/user-documentation/recipes/recipe-catalog/python/migrate/findpipesmodule.md)
+  * **Find deprecated `pipes` module usage**
+  * The `pipes` module was deprecated in Python 3.11 and removed in Python 3.13. Use subprocess with shlex.quote() for shell escaping.
+* [org.openrewrite.python.migrate.FindRemovedModules312](/user-documentation/recipes/recipe-catalog/python/migrate/findremovedmodules312.md)
+  * **Find modules removed in Python 3.12**
+  * Find imports of modules that were removed in Python 3.12, including asynchat, asyncore, and smtpd.
+* [org.openrewrite.python.migrate.FindShutilRmtreeOnerror](/user-documentation/recipes/recipe-catalog/python/migrate/findshutilrmtreeonerror.md)
+  * **Find deprecated `shutil.rmtree(onerror=...)` parameter**
+  * The `onerror` parameter of `shutil.rmtree()` was deprecated in Python 3.12 in favor of `onexc`. The `onexc` callback receives the exception object directly rather than an exc_info tuple.
+* [org.openrewrite.python.migrate.FindSndhdrModule](/user-documentation/recipes/recipe-catalog/python/migrate/findsndhdrmodule.md)
+  * **Find deprecated `sndhdr` module usage**
+  * The `sndhdr` module was deprecated in Python 3.11 and removed in Python 3.13. Use `filetype` or audio libraries like `pydub` instead.
+* [org.openrewrite.python.migrate.FindSocketGetFQDN](/user-documentation/recipes/recipe-catalog/python/migrate/findsocketgetfqdn.md)
+  * **Find `socket.getfqdn()` usage**
+  * Find usage of `socket.getfqdn()` which can be slow and unreliable. Consider using `socket.gethostname()` instead.
+* [org.openrewrite.python.migrate.FindSpwdModule](/user-documentation/recipes/recipe-catalog/python/migrate/findspwdmodule.md)
+  * **Find deprecated `spwd` module usage**
+  * The `spwd` module was deprecated in Python 3.11 and removed in Python 3.13. There is no direct replacement.
+* [org.openrewrite.python.migrate.FindSslMatchHostname](/user-documentation/recipes/recipe-catalog/python/migrate/findsslmatchhostname.md)
+  * **Find deprecated `ssl.match_hostname()`**
+  * Find usage of the deprecated `ssl.match_hostname()` function which was removed in Python 3.12. Use `ssl.SSLContext.check_hostname` instead.
+* [org.openrewrite.python.migrate.FindSunauModule](/user-documentation/recipes/recipe-catalog/python/migrate/findsunaumodule.md)
+  * **Find deprecated `sunau` module usage**
+  * The `sunau` module was deprecated in Python 3.11 and removed in Python 3.13. Use `soundfile` or `pydub` instead.
+* [org.openrewrite.python.migrate.FindSysCoroutineWrapper](/user-documentation/recipes/recipe-catalog/python/migrate/findsyscoroutinewrapper.md)
+  * **Find removed `sys.set_coroutine_wrapper()` / `sys.get_coroutine_wrapper()`**
+  * `sys.set_coroutine_wrapper()` and `sys.get_coroutine_wrapper()` were deprecated in Python 3.7 and removed in Python 3.8.
+* [org.openrewrite.python.migrate.FindTelnetlibModule](/user-documentation/recipes/recipe-catalog/python/migrate/findtelnetlibmodule.md)
+  * **Find deprecated `telnetlib` module usage**
+  * The `telnetlib` module was deprecated in Python 3.11 and removed in Python 3.13. Consider using `telnetlib3` from PyPI, direct socket usage, or SSH-based alternatives like paramiko.
+* [org.openrewrite.python.migrate.FindTempfileMktemp](/user-documentation/recipes/recipe-catalog/python/migrate/findtempfilemktemp.md)
+  * **Find deprecated `tempfile.mktemp()` usage**
+  * Find usage of `tempfile.mktemp()` which is deprecated due to security concerns (race condition). Use `mkstemp()` or `NamedTemporaryFile()` instead.
 * [org.openrewrite.python.migrate.FindTypes](/user-documentation/recipes/recipe-catalog/python/migrate/findtypes.md)
   * **Find Python types**
   * Find type references by name. Identifies classes matching a type pattern. In Python, all type definitions use the `class` keyword, covering regular classes, abstract base classes, protocols, enums, dataclasses, named tuples, typed dicts, and more.
+* [org.openrewrite.python.migrate.FindUrllibParseSplitFunctions](/user-documentation/recipes/recipe-catalog/python/migrate/findurllibparsesplitfunctions.md)
+  * **Find deprecated urllib.parse split functions**
+  * Find usage of deprecated urllib.parse split functions (splithost, splitport, etc.) removed in Python 3.14. Use urlparse() instead.
+* [org.openrewrite.python.migrate.FindUrllibParseToBytes](/user-documentation/recipes/recipe-catalog/python/migrate/findurllibparsetobytes.md)
+  * **Find deprecated `urllib.parse.to_bytes()` usage**
+  * Find usage of `urllib.parse.to_bytes()` which was deprecated in Python 3.8 and removed in 3.14. Use str.encode() directly.
+* [org.openrewrite.python.migrate.FindUuModule](/user-documentation/recipes/recipe-catalog/python/migrate/finduumodule.md)
+  * **Find deprecated `uu` module usage**
+  * The `uu` module was deprecated in Python 3.11 and removed in Python 3.13. Use `base64` module instead for encoding binary data.
+* [org.openrewrite.python.migrate.FindXdrlibModule](/user-documentation/recipes/recipe-catalog/python/migrate/findxdrlibmodule.md)
+  * **Find deprecated `xdrlib` module usage**
+  * The `xdrlib` module was deprecated in Python 3.11 and removed in Python 3.13. Use `struct` module for binary packing/unpacking.
+* [org.openrewrite.python.migrate.MigrateAsyncioCoroutine](/user-documentation/recipes/recipe-catalog/python/migrate/migrateasynciocoroutine.md)
+  * **Migrate `@asyncio.coroutine` to `async def`**
+  * Migrate functions using the deprecated `@asyncio.coroutine` decorator to use `async def` syntax. Also transforms `yield from` to `await`. The decorator was removed in Python 3.11.
 * [org.openrewrite.python.migrate.MigrateToPyprojectToml](/user-documentation/recipes/recipe-catalog/python/migrate/migratetopyprojecttoml.md)
   * **Migrate to `pyproject.toml`**
   * Migrate Python projects from `requirements.txt` and/or `setup.cfg` to `pyproject.toml` with `hatchling` build backend.
+* [org.openrewrite.python.migrate.RemoveFutureImports](/user-documentation/recipes/recipe-catalog/python/migrate/removefutureimports.md)
+  * **Remove obsolete `__future__` imports**
+  * Remove `from __future__ import ...` statements for features that are enabled by default in Python 3.
+* [org.openrewrite.python.migrate.ReplaceArrayFromstring](/user-documentation/recipes/recipe-catalog/python/migrate/replacearrayfromstring.md)
+  * **Replace `array.fromstring()` with `array.frombytes()`**
+  * Replace `fromstring()` with `frombytes()` on array objects. The fromstring() method was deprecated in Python 3.2 and removed in 3.14.
+* [org.openrewrite.python.migrate.ReplaceArrayTostring](/user-documentation/recipes/recipe-catalog/python/migrate/replacearraytostring.md)
+  * **Replace `array.tostring()` with `array.tobytes()`**
+  * Replace `tostring()` with `tobytes()` on array objects. The tostring() method was deprecated in Python 3.2 and removed in 3.14.
+* [org.openrewrite.python.migrate.ReplaceAstBytes](/user-documentation/recipes/recipe-catalog/python/migrate/replaceastbytes.md)
+  * **Replace `ast.Bytes` with `ast.Constant`**
+  * The `ast.Bytes` node type was deprecated in Python 3.8 and removed in Python 3.14. Replace with `ast.Constant` and check `isinstance(node.value, bytes)`.
+* [org.openrewrite.python.migrate.ReplaceAstEllipsis](/user-documentation/recipes/recipe-catalog/python/migrate/replaceastellipsis.md)
+  * **Replace `ast.Ellipsis` with `ast.Constant`**
+  * The `ast.Ellipsis` node type was deprecated in Python 3.8 and removed in Python 3.14. Replace with `ast.Constant` and check `node.value is ...`.
+* [org.openrewrite.python.migrate.ReplaceAstNameConstant](/user-documentation/recipes/recipe-catalog/python/migrate/replaceastnameconstant.md)
+  * **Replace `ast.NameConstant` with `ast.Constant`**
+  * The `ast.NameConstant` node type was deprecated in Python 3.8 and removed in Python 3.14. Replace with `ast.Constant` and check `node.value in (True, False, None)`.
+* [org.openrewrite.python.migrate.ReplaceAstNum](/user-documentation/recipes/recipe-catalog/python/migrate/replaceastnum.md)
+  * **Replace `ast.Num` with `ast.Constant`**
+  * The `ast.Num` node type was deprecated in Python 3.8 and removed in Python 3.14. Replace with `ast.Constant` and check `isinstance(node.value, (int, float, complex))`.
+* [org.openrewrite.python.migrate.ReplaceAstStr](/user-documentation/recipes/recipe-catalog/python/migrate/replaceaststr.md)
+  * **Replace `ast.Str` with `ast.Constant`**
+  * The `ast.Str` node type was deprecated in Python 3.8 and removed in Python 3.14. Replace with `ast.Constant` and check `isinstance(node.value, str)`.
+* [org.openrewrite.python.migrate.ReplaceCalendarConstants](/user-documentation/recipes/recipe-catalog/python/migrate/replacecalendarconstants.md)
+  * **Replace deprecated calendar constants with uppercase**
+  * Replace deprecated mixed-case calendar constants like `calendar.January` with their uppercase equivalents like `calendar.JANUARY`. The mixed-case constants were deprecated in Python 3.12.
+* [org.openrewrite.python.migrate.ReplaceCgiParseQs](/user-documentation/recipes/recipe-catalog/python/migrate/replacecgiparseqs.md)
+  * **Replace `cgi.parse_qs()` with `urllib.parse.parse_qs()`**
+  * `cgi.parse_qs()` was removed in Python 3.8. Use `urllib.parse.parse_qs()` instead. Note: this rewrites call sites but does not manage imports. Use with `ChangeImport` in a composite recipe to update `from` imports.
+* [org.openrewrite.python.migrate.ReplaceCgiParseQsl](/user-documentation/recipes/recipe-catalog/python/migrate/replacecgiparseqsl.md)
+  * **Replace `cgi.parse_qsl()` with `urllib.parse.parse_qsl()`**
+  * `cgi.parse_qsl()` was removed in Python 3.8. Use `urllib.parse.parse_qsl()` instead. Note: this rewrites call sites but does not manage imports. Use with `ChangeImport` in a composite recipe to update `from` imports.
+* [org.openrewrite.python.migrate.ReplaceCollectionsAbcImports](/user-documentation/recipes/recipe-catalog/python/migrate/replacecollectionsabcimports.md)
+  * **Replace `collections` ABC imports with `collections.abc`**
+  * Migrate deprecated abstract base class imports from `collections` to `collections.abc`. These imports were deprecated in Python 3.3 and removed in Python 3.10.
+* [org.openrewrite.python.migrate.ReplaceConditionNotifyAll](/user-documentation/recipes/recipe-catalog/python/migrate/replaceconditionnotifyall.md)
+  * **Replace `Condition.notifyAll()` with `Condition.notify_all()`**
+  * Replace `notifyAll()` method calls with `notify_all()`. The camelCase version was deprecated in Python 3.10 and removed in 3.12.
+* [org.openrewrite.python.migrate.ReplaceConfigparserReadfp](/user-documentation/recipes/recipe-catalog/python/migrate/replaceconfigparserreadfp.md)
+  * **Replace `ConfigParser.readfp()` with `read_file()`**
+  * The `ConfigParser.readfp()` method was deprecated in Python 3.2 and removed in Python 3.13. Replace with `read_file()`.
+* [org.openrewrite.python.migrate.ReplaceConfigparserSafeConfigParser](/user-documentation/recipes/recipe-catalog/python/migrate/replaceconfigparsersafeconfigparser.md)
+  * **Replace `configparser.SafeConfigParser` with `ConfigParser`**
+  * The `configparser.SafeConfigParser` class was deprecated in Python 3.2 and removed in Python 3.12. Replace with `configparser.ConfigParser`.
+* [org.openrewrite.python.migrate.ReplaceDatetimeUtcFromTimestamp](/user-documentation/recipes/recipe-catalog/python/migrate/replacedatetimeutcfromtimestamp.md)
+  * **Replace `datetime.utcfromtimestamp()` with `datetime.fromtimestamp(ts, UTC)`**
+  * The `datetime.utcfromtimestamp()` method is deprecated in Python 3.12. Replace it with `datetime.fromtimestamp(ts, datetime.UTC)` for timezone-aware datetime objects.
+* [org.openrewrite.python.migrate.ReplaceDatetimeUtcNow](/user-documentation/recipes/recipe-catalog/python/migrate/replacedatetimeutcnow.md)
+  * **Replace `datetime.utcnow()` with `datetime.now(UTC)`**
+  * The `datetime.utcnow()` method is deprecated in Python 3.12. Replace it with `datetime.now(datetime.UTC)` for timezone-aware datetime objects.
+* [org.openrewrite.python.migrate.ReplaceDistutilsVersion](/user-documentation/recipes/recipe-catalog/python/migrate/replacedistutilsversion.md)
+  * **Replace deprecated distutils.version usage**
+  * Detect usage of deprecated `distutils.version.LooseVersion` and `distutils.version.StrictVersion`. These should be migrated to `packaging.version.Version`. Note: Manual migration is required as `packaging.version.Version` is not a drop-in replacement.
+* [org.openrewrite.python.migrate.ReplaceElementGetchildren](/user-documentation/recipes/recipe-catalog/python/migrate/replaceelementgetchildren.md)
+  * **Replace `Element.getchildren()` with `list(element)`**
+  * Replace `getchildren()` with `list(element)` on XML Element objects. Deprecated in Python 3.9.
+* [org.openrewrite.python.migrate.ReplaceElementGetiterator](/user-documentation/recipes/recipe-catalog/python/migrate/replaceelementgetiterator.md)
+  * **Replace `Element.getiterator()` with `Element.iter()`**
+  * Replace `getiterator()` with `iter()` on XML Element objects. The getiterator() method was deprecated in Python 3.9.
+* [org.openrewrite.python.migrate.ReplaceEventIsSet](/user-documentation/recipes/recipe-catalog/python/migrate/replaceeventisset.md)
+  * **Replace `Event.isSet()` with `Event.is_set()`**
+  * Replace `isSet()` method calls with `is_set()`. The camelCase version was deprecated in Python 3.10 and removed in 3.12.
+* [org.openrewrite.python.migrate.ReplaceGettextDeprecations](/user-documentation/recipes/recipe-catalog/python/migrate/replacegettextdeprecations.md)
+  * **Replace deprecated gettext l*gettext() functions**
+  * Replace deprecated gettext functions like `lgettext()` with their modern equivalents like `gettext()`. The l*gettext() functions were removed in Python 3.11.
+* [org.openrewrite.python.migrate.ReplaceHtmlParserUnescape](/user-documentation/recipes/recipe-catalog/python/migrate/replacehtmlparserunescape.md)
+  * **Replace `HTMLParser.unescape()` with `html.unescape()`**
+  * `HTMLParser.unescape()` was removed in Python 3.9. Use `html.unescape()` instead.
+* [org.openrewrite.python.migrate.ReplaceLocaleResetlocale](/user-documentation/recipes/recipe-catalog/python/migrate/replacelocaleresetlocale.md)
+  * **Replace `locale.resetlocale()` with `locale.setlocale(LC_ALL, '')`**
+  * The `locale.resetlocale()` function was deprecated in Python 3.11 and removed in Python 3.13. Replace with `locale.setlocale(locale.LC_ALL, '')`.
+* [org.openrewrite.python.migrate.ReplacePercentFormatWithFString](/user-documentation/recipes/recipe-catalog/python/migrate/replacepercentformatwithfstring.md)
+  * **Replace `%` formatting with f-string**
+  * Replace `&quot;...&quot; % (...)` expressions with f-strings (Python 3.6+). Only converts `%s` and `%r` specifiers where the format string is a literal and the conversion is safe.
+* [org.openrewrite.python.migrate.ReplacePkgutilFindLoader](/user-documentation/recipes/recipe-catalog/python/migrate/replacepkgutilfindloader.md)
+  * **Replace `pkgutil.find_loader()` with `importlib.util.find_spec()`**
+  * The `pkgutil.find_loader()` function was deprecated in Python 3.12. Replace with `importlib.util.find_spec()`. Note: returns ModuleSpec, use .loader for loader.
+* [org.openrewrite.python.migrate.ReplacePkgutilGetLoader](/user-documentation/recipes/recipe-catalog/python/migrate/replacepkgutilgetloader.md)
+  * **Replace `pkgutil.get_loader()` with `importlib.util.find_spec()`**
+  * The `pkgutil.get_loader()` function was deprecated in Python 3.12. Replace with `importlib.util.find_spec()`. Note: returns ModuleSpec, use .loader for loader.
+* [org.openrewrite.python.migrate.ReplacePlatformPopen](/user-documentation/recipes/recipe-catalog/python/migrate/replaceplatformpopen.md)
+  * **Replace `platform.popen()` with `subprocess.check_output()`**
+  * `platform.popen()` was removed in Python 3.8. Use `subprocess.check_output(cmd, shell=True)` instead. Note: this rewrites call sites but does not manage imports.
+* [org.openrewrite.python.migrate.ReplaceReTemplate](/user-documentation/recipes/recipe-catalog/python/migrate/replaceretemplate.md)
+  * **Replace `re.template()` with `re.compile()` and flag `re.TEMPLATE`/`re.T`**
+  * `re.template()` was deprecated in Python 3.11 and removed in 3.13. Calls are auto-replaced with `re.compile()`. `re.TEMPLATE`/`re.T` flags have no direct replacement and are flagged for manual review.
+* [org.openrewrite.python.migrate.ReplaceStrFormatWithFString](/user-documentation/recipes/recipe-catalog/python/migrate/replacestrformatwithfstring.md)
+  * **Replace `str.format()` with f-string**
+  * Replace `&quot;...&quot;.format(...)` calls with f-strings (Python 3.6+). Only converts cases where the format string is a literal and the conversion is safe.
+* [org.openrewrite.python.migrate.ReplaceSysLastExcInfo](/user-documentation/recipes/recipe-catalog/python/migrate/replacesyslastexcinfo.md)
+  * **Replace `sys.last_type` / `sys.last_value` / `sys.last_traceback` with `sys.last_exc`**
+  * `sys.last_type`, `sys.last_value`, and `sys.last_traceback` were deprecated in Python 3.12. Replace them with their `sys.last_exc`-based equivalents: `type(sys.last_exc)`, `sys.last_exc`, and `sys.last_exc.__traceback__` respectively.
+* [org.openrewrite.python.migrate.ReplaceTarfileFilemode](/user-documentation/recipes/recipe-catalog/python/migrate/replacetarfilefilemode.md)
+  * **Replace `tarfile.filemode` with `stat.filemode`**
+  * `tarfile.filemode` was removed in Python 3.8. Use `stat.filemode()` instead.
+* [org.openrewrite.python.migrate.ReplaceThreadGetName](/user-documentation/recipes/recipe-catalog/python/migrate/replacethreadgetname.md)
+  * **Replace `Thread.getName()` with `Thread.name`**
+  * Replace `getName()` method calls with the `name` property. Deprecated in Python 3.10, removed in 3.12.
+* [org.openrewrite.python.migrate.ReplaceThreadIsAlive](/user-documentation/recipes/recipe-catalog/python/migrate/replacethreadisalive.md)
+  * **Replace `Thread.isAlive()` with `Thread.is_alive()`**
+  * Replace `isAlive()` method calls with `is_alive()`. Deprecated in Python 3.1 and removed in 3.9.
+* [org.openrewrite.python.migrate.ReplaceThreadIsDaemon](/user-documentation/recipes/recipe-catalog/python/migrate/replacethreadisdaemon.md)
+  * **Replace `Thread.isDaemon()` with `Thread.daemon`**
+  * Replace `isDaemon()` method calls with the `daemon` property. Deprecated in Python 3.10, removed in 3.12.
+* [org.openrewrite.python.migrate.ReplaceThreadSetDaemon](/user-documentation/recipes/recipe-catalog/python/migrate/replacethreadsetdaemon.md)
+  * **Replace `Thread.setDaemon()` with `Thread.daemon = ...`**
+  * Replace `setDaemon()` method calls with `daemon` property assignment. Deprecated in Python 3.10, removed in 3.12.
+* [org.openrewrite.python.migrate.ReplaceThreadSetName](/user-documentation/recipes/recipe-catalog/python/migrate/replacethreadsetname.md)
+  * **Replace `Thread.setName()` with `Thread.name = ...`**
+  * Replace `setName()` method calls with `name` property assignment. Deprecated in Python 3.10, removed in 3.12.
+* [org.openrewrite.python.migrate.ReplaceThreadingActiveCount](/user-documentation/recipes/recipe-catalog/python/migrate/replacethreadingactivecount.md)
+  * **Replace `threading.activeCount()` with `threading.active_count()`**
+  * Replace `threading.activeCount()` with `threading.active_count()`. The camelCase version was deprecated in Python 3.10 and removed in 3.12.
+* [org.openrewrite.python.migrate.ReplaceThreadingCurrentThread](/user-documentation/recipes/recipe-catalog/python/migrate/replacethreadingcurrentthread.md)
+  * **Replace `threading.currentThread()` with `threading.current_thread()`**
+  * Replace `threading.currentThread()` with `threading.current_thread()`. The camelCase version was deprecated in Python 3.10 and removed in 3.12.
+* [org.openrewrite.python.migrate.ReplaceTypingCallableWithCollectionsAbcCallable](/user-documentation/recipes/recipe-catalog/python/migrate/replacetypingcallablewithcollectionsabccallable.md)
+  * **Replace `typing.Callable` with `collections.abc.Callable`**
+  * PEP 585 deprecated `typing.Callable` in Python 3.9. Replace with `collections.abc.Callable` for type annotations.
+* [org.openrewrite.python.migrate.ReplaceTypingDictWithDict](/user-documentation/recipes/recipe-catalog/python/migrate/replacetypingdictwithdict.md)
+  * **Replace `typing.Dict` with `dict`**
+  * PEP 585 deprecated `typing.Dict` in Python 3.9. Replace with the built-in `dict` type for generic annotations.
+* [org.openrewrite.python.migrate.ReplaceTypingListWithList](/user-documentation/recipes/recipe-catalog/python/migrate/replacetypinglistwithlist.md)
+  * **Replace `typing.List` with `list`**
+  * PEP 585 deprecated `typing.List` in Python 3.9. Replace with the built-in `list` type for generic annotations.
+* [org.openrewrite.python.migrate.ReplaceTypingOptionalWithUnion](/user-documentation/recipes/recipe-catalog/python/migrate/replacetypingoptionalwithunion.md)
+  * **Replace `typing.Optional[X]` with `X | None`**
+  * PEP 604 introduced the `|` operator for union types in Python 3.10. Replace `Optional[X]` with the more concise `X | None` syntax.
+* [org.openrewrite.python.migrate.ReplaceTypingSetWithSet](/user-documentation/recipes/recipe-catalog/python/migrate/replacetypingsetwithset.md)
+  * **Replace `typing.Set` with `set`**
+  * PEP 585 deprecated `typing.Set` in Python 3.9. Replace with the built-in `set` type for generic annotations.
+* [org.openrewrite.python.migrate.ReplaceTypingText](/user-documentation/recipes/recipe-catalog/python/migrate/replacetypingtext.md)
+  * **Replace `typing.Text` with `str`**
+  * `typing.Text` is deprecated as of Python 3.11. It was an alias for `str` for Python 2/3 compatibility. Replace with `str`.
+* [org.openrewrite.python.migrate.ReplaceTypingTupleWithTuple](/user-documentation/recipes/recipe-catalog/python/migrate/replacetypingtuplewithtuple.md)
+  * **Replace `typing.Tuple` with `tuple`**
+  * PEP 585 deprecated `typing.Tuple` in Python 3.9. Replace with the built-in `tuple` type for generic annotations.
+* [org.openrewrite.python.migrate.ReplaceTypingUnionWithPipe](/user-documentation/recipes/recipe-catalog/python/migrate/replacetypingunionwithpipe.md)
+  * **Replace `typing.Union[X, Y]` with `X | Y`**
+  * PEP 604 introduced the `|` operator for union types in Python 3.10. Replace `Union[X, Y, ...]` with the more concise `X | Y | ...` syntax.
+* [org.openrewrite.python.migrate.ReplaceUnittestDeprecatedAliases](/user-documentation/recipes/recipe-catalog/python/migrate/replaceunittestdeprecatedaliases.md)
+  * **Replace deprecated unittest method aliases**
+  * Replace deprecated unittest.TestCase method aliases like `assertEquals` with their modern equivalents like `assertEqual`. These aliases were removed in Python 3.11/3.12.
+* [org.openrewrite.python.migrate.UpgradeToPython310](/user-documentation/recipes/recipe-catalog/python/migrate/upgradetopython310.md)
+  * **Upgrade to Python 3.10**
+  * Migrate deprecated APIs and adopt new syntax for Python 3.10 compatibility. This includes adopting PEP 604 union type syntax (`X | Y`) and other modernizations between Python 3.9 and 3.10.
+* [org.openrewrite.python.migrate.UpgradeToPython311](/user-documentation/recipes/recipe-catalog/python/migrate/upgradetopython311.md)
+  * **Upgrade to Python 3.11**
+  * Migrate deprecated and removed APIs for Python 3.11 compatibility. This includes handling removed modules, deprecated functions, and API changes between Python 3.10 and 3.11.
+* [org.openrewrite.python.migrate.UpgradeToPython312](/user-documentation/recipes/recipe-catalog/python/migrate/upgradetopython312.md)
+  * **Upgrade to Python 3.12**
+  * Migrate deprecated and removed APIs for Python 3.12 compatibility. This includes detecting usage of the removed `imp` module and other legacy modules that were removed in Python 3.12.
+* [org.openrewrite.python.migrate.UpgradeToPython313](/user-documentation/recipes/recipe-catalog/python/migrate/upgradetopython313.md)
+  * **Upgrade to Python 3.13**
+  * Migrate deprecated and removed APIs for Python 3.13 compatibility. This includes detecting usage of modules removed in PEP 594 ('dead batteries') and other API changes between Python 3.12 and 3.13.
+* [org.openrewrite.python.migrate.UpgradeToPython314](/user-documentation/recipes/recipe-catalog/python/migrate/upgradetopython314.md)
+  * **Upgrade to Python 3.14**
+  * Migrate deprecated and removed APIs for Python 3.14 compatibility. This includes replacing deprecated AST node types with `ast.Constant` and other API changes between Python 3.13 and 3.14.
+* [org.openrewrite.python.migrate.UpgradeToPython38](/user-documentation/recipes/recipe-catalog/python/migrate/upgradetopython38.md)
+  * **Upgrade to Python 3.8**
+  * Migrate deprecated APIs and detect legacy patterns for Python 3.8 compatibility.
+* [org.openrewrite.python.migrate.UpgradeToPython39](/user-documentation/recipes/recipe-catalog/python/migrate/upgradetopython39.md)
+  * **Upgrade to Python 3.9**
+  * Migrate deprecated APIs for Python 3.9 compatibility. This includes PEP 585 built-in generics, removed base64 functions, and deprecated XML Element methods.
+* [org.openrewrite.python.migrate.langchain.FindDeprecatedLangchainAgents](/user-documentation/recipes/recipe-catalog/python/migrate/langchain/finddeprecatedlangchainagents.md)
+  * **Find deprecated LangChain agent patterns**
+  * Find usage of deprecated LangChain agent patterns including `initialize_agent`, `AgentExecutor`, and `LLMChain`. These were deprecated in LangChain v0.2 and removed in v1.0.
+* [org.openrewrite.python.migrate.langchain.FindLangchainCreateReactAgent](/user-documentation/recipes/recipe-catalog/python/migrate/langchain/findlangchaincreatereactagent.md)
+  * **Find `create_react_agent` usage (replace with `create_agent`)**
+  * Find `from langgraph.prebuilt import create_react_agent` which should be replaced with `from langchain.agents import create_agent` in LangChain v1.0.
+* [org.openrewrite.python.migrate.langchain.ReplaceLangchainClassicImports](/user-documentation/recipes/recipe-catalog/python/migrate/langchain/replacelangchainclassicimports.md)
+  * **Replace `langchain` legacy imports with `langchain_classic`**
+  * Migrate legacy chain, retriever, and indexing imports from `langchain` to `langchain_classic`. These were moved in LangChain v1.0.
+* [org.openrewrite.python.migrate.langchain.ReplaceLangchainCommunityImports](/user-documentation/recipes/recipe-catalog/python/migrate/langchain/replacelangchaincommunityimports.md)
+  * **Replace `langchain` imports with `langchain_community`**
+  * Migrate third-party integration imports from `langchain` to `langchain_community`. These integrations were moved in LangChain v0.2.
+* [org.openrewrite.python.migrate.langchain.ReplaceLangchainProviderImports](/user-documentation/recipes/recipe-catalog/python/migrate/langchain/replacelangchainproviderimports.md)
+  * **Replace `langchain_community` imports with provider packages**
+  * Migrate provider-specific imports from `langchain_community` to dedicated provider packages like `langchain_openai`, `langchain_anthropic`, etc.
+* [org.openrewrite.python.migrate.langchain.UpgradeToLangChain02](/user-documentation/recipes/recipe-catalog/python/migrate/langchain/upgradetolangchain02.md)
+  * **Upgrade to LangChain 0.2**
+  * Migrate to LangChain 0.2 by updating imports from `langchain` to `langchain_community` and provider-specific packages.
+* [org.openrewrite.python.migrate.langchain.UpgradeToLangChain1](/user-documentation/recipes/recipe-catalog/python/migrate/langchain/upgradetolangchain1.md)
+  * **Upgrade to LangChain 1.0**
+  * Migrate to LangChain 1.0 by applying all v0.2 migrations and then moving legacy functionality to `langchain_classic`.
 
 ### rewrite-netty
 
@@ -12279,7 +10519,7 @@ _10 recipes_
 
 _License: Moderne Proprietary License_
 
-_45 recipes_
+_47 recipes_
 
 * [org.openrewrite.node.dependency-vulnerability-check](/user-documentation/recipes/recipe-catalog/node/dependency-vulnerability-check.md)
   * **Find and fix vulnerable npm dependencies**
@@ -12374,6 +10614,9 @@ _45 recipes_
 * [org.openrewrite.node.security.remove-redundant-overrides](/user-documentation/recipes/recipe-catalog/node/security/remove-redundant-overrides.md)
   * **Remove redundant dependency overrides**
   * Removes overrides/resolutions from package.json that are redundant because the dependency tree already resolves to the overridden version or higher.
+* [org.openrewrite.nodejs.DependencyVulnerabilityCheck](/user-documentation/recipes/recipe-catalog/nodejs/dependencyvulnerabilitycheck.md)
+  * **Find and fix vulnerable npm dependencies**
+  * This software composition analysis (SCA) tool detects and upgrades dependencies with publicly disclosed vulnerabilities. This recipe both generates a report of vulnerable dependencies and upgrades to newer versions with fixes. This recipe **only** upgrades to the latest **patch** version.  If a minor or major upgrade is required to reach the fixed version, this recipe will not make any changes. Vulnerability information comes from the [GitHub Security Advisory Database](https://docs.github.com/en/code-security/security-advisories/global-security-advisories/about-the-github-advisory-database), which aggregates vulnerability data from several public databases, including the [National Vulnerability Database](https://nvd.nist.gov/) maintained by the United States government. Dependencies following [Semantic Versioning](https://semver.org/) will see their _patch_ version updated where applicable.
 * [org.openrewrite.nodejs.UpgradeDependencyVersion](/user-documentation/recipes/recipe-catalog/nodejs/upgradedependencyversion.md)
   * **Upgrade Node.js dependencies**
   * Upgrade matching Node.js direct dependencies.
@@ -12416,6 +10659,9 @@ _45 recipes_
 * [org.openrewrite.nodejs.search.UtilityInsights](/user-documentation/recipes/recipe-catalog/nodejs/search/utilityinsights.md)
   * **Javascript utility library insights**
   * Discover which popular javascript utility libraries (Lodash, Moment.js, Date-fns, etc.) are being used in your projects.
+* [org.openrewrite.recipe.rewrite-nodejs.InlineDeprecatedMethods](/user-documentation/recipes/recipe-catalog/recipe/rewrite-nodejs/inlinedeprecatedmethods.md)
+  * **Inline deprecated delegating methods**
+  * Automatically generated recipes to inline deprecated method calls that delegate to other methods in the same class.
 
 ### rewrite-okhttp
 
@@ -12826,7 +11072,7 @@ _41 recipes_
 
 _License: Moderne Source Available License_
 
-_318 recipes_
+_316 recipes_
 
 * [org.openrewrite.gradle.spring.AddSpringDependencyManagementPlugin](/user-documentation/recipes/recipe-catalog/gradle/spring/addspringdependencymanagementplugin.md)
   * **Add `io.spring.dependency-management` plugin, if in use**
@@ -12870,9 +11116,6 @@ _318 recipes_
 * [org.openrewrite.java.spring.ImplicitWebAnnotationNames](/user-documentation/recipes/recipe-catalog/java/spring/implicitwebannotationnames.md)
   * **Remove implicit web annotation names**
   * Removes implicit web annotation names.
-* [org.openrewrite.java.spring.MarkAdditionalSpringConfigFiles](/user-documentation/recipes/recipe-catalog/java/spring/markadditionalspringconfigfiles.md)
-  * **Mark additional files as Spring configuration**
-  * Attach a `SpringConfigFile` marker to YAML/properties files matching the provided glob patterns so that Spring property recipes such as `ChangeSpringPropertyKey`, `DeleteSpringProperty`, `ChangeSpringPropertyValue`, and `CommentOutSpringPropertyKey` will visit files that live outside standard resource source sets. Files that already pass the `SourceSet`-based check are skipped to avoid redundant markers.
 * [org.openrewrite.java.spring.NoAutowiredOnConstructor](/user-documentation/recipes/recipe-catalog/java/spring/noautowiredonconstructor.md)
   * **Remove the `@Autowired` annotation on inferred constructor**
   * Spring can infer an autowired constructor when there is a single constructor on the bean. This recipe removes unneeded `@Autowired` annotations on constructors.
@@ -12956,7 +11199,7 @@ _318 recipes_
   * The `skipCount` parameter in `org.springframework.batch.core.step.skip.SkipPolicy#shouldSkip` has been changed from `int` to `long`, this recipe updates the parameter type in the implementing classes.
 * [org.openrewrite.java.spring.boot2.AddConfigurationAnnotationIfBeansPresent](/user-documentation/recipes/recipe-catalog/java/spring/boot2/addconfigurationannotationifbeanspresent.md)
   * **Add missing `@Configuration` annotation**
-  * Class having `@Bean` annotation over any methods but missing `@Configuration` annotation over the declaring class would have `@Configuration` annotation added. Classes referenced as scoped configuration via `.class` (e.g. `@FeignClient(configuration = X.class)`) are skipped to preserve their intended per-client scope.
+  * Class having `@Bean` annotation over any methods but missing `@Configuration` annotation over the declaring class would have `@Configuration` annotation added.
 * [org.openrewrite.java.spring.boot2.AddSpringBootStarterValidation](/user-documentation/recipes/recipe-catalog/java/spring/boot2/addspringbootstartervalidation.md)
   * **Add `spring-boot-starter-validation` if needed**
   * Add `spring-boot-starter-validation` when validation constraints are used, unless the project already declares an explicit validation API dependency.
@@ -13455,9 +11698,6 @@ _318 recipes_
 * [org.openrewrite.java.spring.doc.MigrateDocketBeanToGroupedOpenApiBean](/user-documentation/recipes/recipe-catalog/java/spring/doc/migratedocketbeantogroupedopenapibean.md)
   * **Migrate `Docket` to `GroupedOpenAPI`**
   * Migrate a `Docket` bean to a `GroupedOpenAPI` bean preserving group name, packages and paths. When possible the recipe will prefer property based configuration.
-* [org.openrewrite.java.spring.doc.MigrateSpringFoxSecurityConfiguration](/user-documentation/recipes/recipe-catalog/java/spring/doc/migratespringfoxsecurityconfiguration.md)
-  * **Migrate SpringFox `SecurityConfiguration` bean to Springdoc Swagger UI properties**
-  * Replace `@Bean` methods that return `springfox.documentation.swagger.web.SecurityConfiguration` with the equivalent `springdoc.swagger-ui.*` configuration properties. Only literal builder arguments are migrated; beans with non-literal arguments or unsupported builder methods (`apiKey`, `apiKeyName`, `apiKeyVehicle`, `additionalQueryStringParams`) are left untouched for manual review. If no Spring application configuration file exists, the bean is left in place to avoid silently dropping configuration.
 * [org.openrewrite.java.spring.doc.RemoveBeanValidatorPluginsConfiguration](/user-documentation/recipes/recipe-catalog/java/spring/doc/removebeanvalidatorpluginsconfiguration.md)
   * **Removes @Import(BeanValidatorPluginsConfiguration.class)**
   * As Springdoc OpenAPI supports Bean Validation out of the box, the BeanValidatorPluginsConfiguration is no longer supported nor needed. Thus remove @Import(BeanValidatorPluginsConfiguration.class).
@@ -14294,7 +12534,7 @@ _181 recipes_
   * Replaces `System.getenv(&quot;HOME&quot;)` with `System.getProperty(&quot;user.home&quot;)` for better portability.
 * [org.openrewrite.staticanalysis.PrimitiveWrapperClassConstructorToValueOf](/user-documentation/recipes/recipe-catalog/staticanalysis/primitivewrapperclassconstructortovalueof.md)
   * **Use primitive wrapper `valueOf` method**
-  * The constructor of all primitive types has been deprecated in favor of using the static factory method `valueOf` available for each of the primitive type wrappers. Using `valueOf` enables object caching for frequently used values, reducing unnecessary heap allocations. Note that this changes identity semantics: `valueOf` may return cached instances (such as `Boolean.TRUE` or `Integer` values in `[-128, 127]`), so code that compares boxed values with `==`/`!=`, relies on `System.identityHashCode`, or synchronizes on the boxed value may behave differently after this change.
+  * The constructor of all primitive types has been deprecated in favor of using the static factory method `valueOf` available for each of the primitive type wrappers. Using `valueOf` enables object caching for frequently used values, reducing unnecessary heap allocations.
 * [org.openrewrite.staticanalysis.RedundantFileCreation](/user-documentation/recipes/recipe-catalog/staticanalysis/redundantfilecreation.md)
   * **Redundant file creation**
   * Remove unnecessary intermediate creations of files.
@@ -14581,6 +12821,274 @@ _181 recipes_
   * **Remove non-ASCII characters from Javadoc**
   * Maven's javadoc-plugin configuration does not support non-ASCII characters. What makes it tricky is the error is very ambiguous and doesn't help in any way. This recipe removes those non-ASCII characters.
 
+### rewrite-static-analysis-python
+
+_License: Moderne Proprietary License_
+
+_87 recipes_
+
+* [org.openrewrite.python.cleanup.AssignIfExp](/user-documentation/recipes/recipe-catalog/python/cleanup/assignifexp.md)
+  * **Use inline conditional for simple ``if``/``else`` assignment**
+  * When an ``if``/``else`` pair each assign a single value to the same variable, rewrite as a ternary expression.
+* [org.openrewrite.python.cleanup.AugAssign](/user-documentation/recipes/recipe-catalog/python/cleanup/augassign.md)
+  * **Shorten assignment to compound operator form**
+  * Convert ``target = target op value`` into ``target op= value`` for arithmetic operators (+, -, *, /, %).
+* [org.openrewrite.python.cleanup.BinOpIdentity](/user-documentation/recipes/recipe-catalog/python/cleanup/binopidentity.md)
+  * **Collapse self-cancelling `^` / `-` with duplicate operands to `0`**
+  * When both operands of `^` or `-` are the same expression, reduce to `0` (the self-cancelling identity).
+* [org.openrewrite.python.cleanup.BooleanIfExpIdentity](/user-documentation/recipes/recipe-catalog/python/cleanup/booleanifexpidentity.md)
+  * **Collapse boolean ternary to bare condition**
+  * Replace ``True if expr else False`` with ``expr`` and ``False if expr else True`` with ``not expr``, removing the redundant ternary wrapper.
+* [org.openrewrite.python.cleanup.BreakOrContinueOutsideLoop](/user-documentation/recipes/recipe-catalog/python/cleanup/breakorcontinueoutsideloop.md)
+  * **Remove `break`/`continue` outside loop**
+  * Remove `break` and `continue` statements that are not inside any for or while loop.
+* [org.openrewrite.python.cleanup.ChainCompares](/user-documentation/recipes/recipe-catalog/python/cleanup/chaincompares.md)
+  * **Use chained comparison syntax**
+  * Merge two relational tests that share a middle operand into a single chained comparison, e.g. ``0 &lt; idx and idx &lt; size`` becomes ``0 &lt; idx &lt; size``.
+* [org.openrewrite.python.cleanup.ClassMethodFirstArgName](/user-documentation/recipes/recipe-catalog/python/cleanup/classmethodfirstargname.md)
+  * **Standardize `@classmethod` first parameter to `cls`**
+  * Ensure that `@classmethod` methods use `cls` as their first parameter, as required by PEP 8, and update all body references.
+* [org.openrewrite.python.cleanup.CollectionBuiltinToComprehension](/user-documentation/recipes/recipe-catalog/python/cleanup/collectionbuiltintocomprehension.md)
+  * **Use comprehension syntax instead of `list()`/`set()` around generators**
+  * Wrapping a generator in `list()` or `set()` is less idiomatic than the equivalent bracket/brace comprehension syntax.
+* [org.openrewrite.python.cleanup.CollectionIntoSet](/user-documentation/recipes/recipe-catalog/python/cleanup/collectionintoset.md)
+  * **Prefer set literals in `in` membership tests**
+  * When a list or tuple of literals appears on the right side of an `in` test, convert it to a set literal for constant-time lookup.
+* [org.openrewrite.python.cleanup.CollectionToBool](/user-documentation/recipes/recipe-catalog/python/cleanup/collectiontobool.md)
+  * **Substitute constant collection condition with boolean**
+  * When a list, tuple, dict, or set literal is used as an ``if`` or ``while`` condition, replace it with ``True`` (non-empty) or ``False`` (empty) to state the intent directly.
+* [org.openrewrite.python.cleanup.ComprehensionToGenerator](/user-documentation/recipes/recipe-catalog/python/cleanup/comprehensiontogenerator.md)
+  * **Use generator expression instead of list comprehension in iterable-accepting calls**
+  * Functions that consume iterables lazily (e.g. `any`, `sum`, `sorted`) do not need a list comprehension -- a generator expression suffices.
+* [org.openrewrite.python.cleanup.ConvertAnyToIn](/user-documentation/recipes/recipe-catalog/python/cleanup/convertanytoin.md)
+  * **Rewrite `any(v == literal ...)` as `literal in collection`**
+  * An `any()` generator that tests equality against a literal value is equivalent to the `in` membership operator, which is clearer.
+* [org.openrewrite.python.cleanup.DataframeAppendToConcat](/user-documentation/recipes/recipe-catalog/python/cleanup/dataframeappendtoconcat.md)
+  * **Migrate deprecated `.append()` to `pd.concat()`**
+  * `DataFrame.append()` no longer exists in pandas 2.0+. This recipe rewrites `.append(x)` calls to `pd.concat([df, x])`.
+* [org.openrewrite.python.cleanup.DeMorgan](/user-documentation/recipes/recipe-catalog/python/cleanup/demorgan.md)
+  * **Flatten negated logic via De Morgan's identities**
+  * Use De Morgan's identities to remove double negation and to distribute ``not`` into compound conditions, e.g. ``not not finished`` becomes ``finished`` and ``not (m and n)`` becomes ``not m or not n``.
+* [org.openrewrite.python.cleanup.DefaultMutableArg](/user-documentation/recipes/recipe-catalog/python/cleanup/defaultmutablearg.md)
+  * **Guard mutable default arguments with `None` sentinel**
+  * Change mutable default values (`[]`, `\{\}`, `set()`) to `None` and prepend an `if arg is None: arg = &lt;original&gt;` guard so each call gets its own fresh instance.
+* [org.openrewrite.python.cleanup.DictLiteral](/user-documentation/recipes/recipe-catalog/python/cleanup/dictliteral.md)
+  * **Use `\{\}` literal instead of `dict()` constructor**
+  * Convert no-argument `dict()` calls to the `\{\}` literal, which is more concise and avoids a function call.
+* [org.openrewrite.python.cleanup.DoNotUseBareExcept](/user-documentation/recipes/recipe-catalog/python/cleanup/donotusebareexcept.md)
+  * **Narrow bare `except:` to `except Exception:`**
+  * An unqualified `except:` intercepts every exception, including `SystemExit` and `KeyboardInterrupt`. Specifying `Exception` restricts the handler to ordinary runtime errors.
+* [org.openrewrite.python.cleanup.EqualityIdentity](/user-documentation/recipes/recipe-catalog/python/cleanup/equalityidentity.md)
+  * **Fold same-literal `==`/`!=` comparisons to boolean constants**
+  * When both sides of `==` or `!=` are the same literal, replace the expression with `True` or `False` respectively.
+* [org.openrewrite.python.cleanup.FlipComparison](/user-documentation/recipes/recipe-catalog/python/cleanup/flipcomparison.md)
+  * **Reorder comparisons to put literals on the right**
+  * Swap operands when a constant appears on the left of a comparison, e.g. ``42 == count`` becomes ``count == 42``, mirroring the relational operator as needed.
+* [org.openrewrite.python.cleanup.IdentityComprehension](/user-documentation/recipes/recipe-catalog/python/cleanup/identitycomprehension.md)
+  * **Simplify identity comprehension to `list()`/`set()` call**
+  * A comprehension that simply passes through each element unchanged is equivalent to calling `list()` or `set()` on the iterable.
+* [org.openrewrite.python.cleanup.InstanceMethodFirstArgName](/user-documentation/recipes/recipe-catalog/python/cleanup/instancemethodfirstargname.md)
+  * **Standardize instance method first parameter to `self`**
+  * Ensure instance methods use `self` as their first parameter per PEP 8 and rename all body references. Methods decorated with `@staticmethod` or `@classmethod` are not affected.
+* [org.openrewrite.python.cleanup.InvertAnyAll](/user-documentation/recipes/recipe-catalog/python/cleanup/invertanyall.md)
+  * **Swap `not all()`/`not any()` by negating the comparison**
+  * Apply De Morgan's law to replace `not all(cond ...)` with `any(negated_cond ...)` or `not any(cond ...)` with `all(negated_cond ...)`.
+* [org.openrewrite.python.cleanup.InvertAnyAllBody](/user-documentation/recipes/recipe-catalog/python/cleanup/invertanyallbody.md)
+  * **Apply De Morgan's law to `any(not ...)`/`all(not ...)`**
+  * When the generator body just negates the loop variable, De Morgan's law lets us eliminate the generator entirely: `any(not v for v in seq)` becomes `not all(seq)`, and the reverse.
+* [org.openrewrite.python.cleanup.ListLiteral](/user-documentation/recipes/recipe-catalog/python/cleanup/listliteral.md)
+  * **Use `[]` literal instead of `list()` constructor**
+  * Convert no-argument `list()` calls to the `[]` literal, which is more concise and avoids a function call.
+* [org.openrewrite.python.cleanup.MergeComparisons](/user-documentation/recipes/recipe-catalog/python/cleanup/mergecomparisons.md)
+  * **Consolidate repeated `==` with `or` into `in`**
+  * Fold ``var == a or var == b`` into ``var in [a, b]``, reducing duplication and improving readability.
+* [org.openrewrite.python.cleanup.MergeElseIfIntoElif](/user-documentation/recipes/recipe-catalog/python/cleanup/mergeelseifintoelif.md)
+  * **Convert ``else: if`` to ``elif``**
+  * When an ``else`` clause contains nothing but an ``if``, rewrite it as ``elif`` to eliminate extra nesting.
+* [org.openrewrite.python.cleanup.MergeIsinstance](/user-documentation/recipes/recipe-catalog/python/cleanup/mergeisinstance.md)
+  * **Merge `isinstance()` calls**
+  * Merge `isinstance(x, A) or isinstance(x, B)` into `isinstance(x, (A, B))` for cleaner type checking.
+* [org.openrewrite.python.cleanup.MergeNestedIfs](/user-documentation/recipes/recipe-catalog/python/cleanup/mergenestedifs.md)
+  * **Collapse nested ``if`` into a single ``and`` condition**
+  * When two ``if`` statements are nested with no ``else`` on either, join their conditions with ``and`` and flatten the body.
+* [org.openrewrite.python.cleanup.NoneCompare](/user-documentation/recipes/recipe-catalog/python/cleanup/nonecompare.md)
+  * **Compare to `None` with identity operators (`is` / `is not`)**
+  * Switch `== None` to `is None` and `!= None` to `is not None`, following PEP 8 singleton comparison guidance.
+* [org.openrewrite.python.cleanup.OrIfExpIdentity](/user-documentation/recipes/recipe-catalog/python/cleanup/orifexpidentity.md)
+  * **Replace self-referencing ternary with `or`**
+  * When a ternary's condition and true-branch name the same variable, rewrite ``val if val else fallback`` as ``val or fallback`` to avoid repeating the name.
+* [org.openrewrite.python.cleanup.PandasAvoidInplace](/user-documentation/recipes/recipe-catalog/python/cleanup/pandasavoidinplace.md)
+  * **Eliminate `inplace=True` in favor of reassignment**
+  * Convert pandas operations that use `inplace=True` into reassignment form, e.g. `df.drop_duplicates(inplace=True)` becomes `df = df.drop_duplicates()`.
+* [org.openrewrite.python.cleanup.PythonBestPractices](/user-documentation/recipes/recipe-catalog/python/cleanup/pythonbestpractices.md)
+  * **Python cleanup suite**
+  * Run every Python cleanup recipe in one pass -- literal simplification, boolean and comparison tidying, dead code removal, naming fixes, pandas modernization, and more.
+* [org.openrewrite.python.cleanup.RaiseFromPreviousError](/user-documentation/recipes/recipe-catalog/python/cleanup/raisefrompreviouserror.md)
+  * **Chain exceptions with `raise ... from` in except blocks**
+  * Raise statements inside except blocks should use `from` to chain the new exception to the caught one, preserving the full traceback.
+* [org.openrewrite.python.cleanup.RemoveAssertTrue](/user-documentation/recipes/recipe-catalog/python/cleanup/removeasserttrue.md)
+  * **Delete no-op `assert True` statements**
+  * Delete bare `assert True` statements, which are always satisfied and have no effect. Assertions that carry a message string are preserved.
+* [org.openrewrite.python.cleanup.RemoveDictKeys](/user-documentation/recipes/recipe-catalog/python/cleanup/removedictkeys.md)
+  * **Drop redundant `.keys()` on dict iteration**
+  * Dictionaries iterate over their keys by default, making explicit `.keys()` calls unnecessary in for-loops and `in` expressions.
+* [org.openrewrite.python.cleanup.RemoveDuplicateDictKey](/user-documentation/recipes/recipe-catalog/python/cleanup/removeduplicatedictkey.md)
+  * **Deduplicate repeated keys in dict literals**
+  * When a dict literal contains the same key more than once, only the final value survives at runtime. This removes the shadowed entries.
+* [org.openrewrite.python.cleanup.RemoveDuplicateSetKey](/user-documentation/recipes/recipe-catalog/python/cleanup/removeduplicatesetkey.md)
+  * **Deduplicate repeated elements in set literals**
+  * Set literals with repeated values have redundant entries that are discarded at runtime. This removes the duplicates, keeping the last one.
+* [org.openrewrite.python.cleanup.RemoveEmptyNestedBlock](/user-documentation/recipes/recipe-catalog/python/cleanup/removeemptynestedblock.md)
+  * **Delete `if` blocks whose body is only `pass`**
+  * Delete `if` statements that contain nothing but `pass` and have no `else` branch. `for`/`while` loops are left alone because iterating may have side effects.
+* [org.openrewrite.python.cleanup.RemoveNoneFromDefaultGet](/user-documentation/recipes/recipe-catalog/python/cleanup/removenonefromdefaultget.md)
+  * **Remove redundant `None` default from `dict.get()`**
+  * Remove redundant `None` default argument from `dict.get()` calls since `None` is already the default return value.
+* [org.openrewrite.python.cleanup.RemovePassBody](/user-documentation/recipes/recipe-catalog/python/cleanup/removepassbody.md)
+  * **Drop ``pass``-only ``if`` body by inverting the guard**
+  * When an ``if`` body contains only ``pass`` and is followed by an ``else``, flip the condition and use the else body directly.
+* [org.openrewrite.python.cleanup.RemovePassElif](/user-documentation/recipes/recipe-catalog/python/cleanup/removepasselif.md)
+  * **Drop ``pass``-only ``elif`` by negating its condition**
+  * When an ``elif`` body is only ``pass`` and an ``else`` follows, invert the ``elif`` condition and absorb the else body.
+* [org.openrewrite.python.cleanup.RemoveRedundantBoolean](/user-documentation/recipes/recipe-catalog/python/cleanup/removeredundantboolean.md)
+  * **Eliminate boolean literal from `and`/`or`**
+  * Strip ``True`` or ``False`` from ``and``/``or`` expressions where the literal has no effect on the result, e.g. ``True and val`` reduces to ``val`` and ``False and val`` reduces to ``False``.
+* [org.openrewrite.python.cleanup.RemoveRedundantCondition](/user-documentation/recipes/recipe-catalog/python/cleanup/removeredundantcondition.md)
+  * **Remove redundant ternary condition**
+  * When both branches of a ternary expression are identical, simplify `y if z else y` to `y`.
+* [org.openrewrite.python.cleanup.RemoveRedundantConstructorInDictUnion](/user-documentation/recipes/recipe-catalog/python/cleanup/removeredundantconstructorindictunion.md)
+  * **Unwrap unnecessary `dict()` from union operands**
+  * The `|` operator already produces a fresh dict, so wrapping an operand in `dict()` is redundant and can be removed.
+* [org.openrewrite.python.cleanup.RemoveRedundantContinue](/user-documentation/recipes/recipe-catalog/python/cleanup/removeredundantcontinue.md)
+  * **Strip trailing ``continue`` from loop body**
+  * Strip ``continue`` when it is the final statement in a loop body, since the loop naturally advances to the next iteration.
+* [org.openrewrite.python.cleanup.RemoveRedundantFstring](/user-documentation/recipes/recipe-catalog/python/cleanup/removeredundantfstring.md)
+  * **Drop ``f`` prefix from strings without placeholders**
+  * When an f-string has no ``\{...\}`` expressions, strip the ``f`` prefix and convert it to an ordinary string literal.
+* [org.openrewrite.python.cleanup.RemoveRedundantIf](/user-documentation/recipes/recipe-catalog/python/cleanup/removeredundantif.md)
+  * **Simplify negated ``elif`` to ``else``**
+  * When an ``elif`` condition is the exact negation of the preceding ``if``, replace it with ``else`` since the test is redundant.
+* [org.openrewrite.python.cleanup.RemoveRedundantPass](/user-documentation/recipes/recipe-catalog/python/cleanup/removeredundantpass.md)
+  * **Delete unnecessary ``pass`` in non-empty blocks**
+  * Delete ``pass`` when the enclosing block already contains other statements; ``pass`` is only useful as a placeholder in empty blocks.
+* [org.openrewrite.python.cleanup.RemoveRedundantPathExists](/user-documentation/recipes/recipe-catalog/python/cleanup/removeredundantpathexists.md)
+  * **Drop ``exists()`` check before ``is_dir()``/``is_file()``**
+  * Drop ``path.exists()`` when it is ``and``-ed with ``is_dir()`` or ``is_file()``, which inherently return ``False`` for missing paths.
+* [org.openrewrite.python.cleanup.RemoveRedundantSliceIndex](/user-documentation/recipes/recipe-catalog/python/cleanup/removeredundantsliceindex.md)
+  * **Drop default-value slice boundaries**
+  * Omit slice start/stop when they equal ``0`` and ``len(seq)`` respectively, e.g. ``data[0:len(data)]`` becomes ``data[:]``.
+* [org.openrewrite.python.cleanup.RemoveStrFromFstring](/user-documentation/recipes/recipe-catalog/python/cleanup/removestrfromfstring.md)
+  * **Strip ``str()`` from f-string placeholders**
+  * F-string placeholders convert values to strings automatically, so wrapping expressions in ``str()`` inside ``\{...\}`` is redundant.
+* [org.openrewrite.python.cleanup.RemoveStrFromPrint](/user-documentation/recipes/recipe-catalog/python/cleanup/removestrfromprint.md)
+  * **Unwrap ``str()`` from ``print()`` arguments**
+  * ``print()`` automatically converts its arguments to strings, so an explicit ``str()`` wrapper is unnecessary and can be removed.
+* [org.openrewrite.python.cleanup.RemoveUnitStepFromRange](/user-documentation/recipes/recipe-catalog/python/cleanup/removeunitstepfromrange.md)
+  * **Drop unnecessary step `1` argument from `range()`**
+  * Shorten `range(a, b, 1)` to `range(a, b)` because `range` already defaults to a step of one.
+* [org.openrewrite.python.cleanup.RemoveUnnecessaryElse](/user-documentation/recipes/recipe-catalog/python/cleanup/removeunnecessaryelse.md)
+  * **Drop ``else`` after early-exit ``if`` branch**
+  * When the ``if`` body always exits via return, raise, continue, or break, remove the ``else`` and dedent its contents.
+* [org.openrewrite.python.cleanup.RemoveUnreachableCode](/user-documentation/recipes/recipe-catalog/python/cleanup/removeunreachablecode.md)
+  * **Strip dead code after terminal statements**
+  * Delete statements that follow a `return`, `raise`, `continue`, or `break` in the same block, since they can never execute.
+* [org.openrewrite.python.cleanup.RemoveZeroFromRange](/user-documentation/recipes/recipe-catalog/python/cleanup/removezerofromrange.md)
+  * **Drop unnecessary `0` start argument from `range()`**
+  * Shorten `range(0, n)` to `range(n)` because `range` already defaults to starting at zero.
+* [org.openrewrite.python.cleanup.ReplaceApplyWithMethodCall](/user-documentation/recipes/recipe-catalog/python/cleanup/replaceapplywithmethodcall.md)
+  * **Convert `apply('name')` to a direct method invocation**
+  * When `apply()` receives a string literal like `'sum'` or `'mean'`, rewrite the call as a direct method invocation on the object.
+* [org.openrewrite.python.cleanup.ReturnOrYieldOutsideFunction](/user-documentation/recipes/recipe-catalog/python/cleanup/returnoryieldoutsidefunction.md)
+  * **Remove `return`/`yield` outside function**
+  * Remove `return` and `yield` statements that are not inside any function or method definition.
+* [org.openrewrite.python.cleanup.SimplifyBooleanComparison](/user-documentation/recipes/recipe-catalog/python/cleanup/simplifybooleancomparison.md)
+  * **Remove explicit True/False comparisons**
+  * Drop unnecessary ``== True``, ``!= False``, and similar tests against boolean literals, leaving just the expression or ``not expr``.
+* [org.openrewrite.python.cleanup.SimplifyConstantSum](/user-documentation/recipes/recipe-catalog/python/cleanup/simplifyconstantsum.md)
+  * **Simplify `sum(1 for x in items if cond)` to `sum(bool(cond) for x in items)`**
+  * Replace `sum(1 for x in items if cond)` with `sum(bool(cond) for x in items)` by moving the filter condition into a `bool()` wrapper.
+* [org.openrewrite.python.cleanup.SimplifyDictionaryUpdate](/user-documentation/recipes/recipe-catalog/python/cleanup/simplifydictionaryupdate.md)
+  * **Convert one-item `dict.update()` to bracket assignment**
+  * When `.update()` receives a dictionary literal containing exactly one key, rewrite it as a direct key assignment for clarity and efficiency.
+* [org.openrewrite.python.cleanup.SimplifyDivision](/user-documentation/recipes/recipe-catalog/python/cleanup/simplifydivision.md)
+  * **Convert `int(a / b)` to floor division**
+  * Replace ``int(a / b)`` with Python's floor-division operator ``a // b`` for a more concise expression.
+* [org.openrewrite.python.cleanup.SimplifyEmptyCollectionComparison](/user-documentation/recipes/recipe-catalog/python/cleanup/simplifyemptycollectioncomparison.md)
+  * **Use truthiness instead of empty-container equality**
+  * Convert ``== &quot;&quot;``/``== []``/``== \{\}``/``== ()`` into ``not var`` and the corresponding ``!=`` forms into ``var``, relying on Python's truthiness semantics for empty collections.
+* [org.openrewrite.python.cleanup.SimplifyFstringFormatting](/user-documentation/recipes/recipe-catalog/python/cleanup/simplifyfstringformatting.md)
+  * **Fold constants and flatten nested f-strings**
+  * Inline constant values directly into f-string text and unwrap nested f-strings into their enclosing string.
+* [org.openrewrite.python.cleanup.SimplifyGenerator](/user-documentation/recipes/recipe-catalog/python/cleanup/simplifygenerator.md)
+  * **Pass iterable directly to `any()`/`all()` instead of identity generator**
+  * An identity generator that yields every element unchanged is redundant inside `any()` or `all()` -- pass the collection directly.
+* [org.openrewrite.python.cleanup.SimplifyLenComparison](/user-documentation/recipes/recipe-catalog/python/cleanup/simplifylencomparison.md)
+  * **Replace `len()` emptiness check with truthiness**
+  * Rewrite ``len(seq) &gt; 0`` / ``len(seq) != 0`` to ``seq`` and ``len(seq) == 0`` to ``not seq``, leveraging Python's built-in truthiness for collections.
+* [org.openrewrite.python.cleanup.SimplifyNegativeIndex](/user-documentation/recipes/recipe-catalog/python/cleanup/simplifynegativeindex.md)
+  * **Use negative index instead of `len()` offset**
+  * Rewrite ``seq[len(seq) - k]`` as ``seq[-k]``, using Python's native negative-indexing support.
+* [org.openrewrite.python.cleanup.SimplifySingleExceptionTuple](/user-documentation/recipes/recipe-catalog/python/cleanup/simplifysingleexceptiontuple.md)
+  * **Unwrap one-element exception tuple in `except`**
+  * A tuple containing only one exception type is needlessly verbose. This unwraps it to the plain `except ExcType:` form.
+* [org.openrewrite.python.cleanup.SimplifyStrLenComparison](/user-documentation/recipes/recipe-catalog/python/cleanup/simplifystrlencomparison.md)
+  * **Compare string to `&quot;&quot;` instead of checking `len()`**
+  * Replace ``len(text) == 0`` with ``text == &quot;&quot;`` and ``len(text) &gt; 0`` / ``len(text) != 0`` with ``text != &quot;&quot;``, comparing the string directly rather than measuring its length.
+* [org.openrewrite.python.cleanup.SimplifySubstringSearch](/user-documentation/recipes/recipe-catalog/python/cleanup/simplifysubstringsearch.md)
+  * **Replace `.find()` check with `in` / `not in`**
+  * Rewrite ``.find()`` return-value checks as membership tests: ``text.find(sub) == -1`` becomes ``sub not in text`` and ``text.find(sub) != -1`` becomes ``sub in text``.
+* [org.openrewrite.python.cleanup.SquareIdentity](/user-documentation/recipes/recipe-catalog/python/cleanup/squareidentity.md)
+  * **Rewrite self-multiplication as `** 2`**
+  * When an expression is multiplied by itself, rewrite it using the exponentiation operator (`** 2`) for clarity.
+* [org.openrewrite.python.cleanup.StrPrefixSuffix](/user-documentation/recipes/recipe-catalog/python/cleanup/strprefixsuffix.md)
+  * **Prefer ``startswith``/``endswith`` over slice comparison**
+  * Rewrite ``s[:N] == &quot;lit&quot;`` as ``s.startswith(&quot;lit&quot;)`` and ``s[-N:] == &quot;lit&quot;`` as ``s.endswith(&quot;lit&quot;)`` when the slice length equals the literal length.
+* [org.openrewrite.python.cleanup.SwapIfElseBranches](/user-documentation/recipes/recipe-catalog/python/cleanup/swapifelsebranches.md)
+  * **Flip empty ``if``-body by negating the condition**
+  * When the ``if`` branch is just ``pass`` and an ``else`` exists, invert the test and promote the else body to the if body.
+* [org.openrewrite.python.cleanup.SwapIfExpression](/user-documentation/recipes/recipe-catalog/python/cleanup/swapifexpression.md)
+  * **Swap ternary branches to drop negated condition**
+  * Flip the branches of a conditional expression whose test uses ``not``, eliminating the negation for clearer intent.
+* [org.openrewrite.python.cleanup.SwapVariable](/user-documentation/recipes/recipe-catalog/python/cleanup/swapvariable.md)
+  * **Simplify temp-variable swap to tuple unpacking**
+  * Detect the three-line swap idiom (`tmp = x; x = y; y = tmp`) and condense it into `x, y = y, x` using tuple unpacking.
+* [org.openrewrite.python.cleanup.TernaryToIfExpression](/user-documentation/recipes/recipe-catalog/python/cleanup/ternarytoifexpression.md)
+  * **Convert `and`/`or` ternary trick to conditional expression**
+  * Rewrite the legacy `cond and val or fallback` idiom as `val if cond else fallback` to avoid silent bugs when `val` is falsy.
+* [org.openrewrite.python.cleanup.TupleLiteral](/user-documentation/recipes/recipe-catalog/python/cleanup/tupleliteral.md)
+  * **Use `()` literal instead of `tuple()` constructor**
+  * Convert no-argument `tuple()` calls to the `()` literal, which is more concise and avoids a function call.
+* [org.openrewrite.python.cleanup.UnwrapIterableConstruction](/user-documentation/recipes/recipe-catalog/python/cleanup/unwrapiterableconstruction.md)
+  * **Flatten redundant collection constructor wrapping a literal**
+  * When `tuple()`, `list()`, or `set()` wraps a single list or tuple literal, remove the constructor and use the target literal form directly.
+* [org.openrewrite.python.cleanup.UseContextlibSuppress](/user-documentation/recipes/recipe-catalog/python/cleanup/usecontextlibsuppress.md)
+  * **Replace `try/except: pass` with `contextlib.suppress()`**
+  * When an except handler only contains `pass`, the intent is to suppress the error. `contextlib.suppress()` states this explicitly and eliminates the try/except boilerplate.
+* [org.openrewrite.python.cleanup.UseDatetimeNowNotToday](/user-documentation/recipes/recipe-catalog/python/cleanup/usedatetimenownottoday.md)
+  * **Use `datetime.now()` instead of `datetime.today()`**
+  * Replace `datetime.today()` with `datetime.now()`. Both are equivalent, but `now()` is more explicit and supports timezone arguments.
+* [org.openrewrite.python.cleanup.UseDictionaryUnion](/user-documentation/recipes/recipe-catalog/python/cleanup/usedictionaryunion.md)
+  * **Use dict union operator instead of double-star unpacking**
+  * Dict literals made up entirely of `**` unpacking can be rewritten with the `|` union operator available since Python 3.9.
+* [org.openrewrite.python.cleanup.UseFileIterator](/user-documentation/recipes/recipe-catalog/python/cleanup/usefileiterator.md)
+  * **Iterate over file objects directly, not via `readlines()`**
+  * File objects are iterable and yield lines on demand, so calling `.readlines()` to build an intermediate list is unnecessary.
+* [org.openrewrite.python.cleanup.UseGetitemForReMatchGroups](/user-documentation/recipes/recipe-catalog/python/cleanup/usegetitemforrematchgroups.md)
+  * **Use bracket access for ``re.Match`` groups**
+  * Replace ``match.group(n)`` with ``match[n]`` to use the shorter subscript syntax available since Python 3.6.
+* [org.openrewrite.python.cleanup.UseIsna](/user-documentation/recipes/recipe-catalog/python/cleanup/useisna.md)
+  * **Use `.isna()` instead of `== np.nan` comparisons**
+  * Rewrite `== np.nan` and `== numpy.nan` equality tests as `.isna()` calls, since direct NaN comparison always evaluates to False.
+* [org.openrewrite.python.cleanup.UseStringRemoveAffix](/user-documentation/recipes/recipe-catalog/python/cleanup/usestringremoveaffix.md)
+  * **Replace string slicing with `removeprefix`/`removesuffix`**
+  * Replace `if text.startswith(s): text = text[N:]` with `text = text.removeprefix(s)` and the equivalent `endswith` pattern with `removesuffix` (Python 3.9+).
+* [org.openrewrite.python.cleanup.UselessElseOnLoop](/user-documentation/recipes/recipe-catalog/python/cleanup/uselesselseonloop.md)
+  * **Flatten `for/else` when the loop has no `break`**
+  * A `for/else` where the loop body never breaks is misleading -- the `else` runs every time. This moves the else body after the loop.
+* [org.openrewrite.python.cleanup.YieldFrom](/user-documentation/recipes/recipe-catalog/python/cleanup/yieldfrom.md)
+  * **Collapse for-yield loop into `yield from`**
+  * A for-loop that does nothing but yield the loop variable can be expressed as `yield from`, which is shorter and delegates directly.
+
 ### rewrite-struts
 
 _License: Moderne Proprietary License_
@@ -14658,20 +13166,14 @@ _22 recipes_
 
 _License: Moderne Proprietary License_
 
-_135 recipes_
+_133 recipes_
 
 * [org.openrewrite.terraform.AddConfiguration](/user-documentation/recipes/recipe-catalog/terraform/addconfiguration.md)
   * **Add Terraform configuration**
   * If the configuration has a different value, leave it alone. If it is missing, add it.
-* [org.openrewrite.terraform.AddResourceNestedBlock](/user-documentation/recipes/recipe-catalog/terraform/addresourcenestedblock.md)
-  * **Add a nested block to a Terraform resource**
-  * Add a nested block (e.g. `parameter \{ ... \}`) to a Terraform resource if no matching instance exists. When `keyMatchers` is provided, the recipe deduplicates by attribute keys so it works correctly with repeatable blocks like `aws_db_parameter_group.parameter`.
 * [org.openrewrite.terraform.ChangeResourceAttribute](/user-documentation/recipes/recipe-catalog/terraform/changeresourceattribute.md)
   * **Change Terraform resource attribute**
   * Change the value of a Terraform resource attribute if it matches a given pattern.
-* [org.openrewrite.terraform.ChangeResourceNestedBlockAttribute](/user-documentation/recipes/recipe-catalog/terraform/changeresourcenestedblockattribute.md)
-  * **Change a single attribute inside a Terraform resource's nested block**
-  * Change the value of an attribute inside a specific instance of a nested block on a Terraform resource (e.g. set `value = &quot;0&quot;` on the `parameter \{ name = &quot;local_infile&quot; \}` block of an `aws_db_parameter_group`). Use `keyMatchers` to identify a single instance among repeatable blocks.
 * [org.openrewrite.terraform.MoveProviderVersionToRequiredProviders](/user-documentation/recipes/recipe-catalog/terraform/moveproviderversiontorequiredproviders.md)
   * **Move provider version to `required_providers`**
   * In Terraform 0.13+, version constraints should be specified in the `terraform \{ required_providers \{ ... \} \}` block instead of the `provider` block. This recipe removes the `version` attribute from `provider` blocks and adds it to `required_providers`.
@@ -15070,7 +13572,7 @@ _135 recipes_
 
 _License: Moderne Source Available License_
 
-_251 recipes_
+_249 recipes_
 
 * [org.openrewrite.java.testing.archunit.ArchUnit0to1Migration](/user-documentation/recipes/recipe-catalog/java/testing/archunit/archunit0to1migration.md)
   * **ArchUnit 0.x upgrade**
@@ -15608,7 +14110,7 @@ _251 recipes_
   * Upgrades JUnit 5 to 5.14.x and migrates all deprecated APIs.
 * [org.openrewrite.java.testing.junit5.UseAssertSame](/user-documentation/recipes/recipe-catalog/java/testing/junit5/useassertsame.md)
   * **Use JUnit5's `assertSame` or `assertNotSame` instead of `assertTrue(... == ...)`**
-  * Prefers the usage of `assertSame` or `assertNotSame` methods instead of using of vanilla `assertTrue` or `assertFalse` with a boolean comparison. Only applies when both operands are reference types — primitive operands are handled by `AssertTrueComparisonToAssertEquals`.
+  * Prefers the usage of `assertSame` or `assertNotSame` methods instead of using of vanilla `assertTrue` or `assertFalse` with a boolean comparison.
 * [org.openrewrite.java.testing.junit5.UseHamcrestAssertThat](/user-documentation/recipes/recipe-catalog/java/testing/junit5/usehamcrestassertthat.md)
   * **Use `MatcherAssert#assertThat(..)`**
   * JUnit 4's `Assert#assertThat(..)` This method was deprecated in JUnit 4 and removed in JUnit Jupiter.
@@ -15630,9 +14132,6 @@ _251 recipes_
 * [org.openrewrite.java.testing.junit6.JUnit5to6Migration](/user-documentation/recipes/recipe-catalog/java/testing/junit6/junit5to6migration.md)
   * **JUnit 6 migration from JUnit 5.x**
   * Migrates JUnit 5.x tests to JUnit 6.x.
-* [org.openrewrite.java.testing.junit6.MigrateJUnitPioneerToJupiter](/user-documentation/recipes/recipe-catalog/java/testing/junit6/migratejunitpioneertojupiter.md)
-  * **Migrate JUnit Pioneer extensions to native JUnit Jupiter equivalents**
-  * Migrates `@DefaultLocale`, `@DefaultTimeZone`, `@SetSystemProperty`, `@ClearSystemProperty`, `@RestoreSystemProperties` (and their `@Reads.../@Writes...` companions) from JUnit Pioneer to the native equivalents added in JUnit Jupiter 6.1. The `junit-pioneer` dependency is not removed since other Pioneer features (e.g. `@RetryingTest`, `@CartesianTest`) have no Jupiter equivalent.
 * [org.openrewrite.java.testing.junit6.MigrateMethodOrdererAlphanumeric](/user-documentation/recipes/recipe-catalog/java/testing/junit6/migratemethodordereralphanumeric.md)
   * **Migrate `MethodOrderer.Alphanumeric` to `MethodOrderer.MethodName`**
   * JUnit 6 removed the `MethodOrderer.Alphanumeric` class. This recipe migrates usages to `MethodOrderer.MethodName` which provides similar functionality.
@@ -15642,9 +14141,6 @@ _251 recipes_
 * [org.openrewrite.java.testing.junit6.RemoveInterceptDynamicTest](/user-documentation/recipes/recipe-catalog/java/testing/junit6/removeinterceptdynamictest.md)
   * **Remove `InvocationInterceptor.interceptDynamicTest`**
   * JUnit 6 removed the `interceptDynamicTest(Invocation, ExtensionContext)` method from `InvocationInterceptor`. This recipe removes implementations of this deprecated method.
-* [org.openrewrite.java.testing.junit6.RemoveJreOther](/user-documentation/recipes/recipe-catalog/java/testing/junit6/removejreother.md)
-  * **Remove deprecated `JRE.OTHER` from `@EnabledOnJre`/`@DisabledOnJre` arrays**
-  * JUnit 6.1 deprecated `JRE.OTHER` in favor of `int`/`int[]` annotation attributes. This recipe removes `JRE.OTHER` entries from `@EnabledOnJre` and `@DisabledOnJre` array values when other JRE constants remain. Lone `JRE.OTHER` usages are left untouched because they have no mechanical replacement; review them manually.
 * [org.openrewrite.java.testing.mockito.AddMockitoExtensionIfAnnotationsUsed](/user-documentation/recipes/recipe-catalog/java/testing/mockito/addmockitoextensionifannotationsused.md)
   * **Adds Mockito extensions to Mockito tests**
   * Adds `@ExtendWith(MockitoExtension.class)` to JUnit 5 tests or `@RunWith(MockitoJUnitRunner.class)` to JUnit 4 tests using Mockito annotations like `@Mock` or `@Captor`.
@@ -15725,7 +14221,7 @@ _251 recipes_
   * Remove unnecessary `doNothing()` stubbings for void methods on `@Mock` fields. Mockito mocks already do nothing for void methods by default, making these stubbings redundant and triggering strict stubbing violations in Mockito 3+.
 * [org.openrewrite.java.testing.mockito.RemoveInitMocksIfRunnersSpecified](/user-documentation/recipes/recipe-catalog/java/testing/mockito/removeinitmocksifrunnersspecified.md)
   * **Remove `MockitoAnnotations.initMocks(this)` and `openMocks(this)` if JUnit runners specified**
-  * Remove `MockitoAnnotations.initMocks(this)` and `MockitoAnnotations.openMocks(this)` if class-level JUnit runners `@RunWith(MockitoJUnitRunner.class)` or `@ExtendWith(MockitoExtension.class)` are specified. These manual initialization calls are redundant when using Mockito's JUnit integration. Note that the `@Mock` fields will then be initialized by the strict mocking session of the extension or runner; tests that relied on the lenient mocks created by an explicit `openMocks(this)` call inside `@BeforeEach` may surface `UnnecessaryStubbingException`. Add `@MockitoSettings(strictness = Strictness.LENIENT)` to opt out.
+  * Remove `MockitoAnnotations.initMocks(this)` and `MockitoAnnotations.openMocks(this)` if class-level JUnit runners `@RunWith(MockitoJUnitRunner.class)` or `@ExtendWith(MockitoExtension.class)` are specified. These manual initialization calls are redundant when using Mockito's JUnit integration.
 * [org.openrewrite.java.testing.mockito.RemovePowerMockClassExtensions](/user-documentation/recipes/recipe-catalog/java/testing/mockito/removepowermockclassextensions.md)
   * **Remove PowerMock class extensions**
   * Removes `extends PowerMockConfiguration` and `extends PowerMockTestCase` from test classes, as these are PowerMock-specific base classes not needed with Mockito.
@@ -15830,7 +14326,7 @@ _251 recipes_
 
 _License: Apache License Version 2.0_
 
-_1566 recipes_
+_1553 recipes_
 
 * [ai.timefold.solver.migration.ChangeVersion](/user-documentation/recipes/recipe-catalog/ai/timefold/solver/migration/changeversion.md)
   * **Change the Timefold version**
@@ -16634,8 +15130,8 @@ _1566 recipes_
   * **Migrate to 4.10.6**
   * Migrates Apache Camel application to 4.10.6.
 * [org.apache.camel.upgrade.CamelMigrationRecipe](/user-documentation/recipes/recipe-catalog/org/apache/camel/upgrade/camelmigrationrecipe.md)
-  * **Migrate to 4.20.0**
-  * Migrates Apache Camel application to 4.20.0.
+  * **Migrate to 4.18.0**
+  * Migrates Apache Camel application to 4.18.0.
 * [org.apache.camel.upgrade.JavaVersion17](/user-documentation/recipes/recipe-catalog/org/apache/camel/upgrade/javaversion17.md)
   * **Change Maven Java version property values to 17**
   * Change maven.compiler.source and maven.compiler.target values to 17.
@@ -16810,39 +15306,12 @@ _1566 recipes_
 * [org.apache.camel.upgrade.camel418.CamelMigrationRecipe](/user-documentation/recipes/recipe-catalog/org/apache/camel/upgrade/camel418/camelmigrationrecipe.md)
   * **Migrates `camel 4.17` application to `camel 4.18`**
   * Migrates `camel 4.17` application to `camel 4.18`.
-* [org.apache.camel.upgrade.camel419.CamelMigrationRecipe](/user-documentation/recipes/recipe-catalog/org/apache/camel/upgrade/camel419/camelmigrationrecipe.md)
-  * **Migrates `camel 4.18` application to `camel 4.19`**
-  * Migrates `camel 4.18` application to `camel 4.19`.
-* [org.apache.camel.upgrade.camel419.Pom419TestInfraRecipe](/user-documentation/recipes/recipe-catalog/org/apache/camel/upgrade/camel419/pom419testinfrarecipe.md)
-  * **Remove test-jar type from camel-test-infra dependencies**
-  * Removes &lt;type&gt;test-jar&lt;/type&gt; from camel-test-infra-* dependencies as they no longer produce separate test-JAR artifacts.
-* [org.apache.camel.upgrade.camel419.XmlDsl419SagaRecipe](/user-documentation/recipes/recipe-catalog/org/apache/camel/upgrade/camel419/xmldsl419sagarecipe.md)
-  * **Camel XML DSL Saga EIP restructuring**
-  * Apache Camel XML DSL migration from version 4.18 to 4.19. Converts saga compensation and completion child elements to attributes.
-* [org.apache.camel.upgrade.camel419.YamlDsl419RoutePolicyRecipe](/user-documentation/recipes/recipe-catalog/org/apache/camel/upgrade/camel419/yamldsl419routepolicyrecipe.md)
-  * **Camel YAML DSL routePolicy renaming**
-  * Apache Camel YAML DSL migration from version 4.18 to 4.19. Renames routePolicy to routePolicyRef.
-* [org.apache.camel.upgrade.camel419.YamlDsl419SagaRecipe](/user-documentation/recipes/recipe-catalog/org/apache/camel/upgrade/camel419/yamldsl419sagarecipe.md)
-  * **Camel YAML DSL Saga EIP restructuring**
-  * Apache Camel YAML DSL migration from version 4.18 to 4.19. Flattens saga compensation and completion nested uri to direct values.
-* [org.apache.camel.upgrade.camel419.migrateGroovyXml](/user-documentation/recipes/recipe-catalog/org/apache/camel/upgrade/camel419/migrategroovyxml.md)
-  * **Migrate camel-groovy-xml to camel-groovy**
-  * camel-groovy-xml has been removed and moved into camel-groovy. Changes the dependency from camel-groovy-xml to camel-groovy.
-* [org.apache.camel.upgrade.camel419.removedComponents](/user-documentation/recipes/recipe-catalog/org/apache/camel/upgrade/camel419/removedcomponents.md)
-  * **The camel-test module has been removed from camel-bom**
-  * The camel-test module has been removed from camel-bom.
 * [org.apache.camel.upgrade.camel42.CamelMainDebugger](/user-documentation/recipes/recipe-catalog/org/apache/camel/upgrade/camel42/camelmaindebugger.md)
   * **The option camel.main.debugger has been renamed**
   * The option camel.main.debugger has been renamed to camel.debug.enabled.
 * [org.apache.camel.upgrade.camel42.CamelSagaRecipe](/user-documentation/recipes/recipe-catalog/org/apache/camel/upgrade/camel42/camelsagarecipe.md)
   * **Camel Core changes**
   * Apache Camel Core migration from version 4.0 to 4.1.
-* [org.apache.camel.upgrade.camel420.CamelMigrationRecipe](/user-documentation/recipes/recipe-catalog/org/apache/camel/upgrade/camel420/camelmigrationrecipe.md)
-  * **Migrates `camel 4.19` application to `camel 4.20`**
-  * Migrates `camel 4.19` application to `camel 4.20`.
-* [org.apache.camel.upgrade.camel420.migratePulsarUris](/user-documentation/recipes/recipe-catalog/org/apache/camel/upgrade/camel420/migratepulsaruris.md)
-  * **Migrate Pulsar component URIs from V1 to V2 format**
-  * Apache Pulsar client upgraded from 4.1.3 to 4.2.0. Per PIP-457, V1 topic names are no longer supported. Migrates from V1 format (persistent://tenant/cluster/namespace/topic) to V2 format (persistent://tenant/namespace/topic). Removes the cluster segment. Only transforms URIs where the topic name does NOT contain slashes. URIs with slashes in topic names are left unchanged to avoid ambiguity between V1 and V2 formats. Works across Java, XML DSL, and YAML DSL.
 * [org.apache.camel.upgrade.camel43.CamelResequenceEIPXmlRecipe](/user-documentation/recipes/recipe-catalog/org/apache/camel/upgrade/camel43/camelresequenceeipxmlrecipe.md)
   * **Camel Resequence DSL changes**
   * Batch and stream attributes were renamed in Resequence EIP XML DSL.
@@ -16939,9 +15408,6 @@ _1566 recipes_
 * [org.apache.camel.upgrade.camel49.renamedAPIs](/user-documentation/recipes/recipe-catalog/org/apache/camel/upgrade/camel49/renamedapis.md)
   * **Renamed classes for API**
   * Renamed classes for API.
-* [org.apache.camel.upgrade.customRecipes.ChangeComponentUriRecipe](/user-documentation/recipes/recipe-catalog/org/apache/camel/upgrade/customrecipes/changecomponenturirecipe.md)
-  * **Change Camel component URI across all DSLs**
-  * Transforms component URIs using regular expressions with capturing groups. Automatically handles Java, XML DSL, and YAML DSL.
 * [org.apache.camel.upgrade.customRecipes.ChangePropertyKeyWithCaseChange](/user-documentation/recipes/recipe-catalog/org/apache/camel/upgrade/customrecipes/changepropertykeywithcasechange.md)
   * **Change prefix of property with Camel case**
   * Change prefix of property with Camel case
@@ -16969,15 +15435,6 @@ _1566 recipes_
 * [org.apache.camel.upgrade.customRecipes.ReplacePropertyInDataFormatYaml](/user-documentation/recipes/recipe-catalog/org/apache/camel/upgrade/customrecipes/replacepropertyindataformatyaml.md)
   * **Renames property of the component**
   * ARenames property of the component.
-* [org.apache.camel.upgrade.customRecipes.internal.ChangeJavaComponentUriRecipe](/user-documentation/recipes/recipe-catalog/org/apache/camel/upgrade/customrecipes/internal/changejavacomponenturirecipe.md)
-  * **Change Camel component URI in Java**
-  * Transforms component URIs in Java code using regular expressions with capturing groups.
-* [org.apache.camel.upgrade.customRecipes.internal.ChangeXmlComponentUriRecipe](/user-documentation/recipes/recipe-catalog/org/apache/camel/upgrade/customrecipes/internal/changexmlcomponenturirecipe.md)
-  * **Change Camel component URI in XML DSL**
-  * Transforms component URIs in XML DSL using regular expressions with capturing groups.
-* [org.apache.camel.upgrade.customRecipes.internal.ChangeYamlComponentUriRecipe](/user-documentation/recipes/recipe-catalog/org/apache/camel/upgrade/customrecipes/internal/changeyamlcomponenturirecipe.md)
-  * **Change Camel component URI in YAML DSL**
-  * Transforms component URIs in YAML DSL using regular expressions with capturing groups.
 * [org.apache.wicket.BestPractices](/user-documentation/recipes/recipe-catalog/org/apache/wicket/bestpractices.md)
   * **Wicket best practices**
   * Applies Wicket best practices such as minimizing anonymous inner classes and upgrading to the latest version.
