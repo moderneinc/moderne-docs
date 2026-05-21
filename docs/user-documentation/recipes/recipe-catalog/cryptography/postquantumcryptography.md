@@ -354,6 +354,35 @@ _Records taint flows from sources to sinks with their taint types._
 
 </TabItem>
 
+<TabItem value="io.moderne.cryptography.table.InsecureSetProperties" label="InsecureSetProperties">
+
+### Insecure `Security.setProperty(..)` uses.
+**io.moderne.cryptography.table.InsecureSetProperties**
+
+_An itemization of the properties used in such calls_
+
+| Column Name | Description |
+| ----------- | ----------- |
+| Source file | Path to the file where the result was found |
+| Source code | The source code where the insecure property is defined, which may not contain a `Security.setProperty(..)` call directly if the property was defined somewhere and through data flow analysis we've concluded that it is later used in a `Security.setProperty(..)` call. |
+| Property | The property that is set insecurely, e.g. `crypto.policy`. |
+
+</TabItem>
+
+<TabItem value="io.moderne.devcenter.table.SecurityIssues" label="SecurityIssues">
+
+### Security issues
+**io.moderne.devcenter.table.SecurityIssues**
+
+_Security issues in the repository._
+
+| Column Name | Description |
+| ----------- | ----------- |
+| Ordinal | The ordinal position of this issue relative to other issues. |
+| Issue name | The name of the security issue. |
+
+</TabItem>
+
 <TabItem value="org.openrewrite.table.SourcesFileResults" label="SourcesFileResults">
 
 ### Source files that had results
@@ -420,35 +449,6 @@ _Statistics used in analyzing the performance of recipes._
 | Max scanning time (ns) | The max time scanning any one source file. |
 | Cumulative edit time (ns) | The total time spent across the editing phase of this recipe. |
 | Max edit time (ns) | The max time editing any one source file. |
-
-</TabItem>
-
-<TabItem value="io.moderne.cryptography.table.InsecureSetProperties" label="InsecureSetProperties">
-
-### Insecure `Security.setProperty(..)` uses.
-**io.moderne.cryptography.table.InsecureSetProperties**
-
-_An itemization of the properties used in such calls_
-
-| Column Name | Description |
-| ----------- | ----------- |
-| Source file | Path to the file where the result was found |
-| Source code | The source code where the insecure property is defined, which may not contain a `Security.setProperty(..)` call directly if the property was defined somewhere and through data flow analysis we've concluded that it is later used in a `Security.setProperty(..)` call. |
-| Property | The property that is set insecurely, e.g. `crypto.policy`. |
-
-</TabItem>
-
-<TabItem value="io.moderne.devcenter.table.SecurityIssues" label="SecurityIssues">
-
-### Security issues
-**io.moderne.devcenter.table.SecurityIssues**
-
-_Security issues in the repository._
-
-| Column Name | Description |
-| ----------- | ----------- |
-| Ordinal | The ordinal position of this issue relative to other issues. |
-| Issue name | The name of the security issue. |
 
 </TabItem>
 

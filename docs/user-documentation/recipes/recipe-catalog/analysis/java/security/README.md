@@ -22,6 +22,7 @@ _Recipes that include further recipes, often including the individual recipes be
 * [Find command injection vulnerabilities](./findcommandinjection.md)
 * [Find improper validation of array index](./findarrayindexinjection.md)
 * [Find log injection vulnerabilities](./findloginjection.md)
+* [Find non-constant-time comparison of cryptographic digests](./findinsecurecryptocomparison.md)
 * [Find path traversal vulnerabilities](./findpathtraversal.md)
 * [Find process control vulnerabilities](./findprocesscontrolinjection.md)
 * [Find unencrypted PII storage](./findunencryptedpiistorage.md)

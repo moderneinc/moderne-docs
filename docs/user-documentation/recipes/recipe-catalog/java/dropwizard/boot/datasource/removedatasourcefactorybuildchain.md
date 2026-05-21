@@ -26,6 +26,79 @@ This recipe is used as part of the following composite recipes:
 
 * [Migrate Dropwizard to Spring Boot 3](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/dropwizard/boot/migratedropwizardtospringboot3)
 
+## Example
+
+
+<Tabs groupId="beforeAfter">
+<TabItem value="java" label="java">
+
+
+###### Before
+```java
+package com.example;
+
+import com.codahale.metrics.MetricRegistry;
+import io.dropwizard.db.DataSourceFactory;
+import io.dropwizard.db.ManagedDataSource;
+
+public class App {
+    void run(DataSourceFactory factory, MetricRegistry metrics) throws Exception {
+        ManagedDataSource dataSource = factory.build(metrics, "assessmentdb");
+        System.out.println("started");
+    }
+}
+```
+
+###### After
+```java
+package com.example;
+
+import com.codahale.metrics.MetricRegistry;
+import io.dropwizard.db.DataSourceFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+
+import javax.sql.DataSource;
+
+public class App {
+    @Autowired
+    private DataSource dataSource;
+    void run(DataSourceFactory factory, MetricRegistry metrics) throws Exception {
+        System.out.println("started");
+    }
+}
+```
+
+</TabItem>
+<TabItem value="diff" label="Diff" >
+
+```diff
+@@ -5,1 +5,1 @@
+import com.codahale.metrics.MetricRegistry;
+import io.dropwizard.db.DataSourceFactory;
+-import io.dropwizard.db.ManagedDataSource;
++import org.springframework.beans.factory.annotation.Autowired;
+
+@@ -7,0 +7,2 @@
+import io.dropwizard.db.ManagedDataSource;
+
++import javax.sql.DataSource;
++
+public class App {
+@@ -8,0 +10,2 @@
+
+public class App {
++   @Autowired
++   private DataSource dataSource;
+    void run(DataSourceFactory factory, MetricRegistry metrics) throws Exception {
+@@ -9,1 +13,0 @@
+public class App {
+    void run(DataSourceFactory factory, MetricRegistry metrics) throws Exception {
+-       ManagedDataSource dataSource = factory.build(metrics, "assessmentdb");
+        System.out.println("started");
+```
+</TabItem>
+</Tabs>
+
 
 ## Usage
 
