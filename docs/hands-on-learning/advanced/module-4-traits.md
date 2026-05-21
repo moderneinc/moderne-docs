@@ -11,7 +11,7 @@ This is an optional bonus module that builds directly on the scanning recipe you
 
 Traits are a higher-level abstraction over OpenRewrite's LSTs (Lossless Semantic Trees) that let you build reusable logic for elements that are semantically similar but structurally different. Instead of embedding utility logic in unrelated classes or expanding the core LST APIs, traits act as opt-in behavior layers — keeping your recipes modular, discoverable, and semantically rich. For example, to operate on every class annotated with `@Bean` regardless of structure or placement, a trait can define a single matcher that groups them all together. You'll work through that example next.
 
-## Exercise 4a: Explore a recipe that uses Traits
+## Exercise A: Explore a recipe that uses Traits
 
 In this exercise, you'll use the `Annotated.Matcher` trait that the [`FindSpringBeans`](https://github.com/moderneinc/rewrite-recipe-starter/blob/main/src/main/java/com/yourorg/FindSpringBeans.java) recipe uses to identify classes annotated with `@Bean` and marks them using `SearchResult.found`.
 
@@ -32,7 +32,7 @@ In this exercise, you'll use the `Annotated.Matcher` trait that the [`FindSpring
 * Recipes that use traits can be more modular and maintainable.
 
 
-## Exercise 4b: Write a recipe using traits
+## Exercise B: Write a recipe using traits
 
 The Java-only `TODO` scanning recipe from [Module 3](./module-3-scanning-recipes.md) could be extended to handle XML and YAML by adding more visitors and matching rules, but a trait is a cleaner fit — it encapsulates the cross-language match logic in one reusable place. In this exercise, you'll write a `TodoComment` trait that matches `TODO` comments across Java, YAML, and XML, then build a recipe that uses it to collect those comments into a file and a data table.
 
