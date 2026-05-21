@@ -8,7 +8,6 @@ const infimaClassName = 'alert alert--success';
 
 const defaultProps = {
   icon: <Lightbulb size={18} strokeWidth={2} />,
-  title: 'tip',
 };
 
 export default function AdmonitionTypeTip(
