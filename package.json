@@ -7,6 +7,8 @@
     "start": "docusaurus start",
     "start:fast": "SKIP_RECIPE_CATALOG=1 docusaurus start",
     "build": "docusaurus build",
+    "build:shard": "node scripts/build-shard.js",
+    "build:merge-shards": "node scripts/merge-shards.js",
     "swizzle": "docusaurus swizzle",
     "deploy": "docusaurus deploy",
     "clear": "docusaurus clear",

@@ -1,0 +1,123 @@
+# Sharded build prototype: splits SSG across N parallel jobs, then merges
+# the per-shard build outputs and deploys to GitHub Pages.
+# Once validated, this is intended to replace pages.yml.
+name: Deploy Moderne docs to Pages (sharded)
+
+on:
+  workflow_dispatch:
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+env:
+  SHARD_TOTAL: 4
+
+jobs:
+  build-shard:
+    name: Build shard ${{ matrix.shard }}/${{ vars.SHARD_TOTAL || 4 }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    strategy:
+      fail-fast: true
+      matrix:
+        shard: [0, 1, 2, 3]
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v6
+        with:
+          node-version: 24
+          cache: yarn
+
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
+
+      - name: Cache bundler artifacts (per shard)
+        uses: actions/cache@v4
+        with:
+          path: node_modules/.cache
+          key: docusaurus-shard-${{ matrix.shard }}-${{ runner.os }}-${{ hashFiles('yarn.lock', 'docusaurus.config.ts', 'src/theme/**') }}
+          restore-keys: |
+            docusaurus-shard-${{ matrix.shard }}-${{ runner.os }}-
+            docusaurus-${{ runner.os }}-
+
+      - name: Build shard
+        run: |
+          set -o pipefail
+          yarn build:shard 2>&1 | { grep --line-buffered -v "^Generated markdown file:" || true; }
+        env:
+          SHARD_INDEX: ${{ matrix.shard }}
+          SHARD_TOTAL: 4
+          DOCUSAURUS_SSG_WORKER_THREAD_RECYCLER_MAX_MEMORY: "512000000"
+          DOCUSAURUS_SSR_CONCURRENCY: "16"
+          NODE_OPTIONS: "--max-old-space-size=1536 --max-semi-space-size=64"
+          DOCUSAURUS_IGNORE_SSG_WARNINGS: true
+
+      - name: Upload shard artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: build-shard-${{ matrix.shard }}
+          path: build-shards/shard-${{ matrix.shard }}
+          retention-days: 1
+          if-no-files-found: error
+
+  combine:
+    name: Combine shards
+    needs: build-shard
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v6
+
+      - name: Download all shard artifacts
+        uses: actions/download-artifact@v4
+        with:
+          path: build-shards
+          pattern: build-shard-*
+
+      - name: Normalize artifact layout
+        # download-artifact extracts each artifact into its own subdirectory
+        # named after the artifact (build-shard-0, build-shard-1, ...). The
+        # merge script expects directories named shard-N.
+        run: |
+          cd build-shards
+          for dir in build-shard-*; do
+            mv "$dir" "shard-${dir#build-shard-}"
+          done
+          ls -la
+
+      - name: Merge shards
+        run: node scripts/merge-shards.js
+
+      - name: Upload combined build (for inspection)
+        uses: actions/upload-artifact@v4
+        with:
+          name: combined-build
+          path: build
+          retention-days: 3
+          if-no-files-found: error
+
+# Deploy step disabled while validating on this branch. Re-enable before
+# cutting over from pages.yml.
+#
+#      - name: Upload Pages artifact
+#        uses: actions/upload-pages-artifact@v5
+#        with:
+#          path: build
+#
+#  deploy:
+#    name: Deploy to GitHub Pages
+#    needs: combine
+#    permissions:
+#      pages: write
+#      id-token: write
+#    environment:
+#      name: github-pages
+#      url: ${{ steps.deployment.outputs.page_url }}
+#    runs-on: ubuntu-latest
+#    steps:
+#      - name: Deploy to GitHub Pages
+#        id: deployment
+#        uses: actions/deploy-pages@v5
