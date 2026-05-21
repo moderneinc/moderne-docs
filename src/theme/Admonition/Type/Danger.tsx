@@ -8,7 +8,6 @@ const infimaClassName = 'alert alert--danger';
 
 const defaultProps = {
   icon: <OctagonAlert size={18} strokeWidth={2} />,
-  title: 'danger',
 };
 
 export default function AdmonitionTypeDanger(
