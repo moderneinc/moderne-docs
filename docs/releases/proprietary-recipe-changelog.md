@@ -10,6 +10,13 @@ This page contains release notes for [Moderne proprietary OpenRewrite recipes](h
 This changelog is automatically generated from GitHub releases and only contains information from the past year.
 :::
 
+## May 22, 2026
+
+#### rewrite-devcenter - v1.24.1
+
+* Fix DependencyVulnerabilityCheck per-tree Accumulator leak on root cursor
+* Avoid duplicate UpgradesAndMigrations rows per repo and card
+
 ## May 21, 2026
 
 #### rewrite-ai - 0.3.4
@@ -73,6 +80,13 @@ This changelog is automatically generated from GitHub releases and only contains
 #### rewrite-dotnet - 0.15.4
 
 * Updated repository to use OpenRewrite version v8.83.0
+
+#### rewrite-dropwizard - 0.3.1
+
+* Replace DropwizardAppExtension call sites with Spring Boot injected fields
+* Route Maven through Moderne Artifactory cache to avoid HTTP 429
+* Fix RemoveSuperTypeByTypeTest expected output for @Override removal
+* Revert inline Maven mirror (now in gh-automation#95)
 
 #### rewrite-dropwizard - 0.3.0
 
@@ -3923,14 +3937,4 @@ Republishing to update dependencies
 #### rewrite-devcenter - 1.1.3
 
 * Add `rewrite-java-21` test dependency to align rewrite versions
-
-#### rewrite-devcenter - 1.1.1
-
-* Add `rewrite-java-21` test dependency to align rewrite versions
-
-## May 21, 2025
-
-#### rewrite-devcenter - 1.1.0
-
-* Make `DevCenterMeasurer` a non-generic interface to avoid class loading issues when reading measures in CLI
 
