@@ -8,7 +8,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import VersionBanner from '@site/src/components/VersionBanner';
 
-<VersionBanner version="v1" linkPath="/administrator-documentation/moderne-platform/how-to-guides/agent-configuration/configure-an-agent-with-artifactory-access" />
+<VersionBanner version="v1" linkPath="/administrator-documentation/moderne-platform/how-to-guides/connector-configuration/configure-a-connector-with-artifactory-access" />
 
 # Configure an agent with Artifactory access: LSTs
 

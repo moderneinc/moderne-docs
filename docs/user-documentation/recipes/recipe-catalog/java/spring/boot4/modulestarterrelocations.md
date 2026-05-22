@@ -33,6 +33,44 @@ This recipe is used as part of the following composite recipes:
 
 ## Examples
 ##### Example 1
+`MigrateErrorPackageTest#migrateServletErrorController`
+
+
+<Tabs groupId="beforeAfter">
+<TabItem value="java" label="java">
+
+
+###### Before
+```java
+import org.springframework.boot.web.servlet.error.ErrorController;
+
+class MyErrorController implements ErrorController {
+}
+```
+
+###### After
+```java
+import org.springframework.boot.webmvc.error.ErrorController;
+
+class MyErrorController implements ErrorController {
+}
+```
+
+</TabItem>
+<TabItem value="diff" label="Diff" >
+
+```diff
+@@ -1,1 +1,1 @@
+-import org.springframework.boot.web.servlet.error.ErrorController;
++import org.springframework.boot.webmvc.error.ErrorController;
+
+```
+</TabItem>
+</Tabs>
+
+---
+
+##### Example 2
 `ModuleStarterRelocationsJacksonTest#renameJackson2ObjectMapperBuilderCustomizer`
 
 
@@ -76,7 +114,47 @@ import org.springframework.boot.autoconfigure.jackson.Jackson2ObjectMapperBuilde
 
 ---
 
-##### Example 2
+##### Example 3
+`ModuleStarterRelocationsMetricsTest#kafkaMetricsGoesToKafkaModule`
+
+
+<Tabs groupId="beforeAfter">
+<TabItem value="java" label="java">
+
+
+###### Before
+```java
+import org.springframework.boot.actuate.autoconfigure.metrics.KafkaMetricsAutoConfiguration;
+
+class MyConfig {
+    KafkaMetricsAutoConfiguration k;
+}
+```
+
+###### After
+```java
+import org.springframework.boot.kafka.autoconfigure.metrics.KafkaMetricsAutoConfiguration;
+
+class MyConfig {
+    KafkaMetricsAutoConfiguration k;
+}
+```
+
+</TabItem>
+<TabItem value="diff" label="Diff" >
+
+```diff
+@@ -1,1 +1,1 @@
+-import org.springframework.boot.actuate.autoconfigure.metrics.KafkaMetricsAutoConfiguration;
++import org.springframework.boot.kafka.autoconfigure.metrics.KafkaMetricsAutoConfiguration;
+
+```
+</TabItem>
+</Tabs>
+
+---
+
+##### Example 4
 `ModuleStarterRelocationsTest#renameAutoConfigureWebClientToAutoConfigureRestClient`
 
 
@@ -120,7 +198,45 @@ class MyTest {}
 
 ---
 
-##### Example 3
+##### Example 5
+`MigrateErrorPackageTest#migrateServletErrorController`
+
+
+<Tabs groupId="beforeAfter">
+<TabItem value="java" label="java">
+
+
+###### Before
+```java
+import org.springframework.boot.web.servlet.error.ErrorController;
+
+class MyErrorController implements ErrorController {
+}
+```
+
+###### After
+```java
+import org.springframework.boot.webmvc.error.ErrorController;
+
+class MyErrorController implements ErrorController {
+}
+```
+
+</TabItem>
+<TabItem value="diff" label="Diff" >
+
+```diff
+@@ -1,1 +1,1 @@
+-import org.springframework.boot.web.servlet.error.ErrorController;
++import org.springframework.boot.webmvc.error.ErrorController;
+
+```
+</TabItem>
+</Tabs>
+
+---
+
+##### Example 6
 `ModuleStarterRelocationsJacksonTest#renameJackson2ObjectMapperBuilderCustomizer`
 
 
@@ -164,7 +280,47 @@ import org.springframework.boot.autoconfigure.jackson.Jackson2ObjectMapperBuilde
 
 ---
 
-##### Example 4
+##### Example 7
+`ModuleStarterRelocationsMetricsTest#kafkaMetricsGoesToKafkaModule`
+
+
+<Tabs groupId="beforeAfter">
+<TabItem value="java" label="java">
+
+
+###### Before
+```java
+import org.springframework.boot.actuate.autoconfigure.metrics.KafkaMetricsAutoConfiguration;
+
+class MyConfig {
+    KafkaMetricsAutoConfiguration k;
+}
+```
+
+###### After
+```java
+import org.springframework.boot.kafka.autoconfigure.metrics.KafkaMetricsAutoConfiguration;
+
+class MyConfig {
+    KafkaMetricsAutoConfiguration k;
+}
+```
+
+</TabItem>
+<TabItem value="diff" label="Diff" >
+
+```diff
+@@ -1,1 +1,1 @@
+-import org.springframework.boot.actuate.autoconfigure.metrics.KafkaMetricsAutoConfiguration;
++import org.springframework.boot.kafka.autoconfigure.metrics.KafkaMetricsAutoConfiguration;
+
+```
+</TabItem>
+</Tabs>
+
+---
+
+##### Example 8
 `ModuleStarterRelocationsTest#renameAutoConfigureWebClientToAutoConfigureRestClient`
 
 

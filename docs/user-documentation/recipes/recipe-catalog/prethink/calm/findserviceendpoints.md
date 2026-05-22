@@ -10,7 +10,7 @@ import RunRecipe from '@site/src/components/RunRecipe';
 
 **io.moderne.prethink.calm.FindServiceEndpoints**
 
-_Identify all REST/HTTP service endpoints exposed by the application. Supports Spring MVC, JAX-RS, Micronaut, and Quarkus REST endpoints._
+_Identify all REST/HTTP service endpoints exposed by the application. Supports Spring MVC, JAX-RS, Micronaut, and Quarkus REST endpoints. Also walks interface inheritance to detect endpoints in OpenAPI-codegen-first projects where @GetMapping etc. live on the interface methods._
 
 ## Recipe source
 

@@ -11,7 +11,6 @@ _Recipes that include further recipes, often including the individual recipes be
 * [Move `DOCUMENT` import to `@angular/core`](./move-document-import.md)
 * [Remove IE11 polyfills](./remove-ie-polyfills.md)
 * [Replace deep `zone.js` imports](./replace-deep-zone-js-imports.md)
-* [Replace form classes with untyped variants](./replace-untyped-forms.md)
 * [Replace `node-sass` with `sass`](./replace-node-sass-with-sass.md)
 
 ## Recipes
@@ -53,6 +52,7 @@ _Recipes that include further recipes, often including the individual recipes be
 * [Replace `TestBed.get()` with `TestBed.inject()`](./replace-testbed-get-with-inject.md)
 * [Replace `ViewEncapsulation.Native` with `ViewEncapsulation.ShadowDom`](./replace-view-encapsulation-native.md)
 * [Replace `async` with `waitForAsync`](./replace-async-with-wait-for-async.md)
+* [Replace form classes with untyped variants](./replace-untyped-forms.md)
 * [Replace `initialNavigation` option values](./replace-initial-navigation.md)
 * [Replace string-based `loadChildren` with dynamic `import()`](./replace-load-children-string.md)
 * [Replace `validator`/`asyncValidator` with plural forms](./replace-validator-with-validators.md)

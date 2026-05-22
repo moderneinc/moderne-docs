@@ -8,7 +8,6 @@ const infimaClassName = 'alert alert--info';
 
 const defaultProps = {
   icon: <Info size={18} strokeWidth={2} />,
-  title: 'info',
 };
 
 export default function AdmonitionTypeInfo(

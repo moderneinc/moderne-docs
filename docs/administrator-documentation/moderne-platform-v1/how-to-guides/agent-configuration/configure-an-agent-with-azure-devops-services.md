@@ -8,7 +8,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import VersionBanner from '@site/src/components/VersionBanner';
 
-<VersionBanner version="v1" linkPath="/administrator-documentation/moderne-platform/how-to-guides/agent-configuration/configure-an-agent-with-azure-devops-services" />
+<VersionBanner version="v1" linkPath="/administrator-documentation/moderne-platform/how-to-guides/connector-configuration/configure-a-connector-with-azure-devops-services" />
 
 # Configure an agent with Azure DevOps Services
 

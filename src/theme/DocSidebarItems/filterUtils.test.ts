@@ -137,14 +137,14 @@ const mockSidebarItems: PropSidebarItem[] = [
               {
                 type: 'category',
                 label: 'Moderne Agent',
-                href: '/administrator-documentation/moderne-platform/agent-configuration',
+                href: '/administrator-documentation/moderne-platform/connector-configuration',
                 collapsed: false,
                 collapsible: true,
                 items: [
                   {
                     type: 'link',
                     label: 'Agent config',
-                    href: '/administrator-documentation/moderne-platform/how-to-guides/agent-configuration/agent-config',
+                    href: '/administrator-documentation/moderne-platform/how-to-guides/connector-configuration/connector-config',
                   },
                 ],
               },

@@ -7,14 +7,18 @@ description: The current version of the Moderne Agent and where to download it.
 
 | Component                             | Current version |
 | ------------------------------------- | --------------- |
-| Agent (recommended to use **latest**) | 0.259.0         |
+| Agent (recommended to use **latest**) | 0.260.0         |
 
 ### Maven download
 
-[Agent download link](https://repo1.maven.org/maven2/io/moderne/moderne-agent/0.259.0/moderne-agent-0.259.0.jar)
+[Agent download link](https://repo1.maven.org/maven2/io/moderne/moderne-agent/0.260.0/moderne-agent-0.260.0.jar)
 
 ## Changelog
 
+### v0.260.0 - 2026-05-15
+
+* Suppress HIGH/CRITICAL false positives from dependency-vulnerability-report
+* Upgrade to `actions/checkout@v6`
 ## April 2026
 
 ### v0.259.0 - 2026-04-29

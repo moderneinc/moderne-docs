@@ -540,17 +540,17 @@ h1, .markdown h3, .markdown h4 {
   font-weight: var(--neo-font-weight-semi-bold);
 }
 
-/* Inline code: thin-outlined pill, SFMono 13/21, midnight text */
+/* Inline code: SFMono pill. Relative em sizing so it scales correctly inside headers. */
 .markdown :not(pre) > code {
   background-color: var(--neo-grey-50);
   border: 1px solid var(--neo-grey-200);
   border-radius: var(--neo-border-radius-x-s);
   color: var(--brand-midnight);
   font-family: 'SFMono-Regular', Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
-  font-size: 13px;
+  font-size: 0.9em;
   font-weight: 400;
-  line-height: 21px;
-  padding: 1px 6px;
+  line-height: 1.4;
+  padding: 0.1em 0.4em;
   vertical-align: baseline;
 }
 
@@ -560,7 +560,9 @@ html[data-theme='dark'] .markdown :not(pre) > code {
   color: var(--neo-grey-100);
 }
 
-/* Replit-style admonitions: rounded, subtle border, icon inline with text */
+/* Replit-style admonitions: rounded, subtle border, icon inline with text.
+   When a title is present (`:::info[My title]`), the container stacks vertically
+   so the heading row sits above the content. */
 .theme-admonition {
   border: 1px solid;
   border-radius: var(--neo-border-radius-m);
@@ -573,15 +575,22 @@ html[data-theme='dark'] .markdown :not(pre) > code {
   margin-bottom: var(--neo-spacing_3);
 }
 
+.theme-admonition:has([class*='admonitionTitle_']) {
+  flex-direction: column;
+  gap: var(--neo-spacing_1_2);
+}
+
 .theme-admonition [class*='admonitionHeading_'] {
   margin: 0;
-  font-size: 0;
   line-height: 1;
   flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--neo-spacing_1);
+  text-transform: none;
 }
 
 .theme-admonition [class*='admonitionHeading_'] [class*='admonitionIcon_'] {
-  font-size: initial;
   margin-right: 0;
   display: inline-flex;
   align-items: center;
@@ -590,6 +599,13 @@ html[data-theme='dark'] .markdown :not(pre) > code {
 .theme-admonition [class*='admonitionHeading_'] [class*='admonitionIcon_'] svg {
   fill: none;
   stroke: currentColor;
+}
+
+.theme-admonition [class*='admonitionTitle_'] {
+  font-family: var(--neo-font-family-heading);
+  font-weight: var(--neo-font-weight-semi-bold);
+  font-size: var(--neo-font-size-h5);
+  line-height: 1.3;
 }
 
 .theme-admonition [class*='admonitionContent_'] {

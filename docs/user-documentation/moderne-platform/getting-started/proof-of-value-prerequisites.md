@@ -59,7 +59,7 @@ The Moderne Connector is responsible for communicating between your environment 
 | Memory   | 8 GB                        |
 | Storage  | 10 GB (persistent or local) |
 
-The [Connector configuration guide](../../../administrator-documentation/moderne-platform/how-to-guides/agent-configuration/agent-config.md) covers detailed configuration options and deployment instructions.
+The [Connector configuration guide](../../../administrator-documentation/moderne-platform/how-to-guides/connector-configuration/connector-config.md) covers detailed configuration options and deployment instructions.
 
 ## Source control access
 
@@ -71,11 +71,11 @@ Both environments need access to your source control management system (SCM), bu
 
 SCM-specific configuration guides:
 
-* [GitHub](../../../administrator-documentation/moderne-platform/how-to-guides/agent-configuration/configure-an-agent-with-github.md) (GitHub App or OAuth App)
-* [GitLab](../../../administrator-documentation/moderne-platform/how-to-guides/agent-configuration/configure-an-agent-with-gitlab.md)
-* [Bitbucket Data Center](../../../administrator-documentation/moderne-platform/how-to-guides/agent-configuration/configure-bitbucket-to-agent.md)
-* [Bitbucket Cloud](../../../administrator-documentation/moderne-platform/how-to-guides/agent-configuration/configure-bitbucket-cloud-to-agent.md)
-* [Azure DevOps](../../../administrator-documentation/moderne-platform/how-to-guides/agent-configuration/configure-an-agent-with-azure-devops-services.md)
+* [GitHub](../../../administrator-documentation/moderne-platform/how-to-guides/connector-configuration/configure-a-connector-with-github.md) (GitHub App or OAuth App)
+* [GitLab](../../../administrator-documentation/moderne-platform/how-to-guides/connector-configuration/configure-a-connector-with-gitlab.md)
+* [Bitbucket Data Center](../../../administrator-documentation/moderne-platform/how-to-guides/connector-configuration/configure-bitbucket-to-connector.md)
+* [Bitbucket Cloud](../../../administrator-documentation/moderne-platform/how-to-guides/connector-configuration/configure-bitbucket-cloud-to-connector.md)
+* [Azure DevOps](../../../administrator-documentation/moderne-platform/how-to-guides/connector-configuration/configure-a-connector-with-azure-devops-services.md)
 
 ### Preparing your repository list
 
@@ -91,12 +91,12 @@ You need a dedicated location for storing and retrieving LST artifacts. Mass ing
 
 Create a **new Maven 2 type repository** dedicated to LST artifacts. We strongly recommend keeping LSTs in their own repository rather than mixing them into an existing one — this makes indexing, cleanup, and troubleshooting much easier.
 
-* For **Artifactory**, the Connector uses [Artifactory Query Language (AQL)](../../../administrator-documentation/moderne-platform/how-to-guides/agent-configuration/configure-an-agent-with-artifactory-access.md) for near real-time artifact discovery.
-* For **Nexus 3** or other Maven repositories, you must [enable Maven Indexer publishing](../../../administrator-documentation/moderne-platform/how-to-guides/agent-configuration/configure-an-agent-with-maven-repository-access.md#configure-the-maven-indexer) on the LST repository so the Connector can discover new artifacts. The repository must also have its **layout policy set to Permissive** — mass ingest uploads build logs alongside LSTs using paths that do not follow Maven coordinate structure, and Nexus will reject these with HTTP 400 if the layout policy is Strict. The [Maven repository configuration guide](../../../administrator-documentation/moderne-platform/how-to-guides/agent-configuration/configure-an-agent-with-maven-repository-access.md) has full setup instructions.
+* For **Artifactory**, the Connector uses [Artifactory Query Language (AQL)](../../../administrator-documentation/moderne-platform/how-to-guides/connector-configuration/configure-a-connector-with-artifactory-access.md) for near real-time artifact discovery.
+* For **Nexus 3** or other Maven repositories, you must [enable Maven Indexer publishing](../../../administrator-documentation/moderne-platform/how-to-guides/connector-configuration/configure-a-connector-with-maven-repository-access.md#configure-the-maven-indexer) on the LST repository so the Connector can discover new artifacts. The repository must also have its **layout policy set to Permissive** — mass ingest uploads build logs alongside LSTs using paths that do not follow Maven coordinate structure, and Nexus will reject these with HTTP 400 if the layout policy is Strict. The [Maven repository configuration guide](../../../administrator-documentation/moderne-platform/how-to-guides/connector-configuration/configure-a-connector-with-maven-repository-access.md) has full setup instructions.
 
 ### Option 2: Amazon S3 (or S3-compatible storage)
 
-Create a **dedicated S3 bucket** for LST artifacts. The mass ingest pipeline publishes LSTs into this bucket and also writes a `repos-lock.csv` that the Connector reads to discover your repositories and their LST locations. The [S3 organization source guide](../../../administrator-documentation/moderne-platform/how-to-guides/agent-configuration/configure-an-agent-with-s3-access.md) covers the Connector-side configuration — authentication options (IAM role, AWS profile, or access keys) and the S3 URI for the CSV object.
+Create a **dedicated S3 bucket** for LST artifacts. The mass ingest pipeline publishes LSTs into this bucket and also writes a `repos-lock.csv` that the Connector reads to discover your repositories and their LST locations. The [S3 organization source guide](../../../administrator-documentation/moderne-platform/how-to-guides/connector-configuration/configure-a-connector-with-s3-access.md) covers the Connector-side configuration — authentication options (IAM role, AWS profile, or access keys) and the S3 URI for the CSV object.
 
 :::info
 The Connector also needs read access to any artifact repositories that contain **dependencies** for the projects you will be running recipes against.
@@ -119,7 +119,7 @@ The Connector also needs read access to any artifact repositories that contain *
 
 **The Moderne Connector** requires outbound HTTPS to your Moderne tenant's API at `https://api.TENANT.moderne.io`. If your repositories are hosted on a cloud SCM, the Connector also requires outbound HTTPS to that service. Moderne never initiates inbound connections to the Connector — the Connector establishes the connection using the [RSocket](https://rsocket.io/) protocol over HTTPS.
 
-If your environment requires an HTTP proxy for outbound traffic, the Connector supports [proxy configuration](../../../administrator-documentation/moderne-platform/how-to-guides/agent-configuration/configure-an-agent-to-connect-to-moderne-via-an-http-proxy.md).
+If your environment requires an HTTP proxy for outbound traffic, the Connector supports [proxy configuration](../../../administrator-documentation/moderne-platform/how-to-guides/connector-configuration/configure-a-connector-to-connect-to-moderne-via-an-http-proxy.md).
 
 ## What Moderne provides
 

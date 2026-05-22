@@ -341,6 +341,8 @@ description: Auto-generated documentation for all Moderne CLI commands.
 * [**mod log**](#mod-log)
 * [**mod log builds**](#mod-log-builds)
 * [**mod log builds add**](#mod-log-builds-add)
+* [**mod log execs**](#mod-log-execs)
+* [**mod log execs add**](#mod-log-execs-add)
 * [**mod log runs**](#mod-log-runs)
 * [**mod log runs add**](#mod-log-runs-add)
 * [**mod log syncs**](#mod-log-syncs)
@@ -7818,6 +7820,7 @@ mod log [subcommands]
 ### Subcommands
 
 * `builds`: Adds a set of build logs to a log aggregate.
+* `execs`: Adds a set of exec logs to a log aggregate.
 * `runs`: Adds a set of run logs to a log aggregate.
 * `syncs`: Adds a set of sync logs to a log aggregate.
 
@@ -7865,6 +7868,52 @@ mod log builds add [parameters]
 | ---- | ----------- |
 | `--build` |  A build ID for a build that has completed previously. |
 | `--last-build` |  Select whatever the last build was, whether the build ran fully to completion or terminated early. |
+
+
+## mod log execs
+
+Adds a set of exec logs to a log aggregate.
+
+
+In contrast to a CI log which is designed to look at one repository at a time, a log aggregate is designed to look at many repositories at once, illuminating the common causes of failure (or success) and the overall health of an exec operation.
+
+### Usage
+
+```
+mod log execs [subcommands]
+```
+
+
+### Subcommands
+
+* `add`: Adds a set of exec logs to a log aggregate.
+
+## mod log execs add
+
+Adds a set of exec logs to a log aggregate.
+
+
+For each repository that has a matching exec, add its exec log to the aggregate.
+
+### Usage
+
+```
+mod log execs add [parameters]
+```
+
+### Parameters
+
+| Name | Description | Example |
+| ---- | ----------- | ---------- |
+| `path` |  The absolute or relative path on disk to a directory containing one or more checked-out Git repositories that you want to operate on. This typically takes the form of targeting a single, checked-out copy of a Git repository or it can be a folder containing a collection of Git repositories that will be discovered by recursively scanning the initial provided directory. | `/path/to/project` |
+| `logPath` |  The absolute or relative path on disk to a log aggregate (a zip file). The file need not exist, though its containing directory is expected to exist. | `log.zip` |
+
+### Options
+
+| Name | Description |
+| ---- | ----------- |
+| `--exec` |  An exec ID for an exec that has completed previously. |
+| `--last-exec` |  Select whatever the last exec was, whether the exec ran fully to completion or terminated early. |
 
 
 ## mod log runs

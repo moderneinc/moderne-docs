@@ -45,6 +45,21 @@ Please [contact Moderne](https://moderne.io/product) for more information about 
 ## Data Tables
 
 <Tabs groupId="data-tables">
+<TabItem value="io.moderne.compiled.table.ABITraces" label="ABITraces">
+
+### ABI traces
+**io.moderne.compiled.table.ABITraces**
+
+_ASM trace of the ABI of types needed to perform compile verification._
+
+| Column Name | Description |
+| ----------- | ----------- |
+| Type to verify | The type that compile verification is attempting to verify. |
+| Type in use | A type that the type to verify is using, and therefore needs to be written out in bytecode form. |
+| Type in use ABI | The ABI of the type in use, written as an ASM trace. |
+
+</TabItem>
+
 <TabItem value="org.openrewrite.table.SourcesFileResults" label="SourcesFileResults">
 
 ### Source files that had results

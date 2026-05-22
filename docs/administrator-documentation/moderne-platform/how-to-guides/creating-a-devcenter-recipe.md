@@ -17,7 +17,7 @@ In this doc, we'll walk you through how to create a DevCenter recipe and deploy 
 
 This guide assumes that you have:
 
-* Already configured an [organizational structure](./agent-configuration/configure-organizations-hierarchy.md)
+* Already configured an [organizational structure](./connector-configuration/configure-organizations-hierarchy.md)
 * A basic understanding of what [declarative YAML recipes](https://docs.openrewrite.org/reference/yaml-format-reference) look like and how to work with them.
 
 ## Creating and deploying a DevCenter recipe

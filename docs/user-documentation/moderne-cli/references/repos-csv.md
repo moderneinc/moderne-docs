@@ -174,6 +174,7 @@ Comma-separated files (CSV) are best manipulated using a dedicated editor such a
 * You can add empty orgs to the beginning, middle, or end of a row to make them line up as desired (although you don't need to).
 * You can choose to surround elements with quotes or not depending on your preference – just keep in mind general CSV formatting rules.
 * You can order columns in any way.
+* Any columns not listed in the [supported columns](#supported-columns) table are ignored. You can use these to hold internal notes such as team names, owners, or other metadata that is meaningful to your organization but not consumed by the Moderne CLI.
 
 <figure>
   ![Spreadsheet showing repos.csv with repositories assigned to multiple org levels including AWS, FINOS, Netflix, and Spring](./assets/repos-csv-example.png)

@@ -7,7 +7,7 @@ description: The current version of the Moderne CLI and links to useful CLI docu
 
 | Component   | Current version |
 | ----------- | --------------- |
-| CLI version | 4.2.6           |
+| CLI version | 4.2.9           |
 
 For CLI command documentation, see the [CLI reference](../user-documentation/moderne-cli/cli-reference.md).
 
@@ -16,6 +16,36 @@ The Moderne CLI previously followed a two-track release model with separate "sta
 :::
 
 ## Changelog
+
+### CLI / DX v4.2.9 (2026-05-21)
+
+#### What's Changed
+* [4.2.x] Keep DevCenterSpec record from being obfuscated (#3881)
+* [4.2.x] PythonBuildStep: recognize Pipenv projects via Pipfile (#3755)
+* [4.2.x] Reduce modw.cmd Windows startup overhead by ~2.5s (backport)
+* [4.2.x] Preserve leading slash on absolute paths in mod config show
+* [4.2.x] Use G1 unconditionally in modw to stop AOT cache thrash
+* [4.2.x] Add `mod log execs` to aggregate exec logs (#3822)
+* [4.2.x] `mod search`: don't render filename matches as `L1: <path>`
+* [4.2.x] Apply clone timeout to checkout step in `mod git sync csv`
+* [4.2.x] Drop Claude-specific path from skill version check
+* [4.2.x] Apply lsts.artifacts auth when fetching remote repos.csv (#3922)
+* [4.2.x] `modw`: fall back to installed CLI jar on 403/404 download failure
+
+### CLI / DX v4.2.8 (2026-05-14)
+
+#### What's Changed
+* Exclude filter-mismatched repos from the `mod run` progress bar (#3835)
+* Restore JDK selection logging for gradle build steps
+* Fix DevCenter spec loading for declarative parent recipes (#3851)
+* Fix `mod` commands finding zero repos when sync target is nested in a parent git worktree
+
+### CLI / DX v4.2.7 (2026-05-12)
+
+#### What's Changed
+* Fix race condition in RepositoryGitTask#updateBranchChangeset
+* mod run: release recipe classloader handles when all partitions complete
+* Unbundle rewrite-devcenter from CLI fat jar; consume DevCenter via JSON
 
 ### CLI / DX v4.2.6 (2026-05-11)
 

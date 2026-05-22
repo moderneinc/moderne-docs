@@ -26,6 +26,63 @@ This recipe is used as part of the following composite recipes:
 
 * [Analyse Organization's Release Train Metro Plan](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/recipe/releasemetro/releasemetroplan)
 
+## Example
+
+
+<Tabs groupId="beforeAfter">
+<TabItem value="pom.xml" label="pom.xml">
+
+
+###### Before
+```xml title="pom.xml"
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>3.2.0</version>
+        <relativePath/>
+    </parent>
+    <artifactId>my-app</artifactId>
+    <version>1.0.0</version>
+</project>
+```
+
+###### After
+```xml title="pom.xml"
+<!--~~(org.springframework.boot:my-app -> org.springframework.boot:spring-boot-starter-parent (MAVEN_PARENT))~~>--><?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>3.2.0</version>
+        <relativePath/>
+    </parent>
+    <artifactId>my-app</artifactId>
+    <version>1.0.0</version>
+</project>
+```
+
+</TabItem>
+<TabItem value="diff" label="Diff" >
+
+```diff
+--- pom.xml
++++ pom.xml
+@@ -1,1 +1,1 @@
+-<?xml version="1.0" encoding="UTF-8"?>
++<!--~~(org.springframework.boot:my-app -> org.springframework.boot:spring-boot-starter-parent (MAVEN_PARENT))~~>--><?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+```
+</TabItem>
+</Tabs>
+
 
 ## Usage
 
@@ -54,10 +111,10 @@ Please [contact Moderne](https://moderne.io/product) for more information about 
 <Tabs groupId="data-tables">
 <TabItem value="io.moderne.recipe.releasemetro.table.ParentRelationships" label="ParentRelationships">
 
-### Maven Parent and Gradle Project Hierarchies
+### Maven parent and Gradle project hierarchies
 **io.moderne.recipe.releasemetro.table.ParentRelationships**
 
-_Relationships between child projects and their parent POMs or Gradle parent projects._
+_Relationships between Maven child modules and their parent POMs, or Gradle subprojects and their root project._
 
 | Column Name | Description |
 | ----------- | ----------- |

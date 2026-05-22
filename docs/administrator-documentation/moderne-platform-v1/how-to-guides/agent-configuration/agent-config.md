@@ -9,7 +9,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import VersionBanner from '@site/src/components/VersionBanner';
 
-<VersionBanner version="v1" linkPath="/administrator-documentation/moderne-platform/how-to-guides/agent-configuration/agent-configuration" />
+<VersionBanner version="v1" linkPath="/administrator-documentation/moderne-platform/how-to-guides/connector-configuration/connector-configuration" />
 
 # Configuring the Moderne agent
 
