@@ -95,8 +95,29 @@ jobs:
           done
           ls -la
 
+      - name: Install dependencies (for broken-links aggregator)
+        run: yarn install --frozen-lockfile
+
       - name: Merge shards
         run: node scripts/merge-shards.js
+
+      - name: Aggregate broken-links report
+        run: |
+          node scripts/broken-links-report.js \
+            build-shards/shard-*/_shard-meta.json \
+            --out broken-links-summary.md
+
+      - name: Append report to job summary
+        run: cat broken-links-summary.md >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Upload broken-links summary artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: broken-links-summary
+          path: |
+            broken-links-summary.md
+            broken-links-summary.md.json
+          retention-days: 30
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v5

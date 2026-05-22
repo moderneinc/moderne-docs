@@ -8,6 +8,8 @@ package-lock.json
 # Production
 /build
 /build-shards
+/broken-links-summary.md
+/broken-links-summary.md.json
 
 # Generated files
 .docusaurus
