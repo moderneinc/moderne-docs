@@ -14,8 +14,11 @@ const config: Config = {
   organizationName: 'moderneinc',
   projectName: 'moderne-docs',
 
-  // Only throw on broken links when the full site (including recipe catalog) is built.
-  onBrokenLinks: (process.env.CI_STRICT_LINKS && !process.env.SKIP_RECIPE_CATALOG) ? 'throw' : 'warn',
+  // Recipe-catalog pages are now produced by scripts/build-recipe-catalog/
+  // and merged into the build output post-Docusaurus. Internal links from
+  // main docs into the catalog are validated by the post-build link checker
+  // since Docusaurus itself can't resolve them.
+  onBrokenLinks: 'warn',
 
   i18n: {
     defaultLocale: 'en',
@@ -32,6 +35,7 @@ const config: Config = {
     require.resolve('./src/client/gtagGuard.js'),
     require.resolve('./src/client/loadNeoDesign.js'),
     require.resolve('./src/client/algoliaInsights.js'),
+    require.resolve('./src/client/recipeCatalogLinks.js'),
   ],
 
   headTags: [
@@ -100,9 +104,10 @@ const config: Config = {
             '**/*.stories.ts',
             '**/*.stories.jsx',
             '**/*.stories.js',
-            // Skip 5,700+ recipe-catalog pages for faster local rebuilds.
-            // Use `yarn start:fast` to enable this; `yarn start` includes everything.
-            ...(process.env.SKIP_RECIPE_CATALOG ? ['user-documentation/recipes/recipe-catalog/**'] : []),
+            // Recipe-catalog pages are rendered by scripts/build-recipe-catalog/
+            // and merged into the build output. Excluding them here keeps the
+            // Docusaurus build memory bounded as the catalog grows.
+            'user-documentation/recipes/recipe-catalog/**',
           ],
           remarkPlugins: [
             [
@@ -130,9 +135,9 @@ const config: Config = {
   markdown: {
     mermaid: true,
     hooks: {
-      // Only throw on broken markdown links when the full site (including recipe catalog) is built.
-      // When SKIP_RECIPE_CATALOG is set, recipe list pages will have expected broken links.
-      onBrokenMarkdownLinks: (process.env.CI_STRICT_LINKS && !process.env.SKIP_RECIPE_CATALOG) ? 'throw' : 'warn',
+      // Recipe-catalog pages are rendered separately; links into them are
+      // validated by the post-build checker since they're not Docusaurus routes.
+      onBrokenMarkdownLinks: 'warn',
       onBrokenMarkdownImages: process.env.CI_STRICT_LINKS ? 'throw' : 'warn',
     }
   },

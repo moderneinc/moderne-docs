@@ -44,3 +44,6 @@ docs/plans/
 storybook-static
 .env
 .env*.local
+/diag/
+scripts/build-recipe-catalog/shell-template.html
+/build-recipes/

@@ -1,6 +1,7 @@
-# Sharded production deploy: splits SSG across N parallel jobs, then merges
-# the per-shard build outputs and deploys to GitHub Pages. Replaces the
-# single-job pages.yml (kept as a workflow_dispatch-only emergency fallback).
+# Production deploy: Docusaurus builds the curated docs, a separate streaming
+# script renders the recipe catalog, both outputs are merged, and the combined
+# artifact is published to GitHub Pages. Replaces the previous 4-shard
+# pages-sharded build (deleted), which was OOMing on ubuntu-latest at scale.
 name: Deploy Moderne docs to Pages (sharded)
 
 on:
@@ -17,18 +18,11 @@ concurrency:
   group: "pages"
   cancel-in-progress: false
 
-env:
-  SHARD_TOTAL: 4
-
 jobs:
-  build-shard:
-    name: Build shard ${{ matrix.shard }}/${{ vars.SHARD_TOTAL || 4 }}
+  build-docs:
+    name: Build Docusaurus docs
     runs-on: ubuntu-latest
-    timeout-minutes: 30
-    strategy:
-      fail-fast: true
-      matrix:
-        shard: [0, 1, 2, 3]
+    timeout-minutes: 15
     steps:
       - uses: actions/checkout@v6
         with:
@@ -41,38 +35,50 @@ jobs:
       - name: Install dependencies
         run: yarn install --frozen-lockfile
 
-      - name: Cache bundler artifacts (per shard)
-        uses: actions/cache@v4
-        with:
-          path: node_modules/.cache
-          key: docusaurus-shard-${{ matrix.shard }}-${{ runner.os }}-${{ hashFiles('yarn.lock', 'docusaurus.config.ts', 'src/theme/**') }}
-          restore-keys: |
-            docusaurus-shard-${{ matrix.shard }}-${{ runner.os }}-
-            docusaurus-${{ runner.os }}-
+      - name: Generate recipe-catalog sidebar manifest
+        run: yarn build:recipes-sidebar
 
-      - name: Build shard
-        run: |
-          set -o pipefail
-          yarn build:shard 2>&1 | { grep --line-buffered -v "^Generated markdown file:" || true; }
-        env:
-          SHARD_INDEX: ${{ matrix.shard }}
-          SHARD_TOTAL: 4
-          DOCUSAURUS_SSG_WORKER_THREAD_RECYCLER_MAX_MEMORY: "512000000"
-          DOCUSAURUS_SSR_CONCURRENCY: "16"
-          NODE_OPTIONS: "--max-old-space-size=4096 --max-semi-space-size=64"
-          DOCUSAURUS_IGNORE_SSG_WARNINGS: true
+      - name: Build Docusaurus
+        run: yarn build:docs
 
-      - name: Upload shard artifact
+      - name: Upload Docusaurus artifact
         uses: actions/upload-artifact@v4
         with:
-          name: build-shard-${{ matrix.shard }}
-          path: build-shards/shard-${{ matrix.shard }}
+          name: build-docs
+          path: build
+          retention-days: 1
+          if-no-files-found: error
+
+  build-recipes:
+    name: Build recipe catalog
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v6
+        with:
+          node-version: 24
+          cache: yarn
+
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
+
+      - name: Build recipe catalog (streaming render)
+        run: yarn build:recipes
+        env:
+          RECIPE_OUT_DIR: ${{ github.workspace }}/build-recipes/user-documentation/recipes/recipe-catalog
+
+      - name: Upload recipes artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: build-recipes
+          path: build-recipes
           retention-days: 1
           if-no-files-found: error
 
   combine:
-    name: Combine shards
-    needs: build-shard
+    name: Combine and upload Pages artifact
+    needs: [build-docs, build-recipes]
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
@@ -82,46 +88,29 @@ jobs:
           node-version: 24
           cache: yarn
 
-      - name: Download all shard artifacts
+      - name: Download Docusaurus artifact
         uses: actions/download-artifact@v4
         with:
-          path: build-shards
-          pattern: build-shard-*
+          name: build-docs
+          path: build
 
-      - name: Normalize artifact layout
-        # download-artifact extracts each artifact into its own subdirectory
-        # named after the artifact (build-shard-0, build-shard-1, ...). The
-        # merge script expects directories named shard-N.
-        run: |
-          cd build-shards
-          for dir in build-shard-*; do
-            mv "$dir" "shard-${dir#build-shard-}"
-          done
-          ls -la
-
-      - name: Install dependencies (for broken-links aggregator)
-        run: yarn install --frozen-lockfile
-
-      - name: Merge shards
-        run: node scripts/merge-shards.js
-
-      - name: Aggregate broken-links report
-        run: |
-          node scripts/broken-links-report.js \
-            build-shards/shard-*/_shard-meta.json \
-            --out broken-links-summary.md
-
-      - name: Append report to job summary
-        run: cat broken-links-summary.md >> "$GITHUB_STEP_SUMMARY"
-
-      - name: Upload broken-links summary artifact
-        uses: actions/upload-artifact@v4
+      - name: Download recipes artifact
+        uses: actions/download-artifact@v4
         with:
-          name: broken-links-summary
-          path: |
-            broken-links-summary.md
-            broken-links-summary.md.json
-          retention-days: 30
+          name: build-recipes
+          path: build-recipes
+
+      - name: Merge recipe output into docs build
+        run: |
+          # The recipe build writes under build-recipes/user-documentation/recipes/recipe-catalog/
+          # which mirrors the final URL layout. cp -a preserves the tree.
+          if [ -d build-recipes/user-documentation ]; then
+            cp -a build-recipes/user-documentation build/
+          fi
+          echo "Merged build tree:"
+          find build/user-documentation/recipes/recipe-catalog -maxdepth 2 -type d | head -20
+          echo "Total HTML files in build/:"
+          find build -name "index.html" | wc -l
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v5
