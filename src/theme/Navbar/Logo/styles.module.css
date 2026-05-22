@@ -72,11 +72,18 @@
    keeps the edges crisp until the new asset lands. */
 .wordmarkImage {
   display: block;
-  height: 32px;
-  width: 232px;
+  height: 41px;
+  width: 297px;
   flex-shrink: 0;
   color: var(--ifm-navbar-link-color);
   shape-rendering: geometricPrecision;
+}
+
+@media (min-width: 1280px) {
+  .wordmarkImage {
+    height: 46px;
+    width: 334px;
+  }
 }
 
 /* Dark mode logo colors */

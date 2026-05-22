@@ -373,18 +373,6 @@ html {
   min-height: calc(100vh - var(--ifm-navbar-height) - var(--ifm-secondary-nav-height) - var(--ifm-announcement-bar-height));
 }
 
-/* On narrow widths the secondary nav is replaced by the hamburger
-   menu, so its 48px shouldn't be reserved as empty space above the
-   breadcrumbs. Zero it out under 997px. Also align hamburger and
-   article column to a shared 20px left edge. */
-@media (max-width: 996px) {
-  :root {
-    --ifm-secondary-nav-height: 0px;
-    --ifm-navbar-padding-horizontal: 20px;
-    --ifm-spacing-horizontal: 20px;
-  }
-}
-
 /* Ensure sidebar container has correct height calculation */
 .theme-doc-sidebar-container {
   position: sticky;
@@ -531,6 +519,11 @@ html[data-theme='dark'] [class^=docMainContainer_] .card {
 }
 
 @media(min-width: 997px) {
+  /* On desktop, account for secondary nav in total navbar height */
+  :root {
+    --ifm-navbar-height: calc(37px + var(--ifm-secondary-nav-height));
+  }
+
   .theme-doc-sidebar-container {
     --ifm-toc-border-color: var(--ifm-section-divider-color);
   }
