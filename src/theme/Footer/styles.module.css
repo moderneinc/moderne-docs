@@ -22,6 +22,14 @@
   }
 }
 
+/* Landing/non-docs pages: footer sits at viewport bottom when content
+   is short, so it's visible above the fold without scrolling.
+   On long pages the content fills available space and margin-top: auto
+   resolves to 0, so the footer flows naturally below content (no overlay). */
+:global(html:not(.docs-wrapper)) .footer {
+  margin-top: auto;
+}
+
 .actions {
   display: flex;
   align-items: center;
