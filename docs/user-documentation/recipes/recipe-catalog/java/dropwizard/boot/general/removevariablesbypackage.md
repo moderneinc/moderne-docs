@@ -33,7 +33,67 @@ This recipe is used as part of the following composite recipes:
 
 * [Migrate Dropwizard to Spring Boot 3](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/dropwizard/boot/migratedropwizardtospringboot3)
 
-## Example
+## Examples
+##### Example 1
+`MetricRegistryToMeterRegistryTest#changeTypeForField`
+
+###### Parameters
+| Parameter | Value |
+| --- | --- |
+|packageFilter|`com.codahale.metrics`|
+|removeOnlyClassScope|`false`|
+
+
+<Tabs groupId="beforeAfter">
+<TabItem value="java" label="java">
+
+
+###### Before
+```java
+package com.example;
+
+import com.codahale.metrics.MetricRegistry;
+
+class MyService {
+    private MetricRegistry registry;
+}
+```
+
+###### After
+```java
+package com.example;
+
+import io.micrometer.core.instrument.MeterRegistry;
+
+class MyService {
+    private MeterRegistry registry;
+}
+```
+
+</TabItem>
+<TabItem value="diff" label="Diff" >
+
+```diff
+@@ -3,1 +3,1 @@
+package com.example;
+
+-import com.codahale.metrics.MetricRegistry;
++import io.micrometer.core.instrument.MeterRegistry;
+
+@@ -6,1 +6,1 @@
+
+class MyService {
+-   private MetricRegistry registry;
++   private MeterRegistry registry;
+}
+```
+</TabItem>
+</Tabs>
+
+---
+
+##### Example 2
+`RemoveVariablesByPackageTest#removesMatchingClassVariables`
 
 ###### Parameters
 | Parameter | Value |

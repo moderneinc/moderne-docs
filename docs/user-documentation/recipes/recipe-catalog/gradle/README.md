@@ -7,6 +7,7 @@ description: Gradle OpenRewrite recipes.
 ## Categories
 
 * [Gradle8](/user-documentation/recipes/recipe-catalog/gradle/gradle8)
+* [Gradle9](/user-documentation/recipes/recipe-catalog/gradle/gradle9)
 * [Plugins](/user-documentation/recipes/recipe-catalog/gradle/plugins)
 * [Search](/user-documentation/recipes/recipe-catalog/gradle/search)
 * [Security](/user-documentation/recipes/recipe-catalog/gradle/security)

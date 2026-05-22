@@ -31,6 +31,7 @@ This recipe is available under the [Apache License Version 2.0](https://www.apac
 This recipe is used as part of the following composite recipes:
 
 * [Apache Maven best practices](/user-documentation/recipes/recipe-catalog/maven/bestpractices.md)
+* [Apache Maven reproducible builds](/user-documentation/recipes/recipe-catalog/maven/reproduciblebuilds.md)
 
 ## Example
 

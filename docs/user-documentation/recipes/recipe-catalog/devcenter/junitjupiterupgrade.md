@@ -31,6 +31,7 @@ This recipe is available under the [Moderne Source Available License](https://do
 
 This recipe is used as part of the following composite recipes:
 
+* [DevCenter Kotlin](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/devcenter/devcenterkotlin)
 * [DevCenter for Apache](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/devcenter/apachedevcenter)
 * [DevCenter](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/devcenter/devcenterstarter)
 

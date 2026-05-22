@@ -13,7 +13,7 @@ _Recipes that include further recipes, often including the individual recipes be
 ## Recipes
 
 * [Find native queries with enum parameters requiring SpEL conversion](./findnativequeryrawenumparameters.md)
-* [Migrate @JdbcType to @JdbcTypeCode](./migratejdbctypetojdbctypecode.md)
+* [Migrate `@JdbcType` and legacy `@Type` to `@JdbcTypeCode`](./migratejdbctypetojdbctypecode.md)
 * [Migrate @Query to @NativeQuery for unsupported JPQL](./migratequerytonativequery.md)
 * [Migrate `Configurable.configure()` to use `GeneratorCreationContext`](./migrateconfigurabletogeneratorcreationcontext.md)
 * [Migrate Hibernate `Integrator#integrate` method](./migrateintegratormethod.md)
