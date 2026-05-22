@@ -9,7 +9,10 @@ description: Devcenter OpenRewrite recipes.
 _Recipes that include further recipes, often including the individual recipes below._
 
 * [Apache Maven best practices](./apachemavenbestpractices.md)
+* [Class cohesion DevCenter](./classcohesiondevcenter.md)
 * [DevCenter](./devcenterstarter.md)
+* [DevCenter Kotlin](./devcenterkotlin.md)
+* [DevCenter for Angular](./devcenterangularstarter.md)
 * [DevCenter for Apache](./apachedevcenter.md)
 * [DevCenter for Apache Maven](./apachemavendevcenter.md)
 * [DevCenter for C#](./devcentercsharpstarter.md)
@@ -24,10 +27,12 @@ _Recipes that include further recipes, often including the individual recipes be
 ## Recipes
 
 * [Build tool](./buildtoolcard.md)
+* [DevCenter card from a data table column](./bucketedmetriccard.md)
 * [Find organization statistics](./findorganizationstatistics.md)
 * [Library upgrade](./libraryupgrade.md)
 * [Move to JUnit 6](./junitjupiterupgrade.md)
 * [Move to a later .NET version](./csharpversionupgrade.md)
+* [Move to a later Angular version](./angularversionupgrade.md)
 * [Move to a later Groovy version](./groovyversionupgrade.md)
 * [Move to a later Java version](./javaversionupgrade.md)
 * [Move to a later Kotlin version](./kotlinversionupgrade.md)

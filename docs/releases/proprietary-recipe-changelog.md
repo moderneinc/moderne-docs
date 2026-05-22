@@ -10,6 +10,252 @@ This page contains release notes for [Moderne proprietary OpenRewrite recipes](h
 This changelog is automatically generated from GitHub releases and only contains information from the past year.
 :::
 
+## May 22, 2026
+
+#### rewrite-devcenter - v1.24.1
+
+* Fix DependencyVulnerabilityCheck per-tree Accumulator leak on root cursor
+* Avoid duplicate UpgradesAndMigrations rows per repo and card
+
+## May 21, 2026
+
+#### rewrite-ai - 0.3.4
+
+* Updated repository to use OpenRewrite version v8.83.0
+
+#### rewrite-ai-search - 0.33.4
+
+* Updated repository to use OpenRewrite version v8.83.0
+
+#### rewrite-android - 0.17.1
+
+* Updated repository to use OpenRewrite version v8.83.0
+
+#### rewrite-angular - 1.2.0
+
+* Use type-safe getDataTableRows overload in tests
+* actions/setup-java v5
+
+#### rewrite-circleci - 3.11.0
+
+* Use rewriteRecipe.rewriteVersion convention
+
+#### rewrite-cobol - 2.17.5
+
+* Updated repository to use OpenRewrite version v8.83.0
+
+#### rewrite-codemods - 0.25.5
+
+* Updated repository to use OpenRewrite version v8.83.0
+
+#### rewrite-codemods-ng - v0.20.6
+
+* Use
+
+#### rewrite-codemods-ng - 0.20.5
+
+* Updated repository to use OpenRewrite version v8.83.0
+
+#### rewrite-compiled-analysis - 0.13.4
+
+* Updated repository to use OpenRewrite version v8.83.0
+
+#### rewrite-concourse - 3.10.4
+
+* Updated repository to use OpenRewrite version v8.83.0
+
+#### rewrite-cryptography - 0.13.6
+
+* Updated repository to use OpenRewrite version v8.83.0
+
+#### rewrite-devcenter - 1.24.0
+
+* Add BucketedMetricCard for data-table-driven DevCenter cards
+* Fix DevCenterTest compile error from invalid type witness
+* Update dependencies to use rewriteVersion
+* Force opennlp-tools 2.5.9 to fix critical CVEs
+* Add DevCenter card for Angular version tracking
+* Kotlin Devcenter
+
+#### rewrite-dotnet - 0.15.4
+
+* Updated repository to use OpenRewrite version v8.83.0
+
+#### rewrite-dropwizard - 0.3.1
+
+* Replace DropwizardAppExtension call sites with Spring Boot injected fields
+* Route Maven through Moderne Artifactory cache to avoid HTTP 429
+* Fix RemoveSuperTypeByTypeTest expected output for @Override removal
+* Revert inline Maven mirror (now in gh-automation#95)
+
+#### rewrite-dropwizard - 0.3.0
+
+* Replace DropwizardAppExtension call sites with Spring Boot injected fields
+* Route Maven through Moderne Artifactory cache to avoid HTTP 429
+* Fix RemoveSuperTypeByTypeTest expected output for @Override removal
+* Revert inline Maven mirror (now in gh-automation#95)
+
+#### rewrite-elastic - 0.6.5
+
+* Updated repository to use OpenRewrite version v8.83.0
+
+#### rewrite-hibernate - 0.23.0
+
+* Stop migrating EntityManager to Session in Hibernate 7 pipeline
+* Preserve executeUpdate() chain when migrating createNativeQuery
+* Migrate hypersistence-utils dependency in Hibernate 7.0 / 7.1 recipes
+
+#### rewrite-jasperreports - 0.5.4
+
+* Updated repository to use OpenRewrite version v8.83.0
+
+#### rewrite-java-application-server - 0.7.0
+
+* Regenerate recipes.csv
+* Fix integration test coordinate parsing for module-suffixed SNAPSHOT jars
+* Force opennlp-tools 2.5.9 to fix critical CVEs
+* Replace template README boilerplate with real project description
+
+#### rewrite-java-security - 3.31.0
+
+* Fix compilation broken by best-practices recipe
+* Fix CookieSetSecure / CookieSetHttpOnly crash on non-local cookies
+* Use $rewriteVersion for rewrite-program-analysis
+
+#### rewrite-kafka - 0.6.0
+
+* Comment out `zookeeper.*` broker properties in Kafka 4.0 migration
+* Migrate Kafka 4.0 DescribeTopicsResult.values() to topicNameValues()
+
+#### rewrite-kubernetes - 3.16.4
+
+* Updated repository to use OpenRewrite version v8.83.0
+
+#### rewrite-migrate-kotlin - 0.4.0
+
+* Replace template README with project-specific content
+
+#### rewrite-migrate-python - 0.7.3
+
+* Updated repository to use OpenRewrite version v8.83.0
+
+#### rewrite-nodejs - 0.45.1
+
+* Publish to NPM directly
+
+#### rewrite-nodejs - 0.45.0
+
+* Lower-case values by default for minimumSeverity in FFVD
+* Wrap editor() in Preconditions.check on 16 deprecation recipes
+
+#### rewrite-prethink - 0.6.0
+
+* Regenerated recipes.csv to update incorrect recipe paths for CLI
+* Add Tier 1 .NET CALM recipes
+* Expand .NET prethink coverage with 20 new recipes
+* OpenRewrite recipe best practices
+
+#### rewrite-program-analysis - 0.12.5
+
+* Updated repository to use OpenRewrite version v8.83.0
+
+#### rewrite-react - 0.3.0
+
+* Fix compilation broken by best-practices recipe
+
+#### rewrite-reactive-streams - 0.19.4
+
+* Updated repository to use OpenRewrite version v8.83.0
+
+#### rewrite-release-metromap - v0.2.2
+
+* Do not depend on rewrite-recipe-bom
+
+#### rewrite-release-metromap - 0.2.1
+
+* Updated repository to use OpenRewrite version v8.83.0
+
+#### rewrite-spring - 0.33.0
+
+* Route Maven through Moderne Artifactory cache to avoid HTTP 429
+* Migrate `@AutoConfigureMockMvc` HtmlUnit attributes to nested `@HtmlUnit`
+* Add Spring Boot 4.1 layertools + devtools livereload recipes (#318 phase 3)
+* Add Spring Boot 4.1 behavioural API recipes (#318 phase 4)
+* Make cloud/boot property migration resilient to per-version failures
+* Relocate `web.{servlet,reactive}.error` packages for Spring Boot 4
+* Revert inline Maven mirror (now in gh-automation#95)
+* Migrate `@EnableRetry` to `@EnableResilientMethods`
+* Comment out DevTools LiveReload properties instead of deleting
+* Flag `@Recover` and unmigratable `@Retryable` in SB4 retry migration
+* Fix bare Kotlin @Retryable crash in Spring Retry migration
+* Avoid pinning BOM-managed Spring Boot starter versions in 4.0/4.1 migration
+* Migrate `AntPathRequestMatcher` in Kotlin sources for Spring Security 7
+* Keep `spring-boot-starter` as SB4 minimal baseline
+* Match relocated SB4 `KafkaProperties` in `RemoveKafkaPropertiesSslBundlesParameter`
+* Fix `HttpHeaders` SB4 rewrite when type appears only via method chaining
+* Flag Kotlin SecurityContext.authentication usages with a TODO
+* Migrate `JsonFactoryDecorator` to `TokenStreamFactoryBuilderDecorator`
+
+#### rewrite-sql - 2.11.4
+
+* Updated repository to use OpenRewrite version v8.83.0
+
+#### rewrite-struts - 0.25.9
+
+* Updated repository to use OpenRewrite version v8.83.0
+
+#### rewrite-tapestry - 0.3.3
+
+* Updated repository to use OpenRewrite version v8.83.0
+
+#### rewrite-terraform - 3.14.0
+
+* Add recipes to add and change Terraform resource nested blocks
+
+#### rewrite-vulncheck - 0.6.10
+
+* Updated repository to use OpenRewrite version v8.83.0
+
+## May 12, 2026
+
+#### rewrite-devcenter - 1.23.0
+
+* Add `DevCenter.getSpec()` returning a versioned JSON description
+* Fix DevCenter cards silently emitting zero rows
+
+#### rewrite-java-security - v3.30.1
+
+* Use OpenRewrite v8.81.15
+
+#### rewrite-java-security - 3.30.0
+
+* Fix NPE in FindTextDirectionChanges on JS/TSX sources
+* C#: Add support for maximumUpgradeDelta in FFVD
+* Add FindBasicAuthSecrets recipe
+* Add FindBearerTokenSecrets recipe
+* Expose vulnerabilities(Accumulator) for direct row access
+* Route tests through the Maven settings mirror
+
+#### rewrite-prethink - v0.5.11
+
+* Add Scala test coverage for quality-metrics recipes
+* Detect cucumber-jvm step definitions as test methods
+
+#### rewrite-react - 0.2.10
+
+* Fix dist paths
+
+#### rewrite-react - 0.2.9
+
+* Set up NPMJS publishing
+
+## May 10, 2026
+
+#### rewrite-migrate-python - 0.7.2
+
+* Wrap `Replace{Array}{Tostring,Fromstring}` editors in `Preconditions.check`
+* Wrap multi-name Find* recipes in Preconditions.or_ + uses_method/uses_type
+
 ## May 7, 2026
 
 #### rewrite-ai - v0.3.3
@@ -3691,22 +3937,4 @@ Republishing to update dependencies
 #### rewrite-devcenter - 1.1.3
 
 * Add `rewrite-java-21` test dependency to align rewrite versions
-
-#### rewrite-devcenter - 1.1.1
-
-* Add `rewrite-java-21` test dependency to align rewrite versions
-
-## May 21, 2025
-
-#### rewrite-devcenter - 1.1.0
-
-* Make `DevCenterMeasurer` a non-generic interface to avoid class loading issues when reading measures in CLI
-
-## May 20, 2025
-
-#### rewrite-java-security - v3.9.0
-
-* Recreate type table using latest patch versions
-* Made transitive dependency bump a ScanningRecipe
-* `DependencyVulnerabilityCheck` recursively checks upgrade paths for transitive dependencies
 

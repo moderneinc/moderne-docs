@@ -223,5 +223,9 @@ export const releasesItems: NavLink[] = [
     name: 'Proprietary recipe changelog',
     href: '/releases/proprietary-recipe-changelog',
   },
+  {
+    name: 'SaaS v2 changes',
+    href: '/releases/saas-v2-changes',
+  },
 ];
 

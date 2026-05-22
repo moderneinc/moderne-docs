@@ -1,0 +1,80 @@
+// Node --require hook that monkey-patches Docusaurus's SSG executor to render
+// only a subset of routes per shard, serializes per-shard link/anchor data for
+// cross-shard broken-link aggregation, and suppresses the per-shard
+// broken-link check (the combine job runs an aggregated check instead).
+//
+// Loaded via scripts/build-shard.js.
+
+const SHARD_INDEX = parseInt(process.env.SHARD_INDEX ?? '', 10);
+const SHARD_TOTAL = parseInt(process.env.SHARD_TOTAL ?? '', 10);
+
+if (Number.isNaN(SHARD_INDEX) || Number.isNaN(SHARD_TOTAL)) {
+  return;
+}
+
+if (SHARD_TOTAL < 1 || SHARD_INDEX < 0 || SHARD_INDEX >= SHARD_TOTAL) {
+  throw new Error(
+    `Invalid shard config: SHARD_INDEX=${SHARD_INDEX} SHARD_TOTAL=${SHARD_TOTAL}`,
+  );
+}
+
+const fs = require('fs');
+const path = require('path');
+const ssgExecutor = require('@docusaurus/core/lib/ssg/ssgExecutor');
+const { flattenRoutes } = require('@docusaurus/utils');
+
+const originalExecuteSSG = ssgExecutor.executeSSG;
+
+ssgExecutor.executeSSG = async function shardedExecuteSSG(opts) {
+  const allPaths = [...opts.props.routesPaths].sort();
+  const mine = allPaths.filter((_, i) => i % SHARD_TOTAL === SHARD_INDEX);
+  console.log(
+    `[shard ${SHARD_INDEX}/${SHARD_TOTAL}] rendering ${mine.length} of ${allPaths.length} routes`,
+  );
+  opts.props.routesPaths = mine;
+
+  const result = await originalExecuteSSG.call(this, opts);
+
+  serializeShardMeta(result, opts);
+
+  // Suppress the per-shard broken-link check; cross-shard aggregation
+  // happens in the combine job using the serialized meta.
+  opts.props.siteConfig.onBrokenLinks = 'ignore';
+  opts.props.siteConfig.onBrokenAnchors = 'ignore';
+
+  return result;
+};
+
+function serializeShardMeta(result, opts) {
+  const collectedLinks = {};
+  for (const [route, data] of Object.entries(result.collectedData)) {
+    collectedLinks[route] = {
+      links: data.links || [],
+      anchors: data.anchors || [],
+    };
+  }
+
+  const flatRoutes = flattenRoutes(opts.props.routes)
+    .filter((r) => r.path !== '*')
+    .map((r) => ({ path: r.path, exact: !!r.exact, strict: !!r.strict }));
+
+  const metaPath = path.join(opts.props.outDir, '_shard-meta.json');
+  fs.writeFileSync(
+    metaPath,
+    JSON.stringify({
+      shardIndex: SHARD_INDEX,
+      shardTotal: SHARD_TOTAL,
+      onBrokenLinks: opts.props.siteConfig.onBrokenLinks,
+      onBrokenAnchors: opts.props.siteConfig.onBrokenAnchors,
+      flatRoutes,
+      collectedLinks,
+    }),
+  );
+  console.log(
+    `[shard-patch] wrote ${metaPath} — ${Object.keys(collectedLinks).length} routes, ${flatRoutes.length} total`,
+  );
+}
+
+console.log(
+  `[shard-patch] active — shard ${SHARD_INDEX} of ${SHARD_TOTAL}`,
+);

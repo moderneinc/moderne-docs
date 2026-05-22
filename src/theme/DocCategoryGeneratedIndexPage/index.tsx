@@ -43,7 +43,7 @@ const WAVE_IMAGES: string[] = [
 ];
 
 const TITLE_OVERRIDES: Record<string, WaveConfig> = {
-  'Moderne Platform': {file: 'wave-23-v1.png'},
+  'Moderne Platform': {file: 'wave-23.png'},
   'Moddy': {file: 'wave-19.png'},
   'Moderne IDE plugins': {file: 'wave-5.png'},
   'IDE plugins': {file: 'wave-5.png'},

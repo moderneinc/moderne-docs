@@ -8,7 +8,6 @@ const infimaClassName = 'alert alert--warning';
 
 const defaultProps = {
   icon: <TriangleAlert size={18} strokeWidth={2} />,
-  title: 'warning',
 };
 
 export default function AdmonitionTypeWarning(

@@ -14,7 +14,7 @@ The Moderne DevCenter is the mission-control dashboard of the Moderne Platform. 
 
 In this getting started guide, we will walk you through each component of the Moderne DevCenter and explain how you might use that knowledge.
 
-<ReactPlayer className="reactPlayer" url='https://www.youtube.com/watch?v=KRXDMGt7DRE' controls="true" />
+<ReactPlayer className="reactPlayer" url='https://www.youtube.com/watch?v=FQs048JKXVw' controls="true" />
 
 ## Navigating to the DevCenter
 

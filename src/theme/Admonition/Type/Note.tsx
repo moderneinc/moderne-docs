@@ -8,7 +8,6 @@ const infimaClassName = 'alert alert--secondary';
 
 const defaultProps = {
   icon: <NotebookPen size={18} strokeWidth={2} />,
-  title: 'note',
 };
 
 export default function AdmonitionTypeNote(

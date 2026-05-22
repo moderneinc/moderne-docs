@@ -5,18 +5,23 @@ description: How the Moderne CLI wrapper works, how to control auto-updates, and
 
 # CLI wrapper and version management
 
-When you install the Moderne CLI (via the curl/PowerShell installer, Homebrew, or Chocolatey) — what actually gets installed is a lightweight wrapper script called `modw`. The `mod` command you use is a symlink to this wrapper. Each time you run a `mod` command, the wrapper handles downloading the correct CLI distribution for your platform, locating a compatible Java runtime, and optimizing startup performance before launching the CLI itself.
+When you install the Moderne CLI (via the curl/PowerShell installer, Homebrew, or Chocolatey) — what actually gets installed is a lightweight wrapper script called `modw`. The `mod` command you use is a symlink to this wrapper. Each time you run a `mod` command, the wrapper handles downloading the correct CLI distribution for your platform, locating a compatible Java runtime, applying JVM startup arguments, and optimizing startup performance before launching the CLI itself.
 
 Most users never need to think about this. But if you need to control which CLI version your team uses, pin a version for CI reproducibility, understand what network calls the CLI makes, or troubleshoot startup issues, this guide will explain how the wrapper works and how to configure it.
 
+:::warning
+The wrapper is part of the CLI, not an optional convenience. The supported way to invoke the CLI is through `modw` (or a project-local `./modw`). Running the JAR directly with `java -jar` is not supported. The wrapper applies JVM arguments and other startup setup that the CLI relies on (currently: SSL and proxy configuration, the AOT cache, GC tuning, JDK location), with more startup setup expected to move into the wrapper before it stabilizes. See [Running the CLI without the wrapper](#running-the-cli-without-the-wrapper) for what this means in practice.
+:::
+
 ## What is `modw`?
 
-The standard installation methods place `modw` in `~/.moderne/cli/bin/` and add it to your `PATH`. When you run any `mod` command, the wrapper handles four things before launching the CLI:
+The standard installation methods place `modw` in `~/.moderne/cli/bin/` and add it to your `PATH`. When you run any `mod` command, the wrapper handles five things before launching the CLI:
 
 1. **Ensures the CLI is installed** — downloads and extracts the platform-specific CLI installer (JAR + bundled JRE) if needed
 2. **Finds a JDK** — locates a compatible Java runtime
 3. **Finds the CLI JAR** — resolves which JAR to launch
-4. **Optimizes startup** — manages an ahead-of-time (AOT) compilation cache for faster startup
+4. **Applies startup JVM arguments** - reads persisted settings from `moderne.yml` (currently SSL/trust-store, key-store, and HTTP proxy) and translates them into JVM `-D` flags on the `java` command line, so the CLI and any JVM agents see them before the main JVM boots
+5. **Optimizes startup** — manages an ahead-of-time (AOT) compilation cache for faster startup
 
 On first run after installation or an update, you may notice a brief delay while the wrapper downloads the distribution and builds the AOT cache. Subsequent runs reuse the cached artifacts and start quickly.
 
@@ -243,7 +248,33 @@ Everything lives under `~/.moderne/cli/` (or `$MODERNE_CLI_HOME`):
 
 ## Running the CLI without the wrapper
 
-Some teams download the CLI JAR directly from Artifactory or another artifact repository and run it with `java -jar`. While this may work, **we recommend using the wrapper for everything**. The wrapper manages an ahead-of-time (AOT) compilation cache that significantly improves CLI startup performance — running the JAR directly does not benefit from this optimization.
+Some teams download the CLI JAR directly from Artifactory or another artifact repository and run it with `java -jar`. **This is not a supported configuration.** The wrapper is the entry point that the CLI is designed around, and the work it does at startup is not duplicated inside the JAR. If you bypass it, you take on responsibility for replicating that work yourself, and you accept that the list of things you need to replicate can change between CLI versions without notice.
+
+### What breaks without the wrapper
+
+The list below covers what is currently known to break. It is not exhaustive. The wrapper is the supported entry point and more startup setup is expected to move into it before this stabilizes.
+
+* **SSL and proxy configuration from `moderne.yml` is not applied** (as of CLI 4.2.2). The wrapper reads SSL/trust-store, key-store, and HTTP proxy settings from `moderne.yml` and passes them to the JVM as `-D` flags before any application code runs. JVM agents capture their TrustManager at premain time, before the CLI itself can call `System.setProperty`, so setting these from inside the CLI process is too late. Without the wrapper, any HTTPS call goes out with the default JDK trust store and no proxy. In environments that depend on a corporate proxy or custom CA bundle, `mod config moderne login`, `mod git sync`, recipe install, and almost anything else that talks to a Moderne or Git endpoint will fail with a PKIX error or a connection error.
+
+* **The AOT cache is not used.** The wrapper trains and reuses a Project Leyden ahead-of-time compilation cache that significantly improves CLI startup. Running the JAR directly skips this, so every invocation pays the full JVM warm-up cost.
+
+* **CLI auto-update is not performed.** The wrapper checks Maven Central (or your configured mirror) for new releases and downloads them. Running the JAR directly means you are responsible for updating the JAR manually whenever you want a new version.
+
+### If you really must run without the wrapper
+
+This path is unsupported. If your environment makes the wrapper genuinely impractical, you can run the CLI JAR directly, but you take on responsibility for setting the JVM arguments the wrapper would have set, and for tracking what changes between CLI versions. At minimum, mirror whatever is in your `~/.moderne/moderne.yml` to `-D` flags on the `java` command line:
+
+```bash
+java \
+  -Djavax.net.ssl.trustStore=/path/to/truststore.jks \
+  -Djavax.net.ssl.trustStorePassword=changeit \
+  -Dhttp.proxyHost=proxy.example.com -Dhttp.proxyPort=3128 \
+  -Dhttps.proxyHost=proxy.example.com -Dhttps.proxyPort=3128 \
+  -Dhttp.nonProxyHosts="*.example.com" \
+  -jar moderne-cli.jar <command>
+```
+
+The full list of JVM arguments the wrapper sets today corresponds to what has been configured via [`mod config http proxy`](../cli-reference.md#mod-config-http-proxy), [`mod config http trust-store`](../cli-reference.md#mod-config-http-trust-store), and [`mod config http key-store`](../cli-reference.md#mod-config-http-key-store) and persisted to `moderne.yml`, plus the GC and AOT-cache flags `modw` selects for the JVM. This set is not part of any stable contract and can change between CLI versions. If you choose this path, treat the `modw` script shipped with each CLI release as the source of truth and diff it on every upgrade to see what new arguments need to be propagated.
 
 ### Migrating to the wrapper
 

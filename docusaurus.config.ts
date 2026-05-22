@@ -31,6 +31,7 @@ const config: Config = {
   clientModules: [
     require.resolve('./src/client/gtagGuard.js'),
     require.resolve('./src/client/loadNeoDesign.js'),
+    require.resolve('./src/client/algoliaInsights.js'),
   ],
 
   headTags: [
@@ -183,12 +184,14 @@ const config: Config = {
   future: {
     faster: {
       // SSG worker threads parallelise per-page rendering; each worker
-      // holds a React render tree, multiplying peak memory across pages
-      // in flight. With the full recipe-catalog build (~5,700 pages) on
-      // ubuntu-latest's 16 GB the kernel SIGTERMs the job mid-build.
-      // Serialising SSG keeps peak memory bounded; Rspack/SWC keep
-      // their own internal parallelism for the bundling/minimising work.
-      ssgWorkerThreads: true,
+      // holds a React render tree and a copy of the server bundle,
+      // multiplying sustained memory across pages in flight. With the
+      // full recipe-catalog build (~7,500 routes) on ubuntu-latest's
+      // 16 GB the kernel SIGTERMs the job mid-build. Locally we keep
+      // parallel SSG for speed; on CI we serialise to keep sustained
+      // memory bounded. Rspack/SWC keep their own internal parallelism
+      // for the bundling/minimising work either way.
+      ssgWorkerThreads: !process.env.CI,
       swcJsLoader: true,
       swcJsMinimizer: true,
       swcHtmlMinimizer: true,
@@ -206,11 +209,15 @@ const config: Config = {
       apiKey: "15eb9c9f6f3147b1cf82b1b7f93cace8",
       indexName: "moderne",
       // Search filtering is handled by SearchFacetTabs (src/theme/SearchBar)
+      insights: true,
+      searchParameters: {
+        clickAnalytics: true,
+      },
     },
-    announcementBar: {
-      id: "code_remix_26",
-      content: '<strong><a href="https://coderemix.ai/?utm_source=docs&utm_medium=referral&utm_campaign=26_crs_banner">Code Remix Summit is back</a></strong> ✦ May 11–13',
-    },
+    // announcementBar: {
+    //   id: "code_remix_26",
+    //   content: '<strong><a href="https://coderemix.ai/?utm_source=docs&utm_medium=referral&utm_campaign=26_crs_banner">Code Remix Summit is back</a></strong> ✦ May 11–13',
+    // },
     colorMode: {
       respectPrefersColorScheme: true,
     },

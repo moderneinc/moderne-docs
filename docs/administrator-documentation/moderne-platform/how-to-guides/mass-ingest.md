@@ -71,4 +71,4 @@ Some customers have successfully run mass ingest on Kubernetes, but it typically
 
 ## Next steps
 
-* [Configure the Moderne Connector](./agent-configuration/agent-config.md)
+* [Configure the Moderne Connector](./connector-configuration/connector-config.md)

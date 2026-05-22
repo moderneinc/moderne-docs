@@ -88,13 +88,13 @@ Download the distribution for your platform from Maven Central (see [distributio
 
 ```bash
 # Linux (self-extracting installer)
-bash moderne-cli-linux-4.2.4.sh
+bash moderne-cli-linux-4.2.9.sh
 
 # macOS (self-extracting installer)
-bash moderne-cli-osx-4.2.4.sh
+bash moderne-cli-osx-4.2.9.sh
 
 # Windows (PowerShell)
-Expand-Archive moderne-cli-windows-4.2.4.zip -DestinationPath . ; .\install.cmd
+Expand-Archive moderne-cli-windows-4.2.9.zip -DestinationPath . ; .\install.cmd
 ```
 
 After installation, the CLI binary lives in `~/.moderne/cli/bin/` (on your `PATH`), and everything the CLI needs to run (JAR, JRE, startup cache) lives in `~/.moderne/cli/dist/`.
@@ -195,12 +195,12 @@ Host the distribution files on an internal server and point `distributionUrl` in
 
 ```properties
 version=4.0.0
-distributionUrl=https://nexus.corp.example.com/repository/releases/moderne-cli-${platform}/${version}/moderne-cli-${platform}-${version}.sh
+distributionUrl=https://nexus.corp.example.com/repository/releases/moderne-cli-${platform}/${version}/moderne-cli-${platform}-${version}.${extension}
 distributionSha256Sum=abc123...
 jdkUrl=skip
 ```
 
-The wrapper will replace `${version}` and `${platform}` automatically. Platform values are `linux`, `osx`, or `windows`.
+The wrapper will replace `${version}`, `${platform}`, and `${extension}` automatically. Platform values are `linux`, `osx`, or `windows`. Extension values are `sh` on Linux and macOS and `zip` on Windows, so a single `distributionUrl` works for every platform sharing the properties file.
 
 Setting `jdkUrl=skip` tells the wrapper not to download a JDK on its own. In this case, you will need Java 25+ available via `MODERNE_JAVA_HOME` or your `PATH`.
 

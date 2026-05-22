@@ -33,6 +33,7 @@ This recipe is used as part of the following composite recipes:
 * [Upgrade to Android SDK 33](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/android/upgradetoandroidsdk33)
 * [Upgrade to Android SDK 34](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/android/upgradetoandroidsdk34)
 * [Upgrade to Android SDK 35](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/android/upgradetoandroidsdk35)
+* [Upgrade to Android SDK 36](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/android/upgradetoandroidsdk36)
 
 ## Example
 
