@@ -11,8 +11,6 @@
     "build:recipes": "node scripts/build-recipe-catalog/extract-shell.js && node scripts/build-recipe-catalog/index.js",
     "build:recipes-sidebar": "node scripts/build-recipe-catalog/generate-sidebar.js",
     "build:all": "yarn build:recipes-sidebar && yarn build:docs && yarn build:recipes",
-    "build:shard": "node scripts/build-shard.js",
-    "build:merge-shards": "node scripts/merge-shards.js",
     "swizzle": "docusaurus swizzle",
     "deploy": "docusaurus deploy",
     "clear": "docusaurus clear",

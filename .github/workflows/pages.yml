@@ -1,21 +1,27 @@
-# Emergency fallback: single-job deploy. Superseded by pages-sharded.yml as
-# the primary deploy path; kept here as a manually-dispatched backup in case
-# the sharded build needs to be bypassed.
-name: Deploy Moderne docs to Pages (emergency fallback)
+# Production deploy: Docusaurus builds the curated docs, a separate streaming
+# script renders the recipe catalog, both outputs are merged, and the combined
+# artifact is published to GitHub Pages.
+name: Deploy Moderne docs to Pages
 
 on:
   workflow_dispatch:
+  workflow_run:
+    workflows: ["Update docs"]
+    types:
+      - completed
+  push:
+    branches:
+      - main
 
-# Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
-# However, do NOT cancel in-progress runs as we want to allow these production deployments to complete.
 concurrency:
   group: "pages"
   cancel-in-progress: false
+
 jobs:
-  build:
-    name: Build Docusaurus
+  build-docs:
+    name: Build Docusaurus docs
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    timeout-minutes: 15
     steps:
       - uses: actions/checkout@v6
         with:
@@ -28,43 +34,89 @@ jobs:
       - name: Install dependencies
         run: yarn install --frozen-lockfile
 
-      - name: Cache build compilation artifacts
-        uses: actions/cache@v4
+      - name: Generate recipe-catalog sidebar manifest
+        run: yarn build:recipes-sidebar
+
+      - name: Build Docusaurus
+        run: yarn build:docs
+
+      - name: Upload Docusaurus artifact
+        uses: actions/upload-artifact@v4
         with:
-          path: node_modules/.cache
-          key: docusaurus-${{ runner.os }}-${{ hashFiles('yarn.lock') }}
-          restore-keys: |
-            docusaurus-${{ runner.os }}-
+          name: build-docs
+          path: build
+          retention-days: 1
+          if-no-files-found: error
 
-      - name: Build website
-        run: |
-          set -o pipefail
-          yarn build 2>&1 | { grep --line-buffered -v "^Generated markdown file:" || true; }
+  build-recipes:
+    name: Build recipe catalog
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v6
+        with:
+          node-version: 24
+          cache: yarn
+
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
+
+      - name: Build recipe catalog (streaming render)
+        run: yarn build:recipes
         env:
-          DOCUSAURUS_SSG_WORKER_THREAD_RECYCLER_MAX_MEMORY: "512000000"
-          DOCUSAURUS_SSR_CONCURRENCY: "16"
-          NODE_OPTIONS: "--max-old-space-size=4096 --max-semi-space-size=64"
-          DOCUSAURUS_IGNORE_SSG_WARNINGS: true
+          RECIPE_OUT_DIR: ${{ github.workspace }}/build-recipes/user-documentation/recipes/recipe-catalog
 
-      - name: Upload Build Artifact
+      - name: Upload recipes artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: build-recipes
+          path: build-recipes
+          retention-days: 1
+          if-no-files-found: error
+
+  combine:
+    name: Combine and upload Pages artifact
+    needs: [build-docs, build-recipes]
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v6
+
+      - name: Download Docusaurus artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: build-docs
+          path: build
+
+      - name: Download recipes artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: build-recipes
+          path: build-recipes
+
+      - name: Merge recipe output into docs build
+        run: |
+          if [ -d build-recipes/user-documentation ]; then
+            cp -a build-recipes/user-documentation build/
+          fi
+          echo "Total HTML files in build/:"
+          find build -name "index.html" | wc -l
+
+      - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v5
         with:
           path: build
 
   deploy:
     name: Deploy to GitHub Pages
-    needs: build
-
-    # Grant GITHUB_TOKEN the permissions required to make a Pages deployment
+    needs: combine
     permissions:
-      pages: write # to deploy to Pages
-      id-token: write # to verify the deployment originates from an appropriate source
-
-    # Deploy to the github-pages environment
+      pages: write
+      id-token: write
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
-
     runs-on: ubuntu-latest
     steps:
       - name: Deploy to GitHub Pages
