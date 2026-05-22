@@ -11,17 +11,18 @@
 //     onto an unknown route and rendering a 404. Users can still click links
 //     (intercepted by recipeCatalogLinks.js for navigation back into the
 //     Docusaurus app).
-//
-// At first run, shell-template.html may not exist yet. We fall back to a
-// minimal layout in that case so error messages stay readable during dev.
 
 const fs = require('fs');
 const path = require('path');
 
 const SHELL_PATH = path.join(__dirname, 'shell-template.html');
-const { CONTENT_SENTINEL, TITLE_SENTINEL } = require('./extract-shell');
+const META_PATH = path.join(__dirname, 'shell-template-meta.json');
+const { CONTENT_SENTINEL, TITLE_SENTINEL, BREADCRUMB_SENTINEL } = require('./extract-shell');
+
+const URL_PREFIX = '/user-documentation/recipes/recipe-catalog';
 
 let shellTemplate = null;
+let shellMeta = null;
 
 function loadShell() {
   if (shellTemplate !== null) return shellTemplate;
@@ -30,6 +31,7 @@ function loadShell() {
     shellTemplate = false;
   } else {
     shellTemplate = fs.readFileSync(SHELL_PATH, 'utf8');
+    shellMeta = fs.existsSync(META_PATH) ? JSON.parse(fs.readFileSync(META_PATH, 'utf8')) : {};
   }
   return shellTemplate;
 }
@@ -42,18 +44,60 @@ function escapeHtml(s) {
     .replace(/"/g, '&quot;');
 }
 
+function prettifySegment(seg) {
+  return seg.replace(/[-_]/g, ' ').replace(/\b\w/g, (c) => c.toUpperCase());
+}
+
+// Builds the breadcrumb HTML for a recipe page using class names extracted
+// from the source Docusaurus page so the markup styles consistently. The
+// crumb shape is:
+//   Home (icon) > Recipes > Catalog > <category…> > <recipe title (current)>
+// Intermediate <category> crumbs link to the category index page (rendered
+// from each directory's README.md by the streaming build).
+function renderBreadcrumb(href, title) {
+  const meta = shellMeta && shellMeta.breadcrumb;
+  if (!meta) return '';
+
+  const rel = href.startsWith(URL_PREFIX) ? href.slice(URL_PREFIX.length).replace(/^\//, '') : '';
+  const segments = rel ? rel.split('/') : [];
+
+  const crumbs = [
+    { href: '/user-documentation/recipes', label: 'Recipes' },
+    { href: URL_PREFIX, label: 'Catalog' },
+  ];
+  // Intermediate path segments link to their category index page.
+  let acc = URL_PREFIX;
+  for (let i = 0; i < segments.length - 1; i++) {
+    acc += '/' + segments[i];
+    crumbs.push({ href: acc, label: prettifySegment(segments[i]) });
+  }
+  // Last crumb: current page, no link.
+  crumbs.push({ label: title });
+
+  const { crumbCls, linkCls, separatorSvg } = meta;
+  return crumbs.map((c, idx) => {
+    const isLast = idx === crumbs.length - 1;
+    const inner = c.href && !isLast
+      ? `<a class=${linkCls} href=${c.href}>${escapeHtml(c.label)}</a>`
+      : `<span class=${linkCls}>${escapeHtml(c.label)}</span>`;
+    const sep = isLast ? '' : separatorSvg;
+    return `<span class=${crumbCls}>${inner}${sep}</span>`;
+  }).join('');
+}
+
 function renderMinimalLayout({ title, content }) {
   return `<!doctype html>
 <html lang="en"><head><meta charset="utf-8"><title>${escapeHtml(title)}</title></head>
 <body><main>${content}</main></body></html>`;
 }
 
-function renderLayout({ title, content }) {
+function renderLayout({ title, href, content }) {
   const shell = loadShell();
   if (!shell) return renderMinimalLayout({ title, content });
   const docTitle = title ? `${title} | Moderne Docs` : 'Moderne Docs';
   return shell
     .replace(TITLE_SENTINEL, escapeHtml(docTitle))
+    .replace(BREADCRUMB_SENTINEL, renderBreadcrumb(href, title))
     .replace(CONTENT_SENTINEL, content);
 }
 

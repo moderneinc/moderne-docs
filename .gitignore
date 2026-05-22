@@ -47,3 +47,4 @@ storybook-static
 /diag/
 scripts/build-recipe-catalog/shell-template.html
 /build-recipes/
+scripts/build-recipe-catalog/shell-template-meta.json
