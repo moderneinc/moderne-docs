@@ -37,8 +37,13 @@ let otherCount = 0;
 let overwriteCount = 0;
 const htmlOwners = new Map();
 
+// Files emitted by the shard patch for cross-shard aggregation; not part of
+// the deployed site.
+const META_FILES = new Set(['_shard-meta.json']);
+
 function copyTree(srcDir, destDir, shardName) {
   for (const entry of fs.readdirSync(srcDir, { withFileTypes: true })) {
+    if (META_FILES.has(entry.name)) continue;
     const src = path.join(srcDir, entry.name);
     const dest = path.join(destDir, entry.name);
     if (entry.isDirectory()) {
