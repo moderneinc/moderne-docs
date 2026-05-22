@@ -7,11 +7,21 @@
 
 const fs = require('fs');
 const path = require('path');
+const { marked } = require('marked');
 
 const ROOT = path.resolve(__dirname, '../..');
 const CATALOG_DIR = path.join(ROOT, 'docs/user-documentation/recipes/recipe-catalog');
 const URL_PREFIX = '/user-documentation/recipes/recipe-catalog';
 const OUT = path.join(ROOT, 'src/sidebars/recipe-catalog.json');
+
+// Recipe sidebar_labels frequently contain inline code (backticks for
+// annotation/class names like `@Bean`). Render them through marked's inline
+// parser so the swizzled DocSidebarItem/Link can show them as <code>, <em>,
+// etc. Plain labels without markdown are unchanged.
+function renderInlineMarkdown(label) {
+  if (!/[`*_]/.test(label)) return label;
+  return marked.parseInline(label, { gfm: true }).trim();
+}
 
 function readFrontmatterField(mdPath, field) {
   const head = fs.readFileSync(mdPath, 'utf8').slice(0, 2048);
@@ -54,9 +64,9 @@ function walk(dir) {
     const filePath = path.join(dir, f.name);
     const relFromCatalog = path.relative(CATALOG_DIR, filePath).replace(/\.md$/, '');
     const href = `${URL_PREFIX}/${relFromCatalog}`;
-    const label = readFrontmatterField(filePath, 'sidebar_label') || path.basename(f.name, '.md');
+    const rawLabel = readFrontmatterField(filePath, 'sidebar_label') || path.basename(f.name, '.md');
     stats.links += 1;
-    items.push({ type: 'link', label, href });
+    items.push({ type: 'link', label: renderInlineMarkdown(rawLabel), href });
   }
 
   return items;

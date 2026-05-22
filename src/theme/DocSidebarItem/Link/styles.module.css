@@ -1,0 +1,14 @@
+/* Copied from @docusaurus/theme-classic so the swizzled component keeps the
+   same line-clamp / external-link styling as the original. */
+
+.menuExternalLink {
+  align-items: center;
+}
+
+.linkLabel {
+  overflow: hidden;
+  display: -webkit-box;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
