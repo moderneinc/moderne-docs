@@ -88,7 +88,7 @@ Build complete!
    ▛▀▀█▀▛▀▀▀▀▜
    ▌▟▀  ▛▀▀▀▀▜
    ▀▀▀▀▀▀▀▀▀▀▀
-Moderne CLI 4.2.9
+Moderne CLI 3-streaming-group-release
 
 ⏺ Reading organization
 
@@ -136,7 +136,7 @@ MOD SUCCEEDED in 1s
    ▛▀▀█▀▛▀▀▀▀▜
    ▌▟▀  ▛▀▀▀▀▜
    ▀▀▀▀▀▀▀▀▀▀▀
-Moderne CLI 4.2.9
+Moderne CLI 3-streaming-group-release
 
 ⏺ Reading organization
 
@@ -184,7 +184,7 @@ MOD SUCCEEDED in 1s
    ▛▀▀█▀▛▀▀▀▀▜
    ▌▟▀  ▛▀▀▀▀▜
    ▀▀▀▀▀▀▀▀▀▀▀
-Moderne CLI 4.2.9
+Moderne CLI 3-streaming-group-release
 
 ⏺ Reading organization
 
