@@ -33,6 +33,14 @@ The Moderne CLI previously followed a two-track release model with separate "sta
 * install.cmd: create `mod` forwarder alongside `modw.cmd`
 * GoBuildStep: parse via project-aware `parseProject` RPC
 
+### CLI / DX v4.2.3 (2026-05-06)
+
+#### What's Changed
+* Migrate to `gotemplate4j` 0.5.0 API
+* Fix `NullPointerException` in `mod git sync moderne`
+* install.cmd: create `mod` forwarder alongside `modw.cmd`
+* GoBuildStep: parse via project-aware `parseProject` RPC
+
 ### CLI / DX v4.2.9 (2026-05-21)
 
 #### What's Changed
