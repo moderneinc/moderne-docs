@@ -215,19 +215,27 @@ Each template is self-contained. Clone the repo, pick a template, open its noteb
 
 ## Troubleshooting
 
-**No objects landing in my bucket / container.** Confirm:
+### No objects are landing in my bucket or container
+
+Please confirm that:
 
 1. The bucket policy / role assignment was applied successfully (a common mistake is applying it to the wrong account context).
-2. Your CSM has confirmed the source-side replication rule is live.
+2. Your CSM has enabled the source-side replication rule.
 3. Some traffic has actually run. Telemetry only emits on real recipe runs and `mod` commands, not on idle tenants.
 
-**I see `source=cli` data but no `source=saas` data (or vice versa).**
+### I see `source=cli` data but no `source=saas` data (or vice versa)
 
 * No `saas` rows = no one has run a recipe or committed via the web UI during the period queried.
 * No `cli` rows = either no one has run `mod` against your tenant, or CLI users haven't authenticated yet (the CLI auto-pushes telemetry on its next license-lease refresh, typically within an hour of signing in). Users can also force a flush with `mod telemetry publish`.
 
-**Some `mod` commands are missing traces.** Only the commands listed in the [trace hierarchy](https://github.com/moderneinc/moderne-bi-templates/blob/main/data-dictionary/trace-csv.md#trace-hierarchy) emit telemetry: sync, build, run, apply, add, commit, push, publish, exec, and checkout. `mod config`, `mod license`, and similar admin commands do not. If you run [mass ingest](../mass-ingest.md), expect the bulk of your telemetry volume to come from `type=publish` rows.
+### Some `mod` commands are missing traces
 
-**Replication lag is too high.** S3 Replication Time Control (RTC) is available if your contract requires 15-minute SLAs with a CloudWatch metric. Discuss with your CSM; this is a paid AWS feature billed to the source side.
+Only the commands listed in the [trace hierarchy](https://github.com/moderneinc/moderne-bi-templates/blob/main/data-dictionary/trace-csv.md#trace-hierarchy) emit telemetry: sync, build, run, apply, add, commit, push, publish, exec, and checkout. `mod config`, `mod license`, and similar admin commands do not. If you run [mass ingest](../mass-ingest.md), expect the bulk of your telemetry volume to come from `type=publish` rows.
 
-**My BI doesn't see new partitions.** With Athena partition projection (above), this should never happen, because Athena synthesizes partitions from the path template. For engines using a catalog (Glue crawler, Databricks Unity, Snowflake external tables without auto-refresh), you'll need to either schedule a periodic catalog refresh or enable the engine's auto-discovery feature.
+### Replication lag is too high
+
+S3 Replication Time Control (RTC) is available if your contract requires 15-minute SLAs with a CloudWatch metric. Discuss with your CSM; this is a paid AWS feature billed to the source side.
+
+### My BI doesn't see new partitions
+
+With Athena partition projection (above), this should never happen, because Athena synthesizes partitions from the path template. For engines using a catalog (Glue crawler, Databricks Unity, Snowflake external tables without auto-refresh), you'll need to either schedule a periodic catalog refresh or enable the engine's auto-discovery feature.
