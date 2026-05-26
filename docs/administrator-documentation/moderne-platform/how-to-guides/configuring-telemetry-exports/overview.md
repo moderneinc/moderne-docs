@@ -49,7 +49,7 @@ A quick orientation:
 | Run                         | `runRecipe`, `runOutcome`, `runResultsCount`, `runElapsedTimeMs`                  | `mod run`                                                      |
 | Apply / Add / Commit / Push | per-stage outcomes and identifiers                                                | corresponding `mod git ...`                                    |
 | Publish                     | `publishOutcome`, `publishStartTime`, `publishEndTime`, `publishId`, `publishUri` | `mod publish` (LST publication; used by mass-ingest pipelines) |
-| Organization                | `organization` (column 74)                                                        | when run within a Moderne organization context                 |
+| Organization                | `organization`                                                                    | when run within a Moderne organization context                 |
 
 ## How telemetry flows into your environment
 
