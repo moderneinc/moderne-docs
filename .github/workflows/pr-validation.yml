@@ -33,6 +33,9 @@ jobs:
       - name: Validate CSS variables
         run: yarn validate:css
 
+      - name: Lint markdown
+        run: yarn lint:markdown
+
       - name: TypeScript type check
         run: yarn typecheck
 
