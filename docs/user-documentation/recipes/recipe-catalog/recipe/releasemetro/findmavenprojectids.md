@@ -26,6 +26,53 @@ This recipe is used as part of the following composite recipes:
 
 * [Analyse Organization's Release Train Metro Plan](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/recipe/releasemetro/releasemetroplan)
 
+## Example
+
+
+<Tabs groupId="beforeAfter">
+<TabItem value="pom.xml" label="pom.xml">
+
+
+###### Before
+```xml title="pom.xml"
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.example</groupId>
+    <artifactId>simple-project</artifactId>
+    <version>1.0.0</version>
+</project>
+```
+
+###### After
+```xml title="pom.xml"
+<!--~~(com.example:simple-project)~~>--><?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.example</groupId>
+    <artifactId>simple-project</artifactId>
+    <version>1.0.0</version>
+</project>
+```
+
+</TabItem>
+<TabItem value="diff" label="Diff" >
+
+```diff
+--- pom.xml
++++ pom.xml
+@@ -1,1 +1,1 @@
+-<?xml version="1.0" encoding="UTF-8"?>
++<!--~~(com.example:simple-project)~~>--><?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+```
+</TabItem>
+</Tabs>
+
 
 ## Usage
 

@@ -5,47 +5,40 @@ description: Set up your environment and debug recipes with the Moderne plugin a
 
 # Module 1: Recipe development environment and debugging
 
-This module introduces the primary tools you'll use to author, run, and debug advanced OpenRewrite recipes. You'll explore the Moderne IntelliJ plugin's capabilities and learn how to debug recipes using both IDE-based tests and CLI runs.
-
-We’ll build on what you may have seen in the fundamentals course and take a deeper dive into real-world development and troubleshooting workflows.
+This module takes a deeper dive into the tools you'll use to author, run, and debug advanced OpenRewrite recipes. You'll explore the Moderne IntelliJ plugin's multi-repository search and recipe generation, then learn how to debug recipes using both IDE breakpoints and CLI runs.
 
 :::info
-If you have not already run through [Fundamentals of recipe development](../fundamentals/workshop-overview.md), you will want to at least complete [Module 1: Recipe development environment](../fundamentals/module-1-recipe-development-environment.md) to validate your development environment and ensure you have all the necessary tools and setup to develop and run advanced OpenRewrite recipes. This includes making sure you have cloned the [`rewrite-recipe-starter` repository](https://github.com/moderneinc/rewrite-recipe-starter).)
+This module assumes you have already completed [Fundamentals Module 1: Recipe development environment](../fundamentals/module-1-recipe-development-environment.md). That module covers the environment setup this workshop depends on, including cloning the [`rewrite-recipe-starter` repository](https://github.com/moderneinc/rewrite-recipe-starter), installing the Moderne plugin and CLI, and running the starter's tests. Complete it first if you haven't, then return here.
 :::
 
 ## Exercise 1a: Using the Moderne plugin for IntelliJ
 
-Moderne offers an [IntelliJ IDEA plugin](https://plugins.jetbrains.com/plugin/17565-moderne) that can not only help you create and debug recipes, but can also assist with your general development experience by allowing you to easily search for code across all of your repositories at once.
+In this exercise, you'll use the [Moderne IntelliJ plugin](https://plugins.jetbrains.com/plugin/17565-moderne) to search across repositories for an API, generate a recipe from it, and run that recipe via the plugin and the CLI.
 
 ### Goals for this exercise
 
-* Install and configure the Moderne IntelliJ IDEA plugin.
+* Configure the Moderne plugin with repositories to search across.
 * Perform a type-aware search across all of your local repositories.
 * Create a simple search recipe.
 * Run the recipe with the Moderne plugin and the CLI.
 
 ### Steps
 
-1. If you haven't already installed and configured the Moderne IntelliJ IDEA plugin, follow along with our [Moderne plugin installation guide](../../user-documentation/moderne-ide-integration/how-to-guides/moderne-plugin-install.md)
-   * If you have many repositories checked out locally and want to search across those, please add the root directory as a `Multi-repo`.
-   * If you don't have many repositories checked out locally or would prefer to see what it looks like to add a Moderne organization, please select one of the Moderne organizations (such as `Default` or `Netflix`) in the `Multi-repos` section. 
+1. You should already have the Moderne IntelliJ IDEA plugin installed from [Fundamentals Module 1](../fundamentals/module-1-recipe-development-environment.md). (If not, install it now with the [Moderne plugin installation guide](../../user-documentation/moderne-ide-integration/how-to-guides/moderne-plugin-install.md).) Make sure the plugin has repositories to search across: either add a local root directory as a `Multi-repo`, or select a Moderne organization (such as `Default` or `Netflix`) in the `Multi-repos` section.
 2. Open any Java class in IntelliJ and look for an API that you're interested in searching for (e.g., `System.out.println(..)` or `ListUtils.map(..)`). Then, follow the instructions in our [multi-repository code search doc](../../user-documentation/moderne-ide-integration/how-to-guides/code-search.md) to look for that API across all of the repositories you added to the Moderne plugin.
 3. Next, let's create a simple search recipe that finds that API you searched for. Right-click on the API again and select `Refactor > Create OpenRewrite Recipe...`. Then select that you want to create a `Visitor Style` recipe.
    * For more details on creating recipes with the Moderne plugin, check out our [how to create recipes guide](../../user-documentation/moderne-ide-integration/how-to-guides/creating-recipes.md).
 4. You should now have a scratch file that contains a simple recipe. Copy it over to the `rewrite-recipe-starter` repository and add it to the `com.yourorg` package (or whatever you renamed your package to).
    * [Here's an example of what this might look like for finding System.out.println](https://gist.github.com/mike-solomon/3b49a5d19c8824776bcc4ee871b87cdd)
-5. There are two ways to run the recipe: from inside of IntelliJ or with the CLI. Let's start with running the recipe in IntelliJ against all of the repositories that you've specified in the Moderne plugin configuration.
-6. On the line where the class is defined, you should notice an arrow to the left of the text. Click it and then press `Run <class_name>`.
+5. To run the recipe inside IntelliJ, click the gutter arrow next to the class declaration and select `Run <class_name>`.
 
 <figure>
   ![IntelliJ gutter icon to run a recipe class from the Moderne plugin](./assets/run-recipe-from-plugin.gif)
   <figcaption></figcaption>
 </figure>
 
-7. The recipe will then begin running against all of the repositories you've specified. If any changes are made, you can find those in the `Changes` tab. If the recipe is a search recipe, you can find all search results in the `Find` tab.
-8. Next, let's try running the same recipe with the Moderne CLI. Right-click on the class name and select `Set Active Recipe`.
-9. Open your terminal, navigate to your workshop directory, and run the recipe: `mod run . --active-recipe`.
-10. You should see that this recipe ran and marked all the locations in all of the repositories that matched the API you generated the recipe from.
+6. The recipe runs against every repository you've configured in the plugin. Find code changes in the `Changes` tab and search results in the `Find` tab.
+7. You can also run this recipe from the Moderne CLI using the **Set Active Recipe** + `mod run . --active-recipe` workflow you used in [Fundamentals Module 1](../fundamentals/module-1-recipe-development-environment.md#step-4-install-and-verify-locally): right-click the class name, select **Set Active Recipe**, then run `mod run . --active-recipe` from your workshop directory.
 
 ### Takeaways
 
@@ -62,18 +55,12 @@ In this exercise, you’ll learn how to debug recipes using both IDE breakpoints
 * Debug recipes using the Moderne IntelliJ plugin.
 * Understand how to set breakpoints in a recipe class or visitor.
 * Use the `TreeVisitingPrinter` to see what an LST looks like.
-* Understand how to set breakpoints in a recipe class or visitor.
 
 ### Steps
 
-1. Follow [our guide for how to debug a recipe with the Moderne plugin](../../user-documentation/moderne-ide-integration/how-to-guides/debugging-recipes.md#step-4-debug-your-recipe).
-   * This will walk you through the necessary steps to set an active recipe, build LSTs to run it against, then run and debug your recipe.
-   * You will also see how to use the Moderne CLI to attach a remote debugger with `modw --debug run . --active-recipe`.
-2. Open a test case for a recipe (e.g., `FindSpringBeansTest`), set breakpoints inside the `visit()` method or relevant visitor logic.
-   * Run the test in debug mode (using the green bug icon in IntelliJ) and inspect the variables and visitor flow as you step through.
-3. Another useful thing to do when debugging is to [configure the TreeVisitingPrinter](https://docs.openrewrite.org/concepts-and-explanations/tree-visiting-printer). This will really help you understand the different [Java LST elements](https://docs.openrewrite.org/concepts-and-explanations/lst-examples).
-    * Follow along with the instructions in that guide and make sure you can see what the LST looks like when it finds a match.
-    * **Note**: you'll need to add `import org.openrewrite.java.TreeVisitingPrinter;` to your import statements in your recipe.
+1. Follow [our guide for how to debug a recipe with the Moderne plugin](../../user-documentation/moderne-ide-integration/how-to-guides/debugging-recipes.md#step-4-debug-your-recipe). It walks you through setting an active recipe, building LSTs, and debugging the recipe — including how to attach a remote debugger from the CLI with `modw --debug run . --active-recipe`.
+2. Open a test case (e.g., `FindSpringBeansTest`), set breakpoints inside `visit()` or the visitor logic, then run the test in debug mode (green bug icon in IntelliJ) and step through to inspect variables and visitor flow.
+3. [Configure the TreeVisitingPrinter](https://docs.openrewrite.org/concepts-and-explanations/tree-visiting-printer) to see what an LST looks like when your recipe finds a match — a great way to learn the different [Java LST elements](https://docs.openrewrite.org/concepts-and-explanations/lst-examples). You'll need to add `import org.openrewrite.java.TreeVisitingPrinter;` to your recipe's imports.
 
 ### Takeaways
 

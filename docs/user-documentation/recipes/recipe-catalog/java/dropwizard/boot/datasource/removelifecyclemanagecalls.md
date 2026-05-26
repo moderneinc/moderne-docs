@@ -26,6 +26,55 @@ This recipe is used as part of the following composite recipes:
 
 * [Migrate Dropwizard to Spring Boot 3](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/java/dropwizard/boot/migratedropwizardtospringboot3)
 
+## Example
+
+
+<Tabs groupId="beforeAfter">
+<TabItem value="java" label="java">
+
+
+###### Before
+```java
+package com.example;
+
+import io.dropwizard.db.ManagedDataSource;
+import io.dropwizard.lifecycle.setup.LifecycleEnvironment;
+
+public class App {
+    void run(ManagedDataSource dataSource, LifecycleEnvironment lifecycle) {
+        lifecycle.manage(dataSource);
+        System.out.println("started");
+    }
+}
+```
+
+###### After
+```java
+package com.example;
+
+import io.dropwizard.db.ManagedDataSource;
+import io.dropwizard.lifecycle.setup.LifecycleEnvironment;
+
+public class App {
+    void run(ManagedDataSource dataSource, LifecycleEnvironment lifecycle) {
+        System.out.println("started");
+    }
+}
+```
+
+</TabItem>
+<TabItem value="diff" label="Diff" >
+
+```diff
+@@ -8,1 +8,0 @@
+public class App {
+    void run(ManagedDataSource dataSource, LifecycleEnvironment lifecycle) {
+-       lifecycle.manage(dataSource);
+        System.out.println("started");
+```
+</TabItem>
+</Tabs>
+
 
 ## Usage
 

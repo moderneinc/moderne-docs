@@ -23,9 +23,12 @@ _Recipes that include further recipes, often including the individual recipes be
 * [Comprehend code with AI](./comprehendcode.md)
 * [Estimate comprehension token usage](./comprehendcodetokencounter.md)
 * [Export context files](./exportcontext.md)
+* [Extract Go dependencies and usage](./extractgodependencies.md)
 * [Extract coding conventions](./extractcodingconventions.md)
 * [Extract dependency usage patterns](./extractdependencyusage.md)
 * [Extract error handling patterns](./extracterrorpatterns.md)
+* [Find Go coding conventions](./findgocodingconventions.md)
+* [Find Go error handling patterns](./findgoerrorpatterns.md)
 * [Update .gitignore for Prethink context](./updategitignore.md)
 * [Update agent configuration files](./updateagentconfig.md)
 

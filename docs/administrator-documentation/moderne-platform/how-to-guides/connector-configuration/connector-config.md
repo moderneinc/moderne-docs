@@ -19,7 +19,7 @@ In order to securely communicate with the Moderne SaaS, you will need to set up 
 * [Teach you how to update the Connector later on](#updating-your-connector)
 
 :::tip
-Looking for a complete, working example? Check out the [Moderne Connector example repository](https://github.com/moderneinc/moderne-agent-example) which contains all the configuration files and setup code in one place for deploying the Moderne Connector.
+Looking for a complete, working example? Check out the [Moderne Connector example repository](https://github.com/moderneinc/moderne-connector-example) which contains all the configuration files and setup code in one place for deploying the Moderne Connector.
 :::
 
 ## High-level Connector information

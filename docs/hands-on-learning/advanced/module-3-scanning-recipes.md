@@ -11,7 +11,7 @@ Before moving on to the following exercise, you should review the [OpenRewrite d
 
 ## Exercise 3a: Explore a scanning recipe
 
-In this exercise, you'll explore the [`AppendToReleaseNotes`](https://github.com/moderneinc/rewrite-recipe-starter/blob/main/src/main/java/com/yourorg/AppendToReleaseNotes.java) recipe. This is a scanning recipe that appends release notes to a file based on a marker found elsewhere in the project. 
+In this exercise, you'll explore the [`AppendToReleaseNotes`](https://github.com/moderneinc/rewrite-recipe-starter/blob/main/src/main/java/com/yourorg/AppendToReleaseNotes.java) recipe. This is a scanning recipe that appends release notes to a file based on a marker found elsewhere in the project.
 
 ### Goals for this exercise
 
@@ -21,18 +21,10 @@ In this exercise, you'll explore the [`AppendToReleaseNotes`](https://github.com
 
 ### Steps
 
-1. With the [`rewrite-recipe-starter`](https://github.com/moderneinc/rewrite-recipe-starter) still open in IntelliJ, open the `AppendToReleaseNotes` recipe.
-   * You can find this recipe in [src/main/java/com/yourorg/AppendToReleaseNotes.java](https://github.com/moderneinc/rewrite-recipe-starter/blob/main/src/main/java/com/yourorg/AppendToReleaseNotes.java).
-2. Review the `AppendToReleaseNotes` recipe and notice the differences from recipes you may have seen before.
-   * Note that it extends `ScanningRecipe` rather than just `Recipe`, and that there is an `Accumulator` member defined to keep track of the data needed by the visitor.
-   * Also, in addition to the `getVisitor()` method, there are three additional overrides: `generate()` and `getScanner()`. All three methods also define an `Accumulator` parameter. There is also an overridden `getInitialValue()` method that returns a new `Accumulator`.
-3. Now open the unit tests for `AppendToReleaseNotes`.
-   * You can find them in [src/test/java/com/yourorg/AppendToReleaseNotesTest.java](https://github.com/moderneinc/rewrite-recipe-starter/blob/main/src/test/java/com/yourorg/AppendToReleaseNotesTest.java).
-4. Review the unit tests to see some of the specifics about testing a scanning recipe.
-   * Notice how `@Test void createNewReleaseNotes() { ... }` uses `org.openrewrite.test.SourceSpecs.text(java.lang.String, java.lang.String, ...)` to provide a before and after text block, with the third parameter using `spec -> spec.path(Path.of("RELEASE.md")` to set the path where the source file either exists or should be created.
-   * The before text block is `doesNotExist()` to indicate that the file does not exist initially. Conversely, you can pass in `doesNotExist()` as the second argument to indicate that the file should be deleted.
+1. In the `rewrite-recipe-starter` project, open [`AppendToReleaseNotes.java`](https://github.com/moderneinc/rewrite-recipe-starter/blob/main/src/main/java/com/yourorg/AppendToReleaseNotes.java). Note that it extends `ScanningRecipe` rather than `Recipe`, has an `Accumulator` member to share state across phases, and overrides `getInitialValue()`, `getScanner()`, `generate()`, and `getVisitor()` (each passing the `Accumulator`).
+2. Open [`AppendToReleaseNotesTest.java`](https://github.com/moderneinc/rewrite-recipe-starter/blob/main/src/test/java/com/yourorg/AppendToReleaseNotesTest.java) and look at `createNewReleaseNotes()`. It uses `SourceSpecs.text(before, after, spec -> spec.path(Path.of("RELEASE.md")))` to set the file path, with `doesNotExist()` as the before block to indicate the file is created (pass it as the after block instead to indicate deletion).
 
-## Takeaways
+### Takeaways
 
 * Scanning recipes enable inspection and generation across multiple files.
 * A custom class can be used as an accumulator to allow state to be shared among the phases of a scanning recipe.
@@ -51,31 +43,16 @@ In this exercise, you'll write a scanning recipe to find any comments in Java so
 
 ### Steps
 
-1. Open the unit test [src/test/java/com/yourorg/TrackJavaTodosFileTest.java](https://github.com/moderneinc/rewrite-recipe-starter/blob/main/src/test/java/com/yourorg/TrackJavaTodosFileTest.java) in IntelliJ IDEA.
-   * Read through the tests, to get a feel for the cases you should cover.
-   * Remove the `@Disabled` annotations, and run the tests to see that it fails. 
-2. Now open the scanning recipe template [src/main/java/com/yourorg/TrackJavaTodosFile.java](https://github.com/moderneinc/rewrite-recipe-starter/blob/main/src/main/java/com/yourorg/TrackJavaTodosFile.java).
-   * Using the knowledge gained in Exercise 3a, and the requirements from the test, write a scanning recipe that collects all the `TODO` comments and copies them in to a file called `TODO.md`.   
-   * Note that it extends `ScanningRecipe` rather than just `Recipe`, and that there is an `Accumulator` member defined to keep track of the data needed by the visitor.
-   * You'll need to override three methods: `getVisitor()`, `generate()` and `getScanner()`. All three methods also define an accumulator parameter class called `TodoComments`. The accumulator and the `getInitialValue()` method have already been defined for you.
-   * In this case, the accumulator class (`TodoComments`) has members for both a `boolean` value to maintain whether the `TODO.md` file exists or not (similar to the previous exercise), as well as a list of strings to collect the comments that are found.
-   * There is also an option already to defined that allows you to pass in a `String` to use as the header for the markdown file.
-3. Add the necessary code inside `getScanner()` to traverse the necessary LST elements.
-   * You'll need to use two different visitors: `JavaIsoVisitor` to visit all the Java source files, and `TreeVisitor` to visit the markdown file that you will be writing the comments to.
-      * Since you can only return one visitor, you'll have to create an instance of one visitor type and then call `.visit(...)` on it from within the `visit(...)` method of the visitor that you will return.
-   * The visitor for the plain text will be similar to the previous exercise to check if the markdown file already exists.
-   * In the `JavaIsoVisitor`, you will be looking for any instances of a comment in the LST.
-      * The Java LST has a `Comment` element that can be of either type `TextComment` or `JavadocComment`. You can choose to handle both if you'd like, but for the purposes of this exercise, collecting `TextComment`s only is just fine.
-   * For every comment that you find, you'll want to store it in the list defined in your `TodoComments` accumulator class.
-4. Add code inside `generate()` to create the `TODO.md` file if it doesn't already exist.
-   * Use the `generate()` code from the `AppendToReleaseNotes` example in the previous exercise as a reference. This code will be extremely similar to that.
-5. Finally, write the code for the `getVisitor()` method to transform the collected comments to the markdown file.
-   * Again, this will be similar to the previous example since you are also writing to a plain text file.
-   * You can use the `.withText(...)` method to return a plain text file with a given `String`, but you'll need to build the `String` from the list of comments in your accumulator. It should contain the full contents of the markdown to write to the file.
-6. Build your project and run the tests.
-   * All tests should pass, and you should see a message that the project was successfully built.
-   * If one or more of the tests fail, use the description of the failure to try to find where the problem is.
-7. In case you get completely stuck or just need a reference, [here's an example of a completed `TrackJavaTodosFile.java` file](https://github.com/moderneinc/rewrite-recipe-starter/blob/workshop-solutions/src/main/java/com/yourorg/TrackJavaTodosFile.java).
+1. Open the unit test [`TrackJavaTodosFileTest.java`](https://github.com/moderneinc/rewrite-recipe-starter/blob/main/src/test/java/com/yourorg/TrackJavaTodosFileTest.java), read through the cases you need to cover, then remove the `@Disabled` annotations and run the tests to see them fail.
+2. Open the scanning recipe template [`TrackJavaTodosFile.java`](https://github.com/moderneinc/rewrite-recipe-starter/blob/main/src/main/java/com/yourorg/TrackJavaTodosFile.java). Using Exercise 3a and the test requirements, write a scanning recipe that collects all `TODO` comments into a file called `TODO.md`.
+   * You'll override `getScanner()`, `generate()`, and `getVisitor()`. The `TodoComments` accumulator and `getInitialValue()` are already defined for you. `TodoComments` has a `boolean` for whether `TODO.md` exists and a list of strings for the collected comments, plus an option for a `String` markdown header.
+3. In `getScanner()`, use two visitors: a `JavaIsoVisitor` to visit Java source files and a `TreeVisitor` for the markdown file. Since you can only return one visitor, create one and call `.visit(...)` on it from within the `visit(...)` of the visitor you return.
+   * The plain-text visitor checks whether `TODO.md` already exists (as in Exercise 3a).
+   * In the `JavaIsoVisitor`, look for `Comment` elements and store each match in the accumulator's list. A `Comment` is either a `TextComment` or `JavadocComment`; collecting only `TextComment`s is fine here.
+4. In `generate()`, create `TODO.md` if it doesn't already exist — this is nearly identical to the `AppendToReleaseNotes` `generate()` from Exercise 3a.
+5. In `getVisitor()`, write the collected comments to the markdown file. Use `.withText(...)` to return the plain-text file, building the full markdown `String` from the accumulator's list of comments.
+6. Build your project and run the tests. They should all pass. If any fail, use the failure description to locate the problem.
+7. If you get stuck, see the [completed `TrackJavaTodosFile.java`](https://github.com/moderneinc/rewrite-recipe-starter/blob/workshop-solutions/src/main/java/com/yourorg/TrackJavaTodosFile.java) for reference.
 
 ### Takeaways
 
