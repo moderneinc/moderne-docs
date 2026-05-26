@@ -107,7 +107,12 @@ mod config recipes jar install \
   org.openrewrite:rewrite-maven \
   io.moderne.recipe:rewrite-devcenter \
   org.openrewrite.recipe:rewrite-spring \
-  org.openrewrite.recipe:rewrite-testing-frameworks
+  org.openrewrite.recipe:rewrite-testing-frameworks \
+  org.openrewrite.recipe:rewrite-apache \
+  org.openrewrite.recipe:rewrite-openapi \
+  org.openrewrite.recipe:rewrite-hibernate \
+  org.openrewrite.recipe:rewrite-micrometer \
+  org.openrewrite.recipe:rewrite-jackson
 ```
 
 :::info
