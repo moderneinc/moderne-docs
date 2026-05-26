@@ -162,8 +162,9 @@ export async function checkMarkdown(content, filename) {
   const isReleasesFile = /\bdocs[\\/]releases[\\/]/.test(filename ?? '');
   const isGeneratedFile = /\bdocs[\\/]user-documentation[\\/]recipes[\\/](recipe-catalog|lists)[\\/]/.test(filename ?? '');
   const GENERATED_EXCLUDED = new Set(['no-h1-in-body', 'no-consecutive-blank-lines', 'unordered-list-marker-style']);
+  const RELEASES_EXCLUDED = new Set(['unordered-list-marker-style', 'image-alt-text']);
   return file.messages
-    .filter(msg => !(isReleasesFile && msg.ruleId === 'unordered-list-marker-style'))
+    .filter(msg => !(isReleasesFile && RELEASES_EXCLUDED.has(msg.ruleId)))
     .filter(msg => !(isGeneratedFile && GENERATED_EXCLUDED.has(msg.ruleId)))
     .map(msg => {
       const start = msg.place?.start ?? msg.place;

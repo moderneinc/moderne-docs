@@ -187,6 +187,27 @@ describe('unordered-list-marker-style', () => {
 });
 
 // ---------------------------------------------------------------------------
+// Rule: image-alt-text (releases exclusion)
+//
+// docs/releases/ files are auto-appended by the release process. Requiring
+// alt text on historical release screenshots is not practical.
+// ---------------------------------------------------------------------------
+
+describe('image-alt-text (releases exclusion)', () => {
+  it('does not flag missing alt text in docs/releases/ files', async () => {
+    const md = '![](./screenshot.png)';
+    const issues = await checkMarkdown(md, 'docs/releases/changelog.md');
+    expect(issues.filter(i => i.rule === 'image-alt-text')).toHaveLength(0);
+  });
+
+  it('still flags missing alt text outside docs/releases/', async () => {
+    const md = '![](./screenshot.png)';
+    const issues = await checkMarkdown(md, 'docs/guide.md');
+    expect(issues.filter(i => i.rule === 'image-alt-text')).toHaveLength(1);
+  });
+});
+
+// ---------------------------------------------------------------------------
 // Rule: no-consecutive-blank-lines
 //
 // STYLE_GUIDE Rule 21: at most one blank line between content blocks.
