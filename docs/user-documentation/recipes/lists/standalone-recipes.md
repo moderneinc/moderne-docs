@@ -8,7 +8,9 @@ _This doc contains recipes that are not included as part of any larger composite
 
 Total standalone recipes: 1330
 
+
 ## io.moderne.recipe
+
 
 ### recipes-kotlin
 
@@ -734,6 +736,7 @@ Total standalone recipes: 1330
   * This software composition analysis (SCA) tool detects and upgrades dependencies with publicly disclosed vulnerabilities. This recipe both generates a report of vulnerable dependencies and upgrades to newer versions with fixes. This recipe by default only upgrades to the latest **patch** version.  If a minor or major upgrade is required to reach the fixed version, this can be controlled using the `maximumUpgradeDelta` option. Vulnerability information comes from VulnCheck Vulnerability Intelligence. The recipe has an option to limit fixes to only those vulnerabilities that have evidence of exploitation at various levels of severity.
 
 ## org.openrewrite
+
 
 ### rewrite-cobol
 
@@ -1535,6 +1538,7 @@ Total standalone recipes: 1330
 
 ## org.openrewrite.meta
 
+
 ### rewrite-analysis
 
 * [org.openrewrite.analysis.controlflow.ControlFlowVisualization](/user-documentation/recipes/recipe-catalog/analysis/controlflow/controlflowvisualization.md)
@@ -1551,6 +1555,7 @@ Total standalone recipes: 1330
   * This is a sample recipe demonstrating a simple application of local data flow analysis.
 
 ## org.openrewrite.recipe
+
 
 ### rewrite-ai-search
 

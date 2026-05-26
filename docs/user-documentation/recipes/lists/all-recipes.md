@@ -8,7 +8,9 @@ _This doc contains all recipes grouped by their module._
 
 Total recipes: 6650
 
+
 ## io.moderne.recipe
+
 
 ### recipes-kotlin
 
@@ -5503,6 +5505,7 @@ _1 recipe_
 
 ## org.openrewrite
 
+
 ### rewrite-cobol
 
 _License: Moderne Source Available License_
@@ -6967,6 +6970,7 @@ _18 recipes_
 
 ## org.openrewrite.meta
 
+
 ### rewrite-analysis
 
 _License: Apache License Version 2.0_
@@ -6987,6 +6991,7 @@ _4 recipes_
   * This is a sample recipe demonstrating a simple application of local data flow analysis.
 
 ## org.openrewrite.recipe
+
 
 ### rewrite-ai-search
 
