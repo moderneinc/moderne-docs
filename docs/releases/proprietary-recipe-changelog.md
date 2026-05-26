@@ -10,6 +10,12 @@ This page contains release notes for [Moderne proprietary OpenRewrite recipes](h
 This changelog is automatically generated from GitHub releases and only contains information from the past year.
 :::
 
+## May 25, 2026
+
+#### rewrite-terraform - 3.14.1
+
+* Clarify AddResourceNestedBlock block option is multiline
+
 ## May 22, 2026
 
 #### rewrite-devcenter - v1.24.1
