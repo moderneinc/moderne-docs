@@ -237,6 +237,12 @@ describe('no-consecutive-blank-lines', () => {
     const issues = await checkMarkdown(md, 'docs/user-documentation/recipes/lists/all-recipes.md');
     expect(issues.filter(i => i.rule === 'no-consecutive-blank-lines')).toHaveLength(0);
   });
+
+  it('does not flag consecutive blank lines in cli-reference.md (generated content)', async () => {
+    const md = 'Paragraph one.\n\n\nParagraph two.';
+    const issues = await checkMarkdown(md, 'docs/user-documentation/moderne-cli/cli-reference.md');
+    expect(issues.filter(i => i.rule === 'no-consecutive-blank-lines')).toHaveLength(0);
+  });
 });
 
 // ---------------------------------------------------------------------------
