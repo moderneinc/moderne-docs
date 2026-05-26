@@ -11,69 +11,35 @@ This page gives the full Athena walkthrough, then short notes for other common B
 
 ## AWS Athena (full walkthrough)
 
-### Register the schema in the Glue Data Catalog
+### Register the schemas in the Glue Data Catalog
 
-Run this DDL once in the Athena query editor (replace `<your-dest-bucket>` with your destination bucket name):
+Trace rows are **hierarchical**: each command type writes its own stage plus all earlier stages, and `organization` is always the *last* column. A `type=run` row therefore ends `…runElapsedTimeMs,organization`, while a `type=commit` row ends `…commitElapsedTimeMs,organization`, and a `type=publish` row puts the publish columns where the run columns sit in other types. Because the column count and layout differ by command type, a single positional table cannot parse them all. Instead, register one table per query shape. `OpenCSVSerde` reads every field as text, so all columns are declared `string` and cast in queries as needed.
+
+Create the database first, then the tables you need (replace `<your-dest-bucket>` with your destination bucket name throughout):
 
 ```sql
 CREATE DATABASE IF NOT EXISTS moderne_telemetry;
+```
 
-CREATE EXTERNAL TABLE IF NOT EXISTS moderne_telemetry.traces (
-    -- Common
-    origin                          STRING,
-    path                            STRING,
-    branch                          STRING,
-    developer                       STRING,
-    -- Sync stage
-    syncOutcome                     STRING,
-    syncCloneUri                    STRING,
-    syncLstDownloadUri              STRING,
-    syncStartTime                   TIMESTAMP,
-    syncEndTime                     TIMESTAMP,
-    syncChangeset                   STRING,
-    syncElapsedTimeMs               BIGINT,
-    -- Build stage
-    buildOutcome                    STRING,
-    buildStartTime                  TIMESTAMP,
-    buildEndTime                    TIMESTAMP,
-    buildId                         STRING,
-    buildDependencyResolutionTimeMs BIGINT,
-    buildChangeset                  STRING,
-    buildMavenVersion               STRING,
-    buildGradleVersion              STRING,
-    buildBazelVersion               STRING,
-    buildDotnetVersion              STRING,
-    buildPythonVersion              STRING,
-    buildNodeVersion                STRING,
-    buildOsName                     STRING,
-    buildOsVersion                  STRING,
-    buildOsEol                      STRING,
-    buildGitAutocrlf                STRING,
-    buildGitEol                     STRING,
-    buildSourceFileCount            BIGINT,
-    buildLineCount                  BIGINT,
-    buildParseErrorCount            BIGINT,
-    buildWeight                     BIGINT,
-    buildMaxWeight                  BIGINT,
-    buildMaxWeightSourceFile        STRING,
-    buildCliVersion                 STRING,
-    buildElapsedTimeMs              BIGINT,
-    -- Publish stage (populated by mod publish — LST publication)
-    publishOutcome                  STRING,
-    publishStartTime                TIMESTAMP,
-    publishEndTime                  TIMESTAMP,
-    publishId                       STRING,
-    publishUri                      STRING
-    -- Run, Apply, Add, Commit, Push stages and organization column elided for brevity;
-    -- see https://github.com/moderneinc/moderne-bi-templates/blob/main/data-dictionary/trace-csv.md
+`all_traces` reads only the four common columns, which occupy the same first four positions in every command type. Use it for cross-type counts:
+
+<details>
+<summary>all_traces — common columns, valid across all command types</summary>
+
+```sql
+CREATE EXTERNAL TABLE IF NOT EXISTS moderne_telemetry.all_traces (
+    origin    string,
+    path      string,
+    branch    string,
+    developer string
 )
 PARTITIONED BY (
-    tenant  STRING,
-    source  STRING,
-    type    STRING,
-    year    STRING,
-    month   STRING,
-    day     STRING
+    tenant STRING,
+    source STRING,
+    type   STRING,
+    year   STRING,
+    month  STRING,
+    day    STRING
 )
 ROW FORMAT SERDE 'org.apache.hadoop.hive.serde2.OpenCSVSerde'
 WITH SERDEPROPERTIES (
@@ -104,6 +70,236 @@ TBLPROPERTIES (
 );
 ```
 
+</details>
+
+`run_traces` adds the full recipe-run columns and is scoped to `type=run`:
+
+<details>
+<summary>run_traces — full columns for mod run (type=run)</summary>
+
+```sql
+CREATE EXTERNAL TABLE IF NOT EXISTS moderne_telemetry.run_traces (
+    origin                          string,
+    path                            string,
+    branch                          string,
+    developer                       string,
+    syncOutcome                     string,
+    syncCloneUri                    string,
+    syncLstDownloadUri              string,
+    syncStartTime                   string,
+    syncEndTime                     string,
+    syncChangeset                   string,
+    syncElapsedTimeMs               string,
+    buildOutcome                    string,
+    buildStartTime                  string,
+    buildEndTime                    string,
+    buildId                         string,
+    buildDependencyResolutionTimeMs string,
+    buildChangeset                  string,
+    buildMavenVersion               string,
+    buildGradleVersion              string,
+    buildBazelVersion               string,
+    buildDotnetVersion              string,
+    buildPythonVersion              string,
+    buildNodeVersion                string,
+    buildOsName                     string,
+    buildOsVersion                  string,
+    buildOsEol                      string,
+    buildGitAutocrlf                string,
+    buildGitEol                     string,
+    buildSourceFileCount            string,
+    buildLineCount                  string,
+    buildParseErrorCount            string,
+    buildWeight                     string,
+    buildMaxWeight                  string,
+    buildMaxWeightSourceFile        string,
+    buildCliVersion                 string,
+    buildElapsedTimeMs              string,
+    runOutcome                      string,
+    runStartTime                    string,
+    runEndTime                      string,
+    runId                           string,
+    runUnlicensedAttempt            string,
+    runStreaming                    string,
+    runRecipeId                     string,
+    runRecipeInstanceName           string,
+    runRecipeOptions                string,
+    runRecipeArtifact               string,
+    runEstimatedEffortTimeSavingsMs string,
+    runDependencyResolutionTimeMs   string,
+    runPomCacheHitRate              string,
+    runResolvedPomCacheHitRate      string,
+    runFilesWithFixResults          string,
+    runFilesWithSearchResults       string,
+    runFilesWithErrors              string,
+    runFilesSearched                string,
+    runDataTables                   string,
+    runThread                       string,
+    runElapsedTimeMs                string,
+    organization                    string
+)
+PARTITIONED BY (
+    tenant STRING,
+    source STRING,
+    type   STRING,
+    year   STRING,
+    month  STRING,
+    day    STRING
+)
+ROW FORMAT SERDE 'org.apache.hadoop.hive.serde2.OpenCSVSerde'
+WITH SERDEPROPERTIES (
+    'separatorChar' = ',',
+    'quoteChar'     = '"'
+)
+STORED AS TEXTFILE
+LOCATION 's3://<your-dest-bucket>/'
+TBLPROPERTIES (
+    'projection.enabled'        = 'true',
+    'projection.tenant.type'    = 'injected',
+    'projection.source.type'    = 'enum',
+    'projection.source.values'  = 'saas,cli',
+    'projection.type.type'      = 'enum',
+    'projection.type.values'    = 'run',
+    'projection.year.type'      = 'integer',
+    'projection.year.range'     = '2026,2030',
+    'projection.year.digits'    = '4',
+    'projection.month.type'     = 'integer',
+    'projection.month.range'    = '1,12',
+    'projection.month.digits'   = '2',
+    'projection.day.type'       = 'integer',
+    'projection.day.range'      = '1,31',
+    'projection.day.digits'     = '2',
+    'storage.location.template' =
+      's3://<your-dest-bucket>/tenant=${tenant}/source=${source}/type=${type}/year=${year}/month=${month}/day=${day}/',
+    'skip.header.line.count'    = '1'
+);
+```
+
+</details>
+
+`commit_traces` carries the whole chain through commit — a commit trace embeds the run columns — and is scoped to `type=commit`:
+
+<details>
+<summary>commit_traces — full chain through mod git commit (type=commit)</summary>
+
+```sql
+CREATE EXTERNAL TABLE IF NOT EXISTS moderne_telemetry.commit_traces (
+    origin                          string,
+    path                            string,
+    branch                          string,
+    developer                       string,
+    syncOutcome                     string,
+    syncCloneUri                    string,
+    syncLstDownloadUri              string,
+    syncStartTime                   string,
+    syncEndTime                     string,
+    syncChangeset                   string,
+    syncElapsedTimeMs               string,
+    buildOutcome                    string,
+    buildStartTime                  string,
+    buildEndTime                    string,
+    buildId                         string,
+    buildDependencyResolutionTimeMs string,
+    buildChangeset                  string,
+    buildMavenVersion               string,
+    buildGradleVersion              string,
+    buildBazelVersion               string,
+    buildDotnetVersion              string,
+    buildPythonVersion              string,
+    buildNodeVersion                string,
+    buildOsName                     string,
+    buildOsVersion                  string,
+    buildOsEol                      string,
+    buildGitAutocrlf                string,
+    buildGitEol                     string,
+    buildSourceFileCount            string,
+    buildLineCount                  string,
+    buildParseErrorCount            string,
+    buildWeight                     string,
+    buildMaxWeight                  string,
+    buildMaxWeightSourceFile        string,
+    buildCliVersion                 string,
+    buildElapsedTimeMs              string,
+    runOutcome                      string,
+    runStartTime                    string,
+    runEndTime                      string,
+    runId                           string,
+    runUnlicensedAttempt            string,
+    runStreaming                    string,
+    runRecipeId                     string,
+    runRecipeInstanceName           string,
+    runRecipeOptions                string,
+    runRecipeArtifact               string,
+    runEstimatedEffortTimeSavingsMs string,
+    runDependencyResolutionTimeMs   string,
+    runPomCacheHitRate              string,
+    runResolvedPomCacheHitRate      string,
+    runFilesWithFixResults          string,
+    runFilesWithSearchResults       string,
+    runFilesWithErrors              string,
+    runFilesSearched                string,
+    runDataTables                   string,
+    runThread                       string,
+    runElapsedTimeMs                string,
+    applyOutcome                    string,
+    applyStartTime                  string,
+    applyEndTime                    string,
+    applyId                         string,
+    applyElapsedTimeMs              string,
+    addOutcome                      string,
+    addStartTime                    string,
+    addEndTime                      string,
+    addId                           string,
+    addElapsedTimeMs                string,
+    commitOutcome                   string,
+    commitStartTime                 string,
+    commitEndTime                   string,
+    commitId                        string,
+    commitBranch                    string,
+    commitElapsedTimeMs             string,
+    organization                    string
+)
+PARTITIONED BY (
+    tenant STRING,
+    source STRING,
+    type   STRING,
+    year   STRING,
+    month  STRING,
+    day    STRING
+)
+ROW FORMAT SERDE 'org.apache.hadoop.hive.serde2.OpenCSVSerde'
+WITH SERDEPROPERTIES (
+    'separatorChar' = ',',
+    'quoteChar'     = '"'
+)
+STORED AS TEXTFILE
+LOCATION 's3://<your-dest-bucket>/'
+TBLPROPERTIES (
+    'projection.enabled'        = 'true',
+    'projection.tenant.type'    = 'injected',
+    'projection.source.type'    = 'enum',
+    'projection.source.values'  = 'saas,cli',
+    'projection.type.type'      = 'enum',
+    'projection.type.values'    = 'commit',
+    'projection.year.type'      = 'integer',
+    'projection.year.range'     = '2026,2030',
+    'projection.year.digits'    = '4',
+    'projection.month.type'     = 'integer',
+    'projection.month.range'    = '1,12',
+    'projection.month.digits'   = '2',
+    'projection.day.type'       = 'integer',
+    'projection.day.range'      = '1,31',
+    'projection.day.digits'     = '2',
+    'storage.location.template' =
+      's3://<your-dest-bucket>/tenant=${tenant}/source=${source}/type=${type}/year=${year}/month=${month}/day=${day}/',
+    'skip.header.line.count'    = '1'
+);
+```
+
+</details>
+
+Other command types (`build`, `apply`, `add`, `push`, `publish`, `exec`, `checkout`) follow the same pattern: take the column list for that command's stages from the [trace.csv data dictionary](https://github.com/moderneinc/moderne-bi-templates/blob/main/data-dictionary/trace-csv.md), append `organization` as the final column, and set `'projection.type.values'` to that single type. `mod publish` traces use a different layout — the publish columns slot in immediately after the build stage — so give them their own table rather than reusing `run_traces`.
+
 Partition projection means Athena infers partitions from the path template, so you never have to run `MSCK REPAIR TABLE` or wait on Glue crawlers. Because `tenant` is an **injected** partition — meaning Athena does not infer it from the data — every query **must** include `tenant = '<your-tenant>'` in its `WHERE` clause.
 
 ### Set up an Athena workgroup
@@ -124,17 +320,16 @@ The `athena-results/` prefix sits outside the partition structure, so it will no
 
 ```sql
 SELECT
-    runRecipe                                    AS recipe,
-    COUNT(*)                                     AS run_count,
-    COUNT(DISTINCT path)                         AS repos,
-    SUM(runEstimatedTimeSavingsHours)            AS hours_saved
-FROM moderne_telemetry.traces
+    runRecipeId                                                                AS recipe,
+    COUNT(*)                                                                   AS run_count,
+    COUNT(DISTINCT path)                                                       AS repos,
+    ROUND(SUM(CAST(runEstimatedEffortTimeSavingsMs AS DOUBLE)) / 3600000.0, 1) AS hours_saved
+FROM moderne_telemetry.run_traces
 WHERE tenant = 'acme'
   AND source IN ('saas', 'cli')
-  AND type   = 'run'
-  AND year   = '2026' AND month = '05' AND day = '20'
+  AND year = '2026' AND month = '05' AND day = '20'
   AND runOutcome = 'Succeeded'
-GROUP BY runRecipe
+GROUP BY runRecipeId
 ORDER BY hours_saved DESC NULLS LAST
 LIMIT 25;
 ```
@@ -143,15 +338,14 @@ LIMIT 25;
 
 ```sql
 SELECT
-    runRecipe              AS recipe,
+    runRecipeId            AS recipe,
     COUNT(*)               AS commit_count,
     COUNT(DISTINCT path)   AS repos_changed
-FROM moderne_telemetry.traces
+FROM moderne_telemetry.commit_traces
 WHERE tenant = 'acme'
-  AND type   = 'commit'
-  AND year   = '2026'
+  AND year = '2026'
   AND commitOutcome = 'Succeeded'
-GROUP BY runRecipe
+GROUP BY runRecipeId
 ORDER BY commit_count DESC
 LIMIT 10;
 ```
@@ -162,17 +356,17 @@ LIMIT 10;
 SELECT
     source,
     type,
-    COUNT(*)             AS runs,
-    COUNT(DISTINCT path) AS repos,
+    COUNT(*)                  AS commands,
+    COUNT(DISTINCT path)      AS repos,
     COUNT(DISTINCT developer) AS users
-FROM moderne_telemetry.traces
+FROM moderne_telemetry.all_traces
 WHERE tenant = 'acme'
-  AND year   = '2026' AND month = '05'
+  AND year = '2026' AND month = '05'
 GROUP BY source, type
 ORDER BY source, type;
 ```
 
-For more, see the SQL in each starter template at [moderne-bi-templates/templates/](https://github.com/moderneinc/moderne-bi-templates/tree/main/templates). The queries there target the same schema; replace the table reference with `moderne_telemetry.traces` and add `tenant = '<your-tenant>'` to the `WHERE` clause.
+For more, see the SQL in each starter template at [moderne-bi-templates/templates/](https://github.com/moderneinc/moderne-bi-templates/tree/main/templates). Point each query at the table that matches the command type it analyzes (for example, `run_traces` or `commit_traces`) and add `tenant = '<your-tenant>'` to the `WHERE` clause.
 
 ## Other BI systems
 
