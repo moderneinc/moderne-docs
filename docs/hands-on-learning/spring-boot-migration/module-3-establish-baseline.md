@@ -32,12 +32,14 @@ You saw from the analysis earlier that these projects all use a variety of Sprin
    * **`Apache Maven best practices`** ([`org.openrewrite.maven.BestPractices`](https://docs.openrewrite.org/recipes/maven/bestpractices))
    * **`Migrate to Java 8`** ([`org.openrewrite.java.migrate.UpgradeToJava8`](https://docs.openrewrite.org/recipes/java/migrate/upgradetojava8))
    * **`Migrate to Spring Boot 2.7`** ([`org.openrewrite.java.spring.boot2.UpgradeSpringBoot_2_7`](https://docs.openrewrite.org/recipes/java/spring/boot2/upgradespringboot_2_7))
+   * **`Exclude Maven dependency`** ([`org.openrewrite.maven.ExcludeDependency`](https://docs.openrewrite.org/recipes/maven/excludedependency))
+      * **groupId:** `org.hibernate.javax.persistence`
+      * **artifactId:** `hibernate-jpa-2.0-api`
+      * **scope:** `compile`
    * **`Change Maven dependency`** ([`org.openrewrite.maven.ChangeDependencyGroupIdAndArtifactId`](https://docs.openrewrite.org/recipes/maven/changedependencygroupidandartifactid))
-4. Configure the dependency change:
-   * **Old groupId:** `org.springframework.cloud`
-   * **Old artifactId:** `spring-cloud-starter-zipkin`
-   * **New groupId:** `org.springframework.cloud`
-   * **New artifactId:** `spring-cloud-sleuth-zipkin`
+      * **Old groupId:** `org.springframework.cloud`
+      * **Old artifactId:** `spring-cloud-starter-zipkin`
+      * **New artifactId:** `spring-cloud-sleuth-zipkin`
 
 <figure>
   ![Baseline recipe list with Maven best practices, Java 8, Spring Boot 2.7, and dependency change](./assets/migration-baseline-recipe.png)
