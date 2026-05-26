@@ -8,7 +8,7 @@ import MDXHeading from '@theme/MDXComponents/Heading';
 import MDXUl from '@theme/MDXComponents/Ul';
 import MDXLi from '@theme/MDXComponents/Li';
 import MDXImg from '@theme/MDXComponents/Img';
-import MDXInput from '@theme/MDXComponents/Input';
+import MDXInput from './Input';
 import Admonition from '@theme/Admonition';
 import Mermaid from '@theme/Mermaid';
 

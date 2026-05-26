@@ -206,7 +206,7 @@ Only you can create, swap, and delete endpoints in your own account, so this nee
 
 If your organization uses Azure PrivateLink, the same model applies with Azure Private Link Service in place of AWS. Flag it to Moderne if so.
 
-## Setup checklist (before the soak phase)
+## Pre-deployment checklist
 
 Run through this before declaring v2 production-ready in your environment. Each item maps to a specific failure mode seen during real customer cutovers.
 
@@ -240,12 +240,14 @@ See [Configuring organizations hierarchy](../administrator-documentation/moderne
 * [ ] All SCM properties use the `moderne.scm.*` prefix (no leftover `moderne.agent.<scm>.*`).
 * [ ] In the v2 UI, the SCM icon for each provider is green on `/admin/connectors`.
 
+## During deployment
+
 ### Network and DNS
 
 * [ ] `status.<tenant>.moderne.io` resolves and is reachable from anywhere your team accesses Moderne.
 * [ ] Your Prometheus scraper still hits the Connector's `/prometheus` endpoint successfully.
 
-## Soak-phase smoke tests
+## Pre-cutover checklist
 
 Run these with v1 still serving as your front door, using the header, cookie, and path opt-ins from [Running v1 and v2 side-by-side](#running-v1-and-v2-side-by-side-the-soak-phase) above.
 

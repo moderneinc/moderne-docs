@@ -250,7 +250,7 @@ Base URL is hardcoded to `https://bitbucket.org` in both — not configurable.
 
 ## CLI download instructions
 
-| Agent                                                                 | Connector (recommended)                                            |
+| Agent                                                                 | Connector                                                          |
 |:----------------------------------------------------------------------|:-------------------------------------------------------------------|
 | `moderne.agent.cli.download-instructions.label=Internal CLI`          | `moderne.ui.cli-download-instructions.label=Internal CLI`          |
 | `moderne.agent.cli.download-instructions.url=https://cli.example.com` | `moderne.ui.cli-download-instructions.uri=https://cli.example.com` |
