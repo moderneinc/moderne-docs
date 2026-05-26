@@ -35,6 +35,8 @@ The CSV schema is hierarchical: each command embeds rows from prior pipeline sta
 * **Recipe pipeline**: sync → build → run → apply → add → commit → push.
 * **Publish pipeline**: sync → build → publish (the LST publication path used by [mass ingest](../mass-ingest.md) and CI).
 
+In addition, `mod exec` (`type=exec`) and `mod git checkout` (`type=checkout`) emit standalone traces that are not part of either pipeline chain.
+
 The full column-by-column reference lives in the BI-templates repo:
 
 * [trace.csv data dictionary](https://github.com/moderneinc/moderne-bi-templates/blob/main/data-dictionary/trace-csv.md)
@@ -49,6 +51,7 @@ A quick orientation:
 | Run                         | `runRecipe`, `runOutcome`, `runResultsCount`, `runElapsedTimeMs`                  | `mod run`                                                      |
 | Apply / Add / Commit / Push | per-stage outcomes and identifiers                                                | corresponding `mod git ...`                                    |
 | Publish                     | `publishOutcome`, `publishStartTime`, `publishEndTime`, `publishId`, `publishUri` | `mod publish` (LST publication; used by mass-ingest pipelines) |
+| Exec / Checkout             | standalone traces (common columns only)                                           | `mod exec`, `mod git checkout`                                 |
 | Organization                | `organization`                                                                    | when run within a Moderne organization context                 |
 
 ## How telemetry flows into your environment
