@@ -3926,15 +3926,3 @@ Republishing to update dependencies
 * Fixing code suggestions
 * Made transitive dependency bump a ScanningRecipe
 
-## May 24, 2025
-
-#### rewrite-devcenter - 1.2.0
-
-* Add `ParentPomUpgrade` starter card recipe
-
-## May 22, 2025
-
-#### rewrite-devcenter - 1.1.3
-
-* Add `rewrite-java-21` test dependency to align rewrite versions
-
