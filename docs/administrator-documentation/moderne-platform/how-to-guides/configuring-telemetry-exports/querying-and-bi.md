@@ -104,7 +104,7 @@ TBLPROPERTIES (
 );
 ```
 
-Partition projection means Athena infers partitions from the path template, so you never have to run `MSCK REPAIR TABLE` or wait on Glue crawlers. Because `tenant` is an **injected** partition, every query **must** include `tenant = '<your-tenant>'` in its `WHERE` clause.
+Partition projection means Athena infers partitions from the path template, so you never have to run `MSCK REPAIR TABLE` or wait on Glue crawlers. Because `tenant` is an **injected** partition — meaning Athena does not infer it from the data — every query **must** include `tenant = '<your-tenant>'` in its `WHERE` clause.
 
 ### Set up an Athena workgroup
 
@@ -225,8 +225,8 @@ Please confirm that:
 
 ### I see `source=cli` data but no `source=saas` data (or vice versa)
 
-* No `saas` rows = no one has run a recipe or committed via the web UI during the period queried.
-* No `cli` rows = either no one has run `mod` against your tenant, or CLI users haven't authenticated yet (the CLI auto-pushes telemetry on its next license-lease refresh, typically within an hour of signing in). Users can also force a flush with `mod telemetry publish`.
+* If you see no `saas` rows, no one has run a recipe or committed via the web UI during the period queried.
+* If you see no `cli` rows, either no one has run `mod` against your tenant, or CLI users haven't authenticated yet (the CLI auto-pushes telemetry on its next license-lease refresh, typically within an hour of signing in). Users can also force a flush with `mod telemetry publish`.
 
 ### Some `mod` commands are missing traces
 

@@ -7,7 +7,7 @@ description: Set up cross-account S3 replication from the Moderne-managed teleme
 
 This guide walks you through receiving telemetry into an S3 bucket in **your** AWS account via S3 Cross-Region Replication (also works same-region). Before starting, read the [overview](./overview.md) for context on what the data looks like and how it flows.
 
-The flow:
+Here's how the setup works end-to-end:
 
 1. You create a destination bucket in your AWS account.
 2. You attach a bucket policy that grants Moderne's replication role permission to write objects.
@@ -97,7 +97,7 @@ This is the policy that grants Moderne's replication role permission to write in
 }
 ```
 
-Apply it:
+Apply the policy by running the following command:
 
 ```bash
 aws s3api put-bucket-policy \
@@ -114,7 +114,7 @@ Email your CSM the three values from the "What we'll need from you" table above.
 * Trigger a backfill (S3 Batch Replication) for objects already in the bucket, so your destination starts populated, not empty.
 * Send back a confirmation with a sample object path and a timestamp of the first replicated key.
 
-You should see new keys appearing under `s3://<your-dest-bucket>/tenant=<your-tenant>/...` within ~15 minutes of any recipe run or qualifying `mod` command. Replication is asynchronous; the 99th-percentile delivery time for new objects is under 15 minutes.
+You should see new keys appearing under `s3://<your-dest-bucket>/tenant=<your-tenant>/...` within ~15 minutes of any recipe run or qualifying `mod` command. Replication is asynchronous, but 99% of new objects arrive within 15 minutes.
 
 ## Verification
 
@@ -124,7 +124,7 @@ After Moderne enables replication, you can confirm data is flowing:
 aws s3 ls "s3://$DEST_BUCKET/tenant=$YOUR_TENANT/" --recursive | head
 ```
 
-Expect to see paths like:
+The output should include paths that look like:
 
 ```
 tenant=acme/source=saas/type=run/year=2026/month=05/day=20/abc123.csv

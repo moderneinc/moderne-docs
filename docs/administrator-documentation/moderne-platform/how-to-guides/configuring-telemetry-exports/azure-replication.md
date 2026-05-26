@@ -7,7 +7,7 @@ description: Set up Azure Storage Object Replication from the Moderne-managed te
 
 This guide walks you through receiving telemetry into a blob container in **your** Azure storage account via **Azure Storage Object Replication**. Before starting, read the [overview](./overview.md) for context on what the data looks like and how it flows.
 
-The flow:
+Here's how the setup works end-to-end:
 
 1. You create a destination storage account and container.
 2. You enable the prerequisites object replication requires (versioning and change feed).
@@ -33,6 +33,8 @@ This guide assumes that you have:
 | Destination region                      | `eastus`                                           | Whatever your BI lives in.                            |
 
 ## Step 1: Create the destination storage account and container
+
+Create the resource group, storage account, and container with the following commands:
 
 ```bash
 # Replace these with your values:
@@ -102,6 +104,8 @@ Send your CSM:
 Moderne will create the object-replication policy on the source side, filtered to your tenant's container prefix. Object replication is asynchronous; expect new blobs to land within ~15 minutes.
 
 ## Verification
+
+Confirm objects are landing by listing the container:
 
 ```bash
 az storage blob list \
