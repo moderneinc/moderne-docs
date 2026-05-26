@@ -5,28 +5,14 @@ description: What telemetry Moderne collects, where it lands by default, and how
 
 # Configuring telemetry exports and reports
 
-{/*
-DRAFT REVIEWER NOTES (remove before publishing):
+Moderne emits structured usage telemetry for every recipe run, build, and commit produced through the platform or the CLI. This set of guides covers:
 
-1. Replication-role ARN naming: the doc uses arn:aws:iam::297794628946:role/moderne-bi-telemetry-replication-role-<your-tenant> per the planned per-tenant role layout (Ken, 2026-05-21). The infra work to actually create these per-tenant roles is in flight (CLI-telemetry and S3-replication PRs still open as of 2026-05-20). Confirm the AWS account ID and the exact role-name pattern once infra ships before publishing. Per Olga (2026-05-20): destination KMS/CMK guidance was intentionally removed. The bucket-level SSE-S3 default plus HTTPS-in-transit are sufficient; do not reintroduce a CMK setup path.
+1. What telemetry Moderne collects and where it lands by default.
+2. How to receive a continuous copy of *your tenant's* telemetry in a bucket or storage account you own, with separate setup paths for [AWS](./aws-replication.md) and [Azure](./azure-replication.md).
+3. How to [query that data and build reports](./querying-and-bi.md).
 
-2. Azure source identity: the doc reflects the planned per-tenant UAMI model (`moderne-bi-telemetry-replication-uami-<your-tenant>`) attached to the shared `modernetelemetry` storage account. This was a deliberate architectural choice (Ken, 2026-05-21) to keep the customer-side flow on Azure as close to AWS as possible: one tenant-specific write grant to one destination container on either cloud. The object ID stays a CSM-handoff value because Azure assigns the GUID at UAMI creation time. Confirm with infra that the per-tenant UAMI naming and attachment landed as planned before publishing.
-
-3. Tenant prefix scoping: the source side filters replication to tenant=tenantName/ (with trailing slash). Confirm with infra that the actual replication rule filter exactly matches this prefix string.
-
-4. Publish stage: mod publish gained trace.csv support in CLI #3650 (2026-04-10) and was extended in #3713 to embed sync + build columns. The moderne-bi-templates data dictionary linked from this page does not yet enumerate the publishOutcome / publishStartTime / publishEndTime / publishId / publishUri columns — open a follow-up on moderne-bi-templates to extend it.
-*/}
-
-Moderne emits structured usage telemetry for every recipe run, build, and commit produced through the platform or the CLI. This set of guides walks platform administrators through:
-
-1. What telemetry Moderne collects and where it lands by default (this page).
-2. How to receive a continuous copy of *your tenant's* telemetry in a bucket or storage account you own, via cross-account or cross-cloud object replication. Pick the page for your cloud:
-   * [AWS replication setup](./aws-replication.md)
-   * [Azure replication setup](./azure-replication.md)
-3. How to query that data and build reports. See [Querying and BI](./querying-and-bi.md).
-
-:::info
-**Availability.** The platform-native telemetry described here ships with **Moderne SaaS v2 tenants**. If you are still on v1, the [CLI wrapper-script approach](https://docs.moderne.io/user-documentation/moderne-cli/how-to-guides/cli-telemetry-s3-export) remains supported in parallel and stays the right path for CLI-only deployments not connected to a Moderne tenant.
+:::info[Availability]
+The platform-native telemetry described here ships with **Moderne SaaS v2 tenants**. If you are still on v1, the [CLI wrapper-script approach](../../../../user-documentation/moderne-cli/how-to-guides/cli-telemetry-s3-export.md) remains supported in parallel and stays the right path for CLI-only deployments not connected to a Moderne tenant.
 :::
 
 ## What gets collected
@@ -97,13 +83,13 @@ Object access inside the Moderne-managed bucket is scoped per-tenant: your tenan
 
 The cloud-specific guides below walk through each step in detail. At a glance, you'll need to:
 
-* [ ] Pick your destination cloud and region.
-* [ ] Create the destination bucket / storage account and container.
-* [ ] Enable versioning (and change feed, on Azure).
-* [ ] Apply the bucket policy / role assignment (copy-paste templates in the cloud-specific guide).
-* [ ] Send your CSM: tenant name, destination ARN / resource ID, and region.
-* [ ] Wait for Moderne to confirm replication is live (~1 business day).
-* [ ] Register the schema in your BI / query engine and start querying.
+* Pick your destination cloud and region.
+* Create the destination bucket / storage account and container.
+* Enable versioning (and change feed, on Azure).
+* Apply the bucket policy / role assignment (copy-paste templates in the cloud-specific guide).
+* Send your CSM: tenant name, destination ARN / resource ID, and region.
+* Wait for Moderne to confirm replication is live (~1 business day).
+* Register the schema in your BI / query engine and start querying.
 
 ## Continue
 

@@ -113,8 +113,8 @@ az storage blob list \
     --output table
 ```
 
-:::tip
-**Cross-cloud destinations.** If your Moderne tenant is AWS-backed but your BI stack runs on Azure (or vice versa), native object replication doesn't apply. Reach out to your CSM. Moderne supports cross-cloud delivery via a scheduled sync job (typically 1-hour cadence), and the customer-side setup is the same: create the destination, grant write access, send us the coordinates.
+:::tip[Cross-cloud destinations]
+If your Moderne tenant is AWS-backed but your BI stack runs on Azure (or vice versa), native object replication doesn't apply. Reach out to your CSM. Moderne supports cross-cloud delivery via a scheduled sync job (typically 1-hour cadence), and the customer-side setup is the same: create the destination, grant write access, send us the coordinates.
 :::
 
 ## Next
