@@ -96,7 +96,6 @@ The Application Link requests the following permissions. Each permission is used
 The OAuth token is scoped to the individual user who authorizes it — Moderne can only perform actions that the user already has permission to do. The token does not grant Moderne any additional access beyond what the user themselves can do in Bitbucket.
 :::
 
-
 <details>
 <summary>OAuth1.0a (deprecated)</summary>
 

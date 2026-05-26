@@ -21,13 +21,11 @@ description: The current version of the Moderne Connector and where to download 
 
 * Short-circuit encrypt+upload before opening source when prev already encrypted (#804)
 
-
 ### v0.148.106 – 2026-05-14
 
 [Download](https://repo1.maven.org/maven2/io/moderne/connector/0.148.106/connector-0.148.106.jar)
 
 * Require explicit isSkipSsl/isSkipValidateConnectivity on HttpToolConfiguration
-
 
 ### v0.148.102 – 2026-05-12
 
@@ -37,7 +35,6 @@ description: The current version of the Moderne Connector and where to download 
 * Log error on 404 handshake from API gateway (#792)
 * Don't start enrichment until gateway is connected; aggregate per-row failures into one summary
 
-
 ### v0.148.100 – 2026-05-12
 
 [Download](https://repo1.maven.org/maven2/io/moderne/connector/0.148.100/connector-0.148.100.jar)
@@ -46,7 +43,6 @@ description: The current version of the Moderne Connector and where to download 
 * Revert "connector: log gateway URI on connect and on channel close (#779)" (#780)
 * Log gateway URI on connect and on channel close (#779)
 * Fix: disable private pypi for app connector
-
 
 ### v0.148.74 – 2026-05-06
 

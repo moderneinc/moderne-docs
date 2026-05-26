@@ -756,12 +756,9 @@ Or watch the following videos:
 
 <ReactPlayer className="reactPlayer" url='https://www.youtube.com/watch?v=ZHXqYhaB71k' controls="true" />
 
-
 <ReactPlayer className="reactPlayer" url='https://www.youtube.com/watch?v=zHlVg9H_JRo' controls="true" />
 
-
 <ReactPlayer className="reactPlayer" url='https://www.youtube.com/watch?v=cs-6FJ_mtro' controls="true" />
-
 
 ## Differences between the Moderne CLI and the OpenRewrite build plugins
 

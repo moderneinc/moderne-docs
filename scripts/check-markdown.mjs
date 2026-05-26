@@ -68,11 +68,13 @@ const noBareExpression = lintRule(
 const noH1InBody = lintRule(
   { origin: 'remark-lint:no-h1-in-body' },
   (tree, file) => {
+    const frontmatter = tree.children.find(n => n.type === 'yaml');
+    if (!frontmatter || !/^title:/m.test(frontmatter.value)) return;
     visit(tree, 'heading', (node) => {
       if (node.depth === 1) {
         file.message(
-          'Do not use # h1 headings in the document body. ' +
-          'Docusaurus renders the frontmatter title as h1.',
+          'Do not use # h1 headings when frontmatter has title:. ' +
+          'Docusaurus injects the frontmatter title as h1, creating a double-h1.',
           node,
         );
       }
@@ -158,7 +160,7 @@ export async function checkMarkdown(content, filename) {
   const tree = processor.parse(file);
   await processor.run(tree, file);
   const isReleasesFile = /\bdocs[\\/]releases[\\/]/.test(filename ?? '');
-  const isGeneratedFile = /\bdocs[\\/]user-documentation[\\/]recipes[\\/]recipe-catalog[\\/]/.test(filename ?? '');
+  const isGeneratedFile = /\bdocs[\\/]user-documentation[\\/]recipes[\\/](recipe-catalog|lists)[\\/]/.test(filename ?? '');
   const GENERATED_EXCLUDED = new Set(['no-h1-in-body', 'no-consecutive-blank-lines', 'unordered-list-marker-style']);
   return file.messages
     .filter(msg => !(isReleasesFile && msg.ruleId === 'unordered-list-marker-style'))

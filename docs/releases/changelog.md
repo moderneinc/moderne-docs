@@ -3,7 +3,6 @@
 
 - Bug fixes and other improvements.
 
-
 ## April 2026
 
 ### UI v12.36.0 (2026/04/30)

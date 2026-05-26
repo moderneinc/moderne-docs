@@ -76,7 +76,6 @@ Open the HTML file to view your DevCenter dashboard:
   <figcaption>_An example of what a CLI generated DevCenter looks like_</figcaption>
 </figure>
 
-
 ## Step 5: Create your custom DevCenter recipe
 
 The source for the DevCenterStarter recipe can be found [here](https://github.com/moderneinc/rewrite-devcenter/blob/main/src/main/resources/META-INF/rewrite/devcenter-starter.yml). You can use this recipe as a starting point to configure a custom DevCenter dashboard.

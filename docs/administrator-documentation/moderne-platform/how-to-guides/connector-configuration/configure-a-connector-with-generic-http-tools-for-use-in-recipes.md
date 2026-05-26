@@ -3,7 +3,6 @@ sidebar_label: HTTP tool configuration
 description: How to configure the Moderne Connector with generic HTTP tools so they can be used in recipes.
 ---
 
-
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import VersionBanner from '@site/src/components/VersionBanner';

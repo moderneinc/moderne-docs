@@ -172,7 +172,6 @@ Moderne CLI 4.2.9
 
 ⏺ Configuring tenant https://app.moderne.io
 
-
 ⏺ What to do next
     > To log in, run mod config moderne login
 
@@ -401,7 +400,6 @@ Failed to download LST: The artifact repository responded with HTTP status 404
 ⏺ Try:
 ▶ Report to support@moderne.io
 
-
 MOD PARTIALLY SUCCEEDED in (4s)
 ```
 
@@ -410,7 +408,6 @@ MOD PARTIALLY SUCCEEDED in (4s)
 :::info
 It's okay if some LSTs fail to download. As long as you have a few repositories with LSTs available, you can continue the exercise and run recipes against those repositories. 
 :::
-
 
 3. To confirm the repositories were synced, list the repositories and their LST status:
 
@@ -575,7 +572,6 @@ Moderne CLI 4.2.9
 Found 1 organization containing 11 repositories (1s)
 Found recipe run 20260105155239-ejNeJ
 
-
 ⏺ Executing git checkout
 
 Command output will be written to log
@@ -636,7 +632,6 @@ Moderne CLI 4.2.9
 
 Found 1 organization containing 11 repositories (1s)
 Found recipe run 20260105155949-7G4PX
-
 
 ⏺ Executing git apply
 
@@ -704,7 +699,6 @@ Moderne CLI 4.2.9
 Found 1 organization containing 11 repositories (1s)
 Found recipe run 20260105155949-7G4PX
 
-
 ⏺ Executing git add
 
 Command output will be written to log
@@ -741,8 +735,6 @@ Added files for 8 repositories.
 
 MOD SUCCEEDED in 6s
 
-
-
    ▛▀▀▚▖  ▗▄▟▜
    ▌   ▜▄▟▀  ▐
    ▛▀▀█▀▛▀▀▀▀▜
@@ -754,7 +746,6 @@ Moderne CLI 4.2.9
 
 Found 1 organization containing 11 repositories (1s)
 Found recipe run 20260105155949-7G4PX
-
 
 ⏺ Executing git commit
 
@@ -844,7 +835,6 @@ In addition to the CLI, you can run recipes using the Moderne Platform.
 ![Marketplace search for CommonStaticAnalysis showing one matching recipe](./assets/marketplace-search-csa.png)
 <figcaption>_Search the marketplace to find the recipe you're looking for._</figcaption>
 </figure>
-
 
 #### Step 2: Run a dry run and review results
 

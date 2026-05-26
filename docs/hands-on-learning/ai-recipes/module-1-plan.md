@@ -142,9 +142,9 @@ Throughout this workshop, you'll find **suggested prompts** in collapsible secti
 > I want to create an OpenRewrite recipe to help migrate Java projects from Jackson 2.x to Jackson 3.x. Please read the official migration guide at https://github.com/FasterXML/jackson/blob/main/jackson3/MIGRATING_TO_JACKSON_3.md and propose a comprehensive list of code changes that could be automated with OpenRewrite recipes. Don't reference or copy from any existing OpenRewrite Jackson recipes. Build the plan from the migration guide itself.
 >
 > For each change, note:
-> - What the change is (old → new)
-> - Your suggested recipe type
-> - The priority (how commonly used is this API?)
+> * What the change is (old → new)
+> * Your suggested recipe type
+> * The priority (how commonly used is this API?)
 
 </details>
 

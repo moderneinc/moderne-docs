@@ -57,9 +57,9 @@ If your company **does** provide an organizational hierarchy, the issue could be
 Use the [Lost and Found GraphQL query](#using-the-lost-and-found-query) to check if your repository is listed.
 
 * **If found**: Your repository exists but has issues that prevent it from being usable. This could be due to:
-  - Missing from organizational hierarchy (doesn't match the `origin`, `path`, or `branch` defined in your organizational hierarchy)
-  - SCM configuration mismatch (orphaned repository with no connected agent)
-  - [See the fix below](#to-fix-1).
+  * Missing from organizational hierarchy (doesn't match the `origin`, `path`, or `branch` defined in your organizational hierarchy)
+  * SCM configuration mismatch (orphaned repository with no connected agent)
+  * [See the fix below](#to-fix-1).
 * **If not found**: Proceed to [check for an `origin` mismatch](#check-for-an-origin-mismatch) (the next section). 
 
 #### To fix: 

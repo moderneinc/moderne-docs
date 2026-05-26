@@ -367,8 +367,8 @@ Exchange an OAuth authorization code for an access token.
 
 This unified mutation handles all OAuth 2.0 VCS providers.
 The backend uses the authorizationId to look up:
-- The origin and VCS type
-- PKCE code_verifier (GitLab)
+* The origin and VCS type
+* PKCE code_verifier (GitLab)
 
 On success, the token is stored and future requests will be authenticated.
 
@@ -384,9 +384,9 @@ Initiate OAuth authorization for a VCS origin.
 Returns an authorization URL to redirect the user to.
 
 The backend constructs the full OAuth URL including:
-- PKCE code_challenge for GitLab
-- Correct scopes for each VCS type
-- State parameter for CSRF protection
+* PKCE code_challenge for GitLab
+* Correct scopes for each VCS type
+* State parameter for CSRF protection
 
 The authorization ID should be passed to exchangeAuthorizationCode
 after the user completes OAuth.
@@ -2621,8 +2621,8 @@ Resolved by the changeset reader using a batch check against the authorization s
 Paginated connection for repository changesets.
 
 `completed` indicates how many repositories have finished processing:
-- For BatchChange: completed always equals count (all repositories are pre-processed).
-- For OrganizationRecipeRun: completed counts repository runs in a terminal state
+* For BatchChange: completed always equals count (all repositories are pre-processed).
+* For OrganizationRecipeRun: completed counts repository runs in a terminal state
   (regardless of success/failure), excluding canceled runs. A canceled run shows
   the completion status reached prior to cancellation.
 
@@ -3344,244 +3344,244 @@ Use `__typename` to determine the specific commit type.
 
 ##### `AccessTokenOrderByField`
 
-- `CREATED`
-- `EXPIRES_AT`
+* `CREATED`
+* `EXPIRES_AT`
 
 ##### `AuditActionType`
 
-- `CREATE`
-- `READ`
-- `UPDATE`
-- `DELETE`
+* `CREATE`
+* `READ`
+* `UPDATE`
+* `DELETE`
 
 ##### `AuditLogExportFormat`
 
-- `CEF`
-- `CSV`
+* `CEF`
+* `CSV`
 
 ##### `AuditLogOrderByField`
 
-- `TIMESTAMP`
-- `USER_ID`
-- `TARGET`
-- `ACTION`
+* `TIMESTAMP`
+* `USER_ID`
+* `TARGET`
+* `ACTION`
 
 ##### `AuditLogsDownloadOrderByField`
 
-- `STARTED_AT`
+* `STARTED_AT`
 
 ##### `AuditOutcome`
 
-- `SUCCESS`
-- `FAILURE`
+* `SUCCESS`
+* `FAILURE`
 
 ##### `BuildState`
 
-- `PENDING`
-- `IN_PROGRESS`
-- `FAILED`
-- `SKIPPED`
-- `SUCCESSFUL`
-- `NOT_REQUIRED`
+* `PENDING`
+* `IN_PROGRESS`
+* `FAILED`
+* `SKIPPED`
+* `SUCCESSFUL`
+* `NOT_REQUIRED`
 
 ##### `BulkPullRequestActionOrderByField`
 
-- `CREATED_AT`
-- `STARTED_AT`
-- `FINISHED_AT`
+* `CREATED_AT`
+* `STARTED_AT`
+* `FINISHED_AT`
 
 ##### `BulkPullRequestActionState`
 
 The lifecycle state of a `BulkPullRequestAction`. Matches the `__typename`
 of the concrete state types (Queued, Running, Finished, Canceled, Error).
 
-- `QUEUED`
-- `RUNNING`
-- `FINISHED`
-- `CANCELED`
-- `ERROR`
+* `QUEUED`
+* `RUNNING`
+* `FINISHED`
+* `CANCELED`
+* `ERROR`
 
 ##### `ChangelogEntryOrderByField`
 
-- `UPDATED_AT`
-- `CREATED_AT`
-- `TITLE`
-- `REPOSITORY_PATH`
+* `UPDATED_AT`
+* `CREATED_AT`
+* `TITLE`
+* `REPOSITORY_PATH`
 
 ##### `ChangelogEntryType`
 
 Discriminator for filtering by entry type.
 
-- `COMMIT`
-- `PULL_REQUEST`
+* `COMMIT`
+* `PULL_REQUEST`
 
 ##### `ChangelogParticipantOrderByField`
 
-- `USERNAME`
-- `EMAIL`
-- `NAME`
+* `USERNAME`
+* `EMAIL`
+* `NAME`
 
 ##### `CommitOption`
 
-- `DIRECT`
-- `BRANCH`
-- `FORK`
-- `PULL_REQUEST`
-- `FORK_AND_PULL_REQUEST`
-- `NONE`
+* `DIRECT`
+* `BRANCH`
+* `FORK`
+* `PULL_REQUEST`
+* `FORK_AND_PULL_REQUEST`
+* `NONE`
 
 ##### `ConnectorOrderByField`
 
-- `NICKNAME`
-- `VERSION`
+* `NICKNAME`
+* `VERSION`
 
 ##### `ConnectorToolType`
 
-- `GITHUB`
-- `GITLAB`
-- `BITBUCKET`
-- `BITBUCKET_CLOUD`
-- `AZURE_DEVOPS`
-- `ARTIFACTORY`
-- `MAVEN`
-- `PYPI`
-- `NPM`
-- `NUGET`
-- `HTTP_TOOL`
-- `ORGANIZATION`
-- `LLM`
-- `S3`
+* `GITHUB`
+* `GITLAB`
+* `BITBUCKET`
+* `BITBUCKET_CLOUD`
+* `AZURE_DEVOPS`
+* `ARTIFACTORY`
+* `MAVEN`
+* `PYPI`
+* `NPM`
+* `NUGET`
+* `HTTP_TOOL`
+* `ORGANIZATION`
+* `LLM`
+* `S3`
 
 ##### `ContributorRole`
 
 The participant's role for filtering.
 
-- `AUTHOR`
-- `ASSIGNEE`
-- `CLOSED_BY`
-- `REVIEWER`
+* `AUTHOR`
+* `ASSIGNEE`
+* `CLOSED_BY`
+* `REVIEWER`
 
 ##### `ConversationOrderByField`
 
-- `STARTED_AT`
-- `LAST_UPDATED_AT`
+* `STARTED_AT`
+* `LAST_UPDATED_AT`
 
 ##### `ConversationPhase`
 
-- `IDLE`
-- `AWAITING_LLM`
-- `STREAMING_TEXT`
-- `TOOL_RUNNING`
-- `ERRORED`
+* `IDLE`
+* `AWAITING_LLM`
+* `STREAMING_TEXT`
+* `TOOL_RUNNING`
+* `ERRORED`
 
 ##### `DataTableFormat`
 
-- `CSV`
-- `XLSX`
+* `CSV`
+* `XLSX`
 
 ##### `DataTableOrderByField`
 
-- `DATA_TABLE`
-- `STARTED_AT`
+* `DATA_TABLE`
+* `STARTED_AT`
 
 ##### `DevCenterAggregation`
 
 How DevCenter card results are aggregated across repositories.
 
-- `PER_REPOSITORY`
-- `PER_OCCURRENCE`
+* `PER_REPOSITORY`
+* `PER_OCCURRENCE`
 
 ##### `DevCenterRunOrderByField`
 
-- `STARTED_AT`
-- `STATE`
+* `STARTED_AT`
+* `STATE`
 
 ##### `DevCenterRunState`
 
 Execution state of a DevCenter run.
 
-- `RUNNING`
-- `FINISHED`
-- `CANCELED`
-- `ERROR`
+* `RUNNING`
+* `FINISHED`
+* `CANCELED`
+* `ERROR`
 
 ##### `FileChangeOrderByField`
 
-- `PATH`
+* `PATH`
 
 ##### `ImageFormat`
 
-- `SVG`
-- `GIF`
-- `JPEG`
-- `PNG`
+* `SVG`
+* `GIF`
+* `JPEG`
+* `PNG`
 
 ##### `LlmProvider`
 
-- `ANTHROPIC`
-- `GEMINI`
-- `MISTRAL`
-- `OPEN_AI`
+* `ANTHROPIC`
+* `GEMINI`
+* `MISTRAL`
+* `OPEN_AI`
 
 ##### `MarkupLevel`
 
-- `DEBUG`
-- `INFO`
-- `WARNING`
-- `ERROR`
-- `NONE`
+* `DEBUG`
+* `INFO`
+* `WARNING`
+* `ERROR`
+* `NONE`
 
 ##### `Mergeable`
 
-- `MERGEABLE`
-- `BLOCKED`
-- `UNKNOWN`
+* `MERGEABLE`
+* `BLOCKED`
+* `UNKNOWN`
 
 ##### `MergeMethod`
 
-- `MERGE`
-- `SQUASH`
-- `REBASE`
+* `MERGE`
+* `SQUASH`
+* `REBASE`
 
 ##### `MessageState`
 
-- `IN_PROGRESS`
-- `COMPLETED`
+* `IN_PROGRESS`
+* `COMPLETED`
 
 ##### `OrganizationChangesetOrderByField`
 
-- `CREATED_AT`
-- `TYPE`
-- `USER`
+* `CREATED_AT`
+* `TYPE`
+* `USER`
 
 ##### `OrganizationChangesetType`
 
-- `RECIPE_RUN`
-- `BATCH_CHANGE`
+* `RECIPE_RUN`
+* `BATCH_CHANGE`
 
 ##### `OrganizationCommitOrderByField`
 
-- `STARTED_AT`
+* `STARTED_AT`
 
 ##### `OrganizationOrderByField`
 
-- `NAME`
+* `NAME`
 
 ##### `OrganizationRecipeRunOrderByField`
 
-- `STARTED_AT`
-- `ENDED_AT`
-- `STATE`
-- `USER`
+* `STARTED_AT`
+* `ENDED_AT`
+* `STATE`
+* `USER`
 
 ##### `OrganizationRecipeRunState`
 
-- `QUEUED`
-- `SYNCING`
-- `RUNNING`
-- `FINISHED`
-- `CANCELED`
-- `ERROR`
+* `QUEUED`
+* `SYNCING`
+* `RUNNING`
+* `FINISHED`
+* `CANCELED`
+* `ERROR`
 
 ##### `ProfilingEvent`
 
@@ -3589,81 +3589,81 @@ The primary event the Pyroscope agent samples on. async-profiler can only
 collect one of these at a time as the primary event; alloc and lock
 sampling run on separate channels and are always on.
 
-- `CPU`
-- `WALL`
+* `CPU`
+* `WALL`
 
 ##### `PullRequestActionOrderByField`
 
-- `REPOSITORY_PATH`
-- `STATE`
-- `STARTED_AT`
+* `REPOSITORY_PATH`
+* `STATE`
+* `STARTED_AT`
 
 ##### `PullRequestActionState`
 
-- `QUEUED`
-- `IN_PROGRESS`
-- `SUCCESSFUL`
-- `FAILED`
-- `CANCELED`
+* `QUEUED`
+* `IN_PROGRESS`
+* `SUCCESSFUL`
+* `FAILED`
+* `CANCELED`
 
 ##### `PullRequestActionType`
 
-- `APPROVE`
-- `MERGE`
-- `CLOSE`
+* `APPROVE`
+* `MERGE`
+* `CLOSE`
 
 ##### `PullRequestState`
 
-- `OPEN`
-- `DRAFT`
-- `CLOSED`
-- `MERGED`
+* `OPEN`
+* `DRAFT`
+* `CLOSED`
+* `MERGED`
 
 ##### `RecipeBundleOrderByField`
 
-- `PACKAGE_NAME`
-- `VERSION`
-- `REQUESTED_VERSION`
-- `ECOSYSTEM`
+* `PACKAGE_NAME`
+* `VERSION`
+* `REQUESTED_VERSION`
+* `ECOSYSTEM`
 
 ##### `RecipeCategoryOrderByField`
 
-- `DISPLAY_NAME`
-- `RECIPE_COUNT`
+* `DISPLAY_NAME`
+* `RECIPE_COUNT`
 
 ##### `RecipeEcosystem`
 
-- `Maven`
-- `NPM`
-- `YAML`
-- `Pip`
-- `Nuget`
-- `Go`
+* `Maven`
+* `NPM`
+* `YAML`
+* `Pip`
+* `Nuget`
+* `Go`
 
 ##### `RecipeGraphEdgeType`
 
-- `RECIPE`
-- `PRECONDITION`
-- `REFERENCE`
+* `RECIPE`
+* `PRECONDITION`
+* `REFERENCE`
 
 ##### `RecipeInstallationOrderByField`
 
-- `STARTED_AT`
-- `STATUS`
+* `STARTED_AT`
+* `STATUS`
 
 ##### `RecipeInstallationStatus`
 
-- `QUEUED`
-- `PROCESSING`
-- `FINISHED`
-- `ERROR`
+* `QUEUED`
+* `PROCESSING`
+* `FINISHED`
+* `ERROR`
 
 ##### `RecipeOrderByField`
 
-- `ID`
-- `DISPLAY_NAME`
-- `RECIPE_COUNT`
-- `RELEVANCE`
+* `ID`
+* `DISPLAY_NAME`
+* `RECIPE_COUNT`
+* `RELEVANCE`
 
 ##### `RecipeRunPriority`
 
@@ -3671,51 +3671,51 @@ Priority level for recipe runs.
 HIGH priority runs target small organizations (≤100 repositories).
 LOW priority runs target large organizations (>100 repositories).
 
-- `HIGH`
-- `LOW`
+* `HIGH`
+* `LOW`
 
 ##### `RepositoryChangesetOrderByField`
 
-- `PATH`
-- `ORIGIN`
-- `FILES_CHANGED`
-- `SYNC_STATUS`
+* `PATH`
+* `ORIGIN`
+* `FILES_CHANGED`
+* `SYNC_STATUS`
 
 ##### `RepositoryChangesetState`
 
 Result state of a repository within a changeset.
 
-- `QUEUED`
-- `RUNNING`
-- `SUCCESS`
-- `ERROR`
-- `NO_LST`
-- `CANCELED`
+* `QUEUED`
+* `RUNNING`
+* `SUCCESS`
+* `ERROR`
+* `NO_LST`
+* `CANCELED`
 
 ##### `RepositoryCommitOrderByField`
 
-- `STARTED_AT`
+* `STARTED_AT`
 
 ##### `RepositoryErrorReason`
 
-- `FAILED_LOAD_AST`
-- `FAILED_LOAD_RECIPE`
-- `TIMEOUT`
-- `RECIPE_ERROR`
+* `FAILED_LOAD_AST`
+* `FAILED_LOAD_RECIPE`
+* `TIMEOUT`
+* `RECIPE_ERROR`
 
 ##### `RepositoryOrderByField`
 
-- `ORIGIN`
-- `PATH`
-- `BRANCH`
-- `CHANGESET`
-- `LST_ARTIFACT_PUBLISHED`
+* `ORIGIN`
+* `PATH`
+* `BRANCH`
+* `CHANGESET`
+* `LST_ARTIFACT_PUBLISHED`
 
 ##### `RepositoryRecipeRunOrderByField`
 
-- `PATH`
-- `ORIGIN`
-- `STATE`
+* `PATH`
+* `ORIGIN`
+* `STATE`
 
 ##### `RepositorySyncStatus`
 
@@ -3729,58 +3729,58 @@ which indicates an actual error during the sync attempt. `CANCELED` is set
 when sync was interrupted (e.g., the run was canceled before the repository's
 sync completed).
 
-- `PENDING`
-- `SYNCED`
-- `FAILED`
-- `CANCELED`
-- `SKIPPED`
+* `PENDING`
+* `SYNCED`
+* `FAILED`
+* `CANCELED`
+* `SKIPPED`
 
 ##### `ReviewDecision`
 
-- `APPROVED`
-- `CHANGES_REQUESTED`
-- `REVIEW_REQUIRED`
-- `REVIEW_NOT_REQUIRED`
-- `UNKNOWN`
+* `APPROVED`
+* `CHANGES_REQUESTED`
+* `REVIEW_REQUIRED`
+* `REVIEW_NOT_REQUIRED`
+* `UNKNOWN`
 
 ##### `ScmType`
 
-- `GITHUB`
-- `BITBUCKET`
-- `BITBUCKET_CLOUD`
-- `GITLAB`
-- `AZURE_DEVOPS`
+* `GITHUB`
+* `BITBUCKET`
+* `BITBUCKET_CLOUD`
+* `GITLAB`
+* `AZURE_DEVOPS`
 
 ##### `SortOrder`
 
-- `ASC`
-- `DESC`
+* `ASC`
+* `DESC`
 
 ##### `UserOrderByField`
 
-- `EMAIL`
-- `USERNAME`
-- `ROLE`
-- `LAST_ACTIVE`
+* `EMAIL`
+* `USERNAME`
+* `ROLE`
+* `LAST_ACTIVE`
 
 ##### `UserRole`
 
-- `ADMIN`
-- `USER`
+* `ADMIN`
+* `USER`
 
 ##### `VisualizationOrderByField`
 
-- `VISUALIZATION`
-- `STARTED_AT`
+* `VISUALIZATION`
+* `STARTED_AT`
 
 ##### `VisualizationRepositoryRunState`
 
-- `QUEUED`
-- `PROCESSING`
-- `FINISHED`
-- `FINISHED_EMPTY`
-- `NO_LST`
-- `ERROR`
+* `QUEUED`
+* `PROCESSING`
+* `FINISHED`
+* `FINISHED_EMPTY`
+* `NO_LST`
+* `ERROR`
 
 ### Input types
 
@@ -4441,10 +4441,10 @@ The `where` filter defines a base set of matching PRs. The optional `pullRequest
 modifier can include or exclude specific PRs from that base set.
 
 Examples:
-- Filter-only: `\{ where: \{ ... \} \}` — all matching PRs
-- Explicit: `\{ pullRequests: \{ include: [...] \} \}` — exactly those PRs
-- Filter + exclusions: `\{ where: \{ ... \}, pullRequests: \{ exclude: [...] \} \}` — matching minus excluded
-- Filter + additions: `\{ where: \{ ... \}, pullRequests: \{ include: [...] \} \}` — matching plus included
+* Filter-only: `\{ where: \{ ... \} \}` — all matching PRs
+* Explicit: `\{ pullRequests: \{ include: [...] \} \}` — exactly those PRs
+* Filter + exclusions: `\{ where: \{ ... \}, pullRequests: \{ exclude: [...] \} \}` — matching minus excluded
+* Filter + additions: `\{ where: \{ ... \}, pullRequests: \{ include: [...] \} \}` — matching plus included
 
 | Field | Type | Description |
 |-------|------|-------------|

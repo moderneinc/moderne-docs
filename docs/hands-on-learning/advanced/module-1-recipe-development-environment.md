@@ -45,7 +45,6 @@ In this exercise, you'll use the [Moderne IntelliJ plugin](https://plugins.jetbr
 * The Moderne plugin allows you to search for APIs quickly and easily across numerous repositories.
 * You can use the Moderne plugin to generate recipes based on an API you see.
 
-
 ## Exercise 1b: Debugging recipes
 
 In this exercise, you’ll learn how to debug recipes using both IDE breakpoints and command-line execution.

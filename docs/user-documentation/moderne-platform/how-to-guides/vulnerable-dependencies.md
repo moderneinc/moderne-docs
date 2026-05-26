@@ -60,7 +60,6 @@ Press **Dry Run** at the bottom of the page and wait for the recipe to run. Once
   <figcaption>_Find and fix vulnerable dependencies recipe results_</figcaption>
 </figure>
 
-
 ## Step 5: Examine the changes
 
 The right side of the screen shows the changes made for each repository. You can click on any repository to see the changes made. Keep in mind, though, that these changes will be minimal in nature if you selected `patch` for the `maximum upgrade delta`.

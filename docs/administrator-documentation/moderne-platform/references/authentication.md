@@ -91,7 +91,6 @@ When configuring your authentication to the Moderne SaaS, you will need to selec
 | **Single sign-on URL** | `https://login.CUSTOMER_NAME.moderne.io/auth/realms/CUSTOMER_NAME/broker/CUSTOMER_NAME/endpoint` |
 | **Audience URI (SP Entity ID)** | `https://login.CUSTOMER_NAME.moderne.io/auth/realms/CUSTOMER_NAME` |
 
-
 2. Provide the URL that points to the IdP metadata to Moderne. This will be used to configure the SAML integration.
    * Example: `https://idp.EXAMPLE.com/saml/metadata`
 
@@ -103,7 +102,6 @@ When configuring your authentication to the Moderne SaaS, you will need to selec
 | `lastName` | The last name of the user | `Bobe` |
 | `email` | The email address of the user | `user@example.com` |
 | `admin` | A boolean value that determines if the user is an admin | `true` or `false` |
-
 
 :::info
 An [example of a SAML payload](#example-saml-idp-metadata) can be provided to Moderne as well to help expedite the configuration process.

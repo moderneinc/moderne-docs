@@ -233,7 +233,6 @@ docker run \
 | `--moderne.agent.bitbucket[{index}].ssh.user`               | `true` (If the SSH private key is specified) |         | The username used for SSH communication with Bitbucket.                                                                                                                   |
 | `--moderne.agent.bitbucket[{index}].ssh.port`               | `true` (If the SSH private key is specified) | `7999`  | The port used to communicate via SSH with Bitbucket.                                                                                                                      |
 
-
 **Example:**
 
 ```bash
@@ -1069,7 +1068,6 @@ docker run \
 Only be used when your company is using the [app.moderne.io](https://app.moderne.io/getting-started) tenant, and you want to upload and deploy your own company-specific recipes.
 See [Multi-tenant private recipes](./multi-tenant-private-recipes.md) for more information.
 :::
-
 
 **Example:**
 

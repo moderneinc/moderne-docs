@@ -90,27 +90,27 @@ describe('no-bare-mdx-expression', () => {
 // ---------------------------------------------------------------------------
 
 describe('no-h1-in-body', () => {
-  it('flags a # h1 heading in the document body as a warning', async () => {
-    const md = '# This will conflict with the frontmatter title';
+  it('flags a # h1 when frontmatter also has title: (double-h1 bug)', async () => {
+    const md = ['---', 'title: My Page', '---', '', '# My Page'].join('\n');
     const issues = await checkMarkdown(md, 'test.md');
     expect(issues.filter(i => i.rule === 'no-h1-in-body')).toHaveLength(1);
     expect(issues.find(i => i.rule === 'no-h1-in-body')).toMatchObject({ severity: 'warning' });
   });
 
-  it('does not flag h1 in recipe-catalog files (generated content)', async () => {
-    const md = '# Auto-generated recipe title';
-    const issues = await checkMarkdown(md, 'docs/user-documentation/recipes/recipe-catalog/SomeRecipe.md');
-    expect(issues.filter(i => i.rule === 'no-h1-in-body')).toHaveLength(0);
-  });
-
-  it('does not flag ## h2 headings', async () => {
-    const md = '## Section heading';
+  it('does not flag # h1 when frontmatter has no title (body h1 is the page title)', async () => {
+    const md = ['---', 'description: A description.', '---', '', '# My Page'].join('\n');
     const issues = await checkMarkdown(md, 'test.md');
     expect(issues.filter(i => i.rule === 'no-h1-in-body')).toHaveLength(0);
   });
 
-  it('does not flag ### h3 headings', async () => {
-    const md = '### Subsection heading';
+  it('does not flag # h1 with no frontmatter at all', async () => {
+    const md = '# My Page\n\nContent here.';
+    const issues = await checkMarkdown(md, 'test.md');
+    expect(issues.filter(i => i.rule === 'no-h1-in-body')).toHaveLength(0);
+  });
+
+  it('does not flag ## h2 headings even with title in frontmatter', async () => {
+    const md = ['---', 'title: My Page', '---', '', '## Section heading'].join('\n');
     const issues = await checkMarkdown(md, 'test.md');
     expect(issues.filter(i => i.rule === 'no-h1-in-body')).toHaveLength(0);
   });
@@ -209,6 +209,30 @@ describe('no-consecutive-blank-lines', () => {
     const md = 'Paragraph one.\n\n\nParagraph two.';
     const issues = await checkMarkdown(md, 'docs/user-documentation/recipes/recipe-catalog/SomeRecipe.md');
     expect(issues.filter(i => i.rule === 'no-consecutive-blank-lines')).toHaveLength(0);
+  });
+
+  it('does not flag consecutive blank lines in recipe lists files (generated content)', async () => {
+    const md = 'Paragraph one.\n\n\nParagraph two.';
+    const issues = await checkMarkdown(md, 'docs/user-documentation/recipes/lists/all-recipes.md');
+    expect(issues.filter(i => i.rule === 'no-consecutive-blank-lines')).toHaveLength(0);
+  });
+});
+
+// ---------------------------------------------------------------------------
+// Rule: unordered-list-marker-style (generated file exclusions)
+// ---------------------------------------------------------------------------
+
+describe('unordered-list-marker-style (generated exclusions)', () => {
+  it('does not flag dash bullets in recipe lists files (generated content)', async () => {
+    const md = '- Item one\n- Item two';
+    const issues = await checkMarkdown(md, 'docs/user-documentation/recipes/lists/all-recipes.md');
+    expect(issues.filter(i => i.rule === 'unordered-list-marker-style')).toHaveLength(0);
+  });
+
+  it('does not flag dash bullets in recipe-catalog files (generated content)', async () => {
+    const md = '- Item one\n- Item two';
+    const issues = await checkMarkdown(md, 'docs/user-documentation/recipes/recipe-catalog/SomeRecipe.md');
+    expect(issues.filter(i => i.rule === 'unordered-list-marker-style')).toHaveLength(0);
   });
 });
 

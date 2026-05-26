@@ -37,7 +37,6 @@ Your Company:  any legal entity, sole proprietorship, or other kind of organizat
 
 Your Licenses: means all the Licenses granted to You under this Agreement.
 
-
 ## License
 
 The Licensor grants You a non-exclusive, royalty-free, worldwide, non-sublicensable, non-transferable license under the Licensor’s copyrights to use, copy, distribute internally, and prepare derivative works of the Software, in each case subject to, and conditional on compliance with, the limitations and conditions below.
