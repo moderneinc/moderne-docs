@@ -89,7 +89,7 @@ The cloud-specific guides below walk through each step in detail. At a glance, y
 * Pick your destination cloud and region.
 * Create the destination bucket / storage account and container.
 * Enable versioning (and change feed, on Azure).
-* Apply the bucket policy / role assignment (copy-paste templates in the cloud-specific guide).
+* Apply the access grant from the cloud-specific guide — a Moderne-provided bucket policy on AWS, or a role-assignment command on Azure.
 * Send your CSM: tenant name, destination ARN / resource ID, and region.
 * Wait for Moderne to confirm replication is live (~1 business day).
 * Register the schema in your BI / query engine and start querying.

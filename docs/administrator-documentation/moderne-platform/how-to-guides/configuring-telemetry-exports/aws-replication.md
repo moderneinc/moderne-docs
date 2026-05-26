@@ -10,8 +10,8 @@ This guide walks you through receiving telemetry into an S3 bucket in **your** A
 Here's how the setup works end-to-end:
 
 1. You create a destination bucket in your AWS account.
-2. You attach a bucket policy that grants Moderne's replication role permission to write objects.
-3. You send Moderne the destination ARN and your tenant name.
+2. You send Moderne your tenant name and the destination bucket ARN.
+3. Moderne sends back a bucket policy scoped to your tenant's replication role, which you apply to the bucket.
 4. Moderne configures a replication rule on `moderne-bi-telemetry` filtered to your tenant's prefix, and confirms when objects start landing.
 
 ## Prerequisites
@@ -56,48 +56,13 @@ aws s3api put-bucket-versioning \
 **Region choice.** There is no replication-side restriction on region. Pick the region where your BI/query engine runs to minimize query-time data-egress charges.
 :::
 
-## Step 2: Attach the destination bucket policy
+## Step 2: Send Moderne your bucket details
 
-This is the policy that grants Moderne's replication role permission to write into your bucket. **Copy this exactly**, then make two substitutions before applying it:
+Email your CSM the three values from the "What we'll need from you" table above. Moderne provisions a replication role dedicated to your tenant and sends back a destination bucket policy tailored to it. Apply the policy exactly as provided — do not edit it.
 
-* Replace `<your-dest-bucket>` with your destination bucket name (appears in both `Resource` values).
-* Replace `<your-tenant>` with your Moderne tenant name (appears in both `Principal.AWS` ARNs). Each tenant has a dedicated replication role named `moderne-bi-telemetry-replication-role-<your-tenant>` in the moderne-management account.
+## Step 3: Apply the bucket policy
 
-```json
-{
-  "Version": "2012-10-17",
-  "Statement": [
-    {
-      "Sid": "AllowModerneReplicationWrite",
-      "Effect": "Allow",
-      "Principal": {
-        "AWS": "arn:aws:iam::297794628946:role/moderne-bi-telemetry-replication-role-<your-tenant>"
-      },
-      "Action": [
-        "s3:ReplicateObject",
-        "s3:ReplicateDelete",
-        "s3:ReplicateTags",
-        "s3:ObjectOwnerOverrideToBucketOwner"
-      ],
-      "Resource": "arn:aws:s3:::<your-dest-bucket>/*"
-    },
-    {
-      "Sid": "AllowModerneReplicationList",
-      "Effect": "Allow",
-      "Principal": {
-        "AWS": "arn:aws:iam::297794628946:role/moderne-bi-telemetry-replication-role-<your-tenant>"
-      },
-      "Action": [
-        "s3:GetBucketVersioning",
-        "s3:PutBucketVersioning"
-      ],
-      "Resource": "arn:aws:s3:::<your-dest-bucket>"
-    }
-  ]
-}
-```
-
-Apply the policy by running the following command:
+Save the policy Moderne sends you as `destination-bucket-policy.json`, then apply it to your bucket:
 
 ```bash
 aws s3api put-bucket-policy \
@@ -105,9 +70,11 @@ aws s3api put-bucket-policy \
     --policy file://destination-bucket-policy.json
 ```
 
-## Step 3: Hand off to Moderne
+The policy grants Moderne's per-tenant replication role only the permissions it needs to write replicated objects into your bucket (the `s3:Replicate*` actions plus `s3:ObjectOwnerOverrideToBucketOwner`) and to read and set the bucket's versioning state. It grants no read access to your data and nothing else.
 
-Email your CSM the three values from the "What we'll need from you" table above. Moderne will:
+## Step 4: Moderne enables replication
+
+Once your bucket policy is in place, Moderne will:
 
 * Confirm the bucket policy is correct.
 * Create the replication rule on `moderne-bi-telemetry`, scoped to `tenant=<your-tenant>/` so only your data is replicated.
