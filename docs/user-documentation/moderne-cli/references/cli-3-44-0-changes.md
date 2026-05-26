@@ -65,7 +65,6 @@ In earlier iterations of the CLI, downloading LSTs from Moderne was a two-step o
   <figcaption></figcaption>
 </figure>
 
-
 Each folder representing an organization will also get a `.moderne` folder. The `.moderne` folder will hold a `repos-lock.csv` file. In the case of a multilevel organization, the `repos-lock.csv` file for sub-organizations will always be a _strict subset_ of the `repos-lock.csv` file in its parent organization. Repositories will also get a `.moderne` folder that has a `repos-lock.csv` file. In most cases, this will only have a single row representing the repository. When a repository has multiple partitions configured, there will be a row for each partition in the `repos-lock.csv` file for that repository.
 
 The `repos-lock.csv` is designed to hold the effective state of repositories as they become known. This includes not only the clone URI and branch but also the parsed origin/path/branch tuple, the changeset when an LST exists in Moderne, the published URI where the LST exists in the artifact repository, and a series of columns representing the organization hierarchy. This is analogous to the relationship between `package.json` and `package-lock.json` in the npm ecosystem.
@@ -90,7 +89,6 @@ If you then add organization structure to that CSV and sync again, the directory
   </Zoom>
   <figcaption></figcaption>
 </figure>
-
 
 ### To include the `--with-sources` flag or not
 
@@ -121,7 +119,6 @@ Each of the "Data table" links represents a data table at a different organizati
   ![Spreadsheet data table with organization columns enabling filtering by sub-organization](./assets/data-table-filtering.png)
   <figcaption></figcaption>
 </figure>
-
 
 A related change in `mod study` involves adding the org columns as the last columns in every data table that is produced by the CLI. BI tools consuming data tables will now have the added richness of understanding the impact at an organizational level. If there is no organization (such as when you're just running on a list of repositories on disk somewhere), the organization column will simply be absent.
 

@@ -4,7 +4,6 @@ description: How to configure the Moderne agent with generic HTTP tools so they 
 noIndex: true
 ---
 
-
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import VersionBanner from '@site/src/components/VersionBanner';

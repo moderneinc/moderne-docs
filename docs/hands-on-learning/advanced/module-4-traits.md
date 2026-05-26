@@ -31,7 +31,6 @@ In this exercise, you'll use the `Annotated.Matcher` trait that the [`FindSpring
 * The `Annotated.Matcher` trait can be used for annotation matching.
 * Recipes that use traits can be more modular and maintainable.
 
-
 ## Exercise B: Write a recipe using traits
 
 The Java-only `TODO` scanning recipe from [Module 3](./module-3-scanning-recipes.md) could be extended to handle XML and YAML by adding more visitors and matching rules, but a trait is a cleaner fit — it encapsulates the cross-language match logic in one reusable place. In this exercise, you'll write a `TodoComment` trait that matches `TODO` comments across Java, YAML, and XML, then build a recipe that uses it to collect those comments into a file and a data table.

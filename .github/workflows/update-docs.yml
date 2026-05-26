@@ -88,6 +88,19 @@ jobs:
           # Stage all changes
           git add docs/user-documentation/recipes/recipe-catalog docs/user-documentation/recipes/lists src/plugins/latest-versions.js
 
+      # Lint generated markdown before committing
+      - uses: actions/setup-node@v6
+        with:
+          node-version: 24
+          cache: yarn
+          cache-dependency-path: moderne-docs/yarn.lock
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
+        working-directory: moderne-docs
+      - name: Lint generated markdown
+        run: yarn lint:markdown:recipes
+        working-directory: moderne-docs
+
       # Commit and push changes
       - name: Commit and push
         working-directory: moderne-docs

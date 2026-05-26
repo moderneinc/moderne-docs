@@ -83,7 +83,6 @@ docker run \
 # ... Additional variables
 ```
 
-
 **Example with access key and secret key:**
 
 ```bash

@@ -220,7 +220,7 @@ export function generateMarkdown(ops, types) {
         if (t.kind === 'union') {
           lines.push('= ' + t.unionTypes.map(m => linkify(m, known)).join(' | '), '');
         } else if (t.kind === 'enum' && t.enumValues.length) {
-          t.enumValues.forEach(v => lines.push(`- \`${v}\``));
+          t.enumValues.forEach(v => lines.push(`* \`${v}\``));
           lines.push('');
         } else if (t.fields.length) {
           lines.push('| Field | Type | Description |', '|-------|------|-------------|');

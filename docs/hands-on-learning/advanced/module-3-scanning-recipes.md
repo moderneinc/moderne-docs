@@ -30,7 +30,6 @@ In this exercise, you'll explore the [`AppendToReleaseNotes`](https://github.com
 * A custom class can be used as an accumulator to allow state to be shared among the phases of a scanning recipe.
 * Tests for scanning recipes can simulate creation or modification of files using `doesNotExist()` or empty strings.
 
-
 ## Exercise 3b: Write a scanning recipe
 
 In this exercise, you'll write a scanning recipe to find any comments in Java source files that contain `TODO` and track them all together in a separate markdown file.

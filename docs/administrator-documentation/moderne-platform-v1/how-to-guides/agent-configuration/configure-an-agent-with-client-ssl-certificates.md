@@ -56,8 +56,6 @@ RUN openssl pkcs12 -export \
 </TabItem>
 </Tabs>
 
-
-
 <Tabs groupId="agent-type">
 <TabItem value="oci-container" label="OCI Container">
 

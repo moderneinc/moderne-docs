@@ -28,7 +28,6 @@ In this exercise, you’ll review the use of a data table to extract superclass 
 * They are ideal for visualizing patterns across a codebase.
 * Recipes can define custom columns for targeted reporting.
 
-
 ## Exercise 2b: Writing a recipe that uses data tables
 
 In this exercise, you'll write a recipe to find any comments in Java source files that contain `TODO` and capture them in a data table.

@@ -96,7 +96,6 @@ mod git status $WORKSPACE
 <details>
 <summary>Reference output</summary>
 
-
 ```text
    ▛▀▀▚▖  ▗▄▟▜
    ▌   ▜▄▟▀  ▐
@@ -183,7 +182,6 @@ Moderne CLI 4.2.9
 Found 1 organization containing 11 repositories (1s)
 Found recipe run 20260115162634-J7PuY
 
-
 ⏺ Executing git add
 
 Command output will be written to log
@@ -230,7 +228,6 @@ Moderne CLI 4.2.9
 
 Found 1 organization containing 11 repositories (1s)
 Found recipe run 20260115162634-J7PuY
-
 
 ⏺ Executing git commit
 
