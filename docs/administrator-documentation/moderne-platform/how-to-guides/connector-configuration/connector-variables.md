@@ -1012,6 +1012,9 @@ java -jar connector-{version}.jar \
 | `MODERNE_UI_MOREHELP_2_URI`                | `false`  | `null`  | The URI for the third custom help resource. Must be a fully qualified URI that is accessible to users of the platform.                                                                                                     |
 | `MODERNE_UI_CLIDOWNLOADINSTRUCTIONS_LABEL` | `false`  | `null`  | CLI download instructions label to show in the platform UI. Overrides the default display of the CLI tools menu presented in the Moderne platform's user interface. If populated, the URI property must also be populated. |
 | `MODERNE_UI_CLIDOWNLOADINSTRUCTIONS_URI`   | `false`  | `null`  | The URI of the instructions documentation. Must be a fully qualified URI that is accessible to users of the platform.                                                                                                      |
+| `MODERNE_UI_LOGINTEXT`                     | `false`  | `null`  | Custom text shown on the Moderne login screen. Useful for tenant-specific welcome messages or compliance notices.                                                                                                          |
+| `MODERNE_UI_LOGINLINKS_{index}_LABEL`      | `false`  | `null`  | Custom label for a link shown on the login screen. If populated, the URI property at the same index must also be populated.                                                                                                |
+| `MODERNE_UI_LOGINLINKS_{index}_URI`        | `false`  | `null`  | The URI for a custom login-screen link. Must be a fully qualified URI.                                                                                                                                                     |
 
 **Example:**
 
@@ -1043,6 +1046,9 @@ docker run \
 | `--moderne.ui.moreHelp[2].uri`               | `false`  | `null`  | The URI for the third custom help resource. Must be a fully qualified URI that is accessible to users of the platform.                                                                                                     |
 | `--moderne.ui.cliDownloadInstructions.label` | `false`  | `null`  | CLI download instructions label to show in the platform UI. Overrides the default display of the CLI tools menu presented in the Moderne platform's user interface. If populated, the URI property must also be populated. |
 | `--moderne.ui.cliDownloadInstructions.uri`   | `false`  | `null`  | The URI of the instructions documentation. Must be a fully qualified URI that is accessible to users of the platform.                                                                                                      |
+| `--moderne.ui.loginText`                     | `false`  | `null`  | Custom text shown on the Moderne login screen. Useful for tenant-specific welcome messages or compliance notices.                                                                                                          |
+| `--moderne.ui.loginLinks[{index}].label`     | `false`  | `null`  | Custom label for a link shown on the login screen. If populated, the URI property at the same index must also be populated.                                                                                                |
+| `--moderne.ui.loginLinks[{index}].uri`       | `false`  | `null`  | The URI for a custom login-screen link. Must be a fully qualified URI.                                                                                                                                                     |
 
 **Example:**
 
@@ -1172,6 +1178,124 @@ java -jar connector-{version}.jar \
 --moderne.moddy.anthropic.apiKey=${ANTHROPIC_API_KEY} \
 # ... Additional arguments
 ```
+</TabItem>
+</Tabs>
+
+## Storage variables
+
+Filesystem location used by the Connector for its working state. Mount a persistent volume here so the state survives Connector restarts.
+
+<Tabs groupId="agent-type">
+<TabItem value="oci-container" label="OCI Container">
+
+**Environment variables:**
+
+| Variable Name                            | Required | Default                     | Description                                                                                                                                                                                                                                                                              |
+|------------------------------------------|----------|-----------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `MODERNE_CONNECTOR_STORAGE_PERMANENTDIR` | `false`  | `./working-set/permanent`   | Filesystem path where the Connector stores working files: any file-based `repos.csv` you point at it, in-progress checkpoints used to resume after a restart, a cached copy of the last enrichment result, and any Maven repository indexes it builds. The path must be writable.       |
+
+**Example:**
+
+```bash
+docker run \
+# ... Existing variables
+-e MODERNE_CONNECTOR_STORAGE_PERMANENTDIR=/var/moderne/permanent \
+# ... Additional variables
+```
+
+</TabItem>
+
+<TabItem value="executable-jar" label="Executable JAR">
+
+**Arguments:**
+
+| Argument Name                              | Required | Default                     | Description                                                                                                                                                                                                                                                                              |
+|--------------------------------------------|----------|-----------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `--moderne.connector.storage.permanentDir` | `false`  | `./working-set/permanent`   | Filesystem path where the Connector stores working files: any file-based `repos.csv` you point at it, in-progress checkpoints used to resume after a restart, a cached copy of the last enrichment result, and any Maven repository indexes it builds. The path must be writable.       |
+
+**Example:**
+
+```bash
+java -jar connector-{version}.jar \
+# ... Existing arguments
+--moderne.connector.storage.permanentDir=/var/moderne/permanent \
+# ... Additional arguments
+```
+
+</TabItem>
+</Tabs>
+
+## Changelog variables
+
+Variables for enabling the [Changelog feature](../../../../user-documentation/moderne-platform/getting-started/changelog.md), which surfaces pull requests, commits, and check results across your SCMs in a single Moderne view. Configure credentials for each SCM provider you want included.
+
+<Tabs groupId="agent-type">
+<TabItem value="oci-container" label="OCI Container">
+
+**Environment variables:**
+
+| Variable Name                                       | Required | Default          | Description                                                                                                                                                                                                                                              |
+|-----------------------------------------------------|----------|------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `MODERNE_CHANGELOG_GITHUB_APPID`                    | `false`  |                  | GitHub App ID used to post Changelog updates.                                                                                                                                                                                                            |
+| `MODERNE_CHANGELOG_GITHUB_PRIVATEKEY`               | `false`  |                  | GitHub App private key. Accepts a literal key, or `file:/path/to/key.pem` to read from disk.                                                                                                                                                             |
+| `MODERNE_CHANGELOG_GITHUB_WEBHOOKSECRET`            | `false`  |                  | Shared secret configured on the GitHub App webhook.                                                                                                                                                                                                      |
+| `MODERNE_CHANGELOG_GITHUB_ORIGINS_{index}`          | `false`  | `github.com`     | Hostname(s) this GitHub App serves. Set to your GitHub Enterprise hostname if self-hosted.                                                                                                                                                               |
+| `MODERNE_CHANGELOG_GITHUB_INSTALLATIONS_{ORG}`      | `false`  |                  | Map of organization name to GitHub App installation ID. Find the ID at `https://github.com/organizations/<org>/settings/installations` — click the app, then copy the number from the URL. Replace `{ORG}` with the uppercased org name.                 |
+| `MODERNE_CHANGELOG_GITLAB_TOKEN`                    | `false`  |                  | GitLab access token used to post Changelog updates.                                                                                                                                                                                                      |
+| `MODERNE_CHANGELOG_GITLAB_ORIGINS_{index}`          | `false`  | `gitlab.com`     | Hostname(s) of your GitLab instance(s). Set to your self-hosted hostname if you are not on GitLab.com.                                                                                                                                                   |
+| `MODERNE_CHANGELOG_BITBUCKET_TOKEN`                 | `false`  |                  | Bitbucket Data Center HTTP access token used to post Changelog updates.                                                                                                                                                                                  |
+| `MODERNE_CHANGELOG_BITBUCKET_ORIGINS_{index}`       | `false`  |                  | Hostname(s) of your Bitbucket Data Center install(s). No default — must be set if Bitbucket Data Center is configured.                                                                                                                                   |
+| `MODERNE_CHANGELOG_BITBUCKETCLOUD_TOKEN`            | `false`  |                  | Bitbucket Cloud app password or access token used to post Changelog updates.                                                                                                                                                                             |
+| `MODERNE_CHANGELOG_BITBUCKETCLOUD_ORIGINS_{index}`  | `false`  | `bitbucket.org`  | Hostname(s) for Bitbucket Cloud.                                                                                                                                                                                                                         |
+| `MODERNE_CHANGELOG_AZUREDEVOPS_TOKEN`               | `false`  |                  | Azure DevOps personal access token used to post Changelog updates.                                                                                                                                                                                       |
+| `MODERNE_CHANGELOG_AZUREDEVOPS_ORIGINS_{index}`     | `false`  | `dev.azure.com`  | Hostname(s) of your Azure DevOps instance(s). Set to your hostname if using Azure DevOps Server on-prem.                                                                                                                                                 |
+
+**Example:**
+
+```bash
+docker run \
+# ... Existing variables
+-e MODERNE_CHANGELOG_GITHUB_APPID=123456 \
+-e MODERNE_CHANGELOG_GITHUB_PRIVATEKEY=file:/secrets/github-moderne-changelog.pem \
+-e MODERNE_CHANGELOG_GITHUB_INSTALLATIONS_ORG1=12345678 \
+-e MODERNE_CHANGELOG_GITHUB_INSTALLATIONS_ORG2=87654321 \
+# ... Additional variables
+```
+
+</TabItem>
+
+<TabItem value="executable-jar" label="Executable JAR">
+
+**Arguments:**
+
+| Argument Name                                          | Required | Default          | Description                                                                                                                                                                                                                                              |
+|--------------------------------------------------------|----------|------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `--moderne.changelog.github.appId`                     | `false`  |                  | GitHub App ID used to post Changelog updates.                                                                                                                                                                                                            |
+| `--moderne.changelog.github.privateKey`                | `false`  |                  | GitHub App private key. Accepts a literal key, or `file:/path/to/key.pem` to read from disk.                                                                                                                                                             |
+| `--moderne.changelog.github.webhookSecret`             | `false`  |                  | Shared secret configured on the GitHub App webhook.                                                                                                                                                                                                      |
+| `--moderne.changelog.github.origins[{index}]`          | `false`  | `github.com`     | Hostname(s) this GitHub App serves. Set to your GitHub Enterprise hostname if self-hosted.                                                                                                                                                               |
+| `--moderne.changelog.github.installations.{org}`       | `false`  |                  | Map of organization name to GitHub App installation ID. Find the ID at `https://github.com/organizations/<org>/settings/installations` — click the app, then copy the number from the URL.                                                               |
+| `--moderne.changelog.gitlab.token`                     | `false`  |                  | GitLab access token used to post Changelog updates.                                                                                                                                                                                                      |
+| `--moderne.changelog.gitlab.origins[{index}]`          | `false`  | `gitlab.com`     | Hostname(s) of your GitLab instance(s). Set to your self-hosted hostname if you are not on GitLab.com.                                                                                                                                                   |
+| `--moderne.changelog.bitbucket.token`                  | `false`  |                  | Bitbucket Data Center HTTP access token used to post Changelog updates.                                                                                                                                                                                  |
+| `--moderne.changelog.bitbucket.origins[{index}]`       | `false`  |                  | Hostname(s) of your Bitbucket Data Center install(s). No default — must be set if Bitbucket Data Center is configured.                                                                                                                                   |
+| `--moderne.changelog.bitbucketCloud.token`             | `false`  |                  | Bitbucket Cloud app password or access token used to post Changelog updates.                                                                                                                                                                             |
+| `--moderne.changelog.bitbucketCloud.origins[{index}]`  | `false`  | `bitbucket.org`  | Hostname(s) for Bitbucket Cloud.                                                                                                                                                                                                                         |
+| `--moderne.changelog.azureDevops.token`                | `false`  |                  | Azure DevOps personal access token used to post Changelog updates.                                                                                                                                                                                       |
+| `--moderne.changelog.azureDevops.origins[{index}]`     | `false`  | `dev.azure.com`  | Hostname(s) of your Azure DevOps instance(s). Set to your hostname if using Azure DevOps Server on-prem.                                                                                                                                                 |
+
+**Example:**
+
+```bash
+java -jar connector-{version}.jar \
+# ... Existing arguments
+--moderne.changelog.github.appId=123456 \
+--moderne.changelog.github.privateKey=file:/secrets/github-moderne-changelog.pem \
+--moderne.changelog.github.installations.org1=12345678 \
+--moderne.changelog.github.installations.org2=87654321 \
+# ... Additional arguments
+```
+
 </TabItem>
 </Tabs>
 

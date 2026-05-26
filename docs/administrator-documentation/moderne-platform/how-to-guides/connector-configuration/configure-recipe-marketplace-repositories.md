@@ -23,6 +23,35 @@ The variables/arguments in the tables below must be combined with ones found in 
 If no Maven recipe marketplace repositories are configured, the Moderne Platform falls back to Maven Central (`https://repo.maven.apache.org/maven2`, releases only) and Sonatype snapshots (`https://central.sonatype.com/repository/maven-snapshots/`, snapshots only). Once you configure one or more Maven repositories below, only those are searched — the defaults are not merged in, so you will need to list Maven Central and Sonatype snapshots explicitly to keep them. PyPI, NuGet, and NPM have no defaults.
 :::
 
+## Recommended OpenRewrite packages
+
+The Moderne Platform supports recipes packaged for Maven, NPM, NuGet, and pip. The following OpenRewrite packages are the recommended starting points for each ecosystem. Once you have registered the corresponding registry below, deploy these packages from the v2 deploy page.
+
+**JavaScript and TypeScript (NPM):**
+
+* `@openrewrite/recipes-nodejs`
+* `@openrewrite/recipes-react`
+* `@openrewrite/recipes-angular`
+
+**Python:**
+
+* Maven: `org.openrewrite:rewrite-python:LATEST`
+* pip: `openrewrite-migrate-python`
+
+**C# (NuGet):**
+
+* `OpenRewrite.Recipes.CSharp.Migration.Dotnet`
+* `OpenRewrite.Recipes.CSharp.CodeQuality`
+* `OpenRewrite.CSharp`
+
+:::warning[C# package dependencies]
+`OpenRewrite.Recipes.CSharp.Migration.Dotnet` and `OpenRewrite.Recipes.CSharp.CodeQuality` depend on `OpenRewrite.CSharp` and the Java `org.openrewrite:rewrite-java` package. You must register both for the first two to resolve. If you previously saw `OpenRewrite.MigrateDotNet` referenced anywhere, that is the **old** package name — use the three packages listed above instead.
+:::
+
+:::tip[Use internal mirrors where possible]
+If your organization already runs an internal NPM registry mirror, NuGet feed, or PyPI proxy, point the marketplace repositories below at those rather than the public registries. This keeps recipe resolution traffic on your network and avoids hitting public rate limits.
+:::
+
 ## Maven
 
 <Tabs groupId="agent-type">

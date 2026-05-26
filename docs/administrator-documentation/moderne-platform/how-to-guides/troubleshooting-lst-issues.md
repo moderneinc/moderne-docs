@@ -127,3 +127,19 @@ Sort options: `PATH`, `ORIGIN`, `BRANCH` | Sort orders: `ASC`, `DESC`
 ## LSTs not being ingested after upgrading from Nexus 2 to 3
 
 When migrating from Nexus 2 to 3, the default URL path changes and that may result in errors ingesting. Please double-check that the [URLs have been configured correctly](https://support.sonatype.com/hc/en-us/articles/39325029843219-Repository-How-to-enable-Nexus-2-URL-paths-in-Nexus-3).
+
+## Failed to enrich RepoKey after LST purge
+
+If you see log lines like the following on the Connector, it usually means `repos-lock.csv` still references an LST that has been purged from S3 by a lifecycle policy, and the repository has not been re-published since (typically because the repo's build has been failing):
+
+```text
+Failed to enrich RepoKey[...] from s3://.../repos-lock.csv: The specified key does not exist
+```
+
+The Connector is attempting to enrich the stale entry against an S3 object that no longer exists.
+
+These messages are logged at `WARN`, not `ERROR`, because they are not fatal to the Connector. Treat them as a signal to investigate the build failure on the affected repository — see [Analyzing build failures](./analyzing-build-failures.md) for diagnosis steps.
+
+:::info
+As of Connector `0.148.100`, the Connector no longer attempts enrichment until it has actually connected to the API gateway. This makes upstream gateway misconfigurations much easier to spot in logs.
+:::
