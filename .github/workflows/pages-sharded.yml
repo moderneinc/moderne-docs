@@ -18,7 +18,7 @@ concurrency:
   cancel-in-progress: false
 
 env:
-  SHARD_TOTAL: 8
+  SHARD_TOTAL: 4
 
 jobs:
   lint:
@@ -36,14 +36,14 @@ jobs:
         run: yarn lint:markdown
 
   build-shard:
-    name: Build shard ${{ matrix.shard }}/${{ vars.SHARD_TOTAL || 8 }}
+    name: Build shard ${{ matrix.shard }}/${{ vars.SHARD_TOTAL || 4 }}
     needs: lint
     runs-on: docusaurus-8-32
     timeout-minutes: 30
     strategy:
       fail-fast: true
       matrix:
-        shard: [0, 1, 2, 3, 4, 5, 6, 7]
+        shard: [0, 1, 2, 3]
     steps:
       - uses: actions/checkout@v6
         with:
@@ -78,7 +78,7 @@ jobs:
           yarn build:shard 2>&1 | { grep --line-buffered -v "^Generated markdown file:" || true; }
         env:
           SHARD_INDEX: ${{ matrix.shard }}
-          SHARD_TOTAL: 8
+          SHARD_TOTAL: 4
           DOCUSAURUS_SSG_WORKER_THREAD_RECYCLER_MAX_MEMORY: "512000000"
           DOCUSAURUS_SSR_CONCURRENCY: "16"
           NODE_OPTIONS: "--max-old-space-size=4096 --max-semi-space-size=64"
