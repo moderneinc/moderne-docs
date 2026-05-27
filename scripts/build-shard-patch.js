@@ -27,16 +27,16 @@ const originalExecuteSSG = ssgExecutor.executeSSG;
 
 // Routes matched here are pulled out of the normal modulo pool and rendered
 // exclusively by the last shard, giving them an isolated memory budget.
-// Matches all-recipes.md (index) and all-recipes-<groupId>.md per-groupId pages.
+// All auto-generated lists/ pages are large and prone to OOM in normal shards.
 const HEAVY_ROUTE_PATTERNS = [
-  '/user-documentation/recipes/lists/all-recipes',
+  '/user-documentation/recipes/lists',
 ];
 
 ssgExecutor.executeSSG = async function shardedExecuteSSG(opts) {
   const allPaths = [...opts.props.routesPaths].sort();
   const DEDICATED_SHARD = SHARD_TOTAL - 1;
 
-  const isHeavy = (p) => HEAVY_ROUTE_PATTERNS.some((pat) => p === pat || p.startsWith(pat + '/') || p.startsWith(pat + '-'));
+  const isHeavy = (p) => HEAVY_ROUTE_PATTERNS.some((pat) => p === pat || p.startsWith(pat + '/'));
   const heavyPaths = allPaths.filter(isHeavy);
   const normalPaths = allPaths.filter((p) => !isHeavy(p));
 
