@@ -227,5 +227,9 @@ export const releasesItems: NavLink[] = [
     name: 'SaaS v2 changes',
     href: '/releases/saas-v2-changes',
   },
+  {
+    name: 'Migrating to SaaS v2',
+    href: '/releases/saas-v2-migration',
+  },
 ];
 

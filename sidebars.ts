@@ -1028,6 +1028,8 @@ const releases = {
     'releases/changelog',
     'releases/proprietary-recipe-changelog',
     'releases/saas-v2-changes',
+    'releases/saas-v2-migration',
+    'releases/saas-v2-property-mapping',
   ],
 };
 
