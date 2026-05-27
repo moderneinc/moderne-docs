@@ -18,7 +18,7 @@ concurrency:
 jobs:
   build:
     name: Update docs
-    runs-on: docusaurus-8-32
+    runs-on: ubuntu-latest
     env:
       LATEST_VERSIONS_ONLY: ${{ github.event_name != 'workflow_dispatch' || inputs.latest-versions-only }}
     timeout-minutes: 30
