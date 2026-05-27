@@ -262,19 +262,27 @@ The list below covers what is currently known to break. It is not exhaustive. Th
 
 ### If you really must run without the wrapper
 
-This path is unsupported. If your environment makes the wrapper genuinely impractical, you can run the CLI JAR directly, but you take on responsibility for setting the JVM arguments the wrapper would have set, and for tracking what changes between CLI versions. At minimum, mirror whatever is in your `~/.moderne/moderne.yml` to `-D` flags on the `java` command line:
+This path is unsupported. `java -jar moderne-cli.jar` will start the CLI and works for many commands, but it can fail on others (recipe runs especially), which is why we do not support it. The safer invocation is to extract the nested JARs out of the fat JAR once and launch `io.moderne.cli.commands.Mod` against the extracted classpath. Mirror whatever is in your `~/.moderne/moderne.yml` to `-D` flags on the `java` command line so HTTPS calls and the corporate proxy work:
 
 ```bash
+EXTRACTED="$HOME/.moderne/cli/dist/classpath/<version>"
+MOD_JAR="$HOME/.moderne/cli/dist/lib/moderne-cli.jar"
+
+# Extract nested JARs (only needed when the JAR changes)
+java -cp "$MOD_JAR" io.moderne.cli.launcher.ModerneLauncher --extract-only
+
+# Run the CLI
 java \
-  -Djavax.net.ssl.trustStore=/path/to/truststore.jks \
-  -Djavax.net.ssl.trustStorePassword=changeit \
-  -Dhttp.proxyHost=proxy.example.com -Dhttp.proxyPort=3128 \
-  -Dhttps.proxyHost=proxy.example.com -Dhttps.proxyPort=3128 \
-  -Dhttp.nonProxyHosts="*.example.com" \
-  -jar moderne-cli.jar <command>
+    -Djavax.net.ssl.trustStore=/path/to/truststore.jks \
+    -Djavax.net.ssl.trustStorePassword=changeit \
+    -Dhttp.proxyHost=proxy.example.com -Dhttp.proxyPort=3128 \
+    -Dhttps.proxyHost=proxy.example.com -Dhttps.proxyPort=3128 \
+    -Dhttp.nonProxyHosts="*.example.com" \
+    -cp "$MOD_JAR:$EXTRACTED/META-INF/cli/*:$EXTRACTED/META-INF/lib/*:$EXTRACTED" \
+    io.moderne.cli.commands.Mod "$@"
 ```
 
-The full list of JVM arguments the wrapper sets today corresponds to what has been configured via [`mod config http proxy`](../cli-reference.md#mod-config-http-proxy), [`mod config http trust-store`](../cli-reference.md#mod-config-http-trust-store), and [`mod config http key-store`](../cli-reference.md#mod-config-http-key-store) and persisted to `moderne.yml`, plus the GC and AOT-cache flags `modw` selects for the JVM. This set is not part of any stable contract and can change between CLI versions. If you choose this path, treat the `modw` script shipped with each CLI release as the source of truth and diff it on every upgrade to see what new arguments need to be propagated.
+That gets you a working CLI with HTTPS, but it is still missing everything else in [What breaks without the wrapper](#what-breaks-without-the-wrapper): no AOT cache, no auto-update, and no GC tuning. The `-D` flags shown above correspond to what has been configured via [`mod config http proxy`](../cli-reference.md#mod-config-http-proxy), [`mod config http trust-store`](../cli-reference.md#mod-config-http-trust-store), and [`mod config http key-store`](../cli-reference.md#mod-config-http-key-store) and persisted to `moderne.yml`. None of this is part of a stable contract: the extraction directory, the main class, the launcher class, the classpath shape, and the set of `-D` flags the wrapper sets can all change between CLI versions, and have changed multiple times already. If you choose this path, treat the `modw` script shipped with each CLI release as the source of truth and diff it on every upgrade to see what new arguments need to be propagated.
 
 ### Migrating to the wrapper
 

@@ -147,7 +147,7 @@ Each `modw` uses the version defined in its neighboring properties file. You can
 
 ## Updating custom scripts
 
-After installation, `mod` is available as a symlink to `modw`, so most existing scripts will continue to work without changes. If you need to adjust paths or use direct Java invocation, here are the patterns:
+After installation, `mod` is available as a symlink to `modw`, so most existing scripts will continue to work without changes. If you need to invoke the CLI from a script that previously called the 3.x native binary, switch to the wrapper:
 
 **3.x pattern (native binary):**
 
@@ -158,12 +158,10 @@ After installation, `mod` is available as a symlink to `modw`, so most existing 
 **4.0 pattern:**
 
 ```bash
-# Option 1: Use modw (recommended)
 /path/to/modw run --recipe=SomeRecipe ...
-
-# Option 2: Direct java invocation
-java -jar /path/to/moderne-cli.jar run --recipe=SomeRecipe ...
 ```
+
+Calling `java -jar` against the CLI JAR directly is not a supported configuration. See [Running the CLI without the wrapper](../how-to-guides/cli-wrapper.md#running-the-cli-without-the-wrapper) for what breaks if you bypass `modw`.
 
 ### Environment variables
 
