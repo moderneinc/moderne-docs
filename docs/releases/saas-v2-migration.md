@@ -11,7 +11,7 @@ If you only have time to read three things, read them in this order:
 
 1. [What has changed in the Connector](#what-has-changed-in-the-connector)
 2. [LST sources vs. recipe sources](#lst-sources-vs-recipe-sources)
-3. [Setup checklist](#setup-checklist-before-the-soak-phase)
+3. [Migration checklists](#pre-cutover-checklist)
 
 ## What has changed in the Connector
 
