@@ -37,6 +37,7 @@ This recipe is available under the [Moderne Source Available License](https://do
   * upgradeRecipe: `io.moderne.java.spring.boot4.UpgradeSpringBoot_4_0`
 * [Move to a later Kotlin version](../devcenter/kotlinversionupgrade)
   * version: `2.1`
+  * upgradeRecipe: `org.openrewrite.kotlin.migrate.Kotlin1To2$KtRecipe`
 * [Move to JUnit 6](../devcenter/junitjupiterupgrade)
 * [OWASP top ten](../devcenter/securitystarter)
 * [Find organization statistics](../devcenter/findorganizationstatistics)
@@ -62,6 +63,7 @@ recipeList:
       upgradeRecipe: io.moderne.java.spring.boot4.UpgradeSpringBoot_4_0
   - io.moderne.devcenter.KotlinVersionUpgrade:
       version: 2.1
+      upgradeRecipe: org.openrewrite.kotlin.migrate.Kotlin1To2$KtRecipe
   - io.moderne.devcenter.JUnitJupiterUpgrade
   - io.moderne.devcenter.SecurityStarter
   - io.moderne.devcenter.FindOrganizationStatistics
