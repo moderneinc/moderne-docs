@@ -23,7 +23,7 @@ env:
 jobs:
   lint:
     name: Lint markdown
-    runs-on: docusaurus-8-32
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v6
       - uses: actions/setup-node@v6
@@ -88,7 +88,7 @@ jobs:
   combine:
     name: Combine shards
     needs: build-shard
-    runs-on: docusaurus-8-32
+    runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
       - uses: actions/checkout@v6
@@ -152,7 +152,7 @@ jobs:
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
-    runs-on: docusaurus-8-32
+    runs-on: ubuntu-latest
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
