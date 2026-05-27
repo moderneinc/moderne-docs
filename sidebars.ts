@@ -138,6 +138,23 @@ const platform = {
           'administrator-documentation/moderne-platform/how-to-guides/mass-ingest',
           {
             type: 'category' as const,
+            label: 'Configuring telemetry exports',
+            link: {
+              type: 'generated-index' as const,
+              title: 'Configuring telemetry exports',
+              description: 'Receive Moderne CLI and SaaS telemetry into your own cloud account and build BI reports on top of it.',
+              slug: '/administrator-documentation/moderne-platform/configuring-telemetry-exports',
+              keywords: ['guides'],
+            },
+            items: [
+              'administrator-documentation/moderne-platform/how-to-guides/configuring-telemetry-exports/overview',
+              'administrator-documentation/moderne-platform/how-to-guides/configuring-telemetry-exports/aws-replication',
+              'administrator-documentation/moderne-platform/how-to-guides/configuring-telemetry-exports/azure-replication',
+              'administrator-documentation/moderne-platform/how-to-guides/configuring-telemetry-exports/querying-and-bi',
+            ],
+          },
+          {
+            type: 'category' as const,
             label: 'Moderne Connector',
             link: {
               type: 'generated-index' as const,
