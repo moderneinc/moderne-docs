@@ -38,7 +38,7 @@ jobs:
   build-shard:
     name: Build shard ${{ matrix.shard }}/${{ vars.SHARD_TOTAL || 4 }}
     needs: lint
-    runs-on: ubuntu-latest
+    runs-on: docusaurus-8-32
     timeout-minutes: 30
     strategy:
       fail-fast: true
@@ -65,6 +65,13 @@ jobs:
             docusaurus-shard-${{ matrix.shard }}-${{ runner.os }}-
             docusaurus-${{ runner.os }}-
 
+      - name: Debug — disk and memory before build
+        run: |
+          echo "=== df -h ==="
+          df -h
+          echo "=== free -h ==="
+          free -h
+
       - name: Build shard
         run: |
           set -o pipefail
@@ -76,6 +83,14 @@ jobs:
           DOCUSAURUS_SSR_CONCURRENCY: "16"
           NODE_OPTIONS: "--max-old-space-size=4096 --max-semi-space-size=64"
           DOCUSAURUS_IGNORE_SSG_WARNINGS: true
+
+      - name: Debug — disk and memory after build
+        if: always()
+        run: |
+          echo "=== df -h ==="
+          df -h
+          echo "=== free -h ==="
+          free -h
 
       - name: Upload shard artifact
         uses: actions/upload-artifact@v4
