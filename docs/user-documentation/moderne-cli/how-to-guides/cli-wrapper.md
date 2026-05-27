@@ -282,7 +282,7 @@ java \
     io.moderne.cli.commands.Mod "$@"
 ```
 
-That gets you a working CLI with HTTPS, but it is still missing everything else in [What breaks without the wrapper](#what-breaks-without-the-wrapper): no AOT cache, no auto-update, and no GC tuning. None of the layout above is part of a stable contract: the extraction directory, the main class, the launcher class, the classpath shape, and the set of `-D` flags the wrapper sets can all change between CLI versions, and have changed multiple times already. If you choose this path, treat the `modw` script shipped with each CLI release as the source of truth and diff it on every upgrade.
+That gets you a working CLI with HTTPS, but it is still missing everything else in [What breaks without the wrapper](#what-breaks-without-the-wrapper): no AOT cache, no auto-update, and no GC tuning. The `-D` flags shown above correspond to what has been configured via [`mod config http proxy`](../cli-reference.md#mod-config-http-proxy), [`mod config http trust-store`](../cli-reference.md#mod-config-http-trust-store), and [`mod config http key-store`](../cli-reference.md#mod-config-http-key-store) and persisted to `moderne.yml`. None of this is part of a stable contract: the extraction directory, the main class, the launcher class, the classpath shape, and the set of `-D` flags the wrapper sets can all change between CLI versions, and have changed multiple times already. If you choose this path, treat the `modw` script shipped with each CLI release as the source of truth and diff it on every upgrade to see what new arguments need to be propagated.
 
 ### Migrating to the wrapper
 
