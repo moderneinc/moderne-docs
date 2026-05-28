@@ -102,7 +102,7 @@ mod git status $WORKSPACE
    ▛▀▀█▀▛▀▀▀▀▜
    ▌▟▀  ▛▀▀▀▀▜
    ▀▀▀▀▀▀▀▀▀▀▀
-Moderne CLI 4.2.9
+Moderne CLI uln-suppress-simpleclient-tracer-otel-fp
 
 ⏺ Reading organization
 
@@ -175,7 +175,7 @@ Build complete!
    ▛▀▀█▀▛▀▀▀▀▜
    ▌▟▀  ▛▀▀▀▀▜
    ▀▀▀▀▀▀▀▀▀▀▀
-Moderne CLI 4.2.9
+Moderne CLI uln-suppress-simpleclient-tracer-otel-fp
 
 ⏺ Reading organization
 
@@ -222,7 +222,7 @@ MOD SUCCEEDED in 1s
    ▛▀▀█▀▛▀▀▀▀▜
    ▌▟▀  ▛▀▀▀▀▜
    ▀▀▀▀▀▀▀▀▀▀▀
-Moderne CLI 4.2.9
+Moderne CLI uln-suppress-simpleclient-tracer-otel-fp
 
 ⏺ Reading organization
 
@@ -393,7 +393,7 @@ Mass Release Complete!
    ▛▀▀█▀▛▀▀▀▀▜
    ▌▟▀  ▛▀▀▀▀▜
    ▀▀▀▀▀▀▀▀▀▀▀
-Moderne CLI 4.2.9
+Moderne CLI uln-suppress-simpleclient-tracer-otel-fp
 
 ⏺ Reading organization
 

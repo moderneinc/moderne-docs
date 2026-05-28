@@ -19,6 +19,7 @@ description: Auto-generated documentation for all Moderne CLI commands.
 * [**mod clean**](#mod-clean)
 * [**mod clean builds**](#mod-clean-builds)
 * [**mod clean runs**](#mod-clean-runs)
+* [**mod clean repos**](#mod-clean-repos)
 * [**mod config**](#mod-config)
 * [**mod config agent-tools**](#mod-config-agent-tools)
 * [**mod config agent-tools install**](#mod-config-agent-tools-install)
@@ -152,7 +153,6 @@ description: Auto-generated documentation for all Moderne CLI commands.
 * [**mod config features inline-diff**](#mod-config-features-inline-diff)
 * [**mod config features lst**](#mod-config-features-lst)
 * [**mod config features no-maven-central**](#mod-config-features-no-maven-central)
-* [**mod config features search**](#mod-config-features-search)
 * [**mod config go**](#mod-config-go)
 * [**mod config go installation**](#mod-config-go-installation)
 * [**mod config go installation edit**](#mod-config-go-installation-edit)
@@ -212,6 +212,10 @@ description: Auto-generated documentation for all Moderne CLI commands.
 * [**mod config lsts artifacts artifactory delete**](#mod-config-lsts-artifacts-artifactory-delete)
 * [**mod config lsts artifacts artifactory show**](#mod-config-lsts-artifacts-artifactory-show)
 * [**mod config lsts artifacts show**](#mod-config-lsts-artifacts-show)
+* [**mod config lsts artifacts azure-blob**](#mod-config-lsts-artifacts-azure-blob)
+* [**mod config lsts artifacts azure-blob edit**](#mod-config-lsts-artifacts-azure-blob-edit)
+* [**mod config lsts artifacts azure-blob delete**](#mod-config-lsts-artifacts-azure-blob-delete)
+* [**mod config lsts artifacts azure-blob show**](#mod-config-lsts-artifacts-azure-blob-show)
 * [**mod config lsts artifacts maven**](#mod-config-lsts-artifacts-maven)
 * [**mod config lsts artifacts maven add**](#mod-config-lsts-artifacts-maven-add)
 * ~~[**mod config lsts artifacts maven edit**](#mod-config-lsts-artifacts-maven-edit-deprecated)~~ (deprecated)
@@ -273,6 +277,8 @@ description: Auto-generated documentation for all Moderne CLI commands.
 * ~~[**mod config recipes artifacts maven edit**](#mod-config-recipes-artifacts-maven-edit-deprecated)~~ (deprecated)
 * [**mod config recipes artifacts maven delete**](#mod-config-recipes-artifacts-maven-delete)
 * [**mod config recipes artifacts maven show**](#mod-config-recipes-artifacts-maven-show)
+* [**mod config recipes csv**](#mod-config-recipes-csv)
+* [**mod config recipes csv sync**](#mod-config-recipes-csv-sync)
 * [**mod config recipes export**](#mod-config-recipes-export)
 * [**mod config recipes export json**](#mod-config-recipes-export-json)
 * [**mod config recipes export csv**](#mod-config-recipes-export-csv)
@@ -304,6 +310,10 @@ description: Auto-generated documentation for all Moderne CLI commands.
 * [**mod config recipes yaml install**](#mod-config-recipes-yaml-install)
 * [**mod config recipes yaml delete**](#mod-config-recipes-yaml-delete)
 * [**mod config run**](#mod-config-run)
+* [**mod config run polyglot-parallel**](#mod-config-run-polyglot-parallel)
+* [**mod config run polyglot-parallel delete**](#mod-config-run-polyglot-parallel-delete)
+* [**mod config run polyglot-parallel edit**](#mod-config-run-polyglot-parallel-edit)
+* [**mod config run polyglot-parallel show**](#mod-config-run-polyglot-parallel-show)
 * [**mod config run timeout**](#mod-config-run-timeout)
 * [**mod config run timeout delete**](#mod-config-run-timeout-delete)
 * [**mod config run timeout edit**](#mod-config-run-timeout-edit)
@@ -349,14 +359,14 @@ description: Auto-generated documentation for all Moderne CLI commands.
 * [**mod log syncs add**](#mod-log-syncs-add)
 * [**mod list**](#mod-list)
 * [**mod monitor**](#mod-monitor)
-* [**mod postbuild**](#mod-postbuild)
-* [**mod postbuild search**](#mod-postbuild-search)
-* [**mod postbuild search index**](#mod-postbuild-search-index)
+* [**mod prebuild**](#mod-prebuild)
 * [**mod publish**](#mod-publish)
 * [**mod run**](#mod-run)
 * [**mod run-history**](#mod-run-history)
 * [**mod search**](#mod-search)
 * [**mod study**](#mod-study)
+* [**mod telemetry**](#mod-telemetry)
+* [**mod telemetry publish**](#mod-telemetry-publish)
 * [**mod trace**](#mod-trace)
 * [**mod trace builds**](#mod-trace-builds)
 * [**mod trace builds analyze**](#mod-trace-builds-analyze)
@@ -367,6 +377,7 @@ description: Auto-generated documentation for all Moderne CLI commands.
 * [**mod wrapper**](#mod-wrapper)
 
 ## mod
+
 
 Automated code remediation.
 
@@ -396,18 +407,20 @@ mod [subcommands]
 * `log`: Manages a log aggregate.
 * `list`: Lists the repositories that can be built and published.
 * `monitor`: (INCUBATING) Launches an HTTP server used to monitor the CLI.
-* `postbuild`: Post-build operations on LST artifacts.
+* `prebuild`: Extracts build metadata without parsing source files.
 * `publish`: Publishes the LST artifacts for one or more projects.
 * `run`: Runs an OpenRewrite recipe locally on pre-built LSTs.
 * `run-history`: Get information about the most recent recipe runs. This will be transitioning to **mod audit runs list** eventually. A deprecation notice will be added here when we suggest adopting the alternative.
 * `search`: Search repositories using trigram indexes.
 * `study`: Produces studies from OpenRewrite recipe data tables locally.
+* `telemetry`: Manage CLI telemetry pushed to the configured Moderne tenant.
 * `trace`: Manages trace analysis tools.
 * `wrapper`: Create or configure a Moderne wrapper.
 
 ## mod audit
 
 (INCUBATING) Perform an audit of recent activity.
+
 
 Sources information from the activity log kept locally to provide reports in various forms.
 
@@ -416,6 +429,7 @@ Sources information from the activity log kept locally to provide reports in var
 ```
 mod audit [subcommands]
 ```
+
 
 ### Subcommands
 
@@ -426,6 +440,7 @@ mod audit [subcommands]
 
 (INCUBATING) Perform an audit of recent build activity.
 
+
 Sources information from the activity log kept locally to provide reports on LST building activity.
 
 ### Usage
@@ -434,6 +449,7 @@ Sources information from the activity log kept locally to provide reports on LST
 mod audit builds [subcommands]
 ```
 
+
 ### Subcommands
 
 * `list`: (INCUBATING) Prints build activity to standard output.
@@ -441,6 +457,7 @@ mod audit builds [subcommands]
 ## mod audit builds list
 
 (INCUBATING) Prints build activity to standard output.
+
 
 Provides a form of build activity that can be directly consumed by reading standard output.
 
@@ -462,9 +479,11 @@ mod audit builds list [parameters]
 | ---- | ----------- |
 | `--streaming` |  (INCUBATING) Stream results from the audit to the console as they are produced. This is intended to be machine readable for the creation of incremental experiences like usage search in the IDE. |
 
+
 ## mod audit runs
 
 (INCUBATING) Perform an audit of recent recipe running activity.
+
 
 Sources information from the activity log kept locally to provide reports on recipe running activity.
 
@@ -474,6 +493,7 @@ Sources information from the activity log kept locally to provide reports on rec
 mod audit runs [subcommands]
 ```
 
+
 ### Subcommands
 
 * `list`: (INCUBATING) Prints recipe run activity to standard output.
@@ -481,6 +501,7 @@ mod audit runs [subcommands]
 ## mod audit runs list
 
 (INCUBATING) Prints recipe run activity to standard output.
+
 
 Provides a form of recipe run activity that can be directly consumed by reading standard output.
 
@@ -502,9 +523,11 @@ mod audit runs list [parameters]
 | ---- | ----------- |
 | `--streaming` |  (INCUBATING) Stream results from the audit to the console as they are produced. This is intended to be machine readable for the creation of incremental experiences like usage search in the IDE. |
 
+
 ## mod batch
 
 Add batch changes to the Moderne platform.
+
 
 This command is used to add repository changes generated by third-party tools to the Moderne platform.
 
@@ -520,6 +543,7 @@ mod batch [subcommands]
 mod batch publish --recipe com.acme.CollectionsSortToListSort --recipe-name "Prefer List#sort over Collections#sort" --recipe-description "Migrate java.util.Collections#sort calls to java.util.List#sort" --recipe-run ChangeCampaignApr25 . -- git diff
 ```
 
+
 ### Subcommands
 
 * `publish`: Publish changes to a Moderne recipe run
@@ -527,6 +551,7 @@ mod batch publish --recipe com.acme.CollectionsSortToListSort --recipe-name "Pre
 ## mod batch publish
 
 Publish changes to a Moderne recipe run
+
 
 Executes a supplied command on one or more repositories to generate a diff between a working and target branch, and publishes them to a Moderne recipe run. If you want to execute a command that contains positional parameters, please ensure that you use the end-of-options POSIX delimiter (**--**) before your command.
 
@@ -559,9 +584,11 @@ mod batch publish --recipe com.acme.CollectionsSortToListSort --recipe-name "Pre
 | `--recipe-name` |  A descriptive name for the recipe. |
 | `--recipe-run` |  A recipe run ID to add this batch change to. The same recipe run ID can be used to group multiple repositories of the same batch change. |
 
+
 ## mod build
 
 Generates LST artifacts for one or more repositories.
+
 
 Once generated, the artifacts can be uploaded to your artifact management tool so that Moderne can ingest them or they can be used to run recipes locally.
 
@@ -572,6 +599,7 @@ If the path itself is not a Git repository, then this command will recursively l
 If this command executes successfully, the LST artifact for each project will be stored in a **.moderne/build** directory inside of each repository that is built.
 
 If you've set up a connection with Moderne (by running the **mod config moderne** command), this command will attempt to download LST artifacts from Moderne instead of building them locally. This will allow you to quickly run recipes and make changes. If you do not want this command to look for LST artifacts in Moderne, you can add the **--no-download** flag. Executes builds in sequential order, except if the **--download-only** flag is specified.
+
 
 ### Usage
 
@@ -595,16 +623,18 @@ mod build /path/to/project
 
 | Name | Description |
 | ---- | ----------- |
-| `--download-only` |  Only download LSTs from Moderne. If no download is available, do not build the LST from source. Downloads the LSTs in parallel by default. |
 | `--dry-run` |  Do not actually build the LST(s), but list the steps that would be required to do so. |
-| `--no-download` |  Do not attempt to download LSTs from Moderne. |
+| `--full` |  Force a full prebuild and parse, ignoring any cached prebuild metadata. |
 | `--offline` |  When an underlying build tool has an offline mode, enable it. |
+| `--parallel` |  (INCUBATING) Run the command in parallel. Setting this option to 2 or more causes the command to run with a fixed-size thread pool with that many threads. Setting this to 1 causes the command to run sequentially. Setting this to 0 runs the command with a thread pool sized to the number of CPU cores on your machine. Setting this to a negative number runs the command with a fixed-size thread pool equal to the number of CPU cores minus the absolute value of that number. For example, `-1` runs the command with (cores-1) threads. |
 | `--streaming` |  (INCUBATING) Stream results from the build to the console as they are produced. This is intended to be machine readable for the creation of incremental experiences like in the IDE. |
 | `--trace-tag` |  Tags to add as extra columns to the trace.csv emitted by this command. Each tag becomes a column with header `tag.<key>` and the supplied value. Repeat the option to add multiple tags. |
+
 
 ## mod clean
 
 Clean build and run artifacts produced by the CLI.
+
 
 Can be filtered to only clean certain artifacts.
 
@@ -620,14 +650,17 @@ mod clean [subcommands]
 mod clean builds /path/to/project --keep 1
 ```
 
+
 ### Subcommands
 
 * `builds`: Clean build artifacts produced by the CLI.
 * `runs`: Clean run artifacts produced by the CLI.
+* `repos`: Clean repositories left in a partial-success state by past sync runs.
 
 ## mod clean builds
 
 Clean build artifacts produced by the CLI.
+
 
 Can be filtered to only clean certain artifacts.
 
@@ -655,9 +688,11 @@ mod clean builds /path/to/project --keep 1
 | ---- | ----------- |
 | `--keep` |  Keep this many run artifacts and clean all others. |
 
+
 ## mod clean runs
 
 Clean run artifacts produced by the CLI.
+
 
 Can be filtered to only clean certain artifacts.
 
@@ -685,9 +720,48 @@ mod clean runs /path/to/project --keep 1
 | ---- | ----------- |
 | `--keep` |  Keep this many run artifacts and clean all others. |
 
+
+## mod clean repos
+
+Clean repositories left in a partial-success state by past sync runs.
+
+
+Removes repositories whose latest sync failed (sync-failed), that completed syncing but never built an LST (no-lst), or that exist on disk but are no longer present in the organization structure (not-in-org). These otherwise show up as partial successes in subsequent operations.
+
+### Usage
+
+```
+mod clean repos [parameters]
+```
+
+### Examples
+
+```
+mod clean repos /path/to/project
+
+mod clean repos /path/to/project --dry-run
+```
+
+### Parameters
+
+| Name | Description | Example |
+| ---- | ----------- | ---------- |
+| `path` |  The absolute or relative path on disk to a directory containing one or more checked-out Git repositories that you want to operate on. This typically takes the form of targeting a single, checked-out copy of a Git repository or it can be a folder containing a collection of Git repositories that will be discovered by recursively scanning the initial provided directory. | `/path/to/project` |
+
+### Options
+
+| Name | Description |
+| ---- | ----------- |
+| `-l`, `--no-lst` |  Remove repositories that completed sync but never built an LST. |
+| `-n`, `--dry-run` |  List what would be deleted without deleting anything. |
+| `-o`, `--not-in-org` |  Remove directories on disk that are not in the current organization structure. |
+| `-s`, `--sync-failed` |  Remove repositories whose latest sync failed or was canceled. |
+
+
 ## mod config
 
 Global configuration options that are required by some CLI commands.
+
 
 Configuration set here is used as needed in all subsequent commands.
 
@@ -702,6 +776,7 @@ mod config [subcommands]
 ```
 mod config moderne edit --api <tenant-api-gateway> --token <token>
 ```
+
 
 ### Subcommands
 
@@ -730,6 +805,7 @@ mod config moderne edit --api <tenant-api-gateway> --token <token>
 
 Manage Moderne agent tools for coding agents.
 
+
 Install and update Moderne agent tools (skills and MCP servers) for Claude Code, Windsurf, Cursor, GitHub Copilot, GitHub Copilot CLI, Sourcegraph Amp, and OpenAI Codex.
 
 ### Usage
@@ -743,6 +819,7 @@ mod config agent-tools [subcommands]
 ```
 mod config agent-tools install
 ```
+
 
 ### Subcommands
 
@@ -760,7 +837,8 @@ mod config agent-tools install
 
 Creates or updates Moderne agent tools for coding agents.
 
-Installs skills (run-recipe, create-recipe, create-organization, analyze-impact) and registers the Moderne MCP server for all detected coding agents (Claude Code, Windsurf, Cursor, GitHub Copilot, GitHub Copilot CLI, Sourcegraph Amp, OpenAI Codex). Safe to run multiple times — existing installations are updated in place.
+
+Installs skills (run-recipe, create-recipe, create-organization, create-build-partitions, analyze-impact) and registers the Moderne MCP server for all detected coding agents (Claude Code, Windsurf, Cursor, GitHub Copilot, GitHub Copilot CLI, Sourcegraph Amp, OpenAI Codex). Safe to run multiple times — existing installations are updated in place.
 
 ### Usage
 
@@ -774,9 +852,12 @@ mod config agent-tools install
 mod config agent-tools install
 ```
 
+
+
 ## mod config agent-tools uninstall
 
 Removes Moderne agent tools from coding agents.
+
 
 Removes skills and unregisters the Moderne MCP server from all detected coding agents (Claude Code, Windsurf, Cursor, GitHub Copilot, GitHub Copilot CLI, Sourcegraph Amp, OpenAI Codex).
 
@@ -792,11 +873,14 @@ mod config agent-tools uninstall
 mod config agent-tools uninstall
 ```
 
+
+
 ## mod config agent-tools skills
 
 Manage Moderne skills for coding agents.
 
-Install or remove only the Moderne skills (run-recipe, create-recipe, create-organization, analyze-impact) for all detected coding agents, without modifying MCP server registrations. Use 'mod config agent-tools install' to install both skills and the MCP server together.
+
+Install or remove only the Moderne skills (run-recipe, create-recipe, create-organization, create-build-partitions, analyze-impact) for all detected coding agents, without modifying MCP server registrations. Use 'mod config agent-tools install' to install both skills and the MCP server together.
 
 ### Usage
 
@@ -810,6 +894,7 @@ mod config agent-tools skills [subcommands]
 mod config agent-tools skills install
 ```
 
+
 ### Subcommands
 
 * `install`: Install Moderne skills to all detected coding agents.
@@ -819,7 +904,8 @@ mod config agent-tools skills install
 
 Install Moderne skills to all detected coding agents.
 
-Installs only the skills (run-recipe, create-recipe, create-organization, analyze-impact) to all detected coding agents without registering the MCP server. Use 'mod config agent-tools install' to install both skills and the MCP server together.
+
+Installs only the skills (run-recipe, create-recipe, create-organization, create-build-partitions, analyze-impact) to all detected coding agents without registering the MCP server. Use 'mod config agent-tools install' to install both skills and the MCP server together.
 
 ### Usage
 
@@ -833,9 +919,12 @@ mod config agent-tools skills install
 mod config agent-tools skills install
 ```
 
+
+
 ## mod config agent-tools skills uninstall
 
 Remove Moderne skills from all detected coding agents.
+
 
 Removes only the skills from all detected coding agents without unregistering the MCP server.
 
@@ -851,9 +940,12 @@ mod config agent-tools skills uninstall
 mod config agent-tools skills uninstall
 ```
 
+
+
 ## mod config agent-tools claude
 
 Manage Moderne agent tools for Claude Code.
+
 
 Installs skills as a Claude Code plugin under ~/.claude/marketplaces/moderne/ and registers the MCP server via the 'claude' CLI.
 
@@ -869,6 +961,7 @@ mod config agent-tools claude [subcommands]
 mod config agent-tools claude install
 ```
 
+
 ### Subcommands
 
 * `install`: Install Moderne agent tools for Claude Code.
@@ -878,7 +971,8 @@ mod config agent-tools claude install
 
 Install Moderne agent tools for Claude Code.
 
-Installs skills (run-recipe, create-recipe, create-organization, analyze-impact) as a Claude Code plugin and registers the Moderne MCP server via the 'claude' CLI. Safe to run multiple times.
+
+Installs skills (run-recipe, create-recipe, create-organization, create-build-partitions, analyze-impact) as a Claude Code plugin and registers the Moderne MCP server via the 'claude' CLI. Safe to run multiple times.
 
 ### Usage
 
@@ -892,9 +986,12 @@ mod config agent-tools claude install
 mod config agent-tools claude install
 ```
 
+
+
 ## mod config agent-tools claude uninstall
 
 Remove Moderne agent tools from Claude Code.
+
 
 Removes skills and unregisters the Moderne MCP server from Claude Code.
 
@@ -910,9 +1007,12 @@ mod config agent-tools claude uninstall
 mod config agent-tools claude uninstall
 ```
 
+
+
 ## mod config agent-tools windsurf
 
 Manage Moderne agent tools for Windsurf.
+
 
 Installs skills under ~/.codeium/windsurf/skills/ and registers the MCP server in ~/.codeium/windsurf/mcp_config.json.
 
@@ -928,6 +1028,7 @@ mod config agent-tools windsurf [subcommands]
 mod config agent-tools windsurf install
 ```
 
+
 ### Subcommands
 
 * `install`: Install Moderne agent tools for Windsurf.
@@ -937,7 +1038,8 @@ mod config agent-tools windsurf install
 
 Install Moderne agent tools for Windsurf.
 
-Installs skills (run-recipe, create-recipe, create-organization, analyze-impact) under ~/.codeium/windsurf/skills/ and registers the Moderne MCP server in ~/.codeium/windsurf/mcp_config.json. Safe to run multiple times.
+
+Installs skills (run-recipe, create-recipe, create-organization, create-build-partitions, analyze-impact) under ~/.codeium/windsurf/skills/ and registers the Moderne MCP server in ~/.codeium/windsurf/mcp_config.json. Safe to run multiple times.
 
 ### Usage
 
@@ -951,9 +1053,12 @@ mod config agent-tools windsurf install
 mod config agent-tools windsurf install
 ```
 
+
+
 ## mod config agent-tools windsurf uninstall
 
 Remove Moderne agent tools from Windsurf.
+
 
 Removes skills and unregisters the Moderne MCP server from Windsurf.
 
@@ -969,9 +1074,12 @@ mod config agent-tools windsurf uninstall
 mod config agent-tools windsurf uninstall
 ```
 
+
+
 ## mod config agent-tools cursor
 
 Manage Moderne agent tools for Cursor.
+
 
 Installs skills as .mdc rule files in .cursor/rules/ and registers the MCP server in ~/.cursor/mcp.json.
 
@@ -987,6 +1095,7 @@ mod config agent-tools cursor [subcommands]
 mod config agent-tools cursor install
 ```
 
+
 ### Subcommands
 
 * `install`: Install Moderne agent tools for Cursor.
@@ -996,7 +1105,8 @@ mod config agent-tools cursor install
 
 Install Moderne agent tools for Cursor.
 
-Installs skills (run-recipe, create-recipe, create-organization, analyze-impact) as .mdc rule files in .cursor/rules/ and registers the Moderne MCP server in ~/.cursor/mcp.json. Safe to run multiple times.
+
+Installs skills (run-recipe, create-recipe, create-organization, create-build-partitions, analyze-impact) as .mdc rule files in .cursor/rules/ and registers the Moderne MCP server in ~/.cursor/mcp.json. Safe to run multiple times.
 
 ### Usage
 
@@ -1010,9 +1120,12 @@ mod config agent-tools cursor install
 mod config agent-tools cursor install
 ```
 
+
+
 ## mod config agent-tools cursor uninstall
 
 Remove Moderne agent tools from Cursor.
+
 
 Removes skills and unregisters the Moderne MCP server from Cursor.
 
@@ -1028,9 +1141,12 @@ mod config agent-tools cursor uninstall
 mod config agent-tools cursor uninstall
 ```
 
+
+
 ## mod config agent-tools copilot
 
 Manage Moderne agent tools for GitHub Copilot.
+
 
 Installs skills via .github/instructions/ and registers the MCP server in both .vscode/mcp.json and ~/.copilot/mcp-config.json.
 
@@ -1046,6 +1162,7 @@ mod config agent-tools copilot [subcommands]
 mod config agent-tools copilot install
 ```
 
+
 ### Subcommands
 
 * `install`: Install Moderne agent tools for GitHub Copilot.
@@ -1055,7 +1172,8 @@ mod config agent-tools copilot install
 
 Install Moderne agent tools for GitHub Copilot.
 
-Installs skills (run-recipe, create-recipe, create-organization, analyze-impact) as instruction files in .github/instructions/ and registers the Moderne MCP server in both .vscode/mcp.json and ~/.copilot/mcp-config.json. Safe to run multiple times.
+
+Installs skills (run-recipe, create-recipe, create-organization, create-build-partitions, analyze-impact) as instruction files in .github/instructions/ and registers the Moderne MCP server in both .vscode/mcp.json and ~/.copilot/mcp-config.json. Safe to run multiple times.
 
 ### Usage
 
@@ -1069,9 +1187,12 @@ mod config agent-tools copilot install
 mod config agent-tools copilot install
 ```
 
+
+
 ## mod config agent-tools copilot uninstall
 
 Remove Moderne agent tools from GitHub Copilot.
+
 
 Removes skills and unregisters the Moderne MCP server from GitHub Copilot.
 
@@ -1087,9 +1208,12 @@ mod config agent-tools copilot uninstall
 mod config agent-tools copilot uninstall
 ```
 
+
+
 ## mod config agent-tools amp
 
 Manage Moderne agent tools for Sourcegraph Amp.
+
 
 Installs skills under ~/.config/agents/skills/ and registers the MCP server via the 'amp' CLI.
 
@@ -1105,6 +1229,7 @@ mod config agent-tools amp [subcommands]
 mod config agent-tools amp install
 ```
 
+
 ### Subcommands
 
 * `install`: Install Moderne agent tools for Sourcegraph Amp.
@@ -1114,7 +1239,8 @@ mod config agent-tools amp install
 
 Install Moderne agent tools for Sourcegraph Amp.
 
-Installs skills (run-recipe, create-recipe, create-organization, analyze-impact) under ~/.config/agents/skills/ and registers the Moderne MCP server via the 'amp' CLI. Safe to run multiple times.
+
+Installs skills (run-recipe, create-recipe, create-organization, create-build-partitions, analyze-impact) under ~/.config/agents/skills/ and registers the Moderne MCP server via the 'amp' CLI. Safe to run multiple times.
 
 ### Usage
 
@@ -1128,9 +1254,12 @@ mod config agent-tools amp install
 mod config agent-tools amp install
 ```
 
+
+
 ## mod config agent-tools amp uninstall
 
 Remove Moderne agent tools from Sourcegraph Amp.
+
 
 Removes skills and unregisters the Moderne MCP server from Sourcegraph Amp.
 
@@ -1146,9 +1275,12 @@ mod config agent-tools amp uninstall
 mod config agent-tools amp uninstall
 ```
 
+
+
 ## mod config agent-tools codex
 
 Manage Moderne agent tools for OpenAI Codex.
+
 
 Installs skills under ~/.agents/skills/ and registers the MCP server via the 'codex' CLI.
 
@@ -1164,6 +1296,7 @@ mod config agent-tools codex [subcommands]
 mod config agent-tools codex install
 ```
 
+
 ### Subcommands
 
 * `install`: Install Moderne agent tools for OpenAI Codex.
@@ -1173,7 +1306,8 @@ mod config agent-tools codex install
 
 Install Moderne agent tools for OpenAI Codex.
 
-Installs skills (run-recipe, create-recipe, create-organization, analyze-impact) under ~/.agents/skills/ and registers the Moderne MCP server via the 'codex' CLI. Safe to run multiple times.
+
+Installs skills (run-recipe, create-recipe, create-organization, create-build-partitions, analyze-impact) under ~/.agents/skills/ and registers the Moderne MCP server via the 'codex' CLI. Safe to run multiple times.
 
 ### Usage
 
@@ -1187,9 +1321,12 @@ mod config agent-tools codex install
 mod config agent-tools codex install
 ```
 
+
+
 ## mod config agent-tools codex uninstall
 
 Remove Moderne agent tools from OpenAI Codex.
+
 
 Removes skills and unregisters the Moderne MCP server from OpenAI Codex.
 
@@ -1205,15 +1342,21 @@ mod config agent-tools codex uninstall
 mod config agent-tools codex uninstall
 ```
 
+
+
 ## mod config build
 
 Configures build tools used to produce LSTs.
+
+
+
 
 ### Usage
 
 ```
 mod config build [subcommands]
 ```
+
 
 ### Subcommands
 
@@ -1230,11 +1373,15 @@ mod config build [subcommands]
 
 Configures Bazel as it is used for LST production.
 
+
+
+
 ### Usage
 
 ```
 mod config build bazel [subcommands]
 ```
+
 
 ### Subcommands
 
@@ -1246,6 +1393,7 @@ mod config build bazel [subcommands]
 
 Configure Bazel build arguments.
 
+
 Build arguments are added to the end of the Bazel command line when building LSTs.
 
 ### Usage
@@ -1253,6 +1401,7 @@ Build arguments are added to the end of the Bazel command line when building LST
 ```
 mod config build bazel arguments [subcommands]
 ```
+
 
 ### Subcommands
 
@@ -1263,6 +1412,7 @@ mod config build bazel arguments [subcommands]
 ## mod config build bazel arguments delete
 
 Removes additional build arguments for Bazel.
+
 
 ### Usage
 
@@ -1277,9 +1427,11 @@ mod config build bazel arguments delete
 | `--local` |  Apply this command recursively to all repositories found within the specified directory path, modifying each repository's git-ignored file **.moderne/moderne-uncommitted.yml**<br/>Has no impact on the global configuration. |
 | `--save` |  Apply the operation to the file **.moderne/moderne.yml** which can be committed to source control as opposed to the git-ignored variant.<br/>Can only be used with `--local`.<br/>Has no effect on the global configuration. |
 
+
 ## mod config build bazel arguments edit
 
 Configure Bazel build arguments.
+
 
 Build arguments are added to the end of the Bazel command line when building LSTs.
 
@@ -1296,9 +1448,11 @@ mod config build bazel arguments edit
 | `--local` |  Apply this command recursively to all repositories found within the specified directory path, modifying each repository's git-ignored file **.moderne/moderne-uncommitted.yml**<br/>Has no impact on the global configuration. |
 | `--save` |  Apply the operation to the file **.moderne/moderne.yml** which can be committed to source control as opposed to the git-ignored variant.<br/>Can only be used with `--local`.<br/>Has no effect on the global configuration. |
 
+
 ## mod config build bazel arguments show
 
 Displays the configured Bazel additional build arguments.
+
 
 ### Usage
 
@@ -1313,9 +1467,11 @@ mod config build bazel arguments show
 | `--local` |  Apply this command recursively to all repositories found within the specified directory path, modifying each repository's git-ignored file **.moderne/moderne-uncommitted.yml**<br/>Has no impact on the global configuration. |
 | `--save` |  Apply the operation to the file **.moderne/moderne.yml** which can be committed to source control as opposed to the git-ignored variant.<br/>Can only be used with `--local`.<br/>Has no effect on the global configuration. |
 
+
 ## mod config build bazel executable
 
 Configure Bazel executable.
+
 
 Allows you to specify the location of a Bazel _settings.xml_ file that should be used when Bazel is being used to resolve recipe dependencies or run recipes. You can also use an environment variable that points to location of the file with **`${ENV_VAR}`** syntax.
 
@@ -1335,6 +1491,7 @@ mod config build bazel executable [subcommands]
 
 Removes the configured Bazel executable.
 
+
 The CLI will revert to its default mode of detecting the Bazel executable.
 
 ### Usage
@@ -1350,9 +1507,11 @@ mod config build bazel executable delete
 | `--local` |  Apply this command recursively to all repositories found within the specified directory path, modifying each repository's git-ignored file **.moderne/moderne-uncommitted.yml**<br/>Has no impact on the global configuration. |
 | `--save` |  Apply the operation to the file **.moderne/moderne.yml** which can be committed to source control as opposed to the git-ignored variant.<br/>Can only be used with `--local`.<br/>Has no effect on the global configuration. |
 
+
 ## mod config build bazel executable edit
 
 Configure the Bazel executable.
+
 
 Determines whether _bazelisk_ or _bazel_ will be used.
 
@@ -1375,9 +1534,13 @@ mod config build bazel executable edit [parameters]
 | `--local` |  Apply this command recursively to all repositories found within the specified directory path, modifying each repository's git-ignored file **.moderne/moderne-uncommitted.yml**<br/>Has no impact on the global configuration. |
 | `--save` |  Apply the operation to the file **.moderne/moderne.yml** which can be committed to source control as opposed to the git-ignored variant.<br/>Can only be used with `--local`.<br/>Has no effect on the global configuration. |
 
+
 ## mod config build bazel executable show
 
 Displays the configured Bazel executable.
+
+
+
 
 ### Usage
 
@@ -1392,9 +1555,11 @@ mod config build bazel executable show
 | `--local` |  Apply this command recursively to all repositories found within the specified directory path, modifying each repository's git-ignored file **.moderne/moderne-uncommitted.yml**<br/>Has no impact on the global configuration. |
 | `--save` |  Apply the operation to the file **.moderne/moderne.yml** which can be committed to source control as opposed to the git-ignored variant.<br/>Can only be used with `--local`.<br/>Has no effect on the global configuration. |
 
+
 ## mod config build bazel timeout
 
 Configure the build timeout.
+
 
 Limits the amount of time the CLI will wait for a single execution of the build tool.
 
@@ -1403,6 +1568,7 @@ Limits the amount of time the CLI will wait for a single execution of the build 
 ```
 mod config build bazel timeout [subcommands]
 ```
+
 
 ### Subcommands
 
@@ -1413,6 +1579,7 @@ mod config build bazel timeout [subcommands]
 ## mod config build bazel timeout delete
 
 Removes the configured build timeout.
+
 
 ### Usage
 
@@ -1427,9 +1594,11 @@ mod config build bazel timeout delete
 | `--local` |  Apply this command recursively to all repositories found within the specified directory path, modifying each repository's git-ignored file **.moderne/moderne-uncommitted.yml**<br/>Has no impact on the global configuration. |
 | `--save` |  Apply the operation to the file **.moderne/moderne.yml** which can be committed to source control as opposed to the git-ignored variant.<br/>Can only be used with `--local`.<br/>Has no effect on the global configuration. |
 
+
 ## mod config build bazel timeout edit
 
 Configure the timeout for build operations.
+
 
 Limits the amount of time the CLI will wait for a single execution of the build tool. Setting this to too high of a value may cause mass ingestion to hang or appear to hang.
 
@@ -1452,9 +1621,11 @@ mod config build bazel timeout edit [parameters]
 | `--local` |  Apply this command recursively to all repositories found within the specified directory path, modifying each repository's git-ignored file **.moderne/moderne-uncommitted.yml**<br/>Has no impact on the global configuration. |
 | `--save` |  Apply the operation to the file **.moderne/moderne.yml** which can be committed to source control as opposed to the git-ignored variant.<br/>Can only be used with `--local`.<br/>Has no effect on the global configuration. |
 
+
 ## mod config build bazel timeout show
 
 Displays the configured build timeout.
+
 
 ### Usage
 
@@ -1469,15 +1640,20 @@ mod config build bazel timeout show
 | `--local` |  Apply this command recursively to all repositories found within the specified directory path, modifying each repository's git-ignored file **.moderne/moderne-uncommitted.yml**<br/>Has no impact on the global configuration. |
 | `--save` |  Apply the operation to the file **.moderne/moderne.yml** which can be committed to source control as opposed to the git-ignored variant.<br/>Can only be used with `--local`.<br/>Has no effect on the global configuration. |
 
+
 ## mod config build dotnet
 
 Configures dotnet as it is used for LST production.
+
+
+
 
 ### Usage
 
 ```
 mod config build dotnet [subcommands]
 ```
+
 
 ### Subcommands
 
@@ -1487,6 +1663,7 @@ mod config build dotnet [subcommands]
 
 Configure the build timeout.
 
+
 Limits the amount of time the CLI will wait for a single execution of the build tool.
 
 ### Usage
@@ -1494,6 +1671,7 @@ Limits the amount of time the CLI will wait for a single execution of the build 
 ```
 mod config build dotnet timeout [subcommands]
 ```
+
 
 ### Subcommands
 
@@ -1504,6 +1682,7 @@ mod config build dotnet timeout [subcommands]
 ## mod config build dotnet timeout delete
 
 Removes the configured build timeout.
+
 
 ### Usage
 
@@ -1518,9 +1697,11 @@ mod config build dotnet timeout delete
 | `--local` |  Apply this command recursively to all repositories found within the specified directory path, modifying each repository's git-ignored file **.moderne/moderne-uncommitted.yml**<br/>Has no impact on the global configuration. |
 | `--save` |  Apply the operation to the file **.moderne/moderne.yml** which can be committed to source control as opposed to the git-ignored variant.<br/>Can only be used with `--local`.<br/>Has no effect on the global configuration. |
 
+
 ## mod config build dotnet timeout edit
 
 Configure the timeout for build operations.
+
 
 Limits the amount of time the CLI will wait for a single execution of the build tool. Setting this to too high of a value may cause mass ingestion to hang or appear to hang.
 
@@ -1543,9 +1724,11 @@ mod config build dotnet timeout edit [parameters]
 | `--local` |  Apply this command recursively to all repositories found within the specified directory path, modifying each repository's git-ignored file **.moderne/moderne-uncommitted.yml**<br/>Has no impact on the global configuration. |
 | `--save` |  Apply the operation to the file **.moderne/moderne.yml** which can be committed to source control as opposed to the git-ignored variant.<br/>Can only be used with `--local`.<br/>Has no effect on the global configuration. |
 
+
 ## mod config build dotnet timeout show
 
 Displays the configured build timeout.
+
 
 ### Usage
 
@@ -1560,9 +1743,11 @@ mod config build dotnet timeout show
 | `--local` |  Apply this command recursively to all repositories found within the specified directory path, modifying each repository's git-ignored file **.moderne/moderne-uncommitted.yml**<br/>Has no impact on the global configuration. |
 | `--save` |  Apply the operation to the file **.moderne/moderne.yml** which can be committed to source control as opposed to the git-ignored variant.<br/>Can only be used with `--local`.<br/>Has no effect on the global configuration. |
 
+
 ## mod config build environment
 
 Configure environment variables to apply to build tool when building LSTs.
+
 
 Manages environment variables applied to build tool's execution environment.
 
@@ -1571,6 +1756,7 @@ Manages environment variables applied to build tool's execution environment.
 ```
 mod config build environment [subcommands]
 ```
+
 
 ### Subcommands
 
@@ -1581,6 +1767,7 @@ mod config build environment [subcommands]
 ## mod config build environment delete
 
 Removes configured build environment variables.
+
 
 ### Usage
 
@@ -1595,9 +1782,11 @@ mod config build environment delete
 | `--local` |  Apply this command recursively to all repositories found within the specified directory path, modifying each repository's git-ignored file **.moderne/moderne-uncommitted.yml**<br/>Has no impact on the global configuration. |
 | `--save` |  Apply the operation to the file **.moderne/moderne.yml** which can be committed to source control as opposed to the git-ignored variant.<br/>Can only be used with `--local`.<br/>Has no effect on the global configuration. |
 
+
 ## mod config build environment edit
 
 Configure environment variables to use when building LSTs.
+
 
 Edits environment variables applied to build tool's execution environment.
 
@@ -1620,9 +1809,11 @@ mod config build environment edit [parameters]
 | `--local` |  Apply this command recursively to all repositories found within the specified directory path, modifying each repository's git-ignored file **.moderne/moderne-uncommitted.yml**<br/>Has no impact on the global configuration. |
 | `--save` |  Apply the operation to the file **.moderne/moderne.yml** which can be committed to source control as opposed to the git-ignored variant.<br/>Can only be used with `--local`.<br/>Has no effect on the global configuration. |
 
+
 ## mod config build environment show
 
 Displays the configured build environment variables.
+
 
 ### Usage
 
@@ -1637,9 +1828,13 @@ mod config build environment show
 | `--local` |  Apply this command recursively to all repositories found within the specified directory path, modifying each repository's git-ignored file **.moderne/moderne-uncommitted.yml**<br/>Has no impact on the global configuration. |
 | `--save` |  Apply the operation to the file **.moderne/moderne.yml** which can be committed to source control as opposed to the git-ignored variant.<br/>Can only be used with `--local`.<br/>Has no effect on the global configuration. |
 
+
 ## mod config build gradle
 
 Configures Gradle as it is used to resolve recipe dependencies and when running recipes.
+
+
+
 
 ### Usage
 
@@ -1653,6 +1848,7 @@ mod config build gradle [subcommands]
 mod config build gradle arguments edit --refresh-dependencies
 ```
 
+
 ### Subcommands
 
 * `arguments`: Configure Gradle build arguments.
@@ -1664,6 +1860,7 @@ mod config build gradle arguments edit --refresh-dependencies
 
 Configure Gradle build arguments.
 
+
 Build arguments are added to the end of the Gradle command line when building LSTs.
 
 ### Usage
@@ -1671,6 +1868,7 @@ Build arguments are added to the end of the Gradle command line when building LS
 ```
 mod config build gradle arguments [subcommands]
 ```
+
 
 ### Subcommands
 
@@ -1681,6 +1879,7 @@ mod config build gradle arguments [subcommands]
 ## mod config build gradle arguments delete
 
 Removes additional build arguments for Gradle.
+
 
 ### Usage
 
@@ -1695,9 +1894,11 @@ mod config build gradle arguments delete
 | `--local` |  Apply this command recursively to all repositories found within the specified directory path, modifying each repository's git-ignored file **.moderne/moderne-uncommitted.yml**<br/>Has no impact on the global configuration. |
 | `--save` |  Apply the operation to the file **.moderne/moderne.yml** which can be committed to source control as opposed to the git-ignored variant.<br/>Can only be used with `--local`.<br/>Has no effect on the global configuration. |
 
+
 ## mod config build gradle arguments edit
 
 Configure Gradle build arguments.
+
 
 Build arguments are added to the end of the Gradle command line when building LSTs.
 
@@ -1714,9 +1915,11 @@ mod config build gradle arguments edit
 | `--local` |  Apply this command recursively to all repositories found within the specified directory path, modifying each repository's git-ignored file **.moderne/moderne-uncommitted.yml**<br/>Has no impact on the global configuration. |
 | `--save` |  Apply the operation to the file **.moderne/moderne.yml** which can be committed to source control as opposed to the git-ignored variant.<br/>Can only be used with `--local`.<br/>Has no effect on the global configuration. |
 
+
 ## mod config build gradle arguments show
 
 Displays the configured Gradle additional build arguments.
+
 
 ### Usage
 
@@ -1731,9 +1934,11 @@ mod config build gradle arguments show
 | `--local` |  Apply this command recursively to all repositories found within the specified directory path, modifying each repository's git-ignored file **.moderne/moderne-uncommitted.yml**<br/>Has no impact on the global configuration. |
 | `--save` |  Apply the operation to the file **.moderne/moderne.yml** which can be committed to source control as opposed to the git-ignored variant.<br/>Can only be used with `--local`.<br/>Has no effect on the global configuration. |
 
+
 ## mod config build gradle installation
 
 Configures locations of Gradle installations that can be used by build tools.
+
 
 Must be configured before you can run the build command if Gradle is installed in non-standard locations.
 
@@ -1742,6 +1947,7 @@ Must be configured before you can run the build command if Gradle is installed i
 ```
 mod config build gradle installation [subcommands]
 ```
+
 
 ### Subcommands
 
@@ -1752,6 +1958,7 @@ mod config build gradle installation [subcommands]
 ## mod config build gradle installation edit
 
 Configures locations of Gradle installations that can be used by build tools.
+
 
 Must be configured before you can run the build command if Gradle is installed in non-standard locations.
 
@@ -1767,9 +1974,12 @@ mod config build gradle installation edit [parameters]
 | ---- | ----------- |
 | `gradleHomes` |  The paths on disk where Gradle installations (GRADLE_HOME directories) can be found. |
 
+
+
 ## mod config build gradle installation delete
 
 Removes the configured Gradle installations. The CLI will revert to using only detectable Gradle installations.
+
 
 ### Usage
 
@@ -1777,9 +1987,12 @@ Removes the configured Gradle installations. The CLI will revert to using only d
 mod config build gradle installation delete
 ```
 
+
+
 ## mod config build gradle installation list
 
 Displays the detected and configured Gradle installations in the order in which they will be selected, constrained by versions detected from a particular repository.
+
 
 ### Usage
 
@@ -1793,9 +2006,11 @@ mod config build gradle installation list
 | ---- | ----------- |
 | `--named` |  Filter the list of Gradle installations to . |
 
+
 ## mod config build gradle timeout
 
 Configure the build timeout.
+
 
 Limits the amount of time the CLI will wait for a single execution of the build tool.
 
@@ -1804,6 +2019,7 @@ Limits the amount of time the CLI will wait for a single execution of the build 
 ```
 mod config build gradle timeout [subcommands]
 ```
+
 
 ### Subcommands
 
@@ -1814,6 +2030,7 @@ mod config build gradle timeout [subcommands]
 ## mod config build gradle timeout delete
 
 Removes the configured build timeout.
+
 
 ### Usage
 
@@ -1828,9 +2045,11 @@ mod config build gradle timeout delete
 | `--local` |  Apply this command recursively to all repositories found within the specified directory path, modifying each repository's git-ignored file **.moderne/moderne-uncommitted.yml**<br/>Has no impact on the global configuration. |
 | `--save` |  Apply the operation to the file **.moderne/moderne.yml** which can be committed to source control as opposed to the git-ignored variant.<br/>Can only be used with `--local`.<br/>Has no effect on the global configuration. |
 
+
 ## mod config build gradle timeout edit
 
 Configure the timeout for build operations.
+
 
 Limits the amount of time the CLI will wait for a single execution of the build tool. Setting this to too high of a value may cause mass ingestion to hang or appear to hang.
 
@@ -1853,9 +2072,11 @@ mod config build gradle timeout edit [parameters]
 | `--local` |  Apply this command recursively to all repositories found within the specified directory path, modifying each repository's git-ignored file **.moderne/moderne-uncommitted.yml**<br/>Has no impact on the global configuration. |
 | `--save` |  Apply the operation to the file **.moderne/moderne.yml** which can be committed to source control as opposed to the git-ignored variant.<br/>Can only be used with `--local`.<br/>Has no effect on the global configuration. |
 
+
 ## mod config build gradle timeout show
 
 Displays the configured build timeout.
+
 
 ### Usage
 
@@ -1870,9 +2091,11 @@ mod config build gradle timeout show
 | `--local` |  Apply this command recursively to all repositories found within the specified directory path, modifying each repository's git-ignored file **.moderne/moderne-uncommitted.yml**<br/>Has no impact on the global configuration. |
 | `--save` |  Apply the operation to the file **.moderne/moderne.yml** which can be committed to source control as opposed to the git-ignored variant.<br/>Can only be used with `--local`.<br/>Has no effect on the global configuration. |
 
+
 ## mod config build gradle version
 
 Configures the Gradle version to use.
+
 
 Configure a version like "4.5", "8", or "8.1.1" depending on the degree of control needed.
 
@@ -1881,6 +2104,7 @@ Configure a version like "4.5", "8", or "8.1.1" depending on the degree of contr
 ```
 mod config build gradle version [subcommands]
 ```
+
 
 ### Subcommands
 
@@ -1891,6 +2115,7 @@ mod config build gradle version [subcommands]
 ## mod config build gradle version edit
 
 Configures the Gradle version to use.
+
 
 Configure a version like "4.5", "8", or "8.1.1" depending on the degree of control needed.
 
@@ -1913,9 +2138,11 @@ mod config build gradle version edit [parameters]
 | `--local` |  Apply this command recursively to all repositories found within the specified directory path, modifying each repository's git-ignored file **.moderne/moderne-uncommitted.yml**<br/>Has no impact on the global configuration. |
 | `--save` |  Apply the operation to the file **.moderne/moderne.yml** which can be committed to source control as opposed to the git-ignored variant.<br/>Can only be used with `--local`.<br/>Has no effect on the global configuration. |
 
+
 ## mod config build gradle version delete
 
 Reverts to auto-detection of a Gradle version to use when building a repository.
+
 
 ### Usage
 
@@ -1930,9 +2157,11 @@ mod config build gradle version delete
 | `--local` |  Apply this command recursively to all repositories found within the specified directory path, modifying each repository's git-ignored file **.moderne/moderne-uncommitted.yml**<br/>Has no impact on the global configuration. |
 | `--save` |  Apply the operation to the file **.moderne/moderne.yml** which can be committed to source control as opposed to the git-ignored variant.<br/>Can only be used with `--local`.<br/>Has no effect on the global configuration. |
 
+
 ## mod config build gradle version show
 
 Displays the configured Gradle version.
+
 
 ### Usage
 
@@ -1947,9 +2176,13 @@ mod config build gradle version show
 | `--local` |  Apply this command recursively to all repositories found within the specified directory path, modifying each repository's git-ignored file **.moderne/moderne-uncommitted.yml**<br/>Has no impact on the global configuration. |
 | `--save` |  Apply the operation to the file **.moderne/moderne.yml** which can be committed to source control as opposed to the git-ignored variant.<br/>Can only be used with `--local`.<br/>Has no effect on the global configuration. |
 
+
 ## mod config build javascript
 
 Configures JavaScript/TypeScript as it is used to produce LSTs.
+
+
+
 
 ### Usage
 
@@ -1963,6 +2196,7 @@ mod config build javascript [subcommands]
 mod config build javascript nodeoptions edit "--max-old-space-size=8192"
 ```
 
+
 ### Subcommands
 
 * `nodeoptions`: Configure Node.js options.
@@ -1971,6 +2205,7 @@ mod config build javascript nodeoptions edit "--max-old-space-size=8192"
 
 Configure Node.js options.
 
+
 Node options are set via the NODE_OPTIONS environment variable when building LSTs and running recipes.
 
 ### Usage
@@ -1978,6 +2213,7 @@ Node options are set via the NODE_OPTIONS environment variable when building LST
 ```
 mod config build javascript nodeoptions [subcommands]
 ```
+
 
 ### Subcommands
 
@@ -1988,6 +2224,7 @@ mod config build javascript nodeoptions [subcommands]
 ## mod config build javascript nodeoptions delete
 
 Removes configured Node.js options.
+
 
 ### Usage
 
@@ -2002,9 +2239,11 @@ mod config build javascript nodeoptions delete
 | `--local` |  Apply this command recursively to all repositories found within the specified directory path, modifying each repository's git-ignored file **.moderne/moderne-uncommitted.yml**<br/>Has no impact on the global configuration. |
 | `--save` |  Apply the operation to the file **.moderne/moderne.yml** which can be committed to source control as opposed to the git-ignored variant.<br/>Can only be used with `--local`.<br/>Has no effect on the global configuration. |
 
+
 ## mod config build javascript nodeoptions edit
 
 Configure Node.js options.
+
 
 Node options are set via the NODE_OPTIONS environment variable when building LSTs and running recipes.
 
@@ -2021,9 +2260,11 @@ mod config build javascript nodeoptions edit
 | `--local` |  Apply this command recursively to all repositories found within the specified directory path, modifying each repository's git-ignored file **.moderne/moderne-uncommitted.yml**<br/>Has no impact on the global configuration. |
 | `--save` |  Apply the operation to the file **.moderne/moderne.yml** which can be committed to source control as opposed to the git-ignored variant.<br/>Can only be used with `--local`.<br/>Has no effect on the global configuration. |
 
+
 ## mod config build javascript nodeoptions show
 
 Displays the configured Node.js options.
+
 
 ### Usage
 
@@ -2038,9 +2279,13 @@ mod config build javascript nodeoptions show
 | `--local` |  Apply this command recursively to all repositories found within the specified directory path, modifying each repository's git-ignored file **.moderne/moderne-uncommitted.yml**<br/>Has no impact on the global configuration. |
 | `--save` |  Apply the operation to the file **.moderne/moderne.yml** which can be committed to source control as opposed to the git-ignored variant.<br/>Can only be used with `--local`.<br/>Has no effect on the global configuration. |
 
+
 ## mod config build maven
 
 Configures Maven as it is used for LST production, resolving recipe dependencies, and when running recipes.
+
+
+
 
 ### Usage
 
@@ -2054,6 +2299,7 @@ mod config build maven [subcommands]
 mod config build maven settings edit <path-to-settings.xml>
 ```
 
+
 ### Subcommands
 
 * `arguments`: Configure Maven build arguments.
@@ -2064,6 +2310,7 @@ mod config build maven settings edit <path-to-settings.xml>
 
 Configure Maven build arguments.
 
+
 Build arguments are added to the end of the Maven command line when building LSTs.
 
 ### Usage
@@ -2071,6 +2318,7 @@ Build arguments are added to the end of the Maven command line when building LST
 ```
 mod config build maven arguments [subcommands]
 ```
+
 
 ### Subcommands
 
@@ -2081,6 +2329,7 @@ mod config build maven arguments [subcommands]
 ## mod config build maven arguments delete
 
 Removes additional build arguments for Maven.
+
 
 ### Usage
 
@@ -2095,9 +2344,11 @@ mod config build maven arguments delete
 | `--local` |  Apply this command recursively to all repositories found within the specified directory path, modifying each repository's git-ignored file **.moderne/moderne-uncommitted.yml**<br/>Has no impact on the global configuration. |
 | `--save` |  Apply the operation to the file **.moderne/moderne.yml** which can be committed to source control as opposed to the git-ignored variant.<br/>Can only be used with `--local`.<br/>Has no effect on the global configuration. |
 
+
 ## mod config build maven arguments edit
 
 Configure Maven build arguments.
+
 
 Build arguments are added to the end of the Maven command line when building LSTs.
 
@@ -2114,9 +2365,11 @@ mod config build maven arguments edit
 | `--local` |  Apply this command recursively to all repositories found within the specified directory path, modifying each repository's git-ignored file **.moderne/moderne-uncommitted.yml**<br/>Has no impact on the global configuration. |
 | `--save` |  Apply the operation to the file **.moderne/moderne.yml** which can be committed to source control as opposed to the git-ignored variant.<br/>Can only be used with `--local`.<br/>Has no effect on the global configuration. |
 
+
 ## mod config build maven arguments show
 
 Displays the configured Maven additional build arguments.
+
 
 ### Usage
 
@@ -2131,9 +2384,11 @@ mod config build maven arguments show
 | `--local` |  Apply this command recursively to all repositories found within the specified directory path, modifying each repository's git-ignored file **.moderne/moderne-uncommitted.yml**<br/>Has no impact on the global configuration. |
 | `--save` |  Apply the operation to the file **.moderne/moderne.yml** which can be committed to source control as opposed to the git-ignored variant.<br/>Can only be used with `--local`.<br/>Has no effect on the global configuration. |
 
+
 ## mod config build maven settings
 
 Configure Maven settings.
+
 
 Allows you to specify the location of a Maven _settings.xml_ file that should be used when Maven is being used to resolve recipe dependencies or run recipes. You can also use an environment variable that points to location of the file with **`${ENV_VAR}`** syntax.
 
@@ -2149,6 +2404,7 @@ mod config build maven settings [subcommands]
 mod config build maven settings edit <path-to-settings.xml>
 ```
 
+
 ### Subcommands
 
 * `delete`: Removes the configured Maven settings.
@@ -2158,6 +2414,9 @@ mod config build maven settings edit <path-to-settings.xml>
 ## mod config build maven settings delete
 
 Removes the configured Maven settings.
+
+
+
 
 ### Usage
 
@@ -2172,9 +2431,11 @@ mod config build maven settings delete
 | `--local` |  Apply this command recursively to all repositories found within the specified directory path, modifying each repository's git-ignored file **.moderne/moderne-uncommitted.yml**<br/>Has no impact on the global configuration. |
 | `--save` |  Apply the operation to the file **.moderne/moderne.yml** which can be committed to source control as opposed to the git-ignored variant.<br/>Can only be used with `--local`.<br/>Has no effect on the global configuration. |
 
+
 ## mod config build maven settings edit
 
 Configure Maven settings.
+
 
 Allows you to specify the location of a Maven _settings.xml_ file that should be used when Maven is being used to resolve recipe dependencies or run recipes.
 
@@ -2203,9 +2464,13 @@ mod config build maven settings edit <path-to-settings.xml>
 | `--local` |  Apply this command recursively to all repositories found within the specified directory path, modifying each repository's git-ignored file **.moderne/moderne-uncommitted.yml**<br/>Has no impact on the global configuration. |
 | `--save` |  Apply the operation to the file **.moderne/moderne.yml** which can be committed to source control as opposed to the git-ignored variant.<br/>Can only be used with `--local`.<br/>Has no effect on the global configuration. |
 
+
 ## mod config build maven settings show
 
 Displays the configured Maven settings.
+
+
+
 
 ### Usage
 
@@ -2220,9 +2485,11 @@ mod config build maven settings show
 | `--local` |  Apply this command recursively to all repositories found within the specified directory path, modifying each repository's git-ignored file **.moderne/moderne-uncommitted.yml**<br/>Has no impact on the global configuration. |
 | `--save` |  Apply the operation to the file **.moderne/moderne.yml** which can be committed to source control as opposed to the git-ignored variant.<br/>Can only be used with `--local`.<br/>Has no effect on the global configuration. |
 
+
 ## mod config build maven timeout
 
 Configure the build timeout.
+
 
 Limits the amount of time the CLI will wait for a single execution of the build tool.
 
@@ -2231,6 +2498,7 @@ Limits the amount of time the CLI will wait for a single execution of the build 
 ```
 mod config build maven timeout [subcommands]
 ```
+
 
 ### Subcommands
 
@@ -2241,6 +2509,7 @@ mod config build maven timeout [subcommands]
 ## mod config build maven timeout delete
 
 Removes the configured build timeout.
+
 
 ### Usage
 
@@ -2255,9 +2524,11 @@ mod config build maven timeout delete
 | `--local` |  Apply this command recursively to all repositories found within the specified directory path, modifying each repository's git-ignored file **.moderne/moderne-uncommitted.yml**<br/>Has no impact on the global configuration. |
 | `--save` |  Apply the operation to the file **.moderne/moderne.yml** which can be committed to source control as opposed to the git-ignored variant.<br/>Can only be used with `--local`.<br/>Has no effect on the global configuration. |
 
+
 ## mod config build maven timeout edit
 
 Configure the timeout for build operations.
+
 
 Limits the amount of time the CLI will wait for a single execution of the build tool. Setting this to too high of a value may cause mass ingestion to hang or appear to hang.
 
@@ -2280,9 +2551,11 @@ mod config build maven timeout edit [parameters]
 | `--local` |  Apply this command recursively to all repositories found within the specified directory path, modifying each repository's git-ignored file **.moderne/moderne-uncommitted.yml**<br/>Has no impact on the global configuration. |
 | `--save` |  Apply the operation to the file **.moderne/moderne.yml** which can be committed to source control as opposed to the git-ignored variant.<br/>Can only be used with `--local`.<br/>Has no effect on the global configuration. |
 
+
 ## mod config build maven timeout show
 
 Displays the configured build timeout.
+
 
 ### Usage
 
@@ -2297,9 +2570,11 @@ mod config build maven timeout show
 | `--local` |  Apply this command recursively to all repositories found within the specified directory path, modifying each repository's git-ignored file **.moderne/moderne-uncommitted.yml**<br/>Has no impact on the global configuration. |
 | `--save` |  Apply the operation to the file **.moderne/moderne.yml** which can be committed to source control as opposed to the git-ignored variant.<br/>Can only be used with `--local`.<br/>Has no effect on the global configuration. |
 
+
 ## mod config build parsers
 
 Configure custom file-extension-to-parser mappings.
+
 
 Manages which file extensions are parsed by which parser type when building LSTs. Supports resource/structural file types such as XML, JSON, and YAML. File extensions for compiled language types (Java, Kotlin, etc.) are enforced by their respective toolchains and cannot be customized here.
 
@@ -2308,6 +2583,7 @@ Manages which file extensions are parsed by which parser type when building LSTs
 ```
 mod config build parsers [subcommands]
 ```
+
 
 ### Subcommands
 
@@ -2318,6 +2594,7 @@ mod config build parsers [subcommands]
 ## mod config build parsers add
 
 Add a parser mapping for a file type.
+
 
 Associates glob patterns with a parser type so matching files are parsed accordingly.
 
@@ -2349,9 +2626,11 @@ mod config build parsers add json "**/*.cfg"
 | `--local` |  Apply this command recursively to all repositories found within the specified directory path, modifying each repository's git-ignored file **.moderne/moderne-uncommitted.yml**<br/>Has no impact on the global configuration. |
 | `--save` |  Apply the operation to the file **.moderne/moderne.yml** which can be committed to source control as opposed to the git-ignored variant.<br/>Can only be used with `--local`.<br/>Has no effect on the global configuration. |
 
+
 ## mod config build parsers delete
 
 Removes configured parser mappings.
+
 
 ### Usage
 
@@ -2372,9 +2651,11 @@ mod config build parsers delete [parameters]
 | `--local` |  Apply this command recursively to all repositories found within the specified directory path, modifying each repository's git-ignored file **.moderne/moderne-uncommitted.yml**<br/>Has no impact on the global configuration. |
 | `--save` |  Apply the operation to the file **.moderne/moderne.yml** which can be committed to source control as opposed to the git-ignored variant.<br/>Can only be used with `--local`.<br/>Has no effect on the global configuration. |
 
+
 ## mod config build parsers show
 
 Displays configured parser mappings.
+
 
 ### Usage
 
@@ -2389,9 +2670,11 @@ mod config build parsers show
 | `--local` |  Apply this command recursively to all repositories found within the specified directory path, modifying each repository's git-ignored file **.moderne/moderne-uncommitted.yml**<br/>Has no impact on the global configuration. |
 | `--save` |  Apply the operation to the file **.moderne/moderne.yml** which can be committed to source control as opposed to the git-ignored variant.<br/>Can only be used with `--local`.<br/>Has no effect on the global configuration. |
 
+
 ## mod config build style
 
 Configures style settings used for LST production.
+
 
 Allows you to specify style configuration files (e.g., Checkstyle) that should be included in LSTs so that recipe results respect the configured code style.
 
@@ -2407,6 +2690,7 @@ mod config build style [subcommands]
 mod config build style checkstyle edit <path-to-checkstyle.xml>
 ```
 
+
 ### Subcommands
 
 * `checkstyle`: Configure Checkstyle style.
@@ -2415,6 +2699,7 @@ mod config build style checkstyle edit <path-to-checkstyle.xml>
 ## mod config build style checkstyle
 
 Configure Checkstyle style.
+
 
 Allows you to specify the location of a Checkstyle configuration XML file that should be included in LSTs. When set, the Checkstyle rules will be parsed into OpenRewrite styles and attached to LSTs so that recipe results respect the configured code style.
 
@@ -2430,6 +2715,7 @@ mod config build style checkstyle [subcommands]
 mod config build style checkstyle edit <path-to-checkstyle.xml>
 ```
 
+
 ### Subcommands
 
 * `delete`: Removes the configured Checkstyle configuration.
@@ -2439,6 +2725,9 @@ mod config build style checkstyle edit <path-to-checkstyle.xml>
 ## mod config build style checkstyle delete
 
 Removes the configured Checkstyle configuration.
+
+
+
 
 ### Usage
 
@@ -2453,9 +2742,11 @@ mod config build style checkstyle delete
 | `--local` |  Apply this command recursively to all repositories found within the specified directory path, modifying each repository's git-ignored file **.moderne/moderne-uncommitted.yml**<br/>Has no impact on the global configuration. |
 | `--save` |  Apply the operation to the file **.moderne/moderne.yml** which can be committed to source control as opposed to the git-ignored variant.<br/>Can only be used with `--local`.<br/>Has no effect on the global configuration. |
 
+
 ## mod config build style checkstyle edit
 
 Configure Checkstyle style.
+
 
 Allows you to specify the location of a Checkstyle configuration XML file that should be included in LSTs so that recipe results respect the configured code style.
 
@@ -2484,9 +2775,13 @@ mod config build style checkstyle edit <path-to-checkstyle.xml>
 | `--local` |  Apply this command recursively to all repositories found within the specified directory path, modifying each repository's git-ignored file **.moderne/moderne-uncommitted.yml**<br/>Has no impact on the global configuration. |
 | `--save` |  Apply the operation to the file **.moderne/moderne.yml** which can be committed to source control as opposed to the git-ignored variant.<br/>Can only be used with `--local`.<br/>Has no effect on the global configuration. |
 
+
 ## mod config build style checkstyle show
 
 Displays the configured Checkstyle configuration.
+
+
+
 
 ### Usage
 
@@ -2501,9 +2796,11 @@ mod config build style checkstyle show
 | `--local` |  Apply this command recursively to all repositories found within the specified directory path, modifying each repository's git-ignored file **.moderne/moderne-uncommitted.yml**<br/>Has no impact on the global configuration. |
 | `--save` |  Apply the operation to the file **.moderne/moderne.yml** which can be committed to source control as opposed to the git-ignored variant.<br/>Can only be used with `--local`.<br/>Has no effect on the global configuration. |
 
+
 ## mod config build style openrewrite
 
 Configure OpenRewrite style.
+
 
 Allows you to specify the location of an OpenRewrite style YAML file that should be included in LSTs. The YAML file may contain zero or more named styles These styles take precedence over any other styles.https://docs.openrewrite.org/concepts-and-explanations/styles
 
@@ -2519,6 +2816,7 @@ mod config build style openrewrite [subcommands]
 mod config build style openrewrite edit <path-to-rewrite.yml>
 ```
 
+
 ### Subcommands
 
 * `delete`: Removes the configured OpenRewrite style.
@@ -2528,6 +2826,9 @@ mod config build style openrewrite edit <path-to-rewrite.yml>
 ## mod config build style openrewrite delete
 
 Removes the configured OpenRewrite style.
+
+
+
 
 ### Usage
 
@@ -2542,9 +2843,11 @@ mod config build style openrewrite delete
 | `--local` |  Apply this command recursively to all repositories found within the specified directory path, modifying each repository's git-ignored file **.moderne/moderne-uncommitted.yml**<br/>Has no impact on the global configuration. |
 | `--save` |  Apply the operation to the file **.moderne/moderne.yml** which can be committed to source control as opposed to the git-ignored variant.<br/>Can only be used with `--local`.<br/>Has no effect on the global configuration. |
 
+
 ## mod config build style openrewrite edit
 
 Configure OpenRewrite style.
+
 
 Allows you to specify the location of an OpenRewrite style YAML file that should be included in LSTs so that recipe results respect the configured code style.
 
@@ -2573,9 +2876,13 @@ mod config build style openrewrite edit <path-to-rewrite.yml>
 | `--local` |  Apply this command recursively to all repositories found within the specified directory path, modifying each repository's git-ignored file **.moderne/moderne-uncommitted.yml**<br/>Has no impact on the global configuration. |
 | `--save` |  Apply the operation to the file **.moderne/moderne.yml** which can be committed to source control as opposed to the git-ignored variant.<br/>Can only be used with `--local`.<br/>Has no effect on the global configuration. |
 
+
 ## mod config build style openrewrite show
 
 Displays the configured OpenRewrite style.
+
+
+
 
 ### Usage
 
@@ -2590,9 +2897,11 @@ mod config build style openrewrite show
 | `--local` |  Apply this command recursively to all repositories found within the specified directory path, modifying each repository's git-ignored file **.moderne/moderne-uncommitted.yml**<br/>Has no impact on the global configuration. |
 | `--save` |  Apply the operation to the file **.moderne/moderne.yml** which can be committed to source control as opposed to the git-ignored variant.<br/>Can only be used with `--local`.<br/>Has no effect on the global configuration. |
 
+
 ## mod config clone
 
 Configures cloning behavior.
+
 
 All subsequent clones will use these settings.
 
@@ -2601,6 +2910,7 @@ All subsequent clones will use these settings.
 ```
 mod config clone [subcommands]
 ```
+
 
 ### Subcommands
 
@@ -2611,6 +2921,7 @@ mod config clone [subcommands]
 
 (DEPRECATED) Configures the wire protocol(s) that are used for cloning. This option is ignored now, and clone URLs are driven from repos.csv.
 
+
 All subsequent clones from Moderne organizations will use these settings. Clones from JSON or CSV use the explicitly provided clone URL without attempting to change the protocol.
 
 ### Usage
@@ -2618,6 +2929,7 @@ All subsequent clones from Moderne organizations will use these settings. Clones
 ```
 mod config clone protocol [subcommands]
 ```
+
 
 ### Subcommands
 
@@ -2629,6 +2941,7 @@ mod config clone protocol [subcommands]
 
 Restores the default clone protocols.
 
+
 The default is to attempt SSH and then HTTPS clones.
 
 ### Usage
@@ -2637,9 +2950,12 @@ The default is to attempt SSH and then HTTPS clones.
 mod config clone protocol delete
 ```
 
+
+
 ## mod config clone protocol edit (deprecated)
 
 Configures the wire protocols that are used for cloning.
+
 
 All subsequent clones will use these settings. The default is SSH and then HTTPS. 
 
@@ -2655,9 +2971,12 @@ mod config clone protocol edit [parameters]
 | ---- | ----------- |
 | `protocols` |  The protocol(s) to use for cloning. Must be one or both of 'ssh' or 'https' (case insensitive). The order in which they are provided establishes the order of precedence for subsequent clones. |
 
+
+
 ## mod config clone protocol show (deprecated)
 
 Displays the wire protocols that are used for cloning.
+
 
 This set governs all subsequent clone attempts.
 
@@ -2667,9 +2986,12 @@ This set governs all subsequent clone attempts.
 mod config clone protocol show
 ```
 
+
+
 ## mod config clone timeout
 
 Configures the timeout for clone operations.
+
 
 All subsequent clones will use these settings.
 
@@ -2678,6 +3000,7 @@ All subsequent clones will use these settings.
 ```
 mod config clone timeout [subcommands]
 ```
+
 
 ### Subcommands
 
@@ -2689,6 +3012,7 @@ mod config clone timeout [subcommands]
 
 Restores the default clone timeout.
 
+
 The default is to time out after 10 minutes.
 
 ### Usage
@@ -2697,9 +3021,12 @@ The default is to time out after 10 minutes.
 mod config clone timeout delete
 ```
 
+
+
 ## mod config clone timeout edit
 
 Configures the timeout for clone operations.
+
 
 All subsequent clones will use these settings. The default is 10 minutes.
 
@@ -2715,9 +3042,12 @@ mod config clone timeout edit [parameters]
 | ---- | ----------- |
 | `timeout` |  The duration of the timeout expressed as an ISO-8601 duration. For example: 'PT1H' for one hour, 'PT30M' for 30 minutes, 'PT1H30M' for one hour and 30 minutes. |
 
+
+
 ## mod config clone timeout show
 
 Displays the timeouts configured for cloning.
+
 
 This timeout governs all subsequent clone attempts.
 
@@ -2727,9 +3057,12 @@ This timeout governs all subsequent clone attempts.
 mod config clone timeout show
 ```
 
+
+
 ## mod config comms
 
 Configures communication channels for factory notifications.
+
 
 Channels are accumulative — configuring Slack does not remove webhook config. The factory automatically uses all configured channels. Delete a channel to stop receiving notifications on it.
 
@@ -2738,6 +3071,7 @@ Channels are accumulative — configuring Slack does not remove webhook config. 
 ```
 mod config comms [subcommands]
 ```
+
 
 ### Subcommands
 
@@ -2749,6 +3083,7 @@ mod config comms [subcommands]
 
 Configures Slack notifications for the factory.
 
+
 Run 'setup' first to create the Slack app, then 'edit' to save the tokens. The factory will post a thread with per-phase and per-repo updates.
 
 ### Usage
@@ -2756,6 +3091,7 @@ Run 'setup' first to create the Slack app, then 'edit' to save the tokens. The f
 ```
 mod config comms slack [subcommands]
 ```
+
 
 ### Subcommands
 
@@ -2768,6 +3104,7 @@ mod config comms slack [subcommands]
 
 Prints the Slack app manifest and setup instructions.
 
+
 Generates a Slack App Manifest JSON that you paste into Slack's 'Create App from Manifest' flow. This pre-configures all required bot scopes — no manual scope configuration needed.
 
 ### Usage
@@ -2776,9 +3113,12 @@ Generates a Slack App Manifest JSON that you paste into Slack's 'Create App from
 mod config comms slack setup
 ```
 
+
+
 ## mod config comms slack edit
 
 Saves the Slack bot token, app token, and channel ID.
+
 
 Run 'mod config comms slack setup' first to create the Slack app and get these values.
 
@@ -2796,9 +3136,11 @@ mod config comms slack edit
 | `--channel` |  Slack channel ID (starts with C, e.g., C0123ABCDEF). Not the channel name. |
 | `--token` |  Slack bot token (starts with xoxb-). |
 
+
 ## mod config comms slack show
 
 Displays the configured Slack notification settings.
+
 
 Shows the bot token (masked) and channel ID.
 
@@ -2808,9 +3150,12 @@ Shows the bot token (masked) and channel ID.
 mod config comms slack show
 ```
 
+
+
 ## mod config comms slack delete
 
 Removes Slack notification configuration.
+
 
 The factory will no longer send Slack notifications. The Slack app itself is not removed — delete it at https://api.slack.com/apps if needed.
 
@@ -2820,9 +3165,12 @@ The factory will no longer send Slack notifications. The Slack app itself is not
 mod config comms slack delete
 ```
 
+
+
 ## mod config comms webhook
 
 Configures webhook notifications for the factory.
+
 
 The factory will POST JSON events to the configured URL at each lifecycle point.
 
@@ -2831,6 +3179,7 @@ The factory will POST JSON events to the configured URL at each lifecycle point.
 ```
 mod config comms webhook [subcommands]
 ```
+
 
 ### Subcommands
 
@@ -2841,6 +3190,7 @@ mod config comms webhook [subcommands]
 ## mod config comms webhook edit
 
 Configures the webhook URL for factory notifications.
+
 
 Events are POSTed as JSON with Content-Type: application/json. An optional bearer token is sent in the Authorization header.
 
@@ -2857,9 +3207,11 @@ mod config comms webhook edit
 | `--token` |  Optional bearer token for the Authorization header. |
 | `--url` |  The webhook URL to POST events to. |
 
+
 ## mod config comms webhook show
 
 Displays the configured webhook settings.
+
 
 Shows the webhook URL and whether a bearer token is set.
 
@@ -2869,9 +3221,12 @@ Shows the webhook URL and whether a bearer token is set.
 mod config comms webhook show
 ```
 
+
+
 ## mod config comms webhook delete
 
 Removes webhook notification configuration.
+
 
 The factory will no longer send webhook notifications.
 
@@ -2881,9 +3236,12 @@ The factory will no longer send webhook notifications.
 mod config comms webhook delete
 ```
 
+
+
 ## mod config comms sms
 
 Configures SMS notifications for the factory.
+
 
 Uses a Twilio-compatible HTTP API. Only sends high-signal events: factory start, complete, and errors.
 
@@ -2892,6 +3250,7 @@ Uses a Twilio-compatible HTTP API. Only sends high-signal events: factory start,
 ```
 mod config comms sms [subcommands]
 ```
+
 
 ### Subcommands
 
@@ -2902,6 +3261,7 @@ mod config comms sms [subcommands]
 ## mod config comms sms edit
 
 Configures SMS notification settings.
+
 
 Requires a Twilio-compatible API URL, auth credentials, and phone numbers.
 
@@ -2920,9 +3280,11 @@ mod config comms sms edit
 | `--from` |  Sender phone number (e.g., +1234567890). |
 | `--to` |  Recipient phone number (e.g., +0987654321). |
 
+
 ## mod config comms sms show
 
 Displays the configured SMS notification settings.
+
 
 Shows the API URL, phone numbers, and whether auth is configured.
 
@@ -2932,9 +3294,12 @@ Shows the API URL, phone numbers, and whether auth is configured.
 mod config comms sms show
 ```
 
+
+
 ## mod config comms sms delete
 
 Removes SMS notification configuration.
+
 
 The factory will no longer send SMS notifications.
 
@@ -2944,9 +3309,12 @@ The factory will no longer send SMS notifications.
 mod config comms sms delete
 ```
 
+
+
 ## mod config dotnet
 
 Configures DotNet options used for building LSTs and running recipes.
+
 
 Must be configured before you can run the commands that involve non-standard DotNet configurations.
 
@@ -2956,6 +3324,7 @@ Must be configured before you can run the commands that involve non-standard Dot
 mod config dotnet [subcommands]
 ```
 
+
 ### Subcommands
 
 * `installation`: Configures locations of DotNet that can be used by build tools.
@@ -2964,6 +3333,7 @@ mod config dotnet [subcommands]
 
 Configures locations of DotNet that can be used by build tools.
 
+
 Must be configured before you can run the build command if DotNet is installed in non-standard locations.
 
 ### Usage
@@ -2971,6 +3341,7 @@ Must be configured before you can run the build command if DotNet is installed i
 ```
 mod config dotnet installation [subcommands]
 ```
+
 
 ### Subcommands
 
@@ -2981,6 +3352,7 @@ mod config dotnet installation [subcommands]
 ## mod config dotnet installation edit
 
 Configures locations of DotNet that can be used by build tools.
+
 
 Must be configured before you can run the build command if DotNet is installed in non-standard locations.
 
@@ -2996,9 +3368,12 @@ mod config dotnet installation edit [parameters]
 | ---- | ----------- |
 | `dotnetInstallations` |  The paths on disk where DotNet installations can be found. |
 
+
+
 ## mod config dotnet installation delete
 
 Removes the configured DotNet installations. The CLI will revert to using only detectable DotNet installations.
+
 
 ### Usage
 
@@ -3006,9 +3381,12 @@ Removes the configured DotNet installations. The CLI will revert to using only d
 mod config dotnet installation delete
 ```
 
+
+
 ## mod config dotnet installation list
 
 Displays the detected and configured DotNet installations in the order in which they will be selected, constrained by versions detected from a particular repository.
+
 
 ### Usage
 
@@ -3022,9 +3400,11 @@ mod config dotnet installation list
 | ---- | ----------- |
 | `--named` |  Filter the list of DotNet installations to . |
 
+
 ## mod config environment
 
 The build environment that the CLI is running in.
+
 
 Will output information about the environment the CLI is running in (e.g., a local developer machine vs. Gitlab CI).
 
@@ -3034,6 +3414,7 @@ Will output information about the environment the CLI is running in (e.g., a loc
 mod config environment [subcommands]
 ```
 
+
 ### Subcommands
 
 * `show`: The build environment that the CLI is running in.
@@ -3041,6 +3422,7 @@ mod config environment [subcommands]
 ## mod config environment show
 
 The build environment that the CLI is running in.
+
 
 Will output information about the environment the CLI is running in (e.g., a local developer machine vs. Gitlab CI).
 
@@ -3050,9 +3432,12 @@ Will output information about the environment the CLI is running in (e.g., a loc
 mod config environment show
 ```
 
+
+
 ## mod config features
 
 Configures experimental features.
+
 
 Experimental features are not guaranteed to be stable and may change in future releases.
 
@@ -3062,6 +3447,7 @@ Experimental features are not guaranteed to be stable and may change in future r
 mod config features [subcommands]
 ```
 
+
 ### Subcommands
 
 * `agent-tools`: Configure agent tools features.
@@ -3069,17 +3455,18 @@ mod config features [subcommands]
 * `inline-diff`: Configure inline diff rendering in the terminal.
 * `lst`: Configure the LST serialization format version.
 * `no-maven-central`: (INCUBATING) Configure the availability of Maven Central and OSS Sonatype Snapshots.
-* `search`: (DEPRECATED) Configure trigram-based code search.
 
 ## mod config features agent-tools
 
 Configure agent tools features.
+
 
 ### Usage
 
 ```
 mod config features agent-tools [subcommands]
 ```
+
 
 ### Subcommands
 
@@ -3088,6 +3475,7 @@ mod config features agent-tools [subcommands]
 ## mod config features agent-tools tray
 
 Configure the agent tools system tray icon.
+
 
 When enabled, the MCP server launches a system tray icon with a browser-based dashboard for monitoring LST builds, tool calls, and executing tools. Disabled by default.
 
@@ -3103,7 +3491,9 @@ mod config features agent-tools tray
 | ---- | ----------- |
 | `--enabled` |  |
 
+
 ## mod config features index-recipes
+
 
 (DEPRECATED) Index recipes to avoid classloading expense on every repository. This experimental feature does not change the command line for running a recipe, but since recipes are instantiated differently, is considered experimental initially.
 
@@ -3119,9 +3509,11 @@ mod config features index-recipes
 | ---- | ----------- |
 | `--enabled` |  |
 
+
 ## mod config features inline-diff
 
 Configure inline diff rendering in the terminal.
+
 
 When enabled, diffs are rendered inline in the terminal during recipe runs when the terminal supports UTF-8 extended characters. Inline diffs are enabled by default.
 
@@ -3137,11 +3529,13 @@ mod config features inline-diff
 | ---- | ----------- |
 | `--enabled` |  |
 
+
 ## mod config features lst
 
 Configure the LST serialization format version.
 
-Controls the on-disk LST format. Version 3 uses a binary format with lazy deserialization and Zstd compression. When set to 3, v2 LSTs downloaded by mod git sync are automatically converted before recipe runs, and mod build produces v3 LSTs directly.
+
+Controls the on-disk LST format. Version 3 is a partition-backed binary format with lazy deserialization and Zstd compression: JDK and library types are pre-built into partitions and shared across parsers and template engines, reducing parse time and serialization size. When set to 3, v2 LSTs downloaded by mod git sync are automatically converted before recipe runs, and mod build produces LSTs in the configured format.
 
 ### Usage
 
@@ -3155,9 +3549,11 @@ mod config features lst
 | ---- | ----------- |
 | `--version` |  LST format version (2 or 3) |
 
+
 ## mod config features no-maven-central
 
 (INCUBATING) Configure the availability of Maven Central and OSS Sonatype Snapshots.
+
 
 Maven Central and OSS Sonatype Snapshots are considered as valid recipe and dependency sources by default. They are implicitly used as a fallback for the resolution of recipes. In some environments access to these repositories is not allowed. This command be used to disable adding them implicitly to the list of repositories used for installing running recipes.
 
@@ -3173,27 +3569,11 @@ mod config features no-maven-central
 | ---- | ----------- |
 | `--enabled` |  |
 
-## mod config features search
-
-(DEPRECATED) Configure trigram-based code search.
-
-This command is deprecated. Search indexes are now generated using **mod postbuild search index** and do not require a feature flag.
-
-### Usage
-
-```
-mod config features search
-```
-
-### Options
-
-| Name | Description |
-| ---- | ----------- |
-| `--enabled` |  |
 
 ## mod config go
 
 Configures Go options used for building LSTs and running recipes.
+
 
 Must be configured before you can run the commands that involve non-standard Go configurations.
 
@@ -3203,6 +3583,7 @@ Must be configured before you can run the commands that involve non-standard Go 
 mod config go [subcommands]
 ```
 
+
 ### Subcommands
 
 * `installation`: Configures locations of Go that can be used by build tools.
@@ -3211,6 +3592,7 @@ mod config go [subcommands]
 
 Configures locations of Go that can be used by build tools.
 
+
 Must be configured before you can run the build command if Go is installed in non-standard locations.
 
 ### Usage
@@ -3218,6 +3600,7 @@ Must be configured before you can run the build command if Go is installed in no
 ```
 mod config go installation [subcommands]
 ```
+
 
 ### Subcommands
 
@@ -3228,6 +3611,7 @@ mod config go installation [subcommands]
 ## mod config go installation edit
 
 Configures locations of Go that can be used by build tools.
+
 
 Must be configured before you can run the build command if Go is installed in non-standard locations.
 
@@ -3243,9 +3627,12 @@ mod config go installation edit [parameters]
 | ---- | ----------- |
 | `goInstallations` |  The paths on disk where Go installations can be found. |
 
+
+
 ## mod config go installation delete
 
 Removes the configured Go installations. The CLI will revert to using only detectable Go installations.
+
 
 ### Usage
 
@@ -3253,9 +3640,12 @@ Removes the configured Go installations. The CLI will revert to using only detec
 mod config go installation delete
 ```
 
+
+
 ## mod config go installation list
 
 Displays the detected and configured Go installations in the order in which they will be selected.
+
 
 ### Usage
 
@@ -3269,9 +3659,11 @@ mod config go installation list
 | ---- | ----------- |
 | `--named` |  Filter the list of Go installations. |
 
+
 ## mod config http
 
 Configures HTTP options that will be used throughout the CLI.
+
 
 All subsequent commands will use these settings.
 
@@ -3280,6 +3672,7 @@ All subsequent commands will use these settings.
 ```
 mod config http [subcommands]
 ```
+
 
 ### Subcommands
 
@@ -3291,6 +3684,7 @@ mod config http [subcommands]
 
 Configures HTTP proxy settings that will be used for every HTTP request.
 
+
 All subsequent commands will use these settings.
 
 ### Usage
@@ -3298,6 +3692,7 @@ All subsequent commands will use these settings.
 ```
 mod config http proxy [subcommands]
 ```
+
 
 ### Subcommands
 
@@ -3309,6 +3704,7 @@ mod config http proxy [subcommands]
 
 Removes HTTP proxy settings from global configuration.
 
+
 Proxy settings will no longer be used for HTTP requests.
 
 ### Usage
@@ -3317,9 +3713,12 @@ Proxy settings will no longer be used for HTTP requests.
 mod config http proxy delete
 ```
 
+
+
 ## mod config http proxy edit
 
 Configures HTTP proxy settings that will be used for every HTTP request.
+
 
 All subsequent commands will use these settings.
 
@@ -3339,9 +3738,11 @@ mod config http proxy edit
 | `--port`, `--proxy-port` |  |
 | `--user` |  The user to authenticate with. |
 
+
 ## mod config http proxy show
 
 Displays the proxy settings from global configuration.
+
 
 Shows the currently configured proxy settings, if any.
 
@@ -3351,9 +3752,12 @@ Shows the currently configured proxy settings, if any.
 mod config http proxy show
 ```
 
+
+
 ## mod config http trust-store
 
 Configures truststore options that will be used throughout the CLI.
+
 
 All subsequent commands will use these settings.
 
@@ -3362,6 +3766,7 @@ All subsequent commands will use these settings.
 ```
 mod config http trust-store [subcommands]
 ```
+
 
 ### Subcommands
 
@@ -3373,6 +3778,7 @@ mod config http trust-store [subcommands]
 
 Removes truststore settings from global configuration.
 
+
 Truststore settings will no longer be used for HTTP requests.
 
 ### Usage
@@ -3381,9 +3787,12 @@ Truststore settings will no longer be used for HTTP requests.
 mod config http trust-store delete
 ```
 
+
+
 ## mod config http trust-store edit
 
 Configures truststore options that will be used throughout the CLI.
+
 
 All subsequent commands will use these settings.
 
@@ -3409,6 +3818,7 @@ On Mac the system trust store is accessed via the Keychain Access app.
 On Windows the system trust store is accessed via the Microsoft Management Console.
 On Linux, the default Java trust store location will typically be symlinked to the distribution's system trust store which is based on the system's cacerts IF using a JVM installed via the package manager, otherwise the trust store packaged with the JVM will be used.
 
+
 ### Usage
 
 ```
@@ -3422,9 +3832,11 @@ mod config http trust-store edit system
 | `--password` |  The password used to access the truststore. |
 | `--stacktrace` |  Print the full stack trace on validation error |
 
+
 ## mod config http trust-store edit file
 
 Configures truststore to point to a file.
+
 
 All subsequent commands will use this truststore.
 
@@ -3449,9 +3861,11 @@ mod config http trust-store edit file [parameters]
 | `--stacktrace` |  Print the full stack trace on validation error |
 | `--type` |  The type of the truststore file. |
 
+
 ## mod config http trust-store edit java-home (deprecated)
 
 (DEPRECATED) Configures truststore to use the cacerts file in **`${JAVA_HOME}/lib/security/cacerts`**.
+
 
 Instead, use the `file` subcommand to set the trust store to an arbitrary location.The $JAVA_HOME variable is resolved once at configuration time, the path won't be updated at runtime if JAVA_HOME has changed.
 
@@ -3467,9 +3881,11 @@ mod config http trust-store edit java-home
 | ---- | ----------- |
 | `--stacktrace` |  Print the full stack trace on validation error |
 
+
 ## mod config http trust-store show
 
 Displays the truststore setting from global configuration.
+
 
 Shows the currently configured truststore setting, if any.
 
@@ -3485,9 +3901,11 @@ mod config http trust-store show
 | ---- | ----------- |
 | `--stacktrace` |  Print the full stack trace on validation error |
 
+
 ## mod config http key-store
 
 Configures keystore options that will be used throughout the CLI for mTLS.
+
 
 Configures a keystore containing client private key(s) and client certificate(s) for mutual TLS. All subsequent commands will use these settings.
 
@@ -3496,6 +3914,7 @@ Configures a keystore containing client private key(s) and client certificate(s)
 ```
 mod config http key-store [subcommands]
 ```
+
 
 ### Subcommands
 
@@ -3507,6 +3926,7 @@ mod config http key-store [subcommands]
 
 Removes keystore settings from global configuration.
 
+
 Keystore settings will no longer be used for HTTP requests.
 
 ### Usage
@@ -3515,9 +3935,12 @@ Keystore settings will no longer be used for HTTP requests.
 mod config http key-store delete
 ```
 
+
+
 ## mod config http key-store edit
 
 Configures keystore options that will be used throughout the CLI for mTLS.
+
 
 Configures a keystore containing client private key(s) and client certificate(s) for mutual TLS. All subsequent commands will use these settings.
 
@@ -3534,6 +3957,7 @@ mod config http key-store edit [subcommands]
 ## mod config http key-store edit file
 
 Configures keystore to point to a file.
+
 
 All subsequent commands will use this keystore.
 
@@ -3558,9 +3982,11 @@ mod config http key-store edit file [parameters]
 | `--stacktrace` |  Print the full stack trace on validation error |
 | `--type` |  The type of the keystore file. |
 
+
 ## mod config http key-store show
 
 Displays the keystore setting from global configuration.
+
 
 Shows the currently configured keystore setting, if any.
 
@@ -3576,9 +4002,11 @@ mod config http key-store show
 | ---- | ----------- |
 | `--stacktrace` |  Print the full stack trace on validation error |
 
+
 ## mod config java
 
 Configures Java options used for building LSTs and running recipes.
+
 
 Must be configured before you can run the commands that involve non-standard Java configurations.
 
@@ -3587,6 +4015,7 @@ Must be configured before you can run the commands that involve non-standard Jav
 ```
 mod config java [subcommands]
 ```
+
 
 ### Subcommands
 
@@ -3599,6 +4028,7 @@ mod config java [subcommands]
 
 Configures locations of JDKs that can be used by build tools.
 
+
 Must be configured before you can run the build command if JDKs are in non-standard locations.
 
 ### Usage
@@ -3606,6 +4036,7 @@ Must be configured before you can run the build command if JDKs are in non-stand
 ```
 mod config java installation [subcommands]
 ```
+
 
 ### Subcommands
 
@@ -3616,6 +4047,7 @@ mod config java installation [subcommands]
 ## mod config java installation edit
 
 Configures locations of JDKs that can be used by build tools.
+
 
 Must be configured before you can run the build command if JDKs are in non-standard locations.
 
@@ -3637,9 +4069,12 @@ mod config java installation edit /path/to/jdk1 /path/to/jdk2
 | ---- | ----------- |
 | `javaHomes` |  The paths on disk where JDK installations can be found. |
 
+
+
 ## mod config java installation delete
 
 Removes the configured JDK installations. The CLI will revert to using only detectable JDKs.
+
 
 ### Usage
 
@@ -3647,9 +4082,12 @@ Removes the configured JDK installations. The CLI will revert to using only dete
 mod config java installation delete
 ```
 
+
+
 ## mod config java installation list
 
 Displays the detected and configured JDK installations in the order in which they will be selected, constrained by versions detected from a particular repository.
+
 
 ### Usage
 
@@ -3663,9 +4101,11 @@ mod config java installation list
 | ---- | ----------- |
 | `--named` |  Filter the list of JDKs to . |
 
+
 ## mod config java jdk (deprecated)
 
 (DEPRECATED) Use `installation` instead. Configures locations of JDKs that can be used by build tools.
+
 
 Must be configured before you can run the build command if JDKs are in non-standard locations.
 
@@ -3674,6 +4114,7 @@ Must be configured before you can run the build command if JDKs are in non-stand
 ```
 mod config java jdk [subcommands]
 ```
+
 
 ### Subcommands
 
@@ -3684,6 +4125,7 @@ mod config java jdk [subcommands]
 ## mod config java jdk edit (deprecated)
 
 Configures locations of JDKs that can be used by build tools.
+
 
 Must be configured before you can run the build command if JDKs are in non-standard locations.
 
@@ -3705,9 +4147,12 @@ mod config java installation edit /path/to/jdk1 /path/to/jdk2
 | ---- | ----------- |
 | `javaHomes` |  The paths on disk where JDK installations can be found. |
 
+
+
 ## mod config java jdk delete (deprecated)
 
 Removes the configured JDK installations. The CLI will revert to using only detectable JDKs.
+
 
 ### Usage
 
@@ -3715,9 +4160,12 @@ Removes the configured JDK installations. The CLI will revert to using only dete
 mod config java jdk delete
 ```
 
+
+
 ## mod config java jdk list (deprecated)
 
 Displays the detected and configured JDK installations in the order in which they will be selected, constrained by versions detected from a particular repository.
+
 
 ### Usage
 
@@ -3731,9 +4179,11 @@ mod config java jdk list
 | ---- | ----------- |
 | `--named` |  Filter the list of JDKs to . |
 
+
 ## mod config java options
 
 Configures JVM options for use building LSTs and running recipes.
+
 
 Must be configured before you can run the build command if non-standard VM options are required.
 
@@ -3742,6 +4192,7 @@ Must be configured before you can run the build command if non-standard VM optio
 ```
 mod config java options [subcommands]
 ```
+
 
 ### Subcommands
 
@@ -3752,6 +4203,7 @@ mod config java options [subcommands]
 ## mod config java options edit
 
 Configures JVM options for use building LSTs and running recipes.
+
 
 Must be configured before you can run the build command if non-standard VM options are required.
 
@@ -3774,9 +4226,11 @@ mod config java options edit "\-Xmx4G"
 | `--local` |  Apply this command recursively to all repositories found within the specified directory path, modifying each repository's git-ignored file **.moderne/moderne-uncommitted.yml**<br/>Has no impact on the global configuration. |
 | `--save` |  Apply the operation to the file **.moderne/moderne.yml** which can be committed to source control as opposed to the git-ignored variant.<br/>Can only be used with `--local`.<br/>Has no effect on the global configuration. |
 
+
 ## mod config java options delete
 
 Removes configured JVM options. The CLI will no longer use custom JVM options.
+
 
 ### Usage
 
@@ -3791,9 +4245,11 @@ mod config java options delete
 | `--local` |  Apply this command recursively to all repositories found within the specified directory path, modifying each repository's git-ignored file **.moderne/moderne-uncommitted.yml**<br/>Has no impact on the global configuration. |
 | `--save` |  Apply the operation to the file **.moderne/moderne.yml** which can be committed to source control as opposed to the git-ignored variant.<br/>Can only be used with `--local`.<br/>Has no effect on the global configuration. |
 
+
 ## mod config java options show
 
 Displays the configured JVM options.
+
 
 ### Usage
 
@@ -3808,9 +4264,11 @@ mod config java options show
 | `--local` |  Apply this command recursively to all repositories found within the specified directory path, modifying each repository's git-ignored file **.moderne/moderne-uncommitted.yml**<br/>Has no impact on the global configuration. |
 | `--save` |  Apply the operation to the file **.moderne/moderne.yml** which can be committed to source control as opposed to the git-ignored variant.<br/>Can only be used with `--local`.<br/>Has no effect on the global configuration. |
 
+
 ## mod config java version
 
 Configures the JDK to use.
+
 
 Configure a name like "17", "17-tem", or "17.0.6-tem" depending on the degree of control needed.
 
@@ -3819,6 +4277,7 @@ Configure a name like "17", "17-tem", or "17.0.6-tem" depending on the degree of
 ```
 mod config java version [subcommands]
 ```
+
 
 ### Subcommands
 
@@ -3829,6 +4288,7 @@ mod config java version [subcommands]
 ## mod config java version edit
 
 Configures the JDK to use.
+
 
 Configure a name like "17", "17-tem", or "17.0.6-tem" depending on the degree of control needed.
 
@@ -3857,9 +4317,11 @@ mod config java version edit "17-tem"
 | `--local` |  Apply this command recursively to all repositories found within the specified directory path, modifying each repository's git-ignored file **.moderne/moderne-uncommitted.yml**<br/>Has no impact on the global configuration. |
 | `--save` |  Apply the operation to the file **.moderne/moderne.yml** which can be committed to source control as opposed to the git-ignored variant.<br/>Can only be used with `--local`.<br/>Has no effect on the global configuration. |
 
+
 ## mod config java version delete
 
 Reverts to auto-detection of a JDK to use when building a repository.
+
 
 ### Usage
 
@@ -3874,9 +4336,11 @@ mod config java version delete
 | `--local` |  Apply this command recursively to all repositories found within the specified directory path, modifying each repository's git-ignored file **.moderne/moderne-uncommitted.yml**<br/>Has no impact on the global configuration. |
 | `--save` |  Apply the operation to the file **.moderne/moderne.yml** which can be committed to source control as opposed to the git-ignored variant.<br/>Can only be used with `--local`.<br/>Has no effect on the global configuration. |
 
+
 ## mod config java version show
 
 Displays the configured JDK version.
+
 
 ### Usage
 
@@ -3891,9 +4355,11 @@ mod config java version show
 | `--local` |  Apply this command recursively to all repositories found within the specified directory path, modifying each repository's git-ignored file **.moderne/moderne-uncommitted.yml**<br/>Has no impact on the global configuration. |
 | `--save` |  Apply the operation to the file **.moderne/moderne.yml** which can be committed to source control as opposed to the git-ignored variant.<br/>Can only be used with `--local`.<br/>Has no effect on the global configuration. |
 
+
 ## mod config license
 
 Configure a license key.
+
 
 A license key allows for running recipes on private repositories without a connection to a Moderne tenant.
 
@@ -3902,6 +4368,7 @@ A license key allows for running recipes on private repositories without a conne
 ```
 mod config license [subcommands]
 ```
+
 
 ### Subcommands
 
@@ -3915,15 +4382,19 @@ mod config license [subcommands]
 
 Removes the configured license key.
 
+
 ### Usage
 
 ```
 mod config license delete
 ```
 
+
+
 ## mod config license edit
 
 Configure the active user.
+
 
 A license key allows for running recipes on private repositories without a connection to a Moderne tenant.
 
@@ -3939,9 +4410,12 @@ mod config license edit [parameters]
 | ---- | ----------- |
 | `license` |  The license key, provided by Moderne support. |
 
+
+
 ## mod config license generate
 
 Generate a license key.
+
 
 Generates a signed license key for the given licensee and expiration date and prints it. The Ed25519 private key is read from the **--private-key** option, which is interactive: pass the flag with no value to read the Base64-encoded raw 32 bytes from stdin (masked when on a TTY). This keeps the key off argv and out of process listings.%nBy default the license is printed but NOT persisted to the active configuration — convenient when issuing a license for a prospect without overwriting your own. Pass **--save** to also persist (equivalent to running **mod config license edit** with the generated key).
 
@@ -3965,9 +4439,11 @@ mod config license generate [parameters]
 | `--private-key` |  Base64-encoded raw 32-byte Ed25519 private key. Pass the flag with no value to read from stdin (masked on a TTY). |
 | `--save` |  Persist the generated license as the active configuration. |
 
+
 ## mod config license show
 
 Displays information about the configured license key.
+
 
 ### Usage
 
@@ -3981,9 +4457,11 @@ mod config license show
 | ---- | ----------- |
 | `--json` |  (INCUBATING) Output license information in JSON. The format of this JSON is unsettled at this point, and the data structuremay change. |
 
+
 ## mod config license moderne
 
 Synchronizes a Moderne license key with the CLI.
+
 
 A license key allows for running recipes on private repositories without a connection to a Moderne tenant.
 
@@ -3999,6 +4477,7 @@ mod config license moderne [subcommands]
 mod config license moderne sync
 ```
 
+
 ### Subcommands
 
 * `sync`: Synchronizes a Moderne license key with the CLI.
@@ -4006,6 +4485,7 @@ mod config license moderne sync
 ## mod config license moderne sync
 
 Synchronizes a Moderne license key with the CLI.
+
 
 A license key allows for running recipes on private repositories without a connection to a Moderne tenant.
 
@@ -4021,9 +4501,12 @@ mod config license moderne sync
 mod config license moderne sync
 ```
 
+
+
 ## mod config llm
 
 Configures LLM provider credentials for the factory agent.
+
 
 Credentials are managed by the Pi SDK and stored in ~/.pi/agent/. Use **login** for OAuth (subscription tokens) or **edit** for API keys.
 
@@ -4032,6 +4515,7 @@ Credentials are managed by the Pi SDK and stored in ~/.pi/agent/. Use **login** 
 ```
 mod config llm [subcommands]
 ```
+
 
 ### Subcommands
 
@@ -4043,6 +4527,7 @@ mod config llm [subcommands]
 ## mod config llm login
 
 Logs in to an LLM provider via OAuth.
+
 
 Starts an OAuth device flow for the specified provider. After authentication, prompts for model selection.
 
@@ -4060,9 +4545,12 @@ mod config llm login [parameters]
 | ---- | ----------- |
 | `provider` |  The provider to authenticate with (e.g., openai-codex, anthropic, github-copilot, google-gemini-cli). |
 
+
+
 ## mod config llm show
 
 Displays the current LLM provider configuration.
+
 
 Shows configured credentials and default model from the Pi agent config.
 
@@ -4072,9 +4560,14 @@ Shows configured credentials and default model from the Pi agent config.
 mod config llm show
 ```
 
+
+
 ## mod config llm delete
 
 Removes all LLM provider credentials and model defaults.
+
+
+
 
 ### Usage
 
@@ -4082,9 +4575,12 @@ Removes all LLM provider credentials and model defaults.
 mod config llm delete
 ```
 
+
+
 ## mod config llm edit
 
 Sets an API key for an LLM provider.
+
 
 For providers that use API keys rather than OAuth subscriptions. Common providers: **openai**, **anthropic**, **google**, **mistral**, **groq**
 
@@ -4101,9 +4597,11 @@ mod config llm edit
 | `--api-key` |  The API key. Will prompt interactively if not provided. |
 | `--provider` |  The provider name (e.g., openai, anthropic, google). |
 
+
 ## mod config lsts
 
 Configures LSTs production and publishing. 
+
 
 Must be configured before you can run the publish command.
 
@@ -4112,6 +4610,7 @@ Must be configured before you can run the publish command.
 ```
 mod config lsts [subcommands]
 ```
+
 
 ### Subcommands
 
@@ -4122,6 +4621,7 @@ mod config lsts [subcommands]
 
 Configures the storage layer for LSTs to be published to and downloaded from. 
 
+
 Must be configured before you can run the publish command.
 
 ### Usage
@@ -4130,16 +4630,19 @@ Must be configured before you can run the publish command.
 mod config lsts artifacts [subcommands]
 ```
 
+
 ### Subcommands
 
 * `artifactory`: Configures the Artifactory repository that LSTs will be published to and downloaded from.
 * `show`: Displays the LST artifacts repository configuration.
+* `azure-blob`: Configures the Azure Blob Storage container that LSTs will be published to and downloaded from.
 * `maven`: Configures a Maven-formatted artifact repository that LSTs will be published to and downloaded from.
 * `s3`: Configures the S3 repository that LSTs will be published to and downloaded from.
 
 ## mod config lsts artifacts artifactory
 
 Configures the Artifactory repository that LSTs will be published to and downloaded from.
+
 
 All subsequent publish and download commands will use this Artifactory repository.
 
@@ -4148,6 +4651,7 @@ All subsequent publish and download commands will use this Artifactory repositor
 ```
 mod config lsts artifacts artifactory [subcommands]
 ```
+
 
 ### Subcommands
 
@@ -4159,6 +4663,7 @@ mod config lsts artifacts artifactory [subcommands]
 ## mod config lsts artifacts artifactory add
 
 Configures the repository that LSTs will be published to and downloaded from. Must be configured before you can run the publish command.
+
 
 All subsequent publish and download commands will use this artifact repository.
 
@@ -4190,9 +4695,11 @@ mod config lsts artifacts artifactory add https://artifactory.company.com --user
 | `--skip-ssl` |  If this parameter is included, SSL verification will be skipped. |  |
 | `--user` |  The user to authenticate with. |  |
 
+
 ## mod config lsts artifacts artifactory edit (deprecated)
 
 (DEPRECATED) Use mod config lsts artifacts artifactory add instead.
+
 
 This command is deprecated. Use **mod config lsts artifacts artifactory add** instead.
 
@@ -4224,9 +4731,11 @@ mod config lsts artifacts artifactory add https://artifactory.company.com --user
 | `--skip-ssl` |  If this parameter is included, SSL verification will be skipped. |  |
 | `--user` |  The user to authenticate with. |  |
 
+
 ## mod config lsts artifacts artifactory delete
 
 Removes the Artifactory repository configuration. The publish command will no longer function until another artifact source is configured.
+
 
 If a URL is provided, only that repository is removed. Otherwise, all Artifactory repositories are removed.
 
@@ -4242,9 +4751,14 @@ mod config lsts artifacts artifactory delete [parameters]
 | ---- | ----------- |
 | `url` |  The URL of the Artifactory repository to remove. If not provided, all Artifactory repositories are removed. |
 
+
+
 ## mod config lsts artifacts artifactory show
 
 Displays the Artifactory repository configuration.
+
+
+
 
 ### Usage
 
@@ -4252,9 +4766,14 @@ Displays the Artifactory repository configuration.
 mod config lsts artifacts artifactory show
 ```
 
+
+
 ## mod config lsts artifacts show
 
 Displays the LST artifacts repository configuration.
+
+
+
 
 ### Usage
 
@@ -4262,9 +4781,95 @@ Displays the LST artifacts repository configuration.
 mod config lsts artifacts show
 ```
 
+
+
+## mod config lsts artifacts azure-blob
+
+Configures the Azure Blob Storage container that LSTs will be published to and downloaded from.
+
+
+All subsequent publish and download commands will use this Azure Blob Storage container. If neither --connection-string nor --sas-token is provided, DefaultAzureCredential is used (managed identity, workload identity, environment variables, or Azure CLI login).
+
+### Usage
+
+```
+mod config lsts artifacts azure-blob [subcommands]
+```
+
+
+### Subcommands
+
+* `edit`: Configures the Azure Blob Storage container that LSTs will be published to and downloaded from. Must be configured before you can run the publish command.
+* `delete`: Removes the Azure Blob LST repository configuration. The publish command will no longer function until another artifact source is configured.
+* `show`: Displays the Azure Blob LST repository configuration.
+
+## mod config lsts artifacts azure-blob edit
+
+Configures the Azure Blob Storage container that LSTs will be published to and downloaded from. Must be configured before you can run the publish command.
+
+
+All subsequent publish and download commands will use this Azure Blob Storage container.
+
+### Usage
+
+```
+mod config lsts artifacts azure-blob edit [parameters]
+```
+
+### Examples
+
+```
+mod config lsts artifacts azure-blob edit https://myaccount.blob.core.windows.net/mycontainer --sas-token 'sv=...'
+```
+
+### Parameters
+
+| Name | Description | Example |
+| ---- | ----------- | ---------- |
+| `uri` |  The Azure Blob container URL that LSTs will be published to. Must be of the form `https://{account}.blob.core.windows.net/{container}`. | `https://myaccount.blob.core.windows.net/mycontainer` |
+
+### Options
+
+| Name | Description |
+| ---- | ----------- |
+| `--connection-string` |  Azure Storage connection string (from the storage account's Access keys page). |
+| `--sas-token` |  Shared Access Signature token granting read+write+list access to the container. Provide the query-string portion only (without leading '?'). |
+
+
+## mod config lsts artifacts azure-blob delete
+
+Removes the Azure Blob LST repository configuration. The publish command will no longer function until another artifact source is configured.
+
+
+
+
+### Usage
+
+```
+mod config lsts artifacts azure-blob delete
+```
+
+
+
+## mod config lsts artifacts azure-blob show
+
+Displays the Azure Blob LST repository configuration.
+
+
+
+
+### Usage
+
+```
+mod config lsts artifacts azure-blob show
+```
+
+
+
 ## mod config lsts artifacts maven
 
 Configures a Maven-formatted artifact repository that LSTs will be published to and downloaded from.
+
 
 All subsequent publish and download commands will use this Maven repository.
 
@@ -4273,6 +4878,7 @@ All subsequent publish and download commands will use this Maven repository.
 ```
 mod config lsts artifacts maven [subcommands]
 ```
+
 
 ### Subcommands
 
@@ -4284,6 +4890,7 @@ mod config lsts artifacts maven [subcommands]
 ## mod config lsts artifacts maven add
 
 Configures the repository that LSTs will be published to and downloaded from. Must be configured before you can run the publish command.
+
 
 All subsequent publish and download commands will use this artifact repository.
 
@@ -4316,9 +4923,11 @@ mod config lsts artifacts maven add <artifact-repository-url> --user <user> --pa
 | `--skip-ssl` |  If this parameter is included, SSL verification will be skipped. |  |
 | `--user` |  The user to authenticate with. |  |
 
+
 ## mod config lsts artifacts maven edit (deprecated)
 
 (DEPRECATED) Use mod config lsts artifacts maven add instead.
+
 
 This command is deprecated. Use **mod config lsts artifacts maven add** instead.
 
@@ -4351,9 +4960,11 @@ mod config lsts artifacts maven add <artifact-repository-url> --user <user> --pa
 | `--skip-ssl` |  If this parameter is included, SSL verification will be skipped. |  |
 | `--user` |  The user to authenticate with. |  |
 
+
 ## mod config lsts artifacts maven delete
 
 Removes the Maven artifact repository repository configuration. The publish command will no longer function until another artifact source is configured.
+
 
 If a URL is provided, only that repository is removed. Otherwise, all Maven repositories are removed.
 
@@ -4376,9 +4987,13 @@ mod config lsts artifacts maven delete [parameters]
 | `--local` |  Apply this command recursively to all repositories found within the specified directory path, modifying each repository's git-ignored file **.moderne/moderne-uncommitted.yml**<br/>Has no impact on the global configuration. |
 | `--save` |  Apply the operation to the file **.moderne/moderne.yml** which can be committed to source control as opposed to the git-ignored variant.<br/>Can only be used with `--local`.<br/>Has no effect on the global configuration. |
 
+
 ## mod config lsts artifacts maven show
 
 Displays the Maven artifact repository repository configuration.
+
+
+
 
 ### Usage
 
@@ -4393,9 +5008,11 @@ mod config lsts artifacts maven show
 | `--local` |  Apply this command recursively to all repositories found within the specified directory path, modifying each repository's git-ignored file **.moderne/moderne-uncommitted.yml**<br/>Has no impact on the global configuration. |
 | `--save` |  Apply the operation to the file **.moderne/moderne.yml** which can be committed to source control as opposed to the git-ignored variant.<br/>Can only be used with `--local`.<br/>Has no effect on the global configuration. |
 
+
 ## mod config lsts artifacts s3
 
 Configures the S3 repository that LSTs will be published to and downloaded from.
+
 
 All subsequent publish and download commands will use this S3 repository.
 
@@ -4404,6 +5021,7 @@ All subsequent publish and download commands will use this S3 repository.
 ```
 mod config lsts artifacts s3 [subcommands]
 ```
+
 
 ### Subcommands
 
@@ -4414,6 +5032,7 @@ mod config lsts artifacts s3 [subcommands]
 ## mod config lsts artifacts s3 edit
 
 Configures the repository that LSTs will be published to and downloaded from. Must be configured before you can run the publish command.
+
 
 All subsequent publish and download commands will use this artifactory repository.
 
@@ -4444,9 +5063,13 @@ mod config lsts artifacts s3 edit s3://bucket
 | `--region` |  The region to use. Overrides config/env settings. |
 | `--skip-ssl` |  If this parameter is included, SSL verification will be skipped. |
 
+
 ## mod config lsts artifacts s3 delete
 
 Removes the S3 repository configuration. The publish command will no longer function until another artifact source is configured.
+
+
+
 
 ### Usage
 
@@ -4454,9 +5077,14 @@ Removes the S3 repository configuration. The publish command will no longer func
 mod config lsts artifacts s3 delete
 ```
 
+
+
 ## mod config lsts artifacts s3 show
 
 Displays the S3 repository configuration.
+
+
+
 
 ### Usage
 
@@ -4464,9 +5092,12 @@ Displays the S3 repository configuration.
 mod config lsts artifacts s3 show
 ```
 
+
+
 ## mod config lsts cache-dir
 
 (INCUBATING) Configures the directory for caching LSTs on disk.
+
 
 When configured, LSTs will be downloaded to this cache directory and symlinked to organization directories.
 
@@ -4475,6 +5106,7 @@ When configured, LSTs will be downloaded to this cache directory and symlinked t
 ```
 mod config lsts cache-dir [subcommands]
 ```
+
 
 ### Subcommands
 
@@ -4485,6 +5117,7 @@ mod config lsts cache-dir [subcommands]
 ## mod config lsts cache-dir edit
 
 (INCUBATING) Configures the LST cache directory.
+
 
 All subsequent operations will use this cache directory for storing LSTs.
 
@@ -4500,9 +5133,12 @@ mod config lsts cache-dir edit [parameters]
 | ---- | ----------- |
 | `cacheDir` |  The path to the directory where LSTs should be cached. Can be an absolute path or start with ~ for home directory. |
 
+
+
 ## mod config lsts cache-dir show
 
 (INCUBATING) Displays the LST cache directory configuration.
+
 
 Shows the currently configured cache directory for LSTs.
 
@@ -4512,9 +5148,12 @@ Shows the currently configured cache directory for LSTs.
 mod config lsts cache-dir show
 ```
 
+
+
 ## mod config lsts cache-dir delete
 
 (INCUBATING) Removes the LST cache directory configuration.
+
 
 LSTs will be stored directly in repository build folders instead of being cached centrally.
 
@@ -4524,9 +5163,12 @@ LSTs will be stored directly in repository build folders instead of being cached
 mod config lsts cache-dir delete
 ```
 
+
+
 ## mod config metrics
 
 Configures metrics publishing.
+
 
 Configure where and how the CLI publishes metrics.
 
@@ -4536,6 +5178,7 @@ Configure where and how the CLI publishes metrics.
 mod config metrics [subcommands]
 ```
 
+
 ### Subcommands
 
 * `atlas`: Configures Netflix Atlas metrics publishing.
@@ -4544,6 +5187,7 @@ mod config metrics [subcommands]
 
 Configures Netflix Atlas metrics publishing.
 
+
 When configured, the CLI pushes metrics to an Atlas endpoint at a configurable interval. Common tags are added to every metric.
 
 ### Usage
@@ -4551,6 +5195,7 @@ When configured, the CLI pushes metrics to an Atlas endpoint at a configurable i
 ```
 mod config metrics atlas [subcommands]
 ```
+
 
 ### Subcommands
 
@@ -4561,6 +5206,7 @@ mod config metrics atlas [subcommands]
 ## mod config metrics atlas edit
 
 Configures the Atlas metrics publishing endpoint.
+
 
 Sets the Atlas publish URL, push interval, and optional common tags.
 
@@ -4583,9 +5229,11 @@ mod config metrics atlas edit [parameters]
 | `--interval` |  How often to push metrics, as an ISO-8601 duration (default: PT1M). |
 | `--tag` |  Common tag as key=value. Repeatable (e.g., --tag stack=main --tag serverGroup=sg-1). |
 
+
 ## mod config metrics atlas show
 
 Displays the configured Atlas metrics publishing settings.
+
 
 ### Usage
 
@@ -4593,9 +5241,12 @@ Displays the configured Atlas metrics publishing settings.
 mod config metrics atlas show
 ```
 
+
+
 ## mod config metrics atlas delete
 
 Removes Atlas metrics publishing configuration.
+
 
 The CLI will no longer push metrics to Atlas.
 
@@ -4605,9 +5256,12 @@ The CLI will no longer push metrics to Atlas.
 mod config metrics atlas delete
 ```
 
+
+
 ## mod config moderne
 
 Configures the connection to Moderne. Must be configured before you can install and run recipes.
+
 
 All subsequent commands will use this Moderne tenant.
 
@@ -4623,6 +5277,7 @@ mod config moderne [subcommands]
 mod config moderne edit <host>
 ```
 
+
 ### Subcommands
 
 * `delete`: Removes the configured Moderne tenant.
@@ -4636,15 +5291,21 @@ mod config moderne edit <host>
 
 Removes the configured Moderne tenant.
 
+
+
+
 ### Usage
 
 ```
 mod config moderne delete
 ```
 
+
+
 ## mod config moderne edit
 
 Configures the connection to Moderne. Must be configured before you can install and run recipes.
+
 
 All subsequent commands will use this Moderne tenant.
 
@@ -4676,9 +5337,11 @@ mod config moderne edit <host> --token <token>
 | `--token` |  (DEPRECATED) The Moderne personal access token to use. Use 'login --with-token' instead. |  |
 | `--user` |  (DEPRECATED) The user to authenticate with. Use the web-based flow or with-token with the login sub-command instead. |  |
 
+
 ## mod config moderne local
 
 (DEPRECATED) Configures a connection to a Moderne DX instance running locally on the same machine.
+
 
 All subsequent commands will use this instance.
 
@@ -4688,9 +5351,12 @@ All subsequent commands will use this instance.
 mod config moderne local
 ```
 
+
+
 ## mod config moderne login
 
 Logs the CLI into Moderne
+
 
 The default authorization mode is a web-based browser flow. After login and consent, a PAT (personal access token) will be created and stored in the configuration file.
 
@@ -4709,9 +5375,11 @@ mod config moderne login
 | `--expiration` |  The time to expiration for the token to be created, as an ISO-8601 duration string. Can only be used with **--login** Example: P180D for 180 days. |
 | `--with-token` |  The Moderne personal access token to use. |
 
+
 ## mod config moderne show
 
 Displays the Moderne tenant configuration.
+
 
 Shows where requests to Moderne e.g., for recipe and organization information, will be directed.
 
@@ -4721,9 +5389,12 @@ Shows where requests to Moderne e.g., for recipe and organization information, w
 mod config moderne show
 ```
 
+
+
 ## mod config moderne organizations
 
 (INCUBATING) The organizational hierarchy of repository ownership.
+
 
 Each of these organizations is cloneable.
 
@@ -4733,6 +5404,7 @@ Each of these organizations is cloneable.
 mod config moderne organizations [subcommands]
 ```
 
+
 ### Subcommands
 
 * `show`: Displays the Moderne view of organizational hierarchy.
@@ -4740,6 +5412,9 @@ mod config moderne organizations [subcommands]
 ## mod config moderne organizations show
 
 Displays the Moderne view of organizational hierarchy.
+
+
+
 
 ### Usage
 
@@ -4753,9 +5428,11 @@ mod config moderne organizations show
 | ---- | ----------- |
 | `--json` |  |
 
+
 ## mod config node
 
 Configures Node options used for building LSTs and running recipes.
+
 
 Must be configured before you can run the commands that involve non-standard Node configurations.
 
@@ -4764,6 +5441,7 @@ Must be configured before you can run the commands that involve non-standard Nod
 ```
 mod config node [subcommands]
 ```
+
 
 ### Subcommands
 
@@ -4774,6 +5452,7 @@ mod config node [subcommands]
 
 Configures locations of Node that can be used by build tools.
 
+
 Must be configured before you can run the build command if Node is installed in non-standard locations.
 
 ### Usage
@@ -4781,6 +5460,7 @@ Must be configured before you can run the build command if Node is installed in 
 ```
 mod config node installation [subcommands]
 ```
+
 
 ### Subcommands
 
@@ -4791,6 +5471,7 @@ mod config node installation [subcommands]
 ## mod config node installation edit
 
 Configures locations of Node that can be used by build tools.
+
 
 Must be configured before you can run the build command if Node is installed in non-standard locations.
 
@@ -4806,9 +5487,12 @@ mod config node installation edit [parameters]
 | ---- | ----------- |
 | `nodeInstallations` |  The paths on disk where Node installations can be found. |
 
+
+
 ## mod config node installation delete
 
 Removes the configured Node installations. The CLI will revert to using only detectable Node installations.
+
 
 ### Usage
 
@@ -4816,9 +5500,12 @@ Removes the configured Node installations. The CLI will revert to using only det
 mod config node installation delete
 ```
 
+
+
 ## mod config node installation list
 
 Displays the detected and configured Node installations in the order in which they will be selected, constrained by versions detected from a particular repository.
+
 
 ### Usage
 
@@ -4832,9 +5519,11 @@ mod config node installation list
 | ---- | ----------- |
 | `--named` |  Filter the list of Node installations to . |
 
+
 ## mod config node version
 
 Configures the Node.js version to use.
+
 
 Configure a name like "18", "18.0.0", or "22" depending on the degree of control needed.
 
@@ -4843,6 +5532,7 @@ Configure a name like "18", "18.0.0", or "22" depending on the degree of control
 ```
 mod config node version [subcommands]
 ```
+
 
 ### Subcommands
 
@@ -4853,6 +5543,7 @@ mod config node version [subcommands]
 ## mod config node version edit
 
 Configures the Node.js version to use.
+
 
 Configure a name like "18", "18.0.0", or "22" depending on the degree of control needed.
 
@@ -4875,9 +5566,11 @@ mod config node version edit [parameters]
 | `--local` |  Apply this command recursively to all repositories found within the specified directory path, modifying each repository's git-ignored file **.moderne/moderne-uncommitted.yml**<br/>Has no impact on the global configuration. |
 | `--save` |  Apply the operation to the file **.moderne/moderne.yml** which can be committed to source control as opposed to the git-ignored variant.<br/>Can only be used with `--local`.<br/>Has no effect on the global configuration. |
 
+
 ## mod config node version delete
 
 Reverts to auto-detection of a Node.js version to use when building a repository.
+
 
 ### Usage
 
@@ -4892,9 +5585,11 @@ mod config node version delete
 | `--local` |  Apply this command recursively to all repositories found within the specified directory path, modifying each repository's git-ignored file **.moderne/moderne-uncommitted.yml**<br/>Has no impact on the global configuration. |
 | `--save` |  Apply the operation to the file **.moderne/moderne.yml** which can be committed to source control as opposed to the git-ignored variant.<br/>Can only be used with `--local`.<br/>Has no effect on the global configuration. |
 
+
 ## mod config node version show
 
 Displays the configured Node.js version.
+
 
 ### Usage
 
@@ -4909,9 +5604,11 @@ mod config node version show
 | `--local` |  Apply this command recursively to all repositories found within the specified directory path, modifying each repository's git-ignored file **.moderne/moderne-uncommitted.yml**<br/>Has no impact on the global configuration. |
 | `--save` |  Apply the operation to the file **.moderne/moderne.yml** which can be committed to source control as opposed to the git-ignored variant.<br/>Can only be used with `--local`.<br/>Has no effect on the global configuration. |
 
+
 ## mod config python
 
 Configures Python options used for building LSTs and running recipes.
+
 
 Must be configured before you can run the commands that involve non-standard Python configurations.
 
@@ -4920,6 +5617,7 @@ Must be configured before you can run the commands that involve non-standard Pyt
 ```
 mod config python [subcommands]
 ```
+
 
 ### Subcommands
 
@@ -4930,6 +5628,7 @@ mod config python [subcommands]
 
 Configures locations of Python that can be used by build tools.
 
+
 Must be configured before you can run the build command if Python is installed in non-standard locations.
 
 ### Usage
@@ -4937,6 +5636,7 @@ Must be configured before you can run the build command if Python is installed i
 ```
 mod config python installation [subcommands]
 ```
+
 
 ### Subcommands
 
@@ -4947,6 +5647,7 @@ mod config python installation [subcommands]
 ## mod config python installation edit
 
 Configures locations of Python that can be used by build tools.
+
 
 Must be configured before you can run the build command if Python is installed in non-standard locations.
 
@@ -4962,9 +5663,12 @@ mod config python installation edit [parameters]
 | ---- | ----------- |
 | `pythonInstallations` |  The paths on disk where Python installations can be found. |
 
+
+
 ## mod config python installation delete
 
 Removes the configured Python installations. The CLI will revert to using only detectable Python installations.
+
 
 ### Usage
 
@@ -4972,9 +5676,12 @@ Removes the configured Python installations. The CLI will revert to using only d
 mod config python installation delete
 ```
 
+
+
 ## mod config python installation list
 
 Displays the detected and configured Python installations in the order in which they will be selected, constrained by versions detected from a particular repository.
+
 
 ### Usage
 
@@ -4988,9 +5695,11 @@ mod config python installation list
 | ---- | ----------- |
 | `--named` |  Filter the list of Python installations to a specific version. |
 
+
 ## mod config python version
 
 Configures the Python version to use.
+
 
 Configure a name like "3", "3.12", or "3.12.1" depending on the degree of control needed.
 
@@ -4999,6 +5708,7 @@ Configure a name like "3", "3.12", or "3.12.1" depending on the degree of contro
 ```
 mod config python version [subcommands]
 ```
+
 
 ### Subcommands
 
@@ -5009,6 +5719,7 @@ mod config python version [subcommands]
 ## mod config python version edit
 
 Configures the Python version to use.
+
 
 Configure a name like "3", "3.12", or "3.12.1" depending on the degree of control needed.
 
@@ -5031,9 +5742,11 @@ mod config python version edit [parameters]
 | `--local` |  Apply this command recursively to all repositories found within the specified directory path, modifying each repository's git-ignored file **.moderne/moderne-uncommitted.yml**<br/>Has no impact on the global configuration. |
 | `--save` |  Apply the operation to the file **.moderne/moderne.yml** which can be committed to source control as opposed to the git-ignored variant.<br/>Can only be used with `--local`.<br/>Has no effect on the global configuration. |
 
+
 ## mod config python version delete
 
 Reverts to auto-detection of a Python version to use when building a repository.
+
 
 ### Usage
 
@@ -5048,9 +5761,11 @@ mod config python version delete
 | `--local` |  Apply this command recursively to all repositories found within the specified directory path, modifying each repository's git-ignored file **.moderne/moderne-uncommitted.yml**<br/>Has no impact on the global configuration. |
 | `--save` |  Apply the operation to the file **.moderne/moderne.yml** which can be committed to source control as opposed to the git-ignored variant.<br/>Can only be used with `--local`.<br/>Has no effect on the global configuration. |
 
+
 ## mod config python version show
 
 Displays the configured Python version.
+
 
 ### Usage
 
@@ -5065,9 +5780,11 @@ mod config python version show
 | `--local` |  Apply this command recursively to all repositories found within the specified directory path, modifying each repository's git-ignored file **.moderne/moderne-uncommitted.yml**<br/>Has no impact on the global configuration. |
 | `--save` |  Apply the operation to the file **.moderne/moderne.yml** which can be committed to source control as opposed to the git-ignored variant.<br/>Can only be used with `--local`.<br/>Has no effect on the global configuration. |
 
+
 ## mod config recipes
 
 Configures the recipe marketplace available to the CLI. Must be configured before you can run recipes.
+
 
 You must run the **mod config moderne** command before running this command so that the CLI knows where to download recipes from.
 
@@ -5083,10 +5800,12 @@ mod config recipes [subcommands]
 mod config recipes moderne sync
 ```
 
+
 ### Subcommands
 
 * `active`: Manage the active recipe configuration.
 * `artifacts`: Configures artifact repositories to resolve recipes from.
+* `csv`: Manage the recipe marketplace via a Recipe Marketplace CSV.
 * `export`: Export the recipe catalog for study by different tools.
 * `import`: Import recipes into the marketplace from different formats.
 * `go`: Adds or updates a Go module that contains recipes that should be added to the recipe marketplace in the CLI.
@@ -5105,6 +5824,7 @@ mod config recipes moderne sync
 
 Manage the active recipe configuration.
 
+
 The active recipe is a recipe under development that can be run with `mod run --active-recipe`.
 
 ### Usage
@@ -5119,6 +5839,7 @@ mod config recipes active [subcommands]
 mod config recipes active set src/main/java/com/example/MyRecipe.java
 ```
 
+
 ### Subcommands
 
 * `set`: Sets a recipe source file as the active recipe.
@@ -5128,6 +5849,7 @@ mod config recipes active set src/main/java/com/example/MyRecipe.java
 ## mod config recipes active set
 
 Sets a recipe source file as the active recipe.
+
 
 Accepts a Java source file (.java) or a YAML recipe file (.yml/.yaml). Detects the build tool (Gradle or Maven), extracts the classpath, and configures the recipe to be run with `mod run --active-recipe`.
 
@@ -5155,9 +5877,11 @@ mod config recipes active set src/main/java/com/example/MyRecipe.java
 | ---- | ----------- |
 | `--recipe` |  Recipe name to select (useful for multi-document YAML files or nested Java classes) |
 
+
 ## mod config recipes active show
 
 Shows the current active recipe configuration.
+
 
 Displays the recipe ID and classpath from the active.recipe file.
 
@@ -5167,9 +5891,12 @@ Displays the recipe ID and classpath from the active.recipe file.
 mod config recipes active show
 ```
 
+
+
 ## mod config recipes active delete
 
 Clears the active recipe configuration.
+
 
 Removes the active.recipe file.
 
@@ -5179,9 +5906,12 @@ Removes the active.recipe file.
 mod config recipes active delete
 ```
 
+
+
 ## mod config recipes artifacts
 
 Configures artifact repositories to resolve recipes from.
+
 
 Defaults to resolving recipes from Maven Central and Nexus Snapshots.
 
@@ -5190,6 +5920,7 @@ Defaults to resolving recipes from Maven Central and Nexus Snapshots.
 ```
 mod config recipes artifacts [subcommands]
 ```
+
 
 ### Subcommands
 
@@ -5201,6 +5932,7 @@ mod config recipes artifacts [subcommands]
 
 Configures the artifact repository to resolve recipes from.
 
+
 All subsequent recipe installation commands will use this Artifactory repository.
 
 ### Usage
@@ -5208,6 +5940,7 @@ All subsequent recipe installation commands will use this Artifactory repository
 ```
 mod config recipes artifacts artifactory [subcommands]
 ```
+
 
 ### Subcommands
 
@@ -5219,6 +5952,7 @@ mod config recipes artifacts artifactory [subcommands]
 ## mod config recipes artifacts artifactory add
 
 Configures the artifact repository to resolve recipes from.
+
 
 All subsequent recipe installation commands will use this artifact repository.
 
@@ -5250,9 +5984,11 @@ mod config recipes artifacts artifactory add <artifact-repository-url> --user <u
 | `--skip-ssl` |  If this parameter is included, SSL verification will be skipped. |  |
 | `--user` |  The user to authenticate with. |  |
 
+
 ## mod config recipes artifacts artifactory edit (deprecated)
 
 (DEPRECATED) Use mod config recipes artifacts artifactory add instead.
+
 
 This command is deprecated. Use **mod config recipes artifacts artifactory add** instead.
 
@@ -5284,9 +6020,11 @@ mod config recipes artifacts artifactory add <artifact-repository-url> --user <u
 | `--skip-ssl` |  If this parameter is included, SSL verification will be skipped. |  |
 | `--user` |  The user to authenticate with. |  |
 
+
 ## mod config recipes artifacts artifactory delete
 
 Removes the Artifactory repository configuration.
+
 
 If a URL is provided, only that repository is removed. Otherwise, all Artifactory repositories are removed.
 
@@ -5302,9 +6040,14 @@ mod config recipes artifacts artifactory delete [parameters]
 | ---- | ----------- |
 | `url` |  The URL of the Artifactory repository to remove. If not provided, all Artifactory repositories are removed. |
 
+
+
 ## mod config recipes artifacts artifactory show
 
 Displays the Artifactory repository configuration.
+
+
+
 
 ### Usage
 
@@ -5312,9 +6055,14 @@ Displays the Artifactory repository configuration.
 mod config recipes artifacts artifactory show
 ```
 
+
+
 ## mod config recipes artifacts show
 
 Displays the recipe artifacts repository configuration.
+
+
+
 
 ### Usage
 
@@ -5322,9 +6070,12 @@ Displays the recipe artifacts repository configuration.
 mod config recipes artifacts show
 ```
 
+
+
 ## mod config recipes artifacts maven
 
 Configures a Maven-formatted artifact repository that recipes will be resolved from.
+
 
 All subsequent recipe installation commands will use this Maven repository.
 
@@ -5333,6 +6084,7 @@ All subsequent recipe installation commands will use this Maven repository.
 ```
 mod config recipes artifacts maven [subcommands]
 ```
+
 
 ### Subcommands
 
@@ -5344,6 +6096,7 @@ mod config recipes artifacts maven [subcommands]
 ## mod config recipes artifacts maven add
 
 Configures a repository that recipes will be resolved from.
+
 
 If a repository with the same URL already exists, it will be updated. Otherwise, the repository will be added to the list of Maven repositories.
 
@@ -5374,9 +6127,11 @@ mod config recipes artifacts maven add <artifact-repository-url> --user <user> -
 | `--skip-ssl` |  If this parameter is included, SSL verification will be skipped. |  |
 | `--user` |  The user to authenticate with. |  |
 
+
 ## mod config recipes artifacts maven edit (deprecated)
 
 (DEPRECATED) Use mod config recipes artifacts maven add instead.
+
 
 This command is deprecated. Use **mod config recipes artifacts maven add** instead.
 
@@ -5407,9 +6162,11 @@ mod config recipes artifacts maven add <artifact-repository-url> --user <user> -
 | `--skip-ssl` |  If this parameter is included, SSL verification will be skipped. |  |
 | `--user` |  The user to authenticate with. |  |
 
+
 ## mod config recipes artifacts maven delete
 
 Removes the Maven artifact repository repository configuration.
+
 
 If a URL is provided, only that repository is removed. Otherwise, all Maven repositories are removed.
 
@@ -5425,9 +6182,14 @@ mod config recipes artifacts maven delete [parameters]
 | ---- | ----------- |
 | `url` |  The URL of the Maven repository to remove. If not provided, all Maven repositories are removed. |
 
+
+
 ## mod config recipes artifacts maven show
 
 Displays the Maven artifact repository repository configuration.
+
+
+
 
 ### Usage
 
@@ -5435,15 +6197,68 @@ Displays the Maven artifact repository repository configuration.
 mod config recipes artifacts maven show
 ```
 
+
+
+## mod config recipes csv
+
+Manage the recipe marketplace via a Recipe Marketplace CSV.
+
+
+
+
+### Usage
+
+```
+mod config recipes csv [subcommands]
+```
+
+
+### Subcommands
+
+* `sync`: Synchronizes the local CLI recipe marketplace from a Recipe Marketplace CSV.
+
+## mod config recipes csv sync
+
+Synchronizes the local CLI recipe marketplace from a Recipe Marketplace CSV.
+
+
+Downloads or copies a Recipe Marketplace CSV from the given URI and installs it as the local CLI marketplace, replacing any existing marketplace state. See https://docs.moderne.io/user-documentation/moderne-cli/references/recipes-csv/#csv-format.
+
+### Usage
+
+```
+mod config recipes csv sync [parameters]
+```
+
+### Examples
+
+```
+mod config recipes csv sync /path/to/recipes.csv
+
+mod config recipes csv sync https://example.com/recipes.csv
+```
+
+### Parameters
+
+| Name | Description | Example |
+| ---- | ----------- | ---------- |
+| `csv` |  The URI (local file or remote URL) of the recipes CSV. | `/path/to/recipes.csv` |
+
+
+
 ## mod config recipes export
 
 Export the recipe catalog for study by different tools.
+
+
+
 
 ### Usage
 
 ```
 mod config recipes export [subcommands]
 ```
+
 
 ### Subcommands
 
@@ -5453,6 +6268,7 @@ mod config recipes export [subcommands]
 ## mod config recipes export json
 
 (DEPRECATED) Export recipe details as JSON.
+
 
 This format has been superseded by the standard Recipe Marketplace CSV format.
 
@@ -5468,9 +6284,14 @@ mod config recipes export json [parameters]
 | ---- | ----------- |
 | `output` |  The path to the output JSON file. |
 
+
+
 ## mod config recipes export csv
 
 Export recipe details as CSV.
+
+
+
 
 ### Usage
 
@@ -5484,15 +6305,21 @@ mod config recipes export csv [parameters]
 | ---- | ----------- |
 | `output` |  The path to the output CSV file. |
 
+
+
 ## mod config recipes import
 
 Import recipes into the marketplace from different formats.
+
+
+
 
 ### Usage
 
 ```
 mod config recipes import [subcommands]
 ```
+
 
 ### Subcommands
 
@@ -5501,6 +6328,7 @@ mod config recipes import [subcommands]
 ## mod config recipes import csv
 
 Import recipes from a CSV file into the marketplace.
+
 
 Reads recipes from the specified CSV file and merges them into the existing recipe marketplace. Recipes with the same name will be replaced by the imported version. See https://docs.moderne.io/user-documentation/moderne-cli/references/recipes-csv/#csv-format for the CSV format.
 
@@ -5516,9 +6344,12 @@ mod config recipes import csv [parameters]
 | ---- | ----------- |
 | `input` |  The path to the CSV file to import. |
 
+
+
 ## mod config recipes go
 
 Adds or updates a Go module that contains recipes that should be added to the recipe marketplace in the CLI.
+
 
 Allows installing and deleting recipes from Go modules.
 
@@ -5528,6 +6359,7 @@ Allows installing and deleting recipes from Go modules.
 mod config recipes go [subcommands]
 ```
 
+
 ### Subcommands
 
 * `install`: Adds or updates a Go module that contains recipes that should be added to the recipe marketplace in the CLI.
@@ -5536,6 +6368,7 @@ mod config recipes go [subcommands]
 ## mod config recipes go install
 
 Adds or updates a Go module that contains recipes that should be added to the recipe marketplace in the CLI.
+
 
 The recipes defined by this Go module will then be available to run.
 
@@ -5557,9 +6390,12 @@ mod config recipes go install github.com/openrewrite/rewrite-go-recipes@v1.0.0
 | ---- | ----------- |
 | `MODULE[@VERSION]` |  The Go module path with an optional version in the format module@version, where @version is optional. |
 
+
+
 ## mod config recipes go delete
 
 Removes a Go module supplying recipes from the marketplace.
+
 
 The recipes defined by this Go module will then no longer be available to run.
 
@@ -5581,9 +6417,12 @@ mod config recipes go delete github.com/openrewrite/rewrite-go-recipes
 | ---- | ----------- | ---------- |
 | `modulePath` |  A Go module path. | `github.com/openrewrite/rewrite-go-recipes` |
 
+
+
 ## mod config recipes jar
 
 Adds or updates an artifact that contains recipes that should be added to the recipe marketplace in the CLI.
+
 
 The recipes defined by this artifact will then be available to run.
 
@@ -5599,6 +6438,7 @@ mod config recipes jar [subcommands]
 mod config recipes jar install org.openrewrite:rewrite-java:LATEST
 ```
 
+
 ### Subcommands
 
 * `install`: Adds or updates an artifact that contains recipes that should be added to the recipe marketplace in the CLI.
@@ -5607,6 +6447,7 @@ mod config recipes jar install org.openrewrite:rewrite-java:LATEST
 ## mod config recipes jar install
 
 Adds or updates an artifact that contains recipes that should be added to the recipe marketplace in the CLI.
+
 
 The recipes defined by this artifact will then be available to run.
 
@@ -5629,9 +6470,12 @@ mod config recipes jar install org.openrewrite:rewrite-java:LATEST
 | `GAV` |  The group, artifact, and version of the artifact to install in the format groupId:artifactId:version. The version may be a fixed version, LATEST, or RELEASE.
 The dependency will be resolved from the artifact source defined in **mod config recipes artifacts** |
 
+
+
 ## mod config recipes jar delete
 
 Removes an artifact supplying recipes to the marketplace.
+
 
 The recipes defined by this artifact will then no longer be available to run.
 
@@ -5653,9 +6497,12 @@ mod config recipes jar delete rewrite-java
 | ---- | ----------- | ---------- |
 | `artifact` |  An artifact name or group and artifact name. | • `rewrite-java`<br/>• `org.openrewrite:rewrite-java` |
 
+
+
 ## mod config recipes npm
 
 Adds or updates an npm package that contain recipes that should be added to the recipe marketplace in the CLI.
+
 
 Allows installing and deleting recipes from npm packages.
 
@@ -5665,6 +6512,7 @@ Allows installing and deleting recipes from npm packages.
 mod config recipes npm [subcommands]
 ```
 
+
 ### Subcommands
 
 * `install`: Adds or updates an npm package that contain recipes that should be added to the recipe marketplace in the CLI.
@@ -5673,6 +6521,7 @@ mod config recipes npm [subcommands]
 ## mod config recipes npm install
 
 Adds or updates an npm package that contain recipes that should be added to the recipe marketplace in the CLI.
+
 
 The recipes defined by this npm package will then be available to run.
 
@@ -5694,9 +6543,12 @@ mod config recipes npm install my-recipe-package@latest
 | ---- | ----------- |
 | `PACKAGE[@VERSION]` |  The npm package name with an optional version in the format package@version, where @version is optional. Alternatively,a path to a compiled recipe on disk that provides an OpenRewrite activate function. |
 
+
+
 ## mod config recipes npm delete
 
 Removes an npm package supplying recipes from the marketplace.
+
 
 The recipes defined by this npm package will then no longer be available to run.
 
@@ -5718,9 +6570,12 @@ mod config recipes npm delete my-recipe-package
 | ---- | ----------- | ---------- |
 | `packageName` |  An npm package name or a compiled JavaScript file containing an OpenRewrite activate function. | `@openrewrite/recipes-nodejs` |
 
+
+
 ## mod config recipes nuget
 
 Adds or updates a NuGet package that contains recipes that should be added to the recipe marketplace in the CLI.
+
 
 Allows installing and deleting recipes from NuGet packages.
 
@@ -5730,6 +6585,7 @@ Allows installing and deleting recipes from NuGet packages.
 mod config recipes nuget [subcommands]
 ```
 
+
 ### Subcommands
 
 * `install`: Adds or updates a NuGet package that contains recipes that should be added to the recipe marketplace in the CLI.
@@ -5738,6 +6594,7 @@ mod config recipes nuget [subcommands]
 ## mod config recipes nuget install
 
 Adds or updates a NuGet package that contains recipes that should be added to the recipe marketplace in the CLI.
+
 
 The recipes defined by this NuGet package will then be available to run.
 
@@ -5759,9 +6616,12 @@ mod config recipes nuget install OpenRewrite.Recipes@1.0.0
 | ---- | ----------- |
 | `PACKAGE[@VERSION]` |  The NuGet package name with an optional version in the format package@version, where @version is optional. |
 
+
+
 ## mod config recipes nuget delete
 
 Removes a NuGet package supplying recipes from the marketplace.
+
 
 The recipes defined by this NuGet package will then no longer be available to run.
 
@@ -5783,9 +6643,12 @@ mod config recipes nuget delete OpenRewrite.Recipes
 | ---- | ----------- | ---------- |
 | `packageName` |  A NuGet package name. | `OpenRewrite.Recipes` |
 
+
+
 ## mod config recipes pip
 
 Adds or updates a pip package that contains recipes that should be added to the recipe marketplace in the CLI.
+
 
 Allows installing and deleting recipes from pip packages.
 
@@ -5795,6 +6658,7 @@ Allows installing and deleting recipes from pip packages.
 mod config recipes pip [subcommands]
 ```
 
+
 ### Subcommands
 
 * `install`: Adds or updates a pip package that contains recipes that should be added to the recipe marketplace in the CLI.
@@ -5803,6 +6667,7 @@ mod config recipes pip [subcommands]
 ## mod config recipes pip install
 
 Adds or updates a pip package that contains recipes that should be added to the recipe marketplace in the CLI.
+
 
 The recipes defined by this pip package will then be available to run.
 
@@ -5824,9 +6689,12 @@ mod config recipes pip install rewrite-recipe-example==1.0.0
 | ---- | ----------- |
 | `PACKAGE[==VERSION]` |  The pip package name or local path with an optional version in the format package==version, where ==version is optional. |
 
+
+
 ## mod config recipes pip delete
 
 Removes a pip package supplying recipes from the marketplace.
+
 
 The recipes defined by this pip package will then no longer be available to run.
 
@@ -5848,9 +6716,12 @@ mod config recipes pip delete rewrite-recipe-example
 | ---- | ----------- | ---------- |
 | `packageName` |  A pip package name. | `rewrite-recipe-example` |
 
+
+
 ## mod config recipes moderne
 
 Configures which Moderne recipes should be installed and used in the local CLI marketplace.
+
 
 The recipes installed will then be available to run locally.
 
@@ -5868,6 +6739,7 @@ mod config recipes moderne install <SEARCH_TERM>
 mod config recipes moderne sync
 ```
 
+
 ### Subcommands
 
 * `install`: Allows you to find and install recipes from Moderne.
@@ -5876,6 +6748,7 @@ mod config recipes moderne sync
 ## mod config recipes moderne install
 
 Allows you to find and install recipes from Moderne.
+
 
 After providing a search term, the Moderne API will be queried to find recipes that match it. You will be provided with up to 10 possible matches and the option to select one to install. If you select to install one, the appropriate JAR will be downloaded and added to your local CLI marketplace. The recipes defined by this artifact will then be available to run.
 
@@ -5901,9 +6774,12 @@ mod config recipes moderne install "Migrate Java"
 | ---- | ----------- |
 | `searchTerm` |  The search term to use to find recipes to install. |
 
+
+
 ## mod config recipes moderne sync
 
 Synchronizes the local CLI recipe marketplace with Moderne.
+
 
 Destroys all recipes in the local CLI marketplace and replaces them with the latest recipes available in Moderne. The recipes defined by these artifacts will then be available to run.
 
@@ -5913,9 +6789,12 @@ Destroys all recipes in the local CLI marketplace and replaces them with the lat
 mod config recipes moderne sync
 ```
 
+
+
 ## mod config recipes delete
 
 Clear the whole recipe marketplace.
+
 
 No recipes will be available to run until they are installed again.
 
@@ -5925,9 +6804,14 @@ No recipes will be available to run until they are installed again.
 mod config recipes delete
 ```
 
+
+
 ## mod config recipes list
 
 List the artifacts that are contributing recipes to the marketplace.
+
+
+
 
 ### Usage
 
@@ -5935,9 +6819,12 @@ List the artifacts that are contributing recipes to the marketplace.
 mod config recipes list
 ```
 
+
+
 ## mod config recipes search
 
 Finds recipes based on free form text search.
+
 
 The found recipes may then be set as the active recipe. Multiple word searches may, but don't need to surrounded by quotes on the command line.
 
@@ -5965,9 +6852,11 @@ mod config recipes search owasp
 | ---- | ----------- |
 | `--limit` |  The maximum total number of results that will be returned. |
 
+
 ## mod config recipes upgrade
 
 Upgrades all installed recipe artifacts to the latest available version.
+
 
 For each installed recipe artifact with a dynamic requested version, re-resolves the latest version from the configured artifact source and reinstalls it.
 
@@ -5983,9 +6872,12 @@ mod config recipes upgrade
 mod config recipes upgrade
 ```
 
+
+
 ## mod config recipes yaml
 
 Adds or updates a YAML file that contains recipes that should be added to the recipe marketplace in the CLI.
+
 
 The recipes defined in this YAML file will then be available to run.
 
@@ -6001,6 +6893,7 @@ mod config recipes yaml [subcommands]
 mod config recipes yaml install /path/to/yaml
 ```
 
+
 ### Subcommands
 
 * `install`: Adds or updates a YAML file that contains recipes that should be added to the recipe marketplace in the CLI.
@@ -6009,6 +6902,7 @@ mod config recipes yaml install /path/to/yaml
 ## mod config recipes yaml install
 
 Adds or updates a YAML file that contains recipes that should be added to the recipe marketplace in the CLI.
+
 
 The recipes defined in this YAML file will then be available to run.
 
@@ -6036,9 +6930,11 @@ mod config recipes yaml install /path/to/yaml
 | ---- | ----------- |
 | `--category` |  The name of the category to install these recipes into. |
 
+
 ## mod config recipes yaml delete
 
 Removes an artifact supplying recipes to the marketplace.
+
 
 The recipes defined by this artifact will then no longer be available to run.
 
@@ -6060,9 +6956,12 @@ mod config recipes yaml delete /path/to/yml
 | ---- | ----------- |
 | `path` |  The path to the YAML file to uninstall. |
 
+
+
 ## mod config run
 
 Configures recipe run behavior.
+
 
 All subsequent runs will use these settings
 
@@ -6072,13 +6971,81 @@ All subsequent runs will use these settings
 mod config run [subcommands]
 ```
 
+
 ### Subcommands
 
+* `polyglot-parallel`: Configure how many polyglot rewrite-rpc requests may run concurrently.
 * `timeout`: Configure the run timeout.
+
+## mod config run polyglot-parallel
+
+Configure how many polyglot rewrite-rpc requests may run concurrently.
+
+
+Caps the number of in-flight visit/parse/generate calls to Python, JavaScript, .NET, and Go rewrite-rpc subprocesses across a single recipe run. Each subprocess is unbounded in memory; this knob caps how many can be actively executing at the same time so the host running the CLI does not exhaust RAM. Pure-Java recipes are unaffected.
+
+### Usage
+
+```
+mod config run polyglot-parallel [subcommands]
+```
+
+
+### Subcommands
+
+* `delete`: Restore the polyglot rewrite-rpc concurrency cap to the default value.
+* `edit`: Configure the polyglot rewrite-rpc concurrency cap.
+* `show`: Display the configured polyglot rewrite-rpc concurrency cap.
+
+## mod config run polyglot-parallel delete
+
+Restore the polyglot rewrite-rpc concurrency cap to the default value.
+
+
+### Usage
+
+```
+mod config run polyglot-parallel delete
+```
+
+
+
+## mod config run polyglot-parallel edit
+
+Configure the polyglot rewrite-rpc concurrency cap.
+
+
+### Usage
+
+```
+mod config run polyglot-parallel edit [parameters]
+```
+
+### Parameters
+
+| Name | Description |
+| ---- | ----------- |
+| `parallel` |  Maximum number of polyglot rewrite-rpc requests in flight at once. Sized to host memory headroom. Allowed range: 1-64. |
+
+
+
+## mod config run polyglot-parallel show
+
+Display the configured polyglot rewrite-rpc concurrency cap.
+
+
+### Usage
+
+```
+mod config run polyglot-parallel show
+```
+
+
 
 ## mod config run timeout
 
 Configure the run timeout.
+
 
 Limits the amount of time the CLI will wait for a single execution of a recipe run.
 
@@ -6087,6 +7054,7 @@ Limits the amount of time the CLI will wait for a single execution of a recipe r
 ```
 mod config run timeout [subcommands]
 ```
+
 
 ### Subcommands
 
@@ -6097,6 +7065,7 @@ mod config run timeout [subcommands]
 ## mod config run timeout delete
 
 Restores the configured run timeout to the default value.
+
 
 ### Usage
 
@@ -6111,9 +7080,11 @@ mod config run timeout delete
 | `--local` |  Apply this command recursively to all repositories found within the specified directory path, modifying each repository's git-ignored file **.moderne/moderne-uncommitted.yml**<br/>Has no impact on the global configuration. |
 | `--save` |  Apply the operation to the file **.moderne/moderne.yml** which can be committed to source control as opposed to the git-ignored variant.<br/>Can only be used with `--local`.<br/>Has no effect on the global configuration. |
 
+
 ## mod config run timeout edit
 
 Configure the timeout for recipe runs.
+
 
 Limits the amount of time the CLI will wait for a single execution of a recipe run.
 
@@ -6136,9 +7107,11 @@ mod config run timeout edit [parameters]
 | `--local` |  Apply this command recursively to all repositories found within the specified directory path, modifying each repository's git-ignored file **.moderne/moderne-uncommitted.yml**<br/>Has no impact on the global configuration. |
 | `--save` |  Apply the operation to the file **.moderne/moderne.yml** which can be committed to source control as opposed to the git-ignored variant.<br/>Can only be used with `--local`.<br/>Has no effect on the global configuration. |
 
+
 ## mod config run timeout show
 
 Displays the configured run timeout.
+
 
 ### Usage
 
@@ -6153,15 +7126,20 @@ mod config run timeout show
 | `--local` |  Apply this command recursively to all repositories found within the specified directory path, modifying each repository's git-ignored file **.moderne/moderne-uncommitted.yml**<br/>Has no impact on the global configuration. |
 | `--save` |  Apply the operation to the file **.moderne/moderne.yml** which can be committed to source control as opposed to the git-ignored variant.<br/>Can only be used with `--local`.<br/>Has no effect on the global configuration. |
 
+
 ## mod config scm (deprecated)
 
 (DEPRECATED) Configures source code management.
+
+
+
 
 ### Usage
 
 ```
 mod config scm [subcommands]
 ```
+
 
 ### Subcommands
 
@@ -6173,6 +7151,9 @@ mod config scm [subcommands]
 ## mod config scm moderne (deprecated)
 
 (DEPRECATED) Configures the SCM configuration with Moderne
+
+
+
 
 ### Usage
 
@@ -6186,6 +7167,7 @@ mod config scm moderne [subcommands]
 mod config scm moderne sync
 ```
 
+
 ### Subcommands
 
 * `sync`: Synchronizes the SCM configuration with your Moderne instance
@@ -6194,13 +7176,19 @@ mod config scm moderne sync
 
 Synchronizes the SCM configuration with your Moderne instance
 
+
+
+
 ### Usage
 
 ```
 mod config scm moderne sync
 ```
 
+
+
 ## mod config scm add (deprecated)
+
 
 (DEPRECATED) Add an SCM configuration
 
@@ -6223,7 +7211,9 @@ mod config scm add [parameters]
 | ---- | ----------- |
 | `--alternate-url` |  Alternate SCM URLs |
 
+
 ## mod config scm remove (deprecated)
+
 
 (DEPRECATED) Remove an SCM configuration by type and URL
 
@@ -6240,9 +7230,12 @@ mod config scm remove [parameters]
 | `type` |  |
 | `baseUrl` |  |
 
+
+
 ## mod config scm show (deprecated)
 
 (DEPRECATED) Displays the configured SCMs
+
 
 ### Usage
 
@@ -6250,9 +7243,12 @@ mod config scm remove [parameters]
 mod config scm show
 ```
 
+
+
 ## mod devcenter
 
 Generate DevCenter dashboards.
+
 
 Generate a dashboard from a DevCenter recipe run for each organization.
 
@@ -6283,9 +7279,11 @@ mod devcenter /path/to/organization
 | `--recipe-run` |  A recipe run ID listed by **mod run-history** |
 | `--search` |  A search run ID to filter repositories to only those with matches. |
 
+
 ## mod exec
 
 Execute an arbitrary shell command on selected repositories and partitions.
+
 
 If you want to execute a command that contains positional parameters, please ensure that you use the end-of-options POSIX delimiter (**--**) before your command.
 
@@ -6336,15 +7334,20 @@ mod exec /path/to/project rm *.hprof
 | `--search` |  A search run ID to filter repositories to only those with matches. |
 | `--trace-tag` |  Tags to add as extra columns to the trace.csv emitted by this command. Each tag becomes a column with header `tag.<key>` and the supplied value. Repeat the option to add multiple tags. |
 
+
 ## mod factory
 
 (INCUBATING) Automated recipe improvement through gap analysis.
+
+
+
 
 ### Usage
 
 ```
 mod factory [subcommands]
 ```
+
 
 ### Subcommands
 
@@ -6353,6 +7356,7 @@ mod factory [subcommands]
 ## mod factory run
 
 (INCUBATING) Goal-driven recipe factory with 5-phase pipeline.
+
 
 Given a desired outcome, runs a 5-phase pipeline: (1) LST seeding, (2) goal analysis (recipes, strategy, continuous mode), (3) per-repo agent sessions with LST repair and self-reflection, (4) output production (PRs or impact reports), (5) continuous loop if indicated. The goal can be a short phrase or a detailed document — the analysis agent infers all operational parameters from it. Notifications are sent to channels configured via 'mod config comms'.
 
@@ -6382,15 +7386,20 @@ mod factory run /path/to/working-set "Upgrade to Java 25"
 | `--max-iterations` |  Maximum improvement iterations per repository. Default: 5 |
 | `--resume` |  Resume a previous factory run by its run ID. Skips already-completed repositories. |
 
+
 ## mod git
 
 Multi-repository git operations.
+
+
+
 
 ### Usage
 
 ```
 mod git [subcommands]
 ```
+
 
 ### Subcommands
 
@@ -6412,6 +7421,7 @@ mod git [subcommands]
 ## mod git add
 
 Performs the equivalent of **git add** on multiple repositories.
+
 
 Rather than applying **git add** one at a time, this operates on multiple repositories.
 
@@ -6443,9 +7453,11 @@ mod git add /path/to/project --recipe-run <recipe-run-id>
 | `--search` |  A search run ID to filter repositories to only those with matches. |
 | `--trace-tag` |  Tags to add as extra columns to the trace.csv emitted by this command. Each tag becomes a column with header `tag.<key>` and the supplied value. Repeat the option to add multiple tags. |
 
+
 ## mod git apply
 
 Performs the equivalent of **git apply** on multiple repositories.
+
 
 Rather than applying one patch at a time, this operates on multiple repositories.
 
@@ -6477,9 +7489,11 @@ mod git apply /path/to/project --recipe-run 20230903164310-2qVRM
 | `--search` |  A search run ID to filter repositories to only those with matches. |
 | `--trace-tag` |  Tags to add as extra columns to the trace.csv emitted by this command. Each tag becomes a column with header `tag.<key>` and the supplied value. Repeat the option to add multiple tags. |
 
+
 ## mod git checkout
 
 Performs the equivalent of **git checkout** on multiple repositories.
+
 
 Rather than checking out one repository at a time, this operates on multiple repositories.
 
@@ -6513,9 +7527,11 @@ mod git checkout /path/to/project
 | `--search` |  A search run ID to filter repositories to only those with matches. |
 | `--trace-tag` |  Tags to add as extra columns to the trace.csv emitted by this command. Each tag becomes a column with header `tag.<key>` and the supplied value. Repeat the option to add multiple tags. |
 
+
 ## mod git clone (deprecated)
 
 (DEPRECATED) List of repositories can be sourced from different places, like Moderne or a CSV. All clone operations can be performed in parallel by opt in via **--parallel=0 **.
+
 
 ### Usage
 
@@ -6529,6 +7545,7 @@ mod git clone [subcommands]
 mod git clone moderne /path/to/folder/to/clone/into Apache
 ```
 
+
 ### Subcommands
 
 * `csv`: (DEPRECATED) Clones the repositories listed in a CSV file.
@@ -6537,6 +7554,7 @@ mod git clone moderne /path/to/folder/to/clone/into Apache
 ## mod git clone csv (deprecated)
 
 (DEPRECATED) Clones the repositories listed in a CSV file.
+
 
 The CSV file should have a header row with the required column **cloneUrl** and any number of optional columns. The optional columns are **branch, changeset, java, jvmOpts, mavenArgs, gradleArgs, bazelRule**. All clone operations can be performed in parallel by opt in via **--parallel=0**.
 
@@ -6563,12 +7581,15 @@ mod git clone csv [parameters]
 | `--parallel` |  (INCUBATING) Run the command in parallel. Setting this option to 2 or more causes the command to run with a fixed-size thread pool with that many threads. Setting this to 1 causes the command to run sequentially. Setting this to 0 runs the command with a thread pool sized to the number of CPU cores on your machine. Setting this to a negative number runs the command with a fixed-size thread pool equal to the number of CPU cores minus the absolute value of that number. For example, `-1` runs the command with (cores-1) threads. |
 | `--save` |  If the CSV has per repository configuration like custom build tool options, JVM configuration, etc. save that configuration in a **.moderne/moderne.yml** which can be committed to source control. |
 | `--single-branch` |  Equivalent to the **git clone --single-branch** option. |
+| `--trace-tag` |  Tags to add as extra columns to the trace.csv emitted by this command. Each tag becomes a column with header `tag.<key>` and the supplied value. Repeat the option to add multiple tags. |
 | `--with-lsts` |  Whether to download LSTs for the repositories. |
 | `--with-sources` |  Whether to clone the repository at the specified branch. |
+
 
 ## mod git clone moderne (deprecated)
 
 (DEPRECATED) Clones the repositories in an organization on Moderne.
+
 
 This redirects to **mod git sync moderne** instead, which is a superset of the original behavior of this command.
 
@@ -6598,9 +7619,11 @@ mod git clone moderne [parameters]
 | `--with-lsts` |  Whether to download LSTs for the repositories. |
 | `--with-sources` |  Whether to clone the repository at the specified branch. |
 
+
 ## mod git commit
 
 Performs the equivalent of **git commit** on multiple repositories.
+
 
 Rather than applying one commit at a time, this operates on multiple repositories.
 
@@ -6638,9 +7661,11 @@ mod git commit /path/to/project -m "commit message"
 | `--search` |  A search run ID to filter repositories to only those with matches. |
 | `--trace-tag` |  Tags to add as extra columns to the trace.csv emitted by this command. Each tag becomes a column with header `tag.<key>` and the supplied value. Repeat the option to add multiple tags. |
 
+
 ## mod git pull
 
 Performs the equivalent of **git pull** on multiple repositories.
+
 
 Rather than pulling one repository at a time, this operates on multiple repositories.
 
@@ -6668,9 +7693,11 @@ mod git pull /path/to/project
 | ---- | ----------- | ---------- |
 | `--rebase` |  Pull with rebase or not. | `github.com` |
 
+
 ## mod git push
 
 Performs the equivalent of **git push** on multiple repositories.
+
 
 Rather than pushing one repository at a time, this operates on multiple repositories.
 
@@ -6706,9 +7733,11 @@ mod git push /path/to/project -u origin feature-branch
 | `--trace-tag` |  Tags to add as extra columns to the trace.csv emitted by this command. Each tag becomes a column with header `tag.<key>` and the supplied value. Repeat the option to add multiple tags. |
 | `-u`, `--set-upstream` |  For every branch that is up to date or successfully pushed, add upstream (tracking) reference. |
 
+
 ## mod git reset
 
 Performs the equivalent of **git reset** on multiple repositories.
+
 
 Rather than applying one stash at a time, this operates on multiple repositories.
 
@@ -6736,9 +7765,11 @@ mod git reset /path/to/project
 | ---- | ----------- |
 | `--hard` |  Resets the index and working tree. |
 
+
 ## mod git rev-parse
 
 Performs the equivalent of **git rev-parse** on multiple repositories.
+
 
 Rather than applying one rev-parse at a time, this operates on multiple repositories. Arguments passed to **git rev-parse** must be specified after the end-of-options POSIX delimiter (**--**).
 
@@ -6761,9 +7792,12 @@ mod git rev-parse /path/to/project -- --show-toplevel
 | `path` |  The absolute or relative path on disk to a directory containing one or more checked-out Git repositories that you want to operate on. This typically takes the form of targeting a single, checked-out copy of a Git repository or it can be a folder containing a collection of Git repositories that will be discovered by recursively scanning the initial provided directory. | `/path/to/project` |
 | `args` |  |  |
 
+
+
 ## mod git rm
 
 Performs the equivalent of **git rm** on multiple repositories.
+
 
 Rather than applying **git rm** one at a time, this operates on multiple repositories.
 
@@ -6792,9 +7826,11 @@ mod git rm /path/to/project .DS_Store
 | ---- | ----------- |
 | `--cached` |  Only remove from the index, leaving working tree files in place. |
 
+
 ## mod git stashset
 
 Performs the equivalent of **git stash** on multiple repositories.
+
 
 Rather than applying one stash at a time, this operates on multiple repositories.
 
@@ -6812,6 +7848,7 @@ mod git stashset [subcommands]
 mod git stashset /path/to/project
 ```
 
+
 ### Subcommands
 
 * `apply`: Performs the equivalent of **git stash apply** on multiple repositories.
@@ -6820,6 +7857,9 @@ mod git stashset /path/to/project
 ## mod git stashset apply
 
 Performs the equivalent of **git stash apply** on multiple repositories.
+
+
+
 
 ### Usage
 
@@ -6840,9 +7880,13 @@ mod git stashset apply [parameters]
 | ---- | ----------- |
 | `--force` |  Pop the stash after applying it, regardless of whether it made a change. |
 
+
 ## mod git stashset push
 
 Performs the equivalent of **git stash push** on multiple repositories.
+
+
+
 
 ### Usage
 
@@ -6862,9 +7906,11 @@ mod git stashset push [parameters]
 | ---- | ----------- |
 | `-u`, `--include-untracked` |  Include untracked files. |
 
+
 ## mod git sync
 
 Synchronizing the state of an organization on disk.
+
 
 Synchronizes the set of repositories on disk to a source of repositories and at what branch and changeset they should be.
 
@@ -6874,6 +7920,7 @@ Synchronizes the set of repositories on disk to a source of repositories and at 
 mod git sync [subcommands]
 ```
 
+
 ### Subcommands
 
 * `csv`: Synchronizes the repositories and metadata of an organization from a local repos.csv file.
@@ -6882,6 +7929,7 @@ mod git sync [subcommands]
 ## mod git sync csv
 
 Synchronizes the repositories and metadata of an organization from a local repos.csv file.
+
 
 Synchronize repositories and metadata to **path** using a local repos.csv **csv** file. The CSV must include a **cloneUrl** column. A flat directory structure is used unless one or more **orgN** columns are present. By default, repositories do not include source code. Use **--with-sources** to clone sources. If a **publishUri** column is present, associated LSTs will also be downloaded.
 
@@ -6913,9 +7961,11 @@ mod git sync csv [parameters]
 | `--with-lsts` |  Whether to download LSTs for the repositories. |
 | `--with-sources` |  Whether to clone the repository at the specified branch. |
 
+
 ## mod git sync moderne
 
 Synchronizes the state of an organization with Moderne.
+
 
 The repositories are cloned or pulled at the same branch and changeset of the LST that represents that repository in the organization in Moderne so that a subsequent **mod build** will trivially match and download the LST from Moderne. If the repository has local changes or is on a different branch no changes will be made.
 
@@ -6953,9 +8003,11 @@ mod git sync moderne /path/to/organization --organization <ORG_NAME>
 | `--with-lsts` |  Whether to download LSTs for the repositories. |
 | `--with-sources` |  Whether to clone the repository at the specified branch. |
 
+
 ## mod git status
 
 Performs the equivalent of **git status** on multiple repositories.
+
 
 Rather than applying **git status** one at a time, this operates on multiple repositories.
 
@@ -6977,9 +8029,12 @@ mod git status /path/to/project
 | ---- | ----------- | ---------- |
 | `path` |  The absolute or relative path on disk to a directory containing one or more checked-out Git repositories that you want to operate on. This typically takes the form of targeting a single, checked-out copy of a Git repository or it can be a folder containing a collection of Git repositories that will be discovered by recursively scanning the initial provided directory. | `/path/to/project` |
 
+
+
 ## mod log
 
 Manages a log aggregate.
+
 
 Used to understand holistically how a build performed on many repositories. In contrast to a CI build log which is designed to look at one repository at a time, a log aggregate is designed to look at many repositories at once, illuminating the common causes of failure (or success) and the overall health of the ingestion process.
 
@@ -6988,6 +8043,7 @@ Used to understand holistically how a build performed on many repositories. In c
 ```
 mod log [subcommands]
 ```
+
 
 ### Subcommands
 
@@ -7000,6 +8056,7 @@ mod log [subcommands]
 
 Adds a set of build logs to a log aggregate.
 
+
 In contrast to a CI build log which is designed to look at one repository at a time, a log aggregate is designed to look at many repositories at once, illuminating the common causes of failure (or success) and the overall health of the ingestion process.
 
 ### Usage
@@ -7008,6 +8065,7 @@ In contrast to a CI build log which is designed to look at one repository at a t
 mod log builds [subcommands]
 ```
 
+
 ### Subcommands
 
 * `add`: Adds a set of build logs to a log aggregate.
@@ -7015,6 +8073,7 @@ mod log builds [subcommands]
 ## mod log builds add
 
 Adds a set of build logs to a log aggregate.
+
 
 For each repository that has a matching build, add its build log to the aggregate.
 
@@ -7038,9 +8097,11 @@ mod log builds add [parameters]
 | `--build` |  A build ID for a build that has completed previously. |
 | `--last-build` |  Select whatever the last build was, whether the build ran fully to completion or terminated early. |
 
+
 ## mod log execs
 
 Adds a set of exec logs to a log aggregate.
+
 
 In contrast to a CI log which is designed to look at one repository at a time, a log aggregate is designed to look at many repositories at once, illuminating the common causes of failure (or success) and the overall health of an exec operation.
 
@@ -7050,6 +8111,7 @@ In contrast to a CI log which is designed to look at one repository at a time, a
 mod log execs [subcommands]
 ```
 
+
 ### Subcommands
 
 * `add`: Adds a set of exec logs to a log aggregate.
@@ -7057,6 +8119,7 @@ mod log execs [subcommands]
 ## mod log execs add
 
 Adds a set of exec logs to a log aggregate.
+
 
 For each repository that has a matching exec, add its exec log to the aggregate.
 
@@ -7080,9 +8143,11 @@ mod log execs add [parameters]
 | `--exec` |  An exec ID for an exec that has completed previously. |
 | `--last-exec` |  Select whatever the last exec was, whether the exec ran fully to completion or terminated early. |
 
+
 ## mod log runs
 
 Adds a set of run logs to a log aggregate.
+
 
 In contrast to a CI log which is designed to look at one repository at a time, a log aggregate is designed to look at many repositories at once, illuminating the common causes of failure (or success) and the overall health of a recipe run.
 
@@ -7092,6 +8157,7 @@ In contrast to a CI log which is designed to look at one repository at a time, a
 mod log runs [subcommands]
 ```
 
+
 ### Subcommands
 
 * `add`: Adds a set of run logs to a log aggregate.
@@ -7099,6 +8165,7 @@ mod log runs [subcommands]
 ## mod log runs add
 
 Adds a set of run logs to a log aggregate.
+
 
 For each repository that has a matching run, add its run log to the aggregate.
 
@@ -7126,9 +8193,11 @@ mod log runs add [parameters]
 | `--run` |  (DEPRECATED) use (DEPRECATED) use @|--recipe-run|@ instead. |
 | `--search` |  A search run ID to filter repositories to only those with matches. |
 
+
 ## mod log syncs
 
 Adds a set of sync logs to a log aggregate.
+
 
 In contrast to a CI log which is designed to look at one repository at a time, a log aggregate is designed to look at many repositories at once, illuminating the common causes of failure (or success) and the overall health of a sync operation.
 
@@ -7138,6 +8207,7 @@ In contrast to a CI log which is designed to look at one repository at a time, a
 mod log syncs [subcommands]
 ```
 
+
 ### Subcommands
 
 * `add`: Adds a set of sync logs to a log aggregate.
@@ -7145,6 +8215,7 @@ mod log syncs [subcommands]
 ## mod log syncs add
 
 Adds a set of sync logs to a log aggregate.
+
 
 For each repository that has a matching sync, add its sync log to the aggregate.
 
@@ -7168,9 +8239,13 @@ mod log syncs add [parameters]
 | `--last-sync` |  Select whatever the last sync was, whether the sync ran fully to completion or terminated early. |
 | `--sync` |  A sync ID for a sync that has completed previously. |
 
+
 ## mod list
 
 Lists the repositories that can be built and published.
+
+
+
 
 ### Usage
 
@@ -7196,9 +8271,11 @@ mod list /path/to/project
 | ---- | ----------- |
 | `--json` |  (INCUBATING) Output the repository listing in JSON. The format of this JSON is unsettled at this point, and the data structuremay change. |
 
+
 ## mod monitor
 
 (INCUBATING) Launches an HTTP server used to monitor the CLI.
+
 
 This command will launch an HTTP server and block, so should be used in combination with backgrounding the process and redirecting its output as needed. The server will respond to GET requests on `http://localhost:<PORT>/prometheus` in the Prometheus exposition format.
 
@@ -7214,54 +8291,30 @@ mod monitor
 | ---- | ----------- |
 | `--port` |  The port to listen on. Default is 8080. |
 
-## mod postbuild
 
-Post-build operations on LST artifacts.
+## mod prebuild
 
-Operations that can be performed on already-built LST artifacts, such as generating search indexes from downloaded LSTs.
+Extracts build metadata without parsing source files.
 
-### Usage
 
-```
-mod postbuild [subcommands]
-```
+Produces .moderne/prebuild.json containing source sets, classpaths, and markers for each build step. A subsequent 'mod build' reads this file and skips the prebuild phase if inputs are up-to-date.
 
-### Subcommands
+This command is useful for:
+  - Diagnosing build issues (see exactly what source sets and classpaths were discovered)
+  - Pre-warming builds (run prebuild on CI, then build locally)
+  - Custom build tools (produce the prebuild format yourself, then run 'mod build')
 
-* `search`: Trigram search index operations.
-
-## mod postbuild search
-
-Trigram search index operations.
-
-Manage Trigrep search indexes for repositories.
 
 ### Usage
 
 ```
-mod postbuild search [subcommands]
-```
-
-### Subcommands
-
-* `index`: Generate search indexes from existing LSTs.
-
-## mod postbuild search index
-
-Generate search indexes from existing LSTs.
-
-Generates Trigrep search indexes for repositories that have LST artifacts but were built without search indexing enabled. The indexes are written to **.moderne/mcp/search/** in each repository. Executed on multiple repositories in parallel by default, but can be opted out with **--parallel=1**.
-
-### Usage
-
-```
-mod postbuild search index [parameters]
+mod prebuild [parameters]
 ```
 
 ### Examples
 
 ```
-mod postbuild search index /path/to/organization
+mod prebuild /path/to/project
 ```
 
 ### Parameters
@@ -7274,12 +8327,14 @@ mod postbuild search index /path/to/organization
 
 | Name | Description |
 | ---- | ----------- |
-| `--force`, `-f` |  Regenerate index even if one already exists |
-| `--parallel` |  (INCUBATING) Run the command in parallel. Setting this option to 2 or more causes the command to run with a fixed-size thread pool with that many threads. Setting this to 1 causes the command to run sequentially. Setting this to 0 runs the command with a thread pool sized to the number of CPU cores on your machine. Setting this to a negative number runs the command with a fixed-size thread pool equal to the number of CPU cores minus the absolute value of that number. For example, `-1` runs the command with (cores-1) threads. |
+| `--offline` |  When an underlying build tool has an offline mode, enable it. |
+| `--refresh` |  Force a rebuild of prebuild results, ignoring any cached metadata. |
+
 
 ## mod publish
 
 Publishes the LST artifacts for one or more projects.
+
 
 Once published to your artifact repository, Moderne will be able to ingest them and they will, in turn, be usable inside of Moderne.
 
@@ -7309,9 +8364,11 @@ mod publish /path/to/project
 | ---- | ----------- |
 | `--trace-tag` |  Tags to add as extra columns to the trace.csv emitted by this command. Each tag becomes a column with header `tag.<key>` and the supplied value. Repeat the option to add multiple tags. |
 
+
 ## mod run
 
 Runs an OpenRewrite recipe locally on pre-built LSTs.
+
 
 You must run the **mod build** command before this command will work. You also must set up a connection to moderne (**mod config moderne**) and install recipes (**mod config recipes**) for this command to work.
 
@@ -7351,9 +8408,13 @@ mod run /path/to/project \
 | `--streaming` |  (INCUBATING) Stream results from the recipe run to the console as they are produced. This is intended to be machine readable for the creation of incremental experiences like usage search in the IDE. Executes the recipe in parallel by default. |  |
 | `--trace-tag` |  Tags to add as extra columns to the trace.csv emitted by this command. Each tag becomes a column with header `tag.<key>` and the supplied value. Repeat the option to add multiple tags. |  |
 
+
 ## mod run-history
 
 Get information about the most recent recipe runs. This will be transitioning to **mod audit runs list** eventually. A deprecation notice will be added here when we suggest adopting the alternative.
+
+
+
 
 ### Usage
 
@@ -7374,11 +8435,13 @@ mod run-history [parameters]
 | `--json` |  (INCUBATING) Output the run history in JSON. The format of this JSON is unsettled at this point, and the data structuremay change. |
 | `--most-recent` |  Only show the most recent run of each recipe. |
 
+
 ## mod search
 
 Search repositories using trigram indexes.
 
-Searches pre-built trigram indexes for each repository in the working set. Run **mod postbuild search index** to generate the indexes.
+
+Searches the pre-built trigram sidecars (**.tri** files) emitted by **mod build** for each repository in the working set. Repositories without a current V3 LST (or whose LST predates trigram indexing) are skipped; rebuild them with **mod build**.%n%nQuery parts are joined with spaces (implicit AND) and passed straight to the query parser. To search for a literal phrase containing spaces, preserve the quotes through your shell, e.g. **'"phrase search"'**.
 
 ### Usage
 
@@ -7403,13 +8466,15 @@ mod search /path/to/working-set "@Autowired"
 
 | Name | Description |
 | ---- | ----------- |
-| `-m`, `--max` |  Maximum number of results per repository (default: 100) |
+| `-m`, `--max` |  Maximum number of results per repository (default: 100). An explicit **count:** filter in the query overrides this. |
 | `--output` |  Output mode: rich (default, highlighted diffs with run directory) or plain (fast text output) |
 | `--syntax` |  Query syntax: sourcegraph (default) or zoekt |
+
 
 ## mod study
 
 Produces studies from OpenRewrite recipe data tables locally.
+
 
 Data tables are an important part of performing large scale impact analyses on source code.
 
@@ -7444,9 +8509,50 @@ mod study /path/to/project --last-recipe-run --data-table <DATA-TABLE-NAME>
 | `--recipe-run` |  A recipe run ID listed by **mod run-history** |
 | `--template` |  |
 
+
+## mod telemetry
+
+Manage CLI telemetry pushed to the configured Moderne tenant.
+
+
+Telemetry pushes automatically when the CLI refreshes its license lease. Use subcommands to flush the local queue on demand.
+
+### Usage
+
+```
+mod telemetry [subcommands]
+```
+
+
+### Subcommands
+
+* `publish`: Push queued CLI telemetry to the configured Moderne tenant.
+
+## mod telemetry publish
+
+Push queued CLI telemetry to the configured Moderne tenant.
+
+
+Drains the local telemetry queue at **~/.moderne/cli/trace/** to the tenant gateway. Telemetry normally pushes automatically when the CLI refreshes its license lease — use this command to flush on demand.%n%nExits non-zero if any traces moved to **failed/** during this run (gateway rejected as misconfigured).
+
+### Usage
+
+```
+mod telemetry publish
+```
+
+### Examples
+
+```
+mod telemetry publish
+```
+
+
+
 ## mod trace
 
 Manages trace analysis tools.
+
 
 Analyze build and run traces with failure classification using ML-powered techniques (not AI or LLM based) and interactive visualization.
 
@@ -7455,6 +8561,7 @@ Analyze build and run traces with failure classification using ML-powered techni
 ```
 mod trace [subcommands]
 ```
+
 
 ### Subcommands
 
@@ -7466,6 +8573,7 @@ mod trace [subcommands]
 
 Build trace analysis tools.
 
+
 Analyze build traces to understand common failure patterns and build health metrics.
 
 ### Usage
@@ -7474,6 +8582,7 @@ Analyze build traces to understand common failure patterns and build health metr
 mod trace builds [subcommands]
 ```
 
+
 ### Subcommands
 
 * `analyze`: Launch interactive build trace analyzer.
@@ -7481,6 +8590,7 @@ mod trace builds [subcommands]
 ## mod trace builds analyze
 
 Launch interactive build trace analyzer.
+
 
 Launches a web-based trace analyzer with ML-powered failure classification. The analyzer pre-processes all build failures, clusters similar issues, and provides an interactive interface to explore build patterns and failure root causes.
 
@@ -7494,7 +8604,7 @@ mod trace builds analyze [parameters]
 
 | Name | Description | Examples |
 | ---- | ----------- | ---------- |
-| `path` |  Path to a project directory or a log.zip file containing trace data. | • `/path/to/project`<br/>• `log.zip` |
+| `paths` |  A project directory, or one or more log.zip files containing trace data. | • `/path/to/project`<br/>• `log.zip`<br/>• `log-1.zip log-2.zip` |
 
 ### Options
 
@@ -7503,9 +8613,11 @@ mod trace builds analyze [parameters]
 | `--build` |  A build ID for a build that has completed previously. |
 | `--last-build` |  Select whatever the last build was, whether the build ran fully to completion or terminated early. |
 
+
 ## mod trace runs
 
 Run trace analysis tools.
+
 
 Analyze run traces to understand recipe execution patterns and results.
 
@@ -7515,6 +8627,7 @@ Analyze run traces to understand recipe execution patterns and results.
 mod trace runs [subcommands]
 ```
 
+
 ### Subcommands
 
 * `analyze`: Launch interactive run trace analyzer.
@@ -7522,6 +8635,7 @@ mod trace runs [subcommands]
 ## mod trace runs analyze
 
 Launch interactive run trace analyzer.
+
 
 Launches a web-based trace analyzer for recipe run results. The analyzer provides an interactive interface to explore run patterns, recipe distributions, and execution metrics.
 
@@ -7544,9 +8658,11 @@ mod trace runs analyze [parameters]
 | `--last-run` |  Select whatever the last run was, whether the run completed fully or terminated early. |
 | `--run` |  A run ID for a run that has completed previously. |
 
+
 ## mod trace syncs
 
 Sync trace analysis tools.
+
 
 Analyze sync traces to understand repository synchronization patterns and results.
 
@@ -7556,6 +8672,7 @@ Analyze sync traces to understand repository synchronization patterns and result
 mod trace syncs [subcommands]
 ```
 
+
 ### Subcommands
 
 * `analyze`: Launch interactive sync trace analyzer.
@@ -7563,6 +8680,7 @@ mod trace syncs [subcommands]
 ## mod trace syncs analyze
 
 Launch interactive sync trace analyzer.
+
 
 Launches a web-based trace analyzer for sync results. The analyzer provides an interactive interface to explore sync patterns, clone operations, and synchronization metrics.
 
@@ -7576,7 +8694,7 @@ mod trace syncs analyze [parameters]
 
 | Name | Description | Examples |
 | ---- | ----------- | ---------- |
-| `path` |  Path to a project directory or a log.zip file containing trace data. | • `/path/to/project`<br/>• `log.zip` |
+| `paths` |  A project directory, or one or more log.zip files containing trace data. | • `/path/to/project`<br/>• `log.zip`<br/>• `log-1.zip log-2.zip` |
 
 ### Options
 
@@ -7585,9 +8703,11 @@ mod trace syncs analyze [parameters]
 | `--last-sync` |  Select whatever the last sync was, whether the sync ran fully to completion or terminated early. |
 | `--sync` |  A sync ID for a sync that has completed previously. |
 
+
 ## mod wrapper
 
 Create or configure a Moderne wrapper.
+
 
 Creates a project-local wrapper (modw, modw.cmd, moderne/wrapper/moderne-wrapper.properties) or configures the global CLI installation with --global.
 
@@ -7608,5 +8728,7 @@ mod wrapper
 | `--distribution-url` |  Custom URL template for downloading the CLI distribution. Supports null and null placeholders. |
 | `--distribution-username` |  Username for authenticated distribution downloads (stored in moderne/wrapper/moderne-wrapper.properties, or ~/.moderne/cli/dist/moderne-wrapper.properties with --global). |
 | `--global` |  Configure the global CLI installation instead of creating a project-local wrapper. |
+| `--jdk-url` |  URL template for a JDK archive, used when no bundled JRE or system JDK is found. Supports null and null placeholders. Set to 'skip' to disable JDK auto-download (useful for air-gapped environments where Java is available via MODERNE_JAVA_HOME or PATH). |
 | `--version` |  CLI version to pin in the wrapper properties. Defaults to the currently-running CLI version. |
+
 
