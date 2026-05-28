@@ -13,6 +13,19 @@ import type {Props} from '@theme/Admonition/Layout';
 
 import styles from './styles.module.css';
 
+const admonitionAriaLabels: Record<string, string> = {
+  note: 'Note',
+  tip: 'Tip',
+  info: 'Info',
+  warning: 'Warning',
+  danger: 'Danger',
+  caution: 'Caution',
+  summary: 'Summary',
+  important: 'Important',
+  secondary: 'Note',
+  success: 'Tip',
+};
+
 function AdmonitionContainer({
   type,
   className,
@@ -21,6 +34,8 @@ function AdmonitionContainer({
 }: Pick<Props, 'type' | 'className' | 'id'> & {children: ReactNode}) {
   return (
     <div
+      role="note"
+      aria-label={admonitionAriaLabels[type] ?? type}
       className={clsx(
         ThemeClassNames.common.admonition,
         ThemeClassNames.common.admonitionType(type),
