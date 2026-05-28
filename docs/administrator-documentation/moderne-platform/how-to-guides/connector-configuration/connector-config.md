@@ -445,13 +445,15 @@ Moderne supports the following recipe marketplace registry types:
 * **NuGet** feeds
 * **PyPI** indexes
 
-:::info[Defaults and override behavior]
-If no Maven recipe marketplace repositories are configured, Moderne SaaS falls back to the following defaults:
+:::info[At least one Maven repository is required]
+Moderne does not fall back to Maven Central or any other public registry. You must explicitly configure at least one Maven recipe marketplace repository that hosts every recipe artifact (and its transitive dependencies) you intend to deploy.
 
-* `https://repo.maven.apache.org/maven2` (Maven Central — releases only)
-* `https://central.sonatype.com/repository/maven-snapshots/` (Sonatype — snapshots only)
+For recipes published by OpenRewrite (for example, `org.openrewrite:rewrite-core`), the simplest options are:
 
-Once you configure one or more Maven repositories, only those are searched — the defaults above are not merged in, so you will need to list Maven Central and Sonatype snapshots explicitly to keep them. PyPI, NuGet, and NPM have no defaults.
+* Maven Central: `https://repo.maven.apache.org/maven2/` (releases)
+* Sonatype snapshots: `https://central.sonatype.com/repository/maven-snapshots/` (snapshots)
+
+If you proxy public artifacts through an internal Nexus or Artifactory, point the Connector at that mirror instead. PyPI, NuGet, and NPM also have no defaults: each ecosystem must be explicitly configured.
 :::
 
 For the full list of variables/arguments, please see the [recipe marketplace repositories guide](./configure-recipe-marketplace-repositories.md).

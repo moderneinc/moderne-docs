@@ -19,8 +19,8 @@ Recipe marketplace repositories are configured under the `moderne.recipe.marketp
 
 The variables/arguments in the tables below must be combined with ones found in other steps in the [Configuring the Moderne Connector guide](./connector-config.md).
 
-:::info[Defaults and override behavior]
-If no Maven recipe marketplace repositories are configured, the Moderne Platform falls back to Maven Central (`https://repo.maven.apache.org/maven2`, releases only) and Sonatype snapshots (`https://central.sonatype.com/repository/maven-snapshots/`, snapshots only). Once you configure one or more Maven repositories below, only those are searched — the defaults are not merged in, so you will need to list Maven Central and Sonatype snapshots explicitly to keep them. PyPI, NuGet, and NPM have no defaults.
+:::info[At least one Maven repository is required]
+The Moderne Platform does not fall back to Maven Central or any other public registry. You must explicitly configure at least one Maven repository below that hosts every recipe artifact (and its transitive dependencies) you intend to deploy. If you are using OpenRewrite recipes, that typically means configuring Maven Central (`https://repo.maven.apache.org/maven2/`, releases) and Sonatype snapshots (`https://central.sonatype.com/repository/maven-snapshots/`, snapshots), or an internal Nexus or Artifactory that mirrors them. PyPI, NuGet, and NPM have no defaults either: each ecosystem must be explicitly configured.
 :::
 
 ## Recommended OpenRewrite packages
