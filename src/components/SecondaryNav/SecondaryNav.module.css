@@ -39,7 +39,7 @@
 }
 
 .productLink {
-  font-size: var(--neo-font-size-sm);
+  font-size: var(--neo-font-size-default);
   font-weight: var(--neo-font-weight-medium);
   color: var(--ifm-navbar-link-color);
   text-decoration: none;
@@ -70,7 +70,7 @@
   gap: var(--neo-spacing_1_2);
   padding: var(--neo-spacing_1) 0;
   font-family: var(--neo-font-family-body);
-  font-size: var(--neo-font-size-sm);
+  font-size: var(--neo-font-size-default);
   font-weight: var(--neo-font-weight-medium);
   color: var(--ifm-navbar-link-color);
   background: transparent;
