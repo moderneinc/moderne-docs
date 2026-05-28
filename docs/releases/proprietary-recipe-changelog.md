@@ -3889,26 +3889,6 @@ Republishing to update dependencies
 
 ## May 28, 2025
 
-#### rewrite-ai-search - 0.27.1
-
-* Updated repository to use OpenRewrite version v8.54.0
-
-#### rewrite-android - 0.9.1
-
-* Updated repository to use OpenRewrite version v8.54.0
-
-#### rewrite-circleci - 3.5.1
-
-* Updated repository to use OpenRewrite version v8.54.0
-
-#### rewrite-concourse - 3.4.1
-
-* Updated repository to use OpenRewrite version v8.54.0
-
-#### rewrite-dotnet - 0.10.1
-
-* Updated repository to use OpenRewrite version v8.54.0
-
 #### rewrite-hibernate - 0.5.1
 
 * Updated repository to use OpenRewrite version v8.54.0
