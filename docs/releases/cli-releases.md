@@ -17,6 +17,10 @@ The Moderne CLI previously followed a two-track release model with separate "sta
 
 ## Changelog
 
+### CLI / DX 4.2.10 (2026-05-29)
+
+
+
 ### CLI / DX v4.2.3 (2026-05-06)
 
 #### What's Changed

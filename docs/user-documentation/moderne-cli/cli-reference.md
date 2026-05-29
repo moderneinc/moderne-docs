@@ -19,7 +19,6 @@ description: Auto-generated documentation for all Moderne CLI commands.
 * [**mod clean**](#mod-clean)
 * [**mod clean builds**](#mod-clean-builds)
 * [**mod clean runs**](#mod-clean-runs)
-* [**mod clean repos**](#mod-clean-repos)
 * [**mod config**](#mod-config)
 * [**mod config agent-tools**](#mod-config-agent-tools)
 * [**mod config agent-tools install**](#mod-config-agent-tools-install)
@@ -153,6 +152,7 @@ description: Auto-generated documentation for all Moderne CLI commands.
 * [**mod config features inline-diff**](#mod-config-features-inline-diff)
 * [**mod config features lst**](#mod-config-features-lst)
 * [**mod config features no-maven-central**](#mod-config-features-no-maven-central)
+* [**mod config features search**](#mod-config-features-search)
 * [**mod config go**](#mod-config-go)
 * [**mod config go installation**](#mod-config-go-installation)
 * [**mod config go installation edit**](#mod-config-go-installation-edit)
@@ -277,8 +277,6 @@ description: Auto-generated documentation for all Moderne CLI commands.
 * ~~[**mod config recipes artifacts maven edit**](#mod-config-recipes-artifacts-maven-edit-deprecated)~~ (deprecated)
 * [**mod config recipes artifacts maven delete**](#mod-config-recipes-artifacts-maven-delete)
 * [**mod config recipes artifacts maven show**](#mod-config-recipes-artifacts-maven-show)
-* [**mod config recipes csv**](#mod-config-recipes-csv)
-* [**mod config recipes csv sync**](#mod-config-recipes-csv-sync)
 * [**mod config recipes export**](#mod-config-recipes-export)
 * [**mod config recipes export json**](#mod-config-recipes-export-json)
 * [**mod config recipes export csv**](#mod-config-recipes-export-csv)
@@ -310,10 +308,6 @@ description: Auto-generated documentation for all Moderne CLI commands.
 * [**mod config recipes yaml install**](#mod-config-recipes-yaml-install)
 * [**mod config recipes yaml delete**](#mod-config-recipes-yaml-delete)
 * [**mod config run**](#mod-config-run)
-* [**mod config run polyglot-parallel**](#mod-config-run-polyglot-parallel)
-* [**mod config run polyglot-parallel delete**](#mod-config-run-polyglot-parallel-delete)
-* [**mod config run polyglot-parallel edit**](#mod-config-run-polyglot-parallel-edit)
-* [**mod config run polyglot-parallel show**](#mod-config-run-polyglot-parallel-show)
 * [**mod config run timeout**](#mod-config-run-timeout)
 * [**mod config run timeout delete**](#mod-config-run-timeout-delete)
 * [**mod config run timeout edit**](#mod-config-run-timeout-edit)
@@ -359,7 +353,9 @@ description: Auto-generated documentation for all Moderne CLI commands.
 * [**mod log syncs add**](#mod-log-syncs-add)
 * [**mod list**](#mod-list)
 * [**mod monitor**](#mod-monitor)
-* [**mod prebuild**](#mod-prebuild)
+* [**mod postbuild**](#mod-postbuild)
+* [**mod postbuild search**](#mod-postbuild-search)
+* [**mod postbuild search index**](#mod-postbuild-search-index)
 * [**mod publish**](#mod-publish)
 * [**mod run**](#mod-run)
 * [**mod run-history**](#mod-run-history)
@@ -407,7 +403,7 @@ mod [subcommands]
 * `log`: Manages a log aggregate.
 * `list`: Lists the repositories that can be built and published.
 * `monitor`: (INCUBATING) Launches an HTTP server used to monitor the CLI.
-* `prebuild`: Extracts build metadata without parsing source files.
+* `postbuild`: Post-build operations on LST artifacts.
 * `publish`: Publishes the LST artifacts for one or more projects.
 * `run`: Runs an OpenRewrite recipe locally on pre-built LSTs.
 * `run-history`: Get information about the most recent recipe runs. This will be transitioning to **mod audit runs list** eventually. A deprecation notice will be added here when we suggest adopting the alternative.
@@ -600,7 +596,6 @@ If this command executes successfully, the LST artifact for each project will be
 
 If you've set up a connection with Moderne (by running the **mod config moderne** command), this command will attempt to download LST artifacts from Moderne instead of building them locally. This will allow you to quickly run recipes and make changes. If you do not want this command to look for LST artifacts in Moderne, you can add the **--no-download** flag. Executes builds in sequential order, except if the **--download-only** flag is specified.
 
-
 ### Usage
 
 ```
@@ -623,10 +618,10 @@ mod build /path/to/project
 
 | Name | Description |
 | ---- | ----------- |
+| `--download-only` |  Only download LSTs from Moderne. If no download is available, do not build the LST from source. Downloads the LSTs in parallel by default. |
 | `--dry-run` |  Do not actually build the LST(s), but list the steps that would be required to do so. |
-| `--full` |  Force a full prebuild and parse, ignoring any cached prebuild metadata. |
+| `--no-download` |  Do not attempt to download LSTs from Moderne. |
 | `--offline` |  When an underlying build tool has an offline mode, enable it. |
-| `--parallel` |  (INCUBATING) Run the command in parallel. Setting this option to 2 or more causes the command to run with a fixed-size thread pool with that many threads. Setting this to 1 causes the command to run sequentially. Setting this to 0 runs the command with a thread pool sized to the number of CPU cores on your machine. Setting this to a negative number runs the command with a fixed-size thread pool equal to the number of CPU cores minus the absolute value of that number. For example, `-1` runs the command with (cores-1) threads. |
 | `--streaming` |  (INCUBATING) Stream results from the build to the console as they are produced. This is intended to be machine readable for the creation of incremental experiences like in the IDE. |
 | `--trace-tag` |  Tags to add as extra columns to the trace.csv emitted by this command. Each tag becomes a column with header `tag.<key>` and the supplied value. Repeat the option to add multiple tags. |
 
@@ -655,7 +650,6 @@ mod clean builds /path/to/project --keep 1
 
 * `builds`: Clean build artifacts produced by the CLI.
 * `runs`: Clean run artifacts produced by the CLI.
-* `repos`: Clean repositories left in a partial-success state by past sync runs.
 
 ## mod clean builds
 
@@ -719,43 +713,6 @@ mod clean runs /path/to/project --keep 1
 | Name | Description |
 | ---- | ----------- |
 | `--keep` |  Keep this many run artifacts and clean all others. |
-
-
-## mod clean repos
-
-Clean repositories left in a partial-success state by past sync runs.
-
-
-Removes repositories whose latest sync failed (sync-failed), that completed syncing but never built an LST (no-lst), or that exist on disk but are no longer present in the organization structure (not-in-org). These otherwise show up as partial successes in subsequent operations.
-
-### Usage
-
-```
-mod clean repos [parameters]
-```
-
-### Examples
-
-```
-mod clean repos /path/to/project
-
-mod clean repos /path/to/project --dry-run
-```
-
-### Parameters
-
-| Name | Description | Example |
-| ---- | ----------- | ---------- |
-| `path` |  The absolute or relative path on disk to a directory containing one or more checked-out Git repositories that you want to operate on. This typically takes the form of targeting a single, checked-out copy of a Git repository or it can be a folder containing a collection of Git repositories that will be discovered by recursively scanning the initial provided directory. | `/path/to/project` |
-
-### Options
-
-| Name | Description |
-| ---- | ----------- |
-| `-l`, `--no-lst` |  Remove repositories that completed sync but never built an LST. |
-| `-n`, `--dry-run` |  List what would be deleted without deleting anything. |
-| `-o`, `--not-in-org` |  Remove directories on disk that are not in the current organization structure. |
-| `-s`, `--sync-failed` |  Remove repositories whose latest sync failed or was canceled. |
 
 
 ## mod config
@@ -3275,7 +3232,7 @@ mod config comms sms edit
 
 | Name | Description |
 | ---- | ----------- |
-| `--api-url` |  Twilio Messages API URL (e.g., `https://api.twilio.com/2010-04-01/Accounts/{SID}/Messages.json`). |
+| `--api-url` |  Twilio Messages API URL (e.g., https://api.twilio.com/2010-04-01/Accounts/{SID}/Messages.json). |
 | `--auth` |  Authorization header value (e.g., 'Basic base64(SID:AuthToken)'). |
 | `--from` |  Sender phone number (e.g., +1234567890). |
 | `--to` |  Recipient phone number (e.g., +0987654321). |
@@ -3455,6 +3412,7 @@ mod config features [subcommands]
 * `inline-diff`: Configure inline diff rendering in the terminal.
 * `lst`: Configure the LST serialization format version.
 * `no-maven-central`: (INCUBATING) Configure the availability of Maven Central and OSS Sonatype Snapshots.
+* `search`: (DEPRECATED) Configure trigram-based code search.
 
 ## mod config features agent-tools
 
@@ -3535,7 +3493,7 @@ mod config features inline-diff
 Configure the LST serialization format version.
 
 
-Controls the on-disk LST format. Version 3 is a partition-backed binary format with lazy deserialization and Zstd compression: JDK and library types are pre-built into partitions and shared across parsers and template engines, reducing parse time and serialization size. When set to 3, v2 LSTs downloaded by mod git sync are automatically converted before recipe runs, and mod build produces LSTs in the configured format.
+Controls the on-disk LST format. Version 3 uses a binary format with lazy deserialization and Zstd compression. When set to 3, v2 LSTs downloaded by mod git sync are automatically converted before recipe runs, and mod build produces v3 LSTs directly.
 
 ### Usage
 
@@ -3561,6 +3519,26 @@ Maven Central and OSS Sonatype Snapshots are considered as valid recipe and depe
 
 ```
 mod config features no-maven-central
+```
+
+### Options
+
+| Name | Description |
+| ---- | ----------- |
+| `--enabled` |  |
+
+
+## mod config features search
+
+(DEPRECATED) Configure trigram-based code search.
+
+
+This command is deprecated. Search indexes are now generated using **mod postbuild search index** and do not require a feature flag.
+
+### Usage
+
+```
+mod config features search
 ```
 
 ### Options
@@ -4826,7 +4804,7 @@ mod config lsts artifacts azure-blob edit https://myaccount.blob.core.windows.ne
 
 | Name | Description | Example |
 | ---- | ----------- | ---------- |
-| `uri` |  The Azure Blob container URL that LSTs will be published to. Must be of the form `https://{account}.blob.core.windows.net/{container}`. | `https://myaccount.blob.core.windows.net/mycontainer` |
+| `uri` |  The Azure Blob container URL that LSTs will be published to. Must be of the form https://{account}.blob.core.windows.net/{container}. | `https://myaccount.blob.core.windows.net/mycontainer` |
 
 ### Options
 
@@ -5805,7 +5783,6 @@ mod config recipes moderne sync
 
 * `active`: Manage the active recipe configuration.
 * `artifacts`: Configures artifact repositories to resolve recipes from.
-* `csv`: Manage the recipe marketplace via a Recipe Marketplace CSV.
 * `export`: Export the recipe catalog for study by different tools.
 * `import`: Import recipes into the marketplace from different formats.
 * `go`: Adds or updates a Go module that contains recipes that should be added to the recipe marketplace in the CLI.
@@ -6196,53 +6173,6 @@ Displays the Maven artifact repository repository configuration.
 ```
 mod config recipes artifacts maven show
 ```
-
-
-
-## mod config recipes csv
-
-Manage the recipe marketplace via a Recipe Marketplace CSV.
-
-
-
-
-### Usage
-
-```
-mod config recipes csv [subcommands]
-```
-
-
-### Subcommands
-
-* `sync`: Synchronizes the local CLI recipe marketplace from a Recipe Marketplace CSV.
-
-## mod config recipes csv sync
-
-Synchronizes the local CLI recipe marketplace from a Recipe Marketplace CSV.
-
-
-Downloads or copies a Recipe Marketplace CSV from the given URI and installs it as the local CLI marketplace, replacing any existing marketplace state. See https://docs.moderne.io/user-documentation/moderne-cli/references/recipes-csv/#csv-format.
-
-### Usage
-
-```
-mod config recipes csv sync [parameters]
-```
-
-### Examples
-
-```
-mod config recipes csv sync /path/to/recipes.csv
-
-mod config recipes csv sync https://example.com/recipes.csv
-```
-
-### Parameters
-
-| Name | Description | Example |
-| ---- | ----------- | ---------- |
-| `csv` |  The URI (local file or remote URL) of the recipes CSV. | `/path/to/recipes.csv` |
 
 
 
@@ -6974,73 +6904,7 @@ mod config run [subcommands]
 
 ### Subcommands
 
-* `polyglot-parallel`: Configure how many polyglot rewrite-rpc requests may run concurrently.
 * `timeout`: Configure the run timeout.
-
-## mod config run polyglot-parallel
-
-Configure how many polyglot rewrite-rpc requests may run concurrently.
-
-
-Caps the number of in-flight visit/parse/generate calls to Python, JavaScript, .NET, and Go rewrite-rpc subprocesses across a single recipe run. Each subprocess is unbounded in memory; this knob caps how many can be actively executing at the same time so the host running the CLI does not exhaust RAM. Pure-Java recipes are unaffected.
-
-### Usage
-
-```
-mod config run polyglot-parallel [subcommands]
-```
-
-
-### Subcommands
-
-* `delete`: Restore the polyglot rewrite-rpc concurrency cap to the default value.
-* `edit`: Configure the polyglot rewrite-rpc concurrency cap.
-* `show`: Display the configured polyglot rewrite-rpc concurrency cap.
-
-## mod config run polyglot-parallel delete
-
-Restore the polyglot rewrite-rpc concurrency cap to the default value.
-
-
-### Usage
-
-```
-mod config run polyglot-parallel delete
-```
-
-
-
-## mod config run polyglot-parallel edit
-
-Configure the polyglot rewrite-rpc concurrency cap.
-
-
-### Usage
-
-```
-mod config run polyglot-parallel edit [parameters]
-```
-
-### Parameters
-
-| Name | Description |
-| ---- | ----------- |
-| `parallel` |  Maximum number of polyglot rewrite-rpc requests in flight at once. Sized to host memory headroom. Allowed range: 1-64. |
-
-
-
-## mod config run polyglot-parallel show
-
-Display the configured polyglot rewrite-rpc concurrency cap.
-
-
-### Usage
-
-```
-mod config run polyglot-parallel show
-```
-
-
 
 ## mod config run timeout
 
@@ -7581,7 +7445,6 @@ mod git clone csv [parameters]
 | `--parallel` |  (INCUBATING) Run the command in parallel. Setting this option to 2 or more causes the command to run with a fixed-size thread pool with that many threads. Setting this to 1 causes the command to run sequentially. Setting this to 0 runs the command with a thread pool sized to the number of CPU cores on your machine. Setting this to a negative number runs the command with a fixed-size thread pool equal to the number of CPU cores minus the absolute value of that number. For example, `-1` runs the command with (cores-1) threads. |
 | `--save` |  If the CSV has per repository configuration like custom build tool options, JVM configuration, etc. save that configuration in a **.moderne/moderne.yml** which can be committed to source control. |
 | `--single-branch` |  Equivalent to the **git clone --single-branch** option. |
-| `--trace-tag` |  Tags to add as extra columns to the trace.csv emitted by this command. Each tag becomes a column with header `tag.<key>` and the supplied value. Repeat the option to add multiple tags. |
 | `--with-lsts` |  Whether to download LSTs for the repositories. |
 | `--with-sources` |  Whether to clone the repository at the specified branch. |
 
@@ -8292,29 +8155,59 @@ mod monitor
 | `--port` |  The port to listen on. Default is 8080. |
 
 
-## mod prebuild
+## mod postbuild
 
-Extracts build metadata without parsing source files.
+Post-build operations on LST artifacts.
 
 
-Produces .moderne/prebuild.json containing source sets, classpaths, and markers for each build step. A subsequent 'mod build' reads this file and skips the prebuild phase if inputs are up-to-date.
-
-This command is useful for:
-  - Diagnosing build issues (see exactly what source sets and classpaths were discovered)
-  - Pre-warming builds (run prebuild on CI, then build locally)
-  - Custom build tools (produce the prebuild format yourself, then run 'mod build')
-
+Operations that can be performed on already-built LST artifacts, such as generating search indexes from downloaded LSTs.
 
 ### Usage
 
 ```
-mod prebuild [parameters]
+mod postbuild [subcommands]
+```
+
+
+### Subcommands
+
+* `search`: Trigram search index operations.
+
+## mod postbuild search
+
+Trigram search index operations.
+
+
+Manage Trigrep search indexes for repositories.
+
+### Usage
+
+```
+mod postbuild search [subcommands]
+```
+
+
+### Subcommands
+
+* `index`: Generate search indexes from existing LSTs.
+
+## mod postbuild search index
+
+Generate search indexes from existing LSTs.
+
+
+Generates Trigrep search indexes for repositories that have LST artifacts but were built without search indexing enabled. The indexes are written to **.moderne/mcp/search/** in each repository. Executed on multiple repositories in parallel by default, but can be opted out with **--parallel=1**.
+
+### Usage
+
+```
+mod postbuild search index [parameters]
 ```
 
 ### Examples
 
 ```
-mod prebuild /path/to/project
+mod postbuild search index /path/to/organization
 ```
 
 ### Parameters
@@ -8327,8 +8220,8 @@ mod prebuild /path/to/project
 
 | Name | Description |
 | ---- | ----------- |
-| `--offline` |  When an underlying build tool has an offline mode, enable it. |
-| `--refresh` |  Force a rebuild of prebuild results, ignoring any cached metadata. |
+| `--force`, `-f` |  Regenerate index even if one already exists |
+| `--parallel` |  (INCUBATING) Run the command in parallel. Setting this option to 2 or more causes the command to run with a fixed-size thread pool with that many threads. Setting this to 1 causes the command to run sequentially. Setting this to 0 runs the command with a thread pool sized to the number of CPU cores on your machine. Setting this to a negative number runs the command with a fixed-size thread pool equal to the number of CPU cores minus the absolute value of that number. For example, `-1` runs the command with (cores-1) threads. |
 
 
 ## mod publish
@@ -8441,7 +8334,7 @@ mod run-history [parameters]
 Search repositories using trigram indexes.
 
 
-Searches the pre-built trigram sidecars (**.tri** files) emitted by **mod build** for each repository in the working set. Repositories without a current V3 LST (or whose LST predates trigram indexing) are skipped; rebuild them with **mod build**.%n%nQuery parts are joined with spaces (implicit AND) and passed straight to the query parser. To search for a literal phrase containing spaces, preserve the quotes through your shell, e.g. **'"phrase search"'**.
+Searches pre-built trigram indexes for each repository in the working set. Run **mod postbuild search index** to generate the indexes.
 
 ### Usage
 
@@ -8466,7 +8359,7 @@ mod search /path/to/working-set "@Autowired"
 
 | Name | Description |
 | ---- | ----------- |
-| `-m`, `--max` |  Maximum number of results per repository (default: 100). An explicit **count:** filter in the query overrides this. |
+| `-m`, `--max` |  Maximum number of results per repository (default: 100) |
 | `--output` |  Output mode: rich (default, highlighted diffs with run directory) or plain (fast text output) |
 | `--syntax` |  Query syntax: sourcegraph (default) or zoekt |
 
