@@ -3886,3 +3886,4 @@ Republishing to update dependencies
 #### rewrite-spring - v0.7.2
 
 * Fix moved reference to `UpgradeSpringCloud_2024`
+
