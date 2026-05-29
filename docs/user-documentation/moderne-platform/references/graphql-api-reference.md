@@ -367,8 +367,8 @@ Exchange an OAuth authorization code for an access token.
 
 This unified mutation handles all OAuth 2.0 VCS providers.
 The backend uses the authorizationId to look up:
-* The origin and VCS type
-* PKCE code_verifier (GitLab)
+- The origin and VCS type
+- PKCE code_verifier (GitLab)
 
 On success, the token is stored and future requests will be authenticated.
 
@@ -384,9 +384,9 @@ Initiate OAuth authorization for a VCS origin.
 Returns an authorization URL to redirect the user to.
 
 The backend constructs the full OAuth URL including:
-* PKCE code_challenge for GitLab
-* Correct scopes for each VCS type
-* State parameter for CSRF protection
+- PKCE code_challenge for GitLab
+- Correct scopes for each VCS type
+- State parameter for CSRF protection
 
 The authorization ID should be passed to exchangeAuthorizationCode
 after the user completes OAuth.
@@ -800,7 +800,7 @@ An audit log download is being processed.
 | `path` | [Path](#path)! |  |
 | `beforeSourcePath` | [Path](#path) |  |
 | `afterSourcePath` | [Path](#path) |  |
-| `diff` | (markupLevel: [MarkupLevel](#markuplevel) = ERROR, showWhitespaceOnlyChanges: Boolean = true): [Patch](#patch) |  |
+| `diff` | (markupLevel: [MarkupLevel](#markuplevel) = WARNING, showWhitespaceOnlyChanges: Boolean = true): [Patch](#patch) |  |
 
 ##### `BitbucketCloudConfiguration`
 
@@ -1932,6 +1932,14 @@ Commit is actively being processed across repositories.
 | `node` | [Organization](#organization)! |  |
 | `cursor` | String! |  |
 
+##### `OrganizationInstallScope`
+
+The installation lives in a specific organization's marketplace.
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `organization` | [Organization](#organization)! |  |
+
 ##### `OrganizationRecipeRunCanceled`
 
 **Implements:** [OrganizationChangeset](#organizationchangeset), [OrganizationRecipeRun](#organizationreciperun)
@@ -2418,9 +2426,10 @@ pointing back to the first occurrence rather than as separate vertices.
 |-------|------|-------------|
 | `node` | [RecipeInstallation](#recipeinstallation)! |  |
 | `cursor` | String! |  |
-| `requestedBy` | [User](#user)! | The user who initiated this installation |
-| `user` | [User](#user) | The user whose marketplace this installation was made to. If the installation is a universal or organization installation, this field will be null. |
-| `organization` | [Organization](#organization) | The organization to which this installation was made. If the installation is a universal or user installation, this field will be null. |
+| `requestedBy` | [User](#user) | The user who initiated this installation. Null when the install pre-dates the introduction of this column or its state record has been pruned by retention. |
+| `scope` | [RecipeInstallationScope](#recipeinstallationscope)! | Where this installation lives: universal, an organization, or a specific user. |
+| `user` | [User](#user) | **Deprecated:** Use `scope` instead. It discriminates universal/org/user explicitly. The user whose marketplace this installation was made to. If the installation is a universal or organization installation, this field will be null. |
+| `organization` | [Organization](#organization) | **Deprecated:** Use `scope` instead. It discriminates universal/org/user explicitly. The organization to which this installation was made. If the installation is a universal or user installation, this field will be null. |
 
 ##### `RecipeInstallationError`
 
@@ -2511,7 +2520,7 @@ Installation is queued and waiting to be processed.
 | `path` | [Path](#path)! |  |
 | `beforeSourcePath` | [Path](#path) |  |
 | `afterSourcePath` | [Path](#path) |  |
-| `diff` | (markupLevel: [MarkupLevel](#markuplevel) = ERROR, showWhitespaceOnlyChanges: Boolean = true): [Patch](#patch) |  |
+| `diff` | (markupLevel: [MarkupLevel](#markuplevel) = WARNING, showWhitespaceOnlyChanges: Boolean = true): [Patch](#patch) |  |
 | `recipesThatMadeChanges` | [[[RecipeDescriptor](#recipedescriptor)!]!]! | Recipe chains that contributed changes to this file. Each inner list is one mutation event's call stack, ordered root composite first to leaf recipe last (the leaf is the narrowest recipe that actually performed the change). |
 
 ##### `RecipeRunMessage`
@@ -2604,7 +2613,7 @@ Resolved by the changeset reader using a batch check against the authorization s
 | Field | Type | Description |
 |-------|------|-------------|
 | `origin` | String! | The VCS origin (e.g., github.com). |
-| `isAuthorized` | Boolean! | Whether the user has a valid OAuth token for this origin. |
+| `isAuthorized` | Boolean! | Whether the user has read access to this specific repository (per-repo SCM check, not just a token for the origin). When false, surface "you don't have access" rather than empty results. |
 
 ##### `RepositoryBatchChange`
 
@@ -2621,8 +2630,8 @@ Resolved by the changeset reader using a batch check against the authorization s
 Paginated connection for repository changesets.
 
 `completed` indicates how many repositories have finished processing:
-* For BatchChange: completed always equals count (all repositories are pre-processed).
-* For OrganizationRecipeRun: completed counts repository runs in a terminal state
+- For BatchChange: completed always equals count (all repositories are pre-processed).
+- For OrganizationRecipeRun: completed counts repository runs in a terminal state
   (regardless of success/failure), excluding canceled runs. A canceled run shows
   the completion status reached prior to cancellation.
 
@@ -2930,6 +2939,14 @@ Check the `user` field to distinguish sender.
 | `loginLinks` | [[MoreHelpLink](#morehelplink)!] |  |
 | `cliDownloadInstructions` | [CliDownloadInstructionLink](#clidownloadinstructionlink) |  |
 
+##### `UniversalInstallScope`
+
+The installation lives in the universal marketplace, visible to every tenant.
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `universal` | Boolean! | Always true. Present so the type has a selectable field. |
+
 ##### `User`
 
 | Field | Type | Description |
@@ -2948,6 +2965,14 @@ Check the `user` field to distinguish sender.
 | `edges` | [[UsersEdge](#usersedge)!]! |  |
 | `pageInfo` | [PageInfo](#pageinfo)! |  |
 | `count` | Int! |  |
+
+##### `UserInstallScope`
+
+The installation lives in a specific user's personal marketplace.
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `user` | [User](#user)! |  |
 
 ##### `UsersEdge`
 
@@ -3174,7 +3199,7 @@ A change to a single file within a repository changeset.
 | `path` | [Path](#path)! | Path to the file relative to repository root. |
 | `beforeSourcePath` | [Path](#path) | The source path before the change (from the diff's `--- a/...` line). Null for newly created files. |
 | `afterSourcePath` | [Path](#path) | The source path after the change (from the diff's `+++ b/...` line). Null for deleted files. |
-| `diff` | (markupLevel: [MarkupLevel](#markuplevel) = ERROR, showWhitespaceOnlyChanges: Boolean = true): [Patch](#patch) | Get the diff for this file. |
+| `diff` | (markupLevel: [MarkupLevel](#markuplevel) = WARNING, showWhitespaceOnlyChanges: Boolean = true): [Patch](#patch) | Get the diff for this file. |
 
 ##### `Marker`
 
@@ -3650,6 +3675,10 @@ sampling run on separate channels and are always on.
 
 * `STARTED_AT`
 * `STATUS`
+* `ECOSYSTEM`
+* `PACKAGE_NAME`
+* `VERSION`
+* `FINISHED_AT`
 
 ##### `RecipeInstallationStatus`
 
@@ -3680,6 +3709,7 @@ LOW priority runs target large organizations (>100 repositories).
 * `ORIGIN`
 * `FILES_CHANGED`
 * `SYNC_STATUS`
+* `STATE`
 
 ##### `RepositoryChangesetState`
 
@@ -4441,10 +4471,10 @@ The `where` filter defines a base set of matching PRs. The optional `pullRequest
 modifier can include or exclude specific PRs from that base set.
 
 Examples:
-* Filter-only: `\{ where: \{ ... \} \}` — all matching PRs
-* Explicit: `\{ pullRequests: \{ include: [...] \} \}` — exactly those PRs
-* Filter + exclusions: `\{ where: \{ ... \}, pullRequests: \{ exclude: [...] \} \}` — matching minus excluded
-* Filter + additions: `\{ where: \{ ... \}, pullRequests: \{ include: [...] \} \}` — matching plus included
+- Filter-only: `\{ where: \{ ... \} \}` — all matching PRs
+- Explicit: `\{ pullRequests: \{ include: [...] \} \}` — exactly those PRs
+- Filter + exclusions: `\{ where: \{ ... \}, pullRequests: \{ exclude: [...] \} \}` — matching minus excluded
+- Filter + additions: `\{ where: \{ ... \}, pullRequests: \{ include: [...] \} \}` — matching plus included
 
 | Field | Type | Description |
 |-------|------|-------------|
@@ -4807,6 +4837,12 @@ these tokens are preferred over stored OAuth tokens.
 ##### `ConnectorTool`
 
 = [GithubConfiguration](#githubconfiguration) | [GitLabConfiguration](#gitlabconfiguration) | [BitbucketConfiguration](#bitbucketconfiguration) | [BitbucketCloudConfiguration](#bitbucketcloudconfiguration) | [AzureDevOpsConfiguration](#azuredevopsconfiguration) | [ArtifactoryConfiguration](#artifactoryconfiguration) | [MavenConfiguration](#mavenconfiguration) | [PypiConfiguration](#pypiconfiguration) | [NpmConfiguration](#npmconfiguration) | [NugetConfiguration](#nugetconfiguration) | [GenericHttpToolConfiguration](#generichttptoolconfiguration) | [OrganizationConfiguration](#organizationconfiguration) | [LlmConfiguration](#llmconfiguration) | [S3Configuration](#s3configuration)
+
+##### `RecipeInstallationScope`
+
+Discriminates where a `RecipeInstallation` lives.
+
+= [UniversalInstallScope](#universalinstallscope) | [OrganizationInstallScope](#organizationinstallscope) | [UserInstallScope](#userinstallscope)
 
 ### Scalars
 
