@@ -44,7 +44,7 @@ You can access this page by clicking on **?** icon in the top-right of the SaaS 
 This feature can be enabled/disabled upon request. Please reach out to your account representative if you wish to use it.
 :::
 
-SaaS v2 ships with [Pyroscope-based](https://grafana.com/oss/pyroscope/) continuous profiling for every microservice in the platform — authorization, organization, the recipe worker, Moddy, the marketplace, and more. You can inspect CPU usage, memory allocation, mutex contention, and blocking time as flamegraphs, making it much easier to track down performance regressions wherever they live in the stack. When a recipe is running slowly, profiling the `recipeworker` service can pinpoint exactly which code path is responsible.
+SaaS v2 ships with [Pyroscope-based](https://grafana.com/oss/pyroscope/) continuous profiling for every microservice in the platform — authorization, organization, the recipe worker, Moddy, the marketplace, and more. You can inspect CPU usage, memory allocation, mutex contention, and blocking time as flamegraphs, making it much easier to track down performance regressions wherever they live in the stack. When a recipe is running slowly, profiling the `modernecli` application can pinpoint exactly which code path is responsible.
 
 <figure>
   ![A Pyroscope page showing CPU analysis of the recipe worker](./assets/saas-v2-recipe-profiling.png)
