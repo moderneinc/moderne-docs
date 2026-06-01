@@ -43,10 +43,10 @@ export const HeroSection: FunctionComponent = () => {
 export const WhatIsModerneSection: FunctionComponent = () => {
   const videos = [
     {
-      id: 'LgvqAzTxkEU',
-      url: 'https://www.youtube.com/watch?v=LgvqAzTxkEU',
-      thumbnail: 'https://img.youtube.com/vi/LgvqAzTxkEU/hqdefault.jpg',
-      title: 'Migrate to Spring Boot 3.5 on the Moderne Platform',
+      id: 'SxABeHxvc4s',
+      url: 'https://www.youtube.com/watch?v=SxABeHxvc4s',
+      thumbnail: 'https://img.youtube.com/vi/SxABeHxvc4s/hqdefault.jpg',
+      title: 'Migrate to Spring Boot 4 on the Moderne Platform',
     },
     {
       id: 'Q-ej2lCJHRs',
