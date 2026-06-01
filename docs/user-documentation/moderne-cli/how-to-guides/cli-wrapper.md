@@ -140,6 +140,10 @@ jdkUrl=skip
 
 Setting `jdkUrl=skip` disables the JDK auto-download, which is useful when you know a compatible JDK is already available on the system.
 
+:::warning
+In an environment that cannot reach Maven Central, you must pin a concrete `version` (such as `4.x.x`) rather than leaving it at the default `RELEASE` (or `LATEST`). The wrapper's `RELEASE` and `LATEST` resolution always queries Maven Central for `maven-metadata.xml`, regardless of any `distributionUrl` setting. If Maven Central is unreachable and the version is left dynamic, every `mod` invocation will fail at version resolution. Pinning a concrete version skips that lookup entirely.
+:::
+
 :::note
 The example above uses the `.sh` extension, which applies to Linux and macOS distributions. Windows distributions use `.zip` instead.
 :::

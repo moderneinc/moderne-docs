@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 
 This guide walks through installing and configuring the Moderne CLI in environments where the CLI must fetch its distribution and recipe artifacts from an internal artifact repository instead of accessing the public internet directly.
 
-By the end of this guide, you'll have the CLI installed from your internal mirror, pinned to a specific version, and stocked with the recipe JARs needed to run recipes.
+By the end of this guide, you'll have the CLI installed from your internal mirror and stocked with the recipe JARs needed to run recipes.
 
 ## Prerequisites
 
@@ -81,49 +81,17 @@ The installer adds `%USERPROFILE%\.moderne\cli\bin` to your user `PATH`. Open a 
 The macOS distribution bundles a JRE for **Apple Silicon only**. Intel Mac users will need to install a Java 25+ runtime separately and ensure it's discoverable by the wrapper — see [how the wrapper finds Java](../how-to-guides/cli-wrapper.md#how-the-wrapper-finds-java) for details.
 :::
 
-## Step 3: Pin the CLI version
-
-The wrapper reads its global configuration from `~/.moderne/cli/dist/moderne-wrapper.properties`. By default (when no version is configured), the wrapper resolves `RELEASE` against `https://repo1.maven.org/maven2` — which won't work in an environment that cannot reach Maven Central directly.
-
-Before running any `mod` command, pin the wrapper to the version you installed in Step 2:
-
-<Tabs groupId="cli-install-os" queryString="os">
-<TabItem value="linux-macos" label="Linux or macOS" default>
-
-```bash
-echo "version=4.2.10" > ~/.moderne/cli/dist/moderne-wrapper.properties
-```
-
-</TabItem>
-<TabItem value="windows" label="Windows">
-
-```powershell
-"version=4.2.10" | Out-File -Encoding ascii "$env:USERPROFILE\.moderne\cli\dist\moderne-wrapper.properties"
-```
-
-</TabItem>
-</Tabs>
-
-Replace the version with the one you installed.
-
-:::warning
-Pinning a version is **required** in environments that cannot reach `repo1.maven.org`. The wrapper's `RELEASE` and `LATEST` resolution always queries Maven Central for `maven-metadata.xml`, regardless of any `distributionUrl` setting. If Maven Central is not reachable and no version is pinned, every `modw` invocation will fail at version resolution.
-:::
-
-:::tip
-There are two ways to upgrade the CLI later:
-
-* **Re-run the installer** (Step 2) for the new version, then update `version=` in this file.
-* **Bump `version=` and let the wrapper download the new distribution.** This requires also setting `distributionUrl` in this file to point at your internal mirror — see the [air-gapped or restricted environments](../how-to-guides/cli-wrapper.md#air-gapped-or-restricted-environments) section of the CLI wrapper guide for the URL template. Once configured, you can also bump versions via `mod wrapper --global --version=<new-version>`.
+:::note
+By default, the CLI checks Maven Central on each run and auto-updates to the latest release. If your environment cannot reach Maven Central directly, you'll need to configure how the wrapper resolves and downloads versions — see [air-gapped or restricted environments](../how-to-guides/cli-wrapper.md#air-gapped-or-restricted-environments) in the CLI wrapper guide.
 :::
 
 Verify the installation by running `mod --version`.
 
 For more on how the wrapper works (auto-update behavior, distribution URLs, JDK selection, environment variables), see the [CLI wrapper and version management guide](../how-to-guides/cli-wrapper.md).
 
-## Step 4: Install recipe JARs
+## Step 3: Install recipe JARs
 
-With the CLI installed and pinned, the final piece is to stock it with recipes. This assumes the recipe JARs you want are already available in your internal artifact repository (per Step 1) — either because your mirror proxies Maven Central or because an administrator has synced them explicitly.
+With the CLI installed, the final piece is to stock it with recipes. This assumes the recipe JARs you want are already available in your internal artifact repository (per Step 1) — either because your mirror proxies Maven Central or because an administrator has synced them explicitly.
 
 Run the `mod config recipes jar install` command and provide it with the JARs you wish to install. The latest version of every JAR, along with a ready-to-paste CLI install command, can be found at the bottom of [the latest versions of every OpenRewrite module doc](../../recipes/lists/latest-versions-of-every-openrewrite-module.md#cli-installation). This page is updated automatically with every release.
 
