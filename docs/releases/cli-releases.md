@@ -7,7 +7,7 @@ description: The current version of the Moderne CLI and links to useful CLI docu
 
 | Component   | Current version |
 | ----------- | --------------- |
-| CLI version | 4.2.10          |
+| CLI version | 4.2.11           |
 
 For CLI command documentation, see the [CLI reference](../user-documentation/moderne-cli/cli-reference.md).
 
@@ -16,6 +16,11 @@ The Moderne CLI previously followed a two-track release model with separate "sta
 :::
 
 ## Changelog
+
+### CLI / DX v4.2.11 (2026-06-01)
+
+#### What's Changed
+* [4.2.x] cli: add 'mod config run polyglot-parallel' to cap rewrite-rpc concurrency
 
 ### CLI / DX 4.2.10 (2026-05-29)
 

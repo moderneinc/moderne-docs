@@ -308,6 +308,10 @@ description: Auto-generated documentation for all Moderne CLI commands.
 * [**mod config recipes yaml install**](#mod-config-recipes-yaml-install)
 * [**mod config recipes yaml delete**](#mod-config-recipes-yaml-delete)
 * [**mod config run**](#mod-config-run)
+* [**mod config run polyglot-parallel**](#mod-config-run-polyglot-parallel)
+* [**mod config run polyglot-parallel delete**](#mod-config-run-polyglot-parallel-delete)
+* [**mod config run polyglot-parallel edit**](#mod-config-run-polyglot-parallel-edit)
+* [**mod config run polyglot-parallel show**](#mod-config-run-polyglot-parallel-show)
 * [**mod config run timeout**](#mod-config-run-timeout)
 * [**mod config run timeout delete**](#mod-config-run-timeout-delete)
 * [**mod config run timeout edit**](#mod-config-run-timeout-edit)
@@ -3232,7 +3236,7 @@ mod config comms sms edit
 
 | Name | Description |
 | ---- | ----------- |
-| `--api-url` |  Twilio Messages API URL (e.g., `https://api.twilio.com/2010-04-01/Accounts/{SID}/Messages.json`). |
+| `--api-url` |  Twilio Messages API URL (e.g., https://api.twilio.com/2010-04-01/Accounts/{SID}/Messages.json). |
 | `--auth` |  Authorization header value (e.g., 'Basic base64(SID:AuthToken)'). |
 | `--from` |  Sender phone number (e.g., +1234567890). |
 | `--to` |  Recipient phone number (e.g., +0987654321). |
@@ -4804,7 +4808,7 @@ mod config lsts artifacts azure-blob edit https://myaccount.blob.core.windows.ne
 
 | Name | Description | Example |
 | ---- | ----------- | ---------- |
-| `uri` |  The Azure Blob container URL that LSTs will be published to. Must be of the form `https://{account}.blob.core.windows.net/{container}`. | `https://myaccount.blob.core.windows.net/mycontainer` |
+| `uri` |  The Azure Blob container URL that LSTs will be published to. Must be of the form https://{account}.blob.core.windows.net/{container}. | `https://myaccount.blob.core.windows.net/mycontainer` |
 
 ### Options
 
@@ -6904,7 +6908,73 @@ mod config run [subcommands]
 
 ### Subcommands
 
+* `polyglot-parallel`: Configure how many polyglot rewrite-rpc requests may run concurrently.
 * `timeout`: Configure the run timeout.
+
+## mod config run polyglot-parallel
+
+Configure how many polyglot rewrite-rpc requests may run concurrently.
+
+
+Caps the number of in-flight visit/parse/generate calls to Python, JavaScript, .NET, and Go rewrite-rpc subprocesses across a single recipe run. Each subprocess is unbounded in memory; this knob caps how many can be actively executing at the same time so the host running the CLI does not exhaust RAM. Pure-Java recipes are unaffected.
+
+### Usage
+
+```
+mod config run polyglot-parallel [subcommands]
+```
+
+
+### Subcommands
+
+* `delete`: Restore the polyglot rewrite-rpc concurrency cap to the default value.
+* `edit`: Configure the polyglot rewrite-rpc concurrency cap.
+* `show`: Display the configured polyglot rewrite-rpc concurrency cap.
+
+## mod config run polyglot-parallel delete
+
+Restore the polyglot rewrite-rpc concurrency cap to the default value.
+
+
+### Usage
+
+```
+mod config run polyglot-parallel delete
+```
+
+
+
+## mod config run polyglot-parallel edit
+
+Configure the polyglot rewrite-rpc concurrency cap.
+
+
+### Usage
+
+```
+mod config run polyglot-parallel edit [parameters]
+```
+
+### Parameters
+
+| Name | Description |
+| ---- | ----------- |
+| `parallel` |  Maximum number of polyglot rewrite-rpc requests in flight at once. Sized to host memory headroom. Allowed range: 1-64. |
+
+
+
+## mod config run polyglot-parallel show
+
+Display the configured polyglot rewrite-rpc concurrency cap.
+
+
+### Usage
+
+```
+mod config run polyglot-parallel show
+```
+
+
 
 ## mod config run timeout
 
