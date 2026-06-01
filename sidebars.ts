@@ -539,6 +539,7 @@ const cli = {
         },
         'user-documentation/moderne-cli/getting-started/moderne-cli-workshop',
         'user-documentation/moderne-cli/getting-started/moderne-cli-license',
+        'user-documentation/moderne-cli/getting-started/cli-internal-mirror',
         'user-documentation/moderne-cli/getting-started/cli-internal-tools',
       ],
     },

@@ -1,3 +1,3 @@
 import { Redirect } from '@docusaurus/router';
 
-<Redirect to="/user-documentation/moderne-cli/getting-started/dx-cli-install" />;
+<Redirect to="/user-documentation/moderne-cli/getting-started/cli-internal-mirror" />;

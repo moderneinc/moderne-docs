@@ -79,6 +79,20 @@ To update the pinned version for the project:
 mod wrapper --version <version>
 ```
 
+### Pointing the project wrapper at your internal mirror
+
+In environments where the CLI must download distributions from an internal mirror rather than Maven Central, edit the generated `moderne-wrapper.properties` to set `distributionUrl`. For example:
+
+```properties
+version=4.2.10
+distributionUrl=https://internal-mirror.example.com/io/moderne/moderne-cli-${platform}/${version}/moderne-cli-${platform}-${version}.sh
+jdkUrl=skip
+```
+
+The `${version}` and `${platform}` placeholders are filled in by the wrapper at download time. If your internal mirror requires authentication, see [authenticated artifact repositories](#authenticated-artifact-repositories) below. Setting `jdkUrl=skip` disables the JDK auto-download — useful when a compatible Java 25+ runtime is already available on the machines that will run the wrapper.
+
+Commit the updated `moderne-wrapper.properties` alongside `modw` and `modw.cmd`. Every developer and CI job that clones the repository will then fetch the pinned distribution from your internal mirror on first invocation.
+
 ### How version resolution works
 
 The wrapper looks for `moderne-wrapper.properties` in two locations, in order:
