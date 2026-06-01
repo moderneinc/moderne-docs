@@ -367,7 +367,7 @@ This will grab _all_ of the recipes from your tenant – so please expect this c
 </TabItem>
 <TabItem value="dx" label="Moderne DX">
 
-> Moderne DX is typically deployed alongside an internal artifact repository, so DX setup follows the [deploying the CLI from an internal Maven Central mirror](./cli-internal-mirror.md) guide.
+> For Moderne DX, follow the [deploying the CLI from an internal Maven Central mirror](./cli-internal-mirror.md) guide.
 </TabItem>
 </Tabs>
 
