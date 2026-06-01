@@ -88,7 +88,7 @@ Build complete!
    ▛▀▀█▀▛▀▀▀▀▜
    ▌▟▀  ▛▀▀▀▀▜
    ▀▀▀▀▀▀▀▀▀▀▀
-Moderne CLI uln-suppress-simpleclient-tracer-otel-fp
+Moderne CLI 4.2.10
 
 ⏺ Reading organization
 
@@ -136,7 +136,7 @@ MOD SUCCEEDED in 1s
    ▛▀▀█▀▛▀▀▀▀▜
    ▌▟▀  ▛▀▀▀▀▜
    ▀▀▀▀▀▀▀▀▀▀▀
-Moderne CLI uln-suppress-simpleclient-tracer-otel-fp
+Moderne CLI 4.2.10
 
 ⏺ Reading organization
 
@@ -184,7 +184,7 @@ MOD SUCCEEDED in 1s
    ▛▀▀█▀▛▀▀▀▀▜
    ▌▟▀  ▛▀▀▀▀▜
    ▀▀▀▀▀▀▀▀▀▀▀
-Moderne CLI uln-suppress-simpleclient-tracer-otel-fp
+Moderne CLI 4.2.10
 
 ⏺ Reading organization
 

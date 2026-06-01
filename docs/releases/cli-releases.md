@@ -7,7 +7,7 @@ description: The current version of the Moderne CLI and links to useful CLI docu
 
 | Component   | Current version |
 | ----------- | --------------- |
-| CLI version | uln-suppress-simpleclient-tracer-otel-fp           |
+| CLI version | 4.2.10          |
 
 For CLI command documentation, see the [CLI reference](../user-documentation/moderne-cli/cli-reference.md).
 
@@ -19,7 +19,21 @@ The Moderne CLI previously followed a two-track release model with separate "sta
 
 ### CLI / DX 4.2.10 (2026-05-29)
 
-
+## What's Changed
+* `mod config recipes artifacts show`: now suggests `add` subcommand
+* Honor Maven `toolchains.xml` for JDK discovery
+* `mod generate-completion --shell powershell` now generates a tab-completion script for PowerShell. Dot-source the output from your `$PROFILE` to enable subcommand and option completion for mod and modw.
+* DevCenter Change campaigns improvements
+* Don't fail Java-only recipe runs on polyglot repos when node or python are missing
+* Lower Python runtime floor to 2.7 for LST builds
+* Add Azure Blob Storage as LST artifact source
+* Stop modw wrappers from rebuilding the AOT cache on every run 
+* Add `mod telemetry publish` and auto-publish CLI traces on license-lease refresh
+* Don't mistake folders named "BUILD" as being bazel BUILD files 
+* Add create-build-partitions skill for monorepo `moderne.yml` generation
+* Don't auto-add Maven snapshots repo when configuring Artifactory 
+* Add `--jdk-url` option to mod wrapper
+* Support placeholders in wrapper jdkUrl
 
 ### CLI / DX v4.2.3 (2026-05-06)
 

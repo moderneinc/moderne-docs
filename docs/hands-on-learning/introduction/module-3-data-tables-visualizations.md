@@ -86,7 +86,7 @@ Building LSTs may take a few minutes to complete. It also requires a local JDK i
    ▛▀▀█▀▛▀▀▀▀▜
    ▌▟▀  ▛▀▀▀▀▜
    ▀▀▀▀▀▀▀▀▀▀▀
-Moderne CLI uln-suppress-simpleclient-tracer-otel-fp
+Moderne CLI 4.2.10
 
 ⏺ Reading organization
 
@@ -247,7 +247,7 @@ mod study . --last-recipe-run --data-table MethodCalls
    ▛▀▀█▀▛▀▀▀▀▜
    ▌▟▀  ▛▀▀▀▀▜
    ▀▀▀▀▀▀▀▀▀▀▀
-Moderne CLI uln-suppress-simpleclient-tracer-otel-fp
+Moderne CLI 4.2.10
 
 ⏺ Reading organization
 
