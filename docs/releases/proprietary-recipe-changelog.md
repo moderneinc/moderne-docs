@@ -3875,15 +3875,3 @@ Republishing to update dependencies
 * Include parent recipes as `DevCenter:fix` and `DevCenter:security` recipes before search their child recipes
 * No more DevCenter recipe tags, align instance name on data table to card
 
-## May 30, 2025
-
-#### rewrite-spring - v0.7.3
-
-* Update recipes and tests for Spring Boot 3.5 and Spring Cloud 2025
-
-## May 29, 2025
-
-#### rewrite-spring - v0.7.2
-
-* Fix moved reference to `UpgradeSpringCloud_2024`
-
