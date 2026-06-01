@@ -3232,7 +3232,7 @@ mod config comms sms edit
 
 | Name | Description |
 | ---- | ----------- |
-| `--api-url` |  Twilio Messages API URL (e.g., https://api.twilio.com/2010-04-01/Accounts/{SID}/Messages.json). |
+| `--api-url` |  Twilio Messages API URL (e.g., `https://api.twilio.com/2010-04-01/Accounts/{SID}/Messages.json`). |
 | `--auth` |  Authorization header value (e.g., 'Basic base64(SID:AuthToken)'). |
 | `--from` |  Sender phone number (e.g., +1234567890). |
 | `--to` |  Recipient phone number (e.g., +0987654321). |
@@ -4804,7 +4804,7 @@ mod config lsts artifacts azure-blob edit https://myaccount.blob.core.windows.ne
 
 | Name | Description | Example |
 | ---- | ----------- | ---------- |
-| `uri` |  The Azure Blob container URL that LSTs will be published to. Must be of the form https://{account}.blob.core.windows.net/{container}. | `https://myaccount.blob.core.windows.net/mycontainer` |
+| `uri` |  The Azure Blob container URL that LSTs will be published to. Must be of the form `https://{account}.blob.core.windows.net/{container}`. | `https://myaccount.blob.core.windows.net/mycontainer` |
 
 ### Options
 
