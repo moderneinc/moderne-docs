@@ -80,7 +80,7 @@
     "stylelint-config-standard": "39.0.1",
     "typescript": "^5.9.2",
     "unified-lint-rule": "3.0.1",
-    "vitest": "4.0.16"
+    "vitest": "4.1.0"
   },
   "browserslist": {
     "production": [
