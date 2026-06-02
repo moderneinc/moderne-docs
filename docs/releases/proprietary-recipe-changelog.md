@@ -10,6 +10,15 @@ This page contains release notes for [Moderne proprietary OpenRewrite recipes](h
 This changelog is automatically generated from GitHub releases and only contains information from the past year.
 :::
 
+## June 1, 2026
+
+#### rewrite-program-analysis - 0.12.6
+
+* Thread flow taint types through TaintAnalysis.findSinkParameterIndex
+* Populate TaintFlow.sinkParameterIndex from the builder site
+* Regenerate recipes.csv
+* Add FixXssVulnerabilityJava (CWE-79)
+
 ## May 25, 2026
 
 #### rewrite-terraform - 3.14.1
