@@ -7,11 +7,30 @@ description: The current version of the Moderne Connector and where to download 
 
 | Component | Current version |
 | --------- | --------------- |
-| Connector | 0.148.107 |
+| Connector | 0.150.10 |
 
-[Download latest](https://repo1.maven.org/maven2/io/moderne/connector/0.148.107/connector-0.148.107.jar)
+[Download latest](https://repo1.maven.org/maven2/io/moderne/connector/0.150.10/connector-0.150.10.jar)
 
 ## Changelog
+
+## June 2026
+
+### v0.150.10 – 2026-06-01
+
+[Download](https://repo1.maven.org/maven2/io/moderne/connector/0.150.10/connector-0.150.10.jar)
+
+* Re-ingest LSTs on rebuild by keying freshness on publish time, not changeset (#1039)
+* Scope lock-mode LST fetch to the source host, not the CSV's parent path (#1040)
+* Gateway+connector: bootstrap repos.csv from gateway, drop EBS persistent volume (#832)
+* Scope lock-mode LST fetch to the source's declared repo bases (#994)
+* Emit enrichFailedReason on encrypt-mode rows that fail (#979)
+* Validate organization source configuration at startup (#1011)
+* Fail fast when a file organization source has no path (#1010)
+* Gateway: carry sourceUri on per-source push payloads (#976)
+* Route legacy agent CLI/UI properties to moderne.ui (#926)
+* Spool ciphertext to disk, decouple encrypt from upload (#831)
+* Route tmpdir to EBS, drop Maven encrypt-path spool (#830)
+
 
 ## May 2026
 
