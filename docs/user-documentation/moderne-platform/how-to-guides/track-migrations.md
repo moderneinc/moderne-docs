@@ -1,4 +1,5 @@
 ---
+title: How to track migration status with Moderne
 sidebar_label: Tracking migrations
 description: How to track migration status with Moderne using data tables and visualizations.
 ---

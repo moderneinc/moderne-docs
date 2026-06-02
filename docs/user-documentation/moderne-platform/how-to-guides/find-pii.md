@@ -1,4 +1,5 @@
 ---
+title: How to find personally identifiable information (PII) and secrets exposed by your APIs
 sidebar_label: Finding PII and secrets
 description: How to find personally identifiable information (PII) and secrets exposed by your APIs.
 ---

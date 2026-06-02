@@ -1,4 +1,5 @@
 ---
+title: Configure an agent with GitLab
 sidebar_label: GitLab configuration
 description: How to configure the Moderne agent to communicate with GitLab.
 noIndex: true

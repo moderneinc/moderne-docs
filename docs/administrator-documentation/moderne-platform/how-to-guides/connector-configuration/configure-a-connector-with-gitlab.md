@@ -1,4 +1,5 @@
 ---
+title: Configure a Connector with GitLab
 sidebar_label: GitLab configuration
 description: How to configure the Moderne Connector to communicate with GitLab.
 ---

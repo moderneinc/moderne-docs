@@ -1,4 +1,5 @@
 ---
+title: Mass ingest
 sidebar_label: Setting up mass ingest
 description: Instructions for ingesting a large number of repositories with Moderne.
 ---

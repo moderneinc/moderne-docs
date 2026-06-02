@@ -1,4 +1,5 @@
 ---
+title: How to find method invocations based on a pattern using AI
 sidebar_label: Using AI to find methods
 description: How to find method invocations based on a pattern using AI.
 noIndex: true

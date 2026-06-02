@@ -1,4 +1,5 @@
 ---
+title: How to address CVEs with Moderne
 sidebar_label: Addressing CVEs
 description: How to systematically address CVEs in Moderne.
 noIndex: true

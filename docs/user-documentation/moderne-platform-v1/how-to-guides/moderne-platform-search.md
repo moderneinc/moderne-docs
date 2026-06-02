@@ -1,4 +1,5 @@
 ---
+title: Moderne Recipe catalog search
 sidebar_label: Moderne Recipe catalog search
 description: A comprehensive guide on how to effectively find recipes in the Moderne Platform.
 noIndex: true

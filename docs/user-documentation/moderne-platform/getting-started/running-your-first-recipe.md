@@ -1,4 +1,5 @@
 ---
+title: "Quickstart: Using the Moderne Platform"
 sidebar_label: "Quickstart: Using the Moderne Platform"
 description: A brief introduction to the Moderne platform and what it can do for you.
 ---

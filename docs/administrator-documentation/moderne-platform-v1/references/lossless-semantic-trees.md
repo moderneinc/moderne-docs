@@ -1,4 +1,5 @@
 ---
+title: Lossless semantic trees
 sidebar_label: Lossless semantic trees
 description: An in-depth technical document describing what lossless semantic trees are and how they're used.
 noIndex: true

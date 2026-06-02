@@ -1,4 +1,5 @@
 ---
+title: Configure a Connector with Maven repository access
 sidebar_label: Maven repository configuration
 description: How to configure the Moderne Connector to communicate with Maven repositories.
 ---

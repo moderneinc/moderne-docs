@@ -1,4 +1,5 @@
 ---
+title: Configure a Connector with a Moderne tenant SSL certificate
 sidebar_label: Moderne tenant SSL certificate configuration
 description: How to configure the Moderne Connector with Moderne tenant SSL certificates.
 ---

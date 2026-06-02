@@ -1,4 +1,5 @@
 ---
+title: Getting started with data tables
 sidebar_label: Utilizing data tables
 description: A guide on the different types of data tables and how to create/use them.
 noIndex: true

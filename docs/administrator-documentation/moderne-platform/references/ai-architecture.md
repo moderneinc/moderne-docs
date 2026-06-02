@@ -1,4 +1,5 @@
 ---
+title: AI architecture
 sidebar_label: AI architecture
 description: A detailed technical document about all of the places Moderne uses AI.
 ---

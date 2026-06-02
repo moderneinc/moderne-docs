@@ -1,4 +1,5 @@
 ---
+title: All Connector configuration variables
 sidebar_label: All Connector variables
 description: A reference manual that contains all Connector configuration variables.
 ---

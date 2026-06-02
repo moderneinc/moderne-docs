@@ -1,4 +1,5 @@
 ---
+title: LST cleanup
 sidebar_label: Cleaning up LSTs
 description: How to clean up old or outdated LSTs.
 noIndex: true

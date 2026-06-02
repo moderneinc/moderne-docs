@@ -1,4 +1,5 @@
 ---
+title: Configure a Connector with client SSL certificates
 sidebar_label: Client SSL certificate configuration
 description: How to configure the Moderne Connector with client SSL certificates.
 ---

@@ -1,4 +1,5 @@
 ---
+title: JavaScript codemods scaled with Moderne
 sidebar_label: Utilizing JavaScript codemods at scale
 description: Where to find codemods and a real-world example of using them at scale.
 noIndex: true

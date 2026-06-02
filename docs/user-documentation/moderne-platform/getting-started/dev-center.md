@@ -1,4 +1,5 @@
 ---
+title: Getting started with the Moderne DevCenter
 sidebar_label: Understanding the Moderne DevCenter
 description: Explains where to find a DevCenter and what all of the components of it are.
 ---

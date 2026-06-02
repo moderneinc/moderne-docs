@@ -1,4 +1,5 @@
 ---
+title: Creating SCM access tokens
 sidebar_label: SCM access tokens
 description: Where to create SCM access tokens so you can perform commits with the Moderne API.
 noIndex: true

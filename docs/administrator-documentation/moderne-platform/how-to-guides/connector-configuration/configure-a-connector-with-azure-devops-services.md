@@ -1,4 +1,5 @@
 ---
+title: Configure a Connector with Azure DevOps Services
 sidebar_label: Azure DevOps configuration
 description: How to configure the Moderne Connector to communicate with Azure DevOps Services.
 ---

@@ -1,4 +1,5 @@
 ---
+title: Create custom recipes with the recipe builder
 sidebar_label: Creating custom recipes
 description: How to create custom recipes with the Moderne recipe builder.
 noIndex: true

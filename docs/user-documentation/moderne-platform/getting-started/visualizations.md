@@ -1,4 +1,5 @@
 ---
+title: Getting started with visualizations
 sidebar_label: Generating visualizations
 description: A guide on the different types of visualizations.
 ---

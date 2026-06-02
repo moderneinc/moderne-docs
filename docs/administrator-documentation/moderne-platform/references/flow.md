@@ -1,4 +1,5 @@
 ---
+title: Sensitive data flow
 sidebar_label: Sensitive data flow
 description: Describes how sensitive data flows through Moderne's services.
 ---

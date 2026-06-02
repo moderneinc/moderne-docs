@@ -1,4 +1,5 @@
 ---
+title: "Configure an agent with Artifactory access: recipes"
 sidebar_label: Artifactory recipe configuration
 description: How to configure the Moderne agent to retrieve recipe artifacts from Artifactory.
 noIndex: true

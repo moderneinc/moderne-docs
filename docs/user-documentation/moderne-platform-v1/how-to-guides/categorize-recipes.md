@@ -1,4 +1,5 @@
 ---
+title: How to manage recipe categories
 sidebar_label: Managing recipe categories
 description: How to create your own recipe categories in the Moderne Platform.
 noIndex: true

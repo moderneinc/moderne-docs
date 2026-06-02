@@ -1,4 +1,5 @@
 ---
+title: Configure a Connector with an S3 organization source
 sidebar_label: S3 organization source
 description: How to configure the Moderne Connector to load a repository CSV from Amazon S3 or S3-compatible storage.
 ---

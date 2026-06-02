@@ -1,4 +1,5 @@
 ---
+title: Routing requests to Connectors
 sidebar_label: Routing requests to Connectors
 description: Information on how Moderne routes requests to Connectors.
 ---

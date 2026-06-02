@@ -1,4 +1,5 @@
 ---
+title: Configure an agent with strict recipe sources
 sidebar_label: Strict recipe source configuration
 description: How to configure the Moderne agent to have strict recipe sources.
 noIndex: true

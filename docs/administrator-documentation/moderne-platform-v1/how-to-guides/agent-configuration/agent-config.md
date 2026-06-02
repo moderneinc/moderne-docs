@@ -1,4 +1,5 @@
 ---
+title: Configuring the Moderne agent
 sidebar_label: Configuring the Moderne agent
 description: Detailed instructions for configuring the Moderne agent.
 slug: /administrator-documentation/moderne-platform-v1/how-to-guides/agent-configuration/agent-configuration

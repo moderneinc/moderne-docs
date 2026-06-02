@@ -1,4 +1,5 @@
 ---
+title: Configure an agent with client SSL certificates
 sidebar_label: Client SSL certificate configuration
 description: How to configure the Moderne agent with client SSL certificates.
 noIndex: true

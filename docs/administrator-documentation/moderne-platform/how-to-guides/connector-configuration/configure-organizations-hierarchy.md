@@ -1,4 +1,5 @@
 ---
+title: Configure an organizational hierarchy
 sidebar_label: Organizational hierarchy configuration
 description: How to configure your organizational hierarchy.
 ---

@@ -1,4 +1,5 @@
 ---
+title: All agent configuration variables
 sidebar_label: All agent variables
 description: A reference manual that contains all agent configuration variables.
 noIndex: true

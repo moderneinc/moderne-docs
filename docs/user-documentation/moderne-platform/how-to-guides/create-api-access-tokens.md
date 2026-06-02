@@ -1,4 +1,5 @@
 ---
+title: Creating a personal access token
 sidebar_label: Creating a personal access token
 description: How to create a personal access token to use the CLI or the Moderne APIs.
 ---

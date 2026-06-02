@@ -1,4 +1,5 @@
 ---
+title: Writing and installing recipes
 sidebar_label: Writing and installing recipes
 description: How to create your own recipes and how to deploy them to the Moderne Platform.
 noIndex: true

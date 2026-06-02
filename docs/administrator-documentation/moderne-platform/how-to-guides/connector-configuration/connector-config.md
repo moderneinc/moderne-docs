@@ -1,4 +1,5 @@
 ---
+title: Configuring the Moderne Connector
 sidebar_label: Configuring the Moderne Connector
 description: Detailed instructions for configuring the Moderne Connector.
 slug: /administrator-documentation/moderne-platform/how-to-guides/connector-configuration/connector-configuration

@@ -1,4 +1,5 @@
 ---
+title: "Configure a Connector with PyPI access: visualizations"
 sidebar_label: PyPI visualizations configuration
 description: How to configure the Moderne Connector to retrieve visualization artifacts from your PyPI repository.
 ---

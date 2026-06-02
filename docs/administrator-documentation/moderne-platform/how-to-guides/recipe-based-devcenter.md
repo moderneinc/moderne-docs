@@ -1,4 +1,5 @@
 ---
+title: Configuring a recipe-based DevCenter
 sidebar_label: Configuring a recipe-based DevCenter
 description: How to configure a recipe-based DevCenter.
 ---

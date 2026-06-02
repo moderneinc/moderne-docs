@@ -1,4 +1,5 @@
 ---
+title: User roles
 sidebar_label: User roles
 description: Outlines what permissions different types of users have in the Moderne Platform.
 noIndex: true

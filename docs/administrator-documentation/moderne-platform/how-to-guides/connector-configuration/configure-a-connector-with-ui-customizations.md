@@ -1,4 +1,5 @@
 ---
+title: Configure a Connector with UI customizations
 sidebar_label: UI customizations
 description: How to configure the Moderne Connector to provide custom UI elements and help links.
 ---

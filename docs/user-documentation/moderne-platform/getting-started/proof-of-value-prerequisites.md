@@ -1,4 +1,5 @@
 ---
+title: Proof of value (POV) prerequisites
 sidebar_label: Proof of value prerequisites
 description: What your team needs to prepare before starting the Moderne SaaS proof of value process.
 ---

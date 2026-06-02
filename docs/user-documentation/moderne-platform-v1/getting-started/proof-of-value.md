@@ -1,4 +1,5 @@
 ---
+title: Proof of value (POV) process
 sidebar_label: Proof of value process
 description: Describes what a typical proof of value process looks like.
 noIndex: true

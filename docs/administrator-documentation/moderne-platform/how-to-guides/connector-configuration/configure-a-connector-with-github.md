@@ -1,4 +1,5 @@
 ---
+title: Configure a Connector with GitHub
 sidebar_label: GitHub configuration
 description: How to configure the Moderne Connector to communicate with GitHub.
 ---

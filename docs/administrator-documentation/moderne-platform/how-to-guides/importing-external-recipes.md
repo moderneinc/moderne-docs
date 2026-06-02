@@ -1,4 +1,5 @@
 ---
+title: Importing external recipes
 sidebar_label: Importing external recipes
 description: How to import external recipes.
 ---

@@ -1,4 +1,5 @@
 ---
+title: Audit logging
 sidebar_label: Audit logging
 description: Describes how the Moderne Platform records and manages audit logs.
 ---

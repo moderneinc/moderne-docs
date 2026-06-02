@@ -1,4 +1,5 @@
 ---
+title: Configure an agent with Moddy support
 sidebar_label: Moddy configuration
 description: How to configure the Moderne agent with support for Moddy, Moderne's multi-repo AI agent.
 noIndex: true

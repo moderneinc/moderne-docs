@@ -1,4 +1,5 @@
 ---
+title: Working with commits and PRs in Moderne
 sidebar_label: Working with commits and PRs
 description: Working with commits and PRs in Moderne.
 ---
