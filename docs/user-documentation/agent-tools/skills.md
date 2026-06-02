@@ -3,9 +3,13 @@ sidebar_label: Skills for AI coding agents
 description: How to use Moderne skills with AI coding agents for recipe development, testing, and impact analysis.
 ---
 
+import ReactPlayer from '@site/src/components/VideoPlayer';
+
 # Using Moderne skills with AI coding agents
 
 The Moderne CLI can install agent tools (skills and MCP servers) that teach AI coding agents how to work with OpenRewrite recipes. With a single command, you can install these tools for all detected agents, giving them guidance through the full recipe workflow: creating recipes, running them at scale, and analyzing the impact of what changed.
+
+<ReactPlayer className="reactPlayer" url='https://www.youtube.com/watch?v=FuOaGA7JYTc' controls="true" />
 
 ## Why use Moderne skills
 

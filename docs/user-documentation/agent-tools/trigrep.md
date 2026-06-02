@@ -3,6 +3,8 @@ sidebar_label: Moderne Trigrep
 description: Fast trigram-indexed code search for finding patterns across repositories.
 ---
 
+import ReactPlayer from '@site/src/components/VideoPlayer';
+
 # Moderne Trigrep
 
 Moderne Trigrep provides fast, indexed search across your entire codebase, delivering sub-second search times even across thousands of repositories. It operates within the context of a Moderne organization, so you can scope searches to specific business units, teams, or application portfolios.
@@ -10,6 +12,8 @@ Moderne Trigrep provides fast, indexed search across your entire codebase, deliv
 Moderne Trigrep supports [Sourcegraph query syntax](https://sourcegraph.com/docs/code-search/queries) and [Comby structural patterns](https://comby.dev/docs/syntax-reference), so AI models already trained on those tools can use Moderne Trigrep without learning a new query language. Beyond standard Sourcegraph filters, Moderne Trigrep adds Java-specific semantic filters like `visibility:`, `extends:`, and `implements:` powered by Lossless Semantic Tree (LST) metadata.
 
 Search results can feed directly into OpenRewrite recipe execution, allowing you to use cheap text searches as prefilters for expensive code transformations.
+
+<ReactPlayer className="reactPlayer" url='https://www.youtube.com/watch?v=FuOaGA7JYTc' controls="true" />
 
 ## Why use Moderne Trigrep
 

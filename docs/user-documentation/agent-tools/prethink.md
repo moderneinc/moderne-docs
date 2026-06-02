@@ -3,9 +3,13 @@ sidebar_label: Moderne Prethink
 description: Generate structured context for AI coding agents with Moderne Prethink recipes.
 ---
 
+import ReactPlayer from '@site/src/components/VideoPlayer';
+
 # Moderne Prethink recipes
 
 Moderne Prethink recipes generate structured context that gives AI coding agents a clear, accurate understanding of your entire codebase. Instead of forcing AI agents to infer your architecture from raw code, Prethink provides pre-resolved knowledge about service endpoints, dependencies, test coverage, and more.
+
+<ReactPlayer className="reactPlayer" url='https://www.youtube.com/watch?v=FuOaGA7JYTc' controls="true" />
 
 ## Why use Prethink
 
