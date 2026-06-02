@@ -1,4 +1,5 @@
 ---
+title: Managing user-configured organizations
 sidebar_label: Managing user-configured organizations
 description: How to create custom organizations to run recipes against so you get more relevant results.
 noIndex: true

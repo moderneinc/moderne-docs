@@ -1,4 +1,5 @@
 ---
+title: Configure a Connector with Bitbucket Cloud access
 sidebar_label: Bitbucket Cloud configuration
 description: How to configure the Moderne Connector to communicate with Bitbucket Cloud.
 ---

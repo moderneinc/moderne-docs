@@ -1,4 +1,5 @@
 ---
+title: Creating an Organizations service
 sidebar_label: Creating an Organizations service
 description: How to create and configure an Organizations service.
 ---

@@ -1,4 +1,5 @@
 ---
+title: "Configure a Connector with Artifactory access: LSTs"
 sidebar_label: Artifactory LST configuration
 description: How to configure the Moderne Connector to retrieve LST artifacts from Artifactory.
 ---

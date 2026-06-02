@@ -1,4 +1,5 @@
 ---
+title: Configure a Connector with Bitbucket Data Center access
 sidebar_label: Bitbucket Data center configuration
 description: How to configure the Moderne Connector to communicate with Bitbucket Data Center.
 ---

@@ -1,4 +1,5 @@
 ---
+title: Configure an agent with a Moderne tenant SSL certificate
 sidebar_label: Moderne tenant SSL certificate configuration
 description: How to configure the Moderne agent with Moderne tenant SSL certificates.
 noIndex: true

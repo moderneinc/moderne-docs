@@ -1,4 +1,5 @@
 ---
+title: Moderne architecture
 sidebar_label: Moderne architecture
 description: A detailed technical document about the Moderne Platform and how it fits into your environment.
 noIndex: true

@@ -1,4 +1,5 @@
 ---
+title: Admin pages explained
 sidebar_label: Admin pages explained
 description: Provides detailed information about all of the admin pages.
 ---

@@ -1,4 +1,5 @@
 ---
+title: Configure an agent with Maven repository access
 sidebar_label: Maven repository configuration
 description: How to configure the Moderne agent to communicate with Maven repositories.
 noIndex: true

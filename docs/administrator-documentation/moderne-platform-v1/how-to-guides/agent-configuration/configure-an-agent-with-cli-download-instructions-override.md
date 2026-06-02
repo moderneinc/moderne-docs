@@ -1,4 +1,5 @@
 ---
+title: Configure an agent with CLI download instructions
 sidebar_label: CLI download instructions override
 description: How to configure the Moderne agent to provide custom CLI download instructions.
 noIndex: true

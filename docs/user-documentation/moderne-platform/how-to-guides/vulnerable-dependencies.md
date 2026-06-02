@@ -1,4 +1,5 @@
 ---
+title: How to find and fix vulnerable dependencies
 sidebar_label: Fixing vulnerable dependencies
 description: How to find and fix vulnerable dependencies.
 ---

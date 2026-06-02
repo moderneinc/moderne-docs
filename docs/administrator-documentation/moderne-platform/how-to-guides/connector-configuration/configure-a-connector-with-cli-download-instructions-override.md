@@ -1,4 +1,5 @@
 ---
+title: Configure a Connector with CLI download instructions
 sidebar_label: CLI download instructions override
 description: How to configure the Moderne Connector to provide custom CLI download instructions.
 ---

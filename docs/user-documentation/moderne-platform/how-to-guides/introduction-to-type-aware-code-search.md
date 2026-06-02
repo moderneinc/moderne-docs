@@ -1,4 +1,5 @@
 ---
+title: Introduction to type-aware code search
 sidebar_label: Type-aware code search
 description: An introduction into type-aware code searching in Moderne.
 ---

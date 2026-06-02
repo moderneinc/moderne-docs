@@ -1,4 +1,5 @@
 ---
+title: Configure an agent with Bitbucket Cloud access
 sidebar_label: Bitbucket Cloud configuration
 description: How to configure the Moderne agent to communicate with Bitbucket Cloud.
 noIndex: true

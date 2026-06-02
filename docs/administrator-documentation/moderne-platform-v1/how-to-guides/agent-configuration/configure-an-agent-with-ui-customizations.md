@@ -1,4 +1,5 @@
 ---
+title: Configure an agent with UI customizations
 sidebar_label: UI customizations
 description: How to configure the Moderne agent to provide custom UI elements and help links.
 noIndex: true

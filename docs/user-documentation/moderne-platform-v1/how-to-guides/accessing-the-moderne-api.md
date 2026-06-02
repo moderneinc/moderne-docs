@@ -1,4 +1,5 @@
 ---
+title: Accessing the Moderne API
 sidebar_label: Accessing the Moderne API
 description: How to access the Moderne API and where to find documentation for it.
 noIndex: true

@@ -1,4 +1,5 @@
 ---
+title: Configure an agent to connect to Moderne via an HTTP proxy
 sidebar_label: HTTP proxy configuration
 description: How to configure the Moderne agent to connect to Moderne via an HTTP proxy.
 noIndex: true

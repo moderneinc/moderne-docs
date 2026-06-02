@@ -1,4 +1,5 @@
 ---
+title: Configure a Connector to connect to Moderne via an HTTP proxy
 sidebar_label: HTTP proxy configuration
 description: How to configure the Moderne Connector to connect to Moderne via an HTTP proxy.
 ---

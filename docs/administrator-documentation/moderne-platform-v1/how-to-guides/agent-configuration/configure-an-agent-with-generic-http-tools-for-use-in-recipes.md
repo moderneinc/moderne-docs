@@ -1,4 +1,5 @@
 ---
+title: Configure an agent with generic HTTP tools for use in recipes
 sidebar_label: HTTP tool configuration
 description: How to configure the Moderne agent with generic HTTP tools so they can be used in recipes.
 noIndex: true

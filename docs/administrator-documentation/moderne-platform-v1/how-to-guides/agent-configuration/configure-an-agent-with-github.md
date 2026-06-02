@@ -1,4 +1,5 @@
 ---
+title: Configure an agent with GitHub
 sidebar_label: GitHub configuration
 description: How to configure the Moderne agent to communicate with GitHub.
 noIndex: true

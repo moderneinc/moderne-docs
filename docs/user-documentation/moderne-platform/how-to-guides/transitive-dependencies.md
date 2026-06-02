@@ -1,4 +1,5 @@
 ---
+title: How to upgrade transitive dependencies
 sidebar_label: Upgrading transitive dependencies
 description: How to upgrade transitive dependencies – especially useful for security fixes.
 ---

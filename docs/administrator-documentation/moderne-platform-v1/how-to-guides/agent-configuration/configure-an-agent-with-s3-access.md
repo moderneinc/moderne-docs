@@ -1,4 +1,5 @@
 ---
+title: "Configure an agent with S3 access: LSTs"
 sidebar_label: S3 LST configuration
 description: How to configure the Moderne agent to retrieve LST artifacts from Amazon S3 or S3-compatible storage.
 noIndex: true

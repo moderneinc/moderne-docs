@@ -1,4 +1,5 @@
 ---
+title: Running Moderne Prethink recipes on the Moderne Platform
 sidebar_label: Running Moderne Prethink recipes
 description: How to run Moderne Prethink recipes on the Moderne Platform to generate context for AI coding agents.
 noIndex: true

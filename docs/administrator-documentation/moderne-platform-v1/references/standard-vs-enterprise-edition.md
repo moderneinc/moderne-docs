@@ -1,4 +1,5 @@
 ---
+title: Standard Edition vs. Enterprise Edition
 sidebar_label: Standard Edition vs. Enterprise Edition
 description: Discussing the various editions available in the Moderne Platform.
 noIndex: true

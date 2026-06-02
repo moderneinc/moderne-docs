@@ -1,4 +1,5 @@
 ---
+title: Recipe execution and commits with the Moderne API
 sidebar_label: Using the Moderne API
 description: How to use the Moderne API to execute recipes and commit those results back to your code.
 noIndex: true

@@ -1,4 +1,5 @@
 ---
+title: Troubleshooting LST issues
 sidebar_label: Troubleshooting LST issues
 description: How to troubleshoot common issues with LSTs in the platform.
 noIndex: true

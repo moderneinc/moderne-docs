@@ -1,4 +1,5 @@
 ---
+title: Supported source code managers (SCMs)
 sidebar_label: Supported SCMs
 description: What source code managers (SCMs) Moderne supports.
 ---

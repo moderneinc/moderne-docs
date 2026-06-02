@@ -1,4 +1,5 @@
 ---
+title: GitHub permissions
 sidebar_label: GitHub permissions
 description: A look into the GitHub OAuth permissions needed for Moderne to work correctly.
 noIndex: true

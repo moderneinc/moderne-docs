@@ -1,4 +1,5 @@
 ---
+title: Using the activity view
 sidebar_label: Using the activity view
 description: Describes what the activity view is, where to find it, and what each part does.
 ---

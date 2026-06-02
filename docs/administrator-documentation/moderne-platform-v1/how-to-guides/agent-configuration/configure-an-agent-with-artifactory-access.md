@@ -1,4 +1,5 @@
 ---
+title: "Configure an agent with Artifactory access: LSTs"
 sidebar_label: Artifactory LST configuration
 description: How to configure the Moderne agent to retrieve LST artifacts from Artifactory.
 noIndex: true

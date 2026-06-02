@@ -1,4 +1,5 @@
 ---
+title: Enhancing code quality through static analysis remediations
 sidebar_label: Enhancing code quality
 description: How to find and fix static analysis and stylistic issues in your code.
 noIndex: true

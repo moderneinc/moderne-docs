@@ -1,4 +1,5 @@
 ---
+title: How LST artifacts are produced
 sidebar_label: How LST artifacts are produced
 description: High-level information on how LST artifacts are created and used.
 ---

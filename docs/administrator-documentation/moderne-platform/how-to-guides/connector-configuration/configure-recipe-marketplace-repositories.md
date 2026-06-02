@@ -1,4 +1,5 @@
 ---
+title: Configure a Connector with recipe marketplace repositories
 sidebar_label: Recipe marketplace repositories
 description: How to configure the Moderne Connector to retrieve recipe artifacts from Maven, NPM, NuGet, and PyPI repositories.
 ---

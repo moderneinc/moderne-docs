@@ -1,4 +1,5 @@
 ---
+title: Creating a DevCenter recipe
 sidebar_label: Creating a DevCenter recipe
 description: How to create a DevCenter recipe.
 ---

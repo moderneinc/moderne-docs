@@ -1,4 +1,5 @@
 ---
+title: Configure the POM cache
 sidebar_label: POM cache configuration
 description: How to configure the Moderne Connector's POM cache for recipe resolution.
 ---

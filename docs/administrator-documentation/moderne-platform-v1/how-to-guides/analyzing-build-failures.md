@@ -1,4 +1,5 @@
 ---
+title: Analyzing build failures with mod trace
 sidebar_label: Analyzing build failures
 description: How to use the Moderne CLI build trace analyzer to troubleshoot build failures across repositories.
 noIndex: true
