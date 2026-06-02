@@ -645,14 +645,14 @@ mod study . --last-recipe-run --data-table SourcesFileResults
   </figure>
 </div>
 
-### [Spring Boot 3.5 best practices](https://app.moderne.io/recipes/io.moderne.java.spring.boot3.SpringBoot3BestPractices)
+### [Spring Boot 4 best practices](https://app.moderne.io/recipes/io.moderne.java.spring.boot4.SpringBoot4BestPractices)
 
-> Migrates to Spring Boot 3.5 and applies best practices. Includes upgrades from prior Spring Boot versions with configuration updates and dependency alignment.
+> Migrates to Spring Boot 4 and applies best practices. Includes upgrades from prior Spring Boot versions with configuration updates and dependency alignment.
 
 #### CLI commands
 
 ```bash
-mod run . --recipe io.moderne.java.spring.boot3.SpringBoot3BestPractices
+mod run . --recipe io.moderne.java.spring.boot4.SpringBoot4BestPractices
 mod study . --last-recipe-run --data-table SourcesFileResults
 ```
 
