@@ -7,7 +7,7 @@ description: The current version of the Moderne CLI and links to useful CLI docu
 
 | Component   | Current version |
 | ----------- | --------------- |
-| CLI version | 4.2.11           |
+| CLI version | 4.2.12           |
 
 For CLI command documentation, see the [CLI reference](../user-documentation/moderne-cli/cli-reference.md).
 
@@ -16,6 +16,12 @@ The Moderne CLI previously followed a two-track release model with separate "sta
 :::
 
 ## Changelog
+
+### CLI / DX v4.2.12 (2026-06-01)
+
+#### What's Changed
+* [4.2.x] Propagate a valid `user.home` and `HOME` to build subprocess JVMs
+* [4.2.x] Backport trust-store quoting + eval-mangled recipe names
 
 ### CLI / DX v4.2.11 (2026-06-01)
 
