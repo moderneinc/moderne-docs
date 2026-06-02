@@ -137,6 +137,16 @@ If the page is reachable in incognito but slow or broken in a normal browser ses
 
 SaaS v2 supports recipes packaged for pip, NuGet, and NPM in addition to Maven. If you want to stand up coverage for those ecosystems as part of the migration, see [Configure a Connector with recipe marketplace repositories](../administrator-documentation/moderne-platform/how-to-guides/connector-configuration/configure-recipe-marketplace-repositories.md) for the list of recommended packages and how to register each registry as a marketplace repository.
 
+## Keeping recipe modules up to date
+
+In SaaS v1, Moderne updated your installed recipe modules to their latest published versions as part of our weekly platform maintenance. **In SaaS v2, this no longer happens automatically - keeping recipe modules up to date is now your responsibility.** Your marketplace continues to serve whatever module versions are currently installed until you redeploy them.
+
+To make this easy to operationalize, Moderne provides a sample [auto-redeploy-recipes automation](https://github.com/moderneinc/saas-templates/tree/main/auto-redeploy-recipes). It re-installs every recipe bundle registered in your tenant's universal marketplace, so any bundle installed with a moving version selector (such as Maven's `latest.release`) picks up the newest artifact published to your internal artifact repository. You can schedule it as a nightly cron job or a GitHub Actions workflow.
+
+:::tip
+For the "pick up the newest version" behavior to work, install your recipe bundles with a moving version selector (for example, `latest.release` or `latest.integration` for Maven, or `LATEST` for pip and Go). Bundles pinned to a concrete version are simply re-resolved to the same version. See the [automation's README](https://github.com/moderneinc/saas-templates/tree/main/auto-redeploy-recipes) for the full list of requirements, configuration variables, and scheduling examples.
+:::
+
 ## What gets migrated and when
 
 Moderne migrates the following automatically, in a single pass scheduled just before your full v1 to v2 cutover:
@@ -253,6 +263,7 @@ Run these with v1 still serving as your front door, using the header, cookie, an
 
 * [ ] An API call to `api.<tenant>.moderne.io/graphql` with `X-Moderne-Platform-Version: v2` is served by v2.
 * [ ] Update and test any existing automations you've previously configured.
+* [ ] Set up recipe module redeploy automation. Moderne no longer refreshes recipe module versions for you in v2; see [Keeping recipe modules up to date](#keeping-recipe-modules-up-to-date).
 * [ ] `/admin/connectors` shows your SCM configuration and source recipe / LST repositories.
 * [ ] Marketplace lists the recipes you expect (including non-Java recipes if applicable).
 * [ ] Repositories view shows the orgs and repos you expect.
